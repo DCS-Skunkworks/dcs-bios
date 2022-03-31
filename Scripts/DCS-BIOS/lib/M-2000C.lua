@@ -26,417 +26,142 @@ local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 --remove Arg# Pilot 1000 
 ----Get Displays Functions
 
-local function getUHFFrequency()
-	local li = list_indication(7)
-	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
-	while true do
-		local name, value = m()
-        if not name then break end
-		if name == "text_COM_UHF2"
-			then
-			value = "      "..value
-			return value:sub(7,9) .. value:sub(11,12)
-		end
-    end
-return "         "
-end
- 
- local function getVHFFrequency()
-	local li = list_indication(7)
-	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
-	while true do
-		local name, value = m()
-        if not name then break end
-		if name == "text_COM_UHF1"
-			then
-			value = "      "..value
-			return value:sub(7,9) .. value:sub(11,12)
-		end
-    end
-return "         "
- end
+-- parse radios
+local vhfFrequency = ""
+local uhfFrequency = ""
 
- local function getFuelFlow()
-	local li = list_indication(3)
-	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
-	while true do
-        local name, value = m()
-        if not name then break end
-		if name == "txt_fuel_g"
-        then
-        value = "   "..value
-        return value:sub(-3)
-      end
-    end
-return "         "
+moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
+	local radios = parse_indication(7)
+	if not radios then return end
+
+	local vhf = coerce_nil_to_string(radios.text_COM_UHF1)
+	if vhf then
+		vhfFrequency = vhf:sub(1,3) .. vhf:sub(5,6)
+	end
+
+	local uhf = coerce_nil_to_string(radios.text_COM_UHF2)
+	if uhf then
+		uhfFrequency = uhf:sub(1,3) .. uhf:sub(5,6)
+	end
 end
 
-local function getPCAUR1Disp()
-	local li = list_indication(4)
-	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
-	while true do
-        local name, value = m()
-        if not name then break end
-		if name == "PCA_LCD_1_0"
-        then
-        value = "   "..value
-        return value:sub(-3)
-      end
-    end
-return "         "
+-- parse fuel
+local fuelFlow = ""
+local FUEL_FLOW_LEN = 3
+
+moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
+	local fuel = parse_indication(3)
+	if not fuel then return end
+
+	fuelFlow = padLeft(fuel.txt_fuel_g, FUEL_FLOW_LEN)
 end
 
-local function getPCAUR2Disp()
-	local li = list_indication(4)
-	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
-	while true do
-        local name, value = m()
-        if not name then break end
-		if name == "PCA_LCD_1_1"
-        then
-        value = "   "..value
-        return value:sub(-3)
-      end
-    end
-return "         "
+-- parse PCA upper
+local pcaUpper1 = ""
+local pcaUpper2 = ""
+local pcaUpper3 = ""
+local pcaUpper4 = ""
+local pcaUpper5 = ""
+local PCA_UPPER_LEN = 3
+
+moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
+	local pcaUpper = parse_indication(4)
+	if not pcaUpper then return end
+
+	pcaUpper1 = padLeft(pcaUpper.PCA_LCD_1_0, PCA_UPPER_LEN)
+	pcaUpper2 = padLeft(pcaUpper.PCA_LCD_1_1, PCA_UPPER_LEN)
+	pcaUpper3 = padLeft(pcaUpper.PCA_LCD_1_2, PCA_UPPER_LEN)
+	pcaUpper4 = padLeft(pcaUpper.PCA_LCD_1_3, PCA_UPPER_LEN)
+	pcaUpper5 = padLeft(pcaUpper.PCA_LCD_1_4, PCA_UPPER_LEN)
 end
 
-local function getPCAUR3Disp()
-	local li = list_indication(4)
-	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
-	while true do
-        local name, value = m()
-        if not name then break end
-		if name == "PCA_LCD_1_2"
-        then
-        value = "   "..value
-        return value:sub(-3)
-      end
-    end
-return "         "
+-- parse PCA lower
+local pcaLower1 = ""
+local pcaLower2 = ""
+local pcaLower3 = ""
+local pcaLower4 = ""
+local pcaLower5 = ""
+local PCA_LOWER_LEN = 3
+
+moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
+	local pcaLower = parse_indication(5)
+	if not pcaLower then return end
+
+	pcaLower1 = padLeft(pcaLower.PCA_LCD_2_0, PCA_LOWER_LEN)
+	pcaLower2 = padLeft(pcaLower.PCA_LCD_2_1, PCA_LOWER_LEN)
+	pcaLower3 = padLeft(pcaLower.PCA_LCD_2_2, PCA_LOWER_LEN)
+	pcaLower4 = padLeft(pcaLower.PCA_LCD_2_3, PCA_LOWER_LEN)
+	pcaLower5 = padLeft(pcaLower.PCA_LCD_2_4, PCA_LOWER_LEN)
 end
 
-local function getPCAUR4Disp()
-	local li = list_indication(4)
-	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
-	while true do
-        local name, value = m()
-        if not name then break end
-		if name == "PCA_LCD_1_3"
-        then
-        value = "   "..value
-        return value:sub(-3)
-      end
-    end
-return "         "
+-- parse PPA
+local ppaQuantity = ""
+local ppaInterval = ""
+local PPA_LEN = 2
+
+moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
+	local ppa = parse_indication(6)
+	if not ppa then return end
+
+	ppaQuantity = padLeft(ppa.text_PPA_QTY, PPA_LEN)
+	ppaInterval = padLeft(ppa.text_PPA_INT, PPA_LEN)
 end
 
-local function getPCAUR5Disp()
-	local li = list_indication(4)
-	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
-	while true do
-        local name, value = m()
-        if not name then break end
-		if name == "PCA_LCD_1_4"
-        then
-        value = "   "..value
-        return value:sub(-3)
-      end
-    end
-return "         "
+-- parse PCN upper display
+local pcnLeftDigits = ""
+local pcnRightDigits = ""
+local pcnRight1Digit = ""
+local pcnRight2Digit = ""
+local pcnLeft1Digit = ""
+local pcnLeft2Digit = ""
+
+-- todo: does this need to set blank strings when pcn is nil?
+moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
+	local pcn = parse_indication(9)
+	if not pcn then return end
+
+	pcnLeftDigits = padLeft(pcn.PCN_UL_DIGITS, 8)
+	pcnRightDigits = padLeft(pcn.PCN_UR_DIGITS, 9)
+
+	local pcnRight = ""
+	if pcn.PCN_UR_E then pcnRight = pcnRight.."E" end
+	if pcn.PCN_UR_W then pcnRight = pcnRight.."W" end
+	if pcn.PCN_UR_P then pcnRight = pcnRight.."+" end
+	if pcn.PCN_UR_M then pcnRight = pcnRight.."-" end
+
+	if #pcnRight > 1 then
+		pcnRight1Digit = "*"
+	else
+		pcnRight1Digit = pcnRight
+	end
+	pcnRight2Digit = pcnRight:sub(1,2)
+
+	local pcnLeft = ""
+	if pcn.PCN_UL_N then pcnLeft = pcnLeft.."N" end
+	if pcn.PCN_UL_S then pcnLeft = pcnLeft.."S" end
+	if pcn.PCN_UL_P then pcnLeft = pcnLeft.."+" end
+	if pcn.PCN_UL_M then pcnLeft = pcnLeft.."-" end
+
+	if #pcnLeft > 1 then
+		pcnLeft1Digit = "*"
+	else
+		pcnLeft1Digit = pcnLeft
+	end
+	pcnLeft2Digit = pcnLeft:sub(1,2)
 end
 
-local function getPCABR1Disp()
-	local li = list_indication(5)
-	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
-	while true do
-        local name, value = m()
-        if not name then break end
-		if name == "PCA_LCD_2_0"
-        then
-        value = "   "..value
-        return value:sub(-3)
-      end
-    end
-return "         "
+-- parse PCN lower display
+local pcnPrep = ""
+local pcnDest = ""
+
+moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
+	local pcn = parse_indication(10)
+	if not pcn then return end
+
+	pcnPrep = padLeft(pcn.PCN_BL_DIGITS, 2)
+	pcnDest = padLeft(pcn.PCN_BR_DIGITS, 2)
 end
 
-local function getPCABR2Disp()
-	local li = list_indication(5)
-	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
-	while true do
-        local name, value = m()
-        if not name then break end
-		if name == "PCA_LCD_2_1"
-        then
-        value = "   "..value
-        return value:sub(-3)
-      end
-    end
-return "         "
-end
-
-local function getPCABR3Disp()
-	local li = list_indication(5)
-	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
-	while true do
-        local name, value = m()
-        if not name then break end
-		if name == "PCA_LCD_2_2"
-        then
-        value = "   "..value
-        return value:sub(-3)
-      end
-    end
-return "         "
-end
-
-local function getPCABR4Disp()
-	local li = list_indication(5)
-	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
-	while true do
-        local name, value = m()
-        if not name then break end
-		if name == "PCA_LCD_2_3"
-        then
-        value = "   "..value
-        return value:sub(-3)
-      end
-    end
-return "         "
-end
-
-local function getPCABR5Disp()
-	local li = list_indication(5)
-	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
-	while true do
-        local name, value = m()
-        if not name then break end
-		if name == "PCA_LCD_2_4"
-        then
-        value = "   "..value
-        return value:sub(-3)
-      end
-    end
-return "         "
-end
-
-local function getPPAQtyDisp()
-	local li = list_indication(6)
-	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
-	while true do
-        local name, value = m()
-        if not name then break end
-		if name == "text_PPA_QTY"
-        then
-        value = "  "..value
-        return value:sub(-2)
-      end
-    end
-return "         "	
-end
-
-local function getPPAIntDisp()
-	local li = list_indication(6)
-	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
-	while true do
-        local name, value = m()
-        if not name then break end
-		if name == "text_PPA_INT"
-        then
-        value = "  "..value
-        return value:sub(-2)
-      end
-    end
-return "         "	
-end
-
------------------------ by Espresso29470
-local function getPCNDispL() 
-   local li = list_indication(9)
-   local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
-   while true do
-        local name, value = m()
-        if not name then break end
-      if name:sub(0,13) == "PCN_UL_DIGITS"        
-        then
-        value = "        "..value
-        return value:sub(-8)
-      end
-    end
-return "         "
-end
-
-local function getPCNDispR() 
-   local li = list_indication(9)
-   local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
-   while true do
-        local name, value = m()
-        if not name then break end
-      if name:sub(0,13) == "PCN_UR_DIGITS"		
-        then
-        value = "        "..value
-        return value:sub(-9)
-      end
-    end
-return "         "
-end
-
-local function getPCNDigitR()
-   local li = list_indication(9)
-   local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
-   local count = 0
-   local ret = " "
-   while true do
-        local name, value = m()
-        if not name then break end
-      if name == "PCN_UR_E"								
-        then
-        count = count + 1
-        ret="E"
-      end
-      if name == "PCN_UR_W"								
-        then
-        count = count + 1
-        ret="W"
-      end
-      if name == "PCN_UR_P"								
-        then
-        count = count + 1
-        ret="+"
-      end
-      if name == "PCN_UR_M"								
-        then
-        count = count + 1
-        ret="-"
-      end
-    end
-    if count > 1 then ret = "*" end
-return ret
-end
-
-local function getPCNDigitL()
-   local li = list_indication(9)
-   local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
-   local count = 0
-   local ret = " "
-   while true do
-        local name, value = m()
-        if not name then break end
-      if name == "PCN_UL_N"
-        then
-        count = count + 1
-        ret="N"
-      end
-      if name == "PCN_UL_S"
-        then
-        count = count + 1
-        ret="S"
-      end
-      if name == "PCN_UL_P"
-        then
-        count = count + 1
-        ret="+"
-      end
-      if name == "PCN_UL_M"
-        then
-        count = count + 1
-        ret="-"
-      end
-    end
-    if count > 1 then ret = "*" end
-return ret
-end
-
-local function getPCN2DigitR()
-   local li = list_indication(9)
-   local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
-   local east = ""
-   local west = ""
-   local plus = ""
-   local minus = ""
-   while true do
-        local name, value = m()
-        if not name then break end
-      if name == "PCN_UR_E"
-        then
-        east="E"
-      end
-      if name == "PCN_UR_O"
-        then
-        west="W"
-      end
-      if name == "PCN_UR_P"
-        then
-        plus="+"
-      end
-      if name == "PCN_UR_M"
-        then
-        minus="-"
-      end
-    end
-	return string.format("%-2s", string.sub(east..west..plus..minus,1,2))
-end
-
-local function getPCN2DigitL()
-   local li = list_indication(9)
-   local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
-   local north = ""
-   local south = ""
-   local plus = ""
-   local minus = ""
-   while true do
-        local name, value = m()
-        if not name then break end
-      if name == "PCN_UL_N"
-        then
-        north="N"
-      end
-      if name == "PCN_UL_S"
-        then
-        south="S"
-      end
-      if name == "PCN_UL_P"
-        then
-        plus="+"
-      end
-      if name == "PCN_UL_M"
-        then
-        minus="-"
-      end
-    end
-	return string.format("%-2s", string.sub(north..south..plus..minus,1,2))
-end
-
-local function getPCNDispDest()
-   local li = list_indication(10)
-   local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
-   while true do
-        local name, value = m()
-        if not name then break end
-      if name == "PCN_BR_DIGITS"
-        then
-        value = "  "..value
-        return value:sub(-2)
-      end
-    end
-return "         "
-end
-
-local function getPCNDispPrep()
-   local li = list_indication(10)
-   local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
-   while true do
-        local name, value = m()
-        if not name then break end
-      if name == "PCN_BL_DIGITS"
-        then
-        value = "  "..value
-        return value:sub(-2)
-      end
-    end
-return "         "
-end
 ----END
 
 --ADI
@@ -653,7 +378,7 @@ defineIndicatorLight("FUEL_AV_G", 365, "FUEL SYSTEM", "O - FUEL - Left AV Light"
 defineIndicatorLight("FUEL_AV_D", 366, "FUEL SYSTEM", "O - FUEL - Right AV Light")
 defineIndicatorLight("FUEL_V_G", 367, "FUEL SYSTEM", "O - FUEL - Left V Light")
 defineIndicatorLight("FUEL_V_D", 368, "FUEL SYSTEM", "O - FUEL - Right V Light")
-defineString("FUEL_FLOW", getFuelFlow, 3, "FUEL SYSTEM", "O - FUEL - Fuel Flow Display")
+defineString("FUEL_FLOW", function() return fuelFlow end, FUEL_FLOW_LEN, "FUEL SYSTEM", "O - FUEL - Fuel Flow Display")
 
 --ACCELEROMETER
 defineFloat("GMETER_NEEDLE", 347, {-1, 1}, "G-METER", "O - ACC - G Needle")
@@ -804,16 +529,16 @@ defineIndicatorLight("WEAPON_4_S", 260, "PCA", "O - PCA - Weapons Button 4 S Lig
 defineIndicatorLight("WEAPON_4_R", 261, "PCA", "O - PCA - Weapons Button 4 R Light")
 defineIndicatorLight("WEAPON_5_S", 263, "PCA", "O - PCA - Weapons Button 5 S Light")
 defineIndicatorLight("WEAPON_5_R", 264, "PCA", "O - PCA - Weapons Button 5 R Light")
-defineString("PCA_UR1_DISP", getPCAUR1Disp, 3, "PCA", "O - PCA Upper #1 Display")
-defineString("PCA_UR2_DISP", getPCAUR2Disp, 3, "PCA", "O - PCA Upper #2 Display")
-defineString("PCA_UR3_DISP", getPCAUR3Disp, 3, "PCA", "O - PCA Upper #3 Display")
-defineString("PCA_UR4_DISP", getPCAUR4Disp, 3, "PCA", "O - PCA Upper #4 Display")
-defineString("PCA_UR5_DISP", getPCAUR5Disp, 3, "PCA", "O - PCA Upper #5 Display")
-defineString("PCA_BR1_DISP", getPCABR1Disp, 3, "PCA", "O - PCA Bottom #1 Display")
-defineString("PCA_BR2_DISP", getPCABR2Disp, 3, "PCA", "O - PCA Bottom #2 Display")
-defineString("PCA_BR3_DISP", getPCABR3Disp, 3, "PCA", "O - PCA Bottom #3 Display")
-defineString("PCA_BR4_DISP", getPCABR4Disp, 3, "PCA", "O - PCA Bottom #4 Display")
-defineString("PCA_BR5_DISP", getPCABR5Disp, 3, "PCA", "O - PCA Bottom #5 Display")
+defineString("PCA_UR1_DISP", function() return pcaUpper1 end, PCA_UPPER_LEN, "PCA", "O - PCA Upper #1 Display")
+defineString("PCA_UR2_DISP", function() return pcaUpper2 end, PCA_UPPER_LEN, "PCA", "O - PCA Upper #2 Display")
+defineString("PCA_UR3_DISP", function() return pcaUpper3 end, PCA_UPPER_LEN, "PCA", "O - PCA Upper #3 Display")
+defineString("PCA_UR4_DISP", function() return pcaUpper4 end, PCA_UPPER_LEN, "PCA", "O - PCA Upper #4 Display")
+defineString("PCA_UR5_DISP", function() return pcaUpper5 end, PCA_UPPER_LEN, "PCA", "O - PCA Upper #5 Display")
+defineString("PCA_BR1_DISP", function() return pcaLower1 end, PCA_LOWER_LEN, "PCA", "O - PCA Bottom #1 Display")
+defineString("PCA_BR2_DISP", function() return pcaLower2 end, PCA_LOWER_LEN, "PCA", "O - PCA Bottom #2 Display")
+defineString("PCA_BR3_DISP", function() return pcaLower3 end, PCA_LOWER_LEN, "PCA", "O - PCA Bottom #3 Display")
+defineString("PCA_BR4_DISP", function() return pcaLower4 end, PCA_LOWER_LEN, "PCA", "O - PCA Bottom #4 Display")
+defineString("PCA_BR5_DISP", function() return pcaLower5 end, PCA_LOWER_LEN, "PCA", "O - PCA Bottom #5 Display")
 
 --PCN
 defineSetCommandTumb("INS_PARAM_SEL", 9, 3574, 574, 0.1, {0, 1.1}, nil, true, "PCN", " I - PCN - INS Parameter Selector - Rotary Variant") -- by Ergo
@@ -837,14 +562,14 @@ definePushButton("INS_CLR_BTN", 9, 3594, 594, "PCN", "I - PCN - EFF Button")
 definePushButton("INS_ENTER_BTN", 9, 3596, 596, "PCN", "I - PCN - INS Button")
 definePushButton("INS_NEXT_WP_BTN", 9, 3110, 110, "PCN", "I - PCN - INS Next Waypoint Button")
 definePushButton("INS_PREV_WP_BTN", 9, 3111, 111, "PCN", "I - PCN - INS Previous Waypoint Button")
-defineString("PCN_DISP_DEST", getPCNDispDest, 2, "PCN", "O - PCN - DEST Display")
-defineString("PCN_DISP_L", getPCNDispL, 8, "PCN", "O - PCN - Left Display")
-defineString("PCN_DISP_PREP", getPCNDispPrep, 2, "PCN", "O - PCN - PREP Display")
-defineString("PCN_DISP_R", getPCNDispR, 9, "PCN", "O - PCN - Right Display")
-defineString("PCN_DIS_DL", getPCNDigitL, 1, "PCN", "PCN Digit Left Display")
-defineString("PCN_DIS_DR", getPCNDigitR, 1, "PCN", "PCN Digit Right Display")
-defineString("PCN_DIS_2DL", getPCN2DigitL, 2, "PCN", "PCN Digit Left Display (Multi Character)")
-defineString("PCN_DIS_2DR", getPCN2DigitR, 2, "PCN", "PCN Digit Right Display (Multi Character)")
+defineString("PCN_DISP_DEST", function() return pcnDest end, 2, "PCN", "O - PCN - DEST Display")
+defineString("PCN_DISP_L", function() return pcnLeftDigits end, 8, "PCN", "O - PCN - Left Display")
+defineString("PCN_DISP_PREP", function() return pcnPrep end, 2, "PCN", "O - PCN - PREP Display")
+defineString("PCN_DISP_R", function() return pcnRightDigits end, 9, "PCN", "O - PCN - Right Display")
+defineString("PCN_DIS_DL", function() return pcnLeft1Digit end, 1, "PCN", "PCN Digit Left Display")
+defineString("PCN_DIS_DR", function() return pcnRight1Digit end, 1, "PCN", "PCN Digit Right Display")
+defineString("PCN_DIS_2DL", function() return pcnLeft2Digit end, 2, "PCN", "PCN Digit Left Display (Multi Character)")
+defineString("PCN_DIS_2DR", function() return pcnRight2Digit end, 2, "PCN", "PCN Digit Right Display (Multi Character)")
 defineIndicatorLight("PCN_PRET", 564, "PCN", "O - PCN - PRET Indicator Light")
 defineIndicatorLight("PCN_ALN", 565, "PCN", "O - PCN - ALN Indicator Light")
 defineIndicatorLight("PCN_MIP", 566, "PCN", "O - PCN - MIP Indicator Light")
@@ -882,8 +607,8 @@ defineIndicatorLight("PPA_MAGIC_P", 273, "PPA", "O - PPA - MAGIC Light")
 defineIndicatorLight("PPA_MAGIC_MIS", 274, "PPA", "O - PPA - MAGIC MAG Light")
 defineIndicatorLight("PPA_GUN_ROCKET_PAP", 280, "PPA", "O - PPA - Gun/Rockets Mode PAR Indicator Light")
 defineIndicatorLight("PPA_GUN_ROCKET_TOT", 281, "PPA", "O - PPA - Gun/Rockets Mode TOT Indicator Light")
-defineString("PPA_QTY_DISP", getPPAQtyDisp, 2, "PPA", "O - PPA Quantity Display")
-defineString("PPA_INT_DISP", getPPAIntDisp, 2, "PPA", "O - PPA Interval Display")
+defineString("PPA_QTY_DISP", function() return ppaQuantity end, PPA_LEN, "PPA", "O - PPA Quantity Display")
+defineString("PPA_INT_DISP", function() return ppaInterval end, PPA_LEN, "PPA", "O - PPA Interval Display")
 
 --PSM
 defineTumb("INS_OPAL_MODE", 9, 3629, 629, 0.1, {0, 0.4}, nil, false, "PSM", "I - PSM - INS Operational Mode")
@@ -975,7 +700,7 @@ definePushButton("VHF_8_TOD", 19, 3961, 961, "VHF RADIO", "I - VHF - 8/TOD Butto
 definePushButton("VHF_9_ZERO", 19, 3962, 962, "VHF RADIO", "I - VHF - 9/ZERO Button")
 definePushButton("VHF_0", 19, 3963, 963, "VHF RADIO", "I - VHF - 0 Button")
 definePushButton("VHF_CONF", 19, 3964, 964, "VHF RADIO", "I - VHF - CONF Button")
-defineString("VHF_FREQUENCY", getVHFFrequency, 5, "VHF RADIO", "O - VHF - Frequency Report Display")
+defineString("VHF_FREQUENCY", function() return vhfFrequency end, 5, "VHF RADIO", "O - VHF - Frequency Report Display")
 
 --UHF RADIO
 defineTumb("UHF_MODE_SW", 20, 3433, 433, 0.1, {0, 1}, nil, false, "UHF RADIO", "I - UHF - Mode Selector")
@@ -986,7 +711,7 @@ definePushButton("UHF_TEST_SW", 20, 3434, 434, "UHF RADIO", "I - UHF - TEST Swit
 defineSetCommandTumb("UHF_PRESET_KNOB", 20, 3435, 435, 0.05, {0, 0.95}, {" 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"}, true, "UHF RADIO", "Preset Knob UHF")
 defineTumb("UHF_E+A2_SW", 20, 3431, 431, 1, {-1, 1}, nil, false, "UHF RADIO", "I - UHF - E+A2 Switch")
 defineFloat("UHF_PRESET", 436, {0, 1}, "UHF RADIO", "O - UHF - PRESET Display")
-defineString("UHF_FREQUENCY", getUHFFrequency, 5, "UHF RADIO", "O - UHF - Frequency Report Display")
+defineString("UHF_FREQUENCY", function() return uhfFrequency end, 5, "UHF RADIO", "O - UHF - Frequency Report Display")
 
 --VOR/ILS
 defineMultipositionSwitch("VORILS_FREQ_WHOLE", 24, 3616, 616, 10, 0.1, "VOR / ILS", "I - VOR/ILS Frequency Change Whole")
