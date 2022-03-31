@@ -1,3 +1,4 @@
+-- Last Change 31.30.2022
 BIOS.util = {}
 
 function BIOS.util.log2(n)
@@ -81,13 +82,15 @@ function BIOS.util.MemoryMapEntry:allocate(args)
 	self.allocations[#self.allocations+1] = alloc
 	return alloc
 end
+
 function coerce_nil_to_string(value)
 	if value == nil then
 		return ""
 	else
 		return value
 	end
-end
+end	 
+
 ---Constructs a string of the specified length with the left padded by whitespace if necessary.
 ---@param str string The base text
 ---@param len number The length the string should be
@@ -95,7 +98,8 @@ end
 function padLeft(str, len)
 	str = coerce_nil_to_string(tostring(str))
     return string.rep(' ', len - #str)..str
-end
+end	
+
 BIOS.util.MemoryAllocation = {
 	value = nil,
 	memoryMapEntry = nil,
