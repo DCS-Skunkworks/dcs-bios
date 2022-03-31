@@ -245,6 +245,8 @@ local function parse_indication_number_index(indicator_id)
 -- Custom version of parse_indication function that uses numbers for the index of the output table
 -- for use in situations where the names of values in the indication are unusable (eg random GUID)
 -- also adds the number of rows to the table at index 0
+-- please think carefully before copying this function. In most cases, the standard parse_indication function
+-- is what you want to call.
 	local t = {}
 	local li = list_indication(indicator_id)
 	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
