@@ -362,6 +362,9 @@ definePushButton("VOICE_MSG_REPEAT", 13, 3003, 385, "Landing Lights & Voice Warn
 -- Right Forward Panel
 ---------------------------------------------------------------------
 -- EKRAN Warning System display
+---This is an adaptation of parse_indication due to the EKRAN having arrays for some values. In most cases,
+---parse_indication should be used. Please think carefully before copying this function
+---@return table
 local function parse_EKRAN()
 	local ret = {}
 	local li = list_indication(4)

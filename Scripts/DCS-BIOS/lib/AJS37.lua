@@ -488,128 +488,51 @@ definePotentiometer("CI_FILTER", 5, 3801, 6905, {0, 1},"Radar" , "CI filter")
 --found no argument
 definePushButton("MISL_SEL_BTN", 2, 3800, 400, "Test", "Missile Select Button (IR-RB FRAMSTEGN)")
 
-local function getAJS37NavIndicator1()
-	local li = list_indication(2)
-	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
-	while true do
-		local name, value = m()
-        if not name then break end
-		if name == "data1"
-			then
-			return value:sub(1)
-		end
-    end
-return "X"
-end
-defineString("AJS37_NAV_INDICATOR_DATA_1", getAJS37NavIndicator1, 1, "Navigation Panel", "Navigataion Panel Data Digit 1")
+-- parse nav indicator
+local navIndicator1 = ""
+local navIndicator2 = ""
+local navIndicator3 = ""
+local navIndicator4 = ""
+local navIndicator5 = ""
+local navIndicator6 = ""
+moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
+	local navData = parse_indication(2)
 
-local function getAJS37NavIndicator2()
-	local li = list_indication(2)
-	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
-	while true do
-		local name, value = m()
-        if not name then break end
-		if name == "data2"
-			then
-			return value:sub(1)
-		end
-    end
-return "X"
-end
-defineString("AJS37_NAV_INDICATOR_DATA_2", getAJS37NavIndicator2, 1, "Navigation Panel", "Navigataion Panel Data Digit 2")
+	if not navData then return end
 
-local function getAJS37NavIndicator3()
-	local li = list_indication(2)
-	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
-	while true do
-		local name, value = m()
-        if not name then break end
-		if name == "data3"
-			then
-			return value:sub(1)
-		end
-    end
-return "X"
+	navIndicator1 = coerce_nil_to_string(navData["data1"])
+	navIndicator2 = coerce_nil_to_string(navData["data2"])
+	navIndicator3 = coerce_nil_to_string(navData["data3"])
+	navIndicator4 = coerce_nil_to_string(navData["data4"])
+	navIndicator5 = coerce_nil_to_string(navData["data5"])
+	navIndicator6 = coerce_nil_to_string(navData["data6"])
 end
-defineString("AJS37_NAV_INDICATOR_DATA_3", getAJS37NavIndicator3, 1, "Navigation Panel", "Navigataion Panel Data Digit 3")
 
-local function getAJS37NavIndicator4()
-	local li = list_indication(2)
-	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
-	while true do
-		local name, value = m()
-        if not name then break end
-		if name == "data4"
-			then
-			return value:sub(1)
-		end
-    end
-return "X"
-end
-defineString("AJS37_NAV_INDICATOR_DATA_4", getAJS37NavIndicator4, 1, "Navigation Panel", "Navigataion Panel Data Digit 4")
-
-local function getAJS37NavIndicator5()
-	local li = list_indication(2)
-	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
-	while true do
-		local name, value = m()
-        if not name then break end
-		if name == "data5"
-			then
-			return value:sub(1)
-		end
-    end
-return "X"
-end
-defineString("AJS37_NAV_INDICATOR_DATA_5", getAJS37NavIndicator5, 1, "Navigation Panel", "Navigataion Panel Data Digit 5")
-
-local function getAJS37NavIndicator6()
-	local li = list_indication(2)
-	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
-	while true do
-		local name, value = m()
-        if not name then break end
-		if name == "data6"
-			then
-			return value:sub(1)
-		end
-    end
-return "X"
-end
-defineString("AJS37_NAV_INDICATOR_DATA_6", getAJS37NavIndicator6, 1, "Navigation Panel", "Navigataion Panel Data Digit 6")
+defineString("AJS37_NAV_INDICATOR_DATA_1", function() return navIndicator1 end, 1, "Navigation Panel", "Navigataion Panel Data Digit 1")
+defineString("AJS37_NAV_INDICATOR_DATA_2", function() return navIndicator2 end, 1, "Navigation Panel", "Navigataion Panel Data Digit 2")
+defineString("AJS37_NAV_INDICATOR_DATA_3", function() return navIndicator3 end, 1, "Navigation Panel", "Navigataion Panel Data Digit 3")
+defineString("AJS37_NAV_INDICATOR_DATA_4", function() return navIndicator4 end, 1, "Navigation Panel", "Navigataion Panel Data Digit 4")
+defineString("AJS37_NAV_INDICATOR_DATA_5", function() return navIndicator5 end, 1, "Navigation Panel", "Navigataion Panel Data Digit 5")
+defineString("AJS37_NAV_INDICATOR_DATA_6", function() return navIndicator6 end, 1, "Navigation Panel", "Navigataion Panel Data Digit 6")
 
 defineIndicatorLight("HUVUDVARNING_L", 444, "Front Panel Lights", "Master Caution Light left (red)")
 defineIndicatorLight("HUVUDVARNING_R", 445, "Front Panel Lights", "Master Caution Light right (red)")
 
-local function getAJS37DestIndicator1()
-	local li = list_indication(1)
-	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
-	while true do
-		local name, value = m()
-        if not name then break end
-		if name == "Dest1"
-			then
-			return value:sub(1)
-		end
-    end
-return "X"
-end
-defineString("AJS37_DEST_INDICATOR_DATA_1", getAJS37DestIndicator1, 1, "Destination", "Destination Data Digit 1")
+-- parse dest indicator
+local destIndicator1 = ""
+local destIndicator2 = ""
+moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
+	local navData = parse_indication(1)
 
-local function getAJS37DestIndicator2()
-	local li = list_indication(1)
-	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
-	while true do
-		local name, value = m()
-        if not name then break end
-		if name == "Dest2"
-			then
-			return value:sub(1)
-		end
-    end
-return "X"
+	if not navData then return end
+
+	destIndicator1 = coerce_nil_to_string(navData["Dest1"])
+	destIndicator2 = coerce_nil_to_string(navData["Dest2"])
 end
-defineString("AJS37_DEST_INDICATOR_DATA_2", getAJS37DestIndicator2, 1, "Destination", "Destination Data Digit 2")
+
+
+defineString("AJS37_DEST_INDICATOR_DATA_1", function() return destIndicator1 end, 1, "Destination", "Destination Data Digit 1")
+defineString("AJS37_DEST_INDICATOR_DATA_2", function() return destIndicator2 end, 1, "Destination", "Destination Data Digit 2")
 
 defineIndicatorLight("ALT_WARNING_LAMP", 450, "Front Panel Lights", "Altitude Warning Lamp (red)")
 defineIndicatorLight("FALLD_LAST_LAMP", 461, "Front Panel Lights", "Falld Last (Stores Released) Lamp (red)")
