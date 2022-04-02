@@ -11954,6 +11954,46 @@
                                                                                           } ],
                                                                       "physical_variant": "push_button"
                                                                },
+                                             "PLT_ENG1_START": {
+                                                                       "category": "PLT Left Console",
+                                                                   "control_type": "3Pos_2Command_Switch_OpenClose",
+                                                                    "description": "Pilot No.1 Engine Start Switch, IGN ORIDE/START",
+                                                                     "identifier": "PLT_ENG1_START",
+                                                                         "inputs": [ {
+                                                                                       "description": "set the switch position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 2
+                                                                                   } ],
+                                                                        "outputs": [ {
+                                                                                           "address": 34560,
+                                                                                       "description": "switch position -- 0 = Down, 1 = Mid ,  2 = UP",
+                                                                                              "mask": 48,
+                                                                                         "max_value": 2,
+                                                                                          "shift_by": 4,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ]
+                                                               },
+                                             "PLT_ENG2_START": {
+                                                                       "category": "PLT Left Console",
+                                                                   "control_type": "3Pos_2Command_Switch_OpenClose",
+                                                                    "description": "Pilot No.2 Engine Start Switch, IGN ORIDE/START",
+                                                                     "identifier": "PLT_ENG2_START",
+                                                                         "inputs": [ {
+                                                                                       "description": "set the switch position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 2
+                                                                                   } ],
+                                                                        "outputs": [ {
+                                                                                           "address": 34560,
+                                                                                       "description": "switch position -- 0 = Down, 1 = Mid ,  2 = UP",
+                                                                                              "mask": 192,
+                                                                                         "max_value": 2,
+                                                                                          "shift_by": 6,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ]
+                                                               },
                                                "PLT_JETT_BTN": {
                                                                            "api_variant": "momentary_last_position",
                                                                               "category": "PLT Left Console",
@@ -14464,46 +14504,6 @@
                                                         }
                                  },
          "PLT Up-Front Display": {
-                                         "PLT_ENG1_START": {
-                                                                   "category": "PLT Up-Front Display",
-                                                               "control_type": "3Pos_2Command_Switch_OpenClose",
-                                                                "description": "Pilot No.1 Engine Start Switch, IGN ORIDE/START",
-                                                                 "identifier": "PLT_ENG1_START",
-                                                                     "inputs": [ {
-                                                                                   "description": "set the switch position",
-                                                                                     "interface": "set_state",
-                                                                                     "max_value": 2
-                                                                               } ],
-                                                                    "outputs": [ {
-                                                                                       "address": 34560,
-                                                                                   "description": "switch position -- 0 = Down, 1 = Mid ,  2 = UP",
-                                                                                          "mask": 48,
-                                                                                     "max_value": 2,
-                                                                                      "shift_by": 4,
-                                                                                        "suffix": "",
-                                                                                          "type": "integer"
-                                                                               } ]
-                                                           },
-                                         "PLT_ENG2_START": {
-                                                                   "category": "PLT Up-Front Display",
-                                                               "control_type": "3Pos_2Command_Switch_OpenClose",
-                                                                "description": "Pilot No.2 Engine Start Switch, IGN ORIDE/START",
-                                                                 "identifier": "PLT_ENG2_START",
-                                                                     "inputs": [ {
-                                                                                   "description": "set the switch position",
-                                                                                     "interface": "set_state",
-                                                                                     "max_value": 2
-                                                                               } ],
-                                                                    "outputs": [ {
-                                                                                       "address": 34560,
-                                                                                   "description": "switch position -- 0 = Down, 1 = Mid ,  2 = UP",
-                                                                                          "mask": 192,
-                                                                                     "max_value": 2,
-                                                                                      "shift_by": 6,
-                                                                                        "suffix": "",
-                                                                                          "type": "integer"
-                                                                               } ]
-                                                           },
                                            "PLT_EUFD_BRT": {
                                                                    "category": "PLT Up-Front Display",
                                                                "control_type": "limited_dial",
