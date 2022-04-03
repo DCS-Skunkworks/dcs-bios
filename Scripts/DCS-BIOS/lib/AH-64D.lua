@@ -566,8 +566,8 @@ define3PosTumb("PLT_ROTOR_BRK", 5, 3001, 314, "PLT Left Console", "Pilot Rotor B
 definePushButton("PLT_APU_BTN", 6, 3001, 400, "PLT Left Console", "Pilot APU Pushbutton")
 defineToggleSwitch("PLT_APU_BTN_CVR", 6, 3002, 4001, "PLT Left Console", "Pilot APU Pushbutton Cover, OPEN/CLOSE")
 definePotentiometer("PLT_PW_LVR_FRIC", 2, 3001, 633, {0, 1}, "PLT Left Console", "Pilot Power Lever Friction Adjustment Lever")
-defineSpringloaded_3_pos_tumb("PLT_ENG1_START", 6, 3004, 3003, 317, "PLT Up-Front Display", "Pilot No.1 Engine Start Switch, IGN ORIDE/START")
-defineSpringloaded_3_pos_tumb("PLT_ENG2_START", 6, 3006, 3005, 318, "PLT Up-Front Display", "Pilot No.2 Engine Start Switch, IGN ORIDE/START")
+defineSpringloaded_3_pos_tumb("PLT_ENG1_START", 6, 3004, 3003, 317, "PLT Left Console", "Pilot No.1 Engine Start Switch, IGN ORIDE/START")
+defineSpringloaded_3_pos_tumb("PLT_ENG2_START", 6, 3006, 3005, 318, "PLT Left Console", "Pilot No.2 Engine Start Switch, IGN ORIDE/START")
 
 definePushButton("CPG_JETT_STORE_LO", 75, 3001, 368, "CPG Left Console", "Gunner L OUTBD Station Select Pushbutton, ARM/SAFE")
 definePushButton("CPG_JETT_STORE_LI", 75, 3002, 369, "CPG Left Console", "Gunner L INBD Station Select Pushbutton, ARM/SAFE")
