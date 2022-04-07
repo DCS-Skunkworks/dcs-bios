@@ -115,8 +115,7 @@ $(function() {
 	.then(function(result) {
 		chrome.sockets.tcp.onReceive.addListener(onReceive);
 		console.log(socketId);
-	})
-	.done();
+	});
 	
 	$(document).on("dcs-bios-send", function(evt, msg) {
 		chrome.sockets.tcp.send(socketId, rawStringToBuffer(msg), function(result) {
