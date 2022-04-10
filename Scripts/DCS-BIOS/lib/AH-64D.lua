@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("AH-64D", 0x8000)
 BIOS.protocol.setExportModuleAircrafts({"AH-64D_BLK_II"})
---v1.1 by WarLord (aka BlackLibrary) & charliefoxtwo
+--v1.1b by WarLord (aka BlackLibrary) & charliefoxtwo
 
 local documentation = moduleBeingDefined.documentation
 
@@ -295,7 +295,6 @@ defineToggleSwitch("CPG_INST_MZERO_CVR", 56, 3010, 801, "CPG Emergency Panel", "
 defineToggleSwitch("CPG_INST_MZERO_SW", 56, 3009, 802, "CPG Emergency Panel", "Gunner Master Zeroize Switch, ON/OFF")
 
 --Keyboard Unit
-
 definePushButton("PLT_KU_A", 29, 3007, 213, "PLT Keyboard Unit", "Pilot Keyboard Unit A Key")
 definePushButton("PLT_KU_B", 29, 3008, 214, "PLT Keyboard Unit", "Pilot Keyboard Unit B Key")
 definePushButton("PLT_KU_C", 29, 3009, 215, "PLT Keyboard Unit", "Pilot Keyboard Unit C Key")
@@ -481,12 +480,12 @@ definePushButton("CPG_TEDAC_TAD_SEL", 51, 3005, 150, "CPG TEDAC Display", "Gunne
 definePushButton("CPG_TEDAC_FCR_SEL", 51, 3006, 151, "CPG TEDAC Display", "Gunner TEDAC Display FCR Video Select Button")
 definePushButton("CPG_TEDAC_PNV_SEL", 51, 3007, 152, "CPG TEDAC Display", "Gunner TEDAC Display PNV Video Select Button")
 definePushButton("CPG_TEDAC_GS_SEL", 51, 3008, 153, "CPG TEDAC Display", "Gunner TEDAC Display G/S Video Select Button")
-defineSpringloaded_3_pos_tumb("CPG_TEDAC_SYM", 48, 3010, 3009, 155, "CPG TEDAC Display", "Gunner TEDAC Display SYM Rocker Switch")
-defineSpringloaded_3_pos_tumb("CPG_TEDAC_BRT", 48, 3012, 3011, 156, "CPG TEDAC Display", "Gunner TEDAC Display BRT Rocker Switch")
-defineSpringloaded_3_pos_tumb("CPG_TEDAC_CON", 48, 3014, 3013, 157, "CPG TEDAC Display", "Gunner TEDAC Display CON Rocker Switch")
-defineSpringloaded_3_pos_tumb("CPG_TEDAC_RF", 48, 3020, 3019, 147, "CPG TEDAC Display", "Gunner TEDAC Display R/F Rocker Switch")
-defineSpringloaded_3_pos_tumb("CPG_TEDAC_EL", 48, 3018, 3017, 146, "CPG TEDAC Display", "Gunner TEDAC Display EL Rocker Switch")
-defineSpringloaded_3_pos_tumb("CPG_TEDAC_AZ", 48, 3016, 3015, 163, "CPG TEDAC Display", "Gunner TEDAC Display AZ Rocker Switch")
+defineSpringloaded_3_pos_tumb("CPG_TEDAC_SYM", 51, 3010, 3009, 155, "CPG TEDAC Display", "Gunner TEDAC Display SYM Rocker Switch")
+defineSpringloaded_3_pos_tumb("CPG_TEDAC_BRT", 51, 3012, 3011, 156, "CPG TEDAC Display", "Gunner TEDAC Display BRT Rocker Switch")
+defineSpringloaded_3_pos_tumb("CPG_TEDAC_CON", 51, 3014, 3013, 157, "CPG TEDAC Display", "Gunner TEDAC Display CON Rocker Switch")
+defineSpringloaded_3_pos_tumb("CPG_TEDAC_RF", 51, 3020, 3019, 147, "CPG TEDAC Display", "Gunner TEDAC Display R/F Rocker Switch")
+defineSpringloaded_3_pos_tumb("CPG_TEDAC_EL", 51, 3018, 3017, 146, "CPG TEDAC Display", "Gunner TEDAC Display EL Rocker Switch")
+defineSpringloaded_3_pos_tumb("CPG_TEDAC_AZ", 51, 3016, 3015, 163, "CPG TEDAC Display", "Gunner TEDAC Display AZ Rocker Switch")
 definePushButton("CPG_TEDAC_MULTI", 51, 3004, 158, "CPG TEDAC Display", "Gunner TEDAC Display Asterisk (*) Button")
 definePushButton("CPG_TEDAC_BORESIGHT", 51, 3021, 162, "CPG TEDAC Display", "Gunner TEDAC Display AZ/EL Boresight Enable Button")
 definePushButton("CPG_TEDAC_ACM", 51, 3022, 161, "CPG TEDAC Display", "Gunner TEDAC Display ACM Button")
@@ -498,7 +497,7 @@ defineTumb("CPG_TEDAC_DISP_MODE", 51, 3001, 154, 0.5, {0, 1}, nil, false, "CPG T
 
 defineSpringloaded_3_pos_tumb("CPG_LHG_TEDAC_L_IAT", 51, 3031, 3030, 491, "CPG TEDAC Left Handgrip", "Gunner Image AutoTrack/Offset Switch, OFS/IAT")
 defineSpringloaded_3_pos_tumb("CPG_LHG_TADS_FOV_UP_DN", 51, 3033, 3032, 492, "CPG TEDAC Left Handgrip", "Gunner TADS FOV Select Switch, Z (Zoom)/M (Medium)")
-defineSpringloaded_3_pos_tumb("CPG_LHG_TADS_FOV_L_R", 51, 3003, 3034, 49, "CPG TEDAC Left Handgrip", "Gunner TADS FOV Select Switch, N (Narrow)/W (Wide)")
+defineSpringloaded_3_pos_tumb("CPG_LHG_TADS_FOV_L_R", 51, 3035, 3034, 49, "CPG TEDAC Left Handgrip", "Gunner TADS FOV Select Switch, N (Narrow)/W (Wide)")
 define3PosTumb("CPG_LHG_TADS_SEL", 51, 3092, 494, "CPG TEDAC Left Handgrip", "Gunner TADS Sensor Select Switch, FLIR/TV/DVO")
 defineSpringloaded_3_pos_tumb("CPG_LHG_STORE_UPDATE", 51, 3040, 3039, 495, "CPG TEDAC Left Handgrip", "Gunner STORE/Update Switch, UPDT/STORE")
 defineSpringloaded_3_pos_tumb("CPG_LHG_FCR_SCAN", 51, 3042, 3041, 500, "CPG TEDAC Left Handgrip", "Gunner FCR Scan Switch, C/S")
