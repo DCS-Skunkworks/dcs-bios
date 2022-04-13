@@ -1,4 +1,4 @@
--- V1.10d by Warlord (aka BlackLibrary)
+-- V1.10e by Warlord (aka BlackLibrary)
 -- Tested and fixes by BuzzKillington, afewyards
 -- DED Display,MAGV,INS,UHF,CMDS,HARM,VIP & VRP by Matchstick & AMVI_Ares
 BIOS.protocol.beginModule("F-16C_50", 0x4400)
@@ -227,10 +227,10 @@ define3PosTumb("IFF_M4_CODE_SW", 35, 3003, 541, "IFF", "IFF M-4 CODE Switch, HOL
 define3PosTumb("IFF_M4_REPLY_SW", 35, 3004, 543, "IFF", "IFF MODE 4 REPLY Switch, OUT/A/B")
 defineToggleSwitch("IFF_M4_MONITOR_SW", 35, 3005, 544,"IFF" ,"IFF MODE 4 MONITOR Switch, OUT/AUDIO")
 define3PosTumb("IFF_ENABLE_SW", 35, 3006, 553, "IFF", "IFF ENABLE Switch, M1/M3 /OFF/ M3/MS")
-defineRockerSwitch("IFF_M1_SEL_1", 35, 3007, 3007, 3008, 3008, 545, "IFF", "IFF MODE 1 Selector Lever, DIGIT 1")
-defineRockerSwitch("IFF_M1_SEL_2", 35, 3009, 3009, 3010, 3010, 547, "IFF", "IFF MODE 1 Selector Lever, DIGIT 2")
-defineRockerSwitch("IFF_M3_SEL_1", 35, 3011, 3011, 3012, 3012, 549, "IFF", "IFF MODE 3 Selector Lever, DIGIT 1")
-defineRockerSwitch("IFF_M3_SEL_2", 35, 3013, 3013, 3014, 3014, 551, "IFF", "IFF MODE 3 Selector Lever, DIGIT 2")
+define3Pos2CommandSwitch("IFF_M1_SEL_1", 35, 3007, 3008, 545, "IFF", "IFF MODE 1 Selector Lever, DIGIT 1")
+define3Pos2CommandSwitch("IFF_M1_SEL_2", 35, 3009, 3010, 547, "IFF", "IFF MODE 1 Selector Lever, DIGIT 2")
+define3Pos2CommandSwitch("IFF_M3_SEL_1", 35, 3011, 3012, 549, "IFF", "IFF MODE 3 Selector Lever, DIGIT 1")
+define3Pos2CommandSwitch("IFF_M3_SEL_2", 35, 3013, 3014, 551, "IFF", "IFF MODE 3 Selector Lever, DIGIT 2")
 
 --KY-58
 defineMultipositionSwitch("KY58_MODE_KNB", 42, 3001, 705, 4, 0.1,"KY-58" ,"KY-58 MODE Knob, P/C/LD/RV")
