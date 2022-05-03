@@ -1,4 +1,4 @@
--- V1.10f by Warlord (aka BlackLibrary)
+-- V1.10h by Warlord (aka BlackLibrary)
 -- Tested and fixes by BuzzKillington, afewyards
 -- DED Display,MAGV,INS,UHF,CMDS,HARM,VIP & VRP by Matchstick & AMVI_Ares
 BIOS.protocol.beginModule("F-16C_50", 0x4400)
@@ -97,7 +97,7 @@ define3Pos2CommandSwitch("ANTI_SKID_SW", 7, 3010, 3004, 357, "Gear System", "ANT
 --ECS
 definePotentiometer("TEMP_KNB", 13, 3002, 692, {-0.3, 0.3}, "ECS", "TEMP Knob")
 defineTumb("AIR_SOURCE_KNB", 13, 3001, 693, 0.1, {0, 0.4}, nil, true, "ECS", "AIR SOURCE Knob, OFF/NORM/DUMP/RAM")
-defineToggleSwitch("DEFOG_LEVER", 13, 3003, 602, "ECS", "DEFOG Lever")
+defineTumb("DEFOG_LEVER", 13, 3003, 602, 0.05, {0, 1}, nil, true, "ECS", "DEFOG Lever")
 
 --EPU
 defineToggleSwitch("EPU_SW_COVER_ON", 6, 3001, 527, "EPU", "EPU Switch Cover for ON, OPEN/CLOSE")
@@ -1613,6 +1613,8 @@ defineToggleSwitch("ECM_5_BTN", 66, 3010, 480, "ECM", "ECM 5 Button")
 defineToggleSwitch("ECM_6_BTN", 66, 3011, 485, "ECM", "ECM 6 Button")
 defineToggleSwitch("ECM_FRM_BTN", 66, 3012, 490, "ECM", "ECM FRM Button")
 defineToggleSwitch("ECM_SPL_BTN", 66, 3013, 495, "ECM", "ECM SPL Button")
+
+defineIndicatorLight("LIGHT_ECM", 102, "Warning, Caution and IndicatorLights","ECM Light (green)")
 
 ------------------------------------------------------------------Externals
 defineIntegerFromGetter("EXT_SPEED_BRAKE_RIGHT", function()
