@@ -466,14 +466,14 @@ definePushButton("PLT_EUFD_SWAP", 48, 3010, 277, "PLT Up-Front Display", "Pilot 
 definePushButton("PLT_EUFD_PRESET", 48, 3007, 274, "PLT Up-Front Display", "Pilot Up-Front Display Preset Button")
 definePushButton("PLT_EUFD_STOPWATCH", 48, 3009, 276, "PLT Up-Front Display", "Pilot Up-Front Display Stopwatch Button - Press to start/stop, Hold to reset")
 
-defineSpringloaded_3_pos_tumb("CPG_EUFD_WCA", 48, 3002, 3001, 263, "CPG Up-Front Display", "Gunner Up-Front Display WCA Rocker Switch")
-defineSpringloaded_3_pos_tumb("CPG_EUFD_IDM", 48, 3004, 3003, 262, "CPG Up-Front Display", "Gunner Up-Front Display IDM Rocker Switch")
-defineSpringloaded_3_pos_tumb("CPG_EUFD_RTS", 48, 3006, 3005, 264, "CPG Up-Front Display", "Gunner Up-Front Display RTS Rocker Switch")
-definePotentiometer("CPG_EUFD_BRT", 48, 3011, 265, {0, 1}, "CPG Up-Front Display", "Gunner Up-Front Display Brightness Knob")
-definePushButton("CPG_EUFD_ENT", 48, 3008, 267, "CPG Up-Front Display", "Gunner Up-Front Display ENTER Button")
-definePushButton("CPG_EUFD_SWAP", 48, 3010, 269, "CPG Up-Front Display", "Gunner Up-Front Display Swap Button")
-definePushButton("CPG_EUFD_PRESET", 48, 3007, 266, "CPG Up-Front Display", "Gunner Up-Front Display Preset Button")
-definePushButton("CPG_EUFD_STOPWATCH", 48, 3009, 268, "CPG Up-Front Display", "Gunner Up-Front Display Stopwatch Button - Press to start/stop, Hold to reset")
+defineSpringloaded_3_pos_tumb("CPG_EUFD_WCA", 49, 3002, 3001, 263, "CPG Up-Front Display", "Gunner Up-Front Display WCA Rocker Switch")
+defineSpringloaded_3_pos_tumb("CPG_EUFD_IDM", 49, 3004, 3003, 262, "CPG Up-Front Display", "Gunner Up-Front Display IDM Rocker Switch")
+defineSpringloaded_3_pos_tumb("CPG_EUFD_RTS", 49, 3006, 3005, 264, "CPG Up-Front Display", "Gunner Up-Front Display RTS Rocker Switch")
+definePotentiometer("CPG_EUFD_BRT", 49, 3011, 265, {0, 1}, "CPG Up-Front Display", "Gunner Up-Front Display Brightness Knob")
+definePushButton("CPG_EUFD_ENT", 49, 3008, 267, "CPG Up-Front Display", "Gunner Up-Front Display ENTER Button")
+definePushButton("CPG_EUFD_SWAP", 49, 3010, 269, "CPG Up-Front Display", "Gunner Up-Front Display Swap Button")
+definePushButton("CPG_EUFD_PRESET", 49, 3007, 266, "CPG Up-Front Display", "Gunner Up-Front Display Preset Button")
+definePushButton("CPG_EUFD_STOPWATCH", 49, 3009, 268, "CPG Up-Front Display", "Gunner Up-Front Display Stopwatch Button - Press to start/stop, Hold to reset")
 
 -- TEDAC Display
 definePushButton("CPG_TEDAC_TAD_SEL", 51, 3005, 150, "CPG TEDAC Display", "Gunner TEDAC Display TAD Video Select Button")
