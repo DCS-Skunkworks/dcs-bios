@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("F-14B", 0x1200)
 BIOS.protocol.setExportModuleAircrafts({"F-14B", "F-14A-135-GR"})
---v4.3f by WarLord (aka BlackLibrary), ArturDCS, Matchstick and Bullitt
+--v4.4 by WarLord (aka BlackLibrary), ArturDCS, Matchstick and Bullitt
 
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
@@ -1702,5 +1702,21 @@ defineFloat("RIO_LANTIRN_PRESENT", 666, {0, 1}, "Cockpit", "RIO LANTIRN Present"
 defineFloat("PLT_THROTTLE_POS_L", 753, {0, 1}, "Cockpit", "PILOT Left Throttle Position")
 defineFloat("PLT_THROTTLE_POS_R", 752, {0, 1}, "Cockpit", "PILOT Right Throttle Position")
 defineFloat("PLT_SWEEP_HANDLE_POS", 384, {0, 1}, "Cockpit", "PILOT Wing Sweep Handle Position")
+
+local function getPLTFuelBingo()
+    local function a(n) return GetDevice(0):get_argument_value(n) end
+    local digit1 = string.format("%.0f", GetDevice(0):get_argument_value(6020)*10)
+	if digit1 == nil then digit1 = "0" end
+    local digit2 = string.format("%.0f", GetDevice(0):get_argument_value(6021)*10)
+	if digit2 == nil then digit2 = "0" end
+	local digit3 = string.format("%.0f", GetDevice(0):get_argument_value(6022)*10)
+	if digit3 == nil then digit3 = "0" end
+    local digit4 = string.format("%.0f", GetDevice(0):get_argument_value(6023)*10)
+	if digit4 == nil then digit4 = "0" end
+	local digit5 = string.format("%.0f", GetDevice(0):get_argument_value(6024)*10)
+	if digit5 == nil then digit5 = "0" end
+    return tonumber(digit1 .. digit2 .. digit3 .. digit4 .. digit5)
+end
+defineIntegerFromGetter("PLT_FUEL_BINGO_DISP", getPLTFuelBingo, 25000, "PLT Gauges", "PILOT Bingo Fuel Display")
 
 BIOS.protocol.endModule()
