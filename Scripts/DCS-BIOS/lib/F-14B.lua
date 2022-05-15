@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("F-14B", 0x1200)
 BIOS.protocol.setExportModuleAircrafts({"F-14B", "F-14A-135-GR"})
---v4.4 by WarLord (aka BlackLibrary), ArturDCS, Matchstick and Bullitt
+--v4.4a by WarLord (aka BlackLibrary), ArturDCS, Matchstick and Bullitt
 
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
@@ -407,7 +407,7 @@ define3PosTumb("PLT_FUEL_WING_EXT_TRANS", 21, 3066, 1001, "Fuel System", "PILOT 
 defineToggleSwitch("PLT_FUEL_DUMP", 21, 3067, 1074, "Fuel System", "PILOT Fuel Dump")
 define3PosTumb("PLT_REFUEL_PROBE", 21, 3068, 1073, "Fuel System", "PILOT Refuel Probe")
 define3PosTumb("PLT_FUEL_QUANT_SEL", 21, 3063, 1076, "Fuel System", "PILOT Fuel Quantity Selector")
-definePotentiometer("PLT_BINGO_FUEL_KNOB", 21, 3069, 1050, {0, 1}, "Flaps", "PILOT BINGO Fuel Level Knob")
+defineRotary("PLT_BINGO_FUEL_KNOB", 21, 3069, 1050, "Fuel System", "PILOT BINGO Fuel Level Knob")
 
 -- Electrics
 define3PosTumb("PLT_L_GEN_SW", 15, 3009, 937, "Electrics", "PILOT Left Generator Switch")
