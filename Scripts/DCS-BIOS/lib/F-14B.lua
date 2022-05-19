@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("F-14B", 0x1200)
 BIOS.protocol.setExportModuleAircrafts({"F-14B", "F-14A-135-GR"})
---v4.4a by WarLord (aka BlackLibrary), ArturDCS, Matchstick and Bullitt
+--v4.4b by WarLord (aka BlackLibrary), ArturDCS, Matchstick and Bullitt
 
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
@@ -1374,7 +1374,7 @@ local function getPLTFuelLeft()
 	if digit4 == nil then digit4 = "0" end
     return tonumber(digit1 .. digit2 .. digit3 .. digit4)
 end
-defineIntegerFromGetter("PLT_FUEL_LEFT_DISP", getPLTFuelLeft, 2000, "PLT Gauges", "PILOT Fuel Left Display")
+defineIntegerFromGetter("PLT_FUEL_LEFT_DISP", getPLTFuelLeft, 2500, "PLT Gauges", "PILOT Fuel Left Display")
 
 defineFloat("PLT_FUEL_RIGHT_1K", 6004, {0, 1}, "PLT Gauges", "PILOT Fuel Right 1000")
 defineFloat("PLT_FUEL_RIGHT_100", 6005, {0, 1}, "PLT Gauges", "PILOT Fuel Right 100")
@@ -1392,7 +1392,7 @@ local function getPLTFuelRight()
 	if digit4 == nil then digit4 = "0" end
     return tonumber(digit1 .. digit2 .. digit3 .. digit4)
 end
-defineIntegerFromGetter("PLT_FUEL_RIGHT_DISP", getPLTFuelRight, 2000, "PLT Gauges", "PILOT Fuel Right Display")
+defineIntegerFromGetter("PLT_FUEL_RIGHT_DISP", getPLTFuelRight, 2500, "PLT Gauges", "PILOT Fuel Right Display")
 
 defineFloat("PLT_FUEL_TOTAL_10K", 6010, {0, 1}, "PLT Gauges", "PILOT Fuel Total 10000")
 defineFloat("PLT_FUEL_TOTAL_1K", 6011, {0, 1}, "PLT Gauges", "PILOT Fuel Total 1000")
