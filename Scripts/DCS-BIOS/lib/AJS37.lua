@@ -561,5 +561,9 @@ define3PosTumb("RADAR_RANGE_SEL", 5, 3323, 156, "Radar", "Radar Range Selector")
 definePotentiometer("RADAR_ANT_ELEVATION",5, 3641, 154, {-1, 1}, "Radar", "Radar Antenna Elevation")
 definePushButton("RADAR_TERRAIN_MODE", 5, 3213, 155, "Radar", "Radar Terrain Avoidance Mode")
 defineToggleSwitch("ALT_SET_PUSH", 22, 3715, 119, "Flight Data Unit", "Altimeter Setting (Push)")
+defineRotary("ALT_SET_TURN", 22, 3306, 123, "Flight Data Unit", "Altimeter Setting (Turn)")
+
+defineToggleSwitch("TOGGLE_MIRRORS", 0, 1625, 0, "Cockpit", "Toggle Mirrors")
+defineFloat("CANOPY_POS", 10, {0, 1}, "Cockpit", "Canopy Position")
 
 BIOS.protocol.endModule()
