@@ -117,7 +117,7 @@
                                                       "identifier": "FC3_CHAFF",
                                                           "inputs": [  ],
                                                          "outputs": [ {
-                                                                            "address": 24660,
+                                                                            "address": 24680,
                                                                         "description": "Chaff Counter",
                                                                          "max_length": 3,
                                                                              "suffix": "",
@@ -131,7 +131,7 @@
                                                       "identifier": "FC3_FLARE",
                                                           "inputs": [  ],
                                                          "outputs": [ {
-                                                                            "address": 24664,
+                                                                            "address": 24684,
                                                                         "description": "Flare Counter",
                                                                          "max_length": 3,
                                                                              "suffix": "",
@@ -161,9 +161,9 @@
                                                            "identifier": "FC3_FUEL_CON_L",
                                                                "inputs": [  ],
                                                               "outputs": [ {
-                                                                                 "address": 24648,
+                                                                                 "address": 24660,
                                                                              "description": "Fuel Consumption Left Engine",
-                                                                              "max_length": 5,
+                                                                              "max_length": 10,
                                                                                   "suffix": "",
                                                                                     "type": "string"
                                                                          } ]
@@ -175,9 +175,9 @@
                                                            "identifier": "FC3_FUEL_CON_R",
                                                                "inputs": [  ],
                                                               "outputs": [ {
-                                                                                 "address": 24654,
+                                                                                 "address": 24670,
                                                                              "description": "Fuel Consumption Right Engine",
-                                                                              "max_length": 5,
+                                                                              "max_length": 10,
                                                                                   "suffix": "",
                                                                                     "type": "string"
                                                                          } ]
@@ -191,7 +191,7 @@
                                                               "outputs": [ {
                                                                                  "address": 24640,
                                                                              "description": "Hydraulic Pressure Left Engine",
-                                                                              "max_length": 3,
+                                                                              "max_length": 10,
                                                                                   "suffix": "",
                                                                                     "type": "string"
                                                                          } ]
@@ -203,9 +203,9 @@
                                                            "identifier": "FC3_HYDPRESS_R",
                                                                "inputs": [  ],
                                                               "outputs": [ {
-                                                                                 "address": 24644,
+                                                                                 "address": 24650,
                                                                              "description": "Hydraulic Pressure Right Engine",
-                                                                              "max_length": 3,
+                                                                              "max_length": 10,
                                                                                   "suffix": "",
                                                                                     "type": "string"
                                                                          } ]
@@ -307,7 +307,7 @@
                                                                      "identifier": "EXT_SPEED_BRAKE_LEFT",
                                                                          "inputs": [  ],
                                                                         "outputs": [ {
-                                                                                           "address": 24670,
+                                                                                           "address": 24694,
                                                                                        "description": "Left Speed Brake",
                                                                                               "mask": 65535,
                                                                                          "max_value": 65535,
@@ -323,7 +323,7 @@
                                                                      "identifier": "EXT_SPEED_BRAKE_RIGHT",
                                                                          "inputs": [  ],
                                                                         "outputs": [ {
-                                                                                           "address": 24668,
+                                                                                           "address": 24692,
                                                                                        "description": "Right Speed Brake",
                                                                                               "mask": 65535,
                                                                                          "max_value": 65535,
@@ -405,7 +405,7 @@
                                                                    "identifier": "FC3_ADI_BANK",
                                                                        "inputs": [  ],
                                                                       "outputs": [ {
-                                                                                         "address": 24642,
+                                                                                         "address": 24682,
                                                                                      "description": "ADI Bank",
                                                                                             "mask": 65280,
                                                                                        "max_value": 255,
@@ -422,7 +422,7 @@
                                                                    "identifier": "FC3_ADI_PITCH",
                                                                        "inputs": [  ],
                                                                       "outputs": [ {
-                                                                                         "address": 24646,
+                                                                                         "address": 24686,
                                                                                      "description": "ADI Pitch",
                                                                                             "mask": 65280,
                                                                                        "max_value": 255,
@@ -439,11 +439,11 @@
                                                                    "identifier": "FC3_ADI_YAW",
                                                                        "inputs": [  ],
                                                                       "outputs": [ {
-                                                                                         "address": 24652,
+                                                                                         "address": 24688,
                                                                                      "description": "ADI Yaw",
-                                                                                            "mask": 65280,
+                                                                                            "mask": 255,
                                                                                        "max_value": 255,
-                                                                                        "shift_by": 8,
+                                                                                        "shift_by": 0,
                                                                                           "suffix": "",
                                                                                             "type": "integer",
                                                                                      "value_range": [ -1, 1 ]
@@ -456,7 +456,7 @@
                                                                    "identifier": "FC3_GLIDE_DEVIATION",
                                                                        "inputs": [  ],
                                                                       "outputs": [ {
-                                                                                         "address": 24658,
+                                                                                         "address": 24688,
                                                                                      "description": "Glide Deviation",
                                                                                             "mask": 65280,
                                                                                        "max_value": 255,
@@ -473,11 +473,11 @@
                                                                    "identifier": "FC3_SIDE_DEVIATION",
                                                                        "inputs": [  ],
                                                                       "outputs": [ {
-                                                                                         "address": 24662,
+                                                                                         "address": 24690,
                                                                                      "description": "Side Deviation",
-                                                                                            "mask": 65280,
+                                                                                            "mask": 255,
                                                                                        "max_value": 255,
-                                                                                        "shift_by": 8,
+                                                                                        "shift_by": 0,
                                                                                           "suffix": "",
                                                                                             "type": "integer",
                                                                                      "value_range": [ -1, 1 ]
@@ -490,7 +490,7 @@
                                                                    "identifier": "FC3_SLIP_BALL_POSITION",
                                                                        "inputs": [  ],
                                                                       "outputs": [ {
-                                                                                         "address": 24666,
+                                                                                         "address": 24690,
                                                                                      "description": "Slip Ball Position",
                                                                                             "mask": 65280,
                                                                                        "max_value": 255,

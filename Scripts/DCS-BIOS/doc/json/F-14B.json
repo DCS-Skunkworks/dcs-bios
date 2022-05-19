@@ -3108,9 +3108,9 @@
                                                                              "outputs": [ {
                                                                                                 "address": 4980,
                                                                                             "description": "selector position",
-                                                                                                   "mask": 2048,
+                                                                                                   "mask": 4096,
                                                                                               "max_value": 1,
-                                                                                               "shift_by": 11,
+                                                                                               "shift_by": 12,
                                                                                                  "suffix": "",
                                                                                                    "type": "integer"
                                                                                         } ],
@@ -3475,9 +3475,9 @@
                                                                                    "outputs": [ {
                                                                                                       "address": 5240,
                                                                                                   "description": "selector position",
-                                                                                                         "mask": 2048,
+                                                                                                         "mask": 8192,
                                                                                                     "max_value": 1,
-                                                                                                     "shift_by": 11,
+                                                                                                     "shift_by": 13,
                                                                                                        "suffix": "",
                                                                                                          "type": "integer"
                                                                                               } ],
@@ -6380,11 +6380,11 @@
                                                                            "identifier": "EXT_ANTI_COL",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 5148,
+                                                                                                 "address": 5240,
                                                                                              "description": "Anticollision Lights",
-                                                                                                    "mask": 32768,
+                                                                                                    "mask": 256,
                                                                                                "max_value": 1,
-                                                                                                "shift_by": 15,
+                                                                                                "shift_by": 8,
                                                                                                   "suffix": "",
                                                                                                     "type": "integer"
                                                                                          } ]
@@ -6428,11 +6428,11 @@
                                                                            "identifier": "EXT_POSITION_LIGHTS_BODY",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 4990,
+                                                                                                 "address": 5148,
                                                                                              "description": "Position Lights Body (red/green)",
-                                                                                                    "mask": 32768,
+                                                                                                    "mask": 16384,
                                                                                                "max_value": 1,
-                                                                                                "shift_by": 15,
+                                                                                                "shift_by": 14,
                                                                                                   "suffix": "",
                                                                                                     "type": "integer"
                                                                                          } ]
@@ -6460,11 +6460,11 @@
                                                                            "identifier": "EXT_POSITION_LIGHTS_WINGS",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 4990,
+                                                                                                 "address": 5002,
                                                                                              "description": "Position Lights Wings (red/green)",
-                                                                                                    "mask": 16384,
+                                                                                                    "mask": 32768,
                                                                                                "max_value": 1,
-                                                                                                "shift_by": 14,
+                                                                                                "shift_by": 15,
                                                                                                   "suffix": "",
                                                                                                     "type": "integer"
                                                                                          } ]
@@ -6492,11 +6492,11 @@
                                                                            "identifier": "EXT_POSITION_LIGHT_CHIN",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 5148,
+                                                                                                 "address": 5180,
                                                                                              "description": "Chinpod Position Light (red)",
-                                                                                                    "mask": 16384,
+                                                                                                    "mask": 32768,
                                                                                                "max_value": 1,
-                                                                                                "shift_by": 14,
+                                                                                                "shift_by": 15,
                                                                                                   "suffix": "",
                                                                                                     "type": "integer"
                                                                                          } ]
@@ -6508,7 +6508,7 @@
                                                                            "identifier": "EXT_POSITION_LIGHT_TAIL",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 5002,
+                                                                                                 "address": 5148,
                                                                                              "description": "Tail Position Light (white)",
                                                                                                     "mask": 32768,
                                                                                                "max_value": 1,
@@ -6542,9 +6542,9 @@
                                                                               "outputs": [ {
                                                                                                  "address": 4990,
                                                                                              "description": "Refuel Probe Light (red)",
-                                                                                                    "mask": 8192,
+                                                                                                    "mask": 32768,
                                                                                                "max_value": 1,
-                                                                                                "shift_by": 13,
+                                                                                                "shift_by": 15,
                                                                                                   "suffix": "",
                                                                                                     "type": "integer"
                                                                                          } ]
@@ -6638,9 +6638,9 @@
                                                                               "outputs": [ {
                                                                                                  "address": 5240,
                                                                                              "description": "Weight ON Wheels Left Gear",
-                                                                                                    "mask": 512,
+                                                                                                    "mask": 2048,
                                                                                                "max_value": 1,
-                                                                                                "shift_by": 9,
+                                                                                                "shift_by": 11,
                                                                                                   "suffix": "",
                                                                                                     "type": "integer"
                                                                                          } ]
@@ -6652,11 +6652,11 @@
                                                                            "identifier": "EXT_WOW_NOSE",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                 "address": 5180,
+                                                                                                 "address": 5240,
                                                                                              "description": "Weight ON Wheels Nose Gear",
-                                                                                                    "mask": 32768,
+                                                                                                    "mask": 512,
                                                                                                "max_value": 1,
-                                                                                                "shift_by": 15,
+                                                                                                "shift_by": 9,
                                                                                                   "suffix": "",
                                                                                                     "type": "integer"
                                                                                          } ]
@@ -6670,9 +6670,9 @@
                                                                               "outputs": [ {
                                                                                                  "address": 5240,
                                                                                              "description": "Weight ON Wheels Right Gear",
-                                                                                                    "mask": 256,
+                                                                                                    "mask": 1024,
                                                                                                "max_value": 1,
-                                                                                                "shift_by": 8,
+                                                                                                "shift_by": 10,
                                                                                                   "suffix": "",
                                                                                                     "type": "integer"
                                                                                          } ]
@@ -6732,9 +6732,9 @@
                                                                           "outputs": [ {
                                                                                              "address": 4990,
                                                                                          "description": "selector position",
-                                                                                                "mask": 2048,
+                                                                                                "mask": 8192,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 11,
+                                                                                            "shift_by": 13,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ],
@@ -6764,9 +6764,9 @@
                                                                               "outputs": [ {
                                                                                                  "address": 4980,
                                                                                              "description": "selector position",
-                                                                                                    "mask": 4096,
+                                                                                                    "mask": 8192,
                                                                                                "max_value": 1,
-                                                                                                "shift_by": 12,
+                                                                                                "shift_by": 13,
                                                                                                   "suffix": "",
                                                                                                     "type": "integer"
                                                                                          } ],
@@ -6794,9 +6794,9 @@
                                                                               "outputs": [ {
                                                                                                  "address": 4980,
                                                                                              "description": "selector position",
-                                                                                                    "mask": 8192,
+                                                                                                    "mask": 16384,
                                                                                                "max_value": 1,
-                                                                                                "shift_by": 13,
+                                                                                                "shift_by": 14,
                                                                                                   "suffix": "",
                                                                                                     "type": "integer"
                                                                                          } ],
@@ -6804,58 +6804,55 @@
                                                               }
                                   },
                          "Flaps": {
-                                      "PLT_BINGO_FUEL_KNOB": {
-                                                                     "category": "Flaps",
-                                                                 "control_type": "limited_dial",
-                                                                  "description": "PILOT BINGO Fuel Level Knob",
-                                                                   "identifier": "PLT_BINGO_FUEL_KNOB",
-                                                                       "inputs": [ {
-                                                                                     "description": "set the position of the dial",
-                                                                                       "interface": "set_state",
-                                                                                       "max_value": 65535
-                                                                                 }, {
-                                                                                        "description": "turn the dial left or right",
-                                                                                          "interface": "variable_step",
-                                                                                          "max_value": 65535,
-                                                                                     "suggested_step": 3200
-                                                                                 } ],
-                                                                      "outputs": [ {
-                                                                                         "address": 4632,
-                                                                                     "description": "position of the potentiometer",
-                                                                                            "mask": 65535,
-                                                                                       "max_value": 65535,
-                                                                                        "shift_by": 0,
-                                                                                          "suffix": "",
-                                                                                            "type": "integer"
-                                                                                 } ]
-                                                             },
-                                          "PLT_FLAPS_LEVER": {
-                                                                     "category": "Flaps",
-                                                                 "control_type": "limited_dial",
-                                                                  "description": "PILOT Flaps Lever",
-                                                                   "identifier": "PLT_FLAPS_LEVER",
-                                                                       "inputs": [ {
-                                                                                     "description": "set the position of the dial",
-                                                                                       "interface": "set_state",
-                                                                                       "max_value": 65535
-                                                                                 }, {
-                                                                                        "description": "turn the dial left or right",
-                                                                                          "interface": "variable_step",
-                                                                                          "max_value": 65535,
-                                                                                     "suggested_step": 3200
-                                                                                 } ],
-                                                                      "outputs": [ {
-                                                                                         "address": 4626,
-                                                                                     "description": "position of the potentiometer",
-                                                                                            "mask": 65535,
-                                                                                       "max_value": 65535,
-                                                                                        "shift_by": 0,
-                                                                                          "suffix": "",
-                                                                                            "type": "integer"
-                                                                                 } ]
-                                                             }
+                                      "PLT_FLAPS_LEVER": {
+                                                                 "category": "Flaps",
+                                                             "control_type": "limited_dial",
+                                                              "description": "PILOT Flaps Lever",
+                                                               "identifier": "PLT_FLAPS_LEVER",
+                                                                   "inputs": [ {
+                                                                                 "description": "set the position of the dial",
+                                                                                   "interface": "set_state",
+                                                                                   "max_value": 65535
+                                                                             }, {
+                                                                                    "description": "turn the dial left or right",
+                                                                                      "interface": "variable_step",
+                                                                                      "max_value": 65535,
+                                                                                 "suggested_step": 3200
+                                                                             } ],
+                                                                  "outputs": [ {
+                                                                                     "address": 4626,
+                                                                                 "description": "position of the potentiometer",
+                                                                                        "mask": 65535,
+                                                                                   "max_value": 65535,
+                                                                                    "shift_by": 0,
+                                                                                      "suffix": "",
+                                                                                        "type": "integer"
+                                                                             } ]
+                                                         }
                                   },
                    "Fuel System": {
+                                          "PLT_BINGO_FUEL_KNOB": {
+                                                                      "api_variant": "multiturn",
+                                                                         "category": "Fuel System",
+                                                                     "control_type": "analog_dial",
+                                                                      "description": "PILOT BINGO Fuel Level Knob",
+                                                                       "identifier": "PLT_BINGO_FUEL_KNOB",
+                                                                           "inputs": [ {
+                                                                                            "description": "turn the dial left or right",
+                                                                                              "interface": "variable_step",
+                                                                                              "max_value": 65535,
+                                                                                         "suggested_step": 3200
+                                                                                     } ],
+                                                                          "outputs": [ {
+                                                                                             "address": 4632,
+                                                                                         "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "_KNOB_POS",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
                                                 "PLT_FUEL_DUMP": {
                                                                                 "category": "Fuel System",
                                                                             "control_type": "selector",
@@ -7513,9 +7510,9 @@
                                                                                    "outputs": [ {
                                                                                                       "address": 4990,
                                                                                                   "description": "selector position",
-                                                                                                         "mask": 4096,
+                                                                                                         "mask": 16384,
                                                                                                     "max_value": 1,
-                                                                                                     "shift_by": 12,
+                                                                                                     "shift_by": 14,
                                                                                                        "suffix": "",
                                                                                                          "type": "integer"
                                                                                               } ],
@@ -8298,9 +8295,9 @@
                                                                           "outputs": [ {
                                                                                              "address": 5240,
                                                                                          "description": "selector position",
-                                                                                                "mask": 1024,
+                                                                                                "mask": 4096,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 10,
+                                                                                            "shift_by": 12,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ],
@@ -11258,6 +11255,22 @@
                                                                                                 "type": "integer"
                                                                                      } ]
                                                                  },
+                                          "PLT_FUEL_BINGO_DISP": {
+                                                                         "category": "PLT Gauges",
+                                                                     "control_type": "metadata",
+                                                                      "description": "PILOT Bingo Fuel Display",
+                                                                       "identifier": "PLT_FUEL_BINGO_DISP",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 5328,
+                                                                                         "description": "PILOT Bingo Fuel Display",
+                                                                                                "mask": 32767,
+                                                                                           "max_value": 25000,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
                                                "PLT_FUEL_FWD_R": {
                                                                          "category": "PLT Gauges",
                                                                      "control_type": "analog_gauge",
@@ -11347,8 +11360,8 @@
                                                                           "outputs": [ {
                                                                                              "address": 4980,
                                                                                          "description": "PILOT Fuel Left Display",
-                                                                                                "mask": 2047,
-                                                                                           "max_value": 2000,
+                                                                                                "mask": 4095,
+                                                                                           "max_value": 2500,
                                                                                             "shift_by": 0,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
@@ -11427,8 +11440,8 @@
                                                                           "outputs": [ {
                                                                                              "address": 4990,
                                                                                          "description": "PILOT Fuel Right Display",
-                                                                                                "mask": 2047,
-                                                                                           "max_value": 2000,
+                                                                                                "mask": 4095,
+                                                                                           "max_value": 2500,
                                                                                             "shift_by": 0,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
@@ -14165,11 +14178,11 @@
                                                                "identifier": "RIO_MCB_L_LIGHT",
                                                                    "inputs": [  ],
                                                                   "outputs": [ {
-                                                                                     "address": 4980,
+                                                                                     "address": 4990,
                                                                                  "description": "0 if light is off, 1 if light is on",
-                                                                                        "mask": 32768,
+                                                                                        "mask": 4096,
                                                                                    "max_value": 1,
-                                                                                    "shift_by": 15,
+                                                                                    "shift_by": 12,
                                                                                       "suffix": "",
                                                                                         "type": "integer"
                                                                              } ]
@@ -14183,9 +14196,9 @@
                                                                   "outputs": [ {
                                                                                      "address": 4980,
                                                                                  "description": "0 if light is off, 1 if light is on",
-                                                                                        "mask": 16384,
+                                                                                        "mask": 32768,
                                                                                    "max_value": 1,
-                                                                                    "shift_by": 14,
+                                                                                    "shift_by": 15,
                                                                                       "suffix": "",
                                                                                         "type": "integer"
                                                                              } ]
