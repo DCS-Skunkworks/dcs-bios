@@ -3189,6 +3189,66 @@
                                                                                            "type": "integer"
                                                                                 } ]
                                                             },
+                                        "FM_RADIO_VOL_1_P": {
+                                                                        "api_variant": "momentary_last_position",
+                                                                           "category": "Intercom",
+                                                                       "control_type": "selector",
+                                                                        "description": "FM Radio Volume 1 (Push)",
+                                                                         "identifier": "FM_RADIO_VOL_1_P",
+                                                                             "inputs": [ {
+                                                                                           "description": "switch to previous or next state",
+                                                                                             "interface": "fixed_step"
+                                                                                       }, {
+                                                                                           "description": "set position",
+                                                                                             "interface": "set_state",
+                                                                                             "max_value": 1
+                                                                                       }, {
+                                                                                              "argument": "TOGGLE",
+                                                                                           "description": "Toggle switch state",
+                                                                                             "interface": "action"
+                                                                                       } ],
+                                                                "momentary_positions": "none",
+                                                                            "outputs": [ {
+                                                                                               "address": 22804,
+                                                                                           "description": "selector position",
+                                                                                                  "mask": 32768,
+                                                                                             "max_value": 1,
+                                                                                              "shift_by": 15,
+                                                                                                "suffix": "",
+                                                                                                  "type": "integer"
+                                                                                       } ],
+                                                                   "physical_variant": "push_button"
+                                                            },
+                                        "FM_RADIO_VOL_2_P": {
+                                                                        "api_variant": "momentary_last_position",
+                                                                           "category": "Intercom",
+                                                                       "control_type": "selector",
+                                                                        "description": "FM Radio Volume 2 (Push)",
+                                                                         "identifier": "FM_RADIO_VOL_2_P",
+                                                                             "inputs": [ {
+                                                                                           "description": "switch to previous or next state",
+                                                                                             "interface": "fixed_step"
+                                                                                       }, {
+                                                                                           "description": "set position",
+                                                                                             "interface": "set_state",
+                                                                                             "max_value": 1
+                                                                                       }, {
+                                                                                              "argument": "TOGGLE",
+                                                                                           "description": "Toggle switch state",
+                                                                                             "interface": "action"
+                                                                                       } ],
+                                                                "momentary_positions": "none",
+                                                                            "outputs": [ {
+                                                                                               "address": 22808,
+                                                                                           "description": "selector position",
+                                                                                                  "mask": 4,
+                                                                                             "max_value": 1,
+                                                                                              "shift_by": 2,
+                                                                                                "suffix": "",
+                                                                                                  "type": "integer"
+                                                                                       } ],
+                                                                   "physical_variant": "push_button"
+                                                            },
                                       "UHF_RADIO_VOLUME_1": {
                                                                  "api_variant": "multiturn",
                                                                     "category": "Intercom",
@@ -3233,6 +3293,66 @@
                                                                                            "type": "integer"
                                                                                 } ]
                                                             },
+                                       "UHF_RADIO_VOL_1_P": {
+                                                                        "api_variant": "momentary_last_position",
+                                                                           "category": "Intercom",
+                                                                       "control_type": "selector",
+                                                                        "description": "UHF Radio Volume 1 (Push)",
+                                                                         "identifier": "UHF_RADIO_VOL_1_P",
+                                                                             "inputs": [ {
+                                                                                           "description": "switch to previous or next state",
+                                                                                             "interface": "fixed_step"
+                                                                                       }, {
+                                                                                           "description": "set position",
+                                                                                             "interface": "set_state",
+                                                                                             "max_value": 1
+                                                                                       }, {
+                                                                                              "argument": "TOGGLE",
+                                                                                           "description": "Toggle switch state",
+                                                                                             "interface": "action"
+                                                                                       } ],
+                                                                "momentary_positions": "none",
+                                                                            "outputs": [ {
+                                                                                               "address": 22808,
+                                                                                           "description": "selector position",
+                                                                                                  "mask": 1,
+                                                                                             "max_value": 1,
+                                                                                              "shift_by": 0,
+                                                                                                "suffix": "",
+                                                                                                  "type": "integer"
+                                                                                       } ],
+                                                                   "physical_variant": "push_button"
+                                                            },
+                                       "UHF_RADIO_VOL_2_P": {
+                                                                        "api_variant": "momentary_last_position",
+                                                                           "category": "Intercom",
+                                                                       "control_type": "selector",
+                                                                        "description": "UHF Radio Volume 2 (Push)",
+                                                                         "identifier": "UHF_RADIO_VOL_2_P",
+                                                                             "inputs": [ {
+                                                                                           "description": "switch to previous or next state",
+                                                                                             "interface": "fixed_step"
+                                                                                       }, {
+                                                                                           "description": "set position",
+                                                                                             "interface": "set_state",
+                                                                                             "max_value": 1
+                                                                                       }, {
+                                                                                              "argument": "TOGGLE",
+                                                                                           "description": "Toggle switch state",
+                                                                                             "interface": "action"
+                                                                                       } ],
+                                                                "momentary_positions": "none",
+                                                                            "outputs": [ {
+                                                                                               "address": 22808,
+                                                                                           "description": "selector position",
+                                                                                                  "mask": 8,
+                                                                                             "max_value": 1,
+                                                                                              "shift_by": 3,
+                                                                                                "suffix": "",
+                                                                                                  "type": "integer"
+                                                                                       } ],
+                                                                   "physical_variant": "push_button"
+                                                            },
                                    "VHF_AM_RADIO_VOLUME_1": {
                                                                  "api_variant": "multiturn",
                                                                     "category": "Intercom",
@@ -3276,6 +3396,66 @@
                                                                                          "suffix": "_KNOB_POS",
                                                                                            "type": "integer"
                                                                                 } ]
+                                                            },
+                                    "VHF_AM_RADIO_VOL_1_P": {
+                                                                        "api_variant": "momentary_last_position",
+                                                                           "category": "Intercom",
+                                                                       "control_type": "selector",
+                                                                        "description": "VHF AM Radio Volume 1 (Push)",
+                                                                         "identifier": "VHF_AM_RADIO_VOL_1_P",
+                                                                             "inputs": [ {
+                                                                                           "description": "switch to previous or next state",
+                                                                                             "interface": "fixed_step"
+                                                                                       }, {
+                                                                                           "description": "set position",
+                                                                                             "interface": "set_state",
+                                                                                             "max_value": 1
+                                                                                       }, {
+                                                                                              "argument": "TOGGLE",
+                                                                                           "description": "Toggle switch state",
+                                                                                             "interface": "action"
+                                                                                       } ],
+                                                                "momentary_positions": "none",
+                                                                            "outputs": [ {
+                                                                                               "address": 22804,
+                                                                                           "description": "selector position",
+                                                                                                  "mask": 16384,
+                                                                                             "max_value": 1,
+                                                                                              "shift_by": 14,
+                                                                                                "suffix": "",
+                                                                                                  "type": "integer"
+                                                                                       } ],
+                                                                   "physical_variant": "push_button"
+                                                            },
+                                    "VHF_AM_RADIO_VOL_2_P": {
+                                                                        "api_variant": "momentary_last_position",
+                                                                           "category": "Intercom",
+                                                                       "control_type": "selector",
+                                                                        "description": "VHF AM Radio Volume 2 (Push)",
+                                                                         "identifier": "VHF_AM_RADIO_VOL_2_P",
+                                                                             "inputs": [ {
+                                                                                           "description": "switch to previous or next state",
+                                                                                             "interface": "fixed_step"
+                                                                                       }, {
+                                                                                           "description": "set position",
+                                                                                             "interface": "set_state",
+                                                                                             "max_value": 1
+                                                                                       }, {
+                                                                                              "argument": "TOGGLE",
+                                                                                           "description": "Toggle switch state",
+                                                                                             "interface": "action"
+                                                                                       } ],
+                                                                "momentary_positions": "none",
+                                                                            "outputs": [ {
+                                                                                               "address": 22808,
+                                                                                           "description": "selector position",
+                                                                                                  "mask": 2,
+                                                                                             "max_value": 1,
+                                                                                              "shift_by": 1,
+                                                                                                "suffix": "",
+                                                                                                  "type": "integer"
+                                                                                       } ],
+                                                                   "physical_variant": "push_button"
                                                             }
                                },
                      "Lights": {
