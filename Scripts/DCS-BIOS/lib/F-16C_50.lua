@@ -1,4 +1,4 @@
--- V1.10h by Warlord (aka BlackLibrary)
+-- V1.11 by Warlord (aka BlackLibrary)
 -- Tested and fixes by BuzzKillington, afewyards
 -- DED Display,MAGV,INS,UHF,CMDS,HARM,VIP & VRP by Matchstick & AMVI_Ares
 BIOS.protocol.beginModule("F-16C_50", 0x4400)
@@ -521,7 +521,7 @@ defineIndicatorLight("LIGHT_ECM_SPL_T", 499, "Warning, Caution and IndicatorLigh
 defineIndicatorLight("LIGHT_MARKER_BEACON", 157, "Warning, Caution and IndicatorLights","MARKER BEACON Light (green)")
 
 ------------------------------------------------------------------Gauges
-defineFloat("CANOPY_VALUE", 7, {0, 1}, "Cockpit Mechanics", "Canopy Position")
+defineFloat("CANOPY_POS", 7, {0, 1}, "Cockpit Mechanics", "Canopy Position")
 defineFloat("SEAT_HEIGHT", 783, {-1, 1}, "Cockpit Mechanics", "Seat Height")
 
 --AOA				
@@ -751,11 +751,11 @@ DEDLayout_l1["T1"] = {14,2}
 DEDLayout_l1["T1_code"] = {18,3,0,"_inv","I"}
 DEDLayout_l1["Asterisks_T1_both"] = {17,1,21,"","I"}
 -- VIP
-DEDLayout_l1["Visual initial point to TGT Label"] = {4,10}
-DEDLayout_l1["VIP to TGT Label Asteriscs_both"] = {3,1,14,"","I"}
+DEDLayout_l1["Visual initial point to TGT Label"] = {6,10}
+DEDLayout_l1["VIP to TGT Label Asteriscs_both"] = {5,1,16,"","I"}
 -- VRP
-DEDLayout_l1["Target to VRP Label"] = {5,10}
-DEDLayout_l1["Target to VRP Label Asteriscs_both"] = {4,1,15,"","I"}
+DEDLayout_l1["Target to VRP Label"] = {6,10}
+DEDLayout_l1["Target to VRP Label Asteriscs_both"] = {5,1,16,"","I"}
 --HMCS
 DEDLayout_l1["HMCS DISPLAY HMCS_DISPLAY_TOPIC"] = {7,12}
 DEDLayout_l1["HMCS DISPLAY INS_SelectedSteerpoint"] = {20,2}
@@ -773,6 +773,27 @@ DEDLayout_l1["MARK SOURCE Asteriscs_both"] = {6,1,11,"","I"}
 DEDLayout_l1["STPT NUMBER"] = {15,2,0,"_inv","I"}
 DEDLayout_l1["MARK IncDecSymbol"] = {18,1}
 DEDLayout_l1["MARK Number Asteriscs_both"] = {14,1,19,"","I"}
+--DEST DIR
+DEDLayout_l1["DEST_DIR"] = {2,8}
+DEDLayout_l1["DEST_DIR_SelectedSteerpoint"] = {12,3,0,"_inv","I"}
+DEDLayout_l1["DEST_DIR_STPT_IncDecSymbol"] = {16,1}
+DEDLayout_l1["Asterisks_NUM_STEERPOINT_both"] = {11,1,15,"","I"}
+--UMT DIR
+DEDLayout_l1["UTM_DEST"] = {2,8}
+DEDLayout_l1["UTM_DEST_SelectedSteerpoint"] = {12,3,0,"_inv","I"}
+DEDLayout_l1["UTM_DEST_STPT_IncDecSymbol"] = {16,1}
+DEDLayout_l1["Asterisks_NUM_STEERPOINT_both"] = {11,1,15,"","I"}
+--DEST OA1
+DEDLayout_l1["DEST_OA1"] = {2,8}
+DEDLayout_l1["DEST_OA1_SelectedSteerpoint"] = {11,3,0,"_inv","I"}
+DEDLayout_l1["DEST_OA1_STPT_IncDecSymbol"] = {15,1}
+DEDLayout_l1["Asterisks_NUM_STEERPOINT"] = {10,1,14,"","I"}
+--DEST OA2
+DEDLayout_l1["DEST_OA2"] = {2,8}
+DEDLayout_l1["DEST_OA2_SelectedSteerpoint"] = {11,3,0,"_inv","I"}
+DEDLayout_l1["DEST_OA2_STPT_IncDecSymbol"] = {15,1}
+DEDLayout_l1["Asterisks_NUM_STEERPOINT"] = {10,1,14,"","I"}
+
 --DEDLayout_l1[""] = {,}
 
 --TODO
@@ -874,15 +895,15 @@ DEDLayout_l2["T2"] = {14,2}
 DEDLayout_l2["T2_code"] = {18,3,0,"_inv","I"}
 DEDLayout_l2["Asterisks_T2_both"] = {17,1,21,"","I"}
 -- VIP
-DEDLayout_l2["Visual initial point number"] = {4,3}
-DEDLayout_l2["VIP number value"] = {9,3,0,"_inv","I"}
-DEDLayout_l2["VIP number up down arrows"] = {13,1}
-DEDLayout_l2["VIP number Asteriscs_both"] = {8,1,12,"","I"}
+DEDLayout_l2["Visual initial point number"] = {5,3}
+DEDLayout_l2["VIP number value"] = {10,3,0,"_inv","I"}
+DEDLayout_l2["VIP number up down arrows"] = {14,1}
+DEDLayout_l2["VIP number Asteriscs_both"] = {9,1,13,"","I"}
 -- VRP
-DEDLayout_l2["Target number"] = {4,3}
-DEDLayout_l2["Target number value"] = {9,3,0,"_inv","I"}
-DEDLayout_l2["Target number up down arrows"] = {13,1}
-DEDLayout_l2["Target number Asteriscs_both"] = {8,1,12,"","I"}
+DEDLayout_l2["Target number"] = {5,3}
+DEDLayout_l2["Target number value"] = {10,3,0,"_inv","I"}
+DEDLayout_l2["Target number up down arrows"] = {14,1}
+DEDLayout_l2["Target number Asteriscs_both"] = {9,1,13,"","I"}
 --HMCS
 DEDLayout_l2["HMCS DISPLAY HMCS_HUD_BLANK"] = {3,8,0,"_inv","I"}
 DEDLayout_l2["HMCS DISPLAY Asterisks_HUD_BLANK_both"] = {2,1,11,"","I"}
@@ -897,6 +918,19 @@ DEDLayout_l2["BULLSEYE SEQUENCE Asteriscs_both"] = {11,1,15,"","I"}
 DEDLayout_l2["MARK Latitude"] = {2,3}
 DEDLayout_l2["MARK Latitude Value"] = {6,12,0,"_inv","I"}
 DEDLayout_l2["MARK Latitude Asteriscs_both"] = {5,1,18,"","I"} 
+--DEST DIR
+DEDLayout_l2["DEST_LAT"] = {3,3}
+DEDLayout_l2["LAT"] = {8,12,0,"_inv","I"}
+DEDLayout_l2["Asterisks_LAT_both"] = {7,1,20,"","I"}
+--UTM DEST
+DEDLayout_l2["UTM_DEST_GRID"] = {6,4}
+DEDLayout_l2["GRID_DIGIT"] = {12,3,0,"_inv","I"}
+DEDLayout_l2["GRID_SYMBOL"] = {14,3,0,"_inv","I"}
+DEDLayout_l2["Asterisks_GRID_DIGIT_both"] = {11,1,15,"","I"}
+DEDLayout_l2["Asterisks_GRID_SYMBOL_both"] = {11,1,15,"","I"}
+DEDLayout_l2["UTM_DEST_CNVRT"] = {18,5,0,"_inv","I"}
+DEDLayout_l2["Asterisks_CNVRT_both"] = {17,1,24,"","I"}
+
 --DEDLayout_l2[""] = {,}
 --CNI
 DEDLayout_l3["VHF Label"]={1,3,0,"_inv","I"}
@@ -1012,7 +1046,7 @@ DEDLayout_l3["Asterisks on STN2_both"] = {2,1,8,"","I"}
 DEDLayout_l3["STN id lbl6"] = {9,2}
 DEDLayout_l3["STN value6"] = {12,5,0,"","_inv"}
 DEDLayout_l3["Asterisks on STN6_both"] = {11,1,17,"","I"}
--- DEDLayout_l3["OWN lbl"] = {3,3} --frk
+-- DEDLayout_l3["OWN lbl"] = {3,3}
 DEDLayout_l3["OWN value"] = {7,2}
 DEDLayout_l3["DATA lbl"] = {12,4}
 DEDLayout_l3["DATA value"] = {7,3}
@@ -1051,13 +1085,13 @@ DEDLayout_l3["T3"] = {14,2}
 DEDLayout_l3["T3_code"] = {18,3,0,"_inv","I"}
 DEDLayout_l3["Asterisks_T3_both"] = {17,1,21,"","I"}
 -- VIP
-DEDLayout_l3["VIP bearing"] = {3,4}
-DEDLayout_l3["VIP bearing value"] = {9,6,0,"_inv","I"}
-DEDLayout_l3["VIP bearing Asteriscs_both"] = {8,1,15,"","I"}
+DEDLayout_l3["VIP bearing"] = {4,4}
+DEDLayout_l3["VIP bearing value"] = {10,6,0,"_inv","I"}
+DEDLayout_l3["VIP bearing Asteriscs_both"] = {9,1,16,"","I"}
 -- VRP
-DEDLayout_l3["Target bearing"] = {3,4}
-DEDLayout_l3["Target bearing value"] = {9,6,0,"_inv","I"}
-DEDLayout_l3["Target bearing Asteriscs_both"] = {8,1,15,"","I"}
+DEDLayout_l3["Target bearing"] = {4,4}
+DEDLayout_l3["Target bearing value"] = {10,6,0,"_inv","I"}
+DEDLayout_l3["Target bearing Asteriscs_both"] = {9,1,16,"","I"}
 --HMCS
 DEDLayout_l3["HMCS DISPLAY HMCS_CKPT_BLANK"] = {3,9,0,"_inv","I"}
 DEDLayout_l3["HMCS DISPLAY Asterisks_CKPT_BLANK_both"] = {2,1,12,"","I"}
@@ -1067,6 +1101,25 @@ DEDLayout_l3["HMCS ALIGN Asterisks_AZ_ELAZ_EL_both"] = {1,1,7,"","I"}
 DEDLayout_l3["MARK Longitude"] = {2,3}
 DEDLayout_l3["MARK Longitude Value"] = {6,12,0,"_inv","I"}
 DEDLayout_l3["MARK Longitude Asteriscs_both"] = {5,1,18,"","I"} 
+--DEST_DIR
+DEDLayout_l3["DEST_LON"] = {3,3}
+DEDLayout_l3["LON"] = {8,12,0,"_inv","I"}
+DEDLayout_l3["Asterisks_LON_both"] = {7,1,20,"","I"}
+--UMT DEST
+DEDLayout_l3["UTM_DEST_SQUARE"] = {4,6}
+DEDLayout_l3["SQUARE"] = {12,2,0,"_inv","I"}
+DEDLayout_l3["SQUARE2"] = {13,2,0,"_inv","I"}
+DEDLayout_l3["Asterisks_SQUARE_both"] = {11,1,14,"","I"}
+DEDLayout_l3["Asterisks_SQUARE2_both"] = {11,1,14,"","I"}
+--DEST 0A1
+DEDLayout_l3["DEST_OA1_RNG"] = {3,3}
+DEDLayout_l3["RNG"] = {8,8,0,"_inv","I"}
+DEDLayout_l3["Asterisks_RNG_both"] = {7,1,16,"","I"}
+--DEST 0A1
+DEDLayout_l3["DEST_OA2_RNG"] = {3,3}
+DEDLayout_l3["RNG"] = {8,8,0,"_inv","I"}
+-- DEDLayout_l3["Asterisks_RNG_both"] = {7,1,16,"","I"}
+
 --DEDLayout_l3[""] = {,}
 --TODO
 DEDLayout_l4["TODO remove label"] = {4,20}
@@ -1212,11 +1265,26 @@ DEDLayout_l4["INTG IJAM Key"] = {20,3}
 DEDLayout_l4["T4"] = {14,2}
 DEDLayout_l4["T4_code"] = {18,3,0,"_inv","I"}
 DEDLayout_l4["Asterisks_T4_both"] = {17,1,21,"","I"}
--- VIP & VRP
-DEDLayout_l4["Range"] = {4,3}
-DEDLayout_l4["Range value"] = {9,8,0,"_inv","I"}
-DEDLayout_l4["Range Asteriscs_both"] = {8,1,17,"","I"}
-DEDLayout_l4["Range NM"] = {16,2}
+-- VRP
+DEDLayout_l4["TGT-TO-VRP Range"] = {5,3}
+DEDLayout_l4["TGT-TO-VRP Range value"] = {10,8,0,"_inv","I"}
+DEDLayout_l4["TGT-TO-VRP Range Asteriscs_both"] = {9,1,18,"","I"}
+DEDLayout_l4["TGT-TO-VRP Range NM"] = {17,2}
+-- VRP PUP - VRP next page ... due to duplicate key names with VIP, VRP is usig Feet (FT) and VIP NM with different input lenght
+DEDLayout_l4["TGT-TO-PUP Range"] = {5,3}
+DEDLayout_l4["TGT-TO-PUP Range value"] = {10,8,0,"_inv","I"}
+DEDLayout_l4["TGT-TO-PUP Range Asteriscs_both"] = {9,1,18,"","I"}
+DEDLayout_l4["TGT-TO-PUP Range NM"] = {17,2}
+-- VIP
+DEDLayout_l4["VIP-TO-TGT Range"]  = {5,3}
+DEDLayout_l4["VIP-TO-TGT Range value"] = {12,4,0,"_inv","I"}
+DEDLayout_l4["VIP-TO-TGT Range Asteriscs_both"] = {11,1,16,"","I"}
+DEDLayout_l4["VIP-TO-TGT Range NM"] = {17,2}
+-- VIP PUP - VIP next page ... due to duplicate key names with VRP 
+DEDLayout_l4["VIP-TO-PUP Range"] = {5,3}
+DEDLayout_l4["VIP-TO-PUP Range value"] ={12,4,0,"_inv","I"}
+DEDLayout_l4["VIP-TO-PUP Range Asteriscs_both"] = {11,1,16,"","I"}
+DEDLayout_l4["VIP-TO-PUP Range NM"] = {17,2}
 --HMCS
 DEDLayout_l4["HMCS DISPLAY HMCS_DECLUTTER"] = {3,14}
 DEDLayout_l4["HMCS DISPLAY HMCS_DECLUTTER_STATUS"] = {17,1}
@@ -1227,6 +1295,23 @@ DEDLayout_l4["HMCS ALIGN Asterisks_ROLL_both"] = {1,1,6,"","I"}
 DEDLayout_l4["MARK Elevation"] = {1,4}
 DEDLayout_l4["MARK Elevation Value"] = {6,8,0,"_inv","I"}
 DEDLayout_l4["MARK Elevation Asteriscs_both"] = {5,1,14,"","I"}
+--DEST_DIR
+DEDLayout_l4["DEST DIR DEST_ELEV"] = {2,4}
+DEDLayout_l4["DEST DIR ELEV"] = {8,7,0,"_inv","I"}
+DEDLayout_l4["DEST DIR Asterisks_ELEV_both"] = {7,1,15,"","I"}
+--UTM DEST
+DEDLayout_l4["UTM_DEST_EAST/NORTH"] = {0,10}
+DEDLayout_l4["EAST/NORTH"] = {12,11,0,"_inv","I"}
+DEDLayout_l4["Asterisks_EAST/NORTH_both"] = {11,1,23,"","I"}
+--DEST_OA1
+DEDLayout_l4["DEST_OA1_BRG"] = {3,3}
+DEDLayout_l4["BRG"] = {8,6,0,"_inv","I"}
+DEDLayout_l4["Asterisks_BRG_both"] = {7,1,14,"","I"}
+--DEST_OA2
+DEDLayout_l4["DEST_OA2_BRG"] = {3,3}
+DEDLayout_l4["BRG"] = {8,6,0,"_inv","I"}
+DEDLayout_l4["Asterisks_BRG_both"] = {7,1,14,"","I"}
+
 --DEDLayout_l4[""] = {,}
 --CNI
 DEDLayout_l5["IFF Modes Label"]={1,1}
@@ -1346,9 +1431,9 @@ DEDLayout_l5["T5"] = {14,2}
 DEDLayout_l5["T5_code"] = {18,3,0,"_inv","I"}
 DEDLayout_l5["Asterisks_T5_both"] = {17,1,21,"","I"}
 -- VIP & VRP
-DEDLayout_l5["Elevation"] = {3,4}
-DEDLayout_l5["Elevation value"] = {9,8,0,"_inv","I"}
-DEDLayout_l5["Elevation Asteriscs_both"] = {8,1,17,"","I"}
+DEDLayout_l5["Elevation"] = {4,4}
+DEDLayout_l5["Elevation value"] = {10,8,0,"_inv","I"}
+DEDLayout_l5["Elevation Asteriscs_both"] = {9,1,18,"","I"}
 --HMCS
 DEDLayout_l5["HMCS DISPLAY HMCS_RWR_DISPLAY"] = {3,9}
 DEDLayout_l5["HMCS DISPLAY HMCS_RWR_DISPLAY_STATUS"] = {13,3}
@@ -1363,6 +1448,28 @@ DEDLayout_l5["MARK EAST Value"] = {12,5,0,"_inv","I"}
 DEDLayout_l5["MARK Slash"] = {17,1}
 DEDLayout_l5["MARK NORTH Value"]={18,5,0,"_inv","I"}
 DEDLayout_l5["MARK MGRS Asteriscs_both"]={5,1,23,"","I"}
+--DEST_DIR
+DEDLayout_l5["DEST_TOS"] = {3,3}
+DEDLayout_l5["TOS"] = {8,8,0,"_inv","I"}
+DEDLayout_l5["Asterisks_TOS_both"] = {7,1,16,"","I"}
+DEDLayout_l5["P2lbl"] = {21,3}
+--UTM DEST
+DEDLayout_l5["UTM DEST UTM_DEST_ELEV"] = {6,4}
+DEDLayout_l5["UTM DEST ELEV"] = {12,7,0,"_inv","I"}
+DEDLayout_l5["UTM DEST Asterisks_ELEV_both"] = {11,1,19,"","I"}
+DEDLayout_l5["UTM DEST P1 lbl"] = {21,3}
+--DEST_OA1
+DEDLayout_l5["DEST OA1 DEST_OA1_ELEV"] = {2,3}
+DEDLayout_l5["DEST OA1 ELEV"] = {8,8,0,"_inv","I"}
+DEDLayout_l5["DEST OA1 Asterisks_ELEV_both"] = {7,1,16,"","I"}
+DEDLayout_l5["DEST OA1 P3lbl"] = {21,3}
+--DEST_OA2
+DEDLayout_l5["DEST OA2 DEST_OA2_BRG"] = {2,3}
+DEDLayout_l5["DEST OA2 ELEV"] = {8,8,0,"_inv","I"}
+DEDLayout_l5["DEST OA2 Asterisks_ELEV_both"] = {7,1,16,"","I"}
+DEDLayout_l5["DEST OA2 P4lbl"] = {21,3}
+
+
 
 --DEDLayout_l5[""] = {,}
 
@@ -1418,7 +1525,7 @@ local function buildDEDLine(line)
 -- Get Layout Information for line being built
 	local DEDLayoutLine = DEDLayout[line]
 -- Get Exported DED Objects
-	local DED_fields = parse_indication(6) or {}
+	local DED_fields = parse_indication(6)
 	local layout
 	local label
 	local value
@@ -1438,6 +1545,13 @@ local function buildDEDLine(line)
 	local nav_status = DED_fields["NAV Status lbl"]
 	local hmcs_display = DED_fields["HMCS_DISPLAY_TOPIC"]
 	local hmcs_align = DED_fields["HMCS_ALIGN_TOPIC"]
+	local utm_dest 		= DED_fields["UTM_DEST"]
+	local dest_dir 		= DED_fields["DEST_DIR"]
+	local dest_oa1 		= DED_fields["DEST_OA1"]
+	local dest_oa2 		= DED_fields["DEST_OA2"]
+	local vrp 			= DED_fields["Target to VRP Label"]
+	local vip 			= DED_fields["Visual initial point to TGT Label"]
+	
 --Loop through Exported DED Objects
 	for k,v in pairs(DED_fields) do
 -- Handle Duplicate Key Names on COM2 Guard page items        
@@ -1473,6 +1587,21 @@ local function buildDEDLine(line)
 -- Handle Duplicate Key Names on HMCS Align page		
 		elseif hmcs_align ~= nil then
 			label = hmcs_align.." "..k
+-- Handle Duplicate Key Names on DEST first page (UTM_DEST)	line 5 items	
+		elseif utm_dest ~= nil and line == 5 then
+			label = utm_dest.." "..k
+-- Handle Duplicate Key Names on DEST first page (DEST_DIR) line 4 items
+		elseif dest_dir ~= nil and line == 4 then
+			label = dest_dir.." "..k
+-- Handle Duplicate Key Names on DEST first page (DEST_OA1) line 5 items
+		elseif dest_oa1 ~= nil and line == 5 then
+			label = dest_oa1.." "..k
+-- Handle Duplicate Key Names on VRP first page  line 4 items
+		elseif vrp	~= nil and line == 4 then
+			label = vrp.." "..k
+-- Handle Duplicate Key Names on VIP first page line 4 items		
+		elseif vip	~= nil and line == 4 then
+			label = vip.." "..k
 		else
 			label = k
 		end
@@ -1614,7 +1743,7 @@ defineToggleSwitch("ECM_6_BTN", 66, 3011, 485, "ECM", "ECM 6 Button")
 defineToggleSwitch("ECM_FRM_BTN", 66, 3012, 490, "ECM", "ECM FRM Button")
 defineToggleSwitch("ECM_SPL_BTN", 66, 3013, 495, "ECM", "ECM SPL Button")
 
-defineIndicatorLight("LIGHT_ECM", 102, "Warning, Caution and IndicatorLights","ECM Light (green)")
+defineIndicatorLight("LIGHT_ECM", 102, "Warning, Caution and IndicatorLights", "ECM Light (green)")
 
 ------------------------------------------------------------------Externals
 defineIntegerFromGetter("EXT_SPEED_BRAKE_RIGHT", function()
