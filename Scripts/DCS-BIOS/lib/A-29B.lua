@@ -248,7 +248,7 @@ definePushButton("AP_GS", 25, 3380, 437, "Autopilot", "AP GS")
 definePushButton("AP_ON", 25, 3381, 438, "Autopilot", "AP ON")
 
 -- GAUGES
-defineFloat("CANOPY_VALUE", 26, {0, 1}, "Gauges", "Canopy Position")
+defineFloat("CANOPY_POS", 26, {0, 1}, "Gauges", "Canopy Position")
 defineFloat("VERT_VELO_G", 662, {-1, 1}, "Gauges", "Vertical Velocity")
 defineFloat("ASI_ROLL", 752, {-1, 1}, "Gauges", "ASI Roll")
 defineFloat("ASI_PITCH", 753, {-1, 1}, "Gauges", "ASI Pitch")

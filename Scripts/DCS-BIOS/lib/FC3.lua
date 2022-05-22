@@ -126,8 +126,8 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
         _TEMPRight = string.format("%4.0d", eng2.Temperature.right)
 		_HYDPressLeft = string.format(eng2.HydraulicPressure.left)
 		_HYDPressRight = string.format(eng2.HydraulicPressure.right)
-		_FuelConLeft = string.format("%4.1d", (eng2.FuelConsumption.left * 100))
-		_FuelConRight = string.format("%4.1d", (eng2.FuelConsumption.right * 100)) 
+		_FuelConLeft = string.format("%4.0d", (eng2.FuelConsumption.left * 7936.641))
+		_FuelConRight = string.format("%4.0d", (eng2.FuelConsumption.right * 7936.641))
     else
         _RPMLeft = "---"
         _RPMRight = "---" 
@@ -268,10 +268,10 @@ defineString("FC3_RPM_L", function() return _RPMLeft end, 3, "Engine", "RPM Left
 defineString("FC3_RPM_R", function() return _RPMRight end, 3, "Engine", "RPM Right Engine")
 defineString("FC3_TEMP_L", function() return _TEMPLeft end, 4, "Engine", "Temperature Left Engine")
 defineString("FC3_TEMP_R", function() return _TEMPRight end, 4, "Engine", "Temperature Right Engine")
-defineString("FC3_HYDPRESS_L", function() return _HYDPressLeft end, 3, "Engine", "Hydraulic Pressure Left Engine")
-defineString("FC3_HYDPRESS_R", function() return _HYDPressRight end, 3, "Engine", "Hydraulic Pressure Right Engine")
-defineString("FC3_FUEL_CON_L", function() return _FuelConLeft end, 5, "Engine", "Fuel Consumption Left Engine")
-defineString("FC3_FUEL_CON_R", function() return _FuelConRight end, 5, "Engine", "Fuel Consumption Right Engine")
+defineString("FC3_HYDPRESS_L", function() return _HYDPressLeft end, 10, "Engine", "Hydraulic Pressure Left Engine")
+defineString("FC3_HYDPRESS_R", function() return _HYDPressRight end, 10, "Engine", "Hydraulic Pressure Right Engine")
+defineString("FC3_FUEL_CON_L", function() return _FuelConLeft end, 10, "Engine", "Fuel Consumption Left Engine")
+defineString("FC3_FUEL_CON_R", function() return _FuelConRight end, 10, "Engine", "Fuel Consumption Right Engine")
 
 --Mechanical
 defineIntegerFromGetter("FC3_GEAR", function() return _GearStatus end, 1, "Mechanical", "Gear Status")

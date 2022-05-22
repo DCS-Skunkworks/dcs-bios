@@ -1078,8 +1078,8 @@ defineToggleSwitch("PLT_FLARES_2_YEL", 64, 3010, 349, "Signal Flares", "PILOT Si
 defineToggleSwitch("PLT_FLARES_2_WHT", 64, 3009, 348, "Signal Flares", "PILOT Signal Flares Cassette 2 Launch White Button")
 
 --Gauges
-defineFloat("OP_CANOPY_VALUE", 849, {0, 1}, "Gauges OP", "OPERATOR Canopy Position")
-defineFloat("PLT_CANOPY_VALUE", 9, {0, 1}, "Gauges PLT", "PILOT Door Position")
+defineFloat("OP_CANOPY_POS", 849, {0, 1}, "Gauges OP", "OPERATOR Canopy Position")
+defineFloat("PLT_CANOPY_POS", 9, {0, 1}, "Gauges PLT", "PILOT Door Position")
 defineFloat("OP_WIPER_POS", 973, {0, 1}, "Gauges OP", "OPERATOR Wiper Position")
 defineFloat("PLT_WIPER_POS", 972, {0, 1}, "Gauges PLT", "PILOT Wiper Position")
 defineFloat("PLT_VARIOMETER", 1, {-1, 1}, "Gauges PLT", "PILOT Variometer")

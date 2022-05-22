@@ -281,7 +281,7 @@ defineIndicatorLight("BARS3_WL", 156, "Warning, Caution and IndicatorLights","Ba
 defineIndicatorLight("FIRE_WL", 157, "Warning, Caution and IndicatorLights","FIRE Warning Light (red)")
 
 --Gauges
-defineFloat("CANOPY_VALUE", 1, {0, 1}, "Gauges", "Canopy Position")
+defineFloat("CANOPY_POS", 1, {0, 1}, "Gauges", "Canopy Position")
 defineFloat("ADI_SLIP", 161, {-0.1, 0.1}, "Gauges", "ADI Slip")
 defineFloat("AOA_GAUGE", 161, {0, 1}, "Gauges", "AoA Gauge")
 defineFloat("EGT_G", 178, {0, 1}, "Gauges", "EGT Gauge")

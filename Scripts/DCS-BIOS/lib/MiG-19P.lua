@@ -353,6 +353,7 @@ defineFloat("USB1_L_AMMO_COUNT", 418, {0, 1}, "Gauges", "USB-1 Left Cannon Ammo 
 defineFloat("USB1_R_AMMO_COUNT", 419, {0, 1}, "Gauges", "USB-1 Right Cannon Ammo Counter")
 
 defineToggleSwitch("EMERG_GEAR_HND", 4, 3505, 505, "Landing Gear Panel", "Landing Gear Emergency Handle")
+defineFloat("CANOPY_POS", 512, {0, 1}, "Gauges", "Canopy Position")
 
 --Externals
 defineIntegerFromGetter("EXT_SPEED_BRAKE_RIGHT", function()

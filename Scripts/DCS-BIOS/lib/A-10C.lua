@@ -1247,7 +1247,7 @@ defineIntegerFromGetter("EXT_WOW_LEFT", function()
 	if LoGetAircraftDrawArgumentValue(6) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Weight ON Wheels Left Gear")
 
-defineFloat("CANOPY_VALUE", 7, {0, 1}, "Misc", "Canopy Position")
+defineFloat("CANOPY_POS", 7, {0, 1}, "Misc", "Canopy Position")
 
 definePushButton("TISL_OVERTEMP", 57, 3012, 630, "TISL Panel", "TISL OVER TEMP")
 definePushButton("TISL_TRACK", 57, 3013, 634, "TISL Panel", "TISL TRACK")

@@ -218,7 +218,7 @@ defineFloat("CLOCK_CURRTIME_HOURS", 19, {0, 1}, "Indicator", "CLOCK_currtime_hou
 defineFloat("CLOCK_CURRTIME_MINUTES", 18, {0, 1}, "Indicator", "CLOCK_currtime_minutes")
 defineFloat("CLOCK_SECONDS_METER_TIME_MINUTES", 37, {0, 1}, "Indicator", "CLOCK_seconds_meter_time_minutes")
 defineFloat("CLOCK_SECONDS_METER_TIME_SECONDS", 1006, {0, 1}, "Indicator", "CLOCK_seconds_meter_time_seconds")
-defineFloat("COCKPITCANOPY", 181, {0, 1}, "Indicator", "CockpitCanopy")
+defineFloat("CANOPY_POS", 181, {0, 1}, "Indicator", "Canopy Position")
 defineFloat("AIRSPEEDINDICATOR", 178, {0.0, 0.965}, "Indicator", "AirSpeedIndicator")
 defineFloat("AIRSPEEDINDICATORDRUM", 178, {0.0, 0.965}, "Indicator", "AirSpeedIndicatorDrum")
 defineFloat("AIRSPEEDM1INDICATOR", 8, {0.0, 0.697}, "Indicator", "AirSpeedM1Indicator")

@@ -329,7 +329,7 @@ defineToggleSwitch("BACK_EJECT_HANDLE_COVER", 1, 3520, 521, "Misc", "BACK Ejecti
 defineToggleSwitch("BACK_MAN_SEPERATION_HANDLE", 1, 3521, 522, "Misc", "BACK Manual Seperation Handle")
 definePotentiometer("BACK_AIR_VENT", 1, 3523, 1230, nil, "Misc", "BACK Air Vent")
 defineToggleSwitch("BACK_GEAR_HANDLE", 1, 3524, 75, "Misc", "BACK Landing Gear Handle")
-defineFloat("CANOPY_VALUE", 1, {0, 1}, "Misc", "Canopy Position")
+defineFloat("CANOPY_POS", 1, {0, 1}, "Misc", "Canopy Position")
 
 -- WARNING, CAUTION AND INDICATORLIGHTS
 defineIndicatorLight("FRONT_TRANS_GEAR_LIGHT", 9, "Warning, Caution and IndicatorLights","FRONT Transition Gear Light (red)")
