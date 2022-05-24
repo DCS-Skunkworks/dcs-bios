@@ -17,6 +17,12 @@ local startTimeHigh = 0
 local modTimeLow = 0
 local modTimeHigh = 0
 
+local function LoGetGLoad()
+	local au = LoGetAccelerationUnits()
+	if au == nil then return end
+	return au.y
+end
+
 moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()	
 	if not LoIsOwnshipExportAllowed() then return end -- skip this data if ownship export is disabled
 	
@@ -39,6 +45,10 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 		if iasDisp == nil then iasDisp = "0000" end
 	iasEU = string.format("%4d", math.floor(0.5 + iasDisp * 3.6))           -- km/h
 	iasUS = string.format("%4d", math.floor(0.5 + iasDisp * 1.94384449))	-- knots
+	
+    gload = LoGetGLoad() or 0
+	if math.abs(gload) > 10 then _gLoad = string.format(" %2d ", gload)
+	else _gLoad = string.format("%4.1f", gload) end
 	
 	local selfData = LoGetSelfData()
 	if selfData == nil then return end
@@ -138,5 +148,7 @@ defineIntegerFromGetter("TIME_START_HIGH", function() return startTimeHigh end, 
 defineIntegerFromGetter("TIME_START_LOW", function() return startTimeLow end, 65535, "Time", "Start time low bits in seconds")
 defineIntegerFromGetter("TIME_MODEL_HIGH", function() return modTimeHigh end, 65535, "Time", "Model time high bits in hundredth of a second")
 defineIntegerFromGetter("TIME_MODEL_LOW", function() return modTimeLow end, 65535, "Time", "Model time low bits in hundredth of a second")
+
+defineString("G_LOAD", function() return _gLoad or "0000" end, 4, "Speed", "G Load")
 
 BIOS.protocol.endModule()

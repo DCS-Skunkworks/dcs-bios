@@ -37,12 +37,6 @@ local function LoGetFuelAll()
 	return eng.fuel_internal + eng.fuel_external
 end
 
-local function LoGetGLoad()
-	local au = LoGetAccelerationUnits()
-	if au == nil then return end
-	return au.y
-end
-
 local function BarFuel(fuel, plane)
 	local maxFuel = 1000
 
@@ -109,7 +103,6 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	local mach = LoGetMachNumber() or 0
 	local fuel = LoGetFuelAll() or 0
 	local aoa = LoGetAngleOfAttack() or 0
-	local gload = LoGetGLoad() or 0
 	_glidedev = LoGetGlideDeviation()
 	_sidedev = LoGetSideDeviation()
 	_slipball = LoGetSlipBallPosition()
@@ -230,8 +223,7 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 		if gload < -5 then gload = -5
 		elseif gload > 10 then gload = 10 end
 	end
-	if math.abs(gload) > 10 then _gLoad = string.format(" %2d ", gload)
-	else _gLoad = string.format("%4.1f", gload) end
+
 	_indicatedAirspeed = string.format("%4d", ias)
 
 	-- MACH NUMBER
@@ -256,7 +248,6 @@ defineString("FC3_ALTITUDE_GROUND", function() return _altitudeG or "000000" end
 defineString("FC3_ALTITUDE_SEA", function() return _altitudeS or "000000"  end, 6, "Altitude", "Altitude above Sea Level")
 defineString("FC3_ANGLE_OF_ATTACK", function() return _AoA or "0000" end, 4, "String", "Angle of Attack")
 defineString("FC3_FUEL_ALL", function() return _fuel or "00000" end, 5, "Engine", "Fuel Remaining")
-defineString("FC3_G_LOAD", function() return _gLoad or "0000" end, 4, "Speed", "G Load")
 defineString("FC3_INDICATED_AIRSPEED", function() return _indicatedAirspeed or "0000" end, 4, "Speed", "Indicated Airspeed")
 defineString("FC3_MACH_NUMBER", function() return _machNumber or "0000" end, 4, "Speed", "Mach Number")
 defineString("FC3_TRUE_AIRSPEED", function() return _trueAirspeed or "0000" end, 4, "Speed", "True Airspeed")
