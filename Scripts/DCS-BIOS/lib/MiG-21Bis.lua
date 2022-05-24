@@ -1,5 +1,6 @@
 BIOS.protocol.beginModule("MiG-21Bis", 0x2200)
 BIOS.protocol.setExportModuleAircrafts({"MiG-21Bis"})
+--overhaul by WarLord
 
 local documentation = moduleBeingDefined.documentation
 
@@ -19,8 +20,6 @@ local defineString = BIOS.util.defineString
 local defineRockerSwitch = BIOS.util.defineRockerSwitch
 local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
-
---Clickable Controls----------------------------------------------------------------------------
 
 --DC & AC busses and gyro devices
 defineToggleSwitch("BAT_PWR", 1, 3001, 165, "Main Power Panel", "Battery On/Off")
@@ -93,7 +92,6 @@ definePotentiometer("GEAR_WARN_LIGHTS_BRT", 47, 3079, 322, {0, 1}, "Landing Gear
 definePushButton("MASTER_WARN_LIGHT_TEST", 47, 3040, 255, "Flight Status/Navigation Panel", "Master Warn Light Test/Acknowledge")
 definePotentiometer("MASTER_WARN_LIGHT_BRT", 47, 3277, 657, {0, 1}, "Flight Status/Navigation Panel", "Master Warn Light Brightness")
 
-
 --RADIO
 defineToggleSwitch("RAD_PWR", 22, 3041, 173, "Avionics Power Panel", "Radio On/Off")
 defineToggleSwitch("RAD_CPS", 22, 3042, 208, "Radio", "Radio/Compass Audio")
@@ -152,7 +150,7 @@ defineToggleSwitch("SRZO_EM_TX", 38, 3211, 191, "SRZO/Fuse Panel", "SRZO Emergen
 defineToggleSwitch("SRZO_DEST_CVR", 38, 3229, 427, "SRZO/Fuse Panel", "SRZO Self Destruct Cover")
 definePushButton("SRZO_DEST", 38, 3230, 428, "SRZO/Fuse Panel", "SRZO Self Destruct")
 
--- SOD (increase radar signal for ATC radar, most likely won't be implemented)
+-- SOD
 defineToggleSwitch("SOD_PWR", 39, 3090, 200, "SOD Panel", "SOD IFF On/Off")
 definePushButton("SOD_IDENT", 39, 3091, 199, "SOD Panel", "SOD Identify")
 defineTumb("SOD_WAVE", 39, 3092, 201, 0.5, {0, 1}, nil, false, "SOD Panel", "SOD Wave Selector 3/1/2")
@@ -368,8 +366,6 @@ definePushButton("GUV_1", 42, 3225, 422, "UPK-23-250-2 Panel", "UPK-23-250-2 Loa
 definePushButton("GUV_2", 42, 3226, 425, "UPK-23-250-2 Panel", "UPK-23-250-2 Load 2")
 definePushButton("GUV_3", 42, 3227, 424, "UPK-23-250-2 Panel", "UPK-23-250-2 Load 3")
 
---Indicators, Lights, Gauges---------------------------------------------------------------------------------------------------------
-
 --Compressed Air Gauge
 defineFloat("CMP_AIR_MAIN", 413, {0, 1}, "Right Horizontal Forward Panel", "Compressed Air Main")
 defineFloat("CMP_AIR_AUX", 414, {0, 1}, "Right Horizontal Forward Panel", "Compressed Air Aux")
@@ -380,21 +376,19 @@ defineIndicatorLight("GEAR_OXY_LUNG", 60, "Left Vertical Forward Panel", "Oxygen
 defineFloat("O2_PRES", 58, {0, 1}, "Left Vertical Forward Panel", "Oxygen Pressure")
 
 --Gear Lights
-defineIndicatorLightInverted("GEAR_NOSE_UP", 9, "Landing Gear Control", "Gear Nose Up Light")
-defineIndicatorLight("GEAR_NOSE_DOWN", 12, "Landing Gear Control", "Gear Nose Down Light")
-defineIndicatorLightInverted("GEAR_LEFT_UP", 10, "Landing Gear Control", "Gear Left Up Light")
-defineIndicatorLight("GEAR_LEFT_DOWN", 13, "Landing Gear Control", "Gear Left Down Light")
-defineIndicatorLightInverted("GEAR_RIGHT_UP", 11, "Landing Gear Control", "Gear Right Up Light")
-defineIndicatorLight("GEAR_RIGHT_DOWN", 14, "Landing Gear Control", "Gear Right Down Light")
+defineIndicatorLightInverted("GEAR_NOSE_UP", 9, "Landing Gear Control", "Gear Nose Up Light (red)")
+defineIndicatorLight("GEAR_NOSE_DOWN", 12, "Landing Gear Control", "Gear Nose Down Light (green)")
+defineIndicatorLightInverted("GEAR_LEFT_UP", 10, "Landing Gear Control", "Gear Left Up Light (red)")
+defineIndicatorLight("GEAR_LEFT_DOWN", 13, "Landing Gear Control", "Gear Left Down Light (green)")
+defineIndicatorLightInverted("GEAR_RIGHT_UP", 11, "Landing Gear Control", "Gear Right Up Light (red)")
+defineIndicatorLight("GEAR_RIGHT_DOWN", 14, "Landing Gear Control", "Gear Right Down Light (green)")
 
 --Airspeed Gauges
-
 defineFloat("IAS_IND", 100, {0, 1}, "Flight Status/Navigation Panel", "Airspeed Gauge IAS")
 defineFloat("TAS_IND", 101, {0, 1}, "Flight Status/Navigation Panel", "Airspeed Gauge TAS")
 defineFloat("M_IND", 102, {0, 1}, "Flight Status/Navigation Panel", "Airspeed Gauge Mach")
 
 --Barometric Altimeter
-
 defineFloat("BARO_ALT_M", 104, {0, 1}, "Flight Status/Navigation Panel", "Barometric Altimeter Meters")
 defineFloat("BARO_ALT_KM", 112, {0, 1}, "Flight Status/Navigation Panel", "Barometric Altimeter Kilometers")
 
@@ -403,9 +397,8 @@ defineFloat("NPP_CRS_IND", 111, {0, 1}, "Flight Status/Navigation Panel", "NPP C
 defineFloat("NPP_CRS_SET", 68, {0, 1}, "Flight Status/Navigation Panel", "NPP Course Set Needle")
 
 --RSBN lights/indicators
-
-defineIndicatorLight("RSBN_ASM", 548, "RSBN", "RSBN Asimuth Correction Light")
-defineIndicatorLight("RSBN_DIST_LGHT", 549, "RSBN", "RSBN Distance Correction Light")
+defineIndicatorLight("RSBN_ASM", 548, "RSBN", "RSBN Asimuth Correction Light (green)")
+defineIndicatorLight("RSBN_DIST_LGHT", 549, "RSBN", "RSBN Distance Correction Light (green)")
 defineFloat("RSBN_DIST_HUND", 355, {0, 1}, "Engine Status Panel", "RSBN Distance Gauge Hundreds")
 defineFloat("RSBN_DIST_TENS", 356, {0, 1}, "Engine Status Panel", "RSBN Distance Gauge Tens")
 defineFloat("RSBN_DIST_ONES", 357, {0, 1}, "Engine Status Panel", "RSBN Distance Gauge Ones")
@@ -423,17 +416,17 @@ defineFloat("ARK_RSBN_ND", 36, {0, 1}, "Flight Status/Navigation Panel", "ARC/RS
 
 --Radio Altimeter
 defineFloat("RALT_ND", 103, {0, 1}, "Flight Status/Navigation Panel", "Radio Altimeter Needle")
-defineIndicatorLight("LOW_ALT_LIGHT", 500, "Flight Status/Navigation Panel", "Low Altitude Warn Light")
+defineIndicatorLight("LOW_ALT_LIGHT", 500, "Flight Status/Navigation Panel", "Low Altitude Warn Light (red)")
 
 --UUA/AOA
 defineFloat("AOA_ND", 105, {-0.30, 1}, "Accelerometer, AoA Gauge Panel", "AOA Gauge")
-defineIndicatorLight("AOA_WARN_LGHT", 537, "Canopy Frame", "AOA Warning Lights")
+defineIndicatorLight("AOA_WARN_LGHT", 537, "Canopy Frame", "AOA Warning Lights (red)")
 
 --DA-200 Subgroup
 defineFloat("DA200_TURN", 107, {-1, 1}, "Flight Status/Navigation Panel", "DA-200 Turn Needle")
 defineFloat("DA200_VVI", 106, {-1, 1}, "Flight Status/Navigation Panel", "DA-200 VVI Needle")
 defineFloat("DA200_SLIP", 31, {-1, 1}, "Flight Status/Navigation Panel", "DA-200 Slip Ball") -- Also used for the KPP slip ball
-defineIndicatorLight("KPP_ARR_LIGHT", 535, "Flight Status/Navigation Panel", "KPP Cage Light")
+defineIndicatorLight("KPP_ARR_LIGHT", 535, "Flight Status/Navigation Panel", "KPP Cage Light (red)")
 defineFloat("KPP_BANK", 108, {-1, 1}, "Flight Status/Navigation Panel", "KPP Bank")
 defineFloat("KPP_PITCH", 109, {-1, 1}, "Flight Status/Navigation Panel", "KPP Pitch")
 
@@ -443,54 +436,54 @@ defineFloat("ACCEL_MAX", 113, {0, 1}, "Accelerometer, AoA Gauge Panel", "Acceler
 defineFloat("ACCEL_MIN", 114, {0, 1}, "Accelerometer, AoA Gauge Panel", "Accelerometer Min G Marker")
 
 --Trimmer Light
-defineIndicatorLight("TRM_LIGHT", 519, "Engine Status Panel", "Trimmer Light")
+defineIndicatorLight("TRM_LIGHT", 519, "Engine Status Panel", "Trimmer Light (green)")
 
 --DC Bus
 defineFloat("DC_V_NEEDLE", 124, {0, 1}, "Engine Status Panel", "Voltmeter Needle")
-defineIndicatorLight("DC_GEN_LIGHT", 510, "Main Warning Lights", "DC Generator Light")
+defineIndicatorLight("DC_GEN_LIGHT", 510, "Main Warning Lights", "DC Generator Light (red)")
 defineFloat("DC_BAT_GAUGE", 55, {0, 1}, "Center Pedestal Panel", "Battery Gauge Needle")
 
 --AC Bus
-defineIndicatorLight("AC_GEN_LIGHT", 511, "Main Warning Lights", "AC Generator Light")
+defineIndicatorLight("AC_GEN_LIGHT", 511, "Main Warning Lights", "AC Generator Light (red)")
 
 --Fuel System
 defineFloat("FUEL_QTY", 52, {0, 1}, "Engine Status Panel", "Fuel Qty Needle")
 
 --Fuel Lights
-defineIndicatorLight("FUEL_PODC", 505, "Center Pedestal Panel", "Center Drop Tank Empty Light")
-defineIndicatorLight("FUEL_1GR", 502, "Main Warning Lights", "Fuel Tank Gr. 1 Empty Light")
-defineIndicatorLight("FUEL_450", 503, "Main Warning Lights", "Fuel 450L Warning Light")
-defineIndicatorLight("FUEL_3GR", 504, "Main Warning Lights", "Fuel Tank Gr. 3 Empty Light")
-defineIndicatorLight("FUEL_PODW", 501, "Main Warning Lights", "Wing Drop Tanks Empty Light")
-defineIndicatorLight("FUEL_RASHOD", 506, "Main Warning Lights", "No Fuel Warning Light")
+defineIndicatorLight("FUEL_PODC", 505, "Center Pedestal Panel", "Center Drop Tank Empty Light (green)")
+defineIndicatorLight("FUEL_1GR", 502, "Main Warning Lights", "Fuel Tank Gr. 1 Empty Light (green)")
+defineIndicatorLight("FUEL_450", 503, "Main Warning Lights", "Fuel 450L Warning Light (red)")
+defineIndicatorLight("FUEL_3GR", 504, "Main Warning Lights", "Fuel Tank Gr. 3 Empty Light (green)")
+defineIndicatorLight("FUEL_PODW", 501, "Main Warning Lights", "Wing Drop Tanks Empty Light (green)")
+defineIndicatorLight("FUEL_RASHOD", 506, "Main Warning Lights", "No Fuel Warning Light (red)")
 
 --Engine Start Systems
-defineIndicatorLight("ENG_START_LIGHT", 509, "Main Warning Lights", "Engine Start Light")
+defineIndicatorLight("ENG_START_LIGHT", 509, "Main Warning Lights", "Engine Start Light (red)")
 defineFloat("ENG_OXY_ST", 61, {0, 1}, "Left Vertical Aft Panel", "Engine Oxygen Status")
 
 --Engine and Throttle
 defineFloat("ENGINE_RPM", 670, {0, 1}, "Engine Status Panel", "Engine RPM 1 Needle")
 defineFloat("ENGINE_RPM2", 50, {0, 1}, "Engine Status Panel", "Engine RPM 2 Needle")
 defineFloat("ENGINE_TEMP", 51, {0, 1}, "Engine Status Panel", "EGT Needle")
-defineIndicatorLight("FORSAZ_1", 507, "Main Warning Lights", "Afterburner Active Light")
-defineIndicatorLight("FORSAZ_2", 508, "Main Warning Lights", "Emergency Afterburner Light")
-defineIndicatorLight("NOZZLE_LIGHT", 512, "Main Warning Lights", "Nozzle Open Light")
-defineIndicatorLight("KONUS_LIGHT", 517, "Engine Status Panel", "Nosecone Light")
-defineIndicatorLight("OIL_LIGHT", 513, "Engine Status Panel", "Oil Pressure Light")
+defineIndicatorLight("FORSAZ_1", 507, "Main Warning Lights", "Afterburner Active Light (green)")
+defineIndicatorLight("FORSAZ_2", 508, "Main Warning Lights", "Emergency Afterburner Light (green)")
+defineIndicatorLight("NOZZLE_LIGHT", 512, "Main Warning Lights", "Nozzle Open Light (green)")
+defineIndicatorLight("KONUS_LIGHT", 517, "Engine Status Panel", "Nosecone Light (green)")
+defineIndicatorLight("OIL_LIGHT", 513, "Engine Status Panel", "Oil Pressure Light (red)")
 defineFloat("OIL_PRES", 627, {0, 1}, "Center Pedestal Panel", "Oil Pressure Gauge")
-defineIndicatorLight("FIRE_LIGHT", 534, "Main Warning Lights", "Fire Warning Light")
+defineIndicatorLight("FIRE_LIGHT", 534, "Main Warning Lights", "Fire Warning Light (red)")
 
 --Hydraulics
 defineFloat("HYDRO_P", 126, {0, 1}, "Engine Status Panel", "Primary Hydraulics Needle")
 defineFloat("HYDRO_S", 125, {0, 1}, "Engine Status Panel", "Secondary Hydraulics Needle")
-defineIndicatorLight("HYDR_LIGHT", 515, "Main Warning Lights", "Hydraulic Pressure Light")
-defineIndicatorLight("BOOST_LIGHT", 514, "Main Warning Lights", "Booster Pressure Light")
+defineIndicatorLight("HYDR_LIGHT", 515, "Main Warning Lights", "Hydraulic Pressure Light (yellow)")
+defineIndicatorLight("BOOST_LIGHT", 514, "Main Warning Lights", "Booster Pressure Light (yellow)")
 
 --Warning Lights
 defineIndicatorLight("CAN_WARN_LIGHT", 541, "Canopy Frame", "Canopy Warning Light")
 defineIndicatorLight("MASTER_CAUTION", 542, "Flight Status/Navigation Panel", "Master Caution/SORC Light")
-defineIndicatorLight("MARK_LIGHT", 516, "Engine Status Panel", "Marker Light")
-defineIndicatorLight("STAB_LIGHT", 518, "Engine Status Panel", "Stabilizer Light")
+defineIndicatorLight("MARK_LIGHT", 516, "Engine Status Panel", "Marker Light (red)")
+defineIndicatorLight("STAB_LIGHT", 518, "Engine Status Panel", "Stabilizer Light (green)")
 defineIndicatorLight("CHK_GEAR_LIGHT", 520, "Landing Gear Control", "Check Gear Light")
 defineIndicatorLight("FLAPS_LIGHT", 521, "Landing Gear Control", "Flaps Light")
 defineIndicatorLight("AIRBRK_LIGHT", 522, "Landing Gear Control", "Airbrakes Light")
@@ -531,12 +524,12 @@ defineIndicatorLight("RADAR_19A_5", 575, "RADAR Scope, Interrupts", "Radar IFF L
 defineIndicatorLight("RADAR_19A_6", 576, "RADAR Scope, Interrupts", "Radar Low Speed Light")
 defineIndicatorLight("RADAR_19A_7", 577, "RADAR Scope, Interrupts", "Radar Self-Test Light")
 defineIndicatorLight("RADAR_19A_8", 578, "RADAR Scope, Interrupts", "Radar Reset Light")
-defineIndicatorLight("IAB_1", 581, "IAB Nuclear Control Panel", "Nuke Panel Loaded Light")
-defineIndicatorLight("IAB_2", 582, "IAB Nuclear Control Panel", "Nuke Panel Armed Light")
-defineIndicatorLight("IAB_3", 583, "IAB Nuclear Control Panel", "Nuke Panel Safe Light")
-defineIndicatorLight("MIS_55_1", 584, "Accelerometer, AoA Gauge Panel", "Missile 55-1 Light")
-defineIndicatorLight("MIS_55_2", 585, "Accelerometer, AoA Gauge Panel", "Missile 55-2 Light")
-defineIndicatorLight("MIS_62", 586, "Accelerometer, AoA Gauge Panel", "Missile 62 Light")
+defineIndicatorLight("IAB_1", 581, "IAB Nuclear Control Panel", "Nuke Panel Loaded Light (green)")
+defineIndicatorLight("IAB_2", 582, "IAB Nuclear Control Panel", "Nuke Panel Armed Light (red)")
+defineIndicatorLight("IAB_3", 583, "IAB Nuclear Control Panel", "Nuke Panel Safe Light (green)")
+defineIndicatorLight("MIS_55_1", 584, "Accelerometer, AoA Gauge Panel", "Missile 55-1 Light (green)")
+defineIndicatorLight("MIS_55_2", 585, "Accelerometer, AoA Gauge Panel", "Missile 55-2 Light (green)")
+defineIndicatorLight("MIS_62", 586, "Accelerometer, AoA Gauge Panel", "Missile 62 Light (green)")
 defineIndicatorLight("TAC_DRP_ARM", 63, "Center Pedestal Panel", "Tactical Drop Armed")
 defineIndicatorLight("SPS_RDY", 592, "SPS-141-100 Panel", "SPS 141-100 Ready")
 defineIndicatorLight("SPS_ILL", 593, "SPS-141-100 Panel", "SPS 141-100 Illuminated")
@@ -556,7 +549,7 @@ defineFloat("ARU_ND", 64, {0, 1}, "ARU/Nosecone Panel", "ARU Needle")
 defineFloat("CONE_ND", 66, {0, 1}, "ARU/Nosecone Panel", "Nosecone Position Needle")
 
 --Gun Arming
-defineIndicatorLight("GUN_GOTOVN", 550, "Weapon Select Panel", "Gun Loaded Light")
+defineIndicatorLight("GUN_GOTOVN", 550, "Weapon Select Panel", "Gun Loaded Light (green)")
 
 --SPO Lights
 defineIndicatorLight("SPO_LF", 601, "SPO RWR", "SPO RWR Left Front Light")
@@ -566,7 +559,7 @@ defineIndicatorLight("SPO_LB", 604, "SPO RWR", "SPO RWR Left Rear Light")
 defineIndicatorLight("SPO_MUTE", 605, "SPO RWR", "SPO RWR Mute Light")
 
 --SOD
-defineIndicatorLight("SOD_ANS", 606, "SPO RWR", "SOD Answer Light")
+defineIndicatorLight("SOD_ANS", 606, "SPO RWR", "SOD Answer Light (yellow)")
 
 --SRZO (labelled as a second SOD category in mainpanel_init)
 defineIndicatorLight("SRZO_PWR_LGHT", 607, "Avionics Power Panel", "SRZO Power Light")
@@ -578,8 +571,8 @@ defineIndicatorLight("SRZO_ERR_L", 611, "SRZO/Fuse Panel", "SOD Error Light")
 defineIndicatorLight("ASP_LGHT_ON", 613, "Backlighting", "ASP Backlight On") --When sight is powered off, all ASP lighting shuts off; Unsure if this will be useful
 defineFloat("ASP_LGHT_INT", 614, {0, 1}, "Backlighting", "ASP Scale Backlight Intensity")
 --defineFloat("PHOS_INT", 618, {0, 1}, "Backlighting", "Phosphor Light") - No apparent effect; May indicate phosphor intensity on toggle switches in the future?
-defineFloat("RED_PAN_INT", 152, {0, 1}, "Backlighting", "Red Panel Text Light Intensity")
-defineFloat("RED_FLD_INT", 619, {0, 1}, "Backlighting", "Red Flood Light Intensity")
+defineFloat("RED_PAN_INT", 152, {0, 1}, "Backlighting", "Red Panel Text Light Intensity (red)")
+defineFloat("RED_FLD_INT", 619, {0, 1}, "Backlighting", "Red Flood Light Intensity (red)")
 defineFloat("WHT_PAN_INT", 620, {0, 1}, "Backlighting", "White Panel Light Intensity")
 defineFloat("INST_LGHT_INT", 621, {0, 1}, "Backlighting", "Instrument Backlight Intensity")
 defineFloat("ASP_GLASS_INT", 622, {0, 1}, "Backlighting", "ASP Glass Light Intensity") --Value is tied to both fixed net and reticle; Both increase/decrease it, and value bottoms out at the value of the highest of the two
@@ -593,19 +586,6 @@ defineFloat("PIT_PRES_ALT", 655, {0, 1}, "Center Pedestal Panel", "Cockpit Press
 defineFloat("PIT_PRES_GAUGE", 656, {0, 1}, "Center Pedestal Panel", "Cockpit Pressure Gauge")
 
 defineIndicatorLight("WARN_L_CHECK_STAT", 407, "Main Warning Lights", "WARNING LIGHTS CHECK STATE")
-
---INSTRUMENTS NOT REPRESENTED:
---Baro Alt pressure value window (mechanical?)
---KPP Aux PRMG needles (Driven by NPP PRMG needle guidance values?)
---Airspeed > 1000 kph warn window (may be possible do drive mechanically based on the needle position)
---Clock needles
--- "ARC to landing NDB frequency self adjustment indication light" (User manual page 47, item 96)
---Wheelbrake lever
---Wheelbrake pressure gauge
---Radio channel display
---SRZO channel display
---PRMG/RSBN channel displays
---ARU manual arrow (mechanical?)
 
 --Externals
 defineIntegerFromGetter("EXT_POSITION_LIGHT_LEFT", function()
@@ -628,5 +608,29 @@ end, 1, "External Aircraft Model", "Weight ON Wheels Right Gear")
 defineIntegerFromGetter("EXT_WOW_LEFT", function()
 	if LoGetAircraftDrawArgumentValue(6) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Weight ON Wheels Left Gear")
+
+defineFloat("CANOPY_POS", 1, {0, 1}, "Cockpit", "Canopy Position")
+
+defineFloat("CLOCK_H", 115, {0, 1}, "Center Pedestal Panel", "Clock Hours Pointer")
+defineFloat("CLOCK_M", 116, {0, 1}, "Center Pedestal Panel", "Clock Minutes Pointer")
+defineFloat("CLOCK_S", 117, {0, 1}, "Center Pedestal Panel", "Clock Seconds Pointer")
+defineFloat("CLOCK_MT_IND", 118, {0, 1}, "Center Pedestal Panel", "Clock Missiontimer Indicator")
+defineFloat("CLOCK_MT_H", 119, {0, 1}, "Center Pedestal Panel", "Clock Missiontimer Hours Pointer") 
+defineFloat("CLOCK_MT_M", 120, {0, 1}, "Center Pedestal Panel", "Clock Missiontimer Minutes Pointer")  
+defineFloat("CLOCK_T_M", 121, {0, 1}, "Center Pedestal Panel", "Clock Timer Minutes Pointer")
+defineFloat("CLOCK_T_S", 122, {0, 1}, "Center Pedestal Panel", "Clock Timer Seconds Pointer")
+defineIndicatorLight("ARC_IBN_LIGHT", 145, "Center Pedestal Panel", "ARC IBN Light (green)")
+defineFloat("WBRAKE_L_GAUGE", 56, {0, 1}, "Center Pedestal Panel", "Wheelbrake Left Pressure Gauge Needle")
+defineFloat("WBRAKE_R_GAUGE", 56, {0, 1}, "Center Pedestal Panel", "Wheelbrake Right Pressure Gauge Needle")
+
+--INSTRUMENTS NOT REPRESENTED:
+--Baro Alt pressure value window (mechanical?)
+--KPP Aux PRMG needles (Driven by NPP PRMG needle guidance values?)
+--Airspeed > 1000 kph warn window (may be possible do drive mechanically based on the needle position)
+--Wheelbrake lever
+--Radio channel display
+--SRZO channel display
+--PRMG/RSBN channel displays
+--ARU manual arrow (mechanical?)
 
 BIOS.protocol.endModule()
