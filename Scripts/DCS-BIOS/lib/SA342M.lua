@@ -512,4 +512,7 @@ definePushButton("VHF_AM_RADIO_VOL_2_P", 38, 3271, 455, "Intercom", "VHF AM Radi
 definePushButton("FM_RADIO_VOL_2_P", 38, 3272, 456, "Intercom", "FM Radio Volume 2 (Push)")
 definePushButton("UHF_RADIO_VOL_2_P", 38, 3273, 457, "Intercom", "UHF Radio Volume 2 (Push)")
 
+defineFloat("DOOR_POS_L", 532, {0, 1}, "Cockpit", "Door Position Left")
+defineFloat("DOOR_POS_R", 533, {0, 1}, "Cockpit", "Door Position Right")
+
 BIOS.protocol.endModule()

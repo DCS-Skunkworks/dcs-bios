@@ -431,4 +431,6 @@ definePushButton("FLARE_GUN_YE", 20, 3006, 165, "Flare Gun", "Fire Flare Gun Yel
 definePotentiometer("LH_WHEELBRAKE", 4, 3015, 103, {0, 1}, "Cockpit", "Left Wheel Brake")
 definePotentiometer("RH_WHEELBRAKE", 4, 3018, 104, {0, 1}, "Cockpit", "Right Wheel Brake")
 
+defineFloat("CANOPY_POS", 95, {0, 1}, "Cockpit", "Canopy Position")
+
 BIOS.protocol.endModule()

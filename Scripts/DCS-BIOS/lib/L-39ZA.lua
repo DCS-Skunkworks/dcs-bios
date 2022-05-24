@@ -330,11 +330,11 @@ defineIndicatorLight("BACK_RKL41_BACK_LIGHT", 566, "Warning, Caution and Indicat
 
 ------------------------------------ L-39 Clickable Controls --------------------------------------------------------------------
 -- ASP-3NMU Gunsight
-defineToggleSwitch("FRONT_GUNSIDE_MODE",  1,3003, 101,"Gunsight", "FRONT ASP-3NMU Gunsight Mode, GYRO/FIXED")
+defineToggleSwitch("FRONT_GUNSIDE_MODE", 1,3003, 101,"Gunsight", "FRONT ASP-3NMU Gunsight Mode, GYRO/FIXED")
 definePotentiometer("FRONT_GUNSIDE_BRIGHT", 1, 3004, 102, {0, 1}, "Gunsight", "FRONT ASP-3NMU Gunsight Brightness Knob")
 definePotentiometer("FRONT_GUNSIDE_WINGSPAN", 1, 3001, 103, {0, 1}, "Gunsight", "FRONT ASP-3NMU Target Wingspan Adjustment Dial (m)")
-defineToggleSwitch("FRONT_GUNSIDE_FILTER",  1,3012, 104,"Gunsight", "FRONT ASP-3NMU Gunsight Color Filter, ON/OFF")
-defineToggleSwitch("FRONT_GUNSIDE_RETICLE",  1,3011, 105,"Gunsight", "FRONT ASP-3NMU Gunsight Fixed Reticle Mask Lever")
+defineToggleSwitch("FRONT_GUNSIDE_FILTER", 1,3012, 104,"Gunsight", "FRONT ASP-3NMU Gunsight Color Filter, ON/OFF")
+defineToggleSwitch("FRONT_GUNSIDE_RETICLE", 1,3011, 105,"Gunsight", "FRONT ASP-3NMU Gunsight Fixed Reticle Mask Lever")
 definePotentiometer("FRONT_GUNSIDE_DEPRESS", 1, 3016, 106, {0, 1}, "Gunsight", "FRONT ASP-3NMU Gunsight Mirror Depression")
 definePotentiometer("FRONT_GUNSIDE_DISTANCE", 1, 3002, 107, {0, 1}, "Gunsight", "FRONT ASP-3NMU Gunsight Target Distance")
 
@@ -359,8 +359,8 @@ definePushButton("BACK_RV5M_TEST", 14, 3005, 398,"RV5M" , "BACK RV-5M Radio Alti
 defineRotary("BACK_RV5M_HEIGH_KNOB", 14, 3004, 399, "RV5M", "BACK RV-5M Radio Altimeter Decision Height Knob")
 
 -- GMK 
-defineToggleSwitch("FRONT_GMK_SELECT",  17,3002, 204,"GMK", "FRONT GMK-1AE GMC Hemisphere Selection Switch, N(orth)/S(outh)")
-defineToggleSwitch("FRONT_GMK_MODE",  17,3004, 207,"GMK", "FRONT GMK-1AE GMC Mode Switch, MC(Magnetic Compass Mode)/GC(Directional Gyro Mode)")
+defineToggleSwitch("FRONT_GMK_SELECT", 17,3002, 204,"GMK", "FRONT GMK-1AE GMC Hemisphere Selection Switch, N(orth)/S(outh)")
+defineToggleSwitch("FRONT_GMK_MODE", 17,3004, 207,"GMK", "FRONT GMK-1AE GMC Mode Switch, MC(Magnetic Compass Mode)/GC(Directional Gyro Mode)")
 define3PosTumb("FRONT_GMK_TEST", 17, 3003, 205, "GMK", "FRONT GMK-1AE GMC Test Switch, 0/OFF/300")
 define3PosTumb("FRONT_GMK_CRS_SEL", 17, 3005, 208, "GMK", "FRONT GMK-1AE GMC Course Selector Switch, CCW/OFF/CW")
 definePotentiometer("FRONT_GMK_LATITUDE", 17, 3006, 209, {0.0,0.728}, "GMK", "FRONT GMK-1AE GMC Latitude Selector Knob")
@@ -372,15 +372,15 @@ definePotentiometer("FRONT_GMK_MAG_VAR", 17, 3014, 532, {0.0,1.0}, "GMK", "FRONT
 definePushButton("FRONT_KPP_ARRETIR", 22, 3002, 30,"KPP" , "FRONT KPP-1273K ADI Cage Button")
 definePotentiometer("FRONT_KPP_SET", 22, 3003, 39, {-1, 1}, "KPP", "FRONT KPP-1273K ADI Trim Knob")
 defineToggleSwitch("FRONT_SDU_SW", 41,3001, 177,"KPP", "FRONT SDU Switch, ON/OFF")
-defineToggleSwitch("BACK_AGD_FAIL_PITCH",  22,3008, 460,"KPP", "BACK AGD Pitch Failure")
-defineToggleSwitch("BACK_AGD_FAIL_BANK",  22,3009, 461,"KPP", "BACK AGD Bank Failure")
+defineToggleSwitch("BACK_AGD_FAIL_PITCH", 22,3008, 460,"KPP", "BACK AGD Pitch Failure")
+defineToggleSwitch("BACK_AGD_FAIL_BANK", 22,3009, 461,"KPP", "BACK AGD Bank Failure")
 definePushButton("BACK_KPP_ARRETIR", 23, 3002, 367,"KPP" , "BACK KPP-1273K ADI Cage Button")
 definePotentiometer("BACK_KPP_SET", 23, 3003, 376, {-1, 1}, "KPP", "BACK KPP-1273K ADI Trim Knob")
 
 -- NPP
 defineRotary("FRONT_HSI_CRS", 24, 3001, 48, "NPP", "FRONT HSI Course Set Knob")
 definePushButton("BACK_FAIL_CRS", 25, 3002, 526,"NPP" , "BACK Course Accordance")
-defineToggleSwitch("BACK_FAIL_GMK",  24,3002, 458,"NPP", "BACK GMK Failure")
+defineToggleSwitch("BACK_FAIL_GMK", 24,3002, 458,"NPP", "BACK GMK Failure")
 defineRotary("BACK_HSI_CRS", 25, 3001, 385, "NPP", "BACK HSI Course Set Knob")
 
 --ISKRA
@@ -391,45 +391,45 @@ definePotentiometer("FRONT_RSBN_LIGHT_KNOB", 31, 3004, 181, {0, 1}, "ISKRA", "FR
 definePotentiometer("FRONT_RSBN_VOL", 31, 3005, 184, {0.0,0.8}, "ISKRA", "FRONT RSBN Volume Knob")
 define3PosTumb("FRONT_RSBN_SET_AZ", 31, 3006, 187, "ISKRA", "FRONT RSBN Initial Azimuth")
 define3PosTumb("FRONT_RSBN_SET_RANGE", 31, 3007, 188, "ISKRA", "FRONT RSBN Initial Range")
-defineMultipositionSwitch("FRONT_RSBN_CHAN_NAV_KNOB",  31,3008, 191, 40, 0.025,"ISKRA", "FRONT RSBN Navigation Channel Selector Knob")
-defineMultipositionSwitch("FRONT_RSBN_CHAN_LAND_KNOB",  31,3009, 192, 40, 0.025,"ISKRA", "FRONT RSBN Landing Channel Selector Knob")
+defineMultipositionSwitch("FRONT_RSBN_CHAN_NAV_KNOB", 31,3008, 191, 40, 0.025,"ISKRA", "FRONT RSBN Navigation Channel Selector Knob")
+defineMultipositionSwitch("FRONT_RSBN_CHAN_LAND_KNOB", 31,3009, 192, 40, 0.025,"ISKRA", "FRONT RSBN Landing Channel Selector Knob")
 definePushButton("FRONT_RSBN_SET_AZ0", 31, 3010, 193,"ISKRA" , "FRONT RSBN Set 0 Azimuth")
 definePotentiometer("FRONT_RSBN_ALT_SEL", 31, 3011, 201, {0.0,1.0}, "ISKRA", "FRONT RSBN Field Elevation Knob")
 definePushButton("FRONT_RSBN_BEACON", 31, 3012, 297,"ISKRA" , "FRONT RSBN Listen Callsign Button")
-defineToggleSwitch("FRONT_RSBN_EMERG_LAND",  31,3013, 527,"ISKRA", "FRONT RSBN Emergency Landing Switch, ON/OFF")
+defineToggleSwitch("FRONT_RSBN_EMERG_LAND", 31,3013, 527,"ISKRA", "FRONT RSBN Emergency Landing Switch, ON/OFF")
 
 -- Variometer
 definePotentiometer("FRONT_VV_SET", 15, 3001, 569, {0, 1}, "Variometer", "FRONT Variometer Adjustment Knob")
 definePotentiometer("BACK_VV_SET", 16, 3001, 419, {0, 1}, "Variometer", "BACK Variometer Adjustment Knob")
 
 -- RKL-41
-defineToggleSwitch("FRONT_RKL_BEACON_SW",  21, 3011, 119,"RKL41", "FRONT RKL-41 ADF Outer-Inner Beacon (Far-Near NDB) Switch")
+defineToggleSwitch("FRONT_RKL_BEACON_SW", 21, 3011, 119,"RKL41", "FRONT RKL-41 ADF Outer-Inner Beacon (Far-Near NDB) Switch")
 definePotentiometer("FRONT_RKL_VOL", 21, 3001, 157, {0, 1}, "RKL41", "FRONT RKL-41 ADF Volume Knob")
 definePotentiometer("FRONT_RKL_BRIGHT", 21, 3013, 161, {0, 1}, "RKL41", "FRONT RKL-41 ADF Brightness Knob")
-defineToggleSwitch("FRONT_RKL_TLF_TLG",  21, 3002, 159,"RKL41", "FRONT RKL-41 ADF Mode Switch, TLF(A3)/TLG(A1,A2)")
-defineMultipositionSwitch("FRONT_RKL_MODE",  21, 3003, 160, 5, 0.1,"RKL41", "FRONT RKL-41 ADF Function Selector Switch, OFF/COMP(AUTO)/COMP(MAN)/ANT/LOOP")
+defineToggleSwitch("FRONT_RKL_TLF_TLG", 21, 3002, 159,"RKL41", "FRONT RKL-41 ADF Mode Switch, TLF(A3)/TLG(A1,A2)")
+defineMultipositionSwitch("FRONT_RKL_MODE", 21, 3003, 160, 5, 0.1,"RKL41", "FRONT RKL-41 ADF Function Selector Switch, OFF/COMP(AUTO)/COMP(MAN)/ANT/LOOP")
 define3PosTumb("FRONT_RKL_LOOP_SW", 21, 3010, 162, "RKL41", "FRONT RKL-41 ADF Loop Switch, LEFT/OFF/RIGHT")
-defineToggleSwitch("FRONT_RKL_REMOTE",  21, 3012, 158,"RKL41", "FRONT RKL-41 ADF Control Switch, TAKE CONTROL/HAND OVER CONTROL")
+defineToggleSwitch("FRONT_RKL_REMOTE", 21, 3012, 158,"RKL41", "FRONT RKL-41 ADF Control Switch, TAKE CONTROL/HAND OVER CONTROL")
 definePotentiometer("FRONT_RKL_FREQ_1_TUNE", 21, 3004, 165, {0, 1}, "RKL41", "FRONT RKL-41 ADF Far NDB Frequency Tune")
 defineTumb("FRONT_RKL_FREQ_1_XX00", 21, 3005, 163, 0.0588, {0.0,0.938}, nil, false, "RKL41", "FRONT RKL-41 ADF Far NDB 100kHz Rotary")
 defineTumb("FRONT_RKL_FREQ_1_00XX", 21, 3006, 164, 0.1, {0.0,0.9}, nil, false, "RKL41", "FRONT RKL-41 ADF Far NDB 10kHz Rotary")
 definePotentiometer("FRONT_RKL_FREQ_2_TUNE", 21, 3007, 168, {0, 1}, "RKL41", "FRONT RKL-41 ADF Near NDB Frequency Tune")
 defineTumb("FRONT_RKL_FREQ_2_XX00", 21, 3008, 166, 0.0588, {0.0,0.938}, nil, false, "RKL41", "FRONT RKL-41 ADF Near NDB 100kHz Rotary")
 defineTumb("FRONT_RKL_FREQ_2_00XX", 21, 3009, 167, 0.1, {0.0,0.9}, nil, false, "RKL41", "FRONT RKL-41 ADF Near NDB 10kHz Rotary")
-defineToggleSwitch("BACK_RKL_BEACON_SW",  21, 3024, 440,"RKL41", "BACK RKL-41 ADF Outer-Inner Beacon (Far-Near NDB) Switch")
+defineToggleSwitch("BACK_RKL_BEACON_SW", 21, 3024, 440,"RKL41", "BACK RKL-41 ADF Outer-Inner Beacon (Far-Near NDB) Switch")
 definePotentiometer("BACK_RKL_VOL", 21, 3014, 514, {0, 1}, "RKL41", "BACK RKL-41 ADF Volume Knob")
 definePotentiometer("BACK_RKL_BRIGHT", 21, 3026, 518, {0, 1}, "RKL41", "BACK RKL-41 ADF Brightness Knob")
-defineToggleSwitch("BACK_RKL_TLF_TLG",  21, 3015, 516,"RKL41", "BACK RKL-41 ADF Mode Switch, TLF(A3)/TLG(A1,A2)")
-defineMultipositionSwitch("BACK_RKL_MODE",  21, 3016, 517, 5, 0.1,"RKL41", "BACK RKL-41 ADF Function Selector Switch, OFF/COMP(AUTO)/COMP(MAN)/ANT/LOOP")
+defineToggleSwitch("BACK_RKL_TLF_TLG", 21, 3015, 516,"RKL41", "BACK RKL-41 ADF Mode Switch, TLF(A3)/TLG(A1,A2)")
+defineMultipositionSwitch("BACK_RKL_MODE", 21, 3016, 517, 5, 0.1,"RKL41", "BACK RKL-41 ADF Function Selector Switch, OFF/COMP(AUTO)/COMP(MAN)/ANT/LOOP")
 define3PosTumb("BACK_RKL_LOOP_SW", 21, 3010, 519, "RKL41", "BACK RKL-41 ADF Loop Switch, LEFT/OFF/RIGHT")
-defineToggleSwitch("BACK_RKL_REMOTE",  21, 3025, 515,"RKL41", "BACK RKL-41 ADF Control Switch, TAKE CONTROL/HAND OVER CONTROL")
+defineToggleSwitch("BACK_RKL_REMOTE", 21, 3025, 515,"RKL41", "BACK RKL-41 ADF Control Switch, TAKE CONTROL/HAND OVER CONTROL")
 definePotentiometer("BACK_RKL_FREQ_1_TUNE", 21, 3017, 522, {0, 1}, "RKL41", "BACK RKL-41 ADF Far NDB Frequency Tune")
 defineTumb("BACK_RKL_FREQ_1_XX00", 21, 3018, 520, 0.0588, {0.0,0.938}, nil, false, "RKL41", "BACK RKL-41 ADF Far NDB 100kHz Rotary")
 defineTumb("BACK_RKL_FREQ_1_00XX", 21, 3019, 521, 0.1, {0.0,0.9}, nil, false, "RKL41", "BACK RKL-41 ADF Far NDB 10kHz Rotary")
 definePotentiometer("BACK_RKL_FREQ_2_TUNE", 21, 3020, 525, {0, 1}, "RKL41", "BACK RKL-41 ADF Near NDB Frequency Tune")
 defineTumb("BACK_RKL_FREQ_2_XX00", 21, 3021, 523, 0.0588, {0.0,0.938}, nil, false, "RKL41", "BACK RKL-41 ADF Near NDB 100kHz Rotary")
 defineTumb("BACK_RKL_FREQ_2_00XX", 21, 3022, 524, 0.1, {0.0,0.9}, nil, false, "RKL41", "BACK RKL-41 ADF Near NDB 10kHz Rotary")
-defineToggleSwitch("BACK_RKL_ARK_FAIL",  21, 3027, 459,"RKL41", "BACK RKL-41 ARK Failure")
+defineToggleSwitch("BACK_RKL_ARK_FAIL", 21, 3027, 459,"RKL41", "BACK RKL-41 ARK Failure")
 
 -- Electric System
 defineToggleSwitch("FRONT_BATTERY_SW", 4, 3001, 141,"Electric System", "FRONT Accumulator Switch, ON/OFF")
@@ -515,7 +515,7 @@ define3PosTumb("FRONT_INST_LIGHTS", 20, 3008, 330, "Lights System", "FRONT Instr
 define3PosTumb("BACK_INST_LIGHTS", 20, 3010, 497, "Lights System", "BACK Instrument Lighting Switch, Red/OFF/White")
 definePotentiometer("FRONT_INST_LIGHTS_CON", 20, 3009, 331, {0.1, 0.9}, "Lights System", "FRONT Instrument Lights Intensity Knob")
 definePotentiometer("BACK_INST_LIGHTS_CON", 20, 3011, 498, {0.1, 0.9}, "Lights System", "BACK Instrument Lights Intensity Knob")
-defineToggleSwitch("FRONT_EMERG_LIGHT",  20,3005, 249,"Lights System", "FRONT Emergency Instrument Light Switch, ON/OFF")
+defineToggleSwitch("FRONT_EMERG_LIGHT", 20,3005, 249,"Lights System", "FRONT Emergency Instrument Light Switch, ON/OFF")
 definePotentiometer("FRONT_WARN_LIGHTS_CON", 20, 3012, 202, {0, 1}, "Lights System", "FRONT Warning-Light Intensity Knob")
 definePushButton("FRONT_WARN_LIGHTS_TEST", 20, 3013, 203,"Lights System" , "FRONT Warning-Light Check Button")
 definePotentiometer("BACK_WARN_LIGHTS_CON", 20, 3014, 537, {0, 1}, "Lights System", "BACK Warning-Light Intensity Knob")
@@ -569,21 +569,21 @@ defineToggleSwitch("L39C_FRONT_EMERG_JETT_COVER", 3, 3010, 269,"Weapon System", 
 defineToggleSwitch("L39C_FRONT_EMERG_JETT", 3, 3011, 270,"Weapon System", "L-39C FRONT Emergency Jettison Switch, ON/OFF")
 
 -- Oxygen System
-defineToggleSwitch("FRONT_OXY_EMERG",  30, 3004, 303,"Oxygen System", "FRONT Emergency Oxygen Switch, ON/OFF")
-defineToggleSwitch("FRONT_OXY_SW",  30, 3006, 304,"Oxygen System", "FRONT Diluter Demand Switch, 100% / MIX")
-defineToggleSwitch("FRONT_HELM_VENT",  30, 3008, 307,"Oxygen System", "FRONT Helmet Ventilation Switch, ON/OFF")
+defineToggleSwitch("FRONT_OXY_EMERG", 30, 3004, 303,"Oxygen System", "FRONT Emergency Oxygen Switch, ON/OFF")
+defineToggleSwitch("FRONT_OXY_SW", 30, 3006, 304,"Oxygen System", "FRONT Diluter Demand Switch, 100% / MIX")
+defineToggleSwitch("FRONT_HELM_VENT", 30, 3008, 307,"Oxygen System", "FRONT Helmet Ventilation Switch, ON/OFF")
 definePotentiometer("FRONT_OXY_SUPPLY_VALVE", 30, 3001, 306, {0, 1}, "Oxygen System", "FRONT Oxygen Supply Valve (CLOSE - CW, OPEN - CCW)")
-defineToggleSwitch("BACK_OXY_EMERG",  30, 3005, 479,"Oxygen System", "BACK Emergency Oxygen Switch, ON/OFF")
-defineToggleSwitch("BACK_OXY_SW",  30, 3007, 480,"Oxygen System", "BACK Diluter Demand Switch, 100% / MIX")
+defineToggleSwitch("BACK_OXY_EMERG", 30, 3005, 479,"Oxygen System", "BACK Emergency Oxygen Switch, ON/OFF")
+defineToggleSwitch("BACK_OXY_SW", 30, 3007, 480,"Oxygen System", "BACK Diluter Demand Switch, 100% / MIX")
 definePotentiometer("BACK_OXY_INTER_VALVE", 30, 3003, 484, {0, 1}, "Oxygen System", "BACK Oxygen Interconnaction Valve (CLOSE - CW, OPEN - CCW)")
 definePotentiometer("BACK_OXY_SUPPLY_VALVE", 30, 3002, 482, {0, 1}, "Oxygen System", "BACK Oxygen Supply Valve (CLOSE - CW, OPEN - CCW)")
 
 -- SARPP
-defineToggleSwitch("FRONT_SARPP_REC_SWITCH",  36,3001, 298,"SARPP", "FRONT SARPP Flight Recorder, ON/OFF")
+defineToggleSwitch("FRONT_SARPP_REC_SWITCH", 36,3001, 298,"SARPP", "FRONT SARPP Flight Recorder, ON/OFF")
 
 -- Fuel System
-defineToggleSwitch("FRONT_FUEL_SHUTOFF",  5,3002, 296,"Fuel System", "FRONT Fuel Shut-Off Lever")
-defineToggleSwitch("BACK_FUEL_SHUTOFF",  5,3003, 475,"Fuel System", "BACK Fuel Shut-Off Lever")
+defineToggleSwitch("FRONT_FUEL_SHUTOFF", 5,3002, 296,"Fuel System", "FRONT Fuel Shut-Off Lever")
+defineToggleSwitch("BACK_FUEL_SHUTOFF", 5,3003, 475,"Fuel System", "BACK Fuel Shut-Off Lever")
 
 -- Air System
 defineRotary("FRONT_PRESS_HANDLE", 7, 3001, 245, "Air System", "FRONT ECS and Pressurization Handle, OFF/CANOPIES SEALED/ECS ON")
@@ -592,7 +592,7 @@ defineTumb("FRONT_CABIN_HEAT_MODE", 7, 3004, 172, 0.05, {0.0, 0.25}, nil, false,
 definePotentiometer("FRONT_CABIN_TEMP", 7, 3003, 173, {0, 1}, "Air System", "FRONT Cabin Air Temperature Controller Rheostat")
 defineTumb("FRONT_SUIT_COND_MODE", 7, 3006, 121, 0.05, {0.0, 0.25}, nil, false, "Air System", "FRONT Diffuser and Flight Suit Air Conditioning Control Switch, HEAT/AUTO/COOL")
 definePotentiometer("FRONT_SUIT_TEMP", 7, 3005, 120, {0, 1}, "Air System", "FRONT Diffuser and Flight Suit Temperature Rheostat")
-defineToggleSwitch("BACK_AIR_COND_COVER",  7, 3008, 510,"Air System", "BACK Conditioning Shutoff Switch Cover, OPEN/CLOSE")
+defineToggleSwitch("BACK_AIR_COND_COVER", 7, 3008, 510,"Air System", "BACK Conditioning Shutoff Switch Cover, OPEN/CLOSE")
 define3PosTumb("BACK_AIR_COND", 7,	3007, 511, "Air System", "BACK Conditioning Shutoff Switch, OPEN/FRONT PILOT CONTROL/CLOSE")
 
 -- Anti-Icing System
@@ -605,39 +605,39 @@ defineTumb("FRONT_HELMET_MODE", 7, 3012, 308, 0.5, {0, 1}, nil, false, "Helm Hea
 definePotentiometer("FRONT_HELMET_TEMP", 7,	3013, 310, {0, 1}, "Helm Heat", "FRONT Helmet Heating Temperature Rheostat")
 
 -- SPU-9
-defineToggleSwitch("FRONT_SPU_RESERV",  34,3004, 290,"SPU", "FRONT Reserve Intercom Switch, ON/OFF")
-defineToggleSwitch("FRONT_SPU_ADF",  34,3003, 291,"SPU", "FRONT ADF Audio Switch, ADF/OFF")
+defineToggleSwitch("FRONT_SPU_RESERV", 34,3004, 290,"SPU", "FRONT Reserve Intercom Switch, ON/OFF")
+defineToggleSwitch("FRONT_SPU_ADF", 34,3003, 291,"SPU", "FRONT ADF Audio Switch, ADF/OFF")
 definePotentiometer("FRONT_SPU_VOL", 34, 3001, 288, {0.0, 0.8}, "SPU", "FRONT Intercom Volume Knob")
 definePotentiometer("FRONT_RADIO_VOL", 34, 3002, 289, {0.0, 0.8}, "SPU", "FRONT Radio Volume Knob")
 definePushButton("FRONT_RADIO_BTN", 34, 3005, 134,"SPU", "FRONT Radio Button")
 definePushButton("FRONT_SPU_BTN", 34, 3006, 133,"SPU", "FRONT Intercom Button")
-defineToggleSwitch("BACK_SPU_RESERV",  34,3010, 473,"SPU", "BACK Reserve Intercom Switch, ON/OFF")
-defineToggleSwitch("BACK_SPU_ADF",  34,3009, 474,"SPU", "BACK ADF Audio Switch, ADF/OFF")
+defineToggleSwitch("BACK_SPU_RESERV", 34,3010, 473,"SPU", "BACK Reserve Intercom Switch, ON/OFF")
+defineToggleSwitch("BACK_SPU_ADF", 34,3009, 474,"SPU", "BACK ADF Audio Switch, ADF/OFF")
 definePotentiometer("BACK_SPU_VOL", 34, 3007, 471, {0.0, 0.8}, "SPU", "BACK Intercom Volume Knob")
 definePotentiometer("BACK_RADIO_VOL", 34, 3008, 472, {0.0, 0.8}, "SPU", "BACK Radio Volume Knob")
 definePushButton("BACK_RADIO_BTN", 34, 3011, 547,"SPU", "BACK Radio Button")
 definePushButton("BACK_SPU_BTN", 34, 3012, 546,"SPU", "BACK Intercom Button")
 
 -- R-832M
-defineToggleSwitch("FRONT_RADIO_CONTROL",  19,3003, 287,"Radio", "FRONT Radio Control Switch - Flip for Control")
-defineToggleSwitch("FRONT_RADIO_SQUELCH",  19,3002, 286,"Radio", "FRONT Radio Squelch Switch, ON/OFF")
-defineMultipositionSwitch("FRONT_RADIO_CHN",  19,3001, 284, 20, 0.05,"Radio", "FRONT Radio Preset Channel Selector Knob")
-defineToggleSwitch("BACK_RADIO_CONTROL",  19,3006, 470,"Radio", "BACK Radio Control Switch - Flip for Control")
-defineToggleSwitch("BACK_RADIO_SQUELCH",  19,3005, 469,"Radio", "BACK Radio Squelch Switch, ON/OFF")
-defineMultipositionSwitch("BACK_RADIO_CHN",  19,3004, 468, 20, 0.05,"Radio", "BACK Radio Preset Channel Selector Knob")
+defineToggleSwitch("FRONT_RADIO_CONTROL", 19,3003, 287,"Radio", "FRONT Radio Control Switch - Flip for Control")
+defineToggleSwitch("FRONT_RADIO_SQUELCH", 19,3002, 286,"Radio", "FRONT Radio Squelch Switch, ON/OFF")
+defineMultipositionSwitch("FRONT_RADIO_CHN", 19,3001, 284, 20, 0.05,"Radio", "FRONT Radio Preset Channel Selector Knob")
+defineToggleSwitch("BACK_RADIO_CONTROL", 19,3006, 470,"Radio", "BACK Radio Control Switch - Flip for Control")
+defineToggleSwitch("BACK_RADIO_SQUELCH", 19,3005, 469,"Radio", "BACK Radio Squelch Switch, ON/OFF")
+defineMultipositionSwitch("BACK_RADIO_CHN", 19,3004, 468, 20, 0.05,"Radio", "BACK Radio Preset Channel Selector Knob")
 
 -- Engine Systems
 definePushButton("FRONT_CONTROL_IV300", 6, 3001, 329,"Engine Systems", "FRONT IV-300 Engine Vibration Test Button")
-defineToggleSwitch("FRONT_FIRE_COVER",  6,3002, 327,"Engine Systems", "FRONT Fire Extinguish Button Cover")
+defineToggleSwitch("FRONT_FIRE_COVER", 6,3002, 327,"Engine Systems", "FRONT Fire Extinguish Button Cover")
 definePushButton("FRONT_FIRE", 6, 3003, 328,"Engine Systems", "FRONT Fire Extinguish Button")
-defineToggleSwitch("BACK_FIRE_COVER",  6,3004, 495,"Engine Systems", "BACK Fire Extinguish Button Cover")
+defineToggleSwitch("BACK_FIRE_COVER", 6,3004, 495,"Engine Systems", "BACK Fire Extinguish Button Cover")
 definePushButton("BACK_FIRE", 6, 3005, 496,"Engine Systems", "BACK Fire Extinguish Button")
 define3PosTumb("FRONT_TEST_SSP", 6, 3006, 272, "Engine Systems", "FRONT Fire Warning Signal Test Switch I/OFF/II")
-defineToggleSwitch("FRONT_RT12_OFF_COVER",  6,3007, 323,"Engine Systems", "FRONT RT-12 JPT Regulator Manual Disable Switch Cover")
-defineToggleSwitch("FRONT_RT12_OFF",  6,3008, 324,"Engine Systems", "FRONT RT-12 JPT Regulator Manual Disable Switch")
-defineToggleSwitch("FRONT_RT12_PW",  6,3009, 243,"Engine Systems", "FRONT RT-12 JPT Regulator Power Switch")
+defineToggleSwitch("FRONT_RT12_OFF_COVER", 6,3007, 323,"Engine Systems", "FRONT RT-12 JPT Regulator Manual Disable Switch Cover")
+defineToggleSwitch("FRONT_RT12_OFF", 6,3008, 324,"Engine Systems", "FRONT RT-12 JPT Regulator Manual Disable Switch")
+defineToggleSwitch("FRONT_RT12_PW", 6,3009, 243,"Engine Systems", "FRONT RT-12 JPT Regulator Power Switch")
 define3PosTumb("FRONT_RT12_TEST", 6, 3010, 242, "Engine Systems", "FRONT RT-12 JPT Regulator Test Switch I/OFF/II")
-defineToggleSwitch("BACK_EGT_CONTROL",  6,3011, 499,"Engine Systems", "BACK EGT Indicator Switch")
+defineToggleSwitch("BACK_EGT_CONTROL", 6,3011, 499,"Engine Systems", "BACK EGT Indicator Switch")
 
 -- Control System
 definePushButton("FRONT_FLAPS_0", 37, 3001, 281,"Control System", "FRONT Flaps Flight Position 0")
@@ -646,23 +646,23 @@ definePushButton("FRONT_FLAPS_44", 37, 3003, 283,"Control System", "FRONT Flaps 
 definePushButton("BACK_FLAPS_0", 37, 3004, 465,"Control System", "BACK Flaps Flight Position 0")
 definePushButton("BACK_FLAPS_25", 37, 3005, 466,"Control System", "BACK Flaps Takeoff Position 25")
 definePushButton("BACK_FLAPS_44", 37, 3006, 467,"Control System", "BACK Flaps Landing Position 44")
-defineToggleSwitch("BACK_THROTTLE_LIMIT",  37,3021, 549,"Control System", "BACK Throttle Limiter")
+defineToggleSwitch("BACK_THROTTLE_LIMIT", 37,3021, 549,"Control System", "BACK Throttle Limiter")
 definePushButton("FRONT_AIR_BRAKE_BTN", 37, 3008, 135,"Control System", "FRONT Air Brake Push Switch")
-defineToggleSwitch("FRONT_AIR_BRAKE_SW",  37,3007, 136,"Control System", "FRONT Air Brake Switch")
+defineToggleSwitch("FRONT_AIR_BRAKE_SW", 37,3007, 136,"Control System", "FRONT Air Brake Switch")
 define3PosTumb("BACK_AIR_BRAKE_SW", 37, 3009, 548, "Control System", "BACK Air Brake Switch")
 define3PosTumb("FRONT_GEAR_LEVER", 37, 3011, 118, "Control System", "FRONT Landing Gear Control Lever")
 define3PosTumb("BACK_GEAR_LEVER", 37, 3012, 437, "Control System", "BACK Landing Gear Control Lever")
 definePotentiometer("FRONT_BRAKE_CONTROL", 37, 3016, 334, {-1, 1}, "Control System", "FRONT Emergency/Parking Wheel Brake Lever")
 definePotentiometer("BACK_BRAKE_CONTROL", 37, 3017, 501, {-1, 1}, "Control System", "BACK Emergency/Parking Wheel Brake Lever")
-defineToggleSwitch("FRONT_BRAKE_CONTROL_LOCK",  37,3024, 334,"Control System", "FRONT Parking Brake Lever Flag")
-defineToggleSwitch("FRONT_EMERG_HYD",  35,3001, 197,"Control System", "FRONT Main and Emergency Hydraulic Systems Interconnection Lever ON/OFF")
-defineToggleSwitch("FRONT_EMERG_GEAR",  35,3003, 194,"Control System", "FRONT Emergency Landing Gear Extension Lever ON/OFF")
-defineToggleSwitch("FRONT_EMERG_FLAPS",  35,3005, 195,"Control System", "FRONT Emergency Flaps Extension Lever ON/OFF")
-defineToggleSwitch("FRONT_EMERG_GEN",  35,3007, 196,"Control System", "FRONT RAT Emergency Generator Lever ON/OFF")
-defineToggleSwitch("BACK_EMERG_HYD",  35,3002, 536,"Control System", "BACK Main and Emergency Hydraulic Systems Interconnection Lever ON/OFF")
-defineToggleSwitch("BACK_EMERG_GEAR",  35,3004, 533,"Control System", "BACK Emergency Landing Gear Extension Lever ON/OFF")
-defineToggleSwitch("BACK_EMERG_FLAPS",  35,3006, 534,"Control System", "BACK Emergency Flaps Extension Lever ON/OFF")
-defineToggleSwitch("BACK_EMERG_GEN",  35,3008, 535,"Control System", "BACK RAT Emergency Generator Lever ON/OFF")
+defineToggleSwitch("FRONT_BRAKE_CONTROL_LOCK", 37,3024, 334,"Control System", "FRONT Parking Brake Lever Flag")
+defineToggleSwitch("FRONT_EMERG_HYD", 35,3001, 197,"Control System", "FRONT Main and Emergency Hydraulic Systems Interconnection Lever ON/OFF")
+defineToggleSwitch("FRONT_EMERG_GEAR", 35,3003, 194,"Control System", "FRONT Emergency Landing Gear Extension Lever ON/OFF")
+defineToggleSwitch("FRONT_EMERG_FLAPS", 35,3005, 195,"Control System", "FRONT Emergency Flaps Extension Lever ON/OFF")
+defineToggleSwitch("FRONT_EMERG_GEN", 35,3007, 196,"Control System", "FRONT RAT Emergency Generator Lever ON/OFF")
+defineToggleSwitch("BACK_EMERG_HYD", 35,3002, 536,"Control System", "BACK Main and Emergency Hydraulic Systems Interconnection Lever ON/OFF")
+defineToggleSwitch("BACK_EMERG_GEAR", 35,3004, 533,"Control System", "BACK Emergency Landing Gear Extension Lever ON/OFF")
+defineToggleSwitch("BACK_EMERG_FLAPS", 35,3006, 534,"Control System", "BACK Emergency Flaps Extension Lever ON/OFF")
+defineToggleSwitch("BACK_EMERG_GEN", 35,3008, 535,"Control System", "BACK RAT Emergency Generator Lever ON/OFF")
 define3PosTumb("BACK_PRESS_TOTAL", 39, 3002, 456, "Control System", "BACK Full Pressure Failure Lever, ON/STBY/FAILURE")
 define3PosTumb("BACK_PRESS_STATIC", 39, 3001, 457, "Control System", "BACK Static Pressure Failure Lever, ON/STBY/FAILURE")
 
@@ -670,21 +670,21 @@ define3PosTumb("BACK_PRESS_STATIC", 39, 3001, 457, "Control System", "BACK Stati
 definePushButton("FRONT_G_RESET", 33, 3001, 89,"Accelerometer", "FRONT Reset G Limits Button")
 
 -- Canopy
-defineToggleSwitch("FRONT_CANOPY_HANDLE",  2,3001, 998,"Canopy", "FRONT Canopy Handle")
-defineToggleSwitch("BACK_CANOPY_HANDLE",  2,3002, 999,"Canopy", "BACK Canopy Handle")
-defineToggleSwitch("FRONT_CANOPY_LOCK_HANDLE",  2,3007, 285,"Canopy", "FRONT Canopy Lock Handle")
-defineToggleSwitch("BACK_CANOPY_LOCK_HANDLE",  2,3008, 485,"Canopy", "BACK Canopy Lock Handle")
+defineToggleSwitch("FRONT_CANOPY_HANDLE", 2,3001, 998,"Canopy", "FRONT Canopy Handle")
+defineToggleSwitch("BACK_CANOPY_HANDLE", 2,3002, 999,"Canopy", "BACK Canopy Handle")
+defineToggleSwitch("FRONT_CANOPY_LOCK_HANDLE", 2,3007, 285,"Canopy", "FRONT Canopy Lock Handle")
+defineToggleSwitch("BACK_CANOPY_LOCK_HANDLE", 2,3008, 485,"Canopy", "BACK Canopy Lock Handle")
 definePushButton("FRONT_CANOPY_JETT", 2, 3009, 244,"Canopy", "FRONT Canopy Emergency Jettison Handle")
 definePushButton("BACK_CANOPY_JETT", 2, 3010, 539,"Canopy", "BACK Canopy Emergency Jettison Handle")
 
 -- Hood, Rear Cockpit
-defineToggleSwitch("BACK_HOOD_CONTROL",  2,3006, 1000,"Hood", "BACK Instrument Flight Practice Hood Control Handle, EXTEND/RETRACT")
+defineToggleSwitch("BACK_HOOD_CONTROL", 2,3006, 1000,"Hood", "BACK Instrument Flight Practice Hood Control Handle, EXTEND/RETRACT")
 
 -- Pitot Selector
-defineToggleSwitch("FRONT_PITOT_CONTROL",  37,3022, 333,"Pitot", "FRONT Pitot Tube Selector Lever, STBY(Left)/MAIN(Right)")
+defineToggleSwitch("FRONT_PITOT_CONTROL", 37,3022, 333,"Pitot", "FRONT Pitot Tube Selector Lever, STBY(Left)/MAIN(Right)")
 
 -- Misc
-defineToggleSwitch("FRONT_PANEL_HOOD",  0,3003, 627,"Misc", "FRONT Panel Visor Extend")
+defineToggleSwitch("FRONT_PANEL_HOOD", 0,3003, 627,"Misc", "FRONT Panel Visor Extend")
 
 ------------------------------------ L-39 Readings --------------------------------------------------------------------
 
@@ -735,5 +735,8 @@ local function getRadioPresetChan_BACKS()
 end
 defineIntegerFromGetter("BACK_RADIO_CHN_DISPLAY", getRadioPresetChan_BACK, 19, "Readings", "BACK Radio Preset Channel Display")
 defineString("BACK_RADIO_CHN_DISPLAY_STRING", getRadioPresetChan_BACKS, 2, "Readings", "BACK Radio Preset Channel Display (string)")
+
+defineFloat("FRONT_CANOPY_POS", 139, {0, 1}, "Gauges", "FRONT Canopy Position")
+defineFloat("BACK_CANOPY_POS", 140, {0, 1}, "Gauges", "BACK Door Position")
   
 BIOS.protocol.endModule()

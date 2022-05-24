@@ -820,4 +820,6 @@ defineIntegerFromGetter("EXT_WOW_LEFT", function()
 	if LoGetAircraftDrawArgumentValue(6) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Weight ON Wheels Left Gear")
 
+defineFloat("CANOPY_POS", 38, {0, 1}, "CANOPY", "Canopy Position")
+
 BIOS.protocol.endModule()

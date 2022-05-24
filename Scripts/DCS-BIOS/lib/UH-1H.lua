@@ -463,8 +463,8 @@ defineIndicatorLight("X130_ARMED", 458, "Armament Panel", "X130 Armed Lamp (blue
 defineFloat("SIGHTS_FOR_CIVIL", 473, {0, 1}, "Gauges", "SIGHTS_FOR_CIVIL / controllers.Civil_Heli")
 
 --Doors
-definePushButton("DOOR_L-PTR", 12, 3005, 419, "Doors", "Door Left")
-definePushButton("DOOR_R-PTR", 12, 3006, 421, "Doors", "Door Right")
+definePushButton("DOOR_L-PTR", 12, 3005, 419, "Doors", "Door Handle Left")
+definePushButton("DOOR_R-PTR", 12, 3006, 421, "Doors", "Door Handle Right")
 
 --Externals
 defineIntegerFromGetter("EXT_POSITION_LIGHT_LEFT", function()
@@ -529,6 +529,10 @@ defineFloat("SBY_COMPASS_BANK", 273, {-1, 1}, "Front Dash", "Standby Compass Ban
 definePushButton("CARGO_REL_P", 52, 3001, 195, "Cyclic", "Cargo Release Pilot")
 definePushButton("CARGO_REL_CP", 52, 3002, 198, "Cyclic", "Cargo Release CoPilot")
 defineToggleSwitch("CARGO_REL_SAFE", 52, 3003, 228, "Overhead Panel", "Cargo Safety OFF / ARM")
+
+defineFloat("DOOR_POS_L", 420, {0, 1}, "Cockpit", "Door Position Left")
+defineFloat("DOOR_POS_R", 422, {0, 1}, "Cockpit", "Door Position Right")
+
 defineIntegerFromGetter("EXT_ROTOR", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(40)*65535)
 end, 65535, "External Aircraft Model", "Rotor Move")

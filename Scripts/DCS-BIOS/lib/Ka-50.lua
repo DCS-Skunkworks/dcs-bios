@@ -886,4 +886,7 @@ defineIntegerFromGetter("EXT_ROTORS", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(40)*65535)
 end, 65535, "External Aircraft Model", "Rotors Move")
 
+defineFloat("DOOR_POS_L", 533, {0, 1}, "Cockpit", "Door Position Left")
+defineFloat("DOOR_POS_T", 535, {0, 1}, "Cockpit", "Door Position Top")
+
 BIOS.protocol.endModule()

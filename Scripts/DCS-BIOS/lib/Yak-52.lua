@@ -288,7 +288,6 @@ defineFloat("FRONT_RADIO_1MHZ", 93, {0, 1}, "Gauges", "Fore VHF Radio 1 mhz")
 defineFloat("FRONT_RADIO_100KHZ", 94, {0, 1}, "Gauges", "Fore VHF Radio 100 khz")
 defineFloat("FRONT_RADIO_10KHZ", 95, {0, 1}, "Gauges", "Fore VHF Radio 10 khz")
 
-
 local function getBaklan5Frequency()
     local bfreq1 = "00"
 	local bfreq1F = GetDevice(0):get_argument_value(92)
@@ -316,5 +315,8 @@ local function getBaklan5Frequency()
 	return  bfreq1 .. bfreq2 .. "." .. bfreq3 .. bfreq4
 end
 defineString("BAKLAN5_FREQ", getBaklan5Frequency, 7, "BAKLAN-5", "Fore VHF Radio Frequency (String)")
+
+defineFloat("FRONT_CANOPY_POS", 264, {0, 1}, "Gauges", "FRONT Canopy Position")
+defineFloat("REAR_CANOPY_POS", 268, {0, 1}, "Gauges", "REAR Door Position")
 
 BIOS.protocol.endModule()
