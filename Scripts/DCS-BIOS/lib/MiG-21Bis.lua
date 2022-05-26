@@ -241,7 +241,7 @@ defineRotary("NPP_CRS", 23, 3144, 263, "Flight Status/Navigation Panel", "NPP Co
 --ALT and RALT
 defineToggleSwitch("RALT_PWR", 33, 3145, 175, "Avionics Power Panel", "Radio Altimeter On")
 defineTumb("ALT_WARN", 33, 3146, 284, 0.14, {0.0, 0.98}, nil, false, "Center Pedestal Panel", "Altitude Warning Alarm Adjust")
-definePotentiometer("ALT_PRESS", 32, 3073, 262, {-1, 1}, "Flight Status/Navigation Panel", "Altimeter Pressure Knob")
+definePotentiometer("ALT_PRESS", 32, 3073, 262, {-1, 1}, "Flight Status/Navigation Panel", "Altimeter Pressure Knob/Gauge")
 
 --Oxygen System
 defineToggleSwitch("HELM_AIR", 19, 3147, 285, "Left Horizontal", "Helmet Air Conditioning On/Off")
@@ -622,9 +622,7 @@ defineFloat("CLOCK_T_S", 122, {0, 1}, "Center Pedestal Panel", "Clock Timer Seco
 defineIndicatorLight("ARC_IBN_LIGHT", 145, "Center Pedestal Panel", "ARC IBN Light (green)")
 defineFloat("WBRAKE_L_GAUGE", 56, {0, 1}, "Center Pedestal Panel", "Wheelbrake Left Pressure Gauge Needle")
 defineFloat("WBRAKE_R_GAUGE", 56, {0, 1}, "Center Pedestal Panel", "Wheelbrake Right Pressure Gauge Needle")
-
 --INSTRUMENTS NOT REPRESENTED:
---Baro Alt pressure value window (mechanical?)
 --KPP Aux PRMG needles (Driven by NPP PRMG needle guidance values?)
 --Airspeed > 1000 kph warn window (may be possible do drive mechanically based on the needle position)
 --Wheelbrake lever
