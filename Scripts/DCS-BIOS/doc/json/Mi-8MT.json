@@ -4079,7 +4079,7 @@
                                                                                         } ],
                                                                  "momentary_positions": "none",
                                                                              "outputs": [ {
-                                                                                                "address": 10266,
+                                                                                                "address": 10262,
                                                                                             "description": "selector position",
                                                                                                    "mask": 512,
                                                                                               "max_value": 1,
@@ -4108,7 +4108,7 @@
                                                                                         } ],
                                                                  "momentary_positions": "none",
                                                                              "outputs": [ {
-                                                                                                "address": 10266,
+                                                                                                "address": 10262,
                                                                                             "description": "selector position",
                                                                                                    "mask": 256,
                                                                                               "max_value": 1,
@@ -4131,7 +4131,7 @@
                                                                                      "suggested_step": 3200
                                                                                  } ],
                                                                       "outputs": [ {
-                                                                                         "address": 10270,
+                                                                                         "address": 10266,
                                                                                      "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
                                                                                             "mask": 65535,
                                                                                        "max_value": 65535,
@@ -4183,7 +4183,7 @@
                                                                                      "suggested_step": 3200
                                                                                  } ],
                                                                       "outputs": [ {
-                                                                                         "address": 10268,
+                                                                                         "address": 10264,
                                                                                      "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
                                                                                             "mask": 65535,
                                                                                        "max_value": 65535,
@@ -5518,7 +5518,7 @@
                                                                      "identifier": "EXT_POSITION_LIGHTS",
                                                                          "inputs": [  ],
                                                                         "outputs": [ {
-                                                                                           "address": 10266,
+                                                                                           "address": 10262,
                                                                                        "description": "Position Lights",
                                                                                               "mask": 1024,
                                                                                          "max_value": 1,
@@ -5534,7 +5534,7 @@
                                                                      "identifier": "EXT_ROTOR",
                                                                          "inputs": [  ],
                                                                         "outputs": [ {
-                                                                                           "address": 10288,
+                                                                                           "address": 10284,
                                                                                        "description": "Rotor Move",
                                                                                               "mask": 65535,
                                                                                          "max_value": 65535,
@@ -5550,7 +5550,7 @@
                                                                      "identifier": "EXT_STROBE",
                                                                          "inputs": [  ],
                                                                         "outputs": [ {
-                                                                                           "address": 10266,
+                                                                                           "address": 10262,
                                                                                        "description": "Strobe Light",
                                                                                               "mask": 2048,
                                                                                          "max_value": 1,
@@ -5566,7 +5566,7 @@
                                                                      "identifier": "EXT_WOW_LEFT",
                                                                          "inputs": [  ],
                                                                         "outputs": [ {
-                                                                                           "address": 10266,
+                                                                                           "address": 10262,
                                                                                        "description": "Weight ON Wheels Left Gear",
                                                                                               "mask": 16384,
                                                                                          "max_value": 1,
@@ -5582,7 +5582,7 @@
                                                                      "identifier": "EXT_WOW_NOSE",
                                                                          "inputs": [  ],
                                                                         "outputs": [ {
-                                                                                           "address": 10266,
+                                                                                           "address": 10262,
                                                                                        "description": "Weight ON Wheels Nose Gear",
                                                                                               "mask": 4096,
                                                                                          "max_value": 1,
@@ -5598,7 +5598,7 @@
                                                                      "identifier": "EXT_WOW_RIGHT",
                                                                          "inputs": [  ],
                                                                         "outputs": [ {
-                                                                                           "address": 10266,
+                                                                                           "address": 10262,
                                                                                        "description": "Weight ON Wheels Right Gear",
                                                                                               "mask": 8192,
                                                                                          "max_value": 1,
@@ -7540,7 +7540,7 @@
                                                             "BLISTER_LEFT": {
                                                                                     "category": "Indicator",
                                                                                 "control_type": "analog_gauge",
-                                                                                 "description": "Blister_LEFT",
+                                                                                 "description": "Window LEFT",
                                                                                   "identifier": "BLISTER_LEFT",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
@@ -7556,7 +7556,7 @@
                                                            "BLISTER_RIGHT": {
                                                                                     "category": "Indicator",
                                                                                 "control_type": "analog_gauge",
-                                                                                 "description": "Blister_RIGHT",
+                                                                                 "description": "Window RIGHT",
                                                                                   "identifier": "BLISTER_RIGHT",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
@@ -7768,7 +7768,7 @@
                                                                                   "identifier": "CREW_MODEL",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 10202,
+                                                                                                        "address": 10198,
                                                                                                     "description": "gauge position",
                                                                                                            "mask": 65535,
                                                                                                       "max_value": 65535,
@@ -7784,7 +7784,7 @@
                                                                                   "identifier": "DAYNIGHT",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 10230,
+                                                                                                        "address": 10226,
                                                                                                     "description": "gauge position",
                                                                                                            "mask": 65535,
                                                                                                       "max_value": 65535,
@@ -8212,11 +8212,11 @@
                                                          "DOWN_WINDSHIELD": {
                                                                                     "category": "Indicator",
                                                                                 "control_type": "analog_gauge",
-                                                                                 "description": "Down_Windshield",
+                                                                                 "description": "Down Windshield Damage",
                                                                                   "identifier": "DOWN_WINDSHIELD",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 10206,
+                                                                                                        "address": 10202,
                                                                                                     "description": "gauge position",
                                                                                                            "mask": 65535,
                                                                                                       "max_value": 65535,
@@ -8296,7 +8296,7 @@
                                                                                   "identifier": "G_METER",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 10220,
+                                                                                                        "address": 10216,
                                                                                                     "description": "gauge position",
                                                                                                            "mask": 65535,
                                                                                                       "max_value": 65535,
@@ -8312,7 +8312,7 @@
                                                                                   "identifier": "G_METER_MAX",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 10222,
+                                                                                                        "address": 10218,
                                                                                                     "description": "gauge position",
                                                                                                            "mask": 65535,
                                                                                                       "max_value": 65535,
@@ -8328,7 +8328,7 @@
                                                                                   "identifier": "G_METER_MIN",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 10224,
+                                                                                                        "address": 10220,
                                                                                                     "description": "gauge position",
                                                                                                            "mask": 65535,
                                                                                                       "max_value": 65535,
@@ -8408,7 +8408,7 @@
                                                                                   "identifier": "JADRO_ASU_LAMP",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 10212,
+                                                                                                        "address": 10208,
                                                                                                     "description": "gauge position",
                                                                                                            "mask": 65535,
                                                                                                       "max_value": 65535,
@@ -8424,7 +8424,7 @@
                                                                                   "identifier": "JADRO_BREAKDOWN_LAMP",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 10216,
+                                                                                                        "address": 10212,
                                                                                                     "description": "gauge position",
                                                                                                            "mask": 65535,
                                                                                                       "max_value": 65535,
@@ -8440,7 +8440,7 @@
                                                                                   "identifier": "JADRO_CTL_LAMP",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 10214,
+                                                                                                        "address": 10210,
                                                                                                     "description": "gauge position",
                                                                                                            "mask": 65535,
                                                                                                       "max_value": 65535,
@@ -8520,7 +8520,7 @@
                                                                                   "identifier": "LEFTPLAFOND",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 10250,
+                                                                                                        "address": 10246,
                                                                                                     "description": "gauge position",
                                                                                                            "mask": 65535,
                                                                                                       "max_value": 65535,
@@ -8564,11 +8564,11 @@
                                                          "LEFT_WINDSHIELD": {
                                                                                     "category": "Indicator",
                                                                                 "control_type": "analog_gauge",
-                                                                                 "description": "Left_Windshield",
+                                                                                 "description": "Left Windshield Damage",
                                                                                   "identifier": "LEFT_WINDSHIELD",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 10208,
+                                                                                                        "address": 10204,
                                                                                                     "description": "gauge position",
                                                                                                            "mask": 65535,
                                                                                                       "max_value": 65535,
@@ -8728,7 +8728,7 @@
                                                                                   "identifier": "OPERATOR_MODEL",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 10200,
+                                                                                                        "address": 10196,
                                                                                                     "description": "gauge position",
                                                                                                            "mask": 65535,
                                                                                                       "max_value": 65535,
@@ -8760,7 +8760,7 @@
                                                                                   "identifier": "PILOT_MODEL",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 10198,
+                                                                                                        "address": 10194,
                                                                                                     "description": "gauge position",
                                                                                                            "mask": 65535,
                                                                                                       "max_value": 65535,
@@ -8776,7 +8776,7 @@
                                                                                   "identifier": "PLAFONDBRIGHTNESS",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 10248,
+                                                                                                        "address": 10244,
                                                                                                     "description": "gauge position",
                                                                                                            "mask": 65535,
                                                                                                       "max_value": 65535,
@@ -8840,7 +8840,7 @@
                                                                                   "identifier": "R863_FREQ1_TUBE",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 10272,
+                                                                                                        "address": 10268,
                                                                                                     "description": "gauge position",
                                                                                                            "mask": 65535,
                                                                                                       "max_value": 65535,
@@ -8856,7 +8856,7 @@
                                                                                   "identifier": "R863_FREQ2_TUBE",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 10274,
+                                                                                                        "address": 10270,
                                                                                                     "description": "gauge position",
                                                                                                            "mask": 65535,
                                                                                                       "max_value": 65535,
@@ -8872,7 +8872,7 @@
                                                                                   "identifier": "R863_FREQ3_TUBE",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 10276,
+                                                                                                        "address": 10272,
                                                                                                     "description": "gauge position",
                                                                                                            "mask": 65535,
                                                                                                       "max_value": 65535,
@@ -8888,7 +8888,7 @@
                                                                                   "identifier": "R863_FREQ4_TUBE",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 10278,
+                                                                                                        "address": 10274,
                                                                                                     "description": "gauge position",
                                                                                                            "mask": 65535,
                                                                                                       "max_value": 65535,
@@ -8904,7 +8904,7 @@
                                                                                   "identifier": "RAM_TEMP",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 10218,
+                                                                                                        "address": 10214,
                                                                                                     "description": "gauge position",
                                                                                                            "mask": 65535,
                                                                                                       "max_value": 65535,
@@ -8920,7 +8920,7 @@
                                                                                   "identifier": "RECORDERP503B_PANELLIGHTNESS",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 10254,
+                                                                                                        "address": 10250,
                                                                                                     "description": "gauge position",
                                                                                                            "mask": 65535,
                                                                                                       "max_value": 65535,
@@ -8936,7 +8936,7 @@
                                                                                   "identifier": "REDLIGHT5V5",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 10246,
+                                                                                                        "address": 10242,
                                                                                                     "description": "gauge position",
                                                                                                            "mask": 65535,
                                                                                                       "max_value": 65535,
@@ -8952,7 +8952,7 @@
                                                                                   "identifier": "REDLIGHTCHGR1",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 10240,
+                                                                                                        "address": 10236,
                                                                                                     "description": "gauge position",
                                                                                                            "mask": 65535,
                                                                                                       "max_value": 65535,
@@ -8968,7 +8968,7 @@
                                                                                   "identifier": "REDLIGHTCHGR12",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 10244,
+                                                                                                        "address": 10240,
                                                                                                     "description": "gauge position",
                                                                                                            "mask": 65535,
                                                                                                       "max_value": 65535,
@@ -8984,7 +8984,7 @@
                                                                                   "identifier": "REDLIGHTCHGR2",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 10242,
+                                                                                                        "address": 10238,
                                                                                                     "description": "gauge position",
                                                                                                            "mask": 65535,
                                                                                                       "max_value": 65535,
@@ -9000,7 +9000,7 @@
                                                                                   "identifier": "REDLIGHTLHGR1",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 10232,
+                                                                                                        "address": 10228,
                                                                                                     "description": "gauge position",
                                                                                                            "mask": 65535,
                                                                                                       "max_value": 65535,
@@ -9016,7 +9016,7 @@
                                                                                   "identifier": "REDLIGHTLHGR2",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 10234,
+                                                                                                        "address": 10230,
                                                                                                     "description": "gauge position",
                                                                                                            "mask": 65535,
                                                                                                       "max_value": 65535,
@@ -9032,7 +9032,7 @@
                                                                                   "identifier": "REDLIGHTRHGR1",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 10236,
+                                                                                                        "address": 10232,
                                                                                                     "description": "gauge position",
                                                                                                            "mask": 65535,
                                                                                                       "max_value": 65535,
@@ -9048,7 +9048,7 @@
                                                                                   "identifier": "REDLIGHTRHGR2",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 10238,
+                                                                                                        "address": 10234,
                                                                                                     "description": "gauge position",
                                                                                                            "mask": 65535,
                                                                                                       "max_value": 65535,
@@ -9128,7 +9128,7 @@
                                                                                   "identifier": "RIGHTPLAFOND",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 10252,
+                                                                                                        "address": 10248,
                                                                                                     "description": "gauge position",
                                                                                                            "mask": 65535,
                                                                                                       "max_value": 65535,
@@ -9172,11 +9172,11 @@
                                                         "RIGHT_WINDSHIELD": {
                                                                                     "category": "Indicator",
                                                                                 "control_type": "analog_gauge",
-                                                                                 "description": "Right_Windshield",
+                                                                                 "description": "Right Windshield Damage",
                                                                                   "identifier": "RIGHT_WINDSHIELD",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 10210,
+                                                                                                        "address": 10206,
                                                                                                     "description": "gauge position",
                                                                                                            "mask": 65535,
                                                                                                       "max_value": 65535,
@@ -9256,7 +9256,7 @@
                                                                                   "identifier": "SALONTEMPERATURE",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 10228,
+                                                                                                        "address": 10224,
                                                                                                     "description": "gauge position",
                                                                                                            "mask": 65535,
                                                                                                       "max_value": 65535,
@@ -9352,7 +9352,7 @@
                                                                                   "identifier": "SUN_SHADE_FILTER",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 10226,
+                                                                                                        "address": 10222,
                                                                                                     "description": "gauge position",
                                                                                                            "mask": 65535,
                                                                                                       "max_value": 65535,
@@ -9492,11 +9492,11 @@
                                                         "UPPER_WINDSHIELD": {
                                                                                     "category": "Indicator",
                                                                                 "control_type": "analog_gauge",
-                                                                                 "description": "Upper_Windshield",
+                                                                                 "description": "Upper Windshield Damage",
                                                                                   "identifier": "UPPER_WINDSHIELD",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 10204,
+                                                                                                        "address": 10200,
                                                                                                     "description": "gauge position",
                                                                                                            "mask": 65535,
                                                                                                       "max_value": 65535,
@@ -9512,7 +9512,7 @@
                                                                                   "identifier": "UV26_LAMPLEFTBOARD",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 10194,
+                                                                                                        "address": 10190,
                                                                                                     "description": "gauge position",
                                                                                                            "mask": 65535,
                                                                                                       "max_value": 65535,
@@ -9528,7 +9528,7 @@
                                                                                   "identifier": "UV26_LAMPRIGHTBOARD",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 10196,
+                                                                                                        "address": 10192,
                                                                                                     "description": "gauge position",
                                                                                                            "mask": 65535,
                                                                                                       "max_value": 65535,
@@ -9784,7 +9784,7 @@
                                                                                   "identifier": "WINDSCREENWIPERL",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 10256,
+                                                                                                        "address": 10252,
                                                                                                     "description": "gauge position",
                                                                                                            "mask": 65535,
                                                                                                       "max_value": 65535,
@@ -9800,39 +9800,7 @@
                                                                                   "identifier": "WINDSCREENWIPERR",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 10258,
-                                                                                                    "description": "gauge position",
-                                                                                                           "mask": 65535,
-                                                                                                      "max_value": 65535,
-                                                                                                       "shift_by": 0,
-                                                                                                         "suffix": "",
-                                                                                                           "type": "integer"
-                                                                                                } ]
-                                                                            },
-                                                         "WINDSHIELS_DOWN": {
-                                                                                    "category": "Indicator",
-                                                                                "control_type": "analog_gauge",
-                                                                                 "description": "WindShiels_Down",
-                                                                                  "identifier": "WINDSHIELS_DOWN",
-                                                                                      "inputs": [  ],
-                                                                                     "outputs": [ {
-                                                                                                        "address": 10192,
-                                                                                                    "description": "gauge position",
-                                                                                                           "mask": 65535,
-                                                                                                      "max_value": 65535,
-                                                                                                       "shift_by": 0,
-                                                                                                         "suffix": "",
-                                                                                                           "type": "integer"
-                                                                                                } ]
-                                                                            },
-                                                           "WINDSHIELS_UP": {
-                                                                                    "category": "Indicator",
-                                                                                "control_type": "analog_gauge",
-                                                                                 "description": "WindShiels_Up",
-                                                                                  "identifier": "WINDSHIELS_UP",
-                                                                                      "inputs": [  ],
-                                                                                     "outputs": [ {
-                                                                                                        "address": 10190,
+                                                                                                        "address": 10254,
                                                                                                     "description": "gauge position",
                                                                                                            "mask": 65535,
                                                                                                       "max_value": 65535,
@@ -12500,7 +12468,7 @@
                                                                     "identifier": "COLLECTIVE_STOPPER",
                                                                         "inputs": [  ],
                                                                        "outputs": [ {
-                                                                                          "address": 10286,
+                                                                                          "address": 10282,
                                                                                       "description": "gauge position",
                                                                                              "mask": 65535,
                                                                                         "max_value": 65535,
@@ -13352,7 +13320,7 @@
                                                                   "identifier": "R863_FREQ",
                                                                       "inputs": [  ],
                                                                      "outputs": [ {
-                                                                                        "address": 10260,
+                                                                                        "address": 10256,
                                                                                     "description": "R863, Frequency (String)",
                                                                                      "max_length": 7,
                                                                                          "suffix": "",
@@ -16315,7 +16283,7 @@
                                                                    "identifier": "SBY_COMPASS_BANK",
                                                                        "inputs": [  ],
                                                                       "outputs": [ {
-                                                                                         "address": 10284,
+                                                                                         "address": 10280,
                                                                                      "description": "gauge position",
                                                                                             "mask": 65535,
                                                                                        "max_value": 65535,
@@ -16331,7 +16299,7 @@
                                                                    "identifier": "SBY_COMPASS_HDG",
                                                                        "inputs": [  ],
                                                                       "outputs": [ {
-                                                                                         "address": 10280,
+                                                                                         "address": 10276,
                                                                                      "description": "gauge position",
                                                                                             "mask": 65535,
                                                                                        "max_value": 65535,
@@ -16347,7 +16315,7 @@
                                                                    "identifier": "SBY_COMPASS_PITCH",
                                                                        "inputs": [  ],
                                                                       "outputs": [ {
-                                                                                         "address": 10282,
+                                                                                         "address": 10278,
                                                                                      "description": "gauge position",
                                                                                             "mask": 65535,
                                                                                        "max_value": 65535,

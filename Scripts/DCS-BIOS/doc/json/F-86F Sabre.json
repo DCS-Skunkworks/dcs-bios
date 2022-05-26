@@ -4044,6 +4044,22 @@
                                                                                                       "type": "integer"
                                                                                            } ]
                                                                        },
+                                                         "CANOPY_POS": {
+                                                                               "category": "Indicator",
+                                                                           "control_type": "analog_gauge",
+                                                                            "description": "Canopy Position",
+                                                                             "identifier": "CANOPY_POS",
+                                                                                 "inputs": [  ],
+                                                                                "outputs": [ {
+                                                                                                   "address": 12384,
+                                                                                               "description": "gauge position",
+                                                                                                      "mask": 65535,
+                                                                                                 "max_value": 65535,
+                                                                                                  "shift_by": 0,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "integer"
+                                                                                           } ]
+                                                                       },
                                                "CLOCK_CURRTIME_HOURS": {
                                                                                "category": "Indicator",
                                                                            "control_type": "analog_gauge",
@@ -4116,22 +4132,6 @@
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
                                                                                                    "address": 12450,
-                                                                                               "description": "gauge position",
-                                                                                                      "mask": 65535,
-                                                                                                 "max_value": 65535,
-                                                                                                  "shift_by": 0,
-                                                                                                    "suffix": "",
-                                                                                                      "type": "integer"
-                                                                                           } ]
-                                                                       },
-                                                      "COCKPITCANOPY": {
-                                                                               "category": "Indicator",
-                                                                           "control_type": "analog_gauge",
-                                                                            "description": "CockpitCanopy",
-                                                                             "identifier": "COCKPITCANOPY",
-                                                                                 "inputs": [  ],
-                                                                                "outputs": [ {
-                                                                                                   "address": 12384,
                                                                                                "description": "gauge position",
                                                                                                       "mask": 65535,
                                                                                                  "max_value": 65535,

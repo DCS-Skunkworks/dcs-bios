@@ -875,6 +875,40 @@
                                                                "physical_variant": "push_button"
                                                         }
                                },
+                    "Cockpit": {
+                                   "DOOR_POS_L": {
+                                                         "category": "Cockpit",
+                                                     "control_type": "analog_gauge",
+                                                      "description": "Door Position Left",
+                                                       "identifier": "DOOR_POS_L",
+                                                           "inputs": [  ],
+                                                          "outputs": [ {
+                                                                             "address": 22810,
+                                                                         "description": "gauge position",
+                                                                                "mask": 65535,
+                                                                           "max_value": 65535,
+                                                                            "shift_by": 0,
+                                                                              "suffix": "",
+                                                                                "type": "integer"
+                                                                     } ]
+                                                 },
+                                   "DOOR_POS_R": {
+                                                         "category": "Cockpit",
+                                                     "control_type": "analog_gauge",
+                                                      "description": "Door Position Right",
+                                                       "identifier": "DOOR_POS_R",
+                                                           "inputs": [  ],
+                                                          "outputs": [ {
+                                                                             "address": 22812,
+                                                                         "description": "gauge position",
+                                                                                "mask": 65535,
+                                                                           "max_value": 65535,
+                                                                            "shift_by": 0,
+                                                                              "suffix": "",
+                                                                                "type": "integer"
+                                                                     } ]
+                                                 }
+                               },
                    "Controls": {
                                    "MAGNETIC_BRAKE_BUTTON": {
                                                                         "api_variant": "momentary_last_position",

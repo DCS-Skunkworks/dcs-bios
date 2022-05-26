@@ -2190,6 +2190,22 @@
                                                                                                         "type": "integer"
                                                                                              } ]
                                                                          },
+                                                     "FRONT_CANOPY_POS": {
+                                                                                 "category": "Gauges",
+                                                                             "control_type": "analog_gauge",
+                                                                              "description": "FRONT Canopy Position",
+                                                                               "identifier": "FRONT_CANOPY_POS",
+                                                                                   "inputs": [  ],
+                                                                                  "outputs": [ {
+                                                                                                     "address": 8402,
+                                                                                                 "description": "gauge position",
+                                                                                                        "mask": 65535,
+                                                                                                   "max_value": 65535,
+                                                                                                    "shift_by": 0,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ]
+                                                                         },
                                                    "FRONT_COMPASS_BANK": {
                                                                                  "category": "Gauges",
                                                                              "control_type": "analog_gauge",
@@ -2694,6 +2710,22 @@
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
                                                                                                      "address": 8294,
+                                                                                                 "description": "gauge position",
+                                                                                                        "mask": 65535,
+                                                                                                   "max_value": 65535,
+                                                                                                    "shift_by": 0,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ]
+                                                                         },
+                                                      "REAR_CANOPY_POS": {
+                                                                                 "category": "Gauges",
+                                                                             "control_type": "analog_gauge",
+                                                                              "description": "REAR Door Position",
+                                                                               "identifier": "REAR_CANOPY_POS",
+                                                                                   "inputs": [  ],
+                                                                                  "outputs": [ {
+                                                                                                     "address": 8404,
                                                                                                  "description": "gauge position",
                                                                                                         "mask": 65535,
                                                                                                    "max_value": 65535,

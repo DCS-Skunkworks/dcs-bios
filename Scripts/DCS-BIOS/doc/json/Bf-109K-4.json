@@ -83,6 +83,22 @@
                                                                                       "type": "integer"
                                                                            } ]
                                                        },
+                                         "CANOPY_POS": {
+                                                               "category": "Cockpit",
+                                                           "control_type": "analog_gauge",
+                                                            "description": "Canopy Position",
+                                                             "identifier": "CANOPY_POS",
+                                                                 "inputs": [  ],
+                                                                "outputs": [ {
+                                                                                   "address": 17058,
+                                                                               "description": "gauge position",
+                                                                                      "mask": 65535,
+                                                                                 "max_value": 65535,
+                                                                                  "shift_by": 0,
+                                                                                    "suffix": "",
+                                                                                      "type": "integer"
+                                                                           } ]
+                                                       },
                                         "CLOCK_SCALE": {
                                                             "api_variant": "multiturn",
                                                                "category": "Cockpit",

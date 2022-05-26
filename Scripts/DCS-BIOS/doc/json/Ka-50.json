@@ -1627,6 +1627,40 @@
                                                                                                             } ]
                                                                                         }
                                                     },
+                                         "Cockpit": {
+                                                        "DOOR_POS_L": {
+                                                                              "category": "Cockpit",
+                                                                          "control_type": "analog_gauge",
+                                                                           "description": "Door Position Left",
+                                                                            "identifier": "DOOR_POS_L",
+                                                                                "inputs": [  ],
+                                                                               "outputs": [ {
+                                                                                                  "address": 6538,
+                                                                                              "description": "gauge position",
+                                                                                                     "mask": 65535,
+                                                                                                "max_value": 65535,
+                                                                                                 "shift_by": 0,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ]
+                                                                      },
+                                                        "DOOR_POS_T": {
+                                                                              "category": "Cockpit",
+                                                                          "control_type": "analog_gauge",
+                                                                           "description": "Door Position Top",
+                                                                            "identifier": "DOOR_POS_T",
+                                                                                "inputs": [  ],
+                                                                               "outputs": [ {
+                                                                                                  "address": 6540,
+                                                                                              "description": "gauge position",
+                                                                                                     "mask": 65535,
+                                                                                                "max_value": 65535,
+                                                                                                 "shift_by": 0,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ]
+                                                                      }
+                                                    },
                                      "Comms Power": {
                                                          "COMM_DATALINK_SA_TLF_POWER": {
                                                                                                       "category": "Comms Power",

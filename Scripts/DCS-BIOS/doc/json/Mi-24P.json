@@ -10384,11 +10384,11 @@
                                                                                                         "type": "integer"
                                                                                              } ]
                                                                          },
-                                                      "OP_CANOPY_VALUE": {
+                                                        "OP_CANOPY_POS": {
                                                                                  "category": "Gauges OP",
                                                                              "control_type": "analog_gauge",
                                                                               "description": "OPERATOR Canopy Position",
-                                                                               "identifier": "OP_CANOPY_VALUE",
+                                                                               "identifier": "OP_CANOPY_POS",
                                                                                    "inputs": [  ],
                                                                                   "outputs": [ {
                                                                                                      "address": 27174,
@@ -10434,118 +10434,118 @@
                                                                          }
                                                 },
                                   "Gauges PLT": {
-                                                    "PLT_CANOPY_VALUE": {
-                                                                                "category": "Gauges PLT",
-                                                                            "control_type": "analog_gauge",
-                                                                             "description": "PILOT Door Position",
-                                                                              "identifier": "PLT_CANOPY_VALUE",
-                                                                                  "inputs": [  ],
-                                                                                 "outputs": [ {
-                                                                                                    "address": 27176,
-                                                                                                "description": "gauge position",
-                                                                                                       "mask": 65535,
-                                                                                                  "max_value": 65535,
-                                                                                                   "shift_by": 0,
-                                                                                                     "suffix": "",
-                                                                                                       "type": "integer"
-                                                                                            } ]
-                                                                        },
-                                                          "PLT_GMETER": {
-                                                                                "category": "Gauges PLT",
-                                                                            "control_type": "analog_gauge",
-                                                                             "description": "PILOT G-Meter",
-                                                                              "identifier": "PLT_GMETER",
-                                                                                  "inputs": [  ],
-                                                                                 "outputs": [ {
-                                                                                                    "address": 27184,
-                                                                                                "description": "gauge position",
-                                                                                                       "mask": 65535,
-                                                                                                  "max_value": 65535,
-                                                                                                   "shift_by": 0,
-                                                                                                     "suffix": "",
-                                                                                                       "type": "integer"
-                                                                                            } ]
-                                                                        },
-                                                      "PLT_GMETER_MAX": {
-                                                                                "category": "Gauges PLT",
-                                                                            "control_type": "analog_gauge",
-                                                                             "description": "PILOT G-Meter Max",
-                                                                              "identifier": "PLT_GMETER_MAX",
-                                                                                  "inputs": [  ],
-                                                                                 "outputs": [ {
-                                                                                                    "address": 27188,
-                                                                                                "description": "gauge position",
-                                                                                                       "mask": 65535,
-                                                                                                  "max_value": 65535,
-                                                                                                   "shift_by": 0,
-                                                                                                     "suffix": "",
-                                                                                                       "type": "integer"
-                                                                                            } ]
-                                                                        },
-                                                      "PLT_GMETER_MIN": {
-                                                                                "category": "Gauges PLT",
-                                                                            "control_type": "analog_gauge",
-                                                                             "description": "PILOT G-Meter Min",
-                                                                              "identifier": "PLT_GMETER_MIN",
-                                                                                  "inputs": [  ],
-                                                                                 "outputs": [ {
-                                                                                                    "address": 27186,
-                                                                                                "description": "gauge position",
-                                                                                                       "mask": 65535,
-                                                                                                  "max_value": 65535,
-                                                                                                   "shift_by": 0,
-                                                                                                     "suffix": "",
-                                                                                                       "type": "integer"
-                                                                                            } ]
-                                                                        },
-                                                             "PLT_IAS": {
-                                                                                "category": "Gauges PLT",
-                                                                            "control_type": "analog_gauge",
-                                                                             "description": "PILOT IAS Speed",
-                                                                              "identifier": "PLT_IAS",
-                                                                                  "inputs": [  ],
-                                                                                 "outputs": [ {
-                                                                                                    "address": 27190,
-                                                                                                "description": "gauge position",
-                                                                                                       "mask": 65535,
-                                                                                                  "max_value": 65535,
-                                                                                                   "shift_by": 0,
-                                                                                                     "suffix": "",
-                                                                                                       "type": "integer"
-                                                                                            } ]
-                                                                        },
-                                                      "PLT_VARIOMETER": {
-                                                                                "category": "Gauges PLT",
-                                                                            "control_type": "analog_gauge",
-                                                                             "description": "PILOT Variometer",
-                                                                              "identifier": "PLT_VARIOMETER",
-                                                                                  "inputs": [  ],
-                                                                                 "outputs": [ {
-                                                                                                    "address": 27182,
-                                                                                                "description": "gauge position",
-                                                                                                       "mask": 65535,
-                                                                                                  "max_value": 65535,
-                                                                                                   "shift_by": 0,
-                                                                                                     "suffix": "",
-                                                                                                       "type": "integer"
-                                                                                            } ]
-                                                                        },
-                                                       "PLT_WIPER_POS": {
-                                                                                "category": "Gauges PLT",
-                                                                            "control_type": "analog_gauge",
-                                                                             "description": "PILOT Wiper Position",
-                                                                              "identifier": "PLT_WIPER_POS",
-                                                                                  "inputs": [  ],
-                                                                                 "outputs": [ {
-                                                                                                    "address": 27180,
-                                                                                                "description": "gauge position",
-                                                                                                       "mask": 65535,
-                                                                                                  "max_value": 65535,
-                                                                                                   "shift_by": 0,
-                                                                                                     "suffix": "",
-                                                                                                       "type": "integer"
-                                                                                            } ]
-                                                                        }
+                                                    "PLT_CANOPY_POS": {
+                                                                              "category": "Gauges PLT",
+                                                                          "control_type": "analog_gauge",
+                                                                           "description": "PILOT Door Position",
+                                                                            "identifier": "PLT_CANOPY_POS",
+                                                                                "inputs": [  ],
+                                                                               "outputs": [ {
+                                                                                                  "address": 27176,
+                                                                                              "description": "gauge position",
+                                                                                                     "mask": 65535,
+                                                                                                "max_value": 65535,
+                                                                                                 "shift_by": 0,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ]
+                                                                      },
+                                                        "PLT_GMETER": {
+                                                                              "category": "Gauges PLT",
+                                                                          "control_type": "analog_gauge",
+                                                                           "description": "PILOT G-Meter",
+                                                                            "identifier": "PLT_GMETER",
+                                                                                "inputs": [  ],
+                                                                               "outputs": [ {
+                                                                                                  "address": 27184,
+                                                                                              "description": "gauge position",
+                                                                                                     "mask": 65535,
+                                                                                                "max_value": 65535,
+                                                                                                 "shift_by": 0,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ]
+                                                                      },
+                                                    "PLT_GMETER_MAX": {
+                                                                              "category": "Gauges PLT",
+                                                                          "control_type": "analog_gauge",
+                                                                           "description": "PILOT G-Meter Max",
+                                                                            "identifier": "PLT_GMETER_MAX",
+                                                                                "inputs": [  ],
+                                                                               "outputs": [ {
+                                                                                                  "address": 27188,
+                                                                                              "description": "gauge position",
+                                                                                                     "mask": 65535,
+                                                                                                "max_value": 65535,
+                                                                                                 "shift_by": 0,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ]
+                                                                      },
+                                                    "PLT_GMETER_MIN": {
+                                                                              "category": "Gauges PLT",
+                                                                          "control_type": "analog_gauge",
+                                                                           "description": "PILOT G-Meter Min",
+                                                                            "identifier": "PLT_GMETER_MIN",
+                                                                                "inputs": [  ],
+                                                                               "outputs": [ {
+                                                                                                  "address": 27186,
+                                                                                              "description": "gauge position",
+                                                                                                     "mask": 65535,
+                                                                                                "max_value": 65535,
+                                                                                                 "shift_by": 0,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ]
+                                                                      },
+                                                           "PLT_IAS": {
+                                                                              "category": "Gauges PLT",
+                                                                          "control_type": "analog_gauge",
+                                                                           "description": "PILOT IAS Speed",
+                                                                            "identifier": "PLT_IAS",
+                                                                                "inputs": [  ],
+                                                                               "outputs": [ {
+                                                                                                  "address": 27190,
+                                                                                              "description": "gauge position",
+                                                                                                     "mask": 65535,
+                                                                                                "max_value": 65535,
+                                                                                                 "shift_by": 0,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ]
+                                                                      },
+                                                    "PLT_VARIOMETER": {
+                                                                              "category": "Gauges PLT",
+                                                                          "control_type": "analog_gauge",
+                                                                           "description": "PILOT Variometer",
+                                                                            "identifier": "PLT_VARIOMETER",
+                                                                                "inputs": [  ],
+                                                                               "outputs": [ {
+                                                                                                  "address": 27182,
+                                                                                              "description": "gauge position",
+                                                                                                     "mask": 65535,
+                                                                                                "max_value": 65535,
+                                                                                                 "shift_by": 0,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ]
+                                                                      },
+                                                     "PLT_WIPER_POS": {
+                                                                              "category": "Gauges PLT",
+                                                                          "control_type": "analog_gauge",
+                                                                           "description": "PILOT Wiper Position",
+                                                                            "identifier": "PLT_WIPER_POS",
+                                                                                "inputs": [  ],
+                                                                               "outputs": [ {
+                                                                                                  "address": 27180,
+                                                                                              "description": "gauge position",
+                                                                                                     "mask": 65535,
+                                                                                                "max_value": 65535,
+                                                                                                 "shift_by": 0,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ]
+                                                                      }
                                                 },
                              "Hydro Interface": {
                                                             "OP_PEDAL_DAMPER": {

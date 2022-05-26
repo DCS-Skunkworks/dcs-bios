@@ -1689,47 +1689,47 @@
                                                            }
                                      },
                 "Cockpit Mechanics": {
-                                         "CANOPY_VALUE": {
-                                                                 "category": "Cockpit Mechanics",
-                                                             "control_type": "analog_gauge",
-                                                              "description": "Canopy Position",
-                                                               "identifier": "CANOPY_VALUE",
-                                                                   "inputs": [  ],
-                                                                  "outputs": [ {
-                                                                                     "address": 34028,
-                                                                                 "description": "gauge position",
-                                                                                        "mask": 65535,
-                                                                                   "max_value": 65535,
-                                                                                    "shift_by": 0,
-                                                                                      "suffix": "",
-                                                                                        "type": "integer"
-                                                                             } ]
-                                                         },
-                                             "SEAT_ADJ": {
-                                                                        "category": "Cockpit Mechanics",
-                                                                    "control_type": "selector",
-                                                                     "description": "Seat Adjustment",
-                                                                      "identifier": "SEAT_ADJ",
-                                                                          "inputs": [ {
-                                                                                        "description": "switch to previous or next state",
-                                                                                          "interface": "fixed_step"
-                                                                                    }, {
-                                                                                        "description": "set position",
-                                                                                          "interface": "set_state",
-                                                                                          "max_value": 2
-                                                                                    } ],
-                                                             "momentary_positions": "none",
-                                                                         "outputs": [ {
-                                                                                            "address": 34124,
-                                                                                        "description": "selector position",
-                                                                                               "mask": 24576,
-                                                                                          "max_value": 2,
-                                                                                           "shift_by": 13,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ],
-                                                                "physical_variant": "3_position_switch"
-                                                         }
+                                         "CANOPY_POS": {
+                                                               "category": "Cockpit Mechanics",
+                                                           "control_type": "analog_gauge",
+                                                            "description": "Canopy Position",
+                                                             "identifier": "CANOPY_POS",
+                                                                 "inputs": [  ],
+                                                                "outputs": [ {
+                                                                                   "address": 34028,
+                                                                               "description": "gauge position",
+                                                                                      "mask": 65535,
+                                                                                 "max_value": 65535,
+                                                                                  "shift_by": 0,
+                                                                                    "suffix": "",
+                                                                                      "type": "integer"
+                                                                           } ]
+                                                       },
+                                           "SEAT_ADJ": {
+                                                                      "category": "Cockpit Mechanics",
+                                                                  "control_type": "selector",
+                                                                   "description": "Seat Adjustment",
+                                                                    "identifier": "SEAT_ADJ",
+                                                                        "inputs": [ {
+                                                                                      "description": "switch to previous or next state",
+                                                                                        "interface": "fixed_step"
+                                                                                  }, {
+                                                                                      "description": "set position",
+                                                                                        "interface": "set_state",
+                                                                                        "max_value": 2
+                                                                                  } ],
+                                                           "momentary_positions": "none",
+                                                                       "outputs": [ {
+                                                                                          "address": 34124,
+                                                                                      "description": "selector position",
+                                                                                             "mask": 24576,
+                                                                                        "max_value": 2,
+                                                                                         "shift_by": 13,
+                                                                                           "suffix": "",
+                                                                                             "type": "integer"
+                                                                                  } ],
+                                                              "physical_variant": "3_position_switch"
+                                                       }
                                      },
                   "Countermeasures": {
                                              "CM_ADJ1": {

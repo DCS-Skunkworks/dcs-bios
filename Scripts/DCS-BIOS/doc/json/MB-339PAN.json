@@ -576,6 +576,24 @@
                                                              "physical_variant": "push_button"
                                                       }
                                },
+                    "Cockpit": {
+                                   "CANOPY_POS": {
+                                                         "category": "Cockpit",
+                                                     "control_type": "analog_gauge",
+                                                      "description": "Canopy Position",
+                                                       "identifier": "CANOPY_POS",
+                                                           "inputs": [  ],
+                                                          "outputs": [ {
+                                                                             "address": 33472,
+                                                                         "description": "gauge position",
+                                                                                "mask": 65535,
+                                                                           "max_value": 65535,
+                                                                            "shift_by": 0,
+                                                                              "suffix": "",
+                                                                                "type": "integer"
+                                                                     } ]
+                                                 }
+                               },
                    "Controls": {
                                    "FLIGHT_CONTR": {
                                                                   "category": "Controls",

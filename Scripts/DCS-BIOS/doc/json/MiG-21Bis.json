@@ -203,7 +203,7 @@
                                                  "ASP_BRK": {
                                                                     "category": "ASP Gunsight",
                                                                 "control_type": "led",
-                                                                 "description": "ASP Break Attack Light",
+                                                                 "description": "ASP Break Attack Light (red)",
                                                                   "identifier": "ASP_BRK",
                                                                       "inputs": [  ],
                                                                      "outputs": [ {
@@ -235,7 +235,7 @@
                                                 "ASP_LNCH": {
                                                                     "category": "ASP Gunsight",
                                                                 "control_type": "led",
-                                                                 "description": "ASP Launch Light",
+                                                                 "description": "ASP Launch Light (red)",
                                                                   "identifier": "ASP_LNCH",
                                                                       "inputs": [  ],
                                                                      "outputs": [ {
@@ -251,7 +251,7 @@
                                           "ASP_LOCK_LIGHT": {
                                                                     "category": "ASP Gunsight",
                                                                 "control_type": "led",
-                                                                 "description": "ASP Lock Light",
+                                                                 "description": "ASP Lock Light (green)",
                                                                   "identifier": "ASP_LOCK_LIGHT",
                                                                       "inputs": [  ],
                                                                      "outputs": [ {
@@ -678,7 +678,7 @@
                                            "MIS_55_1": {
                                                                "category": "Accelerometer, AoA Gauge Panel",
                                                            "control_type": "led",
-                                                            "description": "Missile 55-1 Light",
+                                                            "description": "Missile 55-1 Light (green)",
                                                              "identifier": "MIS_55_1",
                                                                  "inputs": [  ],
                                                                 "outputs": [ {
@@ -694,7 +694,7 @@
                                            "MIS_55_2": {
                                                                "category": "Accelerometer, AoA Gauge Panel",
                                                            "control_type": "led",
-                                                            "description": "Missile 55-2 Light",
+                                                            "description": "Missile 55-2 Light (green)",
                                                              "identifier": "MIS_55_2",
                                                                  "inputs": [  ],
                                                                 "outputs": [ {
@@ -710,7 +710,7 @@
                                              "MIS_62": {
                                                                "category": "Accelerometer, AoA Gauge Panel",
                                                            "control_type": "led",
-                                                            "description": "Missile 62 Light",
+                                                            "description": "Missile 62 Light (green)",
                                                              "identifier": "MIS_62",
                                                                  "inputs": [  ],
                                                                 "outputs": [ {
@@ -1304,7 +1304,7 @@
                                             "SRZO_CIPH_L": {
                                                                    "category": "Avionics Power Panel",
                                                                "control_type": "led",
-                                                                "description": "SRZO Cipher Light",
+                                                                "description": "SRZO Cipher Light (green)",
                                                                  "identifier": "SRZO_CIPH_L",
                                                                      "inputs": [  ],
                                                                     "outputs": [ {
@@ -1320,7 +1320,7 @@
                                             "SRZO_CODE_L": {
                                                                    "category": "Avionics Power Panel",
                                                                "control_type": "led",
-                                                                "description": "SRZO Code Light",
+                                                                "description": "SRZO Code Light (green)",
                                                                  "identifier": "SRZO_CODE_L",
                                                                      "inputs": [  ],
                                                                     "outputs": [ {
@@ -1365,7 +1365,7 @@
                                           "SRZO_PWR_LGHT": {
                                                                    "category": "Avionics Power Panel",
                                                                "control_type": "led",
-                                                                "description": "SRZO Power Light",
+                                                                "description": "SRZO Power Light (green)",
                                                                  "identifier": "SRZO_PWR_LGHT",
                                                                      "inputs": [  ],
                                                                     "outputs": [ {
@@ -1476,7 +1476,7 @@
                                             "RED_FLD_INT": {
                                                                    "category": "Backlighting",
                                                                "control_type": "analog_gauge",
-                                                                "description": "Red Flood Light Intensity",
+                                                                "description": "Red Flood Light Intensity (red)",
                                                                  "identifier": "RED_FLD_INT",
                                                                      "inputs": [  ],
                                                                     "outputs": [ {
@@ -1492,7 +1492,7 @@
                                             "RED_PAN_INT": {
                                                                    "category": "Backlighting",
                                                                "control_type": "analog_gauge",
-                                                                "description": "Red Panel Text Light Intensity",
+                                                                "description": "Red Panel Text Light Intensity (red)",
                                                                  "identifier": "RED_PAN_INT",
                                                                      "inputs": [  ],
                                                                     "outputs": [ {
@@ -1508,7 +1508,7 @@
                                             "WHT_PAN_INT": {
                                                                    "category": "Backlighting",
                                                                "control_type": "analog_gauge",
-                                                                "description": "White Panel Light Intensity",
+                                                                "description": "White Panel Light Intensity (white)",
                                                                  "identifier": "WHT_PAN_INT",
                                                                      "inputs": [  ],
                                                                     "outputs": [ {
@@ -1526,7 +1526,7 @@
                                            "AOA_WARN_LGHT": {
                                                                     "category": "Canopy Frame",
                                                                 "control_type": "led",
-                                                                 "description": "AOA Warning Lights",
+                                                                 "description": "AOA Warning Lights (red)",
                                                                   "identifier": "AOA_WARN_LGHT",
                                                                       "inputs": [  ],
                                                                      "outputs": [ {
@@ -1689,7 +1689,7 @@
                                           "CAN_WARN_LIGHT": {
                                                                     "category": "Canopy Frame",
                                                                 "control_type": "led",
-                                                                 "description": "Canopy Warning Light",
+                                                                 "description": "Canopy Warning Light (red)",
                                                                   "identifier": "CAN_WARN_LIGHT",
                                                                       "inputs": [  ],
                                                                      "outputs": [ {
@@ -1779,6 +1779,22 @@
                                                                                                   } ],
                                                                               "physical_variant": "limited_rotary"
                                                                        },
+                                                      "ARC_IBN_LIGHT": {
+                                                                               "category": "Center Pedestal Panel",
+                                                                           "control_type": "led",
+                                                                            "description": "ARC IBN Light (green)",
+                                                                             "identifier": "ARC_IBN_LIGHT",
+                                                                                 "inputs": [  ],
+                                                                                "outputs": [ {
+                                                                                                   "address": 8908,
+                                                                                               "description": "0 if light is off, 1 if light is on",
+                                                                                                      "mask": 1024,
+                                                                                                 "max_value": 1,
+                                                                                                  "shift_by": 10,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "integer"
+                                                                                           } ]
+                                                                       },
                                                             "BMB_FUZ": {
                                                                                       "category": "Center Pedestal Panel",
                                                                                   "control_type": "selector",
@@ -1840,7 +1856,7 @@
                                                      "CENT_PYL_LIGHT": {
                                                                                "category": "Center Pedestal Panel",
                                                                            "control_type": "led",
-                                                                            "description": "Central Pylon Light",
+                                                                            "description": "Central Pylon Light (green)",
                                                                              "identifier": "CENT_PYL_LIGHT",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
@@ -1849,6 +1865,134 @@
                                                                                                       "mask": 512,
                                                                                                  "max_value": 1,
                                                                                                   "shift_by": 9,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "integer"
+                                                                                           } ]
+                                                                       },
+                                                            "CLOCK_H": {
+                                                                               "category": "Center Pedestal Panel",
+                                                                           "control_type": "analog_gauge",
+                                                                            "description": "Clock Hours Pointer",
+                                                                             "identifier": "CLOCK_H",
+                                                                                 "inputs": [  ],
+                                                                                "outputs": [ {
+                                                                                                   "address": 8932,
+                                                                                               "description": "gauge position",
+                                                                                                      "mask": 65535,
+                                                                                                 "max_value": 65535,
+                                                                                                  "shift_by": 0,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "integer"
+                                                                                           } ]
+                                                                       },
+                                                            "CLOCK_M": {
+                                                                               "category": "Center Pedestal Panel",
+                                                                           "control_type": "analog_gauge",
+                                                                            "description": "Clock Minutes Pointer",
+                                                                             "identifier": "CLOCK_M",
+                                                                                 "inputs": [  ],
+                                                                                "outputs": [ {
+                                                                                                   "address": 8934,
+                                                                                               "description": "gauge position",
+                                                                                                      "mask": 65535,
+                                                                                                 "max_value": 65535,
+                                                                                                  "shift_by": 0,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "integer"
+                                                                                           } ]
+                                                                       },
+                                                         "CLOCK_MT_H": {
+                                                                               "category": "Center Pedestal Panel",
+                                                                           "control_type": "analog_gauge",
+                                                                            "description": "Clock Missiontimer Hours Pointer",
+                                                                             "identifier": "CLOCK_MT_H",
+                                                                                 "inputs": [  ],
+                                                                                "outputs": [ {
+                                                                                                   "address": 8940,
+                                                                                               "description": "gauge position",
+                                                                                                      "mask": 65535,
+                                                                                                 "max_value": 65535,
+                                                                                                  "shift_by": 0,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "integer"
+                                                                                           } ]
+                                                                       },
+                                                       "CLOCK_MT_IND": {
+                                                                               "category": "Center Pedestal Panel",
+                                                                           "control_type": "analog_gauge",
+                                                                            "description": "Clock Missiontimer Indicator",
+                                                                             "identifier": "CLOCK_MT_IND",
+                                                                                 "inputs": [  ],
+                                                                                "outputs": [ {
+                                                                                                   "address": 8938,
+                                                                                               "description": "gauge position",
+                                                                                                      "mask": 65535,
+                                                                                                 "max_value": 65535,
+                                                                                                  "shift_by": 0,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "integer"
+                                                                                           } ]
+                                                                       },
+                                                         "CLOCK_MT_M": {
+                                                                               "category": "Center Pedestal Panel",
+                                                                           "control_type": "analog_gauge",
+                                                                            "description": "Clock Missiontimer Minutes Pointer",
+                                                                             "identifier": "CLOCK_MT_M",
+                                                                                 "inputs": [  ],
+                                                                                "outputs": [ {
+                                                                                                   "address": 8942,
+                                                                                               "description": "gauge position",
+                                                                                                      "mask": 65535,
+                                                                                                 "max_value": 65535,
+                                                                                                  "shift_by": 0,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "integer"
+                                                                                           } ]
+                                                                       },
+                                                            "CLOCK_S": {
+                                                                               "category": "Center Pedestal Panel",
+                                                                           "control_type": "analog_gauge",
+                                                                            "description": "Clock Seconds Pointer",
+                                                                             "identifier": "CLOCK_S",
+                                                                                 "inputs": [  ],
+                                                                                "outputs": [ {
+                                                                                                   "address": 8936,
+                                                                                               "description": "gauge position",
+                                                                                                      "mask": 65535,
+                                                                                                 "max_value": 65535,
+                                                                                                  "shift_by": 0,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "integer"
+                                                                                           } ]
+                                                                       },
+                                                          "CLOCK_T_M": {
+                                                                               "category": "Center Pedestal Panel",
+                                                                           "control_type": "analog_gauge",
+                                                                            "description": "Clock Timer Minutes Pointer",
+                                                                             "identifier": "CLOCK_T_M",
+                                                                                 "inputs": [  ],
+                                                                                "outputs": [ {
+                                                                                                   "address": 8944,
+                                                                                               "description": "gauge position",
+                                                                                                      "mask": 65535,
+                                                                                                 "max_value": 65535,
+                                                                                                  "shift_by": 0,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "integer"
+                                                                                           } ]
+                                                                       },
+                                                          "CLOCK_T_S": {
+                                                                               "category": "Center Pedestal Panel",
+                                                                           "control_type": "analog_gauge",
+                                                                            "description": "Clock Timer Seconds Pointer",
+                                                                             "identifier": "CLOCK_T_S",
+                                                                                 "inputs": [  ],
+                                                                                "outputs": [ {
+                                                                                                   "address": 8946,
+                                                                                               "description": "gauge position",
+                                                                                                      "mask": 65535,
+                                                                                                 "max_value": 65535,
+                                                                                                  "shift_by": 0,
                                                                                                     "suffix": "",
                                                                                                       "type": "integer"
                                                                                            } ]
@@ -1960,7 +2104,7 @@
                                                           "FUEL_PODC": {
                                                                                "category": "Center Pedestal Panel",
                                                                            "control_type": "led",
-                                                                            "description": "Center Drop Tank Empty Light",
+                                                                            "description": "Center Drop Tank Empty Light (green)",
                                                                              "identifier": "FUEL_PODC",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
@@ -2082,7 +2226,7 @@
                                                          "PYL1_LIGHT": {
                                                                                "category": "Center Pedestal Panel",
                                                                            "control_type": "led",
-                                                                            "description": "Pylon 1 On Light",
+                                                                            "description": "Pylon 1 On Light (green)",
                                                                              "identifier": "PYL1_LIGHT",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
@@ -2098,7 +2242,7 @@
                                                      "PYL1_OFF_LIGHT": {
                                                                                "category": "Center Pedestal Panel",
                                                                            "control_type": "led",
-                                                                            "description": "Pylon 1 Off Light",
+                                                                            "description": "Pylon 1 Off Light (green)",
                                                                              "identifier": "PYL1_OFF_LIGHT",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
@@ -2114,7 +2258,7 @@
                                                          "PYL2_LIGHT": {
                                                                                "category": "Center Pedestal Panel",
                                                                            "control_type": "led",
-                                                                            "description": "Pylon 2 On Light",
+                                                                            "description": "Pylon 2 On Light (green)",
                                                                              "identifier": "PYL2_LIGHT",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
@@ -2130,7 +2274,7 @@
                                                      "PYL2_OFF_LIGHT": {
                                                                                "category": "Center Pedestal Panel",
                                                                            "control_type": "led",
-                                                                            "description": "Pylon 2 Off Light",
+                                                                            "description": "Pylon 2 Off Light (green)",
                                                                              "identifier": "PYL2_OFF_LIGHT",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
@@ -2146,7 +2290,7 @@
                                                          "PYL3_LIGHT": {
                                                                                "category": "Center Pedestal Panel",
                                                                            "control_type": "led",
-                                                                            "description": "Pylon 3 On Light",
+                                                                            "description": "Pylon 3 On Light (green)",
                                                                              "identifier": "PYL3_LIGHT",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
@@ -2162,7 +2306,7 @@
                                                      "PYL3_OFF_LIGHT": {
                                                                                "category": "Center Pedestal Panel",
                                                                            "control_type": "led",
-                                                                            "description": "Pylon 3 Off Light",
+                                                                            "description": "Pylon 3 Off Light (green)",
                                                                              "identifier": "PYL3_OFF_LIGHT",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
@@ -2178,7 +2322,7 @@
                                                          "PYL4_LIGHT": {
                                                                                "category": "Center Pedestal Panel",
                                                                            "control_type": "led",
-                                                                            "description": "Pylon 4 On Light",
+                                                                            "description": "Pylon 4 On Light (green)",
                                                                              "identifier": "PYL4_LIGHT",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
@@ -2194,7 +2338,7 @@
                                                      "PYL4_OFF_LIGHT": {
                                                                                "category": "Center Pedestal Panel",
                                                                            "control_type": "led",
-                                                                            "description": "Pylon 4 Off Light",
+                                                                            "description": "Pylon 4 Off Light (green)",
                                                                              "identifier": "PYL4_OFF_LIGHT",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
@@ -2320,7 +2464,7 @@
                                                        "RATO_L_LIGHT": {
                                                                                "category": "Center Pedestal Panel",
                                                                            "control_type": "led",
-                                                                            "description": "RATO Left Light",
+                                                                            "description": "RATO Left Light (green)",
                                                                              "identifier": "RATO_L_LIGHT",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
@@ -2336,7 +2480,7 @@
                                                        "RATO_R_LIGHT": {
                                                                                "category": "Center Pedestal Panel",
                                                                            "control_type": "led",
-                                                                            "description": "RATO Right Light",
+                                                                            "description": "RATO Right Light (green)",
                                                                              "identifier": "RATO_R_LIGHT",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
@@ -2352,7 +2496,7 @@
                                                         "TAC_DRP_ARM": {
                                                                                "category": "Center Pedestal Panel",
                                                                            "control_type": "led",
-                                                                            "description": "Tactical Drop Armed",
+                                                                            "description": "Tactical Drop Armed (red)",
                                                                              "identifier": "TAC_DRP_ARM",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
@@ -2364,7 +2508,57 @@
                                                                                                     "suffix": "",
                                                                                                       "type": "integer"
                                                                                            } ]
+                                                                       },
+                                                     "WBRAKE_L_GAUGE": {
+                                                                               "category": "Center Pedestal Panel",
+                                                                           "control_type": "analog_gauge",
+                                                                            "description": "Wheelbrake Left Pressure Gauge Needle",
+                                                                             "identifier": "WBRAKE_L_GAUGE",
+                                                                                 "inputs": [  ],
+                                                                                "outputs": [ {
+                                                                                                   "address": 8948,
+                                                                                               "description": "gauge position",
+                                                                                                      "mask": 65535,
+                                                                                                 "max_value": 65535,
+                                                                                                  "shift_by": 0,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "integer"
+                                                                                           } ]
+                                                                       },
+                                                     "WBRAKE_R_GAUGE": {
+                                                                               "category": "Center Pedestal Panel",
+                                                                           "control_type": "analog_gauge",
+                                                                            "description": "Wheelbrake Right Pressure Gauge Needle",
+                                                                             "identifier": "WBRAKE_R_GAUGE",
+                                                                                 "inputs": [  ],
+                                                                                "outputs": [ {
+                                                                                                   "address": 8950,
+                                                                                               "description": "gauge position",
+                                                                                                      "mask": 65535,
+                                                                                                 "max_value": 65535,
+                                                                                                  "shift_by": 0,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "integer"
+                                                                                           } ]
                                                                        }
+                                      },
+                           "Cockpit": {
+                                          "CANOPY_POS": {
+                                                                "category": "Cockpit",
+                                                            "control_type": "analog_gauge",
+                                                             "description": "Canopy Position",
+                                                              "identifier": "CANOPY_POS",
+                                                                  "inputs": [  ],
+                                                                 "outputs": [ {
+                                                                                    "address": 8930,
+                                                                                "description": "gauge position",
+                                                                                       "mask": 65535,
+                                                                                  "max_value": 65535,
+                                                                                   "shift_by": 0,
+                                                                                     "suffix": "",
+                                                                                       "type": "integer"
+                                                                            } ]
+                                                        }
                                       },
                "Engine Status Panel": {
                                           "CTR_WARN_LIGHTS_BRT": {
@@ -2530,7 +2724,7 @@
                                                "GYRO_RST_LIGHT": {
                                                                          "category": "Engine Status Panel",
                                                                      "control_type": "led",
-                                                                      "description": "Gyro Reset Light",
+                                                                      "description": "Gyro Reset Light (red)",
                                                                        "identifier": "GYRO_RST_LIGHT",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
@@ -2637,7 +2831,7 @@
                                                   "KONUS_LIGHT": {
                                                                          "category": "Engine Status Panel",
                                                                      "control_type": "led",
-                                                                      "description": "Nosecone Light",
+                                                                      "description": "Nosecone Light (green)",
                                                                        "identifier": "KONUS_LIGHT",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
@@ -2653,7 +2847,7 @@
                                                    "MARK_LIGHT": {
                                                                          "category": "Engine Status Panel",
                                                                      "control_type": "led",
-                                                                      "description": "Marker Light",
+                                                                      "description": "Marker Light (red)",
                                                                        "identifier": "MARK_LIGHT",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
@@ -2728,7 +2922,7 @@
                                                     "OIL_LIGHT": {
                                                                          "category": "Engine Status Panel",
                                                                      "control_type": "led",
-                                                                      "description": "Oil Pressure Light",
+                                                                      "description": "Oil Pressure Light (red)",
                                                                        "identifier": "OIL_LIGHT",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
@@ -2792,7 +2986,7 @@
                                                    "STAB_LIGHT": {
                                                                          "category": "Engine Status Panel",
                                                                      "control_type": "led",
-                                                                      "description": "Stabilizer Light",
+                                                                      "description": "Stabilizer Light (green)",
                                                                        "identifier": "STAB_LIGHT",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
@@ -2808,7 +3002,7 @@
                                                     "TRM_LIGHT": {
                                                                          "category": "Engine Status Panel",
                                                                      "control_type": "led",
-                                                                      "description": "Trimmer Light",
+                                                                      "description": "Trimmer Light (green)",
                                                                        "identifier": "TRM_LIGHT",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
@@ -3250,7 +3444,7 @@
                                                    "KPP_ARR_LIGHT": {
                                                                             "category": "Flight Status/Navigation Panel",
                                                                         "control_type": "led",
-                                                                         "description": "KPP Cage Light",
+                                                                         "description": "KPP Cage Light (red)",
                                                                           "identifier": "KPP_ARR_LIGHT",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
@@ -3353,7 +3547,7 @@
                                                    "LOW_ALT_LIGHT": {
                                                                             "category": "Flight Status/Navigation Panel",
                                                                         "control_type": "led",
-                                                                         "description": "Low Altitude Warn Light",
+                                                                         "description": "Low Altitude Warn Light (red)",
                                                                           "identifier": "LOW_ALT_LIGHT",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
@@ -3369,7 +3563,7 @@
                                                   "MASTER_CAUTION": {
                                                                             "category": "Flight Status/Navigation Panel",
                                                                         "control_type": "led",
-                                                                         "description": "Master Caution/SORC Light",
+                                                                         "description": "Master Caution/SORC Light (red)",
                                                                           "identifier": "MASTER_CAUTION",
                                                                               "inputs": [  ],
                                                                              "outputs": [ {
@@ -3933,7 +4127,7 @@
                                                     "IAB_1": {
                                                                      "category": "IAB Nuclear Control Panel",
                                                                  "control_type": "led",
-                                                                  "description": "Nuke Panel Loaded Light",
+                                                                  "description": "Nuke Panel Loaded Light (green)",
                                                                    "identifier": "IAB_1",
                                                                        "inputs": [  ],
                                                                       "outputs": [ {
@@ -3949,7 +4143,7 @@
                                                     "IAB_2": {
                                                                      "category": "IAB Nuclear Control Panel",
                                                                  "control_type": "led",
-                                                                  "description": "Nuke Panel Armed Light",
+                                                                  "description": "Nuke Panel Armed Light (red)",
                                                                    "identifier": "IAB_2",
                                                                        "inputs": [  ],
                                                                       "outputs": [ {
@@ -3965,7 +4159,7 @@
                                                     "IAB_3": {
                                                                      "category": "IAB Nuclear Control Panel",
                                                                  "control_type": "led",
-                                                                  "description": "Nuke Panel Safe Light",
+                                                                  "description": "Nuke Panel Safe Light (green)",
                                                                    "identifier": "IAB_3",
                                                                        "inputs": [  ],
                                                                       "outputs": [ {
@@ -4157,7 +4351,7 @@
                                                   "AIRBRK_LIGHT": {
                                                                           "category": "Landing Gear Control",
                                                                       "control_type": "led",
-                                                                       "description": "Airbrakes Light",
+                                                                       "description": "Airbrakes Light (green)",
                                                                         "identifier": "AIRBRK_LIGHT",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
@@ -4173,7 +4367,7 @@
                                                 "CHK_GEAR_LIGHT": {
                                                                           "category": "Landing Gear Control",
                                                                       "control_type": "led",
-                                                                       "description": "Check Gear Light",
+                                                                       "description": "Check Gear Light (yellow)",
                                                                         "identifier": "CHK_GEAR_LIGHT",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
@@ -4189,7 +4383,7 @@
                                                    "FLAPS_LIGHT": {
                                                                           "category": "Landing Gear Control",
                                                                       "control_type": "led",
-                                                                       "description": "Flaps Light",
+                                                                       "description": "Flaps Light (green)",
                                                                         "identifier": "FLAPS_LIGHT",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
@@ -4205,7 +4399,7 @@
                                                 "GEAR_LEFT_DOWN": {
                                                                           "category": "Landing Gear Control",
                                                                       "control_type": "led",
-                                                                       "description": "Gear Left Down Light",
+                                                                       "description": "Gear Left Down Light (green)",
                                                                         "identifier": "GEAR_LEFT_DOWN",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
@@ -4221,7 +4415,7 @@
                                                   "GEAR_LEFT_UP": {
                                                                           "category": "Landing Gear Control",
                                                                       "control_type": "led",
-                                                                       "description": "Gear Left Up Light",
+                                                                       "description": "Gear Left Up Light (red)",
                                                                         "identifier": "GEAR_LEFT_UP",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
@@ -4291,7 +4485,7 @@
                                                 "GEAR_NOSE_DOWN": {
                                                                           "category": "Landing Gear Control",
                                                                       "control_type": "led",
-                                                                       "description": "Gear Nose Down Light",
+                                                                       "description": "Gear Nose Down Light (green)",
                                                                         "identifier": "GEAR_NOSE_DOWN",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
@@ -4307,7 +4501,7 @@
                                                   "GEAR_NOSE_UP": {
                                                                           "category": "Landing Gear Control",
                                                                       "control_type": "led",
-                                                                       "description": "Gear Nose Up Light",
+                                                                       "description": "Gear Nose Up Light (red)",
                                                                         "identifier": "GEAR_NOSE_UP",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
@@ -4323,7 +4517,7 @@
                                                "GEAR_RIGHT_DOWN": {
                                                                           "category": "Landing Gear Control",
                                                                       "control_type": "led",
-                                                                       "description": "Gear Right Down Light",
+                                                                       "description": "Gear Right Down Light (green)",
                                                                         "identifier": "GEAR_RIGHT_DOWN",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
@@ -4339,7 +4533,7 @@
                                                  "GEAR_RIGHT_UP": {
                                                                           "category": "Landing Gear Control",
                                                                       "control_type": "led",
-                                                                       "description": "Gear Right Up Light",
+                                                                       "description": "Gear Right Up Light (red)",
                                                                         "identifier": "GEAR_RIGHT_UP",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
@@ -6066,7 +6260,7 @@
                                                   "AC_GEN_LIGHT": {
                                                                           "category": "Main Warning Lights",
                                                                       "control_type": "led",
-                                                                       "description": "AC Generator Light",
+                                                                       "description": "AC Generator Light (red)",
                                                                         "identifier": "AC_GEN_LIGHT",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
@@ -6082,7 +6276,7 @@
                                                    "BOOST_LIGHT": {
                                                                           "category": "Main Warning Lights",
                                                                       "control_type": "led",
-                                                                       "description": "Booster Pressure Light",
+                                                                       "description": "Booster Pressure Light (yellow)",
                                                                         "identifier": "BOOST_LIGHT",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
@@ -6098,7 +6292,7 @@
                                                   "DC_GEN_LIGHT": {
                                                                           "category": "Main Warning Lights",
                                                                       "control_type": "led",
-                                                                       "description": "DC Generator Light",
+                                                                       "description": "DC Generator Light (red)",
                                                                         "identifier": "DC_GEN_LIGHT",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
@@ -6114,7 +6308,7 @@
                                                "ENG_START_LIGHT": {
                                                                           "category": "Main Warning Lights",
                                                                       "control_type": "led",
-                                                                       "description": "Engine Start Light",
+                                                                       "description": "Engine Start Light (red)",
                                                                         "identifier": "ENG_START_LIGHT",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
@@ -6130,7 +6324,7 @@
                                                     "FIRE_LIGHT": {
                                                                           "category": "Main Warning Lights",
                                                                       "control_type": "led",
-                                                                       "description": "Fire Warning Light",
+                                                                       "description": "Fire Warning Light (red)",
                                                                         "identifier": "FIRE_LIGHT",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
@@ -6146,7 +6340,7 @@
                                                       "FORSAZ_1": {
                                                                           "category": "Main Warning Lights",
                                                                       "control_type": "led",
-                                                                       "description": "Afterburner Active Light",
+                                                                       "description": "Afterburner Active Light (green)",
                                                                         "identifier": "FORSAZ_1",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
@@ -6162,7 +6356,7 @@
                                                       "FORSAZ_2": {
                                                                           "category": "Main Warning Lights",
                                                                       "control_type": "led",
-                                                                       "description": "Emergency Afterburner Light",
+                                                                       "description": "Emergency Afterburner Light (green)",
                                                                         "identifier": "FORSAZ_2",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
@@ -6178,7 +6372,7 @@
                                                       "FUEL_1GR": {
                                                                           "category": "Main Warning Lights",
                                                                       "control_type": "led",
-                                                                       "description": "Fuel Tank Gr. 1 Empty Light",
+                                                                       "description": "Fuel Tank Gr. 1 Empty Light (green)",
                                                                         "identifier": "FUEL_1GR",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
@@ -6194,7 +6388,7 @@
                                                       "FUEL_3GR": {
                                                                           "category": "Main Warning Lights",
                                                                       "control_type": "led",
-                                                                       "description": "Fuel Tank Gr. 3 Empty Light",
+                                                                       "description": "Fuel Tank Gr. 3 Empty Light (green)",
                                                                         "identifier": "FUEL_3GR",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
@@ -6210,7 +6404,7 @@
                                                       "FUEL_450": {
                                                                           "category": "Main Warning Lights",
                                                                       "control_type": "led",
-                                                                       "description": "Fuel 450L Warning Light",
+                                                                       "description": "Fuel 450L Warning Light (red)",
                                                                         "identifier": "FUEL_450",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
@@ -6226,7 +6420,7 @@
                                                      "FUEL_PODW": {
                                                                           "category": "Main Warning Lights",
                                                                       "control_type": "led",
-                                                                       "description": "Wing Drop Tanks Empty Light",
+                                                                       "description": "Wing Drop Tanks Empty Light (green)",
                                                                         "identifier": "FUEL_PODW",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
@@ -6242,7 +6436,7 @@
                                                    "FUEL_RASHOD": {
                                                                           "category": "Main Warning Lights",
                                                                       "control_type": "led",
-                                                                       "description": "No Fuel Warning Light",
+                                                                       "description": "No Fuel Warning Light (red)",
                                                                         "identifier": "FUEL_RASHOD",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
@@ -6313,7 +6507,7 @@
                                                     "HYDR_LIGHT": {
                                                                           "category": "Main Warning Lights",
                                                                       "control_type": "led",
-                                                                       "description": "Hydraulic Pressure Light",
+                                                                       "description": "Hydraulic Pressure Light (yellow)",
                                                                         "identifier": "HYDR_LIGHT",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
@@ -6384,7 +6578,7 @@
                                                   "NOZZLE_LIGHT": {
                                                                           "category": "Main Warning Lights",
                                                                       "control_type": "led",
-                                                                       "description": "Nozzle Open Light",
+                                                                       "description": "Nozzle Open Light (green)",
                                                                         "identifier": "NOZZLE_LIGHT",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
@@ -6447,7 +6641,7 @@
                                                    "RADAR_ERR": {
                                                                         "category": "RADAR Power",
                                                                     "control_type": "led",
-                                                                     "description": "Radar Error Light",
+                                                                     "description": "Radar Error Light (red)",
                                                                       "identifier": "RADAR_ERR",
                                                                           "inputs": [  ],
                                                                          "outputs": [ {
@@ -6463,7 +6657,7 @@
                                           "RADAR_FIX_BM_LIGHT": {
                                                                         "category": "RADAR Power",
                                                                     "control_type": "led",
-                                                                     "description": "Radar Fixed Beam Light",
+                                                                     "description": "Radar Fixed Beam Light (green)",
                                                                       "identifier": "RADAR_FIX_BM_LIGHT",
                                                                           "inputs": [  ],
                                                                          "outputs": [ {
@@ -6504,7 +6698,7 @@
                                              "RADAR_LOW_LIGHT": {
                                                                         "category": "RADAR Power",
                                                                     "control_type": "led",
-                                                                     "description": "Radar Low Light",
+                                                                     "description": "Radar Low Light (green)",
                                                                       "identifier": "RADAR_LOW_LIGHT",
                                                                           "inputs": [  ],
                                                                          "outputs": [ {
@@ -6547,7 +6741,7 @@
                                           "MSL_HEAD_RDY": {
                                                                   "category": "RADAR Scope, Interrupts",
                                                               "control_type": "led",
-                                                               "description": "Missile Head Ready Light",
+                                                               "description": "Missile Head Ready Light (red)",
                                                                 "identifier": "MSL_HEAD_RDY",
                                                                     "inputs": [  ],
                                                                    "outputs": [ {
@@ -6563,7 +6757,7 @@
                                            "RADAR_19A_1": {
                                                                   "category": "RADAR Scope, Interrupts",
                                                               "control_type": "led",
-                                                               "description": "Radar Continuous Interferes Light",
+                                                               "description": "Radar Continuous Interferes Light (red)",
                                                                 "identifier": "RADAR_19A_1",
                                                                     "inputs": [  ],
                                                                    "outputs": [ {
@@ -6579,7 +6773,7 @@
                                            "RADAR_19A_2": {
                                                                   "category": "RADAR Scope, Interrupts",
                                                               "control_type": "led",
-                                                               "description": "Radar Temporary Interferes Light",
+                                                               "description": "Radar Temporary Interferes Light (red)",
                                                                 "identifier": "RADAR_19A_2",
                                                                     "inputs": [  ],
                                                                    "outputs": [ {
@@ -6595,7 +6789,7 @@
                                            "RADAR_19A_3": {
                                                                   "category": "RADAR Scope, Interrupts",
                                                               "control_type": "led",
-                                                               "description": "Radar Passive Interferes Light",
+                                                               "description": "Radar Passive Interferes Light (red)",
                                                                 "identifier": "RADAR_19A_3",
                                                                     "inputs": [  ],
                                                                    "outputs": [ {
@@ -6611,7 +6805,7 @@
                                            "RADAR_19A_4": {
                                                                   "category": "RADAR Scope, Interrupts",
                                                               "control_type": "led",
-                                                               "description": "Radar Weather Interferes Light",
+                                                               "description": "Radar Weather Interferes Light (red)",
                                                                 "identifier": "RADAR_19A_4",
                                                                     "inputs": [  ],
                                                                    "outputs": [ {
@@ -6627,7 +6821,7 @@
                                            "RADAR_19A_5": {
                                                                   "category": "RADAR Scope, Interrupts",
                                                               "control_type": "led",
-                                                               "description": "Radar IFF Light",
+                                                               "description": "Radar IFF Light (red)",
                                                                 "identifier": "RADAR_19A_5",
                                                                     "inputs": [  ],
                                                                    "outputs": [ {
@@ -6643,7 +6837,7 @@
                                            "RADAR_19A_6": {
                                                                   "category": "RADAR Scope, Interrupts",
                                                               "control_type": "led",
-                                                               "description": "Radar Low Speed Light",
+                                                               "description": "Radar Low Speed Light (red)",
                                                                 "identifier": "RADAR_19A_6",
                                                                     "inputs": [  ],
                                                                    "outputs": [ {
@@ -6659,7 +6853,7 @@
                                            "RADAR_19A_7": {
                                                                   "category": "RADAR Scope, Interrupts",
                                                               "control_type": "led",
-                                                               "description": "Radar Self-Test Light",
+                                                               "description": "Radar Self-Test Light (red)",
                                                                 "identifier": "RADAR_19A_7",
                                                                     "inputs": [  ],
                                                                    "outputs": [ {
@@ -6675,7 +6869,7 @@
                                            "RADAR_19A_8": {
                                                                   "category": "RADAR Scope, Interrupts",
                                                               "control_type": "led",
-                                                               "description": "Radar Reset Light",
+                                                               "description": "Radar Reset Light (red)",
                                                                 "identifier": "RADAR_19A_8",
                                                                     "inputs": [  ],
                                                                    "outputs": [ {
@@ -6691,7 +6885,7 @@
                                             "RADAR_BRKN": {
                                                                   "category": "RADAR Scope, Interrupts",
                                                               "control_type": "led",
-                                                               "description": "Radar Broken Light",
+                                                               "description": "Radar Broken Light (red)",
                                                                 "identifier": "RADAR_BRKN",
                                                                     "inputs": [  ],
                                                                    "outputs": [ {
@@ -6737,7 +6931,7 @@
                                             "RADAR_DENG": {
                                                                   "category": "RADAR Scope, Interrupts",
                                                               "control_type": "led",
-                                                               "description": "Radar Disengage Light",
+                                                               "description": "Radar Disengage Light (red)",
                                                                 "identifier": "RADAR_DENG",
                                                                     "inputs": [  ],
                                                                    "outputs": [ {
@@ -6808,7 +7002,7 @@
                                              "RADAR_JMD": {
                                                                   "category": "RADAR Scope, Interrupts",
                                                               "control_type": "led",
-                                                               "description": "Radar Jammed Light",
+                                                               "description": "Radar Jammed Light (red)",
                                                                 "identifier": "RADAR_JMD",
                                                                     "inputs": [  ],
                                                                    "outputs": [ {
@@ -6824,7 +7018,7 @@
                                             "RADAR_LNCH": {
                                                                   "category": "RADAR Scope, Interrupts",
                                                               "control_type": "led",
-                                                               "description": "Radar Launch Light",
+                                                               "description": "Radar Launch Light (red)",
                                                                 "identifier": "RADAR_LNCH",
                                                                     "inputs": [  ],
                                                                    "outputs": [ {
@@ -7047,7 +7241,7 @@
                                                 "RSBN_ASM": {
                                                                     "category": "RSBN",
                                                                 "control_type": "led",
-                                                                 "description": "RSBN Asimuth Correction Light",
+                                                                 "description": "RSBN Asimuth Correction Light (green)",
                                                                   "identifier": "RSBN_ASM",
                                                                       "inputs": [  ],
                                                                      "outputs": [ {
@@ -7146,7 +7340,7 @@
                                           "RSBN_DIST_LGHT": {
                                                                     "category": "RSBN",
                                                                 "control_type": "led",
-                                                                 "description": "RSBN Distance Correction Light",
+                                                                 "description": "RSBN Distance Correction Light (green)",
                                                                   "identifier": "RSBN_DIST_LGHT",
                                                                       "inputs": [  ],
                                                                      "outputs": [ {
@@ -7589,7 +7783,7 @@
                                            "SAU_AUTO_LND": {
                                                                    "category": "SAU",
                                                                "control_type": "led",
-                                                                "description": "SAU Auto Landing Light",
+                                                                "description": "SAU Auto Landing Light (green)",
                                                                  "identifier": "SAU_AUTO_LND",
                                                                      "inputs": [  ],
                                                                     "outputs": [ {
@@ -7605,7 +7799,7 @@
                                             "SAU_CMD_LND": {
                                                                    "category": "SAU",
                                                                "control_type": "led",
-                                                                "description": "SAU Command Landing Light",
+                                                                "description": "SAU Command Landing Light (green)",
                                                                  "identifier": "SAU_CMD_LND",
                                                                      "inputs": [  ],
                                                                     "outputs": [ {
@@ -7710,7 +7904,7 @@
                                                "SAU_PRIV": {
                                                                    "category": "SAU",
                                                                "control_type": "led",
-                                                                "description": "SAU Recover Mode Light",
+                                                                "description": "SAU Recover Mode Light (green)",
                                                                  "identifier": "SAU_PRIV",
                                                                      "inputs": [  ],
                                                                     "outputs": [ {
@@ -7786,7 +7980,7 @@
                                           "SAU_STAB_LGHT": {
                                                                    "category": "SAU",
                                                                "control_type": "led",
-                                                                "description": "SAU Stabilization Light",
+                                                                "description": "SAU Stabilization Light (green)",
                                                                  "identifier": "SAU_STAB_LGHT",
                                                                      "inputs": [  ],
                                                                     "outputs": [ {
@@ -8027,7 +8221,7 @@
                                            "SOD_ANS": {
                                                               "category": "SPO RWR",
                                                           "control_type": "led",
-                                                           "description": "SOD Answer Light",
+                                                           "description": "SOD Answer Light (yellow)",
                                                             "identifier": "SOD_ANS",
                                                                 "inputs": [  ],
                                                                "outputs": [ {
@@ -8072,7 +8266,7 @@
                                             "SPO_LB": {
                                                               "category": "SPO RWR",
                                                           "control_type": "led",
-                                                           "description": "SPO RWR Left Rear Light",
+                                                           "description": "SPO RWR Left Rear Light (yellow)",
                                                             "identifier": "SPO_LB",
                                                                 "inputs": [  ],
                                                                "outputs": [ {
@@ -8088,7 +8282,7 @@
                                             "SPO_LF": {
                                                               "category": "SPO RWR",
                                                           "control_type": "led",
-                                                           "description": "SPO RWR Left Front Light",
+                                                           "description": "SPO RWR Left Front Light (yellow)",
                                                             "identifier": "SPO_LF",
                                                                 "inputs": [  ],
                                                                "outputs": [ {
@@ -8104,7 +8298,7 @@
                                           "SPO_MUTE": {
                                                               "category": "SPO RWR",
                                                           "control_type": "led",
-                                                           "description": "SPO RWR Mute Light",
+                                                           "description": "SPO RWR Mute Light (red)",
                                                             "identifier": "SPO_MUTE",
                                                                 "inputs": [  ],
                                                                "outputs": [ {
@@ -8120,7 +8314,7 @@
                                             "SPO_RB": {
                                                               "category": "SPO RWR",
                                                           "control_type": "led",
-                                                           "description": "SPO RWR Right Rear Light",
+                                                           "description": "SPO RWR Right Rear Light (yellow)",
                                                             "identifier": "SPO_RB",
                                                                 "inputs": [  ],
                                                                "outputs": [ {
@@ -8136,7 +8330,7 @@
                                             "SPO_RF": {
                                                               "category": "SPO RWR",
                                                           "control_type": "led",
-                                                           "description": "SPO RWR Right Front Light",
+                                                           "description": "SPO RWR Right Front Light (yellow)",
                                                             "identifier": "SPO_RF",
                                                                 "inputs": [  ],
                                                                "outputs": [ {
@@ -8468,7 +8662,7 @@
                                               "SPS_ILL": {
                                                                  "category": "SPS-141-100 Panel",
                                                              "control_type": "led",
-                                                              "description": "SPS 141-100 Illuminated",
+                                                              "description": "SPS 141-100 Illuminated (red)",
                                                                "identifier": "SPS_ILL",
                                                                    "inputs": [  ],
                                                                   "outputs": [ {
@@ -8484,7 +8678,7 @@
                                              "SPS_LNCH": {
                                                                  "category": "SPS-141-100 Panel",
                                                              "control_type": "led",
-                                                              "description": "SPS 141-100 Countermeasures Ready/Launching",
+                                                              "description": "SPS 141-100 Countermeasures Ready/Launching (green)",
                                                                "identifier": "SPS_LNCH",
                                                                    "inputs": [  ],
                                                                   "outputs": [ {
@@ -8500,7 +8694,7 @@
                                               "SPS_RDY": {
                                                                  "category": "SPS-141-100 Panel",
                                                              "control_type": "led",
-                                                              "description": "SPS 141-100 Ready",
+                                                              "description": "SPS 141-100 Ready (green)",
                                                                "identifier": "SPS_RDY",
                                                                    "inputs": [  ],
                                                                   "outputs": [ {
@@ -8801,7 +8995,7 @@
                                               "SRZO_ERR_L": {
                                                                     "category": "SRZO/Fuse Panel",
                                                                 "control_type": "led",
-                                                                 "description": "SOD Error Light",
+                                                                 "description": "SOD Error Light (red)",
                                                                   "identifier": "SRZO_ERR_L",
                                                                       "inputs": [  ],
                                                                      "outputs": [ {
@@ -9425,7 +9619,7 @@
                                           "GUV_PWR_LGHT": {
                                                                   "category": "UPK-23-250-2 Panel",
                                                               "control_type": "led",
-                                                               "description": "UPK-23-250-2 On Light",
+                                                               "description": "UPK-23-250-2 On Light (green)",
                                                                 "identifier": "GUV_PWR_LGHT",
                                                                     "inputs": [  ],
                                                                    "outputs": [ {
@@ -9472,7 +9666,7 @@
                                           "GUN_GOTOVN": {
                                                                 "category": "Weapon Select Panel",
                                                             "control_type": "led",
-                                                             "description": "Gun Loaded Light",
+                                                             "description": "Gun Loaded Light (green)",
                                                               "identifier": "GUN_GOTOVN",
                                                                   "inputs": [  ],
                                                                  "outputs": [ {

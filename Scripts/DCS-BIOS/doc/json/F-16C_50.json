@@ -1734,6 +1734,22 @@
                                                                                                   } ],
                                                                               "physical_variant": "toggle_switch"
                                                                        },
+                                                         "CANOPY_POS": {
+                                                                               "category": "Cockpit Mechanics",
+                                                                           "control_type": "analog_gauge",
+                                                                            "description": "Canopy Position",
+                                                                             "identifier": "CANOPY_POS",
+                                                                                 "inputs": [  ],
+                                                                                "outputs": [ {
+                                                                                                   "address": 17544,
+                                                                                               "description": "gauge position",
+                                                                                                      "mask": 65535,
+                                                                                                 "max_value": 65535,
+                                                                                                  "shift_by": 0,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "integer"
+                                                                                           } ]
+                                                                       },
                                                           "CANOPY_SW": {
                                                                                "category": "Cockpit Mechanics",
                                                                            "control_type": "3Pos_2Command_Switch_OpenClose",
@@ -1750,22 +1766,6 @@
                                                                                                       "mask": 24576,
                                                                                                  "max_value": 2,
                                                                                                   "shift_by": 13,
-                                                                                                    "suffix": "",
-                                                                                                      "type": "integer"
-                                                                                           } ]
-                                                                       },
-                                                       "CANOPY_VALUE": {
-                                                                               "category": "Cockpit Mechanics",
-                                                                           "control_type": "analog_gauge",
-                                                                            "description": "Canopy Position",
-                                                                             "identifier": "CANOPY_VALUE",
-                                                                                 "inputs": [  ],
-                                                                                "outputs": [ {
-                                                                                                   "address": 17544,
-                                                                                               "description": "gauge position",
-                                                                                                      "mask": 65535,
-                                                                                                 "max_value": 65535,
-                                                                                                  "shift_by": 0,
                                                                                                     "suffix": "",
                                                                                                       "type": "integer"
                                                                                            } ]

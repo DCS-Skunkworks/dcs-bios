@@ -1185,6 +1185,22 @@
                                                      }
                                },
                      "CANOPY": {
+                                          "CANOPY_POS": {
+                                                                "category": "CANOPY",
+                                                            "control_type": "analog_gauge",
+                                                             "description": "Canopy Position",
+                                                              "identifier": "CANOPY_POS",
+                                                                  "inputs": [  ],
+                                                                 "outputs": [ {
+                                                                                    "address": 29544,
+                                                                                "description": "gauge position",
+                                                                                       "mask": 65535,
+                                                                                  "max_value": 65535,
+                                                                                   "shift_by": 0,
+                                                                                     "suffix": "",
+                                                                                       "type": "integer"
+                                                                            } ]
+                                                        },
                                           "CNPY_HAND1": {
                                                                        "category": "CANOPY",
                                                                    "control_type": "selector",

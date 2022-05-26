@@ -2749,7 +2749,7 @@
                                                                                   "identifier": "EXT_SPEED_BRAKE_LEFT",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 5824,
+                                                                                                        "address": 5826,
                                                                                                     "description": "Left Speed Brake",
                                                                                                            "mask": 65535,
                                                                                                       "max_value": 65535,
@@ -2765,7 +2765,7 @@
                                                                                   "identifier": "EXT_SPEED_BRAKE_RIGHT",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                        "address": 5822,
+                                                                                                        "address": 5824,
                                                                                                     "description": "Right Speed Brake",
                                                                                                            "mask": 65535,
                                                                                                       "max_value": 65535,
@@ -3759,6 +3759,22 @@
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
                                                                                                        "address": 5786,
+                                                                                                   "description": "gauge position",
+                                                                                                          "mask": 65535,
+                                                                                                     "max_value": 65535,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
+                                                                           },
+                                                             "CANOPY_POS": {
+                                                                                   "category": "Gauges",
+                                                                               "control_type": "analog_gauge",
+                                                                                "description": "Canopy Position",
+                                                                                 "identifier": "CANOPY_POS",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 5822,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,

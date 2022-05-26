@@ -3270,6 +3270,40 @@
                                                                    "physical_variant": "limited_rotary"
                                                             }
                                    },
+                        "Cockpit": {
+                                       "DOOR_POS_L": {
+                                                             "category": "Cockpit",
+                                                         "control_type": "analog_gauge",
+                                                          "description": "Door Position Left",
+                                                           "identifier": "DOOR_POS_L",
+                                                               "inputs": [  ],
+                                                              "outputs": [ {
+                                                                                 "address": 5440,
+                                                                             "description": "gauge position",
+                                                                                    "mask": 65535,
+                                                                               "max_value": 65535,
+                                                                                "shift_by": 0,
+                                                                                  "suffix": "",
+                                                                                    "type": "integer"
+                                                                         } ]
+                                                     },
+                                       "DOOR_POS_R": {
+                                                             "category": "Cockpit",
+                                                         "control_type": "analog_gauge",
+                                                          "description": "Door Position Right",
+                                                           "identifier": "DOOR_POS_R",
+                                                               "inputs": [  ],
+                                                              "outputs": [ {
+                                                                                 "address": 5442,
+                                                                             "description": "gauge position",
+                                                                                    "mask": 65535,
+                                                                               "max_value": 65535,
+                                                                                "shift_by": 0,
+                                                                                  "suffix": "",
+                                                                                    "type": "integer"
+                                                                         } ]
+                                                     }
+                                   },
                      "Collective": {
                                              "GOV_RPM_SW": {
                                                                           "category": "Collective",
@@ -4228,7 +4262,7 @@
                                                                  "api_variant": "momentary_last_position",
                                                                     "category": "Doors",
                                                                 "control_type": "selector",
-                                                                 "description": "Door Left",
+                                                                 "description": "Door Handle Left",
                                                                   "identifier": "DOOR_L-PTR",
                                                                       "inputs": [ {
                                                                                     "description": "switch to previous or next state",
@@ -4258,7 +4292,7 @@
                                                                  "api_variant": "momentary_last_position",
                                                                     "category": "Doors",
                                                                 "control_type": "selector",
-                                                                 "description": "Door Right",
+                                                                 "description": "Door Handle Right",
                                                                   "identifier": "DOOR_R-PTR",
                                                                       "inputs": [ {
                                                                                     "description": "switch to previous or next state",
@@ -4626,7 +4660,7 @@
                                                                          "identifier": "EXT_ROTOR",
                                                                              "inputs": [  ],
                                                                             "outputs": [ {
-                                                                                               "address": 5440,
+                                                                                               "address": 5444,
                                                                                            "description": "Rotor Move",
                                                                                                   "mask": 65535,
                                                                                              "max_value": 65535,

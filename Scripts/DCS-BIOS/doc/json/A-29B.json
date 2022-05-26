@@ -4032,86 +4032,86 @@
                                                                   }
                                             },
                                   "Gauges": {
-                                                     "ASI_OFF": {
-                                                                        "category": "Gauges",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "ASI OFF Flag",
-                                                                      "identifier": "ASI_OFF",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                            "address": 34890,
-                                                                                        "description": "gauge position",
-                                                                                               "mask": 65535,
-                                                                                          "max_value": 65535,
-                                                                                           "shift_by": 0,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ]
-                                                                },
-                                                   "ASI_PITCH": {
-                                                                        "category": "Gauges",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "ASI Pitch",
-                                                                      "identifier": "ASI_PITCH",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                            "address": 34888,
-                                                                                        "description": "gauge position",
-                                                                                               "mask": 65535,
-                                                                                          "max_value": 65535,
-                                                                                           "shift_by": 0,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ]
-                                                                },
-                                                    "ASI_ROLL": {
-                                                                        "category": "Gauges",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "ASI Roll",
-                                                                      "identifier": "ASI_ROLL",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                            "address": 34886,
-                                                                                        "description": "gauge position",
-                                                                                               "mask": 65535,
-                                                                                          "max_value": 65535,
-                                                                                           "shift_by": 0,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ]
-                                                                },
-                                                "CANOPY_VALUE": {
-                                                                        "category": "Gauges",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "Canopy Position",
-                                                                      "identifier": "CANOPY_VALUE",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                            "address": 34882,
-                                                                                        "description": "gauge position",
-                                                                                               "mask": 65535,
-                                                                                          "max_value": 65535,
-                                                                                           "shift_by": 0,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ]
-                                                                },
-                                                 "VERT_VELO_G": {
-                                                                        "category": "Gauges",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "Vertical Velocity",
-                                                                      "identifier": "VERT_VELO_G",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                            "address": 34884,
-                                                                                        "description": "gauge position",
-                                                                                               "mask": 65535,
-                                                                                          "max_value": 65535,
-                                                                                           "shift_by": 0,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ]
-                                                                }
+                                                    "ASI_OFF": {
+                                                                       "category": "Gauges",
+                                                                   "control_type": "analog_gauge",
+                                                                    "description": "ASI OFF Flag",
+                                                                     "identifier": "ASI_OFF",
+                                                                         "inputs": [  ],
+                                                                        "outputs": [ {
+                                                                                           "address": 34890,
+                                                                                       "description": "gauge position",
+                                                                                              "mask": 65535,
+                                                                                         "max_value": 65535,
+                                                                                          "shift_by": 0,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ]
+                                                               },
+                                                  "ASI_PITCH": {
+                                                                       "category": "Gauges",
+                                                                   "control_type": "analog_gauge",
+                                                                    "description": "ASI Pitch",
+                                                                     "identifier": "ASI_PITCH",
+                                                                         "inputs": [  ],
+                                                                        "outputs": [ {
+                                                                                           "address": 34888,
+                                                                                       "description": "gauge position",
+                                                                                              "mask": 65535,
+                                                                                         "max_value": 65535,
+                                                                                          "shift_by": 0,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ]
+                                                               },
+                                                   "ASI_ROLL": {
+                                                                       "category": "Gauges",
+                                                                   "control_type": "analog_gauge",
+                                                                    "description": "ASI Roll",
+                                                                     "identifier": "ASI_ROLL",
+                                                                         "inputs": [  ],
+                                                                        "outputs": [ {
+                                                                                           "address": 34886,
+                                                                                       "description": "gauge position",
+                                                                                              "mask": 65535,
+                                                                                         "max_value": 65535,
+                                                                                          "shift_by": 0,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ]
+                                                               },
+                                                 "CANOPY_POS": {
+                                                                       "category": "Gauges",
+                                                                   "control_type": "analog_gauge",
+                                                                    "description": "Canopy Position",
+                                                                     "identifier": "CANOPY_POS",
+                                                                         "inputs": [  ],
+                                                                        "outputs": [ {
+                                                                                           "address": 34882,
+                                                                                       "description": "gauge position",
+                                                                                              "mask": 65535,
+                                                                                         "max_value": 65535,
+                                                                                          "shift_by": 0,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ]
+                                                               },
+                                                "VERT_VELO_G": {
+                                                                       "category": "Gauges",
+                                                                   "control_type": "analog_gauge",
+                                                                    "description": "Vertical Velocity",
+                                                                     "identifier": "VERT_VELO_G",
+                                                                         "inputs": [  ],
+                                                                        "outputs": [ {
+                                                                                           "address": 34884,
+                                                                                       "description": "gauge position",
+                                                                                              "mask": 65535,
+                                                                                         "max_value": 65535,
+                                                                                          "shift_by": 0,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ]
+                                                               }
                                             },
                                     "Gear": {
                                                 "EMERG_GEAR": {
