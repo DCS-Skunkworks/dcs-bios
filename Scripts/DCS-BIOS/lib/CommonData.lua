@@ -97,7 +97,7 @@ local function misstime()
 end
 
 local function getVersion()
-	return "0.7.45"
+	return "0.7.46"
 end
 defineString("DCS_BIOS", getVersion, 6,  "Metadata" , "DCS Bios Version")
 
