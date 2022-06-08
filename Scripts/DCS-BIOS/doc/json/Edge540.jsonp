@@ -1,0 +1,994 @@
+docdata["Edge540"] =
+{
+                             "Config Page": {
+                                                    "CONF_CUSTOM_1_BTN": {
+                                                                                        "category": "Config Page",
+                                                                                    "control_type": "selector",
+                                                                                     "description": "Config Page - Attach/Remove Winglets",
+                                                                                      "identifier": "CONF_CUSTOM_1_BTN",
+                                                                                          "inputs": [ {
+                                                                                                        "description": "switch to previous or next state",
+                                                                                                          "interface": "fixed_step"
+                                                                                                    }, {
+                                                                                                        "description": "set position",
+                                                                                                          "interface": "set_state",
+                                                                                                          "max_value": 1
+                                                                                                    }, {
+                                                                                                           "argument": "TOGGLE",
+                                                                                                        "description": "Toggle switch state",
+                                                                                                          "interface": "action"
+                                                                                                    } ],
+                                                                             "momentary_positions": "none",
+                                                                                         "outputs": [ {
+                                                                                                            "address": 22022,
+                                                                                                        "description": "selector position",
+                                                                                                               "mask": 512,
+                                                                                                          "max_value": 1,
+                                                                                                           "shift_by": 9,
+                                                                                                             "suffix": "",
+                                                                                                               "type": "integer"
+                                                                                                    } ],
+                                                                                "physical_variant": "toggle_switch"
+                                                                         },
+                                                    "CONF_CUSTOM_2_BTN": {
+                                                                                        "category": "Config Page",
+                                                                                    "control_type": "selector",
+                                                                                     "description": "Config Page - Attach/Remove Spades",
+                                                                                      "identifier": "CONF_CUSTOM_2_BTN",
+                                                                                          "inputs": [ {
+                                                                                                        "description": "switch to previous or next state",
+                                                                                                          "interface": "fixed_step"
+                                                                                                    }, {
+                                                                                                        "description": "set position",
+                                                                                                          "interface": "set_state",
+                                                                                                          "max_value": 1
+                                                                                                    }, {
+                                                                                                           "argument": "TOGGLE",
+                                                                                                        "description": "Toggle switch state",
+                                                                                                          "interface": "action"
+                                                                                                    } ],
+                                                                             "momentary_positions": "none",
+                                                                                         "outputs": [ {
+                                                                                                            "address": 22022,
+                                                                                                        "description": "selector position",
+                                                                                                               "mask": 1024,
+                                                                                                          "max_value": 1,
+                                                                                                           "shift_by": 10,
+                                                                                                             "suffix": "",
+                                                                                                               "type": "integer"
+                                                                                                    } ],
+                                                                                "physical_variant": "toggle_switch"
+                                                                         },
+                                                "CONF_CUSTOM_2_BTN_330": {
+                                                                                        "category": "Config Page",
+                                                                                    "control_type": "selector",
+                                                                                     "description": "Config Page - Attach/Remove Spades Extra330SR",
+                                                                                      "identifier": "CONF_CUSTOM_2_BTN_330",
+                                                                                          "inputs": [ {
+                                                                                                        "description": "switch to previous or next state",
+                                                                                                          "interface": "fixed_step"
+                                                                                                    }, {
+                                                                                                        "description": "set position",
+                                                                                                          "interface": "set_state",
+                                                                                                          "max_value": 1
+                                                                                                    }, {
+                                                                                                           "argument": "TOGGLE",
+                                                                                                        "description": "Toggle switch state",
+                                                                                                          "interface": "action"
+                                                                                                    } ],
+                                                                             "momentary_positions": "none",
+                                                                                         "outputs": [ {
+                                                                                                            "address": 22022,
+                                                                                                        "description": "selector position",
+                                                                                                               "mask": 2048,
+                                                                                                          "max_value": 1,
+                                                                                                           "shift_by": 11,
+                                                                                                             "suffix": "",
+                                                                                                               "type": "integer"
+                                                                                                    } ],
+                                                                                "physical_variant": "toggle_switch"
+                                                                         },
+                                                    "CONF_CUSTOM_3_BTN": {
+                                                                                        "category": "Config Page",
+                                                                                    "control_type": "selector",
+                                                                                     "description": "Config Page - Attach/Remove Lights",
+                                                                                      "identifier": "CONF_CUSTOM_3_BTN",
+                                                                                          "inputs": [ {
+                                                                                                        "description": "switch to previous or next state",
+                                                                                                          "interface": "fixed_step"
+                                                                                                    }, {
+                                                                                                        "description": "set position",
+                                                                                                          "interface": "set_state",
+                                                                                                          "max_value": 1
+                                                                                                    }, {
+                                                                                                           "argument": "TOGGLE",
+                                                                                                        "description": "Toggle switch state",
+                                                                                                          "interface": "action"
+                                                                                                    } ],
+                                                                             "momentary_positions": "none",
+                                                                                         "outputs": [ {
+                                                                                                            "address": 22022,
+                                                                                                        "description": "selector position",
+                                                                                                               "mask": 4096,
+                                                                                                          "max_value": 1,
+                                                                                                           "shift_by": 12,
+                                                                                                             "suffix": "",
+                                                                                                               "type": "integer"
+                                                                                                    } ],
+                                                                                "physical_variant": "toggle_switch"
+                                                                         },
+                                                    "CONF_CUSTOM_5_BTN": {
+                                                                                     "api_variant": "momentary_last_position",
+                                                                                        "category": "Config Page",
+                                                                                    "control_type": "selector",
+                                                                                     "description": "Config Page - Hide Aersti Chart",
+                                                                                      "identifier": "CONF_CUSTOM_5_BTN",
+                                                                                          "inputs": [ {
+                                                                                                        "description": "switch to previous or next state",
+                                                                                                          "interface": "fixed_step"
+                                                                                                    }, {
+                                                                                                        "description": "set position",
+                                                                                                          "interface": "set_state",
+                                                                                                          "max_value": 1
+                                                                                                    }, {
+                                                                                                           "argument": "TOGGLE",
+                                                                                                        "description": "Toggle switch state",
+                                                                                                          "interface": "action"
+                                                                                                    } ],
+                                                                             "momentary_positions": "none",
+                                                                                         "outputs": [ {
+                                                                                                            "address": 22024,
+                                                                                                        "description": "selector position",
+                                                                                                               "mask": 1,
+                                                                                                          "max_value": 1,
+                                                                                                           "shift_by": 0,
+                                                                                                             "suffix": "",
+                                                                                                               "type": "integer"
+                                                                                                    } ],
+                                                                                "physical_variant": "push_button"
+                                                                         },
+                                                       "CONF_PILOT_SEL": {
+                                                                                        "category": "Config Page",
+                                                                                    "control_type": "selector",
+                                                                                     "description": "Config Page - Select Pilot",
+                                                                                      "identifier": "CONF_PILOT_SEL",
+                                                                                          "inputs": [ {
+                                                                                                        "description": "switch to previous or next state",
+                                                                                                          "interface": "fixed_step"
+                                                                                                    }, {
+                                                                                                        "description": "set position",
+                                                                                                          "interface": "set_state",
+                                                                                                          "max_value": 6
+                                                                                                    } ],
+                                                                             "momentary_positions": "none",
+                                                                                         "outputs": [ {
+                                                                                                            "address": 22022,
+                                                                                                        "description": "selector position",
+                                                                                                               "mask": 57344,
+                                                                                                          "max_value": 6,
+                                                                                                           "shift_by": 13,
+                                                                                                             "suffix": "",
+                                                                                                               "type": "integer"
+                                                                                                    } ],
+                                                                                "physical_variant": "limited_rotary"
+                                                                         }
+                                            },
+                 "External Aircraft Model": {
+                                                   "EXT_LIGHTS": {
+                                                                         "category": "External Aircraft Model",
+                                                                     "control_type": "metadata",
+                                                                      "description": "External Lights (red,green,white)",
+                                                                       "identifier": "EXT_LIGHTS",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 22024,
+                                                                                         "description": "External Lights (red,green,white)",
+                                                                                                "mask": 32,
+                                                                                           "max_value": 1,
+                                                                                            "shift_by": 5,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                                "EXT_PAINTGLOW": {
+                                                                         "category": "External Aircraft Model",
+                                                                     "control_type": "metadata",
+                                                                      "description": "Paintjob Glow",
+                                                                       "identifier": "EXT_PAINTGLOW",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 22024,
+                                                                                         "description": "Paintjob Glow",
+                                                                                                "mask": 64,
+                                                                                           "max_value": 1,
+                                                                                            "shift_by": 6,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 }
+                                            },
+                                  "Gauges": {
+                                                  "AIRSPEED": {
+                                                                      "category": "Gauges",
+                                                                  "control_type": "analog_gauge",
+                                                                   "description": "Airspeed in Knots Gauge",
+                                                                    "identifier": "AIRSPEED",
+                                                                        "inputs": [  ],
+                                                                       "outputs": [ {
+                                                                                          "address": 22028,
+                                                                                      "description": "gauge position",
+                                                                                             "mask": 65535,
+                                                                                        "max_value": 65535,
+                                                                                         "shift_by": 0,
+                                                                                           "suffix": "",
+                                                                                             "type": "integer"
+                                                                                  } ]
+                                                              },
+                                                "CANOPY_POS": {
+                                                                      "category": "Gauges",
+                                                                  "control_type": "analog_gauge",
+                                                                   "description": "Canopy Position",
+                                                                    "identifier": "CANOPY_POS",
+                                                                        "inputs": [  ],
+                                                                       "outputs": [ {
+                                                                                          "address": 22026,
+                                                                                      "description": "gauge position",
+                                                                                             "mask": 65535,
+                                                                                        "max_value": 65535,
+                                                                                         "shift_by": 0,
+                                                                                           "suffix": "",
+                                                                                             "type": "integer"
+                                                                                  } ]
+                                                              },
+                                                  "FUEL_INT": {
+                                                                      "category": "Gauges",
+                                                                  "control_type": "analog_gauge",
+                                                                   "description": "Internal Tanks Fuel Gauge",
+                                                                    "identifier": "FUEL_INT",
+                                                                        "inputs": [  ],
+                                                                       "outputs": [ {
+                                                                                          "address": 22030,
+                                                                                      "description": "gauge position",
+                                                                                             "mask": 65535,
+                                                                                        "max_value": 65535,
+                                                                                         "shift_by": 0,
+                                                                                           "suffix": "",
+                                                                                             "type": "integer"
+                                                                                  } ]
+                                                              },
+                                                 "FUEL_WING": {
+                                                                      "category": "Gauges",
+                                                                  "control_type": "analog_gauge",
+                                                                   "description": "Wing Tanks Fuel Gauge",
+                                                                    "identifier": "FUEL_WING",
+                                                                        "inputs": [  ],
+                                                                       "outputs": [ {
+                                                                                          "address": 22032,
+                                                                                      "description": "gauge position",
+                                                                                             "mask": 65535,
+                                                                                        "max_value": 65535,
+                                                                                         "shift_by": 0,
+                                                                                           "suffix": "",
+                                                                                             "type": "integer"
+                                                                                  } ]
+                                                              }
+                                            },
+                            "Main Display": {
+                                                 "PAGE_1BTN_NAV": {
+                                                                              "api_variant": "momentary_last_position",
+                                                                                 "category": "Main Display",
+                                                                             "control_type": "selector",
+                                                                              "description": "Display Button 1 NAV Page",
+                                                                               "identifier": "PAGE_1BTN_NAV",
+                                                                                   "inputs": [ {
+                                                                                                 "description": "switch to previous or next state",
+                                                                                                   "interface": "fixed_step"
+                                                                                             }, {
+                                                                                                 "description": "set position",
+                                                                                                   "interface": "set_state",
+                                                                                                   "max_value": 1
+                                                                                             }, {
+                                                                                                    "argument": "TOGGLE",
+                                                                                                 "description": "Toggle switch state",
+                                                                                                   "interface": "action"
+                                                                                             } ],
+                                                                      "momentary_positions": "none",
+                                                                                  "outputs": [ {
+                                                                                                     "address": 22018,
+                                                                                                 "description": "selector position",
+                                                                                                        "mask": 2048,
+                                                                                                   "max_value": 1,
+                                                                                                    "shift_by": 11,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ],
+                                                                         "physical_variant": "push_button"
+                                                                  },
+                                                 "PAGE_2BTN_SYS": {
+                                                                              "api_variant": "momentary_last_position",
+                                                                                 "category": "Main Display",
+                                                                             "control_type": "selector",
+                                                                              "description": "Display Button 2 System Page",
+                                                                               "identifier": "PAGE_2BTN_SYS",
+                                                                                   "inputs": [ {
+                                                                                                 "description": "switch to previous or next state",
+                                                                                                   "interface": "fixed_step"
+                                                                                             }, {
+                                                                                                 "description": "set position",
+                                                                                                   "interface": "set_state",
+                                                                                                   "max_value": 1
+                                                                                             }, {
+                                                                                                    "argument": "TOGGLE",
+                                                                                                 "description": "Toggle switch state",
+                                                                                                   "interface": "action"
+                                                                                             } ],
+                                                                      "momentary_positions": "none",
+                                                                                  "outputs": [ {
+                                                                                                     "address": 22018,
+                                                                                                 "description": "selector position",
+                                                                                                        "mask": 4096,
+                                                                                                   "max_value": 1,
+                                                                                                    "shift_by": 12,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ],
+                                                                         "physical_variant": "push_button"
+                                                                  },
+                                                 "PAGE_3BTN_MP3": {
+                                                                              "api_variant": "momentary_last_position",
+                                                                                 "category": "Main Display",
+                                                                             "control_type": "selector",
+                                                                              "description": "Display Button 3 Mp3 Page",
+                                                                               "identifier": "PAGE_3BTN_MP3",
+                                                                                   "inputs": [ {
+                                                                                                 "description": "switch to previous or next state",
+                                                                                                   "interface": "fixed_step"
+                                                                                             }, {
+                                                                                                 "description": "set position",
+                                                                                                   "interface": "set_state",
+                                                                                                   "max_value": 1
+                                                                                             }, {
+                                                                                                    "argument": "TOGGLE",
+                                                                                                 "description": "Toggle switch state",
+                                                                                                   "interface": "action"
+                                                                                             } ],
+                                                                      "momentary_positions": "none",
+                                                                                  "outputs": [ {
+                                                                                                     "address": 22018,
+                                                                                                 "description": "selector position",
+                                                                                                        "mask": 8192,
+                                                                                                   "max_value": 1,
+                                                                                                    "shift_by": 13,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ],
+                                                                         "physical_variant": "push_button"
+                                                                  },
+                                                "PAGE_4BTN_CONF": {
+                                                                              "api_variant": "momentary_last_position",
+                                                                                 "category": "Main Display",
+                                                                             "control_type": "selector",
+                                                                              "description": "Display Button 4 Configuration Page",
+                                                                               "identifier": "PAGE_4BTN_CONF",
+                                                                                   "inputs": [ {
+                                                                                                 "description": "switch to previous or next state",
+                                                                                                   "interface": "fixed_step"
+                                                                                             }, {
+                                                                                                 "description": "set position",
+                                                                                                   "interface": "set_state",
+                                                                                                   "max_value": 1
+                                                                                             }, {
+                                                                                                    "argument": "TOGGLE",
+                                                                                                 "description": "Toggle switch state",
+                                                                                                   "interface": "action"
+                                                                                             } ],
+                                                                      "momentary_positions": "none",
+                                                                                  "outputs": [ {
+                                                                                                     "address": 22018,
+                                                                                                 "description": "selector position",
+                                                                                                        "mask": 16384,
+                                                                                                   "max_value": 1,
+                                                                                                    "shift_by": 14,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ],
+                                                                         "physical_variant": "push_button"
+                                                                  }
+                                            },
+                              "Main Panel": {
+                                                      "ALT_SET": {
+                                                                      "api_variant": "multiturn",
+                                                                         "category": "Main Panel",
+                                                                     "control_type": "analog_dial",
+                                                                      "description": "Altimeter Setting",
+                                                                       "identifier": "ALT_SET",
+                                                                           "inputs": [ {
+                                                                                            "description": "turn the dial left or right",
+                                                                                              "interface": "variable_step",
+                                                                                              "max_value": 65535,
+                                                                                         "suggested_step": 3200
+                                                                                     } ],
+                                                                          "outputs": [ {
+                                                                                             "address": 22016,
+                                                                                         "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "_KNOB_POS",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                                     "BOOST_SW": {
+                                                                                "category": "Main Panel",
+                                                                            "control_type": "selector",
+                                                                             "description": "Electric Fuel Pump",
+                                                                              "identifier": "BOOST_SW",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 1
+                                                                                            }, {
+                                                                                                   "argument": "TOGGLE",
+                                                                                                "description": "Toggle switch state",
+                                                                                                  "interface": "action"
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 22018,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 2,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 1,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "toggle_switch"
+                                                                 },
+                                                       "CANOPY": {
+                                                                                "category": "Main Panel",
+                                                                            "control_type": "selector",
+                                                                             "description": "Canopy Open/Close",
+                                                                              "identifier": "CANOPY",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 1
+                                                                                            }, {
+                                                                                                   "argument": "TOGGLE",
+                                                                                                "description": "Toggle switch state",
+                                                                                                  "interface": "action"
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 22018,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 4,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 2,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "toggle_switch"
+                                                                 },
+                                                     "FUEL_SEL": {
+                                                                                "category": "Main Panel",
+                                                                            "control_type": "selector",
+                                                                             "description": "Fuel Selector",
+                                                                              "identifier": "FUEL_SEL",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 2
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 22018,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 192,
+                                                                                                  "max_value": 2,
+                                                                                                   "shift_by": 6,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "limited_rotary"
+                                                                 },
+                                                      "LED_BTN": {
+                                                                             "api_variant": "momentary_last_position",
+                                                                                "category": "Main Panel",
+                                                                            "control_type": "selector",
+                                                                             "description": "Racing LED Indicator Speed/G Toggle",
+                                                                              "identifier": "LED_BTN",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 1
+                                                                                            }, {
+                                                                                                   "argument": "TOGGLE",
+                                                                                                "description": "Toggle switch state",
+                                                                                                  "interface": "action"
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 22018,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 16,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 4,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "push_button"
+                                                                 },
+                                                          "MAG": {
+                                                                                "category": "Main Panel",
+                                                                            "control_type": "selector",
+                                                                             "description": "Magnetos",
+                                                                              "identifier": "MAG",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 4
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 22018,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 1792,
+                                                                                                  "max_value": 4,
+                                                                                                   "shift_by": 8,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "limited_rotary"
+                                                                 },
+                                                    "MASTER_SW": {
+                                                                                "category": "Main Panel",
+                                                                            "control_type": "selector",
+                                                                             "description": "Master Switch",
+                                                                              "identifier": "MASTER_SW",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 1
+                                                                                            }, {
+                                                                                                   "argument": "TOGGLE",
+                                                                                                "description": "Toggle switch state",
+                                                                                                  "interface": "action"
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 22018,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 1,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 0,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "toggle_switch"
+                                                                 },
+                                                     "PROP_MIX": {
+                                                                         "category": "Main Panel",
+                                                                     "control_type": "limited_dial",
+                                                                      "description": "Mixture Lever",
+                                                                       "identifier": "PROP_MIX",
+                                                                           "inputs": [ {
+                                                                                         "description": "set the position of the dial",
+                                                                                           "interface": "set_state",
+                                                                                           "max_value": 65535
+                                                                                     }, {
+                                                                                            "description": "turn the dial left or right",
+                                                                                              "interface": "variable_step",
+                                                                                              "max_value": 65535,
+                                                                                         "suggested_step": 3200
+                                                                                     } ],
+                                                                          "outputs": [ {
+                                                                                             "address": 22020,
+                                                                                         "description": "position of the potentiometer",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                                "STOPWATCH_BTN": {
+                                                                             "api_variant": "momentary_last_position",
+                                                                                "category": "Main Panel",
+                                                                            "control_type": "selector",
+                                                                             "description": "Stopwatch Start/Stop/Reset",
+                                                                              "identifier": "STOPWATCH_BTN",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 1
+                                                                                            }, {
+                                                                                                   "argument": "TOGGLE",
+                                                                                                "description": "Toggle switch state",
+                                                                                                  "interface": "action"
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 22018,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 32,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 5,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "push_button"
+                                                                 },
+                                                      "UAV_BTN": {
+                                                                             "api_variant": "momentary_last_position",
+                                                                                "category": "Main Panel",
+                                                                            "control_type": "selector",
+                                                                             "description": "UAV Mode",
+                                                                              "identifier": "UAV_BTN",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 1
+                                                                                            }, {
+                                                                                                   "argument": "TOGGLE",
+                                                                                                "description": "Toggle switch state",
+                                                                                                  "interface": "action"
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 22018,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 8,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 3,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "push_button"
+                                                                 }
+                                            },
+                                "Mp3 Page": {
+                                                "MP3_NEXT": {
+                                                                        "api_variant": "momentary_last_position",
+                                                                           "category": "Mp3 Page",
+                                                                       "control_type": "selector",
+                                                                        "description": "Mp3 Next Track",
+                                                                         "identifier": "MP3_NEXT",
+                                                                             "inputs": [ {
+                                                                                           "description": "switch to previous or next state",
+                                                                                             "interface": "fixed_step"
+                                                                                       }, {
+                                                                                           "description": "set position",
+                                                                                             "interface": "set_state",
+                                                                                             "max_value": 1
+                                                                                       }, {
+                                                                                              "argument": "TOGGLE",
+                                                                                           "description": "Toggle switch state",
+                                                                                             "interface": "action"
+                                                                                       } ],
+                                                                "momentary_positions": "none",
+                                                                            "outputs": [ {
+                                                                                               "address": 22022,
+                                                                                           "description": "selector position",
+                                                                                                  "mask": 128,
+                                                                                             "max_value": 1,
+                                                                                              "shift_by": 7,
+                                                                                                "suffix": "",
+                                                                                                  "type": "integer"
+                                                                                       } ],
+                                                                   "physical_variant": "push_button"
+                                                            },
+                                                "MP3_PLAY": {
+                                                                        "api_variant": "momentary_last_position",
+                                                                           "category": "Mp3 Page",
+                                                                       "control_type": "selector",
+                                                                        "description": "Mp3 Play",
+                                                                         "identifier": "MP3_PLAY",
+                                                                             "inputs": [ {
+                                                                                           "description": "switch to previous or next state",
+                                                                                             "interface": "fixed_step"
+                                                                                       }, {
+                                                                                           "description": "set position",
+                                                                                             "interface": "set_state",
+                                                                                             "max_value": 1
+                                                                                       }, {
+                                                                                              "argument": "TOGGLE",
+                                                                                           "description": "Toggle switch state",
+                                                                                             "interface": "action"
+                                                                                       } ],
+                                                                "momentary_positions": "none",
+                                                                            "outputs": [ {
+                                                                                               "address": 22022,
+                                                                                           "description": "selector position",
+                                                                                                  "mask": 64,
+                                                                                             "max_value": 1,
+                                                                                              "shift_by": 6,
+                                                                                                "suffix": "",
+                                                                                                  "type": "integer"
+                                                                                       } ],
+                                                                   "physical_variant": "push_button"
+                                                            },
+                                                "MP3_PREV": {
+                                                                        "api_variant": "momentary_last_position",
+                                                                           "category": "Mp3 Page",
+                                                                       "control_type": "selector",
+                                                                        "description": "Mp3 Previous Track",
+                                                                         "identifier": "MP3_PREV",
+                                                                             "inputs": [ {
+                                                                                           "description": "switch to previous or next state",
+                                                                                             "interface": "fixed_step"
+                                                                                       }, {
+                                                                                           "description": "set position",
+                                                                                             "interface": "set_state",
+                                                                                             "max_value": 1
+                                                                                       }, {
+                                                                                              "argument": "TOGGLE",
+                                                                                           "description": "Toggle switch state",
+                                                                                             "interface": "action"
+                                                                                       } ],
+                                                                "momentary_positions": "none",
+                                                                            "outputs": [ {
+                                                                                               "address": 22022,
+                                                                                           "description": "selector position",
+                                                                                                  "mask": 256,
+                                                                                             "max_value": 1,
+                                                                                              "shift_by": 8,
+                                                                                                "suffix": "",
+                                                                                                  "type": "integer"
+                                                                                       } ],
+                                                                   "physical_variant": "push_button"
+                                                            }
+                                            },
+                                   "Smoke": {
+                                                "SMK_ARM": {
+                                                                          "category": "Smoke",
+                                                                      "control_type": "selector",
+                                                                       "description": "Smoke Arm",
+                                                                        "identifier": "SMK_ARM",
+                                                                            "inputs": [ {
+                                                                                          "description": "switch to previous or next state",
+                                                                                            "interface": "fixed_step"
+                                                                                      }, {
+                                                                                          "description": "set position",
+                                                                                            "interface": "set_state",
+                                                                                            "max_value": 1
+                                                                                      }, {
+                                                                                             "argument": "TOGGLE",
+                                                                                          "description": "Toggle switch state",
+                                                                                            "interface": "action"
+                                                                                      } ],
+                                                               "momentary_positions": "none",
+                                                                           "outputs": [ {
+                                                                                              "address": 22024,
+                                                                                          "description": "selector position",
+                                                                                                 "mask": 2,
+                                                                                            "max_value": 1,
+                                                                                             "shift_by": 1,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
+                                                                                      } ],
+                                                                  "physical_variant": "toggle_switch"
+                                                           }
+                                            },
+                             "System Page": {
+                                                  "SYS_FLOOD_BTN": {
+                                                                               "api_variant": "momentary_last_position",
+                                                                                  "category": "System Page",
+                                                                              "control_type": "selector",
+                                                                               "description": "System Page - Flood Lights",
+                                                                                "identifier": "SYS_FLOOD_BTN",
+                                                                                    "inputs": [ {
+                                                                                                  "description": "switch to previous or next state",
+                                                                                                    "interface": "fixed_step"
+                                                                                              }, {
+                                                                                                  "description": "set position",
+                                                                                                    "interface": "set_state",
+                                                                                                    "max_value": 1
+                                                                                              }, {
+                                                                                                     "argument": "TOGGLE",
+                                                                                                  "description": "Toggle switch state",
+                                                                                                    "interface": "action"
+                                                                                              } ],
+                                                                       "momentary_positions": "none",
+                                                                                   "outputs": [ {
+                                                                                                      "address": 22022,
+                                                                                                  "description": "selector position",
+                                                                                                         "mask": 1,
+                                                                                                    "max_value": 1,
+                                                                                                     "shift_by": 0,
+                                                                                                       "suffix": "",
+                                                                                                         "type": "integer"
+                                                                                              } ],
+                                                                          "physical_variant": "push_button"
+                                                                   },
+                                                "SYS_FLOOD_L_COL": {
+                                                                                  "category": "System Page",
+                                                                              "control_type": "selector",
+                                                                               "description": "System Page - Flood Light Color",
+                                                                                "identifier": "SYS_FLOOD_L_COL",
+                                                                                    "inputs": [ {
+                                                                                                  "description": "switch to previous or next state",
+                                                                                                    "interface": "fixed_step"
+                                                                                              }, {
+                                                                                                  "description": "set position",
+                                                                                                    "interface": "set_state",
+                                                                                                    "max_value": 5
+                                                                                              } ],
+                                                                       "momentary_positions": "none",
+                                                                                   "outputs": [ {
+                                                                                                      "address": 22022,
+                                                                                                  "description": "selector position",
+                                                                                                         "mask": 56,
+                                                                                                    "max_value": 5,
+                                                                                                     "shift_by": 3,
+                                                                                                       "suffix": "",
+                                                                                                         "type": "integer"
+                                                                                              } ],
+                                                                          "physical_variant": "limited_rotary"
+                                                                   },
+                                                  "SYS_GAUGE_BTN": {
+                                                                               "api_variant": "momentary_last_position",
+                                                                                  "category": "System Page",
+                                                                              "control_type": "selector",
+                                                                               "description": "System Page - Gauge Lights",
+                                                                                "identifier": "SYS_GAUGE_BTN",
+                                                                                    "inputs": [ {
+                                                                                                  "description": "switch to previous or next state",
+                                                                                                    "interface": "fixed_step"
+                                                                                              }, {
+                                                                                                  "description": "set position",
+                                                                                                    "interface": "set_state",
+                                                                                                    "max_value": 1
+                                                                                              }, {
+                                                                                                     "argument": "TOGGLE",
+                                                                                                  "description": "Toggle switch state",
+                                                                                                    "interface": "action"
+                                                                                              } ],
+                                                                       "momentary_positions": "none",
+                                                                                   "outputs": [ {
+                                                                                                      "address": 22022,
+                                                                                                  "description": "selector position",
+                                                                                                         "mask": 2,
+                                                                                                    "max_value": 1,
+                                                                                                     "shift_by": 1,
+                                                                                                       "suffix": "",
+                                                                                                         "type": "integer"
+                                                                                              } ],
+                                                                          "physical_variant": "push_button"
+                                                                   },
+                                                    "SYS_NAV_BTN": {
+                                                                               "api_variant": "momentary_last_position",
+                                                                                  "category": "System Page",
+                                                                              "control_type": "selector",
+                                                                               "description": "System Page - Navigation Lights",
+                                                                                "identifier": "SYS_NAV_BTN",
+                                                                                    "inputs": [ {
+                                                                                                  "description": "switch to previous or next state",
+                                                                                                    "interface": "fixed_step"
+                                                                                              }, {
+                                                                                                  "description": "set position",
+                                                                                                    "interface": "set_state",
+                                                                                                    "max_value": 1
+                                                                                              }, {
+                                                                                                     "argument": "TOGGLE",
+                                                                                                  "description": "Toggle switch state",
+                                                                                                    "interface": "action"
+                                                                                              } ],
+                                                                       "momentary_positions": "none",
+                                                                                   "outputs": [ {
+                                                                                                      "address": 22018,
+                                                                                                  "description": "selector position",
+                                                                                                         "mask": 32768,
+                                                                                                    "max_value": 1,
+                                                                                                     "shift_by": 15,
+                                                                                                       "suffix": "",
+                                                                                                         "type": "integer"
+                                                                                              } ],
+                                                                          "physical_variant": "push_button"
+                                                                   },
+                                                   "SYS_WALL_BTN": {
+                                                                               "api_variant": "momentary_last_position",
+                                                                                  "category": "System Page",
+                                                                              "control_type": "selector",
+                                                                               "description": "System Page - Wallpaper",
+                                                                                "identifier": "SYS_WALL_BTN",
+                                                                                    "inputs": [ {
+                                                                                                  "description": "switch to previous or next state",
+                                                                                                    "interface": "fixed_step"
+                                                                                              }, {
+                                                                                                  "description": "set position",
+                                                                                                    "interface": "set_state",
+                                                                                                    "max_value": 1
+                                                                                              }, {
+                                                                                                     "argument": "TOGGLE",
+                                                                                                  "description": "Toggle switch state",
+                                                                                                    "interface": "action"
+                                                                                              } ],
+                                                                       "momentary_positions": "none",
+                                                                                   "outputs": [ {
+                                                                                                      "address": 22022,
+                                                                                                  "description": "selector position",
+                                                                                                         "mask": 4,
+                                                                                                    "max_value": 1,
+                                                                                                     "shift_by": 2,
+                                                                                                       "suffix": "",
+                                                                                                         "type": "integer"
+                                                                                              } ],
+                                                                          "physical_variant": "push_button"
+                                                                   }
+                                            },
+    "Warning, Caution and IndicatorLights": {
+                                                "COCKPIT_L": {
+                                                                     "category": "Warning, Caution and IndicatorLights",
+                                                                 "control_type": "led",
+                                                                  "description": "Cockpit Light (white)",
+                                                                   "identifier": "COCKPIT_L",
+                                                                       "inputs": [  ],
+                                                                      "outputs": [ {
+                                                                                         "address": 22024,
+                                                                                     "description": "0 if light is off, 1 if light is on",
+                                                                                            "mask": 8,
+                                                                                       "max_value": 1,
+                                                                                        "shift_by": 3,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ]
+                                                             },
+                                                "DISPLAY_L": {
+                                                                     "category": "Warning, Caution and IndicatorLights",
+                                                                 "control_type": "led",
+                                                                  "description": "Display Background Light (white)",
+                                                                   "identifier": "DISPLAY_L",
+                                                                       "inputs": [  ],
+                                                                      "outputs": [ {
+                                                                                         "address": 22024,
+                                                                                     "description": "0 if light is off, 1 if light is on",
+                                                                                            "mask": 4,
+                                                                                       "max_value": 1,
+                                                                                        "shift_by": 2,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ]
+                                                             },
+                                                  "INSTR_L": {
+                                                                     "category": "Warning, Caution and IndicatorLights",
+                                                                 "control_type": "led",
+                                                                  "description": "Instrument Lights (white)",
+                                                                   "identifier": "INSTR_L",
+                                                                       "inputs": [  ],
+                                                                      "outputs": [ {
+                                                                                         "address": 22024,
+                                                                                     "description": "0 if light is off, 1 if light is on",
+                                                                                            "mask": 16,
+                                                                                       "max_value": 1,
+                                                                                        "shift_by": 4,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ]
+                                                             }
+                                            }
+};
