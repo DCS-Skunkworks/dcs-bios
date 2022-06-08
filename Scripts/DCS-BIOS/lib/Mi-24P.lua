@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("Mi-24P", 0x6800)
 BIOS.protocol.setExportModuleAircrafts({"Mi-24P"})
---v1.0 by WarLord (aka BlackLibrary)&charliefoxtwo
+--v1.0a by WarLord (aka BlackLibrary)&charliefoxtwo
 
 local documentation = moduleBeingDefined.documentation
 
@@ -290,7 +290,7 @@ define3PosTumb("PLT_A_TRANS_36", 1, 3013, 85, "Electric Interface", "PILOT AC Tr
 defineToggleSwitch("PLT_A_GPW", 1, 3001, 87, "Electric Interface", "PILOT AC Ground Power, ON/OFF")
 defineToggleSwitch("PLT_A_GCHECK_CV", 1, 3058, 88, "Electric Interface", "PILOT AC Ground Check Cover, UP/DOWN")
 defineToggleSwitch("PLT_A_GCHECK", 1, 3016, 89, "Electric Interface", "PILOT AC Ground Check, ON/OFF")
-defineMultipositionSwitch("PLT_A_VOLT_KNB", 1, 3025, 91, 11, 0.0947, "Electric Interface", "PILOT AC Voltmeter Knob")
+defineMultipositionSwitch("PLT_A_VOLT_KNB", 1, 3025, 91, 11, 0.0949, "Electric Interface", "PILOT AC Voltmeter Knob")
 defineToggleSwitch("PLT_A_INVERT_115_CV", 1, 3061, 97, "Electric Interface", "PILOT AC Inverter PO-750A Cover, UP/DOWN")
 defineToggleSwitch("PLT_A_INVERT_115", 1, 3019, 98, "Electric Interface", "PILOT AC Inverter PO-750A, ON/OFF")
 defineToggleSwitch("PLT_A_INVERT_36_CV", 1, 3064, 99, "Electric Interface", "PILOT AC Inverter PT-125Ts Cover, UP/DOWN")
@@ -1223,5 +1223,9 @@ defineFloat("OP_AIM_REF_MARKER", 1028, {0, 1}, "Gauges OP", "OPERATOR Aiming Ref
 defineIntegerFromGetter("EXT_ROTOR", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(40)*65535)
 end, 65535, "External Aircraft Model", "Rotor Move")
+
+defineIndicatorLight("PLT_R60_ON_L", 1031, "R60 Lights PLT", "PILOT R60 ON Lamp (green)")
+defineIndicatorLight("PLT_R60_WORK_L", 1029, "R60 Lights PLT", "PILOT R60 Working Lamp (yellow)")
+defineIndicatorLight("PLT_R60_RDY_L", 1030, "R60 Lights PLT", "PILOT R60 Ready Lamp (green)")
 
 BIOS.protocol.endModule()

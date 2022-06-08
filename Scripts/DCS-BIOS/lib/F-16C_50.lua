@@ -1709,7 +1709,6 @@ local function get_UHF_CHAN()
 		return "  "
 	end
 end
-
 defineString("UHF_CHAN_DISP", get_UHF_CHAN, 2, "UHF", "UHF CHAN Display")
 
 local function get_UHF_FREQUENCY()
@@ -1722,7 +1721,6 @@ local function get_UHF_FREQUENCY()
         return "       "
     end
 end
-
 defineString("UHF_FREQ_DISP", get_UHF_FREQUENCY, 7, "UHF", "UHF Manual Frequency Display")
 
 defineFloat("SAI_BANK_ARROW", 72, {-1, 1}, "SAI", "SAI Bank Arrow")

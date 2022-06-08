@@ -39,11 +39,11 @@ dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\AJS37.lua]]) -- ID = 8, ProperName
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Alphajet.lua]]) -- ID = 9, ProperName = Alphajet
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\AV8BNA.lua]]) -- ID = 10, ProperName = AV-8B Night Attack
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Bf-109K-4.lua]]) -- ID = 11, ProperName = Bf 109 K-4 Kurfurst
-dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\C-101CC.lua]]) -- ID = 12, ProperName = C-101 Aviojet
+dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\C-101.lua]]) -- ID = 12, ProperName = C-101 Aviojet
 --dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Hercules.lua]]) -- ID = 13, ProperName = C-130 Hercules
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Christen Eagle II.lua]]) -- ID = 14, ProperName = Christen Eagle II
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Edge540.lua]]) -- ID = 15, ProperName = Edge 540
-dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\F-14B.lua]]) -- ID = 16, ProperName = F-14A/B Tomcat
+dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\F-14.lua]]) -- ID = 16, ProperName = F-14A/B Tomcat
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\F-16C_50.lua]]) -- ID = 17, ProperName = F-16C Viper
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\F-22A.lua]]) -- ID = 40, ProperName = F-22A Raptor
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\F-5E-3.lua]]) -- ID = 18, ProperName = F-5E Tiger II
@@ -55,7 +55,7 @@ dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\FW-190D9.lua]]) -- ID = 22, Proper
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\I-16.lua]]) -- ID = 23, ProperName = I-16 
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\JF-17.lua]]) -- ID = 24, ProperName = JF-17 Thunder
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Ka-50.lua]]) -- ID = 25, ProperName = Ka-50 Black Shark
-dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\L-39ZA.lua]]) -- ID = 26, ProperName = L-39 Albatros
+dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\L-39.lua]]) -- ID = 26, ProperName = L-39 Albatros
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\M-2000C.lua]]) -- ID = 27, ProperName = M-2000C
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\MB-339PAN.lua]]) -- ID = 28, ProperName = MB-339PAN
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Mi-8MT.lua]]) -- ID = 29, ProperName = Mi-8MT
@@ -67,7 +67,7 @@ dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Mosquito.lua]]) -- ID = 45, Proper
 --dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\NS430.lua]]) -- ID = 33, ProperName = NS 430 GPS
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\P-47D.lua]]) -- ID = 34, ProperName = P-47D Thunderbolt
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\P-51D.lua]]) -- ID = 35, ProperName = TF/P-51D Mustang
-dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\SA342M.lua]]) -- ID = 36, ProperName = SA342 Gazelle
+dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\SA342.lua]]) -- ID = 36, ProperName = SA342 Gazelle
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\SpitfireLFMkIX.lua]]) -- ID = 37, ProperName = Spitfire LF Mk. IX
 --dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\SuperCarrier.lua]]) -- ID = 44, ProperName = Super Carrier
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\UH-1H.lua]]) -- ID = 38, ProperName = UH-1H Huey

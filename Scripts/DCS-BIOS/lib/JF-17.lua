@@ -1,7 +1,7 @@
 BIOS.protocol.beginModule("JF-17", 0x4800)
 BIOS.protocol.setExportModuleAircrafts({"JF-17"})
 -- by WarLord (aka BlackLibrary), Matchstick
--- v 1.5a
+-- v 1.6
 
 local documentation = moduleBeingDefined.documentation
 
@@ -21,8 +21,7 @@ local defineFloat = BIOS.util.defineFloat
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 local defineString = BIOS.util.defineString
 
--- Remove Arg: Stick #970 ; 
------------------------------------------ BIOS-Profile
+-- Remove Arg: Stick #970 
 --------------------------Left Console
 defineMultipositionSwitch("SAIU_SEL_BAK", 11, 3002, 500, 4, 0.333, "Left Console", "Backup SAIU Knob Selector")
 definePushButton("GEAR_LIGH_TEST_BTN", 32, 3003, 501, "Left Console", "Landing Gear Indicator Light Test Button")
@@ -371,7 +370,6 @@ defineToggleSwitch("SEAT_SAFE_HANDLE", 38, 3474, 972, "Right Console", "Eject Se
 defineToggleSwitch("SEAT_SAFE_PIN", 38, 3475, 973, "Right Console", "Eject Seat Firing Handle Safety Pin")
 define3PosTumb("SEAT_POS_ADJUST", 38, 3482, 980, "Right Console", "Eject Seat Position Adjust")
 
-
 -- Oxygen
 defineToggleSwitch("OXY_CONNECTOR", 31, 3477, 975, "Right Console", "Oxygen Tube Connector")
 defineRotary("OXY_SUPPLY_VALVE", 31, 3478, 976, "Right Console", "Oxygen Supply Valve")
@@ -379,13 +377,11 @@ defineToggleSwitch("OXY_O2_100", 31, 3479, 977, "Right Console", "Oxygen 100% O2
 defineToggleSwitch("SEAT_EMERG_O2", 31, 3480, 978, "Right Console", "Eject Seat Emergency O2")
 defineToggleSwitch("GSUIT_TUBE", 31, 3481, 979, "Right Console", "G-Suit Connector")
 
-
 -- Mirrors
 defineToggleSwitch("MIRROR_R", 0, 1625, 960, "Canopy", "Right Mirror")
 defineToggleSwitch("MIRROR_T", 0, 1625, 961, "Canopy", "Top Mirror")
 defineToggleSwitch("MIRROR_L", 0, 1625, 962, "Canopy", "Left Mirror")
 
--------------------------------------------------------------------------------------------------------------------------------
 -- Warning, Caution and IndicatorLights
 defineIndicatorLight("LG_L_TRANS", 100, "Warning, Caution and IndicatorLights", "Landing Gear Transition Light (red)")
 defineIndicatorLight("LG_L_LEFT", 101, "Warning, Caution and IndicatorLights", "Landing Gear Left Light (green)")
@@ -501,11 +497,8 @@ defineIndicatorLight("AAP_BTN_L_VMMC2", 278, "Warning, Caution and IndicatorLigh
 defineIndicatorLight("AAP_BTN_L_SAIU", 279, "Warning, Caution and IndicatorLights", "AAP Button Light SAIU (green)")       
 defineIndicatorLight("AAP_BTN_L_CMBT", 280, "Warning, Caution and IndicatorLights", "AAP Button Light CMBT (green)")
 defineIndicatorLight("AAP_BTN_L_TRAIN", 281, "Warning, Caution and IndicatorLights", "AAP Button Light TRAIN (green)")     
-
 defineIndicatorLight("RADIO_PAD_ERR_L", 295, "Warning, Caution and IndicatorLights", "Radio PAD Error Light (red)")
-
 defineIndicatorLight("AAR_L", 419, "Warning, Caution and IndicatorLights", "AAR Light")    
-
 defineIndicatorLight("FLASH_LIGHT_L", 969, "Warning, Caution and IndicatorLights", "Flash Light")
 
 defineIndicatorLight("MFCD_BACKLIGHT_L", 140, "Warning, Caution and IndicatorLights", "MFCD Backlight Left")
@@ -690,5 +683,6 @@ defineIntegerFromGetter("RADIO_GO_LIGHT", function() return radio_go_light end, 
 defineString("RADIO_LINE_1", function() return coerce_nil_to_string(radio_line_1) end,8,"Radio","Radio Display Line 1")
 defineString("RADIO_LINE_2", function() return coerce_nil_to_string(radio_line_2) end,8,"Radio","Radio Display Line 2")
 defineIndicatorLight("GEAR_LEVER_L", 107, "Warning, Caution and IndicatorLights", "Landing Gear Lever Light (red)") 
+definePushButton("SEAT_EJECT_H", 38, 3483, 981, "Right Console", "Eject Seat Eject Handle")
 
 BIOS.protocol.endModule()

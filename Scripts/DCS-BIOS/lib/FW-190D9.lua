@@ -15,6 +15,8 @@ local defineTumb = BIOS.util.defineTumb
 local defineFixedStepTumb = BIOS.util.defineFixedStepTumb
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
+--remove Arg# Pilot 540
+
 defineRotary("RAD_FLAP_CTRL",8, 3013, 159, "Cockpit", "Radiator Flaps Control")
 defineTumb("STARTER_CVR",2, 3006, 104, 1, {0, 1}, nil, false, "Cockpit", "Starter Switch Cover")
 defineTumb("MW50_SWITCH",2, 3015,85, 1, {0, 1}, nil, false, "Cockpit", "MW-50 Switch")
@@ -42,7 +44,7 @@ defineRotary("GUN3_AMM_C",20, 3006, 57, "Weapon Control", "Set Gun 3 Ammunition 
 defineRotary("GUN4_AMM_C",20, 3007, 60, "Weapon Control", "Set Gun 4 Ammunition Count")
 defineTumb("MAIN_RKT",20, 3008,107, 1, {0, 1}, nil, false, "Weapon Control", "Main Rocket Switch")
 defineTumb("RKT_EMG_REL_CVR",20, 3009,137, 1, {0, 1}, nil, false, "Weapon Control", "Rocket Emergency Release Cover")
-defineTumb("RKT_EMG_REL",20, 3010,108, 1, {0, 1}, nil, false, "Weapon Control", "Rocket Emergency Release")
+defineTumb("RKT_EMG_REL",20, 3010, 108, 1, {0, 1}, nil, false, "Weapon Control", "Rocket Emergency Release")
 defineTumb("JETT_FUS_STORES",20, 3012,92, 1, {0, 1}, nil, false, "Cockpit", "Jettison Fuselage Stores")
 defineTumb("SIGHT_GYRO",21, 3001,132, 1, {0, 1}, nil, false, "Gun Sight", "EZ42 Gunsight Gyro Power Switch, ON/OFF")
 definePotentiometer("SIGHT_WING_SPAN",21, 3002, 131,{0, 1},"Gun Sight", "EZ42 Gunsight Target Wingspan Knob")
@@ -53,17 +55,12 @@ defineRotary("SIGHT_ALT_KNOB",21, 3012, 191, "Gun Sight", "EZ42 Gunsight Altitud
 defineRotary("INSTR_LGHT_CTRL",7, 3001, 78, "Cockpit", "Instrument Lights Brightness")
 defineRotary("FUG16_VOLUME",15, 3003, 83, "Radio", "Radio Volume")
 defineTumb("FT_ZF_SWITCH",15, 3006,84, 1, {0, 1}, nil, false, "Radio", "FT FT / Y ZF Mode Switch")
--- a defineRotary() for FUG16_TUNING was removed in a previous commit at this location.
 -- Allocate 16 bits of address space to avoid changing the address of subsequent allocations:
 local dummyAlloc = moduleBeingDefined.memoryMap:allocateInt { maxValue = 65535 }
 defineTumb("OXY_EMG_KNOB",4, 3001,190, 1, {0, 1}, nil, false, "Cockpit", "Oxygen Emergency Knob")
 defineTumb("FUG25_TEST",16, 3003,88, 1, {0, 1}, nil, false, "Radio", "IFF Check")
 definePotentiometer("HOR_CAGE",12,3001, 39,{0.511, 1.0},"Cockpit", "Horizon Cage")
 definePotentiometer("OXY_FLOW_VALVE",4,3003, 110,{0,0.5},"Cockpit", "Oxygen Flow Valve")
-
---NOT IMPLEMENTED ACCORDING TO DOCUMENTATION
---defineTumb("FUEL_COLD_START",6, 3007,160, 1, {0, 1}, nil, false, "Cockpit", "Cold Start/Wind Screen Washer")
-
 defineTumb("MAGNETO",2, 3004,75, 0.3, {0,0.9}, nil, false, "Cockpit", "Magneto Switch")
 defineTumb("STARTER_SWITCH",2, 3008, 105, 0.5, {0, 1}, nil, false, "Cockpit", "Starter Switch. Starter Power")
 defineTumb("MBG_EMG_HNDL",2, 3013, 91, 1, {0, 1}, nil, false, "Cockpit", "MBG Emergency Mode Handle")
@@ -98,11 +95,11 @@ defineTumb("AUX_TNK_PMP_OFF",1, 3029, 126, 1, {0, 1}, nil, false, "Electric Syst
 defineTumb("MW50_ON",1, 3017, 129, 1, {0, 1}, nil, false, "Electric System", "MW-50 On")
 defineTumb("MW50_OFF",1, 3030, 128, 1, {0, 1}, nil, false, "Electric System", "MW-50 Off")
 defineRotary("CRS_SET",14, 3001, 43, "Compass", "Course Set")
-defineTumb("HOR_STAB_TRIM",8, 3012, 77, 1, {-1,1}, nil, false, "Cockpit", "Stabilizer Trimmer Up/Down")
+defineTumb("HOR_STAB_TRIM",8, 3012, 77, 1, {-1, 1}, nil, false, "Cockpit", "Stabilizer Trimmer Up/Down")
 defineTumb("EMG_LG_REL",8, 3008, 89, 1, {0, 1}, nil, false, "Cockpit", "Landing Gear Emergency Release Handle")
-defineTumb("BMB_FUSE_SEL",20, 3011, 109, 0.1, {0,0.4}, nil, false, "Weapon Control", "Bomb Fusing Selector")
-defineTumb("RADIO_MODE",15, 3001, 81, 0.1, {0,0.3}, nil, false, "Radio", "FuG 16ZY Radio Channel Selector")
-defineTumb("FUG25_MODE",16, 3001, 86, 1, {-1,1}, nil, false, "Radio", "FuG 25A IFF Channel Selector")
+defineTumb("BMB_FUSE_SEL",20, 3011, 109, 0.1, {0, 0.4}, nil, false, "Weapon Control", "Bomb Fusing Selector")
+defineTumb("RADIO_MODE",15, 3001, 81, 0.1, {0, 0.3}, nil, false, "Radio", "FuG 16ZY Radio Channel Selector")
+defineTumb("FUG25_MODE",16, 3001, 86, 1, {-1, 1}, nil, false, "Radio", "FuG 25A IFF Channel Selector")
 
 defineIndicatorLight("BMB1",196, "Lamps", "Bomb 1 Lamp")
 defineIndicatorLight("BMB2",197, "Lamps", "Bomb 2 Lamp")
@@ -129,14 +126,14 @@ defineFloat("SIGHTSHAKEZ", 207, {-0.9, 0.9}, "Indicator", "SightShakeZ")
 defineFloat("SIGHTSHAKEY", 208, {-0.5, 0.5}, "Indicator", "SightShakeY")
 defineFloat("LAMPS_INTENSITY", 193, {0, 1}, "Indicator", "Lamps Intensity")
 defineFloat("CANOPY", 194, {0, 1}, "Indicator", "Canopy Position")
-defineFloat("CANOPY_CRANK", 114, {1.0, 0.0}, "Indicator", "Canopy Crank")
+defineFloat("CANOPY_CRANK", 114, {1, 0}, "Indicator", "Canopy Crank")
 defineFloat("ENGINETHROTTLE", 2, {0, 1}, "Indicator", "Engine Throttle")
 defineFloat("STICKPITCH", 7, {-1, 1}, "Indicator", "Stick Pitch")
 defineFloat("STICKBANK", 8, {1, -1}, "Indicator", "Stick Bank")
 defineFloat("RUDDERPOSITION", 1, {-1, 1}, "Indicator", "RudderPosition")
 defineFloat("WHEEL_BRAKE_L", 102, {0, 1}, "Indicator", "Left Wheel Brake")
 defineFloat("WHEEL_BRAKE_R", 103, {0, 1}, "Indicator", "Right Wheel Brake")
-defineFloat("IAS", 36, {0.0, 0.988}, "Indicator", "IAS")
+defineFloat("IAS", 36, {0, 0.988}, "Indicator", "IAS")
 defineFloat("VERTICALSPEED", 42, {-1, 1.0}, "Indicator", "VerticalSpeed")
 defineFloat("ALTIMETER_KM", 35, {0, 1}, "Indicator", "Altimeter_km")
 defineFloat("ALTIMETER_M", 32, {0, 1}, "Indicator", "Altimeter_m")
@@ -150,9 +147,9 @@ defineFloat("OXYGEN_FLOW_BLINKER", 113, {0, 1}, "Indicator", "Oxygen_Flow_Blinke
 defineFloat("COMPASSHEADING", 45, {0, 1}, "Indicator", "CompassHeading")
 defineFloat("COMMANDEDCOURSE", 44, {0, 1}, "Indicator", "CommandedCourse")
 defineFloat("MANIFOLD_PRESSURE", 46, {0, 1}, "Indicator", "Manifold_Pressure")
-defineFloat("ENGINE_RPM", 47, {0.0, 0.983}, "Indicator", "Engine_RPM")
-defineFloat("COOLANT_TEMPERATURE", 96, {0.070, 1}, "Indicator", "Coolant_Temperature")
-defineFloat("OIL_TEMPERATURE", 97, {0.070, 1}, "Indicator", "Oil_Temperature")
+defineFloat("ENGINE_RPM", 47, {0, 0.983}, "Indicator", "Engine_RPM")
+defineFloat("COOLANT_TEMPERATURE", 96, {0.07, 1}, "Indicator", "Coolant_Temperature")
+defineFloat("OIL_TEMPERATURE", 97, {0.07, 1}, "Indicator", "Oil_Temperature")
 defineFloat("OIL_PRESSURE", 95, {0, 1}, "Indicator", "Oil_Pressure")
 defineFloat("FUEL_PRESSURE", 94, {0, 1}, "Indicator", "Fuel_Pressure")
 defineFloat("MW50_PRESSURE", 106, {0, 1}, "Indicator", "MW50_Pressure")
@@ -180,6 +177,7 @@ defineFloat("CANOPYDAMAGE", 210, {0, 1}, "Indicator", "CanopyDamage")
 
 defineFixedStepTumb("FUG16_TUNING", 15, 3008, 82, 0.01, {-1, 1}, {-0.01, 0.01}, nil,"Radio", "Radio Tuning (+/-30 kHz)")
 defineTumb("STARTER_SWITCH2",2, 3009, 105, 0.5, {0, 1}, nil, false, "Cockpit", "Starter Switch. Magnetic Clutch")
+defineTumb("FUEL_COLD_START",6, 3007,160, 1, {0, 1}, nil, false, "Cockpit", "Cold Start/Wind Screen Washer")
 
 --Externals
 defineIntegerFromGetter("EXT_POSITION_LIGHT_LEFT", function()
