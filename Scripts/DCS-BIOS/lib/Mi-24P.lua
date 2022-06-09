@@ -1224,8 +1224,13 @@ defineIntegerFromGetter("EXT_ROTOR", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(40)*65535)
 end, 65535, "External Aircraft Model", "Rotor Move")
 
-defineIndicatorLight("PLT_R60_ON_L", 1031, "R60 Lights PLT", "PILOT R60 ON Lamp (green)")
-defineIndicatorLight("PLT_R60_WORK_L", 1029, "R60 Lights PLT", "PILOT R60 Working Lamp (yellow)")
-defineIndicatorLight("PLT_R60_RDY_L", 1030, "R60 Lights PLT", "PILOT R60 Ready Lamp (green)")
+--R60 control
+defineToggleSwitch("PLT_R60_PW", 73, 3001, 1033, "R60", "PILOT R60 Power")
+defineToggleSwitch("PLT_R60_FUSE", 73, 3002, 1034, "R60", "PILOT R60 Fuse Selector")
+defineMultipositionSwitch("PLT_R828_CHAN", 73, 3003, 1032, 5, 0.1, "R60", "PILOT R60 Active missile selector")
+
+defineIndicatorLight("PLT_R60_ON_L", 1031, "R60 Lights", "PILOT R60 ON Lamp (green)")
+defineIndicatorLight("PLT_R60_WORK_L", 1029, "R60 Lights", "PILOT R60 Working Lamp (yellow)")
+defineIndicatorLight("PLT_R60_RDY_L", 1030, "R60 Lights", "PILOT R60 Ready Lamp (green)")
 
 BIOS.protocol.endModule()
