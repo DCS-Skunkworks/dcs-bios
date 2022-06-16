@@ -314,9 +314,7 @@ defineFloat("FUEL_QTY_100", 92, {0, 1}, "Fuel Panel", "Fuel Quantity Counter 100
 
 defineIndicatorLight("MASTER_CAUTION", 404, "UFC", "Master Caution Light (yellow)")
 
--- The order in this file roughly follows clickabledata.lua
--- the following 12 indicators are "out of order" to ensure that
--- the caution lights begin on a 16-bit boundary
+-- The caution lights begin on a 16-bit boundary
 defineIndicatorLight("AOA_INDEXER_HIGH", 540, "HUD", "AOA Indexer High (green)")
 defineIndicatorLight("AOA_INDEXER_NORMAL", 541, "HUD", "AOA Indexer Normal (green)")
 defineIndicatorLight("AOA_INDEXER_LOW", 542, "HUD", "AOA Indexer Low (green)")
@@ -1186,8 +1184,8 @@ local function getCmscMws()
 end
 defineString("CMSC_TXT_MWS", getCmscMws, 8, "CMSC", "MWS Status Display")
 
-defineIndicatorLight("NMSP_UHF_LED", 619, "NMSP", "UHF LED")
-defineIndicatorLight("NMSP_FM_LED", 620, "NMSP", "FM LED")
+defineIndicatorLight("NMSP_UHF_LED", 619, "NMSP", "UHF LED (green)")
+defineIndicatorLight("NMSP_FM_LED", 620, "NMSP", "FM LED (green)")
 
 define8BitFloat("VHFAM_FREQ1_ROT", 143, {0, 1}, "VHF AM Radio", "Frequency Selector 1 Rotation")
 define8BitFloat("VHFAM_FREQ2_ROT", 144, {0, 1}, "VHF AM Radio", "Frequency Selector 2 Rotation")
@@ -1258,7 +1256,7 @@ defineIndicatorLight("TISL_TRACK_L", 635, "TISL Panel", "TISL TRACK Light")
 defineIndicatorLight("IFF_REPLY", 798, "IFF", "IFF REPLY Light (green)")
 defineIndicatorLight("IFF_TEST", 799, "IFF", "IFF TEST Light (green)")
 defineIndicatorLight("DVADR_EOT_REMOTE", 793, "DVADR", "DVADR End of Tape Remote Panel Indicator Light")
-defineIndicatorLight("DVADR_REC", 792, "DVADR", "DVADR Record (On) Indicator Light")
+defineIndicatorLight("DVADR_REC", 792, "DVADR", "DVADR Record (On) Indicator Light (green)")
 
 defineFloat("ENG_THROTTLE_L", 8, {0, 1}, "Throttle", "Left Engine Throttle")
 defineFloat("ENG_THROTTLE_R", 9, {0, 1}, "Throttle", "Right Engine Throttle")
