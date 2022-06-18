@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("Bf-109K-4", 0x4200)
 BIOS.protocol.setExportModuleAircrafts({"Bf-109K-4"})
-
+--by WarLord (aka BlackLibrary) v2.0
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document  
@@ -174,8 +174,6 @@ defineTumb("CLOCK_TIME_LEVER", 19, 3006, 23, 1, {0, 1}, nil, false, "Cockpit", "
 -- Clock Stopwatch Button
 defineTumb("CLOCK_TIMER", 19, 3008, 24, 1, {0, 1}, nil, false, "Cockpit", "Start/Stop/Reset Chronometer")
 
-
-
 -- P 112 Gun Sight Brightness Rheostat
 definePotentiometer("SIGHT_BRIGHT", 1, 3044, 48, {0, 1}, "Gun Sight", "Gun Sight Brightness")
 -- P 9 / P 10 REVI Power Plug and Socket
@@ -258,7 +256,7 @@ defineFloat("COMPASSHEADING", 13, {0, 1}, "Indicator", "CompassHeading")
 defineFloat("COMMANDEDCOURSE", 12, {0, 1}, "Indicator", "CommandedCourse")
 defineFloat("AFN2_HORIZONTAL_NEEDLE", 14, {-1, 1}, "Indicator", "AFN2_Horizontal_Needle")
 defineFloat("AFN2_VERTICAL_NEEDLE", 15, {0, 1}, "Indicator", "AFN2_Vertical_Needle")
-defineIndicatorLight("AFN2_SIGNAL_LAMP", 16, "Indicator", "AFN2_Signal_Lamp")
+defineIndicatorLight("AFN2_SIGNAL_LAMP", 16, "Indicator", "AFN2_Signal_Lamp (white)")
 defineFloat("FUEL_PRESSURE", 25, {0, 1}, "Indicator", "Fuel_Pressure")
 defineFloat("OIL_PRESSURE", 26, {0, 1.0}, "Indicator", "Oil_Pressure")
 defineFloat("COOLANT_TEMPERATURE", 27, {-1, 1}, "Indicator", "Coolant_Temperature")
@@ -275,15 +273,15 @@ defineFloat("MG131_0_SHELL_COUNTER", 40, {0, 1}, "Indicator", "MG131_0_Shell_Cou
 defineFloat("MG131_1_SHELL_COUNTER", 41, {0, 1}, "Indicator", "MG131_1_Shell_Counter")
 defineFloat("MG131_0_KLAPPANKER", 42, {0, 1}, "Indicator", "MG131_0_Klappanker")
 defineFloat("MG131_1_KLAPPANKER", 43, {0, 1}, "Indicator", "MG131_1_Klappanker")
-defineIndicatorLight("LEFTWING_MG151_CONTROL_LAMP", 44, "Indicator", "LeftWing_MG151_Control_Lamp")
-defineIndicatorLight("RIGHTWING_MG151_CONTROL_LAMP", 45, "Indicator", "RightWing_MG151_Control_Lamp")
+defineIndicatorLight("LEFTWING_MG151_CONTROL_LAMP", 44, "Indicator", "LeftWing MG151 Control Lamp (yellow)")
+defineIndicatorLight("RIGHTWING_MG151_CONTROL_LAMP", 45, "Indicator", "RightWing MG151 Control Lamp (yellow)")
 defineFloat("BODYSTATE", 46, {0, 1}, "Indicator", "BodyState")
 defineFloat("SMOKEDSCREEN", 47, {0, 1}, "Indicator", "SmokedScreen")
 defineFloat("SIGHTBRIGHTNESS", 48, {0, 1}, "Indicator", "SightBrightness")
-defineIndicatorLight("LANDINGGEARREDLIGHT", 56, "Indicator", "LandingGearRedLight")
-defineIndicatorLight("LANDINGGEARGREENLIGHTLEFT", 57, "Indicator", "LandingGearGreenLightLeft")
-defineIndicatorLight("LANDINGGEARGREENLIGHTRIGHT", 58, "Indicator", "LandingGearGreenLightRight")
-defineIndicatorLight("FUEL_RESERVE_LAMP", 135, "Indicator", "Fuel_Reserve_Lamp")
+defineIndicatorLight("LANDINGGEARREDLIGHT", 56, "Indicator", "LandingGearLight (red)")
+defineIndicatorLight("LANDINGGEARGREENLIGHTLEFT", 57, "Indicator", "LandingGearLightLeft (green)")
+defineIndicatorLight("LANDINGGEARGREENLIGHTRIGHT", 58, "Indicator", "LandingGearLightRight (green)")
+defineIndicatorLight("FUEL_RESERVE_LAMP", 164, "Indicator", "Fuel Reserve Lamp")
 
 -- Gauge Formulas
 local function getManifold()
@@ -408,7 +406,6 @@ end, 1, "External Aircraft Model", "Right Position Light (green)")
 defineIntegerFromGetter("EXT_POSITION_LIGHT_TAIL", function()
 	if LoGetAircraftDrawArgumentValue(192) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Tail Position Light (white)")
-
 defineIntegerFromGetter("EXT_WOW_NOSE", function()
 	if LoGetAircraftDrawArgumentValue(1) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Weight ON Wheels Nose Gear")
@@ -432,5 +429,12 @@ definePotentiometer("LH_WHEELBRAKE", 4, 3015, 103, {0, 1}, "Cockpit", "Left Whee
 definePotentiometer("RH_WHEELBRAKE", 4, 3018, 104, {0, 1}, "Cockpit", "Right Wheel Brake")
 
 defineFloat("CANOPY_POS", 95, {0, 1}, "Cockpit", "Canopy Position")
+
+defineIndicatorLight("BOMB_SBY_L", 65, "Indicator", "Bomb Standby Light (red)")
+defineIndicatorLight("BOMB_1_L", 66, "Indicator", "Bomb 1 Status Light (white)")
+defineIndicatorLight("BOMB_2_L", 67, "Indicator", "Bomb 2 Status Light (white)")
+defineIndicatorLight("BOMB_3_L", 68, "Indicator", "Bomb 3 Status Light (white)")
+defineIndicatorLight("BOMB_4_L", 69, "Indicator", "Bomb 4 Status Light (white)")
+defineFloat("PANEL_GLOW", 79, {0, 1}, "Indicator", "Gauges Glow (green)")
 
 BIOS.protocol.endModule()
