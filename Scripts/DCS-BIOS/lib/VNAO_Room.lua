@@ -1,7 +1,6 @@
 BIOS.protocol.beginModule("VNAO_Room", 0x0500)
 BIOS.protocol.setExportModuleAircrafts({"VNAO_Ready_Room"})
 --by WarLord (aka BlackLibrary)
-
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document
@@ -51,7 +50,5 @@ defineFloat("PILOT_20", 420, {0, 1}, "Gauges", "Pilot 20")
 defineFloat("PILOT_21", 421, {0, 1}, "Gauges", "Pilot 21")
 defineFloat("PILOT_22", 422, {0, 1}, "Gauges", "Pilot 22")
 defineFloat("PILOT_23", 424, {0, 1}, "Gauges", "Pilot 23")
-
-
 
 BIOS.protocol.endModule()

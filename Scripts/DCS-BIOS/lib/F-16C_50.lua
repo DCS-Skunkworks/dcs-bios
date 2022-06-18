@@ -1,16 +1,13 @@
+BIOS.protocol.beginModule("F-16C_50", 0x4400)
+BIOS.protocol.setExportModuleAircrafts({"F-16C_50"})
 -- V1.11 by Warlord (aka BlackLibrary)
 -- Tested and fixes by BuzzKillington, afewyards
 -- DED Display,MAGV,INS,UHF,CMDS,HARM,VIP & VRP by Matchstick & AMVI_Ares
-BIOS.protocol.beginModule("F-16C_50", 0x4400)
-BIOS.protocol.setExportModuleAircrafts({"F-16C_50"})
-
-
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document
 local parse_indication = BIOS.util.parse_indication
-
 
 local defineIndicatorLight = BIOS.util.defineIndicatorLight
 local definePushButton = BIOS.util.definePushButton

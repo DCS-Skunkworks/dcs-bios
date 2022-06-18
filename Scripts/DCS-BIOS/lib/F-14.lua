@@ -1,7 +1,6 @@
 BIOS.protocol.beginModule("F-14", 0x1200)
 BIOS.protocol.setExportModuleAircrafts({"F-14B", "F-14A-135-GR"})
 --v4.4b by WarLord (aka BlackLibrary), ArturDCS, Matchstick and Bullitt
-
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 

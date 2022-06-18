@@ -1,8 +1,6 @@
 BIOS.protocol.beginModule("JF-17", 0x4800)
 BIOS.protocol.setExportModuleAircrafts({"JF-17"})
--- by WarLord (aka BlackLibrary), Matchstick
--- v 1.6
-
+-- by WarLord (aka BlackLibrary), Matchstick v1.6
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document
@@ -22,7 +20,7 @@ local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 local defineString = BIOS.util.defineString
 
 -- Remove Arg: Stick #970 
---------------------------Left Console
+----Left Console
 defineMultipositionSwitch("SAIU_SEL_BAK", 11, 3002, 500, 4, 0.333, "Left Console", "Backup SAIU Knob Selector")
 definePushButton("GEAR_LIGH_TEST_BTN", 32, 3003, 501, "Left Console", "Landing Gear Indicator Light Test Button")
 defineToggleSwitch("GEAR_OVER_BTN_COVER", 32, 3004, 502, "Left Console", "Landing Gear Override Button Cover")
@@ -112,7 +110,7 @@ definePushButton("THROTTLE_UNCAGE", 34, 3073, 571, "Throttle", "Throttle Uncage:
 definePushButton("THROTTLE_CAGE", 34, 3074, 572, "Throttle", "Throttle Cage: Idle To Stop")
 defineToggleSwitch("THROTTLE_EMERG_BTN", 34, 3075, 573, "Throttle", "Throttle Emergency Button")
 
---------------------------Center Front
+----Center Front
 -- UFCP
 definePushButton("UFCP_BTN_1", 46, 3202, 700, "UFCP", "UFCP Button PFL/1")
 definePushButton("UFCP_BTN_2", 46, 3203, 701, "UFCP", "UFCP Button VRC/2")
@@ -268,7 +266,7 @@ definePushButton("DIG_CLOCK_BRT_DN", 49, 3349, 847, "Clock", "Digital Clock Brig
 definePushButton("DIG_CLOCK_UTC", 49, 3350, 848, "Clock", "Digital Clock UTC")
 definePushButton("DIG_CLOCK_CHR", 49, 3351, 849, "Clock", "Digital Clock CHR")
 
---------------------------Right Console
+----Right Console
 defineToggleSwitch("WARNPANEL_DAY_NIGHT_SW", 5, 3402, 900, "Right Console", "Warning Panel Day/Night Switch")
 definePotentiometer("WARNPANEL_BRIGHT_KNB", 5, 3403, 901, {0, 1}, "Right Console", "Warning Panel Brightness Knob")
 definePushButton("WARNPANEL_TEST_BTN", 5, 3404, 902, "Right Console", "Warning Panel Test Button")
@@ -520,7 +518,6 @@ defineFloat("MAIN_PNEU_IND", 291, {0, 1}, "Gauges", "Main Pneumatic System Press
 defineFloat("EMERG_PNEU_IND", 292, {0, 1}, "Gauges", "Emergency Pneumatic System Pressure Indicator")
 defineFloat("MAG_HDG_BAK", 293, {0, 1}, "Gauges", "Backup Magnetic HDG")
 
--------------------------------------------------------------------------------------------------------------------------------
 --Externals
 defineIntegerFromGetter("EXT_BRAKE_CUTE", function()
 	if LoGetAircraftDrawArgumentValue(35) > 0 then return 1 else return 0 end
@@ -576,7 +573,6 @@ defineIntegerFromGetter("EXT_WOW_LEFT", function()
 	if LoGetAircraftDrawArgumentValue(6) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Weight ON Wheels Left Gear")
 
--------------------------------------------------------------------------------------------------------------------------------
 local function processUFCPLine(ufcpLine, lineNum)
 	local temp_txt_win    = ufcpLine["txt_win"..lineNum]
 	local txt_win_fill    = ufcpLine["txt_win"..lineNum.."_fill"]

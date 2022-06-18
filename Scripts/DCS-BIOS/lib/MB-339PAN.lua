@@ -1,8 +1,6 @@
 BIOS.protocol.beginModule("MB-339PAN", 0x8200)
 BIOS.protocol.setExportModuleAircrafts({"MB-339PAN"})
---by WarLord (aka BlackLibrary)
---for MB-339_v2.0.1
-
+--by WarLord (aka BlackLibrary) for MB-339_v2.0.1
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document

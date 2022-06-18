@@ -1,7 +1,6 @@
 BIOS.protocol.beginModule("Christen Eagle II", 0x2800)
 BIOS.protocol.setExportModuleAircrafts({"Christen Eagle II"})
 --by WarLord (aka BlackLibrary)
-
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document
@@ -16,8 +15,7 @@ local defineToggleSwitch = BIOS.util.defineToggleSwitch
 local defineFloat = BIOS.util.defineFloat
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
---remove Arg# FrontPilot 472
---remove Arg# RearPilot 50
+--remove Arg# FrontPilot 472 RearPilot 50
 
 --General
 definePushButton("ACCEL_RESET", 1, 3031, 307, "General", "Accelerometer Reset Button")

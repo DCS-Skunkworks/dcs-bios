@@ -1,7 +1,6 @@
 BIOS.protocol.beginModule("M-2000C", 0x7200)
 BIOS.protocol.setExportModuleAircrafts({"M-2000C"})
 --v1.35 by Ergo, Matchstick, MisterKnife, WarLord, Espresso29470
-
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 

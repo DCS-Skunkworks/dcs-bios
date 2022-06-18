@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("NS430", 0x0600)
 BIOS.protocol.setExportModuleAircrafts({"A-10C", "A-10C_2",	"AJS37", "AV8BNA", "Bf-109K-4", "C-101CC", "C-101EB", "Christen Eagle II", "F-14A-135-GR", "F-14B", "F-16C_50", "F-5E-3", "F-86F Sabre", "FA-18C_hornet", "FW-190A8", "FW-190D9", "I-16", "JF-17", "Ka-50", "L-39C", "L-39ZA", "M-2000C", "Mi-8MT",	"Mi-24P", "MiG-15bis", "MiG-19P",	"MiG-21Bis", "P-47D-30", "P-47D-30bl1", "P-47D-40",	"P-51D", "P-51D-30-NA", "SA342L", "SA342M", "SA342Minigun", "SA342Mistral", "SpitfireLFMkIX", "SpitfireLFMkIXCW", "TF-51D", "UH-1H", "Yak-52"})
-
+-- v2.0 by Celemourn
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document  
@@ -13,10 +13,6 @@ local defineMomentaryRockerSwitch = BIOS.util.defineMomentaryRockerSwitch
 local definePotentiometer = BIOS.util.definePotentiometer
 local defineDoubleCommandButton = BIOS.util.defineDoubleCommandButton
 
--- 1.0 by Capt Zeen
--- 2.0 by Celemourn
-
----------------------------
 defineDoubleCommandButton("NS430_PWR_VOL_PUSH_SQ_POW", 257, 3001, 3030, 1, "NS430", "PWR-VOL PUSH-SQ COM Power")
 defineDoubleCommandButton("NS430_VOL_PUSH_ID_PUSH", 257, 3004, 3031, 3, "NS430", "VOL_PUSH-ID VLOC Push")
 defineDoubleCommandButton("NS430_SMALL_LEFT_BTN_PUSH", 257, 3009,3032, 5, "NS430", "SMALL_LEFT_BTN Push")
@@ -43,6 +39,6 @@ defineRotary("NS430_SMALL_RIGHT_BTN_ROT", 257, 3028, 21, "NS430", "SMALL_RIGHT_B
 
 defineMomentaryRockerSwitch("NS430_RNG_RKR", 257, 3020, 3041, 3019, 3040, 14, "NS430", "RNG Rocker")
 
-defineIndicatorLight("GLOW", 70, "NS430", "Glow")
+defineIndicatorLight("GLOW", 70, "NS430", "Glow (green)")
 
 BIOS.protocol.endModule()

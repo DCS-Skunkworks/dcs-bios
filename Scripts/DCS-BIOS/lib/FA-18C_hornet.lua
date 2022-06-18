@@ -1,9 +1,6 @@
--- F/A-18 Module created by AndrewW, modified by WarLord,charliefoxtwo&DeadMeat v1.6
--- Many thanks to Capt Zeen for the pointers on analog and Radio outputs and UFC/IFEI export
-
 BIOS.protocol.beginModule("FA-18C_hornet", 0x7400)
 BIOS.protocol.setExportModuleAircrafts({"FA-18C_hornet", "EA-18G", "FA-18E", "FA-18F"}) -- FA-18C + Mods
-
+-- F/A-18 Module created by AndrewW, modified by WarLord,charliefoxtwo&DeadMeat v1.6
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 

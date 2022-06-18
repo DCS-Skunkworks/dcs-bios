@@ -1,7 +1,6 @@
 BIOS.protocol.beginModule("MiG-21Bis", 0x2200)
 BIOS.protocol.setExportModuleAircrafts({"MiG-21Bis"})
 --overhaul by WarLord
-
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document

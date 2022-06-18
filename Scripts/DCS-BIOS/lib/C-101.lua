@@ -1,7 +1,6 @@
 BIOS.protocol.beginModule("C-101", 0x3600)
 BIOS.protocol.setExportModuleAircrafts({"C-101CC", "C-101EB"})
 --by WarLord (aka BlackLibrary)
-
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document

@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("F-86F Sabre", 0x3000)
 BIOS.protocol.setExportModuleAircrafts({"F-86F Sabre"})
-
+--by WarLord (aka BlackLibrary) v2.0
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document  
@@ -16,6 +16,8 @@ local defineTumb = BIOS.util.defineTumb
 local defineToggleSwitch = BIOS.util.defineToggleSwitch
 local defineString = BIOS.util.defineString
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
+
+-- remove Arg# Pilot 540
 
 defineTumb("BAT_START",1, 3001, 653, 1, {-1,1}, nil, false, "Electrics", "Battery-Starter Switch, BATTERY/OFF/STARTER")
 defineTumb("INSTR_PWR",1, 3002, 643, 1, {0, 1}, nil, false, "Electrics", "Instrument Power Switch, ALTERNATE/NORMAL")
@@ -191,19 +193,19 @@ defineTumb("WPN_SAFE_G_LIMIT_TEST",5, 3053, 225, 1, {0, 1}, nil, false, "Weapon 
 definePotentiometer("WPN_SAFE_G_LIMIT_TEST_LGHT", 5, 3054, 226,  {0, 1.0}, "Weapon System", "Rotate to adjust brightness(MW)")
 defineRotary("WPN_RKT_INVL", 5, 3023, 1001, "Weapon System", "Rocket Intervalometer")
 defineTumb("WPN_TRG_DETENT",5, 3048, 206, 0.5, {0, 1}, nil, false, "Weapon System", "Gun Trigger, SECOND DETENT/FIRST DETENT")
-defineIndicatorLight("LMP_ELEC_GENOFF",617, "Lamps", "ELEC_GenOff")
-defineIndicatorLight("LMP_ELEC_MAININVOFFSELECTALT",610, "Lamps", "ELEC_MainInstInverterOffSelectAlt")
-defineIndicatorLight("LMP_ELEC_BOTHINSTINVOFF",611, "Lamps", "ELEC_BothInstInvertersOff")
-defineIndicatorLight("LMP_ELEC_MAINRADARINVOFF",612, "Lamps", "ELEC_MainRadarInverterOff")
-defineIndicatorLight("LMP_HYDRO_ALTFLTCONTSYSOPER",614, "Lamps", "HYDRO_AltFltContSysOper")
+defineIndicatorLight("LMP_ELEC_GENOFF",617, "Lamps", "ELEC_GenOff (red)")
+defineIndicatorLight("LMP_ELEC_MAININVOFFSELECTALT",610, "Lamps", "ELEC_MainInstInverterOffSelectAlt (yellow)")
+defineIndicatorLight("LMP_ELEC_BOTHINSTINVOFF",611, "Lamps", "ELEC_BothInstInvertersOff (red)")
+defineIndicatorLight("LMP_ELEC_MAINRADARINVOFF",612, "Lamps", "ELEC_MainRadarInverterOff (yellow)")
+defineIndicatorLight("LMP_HYDRO_ALTFLTCONTSYSOPER",614, "Lamps", "HYDRO_AltFltContSysOper (yellow)")
 defineIndicatorLight("LMP_HYDRO_LEFTGEAR",39, "Lamps", "HYDRO_LeftGear")
 defineIndicatorLight("LMP_HYDRO_RIGHTGEAR",41, "Lamps", "HYDRO_RightGear")
 defineIndicatorLight("LMP_HYDRO_NOSEGEAR",40, "Lamps", "HYDRO_NoseGear")
-defineIndicatorLight("LMP_FUEL_OUTBDTANKSEMPTY",625, "Lamps", "FUEL_OutbdTanksEmpty")
-defineIndicatorLight("LMP_FIRE_DETECTION_FWDFIREWARNING",615, "Lamps", "FIRE_DETECTION_FwdFireWarning")
-defineIndicatorLight("LMP_FIRE_DETECTION_AFTFIREWARNING",616, "Lamps", "FIRE_DETECTION_AftFireWarning")
-defineIndicatorLight("LMP_CONTROL_TAKEOFFPOSIND",613, "Lamps", "CONTROL_TakeOffPosInd")
-defineIndicatorLight("LMP_WNW_SHLDANTIICE_HEAT",621, "Lamps", "WindshieldAntiIceOverheatWarning")
+defineIndicatorLight("LMP_FUEL_OUTBDTANKSEMPTY",625, "Lamps", "FUEL_OutbdTanksEmpty (yellow)")
+defineIndicatorLight("LMP_FIRE_DETECTION_FWDFIREWARNING",615, "Lamps", "FIRE_DETECTION_FwdFireWarning (red)")
+defineIndicatorLight("LMP_FIRE_DETECTION_AFTFIREWARNING",616, "Lamps", "FIRE_DETECTION_AftFireWarning (yellow)")
+defineIndicatorLight("LMP_CONTROL_TAKEOFFPOSIND",613, "Lamps", "CONTROL_TakeOffPosInd (yellow)")
+defineIndicatorLight("LMP_WNW_SHLDANTIICE_HEAT",621, "Lamps", "WindshieldAntiIceOverheatWarning (yellow)")
 
 defineFloat("MIRRORS_DRAW", 3, {0, 1}, "Indicator", "mirrors_draw")
 defineFloat("STICKPITCH", 74, {1, -1}, "Indicator", "StickPitch")
@@ -259,10 +261,10 @@ defineFloat("ARN6_BEARING", 800, {0, 1}, "Indicator", "ARN6_Bearing")
 defineFloat("ARN6_SCALE", 814, {1.0, 0.0}, "Indicator", "ARN6_Scale")
 defineFloat("ARN6_FREQSCALE", 830, {0, 1}, "Indicator", "ARN6_FreqScale")
 defineFloat("ARN6_SCALELIGHT", 219, {0, 1}, "Indicator", "ARN6_ScaleLight")
-defineFloat("ILLUMINATIONLIGHTS", 182, {0, 1}, "Indicator", "Illumination Lights")
+defineFloat("ILLUMINATIONLIGHTS", 182, {0, 1}, "Indicator", "Illumination Lights (yellow)")
 defineFloat("STANDBYCOMPASSLIGHT", 825, {0, 1}, "Indicator", "Standby Compass Light")
 defineFloat("PRIMARYINSTLIGHTS", 180, {0, 1}, "Indicator", "Primary Instrument Lights")
-defineFloat("LANDING_GEAR_UNSAFE", 222, {0, 1}, "Indicator", "Landing Gear Unsafe")
+defineFloat("LANDING_GEAR_UNSAFE", 222, {0, 1}, "Indicator", "Landing Gear Unsafe Light (red)")
 defineFloat("AUXILIARYINSTRUMENTLIGHTS", 185, {0, 1}, "Indicator", "AuxiliaryInstrumentLights")
 defineFloat("LABS_ROLL_NEEDLE", 603, {-1, 1}, "Indicator", "LABS_roll_needle")
 defineFloat("LABS_PITCH_NEEDLE", 604, {-1, 1}, "Indicator", "LABS_pitch_needle")
@@ -456,5 +458,15 @@ local function getVVI()
 end
 defineIntegerFromGetter("VVI_VALUE", getVVI, 65000, 
 "Gauge Values", "Verticl Velocity VVI")
+
+defineIndicatorLight("RADAR_TGT_L",618, "Lamps", "Radar Target Indicator Light (red)")
+defineIndicatorLight("BOMB_FRAG_L",619, "Lamps", "Fragmentation Bombs Indicator Light (red)")
+defineIndicatorLight("GUN_UP_ARM_L",622, "Lamps", "Upper Gun Arming Light (yellow)")
+defineIndicatorLight("GUN_MID_ARM_L",623, "Lamps", "Middle Gun Arming Light (yellow)")
+defineIndicatorLight("GUN_LOW_ARM_L",624, "Lamps", "Lower Gun Arming Light (yellow)")
+defineIndicatorLight("MISSLE_G_LIMIT_L",823, "Lamps", "Missle G Limit Light (red)")
+defineFloat("BOMB_ALT_G", 728, {0, 1}, "Indicator", "Bombing Altimeter Altitude Gauge")
+defineFloat("BOMB_ALT_G", 728, {0, 1}, "Indicator", "Bombing Altimeter Altitude Gauge")
+defineFloat("WPN_RKT_INVL_G", 100, {0, 1}, "Weapon System", "Rocket Intervalometer Gauge")
 
 BIOS.protocol.endModule()
