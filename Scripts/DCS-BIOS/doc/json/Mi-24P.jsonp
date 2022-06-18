@@ -16116,9 +16116,94 @@ docdata["Mi-24P"] =
                                                                                       } ]
                                                                   }
                                                 },
-                              "R60 Lights PLT": {
+                                         "R60": {
+                                                     "PLT_R60_FUSE": {
+                                                                                    "category": "R60",
+                                                                                "control_type": "selector",
+                                                                                 "description": "PILOT R60 Fuse Selector",
+                                                                                  "identifier": "PLT_R60_FUSE",
+                                                                                      "inputs": [ {
+                                                                                                    "description": "switch to previous or next state",
+                                                                                                      "interface": "fixed_step"
+                                                                                                }, {
+                                                                                                    "description": "set position",
+                                                                                                      "interface": "set_state",
+                                                                                                      "max_value": 1
+                                                                                                }, {
+                                                                                                       "argument": "TOGGLE",
+                                                                                                    "description": "Toggle switch state",
+                                                                                                      "interface": "action"
+                                                                                                } ],
+                                                                         "momentary_positions": "none",
+                                                                                     "outputs": [ {
+                                                                                                        "address": 27204,
+                                                                                                    "description": "selector position",
+                                                                                                           "mask": 2048,
+                                                                                                      "max_value": 1,
+                                                                                                       "shift_by": 11,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                                                } ],
+                                                                            "physical_variant": "toggle_switch"
+                                                                     },
+                                                       "PLT_R60_PW": {
+                                                                                    "category": "R60",
+                                                                                "control_type": "selector",
+                                                                                 "description": "PILOT R60 Power",
+                                                                                  "identifier": "PLT_R60_PW",
+                                                                                      "inputs": [ {
+                                                                                                    "description": "switch to previous or next state",
+                                                                                                      "interface": "fixed_step"
+                                                                                                }, {
+                                                                                                    "description": "set position",
+                                                                                                      "interface": "set_state",
+                                                                                                      "max_value": 1
+                                                                                                }, {
+                                                                                                       "argument": "TOGGLE",
+                                                                                                    "description": "Toggle switch state",
+                                                                                                      "interface": "action"
+                                                                                                } ],
+                                                                         "momentary_positions": "none",
+                                                                                     "outputs": [ {
+                                                                                                        "address": 27204,
+                                                                                                    "description": "selector position",
+                                                                                                           "mask": 1024,
+                                                                                                      "max_value": 1,
+                                                                                                       "shift_by": 10,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                                                } ],
+                                                                            "physical_variant": "toggle_switch"
+                                                                     },
+                                                    "PLT_R828_CHAN": {
+                                                                                    "category": "R60",
+                                                                                "control_type": "selector",
+                                                                                 "description": "PILOT R60 Active missile selector",
+                                                                                  "identifier": "PLT_R828_CHAN",
+                                                                                      "inputs": [ {
+                                                                                                    "description": "switch to previous or next state",
+                                                                                                      "interface": "fixed_step"
+                                                                                                }, {
+                                                                                                    "description": "set position",
+                                                                                                      "interface": "set_state",
+                                                                                                      "max_value": 4
+                                                                                                } ],
+                                                                         "momentary_positions": "none",
+                                                                                     "outputs": [ {
+                                                                                                        "address": 27204,
+                                                                                                    "description": "selector position",
+                                                                                                           "mask": 28672,
+                                                                                                      "max_value": 4,
+                                                                                                       "shift_by": 12,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                                                } ],
+                                                                            "physical_variant": "toggle_switch"
+                                                                     }
+                                                },
+                                  "R60 Lights": {
                                                       "PLT_R60_ON_L": {
-                                                                              "category": "R60 Lights PLT",
+                                                                              "category": "R60 Lights",
                                                                           "control_type": "led",
                                                                            "description": "PILOT R60 ON Lamp (green)",
                                                                             "identifier": "PLT_R60_ON_L",
@@ -16126,41 +16211,41 @@ docdata["Mi-24P"] =
                                                                                "outputs": [ {
                                                                                                   "address": 27204,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 1024,
+                                                                                                     "mask": 32768,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 10,
+                                                                                                 "shift_by": 15,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
                                                                       },
                                                      "PLT_R60_RDY_L": {
-                                                                              "category": "R60 Lights PLT",
+                                                                              "category": "R60 Lights",
                                                                           "control_type": "led",
                                                                            "description": "PILOT R60 Ready Lamp (green)",
                                                                             "identifier": "PLT_R60_RDY_L",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 27204,
+                                                                                                  "address": 27234,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 4096,
+                                                                                                     "mask": 2,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 12,
+                                                                                                 "shift_by": 1,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
                                                                       },
                                                     "PLT_R60_WORK_L": {
-                                                                              "category": "R60 Lights PLT",
+                                                                              "category": "R60 Lights",
                                                                           "control_type": "led",
                                                                            "description": "PILOT R60 Working Lamp (yellow)",
                                                                             "identifier": "PLT_R60_WORK_L",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
-                                                                                                  "address": 27204,
+                                                                                                  "address": 27234,
                                                                                               "description": "0 if light is off, 1 if light is on",
-                                                                                                     "mask": 2048,
+                                                                                                     "mask": 1,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 11,
+                                                                                                 "shift_by": 0,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ]
