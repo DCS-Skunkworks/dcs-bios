@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("A-4E-C", 0x8400)
 BIOS.protocol.setExportModuleAircrafts({"A-4E-C"})
---v 3.0 by WarLord (aka BlackLibrary) & Dehuman
+--v 3.1 by WarLord (aka BlackLibrary) & Dehuman
 
 local documentation = moduleBeingDefined.documentation
 
@@ -217,10 +217,10 @@ definePotentiometer("RADAR_RETICLE", 10, 3062, 404, {-1, 1}, "Radar Scope", "Rad
 defineToggleSwitch("RADAR_FILTER", 10, 3061, 405, "Radar Scope", "Radar Indicator Filter Plate")
 
 --Gunpods
-define3PosTumb("GUNPOD_CLEAR", 5, 3012, 390, "Gunpods", "Gunpod Charge/Off/Clear")
-defineToggleSwitch("GUNPOD_L", 5, 3009, 391, "Gunpods", "Gunpod Station LH Switch")
-defineToggleSwitch("GUNPOD_C", 5, 3010, 392, "Gunpods", "Gunpod Station CTR Switch")
-defineToggleSwitch("GUNPOD_R", 5, 3012, 393, "Gunpods", "Gunpod Station RH Switch")
+define3PosTumb("GUNPOD_CLEAR", 6, 3012, 390, "Gunpods", "Gunpod Charge/Off/Clear")
+defineToggleSwitch("GUNPOD_L", 6, 3009, 391, "Gunpods", "Gunpod Station LH Switch")
+defineToggleSwitch("GUNPOD_C", 6, 3010, 392, "Gunpods", "Gunpod Station CTR Switch")
+defineToggleSwitch("GUNPOD_R", 6, 3011, 393, "Gunpods", "Gunpod Station RH Switch")
 
 --Countermeasures
 define3PosTumb("CM_BANK", 32, 3106, 522, "Countermeasures", "CM Bank Select")
@@ -243,10 +243,10 @@ defineMultipositionSwitch("AWRS_QUANT", 6, 3031, 740, 12, 0.05, "Armament Panel"
 definePotentiometer("AWRS_DROP_INT", 6, 3032, 742, {0, 0.9}, "Armament Panel", "AWRS Drop Interval")
 defineToggleSwitch("AWRS_MULTI", 6, 3033, 743, "Armament Panel", "AWRS Multiplier")
 defineMultipositionSwitch("AWRS_MODE", 6, 3034, 744, 6, 0.1, "Armament Panel", "AWRS mode")
-defineToggleSwitch("ARM_MASTER", 2, 3002, 709, "Armament Panel", "Master Armament")
-defineToggleSwitch("RADAR_PROFILE", 9, 3055, 721, "RadarScope", "Radar Plan/Profile")
-defineToggleSwitch("RADAR_RANGE", 9, 3056, 722, "RadarScope", "Radar Long/Short Range")
-define3PosTumb("BDHI_MODE", 22, 3044, 724, "BDHI", "BDHI mode")
+defineToggleSwitch("ARM_MASTER", 3, 3002, 709, "Armament Panel", "Master Armament")
+defineToggleSwitch("RADAR_PROFILE", 10, 3055, 721, "Radar Scope", "Radar Plan/Profile")
+defineToggleSwitch("RADAR_RANGE", 10, 3056, 722, "Radar Scope", "Radar Long/Short Range")
+define3PosTumb("BDHI_MODE", 23, 3044, 724, "BDHI", "BDHI mode")
 defineMultipositionSwitch("SHRIKE_SEL_KNB", 6, 3137, 725, 5, 0.1, "Armament Panel", "Shrike Selector Knob")
 definePotentiometer("MISSILE_VOL", 6, 3125, 726, {-1, 1}, "Armament Panel", "Missile Volume Knob")
 
@@ -255,7 +255,7 @@ defineToggleSwitch("AFCS_STBY", 27, 3088, 160, "AFCS", "AFCS Standby")
 defineToggleSwitch("AFCS_ENGAGE", 27, 3089, 161, "AFCS", "AFCS Engage")
 defineToggleSwitch("AFCS_HDG_SEL", 27, 3090, 162, "AFCS", "AFCS Preselect Heading")
 defineToggleSwitch("AFCS_ALT", 27, 3091, 163, "AFCS", "AFCS Altitude Hold")
-definePotentiometer("AFCS_HDG_SET", 27, 3092, 164, {0, 1}, "AFCS", "AFCS Heading Selector")
+defineRotary("AFCS_HDG_SET", 27, 3092, 164, "AFCS", "AFCS Heading Selector")
 defineToggleSwitch("AFCS_STAB_AUG", 27, 3093, 165, "AFCS", "AFCS Stability Aug")
 defineToggleSwitch("AFCS_AIL_TRIM", 27, 3094, 166, "AFCS", "AFCS Aileron Trim")
 
