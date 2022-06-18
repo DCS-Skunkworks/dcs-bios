@@ -19,6 +19,8 @@ local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 local defineRadioWheel = BIOS.util.defineRadioWheel
 
+-- remove Arg# Pilot 540
+
 defineToggleSwitch("GEN", 14, 3003, 102, "Right Switch Panel", "Generator")
 defineToggleSwitch("BAT", 14, 3001, 103, "Right Switch Panel", "Battery")
 defineToggleSwitch("GUN_HEAT", 14, 3019, 104, "Right Switch Panel", "Gun Heating")
@@ -58,7 +60,7 @@ definePotentiometer("CANOPY_HAND_CRANK", 6, 3002, 147, {-6, 6}, "Cockpit Mechani
 defineToggleSwitch("CANOPY_EMERGENCY_RELEASE_HANDLE", 6, 3003,149, "Cockpit Mechanical", "Canopy Emergency Release Handle")
 defineToggleSwitch("OXYGEN_AUTO_MIX", 7, 3003, 131, "Oxygen System", "Auto-Mix On-Off")					 
 defineToggleSwitch("OXYGEN_BY-PASS", 7, 3001, 130, "Oxygen System", "Oxygen Emergency By-pass")
-defineIndicatorLight("OXYGEN_WARNING", 84, "Oxygen System", "Oxygen Warning Light")
+defineFloat("PANEL_LIGHTS", 165, {0, 1}, "Light System", "Panel Background Lighting (green)")
 defineMultipositionSwitch("FUEL_SELECTOR_VALVE", 9, 3001, 85, 5, 0.1, "Fuel System", "Fuel Selector Valve")
 defineToggleSwitch("FUEL_SHUT_OFF_VALVE", 9, 3005, 86, "Fuel System", "Fuel Shut-Off Valve")
 definePotentiometer("LEFT_FLUORESCENT_LIGHT", 10, 3002, 90, {0, 1}, "Light System", "Left Fluorescent Light")
@@ -87,7 +89,7 @@ defineTumb("ROCKETS_BOMBS_MODES", 13, 3015, 68, 0.1,  {0, 0.3}, nil, false, "Fro
 defineToggleSwitch("SUPERCHARGER_SWITCH_COVER", 15, 3002, 58, "Engine Control Panel", "Supercharger Switch Cover")
 defineTumb("SUPERCHARGER_AUTO_LOW_HIGH", 15, 3001, 57, 0.1, {0.0,0.2}, nil, false, "Engine Control Panel", "Supercharger Auto/Low/High")
 definePushButton("HIGH_BLOWER_TEST_LAMP", 15, 3004, 60, "Engine Control Panel", "High Blower Lamp Test")
-defineIndicatorLight("HIGH_BLOWER_LAMP", 59, "Engine Control Panel", "High Blower Lamp")
+defineIndicatorLight("HIGH_BLOWER_LAMP", 59, "Engine Control Panel", "High Blower Lamp (yellow)")
 defineToggleSwitch("FUEL_BOOSTER", 15, 3005, 61, "Engine Control Panel", "Fuel Booster On/Off")
 definePushButton("OIL_DILUTE", 15, 3013, 62, "Engine Control Panel", "Oil Dilute Activate")
 definePushButton("STARTER", 15, 3008, 63, "Engine Control Panel", "Starter Activate")
@@ -349,8 +351,8 @@ end
 defineIntegerFromGetter("ACCELEROMETER_VALUE", getAccel, 65000,
 "Gauge Values", "Accelerometer")
 
-defineIndicatorLight("WINDSHIELDOIL", 412, "Damage", "Windshield Oil Splashes")
-defineFloat("WINDSHIELDCRACKS", 413, {0, 1}, "Damage", "Windshield Crack Holes")
+defineIndicatorLight("WINDSHIELD_OIL", 412, "Damage", "Windshield Oil Splashes (black)")
+defineFloat("WINDSHIELD_CRACKS", 413, {0, 1}, "Damage", "Windshield Crack Holes")
 
 defineIntegerFromGetter("EXT_WOW_TAIL", function()
 	if LoGetAircraftDrawArgumentValue(1) > 0 then return 1 else return 0 end
@@ -374,5 +376,7 @@ defineFloat("AILERON_TRIM_G", 170, {-1, 1}, "Control System", "Aileron Trim Gaug
 defineFloat("RUDDER_TRIM_G", 172, {-1, 1}, "Control System", "Rudder Trim Gauge")
 defineFloat("ELEVATOR_TRIM_G", 171, {-1, 1}, "Control System", "Elevator Trim Gauge")
 defineFloat("CONTR_LOCK_BRACK", 174, {0, 1}, "Control System", "Control Lock Bracket")
+defineFloat("INT_L_LIGHTS", 185, {0, 1}, "Light System", "Internal Lighting Left (white)")
+defineFloat("INT_R_LIGHTS", 186, {0, 1}, "Light System", "Internal Lighting Right (white)")
 
 BIOS.protocol.endModule()
