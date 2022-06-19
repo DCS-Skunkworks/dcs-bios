@@ -425,7 +425,7 @@ defineTumb("R828_COMP_SWITCH",39, 3006, 757, 1, {0, 1}, nil, false, "R-828", "R-
 defineTumb("CMD_PWR",48, 3010, 910, 1, {0, 1}, nil, false, "CMD", "CMD Power Switch, ON/OFF")
 defineTumb("CMD_FLRS_AMOUNT",48, 3003, 913, 1, {0, 1}, nil, false, "CMD", "CMD Flares Amount Switch, COUNTER/PROGRAMMING")
 
-defineTumb("AC_VOLT_SEL", 1, 3017, 535, 0.1,   { 0, 1}, nil, false, "Electrical system", "AC Voltmeter Selector")
+defineTumb("AC_VOLT_SEL", 1, 3017, 535, 0.1,{ 0, 1}, nil, false, "Electrical system", "AC Voltmeter Selector")
 defineTumb("FUEL_METER_SWITCH",2, 3008, 61, 0.1,{0, 0.5}, nil, false,  "FUEL", "Fuel Meter Switch, OFF/SUM/LEFT/RIGHT/FEED/ADDITIONAL")
 defineTumb("POD_VAR_SEL",12, 3013, 719, 0.1,{0, 0.5}, nil, false, "PODS", "Pod Variants Selector Switch")
 defineTumb("ESBR_POS",12, 3029, 730, 0.0555,{0, 0.8325}, nil, false, "ESBR", "ESBR Position Selector Switch")
