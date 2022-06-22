@@ -138,5 +138,6 @@ end, 1, "External Aircraft Model", "Weight ON Wheels Right Gear")
 defineIntegerFromGetter("EXT_WOW_LEFT", function()
 	if LoGetAircraftDrawArgumentValue(6) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Weight ON Wheels Left Gear")
+definePushButton("MIX_PUSH", 2, 3101, 101, "Motor", "Mixture Push")
 
 BIOS.protocol.endModule()

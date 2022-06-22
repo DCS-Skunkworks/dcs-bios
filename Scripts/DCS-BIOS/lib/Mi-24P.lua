@@ -104,7 +104,7 @@ defineToggleSwitch("PLT_EMERG_GEAR_LVR", 11, 3007, 827, "Cockpit Mechanics PLT",
 definePushButton("PLT_WIN_SPRAY", 11, 3015, 384, "Cockpit Mechanics PLT", "PILOT Window Sprayer Button")
 definePushButton("OP_WIN_SPRAY", 11, 3016, 680, "Cockpit Mechanics OP", "OPERATOR Window Sprayer Button")
 definePushButton("PLT_COLLECTIVE_STOP", 11, 3028, 753, "Cockpit Mechanics PLT", "PILOT friction clutch of the collective")
-defineToggleSwitch("OP_CLOCK_HEAT", 11, 3013, 672, "Cockpit Mechanics OP", "OPERATOR Clock Heating Switch, ON/OFF")
+defineToggleSwitch("OP_CLOCK_HEAT", 11, 3048, 672, "Cockpit Mechanics OP", "OPERATOR Clock Heating Switch, ON/OFF")
 defineToggleSwitch("OP_DUAS_HEAT", 11, 3012, 763, "Cockpit Mechanics OP", "OPERATOR Heating DUAS, ON/OFF")
 definePushButton("PLT_FAN_FUN", 11, 3029, 0, "Cockpit Mechanics PLT", "PILOT Cockpit Fan - Touch")
 definePushButton("OP_FAN_FUN", 11, 3030, 0, "Cockpit Mechanics OP", "OPERATOR Cockpit Fan - Touch")
@@ -1231,5 +1231,12 @@ defineMultipositionSwitch("PLT_R828_CHAN", 73, 3003, 1032, 5, 0.1, "R60", "PILOT
 defineIndicatorLight("PLT_R60_ON_L", 1031, "R60 Lights", "PILOT R60 ON Lamp (green)")
 defineIndicatorLight("PLT_R60_WORK_L", 1029, "R60 Lights", "PILOT R60 Working Lamp (yellow)")
 defineIndicatorLight("PLT_R60_RDY_L", 1030, "R60 Lights", "PILOT R60 Ready Lamp (green)")
+
+defineToggleSwitch("PLT_HEAT_CLOCK", 11, 3047, 386, "Cockpit Mechanics PLT", "PILOT Clock Heating Switch, ON/OFF")
+defineToggleSwitch("PLT_HEAT_L_PPD", 11, 3043, 387, "Cockpit Mechanics PLT", "PILOT Heating PPD Left, ON/OFF")
+defineToggleSwitch("PLT_HEAT_R_PPD", 11, 3045, 389, "Cockpit Mechanics PLT", "PILOT Heating PPD Right, ON/OFF")
+
+defineIndicatorLight("PLT_HEAT_L_FAIL_L", 388, "Cockpit Mechanics Lights", "PILOT Heating Left Failed Lamp (yellow)")
+defineIndicatorLight("PLT_HEAT_R_FAIL_L", 390, "Cockpit Mechanics Lights", "PILOT Heating Left Failed Lamp (yellow)")
 
 BIOS.protocol.endModule()
