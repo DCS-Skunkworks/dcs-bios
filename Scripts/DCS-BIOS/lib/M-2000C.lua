@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("M-2000C", 0x7200)
 BIOS.protocol.setExportModuleAircrafts({"M-2000C"})
---v1.36 by Ergo, Matchstick, MisterKnife, WarLord, Espresso29470
+--v1.36a by Ergo, Matchstick, MisterKnife, WarLord, Espresso29470
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 
@@ -23,7 +23,7 @@ local defineSetCommandTumb = BIOS.util.defineSetCommandTumb
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
 --remove Arg# Pilot 1000 
-----Get Displays Functions
+--Get Displays Functions
 
 -- parse radios
 local vhfFrequency = ""
@@ -114,7 +114,7 @@ local pcnRight2Digit = ""
 local pcnLeft1Digit = ""
 local pcnLeft2Digit = ""
 
--- todo: does this need to set blank strings when pcn is nil?
+-- todo: need to set blank strings when pcn is nil?
 moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	local pcn = parse_indication(9)
 	if not pcn then return end
@@ -161,8 +161,6 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	pcnDest = padLeft(pcn.PCN_BR_DIGITS, 2)
 end
 
-----END
-
 --ADI
 defineToggleSwitch("ADI_CAGE_LEV", 1, 3314, 314, "ADI", "I - ADI - Cage Lever")
 defineToggleSwitch("ADI_BKL_SW", 1, 3315, 315, "ADI", "I - ADI - Backlight Switch")
@@ -170,7 +168,7 @@ defineFloat("ADI_PITCH", 316, {-1, 1}, "ADI", "O - ADI - Pitch Position")
 defineFloat("ADI_ROLL", 317, {-1, 1}, "ADI", "O - ADI - Roll Position")
 defineFloat("ADI_COMPAS", 318, {-1, 1}, "ADI", "O - ADI - Compass Position")
 defineFloat("ADI_FLAG", 319, {0, 1}, "ADI", "O - ADI - Flag")
-defineFloat("ADI_LIGHT", 321, {0, 1}, "ADI", "O - ADI - Voyant Ambre sous")
+defineIndicatorLight("ADI_LIGHT", 321, {0, 1}, "ADI", "O - ADI - Marker Light (yellow)")
 defineFloat("ADI_ILS_V", 322, {-1, 1}, "ADI", "O - ADI - Vertical ILS Needle")
 defineFloat("ADI_ILS_H", 323, {-1, 1}, "ADI", "O - ADI - Horizontal ILS Needle")
 defineFloat("ADI_BILLE", 320, {-1, 1}, "ADI", "O - ADI - Bille")
@@ -460,7 +458,7 @@ defineToggleSwitch("FBW_GAIN_MODE_SW_COV", 3, 3420, 420, "LEFT PANEL", "I - FBW 
 defineToggleSwitch("FBW_GAIN_MODE_SW", 3, 3421, 421, "LEFT PANEL", "I - FBW - Gain Mode Switch")
 defineToggleSwitch("FBW_G-LIM_SW", 3, 3422, 422, "LEFT PANEL", "I - FBW - G-Limiter Switch")
 defineToggleSwitch("FBW_RESET_BTN", 17, 3423, 423, "LEFT PANEL", "I - FBW - Reset Button")
-defineIndicatorLightInverted("LANDING_GEAR_LEVER_LIGHT", 405, "LEFT PANEL", "O - LDG - Landing Gear Lever Light")
+defineIndicatorLightInverted("LANDING_GEAR_LEVER_LIGHT", 405, "LEFT PANEL", "O - LDG - Landing Gear Lever Light (red)")
 definePushButton("EMER_JETT", 6, 3409, 409, "LEFT PANEL", "I - Emergency Jettison Button")
 defineToggleSwitch("GUN_ARM_SW", 6, 3463, 463, "LEFT PANEL", "I - Gun Arm/Safe Switch")
 defineFloat("PSV_EL_G_EXT", 424, {0, 1}, "LEFT PANEL", "O - PSV - Left Ext Elevon Position display")
@@ -573,20 +571,20 @@ defineIndicatorLight("PCN_PRET", 564, "PCN", "O - PCN - PRET Indicator Light (gr
 defineIndicatorLight("PCN_ALN", 565, "PCN", "O - PCN - ALN Indicator Light (yellow)")
 defineIndicatorLight("PCN_MIP", 566, "PCN", "O - PCN - MIP Indicator Light (yellow)")
 defineIndicatorLight("PCN_NDEG", 567, "PCN", "O - PCN - N.DEG Indicator Light (yellow)")
-defineIndicatorLight("PCN_SEC", 568, "PCN", "O - PCN - SEC Indicator Light")
-defineIndicatorLight("PCN_UNI", 569, "PCN", "O - PCN - UNI Indicator Light")
-defineIndicatorLight("INS_PREP_SW_LIGHT", 571, "PCN", "O - PCN - PREP Button Light")
-defineIndicatorLight("INS_DEST_SW_LIGHT", 573, "PCN", "O - PCN - DEST Button Light")
-defineIndicatorLight("PCN_BAD", 577, "PCN", "O - PCN - BAD Button Light")
-defineIndicatorLight("PCN_REC", 579, "PCN", "O - PCN - REC Button Light")
-defineIndicatorLight("INS_EFF_SW_LIGHT", 595, "PCN", "O - PCN - EFF Button Light")
-defineIndicatorLight("INS_INS_SW_LIGHT", 597, "PCN", "O - PCN - INS Button Light")
-defineIndicatorLight("PCN_VAL_SW_LIGHT", 581, "PCN", "O - PCN - VAL Button Light")
-defineIndicatorLight("PCN_MRQ_SW_LIGHT", 583, "PCN", "O - PCN - MRQ Button Light")
-defineIndicatorLight("PCN_ENC_SW_LIGHT", 668, "PCN", "O - PCN - ENC Button Light")
-defineIndicatorLight("PCN_M91_LIGHT", 669, "PCN", "O - PCN - M91 Indicator Light")
-defineIndicatorLight("PCN_M92_LIGHT", 670, "PCN", "O - PCN - M92 Indicator Light")
-defineIndicatorLight("PCN_M93_LIGHT", 671, "PCN", "O - PCN - M93 Indicator Light")
+defineIndicatorLight("PCN_SEC", 568, "PCN", "O - PCN - SEC Indicator Light (yellow)")
+defineIndicatorLight("PCN_UNI", 569, "PCN", "O - PCN - UNI Indicator Light (red)")
+defineIndicatorLight("INS_PREP_SW_LIGHT", 571, "PCN", "O - PCN - PREP Button Light (yellow)")
+defineIndicatorLight("INS_DEST_SW_LIGHT", 573, "PCN", "O - PCN - DEST Button Light (yellow)")
+defineIndicatorLight("PCN_BAD", 577, "PCN", "O - PCN - BAD Button Light (yellow)")
+defineIndicatorLight("PCN_REC", 579, "PCN", "O - PCN - REC Button Light (yellow)")
+defineIndicatorLight("INS_EFF_SW_LIGHT", 595, "PCN", "O - PCN - EFF Button Light (yellow)")
+defineIndicatorLight("INS_INS_SW_LIGHT", 597, "PCN", "O - PCN - INS Button Light (yellow)")
+defineIndicatorLight("PCN_VAL_SW_LIGHT", 581, "PCN", "O - PCN - VAL Button Light (yellow)")
+defineIndicatorLight("PCN_MRQ_SW_LIGHT", 583, "PCN", "O - PCN - MRQ Button Light (yellow)")
+defineIndicatorLight("EVF_LIGHTS", 726, "EVF", "I - EVF - Panel Lights (yellow/green)")
+defineIndicatorLight("PCN_M91_LIGHT", 669, "PCN", "O - PCN - M91 Indicator Light (green)")
+defineIndicatorLight("PCN_M92_LIGHT", 670, "PCN", "O - PCN - M92 Indicator Light (green)")
+defineIndicatorLight("PCN_M93_LIGHT", 671, "PCN", "O - PCN - M93 Indicator Light (green)")
 
 --PPA
 defineTumb("BOMB_FUZE_SEL_SW", 6, 3276, 276, 0.5, {0, 1}, nil, false, "PPA", "I - PPA - Bomb Fuze Selector Switch")
@@ -598,14 +596,14 @@ defineTumb("PPA_TEST_SW", 6, 3275, 275, 1, {-1, 1}, nil, false, "PPA", "I - PPA 
 defineTumb("BOMB_REL_QTY_SEL_SW", 6, 3277, 277, 1, {-1, 1}, nil, false, "PPA", "I - PPA - Bomb Release Quantity Selector Switch")
 defineTumb("BOMB_REL_INT_SEL_SW", 6, 3278, 278, 1, {-1, 1}, nil, false, "PPA", "I - PPA - Bomb Release Interval Selector Switch")
 definePushButton("FIRING_MODE_SEL", 6, 3279, 279, "PPA", "I - PPA - 530D/Rockets/Guns Firing Mode Selector Button")
-defineIndicatorLight("PPA_S530_P", 267, "PPA", "O - PPA - S530 P Light")
-defineIndicatorLight("PPA_S530_MIS", 268, "PPA", "O - PPA - S530 MIS Light")
-defineIndicatorLight("PPA_AUTO", 270, "PPA", "O - PPA - AUTO Light")
-defineIndicatorLight("PPA_MAN", 271, "PPA", "O - PPA - MAN Light")
-defineIndicatorLight("PPA_MAGIC_P", 273, "PPA", "O - PPA - MAGIC Light")
-defineIndicatorLight("PPA_MAGIC_MIS", 274, "PPA", "O - PPA - MAGIC MAG Light")
-defineIndicatorLight("PPA_GUN_ROCKET_PAP", 280, "PPA", "O - PPA - Gun/Rockets Mode PAR Indicator Light")
-defineIndicatorLight("PPA_GUN_ROCKET_TOT", 281, "PPA", "O - PPA - Gun/Rockets Mode TOT Indicator Light")
+defineIndicatorLight("PPA_S530_P", 267, "PPA", "O - PPA - S530 P Light (yellow)")
+defineIndicatorLight("PPA_S530_MIS", 268, "PPA", "O - PPA - S530 MIS Light (yellow)")
+defineIndicatorLight("PPA_AUTO", 270, "PPA", "O - PPA - AUTO Light (yellow)")
+defineIndicatorLight("PPA_MAN", 271, "PPA", "O - PPA - MAN Light (yellow)")
+defineIndicatorLight("PPA_MAGIC_P", 273, "PPA", "O - PPA - MAGIC Light (yellow)")
+defineIndicatorLight("PPA_MAGIC_MIS", 274, "PPA", "O - PPA - MAGIC MAG Light (yellow)")
+defineIndicatorLight("PPA_GUN_ROCKET_PAP", 280, "PPA", "O - PPA - Gun/Rockets Mode PAR Indicator Light (yellow)")
+defineIndicatorLight("PPA_GUN_ROCKET_TOT", 281, "PPA", "O - PPA - Gun/Rockets Mode TOT Indicator Light (yellow)")
 defineString("PPA_QTY_DISP", function() return ppaQuantity end, PPA_LEN, "PPA", "O - PPA Quantity Display")
 defineString("PPA_INT_DISP", function() return ppaInterval end, PPA_LEN, "PPA", "O - PPA Interval Display")
 
@@ -633,11 +631,11 @@ definePushButton("RAD_STT_SEL_BTN", 11, 3504, 504, "RADAR", "I - PSIC/STT Mode B
 defineToggleSwitch("TDC_MODE_SW", 11, 3710, 710, "RADAR", "I - TDC Mode Switch")
 defineTumb("RAD_PRF_SW", 11, 3109, 109, 1, {-1, 1}, nil, false, "RADAR", "I - Radar PRF Switch")
 defineTumb("RAD_RNG_SEL_SW", 11, 3503, 503, 1, {-1, 1}, nil, false, "RADAR", "I - Radar Range Selector Switch")
-defineIndicatorLight("RAD_VAL", 490, "RADAR", "O - RAD - VAL Button Light")
-defineIndicatorLight("RAD_A", 492, "RADAR", "O - RAD - A Button Light")
-defineIndicatorLight("RAD_DEC", 494, "RADAR", "O - RAD - DEC Button Light")
-defineIndicatorLight("RAD_VISU", 496, "RADAR", "O - RAD - VISU Button Light")
-defineIndicatorLight("RAD_PSIC", 505, "RADAR", "O - RAD - PSIC Button Light")
+defineIndicatorLight("RAD_VAL", 490, "RADAR", "O - RAD - VAL Button Light (red)")
+defineIndicatorLight("RAD_A", 492, "RADAR", "O - RAD - A Button Light (red)")
+defineIndicatorLight("RAD_DEC", 494, "RADAR", "O - RAD - DEC Button Light (red)")
+defineIndicatorLight("RAD_VISU", 496, "RADAR", "O - RAD - VISU Button Light (red)")
+defineIndicatorLight("RAD_PSIC", 505, "RADAR", "O - RAD - PSIC Button Light (red)")
 
 --RIGHT CONSOLE
 defineToggleSwitch("AUDIO_WARN_SW", 16, 3658, 658, "RIGHT CONSOLE", "I - AL - Audio Warning Switch")
@@ -657,11 +655,11 @@ defineFloat("OXY_FLOW_IND", 519, {0, 1}, "RIGHT PANEL", "O - LOX - Oxygen Flow I
 
 --RWR
 definePotentiometer("RWR_LGT_BRIGHT_CTRL", 16, 3228, 228, {0, 1}, "RWR", "I - RWR Light Brightnes Control")
-defineIndicatorLight("RWR_V", 229, "RWR", "O - RWR - V Indicator Indicator Light")
-defineIndicatorLight("RWR_BR", 230, "RWR", "O - RWR - BR Indicator Indicator Light")
-defineIndicatorLight("RWR_DA", 231, "RWR", "O - RWR - DA Indicator Indicator Light")
-defineIndicatorLight("RWR_D2M", 232, "RWR", "O - RWR - D2M Indicator Indicator Light")
-defineIndicatorLight("RWR_LL", 233, "RWR", "O - RWR - LL Indicator Indicator Light")
+defineIndicatorLight("RWR_V", 229, "RWR", "O - RWR - V Indicator Indicator Light (yellow)")
+defineIndicatorLight("RWR_BR", 230, "RWR", "O - RWR - BR Indicator Indicator Light (yellow)")
+defineIndicatorLight("RWR_DA", 231, "RWR", "O - RWR - DA Indicator Indicator Light (yellow)")
+defineIndicatorLight("RWR_D2M", 232, "RWR", "O - RWR - D2M Indicator Indicator Light (yellow)")
+defineIndicatorLight("RWR_LL", 233, "RWR", "O - RWR - LL Indicator Indicator Light (yellow)")
 
 --SPEED INDICATOR
 defineFloat("SPEED_KTS_NEED", 303, {0, 1}, "SPEED", "O - SPEED - Speed Needle")
@@ -819,7 +817,21 @@ defineIntegerFromGetter("EXT_WOW_LEFT", function()
 	if LoGetAircraftDrawArgumentValue(6) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Weight ON Wheels Left Gear")
 
-defineFloat("CANOPY_POS", 38, {0, 1}, "CANOPY", "Canopy Position")
+defineFloat("CANOPY_POS", 38, {0, 1}, "Cockpit", "Canopy Position")
 definePushButton("LDG_GEAR_TONE", 4, 3926, 926, "LEFT PANEL", "I - LDG - Landing Gear Tone")
+defineFloat("LIGHT_BACK_FRONT", 721, {0, 1}, "Cockpit", "Backlight Front Panels (red)")
+defineFloat("LIGHT_BACK_R", 723, {0, 1}, "Cockpit", "Backlight Right Panel (red)")
+defineFloat("LIGHT_INT1_FRONT", 721, {0, 1}, "Cockpit", "Internal Light 1 Front Panels (green)")
+defineFloat("LIGHT_INT2_FRONT", 721, {0, 1}, "Cockpit", "Internal Light 2 Front Panels (white)")
+defineFloat("LIGHT_INT_SIDES", 724, {0, 1}, "Cockpit", "Internal Light Side Panels (green)")
+defineFloat("SEAT_POS", 901, {0, 1}, "Cockpit", "Seat Position")
+defineIndicatorLight("PCN_BAD_SW_LIGHT2", 437, "PCN", "O - PCN - BAD Button Light 2 (green)")
+defineIndicatorLight("PCN_REC_SW_LIGHT2", 438, "PCN", "O - PCN - REC Button Light 2 (green)")
+defineIndicatorLight("PCN_VAL_SW_LIGHT2", 439, "PCN", "O - PCN - VAL Button Light 2 (green)")
+defineIndicatorLight("PCN_MRQ_SW_LIGHT2", 440, "PCN", "O - PCN - MRQ Button Light 2 (green)")
+defineFloat("FOLD_INFO_PAGE_1", 443, {0, 1}, "Cockpit", "Foldable Info Register 1")
+defineFloat("FOLD_INFO_PAGE_2", 444, {0, 1}, "Cockpit", "Foldable Info Register 2")
+defineFloat("FOLD_INFO_PAGE_3", 445, {0, 1}, "Cockpit", "Foldable Info Register 3")
+defineFloat("FOLD_INFO_PAGE_4", 446, {0, 1}, "Cockpit", "Foldable Info Register 4")
 
 BIOS.protocol.endModule()
