@@ -2598,9 +2598,9 @@
                                                                         "outputs": [ {
                                                                                            "address": 14386,
                                                                                        "description": "Left Position Light (red)",
-                                                                                              "mask": 2048,
+                                                                                              "mask": 8192,
                                                                                          "max_value": 1,
-                                                                                          "shift_by": 11,
+                                                                                          "shift_by": 13,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ]
@@ -2614,9 +2614,9 @@
                                                                         "outputs": [ {
                                                                                            "address": 14386,
                                                                                        "description": "Right Position Light (green)",
-                                                                                              "mask": 4096,
+                                                                                              "mask": 16384,
                                                                                          "max_value": 1,
-                                                                                          "shift_by": 12,
+                                                                                          "shift_by": 14,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ]
@@ -2630,9 +2630,9 @@
                                                                         "outputs": [ {
                                                                                            "address": 14386,
                                                                                        "description": "Tail Position Light (White)",
-                                                                                              "mask": 8192,
+                                                                                              "mask": 32768,
                                                                                          "max_value": 1,
-                                                                                          "shift_by": 13,
+                                                                                          "shift_by": 15,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ]
@@ -2644,11 +2644,11 @@
                                                                      "identifier": "EXT_WOW_LEFT",
                                                                          "inputs": [  ],
                                                                         "outputs": [ {
-                                                                                           "address": 14500,
+                                                                                           "address": 14508,
                                                                                        "description": "Weight ON Wheels Left Gear",
-                                                                                              "mask": 1,
+                                                                                              "mask": 4,
                                                                                          "max_value": 1,
-                                                                                          "shift_by": 0,
+                                                                                          "shift_by": 2,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ]
@@ -2660,11 +2660,11 @@
                                                                      "identifier": "EXT_WOW_RIGHT",
                                                                          "inputs": [  ],
                                                                         "outputs": [ {
-                                                                                           "address": 14386,
+                                                                                           "address": 14508,
                                                                                        "description": "Weight ON Wheels Right Gear",
-                                                                                              "mask": 32768,
+                                                                                              "mask": 2,
                                                                                          "max_value": 1,
-                                                                                          "shift_by": 15,
+                                                                                          "shift_by": 1,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ]
@@ -2676,11 +2676,11 @@
                                                                      "identifier": "EXT_WOW_TAIL",
                                                                          "inputs": [  ],
                                                                         "outputs": [ {
-                                                                                           "address": 14386,
+                                                                                           "address": 14508,
                                                                                        "description": "Weight ON Wheels Tail Gear",
-                                                                                              "mask": 16384,
+                                                                                              "mask": 1,
                                                                                          "max_value": 1,
-                                                                                          "shift_by": 14,
+                                                                                          "shift_by": 0,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ]
@@ -3364,7 +3364,7 @@
                                            "FLUOR_LIGHT": {
                                                                   "category": "Indicator",
                                                               "control_type": "analog_gauge",
-                                                               "description": "Fluor_Light",
+                                                               "description": "Fluor_Light (green)",
                                                                 "identifier": "FLUOR_LIGHT",
                                                                     "inputs": [  ],
                                                                    "outputs": [ {
@@ -3926,7 +3926,7 @@
                                         "AFN2_LAMP": {
                                                              "category": "Lamps",
                                                          "control_type": "led",
-                                                          "description": "AFN 2 Light",
+                                                          "description": "AFN 2 Light (white)",
                                                            "identifier": "AFN2_LAMP",
                                                                "inputs": [  ],
                                                               "outputs": [ {
@@ -3939,27 +3939,11 @@
                                                                                     "type": "integer"
                                                                          } ]
                                                      },
-                                       "FLAPS_DOWN": {
+                                         "BOMB_1_L": {
                                                              "category": "Lamps",
                                                          "control_type": "led",
-                                                          "description": "Flaps Down",
-                                                           "identifier": "FLAPS_DOWN",
-                                                               "inputs": [  ],
-                                                              "outputs": [ {
-                                                                                 "address": 14386,
-                                                                             "description": "0 if light is off, 1 if light is on",
-                                                                                    "mask": 8,
-                                                                               "max_value": 1,
-                                                                                "shift_by": 3,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ]
-                                                     },
-                                      "FLAPS_START": {
-                                                             "category": "Lamps",
-                                                         "control_type": "led",
-                                                          "description": "Flaps Start",
-                                                           "identifier": "FLAPS_START",
+                                                          "description": "Bomb 1 Lamp (red)",
+                                                           "identifier": "BOMB_1_L",
                                                                "inputs": [  ],
                                                               "outputs": [ {
                                                                                  "address": 14386,
@@ -3971,18 +3955,50 @@
                                                                                     "type": "integer"
                                                                          } ]
                                                      },
-                                         "FLAPS_UP": {
+                                         "BOMB_2_L": {
                                                              "category": "Lamps",
                                                          "control_type": "led",
-                                                          "description": "Flaps Up",
-                                                           "identifier": "FLAPS_UP",
+                                                          "description": "Bomb 2 Lamp (red)",
+                                                           "identifier": "BOMB_2_L",
                                                                "inputs": [  ],
                                                               "outputs": [ {
                                                                                  "address": 14386,
                                                                              "description": "0 if light is off, 1 if light is on",
-                                                                                    "mask": 2,
+                                                                                    "mask": 8,
                                                                                "max_value": 1,
-                                                                                "shift_by": 1,
+                                                                                "shift_by": 3,
+                                                                                  "suffix": "",
+                                                                                    "type": "integer"
+                                                                         } ]
+                                                     },
+                                         "BOMB_3_L": {
+                                                             "category": "Lamps",
+                                                         "control_type": "led",
+                                                          "description": "Bomb 3 Lamp (red)",
+                                                           "identifier": "BOMB_3_L",
+                                                               "inputs": [  ],
+                                                              "outputs": [ {
+                                                                                 "address": 14386,
+                                                                             "description": "0 if light is off, 1 if light is on",
+                                                                                    "mask": 2048,
+                                                                               "max_value": 1,
+                                                                                "shift_by": 11,
+                                                                                  "suffix": "",
+                                                                                    "type": "integer"
+                                                                         } ]
+                                                     },
+                                         "BOMB_4_L": {
+                                                             "category": "Lamps",
+                                                         "control_type": "led",
+                                                          "description": "Bomb 4 Lamp (red)",
+                                                           "identifier": "BOMB_4_L",
+                                                               "inputs": [  ],
+                                                              "outputs": [ {
+                                                                                 "address": 14386,
+                                                                             "description": "0 if light is off, 1 if light is on",
+                                                                                    "mask": 4096,
+                                                                               "max_value": 1,
+                                                                                "shift_by": 12,
                                                                                   "suffix": "",
                                                                                     "type": "integer"
                                                                          } ]
@@ -3990,7 +4006,7 @@
                                      "FUEL_LOW_FWD": {
                                                              "category": "Lamps",
                                                          "control_type": "led",
-                                                          "description": "Fuel_Low_Fwd",
+                                                          "description": "Fuel_Low_Fwd (red)",
                                                            "identifier": "FUEL_LOW_FWD",
                                                                "inputs": [  ],
                                                               "outputs": [ {
@@ -4006,7 +4022,7 @@
                                     "FUEL_LOW_REAR": {
                                                              "category": "Lamps",
                                                          "control_type": "led",
-                                                          "description": "Fuel_Low_Rear",
+                                                          "description": "Fuel_Low_Rear (white)",
                                                            "identifier": "FUEL_LOW_REAR",
                                                                "inputs": [  ],
                                                               "outputs": [ {
@@ -4022,7 +4038,7 @@
                                       "GUN_131_L_1": {
                                                              "category": "Lamps",
                                                          "control_type": "led",
-                                                          "description": "Gun 131 Lamp  1",
+                                                          "description": "Gun 131 Lamp 1 (red)",
                                                            "identifier": "GUN_131_L_1",
                                                                "inputs": [  ],
                                                               "outputs": [ {
@@ -4038,7 +4054,7 @@
                                       "GUN_131_L_2": {
                                                              "category": "Lamps",
                                                          "control_type": "led",
-                                                          "description": "Gun 131 Lamp  2",
+                                                          "description": "Gun 131 Lamp 2 (red)",
                                                            "identifier": "GUN_131_L_2",
                                                                "inputs": [  ],
                                                               "outputs": [ {
@@ -4054,7 +4070,7 @@
                                      "GUN_SZKK_L_1": {
                                                              "category": "Lamps",
                                                          "control_type": "led",
-                                                          "description": "Gun SZKK Lamp  1",
+                                                          "description": "Gun SZKK Lamp 1 (red)",
                                                            "identifier": "GUN_SZKK_L_1",
                                                                "inputs": [  ],
                                                               "outputs": [ {
@@ -4070,7 +4086,7 @@
                                      "GUN_SZKK_L_2": {
                                                              "category": "Lamps",
                                                          "control_type": "led",
-                                                          "description": "Gun SZKK Lamp  2",
+                                                          "description": "Gun SZKK Lamp 2 (red)",
                                                            "identifier": "GUN_SZKK_L_2",
                                                                "inputs": [  ],
                                                               "outputs": [ {
@@ -4086,7 +4102,7 @@
                                      "GUN_SZKK_L_3": {
                                                              "category": "Lamps",
                                                          "control_type": "led",
-                                                          "description": "Gun SZKK Lamp  3",
+                                                          "description": "Gun SZKK Lamp 3 (red)",
                                                            "identifier": "GUN_SZKK_L_3",
                                                                "inputs": [  ],
                                                               "outputs": [ {
@@ -4102,7 +4118,7 @@
                                      "GUN_SZKK_L_4": {
                                                              "category": "Lamps",
                                                          "control_type": "led",
-                                                          "description": "Gun SZKK Lamp  4",
+                                                          "description": "Gun SZKK Lamp 4 (red)",
                                                            "identifier": "GUN_SZKK_L_4",
                                                                "inputs": [  ],
                                                               "outputs": [ {
@@ -4118,7 +4134,7 @@
                                         "LG_L_DOWN": {
                                                              "category": "Lamps",
                                                          "control_type": "led",
-                                                          "description": "Landing Gear Left Down",
+                                                          "description": "Landing Gear Left Down (green)",
                                                            "identifier": "LG_L_DOWN",
                                                                "inputs": [  ],
                                                               "outputs": [ {
@@ -4134,7 +4150,7 @@
                                           "LG_L_UP": {
                                                              "category": "Lamps",
                                                          "control_type": "led",
-                                                          "description": "Landing Gear Left Up",
+                                                          "description": "Landing Gear Left Up (red)",
                                                            "identifier": "LG_L_UP",
                                                                "inputs": [  ],
                                                               "outputs": [ {
@@ -4150,7 +4166,7 @@
                                         "LG_R_DOWN": {
                                                              "category": "Lamps",
                                                          "control_type": "led",
-                                                          "description": "Landing Gear Right Down",
+                                                          "description": "Landing Gear Right Down (green)",
                                                            "identifier": "LG_R_DOWN",
                                                                "inputs": [  ],
                                                               "outputs": [ {
@@ -4166,7 +4182,7 @@
                                           "LG_R_UP": {
                                                              "category": "Lamps",
                                                          "control_type": "led",
-                                                          "description": "Landing Gear Right Up",
+                                                          "description": "Landing Gear Right Up (red)",
                                                            "identifier": "LG_R_UP",
                                                                "inputs": [  ],
                                                               "outputs": [ {
@@ -4179,10 +4195,90 @@
                                                                                     "type": "integer"
                                                                          } ]
                                                      },
+                                       "PANEL_LL_L": {
+                                                             "category": "Lamps",
+                                                         "control_type": "analog_gauge",
+                                                          "description": "Panel Light Lower Left (blue)",
+                                                           "identifier": "PANEL_LL_L",
+                                                               "inputs": [  ],
+                                                              "outputs": [ {
+                                                                                 "address": 14504,
+                                                                             "description": "gauge position",
+                                                                                    "mask": 65535,
+                                                                               "max_value": 65535,
+                                                                                "shift_by": 0,
+                                                                                  "suffix": "",
+                                                                                    "type": "integer"
+                                                                         } ]
+                                                     },
+                                       "PANEL_LR_L": {
+                                                             "category": "Lamps",
+                                                         "control_type": "analog_gauge",
+                                                          "description": "Panel Light Lower Right (blue)",
+                                                           "identifier": "PANEL_LR_L",
+                                                               "inputs": [  ],
+                                                              "outputs": [ {
+                                                                                 "address": 14506,
+                                                                             "description": "gauge position",
+                                                                                    "mask": 65535,
+                                                                               "max_value": 65535,
+                                                                                "shift_by": 0,
+                                                                                  "suffix": "",
+                                                                                    "type": "integer"
+                                                                         } ]
+                                                     },
+                                       "PANEL_UL_L": {
+                                                             "category": "Lamps",
+                                                         "control_type": "analog_gauge",
+                                                          "description": "Panel Light Upper Left (blue)",
+                                                           "identifier": "PANEL_UL_L",
+                                                               "inputs": [  ],
+                                                              "outputs": [ {
+                                                                                 "address": 14500,
+                                                                             "description": "gauge position",
+                                                                                    "mask": 65535,
+                                                                               "max_value": 65535,
+                                                                                "shift_by": 0,
+                                                                                  "suffix": "",
+                                                                                    "type": "integer"
+                                                                         } ]
+                                                     },
+                                       "PANEL_UR_L": {
+                                                             "category": "Lamps",
+                                                         "control_type": "analog_gauge",
+                                                          "description": "Panel Light Upper Right (blue)",
+                                                           "identifier": "PANEL_UR_L",
+                                                               "inputs": [  ],
+                                                              "outputs": [ {
+                                                                                 "address": 14502,
+                                                                             "description": "gauge position",
+                                                                                    "mask": 65535,
+                                                                               "max_value": 65535,
+                                                                                "shift_by": 0,
+                                                                                  "suffix": "",
+                                                                                    "type": "integer"
+                                                                         } ]
+                                                     },
+                                      "PITOT2_LAMP": {
+                                                             "category": "Lamps",
+                                                         "control_type": "led",
+                                                          "description": "Lamp near PITOT Lamp (red)",
+                                                           "identifier": "PITOT2_LAMP",
+                                                               "inputs": [  ],
+                                                              "outputs": [ {
+                                                                                 "address": 14386,
+                                                                             "description": "0 if light is off, 1 if light is on",
+                                                                                    "mask": 2,
+                                                                               "max_value": 1,
+                                                                                "shift_by": 1,
+                                                                                  "suffix": "",
+                                                                                    "type": "integer"
+                                                                         } ]
+                                                     },
                                        "PITOT_LAMP": {
                                                              "category": "Lamps",
                                                          "control_type": "led",
-                                                          "description": "Pitot Lamp",
+                                                          "description": "Pitot Lamp (yellow)",
                                                            "identifier": "PITOT_LAMP",
                                                                "inputs": [  ],
                                                               "outputs": [ {
@@ -4198,7 +4294,7 @@
                                    "ZSK244_READY_L": {
                                                              "category": "Lamps",
                                                          "control_type": "led",
-                                                          "description": "ZSK244 Ready Lamp",
+                                                          "description": "ZSK244 Ready Lamp (yellow)",
                                                            "identifier": "ZSK244_READY_L",
                                                                "inputs": [  ],
                                                               "outputs": [ {

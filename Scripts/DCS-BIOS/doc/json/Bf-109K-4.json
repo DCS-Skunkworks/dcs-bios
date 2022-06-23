@@ -1863,7 +1863,7 @@
                                                "AFN2_SIGNAL_LAMP": {
                                                                            "category": "Indicator",
                                                                        "control_type": "led",
-                                                                        "description": "AFN2_Signal_Lamp",
+                                                                        "description": "AFN2_Signal_Lamp (white)",
                                                                          "identifier": "AFN2_SIGNAL_LAMP",
                                                                              "inputs": [  ],
                                                                             "outputs": [ {
@@ -2020,6 +2020,86 @@
                                                                                                   "type": "integer"
                                                                                        } ]
                                                                    },
+                                                       "BOMB_1_L": {
+                                                                           "category": "Indicator",
+                                                                       "control_type": "led",
+                                                                        "description": "Bomb 1 Status Light (white)",
+                                                                         "identifier": "BOMB_1_L",
+                                                                             "inputs": [  ],
+                                                                            "outputs": [ {
+                                                                                               "address": 17024,
+                                                                                           "description": "0 if light is off, 1 if light is on",
+                                                                                                  "mask": 16384,
+                                                                                             "max_value": 1,
+                                                                                              "shift_by": 14,
+                                                                                                "suffix": "",
+                                                                                                  "type": "integer"
+                                                                                       } ]
+                                                                   },
+                                                       "BOMB_2_L": {
+                                                                           "category": "Indicator",
+                                                                       "control_type": "led",
+                                                                        "description": "Bomb 2 Status Light (white)",
+                                                                         "identifier": "BOMB_2_L",
+                                                                             "inputs": [  ],
+                                                                            "outputs": [ {
+                                                                                               "address": 17024,
+                                                                                           "description": "0 if light is off, 1 if light is on",
+                                                                                                  "mask": 32768,
+                                                                                             "max_value": 1,
+                                                                                              "shift_by": 15,
+                                                                                                "suffix": "",
+                                                                                                  "type": "integer"
+                                                                                       } ]
+                                                                   },
+                                                       "BOMB_3_L": {
+                                                                           "category": "Indicator",
+                                                                       "control_type": "led",
+                                                                        "description": "Bomb 3 Status Light (white)",
+                                                                         "identifier": "BOMB_3_L",
+                                                                             "inputs": [  ],
+                                                                            "outputs": [ {
+                                                                                               "address": 17060,
+                                                                                           "description": "0 if light is off, 1 if light is on",
+                                                                                                  "mask": 1,
+                                                                                             "max_value": 1,
+                                                                                              "shift_by": 0,
+                                                                                                "suffix": "",
+                                                                                                  "type": "integer"
+                                                                                       } ]
+                                                                   },
+                                                       "BOMB_4_L": {
+                                                                           "category": "Indicator",
+                                                                       "control_type": "led",
+                                                                        "description": "Bomb 4 Status Light (white)",
+                                                                         "identifier": "BOMB_4_L",
+                                                                             "inputs": [  ],
+                                                                            "outputs": [ {
+                                                                                               "address": 17060,
+                                                                                           "description": "0 if light is off, 1 if light is on",
+                                                                                                  "mask": 2,
+                                                                                             "max_value": 1,
+                                                                                              "shift_by": 1,
+                                                                                                "suffix": "",
+                                                                                                  "type": "integer"
+                                                                                       } ]
+                                                                   },
+                                                     "BOMB_SBY_L": {
+                                                                           "category": "Indicator",
+                                                                       "control_type": "led",
+                                                                        "description": "Bomb Standby Light (red)",
+                                                                         "identifier": "BOMB_SBY_L",
+                                                                             "inputs": [  ],
+                                                                            "outputs": [ {
+                                                                                               "address": 17024,
+                                                                                           "description": "0 if light is off, 1 if light is on",
+                                                                                                  "mask": 8192,
+                                                                                             "max_value": 1,
+                                                                                              "shift_by": 13,
+                                                                                                "suffix": "",
+                                                                                                  "type": "integer"
+                                                                                       } ]
+                                                                   },
                                                    "CANOPY_CRANK": {
                                                                            "category": "Indicator",
                                                                        "control_type": "analog_gauge",
@@ -2151,7 +2231,7 @@
                                               "FUEL_RESERVE_LAMP": {
                                                                            "category": "Indicator",
                                                                        "control_type": "led",
-                                                                        "description": "Fuel_Reserve_Lamp",
+                                                                        "description": "Fuel Reserve Lamp",
                                                                          "identifier": "FUEL_RESERVE_LAMP",
                                                                              "inputs": [  ],
                                                                             "outputs": [ {
@@ -2183,7 +2263,7 @@
                                       "LANDINGGEARGREENLIGHTLEFT": {
                                                                            "category": "Indicator",
                                                                        "control_type": "led",
-                                                                        "description": "LandingGearGreenLightLeft",
+                                                                        "description": "LandingGearLightLeft (green)",
                                                                          "identifier": "LANDINGGEARGREENLIGHTLEFT",
                                                                              "inputs": [  ],
                                                                             "outputs": [ {
@@ -2199,7 +2279,7 @@
                                      "LANDINGGEARGREENLIGHTRIGHT": {
                                                                            "category": "Indicator",
                                                                        "control_type": "led",
-                                                                        "description": "LandingGearGreenLightRight",
+                                                                        "description": "LandingGearLightRight (green)",
                                                                          "identifier": "LANDINGGEARGREENLIGHTRIGHT",
                                                                              "inputs": [  ],
                                                                             "outputs": [ {
@@ -2215,7 +2295,7 @@
                                             "LANDINGGEARREDLIGHT": {
                                                                            "category": "Indicator",
                                                                        "control_type": "led",
-                                                                        "description": "LandingGearRedLight",
+                                                                        "description": "LandingGearLight (red)",
                                                                          "identifier": "LANDINGGEARREDLIGHT",
                                                                              "inputs": [  ],
                                                                             "outputs": [ {
@@ -2231,7 +2311,7 @@
                                     "LEFTWING_MG151_CONTROL_LAMP": {
                                                                            "category": "Indicator",
                                                                        "control_type": "led",
-                                                                        "description": "LeftWing_MG151_Control_Lamp",
+                                                                        "description": "LeftWing MG151 Control Lamp (yellow)",
                                                                          "identifier": "LEFTWING_MG151_CONTROL_LAMP",
                                                                              "inputs": [  ],
                                                                             "outputs": [ {
@@ -2436,6 +2516,22 @@
                                                                                                   "type": "integer"
                                                                                        } ]
                                                                    },
+                                                     "PANEL_GLOW": {
+                                                                           "category": "Indicator",
+                                                                       "control_type": "analog_gauge",
+                                                                        "description": "Gauges Glow (green)",
+                                                                         "identifier": "PANEL_GLOW",
+                                                                             "inputs": [  ],
+                                                                            "outputs": [ {
+                                                                                               "address": 17062,
+                                                                                           "description": "gauge position",
+                                                                                                  "mask": 65535,
+                                                                                             "max_value": 65535,
+                                                                                              "shift_by": 0,
+                                                                                                "suffix": "",
+                                                                                                  "type": "integer"
+                                                                                       } ]
+                                                                   },
                                                     "PANEL_ROT_X": {
                                                                            "category": "Indicator",
                                                                        "control_type": "analog_gauge",
@@ -2535,7 +2631,7 @@
                                    "RIGHTWING_MG151_CONTROL_LAMP": {
                                                                            "category": "Indicator",
                                                                        "control_type": "led",
-                                                                        "description": "RightWing_MG151_Control_Lamp",
+                                                                        "description": "RightWing MG151 Control Lamp (yellow)",
                                                                          "identifier": "RIGHTWING_MG151_CONTROL_LAMP",
                                                                              "inputs": [  ],
                                                                             "outputs": [ {

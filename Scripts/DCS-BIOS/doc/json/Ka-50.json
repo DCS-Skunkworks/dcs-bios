@@ -55,6 +55,22 @@
                                                                                                        } ],
                                                                                    "physical_variant": "push_button"
                                                                             },
+                                                           "ABRIS_BTN_1_L": {
+                                                                                    "category": "ABRIS Display",
+                                                                                "control_type": "led",
+                                                                                 "description": "Button 1 Light (green)",
+                                                                                  "identifier": "ABRIS_BTN_1_L",
+                                                                                      "inputs": [  ],
+                                                                                     "outputs": [ {
+                                                                                                        "address": 6534,
+                                                                                                    "description": "0 if light is off, 1 if light is on",
+                                                                                                           "mask": 32,
+                                                                                                      "max_value": 1,
+                                                                                                       "shift_by": 5,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                                                } ]
+                                                                            },
                                                              "ABRIS_BTN_2": {
                                                                                         "api_variant": "momentary_last_position",
                                                                                            "category": "ABRIS Display",
@@ -84,6 +100,22 @@
                                                                                                                   "type": "integer"
                                                                                                        } ],
                                                                                    "physical_variant": "push_button"
+                                                                            },
+                                                           "ABRIS_BTN_2_L": {
+                                                                                    "category": "ABRIS Display",
+                                                                                "control_type": "led",
+                                                                                 "description": "Button 2 Light (green)",
+                                                                                  "identifier": "ABRIS_BTN_2_L",
+                                                                                      "inputs": [  ],
+                                                                                     "outputs": [ {
+                                                                                                        "address": 6534,
+                                                                                                    "description": "0 if light is off, 1 if light is on",
+                                                                                                           "mask": 64,
+                                                                                                      "max_value": 1,
+                                                                                                       "shift_by": 6,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                                                } ]
                                                                             },
                                                              "ABRIS_BTN_3": {
                                                                                         "api_variant": "momentary_last_position",
@@ -115,6 +147,22 @@
                                                                                                        } ],
                                                                                    "physical_variant": "push_button"
                                                                             },
+                                                           "ABRIS_BTN_3_L": {
+                                                                                    "category": "ABRIS Display",
+                                                                                "control_type": "led",
+                                                                                 "description": "Button 3 Light (green)",
+                                                                                  "identifier": "ABRIS_BTN_3_L",
+                                                                                      "inputs": [  ],
+                                                                                     "outputs": [ {
+                                                                                                        "address": 6534,
+                                                                                                    "description": "0 if light is off, 1 if light is on",
+                                                                                                           "mask": 128,
+                                                                                                      "max_value": 1,
+                                                                                                       "shift_by": 7,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                                                } ]
+                                                                            },
                                                              "ABRIS_BTN_4": {
                                                                                         "api_variant": "momentary_last_position",
                                                                                            "category": "ABRIS Display",
@@ -145,6 +193,22 @@
                                                                                                        } ],
                                                                                    "physical_variant": "push_button"
                                                                             },
+                                                           "ABRIS_BTN_4_L": {
+                                                                                    "category": "ABRIS Display",
+                                                                                "control_type": "led",
+                                                                                 "description": "Button 4 Light (green)",
+                                                                                  "identifier": "ABRIS_BTN_4_L",
+                                                                                      "inputs": [  ],
+                                                                                     "outputs": [ {
+                                                                                                        "address": 6534,
+                                                                                                    "description": "0 if light is off, 1 if light is on",
+                                                                                                           "mask": 256,
+                                                                                                      "max_value": 1,
+                                                                                                       "shift_by": 8,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                                                } ]
+                                                                            },
                                                              "ABRIS_BTN_5": {
                                                                                         "api_variant": "momentary_last_position",
                                                                                            "category": "ABRIS Display",
@@ -174,6 +238,22 @@
                                                                                                                   "type": "integer"
                                                                                                        } ],
                                                                                    "physical_variant": "push_button"
+                                                                            },
+                                                           "ABRIS_BTN_5_L": {
+                                                                                    "category": "ABRIS Display",
+                                                                                "control_type": "led",
+                                                                                 "description": "Button 5 Light (green)",
+                                                                                  "identifier": "ABRIS_BTN_5_L",
+                                                                                      "inputs": [  ],
+                                                                                     "outputs": [ {
+                                                                                                        "address": 6534,
+                                                                                                    "description": "0 if light is off, 1 if light is on",
+                                                                                                           "mask": 512,
+                                                                                                      "max_value": 1,
+                                                                                                       "shift_by": 9,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                                                } ]
                                                                             },
                                                         "ABRIS_CURSOR_BTN": {
                                                                                         "api_variant": "momentary_last_position",
@@ -642,7 +722,7 @@
                                                         "APU_FUEL_VLV_OPEN": {
                                                                                      "category": "APU control panel",
                                                                                  "control_type": "led",
-                                                                                  "description": "APU fuel shutoff valve is open lamp",
+                                                                                  "description": "APU fuel shutoff valve is open lamp (green)",
                                                                                    "identifier": "APU_FUEL_VLV_OPEN",
                                                                                        "inputs": [  ],
                                                                                       "outputs": [ {
@@ -658,7 +738,7 @@
                                                             "APU_OIL_PRESS": {
                                                                                      "category": "APU control panel",
                                                                                  "control_type": "led",
-                                                                                  "description": "APU oil pressure lamp",
+                                                                                  "description": "APU oil pressure lamp (green)",
                                                                                    "identifier": "APU_OIL_PRESS",
                                                                                        "inputs": [  ],
                                                                                       "outputs": [ {
@@ -674,7 +754,7 @@
                                                                  "APU_OPER": {
                                                                                      "category": "APU control panel",
                                                                                  "control_type": "led",
-                                                                                  "description": "APU operating lamp",
+                                                                                  "description": "APU operating lamp (green)",
                                                                                    "identifier": "APU_OPER",
                                                                                        "inputs": [  ],
                                                                                       "outputs": [ {
@@ -690,7 +770,7 @@
                                                              "APU_STOP_RPM": {
                                                                                      "category": "APU control panel",
                                                                                  "control_type": "led",
-                                                                                  "description": "APU shutdown due to RPM limit lamp",
+                                                                                  "description": "APU shutdown due to RPM limit lamp (green)",
                                                                                    "identifier": "APU_STOP_RPM",
                                                                                        "inputs": [  ],
                                                                                       "outputs": [ {
@@ -870,7 +950,7 @@
                                                           "AP_ALT_HOLD_LED": {
                                                                                          "category": "Autopilot Panel",
                                                                                      "control_type": "led",
-                                                                                      "description": "Altitude hold LED",
+                                                                                      "description": "Altitude hold LED (green)",
                                                                                        "identifier": "AP_ALT_HOLD_LED",
                                                                                            "inputs": [  ],
                                                                                           "outputs": [ {
@@ -917,7 +997,7 @@
                                                          "AP_BANK_HOLD_LED": {
                                                                                          "category": "Autopilot Panel",
                                                                                      "control_type": "led",
-                                                                                      "description": "Bank hold LED",
+                                                                                      "description": "Bank hold LED (green)",
                                                                                        "identifier": "AP_BANK_HOLD_LED",
                                                                                            "inputs": [  ],
                                                                                           "outputs": [ {
@@ -1014,7 +1094,7 @@
                                                                 "AP_FD_LED": {
                                                                                          "category": "Autopilot Panel",
                                                                                      "control_type": "led",
-                                                                                      "description": "Flight director LED",
+                                                                                      "description": "Flight director LED (green)",
                                                                                        "identifier": "AP_FD_LED",
                                                                                            "inputs": [  ],
                                                                                           "outputs": [ {
@@ -1061,7 +1141,7 @@
                                                           "AP_HDG_HOLD_LED": {
                                                                                          "category": "Autopilot Panel",
                                                                                      "control_type": "led",
-                                                                                      "description": "Heading hold LED",
+                                                                                      "description": "Heading hold LED (green)",
                                                                                        "identifier": "AP_HDG_HOLD_LED",
                                                                                            "inputs": [  ],
                                                                                           "outputs": [ {
@@ -1108,7 +1188,7 @@
                                                         "AP_PITCH_HOLD_LED": {
                                                                                          "category": "Autopilot Panel",
                                                                                      "control_type": "led",
-                                                                                      "description": "Pitch hold LED",
+                                                                                      "description": "Pitch hold LED (green)",
                                                                                        "identifier": "AP_PITCH_HOLD_LED",
                                                                                            "inputs": [  ],
                                                                                           "outputs": [ {
@@ -1218,7 +1298,7 @@
                                                             "CL_EXTEND_GEAR": {
                                                                                       "category": "Caution Lights Panel",
                                                                                   "control_type": "led",
-                                                                                   "description": "Extend landing gear",
+                                                                                   "description": "Extend landing gear (red)",
                                                                                     "identifier": "CL_EXTEND_GEAR",
                                                                                         "inputs": [  ],
                                                                                        "outputs": [ {
@@ -1234,7 +1314,7 @@
                                                                    "CL_FIRE": {
                                                                                       "category": "Caution Lights Panel",
                                                                                   "control_type": "led",
-                                                                                   "description": "Left engine / Right engine / APU / Hydraulics bay / Main gearbox fire",
+                                                                                   "description": "Left engine / Right engine / APU / Hydraulics bay / Main gearbox fire (red)",
                                                                                     "identifier": "CL_FIRE",
                                                                                         "inputs": [  ],
                                                                                        "outputs": [ {
@@ -1250,7 +1330,7 @@
                                                                 "CL_IAS_MAX": {
                                                                                       "category": "Caution Lights Panel",
                                                                                   "control_type": "led",
-                                                                                   "description": "Maximum allowed IAS exceeded",
+                                                                                   "description": "Maximum allowed IAS exceeded (red)",
                                                                                     "identifier": "CL_IAS_MAX",
                                                                                         "inputs": [  ],
                                                                                        "outputs": [ {
@@ -1266,7 +1346,7 @@
                                                                "CL_IFF_FAIL": {
                                                                                       "category": "Caution Lights Panel",
                                                                                   "control_type": "led",
-                                                                                   "description": "IFF failure",
+                                                                                   "description": "IFF failure (red)",
                                                                                     "identifier": "CL_IFF_FAIL",
                                                                                         "inputs": [  ],
                                                                                        "outputs": [ {
@@ -1282,7 +1362,7 @@
                                                              "CL_LASER_WARN": {
                                                                                       "category": "Caution Lights Panel",
                                                                                   "control_type": "led",
-                                                                                   "description": "Under fire warning",
+                                                                                   "description": "Under fire warning (red)",
                                                                                     "identifier": "CL_LASER_WARN",
                                                                                         "inputs": [  ],
                                                                                        "outputs": [ {
@@ -1298,7 +1378,7 @@
                                                         "CL_L_ENG_OVERSPEED": {
                                                                                       "category": "Caution Lights Panel",
                                                                                   "control_type": "led",
-                                                                                   "description": "Left engine power turbine over-speed",
+                                                                                   "description": "Left engine power turbine over-speed (red)",
                                                                                     "identifier": "CL_L_ENG_OVERSPEED",
                                                                                         "inputs": [  ],
                                                                                        "outputs": [ {
@@ -1314,7 +1394,7 @@
                                                         "CL_L_ENG_VIBRATION": {
                                                                                       "category": "Caution Lights Panel",
                                                                                   "control_type": "led",
-                                                                                   "description": "Left engine vibration exceeded",
+                                                                                   "description": "Left engine vibration exceeded (red)",
                                                                                     "identifier": "CL_L_ENG_VIBRATION",
                                                                                         "inputs": [  ],
                                                                                        "outputs": [ {
@@ -1330,7 +1410,7 @@
                                                            "CL_MAIN_GEARBOX": {
                                                                                       "category": "Caution Lights Panel",
                                                                                   "control_type": "led",
-                                                                                   "description": "Minimum main gearbox oil pressure / Main gearbox oil overheat / Oil metallic chip detected",
+                                                                                   "description": "Minimum main gearbox oil pressure / Main gearbox oil overheat / Oil metallic chip detected (red)",
                                                                                     "identifier": "CL_MAIN_GEARBOX",
                                                                                         "inputs": [  ],
                                                                                        "outputs": [ {
@@ -1346,7 +1426,7 @@
                                                                  "CL_OVER_G": {
                                                                                       "category": "Caution Lights Panel",
                                                                                   "control_type": "led",
-                                                                                   "description": "G over-limit",
+                                                                                   "description": "G over-limit (red)",
                                                                                     "identifier": "CL_OVER_G",
                                                                                         "inputs": [  ],
                                                                                        "outputs": [ {
@@ -1362,7 +1442,7 @@
                                                         "CL_R_ENG_OVERSPEED": {
                                                                                       "category": "Caution Lights Panel",
                                                                                   "control_type": "led",
-                                                                                   "description": "Right engine power turbine over-speed",
+                                                                                   "description": "Right engine power turbine over-speed (red)",
                                                                                     "identifier": "CL_R_ENG_OVERSPEED",
                                                                                         "inputs": [  ],
                                                                                        "outputs": [ {
@@ -1378,7 +1458,7 @@
                                                         "CL_R_ENG_VIBRATION": {
                                                                                       "category": "Caution Lights Panel",
                                                                                   "control_type": "led",
-                                                                                   "description": "Right engine vibration exceeded",
+                                                                                   "description": "Right engine vibration exceeded (red)",
                                                                                     "identifier": "CL_R_ENG_VIBRATION",
                                                                                         "inputs": [  ],
                                                                                        "outputs": [ {
@@ -1871,7 +1951,7 @@
                                                                  "DLNK_CLEAN_LED": {
                                                                                                "category": "Datalink Control Panel",
                                                                                            "control_type": "led",
-                                                                                            "description": "N/A LED",
+                                                                                            "description": "N/A LED (green)",
                                                                                              "identifier": "DLNK_CLEAN_LED",
                                                                                                  "inputs": [  ],
                                                                                                 "outputs": [ {
@@ -1918,7 +1998,7 @@
                                                                  "DLNK_ERASE_LED": {
                                                                                                "category": "Datalink Control Panel",
                                                                                            "control_type": "led",
-                                                                                            "description": "Erase LED",
+                                                                                            "description": "Erase LED (yellow)",
                                                                                              "identifier": "DLNK_ERASE_LED",
                                                                                                  "inputs": [  ],
                                                                                                 "outputs": [ {
@@ -1965,7 +2045,7 @@
                                                                 "DLNK_ESCAPE_LED": {
                                                                                                "category": "Datalink Control Panel",
                                                                                            "control_type": "led",
-                                                                                            "description": "Ingress to target LED",
+                                                                                            "description": "Ingress to target LED (yellow)",
                                                                                              "identifier": "DLNK_ESCAPE_LED",
                                                                                                  "inputs": [  ],
                                                                                                 "outputs": [ {
@@ -2012,7 +2092,7 @@
                                                                   "DLNK_SEND_LED": {
                                                                                                "category": "Datalink Control Panel",
                                                                                            "control_type": "led",
-                                                                                            "description": "Send/Memory LED",
+                                                                                            "description": "Send/Memory LED (yellow)",
                                                                                              "identifier": "DLNK_SEND_LED",
                                                                                                  "inputs": [  ],
                                                                                                 "outputs": [ {
@@ -2059,7 +2139,7 @@
                                                           "DLNK_TARGET_OTHER_LED": {
                                                                                                "category": "Datalink Control Panel",
                                                                                            "control_type": "led",
-                                                                                            "description": "Target #3/Other type LED",
+                                                                                            "description": "Target #3/Other type LED (green)",
                                                                                              "identifier": "DLNK_TARGET_OTHER_LED",
                                                                                                  "inputs": [  ],
                                                                                                 "outputs": [ {
@@ -2106,7 +2186,7 @@
                                                           "DLNK_TARGET_POINT_LED": {
                                                                                                "category": "Datalink Control Panel",
                                                                                            "control_type": "led",
-                                                                                            "description": "Ingress point LED",
+                                                                                            "description": "Ingress point LED (green)",
                                                                                              "identifier": "DLNK_TARGET_POINT_LED",
                                                                                                  "inputs": [  ],
                                                                                                 "outputs": [ {
@@ -2153,7 +2233,7 @@
                                                             "DLNK_TARGET_SAM_LED": {
                                                                                                "category": "Datalink Control Panel",
                                                                                            "control_type": "led",
-                                                                                            "description": "Target #2/SAM LED",
+                                                                                            "description": "Target #2/SAM LED (green)",
                                                                                              "identifier": "DLNK_TARGET_SAM_LED",
                                                                                                  "inputs": [  ],
                                                                                                 "outputs": [ {
@@ -2200,7 +2280,7 @@
                                                         "DLNK_TARGET_VEHICLE_LED": {
                                                                                                "category": "Datalink Control Panel",
                                                                                            "control_type": "led",
-                                                                                            "description": "Target #1/Vehicle LED",
+                                                                                            "description": "Target #1/Vehicle LED (green)",
                                                                                              "identifier": "DLNK_TARGET_VEHICLE_LED",
                                                                                                  "inputs": [  ],
                                                                                                 "outputs": [ {
@@ -2247,7 +2327,7 @@
                                                              "DLNK_WINGMAN_1_LED": {
                                                                                                "category": "Datalink Control Panel",
                                                                                            "control_type": "led",
-                                                                                            "description": "To wingman 1 LED",
+                                                                                            "description": "To wingman 1 LED (green)",
                                                                                              "identifier": "DLNK_WINGMAN_1_LED",
                                                                                                  "inputs": [  ],
                                                                                                 "outputs": [ {
@@ -2294,7 +2374,7 @@
                                                              "DLNK_WINGMAN_2_LED": {
                                                                                                "category": "Datalink Control Panel",
                                                                                            "control_type": "led",
-                                                                                            "description": "To wingman 2 LED",
+                                                                                            "description": "To wingman 2 LED (green)",
                                                                                              "identifier": "DLNK_WINGMAN_2_LED",
                                                                                                  "inputs": [  ],
                                                                                                 "outputs": [ {
@@ -2341,7 +2421,7 @@
                                                              "DLNK_WINGMAN_3_LED": {
                                                                                                "category": "Datalink Control Panel",
                                                                                            "control_type": "led",
-                                                                                            "description": "To wingman 3 LED",
+                                                                                            "description": "To wingman 3 LED (green)",
                                                                                              "identifier": "DLNK_WINGMAN_3_LED",
                                                                                                  "inputs": [  ],
                                                                                                 "outputs": [ {
@@ -2388,7 +2468,7 @@
                                                              "DLNK_WINGMAN_4_LED": {
                                                                                                "category": "Datalink Control Panel",
                                                                                            "control_type": "led",
-                                                                                            "description": "To wingman 4 LED",
+                                                                                            "description": "To wingman 4 LED (green)",
                                                                                              "identifier": "DLNK_WINGMAN_4_LED",
                                                                                                  "inputs": [  ],
                                                                                                 "outputs": [ {
@@ -2435,7 +2515,7 @@
                                                            "DLNK_WINGMAN_ALL_LED": {
                                                                                                "category": "Datalink Control Panel",
                                                                                            "control_type": "led",
-                                                                                            "description": "To all LED",
+                                                                                            "description": "To all LED (green)",
                                                                                              "identifier": "DLNK_WINGMAN_ALL_LED",
                                                                                                  "inputs": [  ],
                                                                                                 "outputs": [ {
@@ -2501,6 +2581,40 @@
                                                                                                        } ],
                                                                                    "physical_variant": "limited_rotary"
                                                                             }
+                                                    },
+                                   "Defrost Panel": {
+                                                           "HEAT_ICE_L": {
+                                                                                 "category": "Defrost Panel",
+                                                                             "control_type": "led",
+                                                                              "description": "Ice detected (green)",
+                                                                               "identifier": "HEAT_ICE_L",
+                                                                                   "inputs": [  ],
+                                                                                  "outputs": [ {
+                                                                                                     "address": 6534,
+                                                                                                 "description": "0 if light is off, 1 if light is on",
+                                                                                                        "mask": 16,
+                                                                                                   "max_value": 1,
+                                                                                                    "shift_by": 4,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ]
+                                                                         },
+                                                        "HEAT_SYS_OK_L": {
+                                                                                 "category": "Defrost Panel",
+                                                                             "control_type": "led",
+                                                                              "description": "Heating System Intact (green)",
+                                                                               "identifier": "HEAT_SYS_OK_L",
+                                                                                   "inputs": [  ],
+                                                                                  "outputs": [ {
+                                                                                                     "address": 6534,
+                                                                                                 "description": "0 if light is off, 1 if light is on",
+                                                                                                        "mask": 8,
+                                                                                                   "max_value": 1,
+                                                                                                    "shift_by": 3,
+                                                                                                      "suffix": "",
+                                                                                                        "type": "integer"
+                                                                                             } ]
+                                                                         }
                                                     },
                                              "EEG": {
                                                               "ENG_EEG_GG_TEST_OPER": {
@@ -3223,7 +3337,7 @@
                                                         "EJECT_SYS_TEST_LAMP": {
                                                                                        "category": "Ejection System BIT Panel",
                                                                                    "control_type": "led",
-                                                                                    "description": "Ejection system test lamp",
+                                                                                    "description": "Ejection system test lamp (green)",
                                                                                      "identifier": "EJECT_SYS_TEST_LAMP",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
@@ -3641,7 +3755,7 @@
                                                          "ELEC_LAMP_AC_GROUND_POWER": {
                                                                                               "category": "Electrics Power",
                                                                                           "control_type": "led",
-                                                                                           "description": "AC ground power lamp",
+                                                                                           "description": "AC ground power lamp (green)",
                                                                                             "identifier": "ELEC_LAMP_AC_GROUND_POWER",
                                                                                                 "inputs": [  ],
                                                                                                "outputs": [ {
@@ -4082,7 +4196,7 @@
                                                         "ENG_START_VLV_OPEN": {
                                                                                       "category": "Engines Start-Up Control Panel",
                                                                                   "control_type": "led",
-                                                                                   "description": "Engines start valve open lamp",
+                                                                                   "description": "Engines start valve open lamp (green)",
                                                                                     "identifier": "ENG_START_VLV_OPEN",
                                                                                         "inputs": [  ],
                                                                                        "outputs": [ {
@@ -4274,7 +4388,7 @@
                                                                  "FIREEXT_APU_FIRE": {
                                                                                              "category": "Fire Extinguishers Control Panel",
                                                                                          "control_type": "led",
-                                                                                          "description": "APU fire lamp",
+                                                                                          "description": "APU fire lamp (red)",
                                                                                            "identifier": "FIREEXT_APU_FIRE",
                                                                                                "inputs": [  ],
                                                                                               "outputs": [ {
@@ -4348,7 +4462,7 @@
                                                                   "FIREEXT_BOTTLE1": {
                                                                                              "category": "Fire Extinguishers Control Panel",
                                                                                          "control_type": "led",
-                                                                                          "description": "Extinguishing bottle 1 is ready lamp",
+                                                                                          "description": "Extinguishing bottle 1 is ready lamp (yellow)",
                                                                                            "identifier": "FIREEXT_BOTTLE1",
                                                                                                "inputs": [  ],
                                                                                               "outputs": [ {
@@ -4364,7 +4478,7 @@
                                                                   "FIREEXT_BOTTLE2": {
                                                                                              "category": "Fire Extinguishers Control Panel",
                                                                                          "control_type": "led",
-                                                                                          "description": "Extinguishing bottle 2 is ready lamp",
+                                                                                          "description": "Extinguishing bottle 2 is ready lamp (yellow)",
                                                                                            "identifier": "FIREEXT_BOTTLE2",
                                                                                                "inputs": [  ],
                                                                                               "outputs": [ {
@@ -4434,7 +4548,7 @@
                                                           "FIREEXT_HYDRAULICS_FIRE": {
                                                                                              "category": "Fire Extinguishers Control Panel",
                                                                                          "control_type": "led",
-                                                                                          "description": "Hydraulics fire lamp",
+                                                                                          "description": "Hydraulics fire lamp (red)",
                                                                                            "identifier": "FIREEXT_HYDRAULICS_FIRE",
                                                                                                "inputs": [  ],
                                                                                               "outputs": [ {
@@ -4480,7 +4594,7 @@
                                                                "FIREEXT_L_ENG_FIRE": {
                                                                                              "category": "Fire Extinguishers Control Panel",
                                                                                          "control_type": "led",
-                                                                                          "description": "Left engine fire lamp",
+                                                                                          "description": "Left engine fire lamp (red)",
                                                                                            "identifier": "FIREEXT_L_ENG_FIRE",
                                                                                                "inputs": [  ],
                                                                                               "outputs": [ {
@@ -4555,7 +4669,7 @@
                                                                "FIREEXT_R_ENG_FIRE": {
                                                                                              "category": "Fire Extinguishers Control Panel",
                                                                                          "control_type": "led",
-                                                                                          "description": "Right engine fire lamp",
+                                                                                          "description": "Right engine fire lamp (red)",
                                                                                            "identifier": "FIREEXT_R_ENG_FIRE",
                                                                                                "inputs": [  ],
                                                                                               "outputs": [ {
@@ -4601,7 +4715,7 @@
                                                                 "FIREEXT_VENT_FIRE": {
                                                                                              "category": "Fire Extinguishers Control Panel",
                                                                                          "control_type": "led",
-                                                                                          "description": "Ventilator fire lamp",
+                                                                                          "description": "Ventilator fire lamp (red)",
                                                                                            "identifier": "FIREEXT_VENT_FIRE",
                                                                                                "inputs": [  ],
                                                                                               "outputs": [ {
@@ -4660,7 +4774,7 @@
                                                         "FUEL_FORWARD_TANK_TEST": {
                                                                                           "category": "Fuel Quantity",
                                                                                       "control_type": "led",
-                                                                                       "description": "Forward tank test lamp",
+                                                                                       "description": "Forward tank test lamp (yellow)",
                                                                                         "identifier": "FUEL_FORWARD_TANK_TEST",
                                                                                             "inputs": [  ],
                                                                                            "outputs": [ {
@@ -4692,7 +4806,7 @@
                                                            "FUEL_REAR_TANK_TEST": {
                                                                                           "category": "Fuel Quantity",
                                                                                       "control_type": "led",
-                                                                                       "description": "Rear tank test lamp",
+                                                                                       "description": "Rear tank test lamp (yellow)",
                                                                                         "identifier": "FUEL_REAR_TANK_TEST",
                                                                                             "inputs": [  ],
                                                                                            "outputs": [ {
@@ -5669,7 +5783,7 @@
                                                           "HYD_COMMON_VLV": {
                                                                                     "category": "Hydraulic Temperature and Pressure",
                                                                                 "control_type": "led",
-                                                                                 "description": "Common hydraulic valve lamp",
+                                                                                 "description": "Common hydraulic valve lamp (green)",
                                                                                   "identifier": "HYD_COMMON_VLV",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
@@ -5717,7 +5831,7 @@
                                                             "HYD_MAIN_VLV": {
                                                                                     "category": "Hydraulic Temperature and Pressure",
                                                                                 "control_type": "led",
-                                                                                 "description": "Main hydraulic valve lamp",
+                                                                                 "description": "Main hydraulic valve lamp (green)",
                                                                                   "identifier": "HYD_MAIN_VLV",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
@@ -5751,7 +5865,7 @@
                                                                   "LWR_AZI_0": {
                                                                                        "category": "LWR",
                                                                                    "control_type": "led",
-                                                                                    "description": "Lamp azimuth 0",
+                                                                                    "description": "Lamp azimuth 0 (red)",
                                                                                      "identifier": "LWR_AZI_0",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
@@ -5767,7 +5881,7 @@
                                                                 "LWR_AZI_180": {
                                                                                        "category": "LWR",
                                                                                    "control_type": "led",
-                                                                                    "description": "Lamp azimuth 180",
+                                                                                    "description": "Lamp azimuth 180 (red)",
                                                                                      "identifier": "LWR_AZI_180",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
@@ -5783,7 +5897,7 @@
                                                                 "LWR_AZI_270": {
                                                                                        "category": "LWR",
                                                                                    "control_type": "led",
-                                                                                    "description": "Lamp azimuth 270",
+                                                                                    "description": "Lamp azimuth 270 (red)",
                                                                                      "identifier": "LWR_AZI_270",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
@@ -5799,7 +5913,7 @@
                                                                  "LWR_AZI_90": {
                                                                                        "category": "LWR",
                                                                                    "control_type": "led",
-                                                                                    "description": "Lamp azimuth 90",
+                                                                                    "description": "Lamp azimuth 90 (red)",
                                                                                      "identifier": "LWR_AZI_90",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
@@ -5815,7 +5929,7 @@
                                                              "LWR_HEMI_LOWER": {
                                                                                        "category": "LWR",
                                                                                    "control_type": "led",
-                                                                                    "description": "Lamp hemisphere lower",
+                                                                                    "description": "Lamp hemisphere lower (yellow)",
                                                                                      "identifier": "LWR_HEMI_LOWER",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
@@ -5831,7 +5945,7 @@
                                                              "LWR_HEMI_UPPER": {
                                                                                        "category": "LWR",
                                                                                    "control_type": "led",
-                                                                                    "description": "Lamp hemisphere upper",
+                                                                                    "description": "Lamp hemisphere upper (yellow)",
                                                                                      "identifier": "LWR_HEMI_UPPER",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
@@ -5847,7 +5961,7 @@
                                                             "LWR_LASER_RANGE": {
                                                                                        "category": "LWR",
                                                                                    "control_type": "led",
-                                                                                    "description": "Lamp laser range finder",
+                                                                                    "description": "Lamp laser range finder (yellow)",
                                                                                      "identifier": "LWR_LASER_RANGE",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
@@ -5863,7 +5977,7 @@
                                                         "LWR_LASER_TARGETING": {
                                                                                        "category": "LWR",
                                                                                    "control_type": "led",
-                                                                                    "description": "Lamp laser targeting system",
+                                                                                    "description": "Lamp laser targeting system (yellow)",
                                                                                      "identifier": "LWR_LASER_TARGETING",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
@@ -5908,10 +6022,26 @@
                                                                                }
                                                     },
                                              "LWS": {
+                                                        "LWS_BIT_L": {
+                                                                             "category": "LWS",
+                                                                         "control_type": "led",
+                                                                          "description": "Weapon system built-in test (green)",
+                                                                           "identifier": "LWS_BIT_L",
+                                                                               "inputs": [  ],
+                                                                              "outputs": [ {
+                                                                                                 "address": 6534,
+                                                                                             "description": "0 if light is off, 1 if light is on",
+                                                                                                    "mask": 1024,
+                                                                                               "max_value": 1,
+                                                                                                "shift_by": 10,
+                                                                                                  "suffix": "",
+                                                                                                    "type": "integer"
+                                                                                         } ]
+                                                                     },
                                                          "LWS_OPER": {
                                                                              "category": "LWS",
                                                                          "control_type": "led",
-                                                                          "description": "Operating lamp",
+                                                                          "description": "Operating lamp (green)",
                                                                            "identifier": "LWS_OPER",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
@@ -6091,7 +6221,7 @@
                                                            "GEAR_L_MAIN_DOWN": {
                                                                                        "category": "Landing Gear Control Panel",
                                                                                    "control_type": "led",
-                                                                                    "description": "Left main gear down lamp",
+                                                                                    "description": "Left main gear down lamp (green)",
                                                                                      "identifier": "GEAR_L_MAIN_DOWN",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
@@ -6107,7 +6237,7 @@
                                                              "GEAR_L_MAIN_UP": {
                                                                                        "category": "Landing Gear Control Panel",
                                                                                    "control_type": "led",
-                                                                                    "description": "Left main gear up lamp",
+                                                                                    "description": "Left main gear up lamp (red)",
                                                                                      "identifier": "GEAR_L_MAIN_UP",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
@@ -6123,7 +6253,7 @@
                                                              "GEAR_NOSE_DOWN": {
                                                                                        "category": "Landing Gear Control Panel",
                                                                                    "control_type": "led",
-                                                                                    "description": "Nose gear down lamp",
+                                                                                    "description": "Nose gear down lamp (green)",
                                                                                      "identifier": "GEAR_NOSE_DOWN",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
@@ -6136,11 +6266,11 @@
                                                                                                               "type": "integer"
                                                                                                    } ]
                                                                                },
-                                                              "GEAR_NOSE__UP": {
+                                                               "GEAR_NOSE_UP": {
                                                                                        "category": "Landing Gear Control Panel",
                                                                                    "control_type": "led",
-                                                                                    "description": "Nose gear up lamp",
-                                                                                     "identifier": "GEAR_NOSE__UP",
+                                                                                    "description": "Nose gear up lamp (red)",
+                                                                                     "identifier": "GEAR_NOSE_UP",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
                                                                                                            "address": 6236,
@@ -6155,7 +6285,7 @@
                                                            "GEAR_R_MAIN_DOWN": {
                                                                                        "category": "Landing Gear Control Panel",
                                                                                    "control_type": "led",
-                                                                                    "description": "Right main gear down lamp",
+                                                                                    "description": "Right main gear down lamp (green)",
                                                                                      "identifier": "GEAR_R_MAIN_DOWN",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
@@ -6171,7 +6301,7 @@
                                                              "GEAR_R_MAIN_UP": {
                                                                                        "category": "Landing Gear Control Panel",
                                                                                    "control_type": "led",
-                                                                                    "description": "Right main gear up lamp",
+                                                                                    "description": "Right main gear up lamp (red)",
                                                                                      "identifier": "GEAR_R_MAIN_UP",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
@@ -6549,7 +6679,7 @@
                                                             "LIGHT_AUX_BRIGHTNESS": {
                                                                                             "category": "Lighting Brightness Control Panel",
                                                                                         "control_type": "limited_dial",
-                                                                                         "description": "Lighting night vision cockpit brightness knob",
+                                                                                         "description": "Lighting night vision cockpit brightness knob (blue)",
                                                                                           "identifier": "LIGHT_AUX_BRIGHTNESS",
                                                                                               "inputs": [ {
                                                                                                             "description": "set the position of the dial",
@@ -6623,6 +6753,86 @@
                                                                                     }
                                                     },
                           "Lighting Control Panel": {
+                                                               "BACK_L_ADI": {
+                                                                                     "category": "Lighting Control Panel",
+                                                                                 "control_type": "analog_gauge",
+                                                                                  "description": "ADI Backlights (white)",
+                                                                                   "identifier": "BACK_L_ADI",
+                                                                                       "inputs": [  ],
+                                                                                      "outputs": [ {
+                                                                                                         "address": 6550,
+                                                                                                     "description": "gauge position",
+                                                                                                            "mask": 65535,
+                                                                                                       "max_value": 65535,
+                                                                                                        "shift_by": 0,
+                                                                                                          "suffix": "",
+                                                                                                            "type": "integer"
+                                                                                                 } ]
+                                                                             },
+                                                               "BACK_L_BTN": {
+                                                                                     "category": "Lighting Control Panel",
+                                                                                 "control_type": "analog_gauge",
+                                                                                  "description": "Button Backlights (white)",
+                                                                                   "identifier": "BACK_L_BTN",
+                                                                                       "inputs": [  ],
+                                                                                      "outputs": [ {
+                                                                                                         "address": 6542,
+                                                                                                     "description": "gauge position",
+                                                                                                            "mask": 65535,
+                                                                                                       "max_value": 65535,
+                                                                                                        "shift_by": 0,
+                                                                                                          "suffix": "",
+                                                                                                            "type": "integer"
+                                                                                                 } ]
+                                                                             },
+                                                               "BACK_L_PIT": {
+                                                                                     "category": "Lighting Control Panel",
+                                                                                 "control_type": "analog_gauge",
+                                                                                  "description": "Cockpit Backlights (white)",
+                                                                                   "identifier": "BACK_L_PIT",
+                                                                                       "inputs": [  ],
+                                                                                      "outputs": [ {
+                                                                                                         "address": 6544,
+                                                                                                     "description": "gauge position",
+                                                                                                            "mask": 65535,
+                                                                                                       "max_value": 65535,
+                                                                                                        "shift_by": 0,
+                                                                                                          "suffix": "",
+                                                                                                            "type": "integer"
+                                                                                                 } ]
+                                                                             },
+                                                               "BACK_L_SAI": {
+                                                                                     "category": "Lighting Control Panel",
+                                                                                 "control_type": "analog_gauge",
+                                                                                  "description": "SAI Backlights (white)",
+                                                                                   "identifier": "BACK_L_SAI",
+                                                                                       "inputs": [  ],
+                                                                                      "outputs": [ {
+                                                                                                         "address": 6548,
+                                                                                                     "description": "gauge position",
+                                                                                                            "mask": 65535,
+                                                                                                       "max_value": 65535,
+                                                                                                        "shift_by": 0,
+                                                                                                          "suffix": "",
+                                                                                                            "type": "integer"
+                                                                                                 } ]
+                                                                             },
+                                                            "BACK_L_SCREEN": {
+                                                                                     "category": "Lighting Control Panel",
+                                                                                 "control_type": "analog_gauge",
+                                                                                  "description": "Target Screen Backlights (white)",
+                                                                                   "identifier": "BACK_L_SCREEN",
+                                                                                       "inputs": [  ],
+                                                                                      "outputs": [ {
+                                                                                                         "address": 6546,
+                                                                                                     "description": "gauge position",
+                                                                                                            "mask": 65535,
+                                                                                                       "max_value": 65535,
+                                                                                                        "shift_by": 0,
+                                                                                                          "suffix": "",
+                                                                                                            "type": "integer"
+                                                                                                 } ]
+                                                                             },
                                                             "LIGHT_ADI_SAI": {
                                                                                             "category": "Lighting Control Panel",
                                                                                         "control_type": "selector",
@@ -6919,7 +7129,7 @@
                                                             "ML_AFT_TANK_PUMP": {
                                                                                         "category": "Message Lamps",
                                                                                     "control_type": "led",
-                                                                                     "description": "Aft fuel tank pump is ON",
+                                                                                     "description": "Aft fuel tank pump is ON (green)",
                                                                                       "identifier": "ML_AFT_TANK_PUMP",
                                                                                           "inputs": [  ],
                                                                                          "outputs": [ {
@@ -6935,7 +7145,7 @@
                                                             "ML_COMPUTER_DIAG": {
                                                                                         "category": "Message Lamps",
                                                                                     "control_type": "led",
-                                                                                     "description": "Computers in diagnostic mode",
+                                                                                     "description": "Computers in diagnostic mode (yellow)",
                                                                                       "identifier": "ML_COMPUTER_DIAG",
                                                                                           "inputs": [  ],
                                                                                          "outputs": [ {
@@ -6951,7 +7161,7 @@
                                                             "ML_COMPUTER_FAIL": {
                                                                                         "category": "Message Lamps",
                                                                                     "control_type": "led",
-                                                                                     "description": "Computer(s) failure",
+                                                                                     "description": "Computer(s) failure (yellow)",
                                                                                       "identifier": "ML_COMPUTER_FAIL",
                                                                                           "inputs": [  ],
                                                                                          "outputs": [ {
@@ -6967,7 +7177,7 @@
                                                             "ML_FWD_TANK_PUMP": {
                                                                                         "category": "Message Lamps",
                                                                                     "control_type": "led",
-                                                                                     "description": "Forward fuel pump ON",
+                                                                                     "description": "Forward fuel pump ON (green)",
                                                                                       "identifier": "ML_FWD_TANK_PUMP",
                                                                                           "inputs": [  ],
                                                                                          "outputs": [ {
@@ -6983,7 +7193,7 @@
                                                                  "ML_HMS_FAIL": {
                                                                                         "category": "Message Lamps",
                                                                                     "control_type": "led",
-                                                                                     "description": "Helmet-Mounted sight mailfunction",
+                                                                                     "description": "Helmet-Mounted sight mailfunction (yellow)",
                                                                                       "identifier": "ML_HMS_FAIL",
                                                                                           "inputs": [  ],
                                                                                          "outputs": [ {
@@ -6999,7 +7209,7 @@
                                                             "ML_HUD_NOT_READY": {
                                                                                         "category": "Message Lamps",
                                                                                     "control_type": "led",
-                                                                                     "description": "HUD failure or not ready",
+                                                                                     "description": "HUD failure or not ready (yellow)",
                                                                                       "identifier": "ML_HUD_NOT_READY",
                                                                                           "inputs": [  ],
                                                                                          "outputs": [ {
@@ -7015,7 +7225,7 @@
                                                                  "ML_INVERTER": {
                                                                                         "category": "Message Lamps",
                                                                                     "control_type": "led",
-                                                                                     "description": "DC/AC inverter is ON",
+                                                                                     "description": "DC/AC inverter is ON (green)",
                                                                                       "identifier": "ML_INVERTER",
                                                                                           "inputs": [  ],
                                                                                          "outputs": [ {
@@ -7031,7 +7241,7 @@
                                                             "ML_L_ENG_ANTIICE": {
                                                                                         "category": "Message Lamps",
                                                                                     "control_type": "led",
-                                                                                     "description": "Left engine de-icing",
+                                                                                     "description": "Left engine de-icing (green)",
                                                                                       "identifier": "ML_L_ENG_ANTIICE",
                                                                                           "inputs": [  ],
                                                                                          "outputs": [ {
@@ -7047,7 +7257,7 @@
                                                                "ML_L_ENG_DUST": {
                                                                                         "category": "Message Lamps",
                                                                                     "control_type": "led",
-                                                                                     "description": "Left engine dust protector",
+                                                                                     "description": "Left engine dust protector (green)",
                                                                                       "identifier": "ML_L_ENG_DUST",
                                                                                           "inputs": [  ],
                                                                                          "outputs": [ {
@@ -7063,7 +7273,7 @@
                                                         "ML_L_ENG_POWER_LIMIT": {
                                                                                         "category": "Message Lamps",
                                                                                     "control_type": "led",
-                                                                                     "description": "Left engine limited by governor",
+                                                                                     "description": "Left engine limited by governor (yellow)",
                                                                                       "identifier": "ML_L_ENG_POWER_LIMIT",
                                                                                           "inputs": [  ],
                                                                                          "outputs": [ {
@@ -7079,7 +7289,7 @@
                                                          "ML_L_ENG_VLV_CLOSED": {
                                                                                         "category": "Message Lamps",
                                                                                     "control_type": "led",
-                                                                                     "description": "Left engine fuel valve is closed",
+                                                                                     "description": "Left engine fuel valve is closed (yellow)",
                                                                                       "identifier": "ML_L_ENG_VLV_CLOSED",
                                                                                           "inputs": [  ],
                                                                                          "outputs": [ {
@@ -7095,7 +7305,7 @@
                                                         "ML_L_INNER_TANK_PUMP": {
                                                                                         "category": "Message Lamps",
                                                                                     "control_type": "led",
-                                                                                     "description": "Left inner fuel tank pump is ON",
+                                                                                     "description": "Left inner fuel tank pump is ON (green)",
                                                                                       "identifier": "ML_L_INNER_TANK_PUMP",
                                                                                           "inputs": [  ],
                                                                                          "outputs": [ {
@@ -7111,7 +7321,7 @@
                                                         "ML_L_OUTER_TANK_PUMP": {
                                                                                         "category": "Message Lamps",
                                                                                     "control_type": "led",
-                                                                                     "description": "Left outer fuel tank pump is ON",
+                                                                                     "description": "Left outer fuel tank pump is ON (green)",
                                                                                       "identifier": "ML_L_OUTER_TANK_PUMP",
                                                                                           "inputs": [  ],
                                                                                          "outputs": [ {
@@ -7127,7 +7337,7 @@
                                                                "ML_MASTER_ARM": {
                                                                                         "category": "Message Lamps",
                                                                                     "control_type": "led",
-                                                                                     "description": "Master ARM is ON",
+                                                                                     "description": "Master ARM is ON (green)",
                                                                                       "identifier": "ML_MASTER_ARM",
                                                                                           "inputs": [  ],
                                                                                          "outputs": [ {
@@ -7143,7 +7353,7 @@
                                                             "ML_ROTOR_ANTIICE": {
                                                                                         "category": "Message Lamps",
                                                                                     "control_type": "led",
-                                                                                     "description": "Rotor de-icing",
+                                                                                     "description": "Rotor de-icing (green)",
                                                                                       "identifier": "ML_ROTOR_ANTIICE",
                                                                                           "inputs": [  ],
                                                                                          "outputs": [ {
@@ -7159,7 +7369,7 @@
                                                             "ML_R_ENG_ANTIICE": {
                                                                                         "category": "Message Lamps",
                                                                                     "control_type": "led",
-                                                                                     "description": "Right engine deicing",
+                                                                                     "description": "Right engine deicing (green)",
                                                                                       "identifier": "ML_R_ENG_ANTIICE",
                                                                                           "inputs": [  ],
                                                                                          "outputs": [ {
@@ -7175,7 +7385,7 @@
                                                                "ML_R_ENG_DUST": {
                                                                                         "category": "Message Lamps",
                                                                                     "control_type": "led",
-                                                                                     "description": "Right engine dust protector",
+                                                                                     "description": "Right engine dust protector (green)",
                                                                                       "identifier": "ML_R_ENG_DUST",
                                                                                           "inputs": [  ],
                                                                                          "outputs": [ {
@@ -7191,7 +7401,7 @@
                                                         "ML_R_ENG_POWER_LIMIT": {
                                                                                         "category": "Message Lamps",
                                                                                     "control_type": "led",
-                                                                                     "description": "Right engine limited by governor",
+                                                                                     "description": "Right engine limited by governor (yellow)",
                                                                                       "identifier": "ML_R_ENG_POWER_LIMIT",
                                                                                           "inputs": [  ],
                                                                                          "outputs": [ {
@@ -7207,7 +7417,7 @@
                                                          "ML_R_ENG_VLV_CLOSED": {
                                                                                         "category": "Message Lamps",
                                                                                     "control_type": "led",
-                                                                                     "description": "Right engine fuel valve is closed",
+                                                                                     "description": "Right engine fuel valve is closed (yellow)",
                                                                                       "identifier": "ML_R_ENG_VLV_CLOSED",
                                                                                           "inputs": [  ],
                                                                                          "outputs": [ {
@@ -7223,7 +7433,7 @@
                                                         "ML_R_INNER_TANK_PUMP": {
                                                                                         "category": "Message Lamps",
                                                                                     "control_type": "led",
-                                                                                     "description": "Right inner fuel tank pump is ON",
+                                                                                     "description": "Right inner fuel tank pump is ON (green)",
                                                                                       "identifier": "ML_R_INNER_TANK_PUMP",
                                                                                           "inputs": [  ],
                                                                                          "outputs": [ {
@@ -7239,7 +7449,7 @@
                                                         "ML_R_OUTER_TANK_PUMP": {
                                                                                         "category": "Message Lamps",
                                                                                     "control_type": "led",
-                                                                                     "description": "Right outer fuel tank pump is ON",
+                                                                                     "description": "Right outer fuel tank pump is ON (green)",
                                                                                       "identifier": "ML_R_OUTER_TANK_PUMP",
                                                                                           "inputs": [  ],
                                                                                          "outputs": [ {
@@ -7255,7 +7465,7 @@
                                                               "ML_SHKVAL_FAIL": {
                                                                                         "category": "Message Lamps",
                                                                                     "control_type": "led",
-                                                                                     "description": "SHKVAL failure",
+                                                                                     "description": "SHKVAL failure (yellow)",
                                                                                       "identifier": "ML_SHKVAL_FAIL",
                                                                                           "inputs": [  ],
                                                                                          "outputs": [ {
@@ -7271,7 +7481,7 @@
                                                             "ML_WEAPONS_TRAIN": {
                                                                                         "category": "Message Lamps",
                                                                                     "control_type": "led",
-                                                                                     "description": "Training mode is ON",
+                                                                                     "description": "Training mode is ON (green)",
                                                                                       "identifier": "ML_WEAPONS_TRAIN",
                                                                                           "inputs": [  ],
                                                                                          "outputs": [ {
@@ -7287,7 +7497,7 @@
                                                           "ML_WINDSHIELD_HEAT": {
                                                                                         "category": "Message Lamps",
                                                                                     "control_type": "led",
-                                                                                     "description": "Windshield heater is ON",
+                                                                                     "description": "Windshield heater is ON (green)",
                                                                                       "identifier": "ML_WINDSHIELD_HEAT",
                                                                                           "inputs": [  ],
                                                                                          "outputs": [ {
@@ -7797,6 +8007,22 @@
                                                                                                                      "type": "integer"
                                                                                                           } ],
                                                                                       "physical_variant": "push_button"
+                                                                               },
+                                                            "OP_PITOT_LIGHTS": {
+                                                                                       "category": "Overhead Panel",
+                                                                                   "control_type": "led",
+                                                                                    "description": "Pitot Lights (green)",
+                                                                                     "identifier": "OP_PITOT_LIGHTS",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 6534,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 4,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 2,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
                                                                                },
                                                          "OP_PITOT_PORT_HEAT": {
                                                                                               "category": "Overhead Panel",
@@ -8555,7 +8781,7 @@
                                                                    "PVI_AIRFIELDS_LED": {
                                                                                                     "category": "PVI-800 Control Panel",
                                                                                                 "control_type": "led",
-                                                                                                 "description": "Airfields LED",
+                                                                                                 "description": "Airfields LED (green)",
                                                                                                   "identifier": "PVI_AIRFIELDS_LED",
                                                                                                       "inputs": [  ],
                                                                                                      "outputs": [ {
@@ -8602,7 +8828,7 @@
                                                                "PVI_BEARING_RANGE_LED": {
                                                                                                     "category": "PVI-800 Control Panel",
                                                                                                 "control_type": "led",
-                                                                                                 "description": "Bearing/Range to target LED",
+                                                                                                 "description": "Bearing/Range to target LED (green)",
                                                                                                   "identifier": "PVI_BEARING_RANGE_LED",
                                                                                                       "inputs": [  ],
                                                                                                      "outputs": [ {
@@ -8674,7 +8900,7 @@
                                                                       "PVI_DTA_DH_LED": {
                                                                                                     "category": "PVI-800 Control Panel",
                                                                                                 "control_type": "led",
-                                                                                                 "description": "Course:Course Deviation/Time/Range to WPT LED",
+                                                                                                 "description": "Course:Course Deviation/Time/Range to WPT LED (green)",
                                                                                                   "identifier": "PVI_DTA_DH_LED",
                                                                                                       "inputs": [  ],
                                                                                                      "outputs": [ {
@@ -8721,7 +8947,7 @@
                                                                        "PVI_ENTER_LED": {
                                                                                                     "category": "PVI-800 Control Panel",
                                                                                                 "control_type": "led",
-                                                                                                 "description": "Enter LED",
+                                                                                                 "description": "Enter LED (yellow)",
                                                                                                   "identifier": "PVI_ENTER_LED",
                                                                                                       "inputs": [  ],
                                                                                                      "outputs": [ {
@@ -8768,7 +8994,7 @@
                                                                    "PVI_FIXPOINTS_LED": {
                                                                                                     "category": "PVI-800 Control Panel",
                                                                                                 "control_type": "led",
-                                                                                                 "description": "Fixpoints LED",
+                                                                                                 "description": "Fixpoints LED (green)",
                                                                                                   "identifier": "PVI_FIXPOINTS_LED",
                                                                                                       "inputs": [  ],
                                                                                                      "outputs": [ {
@@ -8815,7 +9041,7 @@
                                                                     "PVI_INIT_PNT_LED": {
                                                                                                     "category": "PVI-800 Control Panel",
                                                                                                 "control_type": "led",
-                                                                                                 "description": "Initial Nav Pos LED",
+                                                                                                 "description": "Initial Nav Pos LED (green)",
                                                                                                   "identifier": "PVI_INIT_PNT_LED",
                                                                                                       "inputs": [  ],
                                                                                                      "outputs": [ {
@@ -8891,7 +9117,7 @@
                                                         "PVI_INU_INFLIGHT_REALIGN_LED": {
                                                                                                     "category": "PVI-800 Control Panel",
                                                                                                 "control_type": "led",
-                                                                                                 "description": "Inflight INU Realignment LED",
+                                                                                                 "description": "Inflight INU Realignment LED (green)",
                                                                                                   "identifier": "PVI_INU_INFLIGHT_REALIGN_LED",
                                                                                                       "inputs": [  ],
                                                                                                      "outputs": [ {
@@ -8938,7 +9164,7 @@
                                                             "PVI_INU_NORMAL_ALIGN_LED": {
                                                                                                     "category": "PVI-800 Control Panel",
                                                                                                 "control_type": "led",
-                                                                                                 "description": "Normal INU Alignment LED",
+                                                                                                 "description": "Normal INU Alignment LED (green)",
                                                                                                   "identifier": "PVI_INU_NORMAL_ALIGN_LED",
                                                                                                       "inputs": [  ],
                                                                                                      "outputs": [ {
@@ -8985,7 +9211,7 @@
                                                            "PVI_INU_PRECISE_ALIGN_LED": {
                                                                                                     "category": "PVI-800 Control Panel",
                                                                                                 "control_type": "led",
-                                                                                                 "description": "Precise INU Alignment LED",
+                                                                                                 "description": "Precise INU Alignment LED (green)",
                                                                                                   "identifier": "PVI_INU_PRECISE_ALIGN_LED",
                                                                                                       "inputs": [  ],
                                                                                                      "outputs": [ {
@@ -9226,7 +9452,7 @@
                                                                        "PVI_RESET_LED": {
                                                                                                     "category": "PVI-800 Control Panel",
                                                                                                 "control_type": "led",
-                                                                                                 "description": "Cancel LED",
+                                                                                                 "description": "Cancel LED (yellow)",
                                                                                                   "identifier": "PVI_RESET_LED",
                                                                                                       "inputs": [  ],
                                                                                                      "outputs": [ {
@@ -9273,7 +9499,7 @@
                                                                    "PVI_SELF_COOR_LED": {
                                                                                                     "category": "PVI-800 Control Panel",
                                                                                                 "control_type": "led",
-                                                                                                 "description": "Self coordinates LED",
+                                                                                                 "description": "Self coordinates LED (green)",
                                                                                                   "identifier": "PVI_SELF_COOR_LED",
                                                                                                       "inputs": [  ],
                                                                                                      "outputs": [ {
@@ -9320,7 +9546,7 @@
                                                                      "PVI_TARGETS_LED": {
                                                                                                     "category": "PVI-800 Control Panel",
                                                                                                 "control_type": "led",
-                                                                                                 "description": "Targets LED",
+                                                                                                 "description": "Targets LED (green)",
                                                                                                   "identifier": "PVI_TARGETS_LED",
                                                                                                       "inputs": [  ],
                                                                                                      "outputs": [ {
@@ -9367,7 +9593,7 @@
                                                              "PVI_THDG_TIME_RANGE_LED": {
                                                                                                     "category": "PVI-800 Control Panel",
                                                                                                 "control_type": "led",
-                                                                                                 "description": "True Heading/Time/Range to final WPT LED",
+                                                                                                 "description": "True Heading/Time/Range to final WPT LED (green)",
                                                                                                   "identifier": "PVI_THDG_TIME_RANGE_LED",
                                                                                                       "inputs": [  ],
                                                                                                      "outputs": [ {
@@ -9414,7 +9640,7 @@
                                                                    "PVI_WAYPOINTS_LED": {
                                                                                                     "category": "PVI-800 Control Panel",
                                                                                                 "control_type": "led",
-                                                                                                 "description": "Waypoints LED",
+                                                                                                 "description": "Waypoints LED (green)",
                                                                                                   "identifier": "PVI_WAYPOINTS_LED",
                                                                                                       "inputs": [  ],
                                                                                                      "outputs": [ {
@@ -9461,7 +9687,7 @@
                                                               "PVI_WIND_HDG_SPEED_LED": {
                                                                                                     "category": "PVI-800 Control Panel",
                                                                                                 "control_type": "led",
-                                                                                                 "description": "Wind Heading/Speed LED",
+                                                                                                 "description": "Wind Heading/Speed LED (green)",
                                                                                                   "identifier": "PVI_WIND_HDG_SPEED_LED",
                                                                                                       "inputs": [  ],
                                                                                                      "outputs": [ {
@@ -9815,7 +10041,7 @@
                                                                  "R800_TEST_LAMP": {
                                                                                            "category": "R-800 VHF-2",
                                                                                        "control_type": "led",
-                                                                                        "description": "BIT lamp",
+                                                                                        "description": "BIT lamp (green)",
                                                                                          "identifier": "R800_TEST_LAMP",
                                                                                              "inputs": [  ],
                                                                                             "outputs": [ {
@@ -9917,7 +10143,7 @@
                                                         "R828_TUNER_LAMP": {
                                                                                    "category": "R-828 VHF-1",
                                                                                "control_type": "led",
-                                                                                "description": "Tuner indicator lamp",
+                                                                                "description": "Tuner indicator lamp (green)",
                                                                                  "identifier": "R828_TUNER_LAMP",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
@@ -10013,7 +10239,7 @@
                                                         "RALT_SAFE_ALT_LAMP": {
                                                                                       "category": "Radar Altimeter",
                                                                                   "control_type": "led",
-                                                                                   "description": "Safe altitude lamp",
+                                                                                   "description": "Safe altitude lamp  (yellow)",
                                                                                     "identifier": "RALT_SAFE_ALT_LAMP",
                                                                                         "inputs": [  ],
                                                                                        "outputs": [ {
@@ -10578,7 +10804,7 @@
                                                         "SC_MASTER_CAUTION_LED": {
                                                                                              "category": "System Controller",
                                                                                          "control_type": "led",
-                                                                                          "description": "Master caution button LED",
+                                                                                          "description": "Master caution button LED (red)",
                                                                                            "identifier": "SC_MASTER_CAUTION_LED",
                                                                                                "inputs": [  ],
                                                                                               "outputs": [ {
@@ -10654,7 +10880,7 @@
                                                              "SC_ROTOR_RPM_LED": {
                                                                                              "category": "System Controller",
                                                                                          "control_type": "led",
-                                                                                          "description": "Rotor RPM warning button LED",
+                                                                                          "description": "Rotor RPM warning button LED (yellow)",
                                                                                            "identifier": "SC_ROTOR_RPM_LED",
                                                                                                "inputs": [  ],
                                                                                               "outputs": [ {
@@ -11004,7 +11230,7 @@
                                                             "WEAPONS_AIRBORNE_TARGET_LED": {
                                                                                                        "category": "Targeting Mode Control Panel",
                                                                                                    "control_type": "led",
-                                                                                                    "description": "Airborne target LED",
+                                                                                                    "description": "Airborne target LED (green)",
                                                                                                      "identifier": "WEAPONS_AIRBORNE_TARGET_LED",
                                                                                                          "inputs": [  ],
                                                                                                         "outputs": [ {
@@ -11080,7 +11306,7 @@
                                                                   "WEAPONS_AUTO_TURN_LED": {
                                                                                                        "category": "Targeting Mode Control Panel",
                                                                                                    "control_type": "led",
-                                                                                                    "description": "Automatic turn on target LED",
+                                                                                                    "description": "Automatic turn on target LED (green)",
                                                                                                      "identifier": "WEAPONS_AUTO_TURN_LED",
                                                                                                          "inputs": [  ],
                                                                                                         "outputs": [ {
@@ -11127,7 +11353,7 @@
                                                         "WEAPONS_FORWARD_HEMI_TARGET_LED": {
                                                                                                        "category": "Targeting Mode Control Panel",
                                                                                                    "control_type": "led",
-                                                                                                    "description": "Head-on airborne target LED",
+                                                                                                    "description": "Head-on airborne target LED (green)",
                                                                                                      "identifier": "WEAPONS_FORWARD_HEMI_TARGET_LED",
                                                                                                          "inputs": [  ],
                                                                                                         "outputs": [ {
@@ -11174,7 +11400,7 @@
                                                               "WEAPONS_GROUND_TARGET_LED": {
                                                                                                        "category": "Targeting Mode Control Panel",
                                                                                                    "control_type": "led",
-                                                                                                    "description": "Ground moving target LED",
+                                                                                                    "description": "Ground moving target LED (green)",
                                                                                                      "identifier": "WEAPONS_GROUND_TARGET_LED",
                                                                                                          "inputs": [  ],
                                                                                                         "outputs": [ {
@@ -11245,7 +11471,7 @@
                                                                "WEAPONS_TARGET_RESET_LED": {
                                                                                                        "category": "Targeting Mode Control Panel",
                                                                                                    "control_type": "led",
-                                                                                                    "description": "Targeting mode reset LED",
+                                                                                                    "description": "Targeting mode reset LED (green)",
                                                                                                      "identifier": "WEAPONS_TARGET_RESET_LED",
                                                                                                          "inputs": [  ],
                                                                                                         "outputs": [ {
@@ -11392,7 +11618,7 @@
                                                                 "UV26_L_DISPENSER": {
                                                                                             "category": "UV-26 Control Panel",
                                                                                         "control_type": "led",
-                                                                                         "description": "Left dispenser indicator",
+                                                                                         "description": "Left dispenser Light (red)",
                                                                                           "identifier": "UV26_L_DISPENSER",
                                                                                               "inputs": [  ],
                                                                                              "outputs": [ {
@@ -11467,7 +11693,7 @@
                                                                 "UV26_R_DISPENSER": {
                                                                                             "category": "UV-26 Control Panel",
                                                                                         "control_type": "led",
-                                                                                         "description": "Right dispenser indicator",
+                                                                                         "description": "Right dispenser Light (red)",
                                                                                           "identifier": "UV26_R_DISPENSER",
                                                                                               "inputs": [  ],
                                                                                              "outputs": [ {
@@ -11711,7 +11937,7 @@
                                                              "WAL_AUTO_DESCENT": {
                                                                                          "category": "Warning and Advisory Lamps",
                                                                                      "control_type": "led",
-                                                                                      "description": "Auto descent",
+                                                                                      "description": "Auto descent (green)",
                                                                                        "identifier": "WAL_AUTO_DESCENT",
                                                                                            "inputs": [  ],
                                                                                           "outputs": [ {
@@ -11727,7 +11953,7 @@
                                                                "WAL_AUTO_HOVER": {
                                                                                          "category": "Warning and Advisory Lamps",
                                                                                      "control_type": "led",
-                                                                                      "description": "Auto hover",
+                                                                                      "description": "Auto hover (green)",
                                                                                        "identifier": "WAL_AUTO_HOVER",
                                                                                            "inputs": [  ],
                                                                                           "outputs": [ {
@@ -11743,7 +11969,7 @@
                                                                    "WAL_CANNON": {
                                                                                          "category": "Warning and Advisory Lamps",
                                                                                      "control_type": "led",
-                                                                                      "description": "Cannon away from boresight",
+                                                                                      "description": "Cannon away from boresight (green)",
                                                                                        "identifier": "WAL_CANNON",
                                                                                            "inputs": [  ],
                                                                                           "outputs": [ {
@@ -11759,7 +11985,7 @@
                                                                   "WAL_CANNON2": {
                                                                                          "category": "Warning and Advisory Lamps",
                                                                                      "control_type": "led",
-                                                                                      "description": "Cannon downward away from boresight",
+                                                                                      "description": "Cannon downward away from boresight (green)",
                                                                                        "identifier": "WAL_CANNON2",
                                                                                            "inputs": [  ],
                                                                                           "outputs": [ {
@@ -11775,7 +12001,7 @@
                                                                "WAL_ENR_COURSE": {
                                                                                          "category": "Warning and Advisory Lamps",
                                                                                      "control_type": "led",
-                                                                                      "description": "Route course steering",
+                                                                                      "description": "Route course steering (green)",
                                                                                        "identifier": "WAL_ENR_COURSE",
                                                                                            "inputs": [  ],
                                                                                           "outputs": [ {
@@ -11791,7 +12017,7 @@
                                                                   "WAL_ENR_END": {
                                                                                          "category": "Warning and Advisory Lamps",
                                                                                      "control_type": "led",
-                                                                                      "description": "End of route",
+                                                                                      "description": "End of route (green)",
                                                                                        "identifier": "WAL_ENR_END",
                                                                                            "inputs": [  ],
                                                                                           "outputs": [ {
@@ -11807,7 +12033,7 @@
                                                                   "WAL_ENR_NAV": {
                                                                                          "category": "Warning and Advisory Lamps",
                                                                                      "control_type": "led",
-                                                                                      "description": "Route heading steering",
+                                                                                      "description": "Route heading steering (green)",
                                                                                        "identifier": "WAL_ENR_NAV",
                                                                                            "inputs": [  ],
                                                                                           "outputs": [ {
@@ -11823,7 +12049,7 @@
                                                         "WAL_GEARBOX_OIL_PRESS": {
                                                                                          "category": "Warning and Advisory Lamps",
                                                                                      "control_type": "led",
-                                                                                      "description": "Gearbox oil pressure normal",
+                                                                                      "description": "Gearbox oil pressure normal (green)",
                                                                                        "identifier": "WAL_GEARBOX_OIL_PRESS",
                                                                                            "inputs": [  ],
                                                                                           "outputs": [ {
@@ -11839,7 +12065,7 @@
                                                                  "WAL_NAV_CALC": {
                                                                                          "category": "Warning and Advisory Lamps",
                                                                                      "control_type": "led",
-                                                                                      "description": "Rough NAV calc",
+                                                                                      "description": "Rough NAV calc (green)",
                                                                                        "identifier": "WAL_NAV_CALC",
                                                                                            "inputs": [  ],
                                                                                           "outputs": [ {
@@ -11855,7 +12081,7 @@
                                                                  "WAL_NEXT_WPT": {
                                                                                          "category": "Warning and Advisory Lamps",
                                                                                      "control_type": "led",
-                                                                                      "description": "Next waypoint",
+                                                                                      "description": "Next waypoint (green)",
                                                                                        "identifier": "WAL_NEXT_WPT",
                                                                                            "inputs": [  ],
                                                                                           "outputs": [ {
@@ -11871,7 +12097,7 @@
                                                                 "WAL_RALT_HOLD": {
                                                                                          "category": "Warning and Advisory Lamps",
                                                                                      "control_type": "led",
-                                                                                      "description": "R-ALT hold",
+                                                                                      "description": "R-ALT hold (green)",
                                                                                        "identifier": "WAL_RALT_HOLD",
                                                                                            "inputs": [  ],
                                                                                           "outputs": [ {
@@ -11887,7 +12113,7 @@
                                                                "WAL_SLING_OPEN": {
                                                                                          "category": "Warning and Advisory Lamps",
                                                                                      "control_type": "led",
-                                                                                      "description": "Sling load lock (hook) is open",
+                                                                                      "description": "Sling load lock (hook) is open (green)",
                                                                                        "identifier": "WAL_SLING_OPEN",
                                                                                            "inputs": [  ],
                                                                                           "outputs": [ {
@@ -11903,7 +12129,7 @@
                                                         "WAL_TURBO_GEARBOX_OFF": {
                                                                                          "category": "Warning and Advisory Lamps",
                                                                                      "control_type": "led",
-                                                                                      "description": "Gearbox disconnected",
+                                                                                      "description": "Gearbox disconnected (green)",
                                                                                        "identifier": "WAL_TURBO_GEARBOX_OFF",
                                                                                            "inputs": [  ],
                                                                                           "outputs": [ {
@@ -11919,7 +12145,7 @@
                                                               "WAL_WEAPONS_ARM": {
                                                                                          "category": "Warning and Advisory Lamps",
                                                                                      "control_type": "led",
-                                                                                      "description": "Weapons armed",
+                                                                                      "description": "Weapons armed (red)",
                                                                                        "identifier": "WAL_WEAPONS_ARM",
                                                                                            "inputs": [  ],
                                                                                           "outputs": [ {
@@ -11935,7 +12161,7 @@
                                                            "WAL_XFEED_VLV_OPEN": {
                                                                                          "category": "Warning and Advisory Lamps",
                                                                                      "control_type": "led",
-                                                                                      "description": "Fuel crossfeed ON",
+                                                                                      "description": "Fuel crossfeed ON (green)",
                                                                                        "identifier": "WAL_XFEED_VLV_OPEN",
                                                                                            "inputs": [  ],
                                                                                           "outputs": [ {
@@ -12254,7 +12480,7 @@
                                                              "WEAPONS_PRESENT_STATION_1": {
                                                                                                   "category": "Weapons Control Panel",
                                                                                               "control_type": "led",
-                                                                                               "description": "Weapon is present on station 1 light",
+                                                                                               "description": "Weapon is present on station 1 light (yellow)",
                                                                                                 "identifier": "WEAPONS_PRESENT_STATION_1",
                                                                                                     "inputs": [  ],
                                                                                                    "outputs": [ {
@@ -12270,7 +12496,7 @@
                                                              "WEAPONS_PRESENT_STATION_2": {
                                                                                                   "category": "Weapons Control Panel",
                                                                                               "control_type": "led",
-                                                                                               "description": "Weapon is present on station 2 light",
+                                                                                               "description": "Weapon is present on station 2 light (yellow)",
                                                                                                 "identifier": "WEAPONS_PRESENT_STATION_2",
                                                                                                     "inputs": [  ],
                                                                                                    "outputs": [ {
@@ -12286,7 +12512,7 @@
                                                              "WEAPONS_PRESENT_STATION_3": {
                                                                                                   "category": "Weapons Control Panel",
                                                                                               "control_type": "led",
-                                                                                               "description": "Weapon is present on station 3 light",
+                                                                                               "description": "Weapon is present on station 3 light (yellow)",
                                                                                                 "identifier": "WEAPONS_PRESENT_STATION_3",
                                                                                                     "inputs": [  ],
                                                                                                    "outputs": [ {
@@ -12302,7 +12528,7 @@
                                                              "WEAPONS_PRESENT_STATION_4": {
                                                                                                   "category": "Weapons Control Panel",
                                                                                               "control_type": "led",
-                                                                                               "description": "Weapon is present on station 4 light",
+                                                                                               "description": "Weapon is present on station 4 light (yellow)",
                                                                                                 "identifier": "WEAPONS_PRESENT_STATION_4",
                                                                                                     "inputs": [  ],
                                                                                                    "outputs": [ {
@@ -12318,7 +12544,7 @@
                                                                  "WEAPONS_RDY_STATION_1": {
                                                                                                   "category": "Weapons Control Panel",
                                                                                               "control_type": "led",
-                                                                                               "description": "Weapon is ready to fire on station 1 light",
+                                                                                               "description": "Weapon is ready to fire on station 1 light (green)",
                                                                                                 "identifier": "WEAPONS_RDY_STATION_1",
                                                                                                     "inputs": [  ],
                                                                                                    "outputs": [ {
@@ -12334,7 +12560,7 @@
                                                                  "WEAPONS_RDY_STATION_2": {
                                                                                                   "category": "Weapons Control Panel",
                                                                                               "control_type": "led",
-                                                                                               "description": "Weapon is ready to fire on station 2 light",
+                                                                                               "description": "Weapon is ready to fire on station 2 light (green)",
                                                                                                 "identifier": "WEAPONS_RDY_STATION_2",
                                                                                                     "inputs": [  ],
                                                                                                    "outputs": [ {
@@ -12350,7 +12576,7 @@
                                                                  "WEAPONS_RDY_STATION_3": {
                                                                                                   "category": "Weapons Control Panel",
                                                                                               "control_type": "led",
-                                                                                               "description": "Weapon is ready to fire on station 3 light",
+                                                                                               "description": "Weapon is ready to fire on station 3 light (green)",
                                                                                                 "identifier": "WEAPONS_RDY_STATION_3",
                                                                                                     "inputs": [  ],
                                                                                                    "outputs": [ {
@@ -12366,7 +12592,7 @@
                                                                  "WEAPONS_RDY_STATION_4": {
                                                                                                   "category": "Weapons Control Panel",
                                                                                               "control_type": "led",
-                                                                                               "description": "Weapon is ready to fire on station 4 light",
+                                                                                               "description": "Weapon is ready to fire on station 4 light (green)",
                                                                                                 "identifier": "WEAPONS_RDY_STATION_4",
                                                                                                     "inputs": [  ],
                                                                                                    "outputs": [ {

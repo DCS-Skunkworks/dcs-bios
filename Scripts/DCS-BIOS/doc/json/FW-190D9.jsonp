@@ -2273,7 +2273,7 @@ docdata["FW-190D9"] =
                                            "FLUOR_LIGHT": {
                                                                   "category": "Indicator",
                                                               "control_type": "analog_gauge",
-                                                               "description": "Fluor_Light",
+                                                               "description": "Fluor_Light (green)",
                                                                 "identifier": "FLUOR_LIGHT",
                                                                     "inputs": [  ],
                                                                    "outputs": [ {
@@ -2771,7 +2771,7 @@ docdata["FW-190D9"] =
                                             "BMB1": {
                                                             "category": "Lamps",
                                                         "control_type": "led",
-                                                         "description": "Bomb 1 Lamp",
+                                                         "description": "Bomb 1 Lamp (red)",
                                                           "identifier": "BMB1",
                                                               "inputs": [  ],
                                                              "outputs": [ {
@@ -2787,7 +2787,7 @@ docdata["FW-190D9"] =
                                             "BMB2": {
                                                             "category": "Lamps",
                                                         "control_type": "led",
-                                                         "description": "Bomb 2 Lamp",
+                                                         "description": "Bomb 2 Lamp (red)",
                                                           "identifier": "BMB2",
                                                               "inputs": [  ],
                                                              "outputs": [ {
@@ -2803,7 +2803,7 @@ docdata["FW-190D9"] =
                                             "BMB3": {
                                                             "category": "Lamps",
                                                         "control_type": "led",
-                                                         "description": "Bomb 3 Lamp",
+                                                         "description": "Bomb 3 Lamp (red)",
                                                           "identifier": "BMB3",
                                                               "inputs": [  ],
                                                              "outputs": [ {
@@ -2819,7 +2819,7 @@ docdata["FW-190D9"] =
                                             "BMB4": {
                                                             "category": "Lamps",
                                                         "control_type": "led",
-                                                         "description": "Bomb 4 Lamp",
+                                                         "description": "Bomb 4 Lamp (red)",
                                                           "identifier": "BMB4",
                                                               "inputs": [  ],
                                                              "outputs": [ {
@@ -2835,7 +2835,7 @@ docdata["FW-190D9"] =
                                       "FLAPS_DOWN": {
                                                             "category": "Lamps",
                                                         "control_type": "led",
-                                                         "description": "Flaps Down",
+                                                         "description": "Flaps Down (green)",
                                                           "identifier": "FLAPS_DOWN",
                                                               "inputs": [  ],
                                                              "outputs": [ {
@@ -2851,7 +2851,7 @@ docdata["FW-190D9"] =
                                      "FLAPS_START": {
                                                             "category": "Lamps",
                                                         "control_type": "led",
-                                                         "description": "Flaps Start",
+                                                         "description": "Flaps Start (yellow)",
                                                           "identifier": "FLAPS_START",
                                                               "inputs": [  ],
                                                              "outputs": [ {
@@ -2867,7 +2867,7 @@ docdata["FW-190D9"] =
                                         "FLAPS_UP": {
                                                             "category": "Lamps",
                                                         "control_type": "led",
-                                                         "description": "Flaps Up",
+                                                         "description": "Flaps Up (red)",
                                                           "identifier": "FLAPS_UP",
                                                               "inputs": [  ],
                                                              "outputs": [ {
@@ -2883,7 +2883,7 @@ docdata["FW-190D9"] =
                                     "FUEL_LOW_FWD": {
                                                             "category": "Lamps",
                                                         "control_type": "led",
-                                                         "description": "Fuel_Low_Fwd",
+                                                         "description": "Fuel_Low_Fwd (red)",
                                                           "identifier": "FUEL_LOW_FWD",
                                                               "inputs": [  ],
                                                              "outputs": [ {
@@ -2899,7 +2899,7 @@ docdata["FW-190D9"] =
                                    "FUEL_LOW_REAR": {
                                                             "category": "Lamps",
                                                         "control_type": "led",
-                                                         "description": "Fuel_Low_Rear",
+                                                         "description": "Fuel_Low_Rear (white)",
                                                           "identifier": "FUEL_LOW_REAR",
                                                               "inputs": [  ],
                                                              "outputs": [ {
@@ -2915,7 +2915,7 @@ docdata["FW-190D9"] =
                                       "GUN_FIRE_1": {
                                                             "category": "Lamps",
                                                         "control_type": "led",
-                                                         "description": "Gun_Fire_1",
+                                                         "description": "Gun_Fire_1 (white)",
                                                           "identifier": "GUN_FIRE_1",
                                                               "inputs": [  ],
                                                              "outputs": [ {
@@ -2931,7 +2931,7 @@ docdata["FW-190D9"] =
                                       "GUN_FIRE_2": {
                                                             "category": "Lamps",
                                                         "control_type": "led",
-                                                         "description": "Gun_Fire_2",
+                                                         "description": "Gun_Fire_2 (red)",
                                                           "identifier": "GUN_FIRE_2",
                                                               "inputs": [  ],
                                                              "outputs": [ {
@@ -2947,7 +2947,7 @@ docdata["FW-190D9"] =
                                       "GUN_FIRE_3": {
                                                             "category": "Lamps",
                                                         "control_type": "led",
-                                                         "description": "Gun_Fire_3",
+                                                         "description": "Gun_Fire_3 (red)",
                                                           "identifier": "GUN_FIRE_3",
                                                               "inputs": [  ],
                                                              "outputs": [ {
@@ -2963,7 +2963,7 @@ docdata["FW-190D9"] =
                                       "GUN_FIRE_4": {
                                                             "category": "Lamps",
                                                         "control_type": "led",
-                                                         "description": "Gun_Fire_4",
+                                                         "description": "Gun_Fire_4 (red)",
                                                           "identifier": "GUN_FIRE_4",
                                                               "inputs": [  ],
                                                              "outputs": [ {
@@ -2976,10 +2976,74 @@ docdata["FW-190D9"] =
                                                                                    "type": "integer"
                                                                         } ]
                                                     },
+                                      "GUN_FIRE_5": {
+                                                            "category": "Lamps",
+                                                        "control_type": "led",
+                                                         "description": "Gun_Fire_5 (white)",
+                                                          "identifier": "GUN_FIRE_5",
+                                                              "inputs": [  ],
+                                                             "outputs": [ {
+                                                                                "address": 13472,
+                                                                            "description": "0 if light is off, 1 if light is on",
+                                                                                   "mask": 1024,
+                                                                              "max_value": 1,
+                                                                               "shift_by": 10,
+                                                                                 "suffix": "",
+                                                                                   "type": "integer"
+                                                                        } ]
+                                                    },
+                                      "GUN_FIRE_6": {
+                                                            "category": "Lamps",
+                                                        "control_type": "led",
+                                                         "description": "Gun_Fire_6 (white)",
+                                                          "identifier": "GUN_FIRE_6",
+                                                              "inputs": [  ],
+                                                             "outputs": [ {
+                                                                                "address": 13472,
+                                                                            "description": "0 if light is off, 1 if light is on",
+                                                                                   "mask": 2048,
+                                                                              "max_value": 1,
+                                                                               "shift_by": 11,
+                                                                                 "suffix": "",
+                                                                                   "type": "integer"
+                                                                        } ]
+                                                    },
+                                      "GUN_FIRE_7": {
+                                                            "category": "Lamps",
+                                                        "control_type": "led",
+                                                         "description": "Gun_Fire_7 (white)",
+                                                          "identifier": "GUN_FIRE_7",
+                                                              "inputs": [  ],
+                                                             "outputs": [ {
+                                                                                "address": 13472,
+                                                                            "description": "0 if light is off, 1 if light is on",
+                                                                                   "mask": 4096,
+                                                                              "max_value": 1,
+                                                                               "shift_by": 12,
+                                                                                 "suffix": "",
+                                                                                   "type": "integer"
+                                                                        } ]
+                                                    },
+                                           "IFF_L": {
+                                                            "category": "Lamps",
+                                                        "control_type": "led",
+                                                         "description": "IFF Light (white)",
+                                                          "identifier": "IFF_L",
+                                                              "inputs": [  ],
+                                                             "outputs": [ {
+                                                                                "address": 13472,
+                                                                            "description": "0 if light is off, 1 if light is on",
+                                                                                   "mask": 8192,
+                                                                              "max_value": 1,
+                                                                               "shift_by": 13,
+                                                                                 "suffix": "",
+                                                                                   "type": "integer"
+                                                                        } ]
+                                                    },
                                        "LG_L_DOWN": {
                                                             "category": "Lamps",
                                                         "control_type": "led",
-                                                         "description": "Landing Gear Left Down",
+                                                         "description": "Landing Gear Left Down (green)",
                                                           "identifier": "LG_L_DOWN",
                                                               "inputs": [  ],
                                                              "outputs": [ {
@@ -2995,7 +3059,7 @@ docdata["FW-190D9"] =
                                          "LG_L_UP": {
                                                             "category": "Lamps",
                                                         "control_type": "led",
-                                                         "description": "Landing Gear Left Up",
+                                                         "description": "Landing Gear Left Up (red)",
                                                           "identifier": "LG_L_UP",
                                                               "inputs": [  ],
                                                              "outputs": [ {
@@ -3011,7 +3075,7 @@ docdata["FW-190D9"] =
                                        "LG_R_DOWN": {
                                                             "category": "Lamps",
                                                         "control_type": "led",
-                                                         "description": "Landing Gear Right Down",
+                                                         "description": "Landing Gear Right Down (green)",
                                                           "identifier": "LG_R_DOWN",
                                                               "inputs": [  ],
                                                              "outputs": [ {
@@ -3027,7 +3091,7 @@ docdata["FW-190D9"] =
                                          "LG_R_UP": {
                                                             "category": "Lamps",
                                                         "control_type": "led",
-                                                         "description": "Landing Gear Right Up",
+                                                         "description": "Landing Gear Right Up (red)",
                                                           "identifier": "LG_R_UP",
                                                               "inputs": [  ],
                                                              "outputs": [ {

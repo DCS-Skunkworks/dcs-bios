@@ -1454,6 +1454,36 @@ docdata["I-16"] =
                                                                                                   "type": "integer"
                                                                                        } ]
                                                                    },
+                                                       "MIX_PUSH": {
+                                                                               "api_variant": "momentary_last_position",
+                                                                                  "category": "Motor",
+                                                                              "control_type": "selector",
+                                                                               "description": "Mixture Push",
+                                                                                "identifier": "MIX_PUSH",
+                                                                                    "inputs": [ {
+                                                                                                  "description": "switch to previous or next state",
+                                                                                                    "interface": "fixed_step"
+                                                                                              }, {
+                                                                                                  "description": "set position",
+                                                                                                    "interface": "set_state",
+                                                                                                    "max_value": 1
+                                                                                              }, {
+                                                                                                     "argument": "TOGGLE",
+                                                                                                  "description": "Toggle switch state",
+                                                                                                    "interface": "action"
+                                                                                              } ],
+                                                                       "momentary_positions": "none",
+                                                                                   "outputs": [ {
+                                                                                                      "address": 16488,
+                                                                                                  "description": "selector position",
+                                                                                                         "mask": 8,
+                                                                                                    "max_value": 1,
+                                                                                                     "shift_by": 3,
+                                                                                                       "suffix": "",
+                                                                                                         "type": "integer"
+                                                                                              } ],
+                                                                          "physical_variant": "push_button"
+                                                                   },
                                                       "MOTOR_OFF": {
                                                                                "api_variant": "momentary_last_position",
                                                                                   "category": "Motor",

@@ -4044,6 +4044,22 @@
                                                                                                       "type": "integer"
                                                                                            } ]
                                                                        },
+                                                         "BOMB_ALT_G": {
+                                                                               "category": "Indicator",
+                                                                           "control_type": "analog_gauge",
+                                                                            "description": "Bombing Altimeter Altitude Gauge",
+                                                                             "identifier": "BOMB_ALT_G",
+                                                                                 "inputs": [  ],
+                                                                                "outputs": [ {
+                                                                                                   "address": 12530,
+                                                                                               "description": "gauge position",
+                                                                                                      "mask": 65535,
+                                                                                                 "max_value": 65535,
+                                                                                                  "shift_by": 0,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "integer"
+                                                                                           } ]
+                                                                       },
                                                          "CANOPY_POS": {
                                                                                "category": "Indicator",
                                                                            "control_type": "analog_gauge",
@@ -4335,7 +4351,7 @@
                                                  "ILLUMINATIONLIGHTS": {
                                                                                "category": "Indicator",
                                                                            "control_type": "analog_gauge",
-                                                                            "description": "Illumination Lights",
+                                                                            "description": "Illumination Lights (yellow)",
                                                                              "identifier": "ILLUMINATIONLIGHTS",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
@@ -4383,7 +4399,7 @@
                                                 "LANDING_GEAR_UNSAFE": {
                                                                                "category": "Indicator",
                                                                            "control_type": "analog_gauge",
-                                                                            "description": "Landing Gear Unsafe",
+                                                                            "description": "Landing Gear Unsafe Light (red)",
                                                                              "identifier": "LANDING_GEAR_UNSAFE",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
@@ -4670,10 +4686,74 @@
                                                                        }
                                },
                       "Lamps": {
+                                                         "BOMB_FRAG_L": {
+                                                                                "category": "Lamps",
+                                                                            "control_type": "led",
+                                                                             "description": "Fragmentation Bombs Indicator Light (red)",
+                                                                              "identifier": "BOMB_FRAG_L",
+                                                                                  "inputs": [  ],
+                                                                                 "outputs": [ {
+                                                                                                    "address": 12488,
+                                                                                                "description": "0 if light is off, 1 if light is on",
+                                                                                                       "mask": 4,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 2,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ]
+                                                                        },
+                                                       "GUN_LOW_ARM_L": {
+                                                                                "category": "Lamps",
+                                                                            "control_type": "led",
+                                                                             "description": "Lower Gun Arming Light (yellow)",
+                                                                              "identifier": "GUN_LOW_ARM_L",
+                                                                                  "inputs": [  ],
+                                                                                 "outputs": [ {
+                                                                                                    "address": 12488,
+                                                                                                "description": "0 if light is off, 1 if light is on",
+                                                                                                       "mask": 32,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 5,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ]
+                                                                        },
+                                                       "GUN_MID_ARM_L": {
+                                                                                "category": "Lamps",
+                                                                            "control_type": "led",
+                                                                             "description": "Middle Gun Arming Light (yellow)",
+                                                                              "identifier": "GUN_MID_ARM_L",
+                                                                                  "inputs": [  ],
+                                                                                 "outputs": [ {
+                                                                                                    "address": 12488,
+                                                                                                "description": "0 if light is off, 1 if light is on",
+                                                                                                       "mask": 16,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 4,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ]
+                                                                        },
+                                                        "GUN_UP_ARM_L": {
+                                                                                "category": "Lamps",
+                                                                            "control_type": "led",
+                                                                             "description": "Upper Gun Arming Light (yellow)",
+                                                                              "identifier": "GUN_UP_ARM_L",
+                                                                                  "inputs": [  ],
+                                                                                 "outputs": [ {
+                                                                                                    "address": 12488,
+                                                                                                "description": "0 if light is off, 1 if light is on",
+                                                                                                       "mask": 8,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 3,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ]
+                                                                        },
                                            "LMP_CONTROL_TAKEOFFPOSIND": {
                                                                                 "category": "Lamps",
                                                                             "control_type": "led",
-                                                                             "description": "CONTROL_TakeOffPosInd",
+                                                                             "description": "CONTROL_TakeOffPosInd (yellow)",
                                                                               "identifier": "LMP_CONTROL_TAKEOFFPOSIND",
                                                                                   "inputs": [  ],
                                                                                  "outputs": [ {
@@ -4689,7 +4769,7 @@
                                              "LMP_ELEC_BOTHINSTINVOFF": {
                                                                                 "category": "Lamps",
                                                                             "control_type": "led",
-                                                                             "description": "ELEC_BothInstInvertersOff",
+                                                                             "description": "ELEC_BothInstInvertersOff (red)",
                                                                               "identifier": "LMP_ELEC_BOTHINSTINVOFF",
                                                                                   "inputs": [  ],
                                                                                  "outputs": [ {
@@ -4705,7 +4785,7 @@
                                                      "LMP_ELEC_GENOFF": {
                                                                                 "category": "Lamps",
                                                                             "control_type": "led",
-                                                                             "description": "ELEC_GenOff",
+                                                                             "description": "ELEC_GenOff (red)",
                                                                               "identifier": "LMP_ELEC_GENOFF",
                                                                                   "inputs": [  ],
                                                                                  "outputs": [ {
@@ -4721,7 +4801,7 @@
                                         "LMP_ELEC_MAININVOFFSELECTALT": {
                                                                                 "category": "Lamps",
                                                                             "control_type": "led",
-                                                                             "description": "ELEC_MainInstInverterOffSelectAlt",
+                                                                             "description": "ELEC_MainInstInverterOffSelectAlt (yellow)",
                                                                               "identifier": "LMP_ELEC_MAININVOFFSELECTALT",
                                                                                   "inputs": [  ],
                                                                                  "outputs": [ {
@@ -4737,7 +4817,7 @@
                                             "LMP_ELEC_MAINRADARINVOFF": {
                                                                                 "category": "Lamps",
                                                                             "control_type": "led",
-                                                                             "description": "ELEC_MainRadarInverterOff",
+                                                                             "description": "ELEC_MainRadarInverterOff (yellow)",
                                                                               "identifier": "LMP_ELEC_MAINRADARINVOFF",
                                                                                   "inputs": [  ],
                                                                                  "outputs": [ {
@@ -4753,7 +4833,7 @@
                                    "LMP_FIRE_DETECTION_AFTFIREWARNING": {
                                                                                 "category": "Lamps",
                                                                             "control_type": "led",
-                                                                             "description": "FIRE_DETECTION_AftFireWarning",
+                                                                             "description": "FIRE_DETECTION_AftFireWarning (yellow)",
                                                                               "identifier": "LMP_FIRE_DETECTION_AFTFIREWARNING",
                                                                                   "inputs": [  ],
                                                                                  "outputs": [ {
@@ -4769,7 +4849,7 @@
                                    "LMP_FIRE_DETECTION_FWDFIREWARNING": {
                                                                                 "category": "Lamps",
                                                                             "control_type": "led",
-                                                                             "description": "FIRE_DETECTION_FwdFireWarning",
+                                                                             "description": "FIRE_DETECTION_FwdFireWarning (red)",
                                                                               "identifier": "LMP_FIRE_DETECTION_FWDFIREWARNING",
                                                                                   "inputs": [  ],
                                                                                  "outputs": [ {
@@ -4785,7 +4865,7 @@
                                             "LMP_FUEL_OUTBDTANKSEMPTY": {
                                                                                 "category": "Lamps",
                                                                             "control_type": "led",
-                                                                             "description": "FUEL_OutbdTanksEmpty",
+                                                                             "description": "FUEL_OutbdTanksEmpty (yellow)",
                                                                               "identifier": "LMP_FUEL_OUTBDTANKSEMPTY",
                                                                                   "inputs": [  ],
                                                                                  "outputs": [ {
@@ -4801,7 +4881,7 @@
                                          "LMP_HYDRO_ALTFLTCONTSYSOPER": {
                                                                                 "category": "Lamps",
                                                                             "control_type": "led",
-                                                                             "description": "HYDRO_AltFltContSysOper",
+                                                                             "description": "HYDRO_AltFltContSysOper (yellow)",
                                                                               "identifier": "LMP_HYDRO_ALTFLTCONTSYSOPER",
                                                                                   "inputs": [  ],
                                                                                  "outputs": [ {
@@ -4865,7 +4945,7 @@
                                             "LMP_WNW_SHLDANTIICE_HEAT": {
                                                                                 "category": "Lamps",
                                                                             "control_type": "led",
-                                                                             "description": "WindshieldAntiIceOverheatWarning",
+                                                                             "description": "WindshieldAntiIceOverheatWarning (yellow)",
                                                                               "identifier": "LMP_WNW_SHLDANTIICE_HEAT",
                                                                                   "inputs": [  ],
                                                                                  "outputs": [ {
@@ -4874,6 +4954,38 @@
                                                                                                        "mask": 128,
                                                                                                   "max_value": 1,
                                                                                                    "shift_by": 7,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ]
+                                                                        },
+                                                    "MISSLE_G_LIMIT_L": {
+                                                                                "category": "Lamps",
+                                                                            "control_type": "led",
+                                                                             "description": "Missle G Limit Light (red)",
+                                                                              "identifier": "MISSLE_G_LIMIT_L",
+                                                                                  "inputs": [  ],
+                                                                                 "outputs": [ {
+                                                                                                    "address": 12488,
+                                                                                                "description": "0 if light is off, 1 if light is on",
+                                                                                                       "mask": 64,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 6,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ]
+                                                                        },
+                                                         "RADAR_TGT_L": {
+                                                                                "category": "Lamps",
+                                                                            "control_type": "led",
+                                                                             "description": "Radar Target Indicator Light (red)",
+                                                                              "identifier": "RADAR_TGT_L",
+                                                                                  "inputs": [  ],
+                                                                                 "outputs": [ {
+                                                                                                    "address": 12488,
+                                                                                                "description": "0 if light is off, 1 if light is on",
+                                                                                                       "mask": 2,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 1,
                                                                                                      "suffix": "",
                                                                                                        "type": "integer"
                                                                                             } ]
@@ -6240,6 +6352,22 @@
                                                                                            "max_value": 65535,
                                                                                             "shift_by": 0,
                                                                                               "suffix": "_KNOB_POS",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                               "WPN_RKT_INVL_G": {
+                                                                         "category": "Weapon System",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "Rocket Intervalometer Gauge",
+                                                                       "identifier": "WPN_RKT_INVL_G",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 12532,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
                                                                  },

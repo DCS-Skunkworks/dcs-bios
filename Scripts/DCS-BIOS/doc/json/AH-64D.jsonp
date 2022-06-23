@@ -9015,6 +9015,35 @@ docdata["AH-64D"] =
                                                                                          "type": "integer"
                                                                               } ]
                                                           },
+                                        "PLT_L_SUNVISOR": {
+                                                                         "category": "PLT Cockpit",
+                                                                     "control_type": "selector",
+                                                                      "description": "Pilot Left Sunvisor",
+                                                                       "identifier": "PLT_L_SUNVISOR",
+                                                                           "inputs": [ {
+                                                                                         "description": "switch to previous or next state",
+                                                                                           "interface": "fixed_step"
+                                                                                     }, {
+                                                                                         "description": "set position",
+                                                                                           "interface": "set_state",
+                                                                                           "max_value": 1
+                                                                                     }, {
+                                                                                            "argument": "TOGGLE",
+                                                                                         "description": "Toggle switch state",
+                                                                                           "interface": "action"
+                                                                                     } ],
+                                                              "momentary_positions": "none",
+                                                                          "outputs": [ {
+                                                                                             "address": 34618,
+                                                                                         "description": "selector position",
+                                                                                                "mask": 256,
+                                                                                           "max_value": 1,
+                                                                                            "shift_by": 8,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ],
+                                                                 "physical_variant": "toggle_switch"
+                                                          },
                                            "PLT_M4_SAVE": {
                                                                          "category": "PLT Cockpit",
                                                                      "control_type": "selector",
@@ -9119,6 +9148,35 @@ docdata["AH-64D"] =
                                                                                                 "mask": 32768,
                                                                                            "max_value": 1,
                                                                                             "shift_by": 15,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ],
+                                                                 "physical_variant": "toggle_switch"
+                                                          },
+                                        "PLT_R_SUNVISOR": {
+                                                                         "category": "PLT Cockpit",
+                                                                     "control_type": "selector",
+                                                                      "description": "Pilot Right Sunvisor",
+                                                                       "identifier": "PLT_R_SUNVISOR",
+                                                                           "inputs": [ {
+                                                                                         "description": "switch to previous or next state",
+                                                                                           "interface": "fixed_step"
+                                                                                     }, {
+                                                                                         "description": "set position",
+                                                                                           "interface": "set_state",
+                                                                                           "max_value": 1
+                                                                                     }, {
+                                                                                            "argument": "TOGGLE",
+                                                                                         "description": "Toggle switch state",
+                                                                                           "interface": "action"
+                                                                                     } ],
+                                                              "momentary_positions": "none",
+                                                                          "outputs": [ {
+                                                                                             "address": 34618,
+                                                                                         "description": "selector position",
+                                                                                                "mask": 512,
+                                                                                           "max_value": 1,
+                                                                                            "shift_by": 9,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ],
