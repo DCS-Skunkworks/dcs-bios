@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("A-10C", 0x1000)
 BIOS.protocol.setExportModuleAircrafts({"A-10C", "A-10C_2"})
---overhaul by WarLord
+--overhaul by WarLord v2.0
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 
@@ -696,7 +696,7 @@ definePotentiometer("ENGINE_THROTTLE_FRICTION", 37, 3006, 128, nil, "Throttle", 
 
 definePushButton("ENGINE_TEMS_DATA", 37, 3009, 652, "Landing Gear and Flap Control Panel", "TEMS Data")
 
-defineTumb("LASTE_AP_MODE", 38, 3001, 132, 1, {-1, 1}, nil, false, "LASTE Panel", "AP MODE")
+define3PosTumb("LASTE_AP_MODE", 38, 3001, 132, "LASTE Panel", "AP MODE")
 definePushButton("LASTE_AP_TOGGLE", 38, 3002, 131, "LASTE Panel", "Autopilot Engage/Disengage")
 defineElectricallyHeldSwitch("LASTE_EAC", 38, 3026, 3027, 129, "LASTE Panel", "EAC On/Off")
 defineToggleSwitch("LASTE_RDR_ALTM", 67, 3001, 130, "LASTE Panel", "Radar Altimeter")
@@ -705,7 +705,7 @@ defineElectricallyHeldSwitch("SASP_YAW_SAS_L", 38, 3003, 3004, 185, "SAS Panel",
 defineElectricallyHeldSwitch("SASP_YAW_SAS_R", 38, 3005, 3006, 186, "SAS Panel", "Yaw SAS Right OFF - ENGAGE")
 defineElectricallyHeldSwitch("SASP_PITCH_SAS_L", 38, 3007, 3008, 187, "SAS Panel", "Pitch SAS Left OFF - ENGAGE")
 defineElectricallyHeldSwitch("SASP_PITCH_SAS_R", 38, 3009, 3010, 188, "SAS Panel", "Pitch SAS Right OFF - ENGAGE")
-defineTumb("SASP_MONITOR_TEST", 38, 3011, 189, 1, {-1, 1}, nil, false, "SAS Panel", "Monitor Test Left/Right")
+define3PosTumb("SASP_MONITOR_TEST", 38, 3011, 189, "SAS Panel", "Monitor Test Left/Right")
 definePushButton("SASP_TO_TRIM", 38, 3012, 190, "SAS Panel", "T/O Trim Button")
 definePotentiometer("SASP_YAW_TRIM", 38, 3013, 192, {-1, 1}, "SAS Panel", "Yaw Trim")
 
@@ -742,13 +742,13 @@ moduleBeingDefined.inputProcessors["EFCP_EMER_TRIM"] = function(args)
 	
 	
 end
-defineTumb("EFCP_AILERON_EMER_DISENGAGE", 38, 3021, 177, 1, {-1, 1}, nil, false, "Emergency Flight Control Panel", "Aileron Emergency Disengage LEFT - OFF - RIGHT")
-defineTumb("EFCP_ELEVATOR_EMER_DISENGAGE", 38, 3022, 180, 1, {-1, 1}, nil, false, "Emergency Flight Control Panel", "Elevator Emergency Disengage LEFT - OFF - RIGHT")
+define3PosTumb("EFCP_AILERON_EMER_DISENGAGE", 38, 3021, 177, "Emergency Flight Control Panel", "Aileron Emergency Disengage LEFT - OFF - RIGHT")
+define3PosTumb("EFCP_ELEVATOR_EMER_DISENGAGE", 38, 3022, 180, "Emergency Flight Control Panel", "Elevator Emergency Disengage LEFT - OFF - RIGHT")
 defineToggleSwitch("EFCP_FLAPS_EMER_RETR", 38, 3023, 183, "Emergency Flight Control Panel", "Flaps Emergency Retract")
 defineToggleSwitch("EFCP_MRFCS", 38, 3024, 184, "Emergency Flight Control Panel", "Manual Reversion Flight Control System MAN REVERSION - NORM")
 
 defineToggleSwitch("EPP_APU_GEN_PWR", 1, 3001, 241, "Electrical Power Panel", "APU GEN PWR")
-defineTumb("EPP_INVERTER", 1, 3002, 242, 1, {-1, 1}, nil, false, "Electrical Power Panel", "Inverter TEST - OFF - STBY")
+define3PosTumb("EPP_INVERTER", 1, 3002, 242, "Electrical Power Panel", "Inverter TEST - OFF - STBY")
 defineToggleSwitch("EPP_AC_GEN_PWR_L", 1, 3004, 244, "Electrical Power Panel", "AC GEN PWR Left")
 defineToggleSwitch("EPP_AC_GEN_PWR_R", 1, 3005, 245, "Electrical Power Panel", "AC GEN PWR Right")
 defineToggleSwitch("EPP_BATTERY_PWR", 1, 3006, 246, "Electrical Power Panel", "Battery Power")
@@ -776,14 +776,14 @@ defineIndicatorLight("NMSP_ILS_LED", 618, "NMSP", "ILS Button LED (green)")
 defineToggleSwitch("NMSP_ABLE_STOW", 46, 3008, 621, "NMSP", "Able/Stow Localizer Bars")
 
 defineTumb("TISL_MODE", 57, 3001, 622, 0.1, {0, 0.4}, nil, false, "TISL Panel", "TISL Mode")
-defineTumb("TISL_SLANT_RANGE", 57, 3002, 623, 1, {-1, 1}, nil, false, "TISL Panel", "Slant Range UNDER 5 - 5 - 10")
+define3PosTumb("TISL_SLANT_RANGE", 57, 3002, 623, "TISL Panel", "Slant Range UNDER 5 - 5 - 10")
 defineTumb("TISL_ALT_10000", 57, 3003, 624, 0.1, {0, 1}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"}, "skiplast", "TISL Panel", "Altitude Above Target, 10000 ft")
 defineTumb("TISL_ALT_1000", 57, 3004, 626, 0.1, {0, 1}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"}, "skiplast", "TISL Panel", "Altitude Above Target, 1000 ft")
 defineTumb("TISL_CODE1", 57, 3005, 636, 0.05, {0, 1}, {"0", "0.5", "1", "1.5", "2", "2.5", "3", "3.5", "4", "4.5", "5", "5.5", "6", "6.5", "7", "7.5", "8", "8.5", "9", "9.5", "0"}, "skiplast", "TISL Panel", "Code Wheel 1")
 defineTumb("TISL_CODE2", 57, 3006, 638, 0.05, {0, 1}, {"0", "0.5", "1", "1.5", "2", "2.5", "3", "3.5", "4", "4.5", "5", "5.5", "6", "6.5", "7", "7.5", "8", "8.5", "9", "9.5", "0"}, "skiplast", "TISL Panel", "Code Wheel 2")
 defineTumb("TISL_CODE3", 57, 3007, 640, 0.05, {0, 1}, {"0", "0.5", "1", "1.5", "2", "2.5", "3", "3.5", "4", "4.5", "5", "5.5", "6", "6.5", "7", "7.5", "8", "8.5", "9", "9.5", "0"}, "skiplast", "TISL Panel", "Code Wheel 3")
 defineTumb("TISL_CODE4", 57, 3008, 642, 0.05, {0, 1}, {"0", "0.5", "1", "1.5", "2", "2.5", "3", "3.5", "4", "4.5", "5", "5.5", "6", "6.5", "7", "7.5", "8", "8.5", "9", "9.5", "0"}, "skiplast", "TISL Panel", "Code Wheel 4")
-defineTumb("TISL_AUX", 57, 3009, 644, 1, {-1, 1}, nil, false, "TISL Panel", "TISL AUX Switch")
+define3PosTumb("TISL_AUX", 57, 3009, 644, "TISL Panel", "TISL AUX Switch")
 definePushButton("TISL_ENTER", 57, 3010, 628, "TISL Panel", "TISL ENTER")
 definePushButton("TISL_BITE", 57, 3011, 632, "TISL Panel", "TISL BITE")
 
@@ -795,14 +795,14 @@ defineToggleSwitch("GND_SAFE_OVERRIDE_COVER", 12, 3002, 709, "Misc", "Ground Saf
 defineToggleSwitch("GND_SAFE_OVERRIDE", 12, 3003, 710, "Misc", "Ground Safety Override")
 
 defineFixedStepTumb("IFF_CODE", 43, 3007, 199, 0.1, {0, 0.3}, {1, -1}, nil, "IFF", "IFF Code: ZERO - B - A - (HOLD)")
-defineTumb("IFF_MASTER", 43, 3008, 200, 0.1, {0, 0.4}, nil, true, "IFF", "IFF Master: OFF - STBY - LOW - NORM - EMER")
+defineTumb("IFF_MASTER", 43, 3008, 200, 0.1, {0, 0.4}, nil, false, "IFF", "IFF Master: OFF - STBY - LOW - NORM - EMER")
 define3PosTumb("IFF_OUT_AUDIO_LIGHT", 43, 3009, 201, "IFF", "IFF Out: LIGHT - OFF - AUDIO")
-defineTumb("IFF_TEST_M1", 43, 3010, 202, 1, {-1, 1}, nil, true, "IFF", "Test M-1")
-defineTumb("IFF_TEST_M2", 43, 3011, 203, 1, {-1, 1}, nil, true, "IFF", "Test M-2")
-defineTumb("IFF_TEST_M3", 43, 3012, 204, 1, {-1, 1}, nil, true, "IFF", "Test M-3")
-defineTumb("IFF_TEST_M4", 43, 3013, 205, 1, {-1, 1}, nil, true, "IFF", "Test M-4")
-defineTumb("IFF_RADTEST", 43, 3014, 206, 1, {-1, 1}, nil, true, "IFF", "RAD Test/Mon")
-defineTumb("IFF_MIC_IDENT", 43, 3015, 207, 1, {-1, 1}, nil, true, "IFF", "Ident/Mic")
+define3PosTumb("IFF_TEST_M1", 43, 3010, 202, "IFF", "Test M-1")
+define3PosTumb("IFF_TEST_M2", 43, 3011, 203, "IFF", "Test M-2")
+define3PosTumb("IFF_TEST_M3", 43, 3012, 204, "IFF", "Test M-3")
+define3PosTumb("IFF_TEST_M4", 43, 3013, 205, "IFF", "Test M-4")
+define3PosTumb("IFF_RADTEST", 43, 3014, 206, "IFF", "RAD Test/Mon")
+define3PosTumb("IFF_MIC_IDENT", 43, 3015, 207, "IFF", "Ident/Mic")
 defineToggleSwitch("IFF_ON_OUT", 43, 3016, 208, "IFF", "IFF On/Out")
 defineTumb("IFF_MODE1_WHEEL1", 43, 3001, 209, 0.1, {0, 0.7}, nil, true, "IFF", "Mode-1 Wheel 1")
 defineTumb("IFF_MODE1_WHEEL2", 43, 3002, 210, 0.1, {0, 0.3}, nil, true, "IFF", "Mode-1 Wheel 2")
@@ -815,7 +815,7 @@ definePotentiometer("IFF_REPLY_DIM", 43, 3020, 900, {0, 1}, "IFF", "IFF Reply Di
 definePushButton("IFF_TEST_TEST", 43, 3018, 796, "IFF", "TEST Push to Test")
 definePotentiometer("IFF_TEST_DIM", 43, 3021, 901, {0, 1}, "IFF", "TEST Reply Dim")
 
-defineTumb("OXY_EMERGENCY", 40, 3003, 601, 1, {-1, 1}, nil, false, "Oxygen Regulator Panel", "Oxygen Flow: Emergency / Normal / Test")
+define3PosTumb("OXY_EMERGENCY", 40, 3003, 601, "Oxygen Regulator Panel", "Oxygen Flow: Emergency / Normal / Test")
 defineToggleSwitch("OXY_DILUTER", 40, 3002, 602, "Oxygen Regulator Panel", "Oxygen Normal/100%")
 defineToggleSwitch("OXY_SUPPLY", 40, 3001, 603, "Oxygen Regulator Panel", "Oxygen Supply On/Off")
 defineFloat("OXY_PRESS", 604, {0, 1}, "Oxygen Regulator Panel", "Oxygen Pressure Indicator")
@@ -889,7 +889,7 @@ end
 defineRotary("ALT_SET_PRESSURE", 35, 3001, 62, "Altimeter", "Set Pressure")
 defineRockerSwitch("ALT_ELECT_PNEU", 62, 3002, 3002, 3001, 3001, 60, "Altimeter", "ELECT / PNEU")
 
-defineTumb("LCP_POSITION", 49, 3008, 287, 1, {-1, 1}, nil, false, "Light System Control Panel", "Position Lights FLASH/OFF/STEADY")
+define3PosTumb("LCP_POSITION", 49, 3008, 287, "Light System Control Panel", "Position Lights FLASH/OFF/STEADY")
 -- skip 3 bits in the memory map to preserve backwards compatibility:
 local dummyAlloc = moduleBeingDefined.memoryMap:allocateInt{ maxValue = 7 }
 definePotentiometer("LCP_FORMATION", 49, 3009, 288, {0, 1}, "Light System Control Panel", "Formation Lights")
@@ -967,7 +967,7 @@ defineTumb("UHF_POINT1MHZ_SEL", 54, 3005, 165, 0.1, {0.0, 0.9}, nil, false, "UHF
 defineTumb("UHF_POINT25_SEL", 54, 3006, 166, 0.1, {0, 0.3}, {"00", "25", "50", "75"}, false, "UHF Radio", "UHF 0.25MHz Selector")
 define3PosTumb1("UHF_MODE", 54, 3007, 167, "UHF Radio", "Frequency Mode Dial MNL/PRESET/GRD")
 defineTumb("UHF_FUNCTION", 54, 3008, 168, 0.1, {0, 0.3}, nil, false, "UHF Radio", "UHF Function Dial OFF/MAIN/BOTH/ADF")
-defineTumb("UHF_T_TONE", 54, 3009, 169, 1, {-1, 1}, nil, false, "UHF Radio", "T-Tone Button")
+define3PosTumb("UHF_T_TONE", 54, 3009, 169, "UHF Radio", "T-Tone Button")
 defineToggleSwitch("UHF_SQUELCH", 54, 3010, 170, "UHF Radio", "Squelch Switch")
 definePotentiometer("UHF_VOL", 54, 3011, 171, {0, 1}, "UHF Radio", "UHF Volume Control")
 definePushButton("UHF_TEST", 54, 3012, 172, "UHF Radio", "Display Test Button")
@@ -985,12 +985,12 @@ moduleBeingDefined.inputProcessors["SET_UHF"] = function(freq)
 	GetDevice(54):set_frequency(freq*1000)
 end
 
-defineTumb("VHFAM_PRESET", 55, 3001, 137, 0.01, {0, 0.19}, {" 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"}, false, "VHF AM Radio", "Preset Channel Selector")
+defineRadioWheel("VHFAM_PRESET", 55, 3001, 3001, {-0.01, 0.01}, 137, 0.01, {0, 0.20}, {" 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"}, "VHF AM Radio", "Preset Channel Selector")
 defineMultipositionSwitch("VHFAM_MODE", 55, 3003, 138, 3, 0.1, "VHF AM Radio", "Mode OFF/TR/DF")
 defineMultipositionSwitch("VHFAM_FREQEMER", 55, 3004, 135, 4, 0.1, "VHF AM Radio", "Frequency Selection Dial FM/AM/MAN/PRE")
 definePotentiometer("VHFAM_VOL", 55, 3005, 133, {0, 1}, "VHF AM Radio", "VHF AM Volume Control")
 definePushButton("VHFAM_LOAD", 55, 3006, 136, "VHF AM Radio", "Load Button")
-defineTumb("VHFAM_SQUELCH", 55, 3007, 134, 1, {-1, 1}, nil, false, "VHF AM Radio", "Squelch")
+define3PosTumb("VHFAM_SQUELCH", 55, 3007, 134, "VHF AM Radio", "Squelch")
 defineRadioWheel("VHFAM_FREQ1", 55, 3009, 3010, {-0.1, 0.1}, 143, 0.05, {0.15, 0.80}, {" 3", " 4", " 5", " 6", " 7", " 8", " 9", "10", "11", "12", "13", "14", "15"}, "VHF AM Radio", "Frequency Selector 1")
 defineRadioWheel("VHFAM_FREQ2", 55, 3011, 3012, {-0.1, 0.1}, 144, 0.1, {0, 1}, nil, "VHF AM Radio", "Frequency Selector 2")
 defineRadioWheel("VHFAM_FREQ3", 55, 3013, 3014, {-0.1, 0.1}, 145, 0.1, {0, 1}, nil, "VHF AM Radio", "Frequency Selector 3")
@@ -1004,12 +1004,12 @@ moduleBeingDefined.inputProcessors["SET_VHF_AM"] = function(freq)
 	GetDevice(55):set_frequency(freq*1000)
 end
 
-defineTumb("VHFFM_PRESET", 56, 3001, 151, 0.01, {0, 0.19}, {" 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"}, false, "VHF FM Radio", "Preset Channel Selector")
+defineRadioWheel("VHFFM_PRESET", 56, 3001, 3001, {-0.01, 0.01}, 151, 0.01, {0, 0.20}, {" 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"}, "VHF FM Radio", "Preset Channel Selector")
 defineMultipositionSwitch("VHFFM_MODE", 56, 3003, 152, 3, 0.1, "VHF FM Radio", "Mode OFF/TR/DF")
 defineMultipositionSwitch("VHFFM_FREQEMER", 56, 3004, 149, 4, 0.1, "VHF FM Radio", "Frequency Selection Dial FM/AM/MAN/PRE")
 definePotentiometer("VHFFM_VOL", 56, 3005, 147, {0, 1}, "VHF FM Radio", "VHF FM Volume Control")
 definePushButton("VHFFM_LOAD", 56, 3006, 150, "VHF FM Radio", "Load Button")
-defineTumb("VHFFM_SQUELCH", 56, 3007, 148, 1, {-1, 1}, nil, false, "VHF FM Radio", "Squelch")
+define3PosTumb("VHFFM_SQUELCH", 56, 3007, 148, "VHF FM Radio", "Squelch")
 defineRadioWheel("VHFFM_FREQ1", 56, 3009, 3010, {-0.1, 0.1}, 157, 0.05, {0.15, 0.80}, {" 3", " 4", " 5", " 6", " 7", " 8", " 9", "10", "11", "12", "13", "14", "15"}, "VHF FM Radio", "Frequency Selector 1")
 defineRadioWheel("VHFFM_FREQ2", 56, 3011, 3012, {-0.1, 0.1}, 158, 0.1, {0, 1}, nil, "VHF FM Radio", "Frequency Selector 2")
 defineRadioWheel("VHFFM_FREQ3", 56, 3013, 3014, {-0.1, 0.1}, 159, 0.1, {0, 1}, nil, "VHF FM Radio", "Frequency Selector 3")
@@ -1284,10 +1284,10 @@ definePotentiometer("UHF5", 54, 3016, 555, {0, 1}, "UHF Radio", "UHF-5")
 definePotentiometer("UHF6", 54, 3017, 556, {0, 1}, "UHF Radio", "UHF-6")
 definePotentiometer("UHF7", 54, 3018, 557, {0, 1}, "UHF Radio", "UHF-7")
 definePotentiometer("UHF8", 54, 3019, 558, {0, 1}, "UHF Radio", "UHF-8")
-defineFloat("INTERNAL_CONSOLE_LIGHTS", 800, {0, 1}, "zAdditional Parameters", "Console Lights")
-defineFloat("INTERNAL_ENG_INST_LIGHTS", 801, {0, 1}, "zAdditional Parameters", "Engine Instrument Lights")
-defineFloat("INTERNAL_FLT_INST_LIGHTS", 802, {0, 1}, "zAdditional Parameters", "Flight Instruments Lights")
-defineFloat("INTERNAL_AUX_INST_LIGHTS", 803, {0, 1}, "zAdditional Parameters", "Auxiliary Instruments Lights")
-defineFloat("INTERNAL_FLOOD_LIGHTS", 806, {0, 1}, "zAdditional Parameters", "Flood Lights")
+defineFloat("INTERNAL_CONSOLE_LIGHTS", 800, {0, 1}, "Light System Control Panel", "Console Lights")
+defineFloat("INTERNAL_ENG_INST_LIGHTS", 801, {0, 1}, "Light System Control Panel", "Engine Instrument Lights")
+defineFloat("INTERNAL_FLT_INST_LIGHTS", 802, {0, 1}, "Light System Control Panel", "Flight Instruments Lights")
+defineFloat("INTERNAL_AUX_INST_LIGHTS", 803, {0, 1}, "Light System Control Panel", "Auxiliary Instruments Lights")
+defineFloat("INTERNAL_FLOOD_LIGHTS", 806, {0, 1}, "Light System Control Panel", "Flood Lights")
 
 BIOS.protocol.endModule()
