@@ -1,4 +1,4 @@
--- Last Change 31.03.2022
+--02.07.2022
 BIOS.util = {}
 
 function BIOS.util.log2(n)
@@ -887,7 +887,6 @@ function BIOS.util.defineRockerSwitch(msg, device_id, pos_command, pos_stop_comm
 		momentary_positions = "first_and_last",
 		physical_variant = "rocker_switch",
 		inputs = {
-		    { interface = "fixed_step", description = "switch to previous or next state" },
 			{ interface = "set_state", max_value = 2, description = "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up" },
 		},
 		outputs = {
@@ -1297,7 +1296,8 @@ function BIOS.util.defineSpringloaded_3_pos_tumb(msg, device_id, downSwitch, upS
 		description = description,
 		control_type = "3Pos_2Command_Switch_OpenClose",
 		inputs = {
-			{ interface = "set_state", max_value = 2, description = "set the switch position" }
+			{ interface = "set_state", max_value = 2, description = "set the switch position" },
+			--{ interface = "fixed_step", description = "switch to previous or next state" },
 		},
 		outputs = {
 			{ ["type"] = "integer",
