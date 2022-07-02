@@ -7993,260 +7993,550 @@
                                                                 }
                                  },
                      "PLT CMWS": {
-                                          "PLT_CMWS_ARM": {
+                                      "PLT_CMWS_AFT_LEFT_BRT_L": {
                                                                          "category": "PLT CMWS",
-                                                                     "control_type": "selector",
-                                                                      "description": "Pilot CMWS Flare Squibs Switch, ARM/SAFE",
-                                                                       "identifier": "PLT_CMWS_ARM",
-                                                                           "inputs": [ {
-                                                                                         "description": "switch to previous or next state",
-                                                                                           "interface": "fixed_step"
-                                                                                     }, {
-                                                                                         "description": "set position",
-                                                                                           "interface": "set_state",
-                                                                                           "max_value": 1
-                                                                                     }, {
-                                                                                            "argument": "TOGGLE",
-                                                                                         "description": "Toggle switch state",
-                                                                                           "interface": "action"
-                                                                                     } ],
-                                                              "momentary_positions": "none",
+                                                                     "control_type": "metadata",
+                                                                      "description": "Aft left sector lights, bright (orange)",
+                                                                       "identifier": "PLT_CMWS_AFT_LEFT_BRT_L",
+                                                                           "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 34578,
-                                                                                         "description": "selector position",
-                                                                                                "mask": 32,
+                                                                                             "address": 34618,
+                                                                                         "description": "Aft left sector lights, bright (orange)",
+                                                                                                "mask": 32768,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 5,
+                                                                                            "shift_by": 15,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
-                                                                                     } ],
-                                                                 "physical_variant": "toggle_switch"
-                                                          },
-                                       "PLT_CMWS_BYPASS": {
+                                                                                     } ]
+                                                                 },
+                                      "PLT_CMWS_AFT_LEFT_DIM_L": {
                                                                          "category": "PLT CMWS",
-                                                                     "control_type": "selector",
-                                                                      "description": "Pilot CMWS Operation Switch, BYPASS/AUTO",
-                                                                       "identifier": "PLT_CMWS_BYPASS",
-                                                                           "inputs": [ {
-                                                                                         "description": "switch to previous or next state",
-                                                                                           "interface": "fixed_step"
-                                                                                     }, {
-                                                                                         "description": "set position",
-                                                                                           "interface": "set_state",
-                                                                                           "max_value": 1
-                                                                                     }, {
-                                                                                            "argument": "TOGGLE",
-                                                                                         "description": "Toggle switch state",
-                                                                                           "interface": "action"
-                                                                                     } ],
-                                                              "momentary_positions": "none",
+                                                                     "control_type": "metadata",
+                                                                      "description": "Aft left sector lights, dim (orange)",
+                                                                       "identifier": "PLT_CMWS_AFT_LEFT_DIM_L",
+                                                                           "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 34578,
-                                                                                         "description": "selector position",
-                                                                                                "mask": 128,
+                                                                                             "address": 34632,
+                                                                                         "description": "Aft left sector lights, dim (orange)",
+                                                                                                "mask": 2048,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 7,
+                                                                                            "shift_by": 11,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
-                                                                                     } ],
-                                                                 "physical_variant": "toggle_switch"
-                                                          },
-                                         "PLT_CMWS_JETT": {
+                                                                                     } ]
+                                                                 },
+                                     "PLT_CMWS_AFT_RIGHT_BRT_L": {
                                                                          "category": "PLT CMWS",
-                                                                     "control_type": "selector",
-                                                                      "description": "Pilot CMWS Flare Jettison Switch",
-                                                                       "identifier": "PLT_CMWS_JETT",
-                                                                           "inputs": [ {
-                                                                                         "description": "switch to previous or next state",
-                                                                                           "interface": "fixed_step"
-                                                                                     }, {
-                                                                                         "description": "set position",
-                                                                                           "interface": "set_state",
-                                                                                           "max_value": 1
-                                                                                     }, {
-                                                                                            "argument": "TOGGLE",
-                                                                                         "description": "Toggle switch state",
-                                                                                           "interface": "action"
-                                                                                     } ],
-                                                              "momentary_positions": "none",
+                                                                     "control_type": "metadata",
+                                                                      "description": "Aft right sector lights, bright (orange)",
+                                                                       "identifier": "PLT_CMWS_AFT_RIGHT_BRT_L",
+                                                                           "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 34578,
-                                                                                         "description": "selector position",
-                                                                                                "mask": 512,
-                                                                                           "max_value": 1,
-                                                                                            "shift_by": 9,
-                                                                                              "suffix": "",
-                                                                                                "type": "integer"
-                                                                                     } ],
-                                                                 "physical_variant": "toggle_switch"
-                                                          },
-                                     "PLT_CMWS_JETT_CVR": {
-                                                                         "category": "PLT CMWS",
-                                                                     "control_type": "selector",
-                                                                      "description": "Pilot CMWS Flare Jettison Switch Cover, OPEN/CLOSE",
-                                                                       "identifier": "PLT_CMWS_JETT_CVR",
-                                                                           "inputs": [ {
-                                                                                         "description": "switch to previous or next state",
-                                                                                           "interface": "fixed_step"
-                                                                                     }, {
-                                                                                         "description": "set position",
-                                                                                           "interface": "set_state",
-                                                                                           "max_value": 1
-                                                                                     }, {
-                                                                                            "argument": "TOGGLE",
-                                                                                         "description": "Toggle switch state",
-                                                                                           "interface": "action"
-                                                                                     } ],
-                                                              "momentary_positions": "none",
-                                                                          "outputs": [ {
-                                                                                             "address": 34578,
-                                                                                         "description": "selector position",
+                                                                                             "address": 34632,
+                                                                                         "description": "Aft right sector lights, bright (orange)",
                                                                                                 "mask": 256,
                                                                                            "max_value": 1,
                                                                                             "shift_by": 8,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
-                                                                                     } ],
-                                                                 "physical_variant": "toggle_switch"
-                                                          },
-                                         "PLT_CMWS_LAMP": {
-                                                                  "category": "PLT CMWS",
-                                                              "control_type": "limited_dial",
-                                                               "description": "Pilot CMWS Lamp Knob",
-                                                                "identifier": "PLT_CMWS_LAMP",
-                                                                    "inputs": [ {
-                                                                                  "description": "set the position of the dial",
-                                                                                    "interface": "set_state",
-                                                                                    "max_value": 65535
-                                                                              }, {
-                                                                                     "description": "turn the dial left or right",
-                                                                                       "interface": "variable_step",
-                                                                                       "max_value": 65535,
-                                                                                  "suggested_step": 3200
-                                                                              } ],
-                                                                   "outputs": [ {
-                                                                                      "address": 34586,
-                                                                                  "description": "position of the potentiometer",
-                                                                                         "mask": 65535,
-                                                                                    "max_value": 65535,
-                                                                                     "shift_by": 0,
-                                                                                       "suffix": "",
-                                                                                         "type": "integer"
-                                                                              } ]
-                                                          },
-                                         "PLT_CMWS_MODE": {
+                                                                                     } ]
+                                                                 },
+                                     "PLT_CMWS_AFT_RIGHT_DIM_L": {
                                                                          "category": "PLT CMWS",
-                                                                     "control_type": "selector",
-                                                                      "description": "Pilot CMWS Mode Switch, CMWS/NAV",
-                                                                       "identifier": "PLT_CMWS_MODE",
-                                                                           "inputs": [ {
-                                                                                         "description": "switch to previous or next state",
-                                                                                           "interface": "fixed_step"
-                                                                                     }, {
-                                                                                         "description": "set position",
-                                                                                           "interface": "set_state",
-                                                                                           "max_value": 1
-                                                                                     }, {
-                                                                                            "argument": "TOGGLE",
-                                                                                         "description": "Toggle switch state",
-                                                                                           "interface": "action"
-                                                                                     } ],
-                                                              "momentary_positions": "none",
+                                                                     "control_type": "metadata",
+                                                                      "description": "Aft right sector lights, dim (orange)",
+                                                                       "identifier": "PLT_CMWS_AFT_RIGHT_DIM_L",
+                                                                           "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 34578,
-                                                                                         "description": "selector position",
-                                                                                                "mask": 64,
+                                                                                             "address": 34632,
+                                                                                         "description": "Aft right sector lights, dim (orange)",
+                                                                                                "mask": 4096,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 6,
+                                                                                            "shift_by": 12,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
-                                                                                     } ],
-                                                                 "physical_variant": "toggle_switch"
-                                                          },
-                                           "PLT_CMWS_PW": {
+                                                                                     } ]
+                                                                 },
+                                                 "PLT_CMWS_ARM": {
+                                                                                "category": "PLT CMWS",
+                                                                            "control_type": "selector",
+                                                                             "description": "Pilot CMWS Flare Squibs Switch, ARM/SAFE",
+                                                                              "identifier": "PLT_CMWS_ARM",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 1
+                                                                                            }, {
+                                                                                                   "argument": "TOGGLE",
+                                                                                                "description": "Toggle switch state",
+                                                                                                  "interface": "action"
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 34578,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 32,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 5,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "toggle_switch"
+                                                                 },
+                                          "PLT_CMWS_BIT_LINE_1": {
                                                                          "category": "PLT CMWS",
-                                                                     "control_type": "selector",
-                                                                      "description": "Pilot CMWS PWR Switch, OFF/ON",
-                                                                       "identifier": "PLT_CMWS_PW",
-                                                                           "inputs": [ {
-                                                                                         "description": "switch to previous or next state",
-                                                                                           "interface": "fixed_step"
-                                                                                     }, {
-                                                                                         "description": "set position",
-                                                                                           "interface": "set_state",
-                                                                                           "max_value": 1
-                                                                                     }, {
-                                                                                            "argument": "TOGGLE",
-                                                                                         "description": "Toggle switch state",
-                                                                                           "interface": "action"
-                                                                                     } ],
-                                                              "momentary_positions": "none",
+                                                                     "control_type": "display",
+                                                                      "description": "Bit test line 1 ('BIT'/'SYS')",
+                                                                       "identifier": "PLT_CMWS_BIT_LINE_1",
+                                                                           "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 34578,
-                                                                                         "description": "selector position",
-                                                                                                "mask": 8,
+                                                                                             "address": 34640,
+                                                                                         "description": "Bit test line 1 ('BIT'/'SYS')",
+                                                                                          "max_length": 3,
+                                                                                              "suffix": "",
+                                                                                                "type": "string"
+                                                                                     } ]
+                                                                 },
+                                          "PLT_CMWS_BIT_LINE_2": {
+                                                                         "category": "PLT CMWS",
+                                                                     "control_type": "display",
+                                                                      "description": "Bit test line 2 ('I/P'/'PASS')",
+                                                                       "identifier": "PLT_CMWS_BIT_LINE_2",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 34644,
+                                                                                         "description": "Bit test line 2 ('I/P'/'PASS')",
+                                                                                          "max_length": 4,
+                                                                                              "suffix": "",
+                                                                                                "type": "string"
+                                                                                     } ]
+                                                                 },
+                                              "PLT_CMWS_BYPASS": {
+                                                                                "category": "PLT CMWS",
+                                                                            "control_type": "selector",
+                                                                             "description": "Pilot CMWS Operation Switch, BYPASS/AUTO",
+                                                                              "identifier": "PLT_CMWS_BYPASS",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 1
+                                                                                            }, {
+                                                                                                   "argument": "TOGGLE",
+                                                                                                "description": "Toggle switch state",
+                                                                                                  "interface": "action"
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 34578,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 128,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 7,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "toggle_switch"
+                                                                 },
+                                         "PLT_CMWS_CHAFF_COUNT": {
+                                                                         "category": "PLT CMWS",
+                                                                     "control_type": "display",
+                                                                      "description": "Chaff Count",
+                                                                       "identifier": "PLT_CMWS_CHAFF_COUNT",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 34638,
+                                                                                         "description": "Chaff Count",
+                                                                                          "max_length": 2,
+                                                                                              "suffix": "",
+                                                                                                "type": "string"
+                                                                                     } ]
+                                                                 },
+                                        "PLT_CMWS_CHAFF_LETTER": {
+                                                                         "category": "PLT CMWS",
+                                                                     "control_type": "display",
+                                                                      "description": "Chaff Letter (C)",
+                                                                       "identifier": "PLT_CMWS_CHAFF_LETTER",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 34636,
+                                                                                         "description": "Chaff Letter (C)",
+                                                                                          "max_length": 1,
+                                                                                              "suffix": "",
+                                                                                                "type": "string"
+                                                                                     } ]
+                                                                 },
+                                             "PLT_CMWS_D_BRT_L": {
+                                                                         "category": "PLT CMWS",
+                                                                     "control_type": "metadata",
+                                                                      "description": "D light, bright (orange)",
+                                                                       "identifier": "PLT_CMWS_D_BRT_L",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 34618,
+                                                                                         "description": "D light, bright (orange)",
+                                                                                                "mask": 4096,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 3,
+                                                                                            "shift_by": 12,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
-                                                                                     } ],
-                                                                 "physical_variant": "limited_rotary"
-                                                          },
-                                      "PLT_CMWS_PW_TEST": {
-                                                                      "api_variant": "momentary_last_position",
+                                                                                     } ]
+                                                                 },
+                                             "PLT_CMWS_D_DIM_L": {
                                                                          "category": "PLT CMWS",
-                                                                     "control_type": "selector",
-                                                                      "description": "Pilot CMWS PWR Switch, TEST",
-                                                                       "identifier": "PLT_CMWS_PW_TEST",
-                                                                           "inputs": [ {
-                                                                                         "description": "switch to previous or next state",
-                                                                                           "interface": "fixed_step"
-                                                                                     }, {
-                                                                                         "description": "set position",
-                                                                                           "interface": "set_state",
-                                                                                           "max_value": 1
-                                                                                     }, {
-                                                                                            "argument": "TOGGLE",
-                                                                                         "description": "Toggle switch state",
-                                                                                           "interface": "action"
-                                                                                     } ],
-                                                              "momentary_positions": "none",
+                                                                     "control_type": "metadata",
+                                                                      "description": "D light, dim (orange)",
+                                                                       "identifier": "PLT_CMWS_D_DIM_L",
+                                                                           "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 34578,
-                                                                                         "description": "selector position",
-                                                                                                "mask": 16,
+                                                                                             "address": 34618,
+                                                                                         "description": "D light, dim (orange)",
+                                                                                                "mask": 8192,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 4,
+                                                                                            "shift_by": 13,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                         "PLT_CMWS_FLARE_COUNT": {
+                                                                         "category": "PLT CMWS",
+                                                                     "control_type": "display",
+                                                                      "description": "Flare Count",
+                                                                       "identifier": "PLT_CMWS_FLARE_COUNT",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 34634,
+                                                                                         "description": "Flare Count",
+                                                                                          "max_length": 2,
+                                                                                              "suffix": "",
+                                                                                                "type": "string"
+                                                                                     } ]
+                                                                 },
+                                        "PLT_CMWS_FLARE_LETTER": {
+                                                                         "category": "PLT CMWS",
+                                                                     "control_type": "display",
+                                                                      "description": "Flare Letter (F)",
+                                                                       "identifier": "PLT_CMWS_FLARE_LETTER",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 34632,
+                                                                                         "description": "Flare Letter (F)",
+                                                                                          "max_length": 1,
+                                                                                              "suffix": "",
+                                                                                                "type": "string"
+                                                                                     } ]
+                                                                 },
+                                      "PLT_CMWS_FWD_LEFT_BRT_L": {
+                                                                         "category": "PLT CMWS",
+                                                                     "control_type": "metadata",
+                                                                      "description": "Forward left sector lights, bright (orange)",
+                                                                       "identifier": "PLT_CMWS_FWD_LEFT_BRT_L",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 34618,
+                                                                                         "description": "Forward left sector lights, bright (orange)",
+                                                                                                "mask": 16384,
+                                                                                           "max_value": 1,
+                                                                                            "shift_by": 14,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                      "PLT_CMWS_FWD_LEFT_DIM_L": {
+                                                                         "category": "PLT CMWS",
+                                                                     "control_type": "metadata",
+                                                                      "description": "Forward left sector lights, dim (orange)",
+                                                                       "identifier": "PLT_CMWS_FWD_LEFT_DIM_L",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 34632,
+                                                                                         "description": "Forward left sector lights, dim (orange)",
+                                                                                                "mask": 1024,
+                                                                                           "max_value": 1,
+                                                                                            "shift_by": 10,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                     "PLT_CMWS_FWD_RIGHT_BRT_L": {
+                                                                         "category": "PLT CMWS",
+                                                                     "control_type": "metadata",
+                                                                      "description": "Forward right sector lights, bright (orange)",
+                                                                       "identifier": "PLT_CMWS_FWD_RIGHT_BRT_L",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 34632,
+                                                                                         "description": "Forward right sector lights, bright (orange)",
+                                                                                                "mask": 512,
+                                                                                           "max_value": 1,
+                                                                                            "shift_by": 9,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                     "PLT_CMWS_FWD_RIGHT_DIM_L": {
+                                                                         "category": "PLT CMWS",
+                                                                     "control_type": "metadata",
+                                                                      "description": "Forward right sector lights, dim (orange)",
+                                                                       "identifier": "PLT_CMWS_FWD_RIGHT_DIM_L",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 34632,
+                                                                                         "description": "Forward right sector lights, dim (orange)",
+                                                                                                "mask": 8192,
+                                                                                           "max_value": 1,
+                                                                                            "shift_by": 13,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                                "PLT_CMWS_JETT": {
+                                                                                "category": "PLT CMWS",
+                                                                            "control_type": "selector",
+                                                                             "description": "Pilot CMWS Flare Jettison Switch",
+                                                                              "identifier": "PLT_CMWS_JETT",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 1
+                                                                                            }, {
+                                                                                                   "argument": "TOGGLE",
+                                                                                                "description": "Toggle switch state",
+                                                                                                  "interface": "action"
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 34578,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 512,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 9,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "toggle_switch"
+                                                                 },
+                                            "PLT_CMWS_JETT_CVR": {
+                                                                                "category": "PLT CMWS",
+                                                                            "control_type": "selector",
+                                                                             "description": "Pilot CMWS Flare Jettison Switch Cover, OPEN/CLOSE",
+                                                                              "identifier": "PLT_CMWS_JETT_CVR",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 1
+                                                                                            }, {
+                                                                                                   "argument": "TOGGLE",
+                                                                                                "description": "Toggle switch state",
+                                                                                                  "interface": "action"
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 34578,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 256,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 8,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "toggle_switch"
+                                                                 },
+                                                "PLT_CMWS_LAMP": {
+                                                                         "category": "PLT CMWS",
+                                                                     "control_type": "limited_dial",
+                                                                      "description": "Pilot CMWS Lamp Knob",
+                                                                       "identifier": "PLT_CMWS_LAMP",
+                                                                           "inputs": [ {
+                                                                                         "description": "set the position of the dial",
+                                                                                           "interface": "set_state",
+                                                                                           "max_value": 65535
+                                                                                     }, {
+                                                                                            "description": "turn the dial left or right",
+                                                                                              "interface": "variable_step",
+                                                                                              "max_value": 65535,
+                                                                                         "suggested_step": 3200
                                                                                      } ],
-                                                                 "physical_variant": "push_button"
-                                                          },
-                                          "PLT_CMWS_VOL": {
-                                                                  "category": "PLT CMWS",
-                                                              "control_type": "limited_dial",
-                                                               "description": "Pilot CMWS Audio Volume Knob",
-                                                                "identifier": "PLT_CMWS_VOL",
-                                                                    "inputs": [ {
-                                                                                  "description": "set the position of the dial",
-                                                                                    "interface": "set_state",
-                                                                                    "max_value": 65535
-                                                                              }, {
-                                                                                     "description": "turn the dial left or right",
-                                                                                       "interface": "variable_step",
-                                                                                       "max_value": 65535,
-                                                                                  "suggested_step": 3200
-                                                                              } ],
-                                                                   "outputs": [ {
-                                                                                      "address": 34584,
-                                                                                  "description": "position of the potentiometer",
-                                                                                         "mask": 65535,
-                                                                                    "max_value": 65535,
-                                                                                     "shift_by": 0,
-                                                                                       "suffix": "",
-                                                                                         "type": "integer"
-                                                                              } ]
-                                                          }
+                                                                          "outputs": [ {
+                                                                                             "address": 34586,
+                                                                                         "description": "position of the potentiometer",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                                "PLT_CMWS_MODE": {
+                                                                                "category": "PLT CMWS",
+                                                                            "control_type": "selector",
+                                                                             "description": "Pilot CMWS Mode Switch, CMWS/NAV",
+                                                                              "identifier": "PLT_CMWS_MODE",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 1
+                                                                                            }, {
+                                                                                                   "argument": "TOGGLE",
+                                                                                                "description": "Toggle switch state",
+                                                                                                  "interface": "action"
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 34578,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 64,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 6,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "toggle_switch"
+                                                                 },
+                                                "PLT_CMWS_PAGE": {
+                                                                         "category": "PLT CMWS",
+                                                                     "control_type": "display",
+                                                                      "description": "CMWS Display Page (NONE/MAIN/TEST)",
+                                                                       "identifier": "PLT_CMWS_PAGE",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 34628,
+                                                                                         "description": "CMWS Display Page (NONE/MAIN/TEST)",
+                                                                                          "max_length": 4,
+                                                                                              "suffix": "",
+                                                                                                "type": "string"
+                                                                                     } ]
+                                                                 },
+                                                  "PLT_CMWS_PW": {
+                                                                                "category": "PLT CMWS",
+                                                                            "control_type": "selector",
+                                                                             "description": "Pilot CMWS PWR Switch, OFF/ON",
+                                                                              "identifier": "PLT_CMWS_PW",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 1
+                                                                                            }, {
+                                                                                                   "argument": "TOGGLE",
+                                                                                                "description": "Toggle switch state",
+                                                                                                  "interface": "action"
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 34578,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 8,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 3,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "limited_rotary"
+                                                                 },
+                                             "PLT_CMWS_PW_TEST": {
+                                                                             "api_variant": "momentary_last_position",
+                                                                                "category": "PLT CMWS",
+                                                                            "control_type": "selector",
+                                                                             "description": "Pilot CMWS PWR Switch, TEST",
+                                                                              "identifier": "PLT_CMWS_PW_TEST",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 1
+                                                                                            }, {
+                                                                                                   "argument": "TOGGLE",
+                                                                                                "description": "Toggle switch state",
+                                                                                                  "interface": "action"
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 34578,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 16,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 4,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "push_button"
+                                                                 },
+                                             "PLT_CMWS_R_BRT_L": {
+                                                                         "category": "PLT CMWS",
+                                                                     "control_type": "metadata",
+                                                                      "description": "R light, bright (orange)",
+                                                                       "identifier": "PLT_CMWS_R_BRT_L",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 34618,
+                                                                                         "description": "R light, bright (orange)",
+                                                                                                "mask": 1024,
+                                                                                           "max_value": 1,
+                                                                                            "shift_by": 10,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                             "PLT_CMWS_R_DIM_L": {
+                                                                         "category": "PLT CMWS",
+                                                                     "control_type": "metadata",
+                                                                      "description": "R light, dim (orange)",
+                                                                       "identifier": "PLT_CMWS_R_DIM_L",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 34618,
+                                                                                         "description": "R light, dim (orange)",
+                                                                                                "mask": 2048,
+                                                                                           "max_value": 1,
+                                                                                            "shift_by": 11,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                                 "PLT_CMWS_VOL": {
+                                                                         "category": "PLT CMWS",
+                                                                     "control_type": "limited_dial",
+                                                                      "description": "Pilot CMWS Audio Volume Knob",
+                                                                       "identifier": "PLT_CMWS_VOL",
+                                                                           "inputs": [ {
+                                                                                         "description": "set the position of the dial",
+                                                                                           "interface": "set_state",
+                                                                                           "max_value": 65535
+                                                                                     }, {
+                                                                                            "description": "turn the dial left or right",
+                                                                                              "interface": "variable_step",
+                                                                                              "max_value": 65535,
+                                                                                         "suggested_step": 3200
+                                                                                     } ],
+                                                                          "outputs": [ {
+                                                                                             "address": 34584,
+                                                                                         "description": "position of the potentiometer",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 }
                                  },
                "PLT COMM Panel": {
                                          "PLT_COM_ADF_PW": {

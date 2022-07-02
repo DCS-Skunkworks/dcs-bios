@@ -751,4 +751,123 @@ end, 65535, "External Aircraft Model", "Rotor Move")
 defineToggleSwitch("PLT_L_SUNVISOR", 9, 3017, 849, "PLT Cockpit", "Pilot Left Sunvisor")
 defineToggleSwitch("PLT_R_SUNVISOR", 9, 3018, 850, "PLT Cockpit", "Pilot Right Sunvisor")
 
+--CMWS Display
+local flare_letter = ""
+local flare_count = ""
+local chaff_letter = ""
+local chaff_count = ""
+local bit_line_1 = ""
+local bit_line_2 = ""
+local d_light_bright = 0
+local d_light_dim = 0
+local r_light_bright = 0
+local r_light_dim = 0
+
+local fwd_left_sector_brt = 0
+local aft_left_sector_brt = 0
+local aft_right_sector_brt = 0
+local fwd_right_sector_brt = 0
+local fwd_left_sector_dim = 0
+local aft_left_sector_dim = 0
+local aft_right_sector_dim = 0
+local fwd_right_sector_dim = 0
+
+local cmws_page = ""
+
+local function int_for_flag(flag)
+	if flag ~= nil then return 1 else return 0 end
+end
+
+moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
+	local cmws = parse_indication(24)
+
+	flare_letter = ""
+	flare_count = ""
+	chaff_letter = ""
+	chaff_count = ""
+	bit_line_1 = ""
+	bit_line_2 = ""
+	d_light_bright = 0
+	d_light_dim = 0
+	r_light_bright = 0
+	r_light_dim = 0
+	fwd_left_sector_brt = 0
+	aft_left_sector_brt = 0
+	aft_right_sector_brt = 0
+	fwd_right_sector_brt = 0
+	fwd_left_sector_dim = 0
+	aft_left_sector_dim = 0
+	aft_right_sector_dim = 0
+	fwd_right_sector_dim = 0
+	cmws_page = "NONE"
+
+	if cmws == nil then return end
+
+	-- the test page doesn't have numbers these high, and these should always be present on the main page
+	-- there doesn't seem to be a good alternative way to verify the page at the moment.
+	-- additionally, none of the values for the cmws are actually exported with a name at present, so they
+	-- all have to be accessed by this numbering scheme. It's entirely possible this will break in the future.
+	local is_test_page = cmws["#83#"] == nil or cmws["#84#"] == nil or cmws["#85#"] == nil or cmws["#86#"] == nil
+
+	if is_test_page then
+		cmws_page = "TEST"
+		bit_line_1 = coerce_nil_to_string(cmws["#42#"])
+		bit_line_2 = coerce_nil_to_string(cmws["#43#"])
+
+		-- these values are all guesses
+		d_light_dim = int_for_flag(cmws["#45#"])
+		r_light_dim =int_for_flag(cmws["#44#"])
+		fwd_left_sector_dim = int_for_flag(cmws["#8#"])
+		aft_left_sector_dim = int_for_flag(cmws["#7#"])
+		aft_right_sector_dim = int_for_flag(cmws["#6#"])
+		fwd_right_sector_dim = int_for_flag(cmws["#9#"])
+	else
+		cmws_page = "MAIN"
+		flare_letter = coerce_nil_to_string(cmws["#83#"])
+		chaff_letter = coerce_nil_to_string(cmws["#84#"])
+		flare_count = coerce_nil_to_string(cmws["#85#"])
+		chaff_count = coerce_nil_to_string(cmws["#86#"])
+		d_light_bright = int_for_flag(cmws["#88#"])
+		d_light_dim = int_for_flag(cmws["#90#"])
+		r_light_bright = int_for_flag(cmws["#87#"])
+		r_light_dim = int_for_flag(cmws["#89#"])
+
+		fwd_left_sector_brt = int_for_flag(cmws["#8#"])
+		aft_left_sector_brt = int_for_flag(cmws["#7#"])
+		aft_right_sector_brt = int_for_flag(cmws["#6#"])
+		fwd_right_sector_brt = int_for_flag(cmws["#9#"])
+		-- these values are all guesses
+		fwd_left_sector_dim = int_for_flag(cmws["#49#"])
+		aft_left_sector_dim = int_for_flag(cmws["#48#"])
+		aft_right_sector_dim = int_for_flag(cmws["#47#"])
+		fwd_right_sector_dim = int_for_flag(cmws["#50#"])
+	end
+end
+
+-- export the page for utility purposes
+defineString("PLT_CMWS_PAGE", function() return cmws_page end, 4, "PLT CMWS", "CMWS Display Page (NONE/MAIN/TEST)")
+
+-- text lines
+defineString("PLT_CMWS_FLARE_LETTER", function() return flare_letter end, 1, "PLT CMWS", "Flare Letter (F)")
+defineString("PLT_CMWS_FLARE_COUNT", function() return flare_count end, 2, "PLT CMWS", "Flare Count")
+defineString("PLT_CMWS_CHAFF_LETTER", function() return chaff_letter end, 1, "PLT CMWS", "Chaff Letter (C)")
+defineString("PLT_CMWS_CHAFF_COUNT", function() return chaff_count end, 2, "PLT CMWS", "Chaff Count")
+defineString("PLT_CMWS_BIT_LINE_1", function() return bit_line_1 end, 3, "PLT CMWS", "Bit test line 1 ('BIT'/'SYS')")
+defineString("PLT_CMWS_BIT_LINE_2", function() return bit_line_2 end, 4, "PLT CMWS", "Bit test line 2 ('I/P'/'PASS')")
+
+-- symbology lights
+-- when the display is on the lights are in the DIM state, and when they are indicating they are in the BRT state
+defineIntegerFromGetter("PLT_CMWS_R_BRT_L", function() return r_light_bright end, 1, "PLT CMWS", "R light, bright (orange)")
+defineIntegerFromGetter("PLT_CMWS_R_DIM_L", function() return r_light_dim end, 1, "PLT CMWS", "R light, dim (orange)")
+defineIntegerFromGetter("PLT_CMWS_D_BRT_L", function() return d_light_bright end, 1, "PLT CMWS", "D light, bright (orange)")
+defineIntegerFromGetter("PLT_CMWS_D_DIM_L", function() return d_light_dim end, 1, "PLT CMWS", "D light, dim (orange)")
+defineIntegerFromGetter("PLT_CMWS_FWD_LEFT_BRT_L", function() return fwd_left_sector_brt end, 1, "PLT CMWS", "Forward left sector lights, bright (orange)")
+defineIntegerFromGetter("PLT_CMWS_AFT_LEFT_BRT_L", function() return aft_left_sector_brt end, 1, "PLT CMWS", "Aft left sector lights, bright (orange)")
+defineIntegerFromGetter("PLT_CMWS_AFT_RIGHT_BRT_L", function() return aft_right_sector_brt end, 1, "PLT CMWS", "Aft right sector lights, bright (orange)")
+defineIntegerFromGetter("PLT_CMWS_FWD_RIGHT_BRT_L", function() return fwd_right_sector_brt end, 1, "PLT CMWS", "Forward right sector lights, bright (orange)")
+defineIntegerFromGetter("PLT_CMWS_FWD_LEFT_DIM_L", function() return fwd_left_sector_dim end, 1, "PLT CMWS", "Forward left sector lights, dim (orange)")
+defineIntegerFromGetter("PLT_CMWS_AFT_LEFT_DIM_L", function() return aft_left_sector_dim end, 1, "PLT CMWS", "Aft left sector lights, dim (orange)")
+defineIntegerFromGetter("PLT_CMWS_AFT_RIGHT_DIM_L", function() return aft_right_sector_dim end, 1, "PLT CMWS", "Aft right sector lights, dim (orange)")
+defineIntegerFromGetter("PLT_CMWS_FWD_RIGHT_DIM_L", function() return fwd_right_sector_dim end, 1, "PLT CMWS", "Forward right sector lights, dim (orange)")
+
 BIOS.protocol.endModule()
