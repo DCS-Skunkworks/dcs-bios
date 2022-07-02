@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("A-10C", 0x1000)
 BIOS.protocol.setExportModuleAircrafts({"A-10C", "A-10C_2"})
---overhaul by WarLord v2.0
+--overhaul by WarLord v2.0a
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 
@@ -794,7 +794,7 @@ definePushButton("LAMP_TEST_BTN", 24, 3002, 197, "Auxiliary Light Control Panel"
 defineToggleSwitch("GND_SAFE_OVERRIDE_COVER", 12, 3002, 709, "Misc", "Ground Safety Override Switch Cover")
 defineToggleSwitch("GND_SAFE_OVERRIDE", 12, 3003, 710, "Misc", "Ground Safety Override")
 
-defineFixedStepTumb("IFF_CODE", 43, 3007, 199, 0.1, {0, 0.3}, {1, -1}, nil, "IFF", "IFF Code: ZERO - B - A - (HOLD)")
+defineSetCommandTumb("IFF_CODE", 43, 3007, 199, 0.1, {0, 0.3}, nil, false, "1IFF", "IFF Code: ZERO - B - A - (HOLD)")
 defineTumb("IFF_MASTER", 43, 3008, 200, 0.1, {0, 0.4}, nil, false, "IFF", "IFF Master: OFF - STBY - LOW - NORM - EMER")
 define3PosTumb("IFF_OUT_AUDIO_LIGHT", 43, 3009, 201, "IFF", "IFF Out: LIGHT - OFF - AUDIO")
 define3PosTumb("IFF_TEST_M1", 43, 3010, 202, "IFF", "Test M-1")
