@@ -5,8 +5,6 @@ local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document  
 
-local parse_indication = BIOS.util.parse_indication
-
 local defineRotary = BIOS.util.defineRotary
 local defineIndicatorLight = BIOS.util.defineIndicatorLight
 local defineMomentaryRockerSwitch = BIOS.util.defineMomentaryRockerSwitch

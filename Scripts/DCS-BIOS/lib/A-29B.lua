@@ -5,8 +5,6 @@ local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document
 
-local parse_indication = BIOS.util.parse_indication
-
 local defineFloat = BIOS.util.defineFloat
 local define3PosTumb = BIOS.util.define3PosTumb
 local defineIndicatorLight = BIOS.util.defineIndicatorLight

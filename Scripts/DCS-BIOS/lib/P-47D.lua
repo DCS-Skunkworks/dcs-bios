@@ -5,8 +5,6 @@ local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document  
 
-local parse_indication = BIOS.util.parse_indication
-
 local defineFloat = BIOS.util.defineFloat
 local defineIndicatorLight = BIOS.util.defineIndicatorLight
 local definePushButton = BIOS.util.definePushButton
@@ -82,8 +80,8 @@ local function defineIndicatorLightMulti2(msg, arg_number, category, description
 		}
 	}
 end
------------------------------------------ BIOS-Profile 
---Joystick
+
+--Stick
 definePushButton("STICK_MG_TRIGGER", 14, 3001, 53, "Weapons", "Stick MG Trigger")
 definePushButton("STICK_SEC_TRIGGER", 14, 3002, 52, "Weapons", "Stick Secondary & Drop Ordnance Trigger")
 
@@ -258,9 +256,9 @@ defineIndicatorLight("VHF_RADIO_B_L", 121, "Warning, Caution and IndicatorLights
 defineIndicatorLight("VHF_RADIO_C_L", 122, "Warning, Caution and IndicatorLights", "VHF Radio C Light (green)")
 defineIndicatorLight("VHF_RADIO_D_L", 123, "Warning, Caution and IndicatorLights", "VHF Radio D Light (green)")
 defineIndicatorLight("VHF_RADIO_TX_L", 124, "Warning, Caution and IndicatorLights", "VHF Radio TX Light (white)")
---defineIndicatorLightMulti1("L_UV_LAMP_RD", 167, "Warning, Caution and IndicatorLights","Left UV Instruments Lamp (red)")------------------------WIP C5lamp#= 173/174
+--defineIndicatorLightMulti1("L_UV_LAMP_RD", 167, "Warning, Caution and IndicatorLights","Left UV Instruments Lamp (red)")-------WIP C5lamp#= 173/174
 defineIndicatorLightMulti2("L_UV_LAMP_BL", 167, "Warning, Caution and IndicatorLights","Left UV Instruments Lamp (blue)")
---defineIndicatorLightMulti1("R_UV_LAMP_RD", 169, "Warning, Caution and IndicatorLights","Right UV Instruments Lamp (red)") ----------------------WIP
+--defineIndicatorLightMulti1("R_UV_LAMP_RD", 169, "Warning, Caution and IndicatorLights","Right UV Instruments Lamp (red)") -----WIP
 defineIndicatorLightMulti2("R_UV_LAMP_BL", 169, "Warning, Caution and IndicatorLights","Right UV Instruments Lamp (blue)")
 defineIndicatorLight("OXY_LOW_L", 179, "Warning, Caution and IndicatorLights","Oxygen Low Light (red)")
 

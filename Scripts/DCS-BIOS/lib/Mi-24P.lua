@@ -5,8 +5,6 @@ local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document  
 
-local parse_indication = BIOS.util.parse_indication
-
 local defineFixedStepInput = BIOS.util.defineFixedStepInput
 local defineFloat = BIOS.util.defineFloat
 local defineIndicatorLight = BIOS.util.defineIndicatorLight

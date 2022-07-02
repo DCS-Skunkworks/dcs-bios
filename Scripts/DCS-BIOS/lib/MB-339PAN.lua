@@ -5,8 +5,6 @@ local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document
 
-local parse_indication = BIOS.util.parse_indication
-
 local defineIndicatorLight = BIOS.util.defineIndicatorLight
 local definePushButton = BIOS.util.definePushButton
 local definePotentiometer = BIOS.util.definePotentiometer
@@ -46,9 +44,8 @@ defineToggleSwitch("SEAT_FIRE", 3, 10500, 205, "Animations" , "Seat Firing Handl
 --GEAR
 defineToggleSwitch("D_LOCK_OVER", 4, 3131, 379, "Gear" , "DOWN-LOCK OVERRIDE Switch")
 defineToggleSwitch("GEAR_LEVER", 4, 68, 4, "Gear" , "Gear Lever Up/Down")
-defineIndicatorLight("GEAR_IND_LIGHTS", 20, "Gear", "Gear Indicator Lights")
-defineIndicatorLight("GEAR_LEVER_OFF", 42, "Gear", "Gear Lever Light OFF")
-defineIndicatorLight("GEAR_LEVER_ON", 43, "Gear", "Gear Lever Light ON")
+defineIndicatorLight("GEAR_IND_LIGHTS", 20, "Gear", "Gear Indicator Lights (green)")
+defineIndicatorLight("GEAR_LEVER_OFF", 42, "Gear", "Gear Lever Light (red)")
 
 --LIGHTS
 defineToggleSwitch("NAV_L_FLASH", 6, 3141, 41, "Lights" , "NAV Light Flash/Steady Switch")
@@ -163,16 +160,16 @@ defineToggleSwitch("TACAN", 23, 10181, 346, "NAV" , "TACAN On/Off")
 defineToggleSwitch("VOR", 23, 10182, 347, "NAV" , "VOR On/Off")
 defineToggleSwitch("RNAV", 23, 10183, 348, "NAV" , "RNAV On/Off")
 defineToggleSwitch("NAV", 23, 3001, 384, "NAV" , "NAV On/Off")
-defineIndicatorLight("TACAN_LIGHT", 369, "NAV", "TACAN Light")
-defineIndicatorLight("VOR_LIGHT", 370, "NAV", "VOR Light")
-defineIndicatorLight("RNAV_LIGHT", 383, "NAV", "RNAV Light")
-defineIndicatorLight("NAV_LIGHT", 385, "NAV", "NAV Light")
-defineIndicatorLight("FLT_HDG_LIGHT", 339, "NAV", "FLT HDG Light")
-defineIndicatorLight("FLT_GS_ARM_LIGHT", 340, "NAV", "FLT GS ARM Light")
-defineIndicatorLight("FLT_STBY_LIGHT", 341, "NAV", "FLT STBY Light")
-defineIndicatorLight("FLT_RADIO_NAV_LIGHT", 342, "NAV", "FLT RADIO NAV Light")
-defineIndicatorLight("FLT_GS_LIGHT", 343, "NAV", "FLT GS Light")
-defineIndicatorLight("FLT_ALT_HOLD_LIGHT", 344, "NAV", "FLT ALT HOLD Light")
+defineIndicatorLight("TACAN_LIGHT", 369, "NAV Lights", "TACAN Light")
+defineIndicatorLight("VOR_LIGHT", 370, "NAV Lights", "VOR Light")
+defineIndicatorLight("RNAV_LIGHT", 383, "NAV Lights", "RNAV Light")
+defineIndicatorLight("NAV_LIGHT", 385, "NAV Lights", "NAV Light")
+defineIndicatorLight("FLT_HDG_LIGHT", 339, "NAV Lights", "FLT HDG Light")
+defineIndicatorLight("FLT_GS_ARM_LIGHT", 340, "NAV Lights", "FLT GS ARM Light")
+defineIndicatorLight("FLT_STBY_LIGHT", 341, "NAV Lights", "FLT STBY Light")
+defineIndicatorLight("FLT_RADIO_NAV_LIGHT", 342, "NAV Lights", "FLT RADIO NAV Light")
+defineIndicatorLight("FLT_GS_LIGHT", 343, "NAV Lights", "FLT GS Light")
+defineIndicatorLight("FLT_ALT_HOLD_LIGHT", 344, "NAV Lights", "FLT ALT HOLD Light")
 
 --WEAPONS
 defineToggleSwitch("MASTER_ARM", 26, 3014, 475, "Weapons" , "MASTER ARMAMENT Switch")
@@ -192,12 +189,12 @@ defineToggleSwitch("STATION_5", 26, 11224, 492, "Weapons" , "STATION 5 Selector"
 defineToggleSwitch("STATION_6", 26, 11225, 493, "Weapons" , "STATION 6 Selector")
 definePushButton("SALVO_JETTISON", 26, 3015, 473, "Weapons" , "SALVO JETTISON Button")
 definePushButton("SELECT_JETTISON", 26, 3016, 70, "Weapons" , "SELECTIVE JETTISON Button")
-defineIndicatorLight("STATION_1_IND", 496, "Weapons", "STATION 1 Indicator")
-defineIndicatorLight("STATION_2_IND", 497, "Weapons", "STATION 2 Indicator")
-defineIndicatorLight("STATION_3_IND", 498, "Weapons", "STATION 3 Indicator")
-defineIndicatorLight("STATION_4_IND", 499, "Weapons", "STATION 4 Indicator")
-defineIndicatorLight("STATION_5_IND", 500, "Weapons", "STATION 5 Indicator")
-defineIndicatorLight("STATION_6_IND", 501, "Weapons", "STATION 6 Indicator")
+defineIndicatorLight("STATION_1_IND", 496, "Weapons Lights", "STATION 1 Indicator")
+defineIndicatorLight("STATION_2_IND", 497, "Weapons Lights", "STATION 2 Indicator")
+defineIndicatorLight("STATION_3_IND", 498, "Weapons Lights", "STATION 3 Indicator")
+defineIndicatorLight("STATION_4_IND", 499, "Weapons Lights", "STATION 4 Indicator")
+defineIndicatorLight("STATION_5_IND", 500, "Weapons Lights", "STATION 5 Indicator")
+defineIndicatorLight("STATION_6_IND", 501, "Weapons Lights", "STATION 6 Indicator")
 
 --FUEL SYSTEMS
 defineTumb("FUEL_QUANT", 27, 3008, 257, 0.1, {0, 0.4}, nil, false, "Fuel Systems" , "Fuel Quantity Selector Knob")
@@ -307,6 +304,6 @@ defineIntegerFromGetter("EXT_WOW_LEFT", function()
 	if LoGetAircraftDrawArgumentValue(6) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Weight ON Wheels Left Gear")
 
-defineFloat("CANOPY_POS", 181, {0, 1}, "Cockpit", "Canopy Position")
+defineFloat("CANOPY_POS", 181, {0, 1}, "Canopy", "Canopy Position")
 
 BIOS.protocol.endModule()

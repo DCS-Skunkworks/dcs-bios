@@ -5,8 +5,6 @@ local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document
 
-local parse_indication = BIOS.util.parse_indication
-
 local defineFloat = BIOS.util.defineFloat
 local defineIndicatorLight = BIOS.util.defineIndicatorLight
 local definePushButton = BIOS.util.definePushButton
@@ -24,7 +22,7 @@ local defineRadioWheel = BIOS.util.defineRadioWheel
 
 -- remove Arg# Pilot 1000 / Instructor 1002 / Hide Stick Front 309 Back 312
 
---================================================================ COMMON COCKPIT ==================================================================
+--======== COMMON COCKPIT ========
 -- Electrical Panel
 defineToggleSwitch("FRONT_BATT_MASTER_SW", 1, 3001, 315, "Electrical Panel", "FRONT Battery Master Switch")
 defineToggleSwitch("FRONT_L_BATT_ISO_COVER", 1, 3002, 324, "Electrical Panel", "FRONT Left Battery Isolation Cover")
@@ -370,7 +368,7 @@ defineIntegerFromGetter("EXT_WOW_LEFT", function()
 	if LoGetAircraftDrawArgumentValue(6) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Weight ON Wheels Left Gear")
 
---------------------------------------- FORWARD COCKPIT ONLY FUNCTIONS ------------------------------------
+--------------------------------------- FORWARD COCKPIT ONLY FUNCTIONS
 -- PRESSURIZATION/AIRCON SYSTEM 
 defineMultipositionSwitch("FRONT_AIR_COND_MASTER", 1, 3120, 419, 3, 0.5,"Aircon System" ,"FRONT Air-Conditioning Master Switch")
 defineToggleSwitch("FRONT_AIR_FLOW_MODE", 1, 3121, 420, "Aircon System", "FRONT Air Flow Mode")
@@ -412,7 +410,7 @@ defineToggleSwitch("FRONT_PITCH_TRIM_TONE_MUTE", 1, 3236, 196, "Misc", "FRONT Pi
 definePushButton("FRONT_ANTI_RAIN", 1, 3222, 314, "Misc", "FRONT Anti-Rain Fluid")
 
 
---------------------------------------- REAR COCKPIT ONLY FUNCTIONS ---------------------------------------
+--------------------------------------- REAR COCKPIT ONLY FUNCTIONS
 -- OXYGEN SYSTEM 
 defineToggleSwitch("BACK_OXY_PRESS_WARN_SW", 1, 3527, 1196, "Misc", "BACK Oxygen Pressure Warning Switch")
 
@@ -424,7 +422,7 @@ defineToggleSwitch("BACK_EJECT_PRIO_LEVER", 1, 3691, 1182, "Misc", "BACK Ejectio
 definePotentiometer("BACK_STORAGE_BOX", 1, 3522, 299, {0, 1}, "Misc", "BACK Storage Box Cover")
 definePotentiometer("BACK_IFR_HOOD", 1, 3557, 256, {0, 1}, "Misc", "BACK IFR Hood (Equip via ME)")
 
---================================================================ C-101CC COCKPIT ==================================================================
+--======== C-101CC COCKPIT ========
 -- MANUAL POWER RESERVE (MPR)
 definePushButton("CC_FRONT_MRP_LAMP_TEST_BTN", 1, 3702, 1312, "MRP", "C-101CC FRONT MPR Lamp Test Button")
 definePotentiometer("CC_FRONT_MRP_LAMP_TEST_KNB", 1, 3704, 1313, {0, 1}, "MRP", "C-101CC FRONT MPR Lamp Test Knob")
@@ -565,7 +563,7 @@ defineIndicatorLight("CC_FRONT_MRP_LAMP", 1314, "Warning, Caution and IndicatorL
 defineIndicatorLight("CC_BACK_MRP_LAMP", 1319, "Warning, Caution and IndicatorLights","C-101CC BACK MPR Lamp (yellow)")
 defineIndicatorLight("CC_FRONT_TELEBRIEFING_LAMP", 719, "Warning, Caution and IndicatorLights","C-101CC FRONT Telebriefing Lamp (yellow)")
 
---------------------------------------- FORWARD COCKPIT ONLY FUNCTIONS ------------------------------------
+--------------------------------------- FORWARD COCKPIT ONLY FUNCTIONS
 -- SCAR CONTROL UNIT 
 defineToggleSwitch("CC_FRONT_SCAR_MASTER_MODE_COVER", 1,3254,690, "SCAR", "C-101CC FRONT SCAR Master Mode Cover")
 defineMultipositionSwitch("CC_FRONT_SCAR_MASTER_MODE", 1,3255,691,3,0.5,"SCAR" ,"C-101CC FRONT SCAR Master Mode")
@@ -654,14 +652,14 @@ defineMultipositionSwitch("CC_FRONT_EMERG_FUEL_LEVER", 1,3354,726,9,0.1,"Misc" ,
 definePushButton("CC_FRONT_TELEBRIEFING_BTN", 1, 3320, 718, "Misc", "C-101CC FRONT Telebriefing Button")
 definePotentiometer("CC_FRONT_TELEBRIEFING_KNB", 1, 3554, 849, {0, 1}, "Misc", "C-101CC FRONT Telebriefing Knob")
 
---------------------------------------- REAR COCKPIT ONLY FUNCTIONS ---------------------------------------
+--------------------------------------- REAR COCKPIT ONLY FUNCTIONS
 -- MISC FUNCTIONS
 defineToggleSwitch("CC_BACK_STALL_WARN_TEST", 1,3606,1208, "Misc", "C-101CC BACK Stall Warning Test")
 defineToggleSwitch("CC_BACK_STALL_WARN_PW", 1,3607,1209, "Misc", "C-101CC BACK Stall Warning Power")
 definePotentiometer("CC_BACK_AOA_ADJ", 1,3653,279, {0, 1}, "Misc", "C-101CC BACK AOA Adjust")
 defineToggleSwitch("CC_BACK_EMERG_PITCH_TRIM", 1,3473,842, "Misc", "C-101CC BACK Emergency Pitch Trim Breaker")	
 
---================================================================ C-101EB COCKPIT ==================================================================
+--======== C-101EB COCKPIT ========
 -- ALTIMETER 
 definePushButton("EB_FRONT_ALT_TAP", 1, 3164, 68, "Altimeter", "C-101EB FRONT Altimeter Tap Glass")
 definePushButton("EB_BACK_ALT_TAP", 1, 3411, 802, "Altimeter", "C-101EB BACK Altimeter Tap Glass")
@@ -776,7 +774,7 @@ definePotentiometer("EB_BACK_ADJ_ADI_PITCH", 1,3600,990, {0, 1}, "Misc", "C-101E
 definePotentiometer("EB_FRONT_HSI_BRIGHT", 1,3161,343, {0, 1}, "Misc", "C-101EB FRONT HSI Digit Brightness")
 definePotentiometer("EB_BACK_HSI_BRIGHT", 1,3443,766, {0, 1}, "Misc", "C-101EB BACK HSI Digit Brightness")
 
---------------------------------------- FORWARD COCKPIT ONLY FUNCTIONS ------------------------------------
+--------------------------------------- FORWARD COCKPIT ONLY FUNCTIONS
 -- TACAN PANEL
 defineRotary("EB_FRONT_TCN_CHAN_10", 12, 3001, 387, "TACAN", "C-101EB FRONT TACAN Channel 00x-12x")
 defineMultipositionSwitch("EB_FRONT_TCN_CHAN_1", 12, 3002, 388,10,0.1,"TACAN" ,"C-101EB FRONT TACAN Channel xx1")
