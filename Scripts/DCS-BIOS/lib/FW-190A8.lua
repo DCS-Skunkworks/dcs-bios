@@ -224,10 +224,10 @@ defineTumb("ROCKET_MAIN_SW",20, 3022, 135, 1, {0, 1}, nil, false, "Weapon Contro
 defineTumb("ROCKET_EMERG_JETT",20, 3024, 140, 1, {0, 1}, nil, false, "Weapon Control", "Rocket Emergency Release")
 defineIndicatorLight("BOMB_3_L",232, "Lamps", "Bomb 3 Lamp (red)")
 defineIndicatorLight("BOMB_4_L",233, "Lamps", "Bomb 4 Lamp (red)")
-defineFloat("PANEL_UL_L", 234, {0, 1}, "Lamps", "Panel Light Upper Left (blue)")
-defineFloat("PANEL_UR_L", 235, {0, 1}, "Lamps", "Panel Light Upper Right (blue)")
-defineFloat("PANEL_LL_L", 236, {0, 1}, "Lamps", "Panel Light Lower Left (blue)")
-defineFloat("PANEL_LR_L", 237, {0, 1}, "Lamps", "Panel Light Lower Right (blue)")
+defineFloat("UVLAMP_UL_L", 234, {0, 1}, "Lamps", "UV Light Upper Left (blue)")
+defineFloat("UVLAMP_UR_L", 235, {0, 1}, "Lamps", "UV Light Upper Right (blue)")
+defineFloat("UVLAMP_LL_L", 236, {0, 1}, "Lamps", "UV Light Lower Left (blue)")
+defineFloat("UVLAMP_LR_L", 237, {0, 1}, "Lamps", "UV Light Lower Right (blue)")
 
 --Externals
 defineIntegerFromGetter("EXT_POSITION_LIGHT_LEFT", function()
