@@ -940,6 +940,6 @@ defineIndicatorLight("LMP_BOMB_SIGHT_R_CRS", 48, "Lamps", " Bomb Sight Course Ri
 defineIndicatorLight("LMP_R863_EMERG", 151, "Lamps", "R-863 Emergency Light (green)")
 defineIndicatorLight("LMP_UPK_CCT_ON", 860, "Lamps", "UPK CCT ON (yellow)")
 defineIndicatorLight("LMP_PKT_CCT_ON", 861, "Lamps", "PKT CCT ON (yellow)")
-defineIndicatorLight("LMP_BOMB_CCT ON", 554, "Lamps", "BOMB CCT ON (yellow)")
+defineIndicatorLight("LMP_BOMB_CCT_ON", 554, "Lamps", "BOMB CCT ON (yellow)")
 
 BIOS.protocol.endModule()
