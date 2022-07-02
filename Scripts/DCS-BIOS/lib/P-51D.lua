@@ -351,7 +351,7 @@ end
 defineIntegerFromGetter("ACCELEROMETER_VALUE", getAccel, 65000,
 "Gauge Values", "Accelerometer")
 
-defineIndicatorLight("WINDSHIELD_OIL", 412, "Damage", "Windshield Oil Splashes (black)")
+defineIndicatorLight("WINDSHIELD_OIL_L", 412, "Damage", "Windshield Oil Splashes (black)")
 defineFloat("WINDSHIELD_CRACKS", 413, {0, 1}, "Damage", "Windshield Crack Holes")
 
 defineIntegerFromGetter("EXT_WOW_TAIL", function()
