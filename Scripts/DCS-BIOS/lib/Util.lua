@@ -1297,7 +1297,6 @@ function BIOS.util.defineSpringloaded_3_pos_tumb(msg, device_id, downSwitch, upS
 		control_type = "3Pos_2Command_Switch_OpenClose",
 		inputs = {
 			{ interface = "set_state", max_value = 2, description = "set the switch position" },
-			--{ interface = "fixed_step", description = "switch to previous or next state" },
 		},
 		outputs = {
 			{ ["type"] = "integer",
