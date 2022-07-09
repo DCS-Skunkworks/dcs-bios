@@ -264,15 +264,12 @@ defineIndicatorLight("OXY_LOW_L", 179, "Warning, Caution and IndicatorLights","O
 
 --Gauges
 defineFloat("CANOPY_POS", 38, {0, 1}, "Cockpit", "Canopy Position")
-
 defineFloat("PANEL_SHAKE_Z", 180, {-0.8, 0.8}, "Cockpit", "Common Panel Shaker (Z Axis)")
 defineFloat("PANEL_SHAKE_Y", 484, {-0.8, 0.8}, "Cockpit", "Common Panel Shaker (Y Axis)")
 defineFloat("PANEL_SHAKE_X", 489, {-0.8, 0.8}, "Cockpit", "Common Panel Shaker (X Axis)")
-
 defineFloat("CLOCK_NEEDLE_H", 4, {0, 1}, "Gauges", "Clock Hours Needle")
 defineFloat("CLOCK_NEEDLE_M", 5, {0, 1}, "Gauges", "Clock Minutes Needle")
 defineFloat("CLOCK_NEEDLE_S", 6, {0, 1}, "Gauges", "Clock Seconds Needle")
-
 defineFloat("SUCTION_GAUGE", 9, {0, 1}, "Gauges", "Suction Gauge")
 defineFloat("MANI_PRESS_GAUGE", 10, {0, 1}, "Gauges", "Manifold Pressur Gauge")
 defineFloat("AIRSPEED_GAUGE", 11, {0, 0.9}, "Gauges", "Airspeed Gauge")
@@ -335,20 +332,16 @@ end, 1, "External Aircraft Model", "Green Recognition Light (green)")
 defineIntegerFromGetter("EXT_RECOC_LIGHT_YE", function()
 	if LoGetAircraftDrawArgumentValue(202) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Amber Recognition Light (yellow)")
-
 defineIntegerFromGetter("EXT_LANDING_LIGHT", function()
 	if LoGetAircraftDrawArgumentValue(208) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Landing Light (white)")
 
-
 defineIntegerFromGetter("EXT_WOW_TAIL", function()
 	if LoGetAircraftDrawArgumentValue(1) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Weight ON Wheels Tail Gear")
-
 defineIntegerFromGetter("EXT_WOW_RIGHT", function()
 	if LoGetAircraftDrawArgumentValue(4) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Weight ON Wheels Right Gear")
-
 defineIntegerFromGetter("EXT_WOW_LEFT", function()
 	if LoGetAircraftDrawArgumentValue(6) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Weight ON Wheels Left Gear")
