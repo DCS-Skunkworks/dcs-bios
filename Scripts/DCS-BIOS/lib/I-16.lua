@@ -18,7 +18,7 @@ local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 defineToggleSwitch("CLOCK_HEAT", 5, 3023, 23, "Electric", "Clock Heat")
 defineToggleSwitch("PITOT_HEAT", 5, 3024, 24, "Electric", "Pitot Heat")
 defineToggleSwitch("NAV_LIGHT", 5, 3025, 25, "Electric", "Nav Light") 
-defineToggleSwitch("ACCU", 5, 3026, 26, "Electric", "Accumulator")
+defineToggleSwitch("ACCU", 5, 3026, 26, "Electric", "Battery")
 defineToggleSwitch("SHUNT", 5, 3027, 27, "Electric", "Shunt")
 defineToggleSwitch("RADIO", 5, 3028, 28, "Electric", "Radio")
 definePushButton("FIRE_TORCH_L", 5, 3030, 30, "Electric" , "Fire Left Torch")
