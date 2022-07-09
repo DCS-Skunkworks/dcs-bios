@@ -2569,9 +2569,6 @@ docdata["FW-190A8"] =
                                                              "description": "Propellor Pitch De/Increase",
                                                               "identifier": "PROP_PITCH",
                                                                   "inputs": [ {
-                                                                                "description": "switch to previous or next state",
-                                                                                  "interface": "fixed_step"
-                                                                            }, {
                                                                                 "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
                                                                                   "interface": "set_state",
                                                                                   "max_value": 2
@@ -4196,70 +4193,6 @@ docdata["FW-190A8"] =
                                                                                     "type": "integer"
                                                                          } ]
                                                      },
-                                       "PANEL_LL_L": {
-                                                             "category": "Lamps",
-                                                         "control_type": "analog_gauge",
-                                                          "description": "Panel Light Lower Left (blue)",
-                                                           "identifier": "PANEL_LL_L",
-                                                               "inputs": [  ],
-                                                              "outputs": [ {
-                                                                                 "address": 14504,
-                                                                             "description": "gauge position",
-                                                                                    "mask": 65535,
-                                                                               "max_value": 65535,
-                                                                                "shift_by": 0,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ]
-                                                     },
-                                       "PANEL_LR_L": {
-                                                             "category": "Lamps",
-                                                         "control_type": "analog_gauge",
-                                                          "description": "Panel Light Lower Right (blue)",
-                                                           "identifier": "PANEL_LR_L",
-                                                               "inputs": [  ],
-                                                              "outputs": [ {
-                                                                                 "address": 14506,
-                                                                             "description": "gauge position",
-                                                                                    "mask": 65535,
-                                                                               "max_value": 65535,
-                                                                                "shift_by": 0,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ]
-                                                     },
-                                       "PANEL_UL_L": {
-                                                             "category": "Lamps",
-                                                         "control_type": "analog_gauge",
-                                                          "description": "Panel Light Upper Left (blue)",
-                                                           "identifier": "PANEL_UL_L",
-                                                               "inputs": [  ],
-                                                              "outputs": [ {
-                                                                                 "address": 14500,
-                                                                             "description": "gauge position",
-                                                                                    "mask": 65535,
-                                                                               "max_value": 65535,
-                                                                                "shift_by": 0,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ]
-                                                     },
-                                       "PANEL_UR_L": {
-                                                             "category": "Lamps",
-                                                         "control_type": "analog_gauge",
-                                                          "description": "Panel Light Upper Right (blue)",
-                                                           "identifier": "PANEL_UR_L",
-                                                               "inputs": [  ],
-                                                              "outputs": [ {
-                                                                                 "address": 14502,
-                                                                             "description": "gauge position",
-                                                                                    "mask": 65535,
-                                                                               "max_value": 65535,
-                                                                                "shift_by": 0,
-                                                                                  "suffix": "",
-                                                                                    "type": "integer"
-                                                                         } ]
-                                                     },
                                       "PITOT2_LAMP": {
                                                              "category": "Lamps",
                                                          "control_type": "led",
@@ -4288,6 +4221,70 @@ docdata["FW-190A8"] =
                                                                                     "mask": 4096,
                                                                                "max_value": 1,
                                                                                 "shift_by": 12,
+                                                                                  "suffix": "",
+                                                                                    "type": "integer"
+                                                                         } ]
+                                                     },
+                                      "UVLAMP_LL_L": {
+                                                             "category": "Lamps",
+                                                         "control_type": "analog_gauge",
+                                                          "description": "UV Light Lower Left (blue)",
+                                                           "identifier": "UVLAMP_LL_L",
+                                                               "inputs": [  ],
+                                                              "outputs": [ {
+                                                                                 "address": 14504,
+                                                                             "description": "gauge position",
+                                                                                    "mask": 65535,
+                                                                               "max_value": 65535,
+                                                                                "shift_by": 0,
+                                                                                  "suffix": "",
+                                                                                    "type": "integer"
+                                                                         } ]
+                                                     },
+                                      "UVLAMP_LR_L": {
+                                                             "category": "Lamps",
+                                                         "control_type": "analog_gauge",
+                                                          "description": "UV Light Lower Right (blue)",
+                                                           "identifier": "UVLAMP_LR_L",
+                                                               "inputs": [  ],
+                                                              "outputs": [ {
+                                                                                 "address": 14506,
+                                                                             "description": "gauge position",
+                                                                                    "mask": 65535,
+                                                                               "max_value": 65535,
+                                                                                "shift_by": 0,
+                                                                                  "suffix": "",
+                                                                                    "type": "integer"
+                                                                         } ]
+                                                     },
+                                      "UVLAMP_UL_L": {
+                                                             "category": "Lamps",
+                                                         "control_type": "analog_gauge",
+                                                          "description": "UV Light Upper Left (blue)",
+                                                           "identifier": "UVLAMP_UL_L",
+                                                               "inputs": [  ],
+                                                              "outputs": [ {
+                                                                                 "address": 14500,
+                                                                             "description": "gauge position",
+                                                                                    "mask": 65535,
+                                                                               "max_value": 65535,
+                                                                                "shift_by": 0,
+                                                                                  "suffix": "",
+                                                                                    "type": "integer"
+                                                                         } ]
+                                                     },
+                                      "UVLAMP_UR_L": {
+                                                             "category": "Lamps",
+                                                         "control_type": "analog_gauge",
+                                                          "description": "UV Light Upper Right (blue)",
+                                                           "identifier": "UVLAMP_UR_L",
+                                                               "inputs": [  ],
+                                                              "outputs": [ {
+                                                                                 "address": 14502,
+                                                                             "description": "gauge position",
+                                                                                    "mask": 65535,
+                                                                               "max_value": 65535,
+                                                                                "shift_by": 0,
                                                                                   "suffix": "",
                                                                                     "type": "integer"
                                                                          } ]
