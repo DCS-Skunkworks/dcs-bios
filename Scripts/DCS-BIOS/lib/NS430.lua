@@ -1,5 +1,5 @@
 BIOS.protocol.beginModule("NS430", 0x0600)
-BIOS.protocol.setExportModuleAircrafts({"A-10C", "A-10C_2",	"AJS37", "AV8BNA", "Bf-109K-4", "C-101CC", "C-101EB", "Christen Eagle II", "F-14A-135-GR", "F-14B", "F-16C_50", "F-5E-3", "F-86F Sabre", "FA-18C_hornet", "FW-190A8", "FW-190D9", "I-16", "JF-17", "Ka-50", "L-39C", "L-39ZA", "M-2000C", "Mi-8MT",	"Mi-24P", "MiG-15bis", "MiG-19P",	"MiG-21Bis", "P-47D-30", "P-47D-30bl1", "P-47D-40",	"P-51D", "P-51D-30-NA", "SA342L", "SA342M", "SA342Minigun", "SA342Mistral", "SpitfireLFMkIX", "SpitfireLFMkIXCW", "TF-51D", "UH-1H", "Yak-52"})
+BIOS.protocol.setExportModuleAircrafts({"A-10C", "A-10C_2", "AJS37", "AV8BNA", "Bf-109K-4", "C-101CC", "C-101EB", "Christen Eagle II", "F-14A-135-GR", "F-14B", "F-16C_50", "F-5E-3", "F-86F Sabre", "FA-18C_hornet", "FW-190A8", "FW-190D9", "I-16", "JF-17", "Ka-50", "L-39C", "L-39ZA", "M-2000C", "Mi-8MT",	"Mi-24P", "MiG-15bis", "MiG-19P",	"MiG-21Bis", "P-47D-30", "P-47D-30bl1", "P-47D-40",	"P-51D", "P-51D-30-NA", "SA342L", "SA342M", "SA342Minigun", "SA342Mistral", "SpitfireLFMkIX", "SpitfireLFMkIXCW", "TF-51D", "UH-1H", "Yak-52"})
 -- v2.0 by Celemourn
 local documentation = moduleBeingDefined.documentation
 
