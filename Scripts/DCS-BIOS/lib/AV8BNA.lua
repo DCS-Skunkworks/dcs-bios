@@ -21,7 +21,6 @@ local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 local defineString = BIOS.util.defineString
 local defineRotary = BIOS.util.defineRotary
 
-
 local function defineAV8BCommSelector(msg, device_id, command, arg_delta, arg_number, category, description)
 	moduleBeingDefined.inputProcessors[msg] = function(state)
 		local currentValue = GetDevice(0):get_argument_value(arg_number)
@@ -60,7 +59,6 @@ local function defineAV8BCommSelector(msg, device_id, command, arg_delta, arg_nu
 		}
 	}
 end
-
 
 ---- MAIN INSTRUMENT PANEL:
 --Master Modes Panel (MSC)

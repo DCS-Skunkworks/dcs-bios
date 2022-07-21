@@ -275,7 +275,7 @@ defineToggleSwitch("PLT_D_BATT_L", 1, 3034, 75, "Electric Interface", "PILOT DC 
 defineToggleSwitch("PLT_D_RECT_R", 1, 3043, 65, "Electric Interface", "PILOT DC Right Rectifier switch, ON/OFF")
 defineToggleSwitch("PLT_D_RECT_L", 1, 3040, 62, "Electric Interface", "PILOT DC Left Rectifier switch, ON/OFF")
 defineToggleSwitch("PLT_D_APU", 1, 3046, 66, "Electric Interface", "PILOT DC APU Generator switch, ON/OFF")
-defineMultipositionSwitch("PLT_D_VOLT_KNB", 1, 3055, 69, 10, 1/9, "Electric Interface", "PILOT DC Voltmeter Knob")
+defineMultipositionSwitch("PLT_D_VOLT_KNB", 1, 3055, 69, 10, 0.1, "Electric Interface", "PILOT DC Voltmeter Knob")
 defineToggleSwitch("PLT_D_NET_BATT_CV", 1, 3067, 70, "Electric Interface", "PILOT DC Network to Batteries cover, UP/DOWN")
 defineToggleSwitch("PLT_D_NET_BATT", 1, 3052, 71, "Electric Interface", "PILOT DC Network to Batteries, ON/OFF")
 defineToggleSwitch("PLT_D_GROUND_PW", 1, 3031, 73, "Electric Interface", "PILOT DC Ground Power, ON/OFF")

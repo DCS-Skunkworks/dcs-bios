@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("F-14", 0x1200)
 BIOS.protocol.setExportModuleAircrafts({"F-14B", "F-14A-135-GR"})
---v4.4b by WarLord (aka BlackLibrary), ArturDCS, Matchstick and Bullitt
+--v4.5 by WarLord (aka BlackLibrary), ArturDCS, Matchstick and Bullitt
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 
@@ -1460,7 +1460,7 @@ defineFloat("PLT_COMP_ROLLER1", 702, {0, 1}, "PLT Gauges", "PILOT Compass Roller
 defineFloat("PLT_COMP_ROLLER2", 703, {0, 1}, "PLT Gauges", "PILOT Compass Roller 2")
 defineFloat("PLT_COMP_ROLLER3", 704, {0, 1}, "PLT Gauges", "PILOT Compass Roller 3")
 defineFloat("PLT_CABIN_PRESS", 935, {0, 1}, "PLT Gauges", "PILOT Cabin Pressure Needle")
-defineFloat("PLT_LIQU_OXY_FLAG", 2999, {0, 1}, "PLT Gauges", "PILOT Liquid Oxygen OFF Flag")
+defineFloat("PLT_LIQU_OXY_FLAG", 952, {0, 1}, "PLT Gauges", "PILOT Liquid Oxygen OFF Flag")
 defineFloat("PLT_STDBYAI_PITCH", 3001, {-1, 1}, "PLT Gauges", "PILOT Standby ADI Pitch")
 defineFloat("PLT_STDBYAI_ROLL", 3002, {-1, 1}, "PLT Gauges", "PILOT Standby ADI Roll")
 defineFloat("PLT_AMMO_100", 4060, {0, 1}, "PLT Gauges", "PILOT Ammo 100")
@@ -1717,5 +1717,7 @@ local function getPLTFuelBingo()
     return tonumber(digit1 .. digit2 .. digit3 .. digit4 .. digit5)
 end
 defineIntegerFromGetter("PLT_FUEL_BINGO_DISP", getPLTFuelBingo, 25000, "PLT Gauges", "PILOT Bingo Fuel Display")
+defineFloat("PLT_LIQU_OXY_NEEDLE", 951, {0, 1}, "PLT Gauges", "PILOT Liquid Oxygen Gauge Needle")
+defineIndicatorLight("PLT_LIQU_OXY_FLAG_LIGHT", 952, "Gauges as Light", "PILOT Liquid Oxygen Gauge Flag as Light")
 
 BIOS.protocol.endModule()

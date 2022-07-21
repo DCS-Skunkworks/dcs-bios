@@ -1888,39 +1888,30 @@ defineIndicatorLight("LIGHT_ECM", 102, "Warning, Caution and IndicatorLights", "
 defineIntegerFromGetter("EXT_SPEED_BRAKE_RIGHT", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(182)*65535)
 end, 65535, "External Aircraft Model", "Right Speed Brake")
-
 defineIntegerFromGetter("EXT_SPEED_BRAKE_LEFT", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(184)*65535)
 end, 65535, "External Aircraft Model", "Left Speed Brake")
-
 defineIntegerFromGetter("EXT_FORMATION_LIGHTS", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(200)*65535)
 end, 65535, "External Aircraft Model", "Formation Lights")
-
 defineIntegerFromGetter("EXT_TAIL_LIGHT", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(202)*65535)
 end, 65535, "External Aircraft Model", "Tail Lights")
-
 defineIntegerFromGetter("EXT_POSITION_LIGHTS_WING", function()
 	if LoGetAircraftDrawArgumentValue(190) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Wing Position Lights (L-red; R-green)")
-
 defineIntegerFromGetter("EXT_POSITION_LIGHT_FUSELAGE", function()
 	if LoGetAircraftDrawArgumentValue(191) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Fuselage Position Lights (L-red; R-green;Back-white)")
-
 defineIntegerFromGetter("EXT_STROBE_TAIL", function()
 	if LoGetAircraftDrawArgumentValue(192) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Tail Strobe Light")
-
 defineIntegerFromGetter("EXT_WOW_NOSE", function()
 	if LoGetAircraftDrawArgumentValue(1) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Weight ON Wheels Nose Gear")
-
 defineIntegerFromGetter("EXT_WOW_RIGHT", function()
 	if LoGetAircraftDrawArgumentValue(4) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Weight ON Wheels Right Gear")
-
 defineIntegerFromGetter("EXT_WOW_LEFT", function()
 	if LoGetAircraftDrawArgumentValue(6) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Weight ON Wheels Left Gear")

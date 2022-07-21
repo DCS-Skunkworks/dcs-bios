@@ -38,7 +38,7 @@ defineRotary("GEAR_HANDLE", 3, 3086, 86, "Gear", "Gear Handle")
 defineRotary("FLAPS_HANDLE", 4, 3063, 63, "Flaps", "Flaps Handle")
 
 -- MOTOR
-defineMultipositionSwitch("MAGNETO", 2, 3022, 22, 4, 0.334, "Motor", "Magneto 0/1/2/1+2")
+defineMultipositionSwitch("MAGNETO", 2, 3022, 22, 4, 0.1, "Motor", "Magneto 0/1/2/1+2")
 definePushButton("MOTOR_OFF", 2, 3029, 29, "Motor" , "Motor Shutdown")
 definePushButton("RATCHET", 2, 3033, 33, "Motor" , "Ratchet Relay")
 

@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("A-10C", 0x1000)
 BIOS.protocol.setExportModuleAircrafts({"A-10C", "A-10C_2"})
---overhaul by WarLord v2.0a
+--overhaul by WarLord v2.2
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 
@@ -13,6 +13,8 @@ local definePushButton = BIOS.util.definePushButton
 local definePotentiometer = BIOS.util.definePotentiometer
 local defineRotary = BIOS.util.defineRotary
 local defineSetCommandTumb = BIOS.util.defineSetCommandTumb
+local defineSpringloaded_3_pos_tumb = BIOS.util.defineSpringloaded_3_pos_tumb
+local defineSpringloaded_3_pos_A10_tumb = BIOS.util.defineSpringloaded_3_pos_A10_tumb
 local defineTumb = BIOS.util.defineTumb
 local define3PosTumb = BIOS.util.define3PosTumb
 local defineToggleSwitch = BIOS.util.defineToggleSwitch
@@ -420,7 +422,7 @@ defineRockerSwitch("LMFD_DSP", 2, 3024, 3026, 3025, 3026, 321, "Left MFCD", "DSP
 defineRockerSwitch("LMFD_BRT", 2, 3027, 3029, 3028, 3029, 322, "Left MFCD", "BRT")
 defineRockerSwitch("LMFD_CON", 2, 3030, 3032, 3031, 3032, 323, "Left MFCD", "CON")
 defineRockerSwitch("LMFD_SYM", 2, 3033, 3035, 3034, 3035, 324, "Left MFCD", "SYM")
-defineTumb("LMFD_PWR", 2, 3036, 325, 0.1, {0, 0.2}, nil, false, "Left MFCD", "PWR OFF - NT - DAY")
+define3PosTumb1("LMFD_PWR", 2, 3036, 325, "Left MFCD", "PWR OFF - NT - DAY")
 
 definePushButton("RMFD_01", 3, 3001, 326, "Right MFCD", "OSB 1")
 definePushButton("RMFD_02", 3, 3002, 327, "Right MFCD", "OSB 2")
@@ -447,7 +449,7 @@ defineRockerSwitch("RMFD_DSP", 3, 3024, 3026, 3025, 3026, 347, "Right MFCD", "DS
 defineRockerSwitch("RMFD_BRT", 3, 3027, 3029, 3028, 3029, 348, "Right MFCD", "BRT")
 defineRockerSwitch("RMFD_CON", 3, 3030, 3032, 3031, 3032, 349, "Right MFCD", "CON")
 defineRockerSwitch("RMFD_SYM", 3, 3033, 3035, 3034, 3035, 350, "Right MFCD", "SYM")
-defineTumb("RMFD_PWR", 3, 3036, 351, 0.1, {0, 0.2}, nil, false, "Right MFCD", "PWR OFF - NT - DAY")
+define3PosTumb1("RMFD_PWR", 3, 3036, 351, "Right MFCD", "PWR OFF - NT - DAY")
 
 definePushButton("CMSP_ARW1", 4, 3001, 352, "CMSP", "SET Button 1")
 definePushButton("CMSP_ARW2", 4, 3002, 353, "CMSP", "SET Button 2")
@@ -527,16 +529,16 @@ definePushButton("CMSC_SEP", 5, 3004, 370, "CMSC", "Separate RWR Symbols")
 definePotentiometer("CMSC_BRT", 5, 3006, 367, {0.15, 0.85}, "CMSC", "Adjust Display Brightness")
 definePotentiometer("CMSC_RWR_VOL", 5, 3007, 368, nil, "CMSC", "Adjust RWR Volume")
 
-defineTumb("AHCP_MASTER_ARM", 7, 3001, 375, 0.1, {0, 0.2}, nil, false, "AHCP", "Master Arm TRAIN - SAFE - ARM")
-defineTumb("AHCP_GUNPAC", 7, 3002, 376, 0.1, {0, 0.2}, nil, false, "AHCP", "GUN/PAC GUNARM - SAFE - ARM")
-defineTumb("AHCP_LASER_ARM", 7, 3003, 377, 0.1, {0, 0.2}, nil, false, "AHCP", "Laser Arm TRAIN - SAFE - ARM")
+define3PosTumb1("AHCP_MASTER_ARM", 7, 3001, 375, "AHCP", "Master Arm TRAIN - SAFE - ARM")
+define3PosTumb1("AHCP_GUNPAC", 7, 3002, 376, "AHCP", "GUN/PAC GUNARM - SAFE - ARM")
+define3PosTumb1("AHCP_LASER_ARM", 7, 3003, 377, "AHCP", "Laser Arm TRAIN - SAFE - ARM")
 defineToggleSwitch("AHCP_TGP", 7, 3004, 378, "AHCP", "TGP OFF - ON")
-defineTumb("AHCP_ALT_SCE", 7, 3005, 379, 0.1, {0, 0.2}, nil, false, "AHCP", "Altimeter Source RADAR - DELTA - BARO")
+define3PosTumb1("AHCP_ALT_SCE", 7, 3005, 379, "AHCP", "Altimeter Source RADAR - DELTA - BARO")
 defineToggleSwitch("AHCP_HUD_DAYNIGHT", 7, 3006, 380, "AHCP", "Hud Mode NIGHT - DAY")
 defineToggleSwitch("AHCP_HUD_MODE", 7, 3007, 381, "AHCP", "Hud Mode STBY - NORM")
 defineToggleSwitch("AHCP_CICU", 7, 3008, 382, "AHCP", "CICU OFF - ON")
 defineToggleSwitch("AHCP_JTRS", 7, 3009, 383, "AHCP", "JTRS OFF - ON")
-defineTumb("AHCP_IFFCC", 7, 3010, 384, 0.1, {0, 0.2}, nil, false, "AHCP", "IFFCC OFF - TEST - ON")
+define3PosTumb1("AHCP_IFFCC", 7, 3010, 384, "AHCP", "IFFCC OFF - TEST - ON")
 
 definePushButton("UFC_1", 8, 3001, 385, "UFC", "1")
 definePushButton("UFC_2", 8, 3002, 386, "UFC", "2")
@@ -635,7 +637,7 @@ defineRockerSwitch("CDU_PG", 9, 3062, 3062, 3063, 3063, 463, "CDU", "PG Rocker")
 defineRockerSwitch("CDU_SCROLL", 9, 3064, 3064, 3065, 3065, 469, "CDU", "Scroll Waypoint Names (Blank Rocker)")
 defineRockerSwitch("CDU_DATA", 9, 3066, 3066, 3067, 3067, 472, "CDU", "+/- Rocker")
 
-defineTumb("AAP_STEERPT", 22, 3001, 473, 0.1, {0, 0.2}, nil, false, "AAP", "STEERPT FLTPLAN - MARK - MISSION")
+define3PosTumb1("AAP_STEERPT", 22, 3001, 473, "AAP", "STEERPT FLTPLAN - MARK - MISSION")
 defineRockerSwitch("AAP_STEER", 22, 3003, 3003, 3002, 3002, 474, "AAP", "Toggle Steerpoint")
 defineTumb("AAP_PAGE", 22, 3004, 475, 0.1, {0, 0.3}, nil, false, "AAP", "PAGE OTHER - POSITION - STEER - WAYPT")
 defineToggleSwitch("AAP_CDUPWR", 22, 3005, 476, "AAP", "CDU Power")
@@ -670,7 +672,7 @@ defineString("CLOCK_ETC", getClockETC, 3, "Digital Clock", "Clock ETC display ('
 
 defineToggleSwitch("FSCP_EXT_TANKS_WING", 36, 3001, 106, "Fuel System Control Panel", "External Wing Tanks Boost Pumps")
 defineToggleSwitch("FSCP_EXT_TANKS_FUS", 36, 3002, 107, "Fuel System Control Panel", "External Fuselage Tanks Boost Pumps")
-defineToggleSwitch("FSCP_TK_GATE", 36, 3003, 108, "Fuel System Control Panel", "TK Gate")
+defineToggleSwitch("FSCP_TK_GATE", 36, 3003, 108, "Fuel System Control Panel", "Tank Gate")
 defineToggleSwitch("FSCP_CROSSFEED", 36, 3004, 109, "Fuel System Control Panel", "Crossfeed")
 defineToggleSwitch("FSCP_BOOST_WING_L", 36, 3005, 110, "Fuel System Control Panel", "Boost Pumps Left Wing")
 defineToggleSwitch("FSCP_BOOST_WING_R", 36, 3006, 111, "Fuel System Control Panel", "Boost Pumps Right Wing")
@@ -689,8 +691,8 @@ defineTumb("FQIS_SELECT", 36, 3017, 645, 0.1, {0, 0.4}, nil, false, "Fuel Panel"
 
 defineToggleSwitch("ENGINE_FUEL_FLOW_L", 37, 3001, 122, "Throttle", "Fuel Flow L")
 defineToggleSwitch("ENGINE_FUEL_FLOW_R", 37, 3002, 123, "Throttle", "Fuel Flow R")
-defineRockerSwitch("ENGINE_OPER_L", 37, 3003, 3003, 3007, 3007, 124, "Throttle", "ENG OPER L")
-defineRockerSwitch("ENGINE_OPER_R", 37, 3004, 3004, 3008, 3008, 125, "Throttle", "ENG OPER R")
+defineSpringloaded_3_pos_tumb("ENGINE_OPER_L", 37, 3003, 3007, 124, "Throttle", "ENG OPER L")
+defineSpringloaded_3_pos_tumb("ENGINE_OPER_R", 37, 3004, 3008, 125, "Throttle", "ENG OPER R")
 defineToggleSwitch("ENGINE_APU_START", 37, 3005, 126, "Throttle", "APU START")
 definePotentiometer("ENGINE_THROTTLE_FRICTION", 37, 3006, 128, nil, "Throttle", "Friction Control")
 
@@ -705,7 +707,7 @@ defineElectricallyHeldSwitch("SASP_YAW_SAS_L", 38, 3003, 3004, 185, "SAS Panel",
 defineElectricallyHeldSwitch("SASP_YAW_SAS_R", 38, 3005, 3006, 186, "SAS Panel", "Yaw SAS Right OFF - ENGAGE")
 defineElectricallyHeldSwitch("SASP_PITCH_SAS_L", 38, 3007, 3008, 187, "SAS Panel", "Pitch SAS Left OFF - ENGAGE")
 defineElectricallyHeldSwitch("SASP_PITCH_SAS_R", 38, 3009, 3010, 188, "SAS Panel", "Pitch SAS Right OFF - ENGAGE")
-define3PosTumb("SASP_MONITOR_TEST", 38, 3011, 189, "SAS Panel", "Monitor Test Left/Right")
+defineSpringloaded_3_pos_tumb("SASP_MONITOR_TEST", 38, 3011, 3033, 189, "SAS Panel", "Monitor Test Left/Right")
 definePushButton("SASP_TO_TRIM", 38, 3012, 190, "SAS Panel", "T/O Trim Button")
 definePotentiometer("SASP_YAW_TRIM", 38, 3013, 192, {-1, 1}, "SAS Panel", "Yaw Trim")
 
@@ -748,7 +750,7 @@ defineToggleSwitch("EFCP_FLAPS_EMER_RETR", 38, 3023, 183, "Emergency Flight Cont
 defineToggleSwitch("EFCP_MRFCS", 38, 3024, 184, "Emergency Flight Control Panel", "Manual Reversion Flight Control System MAN REVERSION - NORM")
 
 defineToggleSwitch("EPP_APU_GEN_PWR", 1, 3001, 241, "Electrical Power Panel", "APU GEN PWR")
-define3PosTumb("EPP_INVERTER", 1, 3002, 242, "Electrical Power Panel", "Inverter TEST - OFF - STBY")
+defineSpringloaded_3_pos_tumb("EPP_INVERTER", 1, 3055, 3002, 242, "Electrical Power Panel", "Inverter TEST - OFF - STBY")
 defineToggleSwitch("EPP_AC_GEN_PWR_L", 1, 3004, 244, "Electrical Power Panel", "AC GEN PWR Left")
 defineToggleSwitch("EPP_AC_GEN_PWR_R", 1, 3005, 245, "Electrical Power Panel", "AC GEN PWR Right")
 defineToggleSwitch("EPP_BATTERY_PWR", 1, 3006, 246, "Electrical Power Panel", "Battery Power")
@@ -775,17 +777,17 @@ definePushButton("NMSP_ILS_BTN", 46, 3007, 617, "NMSP", "ILS Button")
 defineIndicatorLight("NMSP_ILS_LED", 618, "NMSP", "ILS Button LED (green)")
 defineToggleSwitch("NMSP_ABLE_STOW", 46, 3008, 621, "NMSP", "Able/Stow Localizer Bars")
 
-defineTumb("TISL_MODE", 57, 3001, 622, 0.1, {0, 0.4}, nil, false, "TISL Panel", "TISL Mode")
-define3PosTumb("TISL_SLANT_RANGE", 57, 3002, 623, "TISL Panel", "Slant Range UNDER 5 - 5 - 10")
-defineTumb("TISL_ALT_10000", 57, 3003, 624, 0.1, {0, 1}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"}, "skiplast", "TISL Panel", "Altitude Above Target, 10000 ft")
-defineTumb("TISL_ALT_1000", 57, 3004, 626, 0.1, {0, 1}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"}, "skiplast", "TISL Panel", "Altitude Above Target, 1000 ft")
-defineTumb("TISL_CODE1", 57, 3005, 636, 0.05, {0, 1}, {"0", "0.5", "1", "1.5", "2", "2.5", "3", "3.5", "4", "4.5", "5", "5.5", "6", "6.5", "7", "7.5", "8", "8.5", "9", "9.5", "0"}, "skiplast", "TISL Panel", "Code Wheel 1")
-defineTumb("TISL_CODE2", 57, 3006, 638, 0.05, {0, 1}, {"0", "0.5", "1", "1.5", "2", "2.5", "3", "3.5", "4", "4.5", "5", "5.5", "6", "6.5", "7", "7.5", "8", "8.5", "9", "9.5", "0"}, "skiplast", "TISL Panel", "Code Wheel 2")
-defineTumb("TISL_CODE3", 57, 3007, 640, 0.05, {0, 1}, {"0", "0.5", "1", "1.5", "2", "2.5", "3", "3.5", "4", "4.5", "5", "5.5", "6", "6.5", "7", "7.5", "8", "8.5", "9", "9.5", "0"}, "skiplast", "TISL Panel", "Code Wheel 3")
-defineTumb("TISL_CODE4", 57, 3008, 642, 0.05, {0, 1}, {"0", "0.5", "1", "1.5", "2", "2.5", "3", "3.5", "4", "4.5", "5", "5.5", "6", "6.5", "7", "7.5", "8", "8.5", "9", "9.5", "0"}, "skiplast", "TISL Panel", "Code Wheel 4")
-define3PosTumb("TISL_AUX", 57, 3009, 644, "TISL Panel", "TISL AUX Switch")
-definePushButton("TISL_ENTER", 57, 3010, 628, "TISL Panel", "TISL ENTER")
-definePushButton("TISL_BITE", 57, 3011, 632, "TISL Panel", "TISL BITE")
+defineTumb("TISL_MODE", 57, 3001, 622, 0.1, {0, 0.4}, nil, false, "TISL Panel", "TISL Mode (only A-10C)")
+define3PosTumb("TISL_SLANT_RANGE", 57, 3002, 623, "TISL Panel", "Slant Range UNDER 5 - 5 - 10(only A-10C)")
+defineTumb("TISL_ALT_10000", 57, 3003, 624, 0.1, {0, 1}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"}, "skiplast", "TISL Panel", "Altitude Above Target, 10000 ft (only A-10C)")
+defineTumb("TISL_ALT_1000", 57, 3004, 626, 0.1, {0, 1}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"}, "skiplast", "TISL Panel", "Altitude Above Target, 1000 ft (only A-10C)")
+defineTumb("TISL_CODE1", 57, 3005, 636, 0.05, {0, 1}, {"0", "0.5", "1", "1.5", "2", "2.5", "3", "3.5", "4", "4.5", "5", "5.5", "6", "6.5", "7", "7.5", "8", "8.5", "9", "9.5", "0"}, "skiplast", "TISL Panel", "Code Wheel 1 (only A-10C)")
+defineTumb("TISL_CODE2", 57, 3006, 638, 0.05, {0, 1}, {"0", "0.5", "1", "1.5", "2", "2.5", "3", "3.5", "4", "4.5", "5", "5.5", "6", "6.5", "7", "7.5", "8", "8.5", "9", "9.5", "0"}, "skiplast", "TISL Panel", "Code Wheel 2 (only A-10C)")
+defineTumb("TISL_CODE3", 57, 3007, 640, 0.05, {0, 1}, {"0", "0.5", "1", "1.5", "2", "2.5", "3", "3.5", "4", "4.5", "5", "5.5", "6", "6.5", "7", "7.5", "8", "8.5", "9", "9.5", "0"}, "skiplast", "TISL Panel", "Code Wheel 3 (only A-10C)")
+defineTumb("TISL_CODE4", 57, 3008, 642, 0.05, {0, 1}, {"0", "0.5", "1", "1.5", "2", "2.5", "3", "3.5", "4", "4.5", "5", "5.5", "6", "6.5", "7", "7.5", "8", "8.5", "9", "9.5", "0"}, "skiplast", "TISL Panel", "Code Wheel 4 (only A-10C)")
+define3PosTumb("TISL_AUX", 57, 3009, 644, "TISL Panel", "TISL AUX Switch (only A-10C)")
+definePushButton("TISL_ENTER", 57, 3010, 628, "TISL Panel", "TISL ENTER (only A-10C)")
+definePushButton("TISL_BITE", 57, 3011, 632, "TISL Panel", "TISL BITE (only A-10C)")
 
 definePushButton("EXT_STORES_JETTISON", 12, 3001, 101, "Glare Shield", "External Stores Jettison Button")
 
@@ -794,15 +796,15 @@ definePushButton("LAMP_TEST_BTN", 24, 3002, 197, "Auxiliary Light Control Panel"
 defineToggleSwitch("GND_SAFE_OVERRIDE_COVER", 12, 3002, 709, "Misc", "Ground Safety Override Switch Cover")
 defineToggleSwitch("GND_SAFE_OVERRIDE", 12, 3003, 710, "Misc", "Ground Safety Override")
 
-defineSetCommandTumb("IFF_CODE", 43, 3007, 199, 0.1, {0, 0.3}, nil, false, "1IFF", "IFF Code: ZERO - B - A - (HOLD)")
+defineSetCommandTumb("IFF_CODE", 43, 3007, 199, 0.1, {0, 0.3}, nil, false, "IFF", "IFF Code: ZERO - B - A - (HOLD)")
 defineTumb("IFF_MASTER", 43, 3008, 200, 0.1, {0, 0.4}, nil, false, "IFF", "IFF Master: OFF - STBY - LOW - NORM - EMER")
 define3PosTumb("IFF_OUT_AUDIO_LIGHT", 43, 3009, 201, "IFF", "IFF Out: LIGHT - OFF - AUDIO")
-define3PosTumb("IFF_TEST_M1", 43, 3010, 202, "IFF", "Test M-1")
-define3PosTumb("IFF_TEST_M2", 43, 3011, 203, "IFF", "Test M-2")
-define3PosTumb("IFF_TEST_M3", 43, 3012, 204, "IFF", "Test M-3")
-define3PosTumb("IFF_TEST_M4", 43, 3013, 205, "IFF", "Test M-4")
-define3PosTumb("IFF_RADTEST", 43, 3014, 206, "IFF", "RAD Test/Mon")
-define3PosTumb("IFF_MIC_IDENT", 43, 3015, 207, "IFF", "Ident/Mic")
+defineRockerSwitch("IFF_TEST_M1", 43, 3010, 3010, 3041, 3041, 202, "IFF", "Test M-1")
+defineRockerSwitch("IFF_TEST_M2", 43, 3011, 3011, 3042, 3042, 203, "IFF", "Test M-2")
+defineRockerSwitch("IFF_TEST_M3", 43, 3012, 3012, 3043, 3043, 204, "IFF", "Test M-3")
+defineRockerSwitch("IFF_TEST_M4", 43, 3013, 3013, 3044, 3044, 205, "IFF", "Test M-4")
+defineRockerSwitch("IFF_RADTEST", 43, 3014, 3014, 3045, 3045, 206, "IFF", "RAD Test/Mon")
+defineRockerSwitch("IFF_MIC_IDENT", 43, 3015, 3015, 3046, 3046, 207, "IFF", "Ident/Mic")
 defineToggleSwitch("IFF_ON_OUT", 43, 3016, 208, "IFF", "IFF On/Out")
 defineTumb("IFF_MODE1_WHEEL1", 43, 3001, 209, 0.1, {0, 0.7}, nil, true, "IFF", "Mode-1 Wheel 1")
 defineTumb("IFF_MODE1_WHEEL2", 43, 3002, 210, 0.1, {0, 0.3}, nil, true, "IFF", "Mode-1 Wheel 2")
@@ -815,7 +817,7 @@ definePotentiometer("IFF_REPLY_DIM", 43, 3020, 900, {0, 1}, "IFF", "IFF Reply Di
 definePushButton("IFF_TEST_TEST", 43, 3018, 796, "IFF", "TEST Push to Test")
 definePotentiometer("IFF_TEST_DIM", 43, 3021, 901, {0, 1}, "IFF", "TEST Reply Dim")
 
-define3PosTumb("OXY_EMERGENCY", 40, 3003, 601, "Oxygen Regulator Panel", "Oxygen Flow: Emergency / Normal / Test")
+defineSpringloaded_3_pos_tumb("OXY_EMERGENCY", 40, 3004, 3003, 601, "Oxygen Regulator Panel", "Oxygen Flow: Emergency / Normal / Test")
 defineToggleSwitch("OXY_DILUTER", 40, 3002, 602, "Oxygen Regulator Panel", "Oxygen Normal/100%")
 defineToggleSwitch("OXY_SUPPLY", 40, 3001, 603, "Oxygen Regulator Panel", "Oxygen Supply On/Off")
 defineFloat("OXY_PRESS", 604, {0, 1}, "Oxygen Regulator Panel", "Oxygen Pressure Indicator")
@@ -887,7 +889,7 @@ end
 
 
 defineRotary("ALT_SET_PRESSURE", 35, 3001, 62, "Altimeter", "Set Pressure")
-defineRockerSwitch("ALT_ELECT_PNEU", 62, 3002, 3002, 3001, 3001, 60, "Altimeter", "ELECT / PNEU")
+defineSpringloaded_3_pos_tumb("ALT_ELECT_PNEU", 62, 3002, 3001, 60, "Altimeter", "ELECT / PNEU")
 
 define3PosTumb("LCP_POSITION", 49, 3008, 287, "Light System Control Panel", "Position Lights FLASH/OFF/STEADY")
 -- skip 3 bits in the memory map to preserve backwards compatibility:
@@ -915,7 +917,7 @@ definePushButton("ALCP_FDBA_TEST", 24, 3004, 198, "Auxiliary Light Control Panel
 defineToggleSwitch("FIRE_LENG_PULL", 50, 3001, 102, "Glare Shield", "Left Engine Fire T-Handle")
 defineToggleSwitch("FIRE_APU_PULL", 50, 3002, 103, "Glare Shield", "APU Fire T-Handle")
 defineToggleSwitch("FIRE_RENG_PULL", 50, 3003, 104, "Glare Shield", "Right Engine Fire T-Handle")
-define3PosTumb1("FIRE_EXT_DISCH", 50, 3004, 105, "Glare Shield", "Fire Extinguisher Discharge Left/Off/Right")
+define3PosTumb("FIRE_EXT_DISCH", 50, 3004, 105, "Glare Shield", "Fire Extinguisher Discharge Left/Off/Right")
 
 defineVariableStepTumb("HSI_CRS_KNOB", 45, 3002, 44, 1.0, "HSI", "Course Select Knob")
 defineVariableStepTumb("HSI_HDG_KNOB", 45, 3001, 45, 1.0, "HSI", "Heading Select Knob")
@@ -1023,8 +1025,8 @@ moduleBeingDefined.inputProcessors["SET_VHF_FM"] = function(freq)
 	GetDevice(56):set_frequency(freq*1000)
 end
 
-defineRockerSwitch("SEAT_ADJUST", 39, 3004, 3004, 3005, 3005, 770, "Misc", "Seat Adjust")
-defineTumb("CANOPY_OPEN", 39, 3007, 712, 0.5, {0, 1}, nil, false, "Misc", "Canopy Open Switch")
+defineSpringloaded_3_pos_tumb("SEAT_ADJUST", 39, 3004, 3005, 770, "Misc", "Seat Adjust")
+defineSpringloaded_3_pos_A10_tumb("CANOPY_OPEN", 39, 3006, 3007, 712, "Misc", "Canopy Open Switch")----
 
 defineToggleSwitch("EMER_BRAKE", 38, 3030, 772, "Misc", "Emergency Brake")
 
@@ -1053,7 +1055,7 @@ definePushButton("INT_CALL", 58, 3020, 240, "Intercom Panel", "Call Button")
 definePushButton("HARS_FAST_ERECT", 44, 3001, 711, "HARS", "HARS Fast Erect Button")
 defineToggleSwitch("HARS_SLAVE_DG", 44, 3002, 270, "HARS", "HARS SLAVE-DG Mode")
 defineToggleSwitch("HARS_NS", 44, 3003, 273, "HARS", "HARS N/S toggle switch")
-define3PosTumb1("HARS_MAGVAR", 44, 3004, 272, "HARS", "HARS MAG VAR")
+define3PosTumb("HARS_MAGVAR", 44, 3004, 272, "HARS", "HARS MAG VAR")
 definePotentiometer("HARS_LATITUDE", 44, 3005, 271, {0, 1}, "HARS", "HARS Latitude Dial")
 definePotentiometer("HARS_HDG", 44, 3007, 268, {0, 1}, "HARS", "HARS Heading")
 definePushButton("HARS_PTS", 44, 3006, 267, "HARS", "HARS Push-to-Sync")
@@ -1277,7 +1279,7 @@ defineFloat("OXY_FLOW_G", 600, {0, 1}, "Oxygen Regulator Panel", "Flow Indicator
 -- Scorpion HMCS
 define3PosTumb("A102_HMCS_PW", 75, 3001, 550, "HMCS Panel", "Scorpion HMCS Power BAT/OFF/ON (A-10C II only)")
 
-defineToggleSwitch("STICK_VIS", 39, 3016, 999, "Misc", "Hide Stick toggle")
+defineToggleSwitch("STICK_HIDE", 39, 3016, 999, "Misc", "Hide Stick toggle")
 
 definePotentiometer("UHF4", 54, 3020, 554, {0, 1}, "UHF Radio", "UHF-4")
 definePotentiometer("UHF5", 54, 3016, 555, {0, 1}, "UHF Radio", "UHF-5")
