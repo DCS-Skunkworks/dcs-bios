@@ -7183,6 +7183,22 @@
                                                                                                     "type": "integer"
                                                                                          } ]
                                                                      },
+                                          "PLT_LIQU_OXY_FLAG_LIGHT": {
+                                                                             "category": "Gauges as Light",
+                                                                         "control_type": "led",
+                                                                          "description": "PILOT Liquid Oxygen Gauge Flag as Light",
+                                                                           "identifier": "PLT_LIQU_OXY_FLAG_LIGHT",
+                                                                               "inputs": [  ],
+                                                                              "outputs": [ {
+                                                                                                 "address": 5240,
+                                                                                             "description": "0 if light is off, 1 if light is on",
+                                                                                                    "mask": 16384,
+                                                                                               "max_value": 1,
+                                                                                                "shift_by": 14,
+                                                                                                  "suffix": "",
+                                                                                                    "type": "integer"
+                                                                                         } ]
+                                                                     },
                                               "PLT_SLATS_IND_LIGHT": {
                                                                              "category": "Gauges as Light",
                                                                          "control_type": "led",
@@ -11823,6 +11839,22 @@
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
                                                                                              "address": 5096,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                          "PLT_LIQU_OXY_NEEDLE": {
+                                                                         "category": "PLT Gauges",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "PILOT Liquid Oxygen Gauge Needle",
+                                                                       "identifier": "PLT_LIQU_OXY_NEEDLE",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 5330,
                                                                                          "description": "gauge position",
                                                                                                 "mask": 65535,
                                                                                            "max_value": 65535,
