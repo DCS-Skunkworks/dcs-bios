@@ -475,10 +475,10 @@ defineIndicatorLight("LIGHT_CMDS_DISP", 376, "Warning, Caution and IndicatorLigh
 defineIndicatorLight("LIGHT_CMDS_RDY", 379, "Warning, Caution and IndicatorLights","CMDS RDY Light (green)")
 
 --Interior lighting
-defineIndicatorLight("LIGHT_CONSLES", 788, "Warning, Caution and IndicatorLights","Consoles Lightning (green)")
-defineIndicatorLight("LIGHT_INST_PNL", 787, "Warning, Caution and IndicatorLights","Instrumen Panel Lightning (green)")
-defineIndicatorLight("LIGHT_CONSLES_FLOOD", 790, "Warning, Caution and IndicatorLights","Consoles Flood Lightning (green)")
-defineIndicatorLight("LIGHT_INST_PNL_FLOOD", 791, "Warning, Caution and IndicatorLights","Instrumen Panel Flood Lightning (green)")
+defineFloat("LIGHT_CONSLES", 788, {0, 1}, "Interior lighting","Consoles Lightning (green)")
+defineFloat("LIGHT_INST_PNL", 787, {0, 1}, "Interior lighting","Instrumen Panel Lightning (green)")
+defineFloat("LIGHT_CONSLES_FLOOD", 790, {0, 1}, "Interior lighting","Consoles Flood Lightning (green)")
+defineFloat("LIGHT_INST_PNL_FLOOD", 791, {0, 1}, "Interior lighting","Instrumen Panel Flood Lightning (green)")
 
 --ECM
 defineIndicatorLight("LIGHT_ECM_1_S", 461, "Warning, Caution and IndicatorLights","ECM Button 1 S Light (yellow)")
