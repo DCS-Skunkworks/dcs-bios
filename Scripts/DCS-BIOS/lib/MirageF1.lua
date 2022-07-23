@@ -117,7 +117,13 @@ defineToggleSwitch("P_VUHF_25_5_SW", 1, 3144, 281, "V/UHF Control Unit", "Pilot 
 defineMultipositionSwitch("P_VUHF_FREQ_SEL", 1, 3145, 282, 3, 0.5, "V/UHF Control Unit", "Pilot V/UHF Frequency Selector Switch")
 defineRadioWheel("P_VUHF_CHAN", 1, 3146, 3146, {-0.05, 0.05}, 283, 0.05, {0, 1}, {" 6", " 7", " 8", " 9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", " 1", " 2", " 3", " 4", " 5"}, "V/UHF Control Unit", "Pilot V/UHF Channel Selector")
 
--- Engine emergency regulation
+--Engine Emergency Regulation
+definePushButton("P_EER_REG_L_BTN", 1, 3165, 354, "Engine Emergency Regulation", "Pilot Emergency Regulation Light Knob (Push)")
+definePotentiometer("P_EER_REG_L_KNB", 1, 3166, 355, {0, 1}, "Engine Emergency Regulation", "Pilot Emergency Regulation Light Knob (Turn)")
+defineToggleSwitch("P_EER_SW_CV", 1, 3167, 357, "Engine Emergency Regulation", "Pilot Emergency Regulation Switch Guard")
+defineToggleSwitch("P_EER_SW", 1, 3168, 358, "Engine Emergency Regulation", "Pilot Emergency Regulation Switch")
+defineSpringloaded_3_pos_tumb("P_EER_CONTROL", 1, 3170, 3169, 359, "Engine Emergency Regulation", "Pilot Emergency Regulation Control Lever")
+defineToggleSwitch("P_EER_BRAKE_CHUTE", 1, 3171, 54, "Engine Emergency Regulation", "Pilot Brake Chute Control")
 
 --Canopy controls
 defineToggleSwitch("P_CANOPY_LOCK", 1, 3172, 55, "Canopy", "Pilot Canopy Lock Control")
@@ -128,6 +134,69 @@ defineToggleSwitch("P_CANOPY_MIRRORS", 1, 3176, 2, "Canopy", "Pilot Mirrors")
 defineToggleSwitch("P_CANOPY_OPEN", 1, 3178, 1, "Canopy", "Pilot Canopy Open/Close")
 
 defineFloat("CANOPY_POS", 1, {0, 1}, "Canopy Gauges", "Canopy Position")
+
+--Undercarriage, nose wheel steering, brake and anti-skid
+defineToggleSwitch("P_U_SAFE_LVR", 1, 3190, 85, "Undercarriage NWS Brake", "Pilot U/C Safety Lever")
+defineToggleSwitch("P_U_CONTROL_LVR", 1, 3191, 86, "Undercarriage NWS Brake", "Pilot U/C Control Lever")
+definePushButton("P_U_ANTI_RETRAC_OVER", 1, 3192, 87, "Undercarriage NWS Brake", "Pilot Anti-Retraction Override Button")
+defineToggleSwitch("P_U_PARK_EMERG_BRAKE", 1, 3193, 84, "Undercarriage NWS Brake", "Pilot Emergency/Parking Brake Handle")
+defineToggleSwitch("P_U_ANTI_SKID_CV", 1, 3194, 402, "Undercarriage NWS Brake", "Pilot Anti-Skid (SPAD) Switch Guard")
+defineToggleSwitch("P_U_ANTI_SKID", 1, 3195, 403, "Undercarriage NWS Brake", "Pilot Anti-Skid (SPAD) Switch")
+definePushButton("P_U_NWS_SENSI", 1, 3196, 756, "Undercarriage NWS Brake", "Pilot Nose Wheel Steering High Sensitivity Button")
+defineToggleSwitch("P_U_NWS_STEER_CV", 1, 3197, 757, "Undercarriage NWS Brake", "Pilot Nose Wheel Steering Switch Guard")
+defineToggleSwitch("P_U_NWS_STEER", 1, 3198, 758, "Undercarriage NWS Brake", "Pilot Nose Wheel Steering Switch")
+defineMultipositionSwitch("P_U_EMERG_UC", 1, 3199, 107, 3, 0.5, "Undercarriage NWS Brake", "Pilot Emergency U/C Handle")
+
+--Hydraulic System Controls
+defineToggleSwitch("P_HSC_PRESS_SEL", 1, 3200, 88, "Hydraulic System Controls", "Pilot Hydraulic Pressure Selector Switch")
+defineToggleSwitch("P_HSC_EL_PUMP", 1, 3201, 475, "Hydraulic System Controls", "Pilot Electro-Pump Switch")
+
+-- Clock
+definePushButton("P_CLOCK_SET_KNB", 1, 3202, 232, "Clock", "Pilot Chronometer Starting Control and Clock Setting Knob")
+defineRotary("P_CLOCK_WIND_KNB", 1, 3203, 67, "Clock", "Pilot Chronometer Starting Control and Clock Winding Knob")
+defineToggleSwitch("P_CLOCK_WIND_LVR", 1, 3204, 231, "Clock", "Pilot Clock Winding/Setting Lever")
+
+--Air Data Instrument Controls
+definePotentiometer("P_ADI_SPEED_KNB", 1, 3206, 1270, {0, 1}, "Air Data Instrument Controls", "Pilot Mach/Airspeed Indicator Reference Airspeed Knob")
+defineRotary("P_ADI_ALT_BARO_SLAVE", 1, 3207, 1053, "Air Data Instrument Controls", "Pilot Slaved Altimeter Barometric Pressure Setting Knob")
+defineRotary("P_ADI_ALT_BARO_STBY", 1, 3208, 1072, "Air Data Instrument Controls", "Pilot Standby Altimeter Barometric Pressure Setting Knob")
+defineToggleSwitch("P_ADI_PROBE_HEAT", 1, 3209, 477, "Air Data Instrument Controls", "Pilot Probe Heater Switch")
+
+--Heading and vertical reference system and standby horizon controls
+defineToggleSwitch("P_FRS_STBY_HORIZON", 1, 3230, 474, "Flight Ref System", "Pilot Standby Horizon Switch")
+definePotentiometer("P_FRS_SPHER_IND_DN", 1, 3231, 1116, {0, 1}, "Flight Ref System", "Pilot Spherical Indicator Day/Night Selector Switch")
+definePushButton("P_FRS_SPHER_IND_MB_BTN", 1, 3232, 202, "Flight Ref System", "Pilot Spherical Indicator Pole Setting and Marker Beacon Light Test (Push)")
+definePotentiometer("P_FRS_SPHER_IND_MB_KNB", 1, 3233, 1117, {0, 1}, "Flight Ref System", "Pilot Spherical Indicator Pole Setting and Marker Beacon Light Test (Turn)")
+definePushButton("P_FRS_STBY_HORIZON_UNCAGE_BTN", 1, 3234, 1132, "Flight Ref System", "Pilot Standby Horizon Uncage and Aircraft Model Control (Push)")
+definePotentiometer("P_FRS_STBY_HORIZON_UNCAGE_KNB", 1, 3235, 1133, {0, 1}, "Flight Ref System", "Pilot Standby Horizon Uncage and Aircraft Model Control (Turn)")
+defineMultipositionSwitch("P_FRS_HDG_REF_SYS", 1, 3236, 537, 4, 0.3333, "Flight Ref System", "Pilot Heading and Vertical Reference System Control Switch")
+defineToggleSwitch("P_FRS_EMERG_GYRO", 1, 3237, 538, "Flight Ref System", "Pilot Emergency Gyromagnetic Compass Switch")
+definePushButton("P_FRS_HDG_EREC", 1, 3238, 540, "Flight Ref System", "Pilot Heading Control Unit Erection Button")
+
+--Electrical System Controls
+
+--Circuit Breaker
+defineToggleSwitch("P_CB_GYRO_CONTR", 1, 3395, 548, "Circuit Breaker", "Pilot CB Gyro Control Unit Power Supply")
+defineToggleSwitch("P_CB_HLIFT_SERVO", 1, 3396, 550, "Circuit Breaker", "Pilot CB High-Lift Device Servo Unit Power Supply")
+defineToggleSwitch("P_CB_IND_FAIL", 1, 3397, 552, "Circuit Breaker", "Pilot CB Indicator and Failure Detector Power Supply")
+defineToggleSwitch("P_CB_INVERT_TRANS", 1, 3398, 554, "Circuit Breaker", "Pilot CB Inverter Transfer Unit Power Supply and Control")
+defineToggleSwitch("P_CB_HYYD_PRESS_G", 1, 3399, 556, "Circuit Breaker", "Pilot CB Dual Hydraulic Pressure Gauge Power Supply")
+defineToggleSwitch("P_CB_GUN_TRIG", 1, 3400, 558, "Circuit Breaker", "Pilot CB Gun firing Trigger Power Supply")
+defineToggleSwitch("P_CB_LP_COCK", 1, 3401, 560, "Circuit Breaker", "Pilot CB LP Cock Power Supply")
+defineToggleSwitch("P_CB_EL_PUMP", 1, 3402, 562, "Circuit Breaker", "Pilot CB Electro-Pump Relay Power Supply")
+defineToggleSwitch("P_CB_REFUEL_SYS", 1, 3403, 564, "Circuit Breaker", "Pilot CB Flight Refuelling System Power Supply")
+defineToggleSwitch("P_CB_CABIN_PRESS", 1, 3404, 566, "Circuit Breaker", "Pilot CB Cabin Pressurization System Power Supply")
+defineToggleSwitch("P_CB_INVERT_28", 1, 3405, 568, "Circuit Breaker", "Pilot CB Inverter 28V Power Supply")
+defineToggleSwitch("P_CB_UC_NORM", 1, 3406, 570, "Circuit Breaker", "Pilot CB U/C Normal Operation Power Supply")
+defineToggleSwitch("P_CB_VUHF", 1, 3407, 572, "Circuit Breaker", "Pilot CB V/UHF Power Supply")
+defineToggleSwitch("P_CB_START_SEQU", 1, 3408, 574, "Circuit Breaker", "Pilot CB Starter and Sequencing System Power Supply")
+defineToggleSwitch("P_CB_REFUEL_PROBE", 1, 3409, 576, "Circuit Breaker", "Pilot CB Refuelling Probe Control Power Supply")
+defineToggleSwitch("P_CB_TRIM_CONTRL", 1, 3410, 578, "Circuit Breaker", "Pilot CB Manual Trim Control Power Supply")
+defineToggleSwitch("P_CB_GROUND_PW", 1, 3411, 580, "Circuit Breaker", "Pilot CB Valve Position Repeater, Control Valve and Ground Mode Power Supply")
+defineToggleSwitch("P_CB_WARN_L", 1, 3412, 582, "Circuit Breaker", "Pilot CB Failure Warning Panel and Master Failure Warning Light Power Supply")
+defineToggleSwitch("P_CB_UC_WARN_L", 1, 3413, 584, "Circuit Breaker", "Pilot CB Configuration Indicator (U/C section) and U/C Warning Light Power Supply")
+defineToggleSwitch("P_CB_IFF", 1, 3414, 586, "Circuit Breaker", "Pilot CB IFF Power Supply")
+defineToggleSwitch("P_CB_EMERG_REG", 1, 3415, 588, "Circuit Breaker", "Pilot CB Emergency Regulation System and Control Lever Power Supply")
 
 ----F1CE/BE/EE
 
