@@ -180,6 +180,19 @@ defineToggleSwitch("P_EL_GEN2", 1, 3252, 115, "Electrical System Controls", "Pil
 definePushButton("P_EL_TR_RESET", 1, 3253, 116, "Jettison Panel", "Pilot TR Reset Button")
 defineSpringloaded_3_pos_tumb("P_EL_INVERT_SEL", 1, 3255, 3254, 117, "Engine-Fuel Control", "Pilot Inverter Selector Switch")
 
+--Warning Lights
+
+--Exterior lighting
+defineMultipositionSwitch("P_EXL_LAND_CTRL", 1, 3305, 353, 3, 0.5, "Exterior Lighting", "Pilot Landing Light Control")
+defineMultipositionSwitch("P_EXL_FORM_CTRL", 1, 3306, 112, 3, 0.5, "Exterior Lighting", "Pilot Formation Light Control")
+defineMultipositionSwitch("P_EXL_NAV_CTRL", 1, 3307, 111, 3, 0.5, "Exterior Lighting", "Pilot Navigation Light Control")
+defineToggleSwitch("P_EXL_SEARCH_CTRL", 1, 3308, 479, "Exterior Lighting", "Pilot Search Light Control")
+
+--Cabin lighting
+defineToggleSwitch("P_CL_MISC_L_SW", 1, 3309, 470, "Cabin Lighting", "Pilot Miscellaneous Instrument Lighting Switch")
+definePotentiometer("P_CL_MAP_BRT_KNB", 1, 3310, 66, {0, 1}, "Cabin Lighting", "Pilot Map Lighting")
+definePotentiometer("P_CL_MISC_BRT_KNB", 1, 3311, 68, {0, 1}, "Cabin Lighting", "Pilot Miscellaneous Instrument Integral Lighting")
+
 --Lighting Control Unit
 defineToggleSwitch("P_IL_D_N_SEL", 1, 3312, 382, "Electrical System Controls", "Pilot Day/Night Selector Switch")
 definePotentiometer("P_IL_LIGHT_BRT_KNB", 1, 3313, 383, {0, 1}, "Lighting Control Unit", "Pilot Light and Panel Lighting")
@@ -189,6 +202,8 @@ definePotentiometer("P_IL_INST_BRT_INTEG_KNB", 1, 3316, 386, {0, 1}, "Lighting C
 definePotentiometer("P_IL_CON_BRT_FLOOD_KNB", 1, 3317, 387, {0, 1}, "Lighting Control Unit", "Pilot Dual Console and Pedestal Lighting (Flood)")
 definePotentiometer("P_IL_CON_BRT_INTEG_KNB", 1, 3318, 388, {0, 1}, "Lighting Control Unit", "Pilot Dual Console and Pedestal Lighting (Integral)")
 definePotentiometer("P_IL_INCIDENCE_BRT_KNB", 1, 3205, 201, {0, 1}, "Lighting Control Unit", "Pilot Incidence Indicator Lighting")
+
+--TACAN control box
 
 --Circuit Breaker
 defineToggleSwitch("P_CB_GYRO_CONTR", 1, 3395, 548, "Circuit Breaker", "Pilot CB Gyro Control Unit Power Supply")
