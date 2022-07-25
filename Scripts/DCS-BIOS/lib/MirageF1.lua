@@ -174,6 +174,21 @@ defineToggleSwitch("P_FRS_EMERG_GYRO", 1, 3237, 538, "Flight Ref System", "Pilot
 definePushButton("P_FRS_HDG_EREC", 1, 3238, 540, "Flight Ref System", "Pilot Heading Control Unit Erection Button")
 
 --Electrical System Controls
+defineToggleSwitch("P_EL_BATT", 1, 3250, 113, "Electrical System Controls", "Pilot Battery Switch")
+defineToggleSwitch("P_EL_GEN1", 1, 3251, 114, "Electrical System Controls", "Pilot Alternator 1 Switch")
+defineToggleSwitch("P_EL_GEN2", 1, 3252, 115, "Electrical System Controls", "Pilot Alternator 2 Switch")
+definePushButton("P_EL_TR_RESET", 1, 3253, 116, "Jettison Panel", "Pilot TR Reset Button")
+defineSpringloaded_3_pos_tumb("P_EL_INVERT_SEL", 1, 3255, 3254, 117, "Engine-Fuel Control", "Pilot Inverter Selector Switch")
+
+--Lighting Control Unit
+defineToggleSwitch("P_IL_D_N_SEL", 1, 3312, 382, "Electrical System Controls", "Pilot Day/Night Selector Switch")
+definePotentiometer("P_IL_LIGHT_BRT_KNB", 1, 3313, 383, {0, 1}, "Lighting Control Unit", "Pilot Light and Panel Lighting")
+definePotentiometer("P_IL_UV_BRT_KNB", 1, 3314, 384, {0, 1}, "Lighting Control Unit", "Pilot Ultraviolet Lighting")
+definePotentiometer("P_IL_INST_BRT_FLOOD_KNB", 1, 3315, 385, {0, 1}, "Lighting Control Unit", "Pilot Dual Instrument Panel Lighting (Flood)")
+definePotentiometer("P_IL_INST_BRT_INTEG_KNB", 1, 3316, 386, {0, 1}, "Lighting Control Unit", "Pilot Dual Instrument Panel Lighting (Integral)")
+definePotentiometer("P_IL_CON_BRT_FLOOD_KNB", 1, 3317, 387, {0, 1}, "Lighting Control Unit", "Pilot Dual Console and Pedestal Lighting (Flood)")
+definePotentiometer("P_IL_CON_BRT_INTEG_KNB", 1, 3318, 388, {0, 1}, "Lighting Control Unit", "Pilot Dual Console and Pedestal Lighting (Integral)")
+definePotentiometer("P_IL_INCIDENCE_BRT_KNB", 1, 3205, 201, {0, 1}, "Lighting Control Unit", "Pilot Incidence Indicator Lighting")
 
 --Circuit Breaker
 defineToggleSwitch("P_CB_GYRO_CONTR", 1, 3395, 548, "Circuit Breaker", "Pilot CB Gyro Control Unit Power Supply")
