@@ -24,8 +24,6 @@ defineToggleSwitch("P_STICK_HIDE", 1, 3001, 34, "Misc", "Pilot Hide Stick Toggle
 defineSpringloaded_3_pos_tumb("P_INCIDENCE_TEST", 1, 3011, 3010, 98, "Misc", "Pilot Incidence Test Switch")
 definePushButton("P_ALT_PTT", 1, 3118, 405, "Misc", "Pilot Alternative PTT")
 
-defineFloat("P_SEAT_HEIGHT", 10, {0, 1}, "Misc Gauges ", "Pilot Seat Height")
-
 --Flight Control System controls
 definePushButton("P_FC_TEST_RES", 1, 3012, 368, "Flight Control", "Pilot Flight Control Test Restart Button")
 defineToggleSwitch("P_FC_TEST_CV", 1, 3013, 369, "Flight Control", "Pilot Flight Control Test Switch Guard")
@@ -86,8 +84,16 @@ defineMultipositionSwitch("P_RCS_SCALE_SEL", 1, 3101, 258, 4, 1/3, "Flight Contr
 defineMultipositionSwitch("P_RCS_SCAN_SEL", 1, 3102, 257, 3, 0.5, "Flight Control System", "Pilot Radar Control Stick Scan Selection")
 
 --High-Lift Devices
-defineMultipositionSwitch("P_HLD_FLAP_SLAT", 1, 3120, 248, 3, 0.5, "High-Lift Devices", "Pilot Slat/Flap lever")
+defineMultipositionSwitch("P_HLD_FLAP_SLAT", 1, 3120, 248, 3, 0.5, "High-Lift Devices", "Pilot Slat/Flap Lever")
 define3PosTumb("P_HLD_SEL", 1, 3121, 399, "High-Lift Devices", "Pilot High-Lift Devices Selector Switch")
+
+defineIndicatorLight("P_L_SLAT_G_L", 1083, "High-Lift Devices Lights", "Pilot Slats Light (green)")
+defineIndicatorLight("P_L_SLAT_Y_L", 1084, "High-Lift Devices Lights", "Pilot Slats Light (yellow)")
+defineIndicatorLight("P_L_SLAT_R_L", 1085, "High-Lift Devices Lights", "Pilot Slats Light (red)")
+defineIndicatorLight("P_L_FLAP_R_L", 1086, "High-Lift Devices Lights", "Pilot Flaps Light (red)")
+defineIndicatorLight("P_L_FLAP_Y_L", 1087, "High-Lift Devices Lights", "Pilot Flaps Light (yellow)")
+defineIndicatorLight("P_L_FLAP_G_L", 1088, "High-Lift Devices Lights", "Pilot Flaps Light (green)")
+defineIndicatorLight("P_L_FREIN_L", 1089, "High-Lift Devices Lights", "Pilot FREIN Light (yellow)")
 
 --Radio selector unit
 definePotentiometer("P_RADIO_MISS", 1, 3122, 306, {0, 1}, "Radio Selector Unit", "Pilot Radio MISS Potentiometer")
@@ -106,7 +112,6 @@ definePotentiometer("P_RADIO_MKR_TP_KNB", 1, 3133, 320, {0, 1}, "Radio Selector 
 --V/UHF radio control unit (TRT - TRAP 136)
 define3PosTumb("P_VUHF_TEST", 1, 3136, 272, "V/UHF Control Unit", "Pilot V/UHF Test Selector Switch")
 defineToggleSwitch("P_VUHF_SIL", 1, 3137, 273, "V/UHF Control Unit", "Pilot V/UHF SIL Switch")
-
 defineSetCommandTumb("P_VUHF_FREQ_100", 1, 3138, 274, 0.1, {0, 0.3}, {"1", "2", "3"}, false, "V/UHF Control Unit", "Pilot V/UHF Frequency Thumbwheel 100")
 defineSetCommandTumb("P_VUHF_FREQ_10", 1, 3139, 275, 0.1, {0, 1}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"}, false, "V/UHF Control Unit", "Pilot V/UHF Frequency Thumbwheel 10")
 defineSetCommandTumb("P_VUHF_FREQ_1", 1, 3140, 276, 0.1, {0, 1}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"}, false, "V/UHF Control Unit", "Pilot V/UHF Frequency Thumbwheel 1")
@@ -173,6 +178,8 @@ defineMultipositionSwitch("P_FRS_HDG_REF_SYS", 1, 3236, 537, 4, 0.3333, "Flight 
 defineToggleSwitch("P_FRS_EMERG_GYRO", 1, 3237, 538, "Flight Ref System", "Pilot Emergency Gyromagnetic Compass Switch")
 definePushButton("P_FRS_HDG_EREC", 1, 3238, 540, "Flight Ref System", "Pilot Heading Control Unit Erection Button")
 
+defineIndicatorLight("P_FRS_SPHER_IND_DN_L", 1279, "Flight Ref System Lights", "Pilot Spherical Indicator Day/Night Light (yellow)")
+
 --Electrical System Controls
 defineToggleSwitch("P_EL_BATT", 1, 3250, 113, "Electrical System Controls", "Pilot Battery Switch")
 defineToggleSwitch("P_EL_GEN1", 1, 3251, 114, "Electrical System Controls", "Pilot Alternator 1 Switch")
@@ -180,7 +187,50 @@ defineToggleSwitch("P_EL_GEN2", 1, 3252, 115, "Electrical System Controls", "Pil
 definePushButton("P_EL_TR_RESET", 1, 3253, 116, "Jettison Panel", "Pilot TR Reset Button")
 defineSpringloaded_3_pos_tumb("P_EL_INVERT_SEL", 1, 3255, 3254, 117, "Engine-Fuel Control", "Pilot Inverter Selector Switch")
 
---Warning Lights
+--Warning Light Switches
+definePushButton("P_WL_M_FAIL", 1, 3265, 920, "Warning Switches", "Pilot Master Failure Warning Light Button")
+definePushButton("P_WL_C_FLAP_BTN", 1, 3266, 956, "Warning Switches", "Pilot Combat Flaps Light Button (Push)")
+definePotentiometer("P_WL_C_FLAP_KNB", 1, 3267, 957, {0, 1}, "Warning Switches", "Pilot Combat Flaps Light Knob (Turn)")
+definePushButton("P_WL_UC_BTN", 1, 3265, 920, "Warning Switches", "Pilot U/C Light Button")
+definePushButton("P_WL_NWS_BTN", 1, 3269, 950, "Warning Switches", "Pilot Nose Wheel Steering Light Button (Push)")
+definePotentiometer("P_WL_NWS_KNB", 1, 3270, 951, {0, 1}, "Warning Switches", "Pilot Nose Wheel Steering Light Knob (Turn)")
+definePushButton("P_WL_AIR_B_BTN", 1, 3271, 944, "Warning Switches", "Pilot Airbrake Light Button (Push)")
+definePotentiometer("P_WL_AIR_B_KNB", 1, 3272, 945, {0, 1}, "Warning Switches", "Pilot Airbrake Light Knob (Turn)")
+definePushButton("P_WL_LIMIT_WARN", 1, 3273, 932, "Warning Switches", "Pilot Limit Warning Light Button")
+definePushButton("P_WL_FIRE_WARN", 1, 3274, 940, "Warning Switches", "Pilot Fire Warning Light (ENG/AB) Button")
+definePushButton("P_WL_AB_INJ", 1, 3275, 1029, "Warning Switches", "Pilot A/B INJ Light Button")
+definePushButton("P_WL_AB_ON", 1, 3276, 1031, "Warning Switches", "Pilot A/B ON Light Button")
+definePushButton("P_WL_AB_SRL", 1, 3277, 1033, "Warning Switches", "Pilot A/B SRL Light Button")
+definePushButton("P_WL_STBY_RECEPT_BTN", 1, 3278, 92, "Warning Switches", "Pilot Standby Receptacle Light Button (Push)")
+definePotentiometer("P_WL_STBY_RECEPT_KNB", 1, 3279, 93, {0, 1}, "Warning Switches", "Pilot Standby Receptacle Light Knob (Turn)")
+definePushButton("P_WL_BIP", 1, 3290, 1081, "Warning Switches", "Pilot BIP Button")
+definePushButton("P_WL_CONFIG_TEST", 1, 3280, 1082, "Warning Switches", "Pilot Configuration Indicator Test Button")
+definePushButton("P_WL_FAIL_T_TEST", 1, 3281, 118, "Warning Switches", "Pilot Failure Warning Panel T Test Button")
+definePushButton("P_WL_FAIL_O2_TEST", 1, 3282, 119, "Warning Switches", "Pilot Failure Warning Panel O2 Test Button")
+defineToggleSwitch("P_WL_WARN_HORN", 1, 3283, 476, "Warning Switches", "Pilot Warning Horn Switch")
+definePushButton("P_WL_JAMMER_BTN", 1, 3284, 194, "Warning Switches", "Pilot Jammer Detection Light Button (Push)")
+definePotentiometer("P_WL_JAMMER_KNB", 1, 3285, 194, {0, 1}, "Warning Switches", "Pilot Jammer Detection Light Knob (Turn)")
+definePushButton("P_WL_R_LIGHT_BTN", 1, 3286, 197, "Warning Switches", "Pilot (C + M or SW) R Light Button (Push)")
+definePotentiometer("P_WL_R_LIGHT_KNB", 1, 3287, 198, {0, 1}, "Warning Switches", "Pilot (C + M or SW) R Light Knob (Turn)")
+definePushButton("P_WL_CAN_HOT_BTN", 1, 3288, 108, "Warning Switches", "Pilot Cannons too Hot Light Button (Push)")
+definePotentiometer("P_WL_CAN_HOT_KNB", 1, 3289, 109, {0, 1}, "Warning Switches", "Pilot Cannons too Hot Light Knob (Turn)")
+
+defineIndicatorLight("P_WL_M_FAIL_L_L", 921, "Warning Switches Lights", "Pilot Master Failure PANNE Light Left (red)")
+defineIndicatorLight("P_WL_M_FAIL_R_L", 921, "Warning Switches Lights", "Pilot Master Failure PANNE Light Right (yellow)")
+defineIndicatorLight("P_WL_C_FLAP_L", 958, "Warning Switches Lights", "Pilot Combat Flaps Light (yellow)")
+defineIndicatorLight("P_WL_UC_BTN_L", 929, "Warning Switches Lights", "Pilot U/C TRAIN Light (red)")
+defineIndicatorLight("P_WL_NWS_L", 952, "Warning Switches Lights", "Pilot Nose Wheel Steering Light (yellow)")
+defineIndicatorLight("P_WL_AIR_B_L", 946, "Warning Switches Lights", "Pilot Nose Wheel Steering Light (yellow)")
+defineIndicatorLight("P_WL_LIMIT_WARN_L", 933, "Warning Switches Lights", "Pilot Limit Warning Light (red)")
+defineIndicatorLight("P_WL_FIRE_WARN_U_L", 937, "Warning Switches Lights", "Pilot Fire Warning REAC Light UP (red)")
+defineIndicatorLight("P_WL_FIRE_WARN_D_L", 941, "Warning Switches Lights", "Pilot Fire Warning P/C Light DN (red)")
+defineIndicatorLight("P_WL_AB_INJ_L", 1030, "Warning Switches Lights", "Pilot A/B INJ Light (red)")
+defineIndicatorLight("P_WL_AB_ON_L", 1032, "Warning Switches Lights", "Pilot A/B FON Light (green)")
+defineIndicatorLight("P_WL_AB_SRL_L", 1034, "Warning Switches Lights", "Pilot A/B ADF Light (yellow)")
+defineIndicatorLight("P_WL_STBY_RECEPT_L", 99, "Warning Switches Lights", "Pilot Standby Receptacle Light (red)")
+defineIndicatorLight("P_WL_JAMMER_L", 196, "Warning Switches Lights", "Pilot Jammer Detection Light (yellow)")
+defineIndicatorLight("P_WL_R_L", 199, "Warning Switches Lights", "Pilot (C + M or SW) R Light (green)")
+defineIndicatorLight("P_WL_CAN_HOT_L", 110, "Warning Switches Lights", "Pilot Cannons too Hot Light (red)")
 
 --Exterior lighting
 defineMultipositionSwitch("P_EXL_LAND_CTRL", 1, 3305, 353, 3, 0.5, "Exterior Lighting", "Pilot Landing Light Control")
@@ -203,7 +253,53 @@ definePotentiometer("P_IL_CON_BRT_FLOOD_KNB", 1, 3317, 387, {0, 1}, "Lighting Co
 definePotentiometer("P_IL_CON_BRT_INTEG_KNB", 1, 3318, 388, {0, 1}, "Lighting Control Unit", "Pilot Dual Console and Pedestal Lighting (Integral)")
 definePotentiometer("P_IL_INCIDENCE_BRT_KNB", 1, 3205, 201, {0, 1}, "Lighting Control Unit", "Pilot Incidence Indicator Lighting")
 
---TACAN control box
+defineFloat("P_IL_UV_L", 1294, {0, 1}, "Lighting Control Unit Lights", "Pilot Ultraviolet Lights (white)")
+defineFloat("P_IL_MISC_INSTR_L", 1295, {0, 1}, "Lighting Control Unit Lights", "Pilot Misc Instrument Lights (red)")
+defineFloat("P_IL_INST_L", 1296, {0, 1}, "Lighting Control Unit Lights", "Pilot Instrument Lights (red)")
+defineFloat("P_IL_CONSOLE_L", 1297, {0, 1}, "Lighting Control Unit Lights", "Pilot Console Lights (red)")
+
+--TACAN Control Box
+definePushButton("P_TCN_TEST", 1, 3347, 480, "TACAN Control Box", "Pilot TACAN Test Button")
+defineToggleSwitch("P_TCN_XY_MODE", 1, 3335, 485, "TACAN Control Box", "Pilot TACAN X/Y Mode Selector")
+defineTumb("P_TCN_FREQ_10100", 1, 3336, 486, 1/13, {0, 0.997}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "0"}, false, "TACAN Control Box", "Pilot TACAN Frequency Selector 10/100")
+defineMultipositionSwitch("P_TCN_MODE", 1, 3337, 487, 4, 0.3333, "TACAN Control Box", "Pilot TACAN Mode Selector")
+defineRadioWheel("P_TCN_FREQ_1", 1, 3338, 3338, {-0.1, 0.1}, 488, 0.1, {0, 1}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"}, "TACAN Control Box", "Pilot TACAN Frequency Selector 1")
+
+defineFloat("P_TCN_XY_G", 481, {0, 1}, "TACAN Gauges", "Pilot TACAN X/Y Gauge")
+defineFloat("P_TCN_100_G", 482, {0, 1}, "TACAN Gauges", "Pilot TACAN 100 Gauge")
+defineFloat("P_TCN_10_G", 483, {0, 1}, "TACAN Gauges", "Pilot TACAN 10 Gauge")
+defineFloat("P_TCN_1_G", 484, {0, 1}, "TACAN Gauges", "Pilot TACAN 1 Gauge")
+
+defineIndicatorLight("P_TCN_WARN_L", 1312, "TACAN Lights", "Pilot TACAN WARN Light (red)")
+defineIndicatorLight("P_TCN_GO_L", 1313, "TACAN Lights", "Pilot TACAN GO Light (green)")
+
+--VOR/ILS Control Box
+defineToggleSwitch("P_VOR_PW_SW", 1, 3339, 503, "VOR ILS Control Box", "Pilot VOR-ILS Control Unit ON/OFF")
+defineRadioWheel("P_VOR_FREQ_MHZ", 1, 3340, 3340, {-0.1, 0.1}, 504, 0.1, {0, 1}, nil, "VOR ILS Control Box", "Pilot VOR/ILS MHz Frequency Selector")
+defineSpringloaded_3_pos_tumb("P_VOR_TEST", 1, 3342, 3341, 505, "VOR ILS Control Box", "Pilot VOR/ILS Test Selector")
+defineRadioWheel("P_VOR_FREQ_KHZ", 1, 3343, 3343, {-0.1, 0.1}, 506, 0.1, {0, 1}, nil, "VOR ILS Control Box", "Pilot VOR/ILS kHz Frequency Selector")
+definePotentiometer("P_VOR_OMNI_SEL", 1, 3344, 545, {0, 1}, "VOR ILS Control Box", "Pilot Omnibearing Selector")
+defineMultipositionSwitch("P_VOR_MODE", 1, 3345, 544, 3, 0.5, "VOR ILS Control Box", "Pilot VOR/ILS/OFF/TACAN Selector")
+defineRotary("P_VOR_HDG_SEL", 1, 3346, 547, "VOR ILS Control Box", "Pilot Heading Selector Knob")
+
+--Oxygen System
+definePushButton("P_OXY_TEST", 1, 3360, 517, "Oxygen System", "Pilot Oxygen Test (T Button)")
+definePushButton("P_OXY_TEST_P", 1, 3361, 519, "Oxygen System", "Pilot Oxygen Test Button")
+definePushButton("P_OXY_OVERPRESS", 1, 3363, 710, "Oxygen System", "Pilot Oxygen Overpressure Button")
+defineMultipositionSwitch("P_OXY_N100_EMG", 1, 3362, 709, 3, 0.5, "TACAN Control Box", "Pilot N-100%-EMG Mode Selector Switch")
+definePushButton("P_OXY_G_CON_CVR", 1, 3364, 712, "Oxygen System", "Pilot Anti-G Connection Cover")
+definePushButton("P_OXY_G_TEST", 1, 3365, 713, "Oxygen System", "Pilot Anti-G Test Button")
+defineToggleSwitch("P_OXY_G_VALVE", 1, 3366, 714, "Oxygen System", "Pilot Anti-G Valve Cock")
+
+--Air Conditioning System
+defineToggleSwitch("P_AC_EMERG_COLD", 1, 3375, 524, "Air Conditioning System", "Pilot Emergency Cold Switch")
+defineToggleSwitch("P_AC_M_VALVE", 1, 3376, 525, "Air Conditioning System", "Pilot Master Valve Control Switch")
+definePotentiometer("P_AC_TEMP", 1, 3377, 527, {0, 1}, "Air Conditioning System", "Pilot Temperature Control Rheostat")
+defineToggleSwitch("P_AC_AUTO_MAN", 1, 3378, 529, "Air Conditioning System", "Pilot Auto/Manual Selector Switch")
+defineSpringloaded_3_pos_tumb("P_AC_HOT_COLD", 1, 3380, 3379, 530, "Air Conditioning System", "Pilot Hot/Cold Selector Switch")
+defineToggleSwitch("P_AC_RAM_AIR_CV", 1, 3381, 410, "Air Conditioning System", "Pilot Ram Air Switch Guard")
+defineToggleSwitch("P_AC_RAM_AIR", 1, 3382, 411, "Air Conditioning System", "Pilot Ram Air Switch")
+defineToggleSwitch("P_AC_DEMIST", 1, 3383, 412, "Air Conditioning System", "Pilot Demist Switch")
 
 --Circuit Breaker
 defineToggleSwitch("P_CB_GYRO_CONTR", 1, 3395, 548, "Circuit Breaker", "Pilot CB Gyro Control Unit Power Supply")
@@ -227,6 +323,64 @@ defineToggleSwitch("P_CB_WARN_L", 1, 3412, 582, "Circuit Breaker", "Pilot CB Fai
 defineToggleSwitch("P_CB_UC_WARN_L", 1, 3413, 584, "Circuit Breaker", "Pilot CB Configuration Indicator (U/C section) and U/C Warning Light Power Supply")
 defineToggleSwitch("P_CB_IFF", 1, 3414, 586, "Circuit Breaker", "Pilot CB IFF Power Supply")
 defineToggleSwitch("P_CB_EMERG_REG", 1, 3415, 588, "Circuit Breaker", "Pilot CB Emergency Regulation System and Control Lever Power Supply")
+
+--Ejection Seat
+defineSpringloaded_3_pos_tumb("P_ES_SEAT_HEIGHT", 1, 3431, 3430, 11, "Ejection Seat", "Pilot Seat Height Adjustment Control")
+definePushButton("P_ES_FIRE_HND_BLIND", 1, 3432, 13, "Ejection Seat", "Pilot Face Blind Firing Handle")
+definePushButton("P_ES_FIRE_HND_ALT", 1, 3434, 14, "Ejection Seat", "Pilot Alternative Firing Handle")
+definePotentiometer("P_ES_SAFE_PIN", 1, 3650, 1316, {0, 1}, "Lighting Control Unit", "Pilot Ejection Handle Safety Pin")
+
+defineFloat("P_ES_SEAT_HEIGHT_G", 10, {0, 1}, "Ejection Seat Gauges ", "Pilot Seat Height")
+
+--Chaff and flares dispenser ALE 40 control unit
+defineMultipositionSwitch("P_C_CHAFF_FLARE_SEL", 1, 3437, 208, 3, 0.5, "Countermeassures", "Pilot Chaff/Flares Selector Switch")
+defineMultipositionSwitch("P_C_PROG_SEL", 1, 3438, 209, 4, 0.3333, "Countermeassures", "Pilot Program Selector Switch")
+definePushButton("P_C_COUNTRES_CHAFF", 1, 3439, 212, "Countermeassures", "Pilot Chaff Counter Reset Button")
+definePushButton("P_C_COUNTRES_FLARE", 1, 3440, 215, "Countermeassures", "Pilot Flares Counter Reset Button")
+defineToggleSwitch("P_C_EMERG_JETT", 1, 3441, 216, "Countermeassures", "Pilot Emergency Jettisoning Switch")
+definePushButton("P_C_CHAFF_FLARE_REL", 1, 3443, 708, "Countermeassures", "Pilot Chaff/Flares Release Button")
+defineToggleSwitch("P_C_RADAR_DETECOR", 1, 3442, 478, "Countermeassures", "Radar Detector Switch")
+
+--Caution Light Panel
+defineIndicatorLight("P_CLP_BATT_L", 120, "Caution Light Panel", "Pilot BATT Light (red)")
+defineIndicatorLight("P_CLP_ALT1_L", 121, "Caution Light Panel", "Pilot ALT1 Light (yellow)")
+defineIndicatorLight("P_CLP_ALT2_L", 122, "Caution Light Panel", "Pilot ALT2 Light (yellow)")
+defineIndicatorLight("P_CLP_TR1_L", 123, "Caution Light Panel", "Pilot TR1 Light (yellow)")
+defineIndicatorLight("P_CLP_SEC_L", 124, "Caution Light Panel", "Pilot SEC Light (yellow)")
+defineIndicatorLight("P_CLP_BP_L", 125, "Caution Light Panel", "Pilot BP Light (red)")
+defineIndicatorLight("P_CLP_BPG_L", 126, "Caution Light Panel", "Pilot BPG Light (yellow)")
+defineIndicatorLight("P_CLP_BPD_L", 127, "Caution Light Panel", "Pilot BPD Light (yellow)")
+defineIndicatorLight("P_CLP_TR2_L", 128, "Caution Light Panel", "Pilot TR2 Light (yellow)")
+defineIndicatorLight("P_CLP_NIV_L", 129, "Caution Light Panel", "Pilot NIV Light (yellow)")
+defineIndicatorLight("P_CLP_HUILE_L", 130, "Caution Light Panel", "Pilot HUILE Light (red)")
+defineIndicatorLight("P_CLP_EP_L", 131, "Caution Light Panel", "Pilot EP Light (red)")
+defineIndicatorLight("P_CLP_HYDS_L", 132, "Caution Light Panel", "Pilot HYD S Light (red)")
+defineIndicatorLight("P_CLP_HYDR1_L", 133, "Caution Light Panel", "Pilot HYDR1 Light (yellow)")
+defineIndicatorLight("P_CLP_HYDR2_L", 134, "Caution Light Panel", "Pilot HYDR2 Light (yellow)")
+defineIndicatorLight("P_CLP_REGO2_L", 135, "Caution Light Panel", "Pilot REG O2 Light (red)")
+defineIndicatorLight("P_CLP_5MNO2_L", 136, "Caution Light Panel", "Pilot 5mnO2 Light (yellow)")
+defineIndicatorLight("P_CLP_TEQ_L", 137, "Caution Light Panel", "Pilot TEQ Light (yellow)")
+defineIndicatorLight("P_CLP_TCAB_L", 138, "Caution Light Panel", "Pilot T CAB Light (red)")
+defineIndicatorLight("P_CLP_PCAB_L", 139, "Caution Light Panel", "Pilot P CAB Light (red)")
+defineIndicatorLight("P_CLP_TRIM_L", 140, "Caution Light Panel", "Pilot TRIM Light (yellow)")
+defineIndicatorLight("P_CLP_PA_L", 141, "Caution Light Panel", "Pilot PA Light (red)")
+defineIndicatorLight("P_CLP_CAP_L", 142, "Caution Light Panel", "Pilot CAP Light (yellow)")
+defineIndicatorLight("P_CLP_ANEMO_L", 143, "Caution Light Panel", "Pilot ANEMO Light (yellow)")
+defineIndicatorLight("P_CLP_CAERO_L", 144, "Caution Light Panel", "Pilot CAERO Light (yellow)")
+defineIndicatorLight("P_CLP_LACET_L", 145, "Caution Light Panel", "Pilot LACET Light (yellow)")
+defineIndicatorLight("P_CLP_TANG_L", 146, "Caution Light Panel", "Pilot TANG Light (yellow)")
+defineIndicatorLight("P_CLP_ROUL_L", 147, "Caution Light Panel", "Pilot ROUL Light (yellow)")
+defineIndicatorLight("P_CLP_EMP_L", 148, "Caution Light Panel", "Pilot EMP Light (yellow)")
+defineIndicatorLight("P_CLP_DIR_L", 149, "Caution Light Panel", "Pilot DIR Light (yellow)")
+defineIndicatorLight("P_CLP_HYPER_L", 150, "Caution Light Panel", "Pilot HYPER Light (yellow)")
+defineIndicatorLight("P_CLP_MODUL_L", 151, "Caution Light Panel", "Pilot MODUL Light (red)")
+defineIndicatorLight("P_CLP_VAND_L", 152, "Caution Light Panel", "Pilot VAND Light (red)")
+
+--Warning, Caution and IndicatorLights
+defineIndicatorLight("P_L_GEAR_L_DN_L", 1090, "Warning, Caution and IndicatorLights", "Pilot Left Gear Down Light (green)")
+defineIndicatorLight("P_L_GEAR_UP_L", 1091, "Warning, Caution and IndicatorLights", "Pilot Gear UP Down Light (green)")
+defineIndicatorLight("P_L_GEAR_N_DN_L", 1092, "Warning, Caution and IndicatorLights", "Pilot Nose Gear Down Light (green)")
+defineIndicatorLight("P_L_GEAR_R_DN_L", 1093, "Warning, Caution and IndicatorLights", "Pilot Right Gear Down Light (green)")
 
 ----F1CE/BE/EE
 
