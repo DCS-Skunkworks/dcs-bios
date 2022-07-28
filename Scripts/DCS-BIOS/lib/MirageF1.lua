@@ -25,9 +25,9 @@ defineSpringloaded_3_pos_tumb("P_INCIDENCE_TEST", 1, 3011, 3010, 98, "COMMON Mis
 definePushButton("P_ALT_PTT", 1, 3118, 405, "Misc", "COMMON Pilot Alternative PTT")
 
 --Flight Control System controls
-definePushButton("P_FC_TEST_RES", 1, 3012, 368, "COMMON Flight Control System", "Pilot Flight Control Test Restart Button")
-defineToggleSwitch("P_FC_TEST_CV", 1, 3013, 369, "COMMON Flight Control System", "Pilot Flight Control Test Switch Guard")
-defineToggleSwitch("P_FC_TEST", 1, 3014, 370, "COMMON Flight Control System", "Pilot Flight Control Test Switch")
+definePushButton("P_FCS_TEST_RES", 1, 3012, 368, "COMMON Flight Control System", "Pilot Flight Control Test Restart Button")
+defineToggleSwitch("P_FCS_TEST_CV", 1, 3013, 369, "COMMON Flight Control System", "Pilot Flight Control Test Switch Guard")
+defineToggleSwitch("P_FCS_TEST", 1, 3014, 370, "COMMON Flight Control System", "Pilot Flight Control Test Switch")
 definePushButton("P_FCS_SERVO_RES", 1, 3020, 89, "COMMON Flight Control System", "Pilot Servo Reset Button")
 defineToggleSwitch("P_FCS_STICK_UNCOUPLE_CV", 1, 3022, 95, "COMMON Flight Control System", "Pilot Stick Uncouple Switch Guard")
 defineToggleSwitch("P_FCS_STICK_UNCOUPLE", 1, 3021, 97, "COMMON Flight Control System", "Pilot Stick Uncouple Switch")
@@ -43,6 +43,20 @@ definePushButton("P_FCS_AP_R_BTN", 1, 3038, 982, "COMMON Flight Control System",
 definePushButton("P_FCS_AP_G_BTN", 1, 3039, 987, "COMMON Flight Control System", "Pilot Autopilot G Button")
 defineRotary("P_FCS_AP_INT", 1, 3041, 992, "COMMON Flight Control System", "Pilot Autopilot Intensity Control")
 definePushButton("P_FCS_AP_TEST_BTN", 1, 3042, 973, "COMMON Flight Control System", "Pilot Autopilot Control and Indicator Unit Test Button")
+
+defineIndicatorLight("P_FCS_AP1_P_L", 975, "COMMON Flight Control System Lights", "Pilot Autopilot BTN 1 P Light (red)")
+defineIndicatorLight("P_FCS_AP1_A_L", 976, "COMMON Flight Control System Lights", "Pilot Autopilot BTN 1 A Light (green)")
+defineIndicatorLight("P_FCS_AP2_ALT_L", 978, "COMMON Flight Control System Lights", "Pilot Autopilot BTN 2 ALT Light (green)")
+defineIndicatorLight("P_FCS_AP2_ALT_R_L", 979, "COMMON Flight Control System Lights", "Pilot Autopilot BTN 2 ALT RED Light (red)")
+defineIndicatorLight("P_FCS_AP3_CAP_L", 981, "COMMON Flight Control System Lights", "Pilot Autopilot BTN 3 CAP Light (green)")
+defineIndicatorLight("P_FCS_AP4_LR_L", 983, "COMMON Flight Control System Lights", "Pilot Autopilot BTN 4 Left Arrow Light (red)")
+defineIndicatorLight("P_FCS_AP4_R_L", 984, "COMMON Flight Control System Lights", "Pilot Autopilot BTN 4 R Light (red)")
+defineIndicatorLight("P_FCS_AP4_RR_L", 985, "COMMON Flight Control System Lights", "Pilot Autopilot BTN 4 Right Arrow Light (red)")
+defineIndicatorLight("P_FCS_AP4_GN_L", 986, "COMMON Flight Control System Lights", "Pilot Autopilot BTN 4 Bottom Light (green)")
+defineIndicatorLight("P_FCS_AP5_G_L", 988, "COMMON Flight Control System Lights", "Pilot Autopilot BTN 5 G Light (red)")
+defineIndicatorLight("P_FCS_AP5_UR_L", 989, "COMMON Flight Control System Lights", "Pilot Autopilot BTN 5 Upper Arrow Light (red)")
+defineIndicatorLight("P_FCS_AP5_GN_L", 990, "COMMON Flight Control System Lights", "Pilot Autopilot BTN 5 Right Light (green)")
+defineIndicatorLight("P_FCS_AP5_LR_L", 991, "COMMON Flight Control System Lights", "Pilot Autopilot BTN 5 Lower Arrow Light (red)")
 
 --Engine and Fuel Controls
 definePushButton("P_EFC_THL_CUT_IDLE", 1, 3051, 239, "COMMON Engine-Fuel Control", "Pilot Throttle Cut/Idle Switch")
@@ -78,6 +92,19 @@ defineToggleSwitch("P_FS_EMERG_TRANS", 1, 3084, 1152, "COMMON Fuel System", "Pil
 defineToggleSwitch("P_FS_TRANS_SEQ_SEL", 1, 3085, 1153, "COMMON Fuel System", "Pilot Fuel Transfer Sequence Selector Switch")
 definePushButton("P_FS_TRANS_IND_TEST", 1, 3086, 1166, "COMMON Fuel System", "Pilot Fuel Transfer Indicator Test")
 
+defineIndicatorLight("P_FS_TRANS_L4_L", 1154, "COMMON Fuel System Lights", "Pilot Fuel Transfer Left 4 Light (red)")
+defineIndicatorLight("P_FS_TRANS_2_L", 1155, "COMMON Fuel System Lights", "Pilot Fuel Transfer 2 Light (red)")
+defineIndicatorLight("P_FS_TRANS_R4_L", 1156, "COMMON Fuel System Lights", "Pilot Fuel Transfer Right 4 Light (red)")
+defineIndicatorLight("P_FS_TRANS_LT_L", 1157, "COMMON Fuel System Lights", "Pilot Fuel Transfer Left Tank Light (red)")
+defineIndicatorLight("P_FS_TRANS_RT_L", 1158, "COMMON Fuel System Lights", "Pilot Fuel Transfer Right Tank Light (red)")
+defineIndicatorLight("P_FS_TRANS_L1_L", 1159, "COMMON Fuel System Lights", "Pilot Fuel Transfer Left 1 Light (red)")
+defineIndicatorLight("P_FS_TRANS_C_L", 1160, "COMMON Fuel System Lights", "Pilot Fuel Transfer Center Light (red)")
+defineIndicatorLight("P_FS_TRANS_R1_L", 1161, "COMMON Fuel System Lights", "Pilot Fuel Transfer Right 1 Light (red)")
+defineIndicatorLight("P_FS_TRANS_L3_L", 1162, "COMMON Fuel System Lights", "Pilot Fuel Transfer Left 3 Light (red)")
+defineIndicatorLight("P_FS_TRANS_R3_L", 1163, "COMMON Fuel System Lights", "Pilot Fuel Transfer Right 3 Light (red)")
+defineIndicatorLight("P_FS_TRANS_L5_L", 1164, "COMMON Fuel System Lights", "Pilot Fuel Transfer Left 5 Light (red)")
+defineIndicatorLight("P_FS_TRANS_R5_L", 1165, "COMMON Fuel System Lights", "Pilot Fuel Transfer Right 5 Light (red)")
+
 --Radar Control Stick
 definePushButton("P_RCS_ALT_DIFF", 1, 3100, 259, "COMMON Radar Control Stick", "Pilot Radar Control Stick Elevation/Altitude Difference Button")
 defineMultipositionSwitch("P_RCS_SCALE_SEL", 1, 3101, 258, 4, 1/3, "COMMON Radar Control Stick", "Pilot Radar Control Stick Scale Selection")
@@ -87,12 +114,12 @@ defineMultipositionSwitch("P_RCS_SCAN_SEL", 1, 3102, 257, 3, 0.5, "COMMON Radar 
 defineMultipositionSwitch("P_HLD_FLAP_SLAT", 1, 3120, 248, 3, 0.5, "COMMON High-Lift Devices", "Pilot Slat/Flap Lever")
 define3PosTumb("P_HLD_SEL", 1, 3121, 399, "COMMON High-Lift Devices", "Pilot High-Lift Devices Selector Switch")
 
-defineIndicatorLight("P_L_SLAT_G_L", 1083, "COMMON High-Lift Devices Lights", "Pilot Slats Light (green)")
-defineIndicatorLight("P_L_SLAT_Y_L", 1084, "COMMON High-Lift Devices Lights", "Pilot Slats Light (yellow)")
-defineIndicatorLight("P_L_SLAT_R_L", 1085, "COMMON High-Lift Devices Lights", "Pilot Slats Light (red)")
-defineIndicatorLight("P_L_FLAP_R_L", 1086, "COMMON High-Lift Devices Lights", "Pilot Flaps Light (red)")
-defineIndicatorLight("P_L_FLAP_Y_L", 1087, "COMMON High-Lift Devices Lights", "Pilot Flaps Light (yellow)")
-defineIndicatorLight("P_L_FLAP_G_L", 1088, "COMMON High-Lift Devices Lights", "Pilot Flaps Light (green)")
+defineIndicatorLight("P_L_SLAT_G_L", 1083, "COMMON High-Lift Devices Lights", "Pilot Green Slats Light (green)")
+defineIndicatorLight("P_L_SLAT_Y_L", 1084, "COMMON High-Lift Devices Lights", "Pilot Yellow Slats Light (yellow)")
+defineIndicatorLight("P_L_SLAT_R_L", 1085, "COMMON High-Lift Devices Lights", "Pilot Red Slats Light (red)")
+defineIndicatorLight("P_L_FLAP_R_L", 1086, "COMMON High-Lift Devices Lights", "Pilot Red Flaps Light (red)")
+defineIndicatorLight("P_L_FLAP_Y_L", 1087, "COMMON High-Lift Devices Lights", "Pilot Yellow Flaps Light (yellow)")
+defineIndicatorLight("P_L_FLAP_G_L", 1088, "COMMON High-Lift Devices Lights", "Pilot Green Flaps Light (green)")
 defineIndicatorLight("P_L_FREIN_L", 1089, "COMMON High-Lift Devices Lights", "Pilot FREIN Light (yellow)")
 
 --Radio selector unit
@@ -109,6 +136,11 @@ definePotentiometer("P_RADIO_RAP_CME_KNB", 1, 3131, 317, {0, 1}, "COMMON Radio S
 definePushButton("P_RADIO_MKR_TP_BTN", 1, 3132, 319, "COMMON Radio Selector Unit", "Pilot Radio MKR+TP Knob (Push)")
 definePotentiometer("P_RADIO_MKR_TP_KNB", 1, 3133, 320, {0, 1}, "COMMON Radio Selector Unit", "Pilot Radio MKR+TP Knob (Turn)")
 
+defineIndicatorLight("P_RADIO_U_V_L", 312, "COMMON Radio Selector Unit Lights", "Pilot Radio U+V Light (green)")
+defineIndicatorLight("P_RADIO_U_L", 315, "COMMON Radio Selector Unit Lights", "Pilot Radio U Light (red)")
+defineIndicatorLight("P_RADIO_RAP_CME_L", 318, "COMMON Radio Selector Unit Lights", "Pilot Radio RAP+CME Light (yellow)")
+defineIndicatorLight("P_RADIO_MKR_TP_L", 321, "COMMON Radio Selector Unit Lights", "Pilot Radio MKR+TP Light (yellow)")
+
 --V/UHF radio control unit (TRT - TRAP 136)
 define3PosTumb("P_VUHF_TEST", 1, 3136, 272, "COMMON V/UHF Control Unit", "Pilot V/UHF Test Selector Switch")
 defineToggleSwitch("P_VUHF_SIL", 1, 3137, 273, "COMMON V/UHF Control Unit", "Pilot V/UHF SIL Switch")
@@ -122,6 +154,8 @@ defineToggleSwitch("P_VUHF_25_5_SW", 1, 3144, 281, "COMMON V/UHF Control Unit", 
 defineMultipositionSwitch("P_VUHF_FREQ_SEL", 1, 3145, 282, 3, 0.5, "COMMON V/UHF Control Unit", "Pilot V/UHF Frequency Selector Switch")
 defineRadioWheel("P_VUHF_CHAN", 1, 3146, 3146, {-0.05, 0.05}, 283, 0.05, {0, 1}, {" 6", " 7", " 8", " 9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", " 1", " 2", " 3", " 4", " 5"}, "COMMON V/UHF Control Unit", "Pilot V/UHF Channel Selector")
 
+defineIndicatorLight("P_VUHF_TEST_L", 271, "COMMON V/UHF Control Unit Lights", "Pilot V/UHF Test Light (red)")
+
 --Engine Emergency Regulation
 definePushButton("P_EER_REG_L_BTN", 1, 3165, 354, "COMMON Engine Emergency Regulation", "Pilot Emergency Regulation Light Knob (Push)")
 definePotentiometer("P_EER_REG_L_KNB", 1, 3166, 355, {0, 1}, "COMMON Engine Emergency Regulation", "Pilot Emergency Regulation Light Knob (Turn)")
@@ -129,6 +163,8 @@ defineToggleSwitch("P_EER_SW_CV", 1, 3167, 357, "COMMON Engine Emergency Regulat
 defineToggleSwitch("P_EER_SW", 1, 3168, 358, "COMMON Engine Emergency Regulation", "Pilot Emergency Regulation Switch")
 defineSpringloaded_3_pos_tumb("P_EER_CONTROL", 1, 3170, 3169, 359, "COMMON Engine Emergency Regulation", "Pilot Emergency Regulation Control Lever")
 defineToggleSwitch("P_EER_BRAKE_CHUTE", 1, 3171, 54, "COMMON Engine Emergency Regulation", "Pilot Brake Chute Control")
+
+defineIndicatorLight("P_EER_REG_L", 356, "COMMON Engine Emergency Regulation Light", "Pilot Emergency Regulation Light (red)")
 
 --Canopy controls
 defineToggleSwitch("P_CANOPY_LOCK", 1, 3172, 55, "COMMON Canopy", "Pilot Canopy Lock Control")
@@ -216,7 +252,7 @@ definePushButton("P_WL_CAN_HOT_BTN", 1, 3288, 108, "COMMON Warning Switches", "P
 definePotentiometer("P_WL_CAN_HOT_KNB", 1, 3289, 109, {0, 1}, "COMMON Warning Switches", "Pilot Cannons too Hot Light Knob (Turn)")
 
 defineIndicatorLight("P_WL_M_FAIL_L_L", 921, "COMMON Warning Switches Lights", "Pilot Master Failure PANNE Light Left (red)")
-defineIndicatorLight("P_WL_M_FAIL_R_L", 921, "COMMON Warning Switches Lights", "Pilot Master Failure PANNE Light Right (yellow)")
+defineIndicatorLight("P_WL_M_FAIL_R_L", 923, "COMMON Warning Switches Lights", "Pilot Master Failure PANNE Light Right (yellow)")
 defineIndicatorLight("P_WL_C_FLAP_L", 958, "COMMON Warning Switches Lights", "Pilot Combat Flaps Light (yellow)")
 defineIndicatorLight("P_WL_UC_BTN_L", 929, "COMMON Warning Switches Lights", "Pilot U/C TRAIN Light (red)")
 defineIndicatorLight("P_WL_NWS_L", 952, "COMMON Warning Switches Lights", "Pilot Nose Wheel Steering Light (yellow)")
@@ -253,10 +289,14 @@ definePotentiometer("P_IL_CON_BRT_FLOOD_KNB", 1, 3317, 387, {0, 1}, "COMMON Ligh
 definePotentiometer("P_IL_CON_BRT_INTEG_KNB", 1, 3318, 388, {0, 1}, "COMMON Lighting Control Unit", "Pilot Dual Console and Pedestal Lighting (Integral)")
 definePotentiometer("P_IL_INCIDENCE_BRT_KNB", 1, 3205, 201, {0, 1}, "COMMON Lighting Control Unit", "Pilot Incidence Indicator Lighting")
 
+defineFloat("P_IL_CKP_RAIL_T_L", 1291, {0, 1}, "COMMON Lighting Control Unit Lights", "Pilot Cockpit Top Rail Lamps (white)")
+defineFloat("P_IL_INCIDENCE_L", 1292, {0, 1}, "COMMON Lighting Control Unit Lights", "Pilot Incidence Indicator Lights (red)")
+defineFloat("P_IL_CKP_RAIL_S_L", 1293, {0, 1}, "COMMON Lighting Control Unit Lights", "Pilot Cockpit Side Rail Lamps (red)")
 defineFloat("P_IL_UV_L", 1294, {0, 1}, "COMMON Lighting Control Unit Lights", "Pilot Ultraviolet Lights (white)")
 defineFloat("P_IL_MISC_INSTR_L", 1295, {0, 1}, "COMMON Lighting Control Unit Lights", "Pilot Misc Instrument Lights (red)")
 defineFloat("P_IL_INST_L", 1296, {0, 1}, "COMMON Lighting Control Unit Lights", "Pilot Instrument Lights (red)")
-defineFloat("P_IL_CONSOLE_L", 1297, {0, 1}, "COMMON Lighting Control Unit Lights", "Pilot Console Lights (red)")
+defineFloat("P_IL_FLOOD_L", 1297, {0, 1}, "COMMON Lighting Control Unit Lights", "Pilot Flood Lights (red)")
+defineFloat("P_IL_CONSOLE_L", 1299, {0, 1}, "COMMON Lighting Control Unit Lights", "Pilot Console Lights (red)")
 
 --TACAN Control Box
 definePushButton("P_TCN_TEST", 1, 3347, 480, "COMMON TACAN Control Box", "Pilot TACAN Test Button")
@@ -383,6 +423,8 @@ defineIndicatorLight("P_L_GEAR_N_DN_L", 1092, "COMMON Warning, Caution and Indic
 defineIndicatorLight("P_L_GEAR_R_DN_L", 1093, "COMMON Warning, Caution and IndicatorLights", "Pilot Right Gear Down Light (green)")
 
 ----F1CE/BE/EE
+defineToggleSwitch("P_CE_ANT_GYRO", 1, 3453, 408, "CE/BE/EE Misc", "CE/BE/EE Pilot ANTENNA-GYRO Switch")
+
 --Navigation indicator
 defineMultipositionSwitch("P_CE_NAV_MODE", 1, 3555, 1204, 4, 0.3333, "CE/BE/EE Navigation Indicator", "CE/BE/EE Pilot Navigation Mode Selector Switch")
 defineToggleSwitch("P_CE_NAV_NORM_ADD_VEC", 1, 3556, 1205, "CE/BE/EE Navigation Indicator", "CE/BE/EE Pilot Navigation Normal/Additional Vector Switch")
@@ -395,7 +437,143 @@ definePushButton("P_CE_RD_L_BRT_BTN", 1, 3565, 1290, "CE/BE/EE Radar Detector", 
 definePotentiometer("P_CE_RD_L_BRT_KNB", 1, 3566, 1237, {0, 1}, "CE/BE/EE Radar Detector", "CE/BE/EE Pilot Indicator Light Intensity Adjusting Knob (Turn)")
 defineSpringloaded_3_pos_tumb("P_CE_RD_TEST", 1, 3568, 3567, 1238, "CE/BE/EE Radar Detector", "CE/BE/EE Pilot Radar Detector Indicator Test Selector")
 
+defineIndicatorLight("P_CE_RD_NOT_L", 1230, "CE/BE/EE Radar Detector Lights", "CE/BE/EE Pilot NATURE OF THREAT Light (red)")
+defineIndicatorLight("P_CE_RD_TWS_L", 1233, "CE/BE/EE Radar Detector Lights", "CE/BE/EE Pilot TWS Light (red)")
+defineIndicatorLight("P_CE_RD_CW_L", 1236, "CE/BE/EE Radar Detector Lights", "CE/BE/EE Pilot CW Light (red)")
+defineIndicatorLight("P_CE_RD_ARROW_F_L", 1239, "CE/BE/EE Radar Detector Lights", "CE/BE/EE Pilot Front Arrow Light (red)")
+defineIndicatorLight("P_CE_RD_ARROW_L_L", 1240, "CE/BE/EE Radar Detector Lights", "CE/BE/EE Pilot Left Arrow Light (red)")
+defineIndicatorLight("P_CE_RD_ARROW_R_L", 1241, "CE/BE/EE Radar Detector Lights", "CE/BE/EE Pilot Right Arrow Light (red)")
+defineIndicatorLight("P_CE_RD_ARROW_B_L", 1242, "CE/BE/EE Radar Detector Lights", "CE/BE/EE Pilot Back Arrow Light (red)")
+
 --Armament Control
+defineMultipositionSwitch("P_CE_ARM_SIGHT", 1, 3580, 590, 3, 0.5, "CE/BE/EE Armament Control", "CE/BE/EE Pilot Armament Sight Selector")
+defineMultipositionSwitch("P_CE_ARM_BOMB_ROCK_SEL", 1, 3581, 592, 3, 0.5, "CE/BE/EE Armament Control", "CE/BE/EE Pilot Armament Bomb/Rocket Selector")
+defineToggleSwitch("P_CE_ARM_MATRA_SW", 1, 3582, 593, "CE/BE/EE Armament Control", "CE/BE/EE Pilot MATRA 550 or Sidewinder Missile Switch")
+defineToggleSwitch("P_CE_ARM_FORE_AFT", 1, 3583, 594, "CE/BE/EE Armament Control", "CE/BE/EE Pilot Fore/Aft Selector Switch")
+defineToggleSwitch("P_CE_ARM_MAN_AUTO", 1, 3584, 595, "CE/BE/EE Armament Control", "CE/BE/EE Pilot Auto/Manual Firing Selector Switch")
+defineToggleSwitch("P_CE_ARM_SINGLE_SALVO", 1, 3585, 596, "CE/BE/EE Armament Control", "CE/BE/EE Pilot Single/Salvo Selector")
+defineMultipositionSwitch("P_CE_ARM_INST_DEL_SAFE", 1, 3586, 597, 3, 0.5, "CE/BE/EE Armament Control", "CE/BE/EE Pilot Instantaneous/Delay/Safe Selector Switch")
+defineToggleSwitch("P_CE_ARM_EXTG", 1, 3587, 604, "CE/BE/EE Armament Control", "CE/BE/EE Pilot Left MATRA R550 or Sidewinder Missile Pushbutton")
+defineToggleSwitch("P_CE_ARM_MGFUS", 1, 3588, 606, "CE/BE/EE Armament Control", "CE/BE/EE Pilot Left or fuselage MATRA R530 Missile Pushbutton")
+defineToggleSwitch("P_CE_ARM_CANA", 1, 3589, 608, "CE/BE/EE Armament Control", "CE/BE/EE Pilot Air-to-Air Guns Pushbutton")
+defineToggleSwitch("P_CE_ARM_BOMB_VOIL", 1, 3590, 610, "CE/BE/EE Armament Control", "CE/BE/EE Pilot Wing Bombs Pushbutton")
+defineToggleSwitch("P_CE_ARM_EXTD", 1, 3591, 612, "CE/BE/EE Armament Control", "CE/BE/EE Pilot Right MATRA R550 or Sidewinder Missile Pushbutton")
+defineToggleSwitch("P_CE_ARM_MD", 1, 3592, 614, "CE/BE/EE Armament Control", "CE/BE/EE Pilot Right MATRA R530 Missile Pushbutton")
+defineToggleSwitch("P_CE_ARM_CANSROQ", 1, 3593, 616, "CE/BE/EE Armament Control", "CE/BE/EE Pilot Air-to-Ground Guns or Rockets Pushbutton")
+defineToggleSwitch("P_CE_ARM_BOMBFUS", 1, 3596, 618, "CE/BE/EE Armament Control", "CE/BE/EE Pilot Fuselage Bombs Pushbutton")
+defineToggleSwitch("P_CE_ARM_MISL_NORM_ALT", 1, 3595, 601, "CE/BE/EE Armament Control", "CE/BE/EE Pilot R 530 Missile Normal/Altitude Difference Selector Switch")
+defineToggleSwitch("P_CE_ARM_NORM_JAM", 1, 3596, 603, "CE/BE/EE Armament Control", "CE/BE/EE Pilot Normal/Jammer Pursuit Switch")
+definePushButton("P_CE_ARM_L_TEST", 1, 3597, 602, "CE/BE/EE Armament Control", "CE/BE/EE Pilot Armament Panel Lights Test")
+defineToggleSwitch("P_CE_ARM_MATRA_JETT_CV", 1, 3560, 962, "CE/BE/EE Armament Control", "CE/BE/EE Pilot MATRA 550 or Sidewinder Jettison Button Guard")
+definePushButton("P_CE_ARM_MATRA_JETT", 1, 3561, 963, "CE/BE/EE Armament Control", "CE/BE/EE Pilot MATRA 550 or Sidewinder Jettison Button")
+defineToggleSwitch("P_CE_ARM_MASTER_CV", 1, 3134, 432, "CE/BE/EE Armament Control", "CE/BE/EE Pilot Armament Master Switch Guard")
+defineMultipositionSwitch("P_CE_ARM_MASTER", 1, 3135, 433, 3, 0.5, "CE/BE/EE Armament Control", "CE/BE/EE Pilot Armament Master Switch")
+definePushButton("P_CE_ARM_R_DESELECT", 1, 3475, 361, "CE/BE/EE Armament Control", "CE/BE/EE Pilot (C + M or SW) R Deselection Switch")
+define3PosTumb("P_CE_ARM_TELE_ZONE_SCAN", 1, 3476, 360, "CE/BE/EE Armament Control", "CE/BE/EE Pilot Telemeter/Zone Scanning Switch")
+
+defineIndicatorLight("P_CE_ARM_EXTG_L", 605, "CE/BE/EE Armament Control Lights", "Pilot EXT G Light (white)")
+defineIndicatorLight("P_CE_ARM_MGFUS_L", 607, "CE/BE/EE Armament Control Lights", "Pilot MG FUS Light (white)")
+defineIndicatorLight("P_CE_ARM_CANA_L", 609, "CE/BE/EE Armament Control Lights", "Pilot CAN A Light (white)")
+defineIndicatorLight("P_CE_ARM_BOMB_VOIL_L", 611, "CE/BE/EE Armament Control Lights", "Pilot BOMB VOIL Light (white)")
+defineIndicatorLight("P_CE_ARM_EXTD_L", 613, "CE/BE/EE Armament Control Lights", "Pilot EXT D Light (white)")
+defineIndicatorLight("P_CE_ARM_MD_L", 615, "CE/BE/EE Armament Control Lights", "Pilot MD Light (white)")
+defineIndicatorLight("P_CE_ARM_CANSROQ_L", 617, "CE/BE/EE Armament Control Lights", "Pilot CANS ROQ Light (white)")
+defineIndicatorLight("P_CE_ARM_BOMBFUS_L", 619, "CE/BE/EE Armament Control Lights", "Pilot BOMB FUS Light (white)")
+
+--UHF Radio (TRT - TRAP 137B)
+defineToggleSwitch("P_CE_UHF_5_25_SEL", 1, 3455, 340, "CE/BE/EE UHF Radio", "CE/BE/EE Pilot UHF 5W/25W Selector Switch")
+defineToggleSwitch("P_CE_UHF_SQUELCH", 1, 3456, 341, "CE/BE/EE UHF Radio", "CE/BE/EE Pilot UHF Squelch Switch")
+define3PosTumb("P_CE_UHF_TEST", 1, 3457, 342, "CE/BE/EE UHF Radio", "CE/BE/EE Pilot UHF Test Selector Switch")
+definePushButton("P_CE_UHF_CDE", 1, 3458, 343, "CE/BE/EE UHF Radio", "CE/BE/EE Pilot UHF CDE Button")
+defineMultipositionSwitch("P_CE_UHF_FUNC", 1, 3459, 344, 3, 0.5, "CE/BE/EE UHF Radio", "CE/BE/EE Pilot UHF Function Selector")
+defineRadioWheel("P_CE_UHF_CHAN", 1, 3461, 3461, {-0.05, 0.05}, 348, 0.05, {0, 1}, {" 6", " 7", " 8", " 9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", " 1", " 2", " 3", " 4", " 5"}, "CE/BE/EE UHF Radio", "CE/BE/EE Pilot UHF Channel Selector")
+
+defineIndicatorLight("P_CE_UHF_CDE_L", 351, "CE/BE/EE UHF Radio Lights", "CE/BE/EE Pilot UHF Radio CDE Light (green)")
+defineIndicatorLight("P_CE_UHF_TEST_L", 352, "CE/BE/EE UHF Radio Lights", "CE/BE/EE Pilot UHF Radio TEST Light (red)")
+
+--Accelerometer Reset Button and Rheostat
+definePushButton("P_CE_ACCEL_RESET_BTN", 1, 3477, 1288, "CE/BE/EE Radar Detector", "CE/BE/EE Pilot Accelerometer Reset Button (Push)")
+definePotentiometer("P_CE_ACCEL_BRT_KNB", 1, 3478, 1289, {0, 1}, "CE/BE/EE Radar Detector", "CE/BE/EE Pilot Accelerometer Rheostat Knob (Turn)")
+
+--Sight System and Recording Camera
+defineToggleSwitch("P_CE_SIGHT_AUTO_MAN_INTENT", 1, 3479, 760, "CE/BE/EE Sight System", "CE/BE/EE Pilot Sight AUTO/MAN Intensity Selector Switch")
+defineMultipositionSwitch("P_CE_SIGHT_LIGHTING", 1, 3480, 761, 3, 0.5, "CE/BE/EE Sight System", "CE/BE/EE Pilot Sight Lighting Selector Switch")
+defineRotary("P_CE_SIGHT_MAN_GRAV_DROP", 1, 3481, 769, "CE/BE/EE Sight System", "CE/BE/EE Pilot Sight Manual Gravity Drop Selection Thumbwheel")
+definePotentiometer("P_CE_SIGHT_FIX_RETICLE_BRT", 1, 3482, 770, {0, 1}, "CE/BE/EE Sight System", "CE/BE/EE Pilot Sight Fixed Reticle Intensity Rheostat")
+definePotentiometer("P_CE_SIGHT_MOVE_TGT_RETICLE_BRT", 1, 3483, 771, {0, 1}, "CE/BE/EE Sight System", "CE/BE/EE Pilot Sight Moving and Target Reticles Intensity Rheostat")
+definePotentiometer("P_CE_SIGHT_ATT_RETICLE_BRT", 1, 3484, 772, {0, 1}, "CE/BE/EE Sight System", "CE/BE/EE Pilot Sight Attitude Reticle Intensity Rheostat")
+definePushButton("P_CE_SIGHT_TEST", 1, 3485, 773, "CE/BE/EE Sight System", "CE/BE/EE Pilot Sight System Test Button")
+definePotentiometer("P_CE_SIGHT_EX_TIME_REP", 1, 3486, 774, {0, 1}, "CE/BE/EE Sight System", "CE/BE/EE Pilot Sight Exposure Time Repeater")
+definePotentiometer("P_CE_SIGHT_OVERRUN", 1, 3487, 775, {0, 1}, "CE/BE/EE Sight System", "CE/BE/EE Pilot Sight Overrun Select Thumbwheel")
+defineToggleSwitch("P_CE_SIGHT_FRAME_RATE", 1, 3488, 777, "CE/BE/EE Sight System", "CE/BE/EE Pilot Sight 5/16 PPS Framing Rate Selector Switch")
+definePushButton("P_CE_SIGHT_CAM_TEST", 1, 3489, 776, "CE/BE/EE Sight System", "CE/BE/EE Pilot Sight Camera Test Switch")
+
+--Radar
+definePushButton("P_CE_RADAR_TEST", 1, 3505, 836, "CE/BE/EE Radar", "CE/BE/EE Pilot Radar Test Button")
+definePotentiometer("P_CE_RADAR_SCOPE_INTENT", 1, 3506, 837, {0, 1}, "CE/BE/EE Radar", "CE/BE/EE Pilot Radar Scope Intensity Adjustment")
+defineMultipositionSwitch("P_CE_RADAR_FUNC", 1, 3507, 838, 8, 1/7, "CE/BE/EE Radar", "CE/BE/EE Pilot Radar Function Selection")
+definePotentiometer("P_CE_RADAR_STORAGE_ADJ", 1, 3508, 839, {0, 1}, "CE/BE/EE Radar", "CE/BE/EE Pilot Radar Storage Adjustment")
+definePushButton("P_CE_RADAR_SCOPE_DEL", 1, 3509, 840, "CE/BE/EE Radar", "CE/BE/EE Pilot Radar Scope Erasing")
+definePotentiometer("P_CE_RADAR_POLAROID", 1, 3510, 841, {0, 1}, "CE/BE/EE Radar", "CE/BE/EE Pilot Radar Polaroid Screen Adjustment")
+defineMultipositionSwitch("P_CE_RADAR_SEL", 1, 3605, 598, 3, 0.5, "CE/BE/EE Radar", "CE/BE/EE Pilot Radar Selector")
+definePushButton("P_CE_RADAR_EMERG_TRANS", 1, 3606, 599, "CE/BE/EE Radar", "CE/BE/EE Pilot Radar Emergency Transmission Button")
+defineToggleSwitch("P_CE_RADAR_4_1_LINE", 1, 3607, 600, "CE/BE/EE Radar", "CE/BE/EE Pilot Radar 4 lines/1 line Scan Switch")
+definePotentiometer("P_CE_RADAR_IND_L_BRT", 1, 3610, 632, {0, 1}, "CE/BE/EE Radar", "CE/BE/EE Pilot Radar Indicator Lights Brightness")
+definePotentiometer("P_CE_RADAR_STROBE_BRT", 1, 3611, 633, {0, 1}, "CE/BE/EE Radar", "CE/BE/EE Pilot Radar Strobe Brightness")
+definePotentiometer("P_CE_RADAR_DIST_M_BRT", 1, 3612, 634, {0, 1}, "CE/BE/EE Radar", "CE/BE/EE Pilot Radar Distance Markers Brightness")
+definePotentiometer("P_CE_RADAR_VEL_M_BRT", 1, 3613, 635, {0, 1}, "CE/BE/EE Radar", "CE/BE/EE Pilot Radar Horizon and Radial Velocity Marker Brightness")
+definePotentiometer("P_CE_RADAR_HORIZON_POS", 1, 3614, 636, {0, 1}, "CE/BE/EE Radar", "CE/BE/EE Pilot Radar Horizon Symbol Vertical Position")
+defineToggleSwitch("P_CE_RADAR_CVR", 1, 3615, 864, "CE/BE/EE Radar", "CE/BE/EE Pilot Radar Cover Remove Toggle")
+
+defineIndicatorLight("P_CE_RADAR_HA_L", 842, "CE/BE/EE Radar Lights", "CE/BE/EE Pilot Radar HA Light (yellow)")
+defineIndicatorLight("P_CE_RADAR_IC_L", 843, "CE/BE/EE Radar Lights", "CE/BE/EE Pilot Radar IC Light (yellow)")
+defineIndicatorLight("P_CE_RADAR_TL_L", 844, "CE/BE/EE Radar Lights", "CE/BE/EE Pilot Radar TL Light (green)")
+defineIndicatorLight("P_CE_RADAR_BZ_L", 845, "CE/BE/EE Radar Lights", "CE/BE/EE Pilot Radar BZ Light (green)")
+defineIndicatorLight("P_CE_RADAR_TS_L", 846, "CE/BE/EE Radar Lights", "CE/BE/EE Pilot Radar TS Light (green)")
+defineIndicatorLight("P_CE_RADAR_V1_L", 847, "CE/BE/EE Radar Lights", "CE/BE/EE Pilot Radar V1 Light (yellow)")
+defineIndicatorLight("P_CE_RADAR_V2_L", 848, "CE/BE/EE Radar Lights", "CE/BE/EE Pilot Radar V2 Light (yellow)")
+defineIndicatorLight("P_CE_RADAR_DC_L", 849, "CE/BE/EE Radar Lights", "CE/BE/EE Pilot Radar DC Light (yellow)")
+defineIndicatorLight("P_CE_RADAR_PR_L", 850, "CE/BE/EE Radar Lights", "CE/BE/EE Pilot Radar PR Light (yellow)")
+defineIndicatorLight("P_CE_RADAR_AC_L", 851, "CE/BE/EE Radar Lights", "CE/BE/EE Pilot Radar AC Light (yellow)")
+defineIndicatorLight("P_CE_RADAR_DB_L", 852, "CE/BE/EE Radar Lights", "CE/BE/EE Pilot Radar DB Light (yellow)")
+defineIndicatorLight("P_CE_RADAR_Y_L", 853, "CE/BE/EE Radar Lights", "CE/BE/EE Pilot Radar Yellow Light (yellow)")
+defineIndicatorLight("P_CE_RADAR_G_L", 854, "CE/BE/EE Radar Lights", "CE/BE/EE Pilot Radar Green Light (green)")
+defineIndicatorLight("P_CE_RADAR_R_L", 855, "CE/BE/EE Radar Lights", "CE/BE/EE Pilot Radar Red Light (red)")
+defineIndicatorLight("P_CE_RADAR_7_L", 856, "CE/BE/EE Radar Lights", "CE/BE/EE Pilot Radar 7 Light (green)")
+defineIndicatorLight("P_CE_RADAR_15_L", 857, "CE/BE/EE Radar Lights", "CE/BE/EE Pilot Radar 15 Light (green)")
+defineIndicatorLight("P_CE_RADAR_35_L", 858, "CE/BE/EE Radar Lights", "CE/BE/EE Pilot Radar 35 Light (yellow)")
+defineIndicatorLight("P_CE_RADAR_60_L", 859, "CE/BE/EE Radar Lights", "CE/BE/EE Pilot Radar 60 Light (yellow)")
+defineIndicatorLight("P_CE_RADAR_AP_L", 860, "CE/BE/EE Radar Lights", "CE/BE/EE Pilot Radar AP Light (yellow)")
+defineIndicatorLight("P_CE_RADAR_TCH_L", 861, "CE/BE/EE Radar Lights", "CE/BE/EE Pilot Radar TCH Light (yellow)")
+defineIndicatorLight("P_CE_RADAR_EMI_L", 862, "CE/BE/EE Radar Lights", "CE/BE/EE Pilot Radar EMI Light (yellow)")
+defineIndicatorLight("P_CE_RADAR_PNE_L", 863, "CE/BE/EE Radar Lights", "CE/BE/EE Pilot Radar PNE Light (yellow)")
+defineFloat("P_CE_RADAR_ALT_BRT_L", 1320, {0, 1}, "CE/BE/EE Radar Lights", "CE/BE/EE Pilot Radar Altitude Difference Brightness (red)")
+defineFloat("P_CE_RADAR_BACK_L", 1331, {0, 1}, "CE/BE/EE Radar Lights", "CE/BE/EE Pilot Radar Backklight Brightness (red)")
+
+--IFF
+defineMultipositionSwitch("P_CE_IFF_M1_10", 1, 3520, 732, 9, 0.125, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Mode 1 Coding Tens Selector")
+defineMultipositionSwitch("P_CE_IFF_M1_1", 1, 3521, 733, 9, 0.125, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Mode 1 Coding Units Selector")
+defineMultipositionSwitch("P_CE_IFF_M3A_1000", 1, 3522, 734, 9, 0.125, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Mode 3A Coding Thousands Selector")
+defineMultipositionSwitch("P_CE_IFF_M3A_100", 1, 3523, 735, 9, 0.125, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Mode 3A Coding Hundreds Selector")
+defineMultipositionSwitch("P_CE_IFF_M3A_10", 1, 3524, 736, 9, 0.125, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Mode 3A Coding Tens Selector")
+defineMultipositionSwitch("P_CE_IFF_M3A_1", 1, 3525, 737, 9, 0.125, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Mode 3A Coding Units Selector")
+defineSpringloaded_3_pos_tumb("P_CE_IFF_POS_IDENT", 1, 3527, 3526, 744, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Position Identification Selector")
+definePushButton("P_CE_IFF_TEST", 1, 3528, 738, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Test Button")
+defineMultipositionSwitch("P_CE_IFF_M4_SEL", 1, 3529, 743, 4, 0.3333, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Mode 4 Selector Switch")
+definePushButton("P_CE_IFF_MONITOR_BTN", 1, 3530, 740, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Monitoring Light Button (Push)")
+definePotentiometer("P_CE_IFF_MONITOR_KNB", 1, 3531, 741, {0, 1}, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Monitoring Light Knob (Turn)")
+defineMultipositionSwitch("P_CE_IFF_FUNC_SEL", 1, 3532, 739, 4, 0.3333, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Function Selector Switch")
+defineToggleSwitch("P_CE_IFF_MODE4", 1, 3533, 745, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Mode 4 Switch")
+definePushButton("P_CE_IFF_FAULT_BTN", 1, 3534, 746, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Fault Light Button (Push)")
+definePotentiometer("P_CE_IFF_FAULT_KNB", 1, 3535, 747, {0, 1}, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Fault Light Knob (Turn)")
+define3PosTumb("P_CE_IFF_AUDIO_L_SW", 1, 3536, 749, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF AUDIO-LIGHT Switch")
+defineToggleSwitch("P_CE_IFF_MODE_M1", 1, 3537, 750, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF M-1 Mode Switch")
+defineToggleSwitch("P_CE_IFF_MODE_M2", 1, 3538, 751, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF M-2 Mode Switch")
+defineToggleSwitch("P_CE_IFF_MODE_M3", 1, 3539, 752, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF M-3 Mode Switch")
+defineToggleSwitch("P_CE_IFF_MODE_M4", 1, 3540, 753, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF M-4 Mode Switch")
+
+defineIndicatorLight("P_CE_IFF_L", 742, "CE/BE/EE IFF Lights", "CE/BE/EE Pilot IFF Light (green)")
+defineIndicatorLight("P_CE_IFF_FAULT_L", 748, "CE/BE/EE IFF Lights", "CE/BE/EE Pilot IFF Fault Light (red)")
 
 --Externals
 defineIntegerFromGetter("EXT_SPEED_BRAKE_R_T", function()
