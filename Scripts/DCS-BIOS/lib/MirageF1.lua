@@ -22,7 +22,7 @@ local defineRadioWheel = BIOS.util.defineRadioWheel
 ----Common
 defineToggleSwitch("P_STICK_HIDE", 1, 3001, 34, "COMMON Misc", "Pilot Hide Stick Toggle")
 defineSpringloaded_3_pos_tumb("P_INCIDENCE_TEST", 1, 3011, 3010, 98, "COMMON Misc", "Pilot Incidence Test Switch")
-definePushButton("P_ALT_PTT", 1, 3118, 405, "Misc", "COMMON Pilot Alternative PTT")
+definePushButton("P_ALT_PTT", 1, 3119, 405, "Misc", "COMMON Pilot Alternative PTT")
 
 --Flight Control System controls
 definePushButton("P_FCS_TEST_RES", 1, 3012, 368, "COMMON Flight Control System", "Pilot Flight Control Test Restart Button")
@@ -108,7 +108,7 @@ defineIndicatorLight("P_FS_TRANS_R5_L", 1165, "COMMON Fuel System Lights", "Pilo
 --Radar Control Stick
 definePushButton("P_RCS_ALT_DIFF", 1, 3100, 259, "COMMON Radar Control Stick", "Pilot Radar Control Stick Elevation/Altitude Difference Button")
 defineMultipositionSwitch("P_RCS_SCALE_SEL", 1, 3101, 258, 4, 1/3, "COMMON Radar Control Stick", "Pilot Radar Control Stick Scale Selection")
-defineMultipositionSwitch("P_RCS_SCAN_SEL", 1, 3102, 257, 3, 0.5, "COMMON Radar Control Stick", "Pilot Radar Control Stick Scan Selection")
+defineMultipositionSwitch("P_RCS_SCAN_SEL", 1, 3103, 257, 3, 0.5, "COMMON Radar Control Stick", "Pilot Radar Control Stick Scan Selection")
 
 --High-Lift Devices
 defineMultipositionSwitch("P_HLD_FLAP_SLAT", 1, 3120, 248, 3, 0.5, "COMMON High-Lift Devices", "Pilot Slat/Flap Lever")
@@ -427,15 +427,15 @@ defineToggleSwitch("P_CE_ANT_GYRO", 1, 3453, 408, "CE/BE/EE Misc", "CE/BE/EE Pil
 
 --Navigation indicator
 defineMultipositionSwitch("P_CE_NAV_MODE", 1, 3555, 1204, 4, 0.3333, "CE/BE/EE Navigation Indicator", "CE/BE/EE Pilot Navigation Mode Selector Switch")
-defineToggleSwitch("P_CE_NAV_NORM_ADD_VEC", 1, 3556, 1205, "CE/BE/EE Navigation Indicator", "CE/BE/EE Pilot Navigation Normal/Additional Vector Switch")
-defineToggleSwitch("P_CE_NAV_ADD_TARGET", 1, 3557, 1206, "CE/BE/EE Navigation Indicator", "CE/BE/EE Pilot Navigation Additional Target Selector Switch")
-defineRotary("P_CE_NAV_BRG_DIST", 1, 3558, 1207, "CE/BE/EE Navigation Indicator", "CE/BE/EE Pilot Navigation Bearing/Distance Selector Knob")
-definePushButton("P_CE_NAV_TEST", 1, 3559, 1208, "CE/BE/EE Navigation Indicator", "CE/BE/EE Pilot Navigation Test Button")
+defineToggleSwitch("P_CE_NAV_NORM_ADD_VEC", 1, 3557, 1205, "CE/BE/EE Navigation Indicator", "CE/BE/EE Pilot Navigation Normal/Additional Vector Switch")
+defineToggleSwitch("P_CE_NAV_ADD_TARGET", 1, 3558, 1206, "CE/BE/EE Navigation Indicator", "CE/BE/EE Pilot Navigation Additional Target Selector Switch")
+defineRotary("P_CE_NAV_BRG_DIST", 1, 3559, 1207, "CE/BE/EE Navigation Indicator", "CE/BE/EE Pilot Navigation Bearing/Distance Selector Knob")
+definePushButton("P_CE_NAV_TEST", 1, 3560, 1208, "CE/BE/EE Navigation Indicator", "CE/BE/EE Pilot Navigation Test Button")
 
 --Radar Detector indicator
-definePushButton("P_CE_RD_L_BRT_BTN", 1, 3565, 1290, "CE/BE/EE Radar Detector", "CE/BE/EE Pilot 'T' Test Button (Push)")
-definePotentiometer("P_CE_RD_L_BRT_KNB", 1, 3566, 1237, {0, 1}, "CE/BE/EE Radar Detector", "CE/BE/EE Pilot Indicator Light Intensity Adjusting Knob (Turn)")
-defineSpringloaded_3_pos_tumb("P_CE_RD_TEST", 1, 3568, 3567, 1238, "CE/BE/EE Radar Detector", "CE/BE/EE Pilot Radar Detector Indicator Test Selector")
+definePushButton("P_CE_RD_L_BRT_BTN", 1, 3573, 1290, "CE/BE/EE Radar Detector", "CE/BE/EE Pilot 'T' Test Button (Push)")
+definePotentiometer("P_CE_RD_L_BRT_KNB", 1, 3574, 1237, {0, 1}, "CE/BE/EE Radar Detector", "CE/BE/EE Pilot Indicator Light Intensity Adjusting Knob (Turn)")
+defineSpringloaded_3_pos_tumb("P_CE_RD_TEST", 1, 3576, 3575, 1238, "CE/BE/EE Radar Detector", "CE/BE/EE Pilot Radar Detector Indicator Test Selector")
 
 defineIndicatorLight("P_CE_RD_NOT_L", 1230, "CE/BE/EE Radar Detector Lights", "CE/BE/EE Pilot NATURE OF THREAT Light (red)")
 defineIndicatorLight("P_CE_RD_TWS_L", 1233, "CE/BE/EE Radar Detector Lights", "CE/BE/EE Pilot TWS Light (red)")
@@ -464,8 +464,8 @@ defineToggleSwitch("P_CE_ARM_BOMBFUS", 1, 3596, 618, "CE/BE/EE Armament Control"
 defineToggleSwitch("P_CE_ARM_MISL_NORM_ALT", 1, 3595, 601, "CE/BE/EE Armament Control", "CE/BE/EE Pilot R 530 Missile Normal/Altitude Difference Selector Switch")
 defineToggleSwitch("P_CE_ARM_NORM_JAM", 1, 3596, 603, "CE/BE/EE Armament Control", "CE/BE/EE Pilot Normal/Jammer Pursuit Switch")
 definePushButton("P_CE_ARM_L_TEST", 1, 3597, 602, "CE/BE/EE Armament Control", "CE/BE/EE Pilot Armament Panel Lights Test")
-defineToggleSwitch("P_CE_ARM_MATRA_JETT_CV", 1, 3560, 962, "CE/BE/EE Armament Control", "CE/BE/EE Pilot MATRA 550 or Sidewinder Jettison Button Guard")
-definePushButton("P_CE_ARM_MATRA_JETT", 1, 3561, 963, "CE/BE/EE Armament Control", "CE/BE/EE Pilot MATRA 550 or Sidewinder Jettison Button")
+defineToggleSwitch("P_CE_ARM_MATRA_JETT_CV", 1, 3561, 962, "CE/BE/EE Armament Control", "CE/BE/EE Pilot MATRA 550 or Sidewinder Jettison Button Guard")
+definePushButton("P_CE_ARM_MATRA_JETT", 1, 3562, 963, "CE/BE/EE Armament Control", "CE/BE/EE Pilot MATRA 550 or Sidewinder Jettison Button")
 defineToggleSwitch("P_CE_ARM_MASTER_CV", 1, 3134, 432, "CE/BE/EE Armament Control", "CE/BE/EE Pilot Armament Master Switch Guard")
 defineMultipositionSwitch("P_CE_ARM_MASTER", 1, 3135, 433, 3, 0.5, "CE/BE/EE Armament Control", "CE/BE/EE Pilot Armament Master Switch")
 definePushButton("P_CE_ARM_R_DESELECT", 1, 3475, 361, "CE/BE/EE Armament Control", "CE/BE/EE Pilot (C + M or SW) R Deselection Switch")
@@ -511,10 +511,10 @@ definePushButton("P_CE_SIGHT_CAM_TEST", 1, 3489, 776, "CE/BE/EE Sight System", "
 --Radar
 definePushButton("P_CE_RADAR_TEST", 1, 3505, 836, "CE/BE/EE Radar", "CE/BE/EE Pilot Radar Test Button")
 definePotentiometer("P_CE_RADAR_SCOPE_INTENT", 1, 3506, 837, {0, 1}, "CE/BE/EE Radar", "CE/BE/EE Pilot Radar Scope Intensity Adjustment")
-defineMultipositionSwitch("P_CE_RADAR_FUNC", 1, 3507, 838, 8, 1/7, "CE/BE/EE Radar", "CE/BE/EE Pilot Radar Function Selection")
-definePotentiometer("P_CE_RADAR_STORAGE_ADJ", 1, 3508, 839, {0, 1}, "CE/BE/EE Radar", "CE/BE/EE Pilot Radar Storage Adjustment")
-definePushButton("P_CE_RADAR_SCOPE_DEL", 1, 3509, 840, "CE/BE/EE Radar", "CE/BE/EE Pilot Radar Scope Erasing")
-definePotentiometer("P_CE_RADAR_POLAROID", 1, 3510, 841, {0, 1}, "CE/BE/EE Radar", "CE/BE/EE Pilot Radar Polaroid Screen Adjustment")
+defineMultipositionSwitch("P_CE_RADAR_FUNC", 1, 3508, 838, 8, 1/7, "CE/BE/EE Radar", "CE/BE/EE Pilot Radar Function Selection")
+definePotentiometer("P_CE_RADAR_STORAGE_ADJ", 1, 3510, 839, {0, 1}, "CE/BE/EE Radar", "CE/BE/EE Pilot Radar Storage Adjustment")
+definePushButton("P_CE_RADAR_SCOPE_DEL", 1, 3512, 840, "CE/BE/EE Radar", "CE/BE/EE Pilot Radar Scope Erasing")
+definePotentiometer("P_CE_RADAR_POLAROID", 1, 3513, 841, {0, 1}, "CE/BE/EE Radar", "CE/BE/EE Pilot Radar Polaroid Screen Adjustment")
 defineMultipositionSwitch("P_CE_RADAR_SEL", 1, 3605, 598, 3, 0.5, "CE/BE/EE Radar", "CE/BE/EE Pilot Radar Selector")
 definePushButton("P_CE_RADAR_EMERG_TRANS", 1, 3606, 599, "CE/BE/EE Radar", "CE/BE/EE Pilot Radar Emergency Transmission Button")
 defineToggleSwitch("P_CE_RADAR_4_1_LINE", 1, 3607, 600, "CE/BE/EE Radar", "CE/BE/EE Pilot Radar 4 lines/1 line Scan Switch")
