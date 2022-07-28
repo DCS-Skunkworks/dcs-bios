@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("F-86F Sabre", 0x3000)
 BIOS.protocol.setExportModuleAircrafts({"F-86F Sabre"})
---by WarLord (aka BlackLibrary) v3.0
+--by ArturDCS, WarLord (aka BlackLibrary) v3.0
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document  
@@ -105,18 +105,18 @@ defineToggleSwitch("APX_6_DESTR_CVR",29, 3005, 808, "Radio", "AN/APX-6 IFF Destr
 defineToggleSwitch("APX_6_IFF_DIAL_STOP",29, 3010, 203, "Radio", "AN/APX-6 IFF Dial Stop Button")
 defineToggleSwitch("SLAVE_FAST",20, 3003, 598, "Gyro Compass", "Directional Indicator Fast Slaving Button - Push for fast slaving")
 defineToggleSwitch("J8_ATT_CAGE",24, 3001, 714, "Attitude Indicator", "J-8 Attitude Indicator Cage Knob - Pull to cage")
-defineToggleSwitch("ACC_RST",12, 3001, 1004, "Cockpit", "Accelerometer Reset Button - Push to reset")
-defineToggleSwitch("A4_SIGHT_CAGE",22, 3025, 212, "Cockpit", "A-4 Sight Electrical Caging Button")
+definePushButton("ACC_RST",12, 3001, 1004, "Cockpit", "Accelerometer Reset Button - Push to reset")
+definePushButton("A4_SIGHT_CAGE",22, 3025, 212, "Cockpit", "A-4 Sight Electrical Caging Button")
 defineToggleSwitch("A4_SIGHT_FIL_SEL",22, 3015, 642	, "Cockpit", "A-4 Sight Filament Selector Switch, SECONDARY/PRIMARY")
 defineTumb("DEM_BMB_REL_SEL",5, 3006, 639, 2, {-1, 1}, nil, false, "Cockpit", "Demolition Bomb Release Selector Switch, AUTO RELEASE/MANUAL RELEASE")
 defineTumb("DEM_BMB_SEQ_SEL",5, 3008, 752, 0.1, {0, 0.5}, nil, false,"Cockpit", "Demolition Bomb Sequence Selector Switch, ALL/OFF/LEFT/RIGHT")
 defineTumb("RKT_JETT",5, 3012, 637, 2, {-1, 1}, nil, false, "Cockpit", "Rocket Jettison Switch, READY/OFF")
 define3PosTumb("RKT_REL",5, 3009, 751, "Cockpit", "Rocket Release Selector Switch, SINGLE/OFF/AUTO")
 defineTumb("MAN_PIP_CTRL",5, 3004, 663, 2, {-1, 1}, nil, false, "Cockpit", "Manual Pip Control Switch, BOMB/NORMAL")
-defineToggleSwitch("BMB_RKT_TANK_JETT",5, 3017, 702, "Cockpit", "Bomb-Rocket-Tank Jettison Button")
+definePushButton("BMB_RKT_TANK_JETT",5, 3017, 702, "Cockpit", "Bomb-Rocket-Tank Jettison Button")
 define3PosTumb("MISS_CTRL",5, 3018, 820, "Cockpit", "Missile Control Switch, LH & RH/RH/SALVO")
-defineToggleSwitch("BMB_RKT_REL",5, 3047, 207, "Cockpit", "Bomb-Rocket Release Button - Push to release")
-defineToggleSwitch("A4_RDR_TRG_SEL",22, 3027, 208, "Cockpit", "A-4 Sight Radar Target Selector Button")
+definePushButton("BMB_RKT_REL",5, 3047, 207, "Cockpit", "Bomb-Rocket Release Button - Push to release")
+definePushButton("A4_RDR_TRG_SEL",22, 3027, 208, "Cockpit", "A-4 Sight Radar Target Selector Button")
 definePotentiometer("OXY_REG_SUP",14,3002, 704, {0, 1},"Oxygen", "Oxygen Regulator Supply Lever")
 definePotentiometer("CPIT_AIR_TEMP",16,3004, 740, {0, 1},"Cockpit Air", "Cockpit Air Temperature Control Rheostat")
 definePotentiometer("IN_PNL_LGHT",17,3002, 813, {0, 1},"Lights", "Instrument Panel Primary Light Rheostat")
