@@ -197,6 +197,11 @@ definePushButton("P_CLOCK_SET_KNB", 1, 3202, 232, "COMMON Clock", "Pilot Chronom
 defineRotary("P_CLOCK_WIND_KNB", 1, 3203, 67, "COMMON Clock", "Pilot Chronometer Starting Control and Clock Winding Knob")
 defineToggleSwitch("P_CLOCK_WIND_LVR", 1, 3204, 231, "COMMON Clock", "Pilot Clock Winding/Setting Lever")
 
+defineFloat("P_CLOCK_NEEDLE_M_G", 63, {0, 1}, "COMMON Clock Gauges", "Pilot Clock Minutes Needle")
+defineFloat("P_CLOCK_NEEDLE_S_G", 62, {0, 1}, "COMMON Clock Gauges", "Pilot Clock Seconds Needle")
+defineFloat("P_CLOCK_NEEDLE_H_G", 64, {0, 1}, "COMMON Clock Gauges", "Pilot Clock Hour Needle")
+defineFloat("P_CLOCK_NEEDLE_C_G", 65, {0, 1}, "COMMON Clock Gauges", "Pilot Clock Counter Needle")
+
 --Air Data Instrument Controls
 definePotentiometer("P_ADI_SPEED_KNB", 1, 3206, 1270, {0, 1}, "COMMON Air Data Instrument Controls", "Pilot Mach/Airspeed Indicator Reference Airspeed Knob")
 defineRotary("P_ADI_ALT_BARO_SLAVE", 1, 3207, 1053, "COMMON Air Data Instrument Controls", "Pilot Slaved Altimeter Barometric Pressure Setting Knob")
@@ -215,6 +220,10 @@ defineToggleSwitch("P_FRS_EMERG_GYRO", 1, 3237, 538, "COMMON Flight Ref System",
 definePushButton("P_FRS_HDG_EREC", 1, 3238, 540, "COMMON Flight Ref System", "Pilot Heading Control Unit Erection Button")
 
 defineIndicatorLight("P_FRS_SPHER_IND_DN_L", 1279, "COMMON Flight Ref System Lights", "Pilot Spherical Indicator Day/Night Light (yellow)")
+
+defineFloat("P_FRS_COMP_HDG_G", 76, {-1, 1}, "COMMON Flight Ref System Gauges", "Pilot Compass Gauge Heading")
+defineFloat("P_FRS_COMP_PITCH_G", 77, {-1, 1}, "COMMON Flight Ref System Gauges", "Pilot Compass Gauge Pitch")
+defineFloat("P_FRS_COMP_BANK_G", 78, {-1, 1}, "COMMON Flight Ref System Gauges", "Pilot Compass Gauge Bank")
 
 --Electrical System Controls
 defineToggleSwitch("P_EL_BATT", 1, 3250, 113, "COMMON Electrical System Controls", "Pilot Battery Switch")
