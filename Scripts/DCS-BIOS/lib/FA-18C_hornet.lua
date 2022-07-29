@@ -44,7 +44,6 @@ local slope = {}
 	
 	return final_value
 end
-
 --------------------------
 local function defineEmergencyParkingBrake(msg, device_id, emergency_command, park_command, arg_number, category, description)
 	local alloc = moduleBeingDefined.memoryMap:allocateInt{ maxValue = 2 }
@@ -1246,6 +1245,6 @@ defineFloat("INT_THROTTLE_LEFT", 104, {0, 1}, "Throttle Quadrant", "Left Throttl
 defineFloat("INT_THROTTLE_RIGHT", 105, {0, 1}, "Throttle Quadrant", "Right Throttle Position")
 defineFloat("AOA_INDEXER_HIGH_F", 4, {0, 1}, "Angle of Attack Indexer Lights", "AOA Indexer High as Float (green)")
 defineFloat("AOA_INDEXER_NORMAL_F", 5, {0, 1}, "Angle of Attack Indexer Lights", "AOA Indexer Normal as Float (yellow)")
-defineFloat("AOA_INDEXER_LOW_F", 6, {0, 1}, "Angle of Attack Indexer Lights", "AOA Indexer Low as Float (red)")
+defineFloat("AOA_INDEXER_LOW_F", 6, {0, 1}, "Angle of Attack Indexer Lights", "AOA Indexer Low as Float (red)") 
 
 BIOS.protocol.endModule()
