@@ -208,6 +208,19 @@ defineRotary("P_ADI_ALT_BARO_SLAVE", 1, 3207, 1053, "COMMON Air Data Instrument 
 defineRotary("P_ADI_ALT_BARO_STBY", 1, 3208, 1072, "COMMON Air Data Instrument Controls", "Pilot Standby Altimeter Barometric Pressure Setting Knob")
 defineToggleSwitch("P_ADI_PROBE_HEAT", 1, 3209, 477, "COMMON Air Data Instrument Controls", "Pilot Probe Heater Switch")
 
+defineFloat("P_ADI_ALT_SL_NEEDLE_G", 1043, {0, 1}, "COMMON Air Data Instrument Controls Gauges", "Pilot Slaved Altimeter Needle")
+defineFloat("P_ADI_ALT_SL_FLAG_G", 1044, {0, 1}, "COMMON Air Data Instrument Controls Gauges", "Pilot Slaved Altimeter Flag")
+defineFloat("P_ADI_ALT_SL_T_DRUM_100_G", 1045, {0, 1}, "COMMON Air Data Instrument Controls Gauges", "Pilot Slaved Altimeter Top Drum 100")
+defineFloat("P_ADI_ALT_SL_T_DRUM_10_G", 1046, {0, 1}, "COMMON Air Data Instrument Controls Gauges", "Pilot Slaved Altimeter Top Drum 10")
+defineFloat("P_ADI_ALT_SL_T_DRUM_1_G", 1047, {0, 1}, "COMMON Air Data Instrument Controls Gauges", "Pilot Slaved Altimeter Top Drum 1")
+defineFloat("P_ADI_ALT_SL_T_DRUM_0.1_G", 1048, {0, 1}, "COMMON Air Data Instrument Controls Gauges", "Pilot Slaved Altimeter Top Drum 0.1")
+defineFloat("P_ADI_ALT_SL_L_DRUM_1000_G", 1049, {0, 1}, "COMMON Air Data Instrument Controls Gauges", "Pilot Slaved Altimeter Lower Drum 1000")
+defineFloat("P_ADI_ALT_SL_L_DRUM_100_G", 1050, {0, 1}, "COMMON Air Data Instrument Controls Gauges", "Pilot Slaved Altimeter Lower Drum 100")
+defineFloat("P_ADI_ALT_SL_L_DRUM_10_G", 1051, {0, 1}, "COMMON Air Data Instrument Controls Gauges", "Pilot Slaved Altimeter Lower Drum 10")
+defineFloat("P_ADI_ALT_SL_L_DRUM_1_G", 1052, {0, 1}, "COMMON Air Data Instrument Controls Gauges", "Pilot Slaved Altimeter Lower Drum 1")
+defineFloat("P_ADI_VERT_SPEED_G", 1025, {-1, 1}, "COMMON Air Data Instrument Controls Gauges", "Pilot Vertical Speed Indicator")
+defineFloat("P_ADI_SPEED_G", 1023, {0, 1}, "COMMON Air Data Instrument Controls Gauges", "Pilot Speed Indicator")
+
 --Heading and vertical reference system and standby horizon controls
 defineToggleSwitch("P_FRS_STBY_HORIZON", 1, 3230, 474, "COMMON Flight Ref System", "Pilot Standby Horizon Switch")
 definePotentiometer("P_FRS_SPHER_IND_DN", 1, 3231, 1116, {0, 1}, "COMMON Flight Ref System", "Pilot Spherical Indicator Day/Night Selector Switch")
@@ -224,6 +237,14 @@ defineIndicatorLight("P_FRS_SPHER_IND_DN_L", 1279, "COMMON Flight Ref System Lig
 defineFloat("P_FRS_COMP_HDG_G", 76, {-1, 1}, "COMMON Flight Ref System Gauges", "Pilot Compass Gauge Heading")
 defineFloat("P_FRS_COMP_PITCH_G", 77, {-1, 1}, "COMMON Flight Ref System Gauges", "Pilot Compass Gauge Pitch")
 defineFloat("P_FRS_COMP_BANK_G", 78, {-1, 1}, "COMMON Flight Ref System Gauges", "Pilot Compass Gauge Bank")
+
+defineFloat("P_FRS_SPHER_IND_ILS_H_G", 1108, {-1, 1}, "COMMON Flight Ref System Gauges", "Pilot Spherical Indicator ILS Horizontal Indicator")
+defineFloat("P_FRS_SPHER_IND_ILS_V_G", 1109, {-1, 1}, "COMMON Flight Ref System Gauges", "Pilot Spherical Indicator ILS Vertical Indicator")
+defineFloat("P_FRS_SPHER_IND_PITCH_G", 1110, {-1, 1}, "COMMON Flight Ref System Gauges", "Pilot Spherical Indicator Pitch")
+defineFloat("P_FRS_SPHER_IND_BANK_G", 1111, {-1, 1}, "COMMON Flight Ref System Gauges", "Pilot Spherical Indicator Bank")
+defineFloat("P_FRS_SPHER_IND_HDG_G", 1112, {-1, 1}, "COMMON Flight Ref System Gauges", "Pilot Spherical Indicator Heading")
+defineFloat("P_FRS_SLIP_IND_G", 1113, {-1, 1}, "COMMON Flight Ref System Gauges", "Pilot Slip Indicator")
+defineFloat("P_FRS_SPHER_IND_FLAG_G", 1115, {0, 1}, "COMMON Flight Ref System Gauges", "Pilot Spherical Indicator Flag")
 
 --Electrical System Controls
 defineToggleSwitch("P_EL_BATT", 1, 3250, 113, "COMMON Electrical System Controls", "Pilot Battery Switch")
@@ -430,6 +451,10 @@ defineIndicatorLight("P_L_GEAR_L_DN_L", 1090, "COMMON Warning, Caution and Indic
 defineIndicatorLight("P_L_GEAR_UP_L", 1091, "COMMON Warning, Caution and IndicatorLights", "Pilot Gear UP Down Light (red)")
 defineIndicatorLight("P_L_GEAR_N_DN_L", 1092, "COMMON Warning, Caution and IndicatorLights", "Pilot Nose Gear Down Light (green)")
 defineIndicatorLight("P_L_GEAR_R_DN_L", 1093, "COMMON Warning, Caution and IndicatorLights", "Pilot Right Gear Down Light (green)")
+
+defineFloat("P_SHOCK_CONE_G", 1021, {0, 0.2}, "COMMON Misc Gauges ", "Pilot Shock Cone Indicator")
+defineFloat("P_RPM_L_G", 1027, {0, 1}, "COMMON Misc Gauges ", "Pilot Left RPM Indicator")
+defineFloat("P_JPT_IND_G", 1028, {0, 1}, "COMMON Misc Gauges ", "Pilot JPT Indicator")
 
 ----F1CE/BE/EE
 defineToggleSwitch("P_CE_ANT_GYRO", 1, 3453, 408, "CE/BE/EE Misc", "CE/BE/EE Pilot ANTENNA-GYRO Switch")
