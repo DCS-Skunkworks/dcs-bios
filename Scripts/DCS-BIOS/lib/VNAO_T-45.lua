@@ -1,9 +1,11 @@
 BIOS.protocol.beginModule("VNAO_T-45", 0x9000)
 BIOS.protocol.setExportModuleAircrafts({"T-45"})
---by WarLord (aka BlackLibrary)
+--by WarLord (aka BlackLibrary)&Pavidovich
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document
+
+local parse_indication = BIOS.util.parse_indication
 
 local define3PosTumb = BIOS.util.define3PosTumb
 local defineTumb = BIOS.util.defineTumb
@@ -15,6 +17,34 @@ local defineToggleSwitch = BIOS.util.defineToggleSwitch
 local defineRotary = BIOS.util.defineRotary
 local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
+local defineString = BIOS.util.defineString
+
+local function getRadio1Freq()
+  local radio1Device = GetDevice(1)
+  local modeSelector1 = GetDevice(0):get_argument_value(256)
+  local comm1Switch = GetDevice(0):get_argument_value(191) 
+  local mainFreq1 = 0
+  
+  if modeSelector1 == 0.5 and comm1Switch == 1 then
+	mainFreq1 = radio1Device:get_frequency()
+	return  tostring(math.floor((mainFreq1 + 2500) / 5000) * 5000)
+  end
+  return ("------")
+end
+
+local function getRadio2Freq()
+  local radio2Device = GetDevice(2)
+  local modeSelector2 = GetDevice(0):get_argument_value(280)
+  local comm2Switch = GetDevice(0):get_argument_value(192) 
+  local mainFreq2 = 0
+  
+  if modeSelector2 == 0.5 and comm2Switch == 1 then
+    mainFreq2 = radio2Device:get_frequency()
+	return  tostring(math.floor((mainFreq2 + 2500) / 5000) * 5000)
+  end
+  return ("------")
+end
+
 
 -------- FRONT/SHARED Pit 
 defineTumb("FLAPS_LVR", 19, 3013, 7, 0.5, {0, 1}, nil, false, "General", "Flaps Lever, UP/ 1/2 /DOWN")
@@ -177,6 +207,8 @@ definePotentiometer("COMM_1_VOL", 3, 3519, 246, {0, 1}, "V/UHF 1", "COMM 1 Volum
 define3PosTumb("COMM_1_MODE", 3, 3520, 256, "V/UHF 1", "COMM 1 Mode Control Selector, OFF/T+R/T+R&G")
 definePotentiometer("COMM_1_BRIGHT", 3, 3521, 255, {0, 1}, "V/UHF 1", "COMM 1 Brightness")
 
+defineString("RADIO1_FREQ", getRadio1Freq, 6, "V/UHF 1", "Radio1 Frequency")
+
 defineIndicatorLight("COMM_1_FWD_L", 260, "V/UHF 1 Lights","COMM 1 FWD Light (green)")
 defineIndicatorLight("COMM_1_AFT_L", 261, "V/UHF 1 Lights","COMM 1 AFT Light (green)")
 
@@ -189,6 +221,8 @@ defineToggleSwitch("COMM_2_AMFM", 4, 3526, 278, "V/UHF 2", "COMM 2 AM/FM Mode Sw
 definePotentiometer("COMM_2_VOL", 4, 3527, 270, {0, 1}, "V/UHF 2", "COMM 2 Volume")
 define3PosTumb("COMM_2_MODE", 4, 3528, 280, "V/UHF 2", "COMM 2 Mode Control Selector, OFF/T+R/T+R&G")
 definePotentiometer("COMM_2_BRIGHT", 4, 3529, 279, {0, 1}, "V/UHF 2", "COMM 2 Brightness")
+
+defineString("RADIO2_FREQ", getRadio2Freq, 6, "V/UHF 2", "Radio2 Frequency")
 
 defineIndicatorLight("COMM_2_FWD_L", 262, "V/UHF 2 Lights","COMM 2 FWD Light (green)")
 defineIndicatorLight("COMM_2_AFT_L", 263, "V/UHF 2 Lights","COMM 2 AFT Light (green)")
