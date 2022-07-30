@@ -58,6 +58,12 @@ defineIndicatorLight("P_FCS_AP5_UR_L", 989, "COMMON Flight Control System Lights
 defineIndicatorLight("P_FCS_AP5_GN_L", 990, "COMMON Flight Control System Lights", "Pilot Autopilot BTN 5 Right Light (green)")
 defineIndicatorLight("P_FCS_AP5_LR_L", 991, "COMMON Flight Control System Lights", "Pilot Autopilot BTN 5 Lower Arrow Light (red)")
 
+defineFloat("P_FCS_TRIM_RDR_G", 723, {-1, 1}, "COMMON Flight Control System Gauges", "Pilot Rudder Trim Indicator")
+defineFloat("P_FCS_TRIM_ROLL_G", 724, {-1, 1}, "COMMON Flight Control System Gauges", "Pilot Roll Trim Indicator")
+defineFloat("P_FCS_TRIM_P_G", 725, {-1, 1}, "COMMON Flight Control System Gauges", "Pilot Pitch Trim Indicator")
+defineFloat("P_FCS_CABIN_PRESS_G", 726, {0, 1}, "COMMON Flight Control System Gauges", "Pilot Cabin Altimeter Gauge")
+
+
 --Engine and Fuel Controls
 definePushButton("P_EFC_THL_CUT_IDLE", 1, 3051, 239, "COMMON Engine-Fuel Control", "Pilot Throttle Cut/Idle Switch")
 definePushButton("P_EFC_ENG_RELIGHT", 1, 3052, 240, "COMMON Engine-Fuel Control", "Pilot In-flight Relight Control")
@@ -104,6 +110,14 @@ defineIndicatorLight("P_FS_TRANS_L3_L", 1162, "COMMON Fuel System Lights", "Pilo
 defineIndicatorLight("P_FS_TRANS_R3_L", 1163, "COMMON Fuel System Lights", "Pilot Fuel Transfer Right 3 Light (red)")
 defineIndicatorLight("P_FS_TRANS_L5_L", 1164, "COMMON Fuel System Lights", "Pilot Fuel Transfer Left 5 Light (red)")
 defineIndicatorLight("P_FS_TRANS_R5_L", 1165, "COMMON Fuel System Lights", "Pilot Fuel Transfer Right 5 Light (red)")
+
+defineFloat("P_FS_FUEL_G_G", 1142, {0, 1}, "COMMON Fuel System Gauges", "Pilot Dual Fuel Gauge G Needle")
+defineFloat("P_FS_FUEL_D_G", 1143, {0, 1}, "COMMON Fuel System Gauges", "Pilot Dual Fuel Gauge D Needle")
+defineFloat("P_FS_FUEL_REMAIN_1000_G", 1146, {0, 1}, "COMMON Fuel System Gauges", "Pilot Fuel Remaining Drum 1000")
+defineFloat("P_FS_FUEL_REMAIN_100_G", 1147, {0, 1}, "COMMON Fuel System Gauges", "Pilot Fuel Remaining Drum 100")
+defineFloat("P_FS_FUEL_REMAIN_10_G", 1148, {0, 1}, "COMMON Fuel System Gauges", "Pilot Fuel Remaining Drum 10")
+defineFloat("P_FS_FUEL_REMAIN_1_G", 1149, {0, 1}, "COMMON Fuel System Gauges", "Pilot Fuel Remaining Drum 1")
+
 
 --Radar Control Stick
 definePushButton("P_RCS_ALT_DIFF", 1, 3100, 259, "COMMON Radar Control Stick", "Pilot Radar Control Stick Elevation/Altitude Difference Button")
@@ -192,6 +206,9 @@ defineMultipositionSwitch("P_U_EMERG_UC", 1, 3199, 107, 3, 0.5, "COMMON Undercar
 defineToggleSwitch("P_HSC_PRESS_SEL", 1, 3200, 88, "COMMON Hydraulic System Controls", "Pilot Hydraulic Pressure Selector Switch")
 defineToggleSwitch("P_HSC_EL_PUMP", 1, 3201, 475, "COMMON Hydraulic System Controls", "Pilot Electro-Pump Switch")
 
+defineFloat("P_HSC_L_PRESS_G", 721, {0, 1}, "COMMON Clock Gauges", "Pilot Left Hydraulic Pressure Gauge")
+defineFloat("P_HSC_R_PRESS_G", 722, {0, 1}, "COMMON Clock Gauges", "Pilot Right Hydraulic Pressure Gauge")
+
 -- Clock
 definePushButton("P_CLOCK_SET_KNB", 1, 3202, 232, "COMMON Clock", "Pilot Chronometer Starting Control and Clock Setting Knob")
 defineRotary("P_CLOCK_WIND_KNB", 1, 3203, 67, "COMMON Clock", "Pilot Chronometer Starting Control and Clock Winding Knob")
@@ -218,8 +235,16 @@ defineFloat("P_ADI_ALT_SL_L_DRUM_1000_G", 1049, {0, 1}, "COMMON Air Data Instrum
 defineFloat("P_ADI_ALT_SL_L_DRUM_100_G", 1050, {0, 1}, "COMMON Air Data Instrument Controls Gauges", "Pilot Slaved Altimeter Lower Drum 100")
 defineFloat("P_ADI_ALT_SL_L_DRUM_10_G", 1051, {0, 1}, "COMMON Air Data Instrument Controls Gauges", "Pilot Slaved Altimeter Lower Drum 10")
 defineFloat("P_ADI_ALT_SL_L_DRUM_1_G", 1052, {0, 1}, "COMMON Air Data Instrument Controls Gauges", "Pilot Slaved Altimeter Lower Drum 1")
+defineFloat("P_ADI_ALT_STBY_S_NEEDLE_G", 1065, {0, 1}, "COMMON Air Data Instrument Controls Gauges", "Pilot Standby Altimeter Small Needle")
+defineFloat("P_ADI_ALT_STBY_B_NEEDLE_G", 1066, {0, 1}, "COMMON Air Data Instrument Controls Gauges", "Pilot Standby Altimeter Big Needle")
+defineFloat("P_ADI_ALT_STBY_A_NEEDLE_G", 1067, {0, 1}, "COMMON Air Data Instrument Controls Gauges", "Pilot Standby Altimeter Arrow Needle")
+defineFloat("P_ADI_ALT_STBY_DRUM_1000_G", 1068, {0, 1}, "COMMON Air Data Instrument Controls Gauges", "Pilot Standby Altimeter Lower Drum 1000")
+defineFloat("P_ADI_ALT_STBY_DRUM_100_G", 1069, {0, 1}, "COMMON Air Data Instrument Controls Gauges", "Pilot Standby Altimeter Lower Drum 100")
+defineFloat("P_ADI_ALT_STBY_DRUM_10_G", 1070, {0, 1}, "COMMON Air Data Instrument Controls Gauges", "Pilot Standby Altimeter Lower Drum 10")
+defineFloat("P_ADI_ALT_STBY_DRUM_1_G", 1071, {0, 1}, "COMMON Air Data Instrument Controls Gauges", "Pilot Standby Altimeter Lower Drum 1")
 defineFloat("P_ADI_VERT_SPEED_G", 1025, {-1, 1}, "COMMON Air Data Instrument Controls Gauges", "Pilot Vertical Speed Indicator")
 defineFloat("P_ADI_SPEED_G", 1023, {0, 1}, "COMMON Air Data Instrument Controls Gauges", "Pilot Speed Indicator")
+defineFloat("P_ADI_SPEED_I", 1070, {0, 1}, "COMMON Air Data Instrument Controls Gauges", "Pilot Speed Index Arrow")
 
 --Heading and vertical reference system and standby horizon controls
 defineToggleSwitch("P_FRS_STBY_HORIZON", 1, 3230, 474, "COMMON Flight Ref System", "Pilot Standby Horizon Switch")
@@ -237,7 +262,7 @@ defineIndicatorLight("P_FRS_SPHER_IND_DN_L", 1279, "COMMON Flight Ref System Lig
 defineFloat("P_FRS_COMP_HDG_G", 76, {-1, 1}, "COMMON Flight Ref System Gauges", "Pilot Compass Gauge Heading")
 defineFloat("P_FRS_COMP_PITCH_G", 77, {-1, 1}, "COMMON Flight Ref System Gauges", "Pilot Compass Gauge Pitch")
 defineFloat("P_FRS_COMP_BANK_G", 78, {-1, 1}, "COMMON Flight Ref System Gauges", "Pilot Compass Gauge Bank")
-
+defineFloat("P_FRS_HDG_DEVI_G", 539, {-1, 1}, "COMMON Flight Ref System Gauges", "Pilot Heading Deviation Needle")
 defineFloat("P_FRS_SPHER_IND_ILS_H_G", 1108, {-1, 1}, "COMMON Flight Ref System Gauges", "Pilot Spherical Indicator ILS Horizontal Indicator")
 defineFloat("P_FRS_SPHER_IND_ILS_V_G", 1109, {-1, 1}, "COMMON Flight Ref System Gauges", "Pilot Spherical Indicator ILS Vertical Indicator")
 defineFloat("P_FRS_SPHER_IND_PITCH_G", 1110, {-1, 1}, "COMMON Flight Ref System Gauges", "Pilot Spherical Indicator Pitch")
@@ -245,6 +270,11 @@ defineFloat("P_FRS_SPHER_IND_BANK_G", 1111, {-1, 1}, "COMMON Flight Ref System G
 defineFloat("P_FRS_SPHER_IND_HDG_G", 1112, {-1, 1}, "COMMON Flight Ref System Gauges", "Pilot Spherical Indicator Heading")
 defineFloat("P_FRS_SLIP_IND_G", 1113, {-1, 1}, "COMMON Flight Ref System Gauges", "Pilot Slip Indicator")
 defineFloat("P_FRS_SPHER_IND_FLAG_G", 1115, {0, 1}, "COMMON Flight Ref System Gauges", "Pilot Spherical Indicator Flag")
+defineFloat("P_FRS_STBY_HORIZON_BANK_G", 1128, {-1, 1}, "COMMON Flight Ref System Gauges", "Pilot Standby Horizon Gauge Bank")
+defineFloat("P_FRS_STBY_HORIZON_R_I_G", 1129, {-1, 1}, "COMMON Flight Ref System Gauges", "Pilot Standby Horizon Roll Indicator")
+defineFloat("P_FRS_STBY_HORIZON_H_I_G", 1130, {-1, 1}, "COMMON Flight Ref System Gauges", "Pilot Standby Horizon Horizontal Indicator")
+defineFloat("P_FRS_STBY_HORIZON_FLAG_G", 1131, {0, 1}, "COMMON Flight Ref System Gauges", "Pilot Standby Horizon Flag")
+defineFloat("P_FRS_STBY_HORIZON_PITCH_G", 1134, {-1, 1}, "COMMON Flight Ref System Gauges", "Pilot Standby Horizon Gauge Pitch")
 
 --Electrical System Controls
 defineToggleSwitch("P_EL_BATT", 1, 3250, 113, "COMMON Electrical System Controls", "Pilot Battery Switch")
@@ -328,6 +358,9 @@ defineFloat("P_IL_INST_L", 1296, {0, 1}, "COMMON Lighting Control Unit Lights", 
 defineFloat("P_IL_FLOOD_L", 1297, {0, 1}, "COMMON Lighting Control Unit Lights", "Pilot Flood Lights (red)")
 defineFloat("P_IL_CONSOLE_L", 1299, {0, 1}, "COMMON Lighting Control Unit Lights", "Pilot Console Lights (red)")
 
+defineFloat("P_IL_INCIDENCE_FLAG_G", 203, {0, 1}, "COMMON Lighting Control Unit Gauges", "Pilot Incidence Flag")
+defineFloat("P_IL_INCIDENCE_IND_G", 203, {0, 1}, "COMMON Lighting Control Unit Gauges", "Pilot Incidence Indicator Bar")
+
 --TACAN Control Box
 definePushButton("P_TCN_TEST", 1, 3347, 480, "COMMON TACAN Control Box", "Pilot TACAN Test Button")
 defineToggleSwitch("P_TCN_XY_MODE", 1, 3335, 485, "COMMON TACAN Control Box", "Pilot TACAN X/Y Mode Selector")
@@ -352,6 +385,15 @@ definePotentiometer("P_VOR_OMNI_SEL", 1, 3344, 545, {0, 1}, "COMMON VOR ILS Cont
 defineMultipositionSwitch("P_VOR_MODE", 1, 3345, 544, 3, 0.5, "COMMON VOR ILS Control Box", "Pilot VOR/ILS/OFF/TACAN Selector")
 defineRotary("P_VOR_HDG_SEL", 1, 3346, 547, "COMMON VOR ILS Control Box", "Pilot Heading Selector Knob")
 
+defineFloat("P_VOR_100_G", 498, {0, 1}, "COMMON VOR ILS Control Box Gauges", "Pilot VOR/ILS 100 Gauge")
+defineFloat("P_VOR_10_G", 499, {0, 1}, "COMMON VOR ILS Control Box Gauges", "Pilot VOR/ILS 10 Gauge")
+defineFloat("P_VOR_1_G", 500, {0, 1}, "COMMON VOR ILS Control Box Gauges", "Pilot VOR/ILS 1 Gauge")
+defineFloat("P_VOR_01_G", 501, {0, 1}, "COMMON VOR ILS Control Box Gauges", "Pilot VOR/ILS 0.1 Gauge")
+defineFloat("P_VOR_001_G", 502, {0, 1}, "COMMON VOR ILS Control Box Gauges", "Pilot VOR/ILS 0.01 Gauge")
+defineFloat("P_VOR_OMNI_100_G", 541, {0, 1}, "COMMON VOR ILS Control Box Gauges", "Pilot Omnibearing 100 Gauge")
+defineFloat("P_VOR_OMNI_10_G", 542, {0, 1}, "COMMON VOR ILS Control Box Gauges", "Pilot Omnibearing 10 Gauge")
+defineFloat("P_VOR_OMNI_1_G", 543, {0, 1}, "COMMON VOR ILS Control Box Gauges", "Pilot Omnibearing 1 Gauge")
+
 --Oxygen System
 definePushButton("P_OXY_TEST", 1, 3360, 517, "COMMON Oxygen System", "Pilot Oxygen Test (T Button)")
 definePushButton("P_OXY_TEST_P", 1, 3361, 519, "COMMON Oxygen System", "Pilot Oxygen Test Button")
@@ -360,6 +402,10 @@ defineMultipositionSwitch("P_OXY_N100_EMG", 1, 3362, 709, 3, 0.5, "COMMON Oxygen
 definePushButton("P_OXY_G_CON_CVR", 1, 3364, 712, "COMMON Oxygen System", "Pilot Anti-G Connection Cover")
 definePushButton("P_OXY_G_TEST", 1, 3365, 713, "COMMON Oxygen System", "Pilot Anti-G Test Button")
 defineToggleSwitch("P_OXY_G_VALVE", 1, 3366, 714, "COMMON Oxygen System", "Pilot Anti-G Valve Cock")
+
+defineFloat("P_OXY_QUANT_G", 516, {-1, 1}, "COMMON Oxygen System Gauges", "Pilot Oxygen Quantity Needle")
+defineFloat("P_OXY_SEL_POS_G", 518, {-1, 1}, "COMMON Oxygen System Gauges", "Pilot Oxygen Selector Position Repeater")
+defineFloat("P_OXY_BLINK_G", 719, {0, 1}, "COMMON Oxygen System Gauges", "Pilot Oxygen Blinker")
 
 --Air Conditioning System
 defineToggleSwitch("P_AC_EMERG_COLD", 1, 3375, 524, "COMMON Air Conditioning System", "Pilot Emergency Cold Switch")
@@ -370,6 +416,9 @@ defineSpringloaded_3_pos_tumb("P_AC_HOT_COLD", 1, 3380, 3379, 530, "COMMON Air C
 defineToggleSwitch("P_AC_RAM_AIR_CV", 1, 3381, 410, "COMMON Air Conditioning System", "Pilot Ram Air Switch Guard")
 defineToggleSwitch("P_AC_RAM_AIR", 1, 3382, 411, "COMMON Air Conditioning System", "Pilot Ram Air Switch")
 defineToggleSwitch("P_AC_DEMIST", 1, 3383, 412, "COMMON Air Conditioning System", "Pilot Demist Switch")
+
+defineFloat("P_AC_SOL_VALVE_G", 526, {0, 1}, "COMMON Oxygen System Gauges", "Pilot Solenoid Valve Position Indicator")
+defineFloat("P_AC_TEMP_G", 528, {-1, 1}, "COMMON Oxygen System Gauges", "Pilot Temperatur Indicator")
 
 --Circuit Breaker
 defineToggleSwitch("P_CB_GYRO_CONTR", 1, 3395, 548, "COMMON Circuit Breaker", "Pilot CB Gyro Control Unit Power Supply")
@@ -453,7 +502,8 @@ defineIndicatorLight("P_L_GEAR_N_DN_L", 1092, "COMMON Warning, Caution and Indic
 defineIndicatorLight("P_L_GEAR_R_DN_L", 1093, "COMMON Warning, Caution and IndicatorLights", "Pilot Right Gear Down Light (green)")
 
 defineFloat("P_SHOCK_CONE_G", 1021, {0, 0.2}, "COMMON Misc Gauges ", "Pilot Shock Cone Indicator")
-defineFloat("P_RPM_L_G", 1027, {0, 1}, "COMMON Misc Gauges ", "Pilot Left RPM Indicator")
+defineFloat("P_RPM_S_G", 1027, {0, 1}, "COMMON Misc Gauges ", "Pilot RPM Indicator Short Needle")
+defineFloat("P_RPM_L_G", 1106, {0, 1}, "COMMON Misc Gauges ", "Pilot RPM Indicator Long Needle")
 defineFloat("P_JPT_IND_G", 1028, {0, 1}, "COMMON Misc Gauges ", "Pilot JPT Indicator")
 
 ----F1CE/BE/EE
@@ -465,6 +515,23 @@ defineToggleSwitch("P_CE_NAV_NORM_ADD_VEC", 1, 3557, 1205, "CE/BE/EE Navigation 
 defineToggleSwitch("P_CE_NAV_ADD_TARGET", 1, 3558, 1206, "CE/BE/EE Navigation Indicator", "CE/BE/EE Pilot Navigation Additional Target Selector Switch")
 defineRotary("P_CE_NAV_BRG_DIST", 1, 3559, 1207, "CE/BE/EE Navigation Indicator", "CE/BE/EE Pilot Navigation Bearing/Distance Selector Knob")
 definePushButton("P_CE_NAV_TEST", 1, 3560, 1208, "CE/BE/EE Navigation Indicator", "CE/BE/EE Pilot Navigation Test Button")
+
+defineFloat("P_CE_NAV_HDG_G", 1189, {0, 1}, "CE/BE/EE Navigation Indicator Gauges", "CE/BE/EE Pilot Navigation Heading Rose")
+defineFloat("P_CE_NAV_AP_SEL_G", 1190, {0, 1}, "CE/BE/EE Navigation Indicator Gauges", "CE/BE/EE Pilot Navigation Heading Selection for Autopilot")
+defineFloat("P_CE_NAV_TCN_TRG_G", 1191, {0, 1}, "CE/BE/EE Navigation Indicator Gauges", "CE/BE/EE Pilot Navigation TACAN Target Bearing")
+defineFloat("P_CE_NAV_RDR_ANT_G", 1192, {0, 1}, "CE/BE/EE Navigation Indicator Gauges", "CE/BE/EE Pilot Radar Antenna Bearing")
+defineFloat("P_CE_NAV_TCN_DIST_100_G", 1193, {0, 1}, "CE/BE/EE Navigation Indicator Gauges", "CE/BE/EE Pilot Navigation TACAN Target Distance Drum 100")
+defineFloat("P_CE_NAV_TCN_DIST_10_G", 1194, {0, 1}, "CE/BE/EE Navigation Indicator Gauges", "CE/BE/EE Pilot Navigation TACAN Target Distance Drum 10")
+defineFloat("P_CE_NAV_TCN_DIST_1_G", 1195, {0, 1}, "CE/BE/EE Navigation Indicator Gauges", "CE/BE/EE Pilot Navigation TACAN Target Distance Drum 1")
+defineFloat("P_CE_NAV_TCN_DIST_FLAG_G", 1196, {0, 1}, "CE/BE/EE Navigation Indicator Gauges", "CE/BE/EE Pilot Navigation TACAN Target Distance Flag")
+defineFloat("P_CE_NAV_VEC_B_100_G", 1197, {0, 1}, "CE/BE/EE Navigation Indicator Gauges", "CE/BE/EE Pilot Navigation Additional Vector Bearing Drum 100")
+defineFloat("P_CE_NAV_VEC_B_10_G", 1198, {0, 1}, "CE/BE/EE Navigation Indicator Gauges", "CE/BE/EE Pilot Navigation Additional Vector Bearing Drum 10")
+defineFloat("P_CE_NAV_VEC_B_1_G", 1199, {0, 1}, "CE/BE/EE Navigation Indicator Gauges", "CE/BE/EE Pilot Navigation Additional Vector Bearing Drum 1")
+defineFloat("P_CE_NAV_VEC_D_100_G", 1200, {0, 1}, "CE/BE/EE Navigation Indicator Gauges", "CE/BE/EE Pilot Navigation Additional Vector Distance Drum 100")
+defineFloat("P_CE_NAV_VEC_D_10_G", 1201, {0, 1}, "CE/BE/EE Navigation Indicator Gauges", "CE/BE/EE Pilot Navigation Additional Vector Distance Drum 10")
+defineFloat("P_CE_NAV_VEC_D_1_G", 1202, {0, 1}, "CE/BE/EE Navigation Indicator Gauges", "CE/BE/EE Pilot Navigation Additional Vector Distance Drum 1")
+defineFloat("P_CE_NAV_VOR_FLAG_G", 1203, {0, 1}, "CE/BE/EE Navigation Indicator Gauges", "CE/BE/EE Pilot Navigation VOR/LOC Failure Flag")
+defineFloat("P_CE_NAV_IDN_FLAG_G", 1306, {0, 1}, "CE/BE/EE Navigation Indicator Gauges", "CE/BE/EE Pilot Navigation IDN Failure Flag")
 
 --Radar Detector indicator
 definePushButton("P_CE_RD_L_BRT_BTN", 1, 3573, 1290, "CE/BE/EE Radar Detector", "CE/BE/EE Pilot 'T' Test Button (Push)")
@@ -526,8 +593,12 @@ defineIndicatorLight("P_CE_UHF_CDE_L", 351, "CE/BE/EE UHF Radio Lights", "CE/BE/
 defineIndicatorLight("P_CE_UHF_TEST_L", 352, "CE/BE/EE UHF Radio Lights", "CE/BE/EE Pilot UHF Radio TEST Light (red)")
 
 --Accelerometer Reset Button and Rheostat
-definePushButton("P_CE_ACCEL_RESET_BTN", 1, 3477, 1288, "CE/BE/EE Radar Detector", "CE/BE/EE Pilot Accelerometer Reset Button (Push)")
-definePotentiometer("P_CE_ACCEL_BRT_KNB", 1, 3478, 1289, {0, 1}, "CE/BE/EE Radar Detector", "CE/BE/EE Pilot Accelerometer Rheostat Knob (Turn)")
+definePushButton("P_CE_ACCEL_RESET_BTN", 1, 3477, 1288, "CE/BE/EE Accelerometer", "CE/BE/EE Pilot Accelerometer Reset Button (Push)")
+definePotentiometer("P_CE_ACCEL_BRT_KNB", 1, 3478, 1289, {0, 1}, "CE/BE/EE Accelerometer", "CE/BE/EE Pilot Accelerometer Rheostat Knob (Turn)")
+
+defineFloat("P_CE_ACCEL_U_ARROW_G", 218, {0, 1}, "CE/BE/EE Accelerometer Gauges", "CE/BE/EE Pilot Accelerometer Upper Arrow")
+defineFloat("P_CE_ACCEL_M_ARROW_G", 218, {0, 1}, "CE/BE/EE Accelerometer Gauges", "CE/BE/EE Pilot Accelerometer Main Arrow")
+defineFloat("P_CE_ACCEL_L_ARROW_G", 218, {0, 1}, "CE/BE/EE Accelerometer Gauges", "CE/BE/EE Pilot Accelerometer Lower Arrow")
 
 --Sight System and Recording Camera
 defineToggleSwitch("P_CE_SIGHT_AUTO_MAN_INTENT", 1, 3479, 760, "CE/BE/EE Sight System", "CE/BE/EE Pilot Sight AUTO/MAN Intensity Selector Switch")
@@ -541,6 +612,11 @@ definePotentiometer("P_CE_SIGHT_EX_TIME_REP", 1, 3486, 774, {0, 1}, "CE/BE/EE Si
 definePotentiometer("P_CE_SIGHT_OVERRUN", 1, 3487, 775, {0, 1}, "CE/BE/EE Sight System", "CE/BE/EE Pilot Sight Overrun Select Thumbwheel")
 defineToggleSwitch("P_CE_SIGHT_FRAME_RATE", 1, 3488, 777, "CE/BE/EE Sight System", "CE/BE/EE Pilot Sight 5/16 PPS Framing Rate Selector Switch")
 definePushButton("P_CE_SIGHT_CAM_TEST", 1, 3489, 776, "CE/BE/EE Sight System", "CE/BE/EE Pilot Sight Camera Test Switch")
+
+defineFloat("P_CE_SIGHT_MAN_GRAV_100_G", 766, {0, 1}, "CE/BE/EE Sight System Gauges", "CE/BE/EE Pilot Manual Gravity Drop Drum 100")
+defineFloat("P_CE_SIGHT_MAN_GRAV_10_G", 767, {0, 1}, "CE/BE/EE Sight System Gauges", "CE/BE/EE Pilot Manual Gravity Drop Drum 10")
+defineFloat("P_CE_SIGHT_MAN_GRAV_1_G", 768, {0, 1}, "CE/BE/EE Sight System Gauges", "CE/BE/EE Pilot Manual Gravity Drop Drum 1")
+defineFloat("P_CE_SIGHT_G", 774, {0, 1}, "CE/BE/EE Sight System Gauges", "CE/BE/EE Pilot Sight Gauge")
 
 --Radar
 definePushButton("P_CE_RADAR_TEST", 1, 3505, 836, "CE/BE/EE Radar", "CE/BE/EE Pilot Radar Test Button")
