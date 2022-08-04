@@ -69,7 +69,7 @@ dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\P-47D.lua]]) -- ID = 34, ProperNam
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\P-51D.lua]]) -- ID = 35, ProperName = TF/P-51D Mustang
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\SA342.lua]]) -- ID = 36, ProperName = SA342 Gazelle
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\SpitfireLFMkIX.lua]]) -- ID = 37, ProperName = Spitfire LF Mk. IX
---dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\SuperCarrier.lua]]) -- ID = 44, ProperName = Super Carrier
+--dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\SuperCarrier.lua]])
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\UH-1H.lua]]) -- ID = 38, ProperName = UH-1H Huey
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\VNAO_Room.lua]])
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\VNAO_T-45.lua]]) -- ID = 43, ProperName = T-45 Goshawk
