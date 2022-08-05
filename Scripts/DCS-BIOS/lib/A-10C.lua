@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("A-10C", 0x1000)
 BIOS.protocol.setExportModuleAircrafts({"A-10C", "A-10C_2"})
---overhaul by WarLord v2.2
+--overhaul by WarLord v2.2a
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 
@@ -1286,10 +1286,10 @@ definePotentiometer("UHF5", 54, 3016, 555, {0, 1}, "UHF Radio", "UHF-5")
 definePotentiometer("UHF6", 54, 3017, 556, {0, 1}, "UHF Radio", "UHF-6")
 definePotentiometer("UHF7", 54, 3018, 557, {0, 1}, "UHF Radio", "UHF-7")
 definePotentiometer("UHF8", 54, 3019, 558, {0, 1}, "UHF Radio", "UHF-8")
-defineFloat("INTERNAL_CONSOLE_LIGHTS", 800, {0, 1}, "Light System Control Panel", "Console Lights")
-defineFloat("INTERNAL_ENG_INST_LIGHTS", 801, {0, 1}, "Light System Control Panel", "Engine Instrument Lights")
-defineFloat("INTERNAL_FLT_INST_LIGHTS", 802, {0, 1}, "Light System Control Panel", "Flight Instruments Lights")
-defineFloat("INTERNAL_AUX_INST_LIGHTS", 803, {0, 1}, "Light System Control Panel", "Auxiliary Instruments Lights")
-defineFloat("INTERNAL_FLOOD_LIGHTS", 806, {0, 1}, "Light System Control Panel", "Flood Lights")
+defineFloat("INTERNAL_CONSOLE_LIGHTS", 800, {0, 1}, "Light System Control Panel", "Console Lights (as Gauge)")
+defineFloat("INTERNAL_ENG_INST_LIGHTS", 801, {0, 1}, "Light System Control Panel", "Engine Instrument Lights (as Gauge)")
+defineFloat("INTERNAL_FLT_INST_LIGHTS", 802, {0, 1}, "Light System Control Panel", "Flight Instruments Lights (as Gauge)")
+defineFloat("INTERNAL_AUX_INST_LIGHTS", 803, {0, 1}, "Light System Control Panel", "Auxiliary Instruments Lights (as Gauge)")
+defineFloat("INTERNAL_FLOOD_LIGHTS", 806, {0, 1}, "Light System Control Panel", "Flood Lights (as Gauge)")
 
 BIOS.protocol.endModule()
