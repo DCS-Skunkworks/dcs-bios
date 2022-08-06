@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("AH-64D", 0x8000)
 BIOS.protocol.setExportModuleAircrafts({"AH-64D_BLK_II"})
---v1.2 by WarLord (aka BlackLibrary) & charliefoxtwo
+--v1.2a by WarLord (aka BlackLibrary) & charliefoxtwo
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document  
@@ -18,6 +18,7 @@ local defineToggleSwitch = BIOS.util.defineToggleSwitch
 local defineString = BIOS.util.defineString
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 local define3PosTumb = BIOS.util.define3PosTumb
+local defineRockerSwitch = BIOS.util.defineRockerSwitch
 
 local getDisplayLines = TextDisplay.GetDisplayLines
 
@@ -233,7 +234,7 @@ defineToggleSwitch("PLT_COM_UHF_PW", 63, 3021, 450, "PLT COMM Panel", "Pilot UHF
 definePotentiometer("PLT_COM_FM1_VOL", 63, 3003, 336, {0, 1}, "PLT COMM Panel", "Pilot FM1 Volume Control Knob")
 defineToggleSwitch("PLT_COM_FM1_PW", 63, 3022, 451, "PLT COMM Panel", "Pilot FM1 Disable Knob")
 definePotentiometer("PLT_COM_FM2_VOL", 63, 3004, 337, {0, 1}, "PLT COMM Panel", "Pilot FM2 Volume Control Knob")
-defineToggleSwitch("PLT_COM_FM1_PW", 63, 3023, 452, "PLT COMM Panel", "Pilot FM2 Disable Knob")
+defineToggleSwitch("PLT_COM_FM2_PW", 63, 3023, 452, "PLT COMM Panel", "Pilot FM2 Disable Knob")
 definePotentiometer("PLT_COM_HF_VOL", 63, 3005, 338, {0, 1}, "PLT COMM Panel", "Pilot HF Volume Control Knob")
 defineToggleSwitch("PLT_COM_HF_PW", 63, 3024, 453, "PLT COMM Panel", "Pilot HF Disable Knob")
 definePotentiometer("PLT_COM_IFF_VOL", 63, 3006, 348, {0, 1}, "PLT COMM Panel", "Pilot IFF Volume Control Knob")
@@ -245,11 +246,11 @@ definePotentiometer("PLT_COM_ADF_VOL", 63, 3010, 352, {0, 1}, "PLT COMM Panel", 
 defineToggleSwitch("PLT_COM_ADF_PW", 63, 3029, 458, "PLT COMM Panel", "Pilot ADF Disable Knob")
 definePotentiometer("PLT_COM_MASTER_VOL", 63, 3011, 344, {0, 1}, "PLT COMM Panel", "Pilot MASTER Volume Control Knob")
 definePotentiometer("PLT_COM_SENS_KNB", 63, 3012, 345, {0, 1}, "PLT COMM Panel", "Pilot SENS Control Knob")
-define3PosTumb("PLT_COM_VHF_SQL", 63, 3013, 339, "PLT COMM Panel", "Pilot VHF Squelch Switch, ON/OFF")
-define3PosTumb("PLT_COM_UHF_SQL", 63, 3014, 340, "PLT COMM Panel", "Pilot UHF Squelch Switch, ON/OFF")
-define3PosTumb("PLT_COM_FM1_SQL", 63, 3015, 341, "PLT COMM Panel", "Pilot FM1 Squelch Switch, ON/OFF")
-define3PosTumb("PLT_COM_FM2_SQL", 63, 3016, 342, "PLT COMM Panel", "Pilot FM2 Squelch Switch, ON/OFF")
-define3PosTumb("PLT_COM_HF_SQL", 63, 3017, 343, "PLT COMM Panel", "Pilot HF Squelch Switch, ON/OFF")
+defineSpringloaded_3_pos_tumb("PLT_COM_VHF_SQL", 63, 3070, 3013, 339, "PLT COMM Panel", "Pilot VHF Squelch Switch, ON/OFF")
+defineSpringloaded_3_pos_tumb("PLT_COM_UHF_SQL", 63, 3071, 3014, 340, "PLT COMM Panel", "Pilot UHF Squelch Switch, ON/OFF")
+defineSpringloaded_3_pos_tumb("PLT_COM_FM1_SQL", 63, 3072, 3015, 341, "PLT COMM Panel", "Pilot FM1 Squelch Switch, ON/OFF")
+defineSpringloaded_3_pos_tumb("PLT_COM_FM2_SQL", 63, 3073, 3016, 342, "PLT COMM Panel", "Pilot FM2 Squelch Switch, ON/OFF")
+defineSpringloaded_3_pos_tumb("PLT_COM_HF_SQL", 63, 3074, 3017, 343, "PLT COMM Panel", "Pilot HF Squelch Switch, ON/OFF")
 define3PosTumb("PLT_COM_ICS_MODE", 63, 3018, 346, "PLT COMM Panel", "Pilot ICS Mode Switch, HOT MIC/VOX/PTT")
 definePushButton("PLT_COM_IDENT_BTN", 63, 3019, 347, "PLT COMM Panel", "Pilot IDENT Button")
 
@@ -260,7 +261,7 @@ defineToggleSwitch("CPG_COM_UHF_PW", 62, 3021, 460, "CPG COMM Panel", "Gunner UH
 definePotentiometer("CPG_COM_FM1_VOL", 62, 3003, 377, {0, 1}, "CPG COMM Panel", "Gunner FM1 Volume Control Knob")
 defineToggleSwitch("CPG_COM_FM1_PW", 62, 3022, 461, "CPG COMM Panel", "Gunner FM1 Disable Knob")
 definePotentiometer("CPG_COM_FM2_VOL", 62, 3004, 378, {0, 1}, "CPG COMM Panel", "Gunner FM2 Volume Control Knob")
-defineToggleSwitch("CPG_COM_FM1_PW", 62, 3023, 462, "CPG COMM Panel", "Gunner FM2 Disable Knob")
+defineToggleSwitch("CPG_COM_FM2_PW", 62, 3023, 462, "CPG COMM Panel", "Gunner FM2 Disable Knob")
 definePotentiometer("CPG_COM_HF_VOL", 62, 3005, 379, {0, 1}, "CPG COMM Panel", "Gunner HF Volume Control Knob")
 defineToggleSwitch("CPG_COM_HF_PW", 62, 3024, 463, "CPG COMM Panel", "Gunner HF Disable Knob")
 definePotentiometer("CPG_COM_IFF_VOL", 62, 3006, 389, {0, 1}, "CPG COMM Panel", "Gunner IFF Volume Control Knob")
@@ -272,11 +273,11 @@ definePotentiometer("CPG_COM_ADF_VOL", 62, 3010, 393, {0, 1}, "CPG COMM Panel", 
 defineToggleSwitch("CPG_COM_ADF_PW", 62, 3029, 468, "CPG COMM Panel", "Gunner ADF Disable Knob")
 definePotentiometer("CPG_COM_MASTER_VOL", 62, 3011, 385, {0, 1}, "CPG COMM Panel", "Gunner MASTER Volume Control Knob")
 definePotentiometer("CPG_COM_SENS_KNB", 62, 3012, 386, {0, 1}, "CPG COMM Panel", "Gunner SENS Control Knob")
-define3PosTumb("CPG_COM_VHF_SQL", 62, 3013, 380, "CPG COMM Panel", "Gunner VHF Squelch Switch, ON/OFF")
-define3PosTumb("CPG_COM_UHF_SQL", 62, 3014, 381, "CPG COMM Panel", "Gunner UHF Squelch Switch, ON/OFF")
-define3PosTumb("CPG_COM_FM1_SQL", 62, 3015, 382, "CPG COMM Panel", "Gunner FM1 Squelch Switch, ON/OFF")
-define3PosTumb("CPG_COM_FM2_SQL", 62, 3016, 383, "CPG COMM Panel", "Gunner FM2 Squelch Switch, ON/OFF")
-define3PosTumb("CPG_COM_HF_SQL", 62, 3017, 384, "CPG COMM Panel", "Gunner HF Squelch Switch, ON/OFF")
+define3PosTumb("CPG_COM_VHF_SQL", 62, 3070, 3013, 380, "CPG COMM Panel", "Gunner VHF Squelch Switch, ON/OFF")
+define3PosTumb("CPG_COM_UHF_SQL", 62, 3071, 3014, 381, "CPG COMM Panel", "Gunner UHF Squelch Switch, ON/OFF")
+define3PosTumb("CPG_COM_FM1_SQL", 62, 3072, 3015, 382, "CPG COMM Panel", "Gunner FM1 Squelch Switch, ON/OFF")
+define3PosTumb("CPG_COM_FM2_SQL", 62, 3073, 3016, 383, "CPG COMM Panel", "Gunner FM2 Squelch Switch, ON/OFF")
+define3PosTumb("CPG_COM_HF_SQL", 62, 3074, 3017, 384, "CPG COMM Panel", "Gunner HF Squelch Switch, ON/OFF")
 define3PosTumb("CPG_COM_ICS_MODE", 62, 3018, 387, "CPG COMM Panel", "Gunner ICS Mode Switch, HOT MIC/VOX/PTT")
 definePushButton("CPG_COM_IDENT_BTN", 62, 3019, 388, "CPG COMM Panel", "Gunner IDENT Button")
 
