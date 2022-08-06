@@ -106,6 +106,15 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	ppaInterval = padLeft(ppa.text_PPA_INT, PPA_LEN)
 end
 
+local vtbr = "00"
+
+-- moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
+	-- local vtbr = parse_indication(1)--["vtb-rdr-range"]
+	-- if not vtbr then return end
+
+    -- vtbrRange = vtbr(vtbr.vtb-rdr-range, 2)
+-- end
+
 -- parse PCN upper display
 local pcnLeftDigits = ""
 local pcnRightDigits = ""
@@ -777,7 +786,8 @@ definePotentiometer("HUD_BRIGHT_KNOB", 36, 3202, 202, {0, 1}, "VTH", "I - HUD - 
 defineTumb("EVF_CHAN_SEL", 39, 3968, 1004, 0.05, {0, 0.95}, {" 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"}, true, "EVF", "I - EVF - Channel Selector")
 definePushButton("EVF_TEST_BTN", 39, 3970, 1006, "EVF", "I - EVF - Panel Test")
 
-defineIntegerFromGetter("RAD_VTB_RANGE", function() return parse_indication(1)["vtb-rdr-range"] end, 65535, "RADAR", "O - VTB Display Radar Range") 
+defineIntegerFromGetter("RAD_VTB_RANGE", function() return vtbr end, 65535, "RADAR", "O - VTB Display Radar Range")
+--defineIntegerFromGetter("RAD_VTB_RANGE", function() return parse_indication(1)["vtb-rdr-range"] end, 65535, "RADAR", "O - VTB Display Radar Range") 
 defineToggleSwitch("MIP_DATA_SLOT", 9, 3629, 628, "PSM", "I - PSM - MIP Datacartridge Slot")
 defineFloat("DTC_CART_PRE", 674, {0, 1}, "PSM", "DTC Cartridge Presence")
 defineFloat("DTC_CART_MOVE", 673, {-1, 1}, "PSM", "DTC Cartridge Position")
