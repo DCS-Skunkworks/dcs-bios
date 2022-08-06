@@ -14,7 +14,7 @@ local definePotentiometer = BIOS.util.definePotentiometer
 local defineRotary = BIOS.util.defineRotary
 local defineSetCommandTumb = BIOS.util.defineSetCommandTumb
 local defineSpringloaded_3PosTumb = BIOS.util.defineSpringloaded_3PosTumb
-local define3Pos2CommandSwitchF5 = BIOS.util.define3Pos2CommandSwitchF5
+local define3Pos2CommandSwitchA10 = BIOS.util.define3Pos2CommandSwitchA10
 local defineTumb = BIOS.util.defineTumb
 local define3PosTumb = BIOS.util.define3PosTumb
 local defineToggleSwitch = BIOS.util.defineToggleSwitch
@@ -1026,7 +1026,7 @@ moduleBeingDefined.inputProcessors["SET_VHF_FM"] = function(freq)
 end
 
 defineSpringloaded_3PosTumb("SEAT_ADJUST", 39, 3004, 3005, 770, "Misc", "Seat Adjust")
-define3Pos2CommandSwitchF5("CANOPY_OPEN", 39, 3006, 3007, 712, "Misc", "Canopy Open Switch")----
+define3Pos2CommandSwitchA10("CANOPY_OPEN", 39, 3006, 3007, 712, "Misc", "Canopy Open Switch")----
 
 defineToggleSwitch("EMER_BRAKE", 38, 3030, 772, "Misc", "Emergency Brake")
 
