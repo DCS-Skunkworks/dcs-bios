@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("M-2000C", 0x7200)
 BIOS.protocol.setExportModuleAircrafts({"M-2000C"})
---v1.36a by Ergo, Matchstick, MisterKnife, WarLord, Espresso29470
+--v1.37 by Ergo, Matchstick, MisterKnife, WarLord, Espresso29470
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 
@@ -106,15 +106,6 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	ppaInterval = padLeft(ppa.text_PPA_INT, PPA_LEN)
 end
 
-local vtbr = "00"
-
--- moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
-	-- local vtbr = parse_indication(1)--["vtb-rdr-range"]
-	-- if not vtbr then return end
-
-    -- vtbrRange = vtbr(vtbr.vtb-rdr-range, 2)
--- end
-
 -- parse PCN upper display
 local pcnLeftDigits = ""
 local pcnRightDigits = ""
@@ -170,6 +161,13 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	pcnDest = padLeft(pcn.PCN_BR_DIGITS, 2)
 end
 
+local function getvtbRange()
+    local vtb = parse_indication(1)
+    if vtb == nil then return "   " end
+    local vtbRv = vtb["vtb-rdr-range"]
+    return vtbRv
+end
+
 --ADI
 defineToggleSwitch("ADI_CAGE_LEV", 1, 3314, 314, "ADI", "I - ADI - Cage Lever")
 defineToggleSwitch("ADI_BKL_SW", 1, 3315, 315, "ADI", "I - ADI - Backlight Switch")
@@ -185,7 +183,7 @@ defineFloat("ADI_BILLE", 320, {-1, 1}, "ADI", "O - ADI - Bille")
 --AIR FLOW PANEL (BECS, PELLES, SOURIS)
 defineToggleSwitch("INTAKE_SLATS_OP_SW", 3, 3460, 460, "AIR FLOW PANEL", "I - Intake Slats Operation Switch (PELLES)")
 defineToggleSwitch("CONES_OP_SW", 3, 3461, 461, "AIR FLOW PANEL", "I - Intake Cones Operation Switch (SOURIS)")
-defineTumb("SLATS_OP_SW", 14, 3462, 462, 1, {-1, 1}, nil, false, "AIR FLOW PANEL", "I - Slats Operation Switch (BECS)")
+define3PosTumb("SLATS_OP_SW", 14, 3462, 462, "AIR FLOW PANEL", "I - Slats Operation Switch (BECS)")
 
 --ALTIMETER
 defineRotary("BARO_PRESS_CALIB", 1, 3309, 309, "ALTIMETER", "I - ALT - Barometric Pressure Calibration")
@@ -287,7 +285,7 @@ defineToggleSwitch("MAIN_BATT_SW", 8, 3520, 520, "ELECTRIC PANEL", "I - Main Bat
 defineToggleSwitch("ELEC_PWR_TRANSF_SW", 8, 3521, 521, "ELECTRIC PANEL", "I - Electric Power Transfer Switch")
 defineToggleSwitch("ALT_1_SW", 8, 3522, 522, "ELECTRIC PANEL", "I - Alternator 1 Switch")
 defineToggleSwitch("ALT_2_SW", 8, 3523, 523, "ELECTRIC PANEL", "I - Alternator 2 Switch")
-defineTumb("LGT_TEST_SW", 8, 3524, 524, 1, {-1, 1}, nil, false, "ELECTRIC PANEL", "I - Lights Test Switch")
+define3PosTumb("LGT_TEST_SW", 8, 3524, 524, "ELECTRIC PANEL", "I - Lights Test Switch")
 
 --CLOCK
 defineToggleSwitch("COC_CLOCK", 22, 3400, 400, "CLOCK", "I - CLOCK - Cockpit Clock Position")
@@ -348,7 +346,7 @@ defineTumb("RWR_PWR_SW", 13, 3607, 607, 0.5, {0, 1}, nil, false, "EW PANEL", "I 
 defineTumb("D2M_PWR_SW", 13, 3608, 608, 0.5, {0, 1}, nil, false, "EW PANEL", "I - D2M Power Switch")
 defineTumb("DECOY_REL_MODE_SW", 13, 3609, 609, 0.5, {0, 1}, nil, false, "EW PANEL", "I - Decoy Release Mode Switch")
 defineTumb("DECOY_REL_PGM_KNOB", 13, 3610, 610, 0.1, {0, 1}, nil, false, "EW PANEL", "I - Decoy Release Program Knob")
-defineTumb("EW_MODE_SEL_SW", 13, 3605, 605, 1, {-1, 1}, nil, false, "EW PANEL", "I - EW Mode Selector Switch")
+define3PosTumb("EW_MODE_SEL_SW", 13, 3605, 605, "EW PANEL", "I - EW Mode Selector Switch")
 
 --EXTERIOR LIGHTS
 defineToggleSwitch("POLICE_LGT_SW", 16, 3449, 449, "EXT LIGHTS", "I - Police Lights Switch")
@@ -390,7 +388,7 @@ defineString("FUEL_FLOW", function() return fuelFlow end, FUEL_FLOW_LEN, "FUEL S
 defineFloat("GMETER_NEEDLE", 347, {-1, 1}, "G-METER", "O - ACC - G Needle")
 
 --HSI
-defineTumb("HSI_VAD_SEL", 2, 3340, 340, 1, {-1, 1}, nil, false, "HSI", "I - HSI - VAD Selector")
+define3PosTumb("HSI_VAD_SEL", 2, 3340, 340, "HSI", "I - HSI - VAD Selector")
 defineTumb("HSI_MODE_SEL_SW", 2, 3341, 341, 0.1, {0, 1}, nil, false, "HSI", "I - HSI - Mode Selector Switch")
 defineFloat("HSI_HDG", 333, {0, 1}, "HSI", "O - HSI - AP Heading (Green Arrow)")
 defineFloat("HSI_D_NEEDLE", 334, {0, 1}, "HSI", "O - HSI - COURSE (Double Needle)")
@@ -500,8 +498,8 @@ defineToggleSwitch("DRAG_CHUTE_LEV", 22, 3457, 457, "MISCELANEOUS", "I - Drag Ch
 defineToggleSwitch("CNPY_HAND1", 40, 3907, 907, "CANOPY", "I - Canopy Handle 1")
 defineToggleSwitch("CNPY_HAND2", 40, 3908, 908, "CANOPY", "I - Canopy Handle 2")
 defineToggleSwitch("MIRROR_TOGGLE", 40, 3909, 909, "CANOPY", "I - Mirror Rendering Toggle")
-defineTumb("CNPY_REST", 40, 3655, 655, 1, {-1, 1}, nil, false, "CANOPY", "I - Canopy Rest")
-defineTumb("SEAT_ADJUST_SW", 22, 3900, 900, 1, {-1, 1}, nil, false, "MISCELANEOUS", "I - Seat Adjustment Switch")
+define3PosTumb("CNPY_REST", 40, 3655, 655, "CANOPY", "I - Canopy Rest")
+define3PosTumb("SEAT_ADJUST_SW", 22, 3900, 900, "MISCELANEOUS", "I - Seat Adjustment Switch")
 
 --PCA
 defineToggleSwitch("MASTER_ARM_SW", 6, 3234, 234, "PCA", "I - PCA - Master Arm Switch")
@@ -600,10 +598,10 @@ defineTumb("BOMB_FUZE_SEL_SW", 6, 3276, 276, 0.5, {0, 1}, nil, false, "PPA", "I 
 definePushButton("S530_STANDBY", 6, 3266, 266, "PPA", "I - PPA - S530 Standby Button")
 definePushButton("AUTO_MAN_BTN", 6, 3269, 269, "PPA", "I - PPA - AUTO/MAN Button")
 definePushButton("MAGIC_STANDBY", 6, 3272, 272, "PPA", "I - PPA - MAGIC Standby Button")
-defineTumb("MIS_SEL_SW", 6, 3265, 265, 1, {-1, 1}, nil, false, "PPA", "I - PPA - Missile Selector Switch")
-defineTumb("PPA_TEST_SW", 6, 3275, 275, 1, {-1, 1}, nil, false, "PPA", "I - PPA - Test/Pres Switch")
-defineTumb("BOMB_REL_QTY_SEL_SW", 6, 3277, 277, 1, {-1, 1}, nil, false, "PPA", "I - PPA - Bomb Release Quantity Selector Switch")
-defineTumb("BOMB_REL_INT_SEL_SW", 6, 3278, 278, 1, {-1, 1}, nil, false, "PPA", "I - PPA - Bomb Release Interval Selector Switch")
+define3PosTumb("MIS_SEL_SW", 6, 3265, 265, "PPA", "I - PPA - Missile Selector Switch")
+define3PosTumb("PPA_TEST_SW", 6, 3275, 275, "PPA", "I - PPA - Test/Pres Switch")
+define3PosTumb("BOMB_REL_QTY_SEL_SW", 6, 3277, 277, "PPA", "I - PPA - Bomb Release Quantity Selector Switch")
+define3PosTumb("BOMB_REL_INT_SEL_SW", 6, 3278, 278, "PPA", "I - PPA - Bomb Release Interval Selector Switch")
 definePushButton("FIRING_MODE_SEL", 6, 3279, 279, "PPA", "I - PPA - 530D/Rockets/Guns Firing Mode Selector Button")
 defineIndicatorLight("PPA_S530_P", 267, "PPA", "O - PPA - S530 P Light (yellow)")
 defineIndicatorLight("PPA_S530_MIS", 268, "PPA", "O - PPA - S530 MIS Light (yellow)")
@@ -638,8 +636,8 @@ defineToggleSwitch("RAD_GRID_SEL_SW", 11, 3499, 499, "RADAR", "I - Radar Grid Se
 defineToggleSwitch("TGT_MEM_TIME_SEL_SW", 11, 3500, 500, "RADAR", "I - Target Memory Time Selector Switch")
 definePushButton("RAD_STT_SEL_BTN", 11, 3504, 504, "RADAR", "I - PSIC/STT Mode Button")
 defineToggleSwitch("TDC_MODE_SW", 11, 3710, 710, "RADAR", "I - TDC Mode Switch")
-defineTumb("RAD_PRF_SW", 11, 3109, 109, 1, {-1, 1}, nil, false, "RADAR", "I - Radar PRF Switch")
-defineTumb("RAD_RNG_SEL_SW", 11, 3503, 503, 1, {-1, 1}, nil, false, "RADAR", "I - Radar Range Selector Switch")
+define3PosTumb("RAD_PRF_SW", 11, 3109, 109, "RADAR", "I - Radar PRF Switch")
+define3PosTumb("RAD_RNG_SEL_SW", 11, 3503, 503, "RADAR", "I - Radar Range Selector Switch")
 defineIndicatorLight("RAD_VAL", 490, "RADAR", "O - RAD - VAL Button Light (red)")
 defineIndicatorLight("RAD_A", 492, "RADAR", "O - RAD - A Button Light (red)")
 defineIndicatorLight("RAD_DEC", 494, "RADAR", "O - RAD - DEC Button Light (red)")
@@ -715,7 +713,7 @@ defineToggleSwitch("UHF_SIL_SW", 20, 3430, 430, "UHF RADIO", "I - UHF - SIL Swit
 defineToggleSwitch("UHF_CDE_SW", 20, 3432, 432, "UHF RADIO", "I - UHF - CDE Switch")
 definePushButton("UHF_TEST_SW", 20, 3434, 434, "UHF RADIO", "I - UHF - TEST Switch")
 defineSetCommandTumb("UHF_PRESET_KNOB", 20, 3435, 435, 0.05, {0, 0.95}, {" 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"}, true, "UHF RADIO", "Preset Knob UHF")
-defineTumb("UHF_E+A2_SW", 20, 3431, 431, 1, {-1, 1}, nil, false, "UHF RADIO", "I - UHF - E+A2 Switch")
+define3PosTumb("UHF_E+A2_SW", 20, 3431, 431, "UHF RADIO", "I - UHF - E+A2 Switch")
 defineFloat("UHF_PRESET", 436, {0, 1}, "UHF RADIO", "O - UHF - PRESET Display")
 defineString("UHF_FREQUENCY", function() return uhfFrequency end, 5, "UHF RADIO", "O - UHF - Frequency Report Display")
 
@@ -733,14 +731,14 @@ defineMultipositionSwitch("VTB_MARK_BRIGHT", 5, 3224, 224, 8, 0.1, "VTB", "I - V
 defineMultipositionSwitch("VTB_MAIN_BRIGHT", 5, 3225, 225, 8, 0.1, "VTB", "I - VTB - Main Brightness (LUM GEN)")
 defineMultipositionSwitch("VTB_VIDEO_BRIGHT", 5, 3226, 226, 8, 0.1, "VTB", "I - VTB - Video Brightness (CONTRAST)")
 defineMultipositionSwitch("VTB_DISP_BRIGHT", 5, 3227, 227, 8, 0.1, "VTB", "I - VTB - Cavalier Brightness (LUM CAV)")
-defineTumb("TGT_DATA_MNL_ENTRY", 5, 3213, 213, 1, {-1, 1}, nil, false, "VTB", "I - VTB - Target Data Manual Entry Begin/End (DEB/FIN)")
-defineTumb("BE_WP_SEL", 5, 3214, 214, 1, {-1, 1}, nil, false, "VTB", "I - VTB - Bullseye Waypoint Selector (N)")
-defineTumb("TGT_RNG_BE", 5, 3215, 215, 1, {-1, 1}, nil, false, "VTB", "I - VTB - Target Range from Bullseye (Rho)")
-defineTumb("TGT_BEAR_BE", 5, 3216, 216, 1, {-1, 1}, nil, false, "VTB", "I - VTB - Target Bearing from Bullseye (Theta)")
-defineTumb("TGT_HD", 5, 3217, 217, 1, {-1, 1}, nil, false, "VTB", "I - VTB - Target Heading ( C )")
-defineTumb("TGT_ALT", 5, 3218, 218, 1, {-1, 1}, nil, false, "VTB", "I - VTB - Target Altitude (Z)")
-defineTumb("TGT_MACH_NUM", 5, 3219, 219, 1, {-1, 1}, nil, false, "VTB", "I - VTB - Target Mach Number (M)")
-defineTumb("TGT_AGE", 5, 3220, 220, 1, {-1, 1}, nil, false, "VTB", "I - VTB - Target Age (T)")
+define3PosTumb("TGT_DATA_MNL_ENTRY", 5, 3213, 213, "VTB", "I - VTB - Target Data Manual Entry Begin/End (DEB/FIN)")
+define3PosTumb("BE_WP_SEL", 5, 3214, 214, "VTB", "I - VTB - Bullseye Waypoint Selector (N)")
+define3PosTumb("TGT_RNG_BE", 5, 3215, 215, "VTB", "I - VTB - Target Range from Bullseye (Rho)")
+define3PosTumb("TGT_BEAR_BE", 5, 3216, 216, "VTB", "I - VTB - Target Bearing from Bullseye (Theta)")
+define3PosTumb("TGT_HD", 5, 3217, 217, "VTB", "I - VTB - Target Heading ( C )")
+define3PosTumb("TGT_ALT", 5, 3218, 218, "VTB", "I - VTB - Target Altitude (Z)")
+define3PosTumb("TGT_MACH_NUM", 5, 3219, 219, "VTB", "I - VTB - Target Mach Number (M)")
+define3PosTumb("TGT_AGE", 5, 3220, 220, "VTB", "I - VTB - Target Age (T)")
 
 --HUD/VTH
 defineRotary("MIN_ALT_SEL", 38, 3192, 192, "VTH", "I - HUD - Minimum Altitude Selector")
@@ -786,8 +784,7 @@ definePotentiometer("HUD_BRIGHT_KNOB", 36, 3202, 202, {0, 1}, "VTH", "I - HUD - 
 defineTumb("EVF_CHAN_SEL", 39, 3968, 1004, 0.05, {0, 0.95}, {" 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"}, true, "EVF", "I - EVF - Channel Selector")
 definePushButton("EVF_TEST_BTN", 39, 3970, 1006, "EVF", "I - EVF - Panel Test")
 
-defineIntegerFromGetter("RAD_VTB_RANGE", function() return vtbr end, 65535, "RADAR", "O - VTB Display Radar Range")
---defineIntegerFromGetter("RAD_VTB_RANGE", function() return parse_indication(1)["vtb-rdr-range"] end, 65535, "RADAR", "O - VTB Display Radar Range") 
+defineString("RAD_VTB_RANGE", getvtbRange, 3, "RADAR", "O - VTB Display Radar Range") 
 defineToggleSwitch("MIP_DATA_SLOT", 9, 3629, 628, "PSM", "I - PSM - MIP Datacartridge Slot")
 defineFloat("DTC_CART_PRE", 674, {0, 1}, "PSM", "DTC Cartridge Presence")
 defineFloat("DTC_CART_MOVE", 673, {-1, 1}, "PSM", "DTC Cartridge Position")
