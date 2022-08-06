@@ -13,8 +13,8 @@ local definePushButton = BIOS.util.definePushButton
 local definePotentiometer = BIOS.util.definePotentiometer
 local defineRotary = BIOS.util.defineRotary
 local defineSetCommandTumb = BIOS.util.defineSetCommandTumb
-local defineSpringloaded_3_pos_tumb = BIOS.util.defineSpringloaded_3_pos_tumb
-local defineSpringloaded_3_pos_A10_tumb = BIOS.util.defineSpringloaded_3_pos_A10_tumb
+local defineSpringloaded_3PosTumb = BIOS.util.defineSpringloaded_3PosTumb
+local define3Pos2CommandSwitchF5 = BIOS.util.define3Pos2CommandSwitchF5
 local defineTumb = BIOS.util.defineTumb
 local define3PosTumb = BIOS.util.define3PosTumb
 local defineToggleSwitch = BIOS.util.defineToggleSwitch
@@ -691,8 +691,8 @@ defineTumb("FQIS_SELECT", 36, 3017, 645, 0.1, {0, 0.4}, nil, false, "Fuel Panel"
 
 defineToggleSwitch("ENGINE_FUEL_FLOW_L", 37, 3001, 122, "Throttle", "Fuel Flow L")
 defineToggleSwitch("ENGINE_FUEL_FLOW_R", 37, 3002, 123, "Throttle", "Fuel Flow R")
-defineSpringloaded_3_pos_tumb("ENGINE_OPER_L", 37, 3003, 3007, 124, "Throttle", "ENG OPER L")
-defineSpringloaded_3_pos_tumb("ENGINE_OPER_R", 37, 3004, 3008, 125, "Throttle", "ENG OPER R")
+defineSpringloaded_3PosTumb("ENGINE_OPER_L", 37, 3003, 3007, 124, "Throttle", "ENG OPER L")
+defineSpringloaded_3PosTumb("ENGINE_OPER_R", 37, 3004, 3008, 125, "Throttle", "ENG OPER R")
 defineToggleSwitch("ENGINE_APU_START", 37, 3005, 126, "Throttle", "APU START")
 definePotentiometer("ENGINE_THROTTLE_FRICTION", 37, 3006, 128, nil, "Throttle", "Friction Control")
 
@@ -707,7 +707,7 @@ defineElectricallyHeldSwitch("SASP_YAW_SAS_L", 38, 3003, 3004, 185, "SAS Panel",
 defineElectricallyHeldSwitch("SASP_YAW_SAS_R", 38, 3005, 3006, 186, "SAS Panel", "Yaw SAS Right OFF - ENGAGE")
 defineElectricallyHeldSwitch("SASP_PITCH_SAS_L", 38, 3007, 3008, 187, "SAS Panel", "Pitch SAS Left OFF - ENGAGE")
 defineElectricallyHeldSwitch("SASP_PITCH_SAS_R", 38, 3009, 3010, 188, "SAS Panel", "Pitch SAS Right OFF - ENGAGE")
-defineSpringloaded_3_pos_tumb("SASP_MONITOR_TEST", 38, 3011, 3033, 189, "SAS Panel", "Monitor Test Left/Right")
+defineSpringloaded_3PosTumb("SASP_MONITOR_TEST", 38, 3011, 3033, 189, "SAS Panel", "Monitor Test Left/Right")
 definePushButton("SASP_TO_TRIM", 38, 3012, 190, "SAS Panel", "T/O Trim Button")
 definePotentiometer("SASP_YAW_TRIM", 38, 3013, 192, {-1, 1}, "SAS Panel", "Yaw Trim")
 
@@ -750,7 +750,7 @@ defineToggleSwitch("EFCP_FLAPS_EMER_RETR", 38, 3023, 183, "Emergency Flight Cont
 defineToggleSwitch("EFCP_MRFCS", 38, 3024, 184, "Emergency Flight Control Panel", "Manual Reversion Flight Control System MAN REVERSION - NORM")
 
 defineToggleSwitch("EPP_APU_GEN_PWR", 1, 3001, 241, "Electrical Power Panel", "APU GEN PWR")
-defineSpringloaded_3_pos_tumb("EPP_INVERTER", 1, 3055, 3002, 242, "Electrical Power Panel", "Inverter TEST - OFF - STBY")
+defineSpringloaded_3PosTumb("EPP_INVERTER", 1, 3055, 3002, 242, "Electrical Power Panel", "Inverter TEST - OFF - STBY")
 defineToggleSwitch("EPP_AC_GEN_PWR_L", 1, 3004, 244, "Electrical Power Panel", "AC GEN PWR Left")
 defineToggleSwitch("EPP_AC_GEN_PWR_R", 1, 3005, 245, "Electrical Power Panel", "AC GEN PWR Right")
 defineToggleSwitch("EPP_BATTERY_PWR", 1, 3006, 246, "Electrical Power Panel", "Battery Power")
@@ -817,7 +817,7 @@ definePotentiometer("IFF_REPLY_DIM", 43, 3020, 900, {0, 1}, "IFF", "IFF Reply Di
 definePushButton("IFF_TEST_TEST", 43, 3018, 796, "IFF", "TEST Push to Test")
 definePotentiometer("IFF_TEST_DIM", 43, 3021, 901, {0, 1}, "IFF", "TEST Reply Dim")
 
-defineSpringloaded_3_pos_tumb("OXY_EMERGENCY", 40, 3004, 3003, 601, "Oxygen Regulator Panel", "Oxygen Flow: Emergency / Normal / Test")
+defineSpringloaded_3PosTumb("OXY_EMERGENCY", 40, 3004, 3003, 601, "Oxygen Regulator Panel", "Oxygen Flow: Emergency / Normal / Test")
 defineToggleSwitch("OXY_DILUTER", 40, 3002, 602, "Oxygen Regulator Panel", "Oxygen Normal/100%")
 defineToggleSwitch("OXY_SUPPLY", 40, 3001, 603, "Oxygen Regulator Panel", "Oxygen Supply On/Off")
 defineFloat("OXY_PRESS", 604, {0, 1}, "Oxygen Regulator Panel", "Oxygen Pressure Indicator")
@@ -889,7 +889,7 @@ end
 
 
 defineRotary("ALT_SET_PRESSURE", 35, 3001, 62, "Altimeter", "Set Pressure")
-defineSpringloaded_3_pos_tumb("ALT_ELECT_PNEU", 62, 3002, 3001, 60, "Altimeter", "ELECT / PNEU")
+defineSpringloaded_3PosTumb("ALT_ELECT_PNEU", 62, 3002, 3001, 60, "Altimeter", "ELECT / PNEU")
 
 define3PosTumb("LCP_POSITION", 49, 3008, 287, "Light System Control Panel", "Position Lights FLASH/OFF/STEADY")
 -- skip 3 bits in the memory map to preserve backwards compatibility:
@@ -1025,8 +1025,8 @@ moduleBeingDefined.inputProcessors["SET_VHF_FM"] = function(freq)
 	GetDevice(56):set_frequency(freq*1000)
 end
 
-defineSpringloaded_3_pos_tumb("SEAT_ADJUST", 39, 3004, 3005, 770, "Misc", "Seat Adjust")
-defineSpringloaded_3_pos_A10_tumb("CANOPY_OPEN", 39, 3006, 3007, 712, "Misc", "Canopy Open Switch")----
+defineSpringloaded_3PosTumb("SEAT_ADJUST", 39, 3004, 3005, 770, "Misc", "Seat Adjust")
+define3Pos2CommandSwitchF5("CANOPY_OPEN", 39, 3006, 3007, 712, "Misc", "Canopy Open Switch")----
 
 defineToggleSwitch("EMER_BRAKE", 38, 3030, 772, "Misc", "Emergency Brake")
 

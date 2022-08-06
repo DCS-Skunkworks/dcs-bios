@@ -23,7 +23,7 @@ local defineFixedStepTumb = BIOS.util.defineFixedStepTumb
 local defineSetCommandTumb = BIOS.util.defineSetCommandTumb
 local defineFloat = BIOS.util.defineFloat
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
-local defineSpringloaded_3_pos_tumb = BIOS.util.defineSpringloaded_3_pos_tumb
+local defineSpringloaded_3PosTumb = BIOS.util.defineSpringloaded_3PosTumb
 
 ------------------------------------------------------------------Switches, Buttons
 --Control Interface
@@ -38,7 +38,7 @@ definePotentiometer("PITCH_TRIM", 2, 3008, 562, {-1, 1}, "Control Interface", "P
 definePotentiometer("YAW_TRIM", 2, 3009, 565, {-1, 1}, "Control Interface", "YAW TRIM Knob")
 defineToggleSwitch("MANUAL_PITCH_SW", 2, 3010, 425, "Control Interface", "MANUAL PITCH Override Switch, OVRD/NORM")
 defineToggleSwitch("STORES_CONFIG_SW", 2, 3011, 358, "Control Interface", "STORES CONFIG Switch, CAT III/CAT I")
-defineSpringloaded_3_pos_tumb("AP_PITCH_SW", 2, 3012, 3013, 109, "Control Interface", "Autopilot PITCH Switch, ATT HOLD/ A/P OFF/ ALT HOLD")
+defineSpringloaded_3PosTumb("AP_PITCH_SW", 2, 3012, 3013, 109, "Control Interface", "Autopilot PITCH Switch, ATT HOLD/ A/P OFF/ ALT HOLD")
 define3PosTumb("AP_ROLL_SW", 2, 3014, 108, "Control Interface", "Autopilot ROLL Switch, STRG SEL/ATT HOLD/HDG SEL")
 defineToggleSwitch("ADV_MODE_SW", 2, 3015, 97, "Control Interface", "ADV MODE Switch")
 defineToggleSwitch("MAN_TF_FLYUP_SW", 2, 3016, 568, "Control Interface", "MANUAL TF FLYUP Switch, ENABLE/DISABLE")
@@ -61,7 +61,7 @@ definePotentiometer("PRI_INST_PNL_BRT_KNB", 12, 3004, 686, nil, "Interior Lights
 definePotentiometer("PRI_DATA_DISPLAY_BRT_KNB", 12, 3005, 687, nil, "Interior Lights", "PRIMARY DATA ENTRY DISPLAY BRT Knob")
 definePotentiometer("FLOOD_CONSOLES_BRT_KNB", 12, 3006, 688, nil, "Interior Lights", "FLOOD CONSOLES BRT Knob")
 definePotentiometer("FLOOD_INST_PNL_BRT_KNB", 12, 3007, 690, nil, "Interior Lights", "FLOOD INST PNL BRT Knob")
-defineSpringloaded_3_pos_tumb("MAL_IND_LTS_BRT_SW", 12, 3009, 3008, 691, "External Lights", "MAL & IND LTS Switch, BRT/Center/DIM")
+defineSpringloaded_3PosTumb("MAL_IND_LTS_BRT_SW", 12, 3009, 3008, 691, "External Lights", "MAL & IND LTS Switch, BRT/Center/DIM")
 definePotentiometer("AOA_INDEX_BRT_KNB", 12, 3010, 794, nil, "Interior Lights", "AOA Indexer Dimming Lever")
 definePotentiometer("AR_STATUS_BRT_KNB", 12, 3011, 795, nil, "Interior Lights", "AR Status Indicator Dimming Lever")
 
@@ -69,8 +69,8 @@ definePotentiometer("AR_STATUS_BRT_KNB", 12, 3011, 795, nil, "Interior Lights", 
 define3PosTumb("MAIN_PWR_SW", 3, 3001, 510, "Electric System", "MAIN PWR Switch, MAIN PWR/BATT/OFF")
 definePushButton("ELEC_CAUTION", 3, 3002, 511, "Electric System", "ELEC CAUTION RESET Button - Push to reset")
 defineToggleSwitch("EPU_GEN_TEST_SW", 3, 3005, 579, "Electric System", "EPU/GEN Test Switch, EPU/GEN /OFF")
-defineSpringloaded_3_pos_tumb("PROBE_HEAT_SW", 3, 3007, 3006, 578, "Electric System", "PROBE HEAT Switch, PROBE HEAT/OFF/TEST")
-defineSpringloaded_3_pos_tumb("FLCS_PWR_TEST_SW", 3, 3003, 3004, 585, "Electric System", "FLCS PWR TEST Switch, MAINT/NORM/TEST")
+defineSpringloaded_3PosTumb("PROBE_HEAT_SW", 3, 3007, 3006, 578, "Electric System", "PROBE HEAT Switch, PROBE HEAT/OFF/TEST")
+defineSpringloaded_3PosTumb("FLCS_PWR_TEST_SW", 3, 3003, 3004, 585, "Electric System", "FLCS PWR TEST Switch, MAINT/NORM/TEST")
 
 --Fuel System
 defineToggleSwitch("FUEL_MASTER_SW", 4, 3001, 559, "Fuel System", "FUEL MASTER Switch, MASTER/OFF")
@@ -88,7 +88,7 @@ definePushButton("DN_LOCK_BTN", 7, 3002, 361, "Gear System", "DN LOCK REL Button
 defineToggleSwitch("HOOK_SW", 7, 3006, 354, "Gear System", "HOOK Switch, UP/DN")
 definePushButton("HORN_SILENCE_BTN", 7, 3007, 359, "Gear System", "HORN SILENCER Button - Push to reset")
 defineToggleSwitch("BRAKE_CHAN_SW", 7, 3005, 356, "Gear System", "BRAKES Channel Switch, CHAN 1/CHAN 2")
-defineSpringloaded_3_pos_tumb("ANTI_SKID_SW", 7, 3010, 3004, 357, "Gear System", "ANTI-SKID Switch, PARKING BRAKE/ANTI-SKID/OFF")
+defineSpringloaded_3PosTumb("ANTI_SKID_SW", 7, 3010, 3004, 357, "Gear System", "ANTI-SKID Switch, PARKING BRAKE/ANTI-SKID/OFF")
 
 --ECS
 definePotentiometer("TEMP_KNB", 13, 3002, 692, {-0.3, 0.3}, "ECS", "TEMP Knob")
@@ -102,17 +102,17 @@ define3PosTumb("EPU_SW", 6, 3003, 528, "EPU", "EPU Switch, ON/NORM/OFF")
 
 --Engine
 define3PosTumb("ENG_ANTI_ICE", 6, 3004, 710, "Engine", "Engine ANTI ICE Switch, ON/AUTO/OFF")
-defineSpringloaded_3_pos_tumb("JFS_SW", 6, 3006, 3005, 447, "Engine", "JFS Switch, START 1/OFF/START 2")
+defineSpringloaded_3PosTumb("JFS_SW", 6, 3006, 3005, 447, "Engine", "JFS Switch, START 1/OFF/START 2")
 defineToggleSwitch("ENG_CONT_SW_COVER", 6, 3007, 448, "Engine", "ENG CONT Switch Cover, OPEN/CLOSE")
 defineToggleSwitch("ENG_CONT_SW", 6, 3008, 449, "Engine", "ENG CONT Switch, PRI/SEC")
 defineToggleSwitch("MAX_PWR_SW", 6, 3009, 451, "Engine", "MAX POWER Switch, MAX POWER/OFF")
-defineSpringloaded_3_pos_tumb("AB_RESET_SW", 6, 3011, 3010, 450, "Engine", "AB RESET Switch, AB RESET/NORM/ENG DATA")
+defineSpringloaded_3PosTumb("AB_RESET_SW", 6, 3011, 3010, 450, "Engine", "AB RESET Switch, AB RESET/NORM/ENG DATA")
 definePushButton("FIRE_OHEAT_DETECT_BTN", 6, 3012, 575, "Engine", "FIRE & OHEAT DETECT Test Button - Push to test")
 
 --Oxygen System
 defineTumb("OXY_SUPPLY_LVR", 8, 3001, 728, 0.5, {0, 1}, nil, true,"Oxygen System", "Supply Lever, PBG/ON/OFF")
 defineToggleSwitch("OXY_DILUTER_LVR", 8, 3002, 727, "Oxygen System", "Diluter Lever, 100 percent/NORM")
-defineSpringloaded_3_pos_tumb("OXY_EMERG_LVR", 8, 3004, 3003, 726, "Oxygen System", "Emergency Lever, EMERGENCY/NORMAL/TEST MASK")
+defineSpringloaded_3PosTumb("OXY_EMERG_LVR", 8, 3004, 3003, 726, "Oxygen System", "Emergency Lever, EMERGENCY/NORMAL/TEST MASK")
 defineToggleSwitch("OBOGS_SW", 8, 3005, 576, "Oxygen System", "OBOGS BIT Switch, BIT/OFF")
 
 --Sensor Power Control Panel
@@ -164,11 +164,11 @@ definePotentiometer("ICP_RASTER_BRT_KNB", 17, 3023, 191, nil, "UFC", "ICP Raster
 definePotentiometer("ICP_HUD_BRT_KNB", 17, 3022, 190, nil, "UFC", "ICP HUD Symbology Intensity Knob")
 definePushButton("ICP_WX_BTN", 17, 3024, 187, "UFC", "ICP FLIR Polarity Button, Wx")
 define3PosTumb("ICP_FLIR_GAIN_SW", 17, 3027, 189, "UFC", "ICP FLIR GAIN/LEVEL Switch, GAIN/LVL/AUTO")
-defineSpringloaded_3_pos_tumb("ICP_DED_SW", 17, 3031, 3030, 183, "UFC", "ICP DED Increment/Decrement Switch")
-defineSpringloaded_3_pos_tumb("ICP_FLIR_SW", 17, 3026, 3025, 188, "UFC", "ICP FLIR Increment/Decrement Switch")
-defineSpringloaded_3_pos_tumb("ICP_DRIFT_SW", 17, 3029, 3028, 186, "UFC", "ICP DRIFT CUTOUT/WARN RESET Switch, DRIFT C/O /NORM/WARN RESET")
-defineSpringloaded_3_pos_tumb("ICP_DATA_RTN_SEQ_SW", 17, 3032, 3033, 184, "UFC", "ICP Data Control Switch, RTN-SEQ")
-defineSpringloaded_3_pos_tumb("ICP_DATA_UP_DN_SW", 17, 3035, 3034, 185, "UFC", "ICP Data Control Switch, UP-DN")
+defineSpringloaded_3PosTumb("ICP_DED_SW", 17, 3031, 3030, 183, "UFC", "ICP DED Increment/Decrement Switch")
+defineSpringloaded_3PosTumb("ICP_FLIR_SW", 17, 3026, 3025, 188, "UFC", "ICP FLIR Increment/Decrement Switch")
+defineSpringloaded_3PosTumb("ICP_DRIFT_SW", 17, 3029, 3028, 186, "UFC", "ICP DRIFT CUTOUT/WARN RESET Switch, DRIFT C/O /NORM/WARN RESET")
+defineSpringloaded_3PosTumb("ICP_DATA_RTN_SEQ_SW", 17, 3032, 3033, 184, "UFC", "ICP Data Control Switch, RTN-SEQ")
+defineSpringloaded_3PosTumb("ICP_DATA_UP_DN_SW", 17, 3035, 3034, 185, "UFC", "ICP Data Control Switch, UP-DN")
 definePushButton("F_ACK_BTN", 17, 3036, 122, "UFC", "F-ACK Button")
 definePushButton("IFF_ID_BTN", 17, 3037, 125, "UFC", "IFF IDENT Button")
 define3PosTumb("RF_SW", 17, 3038, 100, "UFC", "RF Switch, SILENT/QUIET/NORM")
@@ -223,10 +223,10 @@ define3PosTumb("IFF_M4_CODE_SW", 35, 3003, 541, "IFF", "IFF M-4 CODE Switch, HOL
 define3PosTumb("IFF_M4_REPLY_SW", 35, 3004, 543, "IFF", "IFF MODE 4 REPLY Switch, OUT/A/B")
 defineToggleSwitch("IFF_M4_MONITOR_SW", 35, 3005, 544,"IFF" ,"IFF MODE 4 MONITOR Switch, OUT/AUDIO")
 define3PosTumb("IFF_ENABLE_SW", 35, 3006, 553, "IFF", "IFF ENABLE Switch, M1/M3 /OFF/ M3/MS")
-defineSpringloaded_3_pos_tumb("IFF_M1_SEL_1", 35, 3008, 3007, 545, "IFF", "IFF MODE 1 Selector Lever, DIGIT 1")
-defineSpringloaded_3_pos_tumb("IFF_M1_SEL_2", 35, 3010, 3009, 547, "IFF", "IFF MODE 1 Selector Lever, DIGIT 2")
-defineSpringloaded_3_pos_tumb("IFF_M3_SEL_1", 35, 3012, 3011, 549, "IFF", "IFF MODE 3 Selector Lever, DIGIT 1")
-defineSpringloaded_3_pos_tumb("IFF_M3_SEL_2", 35, 3014, 3013, 551, "IFF", "IFF MODE 3 Selector Lever, DIGIT 2")
+defineSpringloaded_3PosTumb("IFF_M1_SEL_1", 35, 3008, 3007, 545, "IFF", "IFF MODE 1 Selector Lever, DIGIT 1")
+defineSpringloaded_3PosTumb("IFF_M1_SEL_2", 35, 3010, 3009, 547, "IFF", "IFF MODE 1 Selector Lever, DIGIT 2")
+defineSpringloaded_3PosTumb("IFF_M3_SEL_1", 35, 3012, 3011, 549, "IFF", "IFF MODE 3 Selector Lever, DIGIT 1")
+defineSpringloaded_3PosTumb("IFF_M3_SEL_2", 35, 3014, 3013, 551, "IFF", "IFF MODE 3 Selector Lever, DIGIT 2")
 
 --KY-58
 defineMultipositionSwitch("KY58_MODE_KNB", 42, 3001, 705, 4, 0.1,"KY-58" ,"KY-58 MODE Knob, P/C/LD/RV")
@@ -324,7 +324,7 @@ defineRotary("AIRSPEED_SET_KNB", 46, 3001, 71, "Airspeed Indicator", "SET INDEX 
 
 --Altimeter
 defineRotary("ALT_BARO_SET_KNB", 45, 3003, 62, "Altimeter", "Altimeter Barometric Setting Knob")
-defineSpringloaded_3_pos_tumb("ALT_MODE_LV", 45, 3002, 3001, 60, "Altimeter", "Altimeter Mode Lever, ELEC/OFF/PNEU")
+defineSpringloaded_3PosTumb("ALT_MODE_LV", 45, 3002, 3001, 60, "Altimeter", "Altimeter Mode Lever, ELEC/OFF/PNEU")
 
 --SAI ARU-42/A-2
 definePushButton("SAI_CAGE", 47, 3002, 67, "SAI", "SAI Cage Knob, (LMB) Pull to cage")
@@ -347,10 +347,10 @@ definePushButton("CLOCK_ELAPSED", 51, 3003, 628, "Clock", "Clock Elapsed Time Kn
 
 --Cockpit Mechanics
 defineToggleSwitch("CANOPY_HANDLE", 10, 3004, 600,"Cockpit Mechanics" ,"Canopy Handle, UP/DOWN")
-defineSpringloaded_3_pos_tumb("SEAT_ADJ", 10, 3014, 3013, 786, "Cockpit Mechanics", "SEAT ADJ Switch, UP/OFF/DOWN")
+defineSpringloaded_3PosTumb("SEAT_ADJ", 10, 3014, 3013, 786, "Cockpit Mechanics", "SEAT ADJ Switch, UP/OFF/DOWN")
 defineToggleSwitch("CANOPY_JETT_THANDLE", 10, 3005, 601,"Cockpit Mechanics" ,"CANOPY JETTISON T-Handle, PULL/STOW")
 defineToggleSwitch("SEAT_EJECT_SAFE", 10, 3009, 785,"Cockpit Mechanics" ,"Ejection Safety Lever, ARMED/LOCKED")
-defineSpringloaded_3_pos_tumb("CANOPY_SW", 10, 3003, 3002, 606, "Cockpit Mechanics", "Canopy Switch, OPEN/HOLD/CLOSE")
+defineSpringloaded_3PosTumb("CANOPY_SW", 10, 3003, 3002, 606, "Cockpit Mechanics", "Canopy Switch, OPEN/HOLD/CLOSE")
 defineToggleSwitch("HIDE_STICK", 10, 3015, 796,"Cockpit Mechanics" ,"Hide Stick toggle")
 
 ------------------------------------------------------------------Warning, Caution and Indicator Lights

@@ -8,7 +8,7 @@ local document = BIOS.util.document
 local defineFloat = BIOS.util.defineFloat
 local defineIndicatorLight = BIOS.util.defineIndicatorLight
 local definePotentiometer = BIOS.util.definePotentiometer
-local defineSpringloaded_3_pos_tumb = BIOS.util.defineSpringloaded_3_pos_tumb
+local defineSpringloaded_3PosTumb = BIOS.util.defineSpringloaded_3PosTumb
 local defineRotary = BIOS.util.defineRotary
 local defineTumb = BIOS.util.defineTumb
 local defineFixedStepTumb = BIOS.util.defineFixedStepTumb
@@ -67,7 +67,7 @@ defineTumb("RCTRL_C", 15, 3004, 118, 1, {0, 1}, nil, false, "Radio", "Radio Chan
 defineTumb("RCTRL_D", 15, 3005, 119, 1, {0, 1}, nil, false, "Radio", "Radio Channel D")
 defineTumb("RCTRL_DIM",15, 3006, 125, 1, {0, 1}, nil, false, "Radio", "Radio Channel Dimmer")
 defineTumb("RCTRL_TLOCK",15, 3017, 155, 1, {0, 1}, nil, false, "Radio", "Switch Locking Lever")
-defineSpringloaded_3_pos_tumb("RCTRL_T_MODE", 15, 3008, 3007, 156, "Radio", "Radio Mode Switch")
+defineSpringloaded_3PosTumb("RCTRL_T_MODE", 15, 3008, 3007, 156, "Radio", "Radio Mode Switch")
 -- Throttle Quadrant
 definePushButton("BUTTON_BOMB",5, 3015, 128, "Weapons", "Drop Bombs")
 definePotentiometer("PROP", 2, 3006, 129, {-1, 1},"Engine", "Propeller RPM")

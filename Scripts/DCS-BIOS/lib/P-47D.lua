@@ -9,7 +9,7 @@ local defineFloat = BIOS.util.defineFloat
 local defineIndicatorLight = BIOS.util.defineIndicatorLight
 local definePushButton = BIOS.util.definePushButton
 local define3PosTumb = BIOS.util.define3PosTumb
-local defineSpringloaded_3_pos_tumb = BIOS.util.defineSpringloaded_3_pos_tumb
+local defineSpringloaded_3PosTumb = BIOS.util.defineSpringloaded_3PosTumb
 local definePotentiometer = BIOS.util.definePotentiometer
 local defineRotary = BIOS.util.defineRotary
 local defineTumb = BIOS.util.defineTumb
@@ -225,7 +225,7 @@ defineToggleSwitch("RCTRL_C", 23, 3004, 118, "Radio", "Radio Channel C")
 defineToggleSwitch("RCTRL_D", 23, 3005, 119, "Radio", "Radio Channel D")
 defineToggleSwitch("RCTRL_DIM", 23, 3006, 125, "Radio", "Radio Channel Dimmer")
 defineToggleSwitch("RCTRL_TLOCK", 23, 3017, 155, "Radio", "Switch Locking Lever")
-defineSpringloaded_3_pos_tumb("RCTRL_T_MODE", 23, 3008, 3007, 156, "Radio", "Radio Mode Switch")
+defineSpringloaded_3PosTumb("RCTRL_T_MODE", 23, 3008, 3007, 156, "Radio", "Radio Mode Switch")
 definePotentiometer("RCTRL_VOL", 23, 3015, 77, {0, 1}, "Radio", "Radio Volume")
 
 definePotentiometer("DETROLA_FREQU_SEL", 24, 3001, 137, {0, 1}, "Detrola Receiver", "Detrola Frequency Selector")

@@ -1187,7 +1187,7 @@ function BIOS.util.defineMomentaryRockerSwitch(msg, device_id, pos_command, pos_
 	end
 end
 
-function BIOS.util.defineSpringloaded_3_pos_tumb(msg, device_id, downSwitch, upSwitch, arg_number, category, description)
+function BIOS.util.defineSpringloaded_3PosTumb(msg, device_id, downSwitch, upSwitch, arg_number, category, description)
 	local alloc = moduleBeingDefined.memoryMap:allocateInt{ maxValue = 2 }
 	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
 	    local val = dev0:get_argument_value(arg_number)
@@ -1237,7 +1237,7 @@ function BIOS.util.defineSpringloaded_3_pos_tumb(msg, device_id, downSwitch, upS
 	end
 end
 
-function BIOS.util.defineSpringloaded_3_pos_A10_tumb(msg, device_id, downSwitch, upSwitch, arg_number, category, description)
+function BIOS.util.define3Pos2CommandSwitchA10(msg, device_id, downSwitch, upSwitch, arg_number, category, description)
 	local alloc = moduleBeingDefined.memoryMap:allocateInt{ maxValue = 2 }
 	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
 	    local val = dev0:get_argument_value(arg_number)
@@ -1287,7 +1287,7 @@ function BIOS.util.defineSpringloaded_3_pos_A10_tumb(msg, device_id, downSwitch,
 	end
 end
 
-function BIOS.util.defineSpringloaded_3_pos_F5_tumb(msg, device_id, pos_command, neg_command, arg_number, category, description)
+function BIOS.util.define3Pos2CommandSwitchF5(msg, device_id, pos_command, neg_command, arg_number, category, description)
 	
 	local alloc = moduleBeingDefined.memoryMap:allocateInt{ maxValue = 2 }
 	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)

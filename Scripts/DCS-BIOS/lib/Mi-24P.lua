@@ -18,7 +18,7 @@ local defineToggleSwitch = BIOS.util.defineToggleSwitch
 local defineFixedStepTumb = BIOS.util.defineFixedStepTumb
 local defineString = BIOS.util.defineString
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
-local defineSpringloaded_3_pos_tumb = BIOS.util.defineSpringloaded_3_pos_tumb
+local defineSpringloaded_3PosTumb = BIOS.util.defineSpringloaded_3PosTumb
 local define3PosTumb = BIOS.util.define3PosTumb
 
 --Engine
@@ -27,7 +27,7 @@ defineToggleSwitch("PLT_ENG_STOP_L", 3, 3009, 6, "Engine", "PILOT Left Engine St
 defineToggleSwitch("PLT_ENG_STOP_R", 3, 3010, 7, "Engine", "PILOT Right Engine Stop")
 defineRotary("PLT_ENG_THROTTLE_L", 3, 3006, 5, "Engine", "PILOT Left Engine Throttle")
 defineRotary("PLT_ENG_THROTTLE_R", 3, 3008, 4, "Engine", "PILOT Right Engine Throttle")
-defineSpringloaded_3_pos_tumb("PLT_FREE_TURB_RPM", 3, 3020, 3019, 747, "Engine", "PILOT Readjust Free Turbine RPM, RIGHT/NEUTRAL/LEFT")
+defineSpringloaded_3PosTumb("PLT_FREE_TURB_RPM", 3, 3020, 3019, 747, "Engine", "PILOT Readjust Free Turbine RPM, RIGHT/NEUTRAL/LEFT")
 
 defineFloat("PLT_ROTOR_RPM", 42, {0, 1}, "Engine Gauges", "PILOT Rotor RPM")
 defineFloat("PLT_ROTOR_PITCH", 36, {0, 1}, "Engine Gauges", "PILOT Rotor Pitch")
@@ -480,7 +480,7 @@ definePushButton("PLT_FIRE_EX_GEAR2", 13, 3008, 492, "Fire Extinguisher", "PILOT
 definePushButton("PLT_FIRE_ALARM_OFF", 13, 3009, 488, "Fire Extinguisher", "PILOT Turn Off Fire Signal Button")
 defineToggleSwitch("PLT_FIRE_EX_CONTROL", 13, 3010, 482, "Fire Extinguisher", "PILOT Extinguisher Control Switch EXING/CNTRL")
 defineTumb("PLT_FIRE_EX_SENSOR_CHAN", 13, 3013, 484, 0.3, {0, 1}, nil, false, "Fire Extinguisher", "PILOT Fire Extinguisher Sensor Channel OFF/1/2/3")
-defineSpringloaded_3_pos_tumb("PLT_FIRE_EX_SQUIB", 13, 3011, 3012, 486, "Fire Extinguisher", "PILOT Extinguisher Squib Control")
+defineSpringloaded_3PosTumb("PLT_FIRE_EX_SQUIB", 13, 3011, 3012, 486, "Fire Extinguisher", "PILOT Extinguisher Squib Control")
 defineToggleSwitch("PLT_FIRE_EX_PW", 13, 3014, 487, "Fire Extinguisher", "PILOT Extinguisher Power ON/OFF")
 
 --SPUU-52
@@ -1005,7 +1005,7 @@ defineTumb("OP_WIPER_SPD_2", 11, 3021, 674, 0.25, {0, 0.25}, nil, false, "Wiper"
 
 --ARK U2
 defineToggleSwitch("PLT_ARCU2_PW", 54, 3001, 324, "ARC-U2 ", "PILOT ARC-U2 switcher ON/OFF")
-defineSpringloaded_3_pos_tumb("PLT_ARCU2_FRAME", 54, 3002, 3003, 325, "ARC-U2 ", "PILOT ARC-U2 switcher L–RAMKA-P")
+defineSpringloaded_3PosTumb("PLT_ARCU2_FRAME", 54, 3002, 3003, 325, "ARC-U2 ", "PILOT ARC-U2 switcher L–RAMKA-P")
 defineToggleSwitch("PLT_ARCU2_SENS", 54, 3004, 326, "ARC-U2 ", "PILOT ARC-U2 switcher sensitivity B-M")
 define3PosTumb("PLT_ARCU2_COMPASS", 54, 3005, 327, "ARC-U2 ", "PILOT ARC-U2 switcher COMPASS R-852–RADIOLINK–COMPASS R-828")
 

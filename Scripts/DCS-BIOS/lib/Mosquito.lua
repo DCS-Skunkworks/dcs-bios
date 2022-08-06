@@ -14,7 +14,7 @@ local define3PosTumb = BIOS.util.define3PosTumb
 local defineTumb = BIOS.util.defineTumb
 local defineToggleSwitch = BIOS.util.defineToggleSwitch
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
-local defineSpringloaded_3_pos_tumb = BIOS.util.defineSpringloaded_3_pos_tumb
+local defineSpringloaded_3PosTumb = BIOS.util.defineSpringloaded_3PosTumb
 local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 
 -- remove Arg# Pilot 500
@@ -175,7 +175,7 @@ definePushButton("RADIO_C", 24, 3004, 35, "Radio", "Radio C Button")
 definePushButton("RADIO_D", 24, 3005, 36, "Radio", "Radio D Button")
 defineToggleSwitch("RADIO_L_DIM", 24, 3006, 42, "Radio", "Radio Dimmer Toggle")
 defineToggleSwitch("RADIO_TLOCK", 24, 3017, 43, "Radio", "Radio Transmit Lock Toggle")
-defineSpringloaded_3_pos_tumb("RADIO_T_MODE", 24, 3008, 3007, 44, "Radio", "Radio Mode Switch")
+defineSpringloaded_3PosTumb("RADIO_T_MODE", 24, 3008, 3007, 44, "Radio", "Radio Mode Switch")
 definePotentiometer("RADIO_VOL", 24, 3015, 364, {0, 1}, "Radio", "Radio Volume")
 
 defineIndicatorLight("RADIO_A_L", 37, "Radio Lights", "Radio A Light (white)")
