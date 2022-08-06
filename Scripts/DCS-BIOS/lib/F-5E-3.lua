@@ -18,7 +18,7 @@ local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 local defineFloat = BIOS.util.defineFloat
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 local define3PosTumb = BIOS.util.define3PosTumb
-local define3Pos2CommandSwitchF5 = BIOS.util.define3Pos2CommandSwitchF5
+local defineSpringloaded_3_pos_F5_tumb = BIOS.util.defineSpringloaded_3_pos_F5_tumb
 
 local function getTacanChannel()
     local tcn_2 = ""
@@ -97,7 +97,7 @@ defineToggleSwitch("R_SHUTOFF_S", 4, 3002, 362,"Fuel" , "Right Fuel Shutoff Swit
 defineToggleSwitch("EXT_PYLON_SW", 4, 3003, 378,"Fuel" , "Ext Fuel Pylons Switch, ON/OFF")
 defineToggleSwitch("EXT_CENTER_SW", 4, 3004, 377,"Fuel" , "Ext Fuel Cl Switch, ON/OFF")
 defineToggleSwitch("CROSSFEED", 4, 3005, 381,"Fuel" , "Crossfeed Switch, OPEN/CLOSED")
-define3Pos2CommandSwitchF5("AUTOBAL", 4, 3006, 3007, 383, "Fuel", "Autobalance Switch, LEFT/NEUT/RIGHT")
+defineSpringloaded_3_pos_F5_tumb("AUTOBAL", 4, 3006, 3007, 383, "Fuel", "Autobalance Switch, LEFT/NEUT/RIGHT")
 defineToggleSwitch("L_BOOSTPUMP", 4, 3008, 380,"Fuel" , "Left Boost Pump Switch, ON/OFF")
 defineToggleSwitch("R_BOOSTPUMP", 4, 3009, 382,"Fuel" , "Right Boost Pump Switch, ON/OFF")
 defineToggleSwitch("L_SHUTOFF_C", 4, 3010, 359,"Fuel" , "Left Fuel Shutoff Switch Cover, OPEN/CLOSED")

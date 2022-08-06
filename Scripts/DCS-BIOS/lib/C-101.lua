@@ -16,7 +16,7 @@ local define3PosTumb = BIOS.util.define3PosTumb
 local defineToggleSwitch = BIOS.util.defineToggleSwitch
 local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
-local define3Pos2CommandSwitchWW2 = BIOS.util.define3Pos2CommandSwitchWW2
+local defineSpringloaded_3_pos_tumb = BIOS.util.defineSpringloaded_3_pos_tumb
 local defineFixedStepTumb = BIOS.util.defineFixedStepTumb
 local defineRadioWheel = BIOS.util.defineRadioWheel
 
@@ -723,9 +723,9 @@ definePushButton("EB_BACK_UHF_T_TONE", 11,3034,871, "UHF Radio", "C-101EB BACK U
 defineToggleSwitch("EB_BACK_UHF_SQL", 11, 3035,872, "UHF Radio", "C-101EB BACK UHF Radio Squelch Switch")
 definePotentiometer("EB_BACK_UHF_COVER", 11, 3040, 1167, {0, 1}, "UHF Radio", "C-101EB BACK UHF Cover")
 definePushButton("EB_BACK_UHF_PRESET", 11, 3041, 1169, "UHF Radio", "C-101EB BACK UHV Preset Button")
-define3Pos2CommandSwitchWW2("FRONT_UHF_TEST_SW", 11, 3012, 3013, 207, "UHF Radio", "C-101EB FRONT UHF Frequency/Test Switch")
+defineSpringloaded_3_pos_tumb("FRONT_UHF_TEST_SW", 11, 3012, 3013, 207, "UHF Radio", "C-101EB FRONT UHF Frequency/Test Switch")
 definePotentiometer("EB_FRONT_UHF_DIM", 11,3014,206, {0, 1}, "UHF Radio", "C-101EB FRONT UHF Digital Display Dimmer")
-define3Pos2CommandSwitchWW2("BACK_UHF_TEST_SW", 11, 3037, 3038, 844, "UHF Radio", "C-101EB BACK UHF Frequency/Test Switch")
+defineSpringloaded_3_pos_tumb("BACK_UHF_TEST_SW", 11, 3037, 3038, 844, "UHF Radio", "C-101EB BACK UHF Frequency/Test Switch")
 definePotentiometer("EB_BACK_UHF_DIM", 11, 3039, 845, {0, 1}, "UHF Radio", "C-101EB BACK UHF Digital Display Dimmer")
 
 -- FLIGHT DIRECTOR 

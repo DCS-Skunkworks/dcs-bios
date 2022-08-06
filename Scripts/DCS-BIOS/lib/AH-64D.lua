@@ -18,7 +18,6 @@ local defineToggleSwitch = BIOS.util.defineToggleSwitch
 local defineString = BIOS.util.defineString
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 local define3PosTumb = BIOS.util.define3PosTumb
-local defineRockerSwitch = BIOS.util.defineRockerSwitch
 
 local getDisplayLines = TextDisplay.GetDisplayLines
 
