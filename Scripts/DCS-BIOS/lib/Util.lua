@@ -1,4 +1,4 @@
---06.08.2022
+--07.08.2022
 BIOS.util = {}
 
 function BIOS.util.log2(n)
@@ -362,8 +362,8 @@ function BIOS.util.defineIndicatorLightInverted(msg, arg_number, category, descr
 	}
 end
 
-function BIOS.util.definePushButton(msg, device_id, device_command, arg_number, category, description)
-	BIOS.util.defineTumb(msg, device_id, device_command, arg_number, 1, {0, 1}, nil, false, category, description)
+function BIOS.util.definePushButton(msg, device_id, command, arg_number, category, description)
+	BIOS.util.defineTumb(msg, device_id, command, arg_number, 1, {0, 1}, nil, false, category, description)
 	local docentry = moduleBeingDefined.documentation[category][msg]
 	docentry.physical_variant = "push_button"
 	docentry.api_variant = "momentary_last_position"

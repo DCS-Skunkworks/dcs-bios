@@ -13,6 +13,7 @@ local defineIndicatorLight = BIOS.util.defineIndicatorLight
 local definePushButton = BIOS.util.definePushButton
 local definePotentiometer = BIOS.util.definePotentiometer
 local defineTumb = BIOS.util.defineTumb
+local define3PosTumb = BIOS.util.define3PosTumb
 local defineToggleSwitch = BIOS.util.defineToggleSwitch
 local defineFixedStepTumb = BIOS.util.defineFixedStepTumb
 local defineVariableStepTumb = BIOS.util.defineVariableStepTumb
@@ -256,7 +257,7 @@ defineFloat("ALT_100M", 573, {0, 1}, "Barometric Altimeter", "Baro alt 100 meter
 defineFloat("ALT_QFE_PRESS", 88, {0, 1}, "Barometric Altimeter", "QFE pressure scale")
 defineFloat("ALT_DESIRE_ALT", 89, {0, 1}, "Barometric Altimeter", "Desire altitude bug")
 --Clock
-defineTumb("CLK_L_LEVER", 29, 3001, 76, 1, {-1, 1}, nil, false, "Clock", "Left lever push/pull")
+define3PosTumb("CLK_L_LEVER", 29, 3001, 76, "Clock", "Left lever push/pull")
 defineVariableStepTumb("CLK_L_LEVER_ROT", 29, 3003, 511, 1, "Clock", "Left lever rotary")
 definePushButton("CLK_R_LEVER", 29, 3004, 77, "Clock", "Right lever push")
 defineTumb("CLK_R_LEVER_ROT", 29, 3005, 525, 0.3, {-0.15, 0.15}, nil, false, "Clock", "Right lever rotary")
@@ -287,7 +288,7 @@ defineIndicatorLight("GEAR_L_MAIN_DOWN", 60, "Landing Gear Control Panel", "Left
 define8BitFloat("HUD_FILTER_POS", 509, {0, 1}, "HUD", "Filter position")
 define8BitFloat("HUD_FILTER_HANDLE_POS", 510, {0, 1}, "HUD", "Filter lever position")
 definePotentiometer("HUD_BRIGHTNESS", 7, 3001, 8, {0, 1}, "HUD", "Brightness knob")
-defineTumb("HUD_MODE", 7, 3002, 9, 1, {-1, 1}, nil, false, "HUD", "Reticle/Night/Day mode selector")
+define3PosTumb("HUD_MODE", 7, 3002, 9, "HUD", "Reticle/Night/Day mode selector")
 definePushButton("HUD_TEST", 7, 3003, 7, "HUD", "Self-test button")
 defineToggleSwitch("HUD_FILTER_HANDLE", 7, 3004, 510, "HUD", "Filter lever switch")
 --PUI-800 Weapon Status and Control Panel
@@ -447,7 +448,7 @@ defineString("EKRAN_TXT2_LINE2", getEKRAN_txt2_line2, 10, "EKRAN", "EKRAN txt 2 
 defineString("EKRAN_TXT2_LINE3", getEKRAN_txt2_line3, 10, "EKRAN", "EKRAN txt 2 line 3")
 defineString("EKRAN_TXT2_LINE4", getEKRAN_txt2_line4, 10, "EKRAN", "EKRAN txt 2 line 4")
 --Standby Attitude Indicator (SAI)
-defineTumb("SAI_CTRL", 55, 3001, 141, 1, {-1, 1}, nil, false, "SAI", "Cage/control handle push/pull")
+define3PosTumb("SAI_CTRL", 55, 3001, 141, "SAI", "Cage/Control handle push/pull")
 defineVariableStepTumb("SAI_CTRL_ROT", 55, 3003, 597, 1, "SAI", "Cage/control handle rotary")
 defineFloat("SAI_ROLL", 142, {-1, 1}, "SAI", "Roll")
 defineFloat("SAI_PITCH", 143, {-1, 1}, "SAI", "Pitch")

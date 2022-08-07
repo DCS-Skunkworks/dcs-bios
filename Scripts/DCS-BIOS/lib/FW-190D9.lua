@@ -10,18 +10,21 @@ local defineIndicatorLight = BIOS.util.defineIndicatorLight
 local definePotentiometer = BIOS.util.definePotentiometer
 local defineRotary = BIOS.util.defineRotary
 local defineTumb = BIOS.util.defineTumb
+local define3PosTumb = BIOS.util.define3PosTumb
+local definePushButton = BIOS.util.definePushButton
+local defineToggleSwitch = BIOS.util.defineToggleSwitch
 local defineFixedStepTumb = BIOS.util.defineFixedStepTumb
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
 --remove Arg# Pilot 540
 
 defineRotary("RAD_FLAP_CTRL",8, 3013, 159, "Cockpit", "Radiator Flaps Control")
-defineTumb("STARTER_CVR",2, 3006, 104, 1, {0, 1}, nil, false, "Cockpit", "Starter Switch Cover")
-defineTumb("MW50_SWITCH",2, 3015,85, 1, {0, 1}, nil, false, "Cockpit", "MW-50 Switch")
-defineTumb("EL_KILL",1, 3031, 79, 1, {0, 1}, nil, false, "Cockpit", "Electric Kill-switch")
-defineTumb("EMG_EQ_DEST",1, 3032, 163, 1, {0, 1}, nil, false, "Cockpit", "Emergency Equipment Destruction")
-defineTumb("CIRC_BR_CVR",1, 3001,138, 1, {0, 1}, nil, false, "Cockpit", "Circuit Breakers Cover")
-defineTumb("CANOPY_EMG_REL",3, 3006,115, 1, {0, 1}, nil, false, "Cockpit", "Canopy Emergency Release Handle")
+defineToggleSwitch("STARTER_CVR",2, 3006, 104, 1, {0, 1}, nil, false, "Cockpit", "Starter Switch Cover")
+defineToggleSwitch("MW50_SWITCH",2, 3015,85, 1, {0, 1}, nil, false, "Cockpit", "MW-50 Switch")
+defineToggleSwitch("EL_KILL",1, 3031, 79, 1, {0, 1}, nil, false, "Cockpit", "Electric Kill-switch")
+defineToggleSwitch("EMG_EQ_DEST",1, 3032, 163, 1, {0, 1}, nil, false, "Cockpit", "Emergency Equipment Destruction")
+defineToggleSwitch("CIRC_BR_CVR",1, 3001,138, 1, {0, 1}, nil, false, "Cockpit", "Circuit Breakers Cover")
+defineToggleSwitch("CANOPY_EMG_REL",3, 3006,115, 1, {0, 1}, nil, false, "Cockpit", "Canopy Emergency Release Handle")
 defineRotary("CANOPY_HAND_CRK",3, 3001, 114, "Cockpit", "Canopy Hand Crank")
 defineTumb("THR_LOCK",2, 3011,200, 1, {0, 1}, nil, false, "Cockpit", "Throttle Lock")
 defineRotary("ALT_PRESS_SET",10, 3001, 34, "Cockpit", "Altimeter Pressure Set")
@@ -33,8 +36,8 @@ defineTumb("LG_RET_CVR",8, 3006,66, 1, {0, 1}, nil, false, "Cockpit", "Landing G
 defineTumb("LG_EXT",8, 3007,67, 1, {0, 1}, nil, false, "Cockpit", "Landing Gears Extending")
 defineRotary("TURN_BEZ",13, 3001, 24, "Cockpit", "Turnable Bezel")
 defineRotary("WND_SET",13, 3004, 25, "Cockpit", "Wind/Set Knob")
-defineTumb("START_STOP",13, 3006, 26, 1, {0, 1}, nil, false, "Cockpit", "Start - Stop Button")
-defineTumb("STOPWATCH",13, 3008, 28, 1, {0, 1}, nil, false, "Cockpit", "Stopwatch Button")
+definePushButton("START_STOP",13, 3006, 26, "Cockpit", "Start - Stop Button")
+definePushButton("STOPWATCH",13, 3008, 28, "Cockpit", "Stopwatch Button")
 defineTumb("MASTER_ARM",20, 3003,48, 1, {0, 1}, nil, false, "Weapon Control", "Master Arm")
 defineRotary("GUN1_AMM_C",20, 3004, 51, "Weapon Control", "Set Gun 1 Ammunition Count")
 defineRotary("GUN2_AMM_C",20, 3005, 54, "Weapon Control", "Set Gun 2 Ammunition Count")
@@ -93,11 +96,11 @@ defineTumb("AUX_TNK_PMP_OFF",1, 3029, 126, 1, {0, 1}, nil, false, "Electric Syst
 defineTumb("MW50_ON",1, 3017, 129, 1, {0, 1}, nil, false, "Electric System", "MW-50 On")
 defineTumb("MW50_OFF",1, 3030, 128, 1, {0, 1}, nil, false, "Electric System", "MW-50 Off")
 defineRotary("CRS_SET",14, 3001, 43, "Compass", "Course Set")
-defineTumb("HOR_STAB_TRIM",8, 3012, 77, 1, {-1, 1}, nil, false, "Cockpit", "Stabilizer Trimmer Up/Down")
+define3PosTumb("HOR_STAB_TRIM",8, 3012, 77, "Cockpit", "Stabilizer Trimmer Up/Down")
 defineTumb("EMG_LG_REL",8, 3008, 89, 1, {0, 1}, nil, false, "Cockpit", "Landing Gear Emergency Release Handle")
 defineTumb("BMB_FUSE_SEL",20, 3011, 109, 0.1, {0, 0.4}, nil, false, "Weapon Control", "Bomb Fusing Selector")
 defineTumb("RADIO_MODE",15, 3001, 81, 0.1, {0, 0.3}, nil, false, "Radio", "FuG 16ZY Radio Channel Selector")
-defineTumb("FUG25_MODE",16, 3001, 86, 1, {-1, 1}, nil, false, "Radio", "FuG 25A IFF Channel Selector")
+define3PosTumb("FUG25_MODE",16, 3001, 86, "Radio", "FuG 25A IFF Channel Selector")
 
 defineIndicatorLight("BMB1",196, "Lamps", "Bomb 1 Lamp (red)")
 defineIndicatorLight("BMB2",197, "Lamps", "Bomb 2 Lamp (red)")

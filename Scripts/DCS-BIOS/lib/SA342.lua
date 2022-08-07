@@ -11,6 +11,7 @@ local definePushButton = BIOS.util.definePushButton
 local definePotentiometer = BIOS.util.definePotentiometer
 local defineRotary = BIOS.util.defineRotary
 local defineTumb = BIOS.util.defineTumb
+local define3PosTumb = BIOS.util.define3PosTumb
 local defineToggleSwitch = BIOS.util.defineToggleSwitch
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
@@ -23,10 +24,10 @@ definePushButton("VOLTMETER_TEST", 38, 3004, 62, "Electric System", "Voltmeter T
 defineToggleSwitch("PITOT", 38, 3005, 170, "Electric System", "Pitot")
 defineToggleSwitch("FUEL_PUMP", 38, 3006, 271, "Electric System", "Fuel Pump")
 defineToggleSwitch("ADDITIONAL_FUEL_TANK", 38, 3007, 267, "Electric System", "Additional Fuel Tank")
-defineTumb("STARTER", 38, 3008, 56, 1, {-1, 1}, nil, false, "Electric System", "Starter Start/Stop/Air")
+define3PosTumb("STARTER", 38, 3008, 56, "Electric System", "Starter Start/Stop/Air")
 definePushButton("WARNING_PANEL_TEST", 38, 3009, 57, "Electric System", "Warning Panel Test")
-defineTumb("COPILOT_WIPER", 38, 3010, 48, 1, {-1, 1}, nil, false, "Electric System", "Copilot Wiper")
-defineTumb("PILOT_WIPER", 38, 3011, 49, 1, {-1, 1}, nil, false, "Electric System", "Pilot Wiper")
+define3PosTumb("COPILOT_WIPER", 38, 3010, 48, "Electric System", "Copilot Wiper")
+define3PosTumb("PILOT_WIPER", 38, 3011, 49, "Electric System", "Pilot Wiper")
 defineToggleSwitch("UNASSIGNED_SWITCH", 38, 3012, 61, "Electric System", "Unassigned Switch")
 definePushButton("HYD_TEST", 38, 3013, 59, "Electric System", "HYD Test")
 definePushButton("REARM_ALTER", 38, 3014, 66, "Electric System", "Alter Rearm")
@@ -56,13 +57,13 @@ definePushButton("AUTOPILOT_SLAVE", 7, 3012, 293, "Autopilot", "Autopilot Slave"
 definePushButton("AUTO_HOVER", 7, 3008, 294, "Autopilot", "Auto-Hover")
 defineToggleSwitch("GYRO_TEST_COVER", 7, 3014, 197, "Autopilot", "Gyro Test Cover Open/Close")
 defineToggleSwitch("GYRO_TEST_SWITCH", 7, 3015, 198, "Autopilot", "Gyro Test Switch On/Off")
-defineTumb("GYRO_SWITCH", 7, 3016, 199, 1, {-1, 1}, nil, false, "Autopilot", "Gyro Left/Center/Right")
+define3PosTumb("GYRO_SWITCH", 7, 3016, 199, "Autopilot", "Gyro Left/Center/Right")
 defineTumb("GYRO_KNOB", 7, 3017, 153, 0.25, {0, 1}, nil, false, "Autopilot", "Gyro Knob")
 defineToggleSwitch("AUTOPILOT_ON_OFF", 7, 3001, 31, "Autopilot", "Autopilot On/Off")
 defineToggleSwitch("AUTOPILOT_PITCH", 7, 3002, 32, "Autopilot", "Autopilot Pitch")
 defineToggleSwitch("AUTOPILOT_ROLL", 7, 3003, 33, "Autopilot", "Autopilot Roll")
 defineToggleSwitch("AUTOPILOT_YAW", 7, 3004, 34, "Autopilot", "Autopilot Yaw")
-defineTumb("AUTOPILOT_MODE", 7, 3005, 35, 1, {-1, 1}, nil, false, "Autopilot", "Autopilot Mode Speed/Off/Altitude")
+define3PosTumb("AUTOPILOT_MODE", 7, 3005, 35, "Autopilot", "Autopilot Mode Speed/Off/Altitude")
 defineToggleSwitch("AUTOPILOT_TRIM", 7, 3006, 60, "Autopilot", "Autopilot Trim")
 defineToggleSwitch("MAGNETIC_BRAKE", 7, 3007, 65, "Autopilot", "Magnetic Brake")
 
@@ -95,9 +96,9 @@ definePotentiometer("ROOF_LAMP", 14, 3005, 147, {0, 1}, "Lights", "Roof Lamp Kno
 defineToggleSwitch("RED_LENS_ON_OFF", 14, 3006, 154, "Lights", "Red Lens On/Off")
 
 --Navlights
-defineTumb("NAV_LIGHTS", 15, 3001, 146, 1, {-1, 1}, nil, false, "Navlights", "Navigation Lights CLI/OFF/FIX")
-defineTumb("ANTICOLL_LIGHTS", 15, 3002, 228, 1, {-1, 1}, nil, false, "Navlights", "Anticollision Light NOR/OFF/ATT")
-defineTumb("LANDING_LIGHTS", 15, 3003, 105, 1, {-1, 1}, nil, false, "Navlights", "Landing Light Off/Vario/On")
+define3PosTumb("NAV_LIGHTS", 15, 3001, 146, "Navlights", "Navigation Lights CLI/OFF/FIX")
+define3PosTumb("ANTICOLL_LIGHTS", 15, 3002, 228, "Navlights", "Anticollision Light NOR/OFF/ATT")
+define3PosTumb("LANDING_LIGHTS", 15, 3003, 105, "Navlights", "Landing Light Off/Vario/On")
 defineTumb("LANDING_LIGHT_EXTEND", 15, 3004, 106, 1, {-1, 0}, nil, false, "Navlights", "Landing Light Extend")
 defineTumb("LANDING_LIGHT_RETRACT", 15, 3006, 106, 1, {0, 1}, nil, false, "Navlights", "Landing Light Retract")
 defineToggleSwitch("PANEL_LIGHTING", 15, 3008, 382, "Navlights", "Panel Lighting On/Off")
@@ -184,21 +185,21 @@ definePushButton("NADIR_GEL_BUTTON", 23, 3022, 350, "NADIR", "NADIR GEL Button")
 definePushButton("NADIR_EFF_BUTTON", 23, 3023, 352, "NADIR", "NADIR EFF Button")
 
 --RWR
-defineTumb("RWR_OFF_ON_CROC", 38, 3061, 148, 1, {-1, 1}, nil, false, "RWR", "RWR Off/On/Croc")
+define3PosTumb("RWR_OFF_ON_CROC", 38, 3061, 148, "RWR", "RWR Off/On/Croc")
 definePushButton("RWR_MARKER", 38, 3062, 149, "RWR", "RWR Marker")
 definePushButton("RWR_PAGE", 38, 3063, 150, "RWR", "RWR Page")
 definePotentiometer("RWR_AUDIO", 38, 3064, 121, {0, 1}, "RWR", "RWR Audio Volume")
 definePotentiometer("RWR_BRIGHTNESS", 38, 3065, 122, {0, 1}, "RWR", "RWR Brightness")
 
 --Flare Dispenser
-defineTumb("FLARE_DISP_SIDE_SELECT", 25, 3001, 220, 1, {-1, 1}, nil, false, "Flare Dispenser", "Flare Dispenser Side Selector D/G+D/G")
+define3PosTumb("FLARE_DISP_SIDE_SELECT", 25, 3001, 220, "Flare Dispenser", "Flare Dispenser Side Selector D/G+D/G")
 defineToggleSwitch("FLARE_DISPENSE_MODE", 25, 3002, 221, "Flare Dispenser", "Flare Dispense Mode")
-defineTumb("FLARE_DISPENSER_OFF_ON", 25, 3003, 222, 1, {-1, 1}, nil, false, "Flare Dispenser", "Flare Dispenser Off/On/Speed Select")
+define3PosTumb("FLARE_DISPENSER_OFF_ON", 25, 3003, 222, "Flare Dispenser", "Flare Dispenser Off/On/Speed Select")
 defineToggleSwitch("FLARE_DISP_FIRE_CAP", 25, 3004, 194, "Flare Dispenser", "Flare Dispense Fire Button Cap")
 definePushButton("FLARE_DISPENSE_BUTTON", 25, 3005, 195, "Flare Dispenser", "Flare Dispenser Fire Button")
 
 --Weapons
-defineTumb("WEAPONS_PANEL_1_OFF_ON_STBY", 26, 3004, 354, 1, {-1, 1}, nil, false, "Weapons", "Weapons Panel 1 Off/On/Standby")
+define3PosTumb("WEAPONS_PANEL_1_OFF_ON_STBY", 26, 3004, 354, "Weapons", "Weapons Panel 1 Off/On/Standby")
 definePotentiometer("WEAPONS_PANEL_1_DISP_BRIGHT", 26, 3009, 357, {0, 1}, "Weapons", "Weapons Panel 1 Display Brightness")
 defineToggleSwitch("LEFT_MASTER_ARM", 26, 3010, 372, "Weapons", "Left Master Arm On/Off")
 defineToggleSwitch("LEFT_MASTER_ARM_COVER", 26, 3011, 373, "Weapons", "Left Master Arm Cover")

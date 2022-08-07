@@ -12,6 +12,7 @@ local definePotentiometer = BIOS.util.definePotentiometer
 local defineRotary = BIOS.util.defineRotary
 local defineTumb = BIOS.util.defineTumb
 local defineToggleSwitch = BIOS.util.defineToggleSwitch
+local define3PosTumb = BIOS.util.define3PosTumb
 local defineFixedStepTumb = BIOS.util.defineFixedStepTumb
 local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
@@ -23,11 +24,11 @@ defineToggleSwitch("GEN", 14, 3003, 102, "Right Switch Panel", "Generator")
 defineToggleSwitch("BAT", 14, 3001, 103, "Right Switch Panel", "Battery")
 defineToggleSwitch("GUN_HEAT", 14, 3019, 104, "Right Switch Panel", "Gun Heating")
 defineToggleSwitch("PITOT", 14, 3005, 105, "Right Switch Panel", "Pitot Heating")
-defineTumb("WING_LTS", 14, 3008, 106, 1, {-1,1}, nil, false, "Right Switch Panel", "Wing Position Lights Bright/Off/Dim")
-defineTumb("TAIL_LTS", 14, 3009, 107, 1, {-1,1}, nil, false, "Right Switch Panel", "Tail Position Lights Bright/Off/Dim")
-defineTumb("RED_REC_LT", 14, 3021, 108, 1, {-1,1}, nil, false, "Right Switch Panel", "Red Recognition Light Key/Off/Steady")
-defineTumb("GRN_REC_LT", 14, 3022, 109, 1, {-1,1}, nil, false, "Right Switch Panel", "Green Recognition Light Key/Off/Steady")
-defineTumb("AMBR_REC_LT", 14, 3023, 110, 1, {-1,1}, nil, false, "Right Switch Panel", "Amber Recognition Light Key/Off/Steady")
+define3PosTumb("WING_LTS", 14, 3008, 106, "Right Switch Panel", "Wing Position Lights Bright/Off/Dim")
+define3PosTumb("TAIL_LTS", 14, 3009, 107, "Right Switch Panel", "Tail Position Lights Bright/Off/Dim")
+define3PosTumb("RED_REC_LT", 14, 3021, 108, "Right Switch Panel", "Red Recognition Light Key/Off/Steady")
+define3PosTumb("GRN_REC_LT", 14, 3022, 109, "Right Switch Panel", "Green Recognition Light Key/Off/Steady")
+define3PosTumb("AMBR_REC_LT", 14, 3023, 110, "Right Switch Panel", "Amber Recognition Light Key/Off/Steady")
 definePushButton("REC_LTS_KEY", 14, 3024, 111, "Right Switch Panel", "Recognition Lights Key")
 definePushButton("CIRC_PRO_RST", 14, 3025, 112, "Right Switch Panel", "Circuit Protectors Reset")
 definePotentiometer("RT_FLRES_LT", 14, 3007, 100, {0, 1}, "Right Switch Panel", "Right Fluorescent Light")
@@ -79,10 +80,10 @@ defineToggleSwitch("LANDING_GEAR_CONTR0L_HANDLE", 12, 3003, 150, "Control System
 definePushButton("LOCK_STICK_FRWD_NEUT", 12, 3015, 173, "Control System", "Lock Stick Forward/Neutral")
 definePotentiometer("COCKPIT_LIGHTS", 13, 3001, 71, {0, 1}, "Front Switch Box", "Cockpit Lights")
 defineTumb("IGNITION", 13, 3005, 66, 0.1, {0.0 ,0.3}, nil, false, "Front Switch Box", "Ignition Off/Right/Left/Both")
-defineTumb("GUN_CONTROL", 13, 3007, 67, 1, {-1, 1}, nil, false, "Front Switch Box", "Gun/Camera Control")
+define3PosTumb("GUN_CONTROL", 13, 3007, 67, "Front Switch Box", "Gun/Camera Control")
 definePushButton("SILENCE_GEAR_HORN", 13, 3008, 72, "Front Switch Box", "Silence Landing Gear Warning Horn Cut Off")
-defineTumb("LEFT_BOMB_ARM_CHEM", 13, 3013, 69, 1,  {-1, 1}, nil, false, "Front Switch Box", "Left Bomb Arm/Chemical Release")
-defineTumb("RIGHT_BOMB_ARM_CHEM", 13, 3014, 70, 1,  {-1, 1}, nil, false, "Front Switch Box", "Right Bomb Arm/Chemical Release")
+define3PosTumb("LEFT_BOMB_ARM_CHEM", 13, 3013, 69, "Front Switch Box", "Left Bomb Arm/Chemical Release")
+define3PosTumb("RIGHT_BOMB_ARM_CHEM", 13, 3014, 70, "Front Switch Box", "Right Bomb Arm/Chemical Release")
 defineTumb("ROCKETS_BOMBS_MODES", 13, 3015, 68, 0.1,  {0, 0.3}, nil, false, "Front Switch Box", "Rockets/Bombs Modes")
 defineToggleSwitch("SUPERCHARGER_SWITCH_COVER", 15, 3002, 58, "Engine Control Panel", "Supercharger Switch Cover")
 defineTumb("SUPERCHARGER_AUTO_LOW_HIGH", 15, 3001, 57, 0.1, {0.0,0.2}, nil, false, "Engine Control Panel", "Supercharger Auto/Low/High")
@@ -145,7 +146,7 @@ defineToggleSwitch("IFF_DISTRESS", 27, 3005, 143, "IFF", "IFF Distress Signal On
 defineToggleSwitch("IFF_DET_CIRCUIT", 27, 3004, 142, "IFF", "IFF Detonator Circuit On/Off")
 definePushButton("IFF_DET_LEFT", 27, 3007, 145, "IFF", "IFF Detonator Left")
 definePushButton("IFF_DET_RIGHT", 27, 3008, 146, "IFF", "IFF Detonator Right")
-defineTumb("IFF_TIME_OFF_ON", 27, 3003, 141, 1, {-1, 1}, nil, false, "IFF", "IFF Time/Off/On")
+define3PosTumb("IFF_TIME_OFF_ON", 27, 3003, 141, "IFF", "IFF Time/Off/On")
 defineTumb("IFF_CODE", 27, 3016, 139, 0.1, {0, 0.5}, nil, false, "IFF", "IFF Code 1-6")
 defineToggleSwitch("HOMING_ADAPTER_POWER", 28, 3004, 153, "Homing Adapter", "Homing Adapter CW/MCW Switch")
 definePushButton("HOMING_ADAPTER_CB", 28, 3003, 154, "Homing Adapter", "Homing Adapter Circuit Breaker")

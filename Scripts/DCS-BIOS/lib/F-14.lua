@@ -722,7 +722,7 @@ defineMultipositionSwitch("RIO_TID_MODE_DEST", 46, 3109, 51, 8, 0.142857, "INS" 
 -- AHRS / Compass  (COMP Panel)
 definePotentiometer("PLT_AHRS_HDG_KNOB", 51, 3433, 904, {-1, 1}, "AHRS", "PILOT Compass HDG Slave Knob")
 definePushButton("PLT_AHRS_HDG_PUSH", 51, 3432, 16014, "AHRS", "PILOT Compass HDG Slave Push")
-defineTumb("PLT_AHRS_MODE", 51, 3434, 905, 1, {-1, 1}, nil, false, "AHRS", "PILOT Compass Mode")
+define3PosTumb("PLT_AHRS_MODE", 51, 3434, 905, "AHRS", "PILOT Compass Mode")
 defineFixedStepTumb("PLT_AHRS_HEMISPHERE", 51, 3436, 906, 2, {-1, 1}, {-1, 1}, nil, "AHRS", "PILOT Compass N-S Hemisphere")
 definePotentiometer("PLT_AHRS_LAT", 51, 3438, 909, {0, 1}, "AHRS", "PILOT Compass LAT Correction")
 

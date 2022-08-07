@@ -164,7 +164,7 @@ definePushButton("NAV_SELECT_BTN_L_MAL", 12, 3008, 281, "Navigation", "Navigatio
 
 --Lights
 defineToggleSwitch("ANTI_COLLISION_LIGHTS", 17, 3001, 250, "Lights", "Anti Collision Lights")
-defineTumb("NAVIGATION_LIGHTS", 17, 3002, 251, 1, {-1,1}, nil, false, "Lights", "Navigation Lights")
+define3PosTumb("NAVIGATION_LIGHTS", 17, 3002, 251, "Lights", "Navigation Lights")
 defineToggleSwitch("FORMATION_LIGHTS", 17, 3003, 252, "Lights", "Formation Lights")
 defineToggleSwitch("POSITION_LIGHTS", 17, 3004, 253, "Lights", "Position Lights")
 define3PosTumb("TAXI_LANDING_LIGHTS", 17, 3009, 3554, "Lights", "Taxi/Landing Lights")
@@ -221,7 +221,7 @@ defineToggleSwitch("HOJD_CISI", 22, 3097, 324, "Flight Data Unit", "HOJD CISI")
 definePotentiometer("BACKUP_ALT_SETTING", 22, 3721, 126, {0, 1}, "Flight Data Unit", "Backup Altimeter Setting")
 defineToggleSwitch("PITCH_GEAR_MODE", 22, 3210, 311, "Flight Data Unit", "Pitch Gear Automatic/Landing")
 defineToggleSwitch("OXYGEN_LEVER", 22, 3718, 176, "Flight Data Unit", "Oxygen Lever")
-defineTumb("CANOPY_OPEN_CLOSE", 22, 3406, 9, 1, {-1, 1}, nil, false, "Flight Data Unit", "Canopy Open/Close")
+define3PosTumb("CANOPY_OPEN_CLOSE", 22, 3406, 9, "Flight Data Unit", "Canopy Open/Close")
 definePushButton("CANOPY_JETTISON", 22, 3407, 210, "Flight Data Unit", "Canopy Jettison")
 definePushButton("COUNTERMEASURE_FAST_RELEASE", 22, 3001, 184, "Flight Data Unit", "Countermeasure Fast Release")
 defineToggleSwitch("EMERGENCY_ROLL_TRIM", 22, 3716, 390, "Flight Data Unit", "Emergency Roll Trim")
@@ -255,7 +255,7 @@ defineTumb("JAMMER_BAND_SELECTOR", 28, 3025, 318, 0.1, {0, 0.4}, nil, false, "Co
 defineTumb("COUNTERMEASURE_MODE_SELECTOR", 28, 3026, 319, 0.1, {0, 0.4}, nil, false, "Countermeasures", "Countermeasure Operation Mode Selector")
 defineTumb("COUNTERMEASURE_STREAK_MODE_SELECTOR", 28, 3027, 320, 0.1, {0.0, 0.1}, nil, false, "Countermeasures", "Countermeasure Streak Mode Selector")
 defineTumb("COUNTERMEASURE_CHAFF_FLARES_SELECTOR", 28, 3028, 322, 0.1, {0, 0.2}, nil, false, "Countermeasures", "Countermeasure Chaff/Flares Selector")
-defineTumb("COUNTERMEASURE_RELEASE_MODE", 22, 3001, 184, 1, {-1, 1}, nil, false, "Countermeasures", "Countermeasure Release Mode") --3030
+define3PosTumb("COUNTERMEASURE_RELEASE_MODE", 22, 3001, 184, "Countermeasures", "Countermeasure Release Mode") --3030
 
 --FR22 Radio
 defineRotary("FR22_INNER_LEFT_KNOB", 30, 3003, 172, "FR22 Radio", "Radio Frequency Knob Inner Left")
