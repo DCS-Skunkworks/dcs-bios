@@ -50,7 +50,7 @@ docdata["FW-190D9"] =
                                                                                           "suffix": "",
                                                                                             "type": "integer"
                                                                                  } ],
-                                                             "physical_variant": "limited_rotary"
+                                                             "physical_variant": "toggle_switch"
                                                       },
                                    "CANOPY_HAND_CRK": {
                                                            "api_variant": "multiturn",
@@ -101,7 +101,7 @@ docdata["FW-190D9"] =
                                                                                           "suffix": "",
                                                                                             "type": "integer"
                                                                                  } ],
-                                                             "physical_variant": "limited_rotary"
+                                                             "physical_variant": "toggle_switch"
                                                       },
                                            "EL_KILL": {
                                                                      "category": "Cockpit",
@@ -130,7 +130,7 @@ docdata["FW-190D9"] =
                                                                                           "suffix": "",
                                                                                             "type": "integer"
                                                                                  } ],
-                                                             "physical_variant": "limited_rotary"
+                                                             "physical_variant": "toggle_switch"
                                                       },
                                        "EMG_EQ_DEST": {
                                                                      "category": "Cockpit",
@@ -159,7 +159,7 @@ docdata["FW-190D9"] =
                                                                                           "suffix": "",
                                                                                             "type": "integer"
                                                                                  } ],
-                                                             "physical_variant": "limited_rotary"
+                                                             "physical_variant": "toggle_switch"
                                                       },
                                         "EMG_LG_REL": {
                                                                      "category": "Cockpit",
@@ -462,7 +462,7 @@ docdata["FW-190D9"] =
                                                                                           "suffix": "",
                                                                                             "type": "integer"
                                                                                  } ],
-                                                             "physical_variant": "limited_rotary"
+                                                             "physical_variant": "3_position_switch"
                                                       },
                                    "INSTR_LGHT_CTRL": {
                                                            "api_variant": "multiturn",
@@ -683,7 +683,7 @@ docdata["FW-190D9"] =
                                                                                           "suffix": "",
                                                                                             "type": "integer"
                                                                                  } ],
-                                                             "physical_variant": "limited_rotary"
+                                                             "physical_variant": "toggle_switch"
                                                       },
                                       "OXY_EMG_KNOB": {
                                                                      "category": "Cockpit",
@@ -788,7 +788,7 @@ docdata["FW-190D9"] =
                                                                                           "suffix": "",
                                                                                             "type": "integer"
                                                                                  } ],
-                                                             "physical_variant": "limited_rotary"
+                                                             "physical_variant": "toggle_switch"
                                                       },
                                     "STARTER_SWITCH": {
                                                                      "category": "Cockpit",
@@ -841,6 +841,7 @@ docdata["FW-190D9"] =
                                                              "physical_variant": "limited_rotary"
                                                       },
                                         "START_STOP": {
+                                                                  "api_variant": "momentary_last_position",
                                                                      "category": "Cockpit",
                                                                  "control_type": "selector",
                                                                   "description": "Start - Stop Button",
@@ -867,9 +868,10 @@ docdata["FW-190D9"] =
                                                                                           "suffix": "",
                                                                                             "type": "integer"
                                                                                  } ],
-                                                             "physical_variant": "limited_rotary"
+                                                             "physical_variant": "push_button"
                                                       },
                                          "STOPWATCH": {
+                                                                  "api_variant": "momentary_last_position",
                                                                      "category": "Cockpit",
                                                                  "control_type": "selector",
                                                                   "description": "Stopwatch Button",
@@ -896,7 +898,7 @@ docdata["FW-190D9"] =
                                                                                           "suffix": "",
                                                                                             "type": "integer"
                                                                                  } ],
-                                                             "physical_variant": "limited_rotary"
+                                                             "physical_variant": "push_button"
                                                       },
                                           "THR_LOCK": {
                                                                      "category": "Cockpit",
@@ -3317,7 +3319,7 @@ docdata["FW-190D9"] =
                                                                                        "suffix": "",
                                                                                          "type": "integer"
                                                                               } ],
-                                                          "physical_variant": "limited_rotary"
+                                                          "physical_variant": "3_position_switch"
                                                    },
                                      "FUG25_TEST": {
                                                                   "category": "Radio",

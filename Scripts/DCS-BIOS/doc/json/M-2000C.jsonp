@@ -270,7 +270,7 @@ docdata["M-2000C"] =
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ],
-                                                                "physical_variant": "limited_rotary"
+                                                                "physical_variant": "3_position_switch"
                                                          }
                                },
                   "ALTIMETER": {
@@ -1321,7 +1321,7 @@ docdata["M-2000C"] =
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ],
-                                                               "physical_variant": "limited_rotary"
+                                                               "physical_variant": "3_position_switch"
                                                         },
                                        "MIRROR_TOGGLE": {
                                                                        "category": "CANOPY",
@@ -2835,7 +2835,7 @@ docdata["M-2000C"] =
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ],
-                                                                "physical_variant": "limited_rotary"
+                                                                "physical_variant": "3_position_switch"
                                                          },
                                          "MAIN_BATT_SW": {
                                                                         "category": "ELECTRIC PANEL",
@@ -3397,7 +3397,7 @@ docdata["M-2000C"] =
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ],
-                                                                "physical_variant": "limited_rotary"
+                                                                "physical_variant": "3_position_switch"
                                                          },
                                            "RWR_PWR_SW": {
                                                                         "category": "EW PANEL",
@@ -3601,7 +3601,7 @@ docdata["M-2000C"] =
                                                                        "identifier": "EXT_FORMATION_LIGHTS_AFT",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 29538,
+                                                                                             "address": 29540,
                                                                                          "description": "Aft Formation Lights",
                                                                                                 "mask": 65535,
                                                                                            "max_value": 65535,
@@ -3617,7 +3617,7 @@ docdata["M-2000C"] =
                                                                        "identifier": "EXT_FORMATION_LIGHTS_FRONT",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 29536,
+                                                                                             "address": 29538,
                                                                                          "description": "Front Formation Lights",
                                                                                                 "mask": 65535,
                                                                                            "max_value": 65535,
@@ -3665,7 +3665,7 @@ docdata["M-2000C"] =
                                                                        "identifier": "EXT_SPEED_BRAKE_LEFT",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 29534,
+                                                                                             "address": 29536,
                                                                                          "description": "Left Speed Brake",
                                                                                                 "mask": 65535,
                                                                                            "max_value": 65535,
@@ -3681,7 +3681,7 @@ docdata["M-2000C"] =
                                                                        "identifier": "EXT_SPEED_BRAKE_RIGHT",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 29532,
+                                                                                             "address": 29534,
                                                                                          "description": "Right Speed Brake",
                                                                                                 "mask": 65535,
                                                                                            "max_value": 65535,
@@ -3729,11 +3729,11 @@ docdata["M-2000C"] =
                                                                        "identifier": "EXT_WOW_LEFT",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 29540,
+                                                                                             "address": 29528,
                                                                                          "description": "Weight ON Wheels Left Gear",
-                                                                                                "mask": 2,
+                                                                                                "mask": 512,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 1,
+                                                                                            "shift_by": 9,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -3761,11 +3761,11 @@ docdata["M-2000C"] =
                                                                        "identifier": "EXT_WOW_RIGHT",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 29540,
+                                                                                             "address": 29528,
                                                                                          "description": "Weight ON Wheels Right Gear",
-                                                                                                "mask": 1,
+                                                                                                "mask": 256,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 0,
+                                                                                            "shift_by": 8,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -4518,7 +4518,7 @@ docdata["M-2000C"] =
                                                                                           "suffix": "",
                                                                                             "type": "integer"
                                                                                  } ],
-                                                             "physical_variant": "limited_rotary"
+                                                             "physical_variant": "3_position_switch"
                                                       }
                                },
                         "IFF": {
@@ -5914,11 +5914,11 @@ docdata["M-2000C"] =
                                                                                           } ],
                                                                    "momentary_positions": "none",
                                                                                "outputs": [ {
-                                                                                                  "address": 29540,
+                                                                                                  "address": 29528,
                                                                                               "description": "selector position",
-                                                                                                     "mask": 4,
+                                                                                                     "mask": 1024,
                                                                                                 "max_value": 1,
-                                                                                                 "shift_by": 2,
+                                                                                                 "shift_by": 10,
                                                                                                    "suffix": "",
                                                                                                      "type": "integer"
                                                                                           } ],
@@ -6441,7 +6441,7 @@ docdata["M-2000C"] =
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ],
-                                                                "physical_variant": "limited_rotary"
+                                                                "physical_variant": "3_position_switch"
                                                          }
                                },
                         "NVG": {
@@ -8060,11 +8060,11 @@ docdata["M-2000C"] =
                                                               "identifier": "PCN_BAD_SW_LIGHT2",
                                                                   "inputs": [  ],
                                                                  "outputs": [ {
-                                                                                    "address": 29540,
+                                                                                    "address": 29528,
                                                                                 "description": "0 if light is off, 1 if light is on",
-                                                                                       "mask": 8,
+                                                                                       "mask": 2048,
                                                                                   "max_value": 1,
-                                                                                   "shift_by": 3,
+                                                                                   "shift_by": 11,
                                                                                      "suffix": "",
                                                                                        "type": "integer"
                                                                             } ]
@@ -8268,11 +8268,11 @@ docdata["M-2000C"] =
                                                               "identifier": "PCN_MRQ_SW_LIGHT2",
                                                                   "inputs": [  ],
                                                                  "outputs": [ {
-                                                                                    "address": 29540,
+                                                                                    "address": 29528,
                                                                                 "description": "0 if light is off, 1 if light is on",
-                                                                                       "mask": 64,
+                                                                                       "mask": 16384,
                                                                                   "max_value": 1,
-                                                                                   "shift_by": 6,
+                                                                                   "shift_by": 14,
                                                                                      "suffix": "",
                                                                                        "type": "integer"
                                                                             } ]
@@ -8332,11 +8332,11 @@ docdata["M-2000C"] =
                                                               "identifier": "PCN_REC_SW_LIGHT2",
                                                                   "inputs": [  ],
                                                                  "outputs": [ {
-                                                                                    "address": 29540,
+                                                                                    "address": 29528,
                                                                                 "description": "0 if light is off, 1 if light is on",
-                                                                                       "mask": 16,
+                                                                                       "mask": 4096,
                                                                                   "max_value": 1,
-                                                                                   "shift_by": 4,
+                                                                                   "shift_by": 12,
                                                                                      "suffix": "",
                                                                                        "type": "integer"
                                                                             } ]
@@ -8396,11 +8396,11 @@ docdata["M-2000C"] =
                                                               "identifier": "PCN_VAL_SW_LIGHT2",
                                                                   "inputs": [  ],
                                                                  "outputs": [ {
-                                                                                    "address": 29540,
+                                                                                    "address": 29528,
                                                                                 "description": "0 if light is off, 1 if light is on",
-                                                                                       "mask": 32,
+                                                                                       "mask": 8192,
                                                                                   "max_value": 1,
-                                                                                   "shift_by": 5,
+                                                                                   "shift_by": 13,
                                                                                      "suffix": "",
                                                                                        "type": "integer"
                                                                             } ]
@@ -8514,7 +8514,7 @@ docdata["M-2000C"] =
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ],
-                                                                 "physical_variant": "limited_rotary"
+                                                                 "physical_variant": "3_position_switch"
                                                           },
                                    "BOMB_REL_QTY_SEL_SW": {
                                                                          "category": "PPA",
@@ -8539,7 +8539,7 @@ docdata["M-2000C"] =
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ],
-                                                                 "physical_variant": "limited_rotary"
+                                                                 "physical_variant": "3_position_switch"
                                                           },
                                        "FIRING_MODE_SEL": {
                                                                       "api_variant": "momentary_last_position",
@@ -8624,7 +8624,7 @@ docdata["M-2000C"] =
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ],
-                                                                 "physical_variant": "limited_rotary"
+                                                                 "physical_variant": "3_position_switch"
                                                           },
                                               "PPA_AUTO": {
                                                                   "category": "PPA",
@@ -8805,7 +8805,7 @@ docdata["M-2000C"] =
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ],
-                                                                 "physical_variant": "limited_rotary"
+                                                                 "physical_variant": "3_position_switch"
                                                           },
                                           "S530_STANDBY": {
                                                                       "api_variant": "momentary_last_position",
@@ -8846,7 +8846,7 @@ docdata["M-2000C"] =
                                                           "identifier": "DTC_CART_MOVE",
                                                               "inputs": [  ],
                                                              "outputs": [ {
-                                                                                "address": 29530,
+                                                                                "address": 29532,
                                                                             "description": "gauge position",
                                                                                    "mask": 65535,
                                                                               "max_value": 65535,
@@ -8862,7 +8862,7 @@ docdata["M-2000C"] =
                                                           "identifier": "DTC_CART_PRE",
                                                               "inputs": [  ],
                                                              "outputs": [ {
-                                                                                "address": 29528,
+                                                                                "address": 29530,
                                                                             "description": "gauge position",
                                                                                    "mask": 65535,
                                                                               "max_value": 65535,
@@ -9263,7 +9263,7 @@ docdata["M-2000C"] =
                                                                                                "suffix": "",
                                                                                                  "type": "integer"
                                                                                       } ],
-                                                                  "physical_variant": "limited_rotary"
+                                                                  "physical_variant": "3_position_switch"
                                                            },
                                                "RAD_PSIC": {
                                                                    "category": "RADAR",
@@ -9359,7 +9359,7 @@ docdata["M-2000C"] =
                                                                                                "suffix": "",
                                                                                                  "type": "integer"
                                                                                       } ],
-                                                                  "physical_variant": "limited_rotary"
+                                                                  "physical_variant": "3_position_switch"
                                                            },
                                      "RAD_SCAN_LINES_SEL": {
                                                                           "category": "RADAR",
@@ -9510,18 +9510,16 @@ docdata["M-2000C"] =
                                                            },
                                           "RAD_VTB_RANGE": {
                                                                    "category": "RADAR",
-                                                               "control_type": "metadata",
+                                                               "control_type": "display",
                                                                 "description": "O - VTB Display Radar Range",
                                                                  "identifier": "RAD_VTB_RANGE",
                                                                      "inputs": [  ],
                                                                     "outputs": [ {
                                                                                        "address": 29526,
                                                                                    "description": "O - VTB Display Radar Range",
-                                                                                          "mask": 65535,
-                                                                                     "max_value": 65535,
-                                                                                      "shift_by": 0,
+                                                                                    "max_length": 3,
                                                                                         "suffix": "",
-                                                                                          "type": "integer"
+                                                                                          "type": "string"
                                                                                } ]
                                                            },
                                       "RAD_WOW_EM_AUT_SW": {
@@ -10456,7 +10454,7 @@ docdata["M-2000C"] =
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ],
-                                                               "physical_variant": "limited_rotary"
+                                                               "physical_variant": "3_position_switch"
                                                         },
                                        "UHF_FREQUENCY": {
                                                                 "category": "UHF RADIO",
@@ -11369,7 +11367,7 @@ docdata["M-2000C"] =
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ],
-                                                                "physical_variant": "limited_rotary"
+                                                                "physical_variant": "3_position_switch"
                                                          },
                                               "TGT_AGE": {
                                                                         "category": "VTB",
@@ -11394,7 +11392,7 @@ docdata["M-2000C"] =
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ],
-                                                                "physical_variant": "limited_rotary"
+                                                                "physical_variant": "3_position_switch"
                                                          },
                                               "TGT_ALT": {
                                                                         "category": "VTB",
@@ -11419,7 +11417,7 @@ docdata["M-2000C"] =
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ],
-                                                                "physical_variant": "limited_rotary"
+                                                                "physical_variant": "3_position_switch"
                                                          },
                                           "TGT_BEAR_BE": {
                                                                         "category": "VTB",
@@ -11444,7 +11442,7 @@ docdata["M-2000C"] =
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ],
-                                                                "physical_variant": "limited_rotary"
+                                                                "physical_variant": "3_position_switch"
                                                          },
                                    "TGT_DATA_MNL_ENTRY": {
                                                                         "category": "VTB",
@@ -11469,7 +11467,7 @@ docdata["M-2000C"] =
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ],
-                                                                "physical_variant": "limited_rotary"
+                                                                "physical_variant": "3_position_switch"
                                                          },
                                                "TGT_HD": {
                                                                         "category": "VTB",
@@ -11494,7 +11492,7 @@ docdata["M-2000C"] =
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ],
-                                                                "physical_variant": "limited_rotary"
+                                                                "physical_variant": "3_position_switch"
                                                          },
                                          "TGT_MACH_NUM": {
                                                                         "category": "VTB",
@@ -11519,7 +11517,7 @@ docdata["M-2000C"] =
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ],
-                                                                "physical_variant": "limited_rotary"
+                                                                "physical_variant": "3_position_switch"
                                                          },
                                            "TGT_RNG_BE": {
                                                                         "category": "VTB",
@@ -11544,7 +11542,7 @@ docdata["M-2000C"] =
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ],
-                                                                "physical_variant": "limited_rotary"
+                                                                "physical_variant": "3_position_switch"
                                                          },
                                               "VTB_DEC": {
                                                                         "category": "VTB",

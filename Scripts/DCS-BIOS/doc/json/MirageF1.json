@@ -1025,153 +1025,129 @@
                                                                                },
                                                               "P_CE_IFF_M1_1": {
                                                                                               "category": "CE/BE/EE IFF",
-                                                                                          "control_type": "selector",
+                                                                                          "control_type": "discrete_dial",
                                                                                            "description": "CE/BE/EE Pilot IFF Mode 1 Coding Units Selector",
                                                                                             "identifier": "P_CE_IFF_M1_1",
                                                                                                 "inputs": [ {
                                                                                                               "description": "switch to previous or next state",
                                                                                                                 "interface": "fixed_step"
-                                                                                                          }, {
-                                                                                                              "description": "set position",
-                                                                                                                "interface": "set_state",
-                                                                                                                "max_value": 8
                                                                                                           } ],
                                                                                    "momentary_positions": "none",
                                                                                                "outputs": [ {
                                                                                                                   "address": 34696,
                                                                                                               "description": "selector position",
                                                                                                                      "mask": 960,
-                                                                                                                "max_value": 8,
+                                                                                                                "max_value": 7,
                                                                                                                  "shift_by": 6,
                                                                                                                    "suffix": "",
                                                                                                                      "type": "integer"
                                                                                                           } ],
-                                                                                      "physical_variant": "toggle_switch"
+                                                                                      "physical_variant": "infinite_rotary"
                                                                                },
                                                              "P_CE_IFF_M1_10": {
                                                                                               "category": "CE/BE/EE IFF",
-                                                                                          "control_type": "selector",
+                                                                                          "control_type": "discrete_dial",
                                                                                            "description": "CE/BE/EE Pilot IFF Mode 1 Coding Tens Selector",
                                                                                             "identifier": "P_CE_IFF_M1_10",
                                                                                                 "inputs": [ {
                                                                                                               "description": "switch to previous or next state",
                                                                                                                 "interface": "fixed_step"
-                                                                                                          }, {
-                                                                                                              "description": "set position",
-                                                                                                                "interface": "set_state",
-                                                                                                                "max_value": 8
                                                                                                           } ],
                                                                                    "momentary_positions": "none",
                                                                                                "outputs": [ {
                                                                                                                   "address": 34696,
                                                                                                               "description": "selector position",
                                                                                                                      "mask": 60,
-                                                                                                                "max_value": 8,
+                                                                                                                "max_value": 7,
                                                                                                                  "shift_by": 2,
                                                                                                                    "suffix": "",
                                                                                                                      "type": "integer"
                                                                                                           } ],
-                                                                                      "physical_variant": "toggle_switch"
+                                                                                      "physical_variant": "infinite_rotary"
                                                                                },
                                                              "P_CE_IFF_M3A_1": {
                                                                                               "category": "CE/BE/EE IFF",
-                                                                                          "control_type": "selector",
+                                                                                          "control_type": "discrete_dial",
                                                                                            "description": "CE/BE/EE Pilot IFF Mode 3A Coding Units Selector",
                                                                                             "identifier": "P_CE_IFF_M3A_1",
                                                                                                 "inputs": [ {
                                                                                                               "description": "switch to previous or next state",
                                                                                                                 "interface": "fixed_step"
-                                                                                                          }, {
-                                                                                                              "description": "set position",
-                                                                                                                "interface": "set_state",
-                                                                                                                "max_value": 8
                                                                                                           } ],
                                                                                    "momentary_positions": "none",
                                                                                                "outputs": [ {
                                                                                                                   "address": 34702,
                                                                                                               "description": "selector position",
                                                                                                                      "mask": 3840,
-                                                                                                                "max_value": 8,
+                                                                                                                "max_value": 7,
                                                                                                                  "shift_by": 8,
                                                                                                                    "suffix": "",
                                                                                                                      "type": "integer"
                                                                                                           } ],
-                                                                                      "physical_variant": "toggle_switch"
+                                                                                      "physical_variant": "infinite_rotary"
                                                                                },
                                                             "P_CE_IFF_M3A_10": {
                                                                                               "category": "CE/BE/EE IFF",
-                                                                                          "control_type": "selector",
+                                                                                          "control_type": "discrete_dial",
                                                                                            "description": "CE/BE/EE Pilot IFF Mode 3A Coding Tens Selector",
                                                                                             "identifier": "P_CE_IFF_M3A_10",
                                                                                                 "inputs": [ {
                                                                                                               "description": "switch to previous or next state",
                                                                                                                 "interface": "fixed_step"
-                                                                                                          }, {
-                                                                                                              "description": "set position",
-                                                                                                                "interface": "set_state",
-                                                                                                                "max_value": 8
                                                                                                           } ],
                                                                                    "momentary_positions": "none",
                                                                                                "outputs": [ {
                                                                                                                   "address": 34702,
                                                                                                               "description": "selector position",
                                                                                                                      "mask": 240,
-                                                                                                                "max_value": 8,
+                                                                                                                "max_value": 7,
                                                                                                                  "shift_by": 4,
                                                                                                                    "suffix": "",
                                                                                                                      "type": "integer"
                                                                                                           } ],
-                                                                                      "physical_variant": "toggle_switch"
+                                                                                      "physical_variant": "infinite_rotary"
                                                                                },
                                                            "P_CE_IFF_M3A_100": {
                                                                                               "category": "CE/BE/EE IFF",
-                                                                                          "control_type": "selector",
+                                                                                          "control_type": "discrete_dial",
                                                                                            "description": "CE/BE/EE Pilot IFF Mode 3A Coding Hundreds Selector",
                                                                                             "identifier": "P_CE_IFF_M3A_100",
                                                                                                 "inputs": [ {
                                                                                                               "description": "switch to previous or next state",
                                                                                                                 "interface": "fixed_step"
-                                                                                                          }, {
-                                                                                                              "description": "set position",
-                                                                                                                "interface": "set_state",
-                                                                                                                "max_value": 8
                                                                                                           } ],
                                                                                    "momentary_positions": "none",
                                                                                                "outputs": [ {
                                                                                                                   "address": 34702,
                                                                                                               "description": "selector position",
                                                                                                                      "mask": 15,
-                                                                                                                "max_value": 8,
+                                                                                                                "max_value": 7,
                                                                                                                  "shift_by": 0,
                                                                                                                    "suffix": "",
                                                                                                                      "type": "integer"
                                                                                                           } ],
-                                                                                      "physical_variant": "toggle_switch"
+                                                                                      "physical_variant": "infinite_rotary"
                                                                                },
                                                           "P_CE_IFF_M3A_1000": {
                                                                                               "category": "CE/BE/EE IFF",
-                                                                                          "control_type": "selector",
+                                                                                          "control_type": "discrete_dial",
                                                                                            "description": "CE/BE/EE Pilot IFF Mode 3A Coding Thousands Selector",
                                                                                             "identifier": "P_CE_IFF_M3A_1000",
                                                                                                 "inputs": [ {
                                                                                                               "description": "switch to previous or next state",
                                                                                                                 "interface": "fixed_step"
-                                                                                                          }, {
-                                                                                                              "description": "set position",
-                                                                                                                "interface": "set_state",
-                                                                                                                "max_value": 8
                                                                                                           } ],
                                                                                    "momentary_positions": "none",
                                                                                                "outputs": [ {
                                                                                                                   "address": 34696,
                                                                                                               "description": "selector position",
                                                                                                                      "mask": 15360,
-                                                                                                                "max_value": 8,
+                                                                                                                "max_value": 7,
                                                                                                                  "shift_by": 10,
                                                                                                                    "suffix": "",
                                                                                                                      "type": "integer"
                                                                                                           } ],
-                                                                                      "physical_variant": "toggle_switch"
+                                                                                      "physical_variant": "infinite_rotary"
                                                                                },
                                                             "P_CE_IFF_M4_SEL": {
                                                                                               "category": "CE/BE/EE IFF",
@@ -2343,7 +2319,7 @@
                                                        "P_CE_RD_L_BRT_KNB": {
                                                                                     "category": "CE/BE/EE Radar Detector",
                                                                                 "control_type": "limited_dial",
-                                                                                 "description": "CE/BE/EE Pilot Indicator Light Intensity Adjusting Knob (Turn)",
+                                                                                 "description": "CE/BE/EE Pilot Indicator Lights Intensity Adjusting Knob (Turn)",
                                                                                   "identifier": "P_CE_RD_L_BRT_KNB",
                                                                                       "inputs": [ {
                                                                                                     "description": "set the position of the dial",

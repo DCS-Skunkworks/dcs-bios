@@ -144,7 +144,7 @@
                                          "CPG_COM_FM1_PW": {
                                                                           "category": "CPG COMM Panel",
                                                                       "control_type": "selector",
-                                                                       "description": "Gunner FM2 Disable Knob",
+                                                                       "description": "Gunner FM1 Disable Knob",
                                                                         "identifier": "CPG_COM_FM1_PW",
                                                                             "inputs": [ {
                                                                                           "description": "switch to previous or next state",
@@ -162,38 +162,33 @@
                                                                            "outputs": [ {
                                                                                               "address": 32872,
                                                                                           "description": "selector position",
-                                                                                                 "mask": 64,
+                                                                                                 "mask": 32,
                                                                                             "max_value": 1,
-                                                                                             "shift_by": 6,
+                                                                                             "shift_by": 5,
                                                                                                "suffix": "",
                                                                                                  "type": "integer"
                                                                                       } ],
                                                                   "physical_variant": "toggle_switch"
                                                            },
                                         "CPG_COM_FM1_SQL": {
-                                                                          "category": "CPG COMM Panel",
-                                                                      "control_type": "selector",
-                                                                       "description": "Gunner FM1 Squelch Switch, ON/OFF",
-                                                                        "identifier": "CPG_COM_FM1_SQL",
-                                                                            "inputs": [ {
-                                                                                          "description": "switch to previous or next state",
-                                                                                            "interface": "fixed_step"
-                                                                                      }, {
-                                                                                          "description": "set position",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 2
-                                                                                      } ],
-                                                               "momentary_positions": "none",
-                                                                           "outputs": [ {
-                                                                                              "address": 32872,
-                                                                                          "description": "selector position",
-                                                                                                 "mask": 49152,
-                                                                                            "max_value": 2,
-                                                                                             "shift_by": 14,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ],
-                                                                  "physical_variant": "3_position_switch"
+                                                                   "category": "CPG COMM Panel",
+                                                               "control_type": "3Pos_2Command_Switch_OpenClose",
+                                                                "description": "Gunner FM1 Squelch Switch, ON/OFF",
+                                                                 "identifier": "CPG_COM_FM1_SQL",
+                                                                     "inputs": [ {
+                                                                                   "description": "set the switch position",
+                                                                                     "interface": "set_state",
+                                                                                     "max_value": 2
+                                                                               } ],
+                                                                    "outputs": [ {
+                                                                                       "address": 32872,
+                                                                                   "description": "switch position -- 0 = Down, 1 = Mid ,  2 = UP",
+                                                                                          "mask": 49152,
+                                                                                     "max_value": 2,
+                                                                                      "shift_by": 14,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
+                                                                               } ]
                                                            },
                                         "CPG_COM_FM1_VOL": {
                                                                    "category": "CPG COMM Panel",
@@ -220,30 +215,54 @@
                                                                                           "type": "integer"
                                                                                } ]
                                                            },
-                                        "CPG_COM_FM2_SQL": {
+                                         "CPG_COM_FM2_PW": {
                                                                           "category": "CPG COMM Panel",
                                                                       "control_type": "selector",
-                                                                       "description": "Gunner FM2 Squelch Switch, ON/OFF",
-                                                                        "identifier": "CPG_COM_FM2_SQL",
+                                                                       "description": "Gunner FM2 Disable Knob",
+                                                                        "identifier": "CPG_COM_FM2_PW",
                                                                             "inputs": [ {
                                                                                           "description": "switch to previous or next state",
                                                                                             "interface": "fixed_step"
                                                                                       }, {
                                                                                           "description": "set position",
                                                                                             "interface": "set_state",
-                                                                                            "max_value": 2
+                                                                                            "max_value": 1
+                                                                                      }, {
+                                                                                             "argument": "TOGGLE",
+                                                                                          "description": "Toggle switch state",
+                                                                                            "interface": "action"
                                                                                       } ],
                                                                "momentary_positions": "none",
                                                                            "outputs": [ {
-                                                                                              "address": 32898,
+                                                                                              "address": 32872,
                                                                                           "description": "selector position",
-                                                                                                 "mask": 3,
-                                                                                            "max_value": 2,
-                                                                                             "shift_by": 0,
+                                                                                                 "mask": 64,
+                                                                                            "max_value": 1,
+                                                                                             "shift_by": 6,
                                                                                                "suffix": "",
                                                                                                  "type": "integer"
                                                                                       } ],
-                                                                  "physical_variant": "3_position_switch"
+                                                                  "physical_variant": "toggle_switch"
+                                                           },
+                                        "CPG_COM_FM2_SQL": {
+                                                                   "category": "CPG COMM Panel",
+                                                               "control_type": "3Pos_2Command_Switch_OpenClose",
+                                                                "description": "Gunner FM2 Squelch Switch, ON/OFF",
+                                                                 "identifier": "CPG_COM_FM2_SQL",
+                                                                     "inputs": [ {
+                                                                                   "description": "set the switch position",
+                                                                                     "interface": "set_state",
+                                                                                     "max_value": 2
+                                                                               } ],
+                                                                    "outputs": [ {
+                                                                                       "address": 32898,
+                                                                                   "description": "switch position -- 0 = Down, 1 = Mid ,  2 = UP",
+                                                                                          "mask": 3,
+                                                                                     "max_value": 2,
+                                                                                      "shift_by": 0,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
+                                                                               } ]
                                                            },
                                         "CPG_COM_FM2_VOL": {
                                                                    "category": "CPG COMM Panel",
@@ -300,29 +319,24 @@
                                                                   "physical_variant": "toggle_switch"
                                                            },
                                          "CPG_COM_HF_SQL": {
-                                                                          "category": "CPG COMM Panel",
-                                                                      "control_type": "selector",
-                                                                       "description": "Gunner HF Squelch Switch, ON/OFF",
-                                                                        "identifier": "CPG_COM_HF_SQL",
-                                                                            "inputs": [ {
-                                                                                          "description": "switch to previous or next state",
-                                                                                            "interface": "fixed_step"
-                                                                                      }, {
-                                                                                          "description": "set position",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 2
-                                                                                      } ],
-                                                               "momentary_positions": "none",
-                                                                           "outputs": [ {
-                                                                                              "address": 32898,
-                                                                                          "description": "selector position",
-                                                                                                 "mask": 12,
-                                                                                            "max_value": 2,
-                                                                                             "shift_by": 2,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ],
-                                                                  "physical_variant": "3_position_switch"
+                                                                   "category": "CPG COMM Panel",
+                                                               "control_type": "3Pos_2Command_Switch_OpenClose",
+                                                                "description": "Gunner HF Squelch Switch, ON/OFF",
+                                                                 "identifier": "CPG_COM_HF_SQL",
+                                                                     "inputs": [ {
+                                                                                   "description": "set the switch position",
+                                                                                     "interface": "set_state",
+                                                                                     "max_value": 2
+                                                                               } ],
+                                                                    "outputs": [ {
+                                                                                       "address": 32898,
+                                                                                   "description": "switch position -- 0 = Down, 1 = Mid ,  2 = UP",
+                                                                                          "mask": 12,
+                                                                                     "max_value": 2,
+                                                                                      "shift_by": 2,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
+                                                                               } ]
                                                            },
                                          "CPG_COM_HF_VOL": {
                                                                    "category": "CPG COMM Panel",
@@ -534,29 +548,24 @@
                                                                   "physical_variant": "toggle_switch"
                                                            },
                                         "CPG_COM_UHF_SQL": {
-                                                                          "category": "CPG COMM Panel",
-                                                                      "control_type": "selector",
-                                                                       "description": "Gunner UHF Squelch Switch, ON/OFF",
-                                                                        "identifier": "CPG_COM_UHF_SQL",
-                                                                            "inputs": [ {
-                                                                                          "description": "switch to previous or next state",
-                                                                                            "interface": "fixed_step"
-                                                                                      }, {
-                                                                                          "description": "set position",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 2
-                                                                                      } ],
-                                                               "momentary_positions": "none",
-                                                                           "outputs": [ {
-                                                                                              "address": 32872,
-                                                                                          "description": "selector position",
-                                                                                                 "mask": 12288,
-                                                                                            "max_value": 2,
-                                                                                             "shift_by": 12,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ],
-                                                                  "physical_variant": "3_position_switch"
+                                                                   "category": "CPG COMM Panel",
+                                                               "control_type": "3Pos_2Command_Switch_OpenClose",
+                                                                "description": "Gunner UHF Squelch Switch, ON/OFF",
+                                                                 "identifier": "CPG_COM_UHF_SQL",
+                                                                     "inputs": [ {
+                                                                                   "description": "set the switch position",
+                                                                                     "interface": "set_state",
+                                                                                     "max_value": 2
+                                                                               } ],
+                                                                    "outputs": [ {
+                                                                                       "address": 32872,
+                                                                                   "description": "switch position -- 0 = Down, 1 = Mid ,  2 = UP",
+                                                                                          "mask": 12288,
+                                                                                     "max_value": 2,
+                                                                                      "shift_by": 12,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
+                                                                               } ]
                                                            },
                                         "CPG_COM_UHF_VOL": {
                                                                    "category": "CPG COMM Panel",
@@ -667,29 +676,24 @@
                                                                   "physical_variant": "toggle_switch"
                                                            },
                                         "CPG_COM_VHF_SQL": {
-                                                                          "category": "CPG COMM Panel",
-                                                                      "control_type": "selector",
-                                                                       "description": "Gunner VHF Squelch Switch, ON/OFF",
-                                                                        "identifier": "CPG_COM_VHF_SQL",
-                                                                            "inputs": [ {
-                                                                                          "description": "switch to previous or next state",
-                                                                                            "interface": "fixed_step"
-                                                                                      }, {
-                                                                                          "description": "set position",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 2
-                                                                                      } ],
-                                                               "momentary_positions": "none",
-                                                                           "outputs": [ {
-                                                                                              "address": 32872,
-                                                                                          "description": "selector position",
-                                                                                                 "mask": 3072,
-                                                                                            "max_value": 2,
-                                                                                             "shift_by": 10,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ],
-                                                                  "physical_variant": "3_position_switch"
+                                                                   "category": "CPG COMM Panel",
+                                                               "control_type": "3Pos_2Command_Switch_OpenClose",
+                                                                "description": "Gunner VHF Squelch Switch, ON/OFF",
+                                                                 "identifier": "CPG_COM_VHF_SQL",
+                                                                     "inputs": [ {
+                                                                                   "description": "set the switch position",
+                                                                                     "interface": "set_state",
+                                                                                     "max_value": 2
+                                                                               } ],
+                                                                    "outputs": [ {
+                                                                                       "address": 32872,
+                                                                                   "description": "switch position -- 0 = Down, 1 = Mid ,  2 = UP",
+                                                                                          "mask": 3072,
+                                                                                     "max_value": 2,
+                                                                                      "shift_by": 10,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
+                                                                               } ]
                                                            },
                                         "CPG_COM_VHF_VOL": {
                                                                    "category": "CPG COMM Panel",
@@ -8621,7 +8625,7 @@
                                          "PLT_COM_FM1_PW": {
                                                                           "category": "PLT COMM Panel",
                                                                       "control_type": "selector",
-                                                                       "description": "Pilot FM2 Disable Knob",
+                                                                       "description": "Pilot FM1 Disable Knob",
                                                                         "identifier": "PLT_COM_FM1_PW",
                                                                             "inputs": [ {
                                                                                           "description": "switch to previous or next state",
@@ -8639,38 +8643,33 @@
                                                                            "outputs": [ {
                                                                                               "address": 32850,
                                                                                           "description": "selector position",
-                                                                                                 "mask": 4,
+                                                                                                 "mask": 2,
                                                                                             "max_value": 1,
-                                                                                             "shift_by": 2,
+                                                                                             "shift_by": 1,
                                                                                                "suffix": "",
                                                                                                  "type": "integer"
                                                                                       } ],
                                                                   "physical_variant": "toggle_switch"
                                                            },
                                         "PLT_COM_FM1_SQL": {
-                                                                          "category": "PLT COMM Panel",
-                                                                      "control_type": "selector",
-                                                                       "description": "Pilot FM1 Squelch Switch, ON/OFF",
-                                                                        "identifier": "PLT_COM_FM1_SQL",
-                                                                            "inputs": [ {
-                                                                                          "description": "switch to previous or next state",
-                                                                                            "interface": "fixed_step"
-                                                                                      }, {
-                                                                                          "description": "set position",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 2
-                                                                                      } ],
-                                                               "momentary_positions": "none",
-                                                                           "outputs": [ {
-                                                                                              "address": 32850,
-                                                                                          "description": "selector position",
-                                                                                                 "mask": 3072,
-                                                                                            "max_value": 2,
-                                                                                             "shift_by": 10,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ],
-                                                                  "physical_variant": "3_position_switch"
+                                                                   "category": "PLT COMM Panel",
+                                                               "control_type": "3Pos_2Command_Switch_OpenClose",
+                                                                "description": "Pilot FM1 Squelch Switch, ON/OFF",
+                                                                 "identifier": "PLT_COM_FM1_SQL",
+                                                                     "inputs": [ {
+                                                                                   "description": "set the switch position",
+                                                                                     "interface": "set_state",
+                                                                                     "max_value": 2
+                                                                               } ],
+                                                                    "outputs": [ {
+                                                                                       "address": 32850,
+                                                                                   "description": "switch position -- 0 = Down, 1 = Mid ,  2 = UP",
+                                                                                          "mask": 3072,
+                                                                                     "max_value": 2,
+                                                                                      "shift_by": 10,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
+                                                                               } ]
                                                            },
                                         "PLT_COM_FM1_VOL": {
                                                                    "category": "PLT COMM Panel",
@@ -8697,30 +8696,54 @@
                                                                                           "type": "integer"
                                                                                } ]
                                                            },
-                                        "PLT_COM_FM2_SQL": {
+                                         "PLT_COM_FM2_PW": {
                                                                           "category": "PLT COMM Panel",
                                                                       "control_type": "selector",
-                                                                       "description": "Pilot FM2 Squelch Switch, ON/OFF",
-                                                                        "identifier": "PLT_COM_FM2_SQL",
+                                                                       "description": "Pilot FM2 Disable Knob",
+                                                                        "identifier": "PLT_COM_FM2_PW",
                                                                             "inputs": [ {
                                                                                           "description": "switch to previous or next state",
                                                                                             "interface": "fixed_step"
                                                                                       }, {
                                                                                           "description": "set position",
                                                                                             "interface": "set_state",
-                                                                                            "max_value": 2
+                                                                                            "max_value": 1
+                                                                                      }, {
+                                                                                             "argument": "TOGGLE",
+                                                                                          "description": "Toggle switch state",
+                                                                                            "interface": "action"
                                                                                       } ],
                                                                "momentary_positions": "none",
                                                                            "outputs": [ {
                                                                                               "address": 32850,
                                                                                           "description": "selector position",
-                                                                                                 "mask": 12288,
-                                                                                            "max_value": 2,
-                                                                                             "shift_by": 12,
+                                                                                                 "mask": 4,
+                                                                                            "max_value": 1,
+                                                                                             "shift_by": 2,
                                                                                                "suffix": "",
                                                                                                  "type": "integer"
                                                                                       } ],
-                                                                  "physical_variant": "3_position_switch"
+                                                                  "physical_variant": "toggle_switch"
+                                                           },
+                                        "PLT_COM_FM2_SQL": {
+                                                                   "category": "PLT COMM Panel",
+                                                               "control_type": "3Pos_2Command_Switch_OpenClose",
+                                                                "description": "Pilot FM2 Squelch Switch, ON/OFF",
+                                                                 "identifier": "PLT_COM_FM2_SQL",
+                                                                     "inputs": [ {
+                                                                                   "description": "set the switch position",
+                                                                                     "interface": "set_state",
+                                                                                     "max_value": 2
+                                                                               } ],
+                                                                    "outputs": [ {
+                                                                                       "address": 32850,
+                                                                                   "description": "switch position -- 0 = Down, 1 = Mid ,  2 = UP",
+                                                                                          "mask": 12288,
+                                                                                     "max_value": 2,
+                                                                                      "shift_by": 12,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
+                                                                               } ]
                                                            },
                                         "PLT_COM_FM2_VOL": {
                                                                    "category": "PLT COMM Panel",
@@ -8777,29 +8800,24 @@
                                                                   "physical_variant": "toggle_switch"
                                                            },
                                          "PLT_COM_HF_SQL": {
-                                                                          "category": "PLT COMM Panel",
-                                                                      "control_type": "selector",
-                                                                       "description": "Pilot HF Squelch Switch, ON/OFF",
-                                                                        "identifier": "PLT_COM_HF_SQL",
-                                                                            "inputs": [ {
-                                                                                          "description": "switch to previous or next state",
-                                                                                            "interface": "fixed_step"
-                                                                                      }, {
-                                                                                          "description": "set position",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 2
-                                                                                      } ],
-                                                               "momentary_positions": "none",
-                                                                           "outputs": [ {
-                                                                                              "address": 32850,
-                                                                                          "description": "selector position",
-                                                                                                 "mask": 49152,
-                                                                                            "max_value": 2,
-                                                                                             "shift_by": 14,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ],
-                                                                  "physical_variant": "3_position_switch"
+                                                                   "category": "PLT COMM Panel",
+                                                               "control_type": "3Pos_2Command_Switch_OpenClose",
+                                                                "description": "Pilot HF Squelch Switch, ON/OFF",
+                                                                 "identifier": "PLT_COM_HF_SQL",
+                                                                     "inputs": [ {
+                                                                                   "description": "set the switch position",
+                                                                                     "interface": "set_state",
+                                                                                     "max_value": 2
+                                                                               } ],
+                                                                    "outputs": [ {
+                                                                                       "address": 32850,
+                                                                                   "description": "switch position -- 0 = Down, 1 = Mid ,  2 = UP",
+                                                                                          "mask": 49152,
+                                                                                     "max_value": 2,
+                                                                                      "shift_by": 14,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
+                                                                               } ]
                                                            },
                                          "PLT_COM_HF_VOL": {
                                                                    "category": "PLT COMM Panel",
@@ -9011,29 +9029,24 @@
                                                                   "physical_variant": "toggle_switch"
                                                            },
                                         "PLT_COM_UHF_SQL": {
-                                                                          "category": "PLT COMM Panel",
-                                                                      "control_type": "selector",
-                                                                       "description": "Pilot UHF Squelch Switch, ON/OFF",
-                                                                        "identifier": "PLT_COM_UHF_SQL",
-                                                                            "inputs": [ {
-                                                                                          "description": "switch to previous or next state",
-                                                                                            "interface": "fixed_step"
-                                                                                      }, {
-                                                                                          "description": "set position",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 2
-                                                                                      } ],
-                                                               "momentary_positions": "none",
-                                                                           "outputs": [ {
-                                                                                              "address": 32850,
-                                                                                          "description": "selector position",
-                                                                                                 "mask": 768,
-                                                                                            "max_value": 2,
-                                                                                             "shift_by": 8,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ],
-                                                                  "physical_variant": "3_position_switch"
+                                                                   "category": "PLT COMM Panel",
+                                                               "control_type": "3Pos_2Command_Switch_OpenClose",
+                                                                "description": "Pilot UHF Squelch Switch, ON/OFF",
+                                                                 "identifier": "PLT_COM_UHF_SQL",
+                                                                     "inputs": [ {
+                                                                                   "description": "set the switch position",
+                                                                                     "interface": "set_state",
+                                                                                     "max_value": 2
+                                                                               } ],
+                                                                    "outputs": [ {
+                                                                                       "address": 32850,
+                                                                                   "description": "switch position -- 0 = Down, 1 = Mid ,  2 = UP",
+                                                                                          "mask": 768,
+                                                                                     "max_value": 2,
+                                                                                      "shift_by": 8,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
+                                                                               } ]
                                                            },
                                         "PLT_COM_UHF_VOL": {
                                                                    "category": "PLT COMM Panel",
@@ -9144,29 +9157,24 @@
                                                                   "physical_variant": "toggle_switch"
                                                            },
                                         "PLT_COM_VHF_SQL": {
-                                                                          "category": "PLT COMM Panel",
-                                                                      "control_type": "selector",
-                                                                       "description": "Pilot VHF Squelch Switch, ON/OFF",
-                                                                        "identifier": "PLT_COM_VHF_SQL",
-                                                                            "inputs": [ {
-                                                                                          "description": "switch to previous or next state",
-                                                                                            "interface": "fixed_step"
-                                                                                      }, {
-                                                                                          "description": "set position",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 2
-                                                                                      } ],
-                                                               "momentary_positions": "none",
-                                                                           "outputs": [ {
-                                                                                              "address": 32850,
-                                                                                          "description": "selector position",
-                                                                                                 "mask": 192,
-                                                                                            "max_value": 2,
-                                                                                             "shift_by": 6,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ],
-                                                                  "physical_variant": "3_position_switch"
+                                                                   "category": "PLT COMM Panel",
+                                                               "control_type": "3Pos_2Command_Switch_OpenClose",
+                                                                "description": "Pilot VHF Squelch Switch, ON/OFF",
+                                                                 "identifier": "PLT_COM_VHF_SQL",
+                                                                     "inputs": [ {
+                                                                                   "description": "set the switch position",
+                                                                                     "interface": "set_state",
+                                                                                     "max_value": 2
+                                                                               } ],
+                                                                    "outputs": [ {
+                                                                                       "address": 32850,
+                                                                                   "description": "switch position -- 0 = Down, 1 = Mid ,  2 = UP",
+                                                                                          "mask": 192,
+                                                                                     "max_value": 2,
+                                                                                      "shift_by": 6,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
+                                                                               } ]
                                                            },
                                         "PLT_COM_VHF_VOL": {
                                                                    "category": "PLT COMM Panel",

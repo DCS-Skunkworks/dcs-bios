@@ -27,7 +27,7 @@
                                                                                           "suffix": "",
                                                                                             "type": "integer"
                                                                                  } ],
-                                                             "physical_variant": "limited_rotary"
+                                                             "physical_variant": "toggle_switch"
                                                       },
                                    "JETTISON_CANOPY": {
                                                                   "api_variant": "momentary_last_position",
@@ -220,11 +220,11 @@
                                                                                   } ],
                                                            "momentary_positions": "none",
                                                                        "outputs": [ {
-                                                                                          "address": 17024,
+                                                                                          "address": 17052,
                                                                                       "description": "selector position",
-                                                                                             "mask": 128,
+                                                                                             "mask": 32,
                                                                                         "max_value": 1,
-                                                                                         "shift_by": 7,
+                                                                                         "shift_by": 5,
                                                                                            "suffix": "",
                                                                                              "type": "integer"
                                                                                   } ],
@@ -249,11 +249,11 @@
                                                                                   } ],
                                                            "momentary_positions": "none",
                                                                        "outputs": [ {
-                                                                                          "address": 17024,
+                                                                                          "address": 17052,
                                                                                       "description": "selector position",
-                                                                                             "mask": 256,
+                                                                                             "mask": 64,
                                                                                         "max_value": 1,
-                                                                                         "shift_by": 8,
+                                                                                         "shift_by": 6,
                                                                                            "suffix": "",
                                                                                              "type": "integer"
                                                                                   } ],
@@ -361,7 +361,7 @@
                                             "BAT_OFF": {
                                                                       "category": "Engine",
                                                                   "control_type": "selector",
-                                                                   "description": "Battery Off",
+                                                                   "description": "Battery CB Off",
                                                                     "identifier": "BAT_OFF",
                                                                         "inputs": [ {
                                                                                       "description": "switch to previous or next state",
@@ -385,13 +385,13 @@
                                                                                            "suffix": "",
                                                                                              "type": "integer"
                                                                                   } ],
-                                                              "physical_variant": "limited_rotary"
+                                                              "physical_variant": "toggle_switch"
                                                        },
                                              "BAT_ON": {
                                                                    "api_variant": "momentary_last_position",
                                                                       "category": "Engine",
                                                                   "control_type": "selector",
-                                                                   "description": "Battery On",
+                                                                   "description": "Battery CB On",
                                                                     "identifier": "BAT_ON",
                                                                         "inputs": [ {
                                                                                       "description": "switch to previous or next state",
@@ -420,7 +420,7 @@
                                          "BAT_ON_OFF": {
                                                                       "category": "Engine",
                                                                   "control_type": "selector",
-                                                                   "description": "Battery On/Off",
+                                                                   "description": "Battery CB On/Off",
                                                                     "identifier": "BAT_ON_OFF",
                                                                         "inputs": [ {
                                                                                       "description": "switch to previous or next state",
@@ -444,7 +444,7 @@
                                                                                            "suffix": "",
                                                                                              "type": "integer"
                                                                                   } ],
-                                                              "physical_variant": "limited_rotary"
+                                                              "physical_variant": "toggle_switch"
                                                        },
                                       "BOOSTER_PUMPS": {
                                                                       "category": "Engine",
@@ -475,7 +475,7 @@
                                                                    "api_variant": "momentary_last_position",
                                                                       "category": "Engine",
                                                                   "control_type": "selector",
-                                                                   "description": "Cold Weather Start",
+                                                                   "description": "Cold Weather Start Valve Handle",
                                                                     "identifier": "COLD_START",
                                                                         "inputs": [ {
                                                                                       "description": "switch to previous or next state",
@@ -493,9 +493,9 @@
                                                                        "outputs": [ {
                                                                                           "address": 16930,
                                                                                       "description": "selector position",
-                                                                                             "mask": 512,
+                                                                                             "mask": 128,
                                                                                         "max_value": 1,
-                                                                                         "shift_by": 9,
+                                                                                         "shift_by": 7,
                                                                                            "suffix": "",
                                                                                              "type": "integer"
                                                                                   } ],
@@ -504,7 +504,7 @@
                                             "DEC_RPM": {
                                                                       "category": "Engine",
                                                                   "control_type": "selector",
-                                                                   "description": "Decrease RPM",
+                                                                   "description": "Decrease/Increase RPM",
                                                                     "identifier": "DEC_RPM",
                                                                         "inputs": [ {
                                                                                       "description": "switch to previous or next state",
@@ -524,7 +524,7 @@
                                                                                            "suffix": "",
                                                                                              "type": "integer"
                                                                                   } ],
-                                                              "physical_variant": "limited_rotary"
+                                                              "physical_variant": "3_position_switch"
                                                        },
                                         "ENGINE_STOP": {
                                                                    "api_variant": "momentary_last_position",
@@ -619,7 +619,7 @@
                                            "FUEL_OFF": {
                                                                       "category": "Engine",
                                                                   "control_type": "selector",
-                                                                   "description": "Fuel Pump Off",
+                                                                   "description": "Fuel Pump CB Off",
                                                                     "identifier": "FUEL_OFF",
                                                                         "inputs": [ {
                                                                                       "description": "switch to previous or next state",
@@ -643,13 +643,13 @@
                                                                                            "suffix": "",
                                                                                              "type": "integer"
                                                                                   } ],
-                                                              "physical_variant": "limited_rotary"
+                                                              "physical_variant": "toggle_switch"
                                                        },
                                             "FUEL_ON": {
                                                                    "api_variant": "momentary_last_position",
                                                                       "category": "Engine",
                                                                   "control_type": "selector",
-                                                                   "description": "Fuel Pump On",
+                                                                   "description": "Fuel Pump CB On",
                                                                     "identifier": "FUEL_ON",
                                                                         "inputs": [ {
                                                                                       "description": "switch to previous or next state",
@@ -678,7 +678,7 @@
                                         "FUEL_ON_OFF": {
                                                                       "category": "Engine",
                                                                   "control_type": "selector",
-                                                                   "description": "Fuel Pump On/Off",
+                                                                   "description": "Fuel Pump CB On/Off",
                                                                     "identifier": "FUEL_ON_OFF",
                                                                         "inputs": [ {
                                                                                       "description": "switch to previous or next state",
@@ -702,7 +702,7 @@
                                                                                            "suffix": "",
                                                                                              "type": "integer"
                                                                                   } ],
-                                                              "physical_variant": "limited_rotary"
+                                                              "physical_variant": "toggle_switch"
                                                        },
                                    "FUEL_PRIMER_PUMP": {
                                                                       "category": "Engine",
@@ -754,9 +754,9 @@
                                                                        "outputs": [ {
                                                                                           "address": 16930,
                                                                                       "description": "selector position",
-                                                                                             "mask": 256,
+                                                                                             "mask": 64,
                                                                                         "max_value": 1,
-                                                                                         "shift_by": 8,
+                                                                                         "shift_by": 6,
                                                                                            "suffix": "",
                                                                                              "type": "integer"
                                                                                   } ],
@@ -794,7 +794,7 @@
                                             "IGN_OFF": {
                                                                       "category": "Engine",
                                                                   "control_type": "selector",
-                                                                   "description": "Ignition Off",
+                                                                   "description": "Ignition CB Off",
                                                                     "identifier": "IGN_OFF",
                                                                         "inputs": [ {
                                                                                       "description": "switch to previous or next state",
@@ -818,13 +818,13 @@
                                                                                            "suffix": "",
                                                                                              "type": "integer"
                                                                                   } ],
-                                                              "physical_variant": "limited_rotary"
+                                                              "physical_variant": "toggle_switch"
                                                        },
                                              "IGN_ON": {
                                                                    "api_variant": "momentary_last_position",
                                                                       "category": "Engine",
                                                                   "control_type": "selector",
-                                                                   "description": "Ignition On",
+                                                                   "description": "Ignition CB On",
                                                                     "identifier": "IGN_ON",
                                                                         "inputs": [ {
                                                                                       "description": "switch to previous or next state",
@@ -853,7 +853,7 @@
                                          "IGN_ON_OFF": {
                                                                       "category": "Engine",
                                                                   "control_type": "selector",
-                                                                   "description": "Ignition On/Off",
+                                                                   "description": "Ignition CB On/Off",
                                                                     "identifier": "IGN_ON_OFF",
                                                                         "inputs": [ {
                                                                                       "description": "switch to previous or next state",
@@ -877,32 +877,7 @@
                                                                                            "suffix": "",
                                                                                              "type": "integer"
                                                                                   } ],
-                                                              "physical_variant": "limited_rotary"
-                                                       },
-                                            "INC_RPM": {
-                                                                      "category": "Engine",
-                                                                  "control_type": "selector",
-                                                                   "description": "Increase RPM",
-                                                                    "identifier": "INC_RPM",
-                                                                        "inputs": [ {
-                                                                                      "description": "switch to previous or next state",
-                                                                                        "interface": "fixed_step"
-                                                                                  }, {
-                                                                                      "description": "set position",
-                                                                                        "interface": "set_state",
-                                                                                        "max_value": 2
-                                                                                  } ],
-                                                           "momentary_positions": "none",
-                                                                       "outputs": [ {
-                                                                                          "address": 16930,
-                                                                                      "description": "selector position",
-                                                                                             "mask": 96,
-                                                                                        "max_value": 2,
-                                                                                         "shift_by": 5,
-                                                                                           "suffix": "",
-                                                                                             "type": "integer"
-                                                                                  } ],
-                                                              "physical_variant": "limited_rotary"
+                                                              "physical_variant": "toggle_switch"
                                                        },
                                         "KILL_SWITCH": {
                                                                       "category": "Engine",
@@ -1073,9 +1048,10 @@
                                                               "physical_variant": "push_button"
                                                        },
                                        "STARTER_HNDL": {
+                                                                   "api_variant": "momentary_last_position",
                                                                       "category": "Engine",
                                                                   "control_type": "selector",
-                                                                   "description": "Starter",
+                                                                   "description": "Starter Turn Handle",
                                                                     "identifier": "STARTER_HNDL",
                                                                         "inputs": [ {
                                                                                       "description": "switch to previous or next state",
@@ -1099,7 +1075,7 @@
                                                                                            "suffix": "",
                                                                                              "type": "integer"
                                                                                   } ],
-                                                              "physical_variant": "limited_rotary"
+                                                              "physical_variant": "push_button"
                                                        },
                                    "STARTER_HNDL_CVR": {
                                                                       "category": "Engine",
@@ -1139,11 +1115,11 @@
                                                                      "identifier": "EXT_POSITION_LIGHT_LEFT",
                                                                          "inputs": [  ],
                                                                         "outputs": [ {
-                                                                                           "address": 17024,
+                                                                                           "address": 16930,
                                                                                        "description": "Left Position Light (red)",
-                                                                                              "mask": 2,
+                                                                                              "mask": 32768,
                                                                                          "max_value": 1,
-                                                                                          "shift_by": 1,
+                                                                                          "shift_by": 15,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ]
@@ -1155,11 +1131,11 @@
                                                                      "identifier": "EXT_POSITION_LIGHT_RIGHT",
                                                                          "inputs": [  ],
                                                                         "outputs": [ {
-                                                                                           "address": 17024,
+                                                                                           "address": 17052,
                                                                                        "description": "Right Position Light (green)",
-                                                                                              "mask": 4,
+                                                                                              "mask": 1,
                                                                                          "max_value": 1,
-                                                                                          "shift_by": 2,
+                                                                                          "shift_by": 0,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ]
@@ -1171,11 +1147,11 @@
                                                                      "identifier": "EXT_POSITION_LIGHT_TAIL",
                                                                          "inputs": [  ],
                                                                         "outputs": [ {
-                                                                                           "address": 17024,
+                                                                                           "address": 17052,
                                                                                        "description": "Tail Position Light (white)",
-                                                                                              "mask": 8,
+                                                                                              "mask": 2,
                                                                                          "max_value": 1,
-                                                                                          "shift_by": 3,
+                                                                                          "shift_by": 1,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ]
@@ -1187,11 +1163,11 @@
                                                                      "identifier": "EXT_WOW_LEFT",
                                                                          "inputs": [  ],
                                                                         "outputs": [ {
-                                                                                           "address": 17024,
+                                                                                           "address": 17052,
                                                                                        "description": "Weight ON Wheels Left Gear",
-                                                                                              "mask": 64,
+                                                                                              "mask": 16,
                                                                                          "max_value": 1,
-                                                                                          "shift_by": 6,
+                                                                                          "shift_by": 4,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ]
@@ -1203,11 +1179,11 @@
                                                                      "identifier": "EXT_WOW_NOSE",
                                                                          "inputs": [  ],
                                                                         "outputs": [ {
-                                                                                           "address": 17024,
+                                                                                           "address": 17052,
                                                                                        "description": "Weight ON Wheels Nose Gear",
-                                                                                              "mask": 16,
+                                                                                              "mask": 4,
                                                                                          "max_value": 1,
-                                                                                          "shift_by": 4,
+                                                                                          "shift_by": 2,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ]
@@ -1219,11 +1195,11 @@
                                                                      "identifier": "EXT_WOW_RIGHT",
                                                                          "inputs": [  ],
                                                                         "outputs": [ {
-                                                                                           "address": 17024,
+                                                                                           "address": 17052,
                                                                                        "description": "Weight ON Wheels Right Gear",
-                                                                                              "mask": 32,
+                                                                                              "mask": 8,
                                                                                          "max_value": 1,
-                                                                                          "shift_by": 5,
+                                                                                          "shift_by": 3,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ]
@@ -1294,7 +1270,7 @@
                                                                "api_variant": "momentary_last_position",
                                                                   "category": "Flare Gun",
                                                               "control_type": "selector",
-                                                               "description": "Fire Flare Gun",
+                                                               "description": "Flare Gun Trigger",
                                                                 "identifier": "FLARE_GUN",
                                                                     "inputs": [ {
                                                                                   "description": "switch to previous or next state",
@@ -1340,11 +1316,11 @@
                                                                               } ],
                                                        "momentary_positions": "none",
                                                                    "outputs": [ {
-                                                                                      "address": 17024,
+                                                                                      "address": 17052,
                                                                                   "description": "selector position",
-                                                                                         "mask": 512,
+                                                                                         "mask": 128,
                                                                                     "max_value": 1,
-                                                                                     "shift_by": 9,
+                                                                                     "shift_by": 7,
                                                                                        "suffix": "",
                                                                                          "type": "integer"
                                                                               } ],
@@ -1370,11 +1346,11 @@
                                                                               } ],
                                                        "momentary_positions": "none",
                                                                    "outputs": [ {
-                                                                                      "address": 17024,
+                                                                                      "address": 17052,
                                                                                   "description": "selector position",
-                                                                                         "mask": 1024,
+                                                                                         "mask": 256,
                                                                                     "max_value": 1,
-                                                                                     "shift_by": 10,
+                                                                                     "shift_by": 8,
                                                                                        "suffix": "",
                                                                                          "type": "integer"
                                                                               } ],
@@ -1400,11 +1376,11 @@
                                                                               } ],
                                                        "momentary_positions": "none",
                                                                    "outputs": [ {
-                                                                                      "address": 17024,
+                                                                                      "address": 17052,
                                                                                   "description": "selector position",
-                                                                                         "mask": 2048,
+                                                                                         "mask": 512,
                                                                                     "max_value": 1,
-                                                                                     "shift_by": 11,
+                                                                                     "shift_by": 9,
                                                                                        "suffix": "",
                                                                                          "type": "integer"
                                                                               } ],
@@ -1430,11 +1406,11 @@
                                                                               } ],
                                                        "momentary_positions": "none",
                                                                    "outputs": [ {
-                                                                                      "address": 17024,
+                                                                                      "address": 17052,
                                                                                   "description": "selector position",
-                                                                                         "mask": 4096,
+                                                                                         "mask": 1024,
                                                                                     "max_value": 1,
-                                                                                     "shift_by": 12,
+                                                                                     "shift_by": 10,
                                                                                        "suffix": "",
                                                                                          "type": "integer"
                                                                               } ],
@@ -1449,7 +1425,7 @@
                                                                       "identifier": "AIRSPEED_VALUE",
                                                                           "inputs": [  ],
                                                                          "outputs": [ {
-                                                                                            "address": 17044,
+                                                                                            "address": 17042,
                                                                                         "description": "Airspeed km/h",
                                                                                                "mask": 65535,
                                                                                           "max_value": 65000,
@@ -1465,7 +1441,7 @@
                                                                       "identifier": "ALTITUDE_VALUE",
                                                                           "inputs": [  ],
                                                                          "outputs": [ {
-                                                                                            "address": 17046,
+                                                                                            "address": 17044,
                                                                                         "description": "Altitude Meters",
                                                                                                "mask": 65535,
                                                                                           "max_value": 65000,
@@ -1481,7 +1457,7 @@
                                                                       "identifier": "BAROMETRIC_PRESSURE_VALUE",
                                                                           "inputs": [  ],
                                                                          "outputs": [ {
-                                                                                            "address": 17050,
+                                                                                            "address": 17048,
                                                                                         "description": "Barometric Pressure mb",
                                                                                                "mask": 65535,
                                                                                           "max_value": 65000,
@@ -1497,7 +1473,7 @@
                                                                       "identifier": "COMPASS_HEADING_VALUE",
                                                                           "inputs": [  ],
                                                                          "outputs": [ {
-                                                                                            "address": 17052,
+                                                                                            "address": 17050,
                                                                                         "description": "Compass Heading",
                                                                                                "mask": 65535,
                                                                                           "max_value": 65000,
@@ -1513,7 +1489,7 @@
                                                                       "identifier": "COOLANT_TEMPERATURE_VALUE",
                                                                           "inputs": [  ],
                                                                          "outputs": [ {
-                                                                                            "address": 17040,
+                                                                                            "address": 17038,
                                                                                         "description": "Coolant Temp °C",
                                                                                                "mask": 65535,
                                                                                           "max_value": 65000,
@@ -1529,7 +1505,7 @@
                                                                       "identifier": "FUEL_LEVEL_VALUE",
                                                                           "inputs": [  ],
                                                                          "outputs": [ {
-                                                                                            "address": 17032,
+                                                                                            "address": 17030,
                                                                                         "description": "Fuel Level Liters",
                                                                                                "mask": 65535,
                                                                                           "max_value": 65000,
@@ -1545,7 +1521,7 @@
                                                                       "identifier": "FUEL_PRESSURE_VALUE",
                                                                           "inputs": [  ],
                                                                          "outputs": [ {
-                                                                                            "address": 17034,
+                                                                                            "address": 17032,
                                                                                         "description": "Fuel Pres kg/cm2 Read as X.X",
                                                                                                "mask": 65535,
                                                                                           "max_value": 65000,
@@ -1561,7 +1537,7 @@
                                                                       "identifier": "MANIFOLD_PRESSURE_VALUE",
                                                                           "inputs": [  ],
                                                                          "outputs": [ {
-                                                                                            "address": 17026,
+                                                                                            "address": 17024,
                                                                                         "description": "Manifold Pressure kg/cm2",
                                                                                                "mask": 65535,
                                                                                           "max_value": 65000,
@@ -1577,7 +1553,7 @@
                                                                       "identifier": "METHANOL_WATER_PRES_VALUE",
                                                                           "inputs": [  ],
                                                                          "outputs": [ {
-                                                                                            "address": 17028,
+                                                                                            "address": 17026,
                                                                                         "description": "Methanol Water Pres kg/cm2 Read as X.X",
                                                                                                "mask": 65535,
                                                                                           "max_value": 65000,
@@ -1593,7 +1569,7 @@
                                                                       "identifier": "OIL_PRESSURE_VALUE",
                                                                           "inputs": [  ],
                                                                          "outputs": [ {
-                                                                                            "address": 17036,
+                                                                                            "address": 17034,
                                                                                         "description": "Oil Pressure kg/cm2 Read as X.X or XX.X",
                                                                                                "mask": 65535,
                                                                                           "max_value": 65000,
@@ -1609,7 +1585,7 @@
                                                                       "identifier": "OIL_TEMPERATURE_VALUE",
                                                                           "inputs": [  ],
                                                                          "outputs": [ {
-                                                                                            "address": 17038,
+                                                                                            "address": 17036,
                                                                                         "description": "Oil Temp °C",
                                                                                                "mask": 65535,
                                                                                           "max_value": 65000,
@@ -1625,7 +1601,7 @@
                                                                       "identifier": "OXYGEN_PRESSURE_VALUE",
                                                                           "inputs": [  ],
                                                                          "outputs": [ {
-                                                                                            "address": 17042,
+                                                                                            "address": 17040,
                                                                                         "description": "Oxygen Pressure kg/cm2",
                                                                                                "mask": 65535,
                                                                                           "max_value": 65000,
@@ -1641,7 +1617,7 @@
                                                                       "identifier": "PROPELLER_PITCH_DEG_VALUE",
                                                                           "inputs": [  ],
                                                                          "outputs": [ {
-                                                                                            "address": 17030,
+                                                                                            "address": 17028,
                                                                                         "description": "Propeller Pitch Degrees",
                                                                                                "mask": 65535,
                                                                                           "max_value": 65000,
@@ -1657,7 +1633,7 @@
                                                                       "identifier": "TACHOMETER_VALUE",
                                                                           "inputs": [  ],
                                                                          "outputs": [ {
-                                                                                            "address": 17048,
+                                                                                            "address": 17046,
                                                                                         "description": "Tachometer RPM",
                                                                                                "mask": 65535,
                                                                                           "max_value": 65000,
@@ -1671,7 +1647,7 @@
                                       "GEN_OFF": {
                                                                 "category": "Generator",
                                                             "control_type": "selector",
-                                                             "description": "Generator Off",
+                                                             "description": "Generator CB Off",
                                                               "identifier": "GEN_OFF",
                                                                   "inputs": [ {
                                                                                 "description": "switch to previous or next state",
@@ -1695,13 +1671,13 @@
                                                                                      "suffix": "",
                                                                                        "type": "integer"
                                                                             } ],
-                                                        "physical_variant": "limited_rotary"
+                                                        "physical_variant": "toggle_switch"
                                                  },
                                        "GEN_ON": {
                                                              "api_variant": "momentary_last_position",
                                                                 "category": "Generator",
                                                             "control_type": "selector",
-                                                             "description": "Generator On",
+                                                             "description": "Generator CB On",
                                                               "identifier": "GEN_ON",
                                                                   "inputs": [ {
                                                                                 "description": "switch to previous or next state",
@@ -1730,7 +1706,7 @@
                                    "GEN_ON_OFF": {
                                                                 "category": "Generator",
                                                             "control_type": "selector",
-                                                             "description": "Generator On/Off",
+                                                             "description": "Generator CB On/Off",
                                                               "identifier": "GEN_ON_OFF",
                                                                   "inputs": [ {
                                                                                 "description": "switch to previous or next state",
@@ -1754,7 +1730,7 @@
                                                                                      "suffix": "",
                                                                                        "type": "integer"
                                                                             } ],
-                                                        "physical_variant": "limited_rotary"
+                                                        "physical_variant": "toggle_switch"
                                                  }
                                },
                   "Gun Sight": {
@@ -1869,9 +1845,9 @@
                                                                             "outputs": [ {
                                                                                                "address": 16930,
                                                                                            "description": "0 if light is off, 1 if light is on",
-                                                                                                  "mask": 1024,
+                                                                                                  "mask": 256,
                                                                                              "max_value": 1,
-                                                                                              "shift_by": 10,
+                                                                                              "shift_by": 8,
                                                                                                 "suffix": "",
                                                                                                   "type": "integer"
                                                                                        } ]
@@ -2027,11 +2003,11 @@
                                                                          "identifier": "BOMB_1_L",
                                                                              "inputs": [  ],
                                                                             "outputs": [ {
-                                                                                               "address": 17024,
+                                                                                               "address": 17052,
                                                                                            "description": "0 if light is off, 1 if light is on",
-                                                                                                  "mask": 16384,
+                                                                                                  "mask": 4096,
                                                                                              "max_value": 1,
-                                                                                              "shift_by": 14,
+                                                                                              "shift_by": 12,
                                                                                                 "suffix": "",
                                                                                                   "type": "integer"
                                                                                        } ]
@@ -2043,11 +2019,11 @@
                                                                          "identifier": "BOMB_2_L",
                                                                              "inputs": [  ],
                                                                             "outputs": [ {
-                                                                                               "address": 17024,
+                                                                                               "address": 17052,
                                                                                            "description": "0 if light is off, 1 if light is on",
-                                                                                                  "mask": 32768,
+                                                                                                  "mask": 8192,
                                                                                              "max_value": 1,
-                                                                                              "shift_by": 15,
+                                                                                              "shift_by": 13,
                                                                                                 "suffix": "",
                                                                                                   "type": "integer"
                                                                                        } ]
@@ -2059,11 +2035,11 @@
                                                                          "identifier": "BOMB_3_L",
                                                                              "inputs": [  ],
                                                                             "outputs": [ {
-                                                                                               "address": 17060,
+                                                                                               "address": 17052,
                                                                                            "description": "0 if light is off, 1 if light is on",
-                                                                                                  "mask": 1,
+                                                                                                  "mask": 16384,
                                                                                              "max_value": 1,
-                                                                                              "shift_by": 0,
+                                                                                              "shift_by": 14,
                                                                                                 "suffix": "",
                                                                                                   "type": "integer"
                                                                                        } ]
@@ -2075,11 +2051,11 @@
                                                                          "identifier": "BOMB_4_L",
                                                                              "inputs": [  ],
                                                                             "outputs": [ {
-                                                                                               "address": 17060,
+                                                                                               "address": 17052,
                                                                                            "description": "0 if light is off, 1 if light is on",
-                                                                                                  "mask": 2,
+                                                                                                  "mask": 32768,
                                                                                              "max_value": 1,
-                                                                                              "shift_by": 1,
+                                                                                              "shift_by": 15,
                                                                                                 "suffix": "",
                                                                                                   "type": "integer"
                                                                                        } ]
@@ -2091,11 +2067,11 @@
                                                                          "identifier": "BOMB_SBY_L",
                                                                              "inputs": [  ],
                                                                             "outputs": [ {
-                                                                                               "address": 17024,
+                                                                                               "address": 17052,
                                                                                            "description": "0 if light is off, 1 if light is on",
-                                                                                                  "mask": 8192,
+                                                                                                  "mask": 2048,
                                                                                              "max_value": 1,
-                                                                                              "shift_by": 13,
+                                                                                              "shift_by": 11,
                                                                                                 "suffix": "",
                                                                                                   "type": "integer"
                                                                                        } ]
@@ -2235,11 +2211,11 @@
                                                                          "identifier": "FUEL_RESERVE_LAMP",
                                                                              "inputs": [  ],
                                                                             "outputs": [ {
-                                                                                               "address": 17024,
+                                                                                               "address": 16930,
                                                                                            "description": "0 if light is off, 1 if light is on",
-                                                                                                  "mask": 1,
+                                                                                                  "mask": 16384,
                                                                                              "max_value": 1,
-                                                                                              "shift_by": 0,
+                                                                                              "shift_by": 14,
                                                                                                 "suffix": "",
                                                                                                   "type": "integer"
                                                                                        } ]
@@ -2269,9 +2245,9 @@
                                                                             "outputs": [ {
                                                                                                "address": 16930,
                                                                                            "description": "0 if light is off, 1 if light is on",
-                                                                                                  "mask": 16384,
+                                                                                                  "mask": 4096,
                                                                                              "max_value": 1,
-                                                                                              "shift_by": 14,
+                                                                                              "shift_by": 12,
                                                                                                 "suffix": "",
                                                                                                   "type": "integer"
                                                                                        } ]
@@ -2285,9 +2261,9 @@
                                                                             "outputs": [ {
                                                                                                "address": 16930,
                                                                                            "description": "0 if light is off, 1 if light is on",
-                                                                                                  "mask": 32768,
+                                                                                                  "mask": 8192,
                                                                                              "max_value": 1,
-                                                                                              "shift_by": 15,
+                                                                                              "shift_by": 13,
                                                                                                 "suffix": "",
                                                                                                   "type": "integer"
                                                                                        } ]
@@ -2301,9 +2277,9 @@
                                                                             "outputs": [ {
                                                                                                "address": 16930,
                                                                                            "description": "0 if light is off, 1 if light is on",
-                                                                                                  "mask": 8192,
+                                                                                                  "mask": 2048,
                                                                                              "max_value": 1,
-                                                                                              "shift_by": 13,
+                                                                                              "shift_by": 11,
                                                                                                 "suffix": "",
                                                                                                   "type": "integer"
                                                                                        } ]
@@ -2317,9 +2293,9 @@
                                                                             "outputs": [ {
                                                                                                "address": 16930,
                                                                                            "description": "0 if light is off, 1 if light is on",
-                                                                                                  "mask": 2048,
+                                                                                                  "mask": 512,
                                                                                              "max_value": 1,
-                                                                                              "shift_by": 11,
+                                                                                              "shift_by": 9,
                                                                                                 "suffix": "",
                                                                                                   "type": "integer"
                                                                                        } ]
@@ -2523,7 +2499,7 @@
                                                                          "identifier": "PANEL_GLOW",
                                                                              "inputs": [  ],
                                                                             "outputs": [ {
-                                                                                               "address": 17062,
+                                                                                               "address": 17060,
                                                                                            "description": "gauge position",
                                                                                                   "mask": 65535,
                                                                                              "max_value": 65535,
@@ -2637,9 +2613,9 @@
                                                                             "outputs": [ {
                                                                                                "address": 16930,
                                                                                            "description": "0 if light is off, 1 if light is on",
-                                                                                                  "mask": 4096,
+                                                                                                  "mask": 1024,
                                                                                              "max_value": 1,
-                                                                                              "shift_by": 12,
+                                                                                              "shift_by": 10,
                                                                                                 "suffix": "",
                                                                                                   "type": "integer"
                                                                                        } ]
@@ -2793,7 +2769,7 @@
                                    "L_UV_BRIGHT": {
                                                           "category": "Lamps",
                                                       "control_type": "limited_dial",
-                                                       "description": "Left UV Lamp Brightness",
+                                                       "description": "Left UV Lamp Rheostat",
                                                         "identifier": "L_UV_BRIGHT",
                                                             "inputs": [ {
                                                                           "description": "set the position of the dial",
@@ -2818,7 +2794,7 @@
                                    "R_UV_BRIGHT": {
                                                           "category": "Lamps",
                                                       "control_type": "limited_dial",
-                                                       "description": "Right UV Lamp Brightness",
+                                                       "description": "Right UV Lamp Rheostat",
                                                         "identifier": "R_UV_BRIGHT",
                                                             "inputs": [ {
                                                                           "description": "set the position of the dial",
@@ -2869,7 +2845,7 @@
                                                                                      "suffix": "",
                                                                                        "type": "integer"
                                                                             } ],
-                                                        "physical_variant": "limited_rotary"
+                                                        "physical_variant": "toggle_switch"
                                                  },
                                       "LG_DOWN": {
                                                                 "category": "Landing Gear",
@@ -2964,7 +2940,7 @@
                                       "NAV_LIGHTS_OFF": {
                                                                        "category": "Lights",
                                                                    "control_type": "selector",
-                                                                    "description": "Nav. Lights Off",
+                                                                    "description": "Nav. Lights CB Off",
                                                                      "identifier": "NAV_LIGHTS_OFF",
                                                                          "inputs": [ {
                                                                                        "description": "switch to previous or next state",
@@ -2988,13 +2964,13 @@
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ],
-                                                               "physical_variant": "limited_rotary"
+                                                               "physical_variant": "toggle_switch"
                                                         },
                                        "NAV_LIGHTS_ON": {
                                                                     "api_variant": "momentary_last_position",
                                                                        "category": "Lights",
                                                                    "control_type": "selector",
-                                                                    "description": "Nav. Lights On",
+                                                                    "description": "Nav. Lights CB On",
                                                                      "identifier": "NAV_LIGHTS_ON",
                                                                          "inputs": [ {
                                                                                        "description": "switch to previous or next state",
@@ -3023,7 +2999,7 @@
                                    "NAV_LIGHTS_ON_OFF": {
                                                                        "category": "Lights",
                                                                    "control_type": "selector",
-                                                                    "description": "Nav. Lights On/Off",
+                                                                    "description": "Nav. Lights CB On/Off",
                                                                      "identifier": "NAV_LIGHTS_ON_OFF",
                                                                          "inputs": [ {
                                                                                        "description": "switch to previous or next state",
@@ -3047,12 +3023,12 @@
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ],
-                                                               "physical_variant": "limited_rotary"
+                                                               "physical_variant": "toggle_switch"
                                                         },
                                        "UV_LIGHTS_OFF": {
                                                                        "category": "Lights",
                                                                    "control_type": "selector",
-                                                                    "description": "UV Lights Off",
+                                                                    "description": "UV Lights CB Off",
                                                                      "identifier": "UV_LIGHTS_OFF",
                                                                          "inputs": [ {
                                                                                        "description": "switch to previous or next state",
@@ -3076,13 +3052,13 @@
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ],
-                                                               "physical_variant": "limited_rotary"
+                                                               "physical_variant": "toggle_switch"
                                                         },
                                         "UV_LIGHTS_ON": {
                                                                     "api_variant": "momentary_last_position",
                                                                        "category": "Lights",
                                                                    "control_type": "selector",
-                                                                    "description": "UV Lights On",
+                                                                    "description": "UV Lights CB On",
                                                                      "identifier": "UV_LIGHTS_ON",
                                                                          "inputs": [ {
                                                                                        "description": "switch to previous or next state",
@@ -3111,7 +3087,7 @@
                                     "UV_LIGHTS_ON_OFF": {
                                                                        "category": "Lights",
                                                                    "control_type": "selector",
-                                                                    "description": "UV Lights On/Off",
+                                                                    "description": "UV Lights CB On/Off",
                                                                      "identifier": "UV_LIGHTS_ON_OFF",
                                                                          "inputs": [ {
                                                                                        "description": "switch to previous or next state",
@@ -3135,7 +3111,7 @@
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ],
-                                                               "physical_variant": "limited_rotary"
+                                                               "physical_variant": "toggle_switch"
                                                         }
                                },
                      "Oxygen": {
@@ -3203,7 +3179,7 @@
                                       "PIT_HEAT_OFF": {
                                                                      "category": "Pitot",
                                                                  "control_type": "selector",
-                                                                  "description": "Pitot/Windscreen Heating Off",
+                                                                  "description": "Pitot/Windscreen Heating CB Off",
                                                                    "identifier": "PIT_HEAT_OFF",
                                                                        "inputs": [ {
                                                                                      "description": "switch to previous or next state",
@@ -3227,13 +3203,13 @@
                                                                                           "suffix": "",
                                                                                             "type": "integer"
                                                                                  } ],
-                                                             "physical_variant": "limited_rotary"
+                                                             "physical_variant": "toggle_switch"
                                                       },
                                        "PIT_HEAT_ON": {
                                                                   "api_variant": "momentary_last_position",
                                                                      "category": "Pitot",
                                                                  "control_type": "selector",
-                                                                  "description": "Pitot/Windscreen Heating On",
+                                                                  "description": "Pitot/Windscreen Heating CB On",
                                                                    "identifier": "PIT_HEAT_ON",
                                                                        "inputs": [ {
                                                                                      "description": "switch to previous or next state",
@@ -3262,7 +3238,7 @@
                                    "PIT_HEAT_ON_OFF": {
                                                                      "category": "Pitot",
                                                                  "control_type": "selector",
-                                                                  "description": "Pitot/Windscreen Heating On/Off",
+                                                                  "description": "Pitot/Windscreen Heating CB On/Off",
                                                                    "identifier": "PIT_HEAT_ON_OFF",
                                                                        "inputs": [ {
                                                                                      "description": "switch to previous or next state",
@@ -3286,7 +3262,7 @@
                                                                                           "suffix": "",
                                                                                             "type": "integer"
                                                                                  } ],
-                                                             "physical_variant": "limited_rotary"
+                                                             "physical_variant": "toggle_switch"
                                                       }
                                },
                       "Radio": {
@@ -3317,7 +3293,7 @@
                                                                                        "suffix": "",
                                                                                          "type": "integer"
                                                                               } ],
-                                                          "physical_variant": "limited_rotary"
+                                                          "physical_variant": "toggle_switch"
                                                    },
                                    "FUG16_TUNING": {
                                                         "api_variant": "multiturn",
@@ -3390,9 +3366,10 @@
                                                                                        "suffix": "",
                                                                                          "type": "integer"
                                                                               } ],
-                                                          "physical_variant": "limited_rotary"
+                                                          "physical_variant": "toggle_switch"
                                                    },
                                      "FUG25_TEST": {
+                                                               "api_variant": "momentary_last_position",
                                                                   "category": "Radio",
                                                               "control_type": "selector",
                                                                "description": "FuG25 Test",
@@ -3419,12 +3396,12 @@
                                                                                        "suffix": "",
                                                                                          "type": "integer"
                                                                               } ],
-                                                          "physical_variant": "limited_rotary"
+                                                          "physical_variant": "push_button"
                                                    },
                                         "IFF_OFF": {
                                                                   "category": "Radio",
                                                               "control_type": "selector",
-                                                               "description": "I.F.F. Power Off",
+                                                               "description": "I.F.F. Power CB Off",
                                                                 "identifier": "IFF_OFF",
                                                                     "inputs": [ {
                                                                                   "description": "switch to previous or next state",
@@ -3448,13 +3425,13 @@
                                                                                        "suffix": "",
                                                                                          "type": "integer"
                                                                               } ],
-                                                          "physical_variant": "limited_rotary"
+                                                          "physical_variant": "toggle_switch"
                                                    },
                                          "IFF_ON": {
                                                                "api_variant": "momentary_last_position",
                                                                   "category": "Radio",
                                                               "control_type": "selector",
-                                                               "description": "I.F.F. Power On",
+                                                               "description": "I.F.F. Power CB On",
                                                                 "identifier": "IFF_ON",
                                                                     "inputs": [ {
                                                                                   "description": "switch to previous or next state",
@@ -3483,7 +3460,7 @@
                                      "IFF_ON_OFF": {
                                                                   "category": "Radio",
                                                               "control_type": "selector",
-                                                               "description": "I.F.F. Power On/Off",
+                                                               "description": "I.F.F. Power CB On/Off",
                                                                 "identifier": "IFF_ON_OFF",
                                                                     "inputs": [ {
                                                                                   "description": "switch to previous or next state",
@@ -3507,9 +3484,10 @@
                                                                                        "suffix": "",
                                                                                          "type": "integer"
                                                                               } ],
-                                                          "physical_variant": "limited_rotary"
+                                                          "physical_variant": "toggle_switch"
                                                    },
                                          "MIC_ON": {
+                                                               "api_variant": "momentary_last_position",
                                                                   "category": "Radio",
                                                               "control_type": "selector",
                                                                "description": "Microphone On",
@@ -3530,13 +3508,13 @@
                                                                    "outputs": [ {
                                                                                       "address": 16930,
                                                                                   "description": "selector position",
-                                                                                         "mask": 128,
+                                                                                         "mask": 32,
                                                                                     "max_value": 1,
-                                                                                     "shift_by": 7,
+                                                                                     "shift_by": 5,
                                                                                        "suffix": "",
                                                                                          "type": "integer"
                                                                               } ],
-                                                          "physical_variant": "limited_rotary"
+                                                          "physical_variant": "push_button"
                                                    },
                                      "RADIO_MODE": {
                                                                   "category": "Radio",
@@ -3566,7 +3544,7 @@
                                       "RADIO_OFF": {
                                                                   "category": "Radio",
                                                               "control_type": "selector",
-                                                               "description": "Radio Off",
+                                                               "description": "Radio CB Off",
                                                                 "identifier": "RADIO_OFF",
                                                                     "inputs": [ {
                                                                                   "description": "switch to previous or next state",
@@ -3590,13 +3568,13 @@
                                                                                        "suffix": "",
                                                                                          "type": "integer"
                                                                               } ],
-                                                          "physical_variant": "limited_rotary"
+                                                          "physical_variant": "toggle_switch"
                                                    },
                                        "RADIO_ON": {
                                                                "api_variant": "momentary_last_position",
                                                                   "category": "Radio",
                                                               "control_type": "selector",
-                                                               "description": "Radio On",
+                                                               "description": "Radio CB On",
                                                                 "identifier": "RADIO_ON",
                                                                     "inputs": [ {
                                                                                   "description": "switch to previous or next state",
@@ -3625,7 +3603,7 @@
                                    "RADIO_ON_OFF": {
                                                                   "category": "Radio",
                                                               "control_type": "selector",
-                                                               "description": "Radio On/Off",
+                                                               "description": "Radio CB On/Off",
                                                                 "identifier": "RADIO_ON_OFF",
                                                                     "inputs": [ {
                                                                                   "description": "switch to previous or next state",
@@ -3649,15 +3627,166 @@
                                                                                        "suffix": "",
                                                                                          "type": "integer"
                                                                               } ],
-                                                          "physical_variant": "limited_rotary"
+                                                          "physical_variant": "toggle_switch"
                                                    }
+                               },
+                      "Stick": {
+                                         "BOMB_RLS": {
+                                                                 "api_variant": "momentary_last_position",
+                                                                    "category": "Stick",
+                                                                "control_type": "selector",
+                                                                 "description": "Button B2 BOMB",
+                                                                  "identifier": "BOMB_RLS",
+                                                                      "inputs": [ {
+                                                                                    "description": "switch to previous or next state",
+                                                                                      "interface": "fixed_step"
+                                                                                }, {
+                                                                                    "description": "set position",
+                                                                                      "interface": "set_state",
+                                                                                      "max_value": 1
+                                                                                }, {
+                                                                                       "argument": "TOGGLE",
+                                                                                    "description": "Toggle switch state",
+                                                                                      "interface": "action"
+                                                                                } ],
+                                                         "momentary_positions": "none",
+                                                                     "outputs": [ {
+                                                                                        "address": 16900,
+                                                                                    "description": "selector position",
+                                                                                           "mask": 2,
+                                                                                      "max_value": 1,
+                                                                                       "shift_by": 1,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ],
+                                                            "physical_variant": "push_button"
+                                                     },
+                                   "CANNON_TRIGGER": {
+                                                                 "api_variant": "momentary_last_position",
+                                                                    "category": "Stick",
+                                                                "control_type": "selector",
+                                                                 "description": "Button B1 CANNON Trigger",
+                                                                  "identifier": "CANNON_TRIGGER",
+                                                                      "inputs": [ {
+                                                                                    "description": "switch to previous or next state",
+                                                                                      "interface": "fixed_step"
+                                                                                }, {
+                                                                                    "description": "set position",
+                                                                                      "interface": "set_state",
+                                                                                      "max_value": 1
+                                                                                }, {
+                                                                                       "argument": "TOGGLE",
+                                                                                    "description": "Toggle switch state",
+                                                                                      "interface": "action"
+                                                                                } ],
+                                                         "momentary_positions": "none",
+                                                                     "outputs": [ {
+                                                                                        "address": 16900,
+                                                                                    "description": "selector position",
+                                                                                           "mask": 1,
+                                                                                      "max_value": 1,
+                                                                                       "shift_by": 0,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ],
+                                                            "physical_variant": "push_button"
+                                                     },
+                                       "MG_TRIGGER": {
+                                                                 "api_variant": "momentary_last_position",
+                                                                    "category": "Stick",
+                                                                "control_type": "selector",
+                                                                 "description": "Button A MG Trigger",
+                                                                  "identifier": "MG_TRIGGER",
+                                                                      "inputs": [ {
+                                                                                    "description": "switch to previous or next state",
+                                                                                      "interface": "fixed_step"
+                                                                                }, {
+                                                                                    "description": "set position",
+                                                                                      "interface": "set_state",
+                                                                                      "max_value": 1
+                                                                                }, {
+                                                                                       "argument": "TOGGLE",
+                                                                                    "description": "Toggle switch state",
+                                                                                      "interface": "action"
+                                                                                } ],
+                                                         "momentary_positions": "none",
+                                                                     "outputs": [ {
+                                                                                        "address": 16898,
+                                                                                    "description": "selector position",
+                                                                                           "mask": 32768,
+                                                                                      "max_value": 1,
+                                                                                       "shift_by": 15,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ],
+                                                            "physical_variant": "push_button"
+                                                     },
+                                     "MK108_CHARGE": {
+                                                                 "api_variant": "momentary_last_position",
+                                                                    "category": "Stick",
+                                                                "control_type": "selector",
+                                                                 "description": "Button D MK 108",
+                                                                  "identifier": "MK108_CHARGE",
+                                                                      "inputs": [ {
+                                                                                    "description": "switch to previous or next state",
+                                                                                      "interface": "fixed_step"
+                                                                                }, {
+                                                                                    "description": "set position",
+                                                                                      "interface": "set_state",
+                                                                                      "max_value": 1
+                                                                                }, {
+                                                                                       "argument": "TOGGLE",
+                                                                                    "description": "Toggle switch state",
+                                                                                      "interface": "action"
+                                                                                } ],
+                                                         "momentary_positions": "none",
+                                                                     "outputs": [ {
+                                                                                        "address": 16900,
+                                                                                    "description": "selector position",
+                                                                                           "mask": 4,
+                                                                                      "max_value": 1,
+                                                                                       "shift_by": 2,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ],
+                                                            "physical_variant": "push_button"
+                                                     },
+                                       "TRG_SAFETY": {
+                                                                    "category": "Stick",
+                                                                "control_type": "selector",
+                                                                 "description": "Trigger Safety Cover",
+                                                                  "identifier": "TRG_SAFETY",
+                                                                      "inputs": [ {
+                                                                                    "description": "switch to previous or next state",
+                                                                                      "interface": "fixed_step"
+                                                                                }, {
+                                                                                    "description": "set position",
+                                                                                      "interface": "set_state",
+                                                                                      "max_value": 1
+                                                                                }, {
+                                                                                       "argument": "TOGGLE",
+                                                                                    "description": "Toggle switch state",
+                                                                                      "interface": "action"
+                                                                                } ],
+                                                         "momentary_positions": "none",
+                                                                     "outputs": [ {
+                                                                                        "address": 16898,
+                                                                                    "description": "selector position",
+                                                                                           "mask": 16384,
+                                                                                      "max_value": 1,
+                                                                                       "shift_by": 14,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                                                } ],
+                                                            "physical_variant": "toggle_switch"
+                                                     }
                                },
                  "Tail Wheel": {
                                    "TAIL_LOCK": {
                                                             "api_variant": "momentary_last_position",
                                                                "category": "Tail Wheel",
                                                            "control_type": "selector",
-                                                            "description": "Tail Wheel Lock",
+                                                            "description": "Tail Wheel Lock Handle",
                                                              "identifier": "TAIL_LOCK",
                                                                  "inputs": [ {
                                                                                "description": "switch to previous or next state",
@@ -3745,64 +3874,6 @@
                                                       }
                                },
              "Weapon Control": {
-                                             "BOMB_RLS": {
-                                                                        "category": "Weapon Control",
-                                                                    "control_type": "selector",
-                                                                     "description": "Button B2 BOMB",
-                                                                      "identifier": "BOMB_RLS",
-                                                                          "inputs": [ {
-                                                                                        "description": "switch to previous or next state",
-                                                                                          "interface": "fixed_step"
-                                                                                    }, {
-                                                                                        "description": "set position",
-                                                                                          "interface": "set_state",
-                                                                                          "max_value": 1
-                                                                                    }, {
-                                                                                           "argument": "TOGGLE",
-                                                                                        "description": "Toggle switch state",
-                                                                                          "interface": "action"
-                                                                                    } ],
-                                                             "momentary_positions": "none",
-                                                                         "outputs": [ {
-                                                                                            "address": 16900,
-                                                                                        "description": "selector position",
-                                                                                               "mask": 2,
-                                                                                          "max_value": 1,
-                                                                                           "shift_by": 1,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ],
-                                                                "physical_variant": "limited_rotary"
-                                                         },
-                                       "CANNON_TRIGGER": {
-                                                                        "category": "Weapon Control",
-                                                                    "control_type": "selector",
-                                                                     "description": "Button B1 CANNON",
-                                                                      "identifier": "CANNON_TRIGGER",
-                                                                          "inputs": [ {
-                                                                                        "description": "switch to previous or next state",
-                                                                                          "interface": "fixed_step"
-                                                                                    }, {
-                                                                                        "description": "set position",
-                                                                                          "interface": "set_state",
-                                                                                          "max_value": 1
-                                                                                    }, {
-                                                                                           "argument": "TOGGLE",
-                                                                                        "description": "Toggle switch state",
-                                                                                          "interface": "action"
-                                                                                    } ],
-                                                             "momentary_positions": "none",
-                                                                         "outputs": [ {
-                                                                                            "address": 16900,
-                                                                                        "description": "selector position",
-                                                                                               "mask": 1,
-                                                                                          "max_value": 1,
-                                                                                           "shift_by": 0,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ],
-                                                                "physical_variant": "limited_rotary"
-                                                         },
                                            "FUSING_SEL": {
                                                                         "category": "Weapon Control",
                                                                     "control_type": "selector",
@@ -3829,9 +3900,10 @@
                                                                 "physical_variant": "limited_rotary"
                                                          },
                                           "GUN_CAM_TRG": {
+                                                                     "api_variant": "momentary_last_position",
                                                                         "category": "Weapon Control",
                                                                     "control_type": "selector",
-                                                                     "description": "Button T",
+                                                                     "description": "Button T Gun Camera Trigger",
                                                                       "identifier": "GUN_CAM_TRG",
                                                                           "inputs": [ {
                                                                                         "description": "switch to previous or next state",
@@ -3855,65 +3927,7 @@
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ],
-                                                                "physical_variant": "limited_rotary"
-                                                         },
-                                           "MG_TRIGGER": {
-                                                                        "category": "Weapon Control",
-                                                                    "control_type": "selector",
-                                                                     "description": "Button A MG",
-                                                                      "identifier": "MG_TRIGGER",
-                                                                          "inputs": [ {
-                                                                                        "description": "switch to previous or next state",
-                                                                                          "interface": "fixed_step"
-                                                                                    }, {
-                                                                                        "description": "set position",
-                                                                                          "interface": "set_state",
-                                                                                          "max_value": 1
-                                                                                    }, {
-                                                                                           "argument": "TOGGLE",
-                                                                                        "description": "Toggle switch state",
-                                                                                          "interface": "action"
-                                                                                    } ],
-                                                             "momentary_positions": "none",
-                                                                         "outputs": [ {
-                                                                                            "address": 16898,
-                                                                                        "description": "selector position",
-                                                                                               "mask": 32768,
-                                                                                          "max_value": 1,
-                                                                                           "shift_by": 15,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ],
-                                                                "physical_variant": "limited_rotary"
-                                                         },
-                                         "MK108_CHARGE": {
-                                                                        "category": "Weapon Control",
-                                                                    "control_type": "selector",
-                                                                     "description": "Button D MK 108",
-                                                                      "identifier": "MK108_CHARGE",
-                                                                          "inputs": [ {
-                                                                                        "description": "switch to previous or next state",
-                                                                                          "interface": "fixed_step"
-                                                                                    }, {
-                                                                                        "description": "set position",
-                                                                                          "interface": "set_state",
-                                                                                          "max_value": 1
-                                                                                    }, {
-                                                                                           "argument": "TOGGLE",
-                                                                                        "description": "Toggle switch state",
-                                                                                          "interface": "action"
-                                                                                    } ],
-                                                             "momentary_positions": "none",
-                                                                         "outputs": [ {
-                                                                                            "address": 16900,
-                                                                                        "description": "selector position",
-                                                                                               "mask": 4,
-                                                                                          "max_value": 1,
-                                                                                           "shift_by": 2,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ],
-                                                                "physical_variant": "limited_rotary"
+                                                                "physical_variant": "push_button"
                                                          },
                                             "MK108_R21": {
                                                                         "category": "Weapon Control",
@@ -3978,7 +3992,7 @@
                                                               "api_variant": "multiturn",
                                                                  "category": "Weapon Control",
                                                              "control_type": "analog_dial",
-                                                              "description": "Left Ammo Counter Setter Pinion",
+                                                              "description": "Left SZ 500 Ammo Counter Setter Pinion",
                                                                "identifier": "SZKK3_AMMO_LEFT",
                                                                    "inputs": [ {
                                                                                     "description": "turn the dial left or right",
@@ -4000,7 +4014,7 @@
                                                               "api_variant": "multiturn",
                                                                  "category": "Weapon Control",
                                                              "control_type": "analog_dial",
-                                                              "description": "Right Ammo Counter Setter Pinion",
+                                                              "description": "Right SZ 500 Ammo Counter Setter Pinion",
                                                                "identifier": "SZKK3_AMMO_RIGHT",
                                                                    "inputs": [ {
                                                                                     "description": "turn the dial left or right",
@@ -4021,7 +4035,7 @@
                                     "SZKK3_CTRL_ON_OFF": {
                                                                         "category": "Weapon Control",
                                                                     "control_type": "selector",
-                                                                     "description": "SZKK 3 Weapon Control On/Off",
+                                                                     "description": "SZKK 3 Weapon Control Master Switch On/Off",
                                                                       "identifier": "SZKK3_CTRL_ON_OFF",
                                                                           "inputs": [ {
                                                                                         "description": "switch to previous or next state",
@@ -4042,35 +4056,6 @@
                                                                                                "mask": 1024,
                                                                                           "max_value": 1,
                                                                                            "shift_by": 10,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ],
-                                                                "physical_variant": "limited_rotary"
-                                                         },
-                                           "TRG_SAFETY": {
-                                                                        "category": "Weapon Control",
-                                                                    "control_type": "selector",
-                                                                     "description": "Trigger Safety Cover",
-                                                                      "identifier": "TRG_SAFETY",
-                                                                          "inputs": [ {
-                                                                                        "description": "switch to previous or next state",
-                                                                                          "interface": "fixed_step"
-                                                                                    }, {
-                                                                                        "description": "set position",
-                                                                                          "interface": "set_state",
-                                                                                          "max_value": 1
-                                                                                    }, {
-                                                                                           "argument": "TOGGLE",
-                                                                                        "description": "Toggle switch state",
-                                                                                          "interface": "action"
-                                                                                    } ],
-                                                             "momentary_positions": "none",
-                                                                         "outputs": [ {
-                                                                                            "address": 16898,
-                                                                                        "description": "selector position",
-                                                                                               "mask": 16384,
-                                                                                          "max_value": 1,
-                                                                                           "shift_by": 14,
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ],
@@ -4108,7 +4093,7 @@
                                           "WNG_DRP_OFF": {
                                                                         "category": "Weapon Control",
                                                                     "control_type": "selector",
-                                                                     "description": "Wing / Drop Ordnance Off",
+                                                                     "description": "Wing / Drop Ordnance CB Off",
                                                                       "identifier": "WNG_DRP_OFF",
                                                                           "inputs": [ {
                                                                                         "description": "switch to previous or next state",
@@ -4132,13 +4117,13 @@
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ],
-                                                                "physical_variant": "limited_rotary"
+                                                                "physical_variant": "toggle_switch"
                                                          },
                                            "WNG_DRP_ON": {
                                                                      "api_variant": "momentary_last_position",
                                                                         "category": "Weapon Control",
                                                                     "control_type": "selector",
-                                                                     "description": "Wing / Drop Ordnance On",
+                                                                     "description": "Wing / Drop Ordnance CB On",
                                                                       "identifier": "WNG_DRP_ON",
                                                                           "inputs": [ {
                                                                                         "description": "switch to previous or next state",
@@ -4167,7 +4152,7 @@
                                        "WNG_DRP_ON_OFF": {
                                                                         "category": "Weapon Control",
                                                                     "control_type": "selector",
-                                                                     "description": "Wing / Drop Ordnance On/Off",
+                                                                     "description": "Wing / Drop Ordnance CB On/Off",
                                                                       "identifier": "WNG_DRP_ON_OFF",
                                                                           "inputs": [ {
                                                                                         "description": "switch to previous or next state",
@@ -4191,7 +4176,7 @@
                                                                                              "suffix": "",
                                                                                                "type": "integer"
                                                                                     } ],
-                                                                "physical_variant": "limited_rotary"
+                                                                "physical_variant": "toggle_switch"
                                                          }
                                }
 }
