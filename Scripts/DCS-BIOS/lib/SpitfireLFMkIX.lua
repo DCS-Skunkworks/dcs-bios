@@ -13,13 +13,14 @@ local defineRotary = BIOS.util.defineRotary
 local defineTumb = BIOS.util.defineTumb
 local defineFixedStepTumb = BIOS.util.defineFixedStepTumb
 local definePushButton = BIOS.util.definePushButton
+local defineToggleSwitch = BIOS.util.defineToggleSwitch
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
 -- remove Arg# Pilot 165
 
 --Oxygen Apparatus Controls
 defineTumb("OXY_VALVE", 3, 3003, 13, 1, {0, 1}, nil, false, "Cockpit", "Oxygen Valve")  
-defineTumb("SAFETY",5, 3001, 3, 1, {0, 1}, nil, false, "Weapons", "Safety Lever")
+defineToggleSwitch("SAFETY",5, 3001, 3, "Weapons", "Safety Lever")
 definePushButton("BUTTON_MG",5, 3003, 4, "Weapons", "MG Trigger")
 definePushButton("BUTTON_CAN",5, 3004, 5, "Weapons", "Cannons Trigger")
 definePushButton("BUTTON_LINKED",5, 3005, 6, "Weapons", "MG+Cannons Trigger")
@@ -31,17 +32,17 @@ defineRotary("DI",1, 3041, 32, "Cockpit", "Directional Gyro Adjust")
 definePushButton("FUEL_GAUGE",1, 3005, 44, "Cockpit", "Show Fuel Contents")
 defineTumb("NAV_LIGHTS",1, 3007, 46, 1, {0, 1}, nil, false, "Lights", "Nav. Lights On/Off")
 defineTumb("FLAPS", 1, 3009, 47, 1, {0, 1}, nil, false, "Cockpit", "Landing Flaps Up/Down")  
-defineTumb("UC_BLIND", 1, 3011, 50, 1, {0, 1}, nil, false, "Cockpit", "U/C Indicator Blind Up/Down")  
+defineToggleSwitch("UC_BLIND", 1, 3011, 50, "Cockpit", "U/C Indicator Blind Up/Down")  
 definePushButton("CLK_PINION_PULL", 17, 3006, 54, "Cockpit", "Winding/Adjustment Clock Pull out.")  
 defineRotary("CLK_PINION", 17, 3004, 55, "Cockpit", "Winding/Adjustment Clock")  
-defineTumb("MAGNETO0",2, 3015, 56, 1, {0, 1}, nil, false, "Engine", "No. 1 Magneto On/Off")
-defineTumb("MAGNETO1",2, 3017, 57, 1, {0, 1}, nil, false, "Engine", "No. 2 Magneto On/Off")
+defineToggleSwitch("MAGNETO0",2, 3015, 56, "Engine", "No. 1 Magneto On/Off")
+defineToggleSwitch("MAGNETO1",2, 3017, 57, "Engine", "No. 2 Magneto On/Off")
 defineTumb("BLOWER",2, 3019, 58, 1, {0, 1}, nil, false, "Engine", "Supercharger Mode Auto/M.S.")
 definePotentiometer("PITLITE_LH",4, 3001, 60, {0, 1}, "Lights", "Port Flood Lamp Brightness")
 definePotentiometer("PITLITE_RH",4, 3004, 61, {0, 1}, "Lights", "Stbd. Flood Lamp Brightness")
-defineTumb("STARTER_COVER",2, 3021, 64, 1, {0, 1}, nil, false, "Engine", "Starter Button Cover")
+defineToggleSwitch("STARTER_COVER",2, 3021, 64, "Engine", "Starter Button Cover")
 definePushButton("STARTER",2, 3023, 65, "Engine", "Starter")
-defineTumb("BOOSTER_COVER",2, 3025, 66, 1, {0, 1}, nil, false, "Engine", "Booster Coil Button Cover")
+defineToggleSwitch("BOOSTER_COVER",2, 3025, 66, "Engine", "Booster Coil Button Cover")
 defineTumb("BOOSTER",2, 3027, 67, 1, {0, 1}, nil, false, "Engine", "Booster Coil")
 definePotentiometer("PRIMER_TURN",2, 3029, 68, {0, 1}, "Engine", "Primer Pump Turn")
 definePushButton("PRIMER_PULL",2, 3030, 69, "Engine", "Primer Pump Pull")
@@ -61,12 +62,12 @@ definePotentiometer("RTRIM_WHEEL",1,3044, 146, {-1, 1},"Controls", "Rudder Trim"
 
 -- Radio Remote Channel Switcher
 defineTumb("RCTRL_OFF", 15, 3001, 115, 1, {0, 1}, nil, false, "Radio", "Radio Power OFF")
-defineTumb("RCTRL_A", 15, 3002, 116, 1, {0, 1}, nil, false, "Radio", "Radio Channel A")
-defineTumb("RCTRL_B", 15, 3003, 117, 1, {0, 1}, nil, false, "Radio", "Radio Channel B")
-defineTumb("RCTRL_C", 15, 3004, 118, 1, {0, 1}, nil, false, "Radio", "Radio Channel C")
-defineTumb("RCTRL_D", 15, 3005, 119, 1, {0, 1}, nil, false, "Radio", "Radio Channel D")
+defineToggleSwitch("RCTRL_A", 15, 3002, 116, "Radio", "Radio Channel A")
+defineToggleSwitch("RCTRL_B", 15, 3003, 117, "Radio", "Radio Channel B")
+defineToggleSwitch("RCTRL_C", 15, 3004, 118, "Radio", "Radio Channel C")
+defineToggleSwitch("RCTRL_D", 15, 3005, 119, "Radio", "Radio Channel D")
 defineTumb("RCTRL_DIM",15, 3006, 125, 1, {0, 1}, nil, false, "Radio", "Radio Channel Dimmer")
-defineTumb("RCTRL_TLOCK",15, 3017, 155, 1, {0, 1}, nil, false, "Radio", "Switch Locking Lever")
+defineToggleSwitch("RCTRL_TLOCK",15, 3017, 155, "Radio", "Switch Locking Lever")
 defineSpringloaded_3PosTumb("RCTRL_T_MODE", 15, 3008, 3007, 156, "Radio", "Radio Mode Switch")
 -- Throttle Quadrant
 definePushButton("BUTTON_BOMB",5, 3015, 128, "Weapons", "Drop Bombs")
@@ -77,11 +78,11 @@ defineTumb("RADIATOR",1, 3033, 133, 1, {0, 1}, nil, false, "Engine", "Radiator F
 defineTumb("PITOT",1, 3035, 134, 1, {0, 1}, nil, false, "Engine", "Pitot Heating On/Off")
 defineTumb("FUEL_PUMP",2, 3043, 135, 1, {0, 1}, nil, false, "Engine", "Fuel Pump On/Off")
 defineTumb("CARB_AIR", 2, 3045, 137, 1, {0, 1}, nil, false, "Engine", "Carburettor Air Control")
-defineTumb("DILUTER_COVER",2, 3051, 157, 1, {0, 1}, nil, false, "Engine", "Oil Dilution Button Cover")
+defineToggleSwitch("DILUTER_COVER",2, 3051, 157, "Engine", "Oil Dilution Button Cover")
 definePushButton("DILUTER",2, 3053, 158, "Engine", "Oil Dilution")
-defineTumb("MS_TEST_COVER",2, 3055, 159, 1, {0, 1}, nil, false, "Engine", "Supercharger Test Button Cover")
+defineToggleSwitch("MS_TEST_COVER",2, 3055, 159, "Engine", "Supercharger Test Button Cover")
 definePushButton("MS_TEST",2, 3057, 160, "Engine", "Supercharger Test")
-defineTumb("RAD_TEST_COVER",2, 3059, 161, 1, {0, 1}, nil, false, "Engine", "Radiator Test Button Cover")
+defineToggleSwitch("RAD_TEST_COVER",2, 3059, 161, "Engine", "Radiator Test Button Cover")
 definePushButton("RAD_TEST",2, 3061, 162, "Engine", "Radiator Test")
 
 -- Stbd. Wall
@@ -98,7 +99,7 @@ defineTumb("MORSE_KEY",4, 3015, 94, 1, {0, 1}, nil, false, "Lights", "Morse Key"
 -- I.F.F. Control Box
 defineTumb("IFF_B",4, 3017, 106, 1, {0, 1}, nil, false, "Radio", "I.F.F. Circuit B")
 defineTumb("IFF_D",4, 3019, 107, 1, {0, 1}, nil, false, "Radio", "I.F.F. Circuit D")
-defineTumb("IFF_COVER",4, 3021, 108, 1, {0, 1}, nil, false, "Radio", "I.F.F. Cover Open/Close")
+defineToggleSwitch("IFF_COVER",4, 3021, 108, "Radio", "I.F.F. Cover Open/Close")
 definePushButton("IFF_0",4, 3023, 109, "Radio", "I.F.F. Detonate Button 1")
 definePushButton("IFF_1",4, 3025, 110, "Radio", "I.F.F. Detonate Button 2")
 

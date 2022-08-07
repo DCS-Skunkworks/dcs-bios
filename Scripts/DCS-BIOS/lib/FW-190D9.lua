@@ -19,12 +19,12 @@ local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 --remove Arg# Pilot 540
 
 defineRotary("RAD_FLAP_CTRL",8, 3013, 159, "Cockpit", "Radiator Flaps Control")
-defineToggleSwitch("STARTER_CVR",2, 3006, 104, 1, {0, 1}, nil, false, "Cockpit", "Starter Switch Cover")
-defineToggleSwitch("MW50_SWITCH",2, 3015,85, 1, {0, 1}, nil, false, "Cockpit", "MW-50 Switch")
-defineToggleSwitch("EL_KILL",1, 3031, 79, 1, {0, 1}, nil, false, "Cockpit", "Electric Kill-switch")
-defineToggleSwitch("EMG_EQ_DEST",1, 3032, 163, 1, {0, 1}, nil, false, "Cockpit", "Emergency Equipment Destruction")
-defineToggleSwitch("CIRC_BR_CVR",1, 3001,138, 1, {0, 1}, nil, false, "Cockpit", "Circuit Breakers Cover")
-defineToggleSwitch("CANOPY_EMG_REL",3, 3006,115, 1, {0, 1}, nil, false, "Cockpit", "Canopy Emergency Release Handle")
+defineToggleSwitch("STARTER_CVR",2, 3006, 104, "Cockpit", "Starter Switch Cover")
+defineToggleSwitch("MW50_SWITCH",2, 3015,85, "Cockpit", "MW-50 Switch")
+defineToggleSwitch("EL_KILL",1, 3031, 79, "Cockpit", "Electric Kill-switch")
+defineToggleSwitch("EMG_EQ_DEST",1, 3032, 163, "Cockpit", "Emergency Equipment Destruction")
+defineToggleSwitch("CIRC_BR_CVR",1, 3001,138, "Cockpit", "Circuit Breakers Cover")
+defineToggleSwitch("CANOPY_EMG_REL",3, 3006,115, "Cockpit", "Canopy Emergency Release Handle")
 defineRotary("CANOPY_HAND_CRK",3, 3001, 114, "Cockpit", "Canopy Hand Crank")
 defineTumb("THR_LOCK",2, 3011,200, 1, {0, 1}, nil, false, "Cockpit", "Throttle Lock")
 defineRotary("ALT_PRESS_SET",10, 3001, 34, "Cockpit", "Altimeter Pressure Set")
