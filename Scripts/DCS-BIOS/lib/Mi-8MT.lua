@@ -256,7 +256,7 @@ defineToggleSwitch("WPN_LEFT_RS_COVER",12, 3084, 185, "Weapons", "Left Fire RS B
 defineToggleSwitch("WPN_RIGHT_RS_COVER",12, 3085, 228, "Weapons", "Right Fire RS Button Cover, OPEN/CLOSE")
 definePushButton("WPN_LEFT_RS_FIRE",12, 3082, 186, "Weapons", "Left Fire RS Button")
 definePushButton("WPN_RIGHT_RS_FIRE",12, 3083, 229, "Weapons", "Right Fire RS Button")
-defineTumb("WPN_GUN_CAM",12, 3098, 352, "Weapons", "Gun Camera Switch, ON/OFF")
+defineToggleSwitch("WPN_GUN_CAM",12, 3098, 352, "Weapons", "Gun Camera Switch, ON/OFF")
 
 defineToggleSwitch("SAS_FLASH",21, 3005, 523, "SAS", "Flasher Switch, ON/OFF")
 defineToggleSwitch("SAS_TRANS",21, 3006, 525, "SAS", "Transparent Switch, DAY/NIGHT")
@@ -425,7 +425,7 @@ defineToggleSwitch("CMD_PWR",48, 3010, 910, "CMD", "CMD Power Switch, ON/OFF")
 defineToggleSwitch("CMD_FLRS_AMOUNT",48, 3003, 913, "CMD", "CMD Flares Amount Switch, COUNTER/PROGRAMMING")
 
 defineTumb("AC_VOLT_SEL", 1, 3017, 535, 0.1,{ 0, 1}, nil, false, "Electrical system", "AC Voltmeter Selector")
-v("FUEL_METER_SWITCH",2, 3008, 61, 0.1,{0, 0.5}, nil, false,  "FUEL", "Fuel Meter Switch, OFF/SUM/LEFT/RIGHT/FEED/ADDITIONAL")
+defineTumb("FUEL_METER_SWITCH",2, 3008, 61, 0.1,{0, 0.5}, nil, false,  "FUEL", "Fuel Meter Switch, OFF/SUM/LEFT/RIGHT/FEED/ADDITIONAL")
 defineTumb("POD_VAR_SEL",12, 3013, 719, 0.1,{0, 0.5}, nil, false, "PODS", "Pod Variants Selector Switch")
 defineTumb("ESBR_POS",12, 3029, 730, 0.0555,{0, 0.8325}, nil, false, "ESBR", "ESBR Position Selector Switch")
 defineTumb("POD_SEL_SWITH",12, 3042, 347, 0.1,{0, 0.3}, nil, false, "PODS", "In800Out/800inOr624/622 Switch")
