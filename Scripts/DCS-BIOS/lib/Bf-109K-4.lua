@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("Bf-109K-4", 0x4200)
 BIOS.protocol.setExportModuleAircrafts({"Bf-109K-4"})
---by WarLord (aka BlackLibrary) v2.0
+--overhaul by WarLord v2.0
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document  
@@ -18,46 +18,37 @@ local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
 -- remove Arg# Pilot 540
 
-defineToggleSwitch("GEN_ON_OFF", 1, 3075, 114, "Generator", "Generator CB On/Off")
-definePushButton("GEN_ON", 1, 3077, 114, "Generator", "Generator CB On")
-defineToggleSwitch("GEN_OFF", 1, 3092, 151, "Generator", "Generator CB Off")
--- D 100 - Heating CB
-defineToggleSwitch("PIT_HEAT_ON_OFF", 1, 3012, 115, "Pitot", "Pitot/Windscreen Heating CB On/Off")
-definePushButton("PIT_HEAT_ON", 1, 3014, 115, "Pitot", "Pitot/Windscreen Heating CB On")
-defineToggleSwitch("PIT_HEAT_OFF", 1, 3086, 152, "Pitot", "Pitot/Windscreen Heating CB Off")
--- C 100 - Navigation Lights CB
-defineToggleSwitch("NAV_LIGHTS_ON_OFF", 1, 3006, 116, "Lights", "Nav. Lights CB On/Off")
-definePushButton("NAV_LIGHTS_ON", 1, 3008, 116, "Lights", "Nav. Lights CB On")
-defineToggleSwitch("NAV_LIGHTS_OFF", 1, 3084, 153, "Lights", "Nav. Lights CB Off")
--- C 101 - Instrument Panel Illumination CB
-defineToggleSwitch("UV_LIGHTS_ON_OFF", 1, 3009, 117, "Lights", "UV Lights CB On/Off")
-definePushButton("UV_LIGHTS_ON", 1, 3011, 117, "Lights", "UV Lights CB On")
-defineToggleSwitch("UV_LIGHTS_OFF", 1, 3085, 154, "Lights", "UV Lights CB Off")
--- V 101 - Drop Ordnance & Optional Armament CB
-defineToggleSwitch("WNG_DRP_ON_OFF", 1, 3024, 118, "Weapon Control", "Wing / Drop Ordnance CB On/Off")
-definePushButton("WNG_DRP_ON", 1, 3026, 118, "Weapon Control", "Wing / Drop Ordnance CB On")
-defineToggleSwitch("WNG_DRP_OFF", 1, 3090, 155, "Weapon Control", "Wing / Drop Ordnance CB Off")
--- V 100 - Systematic & Ignition CB
-defineToggleSwitch("IGN_ON_OFF", 1, 3003, 119, "Engine", "Ignition CB On/Off")
-definePushButton("IGN_ON", 1, 3005, 119, "Engine", "Ignition CB On")
-defineToggleSwitch("IGN_OFF", 1, 3083, 156, "Engine", "Ignition CB Off")
--- Right Row
--- A 101 - Battery Cut-Off Relay
-defineToggleSwitch("BAT_ON_OFF", 1, 3078, 120, "Engine", "Battery CB On/Off")
-definePushButton("BAT_ON", 1, 3080, 120, "Engine", "Battery CB On")
-defineToggleSwitch("BAT_OFF", 1, 3093, 157, "Engine", "Battery CB Off")
--- F 135 - Radio CB - Labelled "FuG 16"
-defineToggleSwitch("RADIO_ON_OFF", 1, 3018, 121, "Radio", "Radio CB On/Off")
-definePushButton("RADIO_ON", 1, 3020, 121, "Radio", "Radio CB On")
-defineToggleSwitch("RADIO_OFF", 1, 3088, 158, "Radio", "Radio CB Off")
--- F 211 - IFF CB - Labelled "FuG 25a"
-defineToggleSwitch("IFF_ON_OFF", 1, 3021, 122, "Radio", "I.F.F. Power CB On/Off")
-definePushButton("IFF_ON", 1, 3023, 122, "Radio", "I.F.F. Power CB On")
-defineToggleSwitch("IFF_OFF", 1, 3089, 159, "Radio", "I.F.F. Power CB Off")
--- E 101 - Fuel Pump CB - Labelled "Tankpumpe"
-defineToggleSwitch("FUEL_ON_OFF", 1, 3015, 123, "Engine", "Fuel Pump CB On/Off")
-definePushButton("FUEL_ON", 1, 3017, 123, "Engine", "Fuel Pump CB On")
-defineToggleSwitch("FUEL_OFF", 1, 3087, 160, "Engine", "Fuel Pump CB Off")
+--CB
+defineToggleSwitch("GEN_ON_OFF", 1, 3075, 114, "Circuit Breakers", "Generator CB On/Off")
+defineToggleSwitch("GEN_ON", 1, 3077, 114, "Circuit Breakers", "Generator CB On")
+definePushButton("GEN_OFF", 1, 3092, 151, "Circuit Breakers", "Generator CB Off")
+defineToggleSwitch("PIT_HEAT_ON_OFF", 1, 3012, 115, "Circuit Breakers", "Pitot/Windscreen Heating CB On/Off")
+defineToggleSwitch("PIT_HEAT_ON", 1, 3014, 115, "Circuit Breakers", "Pitot/Windscreen Heating CB On")
+definePushButton("PIT_HEAT_OFF", 1, 3086, 152, "Circuit Breakers", "Pitot/Windscreen Heating CB Off")
+defineToggleSwitch("NAV_LIGHTS_ON_OFF", 1, 3006, 116, "Circuit Breakers", "Nav. Lights CB On/Off")
+defineToggleSwitch("NAV_LIGHTS_ON", 1, 3008, 116, "Circuit Breakers", "Nav. Lights CB On")
+definePushButton("NAV_LIGHTS_OFF", 1, 3084, 153, "Circuit Breakers", "Nav. Lights CB Off")
+defineToggleSwitch("UV_LIGHTS_ON_OFF", 1, 3009, 117, "Circuit Breakers", "UV Lights CB On/Off")
+defineToggleSwitch("UV_LIGHTS_ON", 1, 3011, 117, "Circuit Breakers", "UV Lights CB On")
+definePushButton("UV_LIGHTS_OFF", 1, 3085, 154, "Circuit Breakers", "UV Lights CB Off")
+defineToggleSwitch("WNG_DRP_ON_OFF", 1, 3024, 118, "Circuit Breakers", "Wing / Drop Ordnance CB On/Off")
+defineToggleSwitch("WNG_DRP_ON", 1, 3026, 118, "Circuit Breakers", "Wing / Drop Ordnance CB On")
+definePushButton("WNG_DRP_OFF", 1, 3090, 155, "Circuit Breakers", "Wing / Drop Ordnance CB Off")
+defineToggleSwitch("IGN_ON_OFF", 1, 3003, 119, "Circuit Breakers", "Ignition CB On/Off")
+defineToggleSwitch("IGN_ON", 1, 3005, 119, "Circuit Breakers", "Ignition CB On")
+definePushButton("IGN_OFF", 1, 3083, 156, "Circuit Breakers", "Ignition CB Off")
+defineToggleSwitch("BAT_ON_OFF", 1, 3078, 120, "Circuit Breakers", "Battery CB On/Off")
+defineToggleSwitch("BAT_ON", 1, 3080, 120, "Circuit Breakers", "Battery CB On")
+definePushButton("BAT_OFF", 1, 3093, 157, "Circuit Breakers", "Battery CB Off")
+defineToggleSwitch("RADIO_ON_OFF", 1, 3018, 121, "Circuit Breakers", "Radio CB On/Off")
+defineToggleSwitch("RADIO_ON", 1, 3020, 121, "Circuit Breakers", "Radio CB On")
+definePushButton("RADIO_OFF", 1, 3088, 158, "Circuit Breakers", "Radio CB Off")
+defineToggleSwitch("IFF_ON_OFF", 1, 3021, 122, "Circuit Breakers", "I.F.F. Power CB On/Off")
+defineToggleSwitch("IFF_ON", 1, 3023, 122, "Circuit Breakers", "I.F.F. Power CB On")
+definePushButton("IFF_OFF", 1, 3089, 159, "Circuit Breakers", "I.F.F. Power CB Off")
+defineToggleSwitch("FUEL_ON_OFF", 1, 3015, 123, "Circuit Breakers", "Fuel Pump CB On/Off")
+defineToggleSwitch("FUEL_ON", 1, 3017, 123, "Circuit Breakers", "Fuel Pump CB On")
+definePushButton("FUEL_OFF", 1, 3087, 160, "Circuit Breakers", "Fuel Pump CB Off")
 
 -- Control Stick Triggers and Buttons
 defineToggleSwitch("TRG_SAFETY", 1, 3073, 107, "Stick", "Trigger Safety Cover")
@@ -68,29 +59,19 @@ definePushButton("MK108_CHARGE", 1, 3055, 111, "Stick", "Button D MK 108")
 
 -- Ignition Controls and Starter and Motor-Related Switches
 defineTumb("MAGNETOS", 1, 3066, 59, 0.1, {0,0.3}, nil, false, "Engine", "Magnetos Off/M1/M2/M1+M2")
-defineTumb("STARTER_HNDL_CVR", 1, 3063, 51, 1, {0, 1}, nil, false, "Engine", "Starter Handle Cover")
+defineToggleSwitch("STARTER_HNDL_CVR", 1, 3063, 51, "Engine", "Starter Handle Cover")
 definePushButton("STARTER_HNDL", 1, 3065, 52, "Engine", "Starter Turn Handle")
--- WM-Kommandgerat Toggle
-defineTumb("GOV_ON_OFF", 1, 3058, 62, 1, {0, 1}, nil, false, "Engine", "Governor Automation On/Off")
--- Dashboard and Secondary Switches
--- A 104 - Kill Switch
-defineTumb("KILL_SWITCH", 1, 3001, 49, 1, {0, 1}, nil, false, "Engine", "Kill Switch")
+defineToggleSwitch("GOV_ON_OFF", 1, 3058, 62, "Engine", "Governor Automation On/Off")
+defineToggleSwitch("KILL_SWITCH", 1, 3001, 49, "Engine", "Kill Switch")
 
 definePushButton("GUN_CAM_TRG", 1, 3054, 149, "Weapon Control", "Button T Gun Camera Trigger")
-defineTumb("SZKK3_CTRL_ON_OFF", 1, 3032, 37, 1, {0, 1}, nil, false, "Weapon Control", "SZKK 3 Weapon Control Master Switch On/Off")
+defineToggleSwitch("SZKK3_CTRL_ON_OFF", 1, 3032, 37, "Weapon Control", "SZKK 3 Weapon Control Master Switch On/Off")
 defineRotary("SZKK3_AMMO_LEFT", 3, 3001, 38, "Weapon Control", "Left SZ 500 Ammo Counter Setter Pinion")
 defineRotary("SZKK3_AMMO_RIGHT", 3, 3004, 39, "Weapon Control", "Right SZ 500 Ammo Counter Setter Pinion")
 
--- MW50 Operational Toggle
-defineTumb("MW50_BOOST", 1, 3036, 60, 1, {0, 1}, nil, false, "Engine", "MW50 Boost On/Off")
--- Wing Cannons Toggle
-defineTumb("WNG_CANNONS_ON_OFF", 1, 3034, 61, 1, {0, 1}, nil, false, "Weapon Control", "Wing Cannons On/Off")
--- MK 108 / Wing Guns Toggle
-defineTumb("MK108_R21", 1, 3081, 62, 1, {0, 1}, nil, false, "Weapon Control", "MK 108 / R 21")
-
--- R 101 ZSK 244 A Bomb Panel Master Switch
--- Operated internally via ZSK 244 A Mode Control
--- R 101 ZSK 244 A Mode Selector
+defineToggleSwitch("MW50_BOOST", 1, 3036, 60, "Engine", "MW50 Boost On/Off")
+defineToggleSwitch("WNG_CANNONS_ON_OFF", 1, 3034, 61, "Weapon Control", "Wing Cannons On/Off")
+defineToggleSwitch("MK108_R21", 1, 3081, 62, "Weapon Control", "MK 108 / R 21 Toggle")
 defineTumb("FUSING_SEL", 3, 3013, 64, 0.25, {0, 1}, nil, false, "Weapon Control", "Bomb Fusing Selector")
 
 -- Illumination Controls
@@ -99,44 +80,26 @@ definePotentiometer("R_UV_BRIGHT", 1, 3041, 82, {0, 1},"Lamps", "Right UV Lamp R
 
 -- Oxygen Apparatus Controls
 definePushButton("OXYGEN_VALVE", 2, 3001, 127, "Oxygen", "Oxygen Valve")
+definePushButton("OXY_BYPASS", 2, 3003, 126, "Oxygen", "Oxygen Shower Button")
 
--- Regulator "Oxygen Shower" Blue Button
-defineTumb("OXY_BYPASS", 2, 3003, 126, 1, {0, 1}, nil, false, "Oxygen", "Oxygen Emergency By-Pass")
---
 -- Main Panel Controls
--- Undercarriage Controls
--- U/C Plungers Cover
 defineToggleSwitch("LG_COVER", 4, 3039, 53, "Landing Gear", "Undercarriage Controls Cover")
--- U/C Raise Plunger
-defineTumb("LG_UP", 4, 3001, 54, 1,  {0, 1.0}, nil, false, "Landing Gear", "Raise Undercarriage")
--- U/C Extension Plunger
-defineTumb("LG_DOWN", 4, 3002, 55, 1,  {0, 1.0}, nil, false, "Landing Gear", "Lower Undercarriage")
-
+defineToggleSwitch("LG_UP", 4, 3001, 54, "Landing Gear", "Raise Undercarriage")
+defineToggleSwitch("LG_DOWN", 4, 3002, 55, "Landing Gear", "Lower Undercarriage")
 definePushButton("LG_EMG_RLS", 4, 3004, 63, "Landing Gear", "Undercarriage Emergency Release")
--- U/C Locks Release Pull Handle
 
--- Stoff-Kraftstoff Ventilbatterie Lever
 definePushButton("FUEL_MW_VALVE", 4, 3027, 96, "Engine", "MW / Fuel")
-
--- Fuel Jettison Knob
 definePushButton("FUEL_JETTISON", 4, 3041, 112, "Engine", "MW / Fuel Jettison")
 
-
 -- Fuel and MW50 Systems Controls
--- Fuel Primer Hand Pump
-defineTumb("FUEL_PRIMER_PUMP", 4, 3012, 140, 1, {0, 1}, nil, false, "Engine", "Fuel Priming Pump")
-
--- Schnellstop Lever
+definePushButton("FUEL_PRIMER_PUMP", 4, 3012, 140, "Engine", "Fuel Priming Hand Pump")
 definePushButton("ENGINE_STOP", 5, 3006, 88, "Engine", "Engine Stop")
--- Booster Pumps Lever
 defineTumb("BOOSTER_PUMPS", 4, 3023, 87, 0.1, {0,0.3}, nil, false, "Engine", "Booster Pumps")
+
 -- Coolant System Controls
--- Radiator Mode Lever
-defineTumb("RADIATOR_MODE", 4, 3035, 113, 0.1, {0,0.3}, nil, false, "Engine", "Radiators Mode")
--- LH Radiator Hose Cut-Off Pull Handle
-definePushButton("L_RADIATOR_OFF", 4, 3043, 90, "Engine", "LH Radiator Cut-Off")
--- RH Radiator Hose Cut-Off Pull Handle
-definePushButton("R_RADIATOR_OFF", 4, 3045, 91, "Engine", "RH Radiator Cut-Off")
+defineTumb("RADIATOR_MODE", 4, 3035, 113, 0.1, {0,0.3}, nil, false, "Engine", "Radiators Mode Lever")
+definePushButton("L_RADIATOR_OFF", 4, 3043, 90, "Engine", "LH Radiator Cut-Off Pull Handle")
+definePushButton("R_RADIATOR_OFF", 4, 3045, 91, "Engine", "RH Radiator Cut-Off Pull Handle")
 
 -- Altimeter
 defineRotary("ALT_PRESS_SET", 8, 3001, 11, "Cockpit", "Altimeter Pressure Set")
@@ -148,23 +111,16 @@ definePotentiometer("HORIZON_CAGE", 9,3001, 7, {0, 0.511},"Cockpit", "Horizon Ca
 defineRotary("COURSE_SET", 10, 3001, 12, "Cockpit", "Course Set")
 
 -- Instruments
--- Clock Scale
 defineRotary("CLOCK_SCALE", 19, 3001, 21, "Cockpit", "Clock Scale Set")
--- Clock Setter Pinion
 defineRotary("CLOCK_SET", 19, 3004, 22, "Cockpit", "Clock Adjusting Knob")
--- Clock Freeze Lever
-defineTumb("CLOCK_TIME_LEVER", 19, 3006, 23, 1, {0, 1}, nil, false, "Cockpit", "Time Setting Lever")
--- Clock Stopwatch Button
-defineTumb("CLOCK_TIMER", 19, 3008, 24, 1, {0, 1}, nil, false, "Cockpit", "Start/Stop/Reset Chronometer")
+defineToggleSwitch("CLOCK_TIME_LEVER", 19, 3006, 23, "Cockpit", "Time Setting Lever")
+definePushButton("CLOCK_TIMER", 19, 3008, 24, "Cockpit", "Start/Stop/Reset Chronometer")
 
--- P 112 Gun Sight Brightness Rheostat
+-- Gun Sight 
 definePotentiometer("SIGHT_BRIGHT", 1, 3044, 48, {0, 1}, "Gun Sight", "Gun Sight Brightness")
--- P 9 / P 10 REVI Power Plug and Socket
--- Operated internally via gun sight movement
--- P 112 Gun Sight Folding Controls
-defineTumb("SIGHT_FOLD", 3, 3007, 139, 1, {0, 1}, nil, false, "Gun Sight", "Gun Sight Fold")
--- P 112 Gun Sight Smoked Screen Controls
-definePushButton("SIGHT_SCREEN", 3, 3010, 47, "Gun Sight", "Gun Sight Smoked Screen Up/Down")
+definePushButton("SIGHT_FOLD", 3, 3007, 139, "Gun Sight", "Gun Sight Fold")
+defineToggleSwitch("SIGHT_SCREEN", 3, 3010, 47, "Gun Sight", "Gun Sight Smoked Screen Up/Down")
+
 -- Radio Controls
 defineTumb("RADIO_MODE", 14, 3001, 128, 0.1, {0,0.3}, nil, false, "Radio", "Radio Mode")
 defineRotary("FUG16_TUNING", 14,3008, 129, "Radio", "FuG16 ZY Fine Tune")
@@ -179,22 +135,21 @@ definePushButton("TAIL_LOCK", 4, 3021, 97, "Tail Wheel", "Tail Wheel Lock Handle
 defineToggleSwitch("CANOPY_OPEN", 4, 3029, 136, "Canopy", "Canopy Open/Close")
 definePushButton("JETTISON_CANOPY", 4, 3032, 83, "Canopy", "Jettison Canopy")
 
-defineTumb("TRIM_WHEEL_UP", 4, 3008, 141, 1, {0, 1}, nil, false, "Trim", "Stabilizer Trim Nose Up")
-defineTumb("TRIM_WHEEL_DOWN", 4, 3009, 142, 1, {0, 1}, nil, false, "Trim", "Stabilizer Trim Nose Down")
+definePushButton("TRIM_WHEEL_UP", 4, 3008, 141, "Trim", "Stabilizer Trim Nose Up")
+definePushButton("TRIM_WHEEL_DOWN", 4, 3009, 142, "Trim", "Stabilizer Trim Nose Down")
 
-defineTumb("FLAPS_EXTEND", 4, 3010, 143, 1, {0, 1}, nil, false, "Flaps", "Extend Flaps")
-defineTumb("FLAPS_RETRACT", 4, 3011, 144, 1, {0, 1}, nil, false, "Flaps", "Retract Flaps")
+definePushButton("FLAPS_EXTEND", 4, 3010, 143, "Flaps", "Extend Flaps")
+definePushButton("FLAPS_RETRACT", 4, 3011, 144, "Flaps", "Retract Flaps")
 
 -- Notwurf / Ordinance Dump
 definePushButton("ORD_EMG_DUMP", 3, 3018, 92, "Weapon Control", "Ordinance Emergency Release")
-
 definePushButton("FLARE_GUN", 20, 3001, 72, "Flare Gun", "Flare Gun Trigger")
 
 -- Throttle Lever
 define3PosTumb("DEC_RPM", 1, 3060, 85, "Engine", "Decrease/Increase RPM")
 definePushButton("MIC_ON", 14, 3005, 150, "Radio", "Microphone On")
 
-defineTumb("GOV_AUTO_SWITCH", 1, 3058, 89, 1, {0, 1}, nil, false, "Engine", "Governor Automation On/Off")
+defineToggleSwitch("GOV_AUTO_SWITCH", 1, 3058, 89, "Engine", "Governor Automation On/Off")
 definePushButton("COLD_START", 5, 3008, 86, "Engine", "Cold Weather Start Valve Handle")
 
 defineFloat("MIRRORS_DRAW", 183, {1, 0}, "Indicator", "mirrors_draw")
@@ -329,13 +284,6 @@ end
 defineIntegerFromGetter("ALTITUDE_VALUE", getAltitude, 65000, 
 "Gauge Values", "Altitude Meters")
 
---[[--local function getVariometer()
-     local returnValue = (GetDevice(0):get_argument_value(36))*100
-     return returnValue
-end
-defineIntegerFromGetter("VARIOMETER_VVI_VALUE", getVariometer, 65000, 
-"Gauge Values", "Variometer VVI m/s")--]]--
-
 local function getTachometer()
      local returnValue = (GetDevice(0):get_argument_value(29))*3200+400
      return returnValue
@@ -357,12 +305,6 @@ end
 defineIntegerFromGetter("COMPASS_HEADING_VALUE", getHDG, 65000, 
 "Gauge Values", "Compass Heading")
 
---[[--local function getCRS()
-     local returnValue = (GetDevice(0):get_argument_value(12))*360
-     return returnValue
-end
-defineIntegerFromGetter("COURSE_VALUE", getCRS, 65000, 
-"Gauge Values", "Course")--]]--
 
 --Externals
 defineIntegerFromGetter("EXT_POSITION_LIGHT_LEFT", function()

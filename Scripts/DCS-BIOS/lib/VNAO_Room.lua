@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("VNAO_Room", 0x0500)
 BIOS.protocol.setExportModuleAircrafts({"VNAO_Ready_Room"})
---by WarLord (aka BlackLibrary)
+--by WarLord
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document

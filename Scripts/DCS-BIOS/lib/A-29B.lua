@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("A-29B", 0x8800)
 BIOS.protocol.setExportModuleAircrafts({"A-29B"})
---v 1.1 by WarLord (aka BlackLibrary)
+--v 1.1 by WarLord
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document

@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("L-39", 0x3200)
 BIOS.protocol.setExportModuleAircrafts({"L-39C", "L-39ZA"})
---by WarLord (aka BlackLibrary)
+--by WarLord
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document

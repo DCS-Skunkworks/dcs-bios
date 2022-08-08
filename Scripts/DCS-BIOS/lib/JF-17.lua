@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("JF-17", 0x4800)
 BIOS.protocol.setExportModuleAircrafts({"JF-17"})
--- by WarLord (aka BlackLibrary), Matchstick v1.6
+-- by WarLord,Matchstick v1.6
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document

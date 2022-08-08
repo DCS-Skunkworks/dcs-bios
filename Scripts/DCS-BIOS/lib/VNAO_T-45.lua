@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("VNAO_T-45", 0x9000)
 BIOS.protocol.setExportModuleAircrafts({"T-45"})
---by WarLord (aka BlackLibrary)&Pavidovich
+--by WarLord&Pavidovich
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document

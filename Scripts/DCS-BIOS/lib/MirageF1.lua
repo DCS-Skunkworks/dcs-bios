@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("MirageF1", 0x8600)
 BIOS.protocol.setExportModuleAircrafts({"Mirage-F1CE"})
---by WarLord (aka BlackLibrary) v1.0a
+--by WarLord v1.0a
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document  

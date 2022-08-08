@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("Mosquito", 0x7000)
 BIOS.protocol.setExportModuleAircrafts({"MosquitoFBMkVI"})
---v1.1 by WarLord (aka BlackLibrary)
+--v1.1 by WarLord
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document  

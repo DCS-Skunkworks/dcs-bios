@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("Yak-52", 0x2000)
 BIOS.protocol.setExportModuleAircrafts({"Yak-52"})
---by WarLord (aka BlackLibrary)
+--by WarLord
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document

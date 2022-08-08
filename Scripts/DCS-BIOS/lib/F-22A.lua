@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("F-22A", 0x6600)
 BIOS.protocol.setExportModuleAircrafts({"F-22A"})
---v1.0 by WarLord (aka BlackLibrary)
+--v1.0 by WarLord
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 

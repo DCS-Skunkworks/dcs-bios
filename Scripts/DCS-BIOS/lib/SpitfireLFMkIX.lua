@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("SpitfireLFMkIX", 0x5400)
 BIOS.protocol.setExportModuleAircrafts({"SpitfireLFMkIX", "SpitfireLFMkIXCW"})
-
+--overhaul by WarLord v2.0
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document  
@@ -19,7 +19,7 @@ local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 -- remove Arg# Pilot 165
 
 --Oxygen Apparatus Controls
-defineTumb("OXY_VALVE", 3, 3003, 13, 1, {0, 1}, nil, false, "Cockpit", "Oxygen Valve")  
+defineToggleSwitch("OXY_VALVE", 3, 3003, 13, "Cockpit", "Oxygen Valve")  
 defineToggleSwitch("SAFETY",5, 3001, 3, "Weapons", "Safety Lever")
 definePushButton("BUTTON_MG",5, 3003, 4, "Weapons", "MG Trigger")
 definePushButton("BUTTON_CAN",5, 3004, 5, "Weapons", "Cannons Trigger")
@@ -30,30 +30,30 @@ definePotentiometer("WHEEL_BRAKES",1, 3002, 9, {0, 1}, "Undercarriage", "Wheel B
 defineRotary("ALT_MBAR",1, 3037, 30, "Cockpit", "Altimeter Pressure Set")
 defineRotary("DI",1, 3041, 32, "Cockpit", "Directional Gyro Adjust")
 definePushButton("FUEL_GAUGE",1, 3005, 44, "Cockpit", "Show Fuel Contents")
-defineTumb("NAV_LIGHTS",1, 3007, 46, 1, {0, 1}, nil, false, "Lights", "Nav. Lights On/Off")
-defineTumb("FLAPS", 1, 3009, 47, 1, {0, 1}, nil, false, "Cockpit", "Landing Flaps Up/Down")  
+defineToggleSwitch("NAV_LIGHTS",1, 3007, 46, "Lights", "Nav. Lights On/Off")
+defineToggleSwitch("FLAPS", 1, 3009, 47, "Cockpit", "Landing Flaps Up/Down")  
 defineToggleSwitch("UC_BLIND", 1, 3011, 50, "Cockpit", "U/C Indicator Blind Up/Down")  
 definePushButton("CLK_PINION_PULL", 17, 3006, 54, "Cockpit", "Winding/Adjustment Clock Pull out.")  
 defineRotary("CLK_PINION", 17, 3004, 55, "Cockpit", "Winding/Adjustment Clock")  
 defineToggleSwitch("MAGNETO0",2, 3015, 56, "Engine", "No. 1 Magneto On/Off")
 defineToggleSwitch("MAGNETO1",2, 3017, 57, "Engine", "No. 2 Magneto On/Off")
-defineTumb("BLOWER",2, 3019, 58, 1, {0, 1}, nil, false, "Engine", "Supercharger Mode Auto/M.S.")
+defineToggleSwitch("BLOWER",2, 3019, 58, "Engine", "Supercharger Mode Auto/M.S.")
 definePotentiometer("PITLITE_LH",4, 3001, 60, {0, 1}, "Lights", "Port Flood Lamp Brightness")
 definePotentiometer("PITLITE_RH",4, 3004, 61, {0, 1}, "Lights", "Stbd. Flood Lamp Brightness")
 defineToggleSwitch("STARTER_COVER",2, 3021, 64, "Engine", "Starter Button Cover")
 definePushButton("STARTER",2, 3023, 65, "Engine", "Starter")
 defineToggleSwitch("BOOSTER_COVER",2, 3025, 66, "Engine", "Booster Coil Button Cover")
-defineTumb("BOOSTER",2, 3027, 67, 1, {0, 1}, nil, false, "Engine", "Booster Coil")
+definePushButton("BOOSTER",2, 3027, 67, "Engine", "Booster Coil")
 definePotentiometer("PRIMER_TURN",2, 3029, 68, {0, 1}, "Engine", "Primer Pump Turn")
 definePushButton("PRIMER_PULL",2, 3030, 69, "Engine", "Primer Pump Pull")
-defineTumb("TANK_PRS",2, 3033, 70, 1, {0, 1}, nil, false, "Engine", "Fuel Tank Pressure On/Off")
+defineToggleSwitch("TANK_PRS",2, 3033, 70, "Engine", "Fuel Tank Pressure On/Off")
 defineFixedStepTumb("COMPASS_RING", 1, 3017, 74, 0.00333, {0, 1}, {-0.00333, 0.00333}, nil, "Cockpit", "Compass Course Setter Ring")
 
 -- Gun Sight and Tertiary Weapons Controls
 definePotentiometer("GUNSIGHT_RANGE", 5, 3007, 77, {0, 1},"Weapons", "Gunsight Range")
 definePotentiometer("GUNSIGHT_BASE", 5, 3010, 78, {0, 1},"Weapons", "Gunsight Base")
-defineTumb("GUNSIGHT_TINT", 5, 3016, 79, 1, {0, 1}, nil, false, "Weapons", "Gunsight Tint Screen Up/Down")
-defineTumb("GUNSIGHT_SWITCH",5, 3018, 80, 1, {0, 1}, nil, false, "Weapons", "Gunsight Master On/Off")
+defineToggleSwitch("GUNSIGHT_TINT", 5, 3016, 79, "Weapons", "Gunsight Tint Screen Up/Down")
+defineToggleSwitch("GUNSIGHT_SWITCH",5, 3018, 80, "Weapons", "Gunsight Master On/Off")
 definePotentiometer("GUNSIGHT_DIMMER",5, 3020, 81, {0, 1}, "Weapons", "Gun Sight Light")
 
 -- Port Wall
@@ -61,23 +61,24 @@ definePotentiometer("TRIM_WHEEL",1,3029, 145, {-1, 1},"Controls", "Elevator Trim
 definePotentiometer("RTRIM_WHEEL",1,3044, 146, {-1, 1},"Controls", "Rudder Trim")
 
 -- Radio Remote Channel Switcher
-defineTumb("RCTRL_OFF", 15, 3001, 115, 1, {0, 1}, nil, false, "Radio", "Radio Power OFF")
+defineToggleSwitch("RCTRL_OFF", 15, 3001, 115, "Radio", "Radio Power OFF")
 defineToggleSwitch("RCTRL_A", 15, 3002, 116, "Radio", "Radio Channel A")
 defineToggleSwitch("RCTRL_B", 15, 3003, 117, "Radio", "Radio Channel B")
 defineToggleSwitch("RCTRL_C", 15, 3004, 118, "Radio", "Radio Channel C")
 defineToggleSwitch("RCTRL_D", 15, 3005, 119, "Radio", "Radio Channel D")
-defineTumb("RCTRL_DIM",15, 3006, 125, 1, {0, 1}, nil, false, "Radio", "Radio Channel Dimmer")
+defineToggleSwitch("RCTRL_DIM",15, 3006, 125, "Radio", "Radio Channel Dimmer")
 defineToggleSwitch("RCTRL_TLOCK",15, 3017, 155, "Radio", "Switch Locking Lever")
 defineSpringloaded_3PosTumb("RCTRL_T_MODE", 15, 3008, 3007, 156, "Radio", "Radio Mode Switch")
+
 -- Throttle Quadrant
 definePushButton("BUTTON_BOMB",5, 3015, 128, "Weapons", "Drop Bombs")
 definePotentiometer("PROP", 2, 3006, 129, {-1, 1},"Engine", "Propeller RPM")
-defineTumb("MIX", 2, 3009, 130, 1, {0, 1}, nil, false, "Engine", "Mixture Control Select IDLE CUT OFF/RUN")
-defineTumb("UC_DOWN_C",2, 3099, 131, 1, {0, 1}, nil, false, "Undercarriage", "U/C Indicator Cut-Off On/Off")
-defineTumb("RADIATOR",1, 3033, 133, 1, {0, 1}, nil, false, "Engine", "Radiator Flap Open/Auto")
-defineTumb("PITOT",1, 3035, 134, 1, {0, 1}, nil, false, "Engine", "Pitot Heating On/Off")
-defineTumb("FUEL_PUMP",2, 3043, 135, 1, {0, 1}, nil, false, "Engine", "Fuel Pump On/Off")
-defineTumb("CARB_AIR", 2, 3045, 137, 1, {0, 1}, nil, false, "Engine", "Carburettor Air Control")
+defineToggleSwitch("MIX", 2, 3009, 130, "Engine", "Mixture Control Select IDLE CUT OFF/RUN")
+defineToggleSwitch("UC_DOWN_C",2, 3099, 131, "Undercarriage", "U/C Indicator Cut-Off On/Off")
+defineToggleSwitch("RADIATOR",1, 3033, 133, "Engine", "Radiator Flap Open/Auto")
+defineToggleSwitch("PITOT",1, 3035, 134, "Engine", "Pitot Heating On/Off")
+defineToggleSwitch("FUEL_PUMP",2, 3043, 135, "Engine", "Fuel Pump On/Off")
+defineToggleSwitch("CARB_AIR", 2, 3045, 137, "Engine", "Carburettor Air Control")
 defineToggleSwitch("DILUTER_COVER",2, 3051, 157, "Engine", "Oil Dilution Button Cover")
 definePushButton("DILUTER",2, 3053, 158, "Engine", "Oil Dilution")
 defineToggleSwitch("MS_TEST_COVER",2, 3055, 159, "Engine", "Supercharger Test Button Cover")
@@ -86,32 +87,32 @@ defineToggleSwitch("RAD_TEST_COVER",2, 3059, 161, "Engine", "Radiator Test Butto
 definePushButton("RAD_TEST",2, 3061, 162, "Engine", "Radiator Test")
 
 -- Stbd. Wall
-defineTumb("DEICER", 1, 3021, 87, 1, {0, 1}, nil, false, "Cockpit", "Windscreen De-Ice On/Off")
-defineTumb("UC_EMER", 1, 3023, 88, 1, {0, 1}, nil, false, "Undercarriage", "Undercarriage Emergency Release")
-defineTumb("WOBBLE_PUMP", 2, 3035, 90, 1, {0, 1}, nil, false, "Engine", "Wobble Type Fuel Pump")
-defineTumb("UC",1, 3025, 148, 1, {0, 1}, nil, false, "Undercarriage", "Undercarriage Raise/Lower")
+defineToggleSwitch("DEICER", 1, 3021, 87, "Cockpit", "Windscreen De-Ice On/Off")
+defineToggleSwitch("UC_EMER", 1, 3023, 88, "Undercarriage", "Undercarriage Emergency Release")
+defineToggleSwitch("WOBBLE_PUMP", 2, 3035, 90, "Engine", "Wobble Type Fuel Pump")
+defineToggleSwitch("UC",1, 3025, 148, "Undercarriage", "Undercarriage Raise/Lower")
 
 -- Morse Key & Apparatus
 defineTumb("MORSE_UP_MODE", 4, 3007, 92, 0.5, {0, 1}, nil, false, "Lights", "Upward Lamp Mode")
 defineTumb("MORSE_DN_MODE", 4, 3011, 93,  0.5, {0, 1}, nil, false, "Lights", "Downward Lamp Mode")
-defineTumb("MORSE_KEY",4, 3015, 94, 1, {0, 1}, nil, false, "Lights", "Morse Key")
+definePushButton("MORSE_KEY",4, 3015, 94, "Lights", "Morse Key")
 
 -- I.F.F. Control Box
-defineTumb("IFF_B",4, 3017, 106, 1, {0, 1}, nil, false, "Radio", "I.F.F. Circuit B")
-defineTumb("IFF_D",4, 3019, 107, 1, {0, 1}, nil, false, "Radio", "I.F.F. Circuit D")
+defineToggleSwitch("IFF_B",4, 3017, 106, "Radio", "I.F.F. Circuit B")
+defineToggleSwitch("IFF_D",4, 3019, 107, "Radio", "I.F.F. Circuit D")
 defineToggleSwitch("IFF_COVER",4, 3021, 108, "Radio", "I.F.F. Cover Open/Close")
 definePushButton("IFF_0",4, 3023, 109, "Radio", "I.F.F. Detonate Button 1")
 definePushButton("IFF_1",4, 3025, 110, "Radio", "I.F.F. Detonate Button 2")
 
 -- Fuel Cocks & Tertiary
-defineTumb("FUEL_COCK", 2, 3037, 100, 1, {0, 1}, nil, false, "Engine", "Main Tank On/Off")
-defineTumb("DROPTANK_COCK", 2, 3041, 98, 1, {0, 1}, nil, false, "Engine", "Drop Tank On/Off")
-defineTumb("DROPTANK_JETT", 5, 3041, 99, 1, {0, 1}, nil, false, "Engine", "Drop Tank Release Handle")
+defineToggleSwitch("FUEL_COCK", 2, 3037, 100, "Engine", "Main Tank On/Off")
+defineToggleSwitch("DROPTANK_COCK", 2, 3041, 98, "Engine", "Drop Tank On/Off")
+defineToggleSwitch("DROPTANK_JETT", 5, 3041, 99, "Engine", "Drop Tank Release Handle")
 
 -- Canopy Controls
-defineTumb("HATCH",1, 3051, 149, 1, {0, 1}, nil, false, "Cockpit", "Canopy Open/Close Control")
-defineTumb("HATCH_JETTISON", 1, 3057, 140, 1, {0, 1}, nil, false, "Cockpit", "Jettison Canopy Pull Ball")
-defineTumb("SIDE_DOOR",1, 3059, 147, 1, {0, 1}, nil, false, "Cockpit", "Side Door Open/Close Control")
+defineToggleSwitch("HATCH",1, 3051, 149, "Cockpit", "Canopy Open/Close Control")
+defineToggleSwitch("HATCH_JETTISON", 1, 3057, 140, "Cockpit", "Jettison Canopy Pull Ball")
+defineToggleSwitch("SIDE_DOOR",1, 3059, 147, "Cockpit", "Side Door Open/Close Control")
 
 -- Indicators
 defineFloat("CANOPY_TRUCKS", 162, {0, 1}, "Indicator", "Canopy Trucks") --not Working
@@ -147,8 +148,8 @@ defineIndicatorLight("FUEL_PRESS_LIGHT", 45, "Warning, Caution and IndicatorLigh
 defineIndicatorLight("GEAR_UP", 48, "Warning, Caution and IndicatorLights","Gear UP Lamp (red)")
 defineIndicatorLight("GEAR_DOWN", 49, "Warning, Caution and IndicatorLights","Gear DOWN Lamp (green)")
 defineIndicatorLight("CHARGER_SEC_GEAR_LIGHT", 59, "Warning, Caution and IndicatorLights","Supercharger Second Gear Warning Light (yellow)")
-defineIndicatorLight("CONSOLE_R_LIGHT", 62, "Warning, Caution and IndicatorLights","Right Console Light (white)")
-defineIndicatorLight("CONSOLE_L_LIGHT", 63, "Warning, Caution and IndicatorLights","Left Console Light (white)")
+defineIndicatorLight("CONSOLE_R_LIGHT", 62, "Warning, Caution and IndicatorLights","Right Console Light (red)")
+defineIndicatorLight("CONSOLE_L_LIGHT", 63, "Warning, Caution and IndicatorLights","Left Console Light (red)")
 defineIndicatorLight("PANEL_BACKLIGHT", 163, "Warning, Caution and IndicatorLights","Main Panel Backlight (white)")
 
 --Externals
@@ -185,10 +186,10 @@ defineFloat("PANEL_SHAKE_X", 144, {-0.8, 0.8}, "Indicator", "Common Panel Shaker
 defineFloat("COMPASS_PITCH", 71, {-1, 1}, "Indicator", "Compass Pitch")
 defineFloat("COMPASS_BANK", 72, {-1, 1}, "Indicator", "Compass Bank")
 defineFloat("COMPASS_HDG", 73, {-1, 1}, "Indicator", "Compass Heading")
-defineIndicatorLight("RADIO_A_LIGHT", 120, "Radio", "Radio A Light (white)")
-defineIndicatorLight("RADIO_B_LIGHT", 121, "Radio", "Radio B Light (white)")
-defineIndicatorLight("RADIO_C_LIGHT", 122, "Radio", "Radio C Light (white)")
-defineIndicatorLight("RADIO_D_LIGHT", 123, "Radio", "Radio D Light (white)")
-defineIndicatorLight("RADIO_TX_LIGHT", 124, "Radio", "Radio TX Light (white)")
+defineIndicatorLight("RADIO_A_LIGHT", 120, "Radio Lights", "Radio A Light (white)")
+defineIndicatorLight("RADIO_B_LIGHT", 121, "Radio Lights", "Radio B Light (white)")
+defineIndicatorLight("RADIO_C_LIGHT", 122, "Radio Lights", "Radio C Light (white)")
+defineIndicatorLight("RADIO_D_LIGHT", 123, "Radio Lights", "Radio D Light (white)")
+defineIndicatorLight("RADIO_TX_LIGHT", 124, "Radio Lights", "Radio TX Light (white)")
 
 BIOS.protocol.endModule()

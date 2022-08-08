@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("Alphajet", 0x6400)
 BIOS.protocol.setExportModuleAircrafts({"Alphajet"})
---by WarLord (aka BlackLibrary) for Alphajet 2.5.5
+--by WarLord for Alphajet 2.5.5
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document

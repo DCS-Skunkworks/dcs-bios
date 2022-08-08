@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("MiG-15bis", 0x2400)
 BIOS.protocol.setExportModuleAircrafts({"MiG-15bis"})
---by WarLord (aka BlackLibrary)
+--by WarLord
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document

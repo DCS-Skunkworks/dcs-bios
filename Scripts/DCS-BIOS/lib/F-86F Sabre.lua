@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("F-86F Sabre", 0x3000)
 BIOS.protocol.setExportModuleAircrafts({"F-86F Sabre"})
---by ArturDCS, WarLord (aka BlackLibrary) v3.0
+--by ArturDCS,WarLord v3.0
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document  

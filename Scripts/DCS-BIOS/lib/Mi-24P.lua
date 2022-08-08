@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("Mi-24P", 0x6800)
 BIOS.protocol.setExportModuleAircrafts({"Mi-24P"})
---v1.0b by WarLord (aka BlackLibrary)&charliefoxtwo
+--v1.0b by WarLord&charliefoxtwo
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document  
