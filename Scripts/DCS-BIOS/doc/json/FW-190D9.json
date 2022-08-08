@@ -187,7 +187,7 @@
                                                                                           "suffix": "",
                                                                                             "type": "integer"
                                                                                  } ],
-                                                             "physical_variant": "limited_rotary"
+                                                             "physical_variant": "toggle_switch"
                                                       },
                                         "FLAPS_LAND": {
                                                                      "category": "Cockpit",
@@ -216,7 +216,7 @@
                                                                                           "suffix": "",
                                                                                             "type": "integer"
                                                                                  } ],
-                                                             "physical_variant": "limited_rotary"
+                                                             "physical_variant": "toggle_switch"
                                                       },
                                           "FLAPS_TO": {
                                                                      "category": "Cockpit",
@@ -245,7 +245,7 @@
                                                                                           "suffix": "",
                                                                                             "type": "integer"
                                                                                  } ],
-                                                             "physical_variant": "limited_rotary"
+                                                             "physical_variant": "toggle_switch"
                                                       },
                                    "FLAPS_UP_TOGGLE": {
                                                                      "category": "Cockpit",
@@ -274,7 +274,7 @@
                                                                                           "suffix": "",
                                                                                             "type": "integer"
                                                                                  } ],
-                                                             "physical_variant": "limited_rotary"
+                                                             "physical_variant": "toggle_switch"
                                                       },
                                    "FUEL_COLD_START": {
                                                                      "category": "Cockpit",
@@ -287,23 +287,19 @@
                                                                                  }, {
                                                                                      "description": "set position",
                                                                                        "interface": "set_state",
-                                                                                       "max_value": 1
-                                                                                 }, {
-                                                                                        "argument": "TOGGLE",
-                                                                                     "description": "Toggle switch state",
-                                                                                       "interface": "action"
+                                                                                       "max_value": 2
                                                                                  } ],
                                                           "momentary_positions": "none",
                                                                       "outputs": [ {
                                                                                          "address": 13360,
                                                                                      "description": "selector position",
-                                                                                            "mask": 2048,
-                                                                                       "max_value": 1,
+                                                                                            "mask": 6144,
+                                                                                       "max_value": 2,
                                                                                         "shift_by": 11,
                                                                                           "suffix": "",
                                                                                             "type": "integer"
                                                                                  } ],
-                                                             "physical_variant": "limited_rotary"
+                                                             "physical_variant": "3_position_switch"
                                                       },
                                     "FUEL_GAUGE_SEL": {
                                                                      "category": "Cockpit",
@@ -357,9 +353,10 @@
                                                                                           "suffix": "",
                                                                                             "type": "integer"
                                                                                  } ],
-                                                             "physical_variant": "limited_rotary"
+                                                             "physical_variant": "toggle_switch"
                                                       },
                                     "FUEL_PRIM_PMPL": {
+                                                                  "api_variant": "momentary_last_position",
                                                                      "category": "Cockpit",
                                                                  "control_type": "selector",
                                                                   "description": "Primer Pump",
@@ -386,7 +383,7 @@
                                                                                           "suffix": "",
                                                                                             "type": "integer"
                                                                                  } ],
-                                                             "physical_variant": "limited_rotary"
+                                                             "physical_variant": "push_button"
                                                       },
                                       "FUEL_TNK_SEL": {
                                                                      "category": "Cockpit",
@@ -486,6 +483,7 @@
                                                                           } ]
                                                       },
                                    "JETT_FUS_STORES": {
+                                                                  "api_variant": "momentary_last_position",
                                                                      "category": "Cockpit",
                                                                  "control_type": "selector",
                                                                   "description": "Jettison Fuselage Stores",
@@ -512,7 +510,7 @@
                                                                                           "suffix": "",
                                                                                             "type": "integer"
                                                                                  } ],
-                                                             "physical_variant": "limited_rotary"
+                                                             "physical_variant": "push_button"
                                                       },
                                             "LG_EXT": {
                                                                      "category": "Cockpit",
@@ -541,7 +539,7 @@
                                                                                           "suffix": "",
                                                                                             "type": "integer"
                                                                                  } ],
-                                                             "physical_variant": "limited_rotary"
+                                                             "physical_variant": "toggle_switch"
                                                       },
                                             "LG_RET": {
                                                                      "category": "Cockpit",
@@ -570,7 +568,7 @@
                                                                                           "suffix": "",
                                                                                             "type": "integer"
                                                                                  } ],
-                                                             "physical_variant": "limited_rotary"
+                                                             "physical_variant": "toggle_switch"
                                                       },
                                         "LG_RET_CVR": {
                                                                      "category": "Cockpit",
@@ -599,7 +597,7 @@
                                                                                           "suffix": "",
                                                                                             "type": "integer"
                                                                                  } ],
-                                                             "physical_variant": "limited_rotary"
+                                                             "physical_variant": "toggle_switch"
                                                       },
                                            "MAGNETO": {
                                                                      "category": "Cockpit",
@@ -653,7 +651,7 @@
                                                                                           "suffix": "",
                                                                                             "type": "integer"
                                                                                  } ],
-                                                             "physical_variant": "limited_rotary"
+                                                             "physical_variant": "toggle_switch"
                                                       },
                                        "MW50_SWITCH": {
                                                                      "category": "Cockpit",
@@ -711,7 +709,7 @@
                                                                                           "suffix": "",
                                                                                             "type": "integer"
                                                                                  } ],
-                                                             "physical_variant": "limited_rotary"
+                                                             "physical_variant": "toggle_switch"
                                                       },
                                     "OXY_FLOW_VALVE": {
                                                               "category": "Cockpit",
@@ -926,7 +924,7 @@
                                                                                           "suffix": "",
                                                                                             "type": "integer"
                                                                                  } ],
-                                                             "physical_variant": "limited_rotary"
+                                                             "physical_variant": "toggle_switch"
                                                       },
                                           "TURN_BEZ": {
                                                            "api_variant": "multiturn",
@@ -999,9 +997,10 @@
                                },
             "Electric System": {
                                      "AFT_TNK_PMP_OFF": {
+                                                                    "api_variant": "momentary_last_position",
                                                                        "category": "Electric System",
                                                                    "control_type": "selector",
-                                                                    "description": "Aft Tank Pump Off",
+                                                                    "description": "Aft Tank Pump CB Off",
                                                                      "identifier": "AFT_TNK_PMP_OFF",
                                                                          "inputs": [ {
                                                                                        "description": "switch to previous or next state",
@@ -1025,12 +1024,12 @@
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ],
-                                                               "physical_variant": "limited_rotary"
+                                                               "physical_variant": "push_button"
                                                         },
                                       "AFT_TNK_PMP_ON": {
                                                                        "category": "Electric System",
                                                                    "control_type": "selector",
-                                                                    "description": "Aft Tank Pump On",
+                                                                    "description": "Aft Tank Pump CB On",
                                                                      "identifier": "AFT_TNK_PMP_ON",
                                                                          "inputs": [ {
                                                                                        "description": "switch to previous or next state",
@@ -1054,12 +1053,13 @@
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ],
-                                                               "physical_variant": "limited_rotary"
+                                                               "physical_variant": "toggle_switch"
                                                         },
                                      "AUX_TNK_PMP_OFF": {
+                                                                    "api_variant": "momentary_last_position",
                                                                        "category": "Electric System",
                                                                    "control_type": "selector",
-                                                                    "description": "Auxiliary Tank Pump Off",
+                                                                    "description": "Auxiliary Tank Pump CB Off",
                                                                      "identifier": "AUX_TNK_PMP_OFF",
                                                                          "inputs": [ {
                                                                                        "description": "switch to previous or next state",
@@ -1083,12 +1083,12 @@
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ],
-                                                               "physical_variant": "limited_rotary"
+                                                               "physical_variant": "push_button"
                                                         },
                                       "AUX_TNK_PMP_ON": {
                                                                        "category": "Electric System",
                                                                    "control_type": "selector",
-                                                                    "description": "Auxiliary Tank Pump On",
+                                                                    "description": "Auxiliary Tank Pump CB On",
                                                                      "identifier": "AUX_TNK_PMP_ON",
                                                                          "inputs": [ {
                                                                                        "description": "switch to previous or next state",
@@ -1112,12 +1112,13 @@
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ],
-                                                               "physical_variant": "limited_rotary"
+                                                               "physical_variant": "toggle_switch"
                                                         },
                                             "BATT_OFF": {
+                                                                    "api_variant": "momentary_last_position",
                                                                        "category": "Electric System",
                                                                    "control_type": "selector",
-                                                                    "description": "Battery Off",
+                                                                    "description": "Battery CB Off",
                                                                      "identifier": "BATT_OFF",
                                                                          "inputs": [ {
                                                                                        "description": "switch to previous or next state",
@@ -1141,12 +1142,12 @@
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ],
-                                                               "physical_variant": "limited_rotary"
+                                                               "physical_variant": "push_button"
                                                         },
                                              "BATT_ON": {
                                                                        "category": "Electric System",
                                                                    "control_type": "selector",
-                                                                    "description": "Battery On",
+                                                                    "description": "Battery CB On",
                                                                      "identifier": "BATT_ON",
                                                                          "inputs": [ {
                                                                                        "description": "switch to previous or next state",
@@ -1170,12 +1171,13 @@
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ],
-                                                               "physical_variant": "limited_rotary"
+                                                               "physical_variant": "toggle_switch"
                                                         },
                                    "FL_TR_HOR_PWR_OFF": {
+                                                                    "api_variant": "momentary_last_position",
                                                                        "category": "Electric System",
                                                                    "control_type": "selector",
-                                                                    "description": "Flaps, Trimmer, Artificial Horizon Power Off",
+                                                                    "description": "Flaps, Trimmer, Artificial Horizon Power CB Off",
                                                                      "identifier": "FL_TR_HOR_PWR_OFF",
                                                                          "inputs": [ {
                                                                                        "description": "switch to previous or next state",
@@ -1199,12 +1201,12 @@
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ],
-                                                               "physical_variant": "limited_rotary"
+                                                               "physical_variant": "push_button"
                                                         },
                                     "FL_TR_HOR_PWR_ON": {
                                                                        "category": "Electric System",
                                                                    "control_type": "selector",
-                                                                    "description": "Flaps, Trimmer, Artificial Horizon Power On",
+                                                                    "description": "Flaps, Trimmer, Artificial Horizon Power CB On",
                                                                      "identifier": "FL_TR_HOR_PWR_ON",
                                                                          "inputs": [ {
                                                                                        "description": "switch to previous or next state",
@@ -1228,12 +1230,13 @@
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ],
-                                                               "physical_variant": "limited_rotary"
+                                                               "physical_variant": "toggle_switch"
                                                         },
                                       "FW_TNK_PMP_OFF": {
+                                                                    "api_variant": "momentary_last_position",
                                                                        "category": "Electric System",
                                                                    "control_type": "selector",
-                                                                    "description": "Forward Tank Pump Off",
+                                                                    "description": "Forward Tank Pump CB Off",
                                                                      "identifier": "FW_TNK_PMP_OFF",
                                                                          "inputs": [ {
                                                                                        "description": "switch to previous or next state",
@@ -1257,12 +1260,12 @@
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ],
-                                                               "physical_variant": "limited_rotary"
+                                                               "physical_variant": "push_button"
                                                         },
                                        "FW_TNK_PMP_ON": {
                                                                        "category": "Electric System",
                                                                    "control_type": "selector",
-                                                                    "description": "Forward Tank Pump On",
+                                                                    "description": "Forward Tank Pump CB On",
                                                                      "identifier": "FW_TNK_PMP_ON",
                                                                          "inputs": [ {
                                                                                        "description": "switch to previous or next state",
@@ -1286,12 +1289,13 @@
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ],
-                                                               "physical_variant": "limited_rotary"
+                                                               "physical_variant": "toggle_switch"
                                                         },
                                          "GEN_PWR_OFF": {
+                                                                    "api_variant": "momentary_last_position",
                                                                        "category": "Electric System",
                                                                    "control_type": "selector",
-                                                                    "description": "Generator Off",
+                                                                    "description": "Generator CB Off",
                                                                      "identifier": "GEN_PWR_OFF",
                                                                          "inputs": [ {
                                                                                        "description": "switch to previous or next state",
@@ -1315,12 +1319,12 @@
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ],
-                                                               "physical_variant": "limited_rotary"
+                                                               "physical_variant": "push_button"
                                                         },
                                           "GEN_PWR_ON": {
                                                                        "category": "Electric System",
                                                                    "control_type": "selector",
-                                                                    "description": "Generator On",
+                                                                    "description": "Generator CB On",
                                                                      "identifier": "GEN_PWR_ON",
                                                                          "inputs": [ {
                                                                                        "description": "switch to previous or next state",
@@ -1344,12 +1348,13 @@
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ],
-                                                               "physical_variant": "limited_rotary"
+                                                               "physical_variant": "toggle_switch"
                                                         },
                                       "INST_LGHTS_OFF": {
+                                                                    "api_variant": "momentary_last_position",
                                                                        "category": "Electric System",
                                                                    "control_type": "selector",
-                                                                    "description": "Instrument Lights, Gun-sight, Indicators, Compass, Starter Off",
+                                                                    "description": "Instrument Lights, Gun-sight, Indicators, Compass, Starter CB Off",
                                                                      "identifier": "INST_LGHTS_OFF",
                                                                          "inputs": [ {
                                                                                        "description": "switch to previous or next state",
@@ -1373,12 +1378,12 @@
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ],
-                                                               "physical_variant": "limited_rotary"
+                                                               "physical_variant": "push_button"
                                                         },
                                        "INST_LGHTS_ON": {
                                                                        "category": "Electric System",
                                                                    "control_type": "selector",
-                                                                    "description": "Instrument Lights, Gun-sight, Indicators, Compass, Starter On",
+                                                                    "description": "Instrument Lights, Gun-sight, Indicators, Compass, Starter CB On",
                                                                      "identifier": "INST_LGHTS_ON",
                                                                          "inputs": [ {
                                                                                        "description": "switch to previous or next state",
@@ -1402,12 +1407,13 @@
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ],
-                                                               "physical_variant": "limited_rotary"
+                                                               "physical_variant": "toggle_switch"
                                                         },
                                           "LG_PWF_OFF": {
+                                                                    "api_variant": "momentary_last_position",
                                                                        "category": "Electric System",
                                                                    "control_type": "selector",
-                                                                    "description": "Landing Gear Power Off",
+                                                                    "description": "Landing Gear Power CB Off",
                                                                      "identifier": "LG_PWF_OFF",
                                                                          "inputs": [ {
                                                                                        "description": "switch to previous or next state",
@@ -1431,12 +1437,12 @@
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ],
-                                                               "physical_variant": "limited_rotary"
+                                                               "physical_variant": "push_button"
                                                         },
                                            "LG_PWF_ON": {
                                                                        "category": "Electric System",
                                                                    "control_type": "selector",
-                                                                    "description": "Landing Gear Power On",
+                                                                    "description": "Landing Gear Power CB On",
                                                                      "identifier": "LG_PWF_ON",
                                                                          "inputs": [ {
                                                                                        "description": "switch to previous or next state",
@@ -1460,12 +1466,13 @@
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ],
-                                                               "physical_variant": "limited_rotary"
+                                                               "physical_variant": "toggle_switch"
                                                         },
                                             "MW50_OFF": {
+                                                                    "api_variant": "momentary_last_position",
                                                                        "category": "Electric System",
                                                                    "control_type": "selector",
-                                                                    "description": "MW-50 Off",
+                                                                    "description": "MW-50 CB Off",
                                                                      "identifier": "MW50_OFF",
                                                                          "inputs": [ {
                                                                                        "description": "switch to previous or next state",
@@ -1489,12 +1496,12 @@
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ],
-                                                               "physical_variant": "limited_rotary"
+                                                               "physical_variant": "push_button"
                                                         },
                                              "MW50_ON": {
                                                                        "category": "Electric System",
                                                                    "control_type": "selector",
-                                                                    "description": "MW-50 On",
+                                                                    "description": "MW-50 CB On",
                                                                      "identifier": "MW50_ON",
                                                                          "inputs": [ {
                                                                                        "description": "switch to previous or next state",
@@ -1518,12 +1525,13 @@
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ],
-                                                               "physical_variant": "limited_rotary"
+                                                               "physical_variant": "toggle_switch"
                                                         },
                                        "NAV_LGHTS_OFF": {
+                                                                    "api_variant": "momentary_last_position",
                                                                        "category": "Electric System",
                                                                    "control_type": "selector",
-                                                                    "description": "Navigation Lights Off",
+                                                                    "description": "Navigation Lights CB Off",
                                                                      "identifier": "NAV_LGHTS_OFF",
                                                                          "inputs": [ {
                                                                                        "description": "switch to previous or next state",
@@ -1547,12 +1555,12 @@
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ],
-                                                               "physical_variant": "limited_rotary"
+                                                               "physical_variant": "push_button"
                                                         },
                                         "NAV_LGHTS_ON": {
                                                                        "category": "Electric System",
                                                                    "control_type": "selector",
-                                                                    "description": "Navigation Lights On",
+                                                                    "description": "Navigation Lights CB On",
                                                                      "identifier": "NAV_LGHTS_ON",
                                                                          "inputs": [ {
                                                                                        "description": "switch to previous or next state",
@@ -1576,12 +1584,13 @@
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ],
-                                                               "physical_variant": "limited_rotary"
+                                                               "physical_variant": "toggle_switch"
                                                         },
                                         "PIT_HEAT_OFF": {
+                                                                    "api_variant": "momentary_last_position",
                                                                        "category": "Electric System",
                                                                    "control_type": "selector",
-                                                                    "description": "Pitot and Heating Cover Off",
+                                                                    "description": "Pitot and Heating Cover CB Off",
                                                                      "identifier": "PIT_HEAT_OFF",
                                                                          "inputs": [ {
                                                                                        "description": "switch to previous or next state",
@@ -1605,12 +1614,12 @@
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ],
-                                                               "physical_variant": "limited_rotary"
+                                                               "physical_variant": "push_button"
                                                         },
                                          "PIT_HEAT_ON": {
                                                                        "category": "Electric System",
                                                                    "control_type": "selector",
-                                                                    "description": "Pitot and Heating Cover On",
+                                                                    "description": "Pitot and Heating Cover CB On",
                                                                      "identifier": "PIT_HEAT_ON",
                                                                          "inputs": [ {
                                                                                        "description": "switch to previous or next state",
@@ -1634,7 +1643,7 @@
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ],
-                                                               "physical_variant": "limited_rotary"
+                                                               "physical_variant": "toggle_switch"
                                                         }
                                },
     "External Aircraft Model": {
@@ -1647,9 +1656,9 @@
                                                                         "outputs": [ {
                                                                                            "address": 13360,
                                                                                        "description": "Left Position Light (red)",
-                                                                                              "mask": 4096,
+                                                                                              "mask": 8192,
                                                                                          "max_value": 1,
-                                                                                          "shift_by": 12,
+                                                                                          "shift_by": 13,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ]
@@ -1663,9 +1672,9 @@
                                                                         "outputs": [ {
                                                                                            "address": 13360,
                                                                                        "description": "Right Position Light (green)",
-                                                                                              "mask": 8192,
+                                                                                              "mask": 16384,
                                                                                          "max_value": 1,
-                                                                                          "shift_by": 13,
+                                                                                          "shift_by": 14,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ]
@@ -1679,9 +1688,9 @@
                                                                         "outputs": [ {
                                                                                            "address": 13360,
                                                                                        "description": "Tail Position Light (White)",
-                                                                                              "mask": 16384,
+                                                                                              "mask": 32768,
                                                                                          "max_value": 1,
-                                                                                          "shift_by": 14,
+                                                                                          "shift_by": 15,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ]
@@ -1695,9 +1704,9 @@
                                                                         "outputs": [ {
                                                                                            "address": 13472,
                                                                                        "description": "Weight ON Wheels Left Gear",
-                                                                                              "mask": 512,
+                                                                                              "mask": 1024,
                                                                                          "max_value": 1,
-                                                                                          "shift_by": 9,
+                                                                                          "shift_by": 10,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ]
@@ -1711,9 +1720,9 @@
                                                                         "outputs": [ {
                                                                                            "address": 13472,
                                                                                        "description": "Weight ON Wheels Right Gear",
-                                                                                              "mask": 256,
+                                                                                              "mask": 512,
                                                                                          "max_value": 1,
-                                                                                          "shift_by": 8,
+                                                                                          "shift_by": 9,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ]
@@ -1725,11 +1734,11 @@
                                                                      "identifier": "EXT_WOW_TAIL",
                                                                          "inputs": [  ],
                                                                         "outputs": [ {
-                                                                                           "address": 13360,
+                                                                                           "address": 13472,
                                                                                        "description": "Weight ON Wheels Tail Gear",
-                                                                                              "mask": 32768,
+                                                                                              "mask": 256,
                                                                                          "max_value": 1,
-                                                                                          "shift_by": 15,
+                                                                                          "shift_by": 8,
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ]
@@ -1829,7 +1838,7 @@
                                                                                           "suffix": "",
                                                                                             "type": "integer"
                                                                                  } ],
-                                                             "physical_variant": "limited_rotary"
+                                                             "physical_variant": "toggle_switch"
                                                       },
                                        "SIGHT_NIGHT": {
                                                                      "category": "Gun Sight",
@@ -1858,7 +1867,7 @@
                                                                                           "suffix": "",
                                                                                             "type": "integer"
                                                                                  } ],
-                                                             "physical_variant": "limited_rotary"
+                                                             "physical_variant": "toggle_switch"
                                                       },
                                    "SIGHT_WING_SPAN": {
                                                               "category": "Gun Sight",
@@ -2986,9 +2995,9 @@
                                                              "outputs": [ {
                                                                                 "address": 13472,
                                                                             "description": "0 if light is off, 1 if light is on",
-                                                                                   "mask": 1024,
+                                                                                   "mask": 2048,
                                                                               "max_value": 1,
-                                                                               "shift_by": 10,
+                                                                               "shift_by": 11,
                                                                                  "suffix": "",
                                                                                    "type": "integer"
                                                                         } ]
@@ -3002,9 +3011,9 @@
                                                              "outputs": [ {
                                                                                 "address": 13472,
                                                                             "description": "0 if light is off, 1 if light is on",
-                                                                                   "mask": 2048,
+                                                                                   "mask": 4096,
                                                                               "max_value": 1,
-                                                                               "shift_by": 11,
+                                                                               "shift_by": 12,
                                                                                  "suffix": "",
                                                                                    "type": "integer"
                                                                         } ]
@@ -3018,9 +3027,9 @@
                                                              "outputs": [ {
                                                                                 "address": 13472,
                                                                             "description": "0 if light is off, 1 if light is on",
-                                                                                   "mask": 4096,
+                                                                                   "mask": 8192,
                                                                               "max_value": 1,
-                                                                               "shift_by": 12,
+                                                                               "shift_by": 13,
                                                                                  "suffix": "",
                                                                                    "type": "integer"
                                                                         } ]
@@ -3034,9 +3043,9 @@
                                                              "outputs": [ {
                                                                                 "address": 13472,
                                                                             "description": "0 if light is off, 1 if light is on",
-                                                                                   "mask": 8192,
+                                                                                   "mask": 16384,
                                                                               "max_value": 1,
-                                                                               "shift_by": 13,
+                                                                               "shift_by": 14,
                                                                                  "suffix": "",
                                                                                    "type": "integer"
                                                                         } ]
@@ -3134,12 +3143,13 @@
                                                                                        "suffix": "",
                                                                                          "type": "integer"
                                                                               } ],
-                                                          "physical_variant": "limited_rotary"
+                                                          "physical_variant": "toggle_switch"
                                                    },
                                     "FUG16ZY_OFF": {
+                                                               "api_variant": "momentary_last_position",
                                                                   "category": "Radio",
                                                               "control_type": "selector",
-                                                               "description": "FuG16ZY Off",
+                                                               "description": "FuG16ZY CB Off",
                                                                 "identifier": "FUG16ZY_OFF",
                                                                     "inputs": [ {
                                                                                   "description": "switch to previous or next state",
@@ -3163,12 +3173,12 @@
                                                                                        "suffix": "",
                                                                                          "type": "integer"
                                                                               } ],
-                                                          "physical_variant": "limited_rotary"
+                                                          "physical_variant": "push_button"
                                                    },
                                      "FUG16ZY_ON": {
                                                                   "category": "Radio",
                                                               "control_type": "selector",
-                                                               "description": "FuG16ZY On",
+                                                               "description": "FuG16ZY CB On",
                                                                 "identifier": "FUG16ZY_ON",
                                                                     "inputs": [ {
                                                                                   "description": "switch to previous or next state",
@@ -3192,7 +3202,7 @@
                                                                                        "suffix": "",
                                                                                          "type": "integer"
                                                                               } ],
-                                                          "physical_variant": "limited_rotary"
+                                                          "physical_variant": "toggle_switch"
                                                    },
                                    "FUG16_TUNING": {
                                                                   "category": "Radio",
@@ -3238,9 +3248,10 @@
                                                                        } ]
                                                    },
                                      "FUG25A_OFF": {
+                                                               "api_variant": "momentary_last_position",
                                                                   "category": "Radio",
                                                               "control_type": "selector",
-                                                               "description": "FuG25a Off",
+                                                               "description": "FuG25a CB Off",
                                                                 "identifier": "FUG25A_OFF",
                                                                     "inputs": [ {
                                                                                   "description": "switch to previous or next state",
@@ -3264,12 +3275,12 @@
                                                                                        "suffix": "",
                                                                                          "type": "integer"
                                                                               } ],
-                                                          "physical_variant": "limited_rotary"
+                                                          "physical_variant": "push_button"
                                                    },
                                       "FUG25A_ON": {
                                                                   "category": "Radio",
                                                               "control_type": "selector",
-                                                               "description": "FuG25a On",
+                                                               "description": "FuG25a CB On",
                                                                 "identifier": "FUG25A_ON",
                                                                     "inputs": [ {
                                                                                   "description": "switch to previous or next state",
@@ -3293,7 +3304,7 @@
                                                                                        "suffix": "",
                                                                                          "type": "integer"
                                                                               } ],
-                                                          "physical_variant": "limited_rotary"
+                                                          "physical_variant": "toggle_switch"
                                                    },
                                      "FUG25_MODE": {
                                                                   "category": "Radio",
@@ -3321,6 +3332,7 @@
                                                           "physical_variant": "3_position_switch"
                                                    },
                                      "FUG25_TEST": {
+                                                               "api_variant": "momentary_last_position",
                                                                   "category": "Radio",
                                                               "control_type": "selector",
                                                                "description": "IFF Check",
@@ -3347,7 +3359,7 @@
                                                                                        "suffix": "",
                                                                                          "type": "integer"
                                                                               } ],
-                                                          "physical_variant": "limited_rotary"
+                                                          "physical_variant": "push_button"
                                                    },
                                      "RADIO_MODE": {
                                                                   "category": "Radio",
@@ -3516,7 +3528,7 @@
                                                                                           "suffix": "",
                                                                                             "type": "integer"
                                                                                  } ],
-                                                             "physical_variant": "limited_rotary"
+                                                             "physical_variant": "toggle_switch"
                                                       },
                                         "MASTER_ARM": {
                                                                      "category": "Weapon Control",
@@ -3545,7 +3557,7 @@
                                                                                           "suffix": "",
                                                                                             "type": "integer"
                                                                                  } ],
-                                                             "physical_variant": "limited_rotary"
+                                                             "physical_variant": "toggle_switch"
                                                       },
                                        "RKT_EMG_REL": {
                                                                      "category": "Weapon Control",
@@ -3574,7 +3586,7 @@
                                                                                           "suffix": "",
                                                                                             "type": "integer"
                                                                                  } ],
-                                                             "physical_variant": "limited_rotary"
+                                                             "physical_variant": "toggle_switch"
                                                       },
                                    "RKT_EMG_REL_CVR": {
                                                                      "category": "Weapon Control",
@@ -3603,7 +3615,7 @@
                                                                                           "suffix": "",
                                                                                             "type": "integer"
                                                                                  } ],
-                                                             "physical_variant": "limited_rotary"
+                                                             "physical_variant": "toggle_switch"
                                                       }
                                }
 }

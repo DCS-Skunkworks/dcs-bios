@@ -1857,7 +1857,7 @@
                                                                                           "suffix": "",
                                                                                             "type": "integer"
                                                                                  } ],
-                                                             "physical_variant": "limited_rotary"
+                                                             "physical_variant": "toggle_switch"
                                                       },
                                       "CLOCK_PINION": {
                                                            "api_variant": "multiturn",
@@ -1984,7 +1984,7 @@
                                                                                           "suffix": "",
                                                                                             "type": "integer"
                                                                                  } ],
-                                                             "physical_variant": "limited_rotary"
+                                                             "physical_variant": "toggle_switch"
                                                       },
                                    "CANOPY_HAND_CRK": {
                                                            "api_variant": "multiturn",
@@ -2035,7 +2035,7 @@
                                                                                           "suffix": "",
                                                                                             "type": "integer"
                                                                                  } ],
-                                                             "physical_variant": "limited_rotary"
+                                                             "physical_variant": "toggle_switch"
                                                       },
                                       "FUEL_CUTTOFF": {
                                                                   "api_variant": "momentary_last_position",
@@ -2093,6 +2093,7 @@
                                                              "physical_variant": "limited_rotary"
                                                       },
                                     "FUEL_PRIM_PMPL": {
+                                                                  "api_variant": "momentary_last_position",
                                                                      "category": "Cockpit",
                                                                  "control_type": "selector",
                                                                   "description": "Primer Pump",
@@ -2119,7 +2120,7 @@
                                                                                           "suffix": "",
                                                                                             "type": "integer"
                                                                                  } ],
-                                                             "physical_variant": "limited_rotary"
+                                                             "physical_variant": "push_button"
                                                       },
                                       "FUEL_TNK_SEL": {
                                                                      "category": "Cockpit",
@@ -2223,7 +2224,7 @@
                                                                                           "suffix": "",
                                                                                             "type": "integer"
                                                                                  } ],
-                                                             "physical_variant": "limited_rotary"
+                                                             "physical_variant": "toggle_switch"
                                                       },
                                    "INSTR_LGHT_CTRL": {
                                                            "api_variant": "multiturn",
@@ -2299,7 +2300,7 @@
                                                                                           "suffix": "",
                                                                                             "type": "integer"
                                                                                  } ],
-                                                             "physical_variant": "limited_rotary"
+                                                             "physical_variant": "toggle_switch"
                                                       },
                                     "OXY_FLOW_VALVE": {
                                                               "category": "Cockpit",
@@ -2522,7 +2523,7 @@
                                                                                           "suffix": "",
                                                                                             "type": "integer"
                                                                                  } ],
-                                                             "physical_variant": "limited_rotary"
+                                                             "physical_variant": "toggle_switch"
                                                       },
                                           "TURN_BEZ": {
                                                            "api_variant": "multiturn",
@@ -2765,7 +2766,7 @@
                                                                                           "suffix": "",
                                                                                             "type": "integer"
                                                                                  } ],
-                                                             "physical_variant": "limited_rotary"
+                                                             "physical_variant": "toggle_switch"
                                                       },
                                           "FLAPS_TO": {
                                                                      "category": "Flaps",
@@ -2794,7 +2795,7 @@
                                                                                           "suffix": "",
                                                                                             "type": "integer"
                                                                                  } ],
-                                                             "physical_variant": "limited_rotary"
+                                                             "physical_variant": "toggle_switch"
                                                       },
                                    "FLAPS_UP_TOGGLE": {
                                                                      "category": "Flaps",
@@ -2823,7 +2824,7 @@
                                                                                           "suffix": "",
                                                                                             "type": "integer"
                                                                                  } ],
-                                                             "physical_variant": "limited_rotary"
+                                                             "physical_variant": "toggle_switch"
                                                       }
                                },
                        "Gear": {
@@ -2854,7 +2855,7 @@
                                                                                      "suffix": "",
                                                                                        "type": "integer"
                                                                             } ],
-                                                        "physical_variant": "limited_rotary"
+                                                        "physical_variant": "toggle_switch"
                                                  },
                                        "LG_EXT": {
                                                                 "category": "Gear",
@@ -2883,7 +2884,7 @@
                                                                                      "suffix": "",
                                                                                        "type": "integer"
                                                                             } ],
-                                                        "physical_variant": "limited_rotary"
+                                                        "physical_variant": "toggle_switch"
                                                  },
                                        "LG_RET": {
                                                                 "category": "Gear",
@@ -2912,7 +2913,7 @@
                                                                                      "suffix": "",
                                                                                        "type": "integer"
                                                                             } ],
-                                                        "physical_variant": "limited_rotary"
+                                                        "physical_variant": "toggle_switch"
                                                  },
                                    "LG_RET_CVR": {
                                                                 "category": "Gear",
@@ -2941,7 +2942,7 @@
                                                                                      "suffix": "",
                                                                                        "type": "integer"
                                                                             } ],
-                                                        "physical_variant": "limited_rotary"
+                                                        "physical_variant": "toggle_switch"
                                                  }
                                },
                   "Gun Sight": {
@@ -2994,7 +2995,7 @@
                                                                                        "suffix": "",
                                                                                          "type": "integer"
                                                                               } ],
-                                                          "physical_variant": "limited_rotary"
+                                                          "physical_variant": "toggle_switch"
                                                    }
                                },
                         "IFF": {
@@ -4366,7 +4367,7 @@
                                                                                        "suffix": "",
                                                                                          "type": "integer"
                                                                               } ],
-                                                          "physical_variant": "limited_rotary"
+                                                          "physical_variant": "toggle_switch"
                                                    },
                                    "FUG16_TUNING": {
                                                                   "category": "Radio",
@@ -4577,6 +4578,7 @@
                                                                             } ]
                                                         },
                                      "JETT_FUS_STORES": {
+                                                                    "api_variant": "momentary_last_position",
                                                                        "category": "Weapon Control",
                                                                    "control_type": "selector",
                                                                     "description": "Jettison Fuselage Stores",
@@ -4603,7 +4605,7 @@
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ],
-                                                               "physical_variant": "limited_rotary"
+                                                               "physical_variant": "push_button"
                                                         },
                                           "MASTER_ARM": {
                                                                        "category": "Weapon Control",
@@ -4632,7 +4634,7 @@
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ],
-                                                               "physical_variant": "limited_rotary"
+                                                               "physical_variant": "toggle_switch"
                                                         },
                                         "QUT_WING_ARM": {
                                                                        "category": "Weapon Control",
@@ -4661,7 +4663,7 @@
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ],
-                                                               "physical_variant": "limited_rotary"
+                                                               "physical_variant": "toggle_switch"
                                                         },
                                    "ROCKET_EMERG_JETT": {
                                                                        "category": "Weapon Control",
@@ -4719,7 +4721,7 @@
                                                                                             "suffix": "",
                                                                                               "type": "integer"
                                                                                    } ],
-                                                               "physical_variant": "limited_rotary"
+                                                               "physical_variant": "toggle_switch"
                                                         }
                                }
 }
