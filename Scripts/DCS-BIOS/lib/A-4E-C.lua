@@ -429,7 +429,7 @@ defineToggleSwitch("AFCS_1N2_COVER", 27, 3169, 258, "AFCS", "AFCS 1-N-2 Guard Co
 define3PosTumb("AFCS_1N2", 27, 3170, 259, "AFCS", "AFCS 1-N-2 Guard")
 defineMultipositionSwitch("MCL_CHAN_SEL", 37, 3167, 250, 20, 0.05, "MCL", "MCL Channel Selector")
 define3PosTumb("MCL_PWR", 37, 3168, 253, "MCL", "MCL Power")
-define3PosTumb("SEAT_ADJ", 2, 3174, 251, "Mechanical Systems", "Seat Adjustment")
+define3PosTumb("SEAT_ADJ", 45, 3174, 251, "Mechanical Systems", "Seat Adjustment")
 define3PosTumb("TACAN_ANT_CONT", 23, 3171, 254, "TACAN", "TACAN Antenna Control")
 defineToggleSwitch("NAV_DEAD", 23, 3173, 255, "Doppler Nav", "Navigation Dead Reckoning/Doppler")
 defineToggleSwitch("FUEL_TRANS", 20, 3175, 256, "Fuel Systems", "Fuel Transfer Bypass/Normal")

@@ -209,14 +209,6 @@ end
 defineIntegerFromGetter("ALTIMETER_VALUE", getAltitude, 65000,
 "Gauge Values", "Altimeter")
 
---[[--local function getVerticalVelocity()
-     local returnValue = (GetDevice(0):get_argument_value(29))*10000
-
-     return returnValue
-end
-defineIntegerFromGetter("VERTICAL_VELOCITY_VVI_VALUE", getVerticalVelocity, 65000,
-"Gauge Values", "Vertical Velocity VVI")--]]--
-
 local function getEngineRPM()
      local returnValue = (GetDevice(0):get_argument_value(23))*4500
      return returnValue
@@ -321,20 +313,6 @@ local function getFuseFuel()
 end
 defineIntegerFromGetter("FUSELAGE_FUEL_TANK_VALUE", getFuseFuel, 65000,
 "Gauge Values", "Fuselage Fuel Tank Gallons")
-
---[[--local function getCoolantTemp()
-     local returnValue = (GetDevice(0):get_argument_value(22))*220-70
-     return returnValue
-end
-defineIntegerFromGetter("COOLANT_TEMPERATURE_VALUE", getCoolantTemp, 65000,
-"Gauge Values", "Coolant Temperature")--]]--
-
---[[--local function getCarbTemp()
-     local returnValue = (GetDevice(0):get_argument_value(21))*220-70
-     return returnValue
-end
-defineIntegerFromGetter("CARBURETOR_TEMPERATURE_VALUE", getCarbTemp, 65000,
-"Gauge Values", "Carburetor Temperature")--]]--
 
 local function getBaro()
      local returnValue = (GetDevice(0):get_argument_value(97))*290+2810
