@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("F-16C_50", 0x4400)
 BIOS.protocol.setExportModuleAircrafts({"F-16C_50"})
--- V1.12a by WarLord
+-- V1.13 by WarLord
 -- Tested and fixes by BuzzKillington, afewyards
 -- DED Display,MAGV,INS,UHF,CMDS,HARM,VIP & VRP by Matchstick & AMVI_Ares
 local inputProcessors = moduleBeingDefined.inputProcessors
@@ -25,7 +25,7 @@ local defineFloat = BIOS.util.defineFloat
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 local defineSpringloaded_3PosTumb = BIOS.util.defineSpringloaded_3PosTumb
 
-------------------------------------------------------------------Switches, Buttons
+---------------------------- Switches
 --Control Interface
 defineToggleSwitch("DIGI_BAK_SW", 2, 3001, 566, "Control Interface", "DIGITAL BACKUP Switch, OFF/BACKUP")
 defineToggleSwitch("ALT_FLAPS_SW", 2, 3002, 567, "Control Interface", "ALT FLAPS Switch, NORM/EXTEND")
@@ -353,7 +353,7 @@ defineToggleSwitch("SEAT_EJECT_SAFE", 10, 3009, 785,"Cockpit Mechanics" ,"Ejecti
 defineSpringloaded_3PosTumb("CANOPY_SW", 10, 3003, 3002, 606, "Cockpit Mechanics", "Canopy Switch, OPEN/HOLD/CLOSE")
 defineToggleSwitch("HIDE_STICK", 10, 3015, 796,"Cockpit Mechanics" ,"Hide Stick toggle")
 
-------------------------------------------------------------------Warning, Caution and Indicator Lights
+---------------------------- Lights
 --Caution Light Panel
 defineIndicatorLight("LIGHT_FLCS_FAULT", 630, "Warning, Caution and IndicatorLights","FLCS FAULT Light (yellow)")
 defineIndicatorLight("LIGHT_ENGINE_FAULT", 631, "Warning, Caution and IndicatorLights","ENGINE FAULT Light (yellow)")
@@ -516,7 +516,7 @@ defineIndicatorLight("LIGHT_ECM_SPL_T", 499, "Warning, Caution and IndicatorLigh
 --Div
 defineIndicatorLight("LIGHT_MARKER_BEACON", 157, "Warning, Caution and IndicatorLights","MARKER BEACON Light (green)")
 
-------------------------------------------------------------------Gauges
+---------------------------- Gauges
 defineFloat("CANOPY_POS", 7, {0, 1}, "Cockpit Mechanics", "Canopy Position")
 defineFloat("SEAT_HEIGHT", 783, {-1, 1}, "Cockpit Mechanics", "Seat Height")
 
@@ -819,8 +819,8 @@ DEDLayout_l1["ACAL_ALT_label"]				= {14, 4,0,"_inv","I"}
 DEDLayout_l1["INS_SelectedSteerpoint"]		= {20, 3}
 DEDLayout_l1["INS_STPT_IncDecSymbol"]		= {23, 1}
 DEDLayout_l1["AUTO_ACAL"]					= { 1, 9}
-DEDLayout_l1["ACAL_AUTO_Sensors"]			= {12, 3, 0,"_inv","I"}
-DEDLayout_l1["Asterisks_AUTO_both"]			= {11, 1,15,"","I"}
+DEDLayout_l1["ACAL_AUTO_Sensors"]			= {12, 4, 0,"_inv","I"}
+DEDLayout_l1["Asterisks_AUTO_both"]			= {11, 1,16,"","I"}
 
 --DEDLayout_l1[""] = {,}
 
@@ -985,6 +985,9 @@ DEDLayout_l2["FIX INS_STPT_IncDecSymbol"]		= {14, 1}
 --A CAL MAN
 DEDLayout_l2["ACAL_MODE"]						= { 8, 4}
 DEDLayout_l2["Asterisks_ACAL_SelectedMode_both"]= { 7, 1,12,"","I"}
+--A CAL AUTO
+DEDLayout_l2["NAV_FILTER_label"]				= { 2, 10}
+DEDLayout_l2["NAV_FILTER_mode"]					= {14,  4}
 
 --CNI
 DEDLayout_l3["VHF Label"]={1,3,0,"_inv","I"}
@@ -1198,6 +1201,9 @@ DEDLayout_l3["FIX DELTA"] 		= {13, 7}
 DEDLayout_l3["ACAL ACAL_ALEV"] 				= { 8, 4}
 DEDLayout_l3["ACAL ELEV"]					= {16, 7, 0,"_inv","I"}
 DEDLayout_l3["ACAL Asterisks_ELEV_both"]	= {15, 1,23,"", "I"}
+--A CAL AUTO
+DEDLayout_l3["GPS_ACCURACY_label"]				= { 3,  9}
+DEDLayout_l3["GPS_ACCURACY_value"]				= {14,  4}
 
 --DEDLayout_l3[""] = {,}
 --TODO
@@ -1412,6 +1418,11 @@ DEDLayout_l4["FIX SYS ACCURACY value"]	= {14, 4}
 DEDLayout_l4["ACAL_ALT_DELTA"]			= { 8, 5}
 DEDLayout_l4["ACAL_ALT_DELTA_label"]	= { 2, 8}
 DEDLayout_l4["DELTA_ALT"]				= {16, 7, 0,"_inv","I"}
+--A CAL AUTO
+DEDLayout_l4["DTS_STATUS_label"]		= { 3, 3}
+DEDLayout_l4["DTS_STATUS_value"]		= {14, 3}
+DEDLayout_l4["DTS_ACCURACY_HPU_label"]	= { 21, 2}
+DEDLayout_l4["DTS_ACCURACY_HPU_value"]	= { 23, 1}
 
 --CNI
 DEDLayout_l5["IFF Modes Label"]={1,1}
@@ -1593,6 +1604,9 @@ DEDLayout_l5["FIX GPS ACCURACY value"] 			= {14, 4}
 DEDLayout_l5["ACAL_POS_DELTA"]				= { 8, 5}
 DEDLayout_l5["ACAL_POS_DELTA_label"] 		= { 2, 3}
 DEDLayout_l5["DELTA_POS"] 					= {16, 7, 0,"_inv","I"}
+--A CAL AUTO
+DEDLayout_l5["DTS_ACCURACY_VPU_label"]		= { 21, 2}
+DEDLayout_l5["DTS_ACCURACY_VPU_value"]		= { 23, 1}
 
 --DEDLayout_l5[""] = {,}
 
@@ -1883,7 +1897,7 @@ defineToggleSwitch("ECM_SPL_BTN", 66, 3013, 495, "ECM", "ECM SPL Button")
 
 defineIndicatorLight("LIGHT_ECM", 102, "Warning, Caution and IndicatorLights", "ECM Light (green)")
 
-------------------------------------------------------------------Externals
+---------------------------- Externals
 defineIntegerFromGetter("EXT_SPEED_BRAKE_RIGHT", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(182)*65535)
 end, 65535, "External Aircraft Model", "Right Speed Brake")
