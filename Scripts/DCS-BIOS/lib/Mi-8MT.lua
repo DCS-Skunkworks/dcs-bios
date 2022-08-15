@@ -371,7 +371,7 @@ defineToggleSwitch("BRK_WHEEN",17, 3017, 881, "Brakes", "Wheel Brakes Handle")
 defineToggleSwitch("BRK_PARK",17, 3024, 930, "Brakes", "Parking Brake Handle")
 definePushButton("ACC_RST",17, 3006, 925, "Something", "Accelerometer Reset Button - Push to reset")
 defineToggleSwitch("CPIT_AIR_L_FAN",17, 3020, 334, "Cockpit Air", "Left Fan Switch, ON/OFF")
-defineToggleSwitch("CPIT_AIR_R_FAN",17, 3020, 488, "Cockpit Air", "Right Fan Switch, ON/OFF")
+defineToggleSwitch("CPIT_AIR_R_FAN",17, 3021, 488, "Cockpit Air", "Right Fan Switch, ON/OFF")
 
 defineToggleSwitch("ARC9_MAIN_BACKUP",40, 3011, 469, "ARC-9", "ARC-9, Dialer Switch, MAIN/BACKUP")
 defineToggleSwitch("ARC9_TLF_TLG",40, 3002, 444, "ARC-9", "ARC-9, TLF/TLG Switch")
