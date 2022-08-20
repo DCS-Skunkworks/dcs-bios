@@ -492,7 +492,7 @@ define3PosTumb("RIO_ECM_CORR", 45, 3249, 168, "ECMD", "RIO ECM Display Corr")
 define3PosTumb("RIO_ECM_ADF", 45, 3250, 190, "ECMD", "RIO ECM Display Data/ADF")
 
 -- TACAN Pilot Panel
-defineToggleSwitch("PLT_TACAN_CMD_BUTTON", 47, 3324, 292, "TACAN PILOT", "PILOT TACAN CMD Button")
+defineToggleSwitch("PLT_TACAN_CMD_BUTTON", 47, 3324, 292, "Volume Panel", "PILOT TACAN CMD Button")
 defineToggleSwitch("RIO_TACAN_CMD_BUTTON", 47, 3325, 135, "TACAN RIO", "RIO TACAN CMD Button")
 defineTumb("PLT_TACAN_MODE", 47, 3326, 2041, 0.25, {0, 1}, nil, false, "TACAN PILOT", "PILOT TACAN Mode")
 definePotentiometer("PLT_TACAN_VOLUME", 47, 3328, 2036, {0, 1}, "TACAN PILOT", "PILOT TACAN Volume")
@@ -601,7 +601,7 @@ define3PosTumb("RIO_VUHF_1_DIAL", 4, 3410, 355, "VUHF", "RIO VUHF ARC-182 1MHz D
 define3PosTumb("RIO_VUHF_01_DIAL", 4, 3411, 356, "VUHF", "RIO VUHF ARC-182 0.1MHz Dial")
 define3PosTumb("RIO_VUHF_025_DIAL", 4, 3412, 357, "VUHF", "RIO VUHF ARC-182 0.025MHz Dial")
 definePotentiometer("RIO_VUHF_VOL", 4, 3401, 350, {0, 1}, "VUHF", "RIO VUHF ARC-182 Volume")
-definePotentiometer("PLT_VUHF_VOL", 4, 3403, 2038, {0, 1}, "VUHF", "PILOT VUHF ARC-182 Volume")
+definePotentiometer("PLT_VUHF_VOL", 4, 3403, 2038, {0, 1}, "Volume Panel", "PILOT VUHF ARC-182 Volume")
 definePotentiometer("RIO_VUHF_BRIGHTNESS", 4, 3405, 360, {0, 1}, "VUHF", "RIO VUHF ARC-182 Display Brightness")
 
 local function getARC182_High_Frequency()

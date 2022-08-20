@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("MirageF1", 0x8600)
 BIOS.protocol.setExportModuleAircrafts({"Mirage-F1CE"})
---by WarLord v1.0a
+--by WarLord v1.0b
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document  
@@ -24,7 +24,7 @@ local defineRadioWheel = BIOS.util.defineRadioWheel
 ----Common
 defineToggleSwitch("P_STICK_HIDE", 1, 3001, 34, "COMMON Misc", "Pilot Hide Stick Toggle")
 defineSpringloaded_3PosTumb("P_INCIDENCE_TEST", 1, 3011, 3010, 98, "COMMON Misc", "Pilot Incidence Test Switch")
-definePushButton("P_ALT_PTT", 1, 3119, 405, "Misc", "COMMON Pilot Alternative PTT")
+definePushButton("P_ALT_PTT", 1, 3120, 405, "Misc", "COMMON Pilot Alternative PTT")
 
 --Flight Control System controls
 definePushButton("P_FCS_TEST_RES", 1, 3012, 368, "COMMON Flight Control System", "Pilot Flight Control Test Restart Button")
@@ -127,8 +127,8 @@ defineMultipositionSwitch("P_RCS_SCALE_SEL", 1, 3101, 258, 4, 1/3, "COMMON Radar
 defineMultipositionSwitch("P_RCS_SCAN_SEL", 1, 3103, 257, 3, 0.5, "COMMON Radar Control Stick", "Pilot Radar Control Stick Scan Selection")
 
 --High-Lift Devices
-defineMultipositionSwitch("P_HLD_FLAP_SLAT", 1, 3120, 248, 3, 0.5, "COMMON High-Lift Devices", "Pilot Slat/Flap Lever")
-define3PosTumb("P_HLD_SEL", 1, 3121, 399, "COMMON High-Lift Devices", "Pilot High-Lift Devices Selector Switch")
+defineMultipositionSwitch("P_HLD_FLAP_SLAT", 1, 3122, 248, 3, 0.5, "COMMON High-Lift Devices", "Pilot Slat/Flap Lever")
+define3PosTumb("P_HLD_SEL", 1, 3123, 399, "COMMON High-Lift Devices", "Pilot High-Lift Devices Selector Switch")
 
 defineIndicatorLight("P_L_SLAT_G_L", 1083, "COMMON High-Lift Devices Lights", "Pilot Green Slats Light (green)")
 defineIndicatorLight("P_L_SLAT_Y_L", 1084, "COMMON High-Lift Devices Lights", "Pilot Yellow Slats Light (yellow)")
@@ -139,18 +139,18 @@ defineIndicatorLight("P_L_FLAP_G_L", 1088, "COMMON High-Lift Devices Lights", "P
 defineIndicatorLight("P_L_FREIN_L", 1089, "COMMON High-Lift Devices Lights", "Pilot FREIN Light (yellow)")
 
 --Radio selector unit
-definePotentiometer("P_RADIO_MISS", 1, 3122, 306, {0, 1}, "COMMON Radio Selector Unit", "Pilot Radio MISS Potentiometer")
-definePotentiometer("P_RADIO_TAC", 1, 3123, 307, {0, 1}, "COMMON Radio Selector Unit", "Pilot Radio TAC Potentiometer")
-definePotentiometer("P_RADIO_VOR", 1, 3124, 308, {0, 1}, "COMMON Radio Selector Unit", "Pilot Radio VOR Potentiometer")
-defineToggleSwitch("P_RADIO_AMPLI", 1, 3125, 309, "COMMON Radio Selector Unit", "Pilot Radio AMPLI 2-1 Selector Switch")
-definePushButton("P_RADIO_U_V_BTN", 1, 3126, 310, "COMMON Radio Selector Unit", "Pilot Radio U+V Knob (Push)")
-definePotentiometer("P_RADIO_U_V_KNB", 1, 3127, 311, {0, 1}, "COMMON Radio Selector Unit", "Pilot Radio U+V Knob (Turn)")
-definePushButton("P_RADIO_U_BTN", 1, 3128, 313, "COMMON Radio Selector Unit", "Pilot Radio U Knob (Push)")
-definePotentiometer("P_RADIO_U_KNB", 1, 3129, 314, {0, 1}, "COMMON Radio Selector Unit", "Pilot Radio U Knob (Turn)")
-definePushButton("P_RADIO_RAP_CME_BTN", 1, 3130, 316, "COMMON Radio Selector Unit", "Pilot Radio RAP+CME Knob (Push)")
-definePotentiometer("P_RADIO_RAP_CME_KNB", 1, 3131, 317, {0, 1}, "COMMON Radio Selector Unit", "Pilot Radio RAP+CME Knob (Turn)")
-definePushButton("P_RADIO_MKR_TP_BTN", 1, 3132, 319, "COMMON Radio Selector Unit", "Pilot Radio MKR+TP Knob (Push)")
-definePotentiometer("P_RADIO_MKR_TP_KNB", 1, 3133, 320, {0, 1}, "COMMON Radio Selector Unit", "Pilot Radio MKR+TP Knob (Turn)")
+definePotentiometer("P_RADIO_MISS", 1, 3124, 306, {0, 1}, "COMMON Radio Selector Unit", "Pilot Radio MISS Potentiometer")
+definePotentiometer("P_RADIO_TAC", 1, 3126, 307, {0, 1}, "COMMON Radio Selector Unit", "Pilot Radio TAC Potentiometer")
+definePotentiometer("P_RADIO_VOR", 1, 3128, 308, {0, 1}, "COMMON Radio Selector Unit", "Pilot Radio VOR Potentiometer")
+defineToggleSwitch("P_RADIO_AMPLI", 1, 3130, 309, "COMMON Radio Selector Unit", "Pilot Radio AMPLI 2-1 Selector Switch")
+definePushButton("P_RADIO_U_V_BTN", 1, 3131, 310, "COMMON Radio Selector Unit", "Pilot Radio U+V Knob (Push)")
+definePotentiometer("P_RADIO_U_V_KNB", 1, 3132, 311, {0, 1}, "COMMON Radio Selector Unit", "Pilot Radio U+V Knob (Turn)")
+definePushButton("P_RADIO_U_BTN", 1, 3134, 313, "COMMON Radio Selector Unit", "Pilot Radio U Knob (Push)")
+definePotentiometer("P_RADIO_U_KNB", 1, 3135, 314, {0, 1}, "COMMON Radio Selector Unit", "Pilot Radio U Knob (Turn)")
+definePushButton("P_RADIO_RAP_CME_BTN", 1, 3137, 316, "COMMON Radio Selector Unit", "Pilot Radio RAP+CME Knob (Push)")
+definePotentiometer("P_RADIO_RAP_CME_KNB", 1, 3138, 317, {0, 1}, "COMMON Radio Selector Unit", "Pilot Radio RAP+CME Knob (Turn)")
+definePushButton("P_RADIO_MKR_TP_BTN", 1, 3140, 319, "COMMON Radio Selector Unit", "Pilot Radio MKR+TP Knob (Push)")
+definePotentiometer("P_RADIO_MKR_TP_KNB", 1, 3141, 320, {0, 1}, "COMMON Radio Selector Unit", "Pilot Radio MKR+TP Knob (Turn)")
 
 defineIndicatorLight("P_RADIO_U_V_L", 312, "COMMON Radio Selector Unit Lights", "Pilot Radio U+V Light (green)")
 defineIndicatorLight("P_RADIO_U_L", 315, "COMMON Radio Selector Unit Lights", "Pilot Radio U Light (red)")
@@ -158,17 +158,17 @@ defineIndicatorLight("P_RADIO_RAP_CME_L", 318, "COMMON Radio Selector Unit Light
 defineIndicatorLight("P_RADIO_MKR_TP_L", 321, "COMMON Radio Selector Unit Lights", "Pilot Radio MKR+TP Light (yellow)")
 
 --V/UHF radio control unit (TRT - TRAP 136)
-define3PosTumb("P_VUHF_TEST", 1, 3136, 272, "COMMON V/UHF Control Unit", "Pilot V/UHF Test Selector Switch")
-defineToggleSwitch("P_VUHF_SIL", 1, 3137, 273, "COMMON V/UHF Control Unit", "Pilot V/UHF SIL Switch")
-defineSetCommandTumb("P_VUHF_FREQ_100", 1, 3138, 274, 0.1, {0, 0.3}, {"1", "2", "3"}, false, "COMMON V/UHF Control Unit", "Pilot V/UHF Frequency Thumbwheel 100")
-defineSetCommandTumb("P_VUHF_FREQ_10", 1, 3139, 275, 0.1, {0, 1}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"}, false, "COMMON V/UHF Control Unit", "Pilot V/UHF Frequency Thumbwheel 10")
-defineSetCommandTumb("P_VUHF_FREQ_1", 1, 3140, 276, 0.1, {0, 1}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"}, false, "COMMON V/UHF Control Unit", "Pilot V/UHF Frequency Thumbwheel 1")
-defineSetCommandTumb("P_VUHF_FREQ_01", 1, 3141, 277, 0.1, {0, 1}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"}, false, "COMMON V/UHF Control Unit", "Pilot V/UHF Frequency Thumbwheel 0.1")
-defineSetCommandTumb("P_VUHF_FREQ_0025", 1, 3142, 278, 0.333, {0, 1}, {"00", "25", "50", "75"}, false, "COMMON V/UHF Control Unit", "Pilot V/UHF Frequency Thumbwheel 0.025")
-defineSetCommandTumb("P_VUHF_FUNC_SEL", 1, 3143, 280, 0.2, {0, 0.8}, nil, true, "COMMON V/UHF Control Unit", "Pilot V/UHF Function Selector")
-defineToggleSwitch("P_VUHF_25_5_SW", 1, 3144, 281, "COMMON V/UHF Control Unit", "Pilot V/UHF 25W - 5W Switch")
-defineMultipositionSwitch("P_VUHF_FREQ_SEL", 1, 3145, 282, 3, 0.5, "COMMON V/UHF Control Unit", "Pilot V/UHF Frequency Selector Switch")
-defineRadioWheel("P_VUHF_CHAN", 1, 3146, 3146, {-0.05, 0.05}, 283, 0.05, {0, 1}, {" 6", " 7", " 8", " 9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", " 1", " 2", " 3", " 4", " 5"}, "COMMON V/UHF Control Unit", "Pilot V/UHF Channel Selector")
+define3PosTumb("P_VUHF_TEST", 1, 3145, 272, "COMMON V/UHF Control Unit", "Pilot V/UHF Test Selector Switch")
+defineToggleSwitch("P_VUHF_SIL", 1, 3146, 273, "COMMON V/UHF Control Unit", "Pilot V/UHF SIL Switch")
+defineSetCommandTumb("P_VUHF_FREQ_100", 1, 3147, 274, 0.1, {0, 0.3}, {"1", "2", "3"}, false, "COMMON V/UHF Control Unit", "Pilot V/UHF Frequency Thumbwheel 100")
+defineSetCommandTumb("P_VUHF_FREQ_10", 1, 3149, 275, 0.1, {0, 1}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"}, false, "COMMON V/UHF Control Unit", "Pilot V/UHF Frequency Thumbwheel 10")
+defineSetCommandTumb("P_VUHF_FREQ_1", 1, 3151, 276, 0.1, {0, 1}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"}, false, "COMMON V/UHF Control Unit", "Pilot V/UHF Frequency Thumbwheel 1")
+defineSetCommandTumb("P_VUHF_FREQ_01", 1, 3153, 277, 0.1, {0, 1}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"}, false, "COMMON V/UHF Control Unit", "Pilot V/UHF Frequency Thumbwheel 0.1")
+defineSetCommandTumb("P_VUHF_FREQ_0025", 1, 3155, 278, 0.333, {0, 1}, {"00", "25", "50", "75"}, false, "COMMON V/UHF Control Unit", "Pilot V/UHF Frequency Thumbwheel 0.025")
+defineSetCommandTumb("P_VUHF_FUNC_SEL", 1, 3157, 280, 0.2, {0, 0.8}, nil, true, "COMMON V/UHF Control Unit", "Pilot V/UHF Function Selector")
+defineToggleSwitch("P_VUHF_25_5_SW", 1, 3159, 281, "COMMON V/UHF Control Unit", "Pilot V/UHF 25W - 5W Switch")
+defineMultipositionSwitch("P_VUHF_FREQ_SEL", 1, 3160, 282, 3, 0.5, "COMMON V/UHF Control Unit", "Pilot V/UHF Frequency Selector Switch")
+defineRadioWheel("P_VUHF_CHAN", 1, 3162, 3162, {-0.05, 0.05}, 283, 0.05, {0, 1}, {" 6", " 7", " 8", " 9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", " 1", " 2", " 3", " 4", " 5"}, "COMMON V/UHF Control Unit", "Pilot V/UHF Channel Selector")
 
 defineIndicatorLight("P_VUHF_TEST_L", 271, "COMMON V/UHF Control Unit Lights", "Pilot V/UHF Test Light (red)")
 
@@ -368,7 +368,7 @@ definePushButton("P_TCN_TEST", 1, 3349, 480, "COMMON TACAN Control Box", "Pilot 
 defineToggleSwitch("P_TCN_XY_MODE", 1, 3335, 485, "COMMON TACAN Control Box", "Pilot TACAN X/Y Mode Selector")
 defineTumb("P_TCN_FREQ_10100", 1, 3336, 486, 1/13, {0, 0.997}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "0"}, false, "COMMON TACAN Control Box", "Pilot TACAN Frequency Selector 10/100")
 defineMultipositionSwitch("P_TCN_MODE", 1, 3337, 487, 4, 0.3333, "COMMON TACAN Control Box", "Pilot TACAN Mode Selector")
-defineRadioWheel("P_TCN_FREQ_1", 1, 3338, 3339, {-0.1, 0.1}, 488, 0.1, {0, 1}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"}, "COMMON TACAN Control Box", "Pilot TACAN Frequency Selector 1")
+defineRadioWheel("P_TCN_FREQ_1", 1, 3339, 3339, {-0.1, 0.1}, 488, 0.1, {0, 1}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"}, "COMMON TACAN Control Box", "Pilot TACAN Frequency Selector 1")
 
 defineFloat("P_TCN_XY_G", 481, {0, 1}, "COMMON TACAN Gauges", "Pilot TACAN X/Y Gauge")
 defineFloat("P_TCN_100_G", 482, {0, 1}, "COMMON TACAN Gauges", "Pilot TACAN 100 Gauge")
@@ -380,7 +380,7 @@ defineIndicatorLight("P_TCN_GO_L", 1313, "COMMON TACAN Lights", "Pilot TACAN GO 
 
 --VOR/ILS Control Box
 defineToggleSwitch("P_VOR_PW_SW", 1, 3340, 503, "COMMON VOR ILS Control Box", "Pilot VOR-ILS Control Unit ON/OFF")
-defineRadioWheel("P_VOR_FREQ_MHZ", 1, 3340, 3341, {-0.1, 0.1}, 504, 0.1, {0, 1}, nil, "COMMON VOR ILS Control Box", "Pilot VOR/ILS MHz Frequency Selector")
+defineRadioWheel("P_VOR_FREQ_MHZ", 1, 3341, 3341, {-0.1, 0.1}, 504, 0.1, {0, 1}, nil, "COMMON VOR ILS Control Box", "Pilot VOR/ILS MHz Frequency Selector")
 defineSpringloaded_3PosTumb("P_VOR_TEST", 1, 3343, 3342, 505, "COMMON VOR ILS Control Box", "Pilot VOR/ILS Test Selector")
 defineRadioWheel("P_VOR_FREQ_KHZ", 1, 3344, 3344, {-0.1, 0.1}, 506, 0.1, {0, 1}, nil, "COMMON VOR ILS Control Box", "Pilot VOR/ILS kHz Frequency Selector")
 definePotentiometer("P_VOR_OMNI_SEL", 1, 3345, 545, {0, 1}, "COMMON VOR ILS Control Box", "Pilot Omnibearing Selector")
@@ -569,8 +569,8 @@ defineToggleSwitch("P_CE_ARM_NORM_JAM", 1, 3596, 603, "CE/BE/EE Armament Control
 definePushButton("P_CE_ARM_L_TEST", 1, 3597, 602, "CE/BE/EE Armament Control", "CE/BE/EE Pilot Armament Panel Lights Test")
 defineToggleSwitch("P_CE_ARM_MATRA_JETT_CV", 1, 3561, 962, "CE/BE/EE Armament Control", "CE/BE/EE Pilot MATRA 550 or Sidewinder Jettison Button Guard")
 definePushButton("P_CE_ARM_MATRA_JETT", 1, 3562, 963, "CE/BE/EE Armament Control", "CE/BE/EE Pilot MATRA 550 or Sidewinder Jettison Button")
-defineToggleSwitch("P_CE_ARM_MASTER_CV", 1, 3134, 432, "CE/BE/EE Armament Control", "CE/BE/EE Pilot Armament Master Switch Guard")
-defineMultipositionSwitch("P_CE_ARM_MASTER", 1, 3135, 433, 3, 0.5, "CE/BE/EE Armament Control", "CE/BE/EE Pilot Armament Master Switch")
+defineToggleSwitch("P_CE_ARM_MASTER_CV", 1, 3143, 432, "CE/BE/EE Armament Control", "CE/BE/EE Pilot Armament Master Switch Guard")
+defineMultipositionSwitch("P_CE_ARM_MASTER", 1, 3144, 433, 3, 0.5, "CE/BE/EE Armament Control", "CE/BE/EE Pilot Armament Master Switch")
 definePushButton("P_CE_ARM_R_DESELECT", 1, 3475, 361, "CE/BE/EE Armament Control", "CE/BE/EE Pilot (C + M or SW) R Deselection Switch")
 define3PosTumb("P_CE_ARM_TELE_ZONE_SCAN", 1, 3476, 360, "CE/BE/EE Armament Control", "CE/BE/EE Pilot Telemeter/Zone Scanning Switch")
 
@@ -586,10 +586,10 @@ defineIndicatorLight("P_CE_ARM_BOMBFUS_L", 619, "CE/BE/EE Armament Control Light
 --UHF Radio (TRT - TRAP 137B)
 defineToggleSwitch("P_CE_UHF_5_25_SEL", 1, 3455, 340, "CE/BE/EE UHF Radio", "CE/BE/EE Pilot UHF 5W/25W Selector Switch")
 defineToggleSwitch("P_CE_UHF_SQUELCH", 1, 3456, 341, "CE/BE/EE UHF Radio", "CE/BE/EE Pilot UHF Squelch Switch")
-define3PosTumb("P_CE_UHF_TEST", 1, 3457, 342, "CE/BE/EE UHF Radio", "CE/BE/EE Pilot UHF Test Selector Switch")
+define3PosTumb("P_CE_UHF_TEST_SEL", 1, 3457, 342, "CE/BE/EE UHF Radio", "CE/BE/EE Pilot UHF Test Selector Switch")
 definePushButton("P_CE_UHF_CDE", 1, 3458, 343, "CE/BE/EE UHF Radio", "CE/BE/EE Pilot UHF CDE Button")
 defineMultipositionSwitch("P_CE_UHF_FUNC", 1, 3459, 344, 3, 0.5, "CE/BE/EE UHF Radio", "CE/BE/EE Pilot UHF Function Selector")
-defineRadioWheel("P_CE_UHF_CHAN", 1, 3461, 3461, {-0.05, 0.05}, 348, 0.05, {0, 1}, {" 6", " 7", " 8", " 9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", " 1", " 2", " 3", " 4", " 5"}, "CE/BE/EE UHF Radio", "CE/BE/EE Pilot UHF Channel Selector")
+defineRadioWheel("P_CE_UHF_CHAN", 1, 3462, 3462, {-0.05, 0.05}, 348, 0.05, {0, 1}, {" 6", " 7", " 8", " 9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", " 1", " 2", " 3", " 4", " 5"}, "CE/BE/EE UHF Radio", "CE/BE/EE Pilot UHF Channel Selector")
 
 defineIndicatorLight("P_CE_UHF_CDE_L", 351, "CE/BE/EE UHF Radio Lights", "CE/BE/EE Pilot UHF Radio CDE Light (green)")
 defineIndicatorLight("P_CE_UHF_TEST_L", 352, "CE/BE/EE UHF Radio Lights", "CE/BE/EE Pilot UHF Radio TEST Light (red)")
@@ -627,15 +627,15 @@ defineMultipositionSwitch("P_CE_RADAR_FUNC", 1, 3508, 838, 8, 1/7, "CE/BE/EE Rad
 definePotentiometer("P_CE_RADAR_STORAGE_ADJ", 1, 3510, 839, {0, 1}, "CE/BE/EE Radar", "CE/BE/EE Pilot Radar Storage Adjustment")
 definePushButton("P_CE_RADAR_SCOPE_DEL", 1, 3512, 840, "CE/BE/EE Radar", "CE/BE/EE Pilot Radar Scope Erasing")
 definePotentiometer("P_CE_RADAR_POLAROID", 1, 3513, 841, {0, 1}, "CE/BE/EE Radar", "CE/BE/EE Pilot Radar Polaroid Screen Adjustment")
-defineMultipositionSwitch("P_CE_RADAR_SEL", 1, 3605, 598, 3, 0.5, "CE/BE/EE Radar", "CE/BE/EE Pilot Radar Selector")
-definePushButton("P_CE_RADAR_EMERG_TRANS", 1, 3606, 599, "CE/BE/EE Radar", "CE/BE/EE Pilot Radar Emergency Transmission Button")
-defineToggleSwitch("P_CE_RADAR_4_1_LINE", 1, 3607, 600, "CE/BE/EE Radar", "CE/BE/EE Pilot Radar 4 lines/1 line Scan Switch")
-definePotentiometer("P_CE_RADAR_IND_L_BRT", 1, 3610, 632, {0, 1}, "CE/BE/EE Radar", "CE/BE/EE Pilot Radar Indicator Lights Brightness")
-definePotentiometer("P_CE_RADAR_STROBE_BRT", 1, 3612, 633, {0, 1}, "CE/BE/EE Radar", "CE/BE/EE Pilot Radar Strobe Brightness")
-definePotentiometer("P_CE_RADAR_DIST_M_BRT", 1, 3614, 634, {0, 1}, "CE/BE/EE Radar", "CE/BE/EE Pilot Radar Distance Markers Brightness")
-definePotentiometer("P_CE_RADAR_VEL_M_BRT", 1, 3616, 635, {0, 1}, "CE/BE/EE Radar", "CE/BE/EE Pilot Radar Horizon and Radial Velocity Marker Brightness")
-definePotentiometer("P_CE_RADAR_HORIZON_POS", 1, 3618, 636, {0, 1}, "CE/BE/EE Radar", "CE/BE/EE Pilot Radar Horizon Symbol Vertical Position")
-defineToggleSwitch("P_CE_RADAR_CVR", 1, 3620, 864, "CE/BE/EE Radar", "CE/BE/EE Pilot Radar Cover Remove Toggle")
+defineMultipositionSwitch("P_CE_RADAR_SEL", 1, 3613, 598, 3, 0.5, "CE/BE/EE Radar", "CE/BE/EE Pilot Radar Selector")
+definePushButton("P_CE_RADAR_EMERG_TRANS", 1, 3614, 599, "CE/BE/EE Radar", "CE/BE/EE Pilot Radar Emergency Transmission Button")
+defineToggleSwitch("P_CE_RADAR_4_1_LINE", 1, 3615, 600, "CE/BE/EE Radar", "CE/BE/EE Pilot Radar 4 lines/1 line Scan Switch")
+definePotentiometer("P_CE_RADAR_IND_L_BRT", 1, 3618, 632, {0, 1}, "CE/BE/EE Radar", "CE/BE/EE Pilot Radar Indicator Lights Brightness")
+definePotentiometer("P_CE_RADAR_STROBE_BRT", 1, 3620, 633, {0, 1}, "CE/BE/EE Radar", "CE/BE/EE Pilot Radar Strobe Brightness")
+definePotentiometer("P_CE_RADAR_DIST_M_BRT", 1, 3622, 634, {0, 1}, "CE/BE/EE Radar", "CE/BE/EE Pilot Radar Distance Markers Brightness")
+definePotentiometer("P_CE_RADAR_VEL_M_BRT", 1, 3624, 635, {0, 1}, "CE/BE/EE Radar", "CE/BE/EE Pilot Radar Horizon and Radial Velocity Marker Brightness")
+definePotentiometer("P_CE_RADAR_HORIZON_POS", 1, 3626, 636, {0, 1}, "CE/BE/EE Radar", "CE/BE/EE Pilot Radar Horizon Symbol Vertical Position")
+defineToggleSwitch("P_CE_RADAR_CVR", 1, 3628, 864, "CE/BE/EE Radar", "CE/BE/EE Pilot Radar Cover Remove Toggle")
 
 defineIndicatorLight("P_CE_RADAR_HA_L", 842, "CE/BE/EE Radar Lights", "CE/BE/EE Pilot Radar HA Light (yellow)")
 defineIndicatorLight("P_CE_RADAR_IC_L", 843, "CE/BE/EE Radar Lights", "CE/BE/EE Pilot Radar IC Light (yellow)")
@@ -736,5 +736,7 @@ end, 1, "External Aircraft Model", "Weight ON Wheels Right Gear")
 defineIntegerFromGetter("EXT_WOW_LEFT", function()
 	if LoGetAircraftDrawArgumentValue(6) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Weight ON Wheels Left Gear")
+
+definePushButton("P_CE_UHF_TEST_BTN", 1, 3461, 345, "CE/BE/EE UHF Radio", "CE/BE/EE Pilot UHF Test Button")
 
 BIOS.protocol.endModule()

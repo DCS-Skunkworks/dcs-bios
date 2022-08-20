@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("F-16C_50", 0x4400)
 BIOS.protocol.setExportModuleAircrafts({"F-16C_50"})
--- V1.13 by WarLord
+-- V1.13a by WarLord
 -- Tested and fixes by BuzzKillington, afewyards
 -- DED Display,MAGV,INS,UHF,CMDS,HARM,VIP & VRP by Matchstick & AMVI_Ares
 local inputProcessors = moduleBeingDefined.inputProcessors
@@ -596,7 +596,7 @@ defineFloat("FUELTOTALIZER_1K", 731, {0, 1}, "Fuel System", "Fuel Totalizer Coun
 defineFloat("FUELTOTALIZER_100", 732, {0, 1}, "Fuel System", "Fuel Totalizer Counter 100")
 
 --ECS Cabin Pressure Altimeter
-defineFloat("COCKPIT_ALITITUDE", 618, {0, 0.094, 0.194, 0.294, 0.394, 0.496, 0.597, 0.698, 0.798, 0.899, 1}, "Oxygen System", "Cabin Pressure Altimeter")
+defineFloat("COCKPIT_ALITITUDE", 618, {0, 1}, "Oxygen System", "Cabin Pressure Altimeter")
 
 --Oxygen Pressure Indicator
 defineFloat("OXYGEN_PRESSURE", 729, {0, 1}, "Oxygen System", "Oxygen Pressure")
