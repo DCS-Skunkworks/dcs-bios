@@ -522,8 +522,7 @@ table.CodeRay td.code>pre{padding:0}
     <h1>DCSFlightpanels User Guide</h1>
     <div id="toc" class="toc2">
       <div id="toctitle">Table of Contents</div>
-      <ul class="sectlevel2">
-          <ul>
+      <ul class="sectlevel1">
             <li><a href="#_introduction">Introduction</a></li>
             <li><a href="#_using_DCSFP_as_keyemu">Using DCSFlightpanels as a Keyemulator</a></li>
             <li><a href="#_install">Installation</a></li>
@@ -532,12 +531,20 @@ table.CodeRay td.code>pre{padding:0}
             <li><a href="#_dcsflightpanels_not_work">DCSFlightpanels not working as it should?</a></li>
             <li><a href="#_links">Links</a></li>
             <li><a href="#_tutorials">Tutorials</a></li>
-            <li></li>
+			<li><a href="#_formulars">Formulars</a></li>
+          <ul class="sectlevel2">
+            <li><a href="#_A-10C">A-10C</a></li>
+			<li><a href="#_Mi-8">Mi-8</a></li>
+			<li><a href="#_KA50">KA50</a></li>
+			<li><a href="#_UH-1H">UH-1H</a></li>
+			<li><a href="#_F-14">F-14</a></li>
+			<li><a href="#_M-2000C">M-2000C</a></li>
           </ul>
+        </li>
         <li><a href="userguide.html">DCS-BIOS User Guide</a></li>
         <li><a href="developerguide.html">DCS-BIOS Developer Guide</a></li>
 		<li><a href="planes.html">Plane Programming Guide</a></li>
-        <li><a href="start.html">Start</a></li>
+        <li><a href="../start.html">Start</a></li>
       </ul>
     </div>
   </div>
@@ -637,7 +644,7 @@ table.CodeRay td.code>pre{padding:0}
             </div>
           </div>
           <div class="sect3">
-            <h4 id="_tutorials"><strong>Tutorial</strong>s</h4>
+            <h4 id="_tutorials"><strong>Tutorials</strong></h4>
             <div class="paragraph">
               <ul>
                 <li><a href="https://youtu.be/mgm0JfldgYs" target="_blank"><strong>Comprehensive tutorial on key emulation using DCSFP</strong></a><br>
@@ -648,6 +655,99 @@ table.CodeRay td.code>pre{padding:0}
               </ul>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+	  <div class="sect3">
+            <h4 id="_formulars"><strong>Formulars</strong></h4>
+            <div class="paragraph">
+              <ul>
+                Listed here are example formulas that can be used to show cockpit data in the Multi Panel.
+                <li> <h4 id="_A-10C">A-10C</h4>
+                  Heading:<br>
+                  truncate(HSI_HDG*360/65536)<br>
+                  Heading bug:<br>
+                  truncate(HSI_HDG_KNOB*360/65536)</li>
+                <p>Course needle to degrees:<br>
+                  truncate(HSI_CRS_KNOB*360/65536)                </p>
+                <li><h4 id="_Mi-8">Mi-8
+                </h4>
+                </li>
+                <p>Left Variometer:<br>
+                  Ifless( VARIOMETER_L 56032 ( Ifless( VARIOMETER_L 46858 ( Ifless( VARIOMETER_L 40304 ( Ifless( VARIOMETER_L 35717 ( Ifless( VARIOMETER_L 34406 ( Ifless( VARIOMETER_L 32768 ( Ifless( VARIOMETER_L 31129 ( Ifless( VARIOMETER_L 29818 ( Ifless( VARIOMETER_L 25231 ( Ifless( VARIOMETER_L 18677 ( Ifless( VARIOMETER_L 9503 ( (VARIOMETER_L*0,00105)+-30) ((0,00109*(VARIOMETER_L-9503))+-20))) ((0,00076*(VARIOMETER_L-18677))+-10))) ((0,00065*(VARIOMETER_L-25231))+-5))) ((0,00076*(VARIOMETER_L-29818))+-2))) ((0,00061*(VARIOMETER_L-31129))+-1))) ((0,00061*(VARIOMETER_L-32768))+0))) ((0,00076*(VARIOMETER_L-34406))+1))) ((0,00065*(VARIOMETER_L-35717))+2))) ((0,00076*(VARIOMETER_L-40304))+5))) ((0,00109*(VARIOMETER_L-46858))+10))) ((0,00105*(VARIOMETER_L-56032))+20))</p>
+                <p>Barometric Altitud:<br>
+                  truncate((VD_10K_L_100/65536)*10000)</p>
+                <p>QFE:<br>
+                  truncate ((VD_10K_L_PRESS/508)+661)</p>
+                <p>IAS:<br>
+                  Ifless( IAS_L 63634 ( Ifless( IAS_L 56557 ( Ifless( IAS_L 49282 ( Ifless( IAS_L 41942 ( Ifless( IAS_L 34734 ( Ifless( IAS_L 27394 ( Ifless( IAS_L 20054 ( Ifless( IAS_L 13041 ( Ifless( IAS_L 4587 ( Ifless( IAS_L 2228 ( IAS_L*0,00449 ) ((0,0212*(IAS_L-2228))+0))) ((0,00591*(IAS_L-4587))+50))) ((0,00713*(IAS_L-13041))+100))) ((0,00681*(IAS_L-20054))+150))) ((0,00681*(IAS_L-27394))+200))) ((0,00694*(IAS_L-34734))+250))) ((0,00681*(IAS_L-41942))+300))) ((0,00687*(IAS_L-49282))+350))) ((0,00707*(IAS_L-56557))+400))) ((0,00789*(IAS_L-63634))+450))</p>
+                <p>Variometer:<br>
+                  Ifless( VARIOMETER_L 56032 ( Ifless( VARIOMETER_L 46858 ( Ifless( VARIOMETER_L 40304 ( Ifless( VARIOMETER_L 35717 ( Ifless( VARIOMETER_L 34406 ( Ifless( VARIOMETER_L 32768 ( Ifless( VARIOMETER_L 31129 ( Ifless( VARIOMETER_L 29818 ( Ifless( VARIOMETER_L 25231 ( Ifless( VARIOMETER_L 18677 ( Ifless( VARIOMETER_L 9503 ( (VARIOMETER_L*0,00105)+-30) ((0,00109*(VARIOMETER_L-9503))+-20))) ((0,00076*(VARIOMETER_L-18677))+-10))) ((0,00065*(VARIOMETER_L-25231))+-5))) ((0,00076*(VARIOMETER_L-29818))+-2))) ((0,00061*(VARIOMETER_L-31129))+-1))) ((0,00061*(VARIOMETER_L-32768))+0))) ((0,00076*(VARIOMETER_L-34406))+1))) ((0,00065*(VARIOMETER_L-35717))+2))) ((0,00076*(VARIOMETER_L-40304))+5))) ((0,00109*(VARIOMETER_L-46858))+10))) ((0,00105*(VARIOMETER_L-56032))+20))</p>
+                <p>Radar Altimeter:<br>
+                  Ifless ( A_036_RALT 40960 (Ifless ( A_036_RALT 29950  (A_036_RALT/299,5)  ((0,0181*(A_036_RALT-29950))+100)) )    ((0,02034*(A_036_RALT-40960))+300))</p>
+                <p>Heading:<br>
+                  ((UGR_4K_HEADING_L*0,00009587)+0) * 57,282</p>
+                <p>Course:<br>
+                  ifmore (  (((UGR_4K_COMMANDED_COURSE_L/65536)*360)  +  ((UGR_4K_HEADING_L/65536)*360))  359 (((UGR_4K_COMMANDED_COURSE_L/65536)*360)  +  ((UGR_4K_HEADING_L/65536)*360)-360)  (((UGR_4K_COMMANDED_COURSE_L/65536)*360)  +  ((UGR_4K_HEADING_L/65536)*360))  )<br>
+                </p>
+                <li><h4 id="_KA50">KA50</h4>
+                  Variometer:<br>
+                  ((VARIO_SPEED/65536)*60)-30</li>
+                <p>Radar altimeter:<br>
+                  Ifless ( RALT_ALT 61138 (Ifless ( RALT_ALT 54591 ( Ifless ( RALT_ALT 49420 ( Ifless ( RALT_ALT 30350 ( Ifless ( RALT_ALT 12045 (RALT_ALT/602,25)  ((0,00163*(RALT_ALT-12045))+20)) )  ((0,00524*(RALT_ALT-30350))+50)) )  ((0,00967*(RALT_ALT-49420))+150)) ) ((0,01527*(RALT_ALT-54591))+200)) )  300 )</p>
+                <p>IAS:<br>
+                  truncate((AIRSPEED*350)/65536)</p>
+                <p>Heading:<br>
+                  (HSI_HDG/65536)*360</p>
+                <p>Barimetric Altitude:<br>
+                  truncate((ALT_1000M/65536)*10000)</p>
+                <p>QFE press:<br>
+                  truncate(((ALT_QFE_PRESS/65536)*200)+600)</p>
+                <p>Course:<br>
+                  (HSI_DES_COURSE/65536)*360</p>
+                <li><h4 id="_UH-1H">UH-1H</h4>
+                  Barometric Altitude:<br>
+                  (PALT_10000/65535)*100000</li>
+                <p>QFE (last digit is decimal):<br>
+                  ((PALT_PRESS*0,00004425)+28,1)*10</p>
+                <p>Radar Altimeter:<br>
+                  Ifless( RALT_NEEDLE 48916 ( Ifless( RALT_NEEDLE 42533 ( Ifless( RALT_NEEDLE 35822 ( Ifless( RALT_NEEDLE 31848 ( Ifless( RALT_NEEDLE 16118 ( (RALT_NEEDLE*0,006204)+0) ((0,006279*(RALT_NEEDLE-16118))+100))) ((0,07549*(RALT_NEEDLE-31848))+200))) ((0,07554*(RALT_NEEDLE-35822))+500))) ((0,07722*(RALT_NEEDLE-42441))+1000))) ((0*(RALT_NEEDLE-48916))+1500))</p>
+                <p>Vertical Velocity:<br>
+                  Ifless( VVI_P 59309 ( Ifless( VVI_P 50462 ( Ifless( VVI_P 44564 ( Ifless( VVI_P 20971 ( Ifless( VVI_P 15073 ( Ifless( VVI_P 6226 ( (VVI_P*0,16062)+-4000) ((0,16955*(VVI_P-6226))+-3000))) ((0,08477*(VVI_P-15073))+-1500))) ((0,08477*(VVI_P-20971))+-1000))) ((0,08477*(VVI_P-44564))+1000))) ((0,16955*(VVI_P-50462))+1500))) ((0,16062*(VVI_P-59309))+3000))</p>
+                <p>IAS:<br>
+                  Ifless( IAS_NOSE 54066 ( Ifless( IAS_NOSE 36044 ( Ifless( IAS_NOSE 28835 ( Ifless( IAS_NOSE 25886 ( Ifless( IAS_NOSE 20971 ( Ifless( IAS_NOSE 12452 ( Ifless( IAS_NOSE 4915 ( (IAS_NOSE*0,00407)+0) ((0,00133*(IAS_NOSE-4915))+20))) ((0,00117*(IAS_NOSE-12452))+30))) ((0,00203*(IAS_NOSE-20971))+40))) ((0,00339*(IAS_NOSE-25886))+50))) ((0,00277*(IAS_NOSE-28835))+60))) ((0,00222*(IAS_NOSE-36044))+80))) ((0,00262*(IAS_NOSE-54066))+120))</p>
+                <p>Heading:<br>
+                  (GMC_HDG/65535)*360</p>
+                <p>Course Mark:<br>
+                  ifmore (   ((360-((GMC_HDG_MARKER/65535)*360))+((GMC_HDG/65535)*360)) 359  (((360-((GMC_HDG_MARKER/65535)*360))+((GMC_HDG/65535)*360))-360)    ((360-((GMC_HDG_MARKER/65535)*360))+((GMC_HDG/65535)*360))   )<br>
+                </p>
+                <li><h4 id="_F-14">F-14</h4>
+                  VSI:<br>
+                (PLT_VSI_NEEDLE-32767.5) * ifless (PLT_VSI_NEEDLE 32767.5 (ifmore(PLT_VSI_NEEDLE 16000((log10 1.1)*log10 55)(ifmore(PLT_VSI_NEEDLE 7500((log10 1.125)*log10 80)(ifmore(PLT_VSI_NEEDLE 2500(log10 1.4)(.185))))))) (ifless(PLT_VSI_NEEDLE 46800((log10 1.1)*log10 50)(ifless(PLT_VSI_NEEDLE 56000((log10 1.125)*log10 80)(ifless(PLT_VSI_NEEDLE 62000(log10 1.4)(.185))))))))</li>
+              </ul>
+              <ul>
+                <li><h4 id="_M-2000C">M-2000C</h4><br>
+                  Speed Neddle:<br>
+                [SPEED_KTS_NEED * 0,01526]</li>
+                <p>formula for selected altitude tumble on multi panel is :<br>
+                  [((ALT_10K_FT_SEL)*10000)+((ALT_1K_FT_SEL)*1000)+((ALT_100_FT_SEL)*100)]</p>
+                <p>formula for BINGO tumble on multi panel is :<br>
+                  [(BINGO_FUEL_1K_KG_SEL*1000)+(BINGO_FUEL_100_KG_SEL*100)]</p>
+                <p>formula for accurate FUEL DETOT tumble on multi panel is : <br>
+                  [((FUEL_DETOT_THOUS * 0,0001528) * 1000)+((FUEL_DETOT_CENTS * 0,0001528) * 100)+((FUEL_DETOT_TENS * 0,0001528) * 10)]</p>
+                <p>formula for accurate AOA on multi panel is :<br>
+                  [AOA_POS*0,00152]</p>
+                <p>formula for accurate CALIBRATION PRESSURE tumble on multi panel is :<br>
+                  [((ALT_BARO_THOUS*0,0001526)*1000)+((ALT_BARO_CENTS*0,0001526)*100)+((ALT_BARO_TENS*0,0001526)*10)+(ALT_BARO_ONES*0,0001526)]<br>
+                </p>
+                <p>Some gauges' scales are not linear. The above formula handles that. To generate formulas<br>
+                  like these you can use <a href="http://www.captzeen.com/helios/create_formula.asp">Capt Zeen's formula Generator</a>:                </p>
+                <p>You will find the gauge values in the &quot;<em>mainpanel_init.lua</em>&quot;:<br>
+                  Variometer_L.input		= {-30,  -20,   -10,   -5,    -2,    -1,    0, 1,    2,    5,    10,   20,   30}<br>
+                  Variometer_L.output		= {-1.0, -0.71, -0.43, -0.23, -0.09, -0.05, 0, 0.05, 0.09, 0.23, 0.43, 0.71, 1.0}</p>
+              </ul>
+        </div>
+    </div>
         </div>
       </div>
     </div>
