@@ -16,6 +16,8 @@ if "%1" == "/Q" (
 	shift
 )
 
+call ensure-socat.cmd
+
 if not "%1" == "" set COMPORT=%1
 if "%COMPORT%" == "ASK" set /p COMPORT=Enter a COM Port Number:
 
