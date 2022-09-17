@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("Mi-24P", 0x6800)
 BIOS.protocol.setExportModuleAircrafts({"Mi-24P"})
---v1.0b by WarLord&charliefoxtwo
+--v1.1 by WarLord&charliefoxtwo
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document  
@@ -479,7 +479,7 @@ definePushButton("PLT_FIRE_EX_GEAR1", 13, 3007, 490, "Fire Extinguisher", "PILOT
 definePushButton("PLT_FIRE_EX_GEAR2", 13, 3008, 492, "Fire Extinguisher", "PILOT Extinguish Gearbox 2")
 definePushButton("PLT_FIRE_ALARM_OFF", 13, 3009, 488, "Fire Extinguisher", "PILOT Turn Off Fire Signal Button")
 defineToggleSwitch("PLT_FIRE_EX_CONTROL", 13, 3010, 482, "Fire Extinguisher", "PILOT Extinguisher Control Switch EXING/CNTRL")
-defineTumb("PLT_FIRE_EX_SENSOR_CHAN", 13, 3013, 484, 0.3, {0, 1}, nil, false, "Fire Extinguisher", "PILOT Fire Extinguisher Sensor Channel OFF/1/2/3")
+defineMultipositionSwitch("PLT_FIRE_EX_SENSOR_CHAN", 13, 3013, 484, 4, 0.1, "Fire Extinguisher", "PILOT Fire Extinguisher Sensor Channel OFF/1/2/3")
 defineSpringloaded_3PosTumb("PLT_FIRE_EX_SQUIB", 13, 3011, 3012, 486, "Fire Extinguisher", "PILOT Extinguisher Squib Control")
 defineToggleSwitch("PLT_FIRE_EX_PW", 13, 3014, 487, "Fire Extinguisher", "PILOT Extinguisher Power ON/OFF")
 
