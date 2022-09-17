@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("F-16C_50", 0x4400)
 BIOS.protocol.setExportModuleAircrafts({"F-16C_50"})
--- V1.13b by WarLord
+-- V1.14 by WarLord
 -- Tested and fixes by BuzzKillington, afewyards
 -- DED Display,MAGV,INS,UHF,CMDS,HARM,VIP & VRP by Matchstick & AMVI_Ares
 local inputProcessors = moduleBeingDefined.inputProcessors
@@ -1896,6 +1896,9 @@ defineToggleSwitch("ECM_FRM_BTN", 66, 3012, 490, "ECM", "ECM FRM Button")
 defineToggleSwitch("ECM_SPL_BTN", 66, 3013, 495, "ECM", "ECM SPL Button")
 
 defineIndicatorLight("LIGHT_ECM", 102, "Warning, Caution and IndicatorLights", "ECM Light (green)")
+
+defineToggleSwitch("GEAR_ALT_HANDLE", 7, 3008, 380, "Gear System", "ALT GEAR Handle, PULL/STOW")
+definePushButton("GEAR_ALT_BTN", 7, 3009, 381, "Gear System", "ALT GEAR Handle - Push to reset")
 
 ---------------------------- Externals
 defineIntegerFromGetter("EXT_SPEED_BRAKE_RIGHT", function()
