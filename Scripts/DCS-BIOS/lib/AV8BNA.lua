@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("AV8BNA", 0x7800)
 BIOS.protocol.setExportModuleAircrafts({"AV8BNA"})
---by WarLord v2.3
+--by WarLord,Matchstick v2.3b
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 
@@ -120,7 +120,7 @@ local function getARC210_COMM1_String_Frequency()
 		return freq:sub(1,3) .. "." .. freq:sub(4,6)	
 	end	
 end
-defineString("COMM1_STRING_FREQ", getARC210_COMM1_String_Frequency, 7, "AAA", "COMM1 ARC-210 Frequency (string)")
+defineString("COMM1_STRING_FREQ", getARC210_COMM1_String_Frequency, 7, "UFC Display", "COMM1 ARC-210 Frequency (string)")
 
 local function getARC210_COMM2_String_Frequency()
 	local arc_210_comm2 = GetDevice(3)
@@ -131,7 +131,7 @@ local function getARC210_COMM2_String_Frequency()
 		return freq:sub(1,3) .. "." .. freq:sub(4,6)	
 	end	
 end
-defineString("COMM2_STRING_FREQ", getARC210_COMM2_String_Frequency, 7, "AAA", "COMM2 ARC-210 Frequency (string)")
+defineString("COMM2_STRING_FREQ", getARC210_COMM2_String_Frequency, 7, "UFC Display", "COMM2 ARC-210 Frequency (string)")
 
 --ODU Panel
 definePushButton("ODU_OPT1", 24, 3250, 250, "ODU", "ODU Option 1")
@@ -251,7 +251,6 @@ definePushButton("STOPWATCH_LAP", 12, 3052, 1122, "Bulkhead", "Stopwatch Lap/Res
 --Seat
 defineToggleSwitch("SEAT_SAFE_LEVER", 12, 3800, 800, "Seat", "Seat Ground Safety Lever")
 
-
 ---- CENTER CONSOLE:
 --Flights Instruments Panel
 define3PosTumb("NAV_CRS", 11, 3364, 364, "Flight Instruments", "NAV Course Setting")
@@ -315,7 +314,6 @@ defineToggleSwitch("EFC_SW", 9, 3518, 518, "Gear/Flaps Control Panel", "EFC Swit
 define3PosTumb("SEAT_ADJ", 12, 3502, 502, "Bulkhead Left", "Seat Adjustment Switch")
 defineToggleSwitch("FUEL_SHUTOFF", 9, 3519, 519, "Bulkhead Left", "Fuel Shutoff Lever")
 defineToggleSwitch("DECS_SW", 9, 3520, 520, "Bulkhead Left", "DECS Switch")
-
 
 ---- RIGHT CONSOLE:
 --Electrical Panel
@@ -621,17 +619,18 @@ end, 1, "External Aircraft Model", "Weight ON Wheels Tail Gear")
 
 -- Get Displays Functions
 local function getComm1Text()
-	if parse_indication(5) == nil then return (" "):rep(2) end
-	local txt = parse_indication(5)["ufc_chnl_1_m"] or parse_indication(5)["ufc_chnl_1_v"] or ""
-	return (" "):rep(2 - #txt) .. txt:sub(3,4)
+    if parse_indication(5) == nil then return (" "):rep(2) end
+    local txt = parse_indication(5)["ufc_chnl_1_m"]  or ""
+    return (" "):rep(2 - #txt) .. txt:sub(1,2)
 end
-defineString("UFC_COMM1_DISPLAY", getComm1Text, 2, "UFC", "UFC Comm1 Preset Display")
+defineString("UFC_COMM1_DISPLAY", getComm1Text, 2, "UFC Display", "UFC Comm1 Preset Display")
+
 local function getComm2Text()
-	if parse_indication(5) == nil then return (" "):rep(2) end
-	local txt = parse_indication(5)["ufc_chnl_2_m"] or parse_indication(5)["ufc_chnl_2_v"] or ""
-	return (" "):rep(2 - #txt) .. txt:sub(3,4)
-end
-defineString("UFC_COMM2_DISPLAY", getComm2Text, 2, "UFC", "UFC Comm2 Preset Display")
+    if parse_indication(5) == nil then return (" "):rep(2) end
+    local txt = parse_indication(5)["ufc_chnl_2_m"] or ""
+    return (" "):rep(2 - #txt) .. txt:sub(1,2)
+end 
+defineString("UFC_COMM2_DISPLAY", getComm2Text, 2, "UFC Display", "UFC Comm2 Preset Display")
 
 
 local dummyAlloc = moduleBeingDefined.memoryMap:allocateString { maxLength = 14 }
@@ -675,7 +674,6 @@ defineString("AV8BNA_ODU_4_Text", function() return oduOption4Text end, 4, "ODU"
 defineString("AV8BNA_ODU_5_SELECT", function() return oduOption5Select end, 1, "ODU", "ODU Option 5 Select (string)")
 defineString("AV8BNA_ODU_5_Text", function() return oduOption5Text end, 4, "ODU", "ODU Option 5 Text (string)")
 
-
 local function getUfcText()
 	if parse_indication(5) == nil then return (" "):rep(12) end
 	local leftStr = parse_indication(5)["ufc_left_position"] or ""
@@ -684,6 +682,6 @@ local function getUfcText()
     local displayStr = leftStr .. (" "):rep(12 - #leftStr - #rightStr) .. rightStr
     return displayStr
 end
-defineString("UFC_SCRATCHPAD", getUfcText, 12, "UFC", "UFC Scratchpad Display")
+defineString("UFC_SCRATCHPAD", getUfcText, 12, "UFC Display", "UFC Scratchpad Display")
 
 BIOS.protocol.endModule()
