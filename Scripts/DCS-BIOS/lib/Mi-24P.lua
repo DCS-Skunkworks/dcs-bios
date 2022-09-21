@@ -1237,4 +1237,6 @@ defineToggleSwitch("PLT_HEAT_R_PPD", 11, 3045, 389, "Cockpit Mechanics PLT", "PI
 defineIndicatorLight("PLT_HEAT_L_FAIL_L", 388, "Cockpit Mechanics Lights", "PILOT Heating Left Failed Lamp (yellow)")
 defineIndicatorLight("PLT_HEAT_R_FAIL_L", 390, "Cockpit Mechanics Lights", "PILOT Heating Left Failed Lamp (yellow)")
 
+define3PosTumb("PLT_SARPP12_MODE", 62, 3001, 357, "SARPP-12", "PILOT SARPP-12 Mode Switch, MANUAL/AUTO")
+
 BIOS.protocol.endModule()
