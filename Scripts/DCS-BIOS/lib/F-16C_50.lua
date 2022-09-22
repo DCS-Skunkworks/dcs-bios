@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("F-16C_50", 0x4400)
 BIOS.protocol.setExportModuleAircrafts({"F-16C_50"})
--- V1.14 by WarLord
+-- V1.14a by WarLord
 -- Tested and fixes by BuzzKillington, afewyards
 -- DED Display,MAGV,INS,UHF,CMDS,HARM,VIP & VRP by Matchstick & AMVI_Ares
 local inputProcessors = moduleBeingDefined.inputProcessors
@@ -88,7 +88,7 @@ definePushButton("DN_LOCK_BTN", 7, 3002, 361, "Gear System", "DN LOCK REL Button
 defineToggleSwitch("HOOK_SW", 7, 3006, 354, "Gear System", "HOOK Switch, UP/DN")
 definePushButton("HORN_SILENCE_BTN", 7, 3007, 359, "Gear System", "HORN SILENCER Button - Push to reset")
 defineToggleSwitch("BRAKE_CHAN_SW", 7, 3005, 356, "Gear System", "BRAKES Channel Switch, CHAN 1/CHAN 2")
-defineSpringloaded_3PosTumb("ANTI_SKID_SW", 7, 3010, 3004, 357, "Gear System", "ANTI-SKID Switch, PARKING BRAKE/ANTI-SKID/OFF")
+defineSpringloaded_3PosTumb("ANTI_SKID_SW", 7, 3004, 3003, 357, "Gear System", "ANTI-SKID Switch, PARKING BRAKE/ANTI-SKID/OFF")
 
 --ECS
 definePotentiometer("TEMP_KNB", 13, 3002, 692, {-0.3, 0.3}, "ECS", "TEMP Knob")
