@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("F-16C_50", 0x4400)
 BIOS.protocol.setExportModuleAircrafts({"F-16C_50"})
--- V1.14a by WarLord
+-- V1.14b by WarLord
 -- Tested and fixes by BuzzKillington, afewyards
 -- DED Display,MAGV,INS,UHF,CMDS,HARM,VIP & VRP by Matchstick & AMVI_Ares
 local inputProcessors = moduleBeingDefined.inputProcessors
@@ -1882,7 +1882,7 @@ defineToggleSwitch("SEAT_EJECT_HANDLE", 10, 3006, 0,"Cockpit Mechanics" ,"Ejecti
 
 -- ECM
 define3PosTumb("ECM_PW_SW", 66, 3001, 455, "ECM", "ECM Power Switch")
-definePotentiometer("ECM_DIM_KNB", 66, 3003, 456, nil, "ADI", "ECM DIM Rotary Knob")
+definePotentiometer("ECM_DIM_KNB", 66, 3003, 456, nil, "ECM", "ECM DIM Rotary Knob")
 define3PosTumb("ECM_XMIT_SW", 66, 3002, 457, "ECM", "ECM XMIT Switch")
 definePushButton("ECM_RESET_BTN", 66, 3004, 458, "ECM", "ECM Reset Button")
 definePushButton("ECM_BIT_BTN", 66, 3005, 459, "ECM", "ECM Bit Button")
