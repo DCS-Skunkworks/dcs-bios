@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("F-16C_50", 0x4400)
 BIOS.protocol.setExportModuleAircrafts({"F-16C_50"})
--- V1.14b by WarLord
+-- V1.14c by WarLord
 -- Tested and fixes by BuzzKillington, afewyards
 -- DED Display,MAGV,INS,UHF,CMDS,HARM,VIP & VRP by Matchstick & AMVI_Ares
 local inputProcessors = moduleBeingDefined.inputProcessors
@@ -1532,8 +1532,8 @@ DEDLayout_l5["INTRAFLIGHT LAST lbl"] = {13,4}
 DEDLayout_l5["INTRAFLIGHT LAST value"] = {18,2}
 DEDLayout_l5["INTRAFLIGHT P6 lbl"] = {21,3}
 --LASER
-DEDLayout_l5["Laser ST Time LABEL"] = {1,22}
-DEDLayout_l5["Laser ST Time VALUE"] = {16,2,0,"_inv","I"}
+DEDLayout_l5["Laser ST Time LABEL"] = {1,13}
+DEDLayout_l5["Laser ST Time VALUE"] = {16,3,0,"_inv","I"}
 DEDLayout_l5["Laser ST Time Asteriscs_both"] = {15,1,19,"","I"}
 --INTG
 DEDLayout_l5["INTG M3 Mode"] = {0,2,0,"_inv","I"}
