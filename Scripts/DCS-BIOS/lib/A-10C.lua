@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("A-10C", 0x1000)
 BIOS.protocol.setExportModuleAircrafts({"A-10C", "A-10C_2"})
---overhaul by WarLord v2.2a
+--overhaul by WarLord v2.3
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 
@@ -638,7 +638,7 @@ defineRockerSwitch("CDU_SCROLL", 9, 3064, 3064, 3065, 3065, 469, "CDU", "Scroll 
 defineRockerSwitch("CDU_DATA", 9, 3066, 3066, 3067, 3067, 472, "CDU", "+/- Rocker")
 
 define3PosTumb1("AAP_STEERPT", 22, 3001, 473, "AAP", "STEERPT FLTPLAN - MARK - MISSION")
-defineRockerSwitch("AAP_STEER", 22, 3003, 3003, 3002, 3002, 474, "AAP", "Toggle Steerpoint")
+defineSpringloaded_3PosTumb("AAP_STEER", 22, 3003, 3002, 474, "AAP", "Toggle Steerpoint")
 defineTumb("AAP_PAGE", 22, 3004, 475, 0.1, {0, 0.3}, nil, false, "AAP", "PAGE OTHER - POSITION - STEER - WAYPT")
 defineToggleSwitch("AAP_CDUPWR", 22, 3005, 476, "AAP", "CDU Power")
 defineToggleSwitch("AAP_EGIPWR", 22, 3006, 477, "AAP", "EGI Power")
