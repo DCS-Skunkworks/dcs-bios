@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("M-2000C", 0x7200)
 BIOS.protocol.setExportModuleAircrafts({"M-2000C"})
---v1.37 by Ergo,Matchstick,MisterKnife,WarLord,Espresso29470
+--v1.38 by Ergo,Matchstick,MisterKnife,WarLord,Espresso29470
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 
@@ -393,10 +393,10 @@ defineTumb("HSI_MODE_SEL_SW", 2, 3341, 341, 0.1, {0, 1}, nil, false, "HSI", "I -
 defineFloat("HSI_HDG", 333, {0, 1}, "HSI", "O - HSI - AP Heading (Green Arrow)")
 defineFloat("HSI_D_NEEDLE", 334, {0, 1}, "HSI", "O - HSI - COURSE (Double Needle)")
 defineFloat("HSI_NEEDLE", 335, {0, 1}, "HSI", "O - HSI - VAD (Simple Needle)")
-defineFloat("HSI_DIST_CENTS", 336, {0, 1}, "HSI", "O - HSI x100 Distance display")
-defineFloat("HSI_DIST_TENS", 337, {0, 1}, "HSI", "O - HSI x10 Distance display")
-defineFloat("HSI_DIST_ONES", 338, {0, 1}, "HSI", "O - HSI x1 Distance display")
-defineFloat("HSI_DIST_DEC", 339, {0, 1}, "HSI", "O - HSI x.1 Distance display")
+defineFloat("HSI_DIST_CENTS", 336, {0, 0.99}, "HSI", "O - HSI x100 Distance display")
+defineFloat("HSI_DIST_TENS", 337, {0, 0.99}, "HSI", "O - HSI x10 Distance display")
+defineFloat("HSI_DIST_ONES", 338, {0, 0.99}, "HSI", "O - HSI x1 Distance display")
+defineFloat("HSI_DIST_DEC", 339, {0, 0.99}, "HSI", "O - HSI x.1 Distance display")
 defineFloat("HSI_COMPAS", 342, {0, 1}, "HSI", "O - HSI - Compass")
 defineFloat("HSI_FLAG_DIST", 343, {0, 1}, "HSI", "O - HSI - Distance Flag")
 defineFloat("HSI_FLAG_G", 344, {0, 1}, "HSI", "O - HSI - Left Flag")
