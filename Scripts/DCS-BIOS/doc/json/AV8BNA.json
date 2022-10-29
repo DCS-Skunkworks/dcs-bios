@@ -1,34 +1,4 @@
 {
-                                     "AAA": {
-                                                "COMM1_STRING_FREQ": {
-                                                                             "category": "AAA",
-                                                                         "control_type": "display",
-                                                                          "description": "COMM1 ARC-210 Frequency (string)",
-                                                                           "identifier": "COMM1_STRING_FREQ",
-                                                                               "inputs": [  ],
-                                                                              "outputs": [ {
-                                                                                                 "address": 30744,
-                                                                                             "description": "COMM1 ARC-210 Frequency (string)",
-                                                                                              "max_length": 7,
-                                                                                                  "suffix": "",
-                                                                                                    "type": "string"
-                                                                                         } ]
-                                                                     },
-                                                "COMM2_STRING_FREQ": {
-                                                                             "category": "AAA",
-                                                                         "control_type": "display",
-                                                                          "description": "COMM2 ARC-210 Frequency (string)",
-                                                                           "identifier": "COMM2_STRING_FREQ",
-                                                                               "inputs": [  ],
-                                                                              "outputs": [ {
-                                                                                                 "address": 30752,
-                                                                                             "description": "COMM2 ARC-210 Frequency (string)",
-                                                                                              "max_length": 7,
-                                                                                                  "suffix": "",
-                                                                                                    "type": "string"
-                                                                                         } ]
-                                                                     }
-                                            },
                                    "ACNIP": {
                                                      "ACNIP_MODE": {
                                                                                   "category": "ACNIP",
@@ -7808,398 +7778,848 @@
                                                                }
                                             },
                                      "UFC": {
-                                                          "UFC_ALT": {
-                                                                                 "api_variant": "momentary_last_position",
-                                                                                    "category": "UFC",
-                                                                                "control_type": "selector",
-                                                                                 "description": "UFC Altitude Function Selector",
-                                                                                  "identifier": "UFC_ALT",
-                                                                                      "inputs": [ {
-                                                                                                    "description": "switch to previous or next state",
-                                                                                                      "interface": "fixed_step"
-                                                                                                }, {
-                                                                                                    "description": "set position",
-                                                                                                      "interface": "set_state",
-                                                                                                      "max_value": 1
-                                                                                                }, {
-                                                                                                       "argument": "TOGGLE",
-                                                                                                    "description": "Toggle switch state",
-                                                                                                      "interface": "action"
-                                                                                                } ],
-                                                                         "momentary_positions": "none",
-                                                                                     "outputs": [ {
-                                                                                                        "address": 30730,
-                                                                                                    "description": "selector position",
-                                                                                                           "mask": 256,
-                                                                                                      "max_value": 1,
-                                                                                                       "shift_by": 8,
-                                                                                                         "suffix": "",
-                                                                                                           "type": "integer"
-                                                                                                } ],
-                                                                            "physical_variant": "push_button"
+                                                    "UFC_ALT": {
+                                                                           "api_variant": "momentary_last_position",
+                                                                              "category": "UFC",
+                                                                          "control_type": "selector",
+                                                                           "description": "UFC Altitude Function Selector",
+                                                                            "identifier": "UFC_ALT",
+                                                                                "inputs": [ {
+                                                                                              "description": "switch to previous or next state",
+                                                                                                "interface": "fixed_step"
+                                                                                          }, {
+                                                                                              "description": "set position",
+                                                                                                "interface": "set_state",
+                                                                                                "max_value": 1
+                                                                                          }, {
+                                                                                                 "argument": "TOGGLE",
+                                                                                              "description": "Toggle switch state",
+                                                                                                "interface": "action"
+                                                                                          } ],
+                                                                   "momentary_positions": "none",
+                                                                               "outputs": [ {
+                                                                                                  "address": 30730,
+                                                                                              "description": "selector position",
+                                                                                                     "mask": 256,
+                                                                                                "max_value": 1,
+                                                                                                 "shift_by": 8,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ],
+                                                                      "physical_variant": "push_button"
+                                                               },
+                                                     "UFC_B0": {
+                                                                           "api_variant": "momentary_last_position",
+                                                                              "category": "UFC",
+                                                                          "control_type": "selector",
+                                                                           "description": "UFC Button 0",
+                                                                            "identifier": "UFC_B0",
+                                                                                "inputs": [ {
+                                                                                              "description": "switch to previous or next state",
+                                                                                                "interface": "fixed_step"
+                                                                                          }, {
+                                                                                              "description": "set position",
+                                                                                                "interface": "set_state",
+                                                                                                "max_value": 1
+                                                                                          }, {
+                                                                                                 "argument": "TOGGLE",
+                                                                                              "description": "Toggle switch state",
+                                                                                                "interface": "action"
+                                                                                          } ],
+                                                                   "momentary_positions": "none",
+                                                                               "outputs": [ {
+                                                                                                  "address": 30730,
+                                                                                              "description": "selector position",
+                                                                                                     "mask": 4,
+                                                                                                "max_value": 1,
+                                                                                                 "shift_by": 2,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ],
+                                                                      "physical_variant": "push_button"
+                                                               },
+                                                     "UFC_B1": {
+                                                                           "api_variant": "momentary_last_position",
+                                                                              "category": "UFC",
+                                                                          "control_type": "selector",
+                                                                           "description": "UFC Button 1",
+                                                                            "identifier": "UFC_B1",
+                                                                                "inputs": [ {
+                                                                                              "description": "switch to previous or next state",
+                                                                                                "interface": "fixed_step"
+                                                                                          }, {
+                                                                                              "description": "set position",
+                                                                                                "interface": "set_state",
+                                                                                                "max_value": 1
+                                                                                          }, {
+                                                                                                 "argument": "TOGGLE",
+                                                                                              "description": "Toggle switch state",
+                                                                                                "interface": "action"
+                                                                                          } ],
+                                                                   "momentary_positions": "none",
+                                                                               "outputs": [ {
+                                                                                                  "address": 30720,
+                                                                                              "description": "selector position",
+                                                                                                     "mask": 512,
+                                                                                                "max_value": 1,
+                                                                                                 "shift_by": 9,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ],
+                                                                      "physical_variant": "push_button"
+                                                               },
+                                                     "UFC_B2": {
+                                                                           "api_variant": "momentary_last_position",
+                                                                              "category": "UFC",
+                                                                          "control_type": "selector",
+                                                                           "description": "UFC Button 2/N",
+                                                                            "identifier": "UFC_B2",
+                                                                                "inputs": [ {
+                                                                                              "description": "switch to previous or next state",
+                                                                                                "interface": "fixed_step"
+                                                                                          }, {
+                                                                                              "description": "set position",
+                                                                                                "interface": "set_state",
+                                                                                                "max_value": 1
+                                                                                          }, {
+                                                                                                 "argument": "TOGGLE",
+                                                                                              "description": "Toggle switch state",
+                                                                                                "interface": "action"
+                                                                                          } ],
+                                                                   "momentary_positions": "none",
+                                                                               "outputs": [ {
+                                                                                                  "address": 30720,
+                                                                                              "description": "selector position",
+                                                                                                     "mask": 1024,
+                                                                                                "max_value": 1,
+                                                                                                 "shift_by": 10,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ],
+                                                                      "physical_variant": "push_button"
+                                                               },
+                                                     "UFC_B3": {
+                                                                           "api_variant": "momentary_last_position",
+                                                                              "category": "UFC",
+                                                                          "control_type": "selector",
+                                                                           "description": "UFC Button 3",
+                                                                            "identifier": "UFC_B3",
+                                                                                "inputs": [ {
+                                                                                              "description": "switch to previous or next state",
+                                                                                                "interface": "fixed_step"
+                                                                                          }, {
+                                                                                              "description": "set position",
+                                                                                                "interface": "set_state",
+                                                                                                "max_value": 1
+                                                                                          }, {
+                                                                                                 "argument": "TOGGLE",
+                                                                                              "description": "Toggle switch state",
+                                                                                                "interface": "action"
+                                                                                          } ],
+                                                                   "momentary_positions": "none",
+                                                                               "outputs": [ {
+                                                                                                  "address": 30720,
+                                                                                              "description": "selector position",
+                                                                                                     "mask": 2048,
+                                                                                                "max_value": 1,
+                                                                                                 "shift_by": 11,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ],
+                                                                      "physical_variant": "push_button"
+                                                               },
+                                                     "UFC_B4": {
+                                                                           "api_variant": "momentary_last_position",
+                                                                              "category": "UFC",
+                                                                          "control_type": "selector",
+                                                                           "description": "UFC Button 4/W",
+                                                                            "identifier": "UFC_B4",
+                                                                                "inputs": [ {
+                                                                                              "description": "switch to previous or next state",
+                                                                                                "interface": "fixed_step"
+                                                                                          }, {
+                                                                                              "description": "set position",
+                                                                                                "interface": "set_state",
+                                                                                                "max_value": 1
+                                                                                          }, {
+                                                                                                 "argument": "TOGGLE",
+                                                                                              "description": "Toggle switch state",
+                                                                                                "interface": "action"
+                                                                                          } ],
+                                                                   "momentary_positions": "none",
+                                                                               "outputs": [ {
+                                                                                                  "address": 30720,
+                                                                                              "description": "selector position",
+                                                                                                     "mask": 4096,
+                                                                                                "max_value": 1,
+                                                                                                 "shift_by": 12,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ],
+                                                                      "physical_variant": "push_button"
+                                                               },
+                                                     "UFC_B5": {
+                                                                           "api_variant": "momentary_last_position",
+                                                                              "category": "UFC",
+                                                                          "control_type": "selector",
+                                                                           "description": "UFC Button 5",
+                                                                            "identifier": "UFC_B5",
+                                                                                "inputs": [ {
+                                                                                              "description": "switch to previous or next state",
+                                                                                                "interface": "fixed_step"
+                                                                                          }, {
+                                                                                              "description": "set position",
+                                                                                                "interface": "set_state",
+                                                                                                "max_value": 1
+                                                                                          }, {
+                                                                                                 "argument": "TOGGLE",
+                                                                                              "description": "Toggle switch state",
+                                                                                                "interface": "action"
+                                                                                          } ],
+                                                                   "momentary_positions": "none",
+                                                                               "outputs": [ {
+                                                                                                  "address": 30720,
+                                                                                              "description": "selector position",
+                                                                                                     "mask": 8192,
+                                                                                                "max_value": 1,
+                                                                                                 "shift_by": 13,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ],
+                                                                      "physical_variant": "push_button"
+                                                               },
+                                                     "UFC_B6": {
+                                                                           "api_variant": "momentary_last_position",
+                                                                              "category": "UFC",
+                                                                          "control_type": "selector",
+                                                                           "description": "UFC Button 6/E",
+                                                                            "identifier": "UFC_B6",
+                                                                                "inputs": [ {
+                                                                                              "description": "switch to previous or next state",
+                                                                                                "interface": "fixed_step"
+                                                                                          }, {
+                                                                                              "description": "set position",
+                                                                                                "interface": "set_state",
+                                                                                                "max_value": 1
+                                                                                          }, {
+                                                                                                 "argument": "TOGGLE",
+                                                                                              "description": "Toggle switch state",
+                                                                                                "interface": "action"
+                                                                                          } ],
+                                                                   "momentary_positions": "none",
+                                                                               "outputs": [ {
+                                                                                                  "address": 30720,
+                                                                                              "description": "selector position",
+                                                                                                     "mask": 16384,
+                                                                                                "max_value": 1,
+                                                                                                 "shift_by": 14,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ],
+                                                                      "physical_variant": "push_button"
+                                                               },
+                                                     "UFC_B7": {
+                                                                           "api_variant": "momentary_last_position",
+                                                                              "category": "UFC",
+                                                                          "control_type": "selector",
+                                                                           "description": "UFC Button 7",
+                                                                            "identifier": "UFC_B7",
+                                                                                "inputs": [ {
+                                                                                              "description": "switch to previous or next state",
+                                                                                                "interface": "fixed_step"
+                                                                                          }, {
+                                                                                              "description": "set position",
+                                                                                                "interface": "set_state",
+                                                                                                "max_value": 1
+                                                                                          }, {
+                                                                                                 "argument": "TOGGLE",
+                                                                                              "description": "Toggle switch state",
+                                                                                                "interface": "action"
+                                                                                          } ],
+                                                                   "momentary_positions": "none",
+                                                                               "outputs": [ {
+                                                                                                  "address": 30720,
+                                                                                              "description": "selector position",
+                                                                                                     "mask": 32768,
+                                                                                                "max_value": 1,
+                                                                                                 "shift_by": 15,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ],
+                                                                      "physical_variant": "push_button"
+                                                               },
+                                                     "UFC_B8": {
+                                                                           "api_variant": "momentary_last_position",
+                                                                              "category": "UFC",
+                                                                          "control_type": "selector",
+                                                                           "description": "UFC Button 8/S",
+                                                                            "identifier": "UFC_B8",
+                                                                                "inputs": [ {
+                                                                                              "description": "switch to previous or next state",
+                                                                                                "interface": "fixed_step"
+                                                                                          }, {
+                                                                                              "description": "set position",
+                                                                                                "interface": "set_state",
+                                                                                                "max_value": 1
+                                                                                          }, {
+                                                                                                 "argument": "TOGGLE",
+                                                                                              "description": "Toggle switch state",
+                                                                                                "interface": "action"
+                                                                                          } ],
+                                                                   "momentary_positions": "none",
+                                                                               "outputs": [ {
+                                                                                                  "address": 30730,
+                                                                                              "description": "selector position",
+                                                                                                     "mask": 1,
+                                                                                                "max_value": 1,
+                                                                                                 "shift_by": 0,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ],
+                                                                      "physical_variant": "push_button"
+                                                               },
+                                                     "UFC_B9": {
+                                                                           "api_variant": "momentary_last_position",
+                                                                              "category": "UFC",
+                                                                          "control_type": "selector",
+                                                                           "description": "UFC Button 9",
+                                                                            "identifier": "UFC_B9",
+                                                                                "inputs": [ {
+                                                                                              "description": "switch to previous or next state",
+                                                                                                "interface": "fixed_step"
+                                                                                          }, {
+                                                                                              "description": "set position",
+                                                                                                "interface": "set_state",
+                                                                                                "max_value": 1
+                                                                                          }, {
+                                                                                                 "argument": "TOGGLE",
+                                                                                              "description": "Toggle switch state",
+                                                                                                "interface": "action"
+                                                                                          } ],
+                                                                   "momentary_positions": "none",
+                                                                               "outputs": [ {
+                                                                                                  "address": 30730,
+                                                                                              "description": "selector position",
+                                                                                                     "mask": 2,
+                                                                                                "max_value": 1,
+                                                                                                 "shift_by": 1,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ],
+                                                                      "physical_variant": "push_button"
+                                                               },
+                                                 "UFC_BEACON": {
+                                                                           "api_variant": "momentary_last_position",
+                                                                              "category": "UFC",
+                                                                          "control_type": "selector",
+                                                                           "description": "UFC Radar Beacon Function Selector",
+                                                                            "identifier": "UFC_BEACON",
+                                                                                "inputs": [ {
+                                                                                              "description": "switch to previous or next state",
+                                                                                                "interface": "fixed_step"
+                                                                                          }, {
+                                                                                              "description": "set position",
+                                                                                                "interface": "set_state",
+                                                                                                "max_value": 1
+                                                                                          }, {
+                                                                                                 "argument": "TOGGLE",
+                                                                                              "description": "Toggle switch state",
+                                                                                                "interface": "action"
+                                                                                          } ],
+                                                                   "momentary_positions": "none",
+                                                                               "outputs": [ {
+                                                                                                  "address": 30732,
+                                                                                              "description": "selector position",
+                                                                                                     "mask": 2,
+                                                                                                "max_value": 1,
+                                                                                                 "shift_by": 1,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ],
+                                                                      "physical_variant": "push_button"
+                                                               },
+                                                  "UFC_CLEAR": {
+                                                                           "api_variant": "momentary_last_position",
+                                                                              "category": "UFC",
+                                                                          "control_type": "selector",
+                                                                           "description": "Clear Entry Button",
+                                                                            "identifier": "UFC_CLEAR",
+                                                                                "inputs": [ {
+                                                                                              "description": "switch to previous or next state",
+                                                                                                "interface": "fixed_step"
+                                                                                          }, {
+                                                                                              "description": "set position",
+                                                                                                "interface": "set_state",
+                                                                                                "max_value": 1
+                                                                                          }, {
+                                                                                                 "argument": "TOGGLE",
+                                                                                              "description": "Toggle switch state",
+                                                                                                "interface": "action"
+                                                                                          } ],
+                                                                   "momentary_positions": "none",
+                                                                               "outputs": [ {
+                                                                                                  "address": 30730,
+                                                                                              "description": "selector position",
+                                                                                                     "mask": 64,
+                                                                                                "max_value": 1,
+                                                                                                 "shift_by": 6,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ],
+                                                                      "physical_variant": "push_button"
+                                                               },
+                                                   "UFC_DASH": {
+                                                                           "api_variant": "momentary_last_position",
+                                                                              "category": "UFC",
+                                                                          "control_type": "selector",
+                                                                           "description": "UFC Button -",
+                                                                            "identifier": "UFC_DASH",
+                                                                                "inputs": [ {
+                                                                                              "description": "switch to previous or next state",
+                                                                                                "interface": "fixed_step"
+                                                                                          }, {
+                                                                                              "description": "set position",
+                                                                                                "interface": "set_state",
+                                                                                                "max_value": 1
+                                                                                          }, {
+                                                                                                 "argument": "TOGGLE",
+                                                                                              "description": "Toggle switch state",
+                                                                                                "interface": "action"
+                                                                                          } ],
+                                                                   "momentary_positions": "none",
+                                                                               "outputs": [ {
+                                                                                                  "address": 30730,
+                                                                                              "description": "selector position",
+                                                                                                     "mask": 16,
+                                                                                                "max_value": 1,
+                                                                                                 "shift_by": 4,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ],
+                                                                      "physical_variant": "push_button"
+                                                               },
+                                                    "UFC_DOT": {
+                                                                           "api_variant": "momentary_last_position",
+                                                                              "category": "UFC",
+                                                                          "control_type": "selector",
+                                                                           "description": "UFC Button .",
+                                                                            "identifier": "UFC_DOT",
+                                                                                "inputs": [ {
+                                                                                              "description": "switch to previous or next state",
+                                                                                                "interface": "fixed_step"
+                                                                                          }, {
+                                                                                              "description": "set position",
+                                                                                                "interface": "set_state",
+                                                                                                "max_value": 1
+                                                                                          }, {
+                                                                                                 "argument": "TOGGLE",
+                                                                                              "description": "Toggle switch state",
+                                                                                                "interface": "action"
+                                                                                          } ],
+                                                                   "momentary_positions": "none",
+                                                                               "outputs": [ {
+                                                                                                  "address": 30730,
+                                                                                              "description": "selector position",
+                                                                                                     "mask": 8,
+                                                                                                "max_value": 1,
+                                                                                                 "shift_by": 3,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ],
+                                                                      "physical_variant": "push_button"
+                                                               },
+                                                  "UFC_EMCOM": {
+                                                                           "api_variant": "momentary_last_position",
+                                                                              "category": "UFC",
+                                                                          "control_type": "selector",
+                                                                           "description": "UFC EMCON ON/OFF Toggle",
+                                                                            "identifier": "UFC_EMCOM",
+                                                                                "inputs": [ {
+                                                                                              "description": "switch to previous or next state",
+                                                                                                "interface": "fixed_step"
+                                                                                          }, {
+                                                                                              "description": "set position",
+                                                                                                "interface": "set_state",
+                                                                                                "max_value": 1
+                                                                                          }, {
+                                                                                                 "argument": "TOGGLE",
+                                                                                              "description": "Toggle switch state",
+                                                                                                "interface": "action"
+                                                                                          } ],
+                                                                   "momentary_positions": "none",
+                                                                               "outputs": [ {
+                                                                                                  "address": 30730,
+                                                                                              "description": "selector position",
+                                                                                                     "mask": 8192,
+                                                                                                "max_value": 1,
+                                                                                                 "shift_by": 13,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ],
+                                                                      "physical_variant": "push_button"
+                                                               },
+                                                  "UFC_ENTER": {
+                                                                           "api_variant": "momentary_last_position",
+                                                                              "category": "UFC",
+                                                                          "control_type": "selector",
+                                                                           "description": "UFC ENTER Data Button",
+                                                                            "identifier": "UFC_ENTER",
+                                                                                "inputs": [ {
+                                                                                              "description": "switch to previous or next state",
+                                                                                                "interface": "fixed_step"
+                                                                                          }, {
+                                                                                              "description": "set position",
+                                                                                                "interface": "set_state",
+                                                                                                "max_value": 1
+                                                                                          }, {
+                                                                                                 "argument": "TOGGLE",
+                                                                                              "description": "Toggle switch state",
+                                                                                                "interface": "action"
+                                                                                          } ],
+                                                                   "momentary_positions": "none",
+                                                                               "outputs": [ {
+                                                                                                  "address": 30730,
+                                                                                              "description": "selector position",
+                                                                                                     "mask": 32,
+                                                                                                "max_value": 1,
+                                                                                                 "shift_by": 5,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ],
+                                                                      "physical_variant": "push_button"
+                                                               },
+                                                    "UFC_IFF": {
+                                                                           "api_variant": "momentary_last_position",
+                                                                              "category": "UFC",
+                                                                          "control_type": "selector",
+                                                                           "description": "UFC IFF Function Selector",
+                                                                            "identifier": "UFC_IFF",
+                                                                                "inputs": [ {
+                                                                                              "description": "switch to previous or next state",
+                                                                                                "interface": "fixed_step"
+                                                                                          }, {
+                                                                                              "description": "set position",
+                                                                                                "interface": "set_state",
+                                                                                                "max_value": 1
+                                                                                          }, {
+                                                                                                 "argument": "TOGGLE",
+                                                                                              "description": "Toggle switch state",
+                                                                                                "interface": "action"
+                                                                                          } ],
+                                                                   "momentary_positions": "none",
+                                                                               "outputs": [ {
+                                                                                                  "address": 30730,
+                                                                                              "description": "selector position",
+                                                                                                     "mask": 512,
+                                                                                                "max_value": 1,
+                                                                                                 "shift_by": 9,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ],
+                                                                      "physical_variant": "push_button"
+                                                               },
+                                                     "UFC_IP": {
+                                                                           "api_variant": "momentary_last_position",
+                                                                              "category": "UFC",
+                                                                          "control_type": "selector",
+                                                                           "description": "UFC I/P Button",
+                                                                            "identifier": "UFC_IP",
+                                                                                "inputs": [ {
+                                                                                              "description": "switch to previous or next state",
+                                                                                                "interface": "fixed_step"
+                                                                                          }, {
+                                                                                              "description": "set position",
+                                                                                                "interface": "set_state",
+                                                                                                "max_value": 1
+                                                                                          }, {
+                                                                                                 "argument": "TOGGLE",
+                                                                                              "description": "Toggle switch state",
+                                                                                                "interface": "action"
+                                                                                          } ],
+                                                                   "momentary_positions": "none",
+                                                                               "outputs": [ {
+                                                                                                  "address": 30732,
+                                                                                              "description": "selector position",
+                                                                                                     "mask": 4,
+                                                                                                "max_value": 1,
+                                                                                                 "shift_by": 2,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ],
+                                                                      "physical_variant": "push_button"
+                                                               },
+                                                  "UFC_ONOFF": {
+                                                                           "api_variant": "momentary_last_position",
+                                                                              "category": "UFC",
+                                                                          "control_type": "selector",
+                                                                           "description": "UFC Radalt/TACAN/AWL/IFF ON/OFF Toggle",
+                                                                            "identifier": "UFC_ONOFF",
+                                                                                "inputs": [ {
+                                                                                              "description": "switch to previous or next state",
+                                                                                                "interface": "fixed_step"
+                                                                                          }, {
+                                                                                              "description": "set position",
+                                                                                                "interface": "set_state",
+                                                                                                "max_value": 1
+                                                                                          }, {
+                                                                                                 "argument": "TOGGLE",
+                                                                                              "description": "Toggle switch state",
+                                                                                                "interface": "action"
+                                                                                          } ],
+                                                                   "momentary_positions": "none",
+                                                                               "outputs": [ {
+                                                                                                  "address": 30730,
+                                                                                              "description": "selector position",
+                                                                                                     "mask": 4096,
+                                                                                                "max_value": 1,
+                                                                                                 "shift_by": 12,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ],
+                                                                      "physical_variant": "push_button"
+                                                               },
+                                                   "UFC_SAVE": {
+                                                                           "api_variant": "momentary_last_position",
+                                                                              "category": "UFC",
+                                                                          "control_type": "selector",
+                                                                           "description": "UFC Save Data Button",
+                                                                            "identifier": "UFC_SAVE",
+                                                                                "inputs": [ {
+                                                                                              "description": "switch to previous or next state",
+                                                                                                "interface": "fixed_step"
+                                                                                          }, {
+                                                                                              "description": "set position",
+                                                                                                "interface": "set_state",
+                                                                                                "max_value": 1
+                                                                                          }, {
+                                                                                                 "argument": "TOGGLE",
+                                                                                              "description": "Toggle switch state",
+                                                                                                "interface": "action"
+                                                                                          } ],
+                                                                   "momentary_positions": "none",
+                                                                               "outputs": [ {
+                                                                                                  "address": 30732,
+                                                                                              "description": "selector position",
+                                                                                                     "mask": 8,
+                                                                                                "max_value": 1,
+                                                                                                 "shift_by": 3,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ],
+                                                                      "physical_variant": "push_button"
+                                                               },
+                                                  "UFC_TACAN": {
+                                                                           "api_variant": "momentary_last_position",
+                                                                              "category": "UFC",
+                                                                          "control_type": "selector",
+                                                                           "description": "UFC TACAN Function Selector",
+                                                                            "identifier": "UFC_TACAN",
+                                                                                "inputs": [ {
+                                                                                              "description": "switch to previous or next state",
+                                                                                                "interface": "fixed_step"
+                                                                                          }, {
+                                                                                              "description": "set position",
+                                                                                                "interface": "set_state",
+                                                                                                "max_value": 1
+                                                                                          }, {
+                                                                                                 "argument": "TOGGLE",
+                                                                                              "description": "Toggle switch state",
+                                                                                                "interface": "action"
+                                                                                          } ],
+                                                                   "momentary_positions": "none",
+                                                                               "outputs": [ {
+                                                                                                  "address": 30730,
+                                                                                              "description": "selector position",
+                                                                                                     "mask": 1024,
+                                                                                                "max_value": 1,
+                                                                                                 "shift_by": 10,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ],
+                                                                      "physical_variant": "push_button"
+                                                               },
+                                                 "UFC_TARGET": {
+                                                                           "api_variant": "momentary_last_position",
+                                                                              "category": "UFC",
+                                                                          "control_type": "selector",
+                                                                           "description": "UFC Target-Of-Opportunity Selector",
+                                                                            "identifier": "UFC_TARGET",
+                                                                                "inputs": [ {
+                                                                                              "description": "switch to previous or next state",
+                                                                                                "interface": "fixed_step"
+                                                                                          }, {
+                                                                                              "description": "set position",
+                                                                                                "interface": "set_state",
+                                                                                                "max_value": 1
+                                                                                          }, {
+                                                                                                 "argument": "TOGGLE",
+                                                                                              "description": "Toggle switch state",
+                                                                                                "interface": "action"
+                                                                                          } ],
+                                                                   "momentary_positions": "none",
+                                                                               "outputs": [ {
+                                                                                                  "address": 30730,
+                                                                                              "description": "selector position",
+                                                                                                     "mask": 16384,
+                                                                                                "max_value": 1,
+                                                                                                 "shift_by": 14,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ],
+                                                                      "physical_variant": "push_button"
+                                                               },
+                                                  "UFC_TIMER": {
+                                                                           "api_variant": "momentary_last_position",
+                                                                              "category": "UFC",
+                                                                          "control_type": "selector",
+                                                                           "description": "UFC Timer Function Selector",
+                                                                            "identifier": "UFC_TIMER",
+                                                                                "inputs": [ {
+                                                                                              "description": "switch to previous or next state",
+                                                                                                "interface": "fixed_step"
+                                                                                          }, {
+                                                                                              "description": "set position",
+                                                                                                "interface": "set_state",
+                                                                                                "max_value": 1
+                                                                                          }, {
+                                                                                                 "argument": "TOGGLE",
+                                                                                              "description": "Toggle switch state",
+                                                                                                "interface": "action"
+                                                                                          } ],
+                                                                   "momentary_positions": "none",
+                                                                               "outputs": [ {
+                                                                                                  "address": 30730,
+                                                                                              "description": "selector position",
+                                                                                                     "mask": 128,
+                                                                                                "max_value": 1,
+                                                                                                 "shift_by": 7,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ],
+                                                                      "physical_variant": "push_button"
+                                                               },
+                                                    "UFC_WAY": {
+                                                                           "api_variant": "momentary_last_position",
+                                                                              "category": "UFC",
+                                                                          "control_type": "selector",
+                                                                           "description": "UFC Waypoint Overfly INS Update Selector",
+                                                                            "identifier": "UFC_WAY",
+                                                                                "inputs": [ {
+                                                                                              "description": "switch to previous or next state",
+                                                                                                "interface": "fixed_step"
+                                                                                          }, {
+                                                                                              "description": "set position",
+                                                                                                "interface": "set_state",
+                                                                                                "max_value": 1
+                                                                                          }, {
+                                                                                                 "argument": "TOGGLE",
+                                                                                              "description": "Toggle switch state",
+                                                                                                "interface": "action"
+                                                                                          } ],
+                                                                   "momentary_positions": "none",
+                                                                               "outputs": [ {
+                                                                                                  "address": 30730,
+                                                                                              "description": "selector position",
+                                                                                                     "mask": 32768,
+                                                                                                "max_value": 1,
+                                                                                                 "shift_by": 15,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ],
+                                                                      "physical_variant": "push_button"
+                                                               },
+                                                 "UFC_WEAPON": {
+                                                                           "api_variant": "momentary_last_position",
+                                                                              "category": "UFC",
+                                                                          "control_type": "selector",
+                                                                           "description": "UFC Weapons Function Selector",
+                                                                            "identifier": "UFC_WEAPON",
+                                                                                "inputs": [ {
+                                                                                              "description": "switch to previous or next state",
+                                                                                                "interface": "fixed_step"
+                                                                                          }, {
+                                                                                              "description": "set position",
+                                                                                                "interface": "set_state",
+                                                                                                "max_value": 1
+                                                                                          }, {
+                                                                                                 "argument": "TOGGLE",
+                                                                                              "description": "Toggle switch state",
+                                                                                                "interface": "action"
+                                                                                          } ],
+                                                                   "momentary_positions": "none",
+                                                                               "outputs": [ {
+                                                                                                  "address": 30732,
+                                                                                              "description": "selector position",
+                                                                                                     "mask": 1,
+                                                                                                "max_value": 1,
+                                                                                                 "shift_by": 0,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ],
+                                                                      "physical_variant": "push_button"
+                                                               },
+                                                "UFC_WEATHER": {
+                                                                           "api_variant": "momentary_last_position",
+                                                                              "category": "UFC",
+                                                                          "control_type": "selector",
+                                                                           "description": "UFC All Weather Landing Function Selector",
+                                                                            "identifier": "UFC_WEATHER",
+                                                                                "inputs": [ {
+                                                                                              "description": "switch to previous or next state",
+                                                                                                "interface": "fixed_step"
+                                                                                          }, {
+                                                                                              "description": "set position",
+                                                                                                "interface": "set_state",
+                                                                                                "max_value": 1
+                                                                                          }, {
+                                                                                                 "argument": "TOGGLE",
+                                                                                              "description": "Toggle switch state",
+                                                                                                "interface": "action"
+                                                                                          } ],
+                                                                   "momentary_positions": "none",
+                                                                               "outputs": [ {
+                                                                                                  "address": 30730,
+                                                                                              "description": "selector position",
+                                                                                                     "mask": 2048,
+                                                                                                "max_value": 1,
+                                                                                                 "shift_by": 11,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                                          } ],
+                                                                      "physical_variant": "push_button"
+                                                               }
+                                            },
+                             "UFC Display": {
+                                                "COMM1_STRING_FREQ": {
+                                                                             "category": "UFC Display",
+                                                                         "control_type": "display",
+                                                                          "description": "COMM1 ARC-210 Frequency (string)",
+                                                                           "identifier": "COMM1_STRING_FREQ",
+                                                                               "inputs": [  ],
+                                                                              "outputs": [ {
+                                                                                                 "address": 30744,
+                                                                                             "description": "COMM1 ARC-210 Frequency (string)",
+                                                                                              "max_length": 7,
+                                                                                                  "suffix": "",
+                                                                                                    "type": "string"
+                                                                                         } ]
                                                                      },
-                                                           "UFC_B0": {
-                                                                                 "api_variant": "momentary_last_position",
-                                                                                    "category": "UFC",
-                                                                                "control_type": "selector",
-                                                                                 "description": "UFC Button 0",
-                                                                                  "identifier": "UFC_B0",
-                                                                                      "inputs": [ {
-                                                                                                    "description": "switch to previous or next state",
-                                                                                                      "interface": "fixed_step"
-                                                                                                }, {
-                                                                                                    "description": "set position",
-                                                                                                      "interface": "set_state",
-                                                                                                      "max_value": 1
-                                                                                                }, {
-                                                                                                       "argument": "TOGGLE",
-                                                                                                    "description": "Toggle switch state",
-                                                                                                      "interface": "action"
-                                                                                                } ],
-                                                                         "momentary_positions": "none",
-                                                                                     "outputs": [ {
-                                                                                                        "address": 30730,
-                                                                                                    "description": "selector position",
-                                                                                                           "mask": 4,
-                                                                                                      "max_value": 1,
-                                                                                                       "shift_by": 2,
-                                                                                                         "suffix": "",
-                                                                                                           "type": "integer"
-                                                                                                } ],
-                                                                            "physical_variant": "push_button"
-                                                                     },
-                                                           "UFC_B1": {
-                                                                                 "api_variant": "momentary_last_position",
-                                                                                    "category": "UFC",
-                                                                                "control_type": "selector",
-                                                                                 "description": "UFC Button 1",
-                                                                                  "identifier": "UFC_B1",
-                                                                                      "inputs": [ {
-                                                                                                    "description": "switch to previous or next state",
-                                                                                                      "interface": "fixed_step"
-                                                                                                }, {
-                                                                                                    "description": "set position",
-                                                                                                      "interface": "set_state",
-                                                                                                      "max_value": 1
-                                                                                                }, {
-                                                                                                       "argument": "TOGGLE",
-                                                                                                    "description": "Toggle switch state",
-                                                                                                      "interface": "action"
-                                                                                                } ],
-                                                                         "momentary_positions": "none",
-                                                                                     "outputs": [ {
-                                                                                                        "address": 30720,
-                                                                                                    "description": "selector position",
-                                                                                                           "mask": 512,
-                                                                                                      "max_value": 1,
-                                                                                                       "shift_by": 9,
-                                                                                                         "suffix": "",
-                                                                                                           "type": "integer"
-                                                                                                } ],
-                                                                            "physical_variant": "push_button"
-                                                                     },
-                                                           "UFC_B2": {
-                                                                                 "api_variant": "momentary_last_position",
-                                                                                    "category": "UFC",
-                                                                                "control_type": "selector",
-                                                                                 "description": "UFC Button 2/N",
-                                                                                  "identifier": "UFC_B2",
-                                                                                      "inputs": [ {
-                                                                                                    "description": "switch to previous or next state",
-                                                                                                      "interface": "fixed_step"
-                                                                                                }, {
-                                                                                                    "description": "set position",
-                                                                                                      "interface": "set_state",
-                                                                                                      "max_value": 1
-                                                                                                }, {
-                                                                                                       "argument": "TOGGLE",
-                                                                                                    "description": "Toggle switch state",
-                                                                                                      "interface": "action"
-                                                                                                } ],
-                                                                         "momentary_positions": "none",
-                                                                                     "outputs": [ {
-                                                                                                        "address": 30720,
-                                                                                                    "description": "selector position",
-                                                                                                           "mask": 1024,
-                                                                                                      "max_value": 1,
-                                                                                                       "shift_by": 10,
-                                                                                                         "suffix": "",
-                                                                                                           "type": "integer"
-                                                                                                } ],
-                                                                            "physical_variant": "push_button"
-                                                                     },
-                                                           "UFC_B3": {
-                                                                                 "api_variant": "momentary_last_position",
-                                                                                    "category": "UFC",
-                                                                                "control_type": "selector",
-                                                                                 "description": "UFC Button 3",
-                                                                                  "identifier": "UFC_B3",
-                                                                                      "inputs": [ {
-                                                                                                    "description": "switch to previous or next state",
-                                                                                                      "interface": "fixed_step"
-                                                                                                }, {
-                                                                                                    "description": "set position",
-                                                                                                      "interface": "set_state",
-                                                                                                      "max_value": 1
-                                                                                                }, {
-                                                                                                       "argument": "TOGGLE",
-                                                                                                    "description": "Toggle switch state",
-                                                                                                      "interface": "action"
-                                                                                                } ],
-                                                                         "momentary_positions": "none",
-                                                                                     "outputs": [ {
-                                                                                                        "address": 30720,
-                                                                                                    "description": "selector position",
-                                                                                                           "mask": 2048,
-                                                                                                      "max_value": 1,
-                                                                                                       "shift_by": 11,
-                                                                                                         "suffix": "",
-                                                                                                           "type": "integer"
-                                                                                                } ],
-                                                                            "physical_variant": "push_button"
-                                                                     },
-                                                           "UFC_B4": {
-                                                                                 "api_variant": "momentary_last_position",
-                                                                                    "category": "UFC",
-                                                                                "control_type": "selector",
-                                                                                 "description": "UFC Button 4/W",
-                                                                                  "identifier": "UFC_B4",
-                                                                                      "inputs": [ {
-                                                                                                    "description": "switch to previous or next state",
-                                                                                                      "interface": "fixed_step"
-                                                                                                }, {
-                                                                                                    "description": "set position",
-                                                                                                      "interface": "set_state",
-                                                                                                      "max_value": 1
-                                                                                                }, {
-                                                                                                       "argument": "TOGGLE",
-                                                                                                    "description": "Toggle switch state",
-                                                                                                      "interface": "action"
-                                                                                                } ],
-                                                                         "momentary_positions": "none",
-                                                                                     "outputs": [ {
-                                                                                                        "address": 30720,
-                                                                                                    "description": "selector position",
-                                                                                                           "mask": 4096,
-                                                                                                      "max_value": 1,
-                                                                                                       "shift_by": 12,
-                                                                                                         "suffix": "",
-                                                                                                           "type": "integer"
-                                                                                                } ],
-                                                                            "physical_variant": "push_button"
-                                                                     },
-                                                           "UFC_B5": {
-                                                                                 "api_variant": "momentary_last_position",
-                                                                                    "category": "UFC",
-                                                                                "control_type": "selector",
-                                                                                 "description": "UFC Button 5",
-                                                                                  "identifier": "UFC_B5",
-                                                                                      "inputs": [ {
-                                                                                                    "description": "switch to previous or next state",
-                                                                                                      "interface": "fixed_step"
-                                                                                                }, {
-                                                                                                    "description": "set position",
-                                                                                                      "interface": "set_state",
-                                                                                                      "max_value": 1
-                                                                                                }, {
-                                                                                                       "argument": "TOGGLE",
-                                                                                                    "description": "Toggle switch state",
-                                                                                                      "interface": "action"
-                                                                                                } ],
-                                                                         "momentary_positions": "none",
-                                                                                     "outputs": [ {
-                                                                                                        "address": 30720,
-                                                                                                    "description": "selector position",
-                                                                                                           "mask": 8192,
-                                                                                                      "max_value": 1,
-                                                                                                       "shift_by": 13,
-                                                                                                         "suffix": "",
-                                                                                                           "type": "integer"
-                                                                                                } ],
-                                                                            "physical_variant": "push_button"
-                                                                     },
-                                                           "UFC_B6": {
-                                                                                 "api_variant": "momentary_last_position",
-                                                                                    "category": "UFC",
-                                                                                "control_type": "selector",
-                                                                                 "description": "UFC Button 6/E",
-                                                                                  "identifier": "UFC_B6",
-                                                                                      "inputs": [ {
-                                                                                                    "description": "switch to previous or next state",
-                                                                                                      "interface": "fixed_step"
-                                                                                                }, {
-                                                                                                    "description": "set position",
-                                                                                                      "interface": "set_state",
-                                                                                                      "max_value": 1
-                                                                                                }, {
-                                                                                                       "argument": "TOGGLE",
-                                                                                                    "description": "Toggle switch state",
-                                                                                                      "interface": "action"
-                                                                                                } ],
-                                                                         "momentary_positions": "none",
-                                                                                     "outputs": [ {
-                                                                                                        "address": 30720,
-                                                                                                    "description": "selector position",
-                                                                                                           "mask": 16384,
-                                                                                                      "max_value": 1,
-                                                                                                       "shift_by": 14,
-                                                                                                         "suffix": "",
-                                                                                                           "type": "integer"
-                                                                                                } ],
-                                                                            "physical_variant": "push_button"
-                                                                     },
-                                                           "UFC_B7": {
-                                                                                 "api_variant": "momentary_last_position",
-                                                                                    "category": "UFC",
-                                                                                "control_type": "selector",
-                                                                                 "description": "UFC Button 7",
-                                                                                  "identifier": "UFC_B7",
-                                                                                      "inputs": [ {
-                                                                                                    "description": "switch to previous or next state",
-                                                                                                      "interface": "fixed_step"
-                                                                                                }, {
-                                                                                                    "description": "set position",
-                                                                                                      "interface": "set_state",
-                                                                                                      "max_value": 1
-                                                                                                }, {
-                                                                                                       "argument": "TOGGLE",
-                                                                                                    "description": "Toggle switch state",
-                                                                                                      "interface": "action"
-                                                                                                } ],
-                                                                         "momentary_positions": "none",
-                                                                                     "outputs": [ {
-                                                                                                        "address": 30720,
-                                                                                                    "description": "selector position",
-                                                                                                           "mask": 32768,
-                                                                                                      "max_value": 1,
-                                                                                                       "shift_by": 15,
-                                                                                                         "suffix": "",
-                                                                                                           "type": "integer"
-                                                                                                } ],
-                                                                            "physical_variant": "push_button"
-                                                                     },
-                                                           "UFC_B8": {
-                                                                                 "api_variant": "momentary_last_position",
-                                                                                    "category": "UFC",
-                                                                                "control_type": "selector",
-                                                                                 "description": "UFC Button 8/S",
-                                                                                  "identifier": "UFC_B8",
-                                                                                      "inputs": [ {
-                                                                                                    "description": "switch to previous or next state",
-                                                                                                      "interface": "fixed_step"
-                                                                                                }, {
-                                                                                                    "description": "set position",
-                                                                                                      "interface": "set_state",
-                                                                                                      "max_value": 1
-                                                                                                }, {
-                                                                                                       "argument": "TOGGLE",
-                                                                                                    "description": "Toggle switch state",
-                                                                                                      "interface": "action"
-                                                                                                } ],
-                                                                         "momentary_positions": "none",
-                                                                                     "outputs": [ {
-                                                                                                        "address": 30730,
-                                                                                                    "description": "selector position",
-                                                                                                           "mask": 1,
-                                                                                                      "max_value": 1,
-                                                                                                       "shift_by": 0,
-                                                                                                         "suffix": "",
-                                                                                                           "type": "integer"
-                                                                                                } ],
-                                                                            "physical_variant": "push_button"
-                                                                     },
-                                                           "UFC_B9": {
-                                                                                 "api_variant": "momentary_last_position",
-                                                                                    "category": "UFC",
-                                                                                "control_type": "selector",
-                                                                                 "description": "UFC Button 9",
-                                                                                  "identifier": "UFC_B9",
-                                                                                      "inputs": [ {
-                                                                                                    "description": "switch to previous or next state",
-                                                                                                      "interface": "fixed_step"
-                                                                                                }, {
-                                                                                                    "description": "set position",
-                                                                                                      "interface": "set_state",
-                                                                                                      "max_value": 1
-                                                                                                }, {
-                                                                                                       "argument": "TOGGLE",
-                                                                                                    "description": "Toggle switch state",
-                                                                                                      "interface": "action"
-                                                                                                } ],
-                                                                         "momentary_positions": "none",
-                                                                                     "outputs": [ {
-                                                                                                        "address": 30730,
-                                                                                                    "description": "selector position",
-                                                                                                           "mask": 2,
-                                                                                                      "max_value": 1,
-                                                                                                       "shift_by": 1,
-                                                                                                         "suffix": "",
-                                                                                                           "type": "integer"
-                                                                                                } ],
-                                                                            "physical_variant": "push_button"
-                                                                     },
-                                                       "UFC_BEACON": {
-                                                                                 "api_variant": "momentary_last_position",
-                                                                                    "category": "UFC",
-                                                                                "control_type": "selector",
-                                                                                 "description": "UFC Radar Beacon Function Selector",
-                                                                                  "identifier": "UFC_BEACON",
-                                                                                      "inputs": [ {
-                                                                                                    "description": "switch to previous or next state",
-                                                                                                      "interface": "fixed_step"
-                                                                                                }, {
-                                                                                                    "description": "set position",
-                                                                                                      "interface": "set_state",
-                                                                                                      "max_value": 1
-                                                                                                }, {
-                                                                                                       "argument": "TOGGLE",
-                                                                                                    "description": "Toggle switch state",
-                                                                                                      "interface": "action"
-                                                                                                } ],
-                                                                         "momentary_positions": "none",
-                                                                                     "outputs": [ {
-                                                                                                        "address": 30732,
-                                                                                                    "description": "selector position",
-                                                                                                           "mask": 2,
-                                                                                                      "max_value": 1,
-                                                                                                       "shift_by": 1,
-                                                                                                         "suffix": "",
-                                                                                                           "type": "integer"
-                                                                                                } ],
-                                                                            "physical_variant": "push_button"
-                                                                     },
-                                                        "UFC_CLEAR": {
-                                                                                 "api_variant": "momentary_last_position",
-                                                                                    "category": "UFC",
-                                                                                "control_type": "selector",
-                                                                                 "description": "Clear Entry Button",
-                                                                                  "identifier": "UFC_CLEAR",
-                                                                                      "inputs": [ {
-                                                                                                    "description": "switch to previous or next state",
-                                                                                                      "interface": "fixed_step"
-                                                                                                }, {
-                                                                                                    "description": "set position",
-                                                                                                      "interface": "set_state",
-                                                                                                      "max_value": 1
-                                                                                                }, {
-                                                                                                       "argument": "TOGGLE",
-                                                                                                    "description": "Toggle switch state",
-                                                                                                      "interface": "action"
-                                                                                                } ],
-                                                                         "momentary_positions": "none",
-                                                                                     "outputs": [ {
-                                                                                                        "address": 30730,
-                                                                                                    "description": "selector position",
-                                                                                                           "mask": 64,
-                                                                                                      "max_value": 1,
-                                                                                                       "shift_by": 6,
-                                                                                                         "suffix": "",
-                                                                                                           "type": "integer"
-                                                                                                } ],
-                                                                            "physical_variant": "push_button"
+                                                "COMM2_STRING_FREQ": {
+                                                                             "category": "UFC Display",
+                                                                         "control_type": "display",
+                                                                          "description": "COMM2 ARC-210 Frequency (string)",
+                                                                           "identifier": "COMM2_STRING_FREQ",
+                                                                               "inputs": [  ],
+                                                                              "outputs": [ {
+                                                                                                 "address": 30752,
+                                                                                             "description": "COMM2 ARC-210 Frequency (string)",
+                                                                                              "max_length": 7,
+                                                                                                  "suffix": "",
+                                                                                                    "type": "string"
+                                                                                         } ]
                                                                      },
                                                 "UFC_COMM1_DISPLAY": {
-                                                                             "category": "UFC",
+                                                                             "category": "UFC Display",
                                                                          "control_type": "display",
                                                                           "description": "UFC Comm1 Preset Display",
                                                                            "identifier": "UFC_COMM1_DISPLAY",
@@ -8213,7 +8633,7 @@
                                                                                          } ]
                                                                      },
                                                 "UFC_COMM2_DISPLAY": {
-                                                                             "category": "UFC",
+                                                                             "category": "UFC Display",
                                                                          "control_type": "display",
                                                                           "description": "UFC Comm2 Preset Display",
                                                                            "identifier": "UFC_COMM2_DISPLAY",
@@ -8226,248 +8646,8 @@
                                                                                                     "type": "string"
                                                                                          } ]
                                                                      },
-                                                         "UFC_DASH": {
-                                                                                 "api_variant": "momentary_last_position",
-                                                                                    "category": "UFC",
-                                                                                "control_type": "selector",
-                                                                                 "description": "UFC Button -",
-                                                                                  "identifier": "UFC_DASH",
-                                                                                      "inputs": [ {
-                                                                                                    "description": "switch to previous or next state",
-                                                                                                      "interface": "fixed_step"
-                                                                                                }, {
-                                                                                                    "description": "set position",
-                                                                                                      "interface": "set_state",
-                                                                                                      "max_value": 1
-                                                                                                }, {
-                                                                                                       "argument": "TOGGLE",
-                                                                                                    "description": "Toggle switch state",
-                                                                                                      "interface": "action"
-                                                                                                } ],
-                                                                         "momentary_positions": "none",
-                                                                                     "outputs": [ {
-                                                                                                        "address": 30730,
-                                                                                                    "description": "selector position",
-                                                                                                           "mask": 16,
-                                                                                                      "max_value": 1,
-                                                                                                       "shift_by": 4,
-                                                                                                         "suffix": "",
-                                                                                                           "type": "integer"
-                                                                                                } ],
-                                                                            "physical_variant": "push_button"
-                                                                     },
-                                                          "UFC_DOT": {
-                                                                                 "api_variant": "momentary_last_position",
-                                                                                    "category": "UFC",
-                                                                                "control_type": "selector",
-                                                                                 "description": "UFC Button .",
-                                                                                  "identifier": "UFC_DOT",
-                                                                                      "inputs": [ {
-                                                                                                    "description": "switch to previous or next state",
-                                                                                                      "interface": "fixed_step"
-                                                                                                }, {
-                                                                                                    "description": "set position",
-                                                                                                      "interface": "set_state",
-                                                                                                      "max_value": 1
-                                                                                                }, {
-                                                                                                       "argument": "TOGGLE",
-                                                                                                    "description": "Toggle switch state",
-                                                                                                      "interface": "action"
-                                                                                                } ],
-                                                                         "momentary_positions": "none",
-                                                                                     "outputs": [ {
-                                                                                                        "address": 30730,
-                                                                                                    "description": "selector position",
-                                                                                                           "mask": 8,
-                                                                                                      "max_value": 1,
-                                                                                                       "shift_by": 3,
-                                                                                                         "suffix": "",
-                                                                                                           "type": "integer"
-                                                                                                } ],
-                                                                            "physical_variant": "push_button"
-                                                                     },
-                                                        "UFC_EMCOM": {
-                                                                                 "api_variant": "momentary_last_position",
-                                                                                    "category": "UFC",
-                                                                                "control_type": "selector",
-                                                                                 "description": "UFC EMCON ON/OFF Toggle",
-                                                                                  "identifier": "UFC_EMCOM",
-                                                                                      "inputs": [ {
-                                                                                                    "description": "switch to previous or next state",
-                                                                                                      "interface": "fixed_step"
-                                                                                                }, {
-                                                                                                    "description": "set position",
-                                                                                                      "interface": "set_state",
-                                                                                                      "max_value": 1
-                                                                                                }, {
-                                                                                                       "argument": "TOGGLE",
-                                                                                                    "description": "Toggle switch state",
-                                                                                                      "interface": "action"
-                                                                                                } ],
-                                                                         "momentary_positions": "none",
-                                                                                     "outputs": [ {
-                                                                                                        "address": 30730,
-                                                                                                    "description": "selector position",
-                                                                                                           "mask": 8192,
-                                                                                                      "max_value": 1,
-                                                                                                       "shift_by": 13,
-                                                                                                         "suffix": "",
-                                                                                                           "type": "integer"
-                                                                                                } ],
-                                                                            "physical_variant": "push_button"
-                                                                     },
-                                                        "UFC_ENTER": {
-                                                                                 "api_variant": "momentary_last_position",
-                                                                                    "category": "UFC",
-                                                                                "control_type": "selector",
-                                                                                 "description": "UFC ENTER Data Button",
-                                                                                  "identifier": "UFC_ENTER",
-                                                                                      "inputs": [ {
-                                                                                                    "description": "switch to previous or next state",
-                                                                                                      "interface": "fixed_step"
-                                                                                                }, {
-                                                                                                    "description": "set position",
-                                                                                                      "interface": "set_state",
-                                                                                                      "max_value": 1
-                                                                                                }, {
-                                                                                                       "argument": "TOGGLE",
-                                                                                                    "description": "Toggle switch state",
-                                                                                                      "interface": "action"
-                                                                                                } ],
-                                                                         "momentary_positions": "none",
-                                                                                     "outputs": [ {
-                                                                                                        "address": 30730,
-                                                                                                    "description": "selector position",
-                                                                                                           "mask": 32,
-                                                                                                      "max_value": 1,
-                                                                                                       "shift_by": 5,
-                                                                                                         "suffix": "",
-                                                                                                           "type": "integer"
-                                                                                                } ],
-                                                                            "physical_variant": "push_button"
-                                                                     },
-                                                          "UFC_IFF": {
-                                                                                 "api_variant": "momentary_last_position",
-                                                                                    "category": "UFC",
-                                                                                "control_type": "selector",
-                                                                                 "description": "UFC IFF Function Selector",
-                                                                                  "identifier": "UFC_IFF",
-                                                                                      "inputs": [ {
-                                                                                                    "description": "switch to previous or next state",
-                                                                                                      "interface": "fixed_step"
-                                                                                                }, {
-                                                                                                    "description": "set position",
-                                                                                                      "interface": "set_state",
-                                                                                                      "max_value": 1
-                                                                                                }, {
-                                                                                                       "argument": "TOGGLE",
-                                                                                                    "description": "Toggle switch state",
-                                                                                                      "interface": "action"
-                                                                                                } ],
-                                                                         "momentary_positions": "none",
-                                                                                     "outputs": [ {
-                                                                                                        "address": 30730,
-                                                                                                    "description": "selector position",
-                                                                                                           "mask": 512,
-                                                                                                      "max_value": 1,
-                                                                                                       "shift_by": 9,
-                                                                                                         "suffix": "",
-                                                                                                           "type": "integer"
-                                                                                                } ],
-                                                                            "physical_variant": "push_button"
-                                                                     },
-                                                           "UFC_IP": {
-                                                                                 "api_variant": "momentary_last_position",
-                                                                                    "category": "UFC",
-                                                                                "control_type": "selector",
-                                                                                 "description": "UFC I/P Button",
-                                                                                  "identifier": "UFC_IP",
-                                                                                      "inputs": [ {
-                                                                                                    "description": "switch to previous or next state",
-                                                                                                      "interface": "fixed_step"
-                                                                                                }, {
-                                                                                                    "description": "set position",
-                                                                                                      "interface": "set_state",
-                                                                                                      "max_value": 1
-                                                                                                }, {
-                                                                                                       "argument": "TOGGLE",
-                                                                                                    "description": "Toggle switch state",
-                                                                                                      "interface": "action"
-                                                                                                } ],
-                                                                         "momentary_positions": "none",
-                                                                                     "outputs": [ {
-                                                                                                        "address": 30732,
-                                                                                                    "description": "selector position",
-                                                                                                           "mask": 4,
-                                                                                                      "max_value": 1,
-                                                                                                       "shift_by": 2,
-                                                                                                         "suffix": "",
-                                                                                                           "type": "integer"
-                                                                                                } ],
-                                                                            "physical_variant": "push_button"
-                                                                     },
-                                                        "UFC_ONOFF": {
-                                                                                 "api_variant": "momentary_last_position",
-                                                                                    "category": "UFC",
-                                                                                "control_type": "selector",
-                                                                                 "description": "UFC Radalt/TACAN/AWL/IFF ON/OFF Toggle",
-                                                                                  "identifier": "UFC_ONOFF",
-                                                                                      "inputs": [ {
-                                                                                                    "description": "switch to previous or next state",
-                                                                                                      "interface": "fixed_step"
-                                                                                                }, {
-                                                                                                    "description": "set position",
-                                                                                                      "interface": "set_state",
-                                                                                                      "max_value": 1
-                                                                                                }, {
-                                                                                                       "argument": "TOGGLE",
-                                                                                                    "description": "Toggle switch state",
-                                                                                                      "interface": "action"
-                                                                                                } ],
-                                                                         "momentary_positions": "none",
-                                                                                     "outputs": [ {
-                                                                                                        "address": 30730,
-                                                                                                    "description": "selector position",
-                                                                                                           "mask": 4096,
-                                                                                                      "max_value": 1,
-                                                                                                       "shift_by": 12,
-                                                                                                         "suffix": "",
-                                                                                                           "type": "integer"
-                                                                                                } ],
-                                                                            "physical_variant": "push_button"
-                                                                     },
-                                                         "UFC_SAVE": {
-                                                                                 "api_variant": "momentary_last_position",
-                                                                                    "category": "UFC",
-                                                                                "control_type": "selector",
-                                                                                 "description": "UFC Save Data Button",
-                                                                                  "identifier": "UFC_SAVE",
-                                                                                      "inputs": [ {
-                                                                                                    "description": "switch to previous or next state",
-                                                                                                      "interface": "fixed_step"
-                                                                                                }, {
-                                                                                                    "description": "set position",
-                                                                                                      "interface": "set_state",
-                                                                                                      "max_value": 1
-                                                                                                }, {
-                                                                                                       "argument": "TOGGLE",
-                                                                                                    "description": "Toggle switch state",
-                                                                                                      "interface": "action"
-                                                                                                } ],
-                                                                         "momentary_positions": "none",
-                                                                                     "outputs": [ {
-                                                                                                        "address": 30732,
-                                                                                                    "description": "selector position",
-                                                                                                           "mask": 8,
-                                                                                                      "max_value": 1,
-                                                                                                       "shift_by": 3,
-                                                                                                         "suffix": "",
-                                                                                                           "type": "integer"
-                                                                                                } ],
-                                                                            "physical_variant": "push_button"
-                                                                     },
                                                    "UFC_SCRATCHPAD": {
-                                                                             "category": "UFC",
+                                                                             "category": "UFC Display",
                                                                          "control_type": "display",
                                                                           "description": "UFC Scratchpad Display",
                                                                            "identifier": "UFC_SCRATCHPAD",
@@ -8479,186 +8659,6 @@
                                                                                                   "suffix": "",
                                                                                                     "type": "string"
                                                                                          } ]
-                                                                     },
-                                                        "UFC_TACAN": {
-                                                                                 "api_variant": "momentary_last_position",
-                                                                                    "category": "UFC",
-                                                                                "control_type": "selector",
-                                                                                 "description": "UFC TACAN Function Selector",
-                                                                                  "identifier": "UFC_TACAN",
-                                                                                      "inputs": [ {
-                                                                                                    "description": "switch to previous or next state",
-                                                                                                      "interface": "fixed_step"
-                                                                                                }, {
-                                                                                                    "description": "set position",
-                                                                                                      "interface": "set_state",
-                                                                                                      "max_value": 1
-                                                                                                }, {
-                                                                                                       "argument": "TOGGLE",
-                                                                                                    "description": "Toggle switch state",
-                                                                                                      "interface": "action"
-                                                                                                } ],
-                                                                         "momentary_positions": "none",
-                                                                                     "outputs": [ {
-                                                                                                        "address": 30730,
-                                                                                                    "description": "selector position",
-                                                                                                           "mask": 1024,
-                                                                                                      "max_value": 1,
-                                                                                                       "shift_by": 10,
-                                                                                                         "suffix": "",
-                                                                                                           "type": "integer"
-                                                                                                } ],
-                                                                            "physical_variant": "push_button"
-                                                                     },
-                                                       "UFC_TARGET": {
-                                                                                 "api_variant": "momentary_last_position",
-                                                                                    "category": "UFC",
-                                                                                "control_type": "selector",
-                                                                                 "description": "UFC Target-Of-Opportunity Selector",
-                                                                                  "identifier": "UFC_TARGET",
-                                                                                      "inputs": [ {
-                                                                                                    "description": "switch to previous or next state",
-                                                                                                      "interface": "fixed_step"
-                                                                                                }, {
-                                                                                                    "description": "set position",
-                                                                                                      "interface": "set_state",
-                                                                                                      "max_value": 1
-                                                                                                }, {
-                                                                                                       "argument": "TOGGLE",
-                                                                                                    "description": "Toggle switch state",
-                                                                                                      "interface": "action"
-                                                                                                } ],
-                                                                         "momentary_positions": "none",
-                                                                                     "outputs": [ {
-                                                                                                        "address": 30730,
-                                                                                                    "description": "selector position",
-                                                                                                           "mask": 16384,
-                                                                                                      "max_value": 1,
-                                                                                                       "shift_by": 14,
-                                                                                                         "suffix": "",
-                                                                                                           "type": "integer"
-                                                                                                } ],
-                                                                            "physical_variant": "push_button"
-                                                                     },
-                                                        "UFC_TIMER": {
-                                                                                 "api_variant": "momentary_last_position",
-                                                                                    "category": "UFC",
-                                                                                "control_type": "selector",
-                                                                                 "description": "UFC Timer Function Selector",
-                                                                                  "identifier": "UFC_TIMER",
-                                                                                      "inputs": [ {
-                                                                                                    "description": "switch to previous or next state",
-                                                                                                      "interface": "fixed_step"
-                                                                                                }, {
-                                                                                                    "description": "set position",
-                                                                                                      "interface": "set_state",
-                                                                                                      "max_value": 1
-                                                                                                }, {
-                                                                                                       "argument": "TOGGLE",
-                                                                                                    "description": "Toggle switch state",
-                                                                                                      "interface": "action"
-                                                                                                } ],
-                                                                         "momentary_positions": "none",
-                                                                                     "outputs": [ {
-                                                                                                        "address": 30730,
-                                                                                                    "description": "selector position",
-                                                                                                           "mask": 128,
-                                                                                                      "max_value": 1,
-                                                                                                       "shift_by": 7,
-                                                                                                         "suffix": "",
-                                                                                                           "type": "integer"
-                                                                                                } ],
-                                                                            "physical_variant": "push_button"
-                                                                     },
-                                                          "UFC_WAY": {
-                                                                                 "api_variant": "momentary_last_position",
-                                                                                    "category": "UFC",
-                                                                                "control_type": "selector",
-                                                                                 "description": "UFC Waypoint Overfly INS Update Selector",
-                                                                                  "identifier": "UFC_WAY",
-                                                                                      "inputs": [ {
-                                                                                                    "description": "switch to previous or next state",
-                                                                                                      "interface": "fixed_step"
-                                                                                                }, {
-                                                                                                    "description": "set position",
-                                                                                                      "interface": "set_state",
-                                                                                                      "max_value": 1
-                                                                                                }, {
-                                                                                                       "argument": "TOGGLE",
-                                                                                                    "description": "Toggle switch state",
-                                                                                                      "interface": "action"
-                                                                                                } ],
-                                                                         "momentary_positions": "none",
-                                                                                     "outputs": [ {
-                                                                                                        "address": 30730,
-                                                                                                    "description": "selector position",
-                                                                                                           "mask": 32768,
-                                                                                                      "max_value": 1,
-                                                                                                       "shift_by": 15,
-                                                                                                         "suffix": "",
-                                                                                                           "type": "integer"
-                                                                                                } ],
-                                                                            "physical_variant": "push_button"
-                                                                     },
-                                                       "UFC_WEAPON": {
-                                                                                 "api_variant": "momentary_last_position",
-                                                                                    "category": "UFC",
-                                                                                "control_type": "selector",
-                                                                                 "description": "UFC Weapons Function Selector",
-                                                                                  "identifier": "UFC_WEAPON",
-                                                                                      "inputs": [ {
-                                                                                                    "description": "switch to previous or next state",
-                                                                                                      "interface": "fixed_step"
-                                                                                                }, {
-                                                                                                    "description": "set position",
-                                                                                                      "interface": "set_state",
-                                                                                                      "max_value": 1
-                                                                                                }, {
-                                                                                                       "argument": "TOGGLE",
-                                                                                                    "description": "Toggle switch state",
-                                                                                                      "interface": "action"
-                                                                                                } ],
-                                                                         "momentary_positions": "none",
-                                                                                     "outputs": [ {
-                                                                                                        "address": 30732,
-                                                                                                    "description": "selector position",
-                                                                                                           "mask": 1,
-                                                                                                      "max_value": 1,
-                                                                                                       "shift_by": 0,
-                                                                                                         "suffix": "",
-                                                                                                           "type": "integer"
-                                                                                                } ],
-                                                                            "physical_variant": "push_button"
-                                                                     },
-                                                      "UFC_WEATHER": {
-                                                                                 "api_variant": "momentary_last_position",
-                                                                                    "category": "UFC",
-                                                                                "control_type": "selector",
-                                                                                 "description": "UFC All Weather Landing Function Selector",
-                                                                                  "identifier": "UFC_WEATHER",
-                                                                                      "inputs": [ {
-                                                                                                    "description": "switch to previous or next state",
-                                                                                                      "interface": "fixed_step"
-                                                                                                }, {
-                                                                                                    "description": "set position",
-                                                                                                      "interface": "set_state",
-                                                                                                      "max_value": 1
-                                                                                                }, {
-                                                                                                       "argument": "TOGGLE",
-                                                                                                    "description": "Toggle switch state",
-                                                                                                      "interface": "action"
-                                                                                                } ],
-                                                                         "momentary_positions": "none",
-                                                                                     "outputs": [ {
-                                                                                                        "address": 30730,
-                                                                                                    "description": "selector position",
-                                                                                                           "mask": 2048,
-                                                                                                      "max_value": 1,
-                                                                                                       "shift_by": 11,
-                                                                                                         "suffix": "",
-                                                                                                           "type": "integer"
-                                                                                                } ],
-                                                                            "physical_variant": "push_button"
                                                                      }
                                             },
                                "UHF Radio": {

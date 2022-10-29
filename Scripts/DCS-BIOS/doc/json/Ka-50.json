@@ -3355,7 +3355,7 @@
                                                                     "ELEC_AUX_BRIGHTNESS": {
                                                                                                    "category": "Electrical System Control Panel",
                                                                                                "control_type": "limited_dial",
-                                                                                                "description": "Auxiliary panel brightness knob",
+                                                                                                "description": "Auxiliary panel Brightness knob",
                                                                                                  "identifier": "ELEC_AUX_BRIGHTNESS",
                                                                                                      "inputs": [ {
                                                                                                                    "description": "set the position of the dial",
@@ -5994,7 +5994,7 @@
                                                                                            "api_variant": "momentary_last_position",
                                                                                               "category": "LWR",
                                                                                           "control_type": "selector",
-                                                                                           "description": "Reset button",
+                                                                                           "description": "Reset Button",
                                                                                             "identifier": "LWR_RESET",
                                                                                                 "inputs": [ {
                                                                                                               "description": "switch to previous or next state",
@@ -6679,7 +6679,7 @@
                                                             "LIGHT_AUX_BRIGHTNESS": {
                                                                                             "category": "Lighting Brightness Control Panel",
                                                                                         "control_type": "limited_dial",
-                                                                                         "description": "Lighting night vision cockpit brightness knob (blue)",
+                                                                                         "description": "Lighting night vision cockpit Brightness knob (blue)",
                                                                                           "identifier": "LIGHT_AUX_BRIGHTNESS",
                                                                                               "inputs": [ {
                                                                                                             "description": "set the position of the dial",
@@ -6704,7 +6704,7 @@
                                                         "LIGHT_COCKPIT_BRIGHTNESS": {
                                                                                             "category": "Lighting Brightness Control Panel",
                                                                                         "control_type": "limited_dial",
-                                                                                         "description": "Lighting cockpit panel brightness knob",
+                                                                                         "description": "Lighting cockpit panel Brightness knob",
                                                                                           "identifier": "LIGHT_COCKPIT_BRIGHTNESS",
                                                                                               "inputs": [ {
                                                                                                             "description": "set the position of the dial",
@@ -6729,7 +6729,7 @@
                                                         "LIGHT_HSI_ADI_BRIGHTNESS": {
                                                                                             "category": "Lighting Brightness Control Panel",
                                                                                         "control_type": "limited_dial",
-                                                                                         "description": "Lighting HSI and ADI brightness knob",
+                                                                                         "description": "Lighting HSI and ADI Brightness knob",
                                                                                           "identifier": "LIGHT_HSI_ADI_BRIGHTNESS",
                                                                                               "inputs": [ {
                                                                                                             "description": "set the position of the dial",
@@ -7928,243 +7928,284 @@
                                                                                    }
                                                     },
                                   "Overhead Panel": {
-                                                               "OP_ENG_DEICE": {
-                                                                                              "category": "Overhead Panel",
-                                                                                          "control_type": "selector",
-                                                                                           "description": "Engines de-icing / dust-protection systems switch",
-                                                                                            "identifier": "OP_ENG_DEICE",
-                                                                                                "inputs": [ {
-                                                                                                              "description": "switch to previous or next state",
-                                                                                                                "interface": "fixed_step"
-                                                                                                          }, {
-                                                                                                              "description": "set position",
-                                                                                                                "interface": "set_state",
-                                                                                                                "max_value": 2
-                                                                                                          } ],
-                                                                                   "momentary_positions": "none",
-                                                                                               "outputs": [ {
-                                                                                                                  "address": 6144,
-                                                                                                              "description": "selector position",
-                                                                                                                     "mask": 3072,
-                                                                                                                "max_value": 2,
-                                                                                                                 "shift_by": 10,
-                                                                                                                   "suffix": "",
-                                                                                                                     "type": "integer"
-                                                                                                          } ],
-                                                                                      "physical_variant": "toggle_switch"
-                                                                               },
-                                                              "OP_NAV_LIGHTS": {
-                                                                                              "category": "Overhead Panel",
-                                                                                          "control_type": "selector",
-                                                                                           "description": "Navigation Lights 10% / 30% / 100% / Off switch",
-                                                                                            "identifier": "OP_NAV_LIGHTS",
-                                                                                                "inputs": [ {
-                                                                                                              "description": "switch to previous or next state",
-                                                                                                                "interface": "fixed_step"
-                                                                                                          }, {
-                                                                                                              "description": "set position",
-                                                                                                                "interface": "set_state",
-                                                                                                                "max_value": 4
-                                                                                                          } ],
-                                                                                   "momentary_positions": "none",
-                                                                                               "outputs": [ {
-                                                                                                                  "address": 6144,
-                                                                                                              "description": "selector position",
-                                                                                                                     "mask": 7,
-                                                                                                                "max_value": 4,
-                                                                                                                 "shift_by": 0,
-                                                                                                                   "suffix": "",
-                                                                                                                     "type": "integer"
-                                                                                                          } ],
-                                                                                      "physical_variant": "toggle_switch"
-                                                                               },
-                                                         "OP_PITOT_HEAT_TEST": {
-                                                                                           "api_variant": "momentary_last_position",
-                                                                                              "category": "Overhead Panel",
-                                                                                          "control_type": "selector",
-                                                                                           "description": "Pitot heat system test button",
-                                                                                            "identifier": "OP_PITOT_HEAT_TEST",
-                                                                                                "inputs": [ {
-                                                                                                              "description": "switch to previous or next state",
-                                                                                                                "interface": "fixed_step"
-                                                                                                          }, {
-                                                                                                              "description": "set position",
-                                                                                                                "interface": "set_state",
-                                                                                                                "max_value": 1
-                                                                                                          }, {
-                                                                                                                 "argument": "TOGGLE",
-                                                                                                              "description": "Toggle switch state",
-                                                                                                                "interface": "action"
-                                                                                                          } ],
-                                                                                   "momentary_positions": "none",
-                                                                                               "outputs": [ {
-                                                                                                                  "address": 6144,
-                                                                                                              "description": "selector position",
-                                                                                                                     "mask": 4096,
-                                                                                                                "max_value": 1,
-                                                                                                                 "shift_by": 12,
-                                                                                                                   "suffix": "",
-                                                                                                                     "type": "integer"
-                                                                                                          } ],
-                                                                                      "physical_variant": "push_button"
-                                                                               },
-                                                            "OP_PITOT_LIGHTS": {
-                                                                                       "category": "Overhead Panel",
-                                                                                   "control_type": "led",
-                                                                                    "description": "Pitot Lights (green)",
-                                                                                     "identifier": "OP_PITOT_LIGHTS",
-                                                                                         "inputs": [  ],
-                                                                                        "outputs": [ {
-                                                                                                           "address": 6534,
-                                                                                                       "description": "0 if light is off, 1 if light is on",
-                                                                                                              "mask": 4,
-                                                                                                         "max_value": 1,
-                                                                                                          "shift_by": 2,
-                                                                                                            "suffix": "",
-                                                                                                              "type": "integer"
-                                                                                                   } ]
-                                                                               },
-                                                         "OP_PITOT_PORT_HEAT": {
-                                                                                              "category": "Overhead Panel",
-                                                                                          "control_type": "selector",
-                                                                                           "description": "Pitot static port and AoA sensors heat switch",
-                                                                                            "identifier": "OP_PITOT_PORT_HEAT",
-                                                                                                "inputs": [ {
-                                                                                                              "description": "switch to previous or next state",
-                                                                                                                "interface": "fixed_step"
-                                                                                                          }, {
-                                                                                                              "description": "set position",
-                                                                                                                "interface": "set_state",
-                                                                                                                "max_value": 1
-                                                                                                          }, {
-                                                                                                                 "argument": "TOGGLE",
-                                                                                                              "description": "Toggle switch state",
-                                                                                                                "interface": "action"
-                                                                                                          } ],
-                                                                                   "momentary_positions": "none",
-                                                                                               "outputs": [ {
-                                                                                                                  "address": 6144,
-                                                                                                              "description": "selector position",
-                                                                                                                     "mask": 128,
-                                                                                                                "max_value": 1,
-                                                                                                                 "shift_by": 7,
-                                                                                                                   "suffix": "",
-                                                                                                                     "type": "integer"
-                                                                                                          } ],
-                                                                                      "physical_variant": "toggle_switch"
-                                                                               },
-                                                          "OP_PITOT_RAM_HEAT": {
-                                                                                              "category": "Overhead Panel",
-                                                                                          "control_type": "selector",
-                                                                                           "description": "Pitot ram air and clock heat switch",
-                                                                                            "identifier": "OP_PITOT_RAM_HEAT",
-                                                                                                "inputs": [ {
-                                                                                                              "description": "switch to previous or next state",
-                                                                                                                "interface": "fixed_step"
-                                                                                                          }, {
-                                                                                                              "description": "set position",
-                                                                                                                "interface": "set_state",
-                                                                                                                "max_value": 1
-                                                                                                          }, {
-                                                                                                                 "argument": "TOGGLE",
-                                                                                                              "description": "Toggle switch state",
-                                                                                                                "interface": "action"
-                                                                                                          } ],
-                                                                                   "momentary_positions": "none",
-                                                                                               "outputs": [ {
-                                                                                                                  "address": 6144,
-                                                                                                              "description": "selector position",
-                                                                                                                     "mask": 256,
-                                                                                                                "max_value": 1,
-                                                                                                                 "shift_by": 8,
-                                                                                                                   "suffix": "",
-                                                                                                                     "type": "integer"
-                                                                                                          } ],
-                                                                                      "physical_variant": "toggle_switch"
-                                                                               },
-                                                             "OP_ROTOR_DEICE": {
-                                                                                              "category": "Overhead Panel",
-                                                                                          "control_type": "selector",
-                                                                                           "description": "Rotor de-icing system switch",
-                                                                                            "identifier": "OP_ROTOR_DEICE",
-                                                                                                "inputs": [ {
-                                                                                                              "description": "switch to previous or next state",
-                                                                                                                "interface": "fixed_step"
-                                                                                                          }, {
-                                                                                                              "description": "set position",
-                                                                                                                "interface": "set_state",
-                                                                                                                "max_value": 1
-                                                                                                          }, {
-                                                                                                                 "argument": "TOGGLE",
-                                                                                                              "description": "Toggle switch state",
-                                                                                                                "interface": "action"
-                                                                                                          } ],
-                                                                                   "momentary_positions": "none",
-                                                                                               "outputs": [ {
-                                                                                                                  "address": 6144,
-                                                                                                              "description": "selector position",
-                                                                                                                     "mask": 512,
-                                                                                                                "max_value": 1,
-                                                                                                                 "shift_by": 9,
-                                                                                                                   "suffix": "",
-                                                                                                                     "type": "integer"
-                                                                                                          } ],
-                                                                                      "physical_variant": "toggle_switch"
-                                                                               },
-                                                         "OP_WINDSHIELD_WASH": {
-                                                                                              "category": "Overhead Panel",
-                                                                                          "control_type": "selector",
-                                                                                           "description": "Windshield washer fluid switch",
-                                                                                            "identifier": "OP_WINDSHIELD_WASH",
-                                                                                                "inputs": [ {
-                                                                                                              "description": "switch to previous or next state",
-                                                                                                                "interface": "fixed_step"
-                                                                                                          }, {
-                                                                                                              "description": "set position",
-                                                                                                                "interface": "set_state",
-                                                                                                                "max_value": 1
-                                                                                                          }, {
-                                                                                                                 "argument": "TOGGLE",
-                                                                                                              "description": "Toggle switch state",
-                                                                                                                "interface": "action"
-                                                                                                          } ],
-                                                                                   "momentary_positions": "none",
-                                                                                               "outputs": [ {
-                                                                                                                  "address": 6144,
-                                                                                                              "description": "selector position",
-                                                                                                                     "mask": 64,
-                                                                                                                "max_value": 1,
-                                                                                                                 "shift_by": 6,
-                                                                                                                   "suffix": "",
-                                                                                                                     "type": "integer"
-                                                                                                          } ],
-                                                                                      "physical_variant": "toggle_switch"
-                                                                               },
-                                                        "OP_WINDSHIELD_WIPER": {
-                                                                                              "category": "Overhead Panel",
-                                                                                          "control_type": "selector",
-                                                                                           "description": "Windshield wiper switch",
-                                                                                            "identifier": "OP_WINDSHIELD_WIPER",
-                                                                                                "inputs": [ {
-                                                                                                              "description": "switch to previous or next state",
-                                                                                                                "interface": "fixed_step"
-                                                                                                          }, {
-                                                                                                              "description": "set position",
-                                                                                                                "interface": "set_state",
-                                                                                                                "max_value": 4
-                                                                                                          } ],
-                                                                                   "momentary_positions": "none",
-                                                                                               "outputs": [ {
-                                                                                                                  "address": 6144,
-                                                                                                              "description": "selector position",
-                                                                                                                     "mask": 56,
-                                                                                                                "max_value": 4,
-                                                                                                                 "shift_by": 3,
-                                                                                                                   "suffix": "",
-                                                                                                                     "type": "integer"
-                                                                                                          } ],
-                                                                                      "physical_variant": "toggle_switch"
-                                                                               }
+                                                                    "OP_ENG_DEICE": {
+                                                                                                   "category": "Overhead Panel",
+                                                                                               "control_type": "selector",
+                                                                                                "description": "Engines de-icing / dust-protection systems switch",
+                                                                                                 "identifier": "OP_ENG_DEICE",
+                                                                                                     "inputs": [ {
+                                                                                                                   "description": "switch to previous or next state",
+                                                                                                                     "interface": "fixed_step"
+                                                                                                               }, {
+                                                                                                                   "description": "set position",
+                                                                                                                     "interface": "set_state",
+                                                                                                                     "max_value": 2
+                                                                                                               } ],
+                                                                                        "momentary_positions": "none",
+                                                                                                    "outputs": [ {
+                                                                                                                       "address": 6144,
+                                                                                                                   "description": "selector position",
+                                                                                                                          "mask": 3072,
+                                                                                                                     "max_value": 2,
+                                                                                                                      "shift_by": 10,
+                                                                                                                        "suffix": "",
+                                                                                                                          "type": "integer"
+                                                                                                               } ],
+                                                                                           "physical_variant": "toggle_switch"
+                                                                                    },
+                                                                   "OP_NAV_LIGHTS": {
+                                                                                                   "category": "Overhead Panel",
+                                                                                               "control_type": "selector",
+                                                                                                "description": "Navigation Lights 10% / 30% / 100% / Off switch",
+                                                                                                 "identifier": "OP_NAV_LIGHTS",
+                                                                                                     "inputs": [ {
+                                                                                                                   "description": "switch to previous or next state",
+                                                                                                                     "interface": "fixed_step"
+                                                                                                               }, {
+                                                                                                                   "description": "set position",
+                                                                                                                     "interface": "set_state",
+                                                                                                                     "max_value": 4
+                                                                                                               } ],
+                                                                                        "momentary_positions": "none",
+                                                                                                    "outputs": [ {
+                                                                                                                       "address": 6144,
+                                                                                                                   "description": "selector position",
+                                                                                                                          "mask": 7,
+                                                                                                                     "max_value": 4,
+                                                                                                                      "shift_by": 0,
+                                                                                                                        "suffix": "",
+                                                                                                                          "type": "integer"
+                                                                                                               } ],
+                                                                                           "physical_variant": "toggle_switch"
+                                                                                    },
+                                                              "OP_PITOT_HEAT_TEST": {
+                                                                                                "api_variant": "momentary_last_position",
+                                                                                                   "category": "Overhead Panel",
+                                                                                               "control_type": "selector",
+                                                                                                "description": "Pitot heat system test button",
+                                                                                                 "identifier": "OP_PITOT_HEAT_TEST",
+                                                                                                     "inputs": [ {
+                                                                                                                   "description": "switch to previous or next state",
+                                                                                                                     "interface": "fixed_step"
+                                                                                                               }, {
+                                                                                                                   "description": "set position",
+                                                                                                                     "interface": "set_state",
+                                                                                                                     "max_value": 1
+                                                                                                               }, {
+                                                                                                                      "argument": "TOGGLE",
+                                                                                                                   "description": "Toggle switch state",
+                                                                                                                     "interface": "action"
+                                                                                                               } ],
+                                                                                        "momentary_positions": "none",
+                                                                                                    "outputs": [ {
+                                                                                                                       "address": 6144,
+                                                                                                                   "description": "selector position",
+                                                                                                                          "mask": 4096,
+                                                                                                                     "max_value": 1,
+                                                                                                                      "shift_by": 12,
+                                                                                                                        "suffix": "",
+                                                                                                                          "type": "integer"
+                                                                                                               } ],
+                                                                                           "physical_variant": "push_button"
+                                                                                    },
+                                                                 "OP_PITOT_L_LAMP": {
+                                                                                            "category": "Overhead Panel",
+                                                                                        "control_type": "led",
+                                                                                         "description": "Pitot Lamp Left (green)",
+                                                                                          "identifier": "OP_PITOT_L_LAMP",
+                                                                                              "inputs": [  ],
+                                                                                             "outputs": [ {
+                                                                                                                "address": 6534,
+                                                                                                            "description": "0 if light is off, 1 if light is on",
+                                                                                                                   "mask": 4,
+                                                                                                              "max_value": 1,
+                                                                                                               "shift_by": 2,
+                                                                                                                 "suffix": "",
+                                                                                                                   "type": "integer"
+                                                                                                        } ]
+                                                                                    },
+                                                              "OP_PITOT_PORT_HEAT": {
+                                                                                                   "category": "Overhead Panel",
+                                                                                               "control_type": "selector",
+                                                                                                "description": "Pitot static port and AoA sensors heat switch",
+                                                                                                 "identifier": "OP_PITOT_PORT_HEAT",
+                                                                                                     "inputs": [ {
+                                                                                                                   "description": "switch to previous or next state",
+                                                                                                                     "interface": "fixed_step"
+                                                                                                               }, {
+                                                                                                                   "description": "set position",
+                                                                                                                     "interface": "set_state",
+                                                                                                                     "max_value": 1
+                                                                                                               }, {
+                                                                                                                      "argument": "TOGGLE",
+                                                                                                                   "description": "Toggle switch state",
+                                                                                                                     "interface": "action"
+                                                                                                               } ],
+                                                                                        "momentary_positions": "none",
+                                                                                                    "outputs": [ {
+                                                                                                                       "address": 6144,
+                                                                                                                   "description": "selector position",
+                                                                                                                          "mask": 128,
+                                                                                                                     "max_value": 1,
+                                                                                                                      "shift_by": 7,
+                                                                                                                        "suffix": "",
+                                                                                                                          "type": "integer"
+                                                                                                               } ],
+                                                                                           "physical_variant": "toggle_switch"
+                                                                                    },
+                                                               "OP_PITOT_RAM_HEAT": {
+                                                                                                   "category": "Overhead Panel",
+                                                                                               "control_type": "selector",
+                                                                                                "description": "Pitot ram air and clock heat switch",
+                                                                                                 "identifier": "OP_PITOT_RAM_HEAT",
+                                                                                                     "inputs": [ {
+                                                                                                                   "description": "switch to previous or next state",
+                                                                                                                     "interface": "fixed_step"
+                                                                                                               }, {
+                                                                                                                   "description": "set position",
+                                                                                                                     "interface": "set_state",
+                                                                                                                     "max_value": 1
+                                                                                                               }, {
+                                                                                                                      "argument": "TOGGLE",
+                                                                                                                   "description": "Toggle switch state",
+                                                                                                                     "interface": "action"
+                                                                                                               } ],
+                                                                                        "momentary_positions": "none",
+                                                                                                    "outputs": [ {
+                                                                                                                       "address": 6144,
+                                                                                                                   "description": "selector position",
+                                                                                                                          "mask": 256,
+                                                                                                                     "max_value": 1,
+                                                                                                                      "shift_by": 8,
+                                                                                                                        "suffix": "",
+                                                                                                                          "type": "integer"
+                                                                                                               } ],
+                                                                                           "physical_variant": "toggle_switch"
+                                                                                    },
+                                                                 "OP_PITOT_R_LAMP": {
+                                                                                            "category": "Overhead Panel",
+                                                                                        "control_type": "led",
+                                                                                         "description": "Pitot Lamp Right (green)",
+                                                                                          "identifier": "OP_PITOT_R_LAMP",
+                                                                                              "inputs": [  ],
+                                                                                             "outputs": [ {
+                                                                                                                "address": 6534,
+                                                                                                            "description": "0 if light is off, 1 if light is on",
+                                                                                                                   "mask": 2048,
+                                                                                                              "max_value": 1,
+                                                                                                               "shift_by": 11,
+                                                                                                                 "suffix": "",
+                                                                                                                   "type": "integer"
+                                                                                                        } ]
+                                                                                    },
+                                                                  "OP_ROTOR_DEICE": {
+                                                                                                   "category": "Overhead Panel",
+                                                                                               "control_type": "selector",
+                                                                                                "description": "Rotor de-icing system switch",
+                                                                                                 "identifier": "OP_ROTOR_DEICE",
+                                                                                                     "inputs": [ {
+                                                                                                                   "description": "switch to previous or next state",
+                                                                                                                     "interface": "fixed_step"
+                                                                                                               }, {
+                                                                                                                   "description": "set position",
+                                                                                                                     "interface": "set_state",
+                                                                                                                     "max_value": 1
+                                                                                                               }, {
+                                                                                                                      "argument": "TOGGLE",
+                                                                                                                   "description": "Toggle switch state",
+                                                                                                                     "interface": "action"
+                                                                                                               } ],
+                                                                                        "momentary_positions": "none",
+                                                                                                    "outputs": [ {
+                                                                                                                       "address": 6144,
+                                                                                                                   "description": "selector position",
+                                                                                                                          "mask": 512,
+                                                                                                                     "max_value": 1,
+                                                                                                                      "shift_by": 9,
+                                                                                                                        "suffix": "",
+                                                                                                                          "type": "integer"
+                                                                                                               } ],
+                                                                                           "physical_variant": "toggle_switch"
+                                                                                    },
+                                                        "OP_WARNLIGHTS_BRIGHTNESS": {
+                                                                                            "category": "Overhead Panel",
+                                                                                        "control_type": "limited_dial",
+                                                                                         "description": "Warning Lights Brightness knob",
+                                                                                          "identifier": "OP_WARNLIGHTS_BRIGHTNESS",
+                                                                                              "inputs": [ {
+                                                                                                            "description": "set the position of the dial",
+                                                                                                              "interface": "set_state",
+                                                                                                              "max_value": 65535
+                                                                                                        }, {
+                                                                                                               "description": "turn the dial left or right",
+                                                                                                                 "interface": "variable_step",
+                                                                                                                 "max_value": 65535,
+                                                                                                            "suggested_step": 3200
+                                                                                                        } ],
+                                                                                             "outputs": [ {
+                                                                                                                "address": 6556,
+                                                                                                            "description": "position of the potentiometer",
+                                                                                                                   "mask": 65535,
+                                                                                                              "max_value": 65535,
+                                                                                                               "shift_by": 0,
+                                                                                                                 "suffix": "",
+                                                                                                                   "type": "integer"
+                                                                                                        } ]
+                                                                                    },
+                                                              "OP_WINDSHIELD_WASH": {
+                                                                                                   "category": "Overhead Panel",
+                                                                                               "control_type": "selector",
+                                                                                                "description": "Windshield washer fluid switch",
+                                                                                                 "identifier": "OP_WINDSHIELD_WASH",
+                                                                                                     "inputs": [ {
+                                                                                                                   "description": "switch to previous or next state",
+                                                                                                                     "interface": "fixed_step"
+                                                                                                               }, {
+                                                                                                                   "description": "set position",
+                                                                                                                     "interface": "set_state",
+                                                                                                                     "max_value": 1
+                                                                                                               }, {
+                                                                                                                      "argument": "TOGGLE",
+                                                                                                                   "description": "Toggle switch state",
+                                                                                                                     "interface": "action"
+                                                                                                               } ],
+                                                                                        "momentary_positions": "none",
+                                                                                                    "outputs": [ {
+                                                                                                                       "address": 6144,
+                                                                                                                   "description": "selector position",
+                                                                                                                          "mask": 64,
+                                                                                                                     "max_value": 1,
+                                                                                                                      "shift_by": 6,
+                                                                                                                        "suffix": "",
+                                                                                                                          "type": "integer"
+                                                                                                               } ],
+                                                                                           "physical_variant": "toggle_switch"
+                                                                                    },
+                                                             "OP_WINDSHIELD_WIPER": {
+                                                                                                   "category": "Overhead Panel",
+                                                                                               "control_type": "selector",
+                                                                                                "description": "Windshield wiper switch",
+                                                                                                 "identifier": "OP_WINDSHIELD_WIPER",
+                                                                                                     "inputs": [ {
+                                                                                                                   "description": "switch to previous or next state",
+                                                                                                                     "interface": "fixed_step"
+                                                                                                               }, {
+                                                                                                                   "description": "set position",
+                                                                                                                     "interface": "set_state",
+                                                                                                                     "max_value": 4
+                                                                                                               } ],
+                                                                                        "momentary_positions": "none",
+                                                                                                    "outputs": [ {
+                                                                                                                       "address": 6144,
+                                                                                                                   "description": "selector position",
+                                                                                                                          "mask": 56,
+                                                                                                                     "max_value": 4,
+                                                                                                                      "shift_by": 3,
+                                                                                                                        "suffix": "",
+                                                                                                                          "type": "integer"
+                                                                                                               } ],
+                                                                                           "physical_variant": "toggle_switch"
+                                                                                    }
                                                     },
      "PPK-800 Systems Preparation and Check Panel": {
                                                              "PPK800_ATGM_TEMP": {
@@ -10745,7 +10786,7 @@
                                                                                              "api_variant": "momentary_last_position",
                                                                                                 "category": "System Controller",
                                                                                             "control_type": "selector",
-                                                                                             "description": "Lamps test button",
+                                                                                             "description": "Lamps Test Button",
                                                                                               "identifier": "SC_LAMPS_TEST",
                                                                                                   "inputs": [ {
                                                                                                                 "description": "switch to previous or next state",
@@ -10771,11 +10812,27 @@
                                                                                                             } ],
                                                                                         "physical_variant": "push_button"
                                                                                  },
+                                                        "SC_MASTER_CAUTION_BRT": {
+                                                                                         "category": "System Controller",
+                                                                                     "control_type": "analog_gauge",
+                                                                                      "description": "Master Caution LED Brightness (red)",
+                                                                                       "identifier": "SC_MASTER_CAUTION_BRT",
+                                                                                           "inputs": [  ],
+                                                                                          "outputs": [ {
+                                                                                                             "address": 6552,
+                                                                                                         "description": "gauge position",
+                                                                                                                "mask": 65535,
+                                                                                                           "max_value": 65535,
+                                                                                                            "shift_by": 0,
+                                                                                                              "suffix": "",
+                                                                                                                "type": "integer"
+                                                                                                     } ]
+                                                                                 },
                                                         "SC_MASTER_CAUTION_BTN": {
                                                                                              "api_variant": "momentary_last_position",
                                                                                                 "category": "System Controller",
                                                                                             "control_type": "selector",
-                                                                                             "description": "Master caution button",
+                                                                                             "description": "Master Caution Button",
                                                                                               "identifier": "SC_MASTER_CAUTION_BTN",
                                                                                                   "inputs": [ {
                                                                                                                 "description": "switch to previous or next state",
@@ -10804,7 +10861,7 @@
                                                         "SC_MASTER_CAUTION_LED": {
                                                                                              "category": "System Controller",
                                                                                          "control_type": "led",
-                                                                                          "description": "Master caution button LED (red)",
+                                                                                          "description": "MasterCaution Button LED Brightness (red)",
                                                                                            "identifier": "SC_MASTER_CAUTION_LED",
                                                                                                "inputs": [  ],
                                                                                               "outputs": [ {
@@ -10847,11 +10904,27 @@
                                                                                                             } ],
                                                                                         "physical_variant": "toggle_switch"
                                                                                  },
+                                                             "SC_ROTOR_RPM_BRT": {
+                                                                                         "category": "System Controller",
+                                                                                     "control_type": "analog_gauge",
+                                                                                      "description": "Rotor RPM warning LED Brightness (yellow)",
+                                                                                       "identifier": "SC_ROTOR_RPM_BRT",
+                                                                                           "inputs": [  ],
+                                                                                          "outputs": [ {
+                                                                                                             "address": 6554,
+                                                                                                         "description": "gauge position",
+                                                                                                                "mask": 65535,
+                                                                                                           "max_value": 65535,
+                                                                                                            "shift_by": 0,
+                                                                                                              "suffix": "",
+                                                                                                                "type": "integer"
+                                                                                                     } ]
+                                                                                 },
                                                              "SC_ROTOR_RPM_BTN": {
                                                                                              "api_variant": "momentary_last_position",
                                                                                                 "category": "System Controller",
                                                                                             "control_type": "selector",
-                                                                                             "description": "Rotor RPM warning button",
+                                                                                             "description": "Rotor RPM warning Button",
                                                                                               "identifier": "SC_ROTOR_RPM_BTN",
                                                                                                   "inputs": [ {
                                                                                                                 "description": "switch to previous or next state",
@@ -10880,7 +10953,7 @@
                                                              "SC_ROTOR_RPM_LED": {
                                                                                              "category": "System Controller",
                                                                                          "control_type": "led",
-                                                                                          "description": "Rotor RPM warning button LED (yellow)",
+                                                                                          "description": "Rotor RPM warning button LED Brightness (yellow)",
                                                                                            "identifier": "SC_ROTOR_RPM_LED",
                                                                                                "inputs": [  ],
                                                                                               "outputs": [ {
@@ -10899,7 +10972,7 @@
                                                            "HMS_BRIGHTNESS": {
                                                                                      "category": "Targeting Display Control Panel",
                                                                                  "control_type": "limited_dial",
-                                                                                  "description": "Helmet device brightness knob",
+                                                                                  "description": "Helmet device Brightness knob",
                                                                                    "identifier": "HMS_BRIGHTNESS",
                                                                                        "inputs": [ {
                                                                                                      "description": "set the position of the dial",
@@ -10978,7 +11051,7 @@
                                                         "SHKVAL_BRIGHTNESS": {
                                                                                      "category": "Targeting Display Control Panel",
                                                                                  "control_type": "limited_dial",
-                                                                                  "description": "SHKVAL brightness knob",
+                                                                                  "description": "SHKVAL Brightness knob",
                                                                                    "identifier": "SHKVAL_BRIGHTNESS",
                                                                                        "inputs": [ {
                                                                                                      "description": "set the position of the dial",
@@ -11520,7 +11593,7 @@
                                                                                                 "api_variant": "momentary_last_position",
                                                                                                    "category": "UV-26 Control Panel",
                                                                                                "control_type": "selector",
-                                                                                                "description": "Num in sequence button",
+                                                                                                "description": "Num in sequence Button",
                                                                                                  "identifier": "UV26_BURST",
                                                                                                      "inputs": [ {
                                                                                                                    "description": "switch to previous or next state",
@@ -11589,7 +11662,7 @@
                                                                                                 "api_variant": "momentary_last_position",
                                                                                                    "category": "UV-26 Control Panel",
                                                                                                "control_type": "selector",
-                                                                                                "description": "Dispense interval button",
+                                                                                                "description": "Dispense interval Button",
                                                                                                  "identifier": "UV26_INTERVAL",
                                                                                                      "inputs": [ {
                                                                                                                    "description": "switch to previous or next state",
@@ -11664,7 +11737,7 @@
                                                                                                 "api_variant": "momentary_last_position",
                                                                                                    "category": "UV-26 Control Panel",
                                                                                                "control_type": "selector",
-                                                                                                "description": "Reset to default program button",
+                                                                                                "description": "Reset to default program Button",
                                                                                                  "identifier": "UV26_RESET",
                                                                                                      "inputs": [ {
                                                                                                                    "description": "switch to previous or next state",
@@ -11710,7 +11783,7 @@
                                                                                                 "api_variant": "momentary_last_position",
                                                                                                    "category": "UV-26 Control Panel",
                                                                                                "control_type": "selector",
-                                                                                                "description": "Num of sequences button",
+                                                                                                "description": "Num of sequences Button",
                                                                                                  "identifier": "UV26_SERIES",
                                                                                                      "inputs": [ {
                                                                                                                    "description": "switch to previous or next state",
@@ -11770,7 +11843,7 @@
                                                                                                 "api_variant": "momentary_last_position",
                                                                                                    "category": "UV-26 Control Panel",
                                                                                                "control_type": "selector",
-                                                                                                "description": "Stop dispense button",
+                                                                                                "description": "Stop dispense Button",
                                                                                                  "identifier": "UV26_STOP",
                                                                                                      "inputs": [ {
                                                                                                                    "description": "switch to previous or next state",

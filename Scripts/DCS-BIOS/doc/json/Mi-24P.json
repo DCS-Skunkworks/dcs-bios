@@ -8406,7 +8406,7 @@
                                                                                     "api_variant": "momentary_last_position",
                                                                                        "category": "Eucalypt-M24",
                                                                                    "control_type": "selector",
-                                                                                    "description": "PILOT Eucalypt-M24 ASU",
+                                                                                    "description": "PILOT R-828 ASU",
                                                                                      "identifier": "PLT_R828_ASU",
                                                                                          "inputs": [ {
                                                                                                        "description": "switch to previous or next state",
@@ -8435,7 +8435,7 @@
                                                        "PLT_R828_CHAN": {
                                                                                        "category": "Eucalypt-M24",
                                                                                    "control_type": "selector",
-                                                                                    "description": "PILOT Eucalypt-M24 Channel Select",
+                                                                                    "description": "PILOT R-828 Channel Select",
                                                                                      "identifier": "PLT_R828_CHAN",
                                                                                          "inputs": [ {
                                                                                                        "description": "switch to previous or next state",
@@ -8474,7 +8474,7 @@
                                                          "PLT_R828_PW": {
                                                                                        "category": "Eucalypt-M24",
                                                                                    "control_type": "selector",
-                                                                                    "description": "PILOT Eucalypt-M24 ON/OFF",
+                                                                                    "description": "PILOT R-828 ON/OFF",
                                                                                      "identifier": "PLT_R828_PW",
                                                                                          "inputs": [ {
                                                                                                        "description": "switch to previous or next state",
@@ -8503,7 +8503,7 @@
                                                     "PLT_R828_SQUELCH": {
                                                                                        "category": "Eucalypt-M24",
                                                                                    "control_type": "selector",
-                                                                                    "description": "PILOT Eucalypt-M24 Squelch ON/OFF",
+                                                                                    "description": "PILOT R-828 Squelch ON/OFF",
                                                                                      "identifier": "PLT_R828_SQUELCH",
                                                                                          "inputs": [ {
                                                                                                        "description": "switch to previous or next state",
@@ -8532,7 +8532,7 @@
                                                         "PLT_R828_VOL": {
                                                                                 "category": "Eucalypt-M24",
                                                                             "control_type": "limited_dial",
-                                                                             "description": "PILOT Eucalypt-M24 Volume Knob",
+                                                                             "description": "PILOT R-828 Volume Knob",
                                                                               "identifier": "PLT_R828_VOL",
                                                                                   "inputs": [ {
                                                                                                 "description": "set the position of the dial",
@@ -9623,7 +9623,7 @@
                                                                                                                    "suffix": "",
                                                                                                                      "type": "integer"
                                                                                                           } ],
-                                                                                      "physical_variant": "limited_rotary"
+                                                                                      "physical_variant": "toggle_switch"
                                                                                },
                                                           "PLT_FIRE_EX_SQUIB": {
                                                                                        "category": "Fire Extinguisher",
@@ -13197,289 +13197,314 @@
                                                                            }
                                                 },
                                     "Jadro-1I": {
-                                                           "JADRO_FREQ": {
-                                                                                 "category": "Jadro-1I",
-                                                                             "control_type": "display",
-                                                                              "description": "PILOT Jadro-1I Frequency (String)",
-                                                                               "identifier": "JADRO_FREQ",
-                                                                                   "inputs": [  ],
-                                                                                  "outputs": [ {
-                                                                                                     "address": 27140,
-                                                                                                 "description": "PILOT Jadro-1I Frequency (String)",
-                                                                                                  "max_length": 7,
-                                                                                                      "suffix": "",
-                                                                                                        "type": "string"
-                                                                                             } ]
-                                                                         },
-                                                       "PLT_JADRO_100H": {
-                                                                                        "category": "Jadro-1I",
-                                                                                    "control_type": "discrete_dial",
-                                                                                     "description": "PILOT Jadro-1I Frequency 100Hz",
-                                                                                      "identifier": "PLT_JADRO_100H",
-                                                                                          "inputs": [ {
-                                                                                                        "description": "switch to previous or next state",
-                                                                                                          "interface": "fixed_step"
-                                                                                                    } ],
-                                                                             "momentary_positions": "none",
-                                                                                         "outputs": [ {
-                                                                                                            "address": 27132,
-                                                                                                        "description": "selector position",
-                                                                                                               "mask": 3840,
-                                                                                                          "max_value": 10,
-                                                                                                           "shift_by": 8,
-                                                                                                             "suffix": "_INT",
-                                                                                                               "type": "integer"
-                                                                                                    }, {
-                                                                                                            "address": 27138,
-                                                                                                        "description": "possible values: \"0\" \"1\" \"2\" \"3\" \"4\" \"5\" \"6\" \"7\" \"8\" \"9\" ",
-                                                                                                         "max_length": 1,
-                                                                                                             "suffix": "_STR",
-                                                                                                               "type": "string"
-                                                                                                    } ],
-                                                                                "physical_variant": "infinite_rotary"
-                                                                         },
-                                                       "PLT_JADRO_100K": {
-                                                                                        "category": "Jadro-1I",
-                                                                                    "control_type": "discrete_dial",
-                                                                                     "description": "PILOT Jadro-1I Frequency 100KHz",
-                                                                                      "identifier": "PLT_JADRO_100K",
-                                                                                          "inputs": [ {
-                                                                                                        "description": "switch to previous or next state",
-                                                                                                          "interface": "fixed_step"
-                                                                                                    } ],
-                                                                             "momentary_positions": "none",
-                                                                                         "outputs": [ {
-                                                                                                            "address": 27128,
-                                                                                                        "description": "selector position",
-                                                                                                               "mask": 240,
-                                                                                                          "max_value": 10,
-                                                                                                           "shift_by": 4,
-                                                                                                             "suffix": "_INT",
-                                                                                                               "type": "integer"
-                                                                                                    }, {
-                                                                                                            "address": 27132,
-                                                                                                        "description": "possible values: \"0\" \"1\" \"2\" \"3\" \"4\" \"5\" \"6\" \"7\" \"8\" \"9\" ",
-                                                                                                         "max_length": 1,
-                                                                                                             "suffix": "_STR",
-                                                                                                               "type": "string"
-                                                                                                    } ],
-                                                                                "physical_variant": "infinite_rotary"
-                                                                         },
-                                                        "PLT_JADRO_10K": {
-                                                                                        "category": "Jadro-1I",
-                                                                                    "control_type": "discrete_dial",
-                                                                                     "description": "PILOT Jadro-1I Frequency 10KHz",
-                                                                                      "identifier": "PLT_JADRO_10K",
-                                                                                          "inputs": [ {
-                                                                                                        "description": "switch to previous or next state",
-                                                                                                          "interface": "fixed_step"
-                                                                                                    } ],
-                                                                             "momentary_positions": "none",
-                                                                                         "outputs": [ {
-                                                                                                            "address": 27128,
-                                                                                                        "description": "selector position",
-                                                                                                               "mask": 3840,
-                                                                                                          "max_value": 10,
-                                                                                                           "shift_by": 8,
-                                                                                                             "suffix": "_INT",
-                                                                                                               "type": "integer"
-                                                                                                    }, {
-                                                                                                            "address": 27134,
-                                                                                                        "description": "possible values: \"0\" \"1\" \"2\" \"3\" \"4\" \"5\" \"6\" \"7\" \"8\" \"9\" ",
-                                                                                                         "max_length": 1,
-                                                                                                             "suffix": "_STR",
-                                                                                                               "type": "string"
-                                                                                                    } ],
-                                                                                "physical_variant": "infinite_rotary"
-                                                                         },
-                                                         "PLT_JADRO_1K": {
-                                                                                        "category": "Jadro-1I",
-                                                                                    "control_type": "discrete_dial",
-                                                                                     "description": "PILOT Jadro-1I Frequency 1KHz",
-                                                                                      "identifier": "PLT_JADRO_1K",
-                                                                                          "inputs": [ {
-                                                                                                        "description": "switch to previous or next state",
-                                                                                                          "interface": "fixed_step"
-                                                                                                    } ],
-                                                                             "momentary_positions": "none",
-                                                                                         "outputs": [ {
-                                                                                                            "address": 27128,
-                                                                                                        "description": "selector position",
-                                                                                                               "mask": 61440,
-                                                                                                          "max_value": 10,
-                                                                                                           "shift_by": 12,
-                                                                                                             "suffix": "_INT",
-                                                                                                               "type": "integer"
-                                                                                                    }, {
-                                                                                                            "address": 27136,
-                                                                                                        "description": "possible values: \"0\" \"1\" \"2\" \"3\" \"4\" \"5\" \"6\" \"7\" \"8\" \"9\" ",
-                                                                                                         "max_length": 1,
-                                                                                                             "suffix": "_STR",
-                                                                                                               "type": "string"
-                                                                                                    } ],
-                                                                                "physical_variant": "infinite_rotary"
-                                                                         },
-                                                         "PLT_JADRO_1M": {
-                                                                                        "category": "Jadro-1I",
-                                                                                    "control_type": "discrete_dial",
-                                                                                     "description": "PILOT Jadro-1I Frequency 1MHz",
-                                                                                      "identifier": "PLT_JADRO_1M",
-                                                                                          "inputs": [ {
-                                                                                                        "description": "switch to previous or next state",
-                                                                                                          "interface": "fixed_step"
-                                                                                                    } ],
-                                                                             "momentary_positions": "none",
-                                                                                         "outputs": [ {
-                                                                                                            "address": 27128,
-                                                                                                        "description": "selector position",
-                                                                                                               "mask": 15,
-                                                                                                          "max_value": 10,
-                                                                                                           "shift_by": 0,
-                                                                                                             "suffix": "_INT",
-                                                                                                               "type": "integer"
-                                                                                                    }, {
-                                                                                                            "address": 27130,
-                                                                                                        "description": "possible values: \"0\" \"1\" \"2\" \"3\" \"4\" \"5\" \"6\" \"7\" \"8\" \"9\" \"10\" \"11\" \"12\" \"13\" \"14\" \"15\" \"16\" \"17\" ",
-                                                                                                         "max_length": 2,
-                                                                                                             "suffix": "_STR",
-                                                                                                               "type": "string"
-                                                                                                    } ],
-                                                                                "physical_variant": "infinite_rotary"
-                                                                         },
-                                                      "PLT_JADRO_MODUL": {
-                                                                                        "category": "Jadro-1I",
-                                                                                    "control_type": "selector",
-                                                                                     "description": "PILOT Jadro-1I Mode OFF/AM/OM",
-                                                                                      "identifier": "PLT_JADRO_MODUL",
-                                                                                          "inputs": [ {
-                                                                                                        "description": "switch to previous or next state",
-                                                                                                          "interface": "fixed_step"
-                                                                                                    }, {
-                                                                                                        "description": "set position",
-                                                                                                          "interface": "set_state",
-                                                                                                          "max_value": 2
-                                                                                                    } ],
-                                                                             "momentary_positions": "none",
-                                                                                         "outputs": [ {
-                                                                                                            "address": 27116,
-                                                                                                        "description": "selector position",
-                                                                                                               "mask": 12288,
-                                                                                                          "max_value": 2,
-                                                                                                           "shift_by": 12,
-                                                                                                             "suffix": "",
-                                                                                                               "type": "integer"
-                                                                                                    } ],
-                                                                                "physical_variant": "toggle_switch"
-                                                                         },
-                                                         "PLT_JADRO_PW": {
-                                                                                        "category": "Jadro-1I",
-                                                                                    "control_type": "selector",
-                                                                                     "description": "PILOT Jadro-1I ON/OFF",
-                                                                                      "identifier": "PLT_JADRO_PW",
-                                                                                          "inputs": [ {
-                                                                                                        "description": "switch to previous or next state",
-                                                                                                          "interface": "fixed_step"
-                                                                                                    }, {
-                                                                                                        "description": "set position",
-                                                                                                          "interface": "set_state",
-                                                                                                          "max_value": 1
-                                                                                                    }, {
-                                                                                                           "argument": "TOGGLE",
-                                                                                                        "description": "Toggle switch state",
-                                                                                                          "interface": "action"
-                                                                                                    } ],
-                                                                             "momentary_positions": "none",
-                                                                                         "outputs": [ {
-                                                                                                            "address": 27116,
-                                                                                                        "description": "selector position",
-                                                                                                               "mask": 2048,
-                                                                                                          "max_value": 1,
-                                                                                                           "shift_by": 11,
-                                                                                                             "suffix": "",
-                                                                                                               "type": "integer"
-                                                                                                    } ],
-                                                                                "physical_variant": "toggle_switch"
-                                                                         },
-                                                    "PLT_JADRO_SQUELCH": {
-                                                                                 "category": "Jadro-1I",
-                                                                             "control_type": "limited_dial",
-                                                                              "description": "PILOT Jadro-1I Squelch",
-                                                                               "identifier": "PLT_JADRO_SQUELCH",
-                                                                                   "inputs": [ {
-                                                                                                 "description": "set the position of the dial",
-                                                                                                   "interface": "set_state",
-                                                                                                   "max_value": 65535
-                                                                                             }, {
-                                                                                                    "description": "turn the dial left or right",
-                                                                                                      "interface": "variable_step",
+                                                              "JADRO_FREQ": {
+                                                                                    "category": "Jadro-1I",
+                                                                                "control_type": "display",
+                                                                                 "description": "PILOT Jadro-1I Frequency (String)",
+                                                                                  "identifier": "JADRO_FREQ",
+                                                                                      "inputs": [  ],
+                                                                                     "outputs": [ {
+                                                                                                        "address": 27140,
+                                                                                                    "description": "PILOT Jadro-1I Frequency (String)",
+                                                                                                     "max_length": 7,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "string"
+                                                                                                } ]
+                                                                            },
+                                                          "PLT_JADRO_100H": {
+                                                                                           "category": "Jadro-1I",
+                                                                                       "control_type": "discrete_dial",
+                                                                                        "description": "PILOT Jadro-1I Frequency 100Hz",
+                                                                                         "identifier": "PLT_JADRO_100H",
+                                                                                             "inputs": [ {
+                                                                                                           "description": "switch to previous or next state",
+                                                                                                             "interface": "fixed_step"
+                                                                                                       } ],
+                                                                                "momentary_positions": "none",
+                                                                                            "outputs": [ {
+                                                                                                               "address": 27132,
+                                                                                                           "description": "selector position",
+                                                                                                                  "mask": 3840,
+                                                                                                             "max_value": 10,
+                                                                                                              "shift_by": 8,
+                                                                                                                "suffix": "_INT",
+                                                                                                                  "type": "integer"
+                                                                                                       }, {
+                                                                                                               "address": 27138,
+                                                                                                           "description": "possible values: \"0\" \"1\" \"2\" \"3\" \"4\" \"5\" \"6\" \"7\" \"8\" \"9\" ",
+                                                                                                            "max_length": 1,
+                                                                                                                "suffix": "_STR",
+                                                                                                                  "type": "string"
+                                                                                                       } ],
+                                                                                   "physical_variant": "infinite_rotary"
+                                                                            },
+                                                          "PLT_JADRO_100K": {
+                                                                                           "category": "Jadro-1I",
+                                                                                       "control_type": "discrete_dial",
+                                                                                        "description": "PILOT Jadro-1I Frequency 100KHz",
+                                                                                         "identifier": "PLT_JADRO_100K",
+                                                                                             "inputs": [ {
+                                                                                                           "description": "switch to previous or next state",
+                                                                                                             "interface": "fixed_step"
+                                                                                                       } ],
+                                                                                "momentary_positions": "none",
+                                                                                            "outputs": [ {
+                                                                                                               "address": 27128,
+                                                                                                           "description": "selector position",
+                                                                                                                  "mask": 240,
+                                                                                                             "max_value": 10,
+                                                                                                              "shift_by": 4,
+                                                                                                                "suffix": "_INT",
+                                                                                                                  "type": "integer"
+                                                                                                       }, {
+                                                                                                               "address": 27132,
+                                                                                                           "description": "possible values: \"0\" \"1\" \"2\" \"3\" \"4\" \"5\" \"6\" \"7\" \"8\" \"9\" ",
+                                                                                                            "max_length": 1,
+                                                                                                                "suffix": "_STR",
+                                                                                                                  "type": "string"
+                                                                                                       } ],
+                                                                                   "physical_variant": "infinite_rotary"
+                                                                            },
+                                                           "PLT_JADRO_10K": {
+                                                                                           "category": "Jadro-1I",
+                                                                                       "control_type": "discrete_dial",
+                                                                                        "description": "PILOT Jadro-1I Frequency 10KHz",
+                                                                                         "identifier": "PLT_JADRO_10K",
+                                                                                             "inputs": [ {
+                                                                                                           "description": "switch to previous or next state",
+                                                                                                             "interface": "fixed_step"
+                                                                                                       } ],
+                                                                                "momentary_positions": "none",
+                                                                                            "outputs": [ {
+                                                                                                               "address": 27128,
+                                                                                                           "description": "selector position",
+                                                                                                                  "mask": 3840,
+                                                                                                             "max_value": 10,
+                                                                                                              "shift_by": 8,
+                                                                                                                "suffix": "_INT",
+                                                                                                                  "type": "integer"
+                                                                                                       }, {
+                                                                                                               "address": 27134,
+                                                                                                           "description": "possible values: \"0\" \"1\" \"2\" \"3\" \"4\" \"5\" \"6\" \"7\" \"8\" \"9\" ",
+                                                                                                            "max_length": 1,
+                                                                                                                "suffix": "_STR",
+                                                                                                                  "type": "string"
+                                                                                                       } ],
+                                                                                   "physical_variant": "infinite_rotary"
+                                                                            },
+                                                            "PLT_JADRO_1K": {
+                                                                                           "category": "Jadro-1I",
+                                                                                       "control_type": "discrete_dial",
+                                                                                        "description": "PILOT Jadro-1I Frequency 1KHz",
+                                                                                         "identifier": "PLT_JADRO_1K",
+                                                                                             "inputs": [ {
+                                                                                                           "description": "switch to previous or next state",
+                                                                                                             "interface": "fixed_step"
+                                                                                                       } ],
+                                                                                "momentary_positions": "none",
+                                                                                            "outputs": [ {
+                                                                                                               "address": 27128,
+                                                                                                           "description": "selector position",
+                                                                                                                  "mask": 61440,
+                                                                                                             "max_value": 10,
+                                                                                                              "shift_by": 12,
+                                                                                                                "suffix": "_INT",
+                                                                                                                  "type": "integer"
+                                                                                                       }, {
+                                                                                                               "address": 27136,
+                                                                                                           "description": "possible values: \"0\" \"1\" \"2\" \"3\" \"4\" \"5\" \"6\" \"7\" \"8\" \"9\" ",
+                                                                                                            "max_length": 1,
+                                                                                                                "suffix": "_STR",
+                                                                                                                  "type": "string"
+                                                                                                       } ],
+                                                                                   "physical_variant": "infinite_rotary"
+                                                                            },
+                                                            "PLT_JADRO_1M": {
+                                                                                           "category": "Jadro-1I",
+                                                                                       "control_type": "discrete_dial",
+                                                                                        "description": "PILOT Jadro-1I Frequency 1MHz",
+                                                                                         "identifier": "PLT_JADRO_1M",
+                                                                                             "inputs": [ {
+                                                                                                           "description": "switch to previous or next state",
+                                                                                                             "interface": "fixed_step"
+                                                                                                       } ],
+                                                                                "momentary_positions": "none",
+                                                                                            "outputs": [ {
+                                                                                                               "address": 27128,
+                                                                                                           "description": "selector position",
+                                                                                                                  "mask": 15,
+                                                                                                             "max_value": 10,
+                                                                                                              "shift_by": 0,
+                                                                                                                "suffix": "_INT",
+                                                                                                                  "type": "integer"
+                                                                                                       }, {
+                                                                                                               "address": 27130,
+                                                                                                           "description": "possible values: \"0\" \"1\" \"2\" \"3\" \"4\" \"5\" \"6\" \"7\" \"8\" \"9\" \"10\" \"11\" \"12\" \"13\" \"14\" \"15\" \"16\" \"17\" ",
+                                                                                                            "max_length": 2,
+                                                                                                                "suffix": "_STR",
+                                                                                                                  "type": "string"
+                                                                                                       } ],
+                                                                                   "physical_variant": "infinite_rotary"
+                                                                            },
+                                                         "PLT_JADRO_MODUL": {
+                                                                                           "category": "Jadro-1I",
+                                                                                       "control_type": "selector",
+                                                                                        "description": "PILOT Jadro-1I Mode OFF/AM/OM",
+                                                                                         "identifier": "PLT_JADRO_MODUL",
+                                                                                             "inputs": [ {
+                                                                                                           "description": "switch to previous or next state",
+                                                                                                             "interface": "fixed_step"
+                                                                                                       }, {
+                                                                                                           "description": "set position",
+                                                                                                             "interface": "set_state",
+                                                                                                             "max_value": 2
+                                                                                                       } ],
+                                                                                "momentary_positions": "none",
+                                                                                            "outputs": [ {
+                                                                                                               "address": 27116,
+                                                                                                           "description": "selector position",
+                                                                                                                  "mask": 12288,
+                                                                                                             "max_value": 2,
+                                                                                                              "shift_by": 12,
+                                                                                                                "suffix": "",
+                                                                                                                  "type": "integer"
+                                                                                                       } ],
+                                                                                   "physical_variant": "toggle_switch"
+                                                                            },
+                                                            "PLT_JADRO_PW": {
+                                                                                           "category": "Jadro-1I",
+                                                                                       "control_type": "selector",
+                                                                                        "description": "PILOT Jadro-1I ON/OFF",
+                                                                                         "identifier": "PLT_JADRO_PW",
+                                                                                             "inputs": [ {
+                                                                                                           "description": "switch to previous or next state",
+                                                                                                             "interface": "fixed_step"
+                                                                                                       }, {
+                                                                                                           "description": "set position",
+                                                                                                             "interface": "set_state",
+                                                                                                             "max_value": 1
+                                                                                                       }, {
+                                                                                                              "argument": "TOGGLE",
+                                                                                                           "description": "Toggle switch state",
+                                                                                                             "interface": "action"
+                                                                                                       } ],
+                                                                                "momentary_positions": "none",
+                                                                                            "outputs": [ {
+                                                                                                               "address": 27116,
+                                                                                                           "description": "selector position",
+                                                                                                                  "mask": 2048,
+                                                                                                             "max_value": 1,
+                                                                                                              "shift_by": 11,
+                                                                                                                "suffix": "",
+                                                                                                                  "type": "integer"
+                                                                                                       } ],
+                                                                                   "physical_variant": "toggle_switch"
+                                                                            },
+                                                       "PLT_JADRO_SQUELCH": {
+                                                                                    "category": "Jadro-1I",
+                                                                                "control_type": "limited_dial",
+                                                                                 "description": "PILOT Jadro-1I Squelch",
+                                                                                  "identifier": "PLT_JADRO_SQUELCH",
+                                                                                      "inputs": [ {
+                                                                                                    "description": "set the position of the dial",
+                                                                                                      "interface": "set_state",
+                                                                                                      "max_value": 65535
+                                                                                                }, {
+                                                                                                       "description": "turn the dial left or right",
+                                                                                                         "interface": "variable_step",
+                                                                                                         "max_value": 65535,
+                                                                                                    "suggested_step": 3200
+                                                                                                } ],
+                                                                                     "outputs": [ {
+                                                                                                        "address": 27126,
+                                                                                                    "description": "position of the potentiometer",
+                                                                                                           "mask": 65535,
                                                                                                       "max_value": 65535,
-                                                                                                 "suggested_step": 3200
-                                                                                             } ],
-                                                                                  "outputs": [ {
-                                                                                                     "address": 27126,
-                                                                                                 "description": "position of the potentiometer",
-                                                                                                        "mask": 65535,
-                                                                                                   "max_value": 65535,
-                                                                                                    "shift_by": 0,
-                                                                                                      "suffix": "",
-                                                                                                        "type": "integer"
-                                                                                             } ]
-                                                                         },
-                                                       "PLT_JADRO_TEST": {
-                                                                                     "api_variant": "momentary_last_position",
-                                                                                        "category": "Jadro-1I",
-                                                                                    "control_type": "selector",
-                                                                                     "description": "PILOT Jadro-1I Test",
-                                                                                      "identifier": "PLT_JADRO_TEST",
-                                                                                          "inputs": [ {
-                                                                                                        "description": "switch to previous or next state",
-                                                                                                          "interface": "fixed_step"
-                                                                                                    }, {
-                                                                                                        "description": "set position",
-                                                                                                          "interface": "set_state",
-                                                                                                          "max_value": 1
-                                                                                                    }, {
-                                                                                                           "argument": "TOGGLE",
-                                                                                                        "description": "Toggle switch state",
-                                                                                                          "interface": "action"
-                                                                                                    } ],
-                                                                             "momentary_positions": "none",
-                                                                                         "outputs": [ {
-                                                                                                            "address": 27116,
-                                                                                                        "description": "selector position",
-                                                                                                               "mask": 16384,
-                                                                                                          "max_value": 1,
-                                                                                                           "shift_by": 14,
-                                                                                                             "suffix": "",
-                                                                                                               "type": "integer"
-                                                                                                    } ],
-                                                                                "physical_variant": "push_button"
-                                                                         },
-                                                        "PLT_JADRO_VOL": {
-                                                                                 "category": "Jadro-1I",
-                                                                             "control_type": "limited_dial",
-                                                                              "description": "PILOT Jadro-1I Volume",
-                                                                               "identifier": "PLT_JADRO_VOL",
-                                                                                   "inputs": [ {
-                                                                                                 "description": "set the position of the dial",
-                                                                                                   "interface": "set_state",
-                                                                                                   "max_value": 65535
-                                                                                             }, {
-                                                                                                    "description": "turn the dial left or right",
-                                                                                                      "interface": "variable_step",
+                                                                                                       "shift_by": 0,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                                                } ]
+                                                                            },
+                                                    "PLT_JADRO_SQUELCH_SW": {
+                                                                                           "category": "Jadro-1I",
+                                                                                       "control_type": "selector",
+                                                                                        "description": "PILOT Jadro-1I Squelch (as Multipos)",
+                                                                                         "identifier": "PLT_JADRO_SQUELCH_SW",
+                                                                                             "inputs": [ {
+                                                                                                           "description": "switch to previous or next state",
+                                                                                                             "interface": "fixed_step"
+                                                                                                       }, {
+                                                                                                           "description": "set position",
+                                                                                                             "interface": "set_state",
+                                                                                                             "max_value": 7
+                                                                                                       } ],
+                                                                                "momentary_positions": "none",
+                                                                                            "outputs": [ {
+                                                                                                               "address": 27234,
+                                                                                                           "description": "selector position",
+                                                                                                                  "mask": 3584,
+                                                                                                             "max_value": 7,
+                                                                                                              "shift_by": 9,
+                                                                                                                "suffix": "",
+                                                                                                                  "type": "integer"
+                                                                                                       } ],
+                                                                                   "physical_variant": "toggle_switch"
+                                                                            },
+                                                          "PLT_JADRO_TEST": {
+                                                                                        "api_variant": "momentary_last_position",
+                                                                                           "category": "Jadro-1I",
+                                                                                       "control_type": "selector",
+                                                                                        "description": "PILOT Jadro-1I Test",
+                                                                                         "identifier": "PLT_JADRO_TEST",
+                                                                                             "inputs": [ {
+                                                                                                           "description": "switch to previous or next state",
+                                                                                                             "interface": "fixed_step"
+                                                                                                       }, {
+                                                                                                           "description": "set position",
+                                                                                                             "interface": "set_state",
+                                                                                                             "max_value": 1
+                                                                                                       }, {
+                                                                                                              "argument": "TOGGLE",
+                                                                                                           "description": "Toggle switch state",
+                                                                                                             "interface": "action"
+                                                                                                       } ],
+                                                                                "momentary_positions": "none",
+                                                                                            "outputs": [ {
+                                                                                                               "address": 27116,
+                                                                                                           "description": "selector position",
+                                                                                                                  "mask": 16384,
+                                                                                                             "max_value": 1,
+                                                                                                              "shift_by": 14,
+                                                                                                                "suffix": "",
+                                                                                                                  "type": "integer"
+                                                                                                       } ],
+                                                                                   "physical_variant": "push_button"
+                                                                            },
+                                                           "PLT_JADRO_VOL": {
+                                                                                    "category": "Jadro-1I",
+                                                                                "control_type": "limited_dial",
+                                                                                 "description": "PILOT Jadro-1I Volume",
+                                                                                  "identifier": "PLT_JADRO_VOL",
+                                                                                      "inputs": [ {
+                                                                                                    "description": "set the position of the dial",
+                                                                                                      "interface": "set_state",
+                                                                                                      "max_value": 65535
+                                                                                                }, {
+                                                                                                       "description": "turn the dial left or right",
+                                                                                                         "interface": "variable_step",
+                                                                                                         "max_value": 65535,
+                                                                                                    "suggested_step": 3200
+                                                                                                } ],
+                                                                                     "outputs": [ {
+                                                                                                        "address": 27124,
+                                                                                                    "description": "position of the potentiometer",
+                                                                                                           "mask": 65535,
                                                                                                       "max_value": 65535,
-                                                                                                 "suggested_step": 3200
-                                                                                             } ],
-                                                                                  "outputs": [ {
-                                                                                                     "address": 27124,
-                                                                                                 "description": "position of the potentiometer",
-                                                                                                        "mask": 65535,
-                                                                                                   "max_value": 65535,
-                                                                                                    "shift_by": 0,
-                                                                                                      "suffix": "",
-                                                                                                        "type": "integer"
-                                                                                             } ]
-                                                                         }
+                                                                                                       "shift_by": 0,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                                                } ]
+                                                                            }
                                                 },
                              "Jadro-1I Lights": {
                                                      "PLT_JADRO_BREAK_L": {
@@ -16902,6 +16927,33 @@
                                                                                                 "type": "integer"
                                                                                      } ]
                                                                  }
+                                                },
+                                    "SARPP-12": {
+                                                    "PLT_SARPP12_MODE": {
+                                                                                       "category": "SARPP-12",
+                                                                                   "control_type": "selector",
+                                                                                    "description": "PILOT SARPP-12 Mode Switch, MANUAL/AUTO",
+                                                                                     "identifier": "PLT_SARPP12_MODE",
+                                                                                         "inputs": [ {
+                                                                                                       "description": "switch to previous or next state",
+                                                                                                         "interface": "fixed_step"
+                                                                                                   }, {
+                                                                                                       "description": "set position",
+                                                                                                         "interface": "set_state",
+                                                                                                         "max_value": 2
+                                                                                                   } ],
+                                                                            "momentary_positions": "none",
+                                                                                        "outputs": [ {
+                                                                                                           "address": 27234,
+                                                                                                       "description": "selector position",
+                                                                                                              "mask": 384,
+                                                                                                         "max_value": 2,
+                                                                                                          "shift_by": 7,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ],
+                                                                               "physical_variant": "3_position_switch"
+                                                                        }
                                                 },
                                          "SAU": {
                                                                   "PLT_SAU_ALT_CONTROL": {

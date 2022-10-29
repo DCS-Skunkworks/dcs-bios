@@ -200,31 +200,6 @@
                                                                                                "suffix": "",
                                                                                                  "type": "integer"
                                                                                       } ]
-                                                                  },
-                                                   "ECM_DIM_KNB": {
-                                                                          "category": "ADI",
-                                                                      "control_type": "limited_dial",
-                                                                       "description": "ECM DIM Rotary Knob",
-                                                                        "identifier": "ECM_DIM_KNB",
-                                                                            "inputs": [ {
-                                                                                          "description": "set the position of the dial",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 65535
-                                                                                      }, {
-                                                                                             "description": "turn the dial left or right",
-                                                                                               "interface": "variable_step",
-                                                                                               "max_value": 65535,
-                                                                                          "suggested_step": 3200
-                                                                                      } ],
-                                                                           "outputs": [ {
-                                                                                              "address": 17852,
-                                                                                          "description": "position of the potentiometer",
-                                                                                                 "mask": 65535,
-                                                                                            "max_value": 65535,
-                                                                                             "shift_by": 0,
-                                                                                               "suffix": "",
-                                                                                                 "type": "integer"
-                                                                                      } ]
                                                                   }
                                             },
                       "Airspeed Indicator": {
@@ -2583,6 +2558,31 @@
                                                                                             } ],
                                                                         "physical_variant": "push_button"
                                                                  },
+                                                  "ECM_DIM_KNB": {
+                                                                         "category": "ECM",
+                                                                     "control_type": "limited_dial",
+                                                                      "description": "ECM DIM Rotary Knob",
+                                                                       "identifier": "ECM_DIM_KNB",
+                                                                           "inputs": [ {
+                                                                                         "description": "set the position of the dial",
+                                                                                           "interface": "set_state",
+                                                                                           "max_value": 65535
+                                                                                     }, {
+                                                                                            "description": "turn the dial left or right",
+                                                                                              "interface": "variable_step",
+                                                                                              "max_value": 65535,
+                                                                                         "suggested_step": 3200
+                                                                                     } ],
+                                                                          "outputs": [ {
+                                                                                             "address": 17852,
+                                                                                         "description": "position of the potentiometer",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
                                                   "ECM_FRM_BTN": {
                                                                                 "category": "ECM",
                                                                             "control_type": "selector",
@@ -3434,11 +3434,11 @@
                                                                                      "identifier": "EXT_POSITION_LIGHTS_WING",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
-                                                                                                           "address": 17732,
+                                                                                                           "address": 17762,
                                                                                                        "description": "Wing Position Lights (L-red; R-green)",
-                                                                                                              "mask": 32768,
+                                                                                                              "mask": 512,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 15,
+                                                                                                          "shift_by": 9,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -3452,9 +3452,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 17762,
                                                                                                        "description": "Fuselage Position Lights (L-red; R-green;Back-white)",
-                                                                                                              "mask": 256,
+                                                                                                              "mask": 1024,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 8,
+                                                                                                          "shift_by": 10,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -3500,9 +3500,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 17762,
                                                                                                        "description": "Tail Strobe Light",
-                                                                                                              "mask": 512,
+                                                                                                              "mask": 2048,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 9,
+                                                                                                          "shift_by": 11,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -3532,9 +3532,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 17762,
                                                                                                        "description": "Weight ON Wheels Left Gear",
-                                                                                                              "mask": 4096,
+                                                                                                              "mask": 16384,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 12,
+                                                                                                          "shift_by": 14,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -3548,9 +3548,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 17762,
                                                                                                        "description": "Weight ON Wheels Nose Gear",
-                                                                                                              "mask": 1024,
+                                                                                                              "mask": 4096,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 10,
+                                                                                                          "shift_by": 12,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -3564,9 +3564,9 @@
                                                                                         "outputs": [ {
                                                                                                            "address": 17762,
                                                                                                        "description": "Weight ON Wheels Right Gear",
-                                                                                                              "mask": 2048,
+                                                                                                              "mask": 8192,
                                                                                                          "max_value": 1,
-                                                                                                          "shift_by": 11,
+                                                                                                          "shift_by": 13,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
@@ -4233,6 +4233,65 @@
                                                                                                           "type": "integer"
                                                                                                } ],
                                                                            "physical_variant": "push_button"
+                                                                    },
+                                                    "GEAR_ALT_BTN": {
+                                                                                "api_variant": "momentary_last_position",
+                                                                                   "category": "Gear System",
+                                                                               "control_type": "selector",
+                                                                                "description": "ALT GEAR Handle - Push to reset",
+                                                                                 "identifier": "GEAR_ALT_BTN",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 17762,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 256,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 8,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "push_button"
+                                                                    },
+                                                 "GEAR_ALT_HANDLE": {
+                                                                                   "category": "Gear System",
+                                                                               "control_type": "selector",
+                                                                                "description": "ALT GEAR Handle, PULL/STOW",
+                                                                                 "identifier": "GEAR_ALT_HANDLE",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
+                                                                                               } ],
+                                                                        "momentary_positions": "none",
+                                                                                    "outputs": [ {
+                                                                                                       "address": 17732,
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 32768,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 15,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ],
+                                                                           "physical_variant": "toggle_switch"
                                                                     },
                                                      "GEAR_HANDLE": {
                                                                                    "category": "Gear System",
@@ -7547,12 +7606,15 @@
                                                                                                    } ]
                                                                                },
                                                              "SAI_PITCH_TRIM": {
-                                                                                    "api_variant": "multiturn",
                                                                                        "category": "SAI",
-                                                                                   "control_type": "analog_dial",
+                                                                                   "control_type": "limited_dial",
                                                                                     "description": "SAI Cage Knob, (MW) Adjust aircraft reference symbol",
                                                                                      "identifier": "SAI_PITCH_TRIM",
                                                                                          "inputs": [ {
+                                                                                                       "description": "set the position of the dial",
+                                                                                                         "interface": "set_state",
+                                                                                                         "max_value": 65535
+                                                                                                   }, {
                                                                                                           "description": "turn the dial left or right",
                                                                                                             "interface": "variable_step",
                                                                                                             "max_value": 65535,
@@ -7560,11 +7622,11 @@
                                                                                                    } ],
                                                                                         "outputs": [ {
                                                                                                            "address": 17516,
-                                                                                                       "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                                                       "description": "position of the potentiometer",
                                                                                                               "mask": 65535,
                                                                                                          "max_value": 65535,
                                                                                                           "shift_by": 0,
-                                                                                                            "suffix": "_KNOB_POS",
+                                                                                                            "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]
                                                                                }

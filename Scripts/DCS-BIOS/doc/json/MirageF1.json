@@ -3361,11 +3361,41 @@
                                                                                                        } ],
                                                                                    "physical_variant": "toggle_switch"
                                                                             },
-                                                           "P_CE_UHF_TEST": {
+                                                       "P_CE_UHF_TEST_BTN": {
+                                                                                        "api_variant": "momentary_last_position",
+                                                                                           "category": "CE/BE/EE UHF Radio",
+                                                                                       "control_type": "selector",
+                                                                                        "description": "CE/BE/EE Pilot UHF Test Button",
+                                                                                         "identifier": "P_CE_UHF_TEST_BTN",
+                                                                                             "inputs": [ {
+                                                                                                           "description": "switch to previous or next state",
+                                                                                                             "interface": "fixed_step"
+                                                                                                       }, {
+                                                                                                           "description": "set position",
+                                                                                                             "interface": "set_state",
+                                                                                                             "max_value": 1
+                                                                                                       }, {
+                                                                                                              "argument": "TOGGLE",
+                                                                                                           "description": "Toggle switch state",
+                                                                                                             "interface": "action"
+                                                                                                       } ],
+                                                                                "momentary_positions": "none",
+                                                                                            "outputs": [ {
+                                                                                                               "address": 34718,
+                                                                                                           "description": "selector position",
+                                                                                                                  "mask": 256,
+                                                                                                             "max_value": 1,
+                                                                                                              "shift_by": 8,
+                                                                                                                "suffix": "",
+                                                                                                                  "type": "integer"
+                                                                                                       } ],
+                                                                                   "physical_variant": "push_button"
+                                                                            },
+                                                       "P_CE_UHF_TEST_SEL": {
                                                                                            "category": "CE/BE/EE UHF Radio",
                                                                                        "control_type": "selector",
                                                                                         "description": "CE/BE/EE Pilot UHF Test Selector Switch",
-                                                                                         "identifier": "P_CE_UHF_TEST",
+                                                                                         "identifier": "P_CE_UHF_TEST_SEL",
                                                                                              "inputs": [ {
                                                                                                            "description": "switch to previous or next state",
                                                                                                              "interface": "fixed_step"

@@ -84,26 +84,24 @@
                                                                      "physical_variant": "limited_rotary"
                                                               },
                                                  "AAP_STEER": {
-                                                                             "category": "AAP",
-                                                                         "control_type": "selector",
-                                                                          "description": "Toggle Steerpoint",
-                                                                           "identifier": "AAP_STEER",
-                                                                               "inputs": [ {
-                                                                                             "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
-                                                                                               "interface": "set_state",
-                                                                                               "max_value": 2
-                                                                                         } ],
-                                                                  "momentary_positions": "first_and_last",
-                                                                              "outputs": [ {
-                                                                                                 "address": 4346,
-                                                                                             "description": "selector position",
-                                                                                                    "mask": 3072,
-                                                                                               "max_value": 2,
-                                                                                                "shift_by": 10,
-                                                                                                  "suffix": "",
-                                                                                                    "type": "integer"
-                                                                                         } ],
-                                                                     "physical_variant": "rocker_switch"
+                                                                      "category": "AAP",
+                                                                  "control_type": "3Pos_2Command_Switch_OpenClose",
+                                                                   "description": "Toggle Steerpoint",
+                                                                    "identifier": "AAP_STEER",
+                                                                        "inputs": [ {
+                                                                                      "description": "set the switch position",
+                                                                                        "interface": "set_state",
+                                                                                        "max_value": 2
+                                                                                  } ],
+                                                                       "outputs": [ {
+                                                                                          "address": 4346,
+                                                                                      "description": "switch position -- 0 = Down, 1 = Mid ,  2 = UP",
+                                                                                             "mask": 3072,
+                                                                                        "max_value": 2,
+                                                                                         "shift_by": 10,
+                                                                                           "suffix": "",
+                                                                                             "type": "integer"
+                                                                                  } ]
                                                               },
                                                "AAP_STEERPT": {
                                                                              "category": "AAP",
@@ -623,6 +621,654 @@
                                                                                             "type": "integer"
                                                                                  } ]
                                                              }
+                                           },
+                                "ARC-210": {
+                                                 "ARC210_FREQ1": {
+                                                                                "category": "ARC-210",
+                                                                            "control_type": "discrete_dial",
+                                                                             "description": "Frequency Selector 1",
+                                                                              "identifier": "ARC210_FREQ1",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 4818,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 15360,
+                                                                                                  "max_value": 9,
+                                                                                                   "shift_by": 10,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "infinite_rotary"
+                                                                 },
+                                                 "ARC210_FREQ2": {
+                                                                                "category": "ARC-210",
+                                                                            "control_type": "discrete_dial",
+                                                                             "description": "Frequency Selector 2",
+                                                                              "identifier": "ARC210_FREQ2",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 4836,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 3840,
+                                                                                                  "max_value": 9,
+                                                                                                   "shift_by": 8,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "infinite_rotary"
+                                                                 },
+                                                 "ARC210_FREQ3": {
+                                                                                "category": "ARC-210",
+                                                                            "control_type": "discrete_dial",
+                                                                             "description": "Frequency Selector 3",
+                                                                              "identifier": "ARC210_FREQ3",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 4836,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 61440,
+                                                                                                  "max_value": 9,
+                                                                                                   "shift_by": 12,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "infinite_rotary"
+                                                                 },
+                                                 "ARC210_FREQ4": {
+                                                                                "category": "ARC-210",
+                                                                            "control_type": "discrete_dial",
+                                                                             "description": "Frequency Selector 4",
+                                                                              "identifier": "ARC210_FREQ4",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 4844,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 3840,
+                                                                                                  "max_value": 9,
+                                                                                                   "shift_by": 8,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "infinite_rotary"
+                                                                 },
+                                                 "ARC210_FREQ5": {
+                                                                                "category": "ARC-210",
+                                                                            "control_type": "discrete_dial",
+                                                                             "description": "Frequency Selector 5",
+                                                                              "identifier": "ARC210_FREQ5",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 4844,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 61440,
+                                                                                                  "max_value": 9,
+                                                                                                   "shift_by": 12,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "infinite_rotary"
+                                                                 },
+                                                "ARC210_MODE_L": {
+                                                                                "category": "ARC-210",
+                                                                            "control_type": "selector",
+                                                                             "description": "ARC-210 Left Mode Dial",
+                                                                              "identifier": "ARC210_MODE_L",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 6
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 4870,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 7,
+                                                                                                  "max_value": 6,
+                                                                                                   "shift_by": 0,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "toggle_switch"
+                                                                 },
+                                                "ARC210_MODE_R": {
+                                                                                "category": "ARC-210",
+                                                                            "control_type": "selector",
+                                                                             "description": "ARC-210 Right Mode Dial",
+                                                                              "identifier": "ARC210_MODE_R",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 6
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 4870,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 56,
+                                                                                                  "max_value": 6,
+                                                                                                   "shift_by": 3,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "toggle_switch"
+                                                                 },
+                                               "ARC210_PRESENT": {
+                                                                         "category": "ARC-210",
+                                                                     "control_type": "led",
+                                                                      "description": "ARC-210 Present",
+                                                                       "identifier": "ARC210_PRESENT",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 4874,
+                                                                                         "description": "0 if light is off, 1 if light is on",
+                                                                                                "mask": 8,
+                                                                                           "max_value": 1,
+                                                                                            "shift_by": 3,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                                        "UHF02": {
+                                                                         "category": "ARC-210",
+                                                                     "control_type": "limited_dial",
+                                                                      "description": "UHF-02",
+                                                                       "identifier": "UHF02",
+                                                                           "inputs": [ {
+                                                                                         "description": "set the position of the dial",
+                                                                                           "interface": "set_state",
+                                                                                           "max_value": 65535
+                                                                                     }, {
+                                                                                            "description": "turn the dial left or right",
+                                                                                              "interface": "variable_step",
+                                                                                              "max_value": 65535,
+                                                                                         "suggested_step": 3200
+                                                                                     } ],
+                                                                          "outputs": [ {
+                                                                                             "address": 4872,
+                                                                                         "description": "position of the potentiometer",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                                        "UHF09": {
+                                                                             "api_variant": "momentary_last_position",
+                                                                                "category": "ARC-210",
+                                                                            "control_type": "selector",
+                                                                             "description": "UHF-09",
+                                                                              "identifier": "UHF09",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 1
+                                                                                            }, {
+                                                                                                   "argument": "TOGGLE",
+                                                                                                "description": "Toggle switch state",
+                                                                                                  "interface": "action"
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 4818,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 16384,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 14,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "push_button"
+                                                                 },
+                                                        "UHF10": {
+                                                                             "api_variant": "momentary_last_position",
+                                                                                "category": "ARC-210",
+                                                                            "control_type": "selector",
+                                                                             "description": "UHF-10",
+                                                                              "identifier": "UHF10",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 1
+                                                                                            }, {
+                                                                                                   "argument": "TOGGLE",
+                                                                                                "description": "Toggle switch state",
+                                                                                                  "interface": "action"
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 4818,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 32768,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 15,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "push_button"
+                                                                 },
+                                                        "UHF11": {
+                                                                             "api_variant": "momentary_last_position",
+                                                                                "category": "ARC-210",
+                                                                            "control_type": "selector",
+                                                                             "description": "UHF-11",
+                                                                              "identifier": "UHF11",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 1
+                                                                                            }, {
+                                                                                                   "argument": "TOGGLE",
+                                                                                                "description": "Toggle switch state",
+                                                                                                  "interface": "action"
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 4870,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 64,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 6,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "push_button"
+                                                                 },
+                                                        "UHF12": {
+                                                                             "api_variant": "momentary_last_position",
+                                                                                "category": "ARC-210",
+                                                                            "control_type": "selector",
+                                                                             "description": "UHF-12",
+                                                                              "identifier": "UHF12",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 1
+                                                                                            }, {
+                                                                                                   "argument": "TOGGLE",
+                                                                                                "description": "Toggle switch state",
+                                                                                                  "interface": "action"
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 4870,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 128,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 7,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "push_button"
+                                                                 },
+                                                        "UHF13": {
+                                                                             "api_variant": "momentary_last_position",
+                                                                                "category": "ARC-210",
+                                                                            "control_type": "selector",
+                                                                             "description": "UHF-13",
+                                                                              "identifier": "UHF13",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 1
+                                                                                            }, {
+                                                                                                   "argument": "TOGGLE",
+                                                                                                "description": "Toggle switch state",
+                                                                                                  "interface": "action"
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 4870,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 256,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 8,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "push_button"
+                                                                 },
+                                                        "UHF14": {
+                                                                             "api_variant": "momentary_last_position",
+                                                                                "category": "ARC-210",
+                                                                            "control_type": "selector",
+                                                                             "description": "UHF-14",
+                                                                              "identifier": "UHF14",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 1
+                                                                                            }, {
+                                                                                                   "argument": "TOGGLE",
+                                                                                                "description": "Toggle switch state",
+                                                                                                  "interface": "action"
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 4870,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 512,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 9,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "push_button"
+                                                                 },
+                                                        "UHF15": {
+                                                                             "api_variant": "momentary_last_position",
+                                                                                "category": "ARC-210",
+                                                                            "control_type": "selector",
+                                                                             "description": "UHF-15",
+                                                                              "identifier": "UHF15",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 1
+                                                                                            }, {
+                                                                                                   "argument": "TOGGLE",
+                                                                                                "description": "Toggle switch state",
+                                                                                                  "interface": "action"
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 4870,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 1024,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 10,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "push_button"
+                                                                 },
+                                                        "UHF16": {
+                                                                             "api_variant": "momentary_last_position",
+                                                                                "category": "ARC-210",
+                                                                            "control_type": "selector",
+                                                                             "description": "UHF-16",
+                                                                              "identifier": "UHF16",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 1
+                                                                                            }, {
+                                                                                                   "argument": "TOGGLE",
+                                                                                                "description": "Toggle switch state",
+                                                                                                  "interface": "action"
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 4870,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 2048,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 11,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "push_button"
+                                                                 },
+                                                        "UHF17": {
+                                                                             "api_variant": "momentary_last_position",
+                                                                                "category": "ARC-210",
+                                                                            "control_type": "selector",
+                                                                             "description": "UHF-17",
+                                                                              "identifier": "UHF17",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 1
+                                                                                            }, {
+                                                                                                   "argument": "TOGGLE",
+                                                                                                "description": "Toggle switch state",
+                                                                                                  "interface": "action"
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 4870,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 4096,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 12,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "push_button"
+                                                                 },
+                                                        "UHF18": {
+                                                                             "api_variant": "momentary_last_position",
+                                                                                "category": "ARC-210",
+                                                                            "control_type": "selector",
+                                                                             "description": "UHF-18",
+                                                                              "identifier": "UHF18",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 1
+                                                                                            }, {
+                                                                                                   "argument": "TOGGLE",
+                                                                                                "description": "Toggle switch state",
+                                                                                                  "interface": "action"
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 4870,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 8192,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 13,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "push_button"
+                                                                 },
+                                                        "UHF19": {
+                                                                             "api_variant": "momentary_last_position",
+                                                                                "category": "ARC-210",
+                                                                            "control_type": "selector",
+                                                                             "description": "UHF-19",
+                                                                              "identifier": "UHF19",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 1
+                                                                                            }, {
+                                                                                                   "argument": "TOGGLE",
+                                                                                                "description": "Toggle switch state",
+                                                                                                  "interface": "action"
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 4870,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 16384,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 14,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "push_button"
+                                                                 },
+                                                        "UHF20": {
+                                                                             "api_variant": "momentary_last_position",
+                                                                                "category": "ARC-210",
+                                                                            "control_type": "selector",
+                                                                             "description": "UHF-20",
+                                                                              "identifier": "UHF20",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 1
+                                                                                            }, {
+                                                                                                   "argument": "TOGGLE",
+                                                                                                "description": "Toggle switch state",
+                                                                                                  "interface": "action"
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 4870,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 32768,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 15,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "push_button"
+                                                                 },
+                                                        "UHF21": {
+                                                                             "api_variant": "momentary_last_position",
+                                                                                "category": "ARC-210",
+                                                                            "control_type": "selector",
+                                                                             "description": "UHF-21",
+                                                                              "identifier": "UHF21",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 1
+                                                                                            }, {
+                                                                                                   "argument": "TOGGLE",
+                                                                                                "description": "Toggle switch state",
+                                                                                                  "interface": "action"
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 4874,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 1,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 0,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "push_button"
+                                                                 },
+                                                        "UHF22": {
+                                                                             "api_variant": "momentary_last_position",
+                                                                                "category": "ARC-210",
+                                                                            "control_type": "selector",
+                                                                             "description": "UHF-22",
+                                                                              "identifier": "UHF22",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 1
+                                                                                            }, {
+                                                                                                   "argument": "TOGGLE",
+                                                                                                "description": "Toggle switch state",
+                                                                                                  "interface": "action"
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 4874,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 2,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 1,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "push_button"
+                                                                 },
+                                                        "UHF23": {
+                                                                             "api_variant": "momentary_last_position",
+                                                                                "category": "ARC-210",
+                                                                            "control_type": "selector",
+                                                                             "description": "UHF-23",
+                                                                              "identifier": "UHF23",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 1
+                                                                                            }, {
+                                                                                                   "argument": "TOGGLE",
+                                                                                                "description": "Toggle switch state",
+                                                                                                  "interface": "action"
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 4874,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 4,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 2,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "push_button"
+                                                                 }
                                            },
                           "Accelerometer": {
                                                  "ACCEL_G": {
@@ -7100,18 +7746,50 @@
                                                                          }
                                            },
                 "External Aircraft Model": {
+                                                       "EXT_BOTTOM_LIGHT": {
+                                                                                   "category": "External Aircraft Model",
+                                                                               "control_type": "metadata",
+                                                                                "description": "Middle Bottom Light (white)",
+                                                                                 "identifier": "EXT_BOTTOM_LIGHT",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 4874,
+                                                                                                   "description": "Middle Bottom Light (white)",
+                                                                                                          "mask": 16,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 4,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
+                                                                           },
                                                    "EXT_FORMATION_LIGHTS": {
                                                                                    "category": "External Aircraft Model",
                                                                                "control_type": "metadata",
-                                                                                "description": "Formation Lights",
+                                                                                "description": "Formation Lights (light green)",
                                                                                  "identifier": "EXT_FORMATION_LIGHTS",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
                                                                                                        "address": 4814,
-                                                                                                   "description": "Formation Lights",
+                                                                                                   "description": "Formation Lights (light green)",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
                                                                                                       "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
+                                                                           },
+                                                     "EXT_L_RUDDER_LIGHT": {
+                                                                                   "category": "External Aircraft Model",
+                                                                               "control_type": "metadata",
+                                                                                "description": "Left Rudder Light (white)",
+                                                                                 "identifier": "EXT_L_RUDDER_LIGHT",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 4874,
+                                                                                                   "description": "Left Rudder Light (white)",
+                                                                                                          "mask": 128,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 7,
                                                                                                         "suffix": "",
                                                                                                           "type": "integer"
                                                                                                } ]
@@ -7144,6 +7822,22 @@
                                                                                                           "mask": 4096,
                                                                                                      "max_value": 1,
                                                                                                       "shift_by": 12,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
+                                                                           },
+                                                     "EXT_R_RUDDER_LIGHT": {
+                                                                                   "category": "External Aircraft Model",
+                                                                               "control_type": "metadata",
+                                                                                "description": "Right Rudder Light (white)",
+                                                                                 "identifier": "EXT_R_RUDDER_LIGHT",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 4874,
+                                                                                                   "description": "Right Rudder Light (white)",
+                                                                                                          "mask": 256,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 8,
                                                                                                         "suffix": "",
                                                                                                           "type": "integer"
                                                                                                } ]
@@ -7183,12 +7877,12 @@
                                                         "EXT_STROBE_LEFT": {
                                                                                    "category": "External Aircraft Model",
                                                                                "control_type": "metadata",
-                                                                                "description": "Left Strobe Light",
+                                                                                "description": "Left Strobe Light (white)",
                                                                                  "identifier": "EXT_STROBE_LEFT",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
                                                                                                        "address": 4540,
-                                                                                                   "description": "Left Strobe Light",
+                                                                                                   "description": "Left Strobe Light (white)",
                                                                                                           "mask": 16384,
                                                                                                      "max_value": 1,
                                                                                                       "shift_by": 14,
@@ -7199,12 +7893,12 @@
                                                        "EXT_STROBE_RIGHT": {
                                                                                    "category": "External Aircraft Model",
                                                                                "control_type": "metadata",
-                                                                                "description": "Right Strobe Light",
+                                                                                "description": "Right Strobe Light (white)",
                                                                                  "identifier": "EXT_STROBE_RIGHT",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
                                                                                                        "address": 4540,
-                                                                                                   "description": "Right Strobe Light",
+                                                                                                   "description": "Right Strobe Light (white)",
                                                                                                           "mask": 32768,
                                                                                                      "max_value": 1,
                                                                                                       "shift_by": 15,
@@ -7215,15 +7909,47 @@
                                                         "EXT_STROBE_TAIL": {
                                                                                    "category": "External Aircraft Model",
                                                                                "control_type": "metadata",
-                                                                                "description": "Tail Strobe Light",
+                                                                                "description": "Tail Strobe Light (white)",
                                                                                  "identifier": "EXT_STROBE_TAIL",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
                                                                                                        "address": 4540,
-                                                                                                   "description": "Tail Strobe Light",
+                                                                                                   "description": "Tail Strobe Light (white)",
                                                                                                           "mask": 8192,
                                                                                                      "max_value": 1,
                                                                                                       "shift_by": 13,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
+                                                                           },
+                                                         "EXT_TAIL_LIGHT": {
+                                                                                   "category": "External Aircraft Model",
+                                                                               "control_type": "metadata",
+                                                                                "description": "Tail Light (white)",
+                                                                                 "identifier": "EXT_TAIL_LIGHT",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 4874,
+                                                                                                   "description": "Tail Light (white)",
+                                                                                                          "mask": 64,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 6,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                               } ]
+                                                                           },
+                                                          "EXT_TOP_LIGHT": {
+                                                                                   "category": "External Aircraft Model",
+                                                                               "control_type": "metadata",
+                                                                                "description": "Top Light (white)",
+                                                                                 "identifier": "EXT_TOP_LIGHT",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                       "address": 4874,
+                                                                                                   "description": "Top Light (white)",
+                                                                                                          "mask": 32,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 5,
                                                                                                         "suffix": "",
                                                                                                           "type": "integer"
                                                                                                } ]
@@ -11074,7 +11800,7 @@
                                                                                  "identifier": "INTERNAL_AUX_INST_LIGHTS",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 4876,
+                                                                                                       "address": 4866,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -11090,7 +11816,7 @@
                                                                                  "identifier": "INTERNAL_CONSOLE_LIGHTS",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 4870,
+                                                                                                       "address": 4860,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -11106,7 +11832,7 @@
                                                                                  "identifier": "INTERNAL_ENG_INST_LIGHTS",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 4872,
+                                                                                                       "address": 4862,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -11122,7 +11848,7 @@
                                                                                  "identifier": "INTERNAL_FLOOD_LIGHTS",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 4878,
+                                                                                                       "address": 4868,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -11138,7 +11864,7 @@
                                                                                  "identifier": "INTERNAL_FLT_INST_LIGHTS",
                                                                                      "inputs": [  ],
                                                                                     "outputs": [ {
-                                                                                                       "address": 4874,
+                                                                                                       "address": 4864,
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -15613,131 +16339,6 @@
                                                                      }
                                            },
                               "UHF Radio": {
-                                                            "UHF4": {
-                                                                            "category": "UHF Radio",
-                                                                        "control_type": "limited_dial",
-                                                                         "description": "UHF-4",
-                                                                          "identifier": "UHF4",
-                                                                              "inputs": [ {
-                                                                                            "description": "set the position of the dial",
-                                                                                              "interface": "set_state",
-                                                                                              "max_value": 65535
-                                                                                        }, {
-                                                                                               "description": "turn the dial left or right",
-                                                                                                 "interface": "variable_step",
-                                                                                                 "max_value": 65535,
-                                                                                            "suggested_step": 3200
-                                                                                        } ],
-                                                                             "outputs": [ {
-                                                                                                "address": 4860,
-                                                                                            "description": "position of the potentiometer",
-                                                                                                   "mask": 65535,
-                                                                                              "max_value": 65535,
-                                                                                               "shift_by": 0,
-                                                                                                 "suffix": "",
-                                                                                                   "type": "integer"
-                                                                                        } ]
-                                                                    },
-                                                            "UHF5": {
-                                                                            "category": "UHF Radio",
-                                                                        "control_type": "limited_dial",
-                                                                         "description": "UHF-5",
-                                                                          "identifier": "UHF5",
-                                                                              "inputs": [ {
-                                                                                            "description": "set the position of the dial",
-                                                                                              "interface": "set_state",
-                                                                                              "max_value": 65535
-                                                                                        }, {
-                                                                                               "description": "turn the dial left or right",
-                                                                                                 "interface": "variable_step",
-                                                                                                 "max_value": 65535,
-                                                                                            "suggested_step": 3200
-                                                                                        } ],
-                                                                             "outputs": [ {
-                                                                                                "address": 4862,
-                                                                                            "description": "position of the potentiometer",
-                                                                                                   "mask": 65535,
-                                                                                              "max_value": 65535,
-                                                                                               "shift_by": 0,
-                                                                                                 "suffix": "",
-                                                                                                   "type": "integer"
-                                                                                        } ]
-                                                                    },
-                                                            "UHF6": {
-                                                                            "category": "UHF Radio",
-                                                                        "control_type": "limited_dial",
-                                                                         "description": "UHF-6",
-                                                                          "identifier": "UHF6",
-                                                                              "inputs": [ {
-                                                                                            "description": "set the position of the dial",
-                                                                                              "interface": "set_state",
-                                                                                              "max_value": 65535
-                                                                                        }, {
-                                                                                               "description": "turn the dial left or right",
-                                                                                                 "interface": "variable_step",
-                                                                                                 "max_value": 65535,
-                                                                                            "suggested_step": 3200
-                                                                                        } ],
-                                                                             "outputs": [ {
-                                                                                                "address": 4864,
-                                                                                            "description": "position of the potentiometer",
-                                                                                                   "mask": 65535,
-                                                                                              "max_value": 65535,
-                                                                                               "shift_by": 0,
-                                                                                                 "suffix": "",
-                                                                                                   "type": "integer"
-                                                                                        } ]
-                                                                    },
-                                                            "UHF7": {
-                                                                            "category": "UHF Radio",
-                                                                        "control_type": "limited_dial",
-                                                                         "description": "UHF-7",
-                                                                          "identifier": "UHF7",
-                                                                              "inputs": [ {
-                                                                                            "description": "set the position of the dial",
-                                                                                              "interface": "set_state",
-                                                                                              "max_value": 65535
-                                                                                        }, {
-                                                                                               "description": "turn the dial left or right",
-                                                                                                 "interface": "variable_step",
-                                                                                                 "max_value": 65535,
-                                                                                            "suggested_step": 3200
-                                                                                        } ],
-                                                                             "outputs": [ {
-                                                                                                "address": 4866,
-                                                                                            "description": "position of the potentiometer",
-                                                                                                   "mask": 65535,
-                                                                                              "max_value": 65535,
-                                                                                               "shift_by": 0,
-                                                                                                 "suffix": "",
-                                                                                                   "type": "integer"
-                                                                                        } ]
-                                                                    },
-                                                            "UHF8": {
-                                                                            "category": "UHF Radio",
-                                                                        "control_type": "limited_dial",
-                                                                         "description": "UHF-8",
-                                                                          "identifier": "UHF8",
-                                                                              "inputs": [ {
-                                                                                            "description": "set the position of the dial",
-                                                                                              "interface": "set_state",
-                                                                                              "max_value": 65535
-                                                                                        }, {
-                                                                                               "description": "turn the dial left or right",
-                                                                                                 "interface": "variable_step",
-                                                                                                 "max_value": 65535,
-                                                                                            "suggested_step": 3200
-                                                                                        } ],
-                                                                             "outputs": [ {
-                                                                                                "address": 4868,
-                                                                                            "description": "position of the potentiometer",
-                                                                                                   "mask": 65535,
-                                                                                              "max_value": 65535,
-                                                                                               "shift_by": 0,
-                                                                                                 "suffix": "",
-                                                                                                   "type": "integer"
-                                                                                        } ]
-                                                                    },
                                                   "UHF_100MHZ_SEL": {
                                                                                    "category": "UHF Radio",
                                                                                "control_type": "selector",

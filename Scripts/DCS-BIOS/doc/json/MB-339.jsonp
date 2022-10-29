@@ -1,0 +1,1754 @@
+docdata["MB-339"] =
+{
+                     "Canopy": {
+                                   "CANOPY_POS": {
+                                                         "category": "Canopy",
+                                                     "control_type": "analog_gauge",
+                                                      "description": "Canopy Position",
+                                                       "identifier": "CANOPY_POS",
+                                                           "inputs": [  ],
+                                                          "outputs": [ {
+                                                                             "address": 33288,
+                                                                         "description": "gauge position",
+                                                                                "mask": 65535,
+                                                                           "max_value": 65535,
+                                                                            "shift_by": 0,
+                                                                              "suffix": "",
+                                                                                "type": "integer"
+                                                                     } ]
+                                                 }
+                               },
+           "Circuit Breakers": {
+                                       "CB_AC_PRI_BUS": {
+                                                                       "category": "Circuit Breakers",
+                                                                   "control_type": "selector",
+                                                                    "description": "C/B AC Pri Bus",
+                                                                     "identifier": "CB_AC_PRI_BUS",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 33284,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 4,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 2,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
+                                                        },
+                                              "CB_ADI": {
+                                                                       "category": "Circuit Breakers",
+                                                                   "control_type": "selector",
+                                                                    "description": "C/B ADI",
+                                                                     "identifier": "CB_ADI",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 33280,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 8,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 3,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
+                                                        },
+                                          "CB_AHR_GPS": {
+                                                                       "category": "Circuit Breakers",
+                                                                   "control_type": "selector",
+                                                                    "description": "C/B AHR/GPS",
+                                                                     "identifier": "CB_AHR_GPS",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 33286,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 64,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 6,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
+                                                        },
+                                        "CB_AIL_SERVO": {
+                                                                       "category": "Circuit Breakers",
+                                                                   "control_type": "selector",
+                                                                    "description": "C/B Ail Servo",
+                                                                     "identifier": "CB_AIL_SERVO",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 33282,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 8192,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 13,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
+                                                        },
+                                         "CB_AIR_COND": {
+                                                                       "category": "Circuit Breakers",
+                                                                   "control_type": "selector",
+                                                                    "description": "C/B Air Cond",
+                                                                     "identifier": "CB_AIR_COND",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 33282,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 8,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 3,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
+                                                        },
+                                        "CB_ANTI_SKID": {
+                                                                       "category": "Circuit Breakers",
+                                                                   "control_type": "selector",
+                                                                    "description": "C/B Anti-Skid",
+                                                                     "identifier": "CB_ANTI_SKID",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 33284,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 2,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 1,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
+                                                        },
+                                              "CB_AOA": {
+                                                                       "category": "Circuit Breakers",
+                                                                   "control_type": "selector",
+                                                                    "description": "C/B AOA",
+                                                                     "identifier": "CB_AOA",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 33284,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 64,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 6,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
+                                                        },
+                                         "CB_ARMT_SEL": {
+                                                                       "category": "Circuit Breakers",
+                                                                   "control_type": "selector",
+                                                                    "description": "C/B Armt Sel",
+                                                                     "identifier": "CB_ARMT_SEL",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 33282,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 128,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 7,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
+                                                        },
+                                              "CB_BCN": {
+                                                                       "category": "Circuit Breakers",
+                                                                   "control_type": "selector",
+                                                                    "description": "C/B Bcn",
+                                                                     "identifier": "CB_BCN",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 33284,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 16,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 4,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
+                                                        },
+                                        "CB_CAUTION_L": {
+                                                                       "category": "Circuit Breakers",
+                                                                   "control_type": "selector",
+                                                                    "description": "C/B Caution Lt",
+                                                                     "identifier": "CB_CAUTION_L",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 33282,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 16384,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 14,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
+                                                        },
+                                          "CB_CDU_AFT": {
+                                                                       "category": "Circuit Breakers",
+                                                                   "control_type": "selector",
+                                                                    "description": "C/B Aft Cdu",
+                                                                     "identifier": "CB_CDU_AFT",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 33286,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 32,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 5,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
+                                                        },
+                                          "CB_CDU_FWD": {
+                                                                       "category": "Circuit Breakers",
+                                                                   "control_type": "selector",
+                                                                    "description": "C/B Fwd Cdu",
+                                                                     "identifier": "CB_CDU_FWD",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 33286,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 16,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 4,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
+                                                        },
+                                            "CB_COMM2": {
+                                                                       "category": "Circuit Breakers",
+                                                                   "control_type": "selector",
+                                                                    "description": "C/B COMM2",
+                                                                     "identifier": "CB_COMM2",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 33280,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 1024,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 10,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
+                                                        },
+                                         "CB_COMM_RDU": {
+                                                                       "category": "Circuit Breakers",
+                                                                   "control_type": "selector",
+                                                                    "description": "C/B COMM RDU",
+                                                                     "identifier": "CB_COMM_RDU",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 33286,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 128,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 7,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
+                                                        },
+                                         "CB_DUMP_OFF": {
+                                                                       "category": "Circuit Breakers",
+                                                                   "control_type": "selector",
+                                                                    "description": "C/B Dump Shut-Off",
+                                                                     "identifier": "CB_DUMP_OFF",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 33282,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 32,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 5,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
+                                                        },
+                                     "CB_ENG_ANTI_ICE": {
+                                                                       "category": "Circuit Breakers",
+                                                                   "control_type": "selector",
+                                                                    "description": "C/B Engine Anti-Ice",
+                                                                     "identifier": "CB_ENG_ANTI_ICE",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 33286,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 1,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 0,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
+                                                        },
+                                        "CB_ENG_START": {
+                                                                       "category": "Circuit Breakers",
+                                                                   "control_type": "selector",
+                                                                    "description": "C/B Eng Start",
+                                                                     "identifier": "CB_ENG_START",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 33282,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 16,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 4,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
+                                                        },
+                                          "CB_FORM_LT": {
+                                                                       "category": "Circuit Breakers",
+                                                                   "control_type": "selector",
+                                                                    "description": "C/B Form Lt",
+                                                                     "identifier": "CB_FORM_LT",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 33280,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 64,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 6,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
+                                                        },
+                                    "CB_FUEL_FLOW_IND": {
+                                                                       "category": "Circuit Breakers",
+                                                                   "control_type": "selector",
+                                                                    "description": "C/B Fuel Flow ind",
+                                                                     "identifier": "CB_FUEL_FLOW_IND",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 33284,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 512,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 9,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
+                                                        },
+                                        "CB_FUEL_PUMP": {
+                                                                       "category": "Circuit Breakers",
+                                                                   "control_type": "selector",
+                                                                    "description": "C/B Fuel Pump",
+                                                                     "identifier": "CB_FUEL_PUMP",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 33282,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 256,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 8,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
+                                                        },
+                                         "CB_FUEL_QTY": {
+                                                                       "category": "Circuit Breakers",
+                                                                   "control_type": "selector",
+                                                                    "description": "C/B Fuel Qty",
+                                                                     "identifier": "CB_FUEL_QTY",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 33282,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 2,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 1,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
+                                                        },
+                                       "CB_FUEL_TRANS": {
+                                                                       "category": "Circuit Breakers",
+                                                                   "control_type": "selector",
+                                                                    "description": "C/B Fuel Trans",
+                                                                     "identifier": "CB_FUEL_TRANS",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 33284,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 1024,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 10,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
+                                                        },
+                                        "CB_HYD_PRESS": {
+                                                                       "category": "Circuit Breakers",
+                                                                   "control_type": "selector",
+                                                                    "description": "C/B Hyd Press",
+                                                                     "identifier": "CB_HYD_PRESS",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 33280,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 2,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 1,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
+                                                        },
+                                         "CB_ICE_DETR": {
+                                                                       "category": "Circuit Breakers",
+                                                                   "control_type": "selector",
+                                                                    "description": "C/B Ice Detr",
+                                                                     "identifier": "CB_ICE_DETR",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 33286,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 4,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 2,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
+                                                        },
+                                              "CB_IFF": {
+                                                                       "category": "Circuit Breakers",
+                                                                   "control_type": "selector",
+                                                                    "description": "C/B IFF",
+                                                                     "identifier": "CB_IFF",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 33280,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 1,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 0,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
+                                                        },
+                                            "CB_IFF 2": {
+                                                                       "category": "Circuit Breakers",
+                                                                   "control_type": "selector",
+                                                                    "description": "C/B IFF 2",
+                                                                     "identifier": "CB_IFF 2",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 33280,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 2048,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 11,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
+                                                        },
+                                   "CB_INV_CONTR_MAIN": {
+                                                                       "category": "Circuit Breakers",
+                                                                   "control_type": "selector",
+                                                                    "description": "C/B Main Inv Contr",
+                                                                     "identifier": "CB_INV_CONTR_MAIN",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 33282,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 32768,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 15,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
+                                                        },
+                                   "CB_INV_CONTR_STBY": {
+                                                                       "category": "Circuit Breakers",
+                                                                   "control_type": "selector",
+                                                                    "description": "C/B Stby Inv Contr",
+                                                                     "identifier": "CB_INV_CONTR_STBY",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 33284,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 1,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 0,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
+                                                        },
+                                         "CB_INV_MAIN": {
+                                                                       "category": "Circuit Breakers",
+                                                                   "control_type": "selector",
+                                                                    "description": "C/B Main Inv",
+                                                                     "identifier": "CB_INV_MAIN",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 33282,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 1024,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 10,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
+                                                        },
+                                         "CB_INV_STBY": {
+                                                                       "category": "Circuit Breakers",
+                                                                   "control_type": "selector",
+                                                                    "description": "C/B Stby Inv",
+                                                                     "identifier": "CB_INV_STBY",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 33282,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 2048,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 11,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
+                                                        },
+                                          "CB_JPT_IND": {
+                                                                       "category": "Circuit Breakers",
+                                                                   "control_type": "selector",
+                                                                    "description": "C/B Jpt Ind",
+                                                                     "identifier": "CB_JPT_IND",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 33282,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 4,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 2,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
+                                                        },
+                                        "CB_JPT_LIMIT": {
+                                                                       "category": "Circuit Breakers",
+                                                                   "control_type": "selector",
+                                                                    "description": "C/B JPT Limiter",
+                                                                     "identifier": "CB_JPT_LIMIT",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 33284,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 256,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 8,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
+                                                        },
+                                            "CB_LDG_L": {
+                                                                       "category": "Circuit Breakers",
+                                                                   "control_type": "selector",
+                                                                    "description": "C/B Ldg Lt",
+                                                                     "identifier": "CB_LDG_L",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 33284,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 8192,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 13,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
+                                                        },
+                                        "CB_LDG_L_MTR": {
+                                                                       "category": "Circuit Breakers",
+                                                                   "control_type": "selector",
+                                                                    "description": "C/B Ldg Lt Mtr",
+                                                                     "identifier": "CB_LDG_L_MTR",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 33284,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 8,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 3,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
+                                                        },
+                                               "CB_LG": {
+                                                                       "category": "Circuit Breakers",
+                                                                   "control_type": "selector",
+                                                                    "description": "C/B LG",
+                                                                     "identifier": "CB_LG",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 33280,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 32768,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 15,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
+                                                        },
+                                        "CB_LG_DN_MON": {
+                                                                       "category": "Circuit Breakers",
+                                                                   "control_type": "selector",
+                                                                    "description": "C/B LG Down Mon",
+                                                                     "identifier": "CB_LG_DN_MON",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 33282,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 1,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 0,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
+                                                        },
+                                            "CB_NAV_L": {
+                                                                       "category": "Circuit Breakers",
+                                                                   "control_type": "selector",
+                                                                    "description": "C/B Nav Lt",
+                                                                     "identifier": "CB_NAV_L",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 33284,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 32,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 5,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
+                                                        },
+                                         "CB_NW_STEER": {
+                                                                       "category": "Circuit Breakers",
+                                                                   "control_type": "selector",
+                                                                    "description": "C/B NW Steer",
+                                                                     "identifier": "CB_NW_STEER",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 33284,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 128,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 7,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
+                                                        },
+                                        "CB_OIL_PRESS": {
+                                                                       "category": "Circuit Breakers",
+                                                                   "control_type": "selector",
+                                                                    "description": "C/B Oil Press",
+                                                                     "identifier": "CB_OIL_PRESS",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 33280,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 4,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 2,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
+                                                        },
+                                        "CB_OXY_PRESS": {
+                                                                       "category": "Circuit Breakers",
+                                                                   "control_type": "selector",
+                                                                    "description": "C/B Oxy Press",
+                                                                     "identifier": "CB_OXY_PRESS",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 33282,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 64,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 6,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
+                                                        },
+                                        "CB_PITOT_AFT": {
+                                                                       "category": "Circuit Breakers",
+                                                                   "control_type": "selector",
+                                                                    "description": "C/B Aft Pitot",
+                                                                     "identifier": "CB_PITOT_AFT",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 33284,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 32768,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 15,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
+                                                        },
+                                        "CB_PITOT_FWD": {
+                                                                       "category": "Circuit Breakers",
+                                                                   "control_type": "selector",
+                                                                    "description": "C/B Fwd Pitot",
+                                                                     "identifier": "CB_PITOT_FWD",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 33284,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 16384,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 14,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
+                                                        },
+                                          "CB_POS_IND": {
+                                                                       "category": "Circuit Breakers",
+                                                                   "control_type": "selector",
+                                                                    "description": "C/B Pos Ind",
+                                                                     "identifier": "CB_POS_IND",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 33280,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 16384,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 14,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
+                                                        },
+                                            "CB_SIGHT": {
+                                                                       "category": "Circuit Breakers",
+                                                                   "control_type": "selector",
+                                                                    "description": "C/B Sight",
+                                                                     "identifier": "CB_SIGHT",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 33286,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 8,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 3,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
+                                                        },
+                                        "CB_SPD_BRAKE": {
+                                                                       "category": "Circuit Breakers",
+                                                                   "control_type": "selector",
+                                                                    "description": "C/B Spd Brake",
+                                                                     "identifier": "CB_SPD_BRAKE",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 33280,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 8192,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 13,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
+                                                        },
+                                     "CB_STBY_ATT_AFT": {
+                                                                       "category": "Circuit Breakers",
+                                                                   "control_type": "selector",
+                                                                    "description": "C/B Aft Stby Att Ind",
+                                                                     "identifier": "CB_STBY_ATT_AFT",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 33280,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 512,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 9,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
+                                                        },
+                                     "CB_STBY_ATT_FWD": {
+                                                                       "category": "Circuit Breakers",
+                                                                   "control_type": "selector",
+                                                                    "description": "C/B Fwd Stby Att Ind",
+                                                                     "identifier": "CB_STBY_ATT_FWD",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 33280,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 256,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 8,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
+                                                        },
+                                       "CB_STORE_JETT": {
+                                                                       "category": "Circuit Breakers",
+                                                                   "control_type": "selector",
+                                                                    "description": "C/B Store Jett",
+                                                                     "identifier": "CB_STORE_JETT",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 33282,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 512,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 9,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
+                                                        },
+                                           "CB_TAXI_L": {
+                                                                       "category": "Circuit Breakers",
+                                                                   "control_type": "selector",
+                                                                    "description": "C/B Taxi Lt",
+                                                                     "identifier": "CB_TAXI_L",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 33284,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 4096,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 12,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
+                                                        },
+                                         "CB_TRIM_A_E": {
+                                                                       "category": "Circuit Breakers",
+                                                                   "control_type": "selector",
+                                                                    "description": "C/B Ail & Elev Trim",
+                                                                     "identifier": "CB_TRIM_A_E",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 33282,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 4096,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 12,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
+                                                        },
+                                           "CB_TRIM_R": {
+                                                                       "category": "Circuit Breakers",
+                                                                   "control_type": "selector",
+                                                                    "description": "C/B Rud Trim",
+                                                                     "identifier": "CB_TRIM_R",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 33284,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 2048,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 11,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
+                                                        },
+                                        "CB_WHSLD_DEM": {
+                                                                       "category": "Circuit Breakers",
+                                                                   "control_type": "selector",
+                                                                    "description": "C/B Whsld Dem",
+                                                                     "identifier": "CB_WHSLD_DEM",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 33286,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 2,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 1,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
+                                                        },
+                                        "CB_WING_FLAP": {
+                                                                       "category": "Circuit Breakers",
+                                                                   "control_type": "selector",
+                                                                    "description": "C/B Wing Flap",
+                                                                     "identifier": "CB_WING_FLAP",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                           "address": 33280,
+                                                                                       "description": "selector position",
+                                                                                              "mask": 4096,
+                                                                                         "max_value": 1,
+                                                                                          "shift_by": 12,
+                                                                                            "suffix": "",
+                                                                                              "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
+                                                        }
+                               },
+    "External Aircraft Model": {
+                                       "EXT_BOTTOM_LIGHT": {
+                                                                   "category": "External Aircraft Model",
+                                                               "control_type": "metadata",
+                                                                "description": "Middle Bottom Light (white)",
+                                                                 "identifier": "EXT_BOTTOM_LIGHT",
+                                                                     "inputs": [  ],
+                                                                    "outputs": [ {
+                                                                                       "address": 33286,
+                                                                                   "description": "Middle Bottom Light (white)",
+                                                                                          "mask": 1024,
+                                                                                     "max_value": 1,
+                                                                                      "shift_by": 10,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
+                                                                               } ]
+                                                           },
+                                   "EXT_FORMATION_LIGHTS": {
+                                                                   "category": "External Aircraft Model",
+                                                               "control_type": "metadata",
+                                                                "description": "Formation Lights (light green)",
+                                                                 "identifier": "EXT_FORMATION_LIGHTS",
+                                                                     "inputs": [  ],
+                                                                    "outputs": [ {
+                                                                                       "address": 33292,
+                                                                                   "description": "Formation Lights (light green)",
+                                                                                          "mask": 65535,
+                                                                                     "max_value": 65535,
+                                                                                      "shift_by": 0,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
+                                                                               } ]
+                                                           },
+                                    "EXT_FRONT_LANDLIGHT": {
+                                                                   "category": "External Aircraft Model",
+                                                               "control_type": "metadata",
+                                                                "description": "Front Landing Light (white)",
+                                                                 "identifier": "EXT_FRONT_LANDLIGHT",
+                                                                     "inputs": [  ],
+                                                                    "outputs": [ {
+                                                                                       "address": 33286,
+                                                                                   "description": "Front Landing Light (white)",
+                                                                                          "mask": 8192,
+                                                                                     "max_value": 1,
+                                                                                      "shift_by": 13,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
+                                                                               } ]
+                                                           },
+                                    "EXT_POSITION_LIGHTS": {
+                                                                   "category": "External Aircraft Model",
+                                                               "control_type": "metadata",
+                                                                "description": "Position Lights (red+green)",
+                                                                 "identifier": "EXT_POSITION_LIGHTS",
+                                                                     "inputs": [  ],
+                                                                    "outputs": [ {
+                                                                                       "address": 33286,
+                                                                                   "description": "Position Lights (red+green)",
+                                                                                          "mask": 256,
+                                                                                     "max_value": 1,
+                                                                                      "shift_by": 8,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
+                                                                               } ]
+                                                           },
+                                        "EXT_SPEED_BRAKE": {
+                                                                   "category": "External Aircraft Model",
+                                                               "control_type": "metadata",
+                                                                "description": "Speed Brake",
+                                                                 "identifier": "EXT_SPEED_BRAKE",
+                                                                     "inputs": [  ],
+                                                                    "outputs": [ {
+                                                                                       "address": 33290,
+                                                                                   "description": "Speed Brake",
+                                                                                          "mask": 65535,
+                                                                                     "max_value": 65535,
+                                                                                      "shift_by": 0,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
+                                                                               } ]
+                                                           },
+                                        "EXT_STROBE_TAIL": {
+                                                                   "category": "External Aircraft Model",
+                                                               "control_type": "metadata",
+                                                                "description": "Tail Strobe Light (red)",
+                                                                 "identifier": "EXT_STROBE_TAIL",
+                                                                     "inputs": [  ],
+                                                                    "outputs": [ {
+                                                                                       "address": 33286,
+                                                                                   "description": "Tail Strobe Light (red)",
+                                                                                          "mask": 512,
+                                                                                     "max_value": 1,
+                                                                                      "shift_by": 9,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
+                                                                               } ]
+                                                           },
+                                         "EXT_TAIL_LIGHT": {
+                                                                   "category": "External Aircraft Model",
+                                                               "control_type": "metadata",
+                                                                "description": "Tail Light (white)",
+                                                                 "identifier": "EXT_TAIL_LIGHT",
+                                                                     "inputs": [  ],
+                                                                    "outputs": [ {
+                                                                                       "address": 33286,
+                                                                                   "description": "Tail Light (white)",
+                                                                                          "mask": 4096,
+                                                                                     "max_value": 1,
+                                                                                      "shift_by": 12,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
+                                                                               } ]
+                                                           },
+                                          "EXT_TOP_LIGHT": {
+                                                                   "category": "External Aircraft Model",
+                                                               "control_type": "metadata",
+                                                                "description": "Top Light (white)",
+                                                                 "identifier": "EXT_TOP_LIGHT",
+                                                                     "inputs": [  ],
+                                                                    "outputs": [ {
+                                                                                       "address": 33286,
+                                                                                   "description": "Top Light (white)",
+                                                                                          "mask": 2048,
+                                                                                     "max_value": 1,
+                                                                                      "shift_by": 11,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
+                                                                               } ]
+                                                           },
+                                     "EXT_WING_LANDLIGHT": {
+                                                                   "category": "External Aircraft Model",
+                                                               "control_type": "metadata",
+                                                                "description": "Wing Landing Light (white)",
+                                                                 "identifier": "EXT_WING_LANDLIGHT",
+                                                                     "inputs": [  ],
+                                                                    "outputs": [ {
+                                                                                       "address": 33286,
+                                                                                   "description": "Wing Landing Light (white)",
+                                                                                          "mask": 16384,
+                                                                                     "max_value": 1,
+                                                                                      "shift_by": 14,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
+                                                                               } ]
+                                                           },
+                                           "EXT_WOW_LEFT": {
+                                                                   "category": "External Aircraft Model",
+                                                               "control_type": "metadata",
+                                                                "description": "Weight ON Wheels Left Gear",
+                                                                 "identifier": "EXT_WOW_LEFT",
+                                                                     "inputs": [  ],
+                                                                    "outputs": [ {
+                                                                                       "address": 33294,
+                                                                                   "description": "Weight ON Wheels Left Gear",
+                                                                                          "mask": 2,
+                                                                                     "max_value": 1,
+                                                                                      "shift_by": 1,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
+                                                                               } ]
+                                                           },
+                                           "EXT_WOW_NOSE": {
+                                                                   "category": "External Aircraft Model",
+                                                               "control_type": "metadata",
+                                                                "description": "Weight ON Wheels Nose Gear",
+                                                                 "identifier": "EXT_WOW_NOSE",
+                                                                     "inputs": [  ],
+                                                                    "outputs": [ {
+                                                                                       "address": 33286,
+                                                                                   "description": "Weight ON Wheels Nose Gear",
+                                                                                          "mask": 32768,
+                                                                                     "max_value": 1,
+                                                                                      "shift_by": 15,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
+                                                                               } ]
+                                                           },
+                                          "EXT_WOW_RIGHT": {
+                                                                   "category": "External Aircraft Model",
+                                                               "control_type": "metadata",
+                                                                "description": "Weight ON Wheels Right Gear",
+                                                                 "identifier": "EXT_WOW_RIGHT",
+                                                                     "inputs": [  ],
+                                                                    "outputs": [ {
+                                                                                       "address": 33294,
+                                                                                   "description": "Weight ON Wheels Right Gear",
+                                                                                          "mask": 1,
+                                                                                     "max_value": 1,
+                                                                                      "shift_by": 0,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
+                                                                               } ]
+                                                           }
+                               }
+};

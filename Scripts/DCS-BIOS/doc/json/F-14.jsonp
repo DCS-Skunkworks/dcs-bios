@@ -18632,35 +18632,6 @@ docdata["F-14"] =
                                                                                               } ],
                                                                           "physical_variant": "infinite_rotary"
                                                                    },
-                                           "PLT_TACAN_CMD_BUTTON": {
-                                                                                  "category": "TACAN PILOT",
-                                                                              "control_type": "selector",
-                                                                               "description": "PILOT TACAN CMD Button",
-                                                                                "identifier": "PLT_TACAN_CMD_BUTTON",
-                                                                                    "inputs": [ {
-                                                                                                  "description": "switch to previous or next state",
-                                                                                                    "interface": "fixed_step"
-                                                                                              }, {
-                                                                                                  "description": "set position",
-                                                                                                    "interface": "set_state",
-                                                                                                    "max_value": 1
-                                                                                              }, {
-                                                                                                     "argument": "TOGGLE",
-                                                                                                  "description": "Toggle switch state",
-                                                                                                    "interface": "action"
-                                                                                              } ],
-                                                                       "momentary_positions": "none",
-                                                                                   "outputs": [ {
-                                                                                                      "address": 4642,
-                                                                                                  "description": "selector position",
-                                                                                                         "mask": 32768,
-                                                                                                    "max_value": 1,
-                                                                                                     "shift_by": 15,
-                                                                                                       "suffix": "",
-                                                                                                         "type": "integer"
-                                                                                              } ],
-                                                                          "physical_variant": "toggle_switch"
-                                                                   },
                                             "PLT_TACAN_DIAL_ONES": {
                                                                                   "category": "TACAN PILOT",
                                                                               "control_type": "selector",
@@ -20208,31 +20179,6 @@ docdata["F-14"] =
                                                                                                    "type": "string"
                                                                                         } ]
                                                                     },
-                                                    "PLT_VUHF_VOL": {
-                                                                            "category": "VUHF",
-                                                                        "control_type": "limited_dial",
-                                                                         "description": "PILOT VUHF ARC-182 Volume",
-                                                                          "identifier": "PLT_VUHF_VOL",
-                                                                              "inputs": [ {
-                                                                                            "description": "set the position of the dial",
-                                                                                              "interface": "set_state",
-                                                                                              "max_value": 65535
-                                                                                        }, {
-                                                                                               "description": "turn the dial left or right",
-                                                                                                 "interface": "variable_step",
-                                                                                                 "max_value": 65535,
-                                                                                            "suggested_step": 3200
-                                                                                        } ],
-                                                                             "outputs": [ {
-                                                                                                "address": 4688,
-                                                                                            "description": "position of the potentiometer",
-                                                                                                   "mask": 65535,
-                                                                                              "max_value": 65535,
-                                                                                               "shift_by": 0,
-                                                                                                 "suffix": "",
-                                                                                                   "type": "integer"
-                                                                                        } ]
-                                                                    },
                                                 "RIO_VUHF_01_DIAL": {
                                                                                    "category": "VUHF",
                                                                                "control_type": "selector",
@@ -20566,56 +20512,110 @@ docdata["F-14"] =
                                                                     }
                                   },
                   "Volume Panel": {
-                                       "PLT_AIM9_VOL": {
-                                                               "category": "Volume Panel",
-                                                           "control_type": "limited_dial",
-                                                            "description": "PILOT Sidewinder Volume",
-                                                             "identifier": "PLT_AIM9_VOL",
-                                                                 "inputs": [ {
-                                                                               "description": "set the position of the dial",
-                                                                                 "interface": "set_state",
-                                                                                 "max_value": 65535
-                                                                           }, {
-                                                                                  "description": "turn the dial left or right",
-                                                                                    "interface": "variable_step",
-                                                                                    "max_value": 65535,
-                                                                               "suggested_step": 3200
-                                                                           } ],
-                                                                "outputs": [ {
-                                                                                   "address": 4664,
-                                                                               "description": "position of the potentiometer",
-                                                                                      "mask": 65535,
-                                                                                 "max_value": 65535,
-                                                                                  "shift_by": 0,
-                                                                                    "suffix": "",
-                                                                                      "type": "integer"
-                                                                           } ]
-                                                       },
-                                      "PLT_ALR67_VOL": {
-                                                               "category": "Volume Panel",
-                                                           "control_type": "limited_dial",
-                                                            "description": "PILOT ALR-67 Volume",
-                                                             "identifier": "PLT_ALR67_VOL",
-                                                                 "inputs": [ {
-                                                                               "description": "set the position of the dial",
-                                                                                 "interface": "set_state",
-                                                                                 "max_value": 65535
-                                                                           }, {
-                                                                                  "description": "turn the dial left or right",
-                                                                                    "interface": "variable_step",
-                                                                                    "max_value": 65535,
-                                                                               "suggested_step": 3200
-                                                                           } ],
-                                                                "outputs": [ {
-                                                                                   "address": 4662,
-                                                                               "description": "position of the potentiometer",
-                                                                                      "mask": 65535,
-                                                                                 "max_value": 65535,
-                                                                                  "shift_by": 0,
-                                                                                    "suffix": "",
-                                                                                      "type": "integer"
-                                                                           } ]
-                                                       }
+                                              "PLT_AIM9_VOL": {
+                                                                      "category": "Volume Panel",
+                                                                  "control_type": "limited_dial",
+                                                                   "description": "PILOT Sidewinder Volume",
+                                                                    "identifier": "PLT_AIM9_VOL",
+                                                                        "inputs": [ {
+                                                                                      "description": "set the position of the dial",
+                                                                                        "interface": "set_state",
+                                                                                        "max_value": 65535
+                                                                                  }, {
+                                                                                         "description": "turn the dial left or right",
+                                                                                           "interface": "variable_step",
+                                                                                           "max_value": 65535,
+                                                                                      "suggested_step": 3200
+                                                                                  } ],
+                                                                       "outputs": [ {
+                                                                                          "address": 4664,
+                                                                                      "description": "position of the potentiometer",
+                                                                                             "mask": 65535,
+                                                                                        "max_value": 65535,
+                                                                                         "shift_by": 0,
+                                                                                           "suffix": "",
+                                                                                             "type": "integer"
+                                                                                  } ]
+                                                              },
+                                             "PLT_ALR67_VOL": {
+                                                                      "category": "Volume Panel",
+                                                                  "control_type": "limited_dial",
+                                                                   "description": "PILOT ALR-67 Volume",
+                                                                    "identifier": "PLT_ALR67_VOL",
+                                                                        "inputs": [ {
+                                                                                      "description": "set the position of the dial",
+                                                                                        "interface": "set_state",
+                                                                                        "max_value": 65535
+                                                                                  }, {
+                                                                                         "description": "turn the dial left or right",
+                                                                                           "interface": "variable_step",
+                                                                                           "max_value": 65535,
+                                                                                      "suggested_step": 3200
+                                                                                  } ],
+                                                                       "outputs": [ {
+                                                                                          "address": 4662,
+                                                                                      "description": "position of the potentiometer",
+                                                                                             "mask": 65535,
+                                                                                        "max_value": 65535,
+                                                                                         "shift_by": 0,
+                                                                                           "suffix": "",
+                                                                                             "type": "integer"
+                                                                                  } ]
+                                                              },
+                                      "PLT_TACAN_CMD_BUTTON": {
+                                                                             "category": "Volume Panel",
+                                                                         "control_type": "selector",
+                                                                          "description": "PILOT TACAN CMD Button",
+                                                                           "identifier": "PLT_TACAN_CMD_BUTTON",
+                                                                               "inputs": [ {
+                                                                                             "description": "switch to previous or next state",
+                                                                                               "interface": "fixed_step"
+                                                                                         }, {
+                                                                                             "description": "set position",
+                                                                                               "interface": "set_state",
+                                                                                               "max_value": 1
+                                                                                         }, {
+                                                                                                "argument": "TOGGLE",
+                                                                                             "description": "Toggle switch state",
+                                                                                               "interface": "action"
+                                                                                         } ],
+                                                                  "momentary_positions": "none",
+                                                                              "outputs": [ {
+                                                                                                 "address": 4642,
+                                                                                             "description": "selector position",
+                                                                                                    "mask": 32768,
+                                                                                               "max_value": 1,
+                                                                                                "shift_by": 15,
+                                                                                                  "suffix": "",
+                                                                                                    "type": "integer"
+                                                                                         } ],
+                                                                     "physical_variant": "toggle_switch"
+                                                              },
+                                              "PLT_VUHF_VOL": {
+                                                                      "category": "Volume Panel",
+                                                                  "control_type": "limited_dial",
+                                                                   "description": "PILOT VUHF ARC-182 Volume",
+                                                                    "identifier": "PLT_VUHF_VOL",
+                                                                        "inputs": [ {
+                                                                                      "description": "set the position of the dial",
+                                                                                        "interface": "set_state",
+                                                                                        "max_value": 65535
+                                                                                  }, {
+                                                                                         "description": "turn the dial left or right",
+                                                                                           "interface": "variable_step",
+                                                                                           "max_value": 65535,
+                                                                                      "suggested_step": 3200
+                                                                                  } ],
+                                                                       "outputs": [ {
+                                                                                          "address": 4688,
+                                                                                      "description": "position of the potentiometer",
+                                                                                             "mask": 65535,
+                                                                                        "max_value": 65535,
+                                                                                         "shift_by": 0,
+                                                                                           "suffix": "",
+                                                                                             "type": "integer"
+                                                                                  } ]
+                                                              }
                                   },
                  "Weapons Panel": {
                                                  "PLT_ACM_COVER": {
