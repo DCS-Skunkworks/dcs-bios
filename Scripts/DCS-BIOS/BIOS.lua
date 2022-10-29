@@ -26,10 +26,9 @@ dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\MetadataStart.lua]])
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\CommonData.lua]])
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\TextDisplay.lua]])
 ----------------------------------------------------------------------------Modules Start------------------------------------
--- Following text : Example (case sensitive!) : -- ID = x, ProperName = <pretty name>
+-- Following text: Example (case sensitive!): -- ID = x, ProperName = <pretty name>
 -- is used by DCSFlightpanels GUI to pick up DCS-BIOS modules
--- ID range 1-3 is used internally in DCSFlightpanels.
--- New modules must have an uniques ID.
+-- ID range 1-3 is used internally in DCSFlightpanels. New modules must have an uniques ID.
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\A-4E-C.lua]]) -- ID = 6, ProperName = A-4E Skyhawk
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\A-10C.lua]]) -- ID = 5, ProperName = A-10C Thunderbolt/II
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\A-29B.lua]]) -- ID = 41, ProperName = A-29B Super Tucano
@@ -56,7 +55,7 @@ dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\JF-17.lua]]) -- ID = 24, ProperNam
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Ka-50.lua]]) -- ID = 25, ProperName = Ka-50 Black Shark
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\L-39.lua]]) -- ID = 26, ProperName = L-39 Albatros
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\M-2000C.lua]]) -- ID = 27, ProperName = M-2000C
-dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\MB-339PAN.lua]]) -- ID = 28, ProperName = MB-339PAN
+dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\MB-339.lua]]) -- ID = 28, ProperName = MB-339A/PAN
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Mi-8MT.lua]]) -- ID = 29, ProperName = Mi-8MT
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Mi-24P.lua]]) -- ID = 42, ProperName = Mi-24P HIND
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\MirageF1.lua]]) -- ID = 13, ProperName = Mirage F1
@@ -77,7 +76,7 @@ dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Yak-52.lua]]) -- ID = 39, ProperNa
 ----------------------------------------------------------------------------Modules End--------------------------------------
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\BIOSConfig.lua]])
 
---Saves all aliases for each aircraft for consumption by others
+--Saves aliases for each aircraft for external programs
 local function saveAliases()
 	local JSON = loadfile([[Scripts\JSON.lua]])()
 	local file, err = io.open(lfs.writedir()..[[Scripts\DCS-BIOS\doc\json\AircraftAliases.json]], "w")

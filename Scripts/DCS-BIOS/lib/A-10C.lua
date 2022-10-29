@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("A-10C", 0x1000)
 BIOS.protocol.setExportModuleAircrafts({"A-10C", "A-10C_2"})
---overhaul by WarLord v2.3
+--overhaul by WarLord v2.4
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 
@@ -1217,7 +1217,7 @@ end, 65535, "External Aircraft Model", "Left Speed Brake")
 
 defineIntegerFromGetter("EXT_FORMATION_LIGHTS", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(200)*65535)
-end, 65535, "External Aircraft Model", "Formation Lights")
+end, 65535, "External Aircraft Model", "Formation Lights (light green)")
 
 defineIntegerFromGetter("EXT_POSITION_LIGHT_LEFT", function()
 	if LoGetAircraftDrawArgumentValue(190) > 0 then return 1 else return 0 end
@@ -1228,13 +1228,13 @@ end, 1, "External Aircraft Model", "Right Position Light (green)")
 
 defineIntegerFromGetter("EXT_STROBE_TAIL", function()
 	if LoGetAircraftDrawArgumentValue(192) > 0 then return 1 else return 0 end
-end, 1, "External Aircraft Model", "Tail Strobe Light")
+end, 1, "External Aircraft Model", "Tail Strobe Light (white)")
 defineIntegerFromGetter("EXT_STROBE_LEFT", function()
 	if LoGetAircraftDrawArgumentValue(195) > 0 then return 1 else return 0 end
-end, 1, "External Aircraft Model", "Left Strobe Light")
+end, 1, "External Aircraft Model", "Left Strobe Light (white)")
 defineIntegerFromGetter("EXT_STROBE_RIGHT", function()
 	if LoGetAircraftDrawArgumentValue(196) > 0 then return 1 else return 0 end
-end, 1, "External Aircraft Model", "Right Strobe Light")
+end, 1, "External Aircraft Model", "Right Strobe Light (white)")
 
 defineIntegerFromGetter("EXT_WOW_NOSE", function()
 	if LoGetAircraftDrawArgumentValue(1) > 0 then return 1 else return 0 end
@@ -1281,15 +1281,54 @@ define3PosTumb("A102_HMCS_PW", 75, 3001, 550, "HMCS Panel", "Scorpion HMCS Power
 
 defineToggleSwitch("STICK_HIDE", 39, 3016, 999, "Misc", "Hide Stick toggle")
 
-definePotentiometer("UHF4", 54, 3020, 554, {0, 1}, "UHF Radio", "UHF-4")
-definePotentiometer("UHF5", 54, 3016, 555, {0, 1}, "UHF Radio", "UHF-5")
-definePotentiometer("UHF6", 54, 3017, 556, {0, 1}, "UHF Radio", "UHF-6")
-definePotentiometer("UHF7", 54, 3018, 557, {0, 1}, "UHF Radio", "UHF-7")
-definePotentiometer("UHF8", 54, 3019, 558, {0, 1}, "UHF Radio", "UHF-8")
+defineRadioWheel("ARC210_FREQ1", 76, 3017, 3018, {-0.1, 0.1}, 554, 0.1, {0, 1}, nil, "ARC-210", "Frequency Selector 1")
+defineRadioWheel("ARC210_FREQ2", 76, 3019, 3020, {-0.1, 0.1}, 555, 0.1, {0, 1}, nil, "ARC-210", "Frequency Selector 2")
+defineRadioWheel("ARC210_FREQ3", 76, 3021, 3022, {-0.1, 0.1}, 556, 0.1, {0, 1}, nil, "ARC-210", "Frequency Selector 3")
+defineRadioWheel("ARC210_FREQ4", 76, 3023, 3024, {-0.1, 0.1}, 557, 0.1, {0, 1}, nil, "ARC-210", "Frequency Selector 4")
+defineRadioWheel("ARC210_FREQ5", 76, 3025, 3026, {-0.1, 0.1}, 558, 0.1, {0, 1}, nil, "ARC-210", "Frequency Selector 5")
+
 defineFloat("INTERNAL_CONSOLE_LIGHTS", 800, {0, 1}, "Light System Control Panel", "Console Lights (as Gauge)")
 defineFloat("INTERNAL_ENG_INST_LIGHTS", 801, {0, 1}, "Light System Control Panel", "Engine Instrument Lights (as Gauge)")
 defineFloat("INTERNAL_FLT_INST_LIGHTS", 802, {0, 1}, "Light System Control Panel", "Flight Instruments Lights (as Gauge)")
 defineFloat("INTERNAL_AUX_INST_LIGHTS", 803, {0, 1}, "Light System Control Panel", "Auxiliary Instruments Lights (as Gauge)")
 defineFloat("INTERNAL_FLOOD_LIGHTS", 806, {0, 1}, "Light System Control Panel", "Flood Lights (as Gauge)")
+
+defineMultipositionSwitch("ARC210_MODE_L", 76, 3043, 551, 7, 0.1, "ARC-210", "ARC-210 Left Mode Dial")
+definePotentiometer("UHF02", 76, 3021, 552, {0, 1}, "ARC-210", "UHF-02")
+defineMultipositionSwitch("ARC210_MODE_R", 76, 3021, 553, 7, 0.1, "ARC-210", "ARC-210 Right Mode Dial")
+
+definePushButton("UHF09", 76, 3020, 573, "ARC-210", "UHF-09")
+definePushButton("UHF10", 76, 3021, 572, "ARC-210", "UHF-10")
+definePushButton("UHF11", 76, 3022, 571, "ARC-210", "UHF-11")
+definePushButton("UHF12", 76, 3023, 570, "ARC-210", "UHF-12")
+definePushButton("UHF13", 76, 3024, 569, "ARC-210", "UHF-13")
+definePushButton("UHF14", 76, 3010, 568, "ARC-210", "UHF-14")
+definePushButton("UHF15", 76, 3009, 567, "ARC-210", "UHF-15")
+definePushButton("UHF16", 76, 3008, 566, "ARC-210", "UHF-16")
+definePushButton("UHF17", 76, 3007, 565, "ARC-210", "UHF-17")
+definePushButton("UHF18", 76, 3006, 564, "ARC-210", "UHF-18")
+definePushButton("UHF19", 76, 3005, 563, "ARC-210", "UHF-19")
+definePushButton("UHF20", 76, 3004, 562, "ARC-210", "UHF-20")
+definePushButton("UHF21", 76, 3003, 561, "ARC-210", "UHF-21")
+definePushButton("UHF22", 76, 3002, 560, "ARC-210", "UHF-22")
+definePushButton("UHF23", 76, 3001, 559, "ARC-210", "UHF-23")
+
+defineIndicatorLight("ARC210_PRESENT", 998, "ARC-210", "ARC-210 Present")
+
+defineIntegerFromGetter("EXT_BOTTOM_LIGHT", function()
+	if LoGetAircraftDrawArgumentValue(201) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Middle Bottom Light (white)")
+defineIntegerFromGetter("EXT_TOP_LIGHT", function()
+	if LoGetAircraftDrawArgumentValue(202) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Top Light (white)")
+defineIntegerFromGetter("EXT_TAIL_LIGHT", function()
+	if LoGetAircraftDrawArgumentValue(203) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Tail Light (white)")
+defineIntegerFromGetter("EXT_L_RUDDER_LIGHT", function()
+	if LoGetAircraftDrawArgumentValue(204) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Left Rudder Light (white)")
+defineIntegerFromGetter("EXT_R_RUDDER_LIGHT", function()
+	if LoGetAircraftDrawArgumentValue(205) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Right Rudder Light (white)")
 
 BIOS.protocol.endModule()

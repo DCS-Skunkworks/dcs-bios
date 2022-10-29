@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("Mi-24P", 0x6800)
 BIOS.protocol.setExportModuleAircrafts({"Mi-24P"})
---v1.1 by WarLord&charliefoxtwo
+--v1.2 by WarLord&charliefoxtwo
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document  
@@ -965,11 +965,11 @@ defineIndicatorLight("PLT_JADRO_CTL_L", 424, "Jadro-1I Lights", "PILOT Jadro-1I 
 defineIndicatorLight("PLT_JADRO_BREAK_L", 425, "Jadro-1I Lights", "PILOT Jadro-1I Breakdown Lamp (yellow)")
 
 --Eucalypt_M24 (R828)
-defineToggleSwitch("PLT_R828_PW", 51, 3005, 373, "Eucalypt-M24", "PILOT Eucalypt-M24 ON/OFF")
-defineMultipositionSwitch("PLT_R828_CHAN", 51, 3001, 337, 10, 0.1, "Eucalypt-M24", "PILOT Eucalypt-M24 Channel Select")
-definePotentiometer("PLT_R828_VOL", 51, 3002, 339, {0, 1}, "Eucalypt-M24", "PILOT Eucalypt-M24 Volume Knob")
-definePushButton("PLT_R828_ASU", 51, 3003, 340, "Eucalypt-M24", "PILOT Eucalypt-M24 ASU")
-defineToggleSwitch("PLT_R828_SQUELCH", 51, 3004, 341, "Eucalypt-M24", "PILOT Eucalypt-M24 Squelch ON/OFF")
+defineToggleSwitch("PLT_R828_PW", 51, 3005, 373, "Eucalypt-M24", "PILOT R-828 ON/OFF")
+defineMultipositionSwitch("PLT_R828_CHAN", 51, 3001, 337, 10, 0.1, "Eucalypt-M24", "PILOT R-828 Channel Select")
+definePotentiometer("PLT_R828_VOL", 51, 3002, 339, {0, 1}, "Eucalypt-M24", "PILOT R-828 Volume Knob")
+definePushButton("PLT_R828_ASU", 51, 3003, 340, "Eucalypt-M24", "PILOT R-828 ASU")
+defineToggleSwitch("PLT_R828_SQUELCH", 51, 3004, 341, "Eucalypt-M24", "PILOT R-828 Squelch ON/OFF")
 
 local function getR828Chan()
     local chan = string.format("%.0f", GetDevice(0):get_argument_value(337)*10)
@@ -1238,5 +1238,7 @@ defineIndicatorLight("PLT_HEAT_L_FAIL_L", 388, "Cockpit Mechanics Lights", "PILO
 defineIndicatorLight("PLT_HEAT_R_FAIL_L", 390, "Cockpit Mechanics Lights", "PILOT Heating Left Failed Lamp (yellow)")
 
 define3PosTumb("PLT_SARPP12_MODE", 62, 3001, 357, "SARPP-12", "PILOT SARPP-12 Mode Switch, MANUAL/AUTO")
+
+defineMultipositionSwitch("PLT_JADRO_SQUELCH_SW", 50, 3022, 421, 8, 0.125, "Jadro-1I", "PILOT Jadro-1I Squelch (as Multipos)")
 
 BIOS.protocol.endModule()

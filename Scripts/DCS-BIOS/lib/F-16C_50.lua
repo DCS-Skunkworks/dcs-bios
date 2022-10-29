@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("F-16C_50", 0x4400)
 BIOS.protocol.setExportModuleAircrafts({"F-16C_50"})
--- V1.14c by WarLord
+-- V1.14d by WarLord
 -- Tested and fixes by BuzzKillington, afewyards
 -- DED Display,MAGV,INS,UHF,CMDS,HARM,VIP & VRP by Matchstick & AMVI_Ares
 local inputProcessors = moduleBeingDefined.inputProcessors
@@ -328,7 +328,7 @@ defineSpringloaded_3PosTumb("ALT_MODE_LV", 45, 3002, 3001, 60, "Altimeter", "Alt
 
 --SAI ARU-42/A-2
 definePushButton("SAI_CAGE", 47, 3002, 67, "SAI", "SAI Cage Knob, (LMB) Pull to cage")
-defineRotary("SAI_PITCH_TRIM", 47, 3003, 66, "SAI", "SAI Cage Knob, (MW) Adjust aircraft reference symbol")
+definePotentiometer("SAI_PITCH_TRIM", 47, 3003, 66, nil, "SAI", "SAI Cage Knob, (MW) Adjust aircraft reference symbol")
 
 --ADI
 definePotentiometer("ADI_PITCH_TRIM", 50, 3001, 22, nil, "ADI", "ADI Pitch Trim Knob")

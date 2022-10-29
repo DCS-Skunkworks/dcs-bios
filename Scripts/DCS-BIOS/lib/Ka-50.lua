@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("Ka-50", 0x1800)
 BIOS.protocol.setExportModuleAircrafts({"Ka-50"})
-
+--overhaul by WarLord v2.0
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document
@@ -152,7 +152,7 @@ defineIndicatorLight("LWR_HEMI_UPPER", 31, "LWR", "Lamp hemisphere upper (yellow
 defineIndicatorLight("LWR_HEMI_LOWER", 32, "LWR", "Lamp hemisphere lower (yellow)")
 defineIndicatorLight("LWR_LASER_RANGE", 33, "LWR", "Lamp laser range finder (yellow)")
 defineIndicatorLight("LWR_LASER_TARGETING", 34, "LWR", "Lamp laser targeting system (yellow)")
-definePushButton("LWR_RESET", 36, 3001, 35, "LWR", "Reset button")
+definePushButton("LWR_RESET", 36, 3001, 35, "LWR", "Reset Button")
 --UV-26 Countermeasures Control Panel 
 local function getUV26Display()
     local ind = parse_indication(7)
@@ -164,22 +164,22 @@ defineIndicatorLight("UV26_L_DISPENSER", 541, "UV-26 Control Panel", "Left dispe
 defineIndicatorLight("UV26_R_DISPENSER", 542, "UV-26 Control Panel", "Right dispenser Light (red)")
 defineMultipositionSwitch("UV26_DISPENSERS_SELECTOR", 22, 3001, 36, 3, 0.1, "UV-26 Control Panel", "Select Left/Both/Right board flares dispensers switch")
 defineMultipositionSwitch("UV26_MODE", 22, 3003, 37, 2, 0.1, "UV-26 Control Panel", "Amount flares counter/Programming switch")
-definePushButton("UV26_SERIES", 22, 3004, 38, "UV-26 Control Panel", "Num of sequences button")
-definePushButton("UV26_BURST", 22, 3005, 39, "UV-26 Control Panel", "Num in sequence button")
-definePushButton("UV26_INTERVAL", 22, 3006, 41, "UV-26 Control Panel", "Dispense interval button")
+definePushButton("UV26_SERIES", 22, 3004, 38, "UV-26 Control Panel", "Num of sequences Button")
+definePushButton("UV26_BURST", 22, 3005, 39, "UV-26 Control Panel", "Num in sequence Button")
+definePushButton("UV26_INTERVAL", 22, 3006, 41, "UV-26 Control Panel", "Dispense interval Button")
 definePushButton("UV26_START", 22, 3007, 43, "UV-26 Control Panel", "Start dispense button")
-definePushButton("UV26_RESET", 22, 3008, 42, "UV-26 Control Panel", "Reset to default program button")
-definePushButton("UV26_STOP", 22, 3009, 40, "UV-26 Control Panel", "Stop dispense button")
+definePushButton("UV26_RESET", 22, 3008, 42, "UV-26 Control Panel", "Reset to default program Button")
+definePushButton("UV26_STOP", 22, 3009, 40, "UV-26 Control Panel", "Stop dispense Button")
 --Ambient Temperature
 defineFloat("TEMP_AMBIENT", 587, {-0.946, 0.788}, "Ambient Temperature", "Ambient temperature")
 
 ----Left Forward Panel
 --System Controller
-defineLedPushButton("SC_MASTER_CAUTION_BTN", 14, 3001, 44, "System Controller", "Master caution button")
-definePushButtonLed("SC_MASTER_CAUTION_LED", 44, "System Controller", "Master caution button LED (red)")
-definePushButton("SC_LAMPS_TEST", 14, 3002, 45, "System Controller", "Lamps test button")
-defineLedPushButton("SC_ROTOR_RPM_BTN", 14, 3003, 46, "System Controller", "Rotor RPM warning button")
-definePushButtonLed("SC_ROTOR_RPM_LED", 46, "System Controller", "Rotor RPM warning button LED (yellow)")
+defineLedPushButton("SC_MASTER_CAUTION_BTN", 14, 3001, 44, "System Controller", "Master Caution Button")
+definePushButtonLed("SC_MASTER_CAUTION_LED", 44, "System Controller", "MasterCaution Button LED Brightness (red)")
+definePushButton("SC_LAMPS_TEST", 14, 3002, 45, "System Controller", "Lamps Test Button")
+defineLedPushButton("SC_ROTOR_RPM_BTN", 14, 3003, 46, "System Controller", "Rotor RPM warning Button")
+definePushButtonLed("SC_ROTOR_RPM_LED", 46, "System Controller", "Rotor RPM warning button LED Brightness (yellow)")
 defineToggleSwitch("SC_MWS_MODE", 14, 3004, 49, "System Controller", "MWS operation mode switch (not functional)")
 --Caution Lights Panel
 defineIndicatorLight("CL_LASER_WARN", 47, "Caution Lights Panel", "Under fire warning (red)")
@@ -334,8 +334,8 @@ defineString("WEAPONS_DISPLAY_WEAPON_REMAIN", getPUI800_txt_weap_count, 2, "Weap
 defineString("WEAPONS_DISPLAY_CANNON_REMAIN", getPUI800_txt_cannon_count, 2, "Weapons Control Panel", "Display cannon round remaining")
 --Targeting Display Control Panel
 defineToggleSwitch("SHKVAL_POLARITY", 8, 3001, 404, "Targeting Display Control Panel", "SHKVAL Black-White indication switch")
-definePotentiometer("HMS_BRIGHTNESS", 23, 3001, 405, {0, 1}, "Targeting Display Control Panel", "Helmet device brightness knob")
-definePotentiometer("SHKVAL_BRIGHTNESS", 8, 3002, 406, {0, 1}, "Targeting Display Control Panel", "SHKVAL brightness knob")
+definePotentiometer("HMS_BRIGHTNESS", 23, 3001, 405, {0, 1}, "Targeting Display Control Panel", "Helmet device Brightness knob")
+definePotentiometer("SHKVAL_BRIGHTNESS", 8, 3002, 406, {0, 1}, "Targeting Display Control Panel", "SHKVAL Brightness knob")
 definePotentiometer("SKHVAL_CONTRAST", 8, 3003, 407, {0, 1}, "Targeting Display Control Panel", "SHKVAL contrast knob")
 defineTumb("LASER_CODE", 12, 3007, 408, 0.1, {0, 0.2}, nil, false, "Targeting Display Control Panel", "Laser code selector")
 defineToggleSwitch("HUD_DECLUTTER", 41, 3001, 409, "Targeting Display Control Panel", "HUD/TV declutter switch")
@@ -824,14 +824,14 @@ defineToggleSwitch("UV26_POWER_COVER", 22, 3012, 497, "UV-26 Power and Test Pane
 defineToggleSwitch("UV26_TEST", 22, 3011, 498, "UV-26 Power and Test Panel", "UV-26 BIT switch")
 defineToggleSwitch("UV26_TEST_COVER", 22, 3013, 499, "UV-26 Power and Test Panel", "UV-26 BIT switch cover")
 --Electrical System Control Panel
-definePotentiometer("ELEC_AUX_BRIGHTNESS", 51, 3006, 451, {0, 1}, "Electrical System Control Panel", "Auxiliary panel brightness knob")
+definePotentiometer("ELEC_AUX_BRIGHTNESS", 51, 3006, 451, {0, 1}, "Electrical System Control Panel", "Auxiliary panel Brightness knob")
 defineToggleSwitch("ELEC_AUX_LIGHTS", 51, 3005, 450, "Electrical System Control Panel", "Auxiliary panel lightning switch")
 defineToggleSwitch("ELEC_HYD_TRAN_EKRAN_POWER", 34, 3002, 452, "Electrical System Control Panel", "Hydraulics/transmission group and EKRAN power switch")
 defineToggleSwitch("ELEC_HYD_TRAN_EKRAN_POWER_COVER", 34, 3003, 453, "Electrical System Control Panel", "Hydraulics/transmission group and EKRAN power switch cover")
 --Lighting Brightness Control Panel
-definePotentiometer("LIGHT_AUX_BRIGHTNESS", 51, 3008, 507, {0, 1}, "Lighting Brightness Control Panel", "Lighting night vision cockpit brightness knob (blue)")
-definePotentiometer("LIGHT_COCKPIT_BRIGHTNESS", 51, 3002, 593, {0, 1}, "Lighting Brightness Control Panel", "Lighting cockpit panel brightness knob")
-definePotentiometer("LIGHT_HSI_ADI_BRIGHTNESS", 51, 3004, 508, {0, 1}, "Lighting Brightness Control Panel", "Lighting HSI and ADI brightness knob")
+definePotentiometer("LIGHT_AUX_BRIGHTNESS", 51, 3008, 507, {0, 1}, "Lighting Brightness Control Panel", "Lighting night vision cockpit Brightness knob (blue)")
+definePotentiometer("LIGHT_COCKPIT_BRIGHTNESS", 51, 3002, 593, {0, 1}, "Lighting Brightness Control Panel", "Lighting cockpit panel Brightness knob")
+definePotentiometer("LIGHT_HSI_ADI_BRIGHTNESS", 51, 3004, 508, {0, 1}, "Lighting Brightness Control Panel", "Lighting HSI and ADI Brightness knob")
 
 --Externals
 defineIntegerFromGetter("EXT_POSITION_LIGHT_LEFT", function()
@@ -864,7 +864,7 @@ end, 65535, "External Aircraft Model", "Rotors Move")
 
 defineFloat("DOOR_POS_L", 533, {0, 1}, "Cockpit", "Door Position Left")
 defineFloat("DOOR_POS_T", 535, {0, 1}, "Cockpit", "Door Position Top")
-defineIndicatorLight("OP_PITOT_LIGHTS", 10, "Overhead Panel", "Pitot Lights (green)")
+defineIndicatorLight("OP_PITOT_L_LAMP", 155, "Overhead Panel", "Pitot Lamp Left (green)")
 defineIndicatorLight("HEAT_SYS_OK_L", 537, "Defrost Panel", "Heating System Intact (green)")
 defineIndicatorLight("HEAT_ICE_L", 538, "Defrost Panel", "Ice detected (green)")
 defineIndicatorLight("ABRIS_BTN_1_L", 561, "ABRIS Display", "Button 1 Light (green)")
@@ -878,5 +878,9 @@ defineFloat("BACK_L_PIT", 803, {0, 1}, "Lighting Control Panel", "Cockpit Backli
 defineFloat("BACK_L_SCREEN", 900, {0, 1}, "Lighting Control Panel", "Target Screen Backlights (white)")
 defineFloat("BACK_L_SAI", 802, {0, 1}, "Lighting Control Panel", "SAI Backlights (white)")
 defineFloat("BACK_L_ADI", 798, {0, 1}, "Lighting Control Panel", "ADI Backlights (white)")
+defineIndicatorLight("OP_PITOT_R_LAMP", 157, "Overhead Panel", "Pitot Lamp Right (green)")
+defineFloat("SC_MASTER_CAUTION_BRT", 1015, {0, 1}, "System Controller", "Master Caution LED Brightness (red)")
+defineFloat("SC_ROTOR_RPM_BRT", 1016, {0, 1}, "System Controller", "Rotor RPM warning LED Brightness (yellow)")
+definePotentiometer("OP_WARNLIGHTS_BRIGHTNESS", 14, 3005, 149, {0, 1}, "Overhead Panel", "Warning Lights Brightness knob")
 
 BIOS.protocol.endModule()

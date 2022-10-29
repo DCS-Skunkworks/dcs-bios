@@ -454,7 +454,7 @@ definePotentiometer("C_RED_LGHT_2",46, 3010, 895, {0, 1},"Lights", "Central Red 
 definePotentiometer("LGHT_55V",46, 3011, 924, {0, 1},"Lights", "Lights Brightness 5.5V Rheostat")
 definePotentiometer("SGHT_KNOB",47, 3003, 855, {0, 0.807},"Weapons", "Sight Limb Knob")
 definePotentiometer("ARC9_BCK_TUNE",40, 3004, 449, {-0.2, 0.4},"ARC-9", "ARC-9, Backup Frequency Tune Knob")
-definePotentiometer("ARC9_MAIN_TUNE",40, 3007, 451,{-0.2,0.4},"ARC-9", "ARC-9, Main Frequency Tune Knob")
+definePotentiometer("ARC9_MAIN_TUNE",40, 3007, 451,{-0.2, 0.4},"ARC-9", "ARC-9, Main Frequency Tune Knob")
 definePotentiometer("KO50_TRG_TEMP",53, 3005, 468, {0, 1},"KO-50", "KO-50 Target Temperature Knob")
 definePotentiometer("FR_BCK_LGHT",56, 3002, 308, {0, 0.8},"P-503B", "Recorder P-503B Backlight Brightness Knob")
 
