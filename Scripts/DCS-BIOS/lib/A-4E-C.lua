@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("A-4E-C", 0x8400)
 BIOS.protocol.setExportModuleAircrafts({"A-4E-C"})
---v 3.1 by WarLord & Dehuman
+--v 3.2 by WarLord & Dehuman
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document
@@ -371,9 +371,9 @@ defineToggleSwitch("ECM_APR25_PW", 31, 3113, 504, "ECM Panel", "APR/25 On/Off")
 defineToggleSwitch("ECM_APR27_PW", 31, 3115, 501, "ECM Panel", "APR/27 On/Off")
 definePushButton("ECM_APR27_TEST", 31, 3116, 507, "ECM Panel", "APR/27 Test")
 definePushButton("ECM_APR27_LIGHT", 31, 3117, 510, "ECM Panel", "APR/27 Light")
-definePotentiometer("ECM_PRF_VOL", 31, 3118, 506, {-0.8, 0.8}, "ECM Panel", "PRF Volume (Inner Knob)")
-definePotentiometer("ECM_MSL_VOL", 31, 3119, 505, {-0.8, 0.8}, "ECM Panel", "MSL Volume (Outer Knob)")
-defineMultipositionSwitch("ECM_SEL", 31, 3120, 502, 4, 0.33, "ECM Panel", "ECM Selector Knob")
+definePotentiometer("ECM_PRF_VOL", 31, 3118, 506, {-0.9, 0.9}, "ECM Panel", "PRF Volume (Inner Knob)")
+definePotentiometer("ECM_MSL_VOL", 31, 3119, 505, {-0.9, 0.9}, "ECM Panel", "MSL Volume (Outer Knob)")
+defineMultipositionSwitch("ECM_SEL", 31, 3120, 502, 4, 0.33, "ECM Panel", "AN/APR-25 Selector Knob")
 
 --AIR CONDITIONING PANEL
 defineToggleSwitch("CABIN_PRESS", 3, 3133, 224, "Air Condition", "Cabin Pressure Switch")
