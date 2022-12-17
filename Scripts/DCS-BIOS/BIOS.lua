@@ -52,7 +52,7 @@ dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\FW-190A8.lua]]) -- ID = 21, Proper
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\FW-190D9.lua]]) -- ID = 22, ProperName = Fw 190 D-9 Dora
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\I-16.lua]]) -- ID = 23, ProperName = I-16 
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\JF-17.lua]]) -- ID = 24, ProperName = JF-17 Thunder
-dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Ka-50.lua]]) -- ID = 25, ProperName = Ka-50 Black Shark
+dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Ka-50.lua]]) -- ID = 25, ProperName = Ka-50 Black Shark/III
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\L-39.lua]]) -- ID = 26, ProperName = L-39 Albatros
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\M-2000C.lua]]) -- ID = 27, ProperName = M-2000C
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\MB-339.lua]]) -- ID = 28, ProperName = MB-339A/PAN
