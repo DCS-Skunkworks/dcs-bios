@@ -113,9 +113,15 @@ defineRotary("AFT_CLOCK_SET_KNOB", 1, 3111, 30, "Clock AFT", "Aft Clock Set Rota
 --HSI
 defineRotary("FW_HSI_HDG", 1, 3118, 362, "HSI FW", "Forward HSI Heading Set")
 defineRotary("FW_HSI_CRS", 1, 3119, 353, "HSI FW", "Forward HSI Course Set")
+definePushButton("FW_HSI_TCN", 1, 3219, 346, "HSI FW", "Forward HSI TACAN")
+definePushButton("FW_HSI_VOR", 1, 3220, 347, "HSI FW", "Forward HSI VOR")
+definePushButton("FW_HSI_RNAV", 1, 3221, 348, "HSI FW", "Forward HSI RNAV")
 
 defineRotary("AFT_HSI_HDG", 1, 3120, 196, "HSI AFT", "Aft HSI Heading Set")
 defineRotary("AFT_HSI_CRS", 1, 3121, 187, "HSI AFT", "Aft HSI Course Set")
+definePushButton("AFT_HSI_TCN", 1, 3222, 57, "HSI AFT", "Aft HSI TACAN")
+definePushButton("AFT_HSI_VOR", 1, 3223, 58, "HSI AFT", "Aft HSI VOR")
+definePushButton("AFT_HSI_RNAV", 1, 3224, 59, "HSI AFT", "Aft HSI RNAV")
 
 --Flight dir
 definePushButton("FW_FD_HDG", 1, 3122, 333, "Flight Dir FW", "Forward F/D HDG")
@@ -136,7 +142,21 @@ definePushButton("AFT_FD_ALT_HOLD", 1, 3133, 703, "Flight Dir AFT", "Aft F/D ALT
 
 -- L/G & Ground
 
--- Lights
+--Lights
+define3PosTumb("FW_LIGHT_TAXI_LAND", 1, 3156, 321, "Lights FW", "Forward Taxi/Landing Lights")
+definePotentiometer("FW_LIGHT_FORMATION", 1, 3157, 502, {0, 1}, "Lights FW", "Forward Formation Lights")
+definePotentiometer("FW_LIGHT_INSTRUMENT", 1, 3158, 503, {0, 1}, "Lights FW", "Forward Instruments Lights")
+definePotentiometer("FW_LIGHT_FLOOD", 1, 3159, 504, {0, 1}, "Lights FW", "Forward Flood Lights")
+definePotentiometer("FW_LIGHT_CONSOLE", 1, 3160, 505, {0, 1}, "Lights FW", "Forward Console Lights")
+defineToggleSwitch("FW_LIGHT_NAV_FLASH", 1, 3167, 41, "Lights FW", "Forward Nav Lights Flash/Steady")
+define3PosTumb("FW_LIGHT_NAV_BRIGHT", 1, 3168, 40, "Lights FW", "Forward Nav Lights Bright/Dim")
+defineToggleSwitch("FW_LIGHT_BEACON", 1, 3169, 685, "Lights FW", "Forward Beacon Lights")
+defineToggleSwitch("FW_LIGHT_WARN_BRIGHT", 1, 3170, 322, "Lights FW", "Forward Warn Lights Bright/Dim")
+
+definePotentiometer("AFT_LIGHT_INSTRUMENT", 1, 3161, 510, {0, 1}, "Lights AFT", "Aft Instruments Lights")
+definePotentiometer("AFT_LIGHT_FLOOD", 1, 3162, 512, {0, 1}, "Lights AFT", "Aft Flood Lights")
+definePotentiometer("AFT_LIGHT_CONSOLE", 1, 3163, 511, {0, 1}, "Lights AFT", "Aft Console Lights")
+defineToggleSwitch("AFT_LIGHT_WARN_BRIGHT", 1, 3171, 107, "Lights AFT", "Aft Warn Lights Bright/Dim")
 
 --Warning panel
 definePushButton("WARN_L_TEST", 1, 3172, 304, "Warning Panel", "Warn Lights Test")
@@ -144,10 +164,34 @@ definePushButton("FW_MASTER_CAUTION", 1, 3173, 591, "Warning Panel", "Forward Ma
 definePushButton("AFT_MASTER_CAUTION", 1, 3173, 591, "Warning Panel", "Aft Master Caution Reset")
 definePushButton("WARN_SILENT", 1, 3177, 382, "Warning Panel", "Warning Silence")
 
+--Engine
+defineToggleSwitch("ENG_MASTER", 1, 3178, 238, "Engine", "Engine Master")
+defineToggleSwitch("ENG_JPT_LIMIT", 1, 3179, 240, "Engine", "JPT Limiter")
+definePushButton("ENG_START", 1, 3180, 239, "Engine", "Engine Start")
+
 --
 
+--Smoke
+defineToggleSwitch("SMOKE_MASTER", 1, 3201, 330, "Smoke", "Smoke Master Switch")
+defineToggleSwitch("SMOKE_WHITE", 1, 3202, 331, "Smoke", "Smoke White Switch")
+defineToggleSwitch("SMOKE_COLOR", 1, 3203, 332, "Smoke", "Smoke Color Switch")
 
---CDU FWD
+--Control shift
+definePushButton("FW_CONTROL_TCN", 1, 3225, 324, "Control Shift FW", "Forward TACAN Control Shift")
+definePushButton("FW_CONTROL_ILS", 1, 3226, 326, "Control Shift FW", "Forward VOR-ILS Control Shift")
+definePushButton("FW_CONTROL_NAV", 1, 3227, 384, "Control Shift FW", "Forward NAV Control Shift")
+definePushButton("FW_CONTROL_COM1", 1, 3228, 307, "Control Shift FW", "Forward COMM1 Control Shift")
+definePushButton("FW_CONTROL_COM2", 1, 3229, 309, "Control Shift FW", "Forward COMM2 Control Shift")
+definePushButton("FW_CONTROL_ADF", 1, 3230, 317, "Control Shift FW", "Forward ADF Control Shift")
+
+definePushButton("AFT_CONTROL_TCN", 1, 3231, 273, "Control Shift AFT", "Aft TACAN Control Shift")
+definePushButton("AFT_CONTROL_ILS", 1, 3232, 275, "Control Shift AFT", "Aft VOR-ILS Control Shift")
+definePushButton("AFT_CONTROL_NAV", 1, 3233, 277, "Control Shift AFT", "Aft NAV Control Shift")
+definePushButton("AFT_CONTROL_COM1", 1, 3234, 267, "Control Shift AFT", "Aft COMM1 Control Shift")
+definePushButton("AFT_CONTROL_COM2", 1, 3235, 269, "Control Shift AFT", "Aft COMM2 Control Shift")
+definePushButton("AFT_CONTROL_ADF", 1, 3236, 271, "Control Shift AFT", "Aft ADF Control Shift")
+
+--CDU
 defineToggleSwitch("FW_CDU_GPS_PW", 1, 3237, 345, "CDU FW", "Forward CDU AHRS/GPS System")
 definePushButton("FW_CDU_ROW1", 1, 3238, 600, "CDU FW", "Forward CDU Row 1")
 definePushButton("FW_CDU_ROW2", 1, 3239, 601, "CDU FW", "Forward CDU Row 2")
@@ -175,7 +219,6 @@ definePushButton("FW_CDU_STEER", 1, 3261, 607, "CDU FW", "Forward CDU STEER")
 definePushButton("FW_CDU_FIX", 1, 3262, 604, "CDU FW", "Forward CDU FIX")
 definePushButton("FW_CDU_FLT_PLN", 1, 3263, 608, "CDU FW", "Forward CDU FLT PLN")
 
---CDU AFT
 definePushButton("AFT_CDU_ROW1", 1, 3264, 625, "CDU AFT", "Aft CDU Row 1")
 definePushButton("AFT_CDU_ROW2", 1, 3265, 626, "CDU AFT", "Aft CDU Row 2")
 definePushButton("AFT_CDU_ROW3", 1, 3266, 627, "CDU AFT", "Aft CDU Row 3")
@@ -202,7 +245,32 @@ definePushButton("AFT_CDU_STEER", 1, 3286, 632, "CDU AFT", "Aft CDU STEER")
 definePushButton("AFT_CDU_FIX", 1, 3287, 629, "CDU AFT", "Aft CDU FIX")
 definePushButton("AFT_CDU_FLT_PLN", 1, 3288, 633, "CDU AFT", "Aft CDU FLT PLN")
 
-defineFloat("CANOPY_POS", 181, {0, 1}, "Canopy", "Canopy Position")
+--
+
+--Oxygen
+defineToggleSwitch("FW_OXY_PW", 1, 3427, 587, "Oxygen FW", "Forward Oxygen Power Supply")
+defineToggleSwitch("FW_OXY_DILUIT", 1, 3428, 589, "Oxygen FW", "Forward Oxygen Diluiter Lever (Normal / 100%)")
+defineToggleSwitch("FW_OXY_EMERG", 1, 3429, 588, "Oxygen FW", "Forward Oxygen Emergengy Lever")
+
+defineToggleSwitch("AFT_OXY_PW", 1, 3430, 113, "Oxygen AFT", "Aft Oxygen Power Supply")
+defineToggleSwitch("AFT_OXY_DILUIT", 1, 3431, 113, "Oxygen AFT", "Aft Oxygen Diluiter Lever (Normal / 100%)")
+defineToggleSwitch("AFT_OXY_EMERG", 1, 3432, 111, "Oxygen AFT", "Aft Oxygen Emergengy Lever")
+
+--Cockpit
+definePushButton("FW_GLOVE_COMP", 1, 3433, 206, "Cockpit", "Forward Glove Compartment")
+defineToggleSwitch("FW_CANOPY_SEVERANCE_LVR", 1, 3215, 583, "Cockpit", "Forward Canopy Severance Handle")
+defineToggleSwitch("FW_CANOPY_SEVERANCE_PIN", 1, 3216, 584, "Cockpit", "Forward Canopy Severance Safety Pin")
+
+definePushButton("AFT_GLOVE_COMP", 1, 3434, 207, "Cockpit", "Aft Glove Compartment")
+defineToggleSwitch("AFT_CANOPY_SEVERANCE_LVR", 1, 3217, 741, "Cockpit", "Aft Canopy Severance Handle")
+defineToggleSwitch("AFT_CANOPY_SEVERANCE_PIN", 1, 3218, 742, "Cockpit", "Aft Canopy Severance Safety Pin")
+
+defineToggleSwitch("CURTAIN_HANDLE", 1, 3435, 1999, "Cockpit", "Curtain Handle")
+
+defineFloat("CANOPY_POS", 181, {0, 1}, "Cockpit Gauges", "Canopy Position")
+
+---
+
 
 --Externals
 defineIntegerFromGetter("EXT_SPEED_BRAKE", function()
