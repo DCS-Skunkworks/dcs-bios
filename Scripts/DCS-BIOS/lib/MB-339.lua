@@ -99,7 +99,14 @@ definePushButton("FW_G_RESET", 1, 3104, 259, "Avionics FW", "Forward Reset Min/M
 defineRotary("AFT_ALTIMETER_KNOB", 1, 3103, 570, "Avionics AFT", "Aft Altimeter Pressure Setting")
 definePushButton("AFT_G_RESET", 1, 3105, 691, "Avionics AFT", "Aft Reset Min/Max G")
 
--- Chrono
+--Chrono
+definePushButton("FW_CLOCK_BTN", 1, 3106, 44, "Clock FW", "Forward Clock Start/Stop/Reset")
+defineToggleSwitch("FW_CLOCK_SET_PULL", 1, 3107, 45, "Clock FW", "Forward Clock Set Pull")
+defineRotary("FW_CLOCK_SET_KNOB", 1, 3108, 51, "Clock FW", "Forward Clock Set Rotate")
+
+definePushButton("AFT_CLOCK_BTN", 1, 3109, 28, "Clock AFT", "Aft Clock Start/Stop/Reset")
+defineToggleSwitch("AFT_CLOCK_SET_PULL", 1, 3110, 29, "Clock AFT", "Aft Clock Set Pull")
+defineRotary("AFT_CLOCK_SET_KNOB", 1, 3111, 30, "Clock AFT", "Aft Clock Set Rotate")
 
 -- ADI
 
@@ -136,6 +143,64 @@ definePushButton("WARN_L_TEST", 1, 3172, 304, "Warning Panel", "Warn Lights Test
 definePushButton("FW_MASTER_CAUTION", 1, 3173, 591, "Warning Panel", "Forward Master Caution Reset")
 definePushButton("AFT_MASTER_CAUTION", 1, 3173, 591, "Warning Panel", "Aft Master Caution Reset")
 definePushButton("WARN_SILENT", 1, 3177, 382, "Warning Panel", "Warning Silence")
+
+--
+
+
+--CDU FWD
+defineToggleSwitch("FW_CDU_GPS_PW", 1, 3237, 345, "CDU FW", "Forward CDU AHRS/GPS System")
+definePushButton("FW_CDU_ROW1", 1, 3238, 600, "CDU FW", "Forward CDU Row 1")
+definePushButton("FW_CDU_ROW2", 1, 3239, 601, "CDU FW", "Forward CDU Row 2")
+definePushButton("FW_CDU_ROW3", 1, 3240, 602, "CDU FW", "Forward CDU Row 3")
+definePushButton("FW_CDU_ROW4", 1, 3241, 603, "CDU FW", "Forward CDU Row 4")
+definePushButton("FW_CDU_MARK", 1, 3242, 605, "CDU FW", "Forward CDU MARK")
+definePushButton("FW_CDU_SET", 1, 3243, 609, "CDU FW", "Forward CDU SET")
+definePushButton("FW_CDU_BRT", 1, 3244, 610, "CDU FW", "Forward CDU BRT")
+definePushButton("FW_CDU_INC", 1, 3245, 611, "CDU FW", "Forward CDU +")
+definePushButton("FW_CDU_DEC", 1, 3246, 612, "CDU FW", "Forward CDU -")
+definePushButton("FW_CDU_N1", 1, 3247, 613, "CDU FW", "Forward CDU N. 1")
+definePushButton("FW_CDU_N2", 1, 3248, 614, "CDU FW", "Forward CDU N. 2")
+definePushButton("FW_CDU_N3", 1, 3249, 615, "CDU FW", "Forward CDU N. 3")
+definePushButton("FW_CDU_N4", 1, 3250, 616, "CDU FW", "Forward CDU N. 4")
+definePushButton("FW_CDU_N5", 1, 3251, 617, "CDU FW", "Forward CDU N. 5")
+definePushButton("FW_CDU_N6", 1, 3252, 618, "CDU FW", "Forward CDU N. 6")
+definePushButton("FW_CDU_N7", 1, 3253, 619, "CDU FW", "Forward CDU N. 7")
+definePushButton("FW_CDU_N8", 1, 3254, 620, "CDU FW", "Forward CDU N. 8")
+definePushButton("FW_CDU_N9", 1, 3255, 621, "CDU FW", "Forward CDU N. 9")
+definePushButton("FW_CDU_N0", 1, 3257, 622, "CDU FW", "Forward CDU N. 0")
+definePushButton("FW_CDU_CLR", 1, 3258, 623, "CDU FW", "Forward CDU CLR")
+definePushButton("FW_CDU_ENT", 1, 3259, 624, "CDU FW", "Forward CDU ENT")
+definePushButton("FW_CDU_MODE", 1, 3260, 606, "CDU FW", "Forward CDU MODE")
+definePushButton("FW_CDU_STEER", 1, 3261, 607, "CDU FW", "Forward CDU STEER")
+definePushButton("FW_CDU_FIX", 1, 3262, 604, "CDU FW", "Forward CDU FIX")
+definePushButton("FW_CDU_FLT_PLN", 1, 3263, 608, "CDU FW", "Forward CDU FLT PLN")
+
+--CDU AFT
+definePushButton("AFT_CDU_ROW1", 1, 3264, 625, "CDU AFT", "Aft CDU Row 1")
+definePushButton("AFT_CDU_ROW2", 1, 3265, 626, "CDU AFT", "Aft CDU Row 2")
+definePushButton("AFT_CDU_ROW3", 1, 3266, 627, "CDU AFT", "Aft CDU Row 3")
+definePushButton("AFT_CDU_ROW4", 1, 3267, 628, "CDU AFT", "Aft CDU Row 4")
+definePushButton("AFT_CDU_MARK", 1, 3268, 630, "CDU AFT", "Aft CDU MARK")
+definePushButton("AFT_CDU_SET", 1, 3269, 634, "CDU AFT", "Aft CDU SET")
+definePushButton("AFT_CDU_BRT", 1, 3270, 635, "CDU AFT", "Aft CDU BRT")
+definePushButton("AFT_CDU_INC", 1, 3271, 636, "CDU AFT", "Aft CDU +")
+definePushButton("AFT_CDU_DEC", 1, 3272, 637, "CDU AFT", "Aft CDU -")
+definePushButton("AFT_CDU_N1", 1, 3273, 638, "CDU AFT", "Aft CDU N. 1")
+definePushButton("AFT_CDU_N2", 1, 3274, 639, "CDU AFT", "Aft CDU N. 2")
+definePushButton("AFT_CDU_N3", 1, 3275, 640, "CDU AFT", "Aft CDU N. 3")
+definePushButton("AFT_CDU_N4", 1, 3276, 641, "CDU AFT", "Aft CDU N. 4")
+definePushButton("AFT_CDU_N5", 1, 3277, 642, "CDU AFT", "Aft CDU N. 5")
+definePushButton("AFT_CDU_N6", 1, 3278, 643, "CDU AFT", "Aft CDU N. 6")
+definePushButton("AFT_CDU_N7", 1, 3279, 644, "CDU AFT", "Aft CDU N. 7")
+definePushButton("AFT_CDU_N8", 1, 3280, 645, "CDU AFT", "Aft CDU N. 8")
+definePushButton("AFT_CDU_N9", 1, 3281, 646, "CDU AFT", "Aft CDU N. 9")
+definePushButton("AFT_CDU_N0", 1, 3282, 647, "CDU AFT", "Aft CDU N. 0")
+definePushButton("AFT_CDU_CLR", 1, 3283, 648, "CDU AFT", "Aft CDU CLR")
+definePushButton("AFT_CDU_ENT", 1, 3284, 649, "CDU AFT", "Aft CDU ENT")
+definePushButton("AFT_CDU_MODE", 1, 3285, 631, "CDU AFT", "Aft CDU MODE")
+definePushButton("AFT_CDU_STEER", 1, 3286, 632, "CDU AFT", "Aft CDU STEER")
+definePushButton("AFT_CDU_FIX", 1, 3287, 629, "CDU AFT", "Aft CDU FIX")
+definePushButton("AFT_CDU_FLT_PLN", 1, 3288, 633, "CDU AFT", "Aft CDU FLT PLN")
 
 defineFloat("CANOPY_POS", 181, {0, 1}, "Canopy", "Canopy Position")
 
