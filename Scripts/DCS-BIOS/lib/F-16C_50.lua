@@ -1,8 +1,8 @@
 BIOS.protocol.beginModule("F-16C_50", 0x4400)
 BIOS.protocol.setExportModuleAircrafts({"F-16C_50"})
--- V1.14d by WarLord
+-- V1.15 by WarLord
 -- Tested and fixes by BuzzKillington, afewyards
--- DED Display,MAGV,INS,UHF,CMDS,HARM,VIP & VRP by Matchstick & AMVI_Ares
+-- DED Display,MAGV,INS,UHF,CMDS,HARM,VIP & VRP, A-CAL, HTS by Matchstick & AMVI_Ares
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 
@@ -623,6 +623,7 @@ local DEDLayout_l3={}
 local DEDLayout_l4={}
 local DEDLayout_l5={}
 
+--  D E D   L I N E  1 
 --CNI
 DEDLayout_l1["UHF Mode Rotary"]={1,3,0,"_inv","I"}
 DEDLayout_l1["UHF IncDecSymbol"]={5,1}
@@ -740,12 +741,12 @@ DEDLayout_l1["INTG INTG label"] = {13,4}
 DEDLayout_l1["INTG INTG Mode"] = {8,4}
 DEDLayout_l1["INTG TIM Event"] = {20,3}
 --HARM
-DEDLayout_l1["HARM"] = {1,4}
-DEDLayout_l1["TblNum"] = {6,4}
-DEDLayout_l1["Angles"] = {10,1}
-DEDLayout_l1["T1"] = {14,2}
-DEDLayout_l1["T1_code"] = {18,3,0,"_inv","I"}
-DEDLayout_l1["Asterisks_T1_both"] = {17,1,21,"","I"}
+DEDLayout_l1["HARM HARM"] = {1,4}
+DEDLayout_l1["HARM TblNum"] = {6,4}
+DEDLayout_l1["HARM Angles"] = {10,1}
+DEDLayout_l1["HARM T1"] = {14,2}
+DEDLayout_l1["HARM T1_code"] = {18,3,0,"_inv","I"}
+DEDLayout_l1["HARM Asterisks_T1_both"] = {17,1,21,"","I"}
 -- VIP
 DEDLayout_l1["Visual initial point to TGT Label"] = {6,10,0,"_inv","I"}
 DEDLayout_l1["VIP to TGT Label Asteriscs_both"] = {5,1,16,"","I"}
@@ -821,9 +822,14 @@ DEDLayout_l1["INS_STPT_IncDecSymbol"]		= {23, 1}
 DEDLayout_l1["AUTO_ACAL"]					= { 1, 9}
 DEDLayout_l1["ACAL_AUTO_Sensors"]			= {12, 4, 0,"_inv","I"}
 DEDLayout_l1["Asterisks_AUTO_both"]			= {11, 1,16,"","I"}
+--HTS MAN
+DEDLayout_l1["HTS MAN HTS"]					= { 8, 7}
+--HTS SEAD
+DEDLayout_l1["HTS"]							= { 4, 4}
 
 --DEDLayout_l1[""] = {,}
 
+--  D E D   L I N E  1
 --TODO
 DEDLayout_l2["TODO remove lbl"]={4,20}
 --CNI
@@ -923,9 +929,9 @@ DEDLayout_l2["TGP CODE LABEL"] = {1,8}
 DEDLayout_l2["TGP CODE VALUE"] = {13,4,0,"_inv","I"}
 DEDLayout_l2["TGP CODE Asteriscs_both"] = {12,1,17,"","I"}
 --HARM
-DEDLayout_l2["T2"] = {14,2}
-DEDLayout_l2["T2_code"] = {18,3,0,"_inv","I"}
-DEDLayout_l2["Asterisks_T2_both"] = {17,1,21,"","I"}
+DEDLayout_l2["HARM T2"] = {14,2}
+DEDLayout_l2["HARM T2_code"] = {18,3,0,"_inv","I"}
+DEDLayout_l2["HARM Asterisks_T2_both"] = {17,1,21,"","I"}
 -- VIP
 DEDLayout_l2["Visual initial point number"] = {5,3}
 DEDLayout_l2["VIP number value"] = {10,3,0,"_inv","I"}
@@ -988,7 +994,19 @@ DEDLayout_l2["Asterisks_ACAL_SelectedMode_both"]= { 7, 1,12,"","I"}
 --A CAL AUTO
 DEDLayout_l2["NAV_FILTER_label"]				= { 2, 10}
 DEDLayout_l2["NAV_FILTER_mode"]					= {14,  4}
+--HTS MAN
+DEDLayout_l2["T1"]								= { 1, 1}
+DEDLayout_l2["T1_code"]							= { 3, 4, 0,"_inv","I"}
+DEDLayout_l2["Asterisks_T1_both"]				= { 2, 1, 7,"","I"}
+DEDLayout_l2["T5"]								= {10, 1}
+DEDLayout_l2["T5_code"]							= {12, 4, 0,"_inv","I"}
+DEDLayout_l2["Asterisks_T5_both"]				= {11, 1, 16,"","I"}
+--HTS SEAD
+DEDLayout_l2["HTS_LAT_lbl"]						= { 2, 3}
+DEDLayout_l2["HTS_LAT"]							= { 7,10}
+--DEDLayout_l2[""] = {,}
 
+--  D E D   L I N E  3
 --CNI
 DEDLayout_l3["VHF Label"]={1,3,0,"_inv","I"}
 DEDLayout_l3["VHF IncDecSymbol"]={5,1}
@@ -1143,9 +1161,9 @@ DEDLayout_l3["INTG M4 Decoupled Status"] = {19,1}
 DEDLayout_l3["INTG M4 Code"] = {20,1,0,"_inv","I"}
 DEDLayout_l3["INTG M4 Key"] = {21,3}
 --HARM
-DEDLayout_l3["T3"] = {14,2}
-DEDLayout_l3["T3_code"] = {18,3,0,"_inv","I"}
-DEDLayout_l3["Asterisks_T3_both"] = {17,1,21,"","I"}
+DEDLayout_l3["HARM T3"] = {14,2}
+DEDLayout_l3["HARM T3_code"] = {18,3,0,"_inv","I"}
+DEDLayout_l3["HARM Asterisks_T3_both"] = {17,1,21,"","I"}
 -- VIP
 DEDLayout_l3["VIP bearing"] = {4,4}
 DEDLayout_l3["VIP bearing value"] = {10,6,0,"_inv","I"}
@@ -1202,10 +1220,22 @@ DEDLayout_l3["ACAL ACAL_ALEV"] 				= { 8, 4}
 DEDLayout_l3["ACAL ELEV"]					= {16, 7, 0,"_inv","I"}
 DEDLayout_l3["ACAL Asterisks_ELEV_both"]	= {15, 1,23,"", "I"}
 --A CAL AUTO
-DEDLayout_l3["GPS_ACCURACY_label"]				= { 3,  9}
-DEDLayout_l3["GPS_ACCURACY_value"]				= {14,  4}
+DEDLayout_l3["GPS_ACCURACY_label"]			= { 3,  9}
+DEDLayout_l3["GPS_ACCURACY_value"]			= {14,  4}
+--HTS MAN
+DEDLayout_l3["T2"]							= { 1, 1}
+DEDLayout_l3["T2_code"]						= { 3, 4, 0,"_inv","I"}
+DEDLayout_l3["Asterisks_T2_both"]			= { 2, 1, 7,"","I"}
+DEDLayout_l3["T6"]							= {10, 1}
+DEDLayout_l3["T6_code"]						= {12, 4, 0,"_inv","I"}
+DEDLayout_l3["Asterisks_T6_both"]			= {11, 1, 16,"","I"}
+--HTS SEAD
+DEDLayout_l3["HTS_LNG_lbl"]					= { 2, 3}
+DEDLayout_l3["HTS_LNG"]						= { 7,10}
 
 --DEDLayout_l3[""] = {,}
+
+--  D E D   L I N E  4
 --TODO
 DEDLayout_l4["TODO remove label"] = {4,20}
 --CNI
@@ -1353,9 +1383,9 @@ DEDLayout_l4["INTG M2 Code"] = {4,4}
 DEDLayout_l4["INTG IJAM Mode"] = {15,4}
 DEDLayout_l4["INTG IJAM Key"] = {20,3}
 --HARM
-DEDLayout_l4["T4"] = {14,2}
-DEDLayout_l4["T4_code"] = {18,3,0,"_inv","I"}
-DEDLayout_l4["Asterisks_T4_both"] = {17,1,21,"","I"}
+DEDLayout_l4["HARM T4"] = {14,2}
+DEDLayout_l4["HARM T4_code"] = {18,3,0,"_inv","I"}
+DEDLayout_l4["HARM Asterisks_T4_both"] = {17,1,21,"","I"}
 -- VRP
 DEDLayout_l4["TGT-TO-VRP Range"] = {5,3}
 DEDLayout_l4["TGT-TO-VRP Range value"] = {10,8,0,"_inv","I"}
@@ -1423,6 +1453,20 @@ DEDLayout_l4["DTS_STATUS_label"]		= { 3, 3}
 DEDLayout_l4["DTS_STATUS_value"]		= {14, 3}
 DEDLayout_l4["DTS_ACCURACY_HPU_label"]	= { 21, 2}
 DEDLayout_l4["DTS_ACCURACY_HPU_value"]	= { 23, 1}
+--HTS MAN
+DEDLayout_l4["T3"]						= { 1, 1}
+DEDLayout_l4["T3_code"]					= { 3, 4, 0,"_inv","I"}
+DEDLayout_l4["Asterisks_T3_both"]		= { 2, 1, 7,"","I"}
+DEDLayout_l4["T7"]						= {10, 1}
+DEDLayout_l4["T7_code"]					= {12, 4, 0,"_inv","I"}
+DEDLayout_l4["Asterisks_T7_both"]		= {11, 1, 16,"","I"}
+--HTS SEAD
+DEDLayout_l4["HTS_ELEV_lbl"]			= { 2, 3}
+DEDLayout_l4["HTS_ELEV"]				= { 7,10}
+
+--DEDLayout_l4[""] = {,}
+
+--  D E D   L I N E  5
 
 --CNI
 DEDLayout_l5["IFF Modes Label"]={1,1}
@@ -1544,9 +1588,9 @@ DEDLayout_l5["INTG Scratchpad"] = {10,5,0,"_inv","I"}
 DEDLayout_l5["INTG COUPLE Mode"] = {16,4,0,"_inv","I"}
 DEDLayout_l5["INTG COUPLE Key"] = {20,3}
 --HARM
-DEDLayout_l5["T5"] = {14,2}
-DEDLayout_l5["T5_code"] = {18,3,0,"_inv","I"}
-DEDLayout_l5["Asterisks_T5_both"] = {17,1,21,"","I"}
+DEDLayout_l5["HARM T5"] = {14,2}
+DEDLayout_l5["HARM T5_code"] = {18,3,0,"_inv","I"}
+DEDLayout_l5["HARM Asterisks_T5_both"] = {17,1,21,"","I"}
 -- VIP & VRP
 DEDLayout_l5["Elevation"] = {4,4}
 DEDLayout_l5["Elevation value"] = {10,8,0,"_inv","I"}
@@ -1598,8 +1642,8 @@ DEDLayout_l5["RNG_WIND_AT_ALTITUDE_Value"]	= {13,10}
 DEDLayout_l5["HOME_WIND_AT_ALTITUDE"]		= { 7, 4}
 DEDLayout_l5["HOME_WIND_AT_ALTITUDE_Value"] = {13,10}
 --FIX
-DEDLayout_l5["FIX GPS ACCURACY label"]			= { 4, 9}
-DEDLayout_l5["FIX GPS ACCURACY value"] 			= {14, 4}
+DEDLayout_l5["FIX GPS ACCURACY label"]		= { 4, 9}
+DEDLayout_l5["FIX GPS ACCURACY value"]		= {14, 4}
 --A CAL MAN
 DEDLayout_l5["ACAL_POS_DELTA"]				= { 8, 5}
 DEDLayout_l5["ACAL_POS_DELTA_label"] 		= { 2, 3}
@@ -1607,6 +1651,16 @@ DEDLayout_l5["DELTA_POS"] 					= {16, 7, 0,"_inv","I"}
 --A CAL AUTO
 DEDLayout_l5["DTS_ACCURACY_VPU_label"]		= { 21, 2}
 DEDLayout_l5["DTS_ACCURACY_VPU_value"]		= { 23, 1}
+--HTS MAN
+DEDLayout_l5["T4"]							= { 1, 1}
+DEDLayout_l5["T4_code"]						= { 3, 4, 0,"_inv","I"}
+DEDLayout_l5["Asterisks_T4_both"]			= { 2, 1, 7,"","I"}
+DEDLayout_l5["T8"]							= {10, 1}
+DEDLayout_l5["T8_code"]						= {12, 4, 0,"_inv","I"}
+DEDLayout_l5["Asterisks_T8_both"]			= {11, 1, 16,"","I"}
+--HTS SEAD
+DEDLayout_l5["HTS_TOT_lbl"]					= { 2, 3}
+DEDLayout_l5["HTS_TOT"]						= { 7,10}
 
 --DEDLayout_l5[""] = {,}
 
@@ -1691,6 +1745,8 @@ local function buildDEDLine(line)
 	local crus_home		= DED_fields["HOME_MODE"] or DED_fields["HOME_MODE_inv"]
 	local fix			= DED_fields["FIX_SENSORS"]
 	local acal			= DED_fields["ACAL_SENSORS"]
+	local harm			= DED_fields["HARM"]
+	local hts			= DED_fields["HTS"]
 	
 --Loop through Exported DED Objects
 	for k,v in pairs(DED_fields) do
@@ -1754,6 +1810,12 @@ local function buildDEDLine(line)
 -- Handle Duplicate Key Names on ACAL first page line 1 items Asterisc
 		elseif acal ~= nil and line == 3 then
 			label = acal.." "..k
+-- Handle Duplicate Key Names on HARM
+		elseif harm ~= nil then
+			label = harm.." "..k
+-- Handle Duplicate Key Names on HTS
+		elseif hts ~= nil and line == 1 and v == "HTS MAN" then
+			label = hts.." "..k
 		else
 			label = k
 		end
