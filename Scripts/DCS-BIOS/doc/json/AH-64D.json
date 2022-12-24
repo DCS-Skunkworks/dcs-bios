@@ -1526,9 +1526,9 @@
                                                                           "outputs": [ {
                                                                                              "address": 34604,
                                                                                          "description": "0 if light is off, 1 if light is on",
-                                                                                                "mask": 64,
+                                                                                                "mask": 32,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 6,
+                                                                                            "shift_by": 5,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -1542,9 +1542,9 @@
                                                                           "outputs": [ {
                                                                                              "address": 34604,
                                                                                          "description": "0 if light is off, 1 if light is on",
-                                                                                                "mask": 512,
+                                                                                                "mask": 256,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 9,
+                                                                                            "shift_by": 8,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -1558,9 +1558,9 @@
                                                                           "outputs": [ {
                                                                                              "address": 34604,
                                                                                          "description": "0 if light is off, 1 if light is on",
-                                                                                                "mask": 8192,
+                                                                                                "mask": 4096,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 13,
+                                                                                            "shift_by": 12,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -1574,9 +1574,9 @@
                                                                           "outputs": [ {
                                                                                              "address": 34604,
                                                                                          "description": "0 if light is off, 1 if light is on",
-                                                                                                "mask": 32768,
+                                                                                                "mask": 16384,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 15,
+                                                                                            "shift_by": 14,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -1590,9 +1590,9 @@
                                                                           "outputs": [ {
                                                                                              "address": 34604,
                                                                                          "description": "0 if light is off, 1 if light is on",
-                                                                                                "mask": 16384,
+                                                                                                "mask": 8192,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 14,
+                                                                                            "shift_by": 13,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -1606,9 +1606,9 @@
                                                                           "outputs": [ {
                                                                                              "address": 34604,
                                                                                          "description": "0 if light is off, 1 if light is on",
-                                                                                                "mask": 32,
+                                                                                                "mask": 16,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 5,
+                                                                                            "shift_by": 4,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -1622,9 +1622,9 @@
                                                                           "outputs": [ {
                                                                                              "address": 34604,
                                                                                          "description": "0 if light is off, 1 if light is on",
-                                                                                                "mask": 256,
+                                                                                                "mask": 128,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 8,
+                                                                                            "shift_by": 7,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -1638,9 +1638,9 @@
                                                                           "outputs": [ {
                                                                                              "address": 34604,
                                                                                          "description": "0 if light is off, 1 if light is on",
-                                                                                                "mask": 128,
+                                                                                                "mask": 64,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 7,
+                                                                                            "shift_by": 6,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -1654,9 +1654,9 @@
                                                                           "outputs": [ {
                                                                                              "address": 34604,
                                                                                          "description": "0 if light is off, 1 if light is on",
-                                                                                                "mask": 1024,
+                                                                                                "mask": 512,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 10,
+                                                                                            "shift_by": 9,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -1670,9 +1670,9 @@
                                                                           "outputs": [ {
                                                                                              "address": 34604,
                                                                                          "description": "0 if light is off, 1 if light is on",
-                                                                                                "mask": 2048,
+                                                                                                "mask": 1024,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 11,
+                                                                                            "shift_by": 10,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -1686,9 +1686,9 @@
                                                                           "outputs": [ {
                                                                                              "address": 34604,
                                                                                          "description": "0 if light is off, 1 if light is on",
-                                                                                                "mask": 4096,
+                                                                                                "mask": 2048,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 12,
+                                                                                            "shift_by": 11,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -1700,11 +1700,11 @@
                                                                        "identifier": "CPG_GROUND_OVERRIDE_L",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 34612,
+                                                                                             "address": 34614,
                                                                                          "description": "0 if light is off, 1 if light is on",
-                                                                                                "mask": 512,
+                                                                                                "mask": 256,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 9,
+                                                                                            "shift_by": 8,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -1716,7 +1716,7 @@
                                                                        "identifier": "CPG_INT_FLOOD_L",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 34616,
+                                                                                             "address": 34618,
                                                                                          "description": "gauge position",
                                                                                                 "mask": 65535,
                                                                                            "max_value": 65535,
@@ -1732,7 +1732,7 @@
                                                                        "identifier": "CPG_INT_PANEL_L",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 34614,
+                                                                                             "address": 34616,
                                                                                          "description": "gauge position",
                                                                                                 "mask": 65535,
                                                                                            "max_value": 65535,
@@ -1748,11 +1748,11 @@
                                                                        "identifier": "CPG_JETT_L_INBOARD_L",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 34612,
+                                                                                             "address": 34614,
                                                                                          "description": "0 if light is off, 1 if light is on",
-                                                                                                "mask": 8,
+                                                                                                "mask": 4,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 3,
+                                                                                            "shift_by": 2,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -1764,11 +1764,11 @@
                                                                        "identifier": "CPG_JETT_L_OUTBOARD_L",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 34612,
+                                                                                             "address": 34614,
                                                                                          "description": "0 if light is off, 1 if light is on",
-                                                                                                "mask": 4,
+                                                                                                "mask": 2,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 2,
+                                                                                            "shift_by": 1,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -1780,11 +1780,11 @@
                                                                        "identifier": "CPG_JETT_L_TIP_L",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 34612,
+                                                                                             "address": 34614,
                                                                                          "description": "0 if light is off, 1 if light is on",
-                                                                                                "mask": 2,
+                                                                                                "mask": 1,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 1,
+                                                                                            "shift_by": 0,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -1796,11 +1796,11 @@
                                                                        "identifier": "CPG_JETT_R_INBOARD_L",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 34612,
+                                                                                             "address": 34614,
                                                                                          "description": "0 if light is off, 1 if light is on",
-                                                                                                "mask": 16,
+                                                                                                "mask": 8,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 4,
+                                                                                            "shift_by": 3,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -1812,11 +1812,11 @@
                                                                        "identifier": "CPG_JETT_R_OUTBOARD_L",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 34612,
+                                                                                             "address": 34614,
                                                                                          "description": "0 if light is off, 1 if light is on",
-                                                                                                "mask": 64,
+                                                                                                "mask": 32,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 6,
+                                                                                            "shift_by": 5,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -1828,11 +1828,11 @@
                                                                        "identifier": "CPG_JETT_R_TIP_L",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 34612,
+                                                                                             "address": 34614,
                                                                                          "description": "0 if light is off, 1 if light is on",
-                                                                                                "mask": 32,
+                                                                                                "mask": 16,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 5,
+                                                                                            "shift_by": 4,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -1844,11 +1844,11 @@
                                                                        "identifier": "CPG_MASTER_ARM_ARM_L",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 34612,
+                                                                                             "address": 34614,
                                                                                          "description": "0 if light is off, 1 if light is on",
-                                                                                                "mask": 128,
+                                                                                                "mask": 64,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 7,
+                                                                                            "shift_by": 6,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -1860,11 +1860,11 @@
                                                                        "identifier": "CPG_MASTER_ARM_SAFE_L",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 34612,
+                                                                                             "address": 34614,
                                                                                          "description": "0 if light is off, 1 if light is on",
-                                                                                                "mask": 256,
+                                                                                                "mask": 128,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 8,
+                                                                                            "shift_by": 7,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -1878,9 +1878,9 @@
                                                                           "outputs": [ {
                                                                                              "address": 34604,
                                                                                          "description": "0 if light is off, 1 if light is on",
-                                                                                                "mask": 16,
+                                                                                                "mask": 8,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 4,
+                                                                                            "shift_by": 3,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -1894,9 +1894,9 @@
                                                                           "outputs": [ {
                                                                                              "address": 34604,
                                                                                          "description": "0 if light is off, 1 if light is on",
-                                                                                                "mask": 8,
+                                                                                                "mask": 4,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 3,
+                                                                                            "shift_by": 2,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -1908,11 +1908,11 @@
                                                                        "identifier": "CPG_PROCESSOR_SP_1_L",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 34612,
+                                                                                             "address": 34614,
                                                                                          "description": "0 if light is off, 1 if light is on",
-                                                                                                "mask": 1024,
+                                                                                                "mask": 512,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 10,
+                                                                                            "shift_by": 9,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -1924,27 +1924,27 @@
                                                                        "identifier": "CPG_PROCESSOR_SP_2_L",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 34612,
+                                                                                             "address": 34614,
                                                                                          "description": "0 if light is off, 1 if light is on",
-                                                                                                "mask": 2048,
+                                                                                                "mask": 1024,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 11,
+                                                                                            "shift_by": 10,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
                                                                  },
                                                  "CPG_SIGNAL_L": {
                                                                          "category": "CPG Internal Lights",
-                                                                     "control_type": "led",
-                                                                      "description": "Gunner Signal Light (color)",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "Gunner Signal Light (multi color)",
                                                                        "identifier": "CPG_SIGNAL_L",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 34612,
-                                                                                         "description": "0 if light is off, 1 if light is on",
-                                                                                                "mask": 4096,
-                                                                                           "max_value": 1,
-                                                                                            "shift_by": 12,
+                                                                                             "address": 34620,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -1956,11 +1956,11 @@
                                                                        "identifier": "CPG_T_WHEEL_UNLOCK_L",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 34612,
+                                                                                             "address": 34604,
                                                                                          "description": "0 if light is off, 1 if light is on",
-                                                                                                "mask": 1,
+                                                                                                "mask": 32768,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 0,
+                                                                                            "shift_by": 15,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -7578,7 +7578,7 @@
                                                                        "identifier": "EXT_FORMATION_LIGHTS",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 34620,
+                                                                                             "address": 34624,
                                                                                          "description": "Formation Lights (yellow green)",
                                                                                                 "mask": 65535,
                                                                                            "max_value": 65535,
@@ -7594,11 +7594,11 @@
                                                                        "identifier": "EXT_LAND_LIGHT",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 34618,
+                                                                                             "address": 34622,
                                                                                          "description": "Landing Light (white)",
-                                                                                                "mask": 16,
+                                                                                                "mask": 4,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 4,
+                                                                                            "shift_by": 2,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -7610,11 +7610,11 @@
                                                                        "identifier": "EXT_LIGHT_L",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 34618,
+                                                                                             "address": 34622,
                                                                                          "description": "Left Light (white)",
-                                                                                                "mask": 4,
+                                                                                                "mask": 1,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 2,
+                                                                                            "shift_by": 0,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -7626,11 +7626,11 @@
                                                                        "identifier": "EXT_LIGHT_R",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 34618,
+                                                                                             "address": 34622,
                                                                                          "description": "Right Light (white)",
-                                                                                                "mask": 8,
+                                                                                                "mask": 2,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 3,
+                                                                                            "shift_by": 1,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -7642,11 +7642,11 @@
                                                                        "identifier": "EXT_LIGHT_TAIL",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 34612,
+                                                                                             "address": 34614,
                                                                                          "description": "Tail Light (white)",
-                                                                                                "mask": 32768,
+                                                                                                "mask": 8192,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 15,
+                                                                                            "shift_by": 13,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -7658,11 +7658,11 @@
                                                                        "identifier": "EXT_POSITION_LIGHT_LEFT",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 34612,
+                                                                                             "address": 34614,
                                                                                          "description": "Left Position Light (red)",
-                                                                                                "mask": 8192,
+                                                                                                "mask": 2048,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 13,
+                                                                                            "shift_by": 11,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -7674,11 +7674,11 @@
                                                                        "identifier": "EXT_POSITION_LIGHT_RIGHT",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 34612,
+                                                                                             "address": 34614,
                                                                                          "description": "Right Position Light (green)",
-                                                                                                "mask": 16384,
+                                                                                                "mask": 4096,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 14,
+                                                                                            "shift_by": 12,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -7690,7 +7690,7 @@
                                                                        "identifier": "EXT_ROTOR",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 34626,
+                                                                                             "address": 34630,
                                                                                          "description": "Rotor Move",
                                                                                                 "mask": 65535,
                                                                                            "max_value": 65535,
@@ -7706,11 +7706,11 @@
                                                                        "identifier": "EXT_STROBE_L",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 34618,
+                                                                                             "address": 34614,
                                                                                          "description": "Left Strobe Light (red)",
-                                                                                                "mask": 1,
+                                                                                                "mask": 16384,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 0,
+                                                                                            "shift_by": 14,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -7722,11 +7722,11 @@
                                                                        "identifier": "EXT_STROBE_R",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 34618,
+                                                                                             "address": 34614,
                                                                                          "description": "Right Strobe Light (red)",
-                                                                                                "mask": 2,
+                                                                                                "mask": 32768,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 1,
+                                                                                            "shift_by": 15,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -7738,7 +7738,7 @@
                                                                        "identifier": "EXT_WIPER_CPG",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 34624,
+                                                                                             "address": 34628,
                                                                                          "description": "Wiper Gunner",
                                                                                                 "mask": 65535,
                                                                                            "max_value": 65535,
@@ -7754,7 +7754,7 @@
                                                                        "identifier": "EXT_WIPER_PLT",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 34622,
+                                                                                             "address": 34626,
                                                                                          "description": "Wiper Pilot",
                                                                                                 "mask": 65535,
                                                                                            "max_value": 65535,
@@ -7770,11 +7770,11 @@
                                                                        "identifier": "EXT_WOW_LEFT",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 34618,
+                                                                                             "address": 34622,
                                                                                          "description": "Weight ON Wheels Left Gear",
-                                                                                                "mask": 128,
+                                                                                                "mask": 32,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 7,
+                                                                                            "shift_by": 5,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -7786,11 +7786,11 @@
                                                                        "identifier": "EXT_WOW_RIGHT",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 34618,
+                                                                                             "address": 34622,
                                                                                          "description": "Weight ON Wheels Right Gear",
-                                                                                                "mask": 64,
+                                                                                                "mask": 16,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 6,
+                                                                                            "shift_by": 4,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -7802,11 +7802,11 @@
                                                                        "identifier": "EXT_WOW_TAIL",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 34618,
+                                                                                             "address": 34622,
                                                                                          "description": "Weight ON Wheels Tail Gear",
-                                                                                                "mask": 32,
+                                                                                                "mask": 8,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 5,
+                                                                                            "shift_by": 3,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -8004,11 +8004,11 @@
                                                                        "identifier": "PLT_CMWS_AFT_LEFT_BRT_L",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 34618,
+                                                                                             "address": 34622,
                                                                                          "description": "Aft left sector lights, bright (orange)",
-                                                                                                "mask": 32768,
+                                                                                                "mask": 8192,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 15,
+                                                                                            "shift_by": 13,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -8020,11 +8020,11 @@
                                                                        "identifier": "PLT_CMWS_AFT_LEFT_DIM_L",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 34632,
+                                                                                             "address": 34636,
                                                                                          "description": "Aft left sector lights, dim (orange)",
-                                                                                                "mask": 2048,
+                                                                                                "mask": 512,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 11,
+                                                                                            "shift_by": 9,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -8036,11 +8036,11 @@
                                                                        "identifier": "PLT_CMWS_AFT_RIGHT_BRT_L",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 34632,
+                                                                                             "address": 34622,
                                                                                          "description": "Aft right sector lights, bright (orange)",
-                                                                                                "mask": 256,
+                                                                                                "mask": 16384,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 8,
+                                                                                            "shift_by": 14,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -8052,11 +8052,11 @@
                                                                        "identifier": "PLT_CMWS_AFT_RIGHT_DIM_L",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 34632,
+                                                                                             "address": 34636,
                                                                                          "description": "Aft right sector lights, dim (orange)",
-                                                                                                "mask": 4096,
+                                                                                                "mask": 1024,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 12,
+                                                                                            "shift_by": 10,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -8097,7 +8097,7 @@
                                                                        "identifier": "PLT_CMWS_BIT_LINE_1",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 34640,
+                                                                                             "address": 34644,
                                                                                          "description": "Bit test line 1 ('BIT'/'SYS')",
                                                                                           "max_length": 3,
                                                                                               "suffix": "",
@@ -8111,7 +8111,7 @@
                                                                        "identifier": "PLT_CMWS_BIT_LINE_2",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 34644,
+                                                                                             "address": 34648,
                                                                                          "description": "Bit test line 2 ('I/P'/'PASS')",
                                                                                           "max_length": 4,
                                                                                               "suffix": "",
@@ -8154,7 +8154,7 @@
                                                                        "identifier": "PLT_CMWS_CHAFF_COUNT",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 34638,
+                                                                                             "address": 34642,
                                                                                          "description": "Chaff Count",
                                                                                           "max_length": 2,
                                                                                               "suffix": "",
@@ -8168,7 +8168,7 @@
                                                                        "identifier": "PLT_CMWS_CHAFF_LETTER",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 34636,
+                                                                                             "address": 34640,
                                                                                          "description": "Chaff Letter (C)",
                                                                                           "max_length": 1,
                                                                                               "suffix": "",
@@ -8182,11 +8182,11 @@
                                                                        "identifier": "PLT_CMWS_D_BRT_L",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 34618,
+                                                                                             "address": 34622,
                                                                                          "description": "D light, bright (orange)",
-                                                                                                "mask": 4096,
+                                                                                                "mask": 1024,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 12,
+                                                                                            "shift_by": 10,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -8198,11 +8198,11 @@
                                                                        "identifier": "PLT_CMWS_D_DIM_L",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 34618,
+                                                                                             "address": 34622,
                                                                                          "description": "D light, dim (orange)",
-                                                                                                "mask": 8192,
+                                                                                                "mask": 2048,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 13,
+                                                                                            "shift_by": 11,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -8214,7 +8214,7 @@
                                                                        "identifier": "PLT_CMWS_FLARE_COUNT",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 34634,
+                                                                                             "address": 34638,
                                                                                          "description": "Flare Count",
                                                                                           "max_length": 2,
                                                                                               "suffix": "",
@@ -8228,7 +8228,7 @@
                                                                        "identifier": "PLT_CMWS_FLARE_LETTER",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 34632,
+                                                                                             "address": 34636,
                                                                                          "description": "Flare Letter (F)",
                                                                                           "max_length": 1,
                                                                                               "suffix": "",
@@ -8242,11 +8242,11 @@
                                                                        "identifier": "PLT_CMWS_FWD_LEFT_BRT_L",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 34618,
+                                                                                             "address": 34622,
                                                                                          "description": "Forward left sector lights, bright (orange)",
-                                                                                                "mask": 16384,
+                                                                                                "mask": 4096,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 14,
+                                                                                            "shift_by": 12,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -8258,11 +8258,11 @@
                                                                        "identifier": "PLT_CMWS_FWD_LEFT_DIM_L",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 34632,
+                                                                                             "address": 34636,
                                                                                          "description": "Forward left sector lights, dim (orange)",
-                                                                                                "mask": 1024,
+                                                                                                "mask": 256,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 10,
+                                                                                            "shift_by": 8,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -8274,11 +8274,11 @@
                                                                        "identifier": "PLT_CMWS_FWD_RIGHT_BRT_L",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 34632,
+                                                                                             "address": 34622,
                                                                                          "description": "Forward right sector lights, bright (orange)",
-                                                                                                "mask": 512,
+                                                                                                "mask": 32768,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 9,
+                                                                                            "shift_by": 15,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -8290,11 +8290,11 @@
                                                                        "identifier": "PLT_CMWS_FWD_RIGHT_DIM_L",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 34632,
+                                                                                             "address": 34636,
                                                                                          "description": "Forward right sector lights, dim (orange)",
-                                                                                                "mask": 8192,
+                                                                                                "mask": 2048,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 13,
+                                                                                            "shift_by": 11,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -8418,7 +8418,7 @@
                                                                        "identifier": "PLT_CMWS_PAGE",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 34628,
+                                                                                             "address": 34632,
                                                                                          "description": "CMWS Display Page (NONE/MAIN/TEST)",
                                                                                           "max_length": 4,
                                                                                               "suffix": "",
@@ -8491,11 +8491,11 @@
                                                                        "identifier": "PLT_CMWS_R_BRT_L",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 34618,
+                                                                                             "address": 34622,
                                                                                          "description": "R light, bright (orange)",
-                                                                                                "mask": 1024,
+                                                                                                "mask": 256,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 10,
+                                                                                            "shift_by": 8,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -8507,11 +8507,11 @@
                                                                        "identifier": "PLT_CMWS_R_DIM_L",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 34618,
+                                                                                             "address": 34622,
                                                                                          "description": "R light, dim (orange)",
-                                                                                                "mask": 2048,
+                                                                                                "mask": 512,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 11,
+                                                                                            "shift_by": 9,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
@@ -9331,11 +9331,11 @@
                                                                                      } ],
                                                               "momentary_positions": "none",
                                                                           "outputs": [ {
-                                                                                             "address": 34618,
+                                                                                             "address": 34622,
                                                                                          "description": "selector position",
-                                                                                                "mask": 256,
+                                                                                                "mask": 64,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 8,
+                                                                                            "shift_by": 6,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ],
@@ -9469,11 +9469,11 @@
                                                                                      } ],
                                                               "momentary_positions": "none",
                                                                           "outputs": [ {
-                                                                                             "address": 34618,
+                                                                                             "address": 34622,
                                                                                          "description": "selector position",
-                                                                                                "mask": 512,
+                                                                                                "mask": 128,
                                                                                            "max_value": 1,
-                                                                                            "shift_by": 9,
+                                                                                            "shift_by": 7,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ],
@@ -10638,16 +10638,16 @@
                                                                  },
                                                  "PLT_SIGNAL_L": {
                                                                          "category": "PLT Internal Lights",
-                                                                     "control_type": "led",
-                                                                      "description": "Pilot Signal Light (color)",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "Pilot Signal Light (multi color)",
                                                                        "identifier": "PLT_SIGNAL_L",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
-                                                                                             "address": 34604,
-                                                                                         "description": "0 if light is off, 1 if light is on",
-                                                                                                "mask": 4,
-                                                                                           "max_value": 1,
-                                                                                            "shift_by": 2,
+                                                                                             "address": 34612,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
                                                                                               "suffix": "",
                                                                                                 "type": "integer"
                                                                                      } ]
