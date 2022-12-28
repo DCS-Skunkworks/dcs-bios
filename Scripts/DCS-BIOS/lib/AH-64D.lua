@@ -21,6 +21,8 @@ local define3PosTumb = BIOS.util.define3PosTumb
 
 local getDisplayLines = TextDisplay.GetDisplayLines
 
+-- remove Arg# PLT 956; CPG 957
+
 --Functions
 local function parse_ku(indicator_id)
 	local ku = parse_indication(indicator_id)
