@@ -888,10 +888,10 @@ defineFloat("STBY_ASI_AIRSPEED", 217, {0, 1}, "Standby Airspeed Indicator", "Air
 defineRotary("STBY_PRESS_ALT", 26, 3001, 224, "Standby Altimeter", "Pressure Setting Knob")
 defineFloat("STBY_ALT_100_FT_PTR", 218, {0, 1}, "Standby Altimeter", "100 ft pointer")
 defineFloat("STBY_ALT_10000_FT_CNT", 220, {0, 1}, "Standby Altimeter", "10000 ft count")
-defineFloatWithValueConversion("STBY_ALT_1000_FT_CNT", 219, {0, 1}, {-1.0, 0.0, 0.0, 10.0}, {0.9, 1.0, 0.0, 1.0}, "Standby Altimeter", "1000 ft count")
+defineFloat("STBY_ALT_1000_FT_CNT", 219, {0, 1}, "Standby Altimeter", "1000 ft count")
 defineFloat("STBY_PRESS_SET_0", 221, {0, 1}, "Standby Altimeter", "Pressure Setting 1")
 defineFloat("STBY_PRESS_SET_1", 222, {0, 1}, "Standby Altimeter", "Pressure Setting 2")
-defineFloatWithValueConversion("STBY_PRESS_SET_2", 223, {0, 1}, {26, 31}, {0, 1}, "Standby Altimeter", "Pressure Setting 3")
+defineFloat("STBY_PRESS_SET_2", 223, {0, 1}, "Standby Altimeter", "Pressure Setting 3")
 
 -- 29. Standby Rate of Climb Indicator
 defineFloat("VSI", 225, {-1, 1}, "Standby Rate of Climb Indicator", "Vertical Speed")
