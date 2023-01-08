@@ -1,4 +1,4 @@
---07.08.2022
+--08.01.2023
 BIOS.util = {}
 
 function BIOS.util.log2(n)
@@ -1330,4 +1330,30 @@ function BIOS.util.define3Pos2CommandSwitchF5(msg, device_id, pos_command, neg_c
 		if fromState == 0 and toState == -1 then dev:performClickableAction(pos_command, -1) end
 		if fromState == -1 and toState == 0 then dev:performClickableAction(neg_command, 1) end
 	end
+end
+
+function BIOS.util.defineFloatWithValueConversion(msg, arg_number, limits, input_range, output_range, category, description)
+	local intervalLength = limits[2] - limits[1]
+	local alloc = moduleBeingDefined.memoryMap:allocateInt { maxValue = 65535 }
+	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
+	    local xyz = ValueConvert(dev0:get_argument_value(arg_number), input_range, output_range)
+		alloc:setValue(((xyz - limits[1]) / intervalLength) * 65535)
+	end
+	document {
+		identifier = msg,
+		category = category,
+		description = description,
+		control_type = "analog_gauge",
+		inputs = {},
+		outputs = {
+			{ ["type"] = "integer",
+			  suffix = "",
+			  address = alloc.address,
+			  mask = alloc.mask,
+			  shift_by = alloc.shiftBy,
+			  max_value = 65535,
+			  description = "gauge position"
+			}
+		}
+	}
 end

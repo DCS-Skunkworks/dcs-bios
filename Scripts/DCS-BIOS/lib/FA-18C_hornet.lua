@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("FA-18C_hornet", 0x7400)
 BIOS.protocol.setExportModuleAircrafts({"FA-18C_hornet", "EA-18G", "FA-18E", "FA-18F"}) -- FA-18C + Mods
--- F/A-18 Module created by AndrewW, modified by WarLord,charliefoxtwo&DeadMeat v1.6
+-- F/A-18 Module created by AndrewW, modified by WarLord,charliefoxtwo&DeadMeat v1.7
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 
@@ -215,34 +215,6 @@ local function defineEjectionHandleSwitch(msg, device_id, command, arg_number, c
 	end
 end
 
-
-local function defineFloatWithValueConversion(msg, arg_number, limits, input_range, output_range, category, description)
-	local intervalLength = limits[2] - limits[1]
-	local alloc = moduleBeingDefined.memoryMap:allocateInt { maxValue = 65535 }
-	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
-	    local xyz = ValueConvert(dev0:get_argument_value(arg_number), input_range, output_range)
-		alloc:setValue(((xyz - limits[1]) / intervalLength) * 65535)
-	end
-	document {
-		identifier = msg,
-		category = category,
-		description = description,
-		control_type = "analog_gauge",
-		inputs = {},
-		outputs = {
-			{ ["type"] = "integer",
-			  suffix = "",
-			  address = alloc.address,
-			  mask = alloc.mask,
-			  shift_by = alloc.shiftBy,
-			  max_value = 65535,
-			  description = "gauge position"
-			}
-		}
-	}
-end
-
-
 -- functions by Capt Zeen
 local function defineFrequency(msg, id_device_number, category, description)
 	
@@ -269,7 +241,6 @@ local function defineFrequency(msg, id_device_number, category, description)
 		}
 	}
 end
-
 
 local function defineFloatFromUFCChannel(msg, _channel, category, description)
 	
@@ -347,7 +318,7 @@ local function defineFloatFromUFCChannel(msg, _channel, category, description)
 	}
 
 end
--- end of functions adeed by Capt Zeen
+-- end of functions added by Capt Zeen
 
 -- radio freqs: by Capt Zeen
 defineFrequency("COMM1_FREQ", 38, "Comms frequency", "COMM1 FREQ")
