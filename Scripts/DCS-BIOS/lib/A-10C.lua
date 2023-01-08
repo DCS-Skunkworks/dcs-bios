@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("A-10C", 0x1000)
 BIOS.protocol.setExportModuleAircrafts({"A-10C", "A-10C_2"})
---overhaul by WarLord v2.4
+--overhaul by WarLord&DeadMeat v2.5
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 
@@ -1266,6 +1266,13 @@ defineString("ILS_FREQUENCY_S", getILSFrequency, 6, "ILS Panel", "ILS Frequency 
 defineString("VHF_AM_FREQUENCY_S", getVhfAmFreqency, 7, "VHF AM Radio", "VHF AM Frequency (String)")
 defineString("VHF_FM_FREQUENCY_S", getVhfFmFreqency, 7, "VHF FM Radio", "VHF FM Frequency (String)")
 
+defineFloat("INT_CONSOLE_L_BRIGHT", 800, {0, 1}, "Light System Control Panel", "Console Light Brightness")
+defineFloat("INT_ENG_INST_L_BRIGHT", 801, {0, 1}, "Light System Control Panel", "Engine Instrument Light Brightness")
+defineFloat("INT_FLT_INST_L_BRIGHT", 802, {0, 1}, "Light System Control Panel", "Flight Instruments Light Brightness")
+defineFloat("INT_AUX_INST_L_BRIGHT", 803, {0, 1}, "Light System Control Panel", "Auxiliary Instruments Light Brightness")
+defineFloat("INT_FLOOD_L_BRIGHT", 806, {0, 1}, "Light System Control Panel", "Flood Light Brightness")
+defineFloat("INT_CAUTION_L_BRIGHT", 905, {0, 1}, "Light System Control Panel", "Caution Lights Brightness")
+
 defineToggleSwitch("MIRROR_TOGGLE", 0, 3001, 719, "Misc", "Toggle Mirrors")
 defineFloat("OXY_FLOW_G", 600, {0, 1}, "Oxygen Regulator Panel", "Flow Indicator (on/off) (as Gauge)")
 
@@ -1279,13 +1286,6 @@ defineRadioWheel("ARC210_FREQ2", 76, 3019, 3020, {-0.1, 0.1}, 555, 0.1, {0, 1}, 
 defineRadioWheel("ARC210_FREQ3", 76, 3021, 3022, {-0.1, 0.1}, 556, 0.1, {0, 1}, nil, "ARC-210", "Frequency Selector 3")
 defineRadioWheel("ARC210_FREQ4", 76, 3023, 3024, {-0.1, 0.1}, 557, 0.1, {0, 1}, nil, "ARC-210", "Frequency Selector 4")
 defineRadioWheel("ARC210_FREQ5", 76, 3025, 3026, {-0.1, 0.1}, 558, 0.1, {0, 1}, nil, "ARC-210", "Frequency Selector 5")
-
-defineFloat("INTERNAL_CONSOLE_LIGHTS", 800, {0, 1}, "Light System Control Panel", "Console Lights (as Gauge)")
-defineFloat("INTERNAL_ENG_INST_LIGHTS", 801, {0, 1}, "Light System Control Panel", "Engine Instrument Lights (as Gauge)")
-defineFloat("INTERNAL_FLT_INST_LIGHTS", 802, {0, 1}, "Light System Control Panel", "Flight Instruments Lights (as Gauge)")
-defineFloat("INTERNAL_AUX_INST_LIGHTS", 803, {0, 1}, "Light System Control Panel", "Auxiliary Instruments Lights (as Gauge)")
-defineFloat("INTERNAL_FLOOD_LIGHTS", 806, {0, 1}, "Light System Control Panel", "Flood Lights (as Gauge)")
-defineFloat("INT_CAUTION_L_BRIGHT", 905, {0, 1}, "Light System Control Panel", "Caution Lights (as Gauge)")
 
 defineMultipositionSwitch("ARC210_MODE_L", 76, 3043, 551, 7, 0.1, "ARC-210", "ARC-210 Left Mode Dial")
 definePotentiometer("UHF02", 76, 3021, 552, {0, 1}, "ARC-210", "UHF-02")
