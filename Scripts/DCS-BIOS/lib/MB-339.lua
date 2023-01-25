@@ -171,6 +171,12 @@ definePushButton("ENG_START", 1, 3180, 239, "Engine", "Engine Start")
 
 --
 
+--Pressurisation
+defineToggleSwitch("PRESS_RAMAIR_SCOOP", 1, 3197, 590, "Pressurisation", "Ram Air Scoop")
+defineToggleSwitch("PRESS_CABIN_PRESS", 1, 3198, 264, "Pressurisation", "Cabin Pressure Switch")
+defineToggleSwitch("PRESS_CABIN_PRESS_CVR", 1, 3199, 234, "Pressurisation", "Cabin Pressure Switch Guard")
+definePotentiometer("PRESS_CABIN_TEMP", 1, 3200, 179, {0, 1}, "Pressurisation", "Cabin Temp")
+
 --Smoke
 defineToggleSwitch("SMOKE_MASTER", 1, 3201, 330, "Smoke", "Smoke Master Switch")
 defineToggleSwitch("SMOKE_WHITE", 1, 3202, 331, "Smoke", "Smoke White Switch")
