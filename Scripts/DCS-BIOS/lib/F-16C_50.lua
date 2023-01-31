@@ -1,8 +1,7 @@
 BIOS.protocol.beginModule("F-16C_50", 0x4400)
 BIOS.protocol.setExportModuleAircrafts({"F-16C_50"})
--- V1.15 by WarLord
--- Tested and fixes by BuzzKillington, afewyards
--- DED Display,MAGV,INS,UHF,CMDS,HARM,VIP & VRP, A-CAL, HTS by Matchstick & AMVI_Ares, STPT MGRS by RafaPolit
+-- V1.15a by WarLord ft. BuzzKillington, afewyards
+-- DED Display by Matchstick, AMVI_Ares & RafaPolit
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 
@@ -25,7 +24,7 @@ local defineFloat = BIOS.util.defineFloat
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 local defineSpringloaded_3PosTumb = BIOS.util.defineSpringloaded_3PosTumb
 
----------------------------- Switches
+---- Switches
 --Control Interface
 defineToggleSwitch("DIGI_BAK_SW", 2, 3001, 566, "Control Interface", "DIGITAL BACKUP Switch, OFF/BACKUP")
 defineToggleSwitch("ALT_FLAPS_SW", 2, 3002, 567, "Control Interface", "ALT FLAPS Switch, NORM/EXTEND")
@@ -353,7 +352,7 @@ defineToggleSwitch("SEAT_EJECT_SAFE", 10, 3009, 785,"Cockpit Mechanics" ,"Ejecti
 defineSpringloaded_3PosTumb("CANOPY_SW", 10, 3003, 3002, 606, "Cockpit Mechanics", "Canopy Switch, OPEN/HOLD/CLOSE")
 defineToggleSwitch("HIDE_STICK", 10, 3015, 796,"Cockpit Mechanics" ,"Hide Stick toggle")
 
----------------------------- Lights
+---- Lights
 --Caution Light Panel
 defineIndicatorLight("LIGHT_FLCS_FAULT", 630, "Warning, Caution and IndicatorLights","FLCS FAULT Light (yellow)")
 defineIndicatorLight("LIGHT_ENGINE_FAULT", 631, "Warning, Caution and IndicatorLights","ENGINE FAULT Light (yellow)")
@@ -516,11 +515,11 @@ defineIndicatorLight("LIGHT_ECM_SPL_T", 499, "Warning, Caution and IndicatorLigh
 --Div
 defineIndicatorLight("LIGHT_MARKER_BEACON", 157, "Warning, Caution and IndicatorLights","MARKER BEACON Light (green)")
 
----------------------------- Gauges
+---- Gauges
 defineFloat("CANOPY_POS", 7, {0, 1}, "Cockpit Mechanics", "Canopy Position")
 defineFloat("SEAT_HEIGHT", 783, {-1, 1}, "Cockpit Mechanics", "Seat Height")
 
---AOA
+--AOA				
 defineFloat("AOA_VALUE", 15, {-1, 1}, "AoA", "AoA Value")
 
 --Altimeter AAU-34/A
@@ -623,7 +622,7 @@ local DEDLayout_l3={}
 local DEDLayout_l4={}
 local DEDLayout_l5={}
 
---  D E D   L I N E  1
+----DED  LINE  1
 --CNI
 DEDLayout_l1["UHF Mode Rotary"]={1,3,0,"_inv","I"}
 DEDLayout_l1["UHF IncDecSymbol"]={5,1}
@@ -791,7 +790,7 @@ DEDLayout_l1["DEST_OA2"]					= {2,8}
 DEDLayout_l1["DEST_OA2_SelectedSteerpoint"]	= {10,3,0,"_inv","I"}
 DEDLayout_l1["DEST_OA2_STPT_IncDecSymbol"]	= {15,1}
 DEDLayout_l1["Asterisks_NUM_STEERPOINT"]	= {10,1,14,"","I"}
---CRUS TOS
+--CRUS TOS 
 DEDLayout_l1["CRUS_MODE"] 				= { 7, 4}
 DEDLayout_l1["INS_SelectedSteerpoint"] 	= {20, 3}
 DEDLayout_l1["INS_STPT_IncDecSymbol"] 	= {23, 1}
@@ -829,7 +828,7 @@ DEDLayout_l1["HTS"]							= { 4, 4}
 
 --DEDLayout_l1[""] = {,}
 
---  D E D   L I N E  2
+----DED LINE 2
 --TODO
 DEDLayout_l2["TODO remove lbl"]={4,20}
 --CNI
@@ -959,11 +958,11 @@ DEDLayout_l2["HMCS ALIGN Asterisks_COARSE_both"] = {1,1,8,"","I"}
 DEDLayout_l2["BULL POINT LABEL"] = {6,4}
 DEDLayout_l2["BULLSEYE NUMBER"] = {12,4,0,"_inv","I"}
 DEDLayout_l2["BULLSEYE IncDecSymbol"] = {16,1}
-DEDLayout_l2["BULLSEYE SEQUENCE Asteriscs_both"] = {11,1,15,"","I"}
+DEDLayout_l2["BULLSEYE SEQUENCE Asteriscs_both"] = {11,1,15,"","I"} 
 --MARK
 DEDLayout_l2["MARK Latitude"] = {2,3}
 DEDLayout_l2["MARK Latitude Value"] = {6,12,0,"_inv","I"}
-DEDLayout_l2["MARK Latitude Asteriscs_both"] = {5,1,18,"","I"}
+DEDLayout_l2["MARK Latitude Asteriscs_both"] = {5,1,18,"","I"} 
 --DEST DIR
 DEDLayout_l2["DEST_LAT"] = {3,3}
 DEDLayout_l2["LAT"] = {8,12,0,"_inv","I"}
@@ -976,7 +975,7 @@ DEDLayout_l2["Asterisks_GRID_DIGIT_both"] = {11,1,15,"","I"}
 DEDLayout_l2["Asterisks_GRID_SYMBOL_both"] = {11,1,15,"","I"}
 DEDLayout_l2["UTM_DEST_CNVRT"] = {18,5,0,"_inv","I"}
 DEDLayout_l2["Asterisks_CNVRT_both"] = {17,1,24,"","I"}
---CRUS TOS
+--CRUS TOS 
 DEDLayout_l2["TOS_SYSTEM_TIME_label"] 	= { 7, 4}
 DEDLayout_l2["TOS_SYSTEM_TIME_value"] 	= {13, 8}
 --CRUS EDR
@@ -1014,7 +1013,7 @@ DEDLayout_l2["HTS_LAT_lbl"]						= { 2, 3}
 DEDLayout_l2["HTS_LAT"]							= { 7,10}
 --DEDLayout_l2[""] = {,}
 
---  D E D   L I N E  3
+----DED LINE 3
 --CNI
 DEDLayout_l3["VHF Label"]={1,3,0,"_inv","I"}
 DEDLayout_l3["VHF IncDecSymbol"]={5,1}
@@ -1194,7 +1193,7 @@ DEDLayout_l3["HMCS ALIGN Asterisks_AZ_ELAZ_EL_both"] = {1,1,7,"","I"}
 --MARK
 DEDLayout_l3["MARK Longitude"] = {2,3}
 DEDLayout_l3["MARK Longitude Value"] = {6,12,0,"_inv","I"}
-DEDLayout_l3["MARK Longitude Asteriscs_both"] = {5,1,18,"","I"}
+DEDLayout_l3["MARK Longitude Asteriscs_both"] = {5,1,18,"","I"} 
 --DEST_DIR
 DEDLayout_l3["DEST_LON"] = {3,3}
 DEDLayout_l3["LON"] = {8,12,0,"_inv","I"}
@@ -1213,7 +1212,7 @@ DEDLayout_l3["Asterisks_RNG_both"] = {7,1,16,"","I"}
 DEDLayout_l3["DEST_OA2_RNG"] = {3,3}
 DEDLayout_l3["RNG"] = {8,8,0,"_inv","I"}
 -- DEDLayout_l3["Asterisks_RNG_both"] = {7,1,16,"","I"}
---CRUS TOS
+--CRUS TOS 
 DEDLayout_l3["TOS_DES_TOS_label"] 	= { 4, 7}
 DEDLayout_l3["TOS_DES_TOS_value"]	= {13, 8}
 DEDLayout_l3["Asterisks_DES_TOS_both"]	= {12, 1,21,"", "I"}
@@ -1249,7 +1248,7 @@ DEDLayout_l3["HTS_LNG"]						= { 7,10}
 
 --DEDLayout_l3[""] = {,}
 
---  D E D   L I N E  4
+----DED LINE 4
 --TODO
 DEDLayout_l4["TODO remove label"] = {4,20}
 --CNI
@@ -1419,7 +1418,7 @@ DEDLayout_l4["VIP-TO-TGT Range"]  = {5,3}
 DEDLayout_l4["VIP-TO-TGT Range value"] = {12,4,0,"_inv","I"}
 DEDLayout_l4["VIP-TO-TGT Range Asteriscs_both"] = {11,1,16,"","I"}
 DEDLayout_l4["VIP-TO-TGT Range NM"] = {17,2}
--- VIP PUP - VIP next page ... due to duplicate key names with VRP
+-- VIP PUP - VIP next page ... due to duplicate key names with VRP 
 DEDLayout_l4["VIP-TO-PUP Range"] = {5,3}
 DEDLayout_l4["VIP-TO-PUP Range value"] ={12,4,0,"_inv","I"}
 DEDLayout_l4["VIP-TO-PUP Range Asteriscs_both"] = {11,1,16,"","I"}
@@ -1450,7 +1449,7 @@ DEDLayout_l4["Asterisks_BRG_both"] = {7,1,14,"","I"}
 DEDLayout_l4["DEST_OA2_BRG"] = {3,3}
 DEDLayout_l4["BRG"] = {8,6,0,"_inv","I"}
 DEDLayout_l4["Asterisks_BRG_both"] = {7,1,14,"","I"}
---CRUS TOS
+--CRUS TOS 
 DEDLayout_l4["TOS_ETA_label"]		= { 8, 3}
 DEDLayout_l4["TOS_ETA_value"]		= {13, 8}
 --CRUS EDR
@@ -1484,7 +1483,7 @@ DEDLayout_l4["HTS_ELEV"]				= { 7,10}
 
 --DEDLayout_l4[""] = {,}
 
---  D E D   L I N E  5
+----DED LINE 5
 
 --CNI
 DEDLayout_l5["IFF Modes Label"]={1,1}
@@ -1651,7 +1650,7 @@ DEDLayout_l5["DEST OA2 DEST_OA2_BRG"] = {2,3}
 DEDLayout_l5["DEST OA2 ELEV"] = {8,8,0,"_inv","I"}
 DEDLayout_l5["DEST OA2 Asterisks_ELEV_both"] = {7,1,16,"","I"}
 DEDLayout_l5["DEST OA2 P4lbl"] = {21,3}
---CRUS-TOS
+--CRUS-TOS 
 DEDLayout_l5["TOS_REQ_GS_label"]	= { 4, 7}
 DEDLayout_l5["TOS_REQ_GS_value"]	= {13, 7}
 --CRUS-EDR
@@ -1659,7 +1658,7 @@ DEDLayout_l5["EDR_WIND_AT_ALTITUDE"] 		= { 7, 4}
 DEDLayout_l5["EDR_WIND_AT_ALTITUDE_Value"] 	= {13,10}
 --CRUS RNG
 DEDLayout_l5["RNG_WIND_AT_ALTITUDE"]		= { 7, 4}
-DEDLayout_l5["RNG_WIND_AT_ALTITUDE_Value"]	= {13,10}
+DEDLayout_l5["RNG_WIND_AT_ALTITUDE_Value"]	= {13,10} 
 --CRUS-HOME
 DEDLayout_l5["HOME_WIND_AT_ALTITUDE"]		= { 7, 4}
 DEDLayout_l5["HOME_WIND_AT_ALTITUDE_Value"] = {13,10}
@@ -1763,16 +1762,16 @@ local function buildDEDLine(line)
 	local dest_oa1 		= DED_fields["DEST_OA1"]
 	local dest_oa2 		= DED_fields["DEST_OA2"]
 	local vrp 			= DED_fields["Target to VRP Label"] or DED_fields["Target to VRP Label_inv"]
-	local vip 			= DED_fields["Visual initial point to TGT Label"] or DED_fields["Visual initial point to TGT Label_inv"]
+	local vip 			= DED_fields["Visual initial point to TGT Label"] or DED_fields["Visual initial point to TGT Label_inv"] 
 	local crus_home		= DED_fields["HOME_MODE"] or DED_fields["HOME_MODE_inv"]
 	local fix			= DED_fields["FIX_SENSORS"]
 	local acal			= DED_fields["ACAL_SENSORS"]
 	local harm			= DED_fields["HARM"]
 	local hts			= DED_fields["HTS"]
-
+	
 --Loop through Exported DED Objects
 	for k,v in pairs(DED_fields) do
--- Handle Duplicate Key Names on COM2 Guard page items
+-- Handle Duplicate Key Names on COM2 Guard page items        
 		if guard ~= nil then
 			label = guard.." "..k
 -- Handle Duplicate Key Names on IFF STAT page items
@@ -1796,16 +1795,16 @@ local function buildDEDLine(line)
 -- Handle Duplicate Key Names on DLNK A-G page Line 2 items
 		elseif dlnk_A_G ~= nil and line == 2 then
 			label = dlnk_A_G.." "..k
--- Handle Duplicate Key Names on NAV page
+-- Handle Duplicate Key Names on NAV page		
 		elseif nav_status ~= nil then
 			label = nav_status.." "..k
--- Handle Duplicate Key Names on HMCS Display page
+-- Handle Duplicate Key Names on HMCS Display page		
 		elseif hmcs_display ~= nil then
 			label = hmcs_display.." "..k
--- Handle Duplicate Key Names on HMCS Align page
+-- Handle Duplicate Key Names on HMCS Align page		
 		elseif hmcs_align ~= nil then
 			label = hmcs_align.." "..k
--- Handle Duplicate Key Names on DEST first page (UTM_DEST)	line 5 items
+-- Handle Duplicate Key Names on DEST first page (UTM_DEST)	line 5 items	
 		elseif utm_dest ~= nil and line == 5 then
 			label = utm_dest.." "..k
 -- Handle Duplicate Key Names on DEST first page (DEST_DIR) line 4 items
@@ -1820,13 +1819,13 @@ local function buildDEDLine(line)
 -- Handle Duplicate Key Names on VRP first page  line 4 items
 		elseif vrp	~= nil and line == 4 then
 			label = vrp.." "..k
--- Handle Duplicate Key Names on VIP first page line 4 items
+-- Handle Duplicate Key Names on VIP first page line 4 items		
 		elseif vip	~= nil and line == 4 then
 			label = vip.." "..k
 -- Handle Duplicate Key Names on CRUS first page line 1 items Asterisc
 		elseif crus_home ~= nil and line == 1 then
 			label = crus_home.." "..k
--- Handle Duplicate Key Names on FIX first page line 2 items
+-- Handle Duplicate Key Names on FIX first page line 2 items		
 		elseif fix	~= nil then
 			label = fix.." "..k
 -- Handle Duplicate Key Names on ACAL first page line 1 items Asterisc
@@ -1865,7 +1864,7 @@ local function buildDEDLine(line)
 				inverse = bitoper(inverse, wInverse, OR)
 				if layout[3] ~= nil and layout[3] > 0 then
 					inizio = layout[3]
-					fine = inizio+layout[2]-1
+					fine = inizio+layout[2]-1 
 					for i=inizio, fine  do
 						wInverse = wInverse + 2^i
 					end
@@ -1910,7 +1909,7 @@ defineString("DED_LINE_3", function() return DEDLine3 end, 29, "DED Output Data"
 defineString("DED_LINE_4", function() return DEDLine4 end, 29, "DED Output Data", "DED Display Line 4")
 defineString("DED_LINE_5", function() return DEDLine5 end, 29, "DED Output Data", "DED Display Line 5")
 
----------------------------- CMDS Display
+---- CMDS Display
 local CMDS_O1_Amount
 local CMDS_O2_Amount
 local CMDS_CH_Amount
@@ -1936,7 +1935,7 @@ defineString("CMDS_O2_Amount", function() return CMDS_O2_Amount end, 4, "CMDS", 
 defineString("CMDS_CH_Amount", function() return CMDS_CH_Amount end, 4, "CMDS", "CMDS CH Amount Display")
 defineString("CMDS_FL_Amount", function() return CMDS_FL_Amount end, 4, "CMDS", "CMDS FL Amount Display")
 
----------------------------- UHF Display
+---- UHF Display
 local function get_UHF_CHAN()
     local UHF = parse_indication(10)
 	if UHF and UHF.txtPresetChannel then
@@ -1984,7 +1983,7 @@ defineIndicatorLight("LIGHT_ECM", 102, "Warning, Caution and IndicatorLights", "
 defineToggleSwitch("GEAR_ALT_HANDLE", 7, 3008, 380, "Gear System", "ALT GEAR Handle, PULL/STOW")
 definePushButton("GEAR_ALT_BTN", 7, 3009, 381, "Gear System", "ALT GEAR Handle - Push to reset")
 
----------------------------- Externals
+---- Externals
 defineIntegerFromGetter("EXT_SPEED_BRAKE_RIGHT", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(182)*65535)
 end, 65535, "External Aircraft Model", "Right Speed Brake")
