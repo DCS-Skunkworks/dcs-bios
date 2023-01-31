@@ -2,7 +2,7 @@ BIOS.protocol.beginModule("F-16C_50", 0x4400)
 BIOS.protocol.setExportModuleAircrafts({"F-16C_50"})
 -- V1.15 by WarLord
 -- Tested and fixes by BuzzKillington, afewyards
--- DED Display,MAGV,INS,UHF,CMDS,HARM,VIP & VRP, A-CAL, HTS by Matchstick & AMVI_Ares
+-- DED Display,MAGV,INS,UHF,CMDS,HARM,VIP & VRP, A-CAL, HTS by Matchstick & AMVI_Ares, STPT MGRS by RafaPolit
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 
@@ -856,6 +856,14 @@ DEDLayout_l2["List Item R Name"]={19,4}
 DEDLayout_l2["STEERPOINT Latitude"] = {3,3}
 DEDLayout_l2["STEERPOINT Latitude Value"] = {8,12,0,"_inv","I"}
 DEDLayout_l2["STEERPOINT Latitude Asteriscs_both"] = {7,1,20,"","I"}
+-- STPT MGRS
+DEDLayout_l2["STEERPOINT GRID"] = {6,4}
+DEDLayout_l2["STEERPOINT GRID DIGIT Value"] = {12,2,0,"_inv","I"}
+DEDLayout_l2["STEERPOINT GRID SYMBOL Value"] = {14,1,0,"_inv","I"}
+DEDLayout_l2["STEERPOINT GRID DIGIT Asteriscs_both"] = {11,1,15,"","I"}
+DEDLayout_l2["STEERPOINT GRID SYMBOL Asteriscs_both"] = {11,1,15,"","I"}
+DEDLayout_l2["STEERPOINT GRID CNVRT"] = {17,5,0,"_inv","I"}
+DEDLayout_l2["STEERPOINT CNVRT Asteriscs_both"] = {16,1,22,"","I"}
 --TIME
 DEDLayout_l2["SYSTEM_label"]={4,6}
 DEDLayout_l2["GPS_SYSTEM_label"]={0,10}
@@ -1068,6 +1076,12 @@ DEDLayout_l3["CARA ALOW Asterisks_both"] = {14,1,22,"","I"}
 DEDLayout_l3["STEERPOINT Longitude"] = {3,3}
 DEDLayout_l3["STEERPOINT Longitude Value"] = {8,12,0,"_inv","I"}
 DEDLayout_l3["STEERPOINT Longitude Asteriscs_both"] = {7,1,20,"","I"}
+-- STPT MGRS
+DEDLayout_l3["STEERPOINT SQUARE"] = {4,6}
+DEDLayout_l3["STEERPOINT SQUARE Value1"] = {12,1,0,"_inv","I"}
+DEDLayout_l3["STEERPOINT SQUARE Value2"] = {13,1,0,"_inv","I"}
+DEDLayout_l3["STEERPOINT SQUARE Asteriscs_both"] = {11,1,14,"","I"}
+DEDLayout_l3["STEERPOINT SQUARE2 Asteriscs_both"] = {11,1,14,"","I"}
 --TIME
 DEDLayout_l3["HACK_label"] = {6,4}
 DEDLayout_l3["HACK_value"] = {13,8,0,"_inv","I"}
@@ -1301,6 +1315,10 @@ DEDLayout_l4["MSL FLOOR Asterisks_both"] = {14,1,22,"","I"}
 DEDLayout_l4["STEERPOINT Elevation"] = {2,3}
 DEDLayout_l4["STEERPOINT Elevation Value"] = {8,8,0,"_inv","I"}
 DEDLayout_l4["STEERPOINT Elevation Asteriscs_both"] = {7,1,16,"","I"}
+-- STPT MGRS
+DEDLayout_l4["STEERPOINT EAST NORTH"] = {0,10}
+DEDLayout_l4["STEERPOINT EAST NORTH Value"] = {12,11,0,"_inv","I"}
+DEDLayout_l4["STEERPOINT EAST NORTH Asteriscs_both"] = {11,1,23,"","I"}
 --TIME
 DEDLayout_l4["DELTA_TOS_label"] = {1,9}
 DEDLayout_l4["DELTA_TOS_value"] = {12,9,0,"_inv","I"}
@@ -1520,6 +1538,10 @@ DEDLayout_l5["TCN BAND Key"] = {6,3}
 DEDLayout_l5["STEERPOINT Time over current STP"] = {3,3}
 DEDLayout_l5["STEERPOINT TOS Value"] = {8,8,0,"_inv","I"}
 DEDLayout_l5["STEERPOINT TOS Asteriscs_both"] = {7,1,16,"","I"}
+-- STPT MGRS
+DEDLayout_l5["STEERPOINT ElevationMGRS"] = {6,4}
+DEDLayout_l5["STEERPOINT ElevationMGRS Value"] = {11,8,0,"_inv","I"}
+DEDLayout_l5["STEERPOINT ElevationMGRS Asteriscs_both"] = {11,1,20,"","I"}
 --TIME
 DEDLayout_l5["DATE_FORMAT_label"] = {2,8}
 DEDLayout_l5["DATE_value"] = {13,8,0,"_inv","I"}
