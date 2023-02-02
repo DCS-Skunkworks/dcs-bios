@@ -109,6 +109,13 @@ defineToggleSwitch("AFT_CLOCK_SET_PULL", 1, 3110, 29, "Clock AFT", "Aft Clock Se
 defineRotary("AFT_CLOCK_SET_KNOB", 1, 3111, 30, "Clock AFT", "Aft Clock Set Rotate")
 
 -- ADI
+definePotentiometer("FW_ADI_PITCH", 1, 3112, 15, {0, 1}, "ADI FW", "Forward ADI Pitch Adjustment")
+defineToggleSwitch("FW_ADI_CAGE", 1, 3114, 403, "ADI FW", "Forward ADI Cage")
+definePotentiometer("FW_ADI_ADJUST", 1, 3115, 401, {-1, 1}, "ADI FW", "Forward ADI Adjust")
+
+definePotentiometer("AFT_ADI_PITCH", 1, 3113, 388, {0, 1}, "ADI AFT", "Aft ADI Pitch Adjustment")
+defineToggleSwitch("AFT_ADI_CAGE", 1, 3116, 404, "ADI AFT", "Aft ADI Cage")
+definePotentiometer("AFT_ADI_ADJUST", 1, 3117, 402, {-1, 1}, "ADI AFT", "Aft ADI Adjust")
 
 --HSI
 defineRotary("FW_HSI_HDG", 1, 3118, 362, "HSI FW", "Forward HSI Heading Set")
@@ -169,7 +176,20 @@ defineToggleSwitch("ENG_MASTER", 1, 3178, 238, "Engine", "Engine Master")
 defineToggleSwitch("ENG_JPT_LIMIT", 1, 3179, 240, "Engine", "JPT Limiter")
 definePushButton("ENG_START", 1, 3180, 239, "Engine", "Engine Start")
 
---
+--Flight Controls
+defineToggleSwitch("FW_FC_CANOPY_LOCK", 1, 3181, 182, "Flight Controls FW", "Forward Canopy LOCK/UNLOCK")
+defineToggleSwitch("FW_FC_CANOPY_HOOK", 1, 3182, 183, "Flight Controls FW", "Forward Partial Opening Hook")
+definePushButton("FW_FC_CANOPY_UNLOCK", 1, 5002, 582, "Flight Controls FW", "Forward Canopy UNLOCK")
+defineToggleSwitch("FW_FC_CANOPY_HND", 1, 3183, 750, "Flight Controls FW", "Forward Canopy Handle")
+defineToggleSwitch("FW_FC_LOCK", 1, 3186, 232, "Flight Controls FW", "Forward Flight Controls LOCK/UNLOCK")
+defineToggleSwitch("FW_FC_MIRRORS", 1, 3187, 400, "Flight Controls FW", "Forward Mirrors OPEN/CLOSE")
+defineToggleSwitch("FW_FC_AILERON_SERVO_CV", 1, 3193, 235, "Flight Controls FW", "Forward Aileron Servo Guard")
+defineToggleSwitch("FW_FC_AILERON_SERVO", 1, 3194, 260, "Flight Controls FW", "Forward Aileron Servo Switch")
+
+defineToggleSwitch("AFT_FC_CANOPY_LOCK", 1, 3184, 43, "Flight Controls AFT", "Aft Canopy LOCK/UNLOCK")
+defineToggleSwitch("AFT_FC_MIRRORS", 1, 3187, 594, "Flight Controls AFT", "Aft Mirrors OPEN/CLOSE")
+defineToggleSwitch("AFT_FC_AILERON_SERVO_CV", 1, 3195, 288, "Flight Controls AFT", "Aft Aileron Servo Guard")
+defineToggleSwitch("AFT_FC_AILERON_SERVO", 1, 3196, 289, "Flight Controls AFT", "Aft Aileron Servo Switch")
 
 --Pressurisation
 defineToggleSwitch("PRESS_RAMAIR_SCOOP", 1, 3197, 590, "Pressurisation", "Ram Air Scoop")

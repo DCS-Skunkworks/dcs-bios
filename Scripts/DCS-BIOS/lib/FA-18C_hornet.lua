@@ -126,7 +126,7 @@ local function defineToggleSwitchToggleOnly2(msg, device_id, command, arg_number
 			GetDevice(device_id):performClickableAction(command, 1)
 		end
 		if fromState == 1 and toState == "0" then
-			GetDevice(device_id):performClickableAction(command, 0)
+			GetDevice(device_id):performClickableAction(command, 1)
 		end
 	end
 end
