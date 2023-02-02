@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("MirageF1", 0x8600)
 BIOS.protocol.setExportModuleAircrafts({"Mirage-F1CE"})
---by WarLord v1.1
+--by WarLord v1.3
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document  
@@ -69,11 +69,11 @@ defineFloat("P_FCS_CABIN_PRESS_G", 726, {0, 1}, "COMMON Flight Control System Ga
 --Engine and Fuel Controls
 definePushButton("P_EFC_THL_CUT_IDLE", 1, 3051, 239, "COMMON Engine-Fuel Control", "Pilot Throttle Cut/Idle Switch")
 definePushButton("P_EFC_ENG_RELIGHT", 1, 3052, 240, "COMMON Engine-Fuel Control", "Pilot In-flight Relight Control")
-define3PosTumb("P_EFC_ING_VENT_SEL", 1, 3053, 376, "COMMON Engine-Fuel Control", "Pilot Ignition/Ventilation Selector Switch")
-defineToggleSwitch("P_EFC_START_CV", 1, 3054, 374, "COMMON Engine-Fuel Control", "Pilot Start Button Cover")
-definePushButton("P_EFC_START", 1, 3055, 375, "COMMON Engine-Fuel Control", "Pilot Start Button")
-defineToggleSwitch("P_EFC_LP_MAIN_CV", 1, 3056, 380, "COMMON Engine-Fuel Control", "Pilot LP Main Cock Switch Guard")
-defineToggleSwitch("P_EFC_LP_MAIN", 1, 3057, 381, "COMMON Engine-Fuel Control", "Pilot LP Main Cock Switch")
+define3PosTumb("P_EFC_ING_VENT_SEL", 1, 3054, 376, "COMMON Engine-Fuel Control", "Pilot Ignition/Ventilation Selector Switch")
+defineToggleSwitch("P_EFC_START_CV", 1, 3055, 374, "COMMON Engine-Fuel Control", "Pilot Start Button Cover")
+definePushButton("P_EFC_START", 1, 3056, 375, "COMMON Engine-Fuel Control", "Pilot Start Button")
+defineToggleSwitch("P_EFC_LP_MAIN_CV", 1, 3057, 380, "COMMON Engine-Fuel Control", "Pilot LP Main Cock Switch Guard")
+defineToggleSwitch("P_EFC_LP_MAIN", 1, 3058, 381, "COMMON Engine-Fuel Control", "Pilot LP Main Cock Switch")
 defineToggleSwitch("P_EFC_JPT_EMERG", 1, 3062, 396, "COMMON Engine-Fuel Control", "Pilot JPT Emergency Regulation Switch")
 defineToggleSwitch("P_EFC_AB_MAIN_CV", 1, 3063, 397, "COMMON Engine-Fuel Control", "Pilot A/B Main Cock Switch Guard")
 defineToggleSwitch("P_EFC_AB_MAIN", 1, 3064, 398, "COMMON Engine-Fuel Control", "Pilot A/B Main Cock Switch")
@@ -82,7 +82,7 @@ defineToggleSwitch("P_EFC_PUMP_LP_R", 1, 3066, 378, "COMMON Engine-Fuel Control"
 defineToggleSwitch("P_EFC_PUMP_LP_L", 1, 3067, 379, "COMMON Engine-Fuel Control", "Pilot L/H LP Pump Switch")
 defineSpringloaded_3PosTumb("P_EFC_SHOCK_CONE_MAN", 1, 3069, 3068, 754, "COMMON Engine-Fuel Control", "Pilot Shock-Cone Manual Control Switch")
 definePushButton("P_EFC_SHOCK_CONE", 1, 3070, 755, "COMMON Engine-Fuel Control", "Pilot Shock-Cone Pushbutton")
-defineToggleSwitch("P_EFC_FIRE_FUEL_DIP", 1, 3071, 591, "COMMON Engine-Fuel Control", "Pilot Firing Fuel Dipper Switch")
+defineToggleSwitch("P_EFC_FIRE_FUEL_DIP", 1, 302, 591, "COMMON Engine-Fuel Control", "Pilot Firing Fuel Dipper Switch")
 defineToggleSwitch("P_EFC_FEEDER_SEL", 1, 3075, 1144, "COMMON Engine-Fuel Control", "Pilot Feeder Tank/Fuselage Selector Switch")
 definePushButton("P_EFC_FUEL_G_TEST", 1, 3076, 1145, "COMMON Engine-Fuel Control", "Pilot Fuel Gauge Test Button")
 
@@ -200,21 +200,21 @@ defineToggleSwitch("P_U_PARK_EMERG_BRAKE", 1, 3193, 84, "COMMON Undercarriage NW
 defineToggleSwitch("P_U_ANTI_SKID_CV", 1, 3194, 402, "COMMON Undercarriage NWS Brake", "Pilot Anti-Skid (SPAD) Switch Guard")
 defineToggleSwitch("P_U_ANTI_SKID", 1, 3195, 403, "COMMON Undercarriage NWS Brake", "Pilot Anti-Skid (SPAD) Switch")
 definePushButton("P_U_NWS_SENSI", 1, 3196, 756, "COMMON Undercarriage NWS Brake", "Pilot Nose Wheel Steering High Sensitivity Button")
-defineToggleSwitch("P_U_NWS_STEER_CV", 1, 3197, 757, "COMMON Undercarriage NWS Brake", "Pilot Nose Wheel Steering Switch Guard")
-defineToggleSwitch("P_U_NWS_STEER", 1, 3198, 758, "COMMON Undercarriage NWS Brake", "Pilot Nose Wheel Steering Switch")
-defineMultipositionSwitch("P_U_EMERG_UC", 1, 3199, 107, 3, 0.5, "COMMON Undercarriage NWS Brake", "Pilot Emergency U/C Handle")
+defineToggleSwitch("P_U_NWS_STEER_CV", 1, 3198, 757, "COMMON Undercarriage NWS Brake", "Pilot Nose Wheel Steering Switch Guard")
+defineToggleSwitch("P_U_NWS_STEER", 1, 3199, 758, "COMMON Undercarriage NWS Brake", "Pilot Nose Wheel Steering Switch")
+defineMultipositionSwitch("P_U_EMERG_UC", 1, 3200, 107, 3, 0.5, "COMMON Undercarriage NWS Brake", "Pilot Emergency U/C Handle")
 
 --Hydraulic System Controls
-defineToggleSwitch("P_HSC_PRESS_SEL", 1, 3200, 88, "COMMON Hydraulic System Controls", "Pilot Hydraulic Pressure Selector Switch")
-defineToggleSwitch("P_HSC_EL_PUMP", 1, 3201, 475, "COMMON Hydraulic System Controls", "Pilot Electro-Pump Switch")
+defineToggleSwitch("P_HSC_PRESS_SEL", 1, 3201, 88, "COMMON Hydraulic System Controls", "Pilot Hydraulic Pressure Selector Switch")
+defineToggleSwitch("P_HSC_EL_PUMP", 1, 3202, 475, "COMMON Hydraulic System Controls", "Pilot Electro-Pump Switch")
 
 defineFloat("P_HSC_L_PRESS_G", 721, {0, 1}, "COMMON Clock Gauges", "Pilot Left Hydraulic Pressure Gauge")
 defineFloat("P_HSC_R_PRESS_G", 722, {0, 1}, "COMMON Clock Gauges", "Pilot Right Hydraulic Pressure Gauge")
 
 -- Clock
-definePushButton("P_CLOCK_SET_KNB", 1, 3202, 232, "COMMON Clock", "Pilot Chronometer Starting Control and Clock Setting Knob")
-defineRotary("P_CLOCK_WIND_KNB", 1, 3203, 67, "COMMON Clock", "Pilot Chronometer Starting Control and Clock Winding Knob")
-defineToggleSwitch("P_CLOCK_WIND_LVR", 1, 3204, 231, "COMMON Clock", "Pilot Clock Winding/Setting Lever")
+definePushButton("P_CLOCK_SET_KNB", 1, 3210, 232, "COMMON Clock", "Pilot Chronometer Starting Control and Clock Setting Knob")
+defineRotary("P_CLOCK_WIND_KNB", 1, 3211, 67, "COMMON Clock", "Pilot Chronometer Starting Control and Clock Winding Knob")
+defineToggleSwitch("P_CLOCK_WIND_LVR", 1, 3212, 231, "COMMON Clock", "Pilot Clock Winding/Setting Lever")
 
 defineFloat("P_CLOCK_NEEDLE_M_G", 63, {0, 1}, "COMMON Clock Gauges", "Pilot Clock Minutes Needle")
 defineFloat("P_CLOCK_NEEDLE_S_G", 62, {0, 1}, "COMMON Clock Gauges", "Pilot Clock Seconds Needle")
@@ -222,10 +222,10 @@ defineFloat("P_CLOCK_NEEDLE_H_G", 64, {0, 1}, "COMMON Clock Gauges", "Pilot Cloc
 defineFloat("P_CLOCK_NEEDLE_C_G", 65, {0, 1}, "COMMON Clock Gauges", "Pilot Clock Counter Needle")
 
 --Air Data Instrument Controls
-definePotentiometer("P_ADI_SPEED_KNB", 1, 3207, 1270, {0, 1}, "COMMON Air Data Instrument Controls", "Pilot Mach/Airspeed Indicator Reference Airspeed Knob")
-defineRotary("P_ADI_ALT_BARO_SLAVE", 1, 3209, 1053, "COMMON Air Data Instrument Controls", "Pilot Slaved Altimeter Barometric Pressure Setting Knob")
-defineRotary("P_ADI_ALT_BARO_STBY", 1, 3211, 1072, "COMMON Air Data Instrument Controls", "Pilot Standby Altimeter Barometric Pressure Setting Knob")
-defineToggleSwitch("P_ADI_PROBE_HEAT", 1, 3213, 477, "COMMON Air Data Instrument Controls", "Pilot Probe Heater Switch")
+definePotentiometer("P_ADI_SPEED_KNB", 1, 3218, 1270, {0, 1}, "COMMON Air Data Instrument Controls", "Pilot Mach/Airspeed Indicator Reference Airspeed Knob")
+defineRotary("P_ADI_ALT_BARO_SLAVE", 1, 3220, 1053, "COMMON Air Data Instrument Controls", "Pilot Slaved Altimeter Barometric Pressure Setting Knob")
+defineRotary("P_ADI_ALT_BARO_STBY", 1, 3222, 1072, "COMMON Air Data Instrument Controls", "Pilot Standby Altimeter Barometric Pressure Setting Knob")
+defineToggleSwitch("P_ADI_PROBE_HEAT", 1, 3224, 477, "COMMON Air Data Instrument Controls", "Pilot Probe Heater Switch")
 
 defineFloat("P_ADI_ALT_SL_NEEDLE_G", 1043, {0, 1}, "COMMON Air Data Instrument Controls Gauges", "Pilot Slaved Altimeter Needle")
 defineFloat("P_ADI_ALT_SL_FLAG_G", 1044, {0, 1}, "COMMON Air Data Instrument Controls Gauges", "Pilot Slaved Altimeter Flag")
@@ -253,11 +253,11 @@ defineToggleSwitch("P_FRS_STBY_HORIZON", 1, 3230, 474, "COMMON Flight Ref System
 definePotentiometer("P_FRS_SPHER_IND_DN", 1, 3231, 1116, {0, 1}, "COMMON Flight Ref System", "Pilot Spherical Indicator Day/Night Selector Switch")
 definePushButton("P_FRS_SPHER_IND_MB_BTN", 1, 3232, 202, "COMMON Flight Ref System", "Pilot Spherical Indicator Pole Setting and Marker Beacon Light Test (Push)")
 definePotentiometer("P_FRS_SPHER_IND_MB_KNB", 1, 3233, 1117, {0, 1}, "COMMON Flight Ref System", "Pilot Spherical Indicator Pole Setting and Marker Beacon Light Test (Turn)")
-definePushButton("P_FRS_STBY_HORIZON_UNCAGE_BTN", 1, 3234, 1132, "COMMON Flight Ref System", "Pilot Standby Horizon Uncage and Aircraft Model Control (Push)")
-definePotentiometer("P_FRS_STBY_HORIZON_UNCAGE_KNB", 1, 3235, 1133, {0, 1}, "COMMON Flight Ref System", "Pilot Standby Horizon Uncage and Aircraft Model Control (Turn)")
-defineMultipositionSwitch("P_FRS_HDG_REF_SYS", 1, 3236, 537, 4, 0.3333, "COMMON Flight Ref System", "Pilot Heading and Vertical Reference System Control Switch")
-defineToggleSwitch("P_FRS_EMERG_GYRO", 1, 3238, 538, "COMMON Flight Ref System", "Pilot Emergency Gyromagnetic Compass Switch")
-definePushButton("P_FRS_HDG_EREC", 1, 3239, 540, "COMMON Flight Ref System", "Pilot Heading Control Unit Erection Button")
+definePushButton("P_FRS_STBY_HORIZON_UNCAGE_BTN", 1, 3235, 1132, "COMMON Flight Ref System", "Pilot Standby Horizon Uncage and Aircraft Model Control (Push)")
+definePotentiometer("P_FRS_STBY_HORIZON_UNCAGE_KNB", 1, 3236, 1133, {0, 1}, "COMMON Flight Ref System", "Pilot Standby Horizon Uncage and Aircraft Model Control (Turn)")
+defineMultipositionSwitch("P_FRS_HDG_REF_SYS", 1, 3237, 537, 4, 0.3333, "COMMON Flight Ref System", "Pilot Heading and Vertical Reference System Control Switch")
+defineToggleSwitch("P_FRS_EMERG_GYRO", 1, 3239, 538, "COMMON Flight Ref System", "Pilot Emergency Gyromagnetic Compass Switch")
+definePushButton("P_FRS_HDG_EREC", 1, 3240, 540, "COMMON Flight Ref System", "Pilot Heading Control Unit Erection Button")
 
 defineIndicatorLight("P_FRS_SPHER_IND_DN_L", 1279, "COMMON Flight Ref System Lights", "Pilot Spherical Indicator Day/Night Light (yellow)")
 
@@ -349,7 +349,7 @@ definePotentiometer("P_IL_INST_BRT_FLOOD_KNB", 1, 3324, 385, {0, 1}, "COMMON Lig
 definePotentiometer("P_IL_INST_BRT_INTEG_KNB", 1, 3326, 386, {0, 1}, "COMMON Lighting Control Unit", "Pilot Dual Instrument Panel Lighting (Integral)")
 definePotentiometer("P_IL_CON_BRT_FLOOD_KNB", 1, 3328, 387, {0, 1}, "COMMON Lighting Control Unit", "Pilot Dual Console and Pedestal Lighting (Flood)")
 definePotentiometer("P_IL_CON_BRT_INTEG_KNB", 1, 3330, 388, {0, 1}, "COMMON Lighting Control Unit", "Pilot Dual Console and Pedestal Lighting (Integral)")
-definePotentiometer("P_IL_INCIDENCE_BRT_KNB", 1, 3205, 201, {0, 1}, "COMMON Lighting Control Unit", "Pilot Incidence Indicator Lighting")
+definePotentiometer("P_IL_INCIDENCE_BRT_KNB", 1, 3213, 201, {0, 1}, "COMMON Lighting Control Unit", "Pilot Incidence Indicator Lighting")
 
 defineFloat("P_IL_CKP_RAIL_T_L", 1291, {0, 1}, "COMMON Lighting Control Unit Lights", "Pilot Cockpit Top Rail Lamps (white)")
 defineFloat("P_IL_INCIDENCE_L", 1292, {0, 1}, "COMMON Lighting Control Unit Lights", "Pilot Incidence Indicator Lights (red)")
@@ -537,8 +537,8 @@ defineFloat("P_CE_NAV_IDN_FLAG_G", 1306, {0, 1}, "CE/BE Navigation Indicator Gau
 
 --Radar Detector Indicator
 definePushButton("P_CE_RD_L_BRT_BTN", 1, 3573, 1290, "CE/BE Radar Detector", "CE/BE Pilot 'T' Test Button (Push)")
-definePotentiometer("P_CE_RD_L_BRT_KNB", 1, 3574, 1237, {0, 1}, "CE/BE Radar Detector", "CE/BE Pilot Indicator Lights Intensity Adjusting Knob (Turn)")
-defineSpringloaded_3PosTumb("P_CE_RD_TEST", 1, 3577, 3576, 1238, "CE/BE Radar Detector", "CE/BE Pilot Radar Detector Indicator Test Selector")
+definePotentiometer("P_C_RD_L_BRT_KNB", 1, 3574, 1237, {0, 1}, "C Radar Detector", "C Pilot Indicator Lights Intensity Adjusting Knob (Turn)")
+defineSpringloaded_3PosTumb("P_C_RD_TEST", 1, 3577, 3576, 1238, "C Radar Detector", "C Pilot Radar Detector Indicator Test Selector")
 
 defineIndicatorLight("P_CE_RD_NOT_L", 1230, "CE/BE Radar Detector Lights", "CE/BE Pilot NATURE OF THREAT Light (red)")
 defineIndicatorLight("P_CE_RD_TWS_L", 1233, "CE/BE Radar Detector Lights", "CE/BE Pilot TWS Light (red)")
@@ -758,5 +758,8 @@ definePushButton("P_EE_ALR300_5_DANGER", 1, 3673, 1015, "EE ALR-300", "EE Pilot 
 definePushButton("P_EE_ALR300_INFO", 1, 3674, 1016, "EE ALR-300", "EE Pilot ALR-300 Detailed Threats Info")
 definePotentiometer("P_EE_ALR300_BRIGHT", 1, 3675, 1017, {0, 1}, "EE ALR-300", "EE Pilot ALR-300 Display Brightness")
 definePushButton("P_EE_ALR300_TEST", 1, 3677, 1018, "EE ALR-300", "EE Pilot ALR-300 Test")
+
+definePushButton("P_EFC_MV_THL_CUT_IDLE", 1, 3049, 234, "COMMON Engine-Fuel Control", "Pilot Move Throttle Cut/Idle")
+
 
 BIOS.protocol.endModule()
