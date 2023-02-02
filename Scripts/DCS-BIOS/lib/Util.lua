@@ -1,4 +1,4 @@
---08.01.2023
+--03.02.2023
 BIOS.util = {}
 
 function BIOS.util.log2(n)
@@ -1215,7 +1215,7 @@ function BIOS.util.defineSpringloaded_3PosTumb(msg, device_id, downSwitch, upSwi
 			  mask = alloc.mask,
 			  shift_by = alloc.shiftBy,
 			  max_value = 2,
-			  description = "switch position -- 0 = Down, 1 = Mid ,  2 = UP"
+			  description = "switch position -- 0 = Down, 1 = Mid,  2 = Up"
 			}
 		}
 	}
@@ -1230,6 +1230,50 @@ function BIOS.util.defineSpringloaded_3PosTumb(msg, device_id, downSwitch, upSwi
 			dev:performClickableAction(downSwitch, 0)
 			dev:performClickableAction(upSwitch, 0) 		
 		elseif toState == "2" then --upSwitch
+			dev:performClickableAction(downSwitch, 0)
+			dev:performClickableAction(upSwitch, 0) 
+			dev:performClickableAction(upSwitch, 1)
+		end
+	end
+end
+
+function BIOS.util.defineSpringloaded_2PosTumb(msg, device_id, downSwitch, upSwitch, arg_number, category, description)
+	local alloc = moduleBeingDefined.memoryMap:allocateInt{ maxValue = 1 }
+	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
+	    local val = dev0:get_argument_value(arg_number)
+		if val == 0 then
+			alloc:setValue(0)
+		elseif val == 1 then
+			alloc:setValue(1)
+		end
+	end
+	
+	document {
+		identifier = msg,
+		category = category,
+		description = description,
+		control_type = "2Pos_2Command_Switch_OpenClose",
+		inputs = {
+			{ interface = "set_state", max_value = 1, description = "set the switch position" },
+		},
+		outputs = {
+			{ ["type"] = "integer",
+			  suffix = "",
+			  address = alloc.address,
+			  mask = alloc.mask,
+			  shift_by = alloc.shiftBy,
+			  max_value = 1,
+			  description = "switch position -- 0 = Down, 1 = Up"
+			}
+		}
+	}
+
+	moduleBeingDefined.inputProcessors[msg] = function(toState)
+		local dev = GetDevice(device_id)
+		if toState == "0" then --Stop
+			dev:performClickableAction(downSwitch, 0)
+			dev:performClickableAction(upSwitch, 0) 		
+		elseif toState == "1" then --upSwitch
 			dev:performClickableAction(downSwitch, 0)
 			dev:performClickableAction(upSwitch, 0) 
 			dev:performClickableAction(upSwitch, 1)

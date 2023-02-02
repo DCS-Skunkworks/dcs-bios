@@ -18,6 +18,7 @@ local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 local defineSetCommandTumb = BIOS.util.defineSetCommandTumb
 local defineRadioWheel = BIOS.util.defineRadioWheel
+local defineSpringloaded_2PosTumb = BIOS.util.defineSpringloaded_2PosTumb
 
 --remove Arg# Stick #34
 
@@ -68,7 +69,7 @@ defineFloat("P_FCS_CABIN_PRESS_G", 726, {0, 1}, "COMMON Flight Control System Ga
 
 --Engine and Fuel Controls
 definePushButton("P_EFC_THL_CUT_IDLE", 1, 3051, 239, "COMMON Engine-Fuel Control", "Pilot Throttle Cut/Idle Switch")
-definePushButton("P_EFC_ENG_RELIGHT", 1, 3052, 240, "COMMON Engine-Fuel Control", "Pilot In-flight Relight Control")
+defineSpringloaded_2PosTumb("P_EFC_ENG_RELIGHT", 1, 3052, 3053, 240, "COMMON Engine-Fuel Control", "Pilot In-flight Relight Control")
 define3PosTumb("P_EFC_ING_VENT_SEL", 1, 3054, 376, "COMMON Engine-Fuel Control", "Pilot Ignition/Ventilation Selector Switch")
 defineToggleSwitch("P_EFC_START_CV", 1, 3055, 374, "COMMON Engine-Fuel Control", "Pilot Start Button Cover")
 definePushButton("P_EFC_START", 1, 3056, 375, "COMMON Engine-Fuel Control", "Pilot Start Button")
@@ -80,8 +81,8 @@ defineToggleSwitch("P_EFC_AB_MAIN", 1, 3064, 398, "COMMON Engine-Fuel Control", 
 defineToggleSwitch("P_EFC_PUMP_START", 1, 3065, 377, "COMMON Engine-Fuel Control", "Pilot Starting Pump Switch")
 defineToggleSwitch("P_EFC_PUMP_LP_R", 1, 3066, 378, "COMMON Engine-Fuel Control", "Pilot R/H LP Pump Switch")
 defineToggleSwitch("P_EFC_PUMP_LP_L", 1, 3067, 379, "COMMON Engine-Fuel Control", "Pilot L/H LP Pump Switch")
-defineSpringloaded_3PosTumb("P_EFC_SHOCK_CONE_MAN", 1, 3069, 3068, 754, "COMMON Engine-Fuel Control", "Pilot Shock-Cone Manual Control Switch")
-definePushButton("P_EFC_SHOCK_CONE", 1, 3070, 755, "COMMON Engine-Fuel Control", "Pilot Shock-Cone Pushbutton")
+defineSpringloaded_2PosTumb("P_EFC_SHOCK_CONE_MAN", 1, 3069, 3068, 754, "COMMON Engine-Fuel Control", "Pilot Shock-Cone Manual Control Switch")
+defineSpringloaded_2PosTumb("P_EFC_SHOCK_CONE", 1, 3070, 3071, 755, "COMMON Engine-Fuel Control", "Pilot Shock-Cone Pushbutton")
 defineToggleSwitch("P_EFC_FIRE_FUEL_DIP", 1, 302, 591, "COMMON Engine-Fuel Control", "Pilot Firing Fuel Dipper Switch")
 defineToggleSwitch("P_EFC_FEEDER_SEL", 1, 3075, 1144, "COMMON Engine-Fuel Control", "Pilot Feeder Tank/Fuselage Selector Switch")
 definePushButton("P_EFC_FUEL_G_TEST", 1, 3076, 1145, "COMMON Engine-Fuel Control", "Pilot Fuel Gauge Test Button")
@@ -199,7 +200,7 @@ definePushButton("P_U_ANTI_RETRAC_OVER", 1, 3192, 87, "COMMON Undercarriage NWS 
 defineToggleSwitch("P_U_PARK_EMERG_BRAKE", 1, 3193, 84, "COMMON Undercarriage NWS Brake", "Pilot Emergency/Parking Brake Handle")
 defineToggleSwitch("P_U_ANTI_SKID_CV", 1, 3194, 402, "COMMON Undercarriage NWS Brake", "Pilot Anti-Skid (SPAD) Switch Guard")
 defineToggleSwitch("P_U_ANTI_SKID", 1, 3195, 403, "COMMON Undercarriage NWS Brake", "Pilot Anti-Skid (SPAD) Switch")
-definePushButton("P_U_NWS_SENSI", 1, 3196, 756, "COMMON Undercarriage NWS Brake", "Pilot Nose Wheel Steering High Sensitivity Button")
+defineSpringloaded_2PosTumb("P_U_NWS_SENSI", 1, 3196, 3197, 756, "COMMON Undercarriage NWS Brake", "Pilot Nose Wheel Steering High Sensitivity Button")
 defineToggleSwitch("P_U_NWS_STEER_CV", 1, 3198, 757, "COMMON Undercarriage NWS Brake", "Pilot Nose Wheel Steering Switch Guard")
 defineToggleSwitch("P_U_NWS_STEER", 1, 3199, 758, "COMMON Undercarriage NWS Brake", "Pilot Nose Wheel Steering Switch")
 defineMultipositionSwitch("P_U_EMERG_UC", 1, 3200, 107, 3, 0.5, "COMMON Undercarriage NWS Brake", "Pilot Emergency U/C Handle")
@@ -750,7 +751,7 @@ defineToggleSwitch("P_EE_AAR_TRANS_FILL_SW_CVR", 1, 3664, 400, "EE AAR System", 
 defineToggleSwitch("P_EE_AAR_TRANS_FILL_SW", 1, 3663, 401, "EE AAR System", "EE Pilot Transfer/Filling Switch")
 definePotentiometer("P_EE_AAR_L_BRG", 1, 3667, 407, {0, 1}, "EE AAR System", "EE Pilot Aerial Refuelling Light Adjustment Potentiometer")
 
--- ALR-300 control panel
+--ALR-300 control panel
 definePushButton("P_EE_ALR300_REC", 1, 3670, 1012, "EE ALR-300", "EE Pilot ALR-300 Threats Parameters Recording")
 definePushButton("P_EE_ALR300_AUDIO", 1, 3671, 1013, "EE ALR-300", "EE Pilot ALR-300 Threats Audio Off")
 definePushButton("P_EE_ALR300_SEARCH", 1, 3672, 1014, "EE ALR-300", "EE Pilot ALR-300 Search Threats Off")
@@ -761,5 +762,27 @@ definePushButton("P_EE_ALR300_TEST", 1, 3677, 1018, "EE ALR-300", "EE Pilot ALR-
 
 definePushButton("P_EFC_MV_THL_CUT_IDLE", 1, 3049, 234, "COMMON Engine-Fuel Control", "Pilot Move Throttle Cut/Idle")
 
+--Inertial Navigation System (INS)
+defineMultipositionSwitch("P_EE_INS_PARA_SEL", 1, 3680, 665, 6, 0.1, "EE INS", "EE Pilot Parameters Selector")
+defineMultipositionSwitch("P_EE_INS_MODE_SEL", 1, 3681, 666, 9, 0.125, "EE INS", "EE Pilot Modes Selector")
+defineMultipositionSwitch("P_EE_INS_WAY_SEL", 1, 3682, 667, 10, 0.111, "EE INS", "EE Pilot Waypoints Selectorwheel")
+defineMultipositionSwitch("P_EE_INS_LIGHTS_SEL", 1, 3683, 668, 3, 0.5, "EE INS", "EE Pilot Lights Test and Brightnes Selector")
+definePushButton("P_EE_INS_VD_BTN", 1, 3696, 650, "EE INS", "EE Pilot INS Vertical Designation Button")
+definePushButton("P_EE_INS_PV_BTN", 1, 3697, 651, "EE INS", "EE Pilot INS Position Validation Button")
+definePushButton("P_EE_INS_DI_BTN", 1, 3698, 652, "EE INS", "EE Pilot INS Data Insertion Button")
+definePushButton("P_EE_INS_1_BTN", 1, 3685, 653, "EE INS", "EE Pilot INS - 1 Button")
+definePushButton("P_EE_INS_2_BTN", 1, 3686, 654, "EE INS", "EE Pilot INS N 2 Button")
+definePushButton("P_EE_INS_3_BTN", 1, 3687, 655, "EE INS", "EE Pilot INS + 3 Button")
+definePushButton("P_EE_INS_4_BTN", 1, 3688, 656, "EE INS", "EE Pilot INS W 4 Button")
+definePushButton("P_EE_INS_5_BTN", 1, 3689, 657, "EE INS", "EE Pilot INS 5 Button")
+definePushButton("P_EE_INS_6_BTN", 1, 3690, 658, "EE INS", "EE Pilot INS 6 E Button")
+definePushButton("P_EE_INS_7_BTN", 1, 3691, 659, "EE INS", "EE Pilot INS 7 Button")
+definePushButton("P_EE_INS_8_BTN", 1, 3692, 660, "EE INS", "EE Pilot INS 8 S Button")
+definePushButton("P_EE_INS_9_BTN", 1, 3693, 661, "EE INS", "EE Pilot INS - 9 Button")
+definePushButton("P_EE_INS_AST_BTN", 1, 3695, 662, "EE INS", "EE Pilot INS - * Button")
+definePushButton("P_EE_INS_0_BTN", 1, 3684, 663, "EE INS", "EE Pilot INS - 0 Button")
+definePushButton("P_EE_INS_CLR_BTN", 1, 3694, 664, "EE INS", "EE Pilot INS - CLR Button")
+
+defineSpringloaded_2PosTumb("P_EE_PIT_INOP", 1, 3700, 3701, 1272, "EE Cockpit", "EE Pilot Inoperative")
 
 BIOS.protocol.endModule()
