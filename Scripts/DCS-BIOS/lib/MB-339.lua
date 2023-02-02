@@ -182,6 +182,13 @@ defineToggleSwitch("SMOKE_MASTER", 1, 3201, 330, "Smoke", "Smoke Master Switch")
 defineToggleSwitch("SMOKE_WHITE", 1, 3202, 331, "Smoke", "Smoke White Switch")
 defineToggleSwitch("SMOKE_COLOR", 1, 3203, 332, "Smoke", "Smoke Color Switch")
 
+--Anti Ice
+define3PosTumb("AI_ENG_AICE", 1, 3204, 262, "Anti Ice", "Engine Anti-Ice")
+define3PosTumb("AI_FW_PITOT_AICE", 1, 3205, 261, "Anti Ice", "Front Pitot Anti-Ice")
+define3PosTumb("AI_AFT_PITOT_AICE", 1, 3206, 149, "Anti Ice", "Rear Pitot Anti-Ice")
+define3PosTumb("AI_WS_DEMIST", 1, 3207, 178, "Anti Ice", "Windshield Demist")
+define3PosTumb("AI_WS_RAIN", 1, 3208, 177, "Anti Ice", "Windshield Rain RMVL")
+
 --Control shift
 definePushButton("FW_CONTROL_TCN", 1, 3225, 324, "Control Shift FW", "Forward TACAN Control Shift")
 definePushButton("FW_CONTROL_ILS", 1, 3226, 326, "Control Shift FW", "Forward VOR-ILS Control Shift")
