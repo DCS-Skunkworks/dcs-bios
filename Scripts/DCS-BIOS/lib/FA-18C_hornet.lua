@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("FA-18C_hornet", 0x7400)
 BIOS.protocol.setExportModuleAircrafts({"FA-18C_hornet", "EA-18G", "FA-18E", "FA-18F"}) -- FA-18C + Mods
--- F/A-18 Module created by AndrewW, modified by WarLord,charliefoxtwo&DeadMeat v1.7
+-- F/A-18 Module created by AndrewW, modified by WarLord,charliefoxtwo&DeadMeat v1.7a
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 
@@ -126,7 +126,7 @@ local function defineToggleSwitchToggleOnly2(msg, device_id, command, arg_number
 			GetDevice(device_id):performClickableAction(command, 1)
 		end
 		if fromState == 1 and toState == "0" then
-			GetDevice(device_id):performClickableAction(command, 1)
+			GetDevice(device_id):performClickableAction(command, 0)
 		end
 	end
 end
