@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("F-16C_50", 0x4400)
 BIOS.protocol.setExportModuleAircrafts({"F-16C_50"})
--- V1.15a by WarLord ft. BuzzKillington, afewyards
+-- V1.15b by WarLord ft. BuzzKillington, afewyards
 -- DED Display by Matchstick, AMVI_Ares & RafaPolit
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
@@ -984,6 +984,7 @@ DEDLayout_l2["EDR_INS_SelectedSteerpoint"] 	= {12, 3}
 DEDLayout_l2["EDR_INS_STPT_IncDecSymbol"] 	= {16, 1}
 --CRUS HOME
 DEDLayout_l2["HOME_STPT_NUM"] 				= { 7, 4}
+DEDLayout_l2["Asterisks_HOME_STPT_NUM_both"]= {11, 1,17,"","I"}
 DEDLayout_l2["HOME_INS_SelectedSteerpoint"]	= {12, 3}
 DEDLayout_l2["HOME_INS_STPT_IncDecSymbol"]	= {16, 1}
 --CRUS RNG
