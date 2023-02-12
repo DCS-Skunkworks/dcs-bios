@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("Mosquito", 0x7000)
 BIOS.protocol.setExportModuleAircrafts({"MosquitoFBMkVI"})
---v1.1 by WarLord
+--v1.1a by WarLord
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document  
@@ -239,7 +239,7 @@ defineToggleSwitch("PORT_CUT-OUT", 3, 3071, 192, "Lower Fuselage Part", "Engine 
 defineToggleSwitch("STBD_CUT-OUT", 3, 3095, 191, "Lower Fuselage Part", "Engine Cut-Out Handle Starboard")
 define3PosTumb("PORT_FUEL_COCK", 3, 3073, 193, "Lower Fuselage Part", "Fuel Cock Port")
 define3PosTumb("STBD_FUEL_COCK", 3, 3076, 194, "Lower Fuselage Part", "Fuel Cock Starboard")
-defineToggleSwitch("TRANSFER_COCK-OUT", 3, 3079, 195, "Lower Fuselage Part", "Transfer Fuel Cock")
+defineToggleSwitch("TRANSFER_COCK_OUT", 3, 3079, 195, "Lower Fuselage Part", "Transfer Fuel Cock")
 definePushButton("PORT_OIL_DILUTION", 3, 3050, 197, "Lower Fuselage Part", "Oil Dilution Switch Port")
 definePushButton("STBD_OIL_DILUTION", 3, 3051, 198, "Lower Fuselage Part", "Oil Dilution Switch Starboard")      
 defineToggleSwitch("TANK_PRESS", 3, 3089, 196, "Lower Fuselage Part", "Tank Pressurizing Lever")   
