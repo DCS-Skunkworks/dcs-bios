@@ -137,11 +137,12 @@ BIOS.util.StringAllocation = {
 }
 function BIOS.util.StringAllocation:setValue(value)
 	local i = 1
-	--------------ammo
-        if value == nil then 
-            error("item " .. msg .. " is sending a nil value")
-        end
---------------
+	
+	if value == nil then 
+		BIOS.log(string.format("Util.lua: item %s is sending a nil value", msg or "nil"))
+		return
+	end
+
 	while i <= value:len() and i <= #self.characterAllocations do
 		self.characterAllocations[i]:setValue(value:byte(i))
 		i = i + 1
