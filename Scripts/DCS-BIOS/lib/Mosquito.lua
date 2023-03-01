@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("Mosquito", 0x7000)
 BIOS.protocol.setExportModuleAircrafts({"MosquitoFBMkVI"})
---v1.1a by WarLord
+--v1.2 by WarLord
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document  
@@ -301,8 +301,8 @@ defineFloat("T1154_M3_G", 106, {0, 1}, "T1154 Gauges", "T.1154 M3 Gauge")
 defineMultipositionSwitch("R1155_MASTER", 25, 3062, 238, 5, 0.1, "R1155", "R.1155 Master Selector Switch")
 defineMultipositionSwitch("R1155_FREQ", 25, 3065, 231, 5, 0.1, "R1155", "R.1155 Frequency Range Switch")
 definePotentiometer("R1155_VOL", 25, 3068, 229, {0, 1}, "R1155", "R.1155 Volume Knob")
-definePotentiometer("R1155_RANGE_HIGH", 25, 3071, 233, {0, 1}, "R1155", "R.1155 Tuning (Fine)")
-definePotentiometer("R1155_RANGE_LOW", 25, 3074, 234, {0, 1}, "R1155", "R.1155 Tuning (Coarse)")
+defineRotary("R1155_RANGE_HIGH", 25, 3071, 233, "R1155", "R.1155 Tuning (Fine)")
+defineRotary("R1155_RANGE_LOW", 25, 3074, 234, "R1155", "R.1155 Tuning (Coarse)")
 defineToggleSwitch("R1155_HETI", 25, 3077, 230, "R1155", "R.1155 Heterodyne Switch")
 definePotentiometer("R1155_METER_BAL", 25, 3079, 225, {-1, 1}, "R1155", "R.1155 Meter Balance Knob")	--
 defineToggleSwitch("R1155_FILTER", 25, 3082, 226, "R1155", "R.1155 Filter Switch")
