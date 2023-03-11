@@ -10,6 +10,7 @@ local definePushButton = BIOS.util.definePushButton
 local definePotentiometer = BIOS.util.definePotentiometer
 local defineRotary = BIOS.util.defineRotary
 local defineTumb = BIOS.util.defineTumb
+local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 local defineToggleSwitch = BIOS.util.defineToggleSwitch
 local defineFloat = BIOS.util.defineFloat
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
@@ -145,9 +146,31 @@ definePushButton("AFT_FD_RADIO_NAV", 1, 3131, 699, "Flight Dir AFT", "Aft F/D RA
 definePushButton("AFT_FD_GS", 1, 3132, 701, "Flight Dir AFT", "Aft F/D GS")
 definePushButton("AFT_FD_ALT_HOLD", 1, 3133, 703, "Flight Dir AFT", "Aft F/D ALT HOLD")
 
--- Fuel
+--Fuel
+defineMultipositionSwitch("FW_FUEL_TANK_SEL", 1, 3134, 257, 5, 0.25, "Fuel FW", "Forward Fuel Tank Selector")
+definePushButton("FW_FUEL_TEST", 1, 3135, 258, "Fuel FW", "Forward Fuel Quantity Test")
+defineToggleSwitch("FW_FUEL_OFF_SW", 1, 3138, 248, "Fuel FW", "Foreward Fuel Shut-Off Switch")
+defineToggleSwitch("FW_FUEL_OFF_CVR", 1, 3139, 237, "Fuel FW", "Foreward Fuel Shut-Off Guard")
+defineToggleSwitch("FW_FUEL_TRANS", 1, 3142, 249, "Fuel FW", "Foreward Fuel Transfer")
+defineToggleSwitch("FW_FUEL_DUMP", 1, 3143, 593, "Fuel FW", "Foreward Fuel Dump")
 
--- L/G & Ground
+defineMultipositionSwitch("AFT_FUEL_TANK_SEL", 1, 3136, 328, 5, 0.25, "Fuel AFT", "Aft Fuel Tank Selector")
+definePushButton("AFT_FUEL_TEST", 1, 3137, 374, "Fuel AFT", "Aft Fuel Quantity Test")
+defineToggleSwitch("AFT_FUEL_OFF_SW", 1, 3140, 516, "Fuel AFT", "Aft Fuel Shut-Off Switch")
+defineToggleSwitch("AFT_FUEL_OFF_CVR", 1, 3141, 517, "Fuel AFT", "Aft Fuel Shut-Off Guard")
+defineToggleSwitch("AFT_FUEL_DUMP", 1, 3144, 160, "Fuel AFT", "Aft Fuel Dump")
+
+--L/G & Ground
+defineToggleSwitch("FW_LG_GEAR_LVR", 1, 3154, 4, "Gear FW", "Foreward Gear Lever")
+defineToggleSwitch("FW_LG_ASKID", 1, 3145, 250, "Gear FW", "Foreward Anti-Skid")
+definePotentiometer("FW_LG_PBRAKE", 1, 3147, 266, {0, 1}, "Gear FW", "Forward Parking Brake Pull")
+defineToggleSwitch("FW_LG_PBRAKE_LOCK", 1, 3148, 263, "Gear FW", "Foreward Parking Brake Lock")
+defineToggleSwitch("FW_LG_EMERG_GEAR", 1, 3149, 681, "Gear FW", "Foreward Emergency Landing Gear")
+definePushButton("FW_LG_DL_OVERRIDE", 1, 5000, 379, "Gear FW", "Foreward Down-Lock Override")
+
+defineToggleSwitch("AFT_LG_GEAR_LVR", 1, 3154, 106, "Gear AFT", "Aft Gear Lever")
+defineToggleSwitch("AFT_LG_ASKID", 1, 3146, 518, "Gear AFT", "Aft Anti-Skid")
+definePushButton("AFT_LG_DL_OVERRIDE", 1, 5001, 14, "Gear AFT", "Aft Down-Lock Override")
 
 --Lights
 define3PosTumb("FW_LIGHT_TAXI_LAND", 1, 3156, 321, "Lights FW", "Forward Taxi/Landing Lights")

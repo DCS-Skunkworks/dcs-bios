@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("A-10C", 0x1000)
 BIOS.protocol.setExportModuleAircrafts({"A-10C", "A-10C_2"})
---overhaul by WarLord&DeadMeat v2.5
+--overhaul by WarLord&DeadMeat v2.6
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 
@@ -86,26 +86,26 @@ local vhf_lut1 = {
 
 local function getVhfAmFreqency()
     local freq1 = vhf_lut1[string.format("%.2f",GetDevice(0):get_argument_value(143))]
-	if freq1 == nil then freq1 = "3" end
+	if freq1 == nil then freq1 = "  " end
     local freq2 = string.format("%1.1f", GetDevice(0):get_argument_value(144)):sub(3)
-	if freq2 == nil then freq2 = "0" end
+	if freq2 == nil then freq2 = " " end
     local freq3 = string.format("%1.1f", GetDevice(0):get_argument_value(145)):sub(3)
-	if freq3 == nil then freq3 = "0" end
+	if freq3 == nil then freq3 = " " end
     local freq4 = string.format("%1.2f", GetDevice(0):get_argument_value(146)):sub(3)
-	if freq4 == nil then freq4 = "00" end
+	if freq4 == nil then freq4 = "  " end
 
     return freq1 .. freq2 .. "." .. freq3 .. freq4
 end
 
 local function getVhfFmFreqency()
     local freq1 = vhf_lut1[string.format("%.2f",GetDevice(0):get_argument_value(157))]
-	if freq1 == nil then freq1 = "3" end
+	if freq1 == nil then freq1 = " " end
     local freq2 = string.format("%1.1f", GetDevice(0):get_argument_value(158)):sub(3)
-	if freq2 == nil then freq2 = "0" end
+	if freq2 == nil then freq2 = " " end
     local freq3 = string.format("%1.1f", GetDevice(0):get_argument_value(159)):sub(3)
-	if freq3 == nil then freq3 = "0" end
+	if freq3 == nil then freq3 = " " end
     local freq4 = string.format("%1.2f", GetDevice(0):get_argument_value(160)):sub(3)
-	if freq4 == nil then freq4 = "00" end
+	if freq4 == nil then freq4 = "  " end
 
     return freq1 .. freq2 .. "." .. freq3 .. freq4
 end
@@ -150,9 +150,9 @@ local function getILSFrequency()
         ["0.9"] = "95"
     }
     local mhz = ils_mhz_lut[string.format("%.1f", GetDevice(0):get_argument_value(251))]
-	if mhz == nil then mhz = "108" end
+	if mhz == nil then mhz = "   " end
     local khz = ils_khz_lut[string.format("%.01f", GetDevice(0):get_argument_value(252))]
-	if khz == nil then khz = "10" end
+	if khz == nil then khz = "  " end
     return mhz .. "." .. khz
 end
 
@@ -563,12 +563,12 @@ defineRockerSwitch("UFC_DATA", 8, 3022, 3022, 3023, 3023, 406, "UFC", "DATA Up/D
 defineRockerSwitch("UFC_SEL", 8, 3024, 3024, 3025, 3025, 407, "UFC", "SEL Up/Down")
 defineRockerSwitch("UFC_DEPR", 8, 3026, 3026, 3027, 3027, 408, "UFC", "DEPR Up/Down")
 defineRockerSwitch("UFC_INTEN", 8, 3028, 3028, 3029, 3029, 409, "UFC", "INTEN Incr/Decr")
-definePushButton("UFC_NA1", 8, 3030, 531, "UFC", "No Function 1")
-definePushButton("UFC_NA2", 8, 3031, 532, "UFC", "No Function 2")
-definePushButton("UFC_NA3", 8, 3032, 533, "UFC", "No Function 3")
-definePushButton("UFC_NA4", 8, 3033, 534, "UFC", "No Function 4")
-definePushButton("UFC_NA5", 8, 3034, 535, "UFC", "No Function 5")
-definePushButton("UFC_NA6", 8, 3035, 536, "UFC", "No Function 6")
+definePushButton("UFC_COM1", 8, 3030, 531, "UFC", "Control VHF UHF Radio (A-10C II)")
+definePushButton("UFC_COM_SEC", 8, 3031, 532, "UFC", "No Function 1")
+definePushButton("UFC_IFF", 8, 3032, 533, "UFC", "No Function 2")
+definePushButton("UFC_COM2", 8, 3033, 534, "UFC", "Toggle ARC-210 RT2 Status (A-10C II)")
+definePushButton("UFC_ECCM", 8, 3034, 535, "UFC", "No Function 3")
+definePushButton("UFC_IDM", 8, 3035, 536, "UFC", "No Function 4")
 
 definePushButton("UFC_MASTER_CAUTION", 24, 3001, 403, "UFC", "Master Caution Reset")
 definePushButton("GEAR_HORN_SILENCE", 24, 3003, 127, "Landing Gear and Flap Control Panel", "Landing Gear Horn Silence")
@@ -777,17 +777,17 @@ definePushButton("NMSP_ILS_BTN", 46, 3007, 617, "NMSP", "ILS Button")
 defineIndicatorLight("NMSP_ILS_LED", 618, "NMSP", "ILS Button LED (green)")
 defineToggleSwitch("NMSP_ABLE_STOW", 46, 3008, 621, "NMSP", "Able/Stow Localizer Bars")
 
-defineTumb("TISL_MODE", 57, 3001, 622, 0.1, {0, 0.4}, nil, false, "TISL Panel", "TISL Mode (only A-10C)")
-define3PosTumb("TISL_SLANT_RANGE", 57, 3002, 623, "TISL Panel", "Slant Range UNDER 5 - 5 - 10(only A-10C)")
-defineTumb("TISL_ALT_10000", 57, 3003, 624, 0.1, {0, 1}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"}, "skiplast", "TISL Panel", "Altitude Above Target, 10000 ft (only A-10C)")
-defineTumb("TISL_ALT_1000", 57, 3004, 626, 0.1, {0, 1}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"}, "skiplast", "TISL Panel", "Altitude Above Target, 1000 ft (only A-10C)")
-defineTumb("TISL_CODE1", 57, 3005, 636, 0.05, {0, 1}, {"0", "0.5", "1", "1.5", "2", "2.5", "3", "3.5", "4", "4.5", "5", "5.5", "6", "6.5", "7", "7.5", "8", "8.5", "9", "9.5", "0"}, "skiplast", "TISL Panel", "Code Wheel 1 (only A-10C)")
-defineTumb("TISL_CODE2", 57, 3006, 638, 0.05, {0, 1}, {"0", "0.5", "1", "1.5", "2", "2.5", "3", "3.5", "4", "4.5", "5", "5.5", "6", "6.5", "7", "7.5", "8", "8.5", "9", "9.5", "0"}, "skiplast", "TISL Panel", "Code Wheel 2 (only A-10C)")
-defineTumb("TISL_CODE3", 57, 3007, 640, 0.05, {0, 1}, {"0", "0.5", "1", "1.5", "2", "2.5", "3", "3.5", "4", "4.5", "5", "5.5", "6", "6.5", "7", "7.5", "8", "8.5", "9", "9.5", "0"}, "skiplast", "TISL Panel", "Code Wheel 3 (only A-10C)")
-defineTumb("TISL_CODE4", 57, 3008, 642, 0.05, {0, 1}, {"0", "0.5", "1", "1.5", "2", "2.5", "3", "3.5", "4", "4.5", "5", "5.5", "6", "6.5", "7", "7.5", "8", "8.5", "9", "9.5", "0"}, "skiplast", "TISL Panel", "Code Wheel 4 (only A-10C)")
-define3PosTumb("TISL_AUX", 57, 3009, 644, "TISL Panel", "TISL AUX Switch (only A-10C)")
-definePushButton("TISL_ENTER", 57, 3010, 628, "TISL Panel", "TISL ENTER (only A-10C)")
-definePushButton("TISL_BITE", 57, 3011, 632, "TISL Panel", "TISL BITE (only A-10C)")
+defineTumb("TISL_MODE", 57, 3001, 622, 0.1, {0, 0.4}, nil, false, "TISL Panel", "TISL Mode (A-10C)")
+define3PosTumb("TISL_SLANT_RANGE", 57, 3002, 623, "TISL Panel", "Slant Range UNDER 5 - 5 - 10 (A-10C)")
+defineTumb("TISL_ALT_10000", 57, 3003, 624, 0.1, {0, 1}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"}, "skiplast", "TISL Panel", "Altitude Above Target, 10000 ft (A-10C)")
+defineTumb("TISL_ALT_1000", 57, 3004, 626, 0.1, {0, 1}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"}, "skiplast", "TISL Panel", "Altitude Above Target, 1000 ft (A-10C)")
+defineTumb("TISL_CODE1", 57, 3005, 636, 0.05, {0, 1}, {"0", "0.5", "1", "1.5", "2", "2.5", "3", "3.5", "4", "4.5", "5", "5.5", "6", "6.5", "7", "7.5", "8", "8.5", "9", "9.5", "0"}, "skiplast", "TISL Panel", "Code Wheel 1 (A-10C)")
+defineTumb("TISL_CODE2", 57, 3006, 638, 0.05, {0, 1}, {"0", "0.5", "1", "1.5", "2", "2.5", "3", "3.5", "4", "4.5", "5", "5.5", "6", "6.5", "7", "7.5", "8", "8.5", "9", "9.5", "0"}, "skiplast", "TISL Panel", "Code Wheel 2 (A-10C)")
+defineTumb("TISL_CODE3", 57, 3007, 640, 0.05, {0, 1}, {"0", "0.5", "1", "1.5", "2", "2.5", "3", "3.5", "4", "4.5", "5", "5.5", "6", "6.5", "7", "7.5", "8", "8.5", "9", "9.5", "0"}, "skiplast", "TISL Panel", "Code Wheel 3 (A-10C)")
+defineTumb("TISL_CODE4", 57, 3008, 642, 0.05, {0, 1}, {"0", "0.5", "1", "1.5", "2", "2.5", "3", "3.5", "4", "4.5", "5", "5.5", "6", "6.5", "7", "7.5", "8", "8.5", "9", "9.5", "0"}, "skiplast", "TISL Panel", "Code Wheel 4 (A-10C)")
+define3PosTumb("TISL_AUX", 57, 3009, 644, "TISL Panel", "TISL AUX Switch (A-10C)")
+definePushButton("TISL_ENTER", 57, 3010, 628, "TISL Panel", "TISL ENTER (A-10C)")
+definePushButton("TISL_BITE", 57, 3011, 632, "TISL Panel", "TISL BITE (A-10C)")
 
 definePushButton("EXT_STORES_JETTISON", 12, 3001, 101, "Glare Shield", "External Stores Jettison Button")
 
@@ -846,8 +846,8 @@ do
 	"AILERON DISC L",
 	"AILERON DISC R",
 	"SPS RUDDER AUTH LIM",
-	"ELEVATION DISC L",
-	"ELEVATION DISC R",
+	"ELEVATOR DISC L",
+	"ELEVATOR DISC R",
 	"AILERON TAB L",
 	"AILERON TAB R",
 	"EMER FLAP",
@@ -963,9 +963,9 @@ definePotentiometer("ILS_VOL", 53, 3004, 250, {0, 1}, "ILS Panel", "ILS Volume")
 
 defineTumb("UHF_PRESET_SEL", 54, 3001, 161, 0.05, {0, 1}, {" 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"}, false, "UHF Radio", "UHF Preset Channel Selector")
 defineTumb("UHF_100MHZ_SEL", 54, 3002, 162, 0.1, {0, 0.2}, {"2", "3", "A"}, false, "UHF Radio", "UHF 100MHz Selector")
-defineTumb("UHF_10MHZ_SEL", 54, 3003, 163, 0.1, {0.0, 0.9}, nil, false, "UHF Radio", "UHF 10MHz Selector")
-defineTumb("UHF_1MHZ_SEL", 54, 3004, 164, 0.1, {0.0, 0.9}, nil, false, "UHF Radio", "UHF 1MHz Selector")
-defineTumb("UHF_POINT1MHZ_SEL", 54, 3005, 165, 0.1, {0.0, 0.9}, nil, false, "UHF Radio", "UHF 0.1MHz Selector")
+defineTumb("UHF_10MHZ_SEL", 54, 3003, 163, 0.1, {0, 0.9}, nil, false, "UHF Radio", "UHF 10MHz Selector")
+defineTumb("UHF_1MHZ_SEL", 54, 3004, 164, 0.1, {0, 0.9}, nil, false, "UHF Radio", "UHF 1MHz Selector")
+defineTumb("UHF_POINT1MHZ_SEL", 54, 3005, 165, 0.1, {0, 0.9}, nil, false, "UHF Radio", "UHF 0.1MHz Selector")
 defineTumb("UHF_POINT25_SEL", 54, 3006, 166, 0.1, {0, 0.3}, {"00", "25", "50", "75"}, false, "UHF Radio", "UHF 0.25MHz Selector")
 define3PosTumb1("UHF_MODE", 54, 3007, 167, "UHF Radio", "Frequency Mode Dial MNL/PRESET/GRD")
 defineTumb("UHF_FUNCTION", 54, 3008, 168, 0.1, {0, 0.3}, nil, false, "UHF Radio", "UHF Function Dial OFF/MAIN/BOTH/ADF")
@@ -1277,35 +1277,36 @@ defineToggleSwitch("MIRROR_TOGGLE", 0, 3001, 719, "Misc", "Toggle Mirrors")
 defineFloat("OXY_FLOW_G", 600, {0, 1}, "Oxygen Regulator Panel", "Flow Indicator (on/off) (as Gauge)")
 
 -- Scorpion HMCS
-define3PosTumb("A102_HMCS_PW", 75, 3001, 550, "HMCS Panel", "Scorpion HMCS Power BAT/OFF/ON (A-10C II only)")
+define3PosTumb("A102_HMCS_PW", 75, 3001, 550, "HMCS Panel", "Scorpion HMCS Power BAT/OFF/ON (A-10C II)")
 
 defineToggleSwitch("STICK_HIDE", 39, 3016, 999, "Misc", "Hide Stick toggle")
 
-defineRadioWheel("ARC210_FREQ1", 76, 3017, 3018, {-0.1, 0.1}, 554, 0.1, {0, 1}, nil, "ARC-210", "Frequency Selector 1")
-defineRadioWheel("ARC210_FREQ2", 76, 3019, 3020, {-0.1, 0.1}, 555, 0.1, {0, 1}, nil, "ARC-210", "Frequency Selector 2")
-defineRadioWheel("ARC210_FREQ3", 76, 3021, 3022, {-0.1, 0.1}, 556, 0.1, {0, 1}, nil, "ARC-210", "Frequency Selector 3")
-defineRadioWheel("ARC210_FREQ4", 76, 3023, 3024, {-0.1, 0.1}, 557, 0.1, {0, 1}, nil, "ARC-210", "Frequency Selector 4")
-defineRadioWheel("ARC210_FREQ5", 76, 3025, 3026, {-0.1, 0.1}, 558, 0.1, {0, 1}, nil, "ARC-210", "Frequency Selector 5")
+ --ARC-210
+defineMultipositionSwitch("ARC210_MASTER", 55, 3043, 551, 7, 0.1, "ARC-210", "ARC-210 Master Switch")
+definePotentiometer("ARC210_CHN_KNB", 55, 3027, 552, {0, 1}, "ARC-210", "ARC-210 Channel Selector Knob")
+defineMultipositionSwitch("ARC210_SEC_SW", 55, 3044, 553, 7, 0.1, "ARC-210", "ARC-210 Secondary Switch")
 
-defineMultipositionSwitch("ARC210_MODE_L", 76, 3043, 551, 7, 0.1, "ARC-210", "ARC-210 Left Mode Dial")
-definePotentiometer("UHF02", 76, 3021, 552, {0, 1}, "ARC-210", "UHF-02")
-defineMultipositionSwitch("ARC210_MODE_R", 76, 3021, 553, 7, 0.1, "ARC-210", "ARC-210 Right Mode Dial")
+defineTumb("ARC210_100MHZ_SEL", 55, 3025, 554, 0.1, {0, 0.3}, nil, false, "ARC-210 Radio", "ARC-210 100MHz Selector")
+defineTumb("ARC210_10MHZ_SEL", 55, 3023, 555, 0.1, {0, 0.9}, nil, false, "ARC-210 Radio", "ARC-210 10MHz Selector")
+defineTumb("ARC210_1MHZ_SEL", 55, 3021, 556, 0.1, {0, 0.9}, nil, false, "ARC-210 Radio", "ARC-210 1MHz Selector")
+defineTumb("ARC210_100KHZ_SEL", 55, 3019, 557, 0.1, {0, 0.9}, nil, false, "ARC-210 Radio", "ARC-210 100KHz Selector")
+defineTumb("ARC210_25KHZ_SEL", 55, 3017, 558, 0.1, {0, 0.3}, nil, false, "ARC-210 Radio", "ARC-210 25KHz Selector")
 
-definePushButton("UHF09", 76, 3020, 573, "ARC-210", "UHF-09")
-definePushButton("UHF10", 76, 3021, 572, "ARC-210", "UHF-10")
-definePushButton("UHF11", 76, 3022, 571, "ARC-210", "UHF-11")
-definePushButton("UHF12", 76, 3023, 570, "ARC-210", "UHF-12")
-definePushButton("UHF13", 76, 3024, 569, "ARC-210", "UHF-13")
-definePushButton("UHF14", 76, 3010, 568, "ARC-210", "UHF-14")
-definePushButton("UHF15", 76, 3009, 567, "ARC-210", "UHF-15")
-definePushButton("UHF16", 76, 3008, 566, "ARC-210", "UHF-16")
-definePushButton("UHF17", 76, 3007, 565, "ARC-210", "UHF-17")
-definePushButton("UHF18", 76, 3006, 564, "ARC-210", "UHF-18")
-definePushButton("UHF19", 76, 3005, 563, "ARC-210", "UHF-19")
-definePushButton("UHF20", 76, 3004, 562, "ARC-210", "UHF-20")
-definePushButton("UHF21", 76, 3003, 561, "ARC-210", "UHF-21")
-definePushButton("UHF22", 76, 3002, 560, "ARC-210", "UHF-22")
-definePushButton("UHF23", 76, 3001, 559, "ARC-210", "UHF-23")
+definePushButton("ARC210_ENTER", 55, 3014, 573, "ARC-210", "ARC-210 Enter")
+definePushButton("ARC210_OFF_FREQ", 55, 3013, 572, "ARC-210", "ARC-210 Offset Frequency")
+definePushButton("ARC210_TRANS_REC_FUNC", 55, 3012, 571, "ARC-210", "ARC-210 Transmit / Receive Function Toggle")
+definePushButton("ARC210_AMP_FREQ_MODUL", 55, 3011, 570, "ARC-210", "ARC-210 Amplitude / Frequency Modulation Select")
+definePushButton("ARC210_MENU", 55, 3010, 569, "ARC-210", "ARC-210 Menu Pages")
+definePushButton("ARC210_SQUELCH", 55, 3015, 568, "ARC-210", "ARC-210 Squelch ON/OFF")
+definePushButton("ARC210_TRANS_REC_SEL", 55, 3004, 567, "ARC-210", "ARC-210 Select Receiver - Transmitter")
+definePushButton("ARC210_GPS", 55, 3003, 566, "ARC-210", "ARC-210 GPS")
+definePushButton("ARC210_TOD_REC", 55, 3002, 565, "ARC-210", "ARC-210 Time of Day Receive")
+definePushButton("ARC210_TOD_SEND", 55, 3001, 564, "ARC-210", "ARC-210 Time of Day Send")
+definePushButton("ARC210_FSK_UP", 55, 3005, 563, "ARC-210", "ARC-210 Upper FSK")
+definePushButton("ARC210_FSK_MID", 55, 3006, 562, "ARC-210", "ARC-210 Middle FSK")
+definePushButton("ARC210_FSK_LOW", 55, 3007, 561, "ARC-210", "ARC-210 Lower FSK")
+definePushButton("ARC210_BRIGHT_INC", 55, 3008, 560, "ARC-210", "ARC-210 Brightness Increase")
+definePushButton("ARC210_BRIGHT_DEC", 55, 3009, 559, "ARC-210", "ARC-210 Brightness Decrease")
 
 defineIndicatorLight("ARC210_PRESENT", 998, "ARC-210", "ARC-210 Present")
 

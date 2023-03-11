@@ -1,4 +1,4 @@
---03.02.2023
+--01.03.2023
 BIOS.util = {}
 
 function BIOS.util.log2(n)
@@ -138,10 +138,10 @@ BIOS.util.StringAllocation = {
 function BIOS.util.StringAllocation:setValue(value)
 	local i = 1
 	
-	if value == nil then 
+        if value == nil then 
 		BIOS.log(string.format("Util.lua: item %s is sending a nil value", msg or "nil"))
 		return
-	end
+        end
 
 	while i <= value:len() and i <= #self.characterAllocations do
 		self.characterAllocations[i]:setValue(value:byte(i))
@@ -1271,10 +1271,10 @@ function BIOS.util.defineSpringloaded_2PosTumb(msg, device_id, downSwitch, upSwi
 
 	moduleBeingDefined.inputProcessors[msg] = function(toState)
 		local dev = GetDevice(device_id)
-		if toState == "0" then --Stop
+		if toState == "0" then
 			dev:performClickableAction(downSwitch, 0)
 			dev:performClickableAction(upSwitch, 0) 		
-		elseif toState == "1" then --upSwitch
+		elseif toState == "1" then
 			dev:performClickableAction(downSwitch, 0)
 			dev:performClickableAction(upSwitch, 0) 
 			dev:performClickableAction(upSwitch, 1)

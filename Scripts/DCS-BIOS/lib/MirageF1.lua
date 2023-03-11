@@ -83,7 +83,7 @@ defineToggleSwitch("P_EFC_PUMP_LP_R", 1, 3066, 378, "COMMON Engine-Fuel Control"
 defineToggleSwitch("P_EFC_PUMP_LP_L", 1, 3067, 379, "COMMON Engine-Fuel Control", "Pilot L/H LP Pump Switch")
 defineSpringloaded_2PosTumb("P_EFC_SHOCK_CONE_MAN", 1, 3069, 3068, 754, "COMMON Engine-Fuel Control", "Pilot Shock-Cone Manual Control Switch")
 defineSpringloaded_2PosTumb("P_EFC_SHOCK_CONE", 1, 3070, 3071, 755, "COMMON Engine-Fuel Control", "Pilot Shock-Cone Pushbutton")
-defineToggleSwitch("P_EFC_FIRE_FUEL_DIP", 1, 302, 591, "COMMON Engine-Fuel Control", "Pilot Firing Fuel Dipper Switch")
+defineToggleSwitch("P_EFC_FIRE_FUEL_DIP", 1, 3072, 591, "COMMON Engine-Fuel Control", "Pilot Firing Fuel Dipper Switch")
 defineToggleSwitch("P_EFC_FEEDER_SEL", 1, 3075, 1144, "COMMON Engine-Fuel Control", "Pilot Feeder Tank/Fuselage Selector Switch")
 definePushButton("P_EFC_FUEL_G_TEST", 1, 3076, 1145, "COMMON Engine-Fuel Control", "Pilot Fuel Gauge Test Button")
 
@@ -287,7 +287,7 @@ definePushButton("P_EL_TR_RESET", 1, 3253, 116, "COMMON Electrical System Contro
 defineSpringloaded_3PosTumb("P_EL_INVERT_SEL", 1, 3255, 3254, 117, "COMMON Electrical System Controls", "Pilot Inverter Selector Switch")
 
 --Warning Light Switches
-definePushButton("P_WL_M_FAIL", 1, 3265, 920, "COMMON Warning Switches", "Pilot Master Failure Warning Light Button")
+definePushButton("P_WL_M_FAIL_L", 1, 3265, 920, "EE Warning Switches", "Pilot Left Master Failure Warning Light Button")
 definePushButton("P_WL_C_FLAP_BTN", 1, 3266, 956, "COMMON Warning Switches", "Pilot Combat Flaps Light Button (Push)")
 definePotentiometer("P_WL_C_FLAP_KNB", 1, 3267, 957, {0, 1}, "COMMON Warning Switches", "Pilot Combat Flaps Light Knob (Turn)")
 definePushButton("P_WL_UC_BTN", 1, 3269, 928, "COMMON Warning Switches", "Pilot U/C Light Button")
@@ -296,7 +296,7 @@ definePotentiometer("P_WL_NWS_KNB", 1, 3271, 951, {0, 1}, "COMMON Warning Switch
 definePushButton("P_WL_AIR_B_BTN", 1, 3273, 944, "COMMON Warning Switches", "Pilot Airbrake Light Button (Push)")
 definePotentiometer("P_WL_AIR_B_KNB", 1, 3274, 945, {0, 1}, "COMMON Warning Switches", "Pilot Airbrake Light Knob (Turn)")
 definePushButton("P_WL_LIMIT_WARN", 1, 3276, 932, "COMMON Warning Switches", "Pilot Limit Warning Light Button")
-definePushButton("P_WL_FIRE_WARN", 1, 3277, 940, "COMMON Warning Switches", "Pilot Fire Warning Light (ENG/AB) Button")
+definePushButton("P_WL_AB_FIRE_WARN", 1, 3277, 940, "EE Warning Switches", "Pilot Fire Warning Light AB Button")
 definePushButton("P_WL_AB_INJ", 1, 3278, 1029, "COMMON Warning Switches", "Pilot A/B INJ Light Button")
 definePushButton("P_WL_AB_ON", 1, 3279, 1031, "COMMON Warning Switches", "Pilot A/B ON Light Button")
 definePushButton("P_WL_AB_SRL", 1, 3280, 1033, "COMMON Warning Switches", "Pilot A/B SRL Light Button")
@@ -784,5 +784,12 @@ definePushButton("P_EE_INS_0_BTN", 1, 3684, 663, "EE INS", "EE Pilot INS - 0 But
 definePushButton("P_EE_INS_CLR_BTN", 1, 3694, 664, "EE INS", "EE Pilot INS - CLR Button")
 
 defineSpringloaded_2PosTumb("P_EE_PIT_INOP", 1, 3700, 3701, 1272, "EE Cockpit", "EE Pilot Inoperative")
+definePushButton("P_WL_M_FAIL_R", 1, 3678, 922, "EE Warning Switches", "Pilot Right Master Failure Warning Light Button")
+definePushButton("P_WL_ENG_FIRE_WARN", 1, 3679, 936, "EE Warning Switches", "Pilot Fire Warning Light ENG Button")
+
+-- BARAX
+definePushButton("P_BARAX_L_TEST", 1, 3707, 1260, "EE BARAX", "Pilot BARAX Light Test")
+defineTumb("P_BARAX_STATE_SEL", 1, 3705, 1262, 0.5, {0, 1}, nil, false, "EE BARAX", "Pilot BARAX State Selector OFF/ON/TEST")
+defineToggleSwitch("P_BARAX_EM_RDY", 1, 3706, 1264, "EE BARAX", "Pilot BARAX Emission Ready Korry")
 
 BIOS.protocol.endModule()

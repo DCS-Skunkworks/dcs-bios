@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("F-14", 0x1200)
 BIOS.protocol.setExportModuleAircrafts({"F-14B", "F-14A-135-GR"})
---v4.5 by WarLord,ArturDCS,Matchstick and Bullitt
+--v4.6 by WarLord,ArturDCS,Matchstick and Bullitt
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 
@@ -1719,5 +1719,9 @@ end
 defineIntegerFromGetter("PLT_FUEL_BINGO_DISP", getPLTFuelBingo, 25000, "PLT Gauges", "PILOT Bingo Fuel Display")
 defineFloat("PLT_LIQU_OXY_NEEDLE", 951, {0, 1}, "PLT Gauges", "PILOT Liquid Oxygen Gauge Needle")
 defineIndicatorLight("PLT_LIQU_OXY_FLAG_LIGHT", 952, "Gauges as Light", "PILOT Liquid Oxygen Gauge Flag as Light")
+definePotentiometer("PLT_MIRROR_TOP", 12, 3858, 258, {0, 1}, "Cockpit Mechanics", "PILOT Adjust Top Mirror")
+definePotentiometer("PLT_MIRROR_L", 12, 3859, 256, {0, 1}, "Cockpit Mechanics", "PILOT Adjust Left Mirror")
+definePotentiometer("PLT_MIRROR_R", 12, 3860, 257, {0, 1}, "Cockpit Mechanics", "PILOT Adjust Right Mirror")
+definePotentiometer("RIO_MIRROR_TOP", 12, 3857, 46, {0, 1}, "Cockpit Mechanics", "RIO Adjust Top Mirror")
 
 BIOS.protocol.endModule()

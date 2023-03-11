@@ -59,7 +59,7 @@ definePushButton("FUEL_IND_FRONT", 14, 3071, 378, "Fuel Gauge", "Fuel Indicator 
 definePushButton("FUEL_IND_REAR", 14, 3072, 384, "Fuel Gauge", "Fuel Indicator mode Rear cockpit (F / U")
 
 --Canopy
-definePushButton("CANOPY_OPEN_REAR", 15, 3083, 400, "Canopy", "Canopy Lever Open (Rear)")
+definePushButton("CANOPY_OPEN_REAR", 15, 3083, 900, "Canopy", "Canopy Lever Open (Rear)")
 definePushButton("CANOPY_CLOSE_REAR", 15, 3081, 403, "Canopy", "Canopy Lever Close (Rear)")
 definePushButton("CANOPY_OPEN_FRONT", 15, 3088, 400, "Canopy", "Canopy Lever Open (Front)")
 definePushButton("CANOPY_CLOSE_FRONT", 15, 3089, 403, "Canopy", "Canopy Lever Close (Front)")
@@ -70,7 +70,7 @@ definePushButton("CANOPY_UNLOCK_FRONT", 15, 3087, 401, "Canopy", "Canopy Unlock 
 definePushButton("CANOPY_JETT", 15, 3090, 402, "Canopy", "Canopy Jettison (Rear)")
 
 --Gauges
-defineFloat("IAS_NEEDLE", 301, {0.0, 0.035, 0.063, 0.095, 0.175, 0.220, 0.270, 0.316, 0.376, 0.429, 0.481, 0.538, 0.587, 0.636, 0.690, 0.737, 0.783, 0.829, 0.866, 0.895, 0.925, 0.959}, "Gauges", "IAS Needle")
+defineFloat("IAS_NEEDLE", 301, {0, 0.959}, "Gauges", "IAS Needle")
 defineFloat("VERT_SPEED_NEEDLE", 301, {-0.944, -0.720, -0.450,	-0.257, 0.000, 0.255, 0.442, 0.717, 0.945}, "Gauges", "Vertical Speed Needle")
 defineFloat("ACCEL_CURR", 304, {-1.0, -0.834, -0.572, -0.319, 0.011, 0.116, 0.328, 0.535, 0.759, 0.987}, "Gauges", "Acceleration Current")
 defineFloat("ACCEL_MAX", 305, {-1.0, -0.834, -0.572, -0.319, 0.011, 0.116, 0.328, 0.535, 0.759, 0.987}, "Gauges", "Acceleration Max")
@@ -79,14 +79,14 @@ defineFloat("COURSE", 308, {0.0167, 0.0, -1.00}, "Gauges", "Course Gauge")
 defineFloat("ALT_FT_100", 309, {0.0, 0.25, 0.5, 0.75, 1.0}, "Gauges", "ALT 100ft Gauge")
 defineFloat("ALT_FT_1000", 310, {0, 1}, "Gauges", "ALT 1000ft Gauge")
 defineFloat("ALT_FT_10000", 312, {0, 1}, "Gauges", "ALT 10000ft Gauge")
-defineFloat("OIL_PRESS", 314, {0.0, 0.167, 0.391, 0.599, 0.806, 0.899, 1.000}, "Gauges", "OIL Pressure")
-defineFloat("OIL_TEMP", 315, {0.0, 0.091, 0.189, 0.341, 0.434, 0.548, 0.679, 0.835, 1}, "Gauges", "OIL Temperature")
-defineFloat("MANIFOLD_PRESS", 316, {0.0, 0.205, 0.400, 0.603, 0.806, 1.0}, "Gauges", "MANIFOLD Pressure")
-defineFloat("FUEL_FLOW", 317, {0.0, 0.047, 0.105, 0.195, 0.290, 0.426, 0.569, 0.735, 0.931, 1.0}, "Gauges", "Fuel Flow")
-defineFloat("RPM", 318, {0.0, 0.120, 0.271, 0.416, 0.557, 0.696, 0.845, 1.0}, "Gauges", "RPM")
-defineFloat("EGT", 319, {0.0, 0.260, 0.481, 0.661, 0.820, 0.979}, "Gauges", "EGT")
-defineFloat("EGT_MAX", 320, {0.0, 0.289, 0.505, 0.676, 0.838, 0.992}, "Gauges", "EGT Max")
-defineFloat("VAMETER", 376, {0.104, 0.260, 0.395, 0.564, 0.704, 0.856, 0.996}, "Gauges", "Volt-Ampermeter Gauge")
+defineFloat("OIL_PRESS", 314, {0, 1}, "Gauges", "OIL Pressure")
+defineFloat("OIL_TEMP", 315, {0, 1}, "Gauges", "OIL Temperature")
+defineFloat("MANIFOLD_PRESS", 316, {0, 1}, "Gauges", "MANIFOLD Pressure")
+defineFloat("FUEL_FLOW", 317, {0, 1}, "Gauges", "Fuel Flow")
+defineFloat("RPM", 318, {0, 1}, "Gauges", "RPM")
+defineFloat("EGT", 319, {0, 0.979}, "Gauges", "EGT")
+defineFloat("EGT_MAX", 320, {0, 0.992}, "Gauges", "EGT Max")
+defineFloat("VAMETER", 376, {0.104, 0.996}, "Gauges", "Volt-Ampermeter Gauge")
 defineFloat("CANOPY_POS", 400, {0, 1}, "Canopy", "Canopy Position")
 
 --Externals

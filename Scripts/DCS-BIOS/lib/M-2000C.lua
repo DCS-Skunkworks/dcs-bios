@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("M-2000C", 0x7200)
 BIOS.protocol.setExportModuleAircrafts({"M-2000C"})
---v1.38 by Ergo,Matchstick,MisterKnife,WarLord,Espresso29470
+--v1.38a by Ergo,Matchstick,MisterKnife,WarLord,Espresso29470
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 
@@ -477,7 +477,7 @@ defineFloat("PSV_EL_D_INT", 428, {0, 1}, "LEFT PANEL", "O - PSV - Right Int Elev
 --MAIN PANEL
 defineIndicatorLight("LIM_IND", 185, "MAIN PANEL", "O - LIM Indicator Light (red)")
 defineIndicatorLight("IFF_IND", 186, "MAIN PANEL", "O - IFF Indicator Light (red)")
-definePushButton("AUDIO_WARN_RESET", 16, 144, 191, "MAIN PANEL", "I - AL - Audio Warning Reset Button (PANNEL)")
+definePushButton("AUDIO_WARN_RESET", 16, 191, 191, "MAIN PANEL", "I - AL - Audio Warning Reset Button (PANNEL)")
 defineIndicatorLight("MC_AMBRE", 199, "MAIN PANEL", "O - AL - Upper PANNE Button Light (yellow)")
 defineIndicatorLight("MC_ROUGE", 200, "MAIN PANEL", "O - AL - Lower PANNE Button Light (red)")
 defineIndicatorLight("PC", 373, "MAIN PANEL", "O - AL - PC Light (green)")
@@ -840,5 +840,7 @@ defineFloat("FOLD_INFO_PAGE_1", 443, {0, 1}, "Cockpit", "Foldable Info Register 
 defineFloat("FOLD_INFO_PAGE_2", 444, {0, 1}, "Cockpit", "Foldable Info Register 2")
 defineFloat("FOLD_INFO_PAGE_3", 445, {0, 1}, "Cockpit", "Foldable Info Register 3")
 defineFloat("FOLD_INFO_PAGE_4", 446, {0, 1}, "Cockpit", "Foldable Info Register 4")
+
+definePotentiometer("MIRROR_ORIENT", 40, 3009, 9, {0, 1}, "CANOPY", "I - Mirror Orientation Toggle")
 
 BIOS.protocol.endModule()

@@ -22,6 +22,7 @@ local defineString = BIOS.util.defineString
 local defineRockerSwitch = BIOS.util.defineRockerSwitch
 local defineFloat = BIOS.util.defineFloat
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
+local defineSpringloaded_2PosTumb = BIOS.util.defineSpringloaded_2PosTumb
 
 -- remove Arg# Pilot 540
 

@@ -138,4 +138,6 @@ defineIntegerFromGetter("EXT_WOW_LEFT", function()
 end, 1, "External Aircraft Model", "Weight ON Wheels Left Gear")
 definePushButton("MIX_PUSH", 2, 3101, 101, "Motor", "Mixture Push")
 
+defineToggleSwitch("STICK_TOGGLE", 1, 3295, 295, "Common", "Hide Stick Toggle")
+
 BIOS.protocol.endModule()
