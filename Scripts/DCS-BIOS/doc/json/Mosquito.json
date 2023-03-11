@@ -1616,11 +1616,11 @@
                                                                                    } ],
                                                                "physical_variant": "toggle_switch"
                                                         },
-                                   "TRANSFER_COCK-OUT": {
+                                   "TRANSFER_COCK_OUT": {
                                                                        "category": "Lower Fuselage Part",
                                                                    "control_type": "selector",
                                                                     "description": "Transfer Fuel Cock",
-                                                                     "identifier": "TRANSFER_COCK-OUT",
+                                                                     "identifier": "TRANSFER_COCK_OUT",
                                                                          "inputs": [ {
                                                                                        "description": "switch to previous or next state",
                                                                                          "interface": "fixed_step"
@@ -4323,15 +4323,12 @@
                                                                "physical_variant": "toggle_switch"
                                                         },
                                     "R1155_RANGE_HIGH": {
+                                                             "api_variant": "multiturn",
                                                                 "category": "R1155",
-                                                            "control_type": "limited_dial",
+                                                            "control_type": "analog_dial",
                                                              "description": "R.1155 Tuning (Fine)",
                                                               "identifier": "R1155_RANGE_HIGH",
                                                                   "inputs": [ {
-                                                                                "description": "set the position of the dial",
-                                                                                  "interface": "set_state",
-                                                                                  "max_value": 65535
-                                                                            }, {
                                                                                    "description": "turn the dial left or right",
                                                                                      "interface": "variable_step",
                                                                                      "max_value": 65535,
@@ -4339,24 +4336,21 @@
                                                                             } ],
                                                                  "outputs": [ {
                                                                                     "address": 28902,
-                                                                                "description": "position of the potentiometer",
+                                                                                "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
                                                                                        "mask": 65535,
                                                                                   "max_value": 65535,
                                                                                    "shift_by": 0,
-                                                                                     "suffix": "",
+                                                                                     "suffix": "_KNOB_POS",
                                                                                        "type": "integer"
                                                                             } ]
                                                         },
                                      "R1155_RANGE_LOW": {
+                                                             "api_variant": "multiturn",
                                                                 "category": "R1155",
-                                                            "control_type": "limited_dial",
+                                                            "control_type": "analog_dial",
                                                              "description": "R.1155 Tuning (Coarse)",
                                                               "identifier": "R1155_RANGE_LOW",
                                                                   "inputs": [ {
-                                                                                "description": "set the position of the dial",
-                                                                                  "interface": "set_state",
-                                                                                  "max_value": 65535
-                                                                            }, {
                                                                                    "description": "turn the dial left or right",
                                                                                      "interface": "variable_step",
                                                                                      "max_value": 65535,
@@ -4364,11 +4358,11 @@
                                                                             } ],
                                                                  "outputs": [ {
                                                                                     "address": 28904,
-                                                                                "description": "position of the potentiometer",
+                                                                                "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
                                                                                        "mask": 65535,
                                                                                   "max_value": 65535,
                                                                                    "shift_by": 0,
-                                                                                     "suffix": "",
+                                                                                     "suffix": "_KNOB_POS",
                                                                                        "type": "integer"
                                                                             } ]
                                                         },
@@ -4730,7 +4724,7 @@
                                                                        } ],
                                                             "outputs": [ {
                                                                                "address": 28816,
-                                                                           "description": "switch position -- 0 = Down, 1 = Mid ,  2 = UP",
+                                                                           "description": "switch position -- 0 = Down, 1 = Mid,  2 = Up",
                                                                                   "mask": 3072,
                                                                              "max_value": 2,
                                                                               "shift_by": 10,

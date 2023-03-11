@@ -187,6 +187,35 @@
                                                                                                        "type": "integer"
                                                                                             } ],
                                                                         "physical_variant": "toggle_switch"
+                                                                 },
+                                                 "STICK_TOGGLE": {
+                                                                                "category": "Common",
+                                                                            "control_type": "selector",
+                                                                             "description": "Hide Stick Toggle",
+                                                                              "identifier": "STICK_TOGGLE",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 1
+                                                                                            }, {
+                                                                                                   "argument": "TOGGLE",
+                                                                                                "description": "Toggle switch state",
+                                                                                                  "interface": "action"
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                    "address": 16488,
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 16,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 4,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "toggle_switch"
                                                                  }
                                             },
                                 "Electric": {

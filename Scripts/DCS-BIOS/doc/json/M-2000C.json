@@ -1322,6 +1322,31 @@
                                                                                    } ],
                                                                "physical_variant": "3_position_switch"
                                                         },
+                                       "MIRROR_ORIENT": {
+                                                                "category": "CANOPY",
+                                                            "control_type": "limited_dial",
+                                                             "description": "I - Mirror Orientation Toggle",
+                                                              "identifier": "MIRROR_ORIENT",
+                                                                  "inputs": [ {
+                                                                                "description": "set the position of the dial",
+                                                                                  "interface": "set_state",
+                                                                                  "max_value": 65535
+                                                                            }, {
+                                                                                   "description": "turn the dial left or right",
+                                                                                     "interface": "variable_step",
+                                                                                     "max_value": 65535,
+                                                                                "suggested_step": 3200
+                                                                            } ],
+                                                                 "outputs": [ {
+                                                                                    "address": 29564,
+                                                                                "description": "position of the potentiometer",
+                                                                                       "mask": 65535,
+                                                                                  "max_value": 65535,
+                                                                                   "shift_by": 0,
+                                                                                     "suffix": "",
+                                                                                       "type": "integer"
+                                                                            } ]
+                                                        },
                                        "MIRROR_TOGGLE": {
                                                                        "category": "CANOPY",
                                                                    "control_type": "selector",

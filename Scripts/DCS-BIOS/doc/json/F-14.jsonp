@@ -3117,6 +3117,81 @@ docdata["F-14"] =
                                                                                         } ],
                                                                     "physical_variant": "toggle_switch"
                                                              },
+                                             "PLT_MIRROR_L": {
+                                                                     "category": "Cockpit Mechanics",
+                                                                 "control_type": "limited_dial",
+                                                                  "description": "PILOT Adjust Left Mirror",
+                                                                   "identifier": "PLT_MIRROR_L",
+                                                                       "inputs": [ {
+                                                                                     "description": "set the position of the dial",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 65535
+                                                                                 }, {
+                                                                                        "description": "turn the dial left or right",
+                                                                                          "interface": "variable_step",
+                                                                                          "max_value": 65535,
+                                                                                     "suggested_step": 3200
+                                                                                 } ],
+                                                                      "outputs": [ {
+                                                                                         "address": 5334,
+                                                                                     "description": "position of the potentiometer",
+                                                                                            "mask": 65535,
+                                                                                       "max_value": 65535,
+                                                                                        "shift_by": 0,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ]
+                                                             },
+                                             "PLT_MIRROR_R": {
+                                                                     "category": "Cockpit Mechanics",
+                                                                 "control_type": "limited_dial",
+                                                                  "description": "PILOT Adjust Right Mirror",
+                                                                   "identifier": "PLT_MIRROR_R",
+                                                                       "inputs": [ {
+                                                                                     "description": "set the position of the dial",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 65535
+                                                                                 }, {
+                                                                                        "description": "turn the dial left or right",
+                                                                                          "interface": "variable_step",
+                                                                                          "max_value": 65535,
+                                                                                     "suggested_step": 3200
+                                                                                 } ],
+                                                                      "outputs": [ {
+                                                                                         "address": 5336,
+                                                                                     "description": "position of the potentiometer",
+                                                                                            "mask": 65535,
+                                                                                       "max_value": 65535,
+                                                                                        "shift_by": 0,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ]
+                                                             },
+                                           "PLT_MIRROR_TOP": {
+                                                                     "category": "Cockpit Mechanics",
+                                                                 "control_type": "limited_dial",
+                                                                  "description": "PILOT Adjust Top Mirror",
+                                                                   "identifier": "PLT_MIRROR_TOP",
+                                                                       "inputs": [ {
+                                                                                     "description": "set the position of the dial",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 65535
+                                                                                 }, {
+                                                                                        "description": "turn the dial left or right",
+                                                                                          "interface": "variable_step",
+                                                                                          "max_value": 65535,
+                                                                                     "suggested_step": 3200
+                                                                                 } ],
+                                                                      "outputs": [ {
+                                                                                         "address": 5332,
+                                                                                     "description": "position of the potentiometer",
+                                                                                            "mask": 65535,
+                                                                                       "max_value": 65535,
+                                                                                        "shift_by": 0,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ]
+                                                             },
                                           "RIO_CANOPY_JETT": {
                                                                             "category": "Cockpit Mechanics",
                                                                         "control_type": "selector",
@@ -3203,6 +3278,31 @@ docdata["F-14"] =
                                                                                                    "type": "integer"
                                                                                         } ],
                                                                     "physical_variant": "toggle_switch"
+                                                             },
+                                           "RIO_MIRROR_TOP": {
+                                                                     "category": "Cockpit Mechanics",
+                                                                 "control_type": "limited_dial",
+                                                                  "description": "RIO Adjust Top Mirror",
+                                                                   "identifier": "RIO_MIRROR_TOP",
+                                                                       "inputs": [ {
+                                                                                     "description": "set the position of the dial",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 65535
+                                                                                 }, {
+                                                                                        "description": "turn the dial left or right",
+                                                                                          "interface": "variable_step",
+                                                                                          "max_value": 65535,
+                                                                                     "suggested_step": 3200
+                                                                                 } ],
+                                                                      "outputs": [ {
+                                                                                         "address": 5338,
+                                                                                     "description": "position of the potentiometer",
+                                                                                            "mask": 65535,
+                                                                                       "max_value": 65535,
+                                                                                        "shift_by": 0,
+                                                                                          "suffix": "",
+                                                                                            "type": "integer"
+                                                                                 } ]
                                                              },
                                           "RIO_STORAGE_BOX": {
                                                                             "category": "Cockpit Mechanics",
