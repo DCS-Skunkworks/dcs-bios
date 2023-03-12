@@ -1,0 +1,353 @@
+{
+    "txt_RT": [
+        {
+            "pages": [
+                "CHG_PRESET",
+                "COMSEC_MENU_BASEBAND_PAGE",
+                "COMSEC_MENU_COMSEC_MODE_PAGE",
+                "COMSEC_MENU_CVSD_PAGE",
+                "COMSEC_MENU_DATA_RATE_ANDVT_PAGE",
+                "COMSEC_MENU_DATA_RATE_ANDVT_PAGE",
+                "COMSEC_MENU_DATA_RATE_KY_58_PAGE",
+                "COMSEC_MENU_DATA_RATE_PAGE",
+                "COMSEC_MENU_DATA_TYPE_PAGE",
+                "COMSEC_MENU_LOS_COMSEC",
+                "COMSEC_MENU_UPDATED",
+                "ECCM_LOAD_TIME",
+                "ECCM_RECV_HOPSET",
+                "ECCM",
+                "GPS_LOADING_TIME",
+                "GPS_TIME_RECIEVED",
+                "GPS_TIME",
+                "GUARD_121",
+                "GUARD_243",
+                "HQ_MENU_HQ_II_FMT_PAGE",
+                "HQ_MENU_HQ_II_FMT",
+                "HQ_MENU_OPER_DATE_PAGE",
+                "HQ_MENU_OPER_DATE",
+                "HQ_MENU_VERIFY_WOD_PAGE",
+                "HQ_MENU_VERIFY_WOD",
+                "HQ_MENU_WOD_REASE_PAGE",
+                "HQ_MENU_WOD_ERASE",
+                "HQ_MENU_WOD_REASED",
+                "HQ_MENU_WOD_LOAD_PAGE",
+                "HQ_MENU_WOD_LOAD",
+                "MENU_BEEP_ENABLE_PAGE",
+                "MENU_BEEP_ENABLE",
+                "MENU_DAMA_CHANNELS_PAGE",
+                "MENU_DAMA_CHANNELS",
+                "MENU_EMCON",
+                "MENU_ENTER_KEY_ENABLE_PAGE",
+                "MENU_ENTER_KEY_ENABLE",
+                "MENU_PRESET_CH_26_30_PAGE",
+                "MENU_PRESET_CH_26_30",
+                "MENU_RADIO_ID_NUMBERS_PAGE",
+                "MENU_RADIO_ID_NUMBERS",
+                "MENU_ROOT",
+                "MENU_SWITCH_TEST_PAGE",
+                "MENU_SWITCH_TEST",
+                "MENU_USER_DATA_PORT_CLOCK_PAGE",
+                "MENU_USER_DATA_PORT_PAGE",
+                "MENU_USER_DATA_SYNC_PAGE",
+                "MENU_USER_DATA_PORT",
+                "TEST_PROGRES",
+                "TEST",
+                "TR_MAN",
+                "TR_PRSET_SATCOM",
+                "TR_PRSET"
+            ],
+            "biosId": "ARC210_RT",
+            "description": "RT Mode",
+            "type": "TEXT",
+            "maxLength": 3,
+            "alignment": "RIGHT"
+        }
+    ],
+    "PREV": [
+        {
+            "pages": [
+                "TR_MAN",
+                "TR_PRSET"
+            ],
+            "biosId": "ARC210_PREV",
+            "description": "Previous label",
+            "type": "TEXT",
+            "maxLength": 4,
+            "alignment": "LEFT"
+        }
+    ],
+    "freq_label_khz": [
+        {
+            "pages": [
+                "CUR_FREQ_MOD",
+                "GUARD_121",
+                "GUARD_243",
+                "TR_PRSET_SATCOM"
+            ],
+            "biosId": "ARC210_FREQ_KHZ",
+            "description": "Main frequency (KHZ)",
+            "type": "TEXT",
+            "maxLength": 3
+        }
+    ],
+    "freq_label_mhz": [
+        {
+            "pages": [
+                "CUR_FREQ_MOD",
+                "GUARD_121",
+                "GUARD_243"
+            ],
+            "biosId": "ARC210_FREQ_MHZ",
+            "description": "Main frequency (MHZ)",
+            "type": "TEXT",
+            "maxLength": 3
+        }
+    ],
+    "prev_manual_freq": [
+        {
+            "pages": [
+                "CUR_FREQ_MOD"
+            ],
+            "biosId": "ARC210_PREV_MANUAL_FREQ",
+            "description": "Previous frequency",
+            "type": "TEXT",
+            "maxLength": 7,
+            "alignment": "RIGHT"
+        }
+    ],
+    "modulation_label": [
+        {
+            "pages": [
+                "CUR_FREQ_MOD"
+            ],
+            "biosId": "ARC210_MODULATION",
+            "description": "Modulation (AM/FM)",
+            "type": "TEXT",
+            "maxLength": 2
+        }
+    ],
+    "dot_mark": [
+        {
+            "pages": [
+                "CUR_FREQ_MOD"
+            ],
+            "biosId": "ARC210_FREQ_DOT_MARK",
+            "description": "Main frequency separator (.)",
+            "type": "TEXT",
+            "maxLength": 1
+        }
+    ],
+    "comsec_mode": [
+        {
+            "pages": [
+                "ECCM",
+                "KY"
+            ],
+            "biosId": "ARC210_COMSEC_MODE",
+            "description": "COMSEC mode",
+            "type": "TEXT",
+            "maxLength": 11,
+            "alignment": "LEFT"
+        }
+    ],
+    "comsec_submode": [
+        {
+            "pages": [
+                "ECCM",
+                "KY"
+            ],
+            "biosId": "ARC210_COMSEC_SUBMODE",
+            "description": "COMSEC submode (PT/CT/CT-TD)",
+            "type": "TEXT",
+            "maxLength": 5,
+            "alignment": "LEFT"
+        }
+    ],
+    "ky_submode_label": [
+        {
+            "pages": [
+                "ECCM",
+                "KY"
+            ],
+            "biosId": "ARC210_KY_SUBMODE",
+            "description": "KY Submode",
+            "type": "TEXT",
+            "maxLength": 1,
+            "alignment": "LEFT"
+        }
+    ],
+    "active_channel": [
+        {
+            "pages": [
+                "CHG_PRESET",
+                "ECCM_LOAD_TIME",
+                "ECCM_RECV_HOPSET",
+                "ECCM_SEND_HOPSET",
+                "TR_PRSET_SATCOM"
+            ],
+            "biosId": "ARC210_ACTIVE_CHANNEL",
+            "description": "Active Channel",
+            "type": "TEXT",
+            "maxLength": 2,
+            "alignment": "RIGHT"
+        },
+        {
+            "pages": [
+                "HQ_MENU_VERIFY_WOD_PAGE"
+            ],
+            "biosId": "ARC210_VERIFY_WOD_ACTIVE_CHANNEL",
+            "description": "Active Channel (WOD Page)",
+            "type": "TEXT",
+            "maxLength": 2,
+            "alignment": "RIGHT"
+        },
+        {
+            "pages": [
+                "TR_PRSET"
+            ],
+            "biosId": "ARC210_TR_PRSET_ACTIVE_CHANNEL",
+            "description": "Active Channel (TR_PRSET Page)",
+            "type": "TEXT",
+            "maxLength": 2,
+            "alignment": "RIGHT"
+        }
+    ],
+    "xmit_recv_label": [
+        {
+            "pages": [
+                "CHG_PRESET"
+            ],
+            "biosId": "ARC210_XMIT_RECV",
+            "description": "Transmit/Receive (XMIT/RECV)",
+            "type": "TEXT",
+            "maxLength": 4
+        }
+    ],
+    "EXIT/LOAD": [
+        {
+            "pages": [
+                "COMSEC_MENU_BASEBAND_PAGE",
+                "COMSEC_MENU_COMSEC_MODE_PAGE",
+                "COMSEC_MENU_CVSD_PAGE",
+                "COMSEC_MENU_DATA_RATE_ANDVT_PAGE",
+                "COMSEC_MENU_DATA_RATE_KY_58_PAGE",
+                "COMSEC_MENU_DATA_RATE_PAGE",
+                "COMSEC_MENU_DATA_TYPE_PAGE",
+                "MENU_BEEP_ENABLE_PAGE",
+                "MENU_DAMA_CHANNELS_PAGE",
+                "MENU_EMCON",
+                "MENU_ENTER_KEY_ENABLE_PAGE",
+                "MENU_PRESET_CH_26_30_PAGE",
+                "MENU_RADIO_ID_NUMBERS_PAGE",
+                "MENU_USER_DATA_PORT_CLOCK_PAGE",
+                "MENU_USER_DATA_PORT_PAGE",
+                "MENU_USER_DATA_PORT_SYNC_PAGE"
+            ],
+            "biosId": "ARC210_EXIT_LOAD",
+            "description": "EXIT/LOAD",
+            "type": "TEXT",
+            "maxLength": 9
+        }
+    ],
+    "MORE": [
+        {
+            "pages": [
+                "COMSEC_MENU_BASEBAND_PAGE",
+                "COMSEC_MENU_COMSEC_MODE_PAGE",
+                "COMSEC_MENU_CVSD_PAGE",
+                "COMSEC_MENU_DATA_RATE_ANDVT_PAGE",
+                "COMSEC_MENU_DATA_RATE_KY_58_PAGE",
+                "COMSEC_MENU_DATA_RATE_PAGE",
+                "COMSEC_MENU_DATA_TYPE_PAGE",
+                "COMSEC_MENU_LOS_COMSEC",
+                "HQ_MENU_HQ_II_FMT",
+                "HQ_MENU_OPER_DATE",
+                "HQ_MENU_VERIFY_WOD",
+                "HQ_MENU_WOD_ERASE",
+                "HQ_MENU_WOD_LOAD",
+                "MENU_BEEP_ENABLE",
+                "MENU_DAMA_CHANNELS",
+                "MENU_ENTER_KEY_ENABLE",
+                "MENU_PRESET_CH_26_30",
+                "MENU_RADIO_ID_NUMBERS",
+                "MENU_SWITCH_TEST_PAGE",
+                "MENU_SWITCH_TEST",
+                "MENU_USER_DATA_PORT_CLOCK_PAGE",
+                "MENU_USER_DATA_PORT_PAGE",
+                "MENU_USER_DATA_PORT_SYNC_PAGE",
+                "MENU_USER_DATA_PORT"
+            ],
+            "biosId": "ARC210_MORE",
+            "description": "More",
+            "type": "TEXT",
+            "maxLength": 4
+        }
+    ],
+    "ky_label": [
+        {
+            "pages": [
+                "COMSEC_MENU_UPDATED"
+            ],
+            "biosId": "ARC210_COMSEC_MENU_MODE",
+            "description": "COMSEC menu mode (LOS/DAMA)",
+            "type": "TEXT",
+            "maxLength": 30
+        }
+    ],
+    "LOAD\nTIME": [
+        {
+            "pages": [
+                "ECCM_LOAD_TIME"
+            ],
+            "biosId": "ARC210_LOAD_TIME",
+            "description": "Load Time",
+            "type": "TEXT",
+            "maxLength": 9
+        }
+    ],
+    "SG_time": [
+        {
+            "pages": [
+                "ECCM_LOAD_TIME"
+            ],
+            "biosId": "ARC210_SG_TIME",
+            "description": "SG Time",
+            "type": "TEXT",
+            "maxLength": 5
+        }
+    ],
+    "EXIT/RECV": [
+        {
+            "pages": [
+                "ECCM_RECV_HOPSET"
+            ],
+            "biosId": "ARC210_EXIT_RECV",
+            "description": "EXIT/RECV",
+            "type": "TEXT",
+            "maxLength": 9
+        }
+    ],
+    "EXIT/SEND": [
+        {
+            "pages": [
+                "ECCM_SEND_HOPSET"
+            ],
+            "biosId": "ARC210_EXIT_SEND",
+            "description": "EXIT/SEND",
+            "type": "TEXT",
+            "maxLength": 9
+        }
+    ],
+    "active_eccm_channel_index": [
+        {
+            "pages": [
+                "ECCM"
+            ],
+            "biosId": "ARC210_ACTIVE_ECCM_CHANNEL",
+            "description": "Active ECCM Channel",
+            "type": "TEXT",
+            "maxLength": 2,
+            "alignment": "RIGHT"
+        }
+    ]
+}

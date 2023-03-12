@@ -30,6 +30,7 @@ local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 local defineRadioWheel = BIOS.util.defineRadioWheel
 
 local getDisplayLines = TextDisplay.GetDisplayLines
+local getDisplayItems = DigitalDisplay.GetDisplayItems
 
 local function define3PosTumb1(msg, device_id, command, arg_number, category, description)
 	defineTumb(msg, device_id, command, arg_number, 0.1, {0, 0.2}, nil, false, category, description)
@@ -1178,6 +1179,27 @@ defineString("CDU_LINE6", function() return cdu_lines[7] end, CDU_LINE_LEN, "CDU
 defineString("CDU_LINE7", function() return cdu_lines[8] end, CDU_LINE_LEN, "CDU Display", "CDU Line 8")
 defineString("CDU_LINE8", function() return cdu_lines[9] end, CDU_LINE_LEN, "CDU Display", "CDU Line 9")
 defineString("CDU_LINE9", function() return cdu_lines[10] end, CDU_LINE_LEN, "CDU Display", "CDU Line 10")
+
+local arcItems = {}
+local arc_210_data_file = io.open(lfs.writedir()..[[Scripts\DCS-BIOS\doc\json\A-10C_ARC-210.json]], "r")
+local arc_210_data = JSON:decode(arc_210_data_file:read("*a"))
+arc_210_data_file:close()
+arc_210_data_file = nil
+
+moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
+	local arc = parse_indication(18)
+
+	if arc then
+		-- todo: figure out how to get the active page (doesn't seem to be exported like CDU page...)
+		arcItems = getDisplayItems(arc, arc_210_data)
+	end
+end
+
+for k, items in pairs(arc_210_data) do
+	for _, v in pairs(items) do
+		defineString(v.biosId, function() return arcItems[v.biosId] or "" end, v.maxLength, "ARC-210 Display", v.description)
+	end
+end
 
 local function getCmscMws()
 	if not cmscData then return "        " end
