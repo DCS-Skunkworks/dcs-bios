@@ -1,4 +1,7 @@
 @echo off
+echo [101m"This Program must remain open in order to function"[0m
+echo.
+echo.
 REM Specify the COM port number to connect to in the following line.
 REM If set to the default value of ASK, the script will ask you to type it in each time.
 set COMPORT=ASK
