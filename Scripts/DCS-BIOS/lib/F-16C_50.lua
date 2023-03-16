@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("F-16C_50", 0x4400)
 BIOS.protocol.setExportModuleAircrafts({"F-16C_50"})
--- V1.15b by WarLord ft. BuzzKillington, afewyards
+-- V1.15c by WarLord ft. BuzzKillington, afewyards
 -- DED Display by Matchstick, AMVI_Ares & RafaPolit
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
@@ -985,7 +985,7 @@ DEDLayout_l2["EDR_INS_STPT_IncDecSymbol"] 	= {16, 1}
 --CRUS HOME
 DEDLayout_l2["HOME_STPT_NUM"] 				= { 7, 4}
 DEDLayout_l2["Asterisks_HOME_STPT_NUM_both"]= {11, 1,17,"","I"}
-DEDLayout_l2["HOME_INS_SelectedSteerpoint"]	= {12, 3}
+DEDLayout_l2["HOME_INS_SelectedSteerpoint"]	= {12, 3, 0,"_inv","I"}
 DEDLayout_l2["HOME_INS_STPT_IncDecSymbol"]	= {16, 1}
 --CRUS RNG
 DEDLayout_l2["RNG_STPT_NUM"] 				= { 7, 4}
@@ -1215,7 +1215,7 @@ DEDLayout_l3["RNG"] = {8,8,0,"_inv","I"}
 -- DEDLayout_l3["Asterisks_RNG_both"] = {7,1,16,"","I"}
 --CRUS TOS
 DEDLayout_l3["TOS_DES_TOS_label"] 	= { 4, 7}
-DEDLayout_l3["TOS_DES_TOS_value"]	= {13, 8}
+DEDLayout_l3["TOS_DES_TOS_value"]	= {13, 8, 0,"_inv","I"} 		-- Frk
 DEDLayout_l3["Asterisks_DES_TOS_both"]	= {12, 1,21,"", "I"}
 --CRUS EDR
 DEDLayout_l3["EDR_TO_BINGO_label"]	= { 4, 7}
