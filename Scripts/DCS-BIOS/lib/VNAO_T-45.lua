@@ -134,6 +134,7 @@ local function getRadio2_Decimal_DIAL4_Frequency()
 	freq = string.sub(freq, 5, 6)
 	end
 	return tonumber(freq)
+end
 
 -------- FRONT/SHARED Pit
 defineTumb("FLAPS_LVR", 19, 3013, 7, 0.5, {0, 1}, nil, false, "General", "Flaps Lever, UP/ 1/2 /DOWN")
