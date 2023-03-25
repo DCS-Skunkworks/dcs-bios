@@ -22,9 +22,9 @@ local defineString = BIOS.util.defineString
 local function getRadio1Freq()
   local radio1Device = GetDevice(1)
   local modeSelector1 = GetDevice(0):get_argument_value(256)
-  local comm1Switch = GetDevice(0):get_argument_value(191) 
+  local comm1Switch = GetDevice(0):get_argument_value(191)
   local mainFreq1 = 0
-  
+
   if modeSelector1 == 0.5 and comm1Switch == 1 then
 	mainFreq1 = radio1Device:get_frequency()
 	return  tostring(math.floor((mainFreq1 + 2500) / 5000) * 5000)
@@ -35,9 +35,9 @@ end
 local function getRadio2Freq()
   local radio2Device = GetDevice(2)
   local modeSelector2 = GetDevice(0):get_argument_value(280)
-  local comm2Switch = GetDevice(0):get_argument_value(192) 
+  local comm2Switch = GetDevice(0):get_argument_value(192)
   local mainFreq2 = 0
-  
+
   if modeSelector2 == 0.5 and comm2Switch == 1 then
     mainFreq2 = radio2Device:get_frequency()
 	return  tostring(math.floor((mainFreq2 + 2500) / 5000) * 5000)
@@ -46,7 +46,97 @@ local function getRadio2Freq()
 end
 
 
--------- FRONT/SHARED Pit 
+local function getRadio1_High_Frequency()
+	--225000288
+	-- 65000056
+	local arc_182 = GetDevice(1)
+	local freq = tostring(arc_182:get_frequency())
+    if freq == "nan" then freq = "000000" end
+	if(string.len(freq) == 8) then
+		freq = string.sub(freq, 1, 2)
+	else
+	freq = string.sub(freq, 1, 3)
+	end
+	return tonumber(freq)
+end
+
+local function getRadio1_Decimal_DIAL3_Frequency()
+	--225975288
+	-- 65975056
+	local arc_182 = GetDevice(1)
+	local freq = tostring(arc_182:get_frequency())
+	if freq == "nan" then freq = "000000" end
+	--Get the 9
+	if(string.len(freq) == 8) then
+		freq = string.sub(freq, 3, 3)
+	else
+	freq = string.sub(freq, 4, 4)
+	end
+	return tonumber(freq)
+end
+
+local function getRadio1_Decimal_DIAL4_Frequency()
+	--225975288
+	-- 65975056
+	--00 25 50 75
+	local arc_182 = GetDevice(1)
+	local freq = tostring(arc_182:get_frequency())
+	if freq == "nan" then freq = "000000" end
+	--Get the 75
+	if(string.len(freq) == 8) then
+		freq = string.sub(freq, 4, 5)
+	else
+	freq = string.sub(freq, 5, 6)
+	end
+	return tonumber(freq)
+end
+
+local function getRadio2_High_Frequency()
+	--225000288
+	-- 65000056
+	local arc_182 = GetDevice(2)
+	local freq = tostring(arc_182:get_frequency())
+    if freq == "nan" then freq = "000000" end
+	if(string.len(freq) == 8) then
+		freq = string.sub(freq, 1, 2)
+	else
+	freq = string.sub(freq, 1, 3)
+	end
+	return tonumber(freq)
+end
+
+local function getRadio2_Decimal_DIAL3_Frequency()
+	--225975288
+	-- 65975056
+	local arc_182 = GetDevice(2)
+	local freq = tostring(arc_182:get_frequency())
+	if freq == "nan" then freq = "000000" end
+	--Get the 9
+	if(string.len(freq) == 8) then
+		freq = string.sub(freq, 3, 3)
+	else
+	freq = string.sub(freq, 4, 4)
+	end
+	return tonumber(freq)
+end
+
+local function getRadio2_Decimal_DIAL4_Frequency()
+	--225975288
+	-- 65975056
+	--00 25 50 75
+	local arc_182 = GetDevice(2)
+	local freq = tostring(arc_182:get_frequency())
+	if freq == "nan" then freq = "000000" end
+	--Get the 75
+	if(string.len(freq) == 8) then
+		freq = string.sub(freq, 4, 5)
+	else
+	freq = string.sub(freq, 5, 6)
+	end
+	return tonumber(freq)
+end
+
+-------- FRONT/SHARED Pit
 defineTumb("FLAPS_LVR", 19, 3013, 7, 0.5, {0, 1}, nil, false, "General", "Flaps Lever, UP/ 1/2 /DOWN")
 defineToggleSwitch("EMERG_FLAP_SW", 19, 3027, 184, "General", "EMER FLAPS Switch, NORM/DOWN")
 defineToggleSwitch("PARK_BRAKE", 19, 3038, 117, "General", "Parking Brake Handle, OUT/IN")
@@ -212,6 +302,10 @@ defineString("RADIO1_FREQ", getRadio1Freq, 6, "V/UHF 1", "Radio1 Frequency")
 defineIndicatorLight("COMM_1_FWD_L", 260, "V/UHF 1 Lights","COMM 1 FWD Light (green)")
 defineIndicatorLight("COMM_1_AFT_L", 261, "V/UHF 1 Lights","COMM 1 AFT Light (green)")
 
+defineIntegerFromGetter("COMM_1_DIAL4_FREQ", getRadio1_Decimal_DIAL4_Frequency, 100, "V/UHF 1", "COMM 1 Dial 4 ARC-182 Frequency")
+defineIntegerFromGetter("COMM_1_DIAL3_FREQ", getRadio1_Decimal_DIAL3_Frequency, 10, "V/UHF 1", "COMM 1 Dial 3 ARC-182 Frequency")
+defineIntegerFromGetter("COMM_1_HIGH_FREQ", getRadio1_High_Frequency, 409, "V/UHF 1", "COMM 1 High ARC-182 Frequency")
+
 ---V/UHF control panel 2
 define3PosTumb("COMM_2_FREQ_10", 4, 3522, 274, "V/UHF 2", "COMM 2 Frequency Tens")
 define3PosTumb("COMM_2_FREQ_1", 4, 3523, 275, "V/UHF 2", "COMM 2 Frequency Ones")
@@ -227,6 +321,10 @@ defineString("RADIO2_FREQ", getRadio2Freq, 6, "V/UHF 2", "Radio2 Frequency")
 defineIndicatorLight("COMM_2_FWD_L", 262, "V/UHF 2 Lights","COMM 2 FWD Light (green)")
 defineIndicatorLight("COMM_2_AFT_L", 263, "V/UHF 2 Lights","COMM 2 AFT Light (green)")
 
+defineIntegerFromGetter("COMM_2_DIAL4_FREQ", getRadio2_Decimal_DIAL4_Frequency, 100, "V/UHF 2", "COMM 2 Dial 4 ARC-182 Frequency")
+defineIntegerFromGetter("COMM_2_DIAL3_FREQ", getRadio2_Decimal_DIAL3_Frequency, 10, "V/UHF 2", "COMM 2 Dial 3 ARC-182 Frequency")
+defineIntegerFromGetter("COMM_2_HIGH_FREQ", getRadio2_High_Frequency, 409, "V/UHF 2", "COMM 2 High ARC-182 Frequency")
+
 --VOR ILS
 defineMultipositionSwitch("VOR_ILS_FREQ_1", 17, 3511, 230, 10, 0.1, "VOR ILS", "VOR/ILS 1MHz Frequency Knob")
 defineMultipositionSwitch("VOR_ILS_FREQ_50", 17, 3512, 232, 20, 0.05, "VOR ILS", "VOR/ILS 50KHz Frequency Knob")
@@ -237,7 +335,7 @@ defineToggleSwitch("TACAN_PW", 16, 3509, 241, "TACAN", "TACAN Power Switch, ON/O
 defineMultipositionSwitch("TACAN_CHAN_1", 16, 3507, 245, 10, 0.1, "TACAN", "TACAN Channel Selector Ones")
 defineMultipositionSwitch("TACAN_CHAN_10", 16, 3508, 242, 20, 0.05, "TACAN", "TACAN Channel Selector Ones")
 
---------REAR Pit 
+--------REAR Pit
 --Misc Systems REAR
 define3PosTumb("REAR_ENG_SW", 19, 3049, 11, "Rear Misc", "REAR Engine Switch, OFF/ON/START")
 defineTumb("REAR_FLAPS_LVR", 19, 3044, 7, 0.5, {0, 1}, nil, false, "Rear Misc", "REAR Flaps Lever, UP/ 1/2 /DOWN")
@@ -259,7 +357,7 @@ defineToggleSwitch("REAR_ANTI_SKID_SW", 19, 3047, 10, "Rear Gear System", "REAR 
 defineToggleSwitch("REAR_EMERG_GEAR_LVR", 19, 3048, 183, "Rear Gear System", "REAR Landing Gear Emergency Release Handle")
 defineToggleSwitch("REAR_LAUNCH_BAR_SW", 19, 3045, 67, "Rear Gear System", "REAR Launch Bar Switch, UP/DOWN")
 
---------Lights Gauges 
+--------Lights Gauges
 --Warning, Caution and IndicatorLights
 defineIndicatorLight("SEAT_L", 71, "Warning, Caution and IndicatorLights","SEAT Light (yellow)")
 defineIndicatorLight("CANOPY_L", 72, "Warning, Caution and IndicatorLights","CANOPY Light (yellow)")
