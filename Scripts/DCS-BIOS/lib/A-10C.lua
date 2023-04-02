@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("A-10C", 0x1000)
 BIOS.protocol.setExportModuleAircrafts({"A-10C", "A-10C_2"})
---overhaul by WarLord&DeadMeat v2.6
+--overhaul by WarLord&DeadMeat v2.7
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 
@@ -1283,14 +1283,14 @@ defineToggleSwitch("STICK_HIDE", 39, 3016, 999, "Misc", "Hide Stick toggle")
 
  --ARC-210
 defineMultipositionSwitch("ARC210_MASTER", 55, 3043, 551, 7, 0.1, "ARC-210", "ARC-210 Master Switch")
-definePotentiometer("ARC210_CHN_KNB", 55, 3027, 552, {0, 1}, "ARC-210", "ARC-210 Channel Selector Knob")
+defineRotary("ARC210_CHN_KNB", 55, 3027, 552, "ARC-210", "ARC-210 Channel Selector Knob")
 defineMultipositionSwitch("ARC210_SEC_SW", 55, 3044, 553, 7, 0.1, "ARC-210", "ARC-210 Secondary Switch")
 
 defineTumb("ARC210_100MHZ_SEL", 55, 3025, 554, 0.1, {0, 0.3}, nil, false, "ARC-210 Radio", "ARC-210 100MHz Selector")
 defineTumb("ARC210_10MHZ_SEL", 55, 3023, 555, 0.1, {0, 0.9}, nil, false, "ARC-210 Radio", "ARC-210 10MHz Selector")
 defineTumb("ARC210_1MHZ_SEL", 55, 3021, 556, 0.1, {0, 0.9}, nil, false, "ARC-210 Radio", "ARC-210 1MHz Selector")
-defineTumb("ARC210_100KHZ_SEL", 55, 3019, 557, 0.1, {0, 0.9}, nil, false, "ARC-210 Radio", "ARC-210 100KHz Selector")
-defineTumb("ARC210_25KHZ_SEL", 55, 3017, 558, 0.1, {0, 0.3}, nil, false, "ARC-210 Radio", "ARC-210 25KHz Selector")
+defineTumb("ARC210_100KHZ_SEL", 55, 3019, 557, 0.1, {0, 0.9}, nil, false, "ARC-210 Radio", "ARC-210 100kHz Selector")
+defineTumb("ARC210_25KHZ_SEL", 55, 3017, 558, 0.1, {0, 0.3}, nil, false, "ARC-210 Radio", "ARC-210 25kHz Selector")
 
 definePushButton("ARC210_ENTER", 55, 3014, 573, "ARC-210", "ARC-210 Enter")
 definePushButton("ARC210_OFF_FREQ", 55, 3013, 572, "ARC-210", "ARC-210 Offset Frequency")
