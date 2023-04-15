@@ -1,5 +1,5 @@
 BIOS.protocol.beginModule("F-16C_50", 0x4400)
-BIOS.protocol.setExportModuleAircrafts({"F-16C_50"})
+BIOS.protocol.setExportModuleAircrafts({"F-16C_50", "F-16D_50_NS", "F-16D_50", "F-16D_52_NS", "F-16D_52", "F-16D_Barak_30", "F-16D_Barak_40", "F-16I"})
 -- V1.15c by WarLord ft. BuzzKillington, afewyards
 -- DED Display by Matchstick, AMVI_Ares & RafaPolit
 local inputProcessors = moduleBeingDefined.inputProcessors
