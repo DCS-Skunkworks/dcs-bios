@@ -16,6 +16,7 @@ local defineToggleSwitch = BIOS.util.defineToggleSwitch
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 local defineSpringloaded_3PosTumb = BIOS.util.defineSpringloaded_3PosTumb
 local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
+local defineSpringloaded_3PosTumb = BIOS.util.defineSpringloaded_3PosTumb
 
 -- remove Arg# Pilot 500
 
@@ -66,7 +67,7 @@ defineToggleSwitch("PORT_OXY_VALVE", 15, 3003, 84, "Main Panel", "Oxygen Regulat
 definePushButton("BOOST_CUT_OFF", 3, 3049, 292, "Main Panel", "Boost Cut-Off T-Handle")
 defineToggleSwitch("PORT_LAND_L_SW", 4, 3018, 62, "Main Panel", "Landing Light Switch Port")
 defineToggleSwitch("STBD_LAND_L_SW", 4, 3020, 63, "Main Panel", "Landing Light Switch Starboard")
-define3PosTumb("BOMB_DOORS_LVR", 17, 3001, 115, "Main Panel", "Bomb Doors Lever")
+defineSpringloaded_3PosTumb("BOMB_DOORS_LVR", 17, 3001, 3001, 115, "Main Panel", "Bomb Doors Lever")
 define3PosTumb("CHASSIS_LVR", 17, 3002, 116, "Main Panel", "Chassis Lever")
 define3PosTumb("FLAPS_LVR", 17, 3003, 118, "Main Panel", "Flaps Lever")
 defineToggleSwitch("CHASSIS_GATE", 17, 3004, 117, "Main Panel", "Chassis Lever Gate")

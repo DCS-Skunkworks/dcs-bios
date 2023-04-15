@@ -477,7 +477,7 @@ defineFloat("PSV_EL_D_INT", 428, {0, 1}, "LEFT PANEL", "O - PSV - Right Int Elev
 --MAIN PANEL
 defineIndicatorLight("LIM_IND", 185, "MAIN PANEL", "O - LIM Indicator Light (red)")
 defineIndicatorLight("IFF_IND", 186, "MAIN PANEL", "O - IFF Indicator Light (red)")
-definePushButton("AUDIO_WARN_RESET", 16, 191, 191, "MAIN PANEL", "I - AL - Audio Warning Reset Button (PANNEL)")
+definePushButton("AUDIO_WARN_RESET", 16, 3191, 191, "MAIN PANEL", "I - AL - Audio Warning Reset Button (PANNEL)")
 defineIndicatorLight("MC_AMBRE", 199, "MAIN PANEL", "O - AL - Upper PANNE Button Light (yellow)")
 defineIndicatorLight("MC_ROUGE", 200, "MAIN PANEL", "O - AL - Lower PANNE Button Light (red)")
 defineIndicatorLight("PC", 373, "MAIN PANEL", "O - AL - PC Light (green)")
@@ -841,6 +841,10 @@ defineFloat("FOLD_INFO_PAGE_2", 444, {0, 1}, "Cockpit", "Foldable Info Register 
 defineFloat("FOLD_INFO_PAGE_3", 445, {0, 1}, "Cockpit", "Foldable Info Register 3")
 defineFloat("FOLD_INFO_PAGE_4", 446, {0, 1}, "Cockpit", "Foldable Info Register 4")
 
-definePotentiometer("MIRROR_ORIENT", 40, 3009, 9, {0, 1}, "CANOPY", "I - Mirror Orientation Toggle")
+definePotentiometer("MIRROR_ORIENT", 40, 3009, 9, {0, 1}, "CANOPY", "I - Mirror Orientation")
+defineRotary("COC_CLOCK_ROT", 2, 3922, 922, "CLOCK", "I - CLOCK - Clock Rewind/Adjust")
+defineToggleSwitch("COC_CLOCK_BTN", 2, 3923, 923, "CLOCK", "I - CLOCK - Clock Start/Stop/Reset")
+defineToggleSwitch("COC_CLOCK_ADJ", 2, 3924, 924, "CLOCK", "I - CLOCK - Clock time adjustment knob")
+
 
 BIOS.protocol.endModule()

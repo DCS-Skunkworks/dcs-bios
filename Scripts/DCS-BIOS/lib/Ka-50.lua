@@ -883,5 +883,6 @@ defineFloat("SC_MASTER_CAUTION_BRT", 1015, {0, 1}, "System Controller", "Master 
 defineFloat("SC_ROTOR_RPM_BRT", 1016, {0, 1}, "System Controller", "Rotor RPM warning LED Brightness (yellow)")
 definePotentiometer("OP_WARNLIGHTS_BRIGHTNESS", 14, 3005, 149, {0, 1}, "Overhead Panel", "Warning Lights Brightness Knob")
 defineFloat("HMD_PRIS_ROT", 1010, {0, 1}, "Cockpit", "HMD Prisma Rotation")
+defineToggleSwitch("DOOR_HDL", 34, 3018, 1020, "Cockpit", "Door handle")
 
 BIOS.protocol.endModule()
