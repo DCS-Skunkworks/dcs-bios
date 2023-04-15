@@ -1,4 +1,4 @@
---01.03.2023
+--15.04.2023
 BIOS.util = {}
 
 function BIOS.util.log2(n)
@@ -1401,4 +1401,51 @@ function BIOS.util.defineFloatWithValueConversion(msg, arg_number, limits, input
 			}
 		}
 	}
+end
+
+function BIOS.util.define3PosMossi(msg, device_id, command, arg_number, category, description)
+	
+	local alloc = moduleBeingDefined.memoryMap:allocateInt{ maxValue = 2 }
+	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
+		local lut = {["-1"] = "0", ["0"] = "1", ["1"] = "2"}
+		alloc:setValue(lut[string.format("%.0f", dev0:get_argument_value(arg_number))])
+	end
+	document {
+		identifier = msg,
+		category = category,
+		description = description,
+		control_type = "selector",
+		inputs = {
+			{ interface = "set_state", max_value = 2, description = "set the switch position -- 0 = left, 1 = centered, 2 = right" },
+		},
+		outputs = {
+			{ ["type"] = "integer",
+			  suffix = "",
+			  address = alloc.address,
+			  mask = alloc.mask,
+			  shift_by = alloc.shiftBy,
+			  max_value = 2,
+			  description = "selector position -- 0 = Left, 1 = Mid ,  2 = Right"
+			}
+		}
+	}
+	moduleBeingDefined.inputProcessors[msg] = function(toState)
+		if toState == "0" then
+			toState = -1
+		elseif toState == "1" then
+			toState = 0
+		elseif toState == "2" then
+			toState = 1
+		else
+			return
+		end
+		local fromState = GetDevice(0):get_argument_value(arg_number)
+		local dev = GetDevice(device_id)
+		if fromState == 0 and toState == 1 then dev:performClickableAction(command, 0) dev:performClickableAction(command, 1) end
+		if fromState == 1 and toState == 0 then dev:performClickableAction(command, 0) end
+		if fromState == 0 and toState == -1 then dev:performClickableAction(command, -1) end
+		if fromState == -1 and toState == 0 then dev:performClickableAction(command, 0) dev:performClickableAction(command, 1) end
+		if fromState == -1 and toState == 1 then dev:performClickableAction(command, 0) dev:performClickableAction(command, 1) dev:performClickableAction(command, 0) dev:performClickableAction(command, 1) end
+		if fromState == 1 and toState == -1 then dev:performClickableAction(command, 0) dev:performClickableAction(command, -1) end
+	end
 end

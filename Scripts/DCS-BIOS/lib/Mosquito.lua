@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("Mosquito", 0x7000)
 BIOS.protocol.setExportModuleAircrafts({"MosquitoFBMkVI"})
---v1.2 by WarLord
+--v1.2a by WarLord
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document  
@@ -16,7 +16,7 @@ local defineToggleSwitch = BIOS.util.defineToggleSwitch
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 local defineSpringloaded_3PosTumb = BIOS.util.defineSpringloaded_3PosTumb
 local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
-local defineSpringloaded_3PosTumb = BIOS.util.defineSpringloaded_3PosTumb
+local define3PosMossi = BIOS.util.define3PosMossi
 
 -- remove Arg# Pilot 500
 
@@ -67,16 +67,16 @@ defineToggleSwitch("PORT_OXY_VALVE", 15, 3003, 84, "Main Panel", "Oxygen Regulat
 definePushButton("BOOST_CUT_OFF", 3, 3049, 292, "Main Panel", "Boost Cut-Off T-Handle")
 defineToggleSwitch("PORT_LAND_L_SW", 4, 3018, 62, "Main Panel", "Landing Light Switch Port")
 defineToggleSwitch("STBD_LAND_L_SW", 4, 3020, 63, "Main Panel", "Landing Light Switch Starboard")
-defineSpringloaded_3PosTumb("BOMB_DOORS_LVR", 17, 3001, 3001, 115, "Main Panel", "Bomb Doors Lever")
-define3PosTumb("CHASSIS_LVR", 17, 3002, 116, "Main Panel", "Chassis Lever")
-define3PosTumb("FLAPS_LVR", 17, 3003, 118, "Main Panel", "Flaps Lever")
+define3PosMossi("BOMB_DOORS_LVR", 17, 3001, 115, "Main Panel", "Bomb Doors Lever")
+define3PosMossi("CHASSIS_LVR", 17, 3002, 116, "Main Panel", "Chassis Lever")
+define3PosMossi("FLAPS_LVR", 17, 3003, 118, "Main Panel", "Flaps Lever")
 defineToggleSwitch("CHASSIS_GATE", 17, 3004, 117, "Main Panel", "Chassis Lever Gate")
 defineToggleSwitch("FLAPS_GATE", 17, 3006, 119, "Main Panel", "Flaps Lever Gate")
 defineToggleSwitch("GUN_MASTER_CVR", 5, 3001, 120, "Main Panel", "Gun Firing Master Switch Cover")
 defineTumb("GUN_MASTER", 5, 3003, 121, 2, {-1, 1}, nil, false, "Main Panel", "Gun Firing Master Switch")
 defineToggleSwitch("DE_ICE_PUMP", 23, 3001, 370, "Main Panel", "De-Ice Glycol Pump Handle")
-defineRotary("RUDDER_TRIM", 2, 3053, 111, "Main Panel", "Rudder Trim")
-defineRotary("AILERON_TRIM", 2, 3051, 280, "Main Panel", "Aileron Trim")
+define3PosMossi("RUDDER_TRIM", 2, 3053, 111, "Main Panel", "Rudder Trim")
+define3PosMossi("AILERON_TRIM", 2, 3051, 280, "Main Panel", "Aileron Trim")
 definePotentiometer("BOMB_PANEL_L_DIM", 4, 3059, 16, {0, 1}, "Main Panel", "Bomb Panel Flood Dimmer")
 defineToggleSwitch("BOMB_DOOR_L_CVR", 2, 3067, 284, "Main Panel", "Bomb Door Light Cover")
 defineToggleSwitch("JETT_CONT_CVR", 5, 3056, 144, "Main Panel", "Container Jettison Cover")
@@ -163,7 +163,7 @@ defineToggleSwitch("REP_COMPASS_SW1", 4, 3001, 1, "Port Wall", "R.I. Compass Swi
 defineToggleSwitch("REP_COMPASS_SW2", 4, 3002, 2, "Port Wall", "R.I. Compass De-ground Switch")
 defineToggleSwitch("BEAM_SW", 4, 3004, 3, "Port Wall", "Beam Approach Switch")
 defineToggleSwitch("SCR_PTT", 24, 3099, 4, "Port Wall", "SCR-522 PTT Button")
-defineRotary("ELEVATOR_TRIM", 2, 3016, 279, "Port Wall", "Elevator Trim")
+define3PosMossi("ELEVATOR_TRIM", 2, 3016, 279, "Port Wall", "Elevator Trim")
 
 defineIndicatorLight("UV_L_L", 325, "Port Wall Lights", "Left UV Light (multi)")
 defineIndicatorLight("UV_R_L", 326, "Port Wall Lights", "Right UV Light (multi)")
@@ -227,7 +227,7 @@ defineToggleSwitch("OXY_H_PRESS_VALVE", 2, 3055, 293, "Starboard Wall", "Oxygen 
 defineToggleSwitch("STBD_OXY_VALVE", 16, 3003, 187, "Starboard Wall", "Oxygen Regulator Starboard")
 definePotentiometer("CHART_L_DIM", 4, 3095, 303, {0, 1}, "Port Wall", "Chart Table Flood Light Dimmer")
 defineToggleSwitch("AERIAL_BRAKE", 31, 3001, 202, "Starboard Wall", "Aerial Winch  Brake Lever")
-defineRotary("AERIAL_WINCH", 31, 3004, 356, "Starboard Wall", "Aerial Winch Rotary Handle")
+define3PosMossi("AERIAL_WINCH", 31, 3004, 356, "Starboard Wall", "Aerial Winch Rotary Handle")
 definePushButton("AERIAL_REEL", 31, 3005, 357, "Starboard Wall", "Aerial Winch Reel Lock")
 defineToggleSwitch("TRANS_TYPF_SW", 4, 3113, 307, "Starboard Wall", "Transmitter TypeF Switch")	
 defineToggleSwitch("LT_T1154_PW", 28, 3001, 305, "Starboard Wall", "T.1154 R.1155 L.T. Power Unit Switch")
@@ -309,7 +309,7 @@ definePotentiometer("R1155_METER_BAL", 25, 3079, 225, {-1, 1}, "R1155", "R.1155 
 defineToggleSwitch("R1155_FILTER", 25, 3082, 226, "R1155", "R.1155 Filter Switch")
 definePotentiometer("R1155_METER_AMP", 25, 3084, 227, {0, 1}, "R1155", "R.1155 Meter Amplitude Knob")			
 defineToggleSwitch("R1155_METER_DEF", 25, 3087, 235, "R1155", "R.1155 Meter Deflection Sensitivity Switch")
-define3PosTumb("R1155_AURAL_SENSE", 25, 3089, 236, "R1155", "R.1155 Aural Sense Switch")
+define3PosMossi("R1155_AURAL_SENSE", 25, 3089, 236, "R1155", "R.1155 Aural Sense Switch")
 defineToggleSwitch("R1155_SW_SPEED", 25, 3090, 237, "R1155", "R.1155 Meter Frequency Switch")
 
 defineFloat("R1155_TUNER_G", 232, {0, 1}, "R1155 Gauges", "R.1155 Tuner Gauge")
