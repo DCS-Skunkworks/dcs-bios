@@ -311,21 +311,21 @@ definePushButton("AFT_CDU_FIX", 1, 3287, 629, "CDU AFT", "Aft CDU FIX")
 definePushButton("AFT_CDU_FLT_PLN", 1, 3288, 633, "CDU AFT", "Aft CDU FLT PLN")
 
 --Weapons
-defineToggleSwitch("WP_GND_FIRE_CVR", 1, 3289, 236, "Weapons FW", "Ground Fire Guard")
-defineToggleSwitch("WP_MASTER_ARM", 1, 3290, 475, "Weapons FW", "Master Armament")
-definePushButton("WP_JETT_SALVO", 1, 3291, 473, "Weapons FW", "Salvo Jettison")
-definePushButton("WP_JETT_SEL", 1, 3292, 70, "Weapons FW", "Selective Jettison")
-define3PosTumb("WP_BOMB_FUZE", 1, 3293, 494, "Weapons FW", "Bomb Fuze")
-defineToggleSwitch("WP_SEQUENCE", 1, 3294, 495, "Weapons FW", "Sequence Ripple/Single")
-defineToggleSwitch("WP_STATION1", 1, 3295, 488, "Weapons FW", "Station 1")
-defineToggleSwitch("WP_STATION2", 1, 3296, 489, "Weapons FW", "Station 2")
-defineToggleSwitch("WP_STATION3", 1, 3297, 490, "Weapons FW", "Station 3")
-defineToggleSwitch("WP_STATION4", 1, 3298, 491, "Weapons FW", "Station 4")
-defineToggleSwitch("WP_STATION5", 1, 3299, 492, "Weapons FW", "Station 5")
-defineToggleSwitch("WP_STATION6", 1, 3300, 493, "Weapons FW", "Station 6")
-defineToggleSwitch("WP_GND_FIRE", 1, 3301, 506, "Weapons FW", "Ground Fire")
-defineToggleSwitch("WP_MASTER_ARM_INIB_CVR", 1, 3302, 169, "Weapons FW", "Master Arm Inib Guard")
-defineToggleSwitch("WP_MASTER_ARM_INIB", 1, 3303, 170, "Weapons FW", "Master Arm Inib")
+defineToggleSwitch("WP_GND_FIRE_CVR", 1, 3289, 236, "Weapons", "Ground Fire Guard")
+defineToggleSwitch("WP_MASTER_ARM", 1, 3290, 475, "Weapons", "Master Armament")
+definePushButton("WP_JETT_SALVO", 1, 3291, 473, "Weapons", "Salvo Jettison")
+definePushButton("WP_JETT_SEL", 1, 3292, 70, "Weapons", "Selective Jettison")
+define3PosTumb("WP_BOMB_FUZE", 1, 3293, 494, "Weapons", "Bomb Fuze")
+defineToggleSwitch("WP_SEQUENCE", 1, 3294, 495, "Weapons", "Sequence Ripple/Single")
+defineToggleSwitch("WP_STATION1", 1, 3295, 488, "Weapons", "Station 1")
+defineToggleSwitch("WP_STATION2", 1, 3296, 489, "Weapons", "Station 2")
+defineToggleSwitch("WP_STATION3", 1, 3297, 490, "Weapons", "Station 3")
+defineToggleSwitch("WP_STATION4", 1, 3298, 491, "Weapons", "Station 4")
+defineToggleSwitch("WP_STATION5", 1, 3299, 492, "Weapons", "Station 5")
+defineToggleSwitch("WP_STATION6", 1, 3300, 493, "Weapons", "Station 6")
+defineToggleSwitch("WP_GND_FIRE", 1, 3301, 506, "Weapons", "Ground Fire")
+defineToggleSwitch("WP_MASTER_ARM_INIB_CVR", 1, 3302, 169, "Weapons", "Master Arm Inib Guard")
+defineToggleSwitch("WP_MASTER_ARM_INIB", 1, 3303, 170, "Weapons", "Master Arm Inib")
 
 --Gunsight
 define3PosTumb("GUN_PWR", 1, 3304, 478, "Gunsight", "Gunsight Power")
@@ -334,6 +334,30 @@ definePushButton("GUN_TEST", 1, 3307, 480, "Gunsight", "Gunsight Test")
 definePotentiometer("GUN_DEP_100", 1, 3308, 481, {0, 1}, "Gunsight", "Gunsight Depression reticle x 100")
 definePotentiometer("GUN_DEP_10", 1, 3309, 482, {0, 1}, "Gunsight", "Gunsight Depression reticle x 10")
 definePotentiometer("GUN_DEP_1", 1, 3310, 483, {0, 1}, "Gunsight", "Gunsight Depression reticle x 1")
+
+--VOR
+definePotentiometer("FW_VOR_FREQU_1MHZ", 1, 3311, 563, {0, 1}, "VOR FW", "Forward VOR Frequency 1MHz")
+definePotentiometer("FW_VOR_FREQU_50KHZ", 1, 3312, 564, {0, 1}, "VOR FW", "Forward VOR Frequency 50 kHz")
+definePushButton("FW_VOR_TEST", 1, 3313, 561, "VOR FW", "Forward VOR Frequency Test")
+defineToggleSwitch("FW_VOR_PW", 1, 3314, 562, "VOR FW", "Forward VOR Frequency Power Switch")
+
+definePotentiometer("AFT_VOR_FREQU_1MHZ", 1, 3315, 539, {0, 1}, "VOR AFT", "Aft VOR Frequency 1MHz")
+definePotentiometer("AFT_VOR_FREQU_50KHZ", 1, 3316, 34, {0, 1}, "VOR AFT", "Aft VOR Frequency 50 kHz")
+definePushButton("AFT_VOR_TEST", 1, 3317, 537, "VOR AFT", "Aft VOR Frequency Test")
+defineToggleSwitch("AFT_VOR_PW", 1, 3318, 538, "VOR AFT", "Aft VOR Frequency Power Switch")
+
+--Tacan
+defineMultipositionSwitch("FW_TCN_MODE", 1, 3319, 569, 5, 0.25, "TACAN FW", "Forward TACAN Mode")
+defineToggleSwitch("FW_TCN_XY", 1, 3320, 552, "TACAN FW", "Forward TACAN X/Y Switch")
+defineMultipositionSwitch("FW_TCN_1", 1, 3321, 553, 10, 0.1, "TACAN FW", "Forward TACAN Units")
+defineMultipositionSwitch("FW_TCN_10", 1, 3322, 554, 13, 0.08333, "TACAN FW", "Forward TACAN Tens")
+definePushButton("FW_TCN_TEST", 1, 3323, 555, "TACAN FW", "Forward TACAN Test")
+
+defineMultipositionSwitch("AFT_TCN_MODE", 1, 3324, 571, 5, 0.25, "TACAN AFT", "Aft TACAN Mode")
+defineToggleSwitch("AFT_TCN_XY", 1, 3325, 572, "TACAN AFT", "Aft TACAN X/Y Switch")
+defineMultipositionSwitch("AFT_TCN_1", 1, 3326, 573, 10, 0.1, "TACAN AFT", "Aft TACAN Units")
+defineMultipositionSwitch("AFT_TCN_10", 1, 3327, 574, 13, 0.08333, "TACAN AFT", "Aft TACAN Tens")
+definePushButton("AFT_TCN_TEST", 1, 3328, 575, "TACAN AFT", "Aft TACAN Test")
 
 --
 
