@@ -15,6 +15,7 @@ local defineToggleSwitch = BIOS.util.defineToggleSwitch
 local defineFloat = BIOS.util.defineFloat
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 local define3PosTumb = BIOS.util.define3PosTumb
+local defineSpringloaded_3PosTumb = BIOS.util.defineSpringloaded_3PosTumb
 
 -- remove Arg# Pilot 1000 / Copilot 1002
 
@@ -167,10 +168,12 @@ definePotentiometer("FW_LG_PBRAKE", 1, 3147, 266, {0, 1}, "Gear FW", "Forward Pa
 defineToggleSwitch("FW_LG_PBRAKE_LOCK", 1, 3148, 263, "Gear FW", "Foreward Parking Brake Lock")
 defineToggleSwitch("FW_LG_EMERG_GEAR", 1, 3149, 681, "Gear FW", "Foreward Emergency Landing Gear")
 definePushButton("FW_LG_DL_OVERRIDE", 1, 5000, 379, "Gear FW", "Foreward Down-Lock Override")
+defineSpringloaded_3PosTumb("FW_RUDDER_TRIM", 1, 3151, 3150, 540, "Gear FW", "Foreward Rudder Trim")
 
 defineToggleSwitch("AFT_LG_GEAR_LVR", 1, 3154, 106, "Gear AFT", "Aft Gear Lever")
 defineToggleSwitch("AFT_LG_ASKID", 1, 3146, 518, "Gear AFT", "Aft Anti-Skid")
 definePushButton("AFT_LG_DL_OVERRIDE", 1, 5001, 14, "Gear AFT", "Aft Down-Lock Override")
+defineSpringloaded_3PosTumb("AFT_RUDDER_TRIM", 1, 3152, 3153, 519, "Gear AFT", "Aft Rudder Trim")
 
 --Lights
 define3PosTumb("FW_LIGHT_TAXI_LAND", 1, 3156, 321, "Lights FW", "Forward Taxi/Landing Lights")
@@ -231,6 +234,12 @@ define3PosTumb("AI_FW_PITOT_AICE", 1, 3205, 261, "Anti Ice", "Front Pitot Anti-I
 define3PosTumb("AI_AFT_PITOT_AICE", 1, 3206, 149, "Anti Ice", "Rear Pitot Anti-Ice")
 define3PosTumb("AI_WS_DEMIST", 1, 3207, 178, "Anti Ice", "Windshield Demist")
 define3PosTumb("AI_WS_RAIN", 1, 3208, 177, "Anti Ice", "Windshield Rain RMVL")
+
+-- Ejection seat
+defineToggleSwitch("SEAT_FIRE", 1, 3209, 205, "Seat", "Seat Firing Handle")
+defineSpringloaded_3PosTumb("SEAT_ADJ", 1, 3211, 3212, 323, "Seat", "Adj Seat UP/DOWN")
+defineToggleSwitch("SEAT_PIN_CANOPY", 1, 3213, 377, "Seat", "Ejection Safety Pin to Canopy")
+defineToggleSwitch("SEAT_PIN_SEAT", 1, 3214, 376, "Seat", "Ejection Safety Pin to Seat")
 
 --Control shift
 definePushButton("FW_CONTROL_TCN", 1, 3225, 324, "Control Shift FW", "Forward TACAN Control Shift")
@@ -318,6 +327,45 @@ defineToggleSwitch("WP_GND_FIRE", 1, 3301, 506, "Weapons FW", "Ground Fire")
 defineToggleSwitch("WP_MASTER_ARM_INIB_CVR", 1, 3302, 169, "Weapons FW", "Master Arm Inib Guard")
 defineToggleSwitch("WP_MASTER_ARM_INIB", 1, 3303, 170, "Weapons FW", "Master Arm Inib")
 
+--Gunsight
+define3PosTumb("GUN_PWR", 1, 3304, 478, "Gunsight", "Gunsight Power")
+definePotentiometer("GUN_BRIGHT", 1, 3306, 479, {0, 1}, "Gunsight", "Gunsight Brightness")
+definePushButton("GUN_TEST", 1, 3307, 480, "Gunsight", "Gunsight Test")
+definePotentiometer("GUN_DEP_100", 1, 3308, 481, {0, 1}, "Gunsight", "Gunsight Depression reticle x 100")
+definePotentiometer("GUN_DEP_10", 1, 3309, 482, {0, 1}, "Gunsight", "Gunsight Depression reticle x 10")
+definePotentiometer("GUN_DEP_1", 1, 3310, 483, {0, 1}, "Gunsight", "Gunsight Depression reticle x 1")
+
+--
+
+--Comm2
+defineMultipositionSwitch("FW_COM2_MODE", 1, 3351, 650, 5, 0.25, "Comm2 FW", "Forward Comm 2 Mode")
+defineMultipositionSwitch("FW_COM2_FUNC", 1, 3352, 651, 5, 0.25, "Comm2 FW", "Forward Comm 2 Function")
+definePotentiometer("FW_COM2_BRIGHT", 1, 3353, 652, {0, 1}, "Comm2 FW", "Forward Comm 2 Brightness")
+defineSpringloaded_3PosTumb("FW_COM2_CHN_1", 1, 3354, 3355, 654, "Comm2 FW", "Forward Comm 2 Channel x1")
+defineSpringloaded_3PosTumb("FW_COM2_CHN_10", 1, 3356, 3357, 655, "Comm2 FW", "Forward Comm 2 Channel 1x")
+defineSpringloaded_3PosTumb("FW_COM2_FREQU_1", 1, 3358, 3359, 656, "Comm2 FW", "Forward Comm 2 Frequency xxxx1")
+defineSpringloaded_3PosTumb("FW_COM2_FREQU_10", 1, 3360, 3361, 657, "Comm2 FW", "Forward Comm 2 Frequency xxx1x")
+defineSpringloaded_3PosTumb("FW_COM2_FREQU_100", 1, 3362, 3363, 658, "Comm2 FW", "Forward Comm 2 Frequency xx1xx")
+defineSpringloaded_3PosTumb("FW_COM2_FREQU_1000", 1, 3364, 3365, 659, "Comm2 FW", "Forward Comm 2 Frequency x1xxx")
+defineSpringloaded_3PosTumb("FW_COM2_FREQU_10000", 1, 3366, 3367, 660, "Comm2 FW", "Forward Comm 2 Frequency 1xxxx")
+defineSpringloaded_3PosTumb("FW_COM2_SQUELCH", 1, 3368, 3368, 662, "Comm2 FW", "Forward Comm 2 Squelch")
+defineToggleSwitch("FW_COM2_MOD", 1, 3370, 661, "Comm2 FW", "Forward Comm 2 Modulation")
+defineToggleSwitch("FW_COM2_TOD", 1, 3371, 663, "Comm2 FW", "Forward Comm 2 TOD")
+
+defineMultipositionSwitch("AFT_COM2_MODE", 1, 3372, 290, 5, 0.25, "Comm2 AFT", "Aft Comm 2 Mode")
+defineMultipositionSwitch("AFT_COM2_FUNC", 1, 3373, 291, 5, 0.25, "Comm2 AFT", "Aft Comm 2 Function")
+definePotentiometer("AFT_COM2_BRIGHT", 1, 3374, 292, {0, 1}, "Comm2 AFT", "Aft Comm 2 Brightness")
+defineSpringloaded_3PosTumb("AFT_COM2_CHN_1", 1, 3375, 3376, 294, "Comm2 AFT", "Aft Comm 2 Channel x1")
+defineSpringloaded_3PosTumb("AFT_COM2_CHN_10", 1, 3377, 3378, 295, "Comm2 AFT", "Aft Comm 2 Channel 1x")
+defineSpringloaded_3PosTumb("AFT_COM2_FREQU_1", 1, 3379, 3380, 296, "Comm2 AFT", "Aft Comm 2 Frequency xxxx1")
+defineSpringloaded_3PosTumb("AFT_COM2_FREQU_10", 1, 3381, 3382, 297, "Comm2 AFT", "Aft Comm 2 Frequency xxx1x")
+defineSpringloaded_3PosTumb("AFT_COM2_FREQU_100", 1, 3383, 3384, 154, "Comm2 AFT", "Aft Comm 2 Frequency xx1xx")
+defineSpringloaded_3PosTumb("AFT_COM2_FREQU_1000", 1, 3385, 3386, 155, "Comm2 AFT", "Aft Comm 2 Frequency x1xxx")
+defineSpringloaded_3PosTumb("AFT_COM2_FREQU_10000", 1, 3387, 3388, 156, "Comm2 AFT", "Aft Comm 2 Frequency 1xxxx")
+defineSpringloaded_3PosTumb("AFT_COM2_SQUELCH", 1, 3389, 3389, 158, "Comm2 AFT", "Aft Comm 2 Squelch")
+defineToggleSwitch("AFT_COM2_MOD", 1, 3391, 157, "Comm2 AFT", "Aft Comm 2 Modulation")
+defineToggleSwitch("AFT_COM2_TOD", 1, 3392, 159, "Comm2 AFT", "Aft Comm 2 TOD")
+
 --
 
 --Oxygen
@@ -342,7 +390,10 @@ defineToggleSwitch("CURTAIN_HANDLE", 1, 3435, 1999, "Cockpit", "Curtain Handle")
 
 defineFloat("CANOPY_POS", 181, {0, 1}, "Cockpit Gauges", "Canopy Position")
 
----
+--ELT
+defineSpringloaded_3PosTumb("ELT_SW", 1, 3436, 3436, 727, "ELT", "ELT Switch")
+
+--IFF
 
 
 --Externals
