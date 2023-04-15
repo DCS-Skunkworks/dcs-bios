@@ -714,15 +714,12 @@
                                                                                "physical_variant": "push_button"
                                                                         },
                                                       "ARC210_CHN_KNB": {
+                                                                             "api_variant": "multiturn",
                                                                                 "category": "ARC-210",
-                                                                            "control_type": "limited_dial",
+                                                                            "control_type": "analog_dial",
                                                                              "description": "ARC-210 Channel Selector Knob",
                                                                               "identifier": "ARC210_CHN_KNB",
                                                                                   "inputs": [ {
-                                                                                                "description": "set the position of the dial",
-                                                                                                  "interface": "set_state",
-                                                                                                  "max_value": 65535
-                                                                                            }, {
                                                                                                    "description": "turn the dial left or right",
                                                                                                      "interface": "variable_step",
                                                                                                      "max_value": 65535,
@@ -730,11 +727,11 @@
                                                                                             } ],
                                                                                  "outputs": [ {
                                                                                                     "address": 4860,
-                                                                                                "description": "position of the potentiometer",
+                                                                                                "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
                                                                                                        "mask": 65535,
                                                                                                   "max_value": 65535,
                                                                                                    "shift_by": 0,
-                                                                                                     "suffix": "",
+                                                                                                     "suffix": "_KNOB_POS",
                                                                                                        "type": "integer"
                                                                                             } ]
                                                                         },
@@ -1169,7 +1166,7 @@
                                                "ARC210_100KHZ_SEL": {
                                                                                    "category": "ARC-210 Radio",
                                                                                "control_type": "selector",
-                                                                                "description": "ARC-210 100KHz Selector",
+                                                                                "description": "ARC-210 100kHz Selector",
                                                                                  "identifier": "ARC210_100KHZ_SEL",
                                                                                      "inputs": [ {
                                                                                                    "description": "switch to previous or next state",
@@ -1269,7 +1266,7 @@
                                                 "ARC210_25KHZ_SEL": {
                                                                                    "category": "ARC-210 Radio",
                                                                                "control_type": "selector",
-                                                                                "description": "ARC-210 25KHz Selector",
+                                                                                "description": "ARC-210 25kHz Selector",
                                                                                  "identifier": "ARC210_25KHZ_SEL",
                                                                                      "inputs": [ {
                                                                                                    "description": "switch to previous or next state",

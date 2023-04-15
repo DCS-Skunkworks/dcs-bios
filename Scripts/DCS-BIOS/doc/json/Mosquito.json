@@ -1692,29 +1692,24 @@
                                                                                   } ]
                                                               },
                                             "BOMB_DOORS_LVR": {
-                                                                             "category": "Main Panel",
-                                                                         "control_type": "selector",
-                                                                          "description": "Bomb Doors Lever",
-                                                                           "identifier": "BOMB_DOORS_LVR",
-                                                                               "inputs": [ {
-                                                                                             "description": "switch to previous or next state",
-                                                                                               "interface": "fixed_step"
-                                                                                         }, {
-                                                                                             "description": "set position",
-                                                                                               "interface": "set_state",
-                                                                                               "max_value": 2
-                                                                                         } ],
-                                                                  "momentary_positions": "none",
-                                                                              "outputs": [ {
-                                                                                                 "address": 28696,
-                                                                                             "description": "selector position",
-                                                                                                    "mask": 3,
-                                                                                               "max_value": 2,
-                                                                                                "shift_by": 0,
-                                                                                                  "suffix": "",
-                                                                                                    "type": "integer"
-                                                                                         } ],
-                                                                     "physical_variant": "3_position_switch"
+                                                                      "category": "Main Panel",
+                                                                  "control_type": "3Pos_2Command_Switch_OpenClose",
+                                                                   "description": "Bomb Doors Lever",
+                                                                    "identifier": "BOMB_DOORS_LVR",
+                                                                        "inputs": [ {
+                                                                                      "description": "set the switch position",
+                                                                                        "interface": "set_state",
+                                                                                        "max_value": 2
+                                                                                  } ],
+                                                                       "outputs": [ {
+                                                                                          "address": 28696,
+                                                                                      "description": "switch position -- 0 = Down, 1 = Mid,  2 = Up",
+                                                                                             "mask": 3,
+                                                                                        "max_value": 2,
+                                                                                         "shift_by": 0,
+                                                                                           "suffix": "",
+                                                                                             "type": "integer"
+                                                                                  } ]
                                                               },
                                            "BOMB_DOOR_L_CVR": {
                                                                              "category": "Main Panel",
