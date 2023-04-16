@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("MB-339", 0x8200)
 BIOS.protocol.setExportModuleAircrafts({"MB-339A", "MB-339APAN"})
---by WarLord 
+--by WarLord v1.0
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document
@@ -9,7 +9,6 @@ local defineIndicatorLight = BIOS.util.defineIndicatorLight
 local definePushButton = BIOS.util.definePushButton
 local definePotentiometer = BIOS.util.definePotentiometer
 local defineRotary = BIOS.util.defineRotary
-local defineTumb = BIOS.util.defineTumb
 local defineMultipositionSwitch = BIOS.util.defineMultipositionSwitch
 local defineToggleSwitch = BIOS.util.defineToggleSwitch
 local defineFloat = BIOS.util.defineFloat
@@ -101,6 +100,15 @@ definePushButton("FW_G_RESET", 1, 3104, 259, "Avionics FW", "Forward Reset Min/M
 defineRotary("AFT_ALTIMETER_KNOB", 1, 3103, 570, "Avionics AFT", "Aft Altimeter Pressure Setting")
 definePushButton("AFT_G_RESET", 1, 3105, 691, "Avionics AFT", "Aft Reset Min/Max G")
 
+defineFloat("FLAP_G", 1, {0, 1}, "Avionics Gauges", "Flaps Position Indicator")
+defineFloat("SPEED_BRK_G", 2, {0, 1}, "Avionics Gauges", "Speed Brake Position Indicator")
+defineFloat("LONG_TRIM_G", 3, {-1, 1}, "Avionics Gauges", "Longitudinal Trim Indicator")
+defineFloat("ACCEL_G", 6, {-1, 1}, "Avionics Gauges", "Accelerometer")
+defineFloat("FLAP_LVR_G", 7, {0, 1}, "Avionics Gauges", "Flaps Lever")
+defineFloat("AIR_SPEED_IND_G", 8, {0, 1}, "Avionics Gauges", "Mach Airspeed Indicator")
+defineFloat("ADI_PITCH_G", 9, {-1, 1}, "Avionics Gauges", "ADI Pitch")
+defineFloat("ADI_BANK_G", 10, {-1, 1}, "Avionics Gauges", "ADI Bank")
+
 --Chrono
 definePushButton("FW_CLOCK_BTN", 1, 3106, 44, "Clock FW", "Forward Clock Start/Stop/Reset")
 defineToggleSwitch("FW_CLOCK_SET_PULL", 1, 3107, 45, "Clock FW", "Forward Clock Set Pull")
@@ -174,6 +182,8 @@ defineToggleSwitch("AFT_LG_GEAR_LVR", 1, 3154, 106, "Gear AFT", "Aft Gear Lever"
 defineToggleSwitch("AFT_LG_ASKID", 1, 3146, 518, "Gear AFT", "Aft Anti-Skid")
 definePushButton("AFT_LG_DL_OVERRIDE", 1, 5001, 14, "Gear AFT", "Aft Down-Lock Override")
 defineSpringloaded_3PosTumb("AFT_RUDDER_TRIM", 1, 3152, 3153, 519, "Gear AFT", "Aft Rudder Trim")
+
+defineFloat("GEAR_HND_G", 1, {0, 1}, "Gear Gauges", "Gear Handle Position")
 
 --Lights
 define3PosTumb("FW_LIGHT_TAXI_LAND", 1, 3156, 321, "Lights FW", "Forward Taxi/Landing Lights")
@@ -346,7 +356,7 @@ definePotentiometer("AFT_VOR_FREQU_50KHZ", 1, 3316, 34, {0, 1}, "VOR AFT", "Aft 
 definePushButton("AFT_VOR_TEST", 1, 3317, 537, "VOR AFT", "Aft VOR Frequency Test")
 defineToggleSwitch("AFT_VOR_PW", 1, 3318, 538, "VOR AFT", "Aft VOR Frequency Power Switch")
 
---Tacan
+--TACAN
 defineMultipositionSwitch("FW_TCN_MODE", 1, 3319, 569, 5, 0.25, "TACAN FW", "Forward TACAN Mode")
 defineToggleSwitch("FW_TCN_XY", 1, 3320, 552, "TACAN FW", "Forward TACAN X/Y Switch")
 defineMultipositionSwitch("FW_TCN_1", 1, 3321, 553, 10, 0.1, "TACAN FW", "Forward TACAN Units")
@@ -359,7 +369,30 @@ defineMultipositionSwitch("AFT_TCN_1", 1, 3326, 573, 10, 0.1, "TACAN AFT", "Aft 
 defineMultipositionSwitch("AFT_TCN_10", 1, 3327, 574, 13, 0.08333, "TACAN AFT", "Aft TACAN Tens")
 definePushButton("AFT_TCN_TEST", 1, 3328, 575, "TACAN AFT", "Aft TACAN Test")
 
---
+--Comm1
+defineMultipositionSwitch("FW_COM1_FUNC", 1, 3329, 664, 4, 0.33, "Comm1 FW", "Forward Comm 1 Function")
+defineMultipositionSwitch("FW_COM1_MODE", 1, 3330, 665, 3, 0.50, "Comm1 FW", "Forward Comm 1 Mode")
+defineMultipositionSwitch("FW_COM1_FREQU_1", 1, 3331, 678, 4, 0.33, "Comm1 FW", "Forward Comm 1 Frequency xxxx1")
+defineMultipositionSwitch("FW_COM1_FREQU_10", 1, 3332, 677, 10, 0.111, "Comm1 FW", "Forward Comm 1 Frequency xxx1x")
+defineMultipositionSwitch("FW_COM1_FREQU_100", 1, 3333, 676, 10, 0.111, "Comm1 FW", "Forward Comm 1 Frequency xx1xx")
+defineMultipositionSwitch("FW_COM1_FREQU_1000", 1, 3334, 675, 10, 0.111, "Comm1 FW", "Forward Comm 1 Frequency x1xxx")
+defineMultipositionSwitch("FW_COM1_FREQU_10000", 1, 3335, 674, 2, 1, "Comm1 FW", "Forward Comm 1 Frequency 1xxxx")
+defineToggleSwitch("FW_COM1_SQUELCH", 1, 3336, 173, "Comm1 FW", "Forward Comm 1 Squelch")
+definePushButton("FW_COM1_TONE", 1, 3337, 175, "Comm1 FW", "Forward Comm 1 Tone")
+definePushButton("FW_COM1_MEM", 1, 3338, 679, "Comm1 FW", "Forward Comm 1 Mem")
+defineMultipositionSwitch("FW_COM1_CHAN", 1, 3339, 673, 20, 0.0526, "Comm1 FW", "Forward Comm 1 Channel")
+
+defineMultipositionSwitch("AFT_COM1_FUNC", 1, 3340, 279, 4, 0.33, "Comm1 AFT", "Aft Comm 1 Function")
+defineMultipositionSwitch("AFT_COM1_MODE", 1, 3341, 280, 3, 0.50, "Comm1 AFT", "Aft Comm 1 Mode")
+defineMultipositionSwitch("AFT_COM1_FREQU_1", 1, 3342, 526, 4, 0.33, "Comm1 AFT", "Aft Comm 1 Frequency xxxx1")
+defineMultipositionSwitch("AFT_COM1_FREQU_10", 1, 3343, 525, 10, 0.111, "Comm1 AFT", "Aft Comm 1 Frequency xxx1x")
+defineMultipositionSwitch("AFT_COM1_FREQU_100", 1, 3344, 524, 10, 0.111, "Comm1 AFT", "Aft Comm 1 Frequency xx1xx")
+defineMultipositionSwitch("AFT_COM1_FREQU_1000", 1, 3345, 523, 10, 0.111, "Comm1 AFT", "Aft Comm 1 Frequency x1xxx")
+defineMultipositionSwitch("AFT_COM1_FREQU_10000", 1, 3346, 522, 2, 1, "Comm1 AFT", "Aft Comm 1 Frequency 1xxxx")
+defineToggleSwitch("AFT_COM1_SQUELCH", 1, 3347, 174, "Comm1 AFT", "Aft Comm 1 Squelch")
+definePushButton("AFT_COM1_TONE", 1, 3348, 176, "Comm1 AFT", "Aft Comm 1 Tone")
+definePushButton("AFT_COM1_MEM", 1, 3349, 527, "Comm1 AFT", "Aft Comm 1 Mem")
+defineMultipositionSwitch("AFT_COM1_CHAN", 1, 3350, 521, 20, 0.0526, "Comm1 AFT", "Aft Comm 1 Channel")
 
 --Comm2
 defineMultipositionSwitch("FW_COM2_MODE", 1, 3351, 650, 5, 0.25, "Comm2 FW", "Forward Comm 2 Mode")
@@ -390,7 +423,42 @@ defineSpringloaded_3PosTumb("AFT_COM2_SQUELCH", 1, 3389, 3389, 158, "Comm2 AFT",
 defineToggleSwitch("AFT_COM2_MOD", 1, 3391, 157, "Comm2 AFT", "Aft Comm 2 Modulation")
 defineToggleSwitch("AFT_COM2_TOD", 1, 3392, 159, "Comm2 AFT", "Aft Comm 2 TOD")
 
---
+--ICS
+defineToggleSwitch("FW_ICS_COM1_SW", 1, 3393, 115, "ICS FW", "Forward ICS COM1 Switch")
+definePotentiometer("FW_ICS_COM1_VOL", 1, 3394, 116, {0, 1}, "ICS FW", "Forward ICS COM1 Volume")
+defineToggleSwitch("FW_ICS_COM2_SW", 1, 3395, 117, "ICS FW", "Forward ICS COM2 Switch")
+definePotentiometer("FW_ICS_COM2_VOL", 1, 3396, 118, {0, 1}, "ICS FW", "Forward ICS COM2 Volume")
+defineToggleSwitch("FW_ICS_TCN_SW", 1, 3397, 119, "ICS FW", "Forward ICS TACAN Switch")
+definePotentiometer("FW_ICS_TCN_VOL", 1, 3398, 120, {0, 1}, "ICS FW", "Forward ICS TACAN Volume")
+defineToggleSwitch("FW_ICS_VORLOC_SW", 1, 3399, 121, "ICS FW", "Forward ICS VOR/LOC Switch")
+definePotentiometer("FW_ICS_VORLOC_VOL", 1, 3400, 122, {0, 1}, "ICS FW", "Forward ICS VOR/LOC Volume")
+defineToggleSwitch("FW_ICS_ADF_SW", 1, 3401, 123, "ICS FW", "Forward ICS ADF Switch")
+definePotentiometer("FW_ICS_ADF_VOL", 1, 3402, 124, {0, 1}, "ICS FW", "Forward ICS ADF Volume")
+defineToggleSwitch("FW_ICS_MARK_SW", 1, 3403, 125, "ICS FW", "Forward ICS Markers Switch")
+definePotentiometer("FW_ICS_MARK_VOL", 1, 3404, 126, {0, 1}, "ICS FW", "Forward ICS Markers Volume")
+defineToggleSwitch("FW_ICS_INTPH_SW", 1, 3405, 127, "ICS FW", "Forward ICS Interphone Switch")
+definePotentiometer("FW_ICS_INTPH_VOL", 1, 3406, 128, {0, 1}, "ICS FW", "Forward ICS Interphone Volume")
+definePotentiometer("FW_ICS_MASTER_VOL", 1, 3407, 129, {0, 1}, "ICS FW", "Forward ICS Master Volume")
+definePushButton("FW_ICS_CALL", 1, 3408, 130, "ICS FW", "Forward ICS Call Switch")
+defineToggleSwitch("FW_ICS_RADIO_SEL", 1, 3409, 131, "ICS FW", "Forward ICS COM1/COM2 TX Selector")
+
+defineToggleSwitch("AFT_ICS_COM1_SW", 1, 3410, 132, "ICS AFT", "Aft ICS COM1 Switch")
+definePotentiometer("AFT_ICS_COM1_VOL", 1, 3411, 133, {0, 1}, "ICS AFT", "Aft ICS COM1 Volume")
+defineToggleSwitch("AFT_ICS_COM2_SW", 1, 3412, 134, "ICS AFT", "Aft ICS COM2 Switch")
+definePotentiometer("AFT_ICS_COM2_VOL", 1, 3413, 135, {0, 1}, "ICS AFT", "Aft ICS COM2 Volume")
+defineToggleSwitch("AFT_ICS_TCN_SW", 1, 3414, 136, "ICS AFT", "Aft ICS TACAN Switch")
+definePotentiometer("AFT_ICS_TCN_VOL", 1, 3415, 137, {0, 1}, "ICS AFT", "Aft ICS TACAN Volume")
+defineToggleSwitch("AFT_ICS_VORLOC_SW", 1, 3416, 138, "ICS AFT", "Aft ICS VOR/LOC Switch")
+definePotentiometer("AFT_ICS_VORLOC_VOL", 1, 3417, 139, {0, 1}, "ICS AFT", "Aft ICS VOR/LOC Volume")
+defineToggleSwitch("AFT_ICS_ADF_SW", 1, 3418, 140, "ICS AFT", "Aft ICS ADF Switch")
+definePotentiometer("AFT_ICS_ADF_VOL", 1, 3419, 141, {0, 1}, "ICS AFT", "Aft ICS ADF Volume")
+defineToggleSwitch("AFT_ICS_MARK_SW", 1, 3420, 142, "ICS AFT", "Aft ICS Markers Switch")
+definePotentiometer("AFT_ICS_MARK_VOL", 1, 3421, 143, {0, 1}, "ICS AFT", "Aft ICS Markers Volume")
+defineToggleSwitch("AFT_ICS_INTPH_SW", 1, 3422, 144, "ICS AFT", "Aft ICS Interphone Switch")
+definePotentiometer("AFT_ICS_INTPH_VOL", 1, 3423, 145, {0, 1}, "ICS AFT", "Aft ICS Interphone Volume")
+definePotentiometer("AFT_ICS_MASTER_VOL", 1, 3424, 146, {0, 1}, "ICS AFT", "Aft ICS Master Volume")
+definePushButton("AFT_ICS_CALL", 1, 3425, 147, "ICS AFT", "Aft ICS Call Switch")
+defineToggleSwitch("AFT_ICS_RADIO_SEL", 1, 3426, 148, "ICS AFT", "Aft ICS COM1/COM2 TX Selector")
 
 --Oxygen
 defineToggleSwitch("FW_OXY_PW", 1, 3427, 587, "Oxygen FW", "Forward Oxygen Power Supply")
@@ -412,12 +480,32 @@ defineToggleSwitch("AFT_CANOPY_SEVERANCE_PIN", 1, 3218, 742, "Cockpit", "Aft Can
 
 defineToggleSwitch("CURTAIN_HANDLE", 1, 3435, 1999, "Cockpit", "Curtain Handle")
 
-defineFloat("CANOPY_POS", 181, {0, 1}, "Cockpit Gauges", "Canopy Position")
+defineFloat("CANOPY_POS_G", 181, {0, 1}, "Cockpit Gauges", "Canopy Position")
 
 --ELT
 defineSpringloaded_3PosTumb("ELT_SW", 1, 3436, 3436, 727, "ELT", "ELT Switch")
 
 --IFF
+defineMultipositionSwitch("IFF_MASTER", 1, 3438, 714, 5, 0.25, "IFF", "IFF Master")
+defineMultipositionSwitch("IFF_CODE", 1, 3439, 713, 5, 0.25, "IFF", "IFF Code")
+define3PosTumb("IFF_ANT", 1, 3440, 715, "IFF", "IFF ANT Switch")
+define3PosTumb("IFF_M4_CONT", 1, 3441, 710, "IFF", "IFF Mode 4 Control")
+define3PosTumb("IFF_M4_AUDIO", 1, 3442, 711, "IFF", "IFF Mode 4 Audio")
+definePushButton("IFF_RAD", 1, 3443, 716, "IFF", "IFF RAD Switch")
+define3PosTumb("IFF_M1_CONT", 1, 3444, 720, "IFF", "IFF Mode 1 Control")
+define3PosTumb("IFF_M2_CONT", 1, 3445, 719, "IFF", "IFF Mode 2 Control")
+define3PosTumb("IFF_M3A_CONT", 1, 3446, 718, "IFF", "IFF Mode 3/A Control")
+define3PosTumb("IFF_M3C_CONT", 1, 3447, 717, "IFF", "IFF Mode 3/C Control")
+defineSpringloaded_3PosTumb("IFF_IDENT_MIC", 1, 3448, 3448, 712, "IFF", "IFF IDENT-MIC Switch")
+definePushButton("IFF_CODE_SW_1", 1, 3450, 734, "IFF", "IFF Code Switch 1")
+definePushButton("IFF_CODE_SW_2", 1, 3451, 735, "IFF", "IFF Code Switch 2")
+definePushButton("IFF_CODE_SW_3", 1, 3452, 736, "IFF", "IFF Code Switch 3")
+definePushButton("IFF_CODE_SW_4", 1, 3453, 737, "IFF", "IFF Code Switch 4")
+definePushButton("IFF_CODE_SW_5", 1, 3454, 738, "IFF", "IFF Code Switch 5")
+definePushButton("IFF_CODE_SW_6", 1, 3455, 739, "IFF", "IFF Code Switch 6")
+definePushButton("IFF_TEST_GO", 1, 3456, 743, "IFF", "IFF Test Switch GO")
+definePushButton("IFF_TEST_NOGO", 1, 3457, 744, "IFF", "IFF Test Switch NOGO")
+definePushButton("IFF_TEST_REPLY", 1, 3458, 745, "IFF", "IFF Test Switch REPLY")
 
 
 --Externals
