@@ -18,6 +18,39 @@ local defineSpringloaded_3PosTumb = BIOS.util.defineSpringloaded_3PosTumb
 
 -- remove Arg# Pilot 1000 / Copilot 1002
 
+----------------------------------------- Extra Functions
+local function defineIndicatorLightGear(msg, arg_number, category, description) --red
+	local value = moduleBeingDefined.memoryMap:allocateInt {
+		maxValue = 1
+	}
+	assert(value.shiftBy ~= nil)
+	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
+		if dev0:get_argument_value(arg_number) >= 0.5 and dev0:get_argument_value(arg_number) < 0.9 then
+			value:setValue(1)
+		else
+		    value:setValue(0)
+		end
+	end
+	document {
+		identifier = msg,
+		category = category,
+		description = description,
+		control_type = "led",
+		inputs = {},
+		outputs = {
+			{ ["type"] = "integer",
+			  suffix = "",
+			  address = value.address,
+			  mask = value.mask,
+			  shift_by = value.shiftBy,
+			  max_value = 1,
+			  description = "Multi Led Color 1; Light is on between 0.4 and 0.59"
+			}
+		}
+	}
+end
+
+
 --Breakers
 defineToggleSwitch("CB_IFF", 1, 3911, 1114, "Circuit Breakers", "C/B IFF")
 defineToggleSwitch("CB_HYD_PRESS", 1, 3912, 1115, "Circuit Breakers", "C/B Hyd Press")
@@ -85,10 +118,10 @@ defineToggleSwitch("CB_AHR_GPS", 1, 3992,1513, "Circuit Breakers", "C/B AHR/GPS"
 defineToggleSwitch("CB_COMM_RDU", 1, 3995,1522, "Circuit Breakers", "C/B COMM RDU")
 
 --Electrical
-defineToggleSwitch("BATTERY_SW", 1, 3095, 300, "Electrical", "Battery")
-defineToggleSwitch("GEN1_SW", 1, 3096, 301, "Electrical", "Generator 1")
-defineToggleSwitch("GEN2_SW", 1, 3097, 302, "Electrical", "Generator 2")
-defineToggleSwitch("AC_PW_SW", 1, 3098, 303, "Electrical", "AC Power")
+defineToggleSwitch("BATTERY_SW", 1, 3095, 300, "Electrical", "Battery Switch")
+defineToggleSwitch("GEN1_SW", 1, 3096, 301, "Electrical", "Generator 1 Switch")
+defineToggleSwitch("GEN2_SW", 1, 3097, 302, "Electrical", "Generator 2 Switch")
+defineToggleSwitch("AC_PW_SW", 1, 3098, 303, "Electrical", "AC Power Switch")
 defineToggleSwitch("BUS_RESET_SW", 1, 3099, 231, "Electrical", "Bus Reset Switch")
 defineToggleSwitch("BUS_RESET_CV", 1, 3100, 233, "Electrical", "Bus Reset Cover")
 
@@ -105,9 +138,16 @@ defineFloat("SPEED_BRK_G", 2, {0, 1}, "Avionics Gauges", "Speed Brake Position I
 defineFloat("LONG_TRIM_G", 3, {-1, 1}, "Avionics Gauges", "Longitudinal Trim Indicator")
 defineFloat("ACCEL_G", 6, {-1, 1}, "Avionics Gauges", "Accelerometer")
 defineFloat("FLAP_LVR_G", 7, {0, 1}, "Avionics Gauges", "Flaps Lever")
-defineFloat("AIR_SPEED_IND_G", 8, {0, 1}, "Avionics Gauges", "Mach Airspeed Indicator")
-defineFloat("ADI_PITCH_G", 9, {-1, 1}, "Avionics Gauges", "ADI Pitch")
-defineFloat("ADI_BANK_G", 10, {-1, 1}, "Avionics Gauges", "ADI Bank")
+defineFloat("FW_AIR_SPEED_IND_G", 8, {0, 1}, "Avionics Gauges FW", "Forward Mach Airspeed Indicator")
+defineFloat("FW_ADI_PITCH_G", 9, {-1, 1}, "Avionics Gauges FW", "Forward ADI Pitch")
+defineFloat("FW_ADI_BANK_G", 10, {-1, 1}, "Avionics Gauges FW", "Forward ADI Bank")
+defineFloat("FW_ADI_GS_G", 11, {-1, 1}, "Avionics Gauges FW", "Forward ADI Glide Slope Indicator")
+defineFloat("AFT_ADI_GS_G", 12, {-1, 1}, "Avionics Gauges AFT", "Aft ADI Glide Slope Indicator")
+defineFloat("AFT_ADI_TURN_G", 13, {-1, 1}, "Avionics Gauges AFT", "Aft ADI Rate-of-Turn Indicator")
+defineFloat("TACHO_G", 16, {0, 1}, "Avionics Gauges", "Tachometer")
+defineFloat("AFT_ALT_CFLAG_G", 19, {0, 1}, "Avionics Gauges AFT", "Aft Altimeter CODE OFF Flag")
+defineFloat("ADI_OFF_G", 21, {0, 1}, "Avionics Gauges", "ADI OFF Flag")
+
 
 --Chrono
 definePushButton("FW_CLOCK_BTN", 1, 3106, 44, "Clock FW", "Forward Clock Start/Stop/Reset")
@@ -184,6 +224,8 @@ definePushButton("AFT_LG_DL_OVERRIDE", 1, 5001, 14, "Gear AFT", "Aft Down-Lock O
 defineSpringloaded_3PosTumb("AFT_RUDDER_TRIM", 1, 3152, 3153, 519, "Gear AFT", "Aft Rudder Trim")
 
 defineFloat("GEAR_HND_G", 1, {0, 1}, "Gear Gauges", "Gear Handle Position")
+
+defineIndicatorLightGear("NOSE_GEAR_L", 20, "Gear Light", "Nose Gear Light (green)")
 
 --Lights
 define3PosTumb("FW_LIGHT_TAXI_LAND", 1, 3156, 321, "Lights FW", "Forward Taxi/Landing Lights")
