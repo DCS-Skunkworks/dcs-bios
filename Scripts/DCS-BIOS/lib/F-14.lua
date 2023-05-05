@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("F-14", 0x1200)
 BIOS.protocol.setExportModuleAircrafts({"F-14B", "F-14A-135-GR"})
---v4.6 by WarLord,ArturDCS,Matchstick and Bullitt
+--v4.6a by WarLord,ArturDCS,Matchstick and Bullitt
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 
@@ -679,7 +679,7 @@ defineMultipositionSwitch("RIO_DECM_PW_MODE", 53, 3252, 151, 6, 0.2, "DECM Panel
 definePotentiometer("RIO_DECM_VOL", 53, 3253, 9950, {0, 1}, "DECM Panel", "RIO DECM ALQ-100 Volume")
 
 -- RWR Control Panel ALR-67
-definePotentiometer("PLT_RWR_BRIGHT", 54, 3261, 16011, {0, 1}, "RWR Control Panel", "PILOT AN/ALR-67 Display Brightness")
+definePotentiometer("PLT_RWR_BRIGHT", 54, 3262, 16011, {0, 1}, "RWR Control Panel", "PILOT AN/ALR-67 Display Brightness")
 definePotentiometer("RIO_RWR_BRIGHT", 54, 3263, 376, {0, 1}, "RWR Control Panel", "RIO AN/ALR-67 Display Brightness")
 defineMultipositionSwitch("RIO_RWR_DIS_TYP", 54, 3257, 2136, 5, 0.25, "DECM Panel" ,"RIO AN/ALR-67 Display Type")
 define3PosTumb("RIO_RWR_MODE", 54, 3256, 2137, "DECM Panel", "RIO AN/ALR-67 Mode")
@@ -1304,8 +1304,8 @@ defineIndicatorLightMulti2("RIO_HCU_LIGHT_TID_2", 6138, "RIO Indicator Lights","
 defineFloat("PLT_RADARALTI_NEEDLE", 103, {0, 1}, "PLT Gauges", "PILOT Radar Altimeter Needle")
 defineFloat("PLT_RADARALTI_FLAG", 2124, {0, 1}, "PLT Gauges", "PILOT Radar Altimeter OFF Flag")
 defineFloat("PLT_RADARALTI_POINTER", 4154, {0, 1}, "PLT Gauges", "PILOT Radar Altimeter Pointer")
-defineFloat("PLT_AIRSPEED_NEEDLE", 2129, {0, 1}, "PLT Gauges", "PILOT Airspeed Outer Needle")
-defineFloat("PLT_AIRSPEED_INNER", 2128, {0, 1}, "PLT Gauges", "PILOT Airspeed Inner Needle")
+defineFloat("PLT_AIRSPEED_NEEDLE", 2129, {0, 1}, "PLT Gauges", "PILOT Airspeed Inner Disc")
+defineFloat("PLT_AIRSPEED_INNER", 2128, {0, 1}, "PLT Gauges", "PILOT Airspeed Number Disc")
 defineFloat("PLT_AIRSPEED_POINTER1", 2125, {0, 1}, "PLT Gauges", "PILOT Airspeed Pointer 1")
 defineFloat("PLT_AIRSPEED_POINTER2", 2126, {0, 1}, "PLT Gauges", "PILOT Airspeed Pointer 2")
 defineFloat("PLT_ENGINE_RPM_L", 1057, {0, 1}, "PLT Gauges", "PILOT Engine RPM Left")
@@ -1502,8 +1502,8 @@ defineFloat("PLT_WEAPON_STORE_8B", 9227, {0, 1}, "PLT Gauges", "PILOT Weapon Sto
 defineFloat("PLT_WEAPON_STORE_8A", 9228, {0, 1}, "PLT Gauges", "PILOT Weapon Store 8A")
 
 -- Gauges RIO
-defineFloat("RIO_AIRSPEED_NEEDLE", 250, {0, 1}, "RIO Gauges", "RIO Airspeed Outer Needle")
-defineFloat("RIO_AIRSPEED_INNER", 251, {0, 1}, "RIO Gauges", "RIO Airspeed Inner Needle")
+defineFloat("RIO_AIRSPEED_NEEDLE", 250, {0, 1}, "RIO Gauges", "RIO Airspeed Inner Disc")
+defineFloat("RIO_AIRSPEED_INNER", 251, {0, 1}, "RIO Gauges", "RIO Airspeed Number Disc")
 defineFloat("RIO_AIRSPEED_POINTER1", 252, {0, 1}, "RIO Gauges", "RIO Airspeed Pointer 1")
 defineFloat("RIO_AIRSPEED_POINTER2", 253, {0, 1}, "RIO Gauges", "RIO Airspeed Pointer 2")
 defineFloat("RIO_CMDS_CHAFF_COUNT_10", 392, {0, 1}, "RIO Gauges", "RIO CMDS Chaff Counter 10")
