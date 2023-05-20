@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("MirageF1", 0x8600)
 BIOS.protocol.setExportModuleAircrafts({"Mirage-F1CE"})
---by WarLord v1.3
+--by WarLord v1.3a
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document  
@@ -167,9 +167,9 @@ defineSetCommandTumb("P_VUHF_FREQ_1", 1, 3151, 276, 0.1, {0, 1}, {"0", "1", "2",
 defineSetCommandTumb("P_VUHF_FREQ_01", 1, 3153, 277, 0.1, {0, 1}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"}, false, "COMMON V/UHF Control Unit", "Pilot V/UHF Frequency Thumbwheel 0.1")
 defineSetCommandTumb("P_VUHF_FREQ_0025", 1, 3155, 278, 0.333, {0, 1}, {"00", "25", "50", "75"}, false, "COMMON V/UHF Control Unit", "Pilot V/UHF Frequency Thumbwheel 0.025")
 defineSetCommandTumb("P_VUHF_FUNC_SEL", 1, 3157, 280, 0.2, {0, 0.8}, nil, true, "COMMON V/UHF Control Unit", "Pilot V/UHF Function Selector")
-defineToggleSwitch("P_VUHF_25_5_SW", 1, 3159, 281, "COMMON V/UHF Control Unit", "Pilot V/UHF 25W - 5W Switch")
-defineMultipositionSwitch("P_VUHF_FREQ_SEL", 1, 3160, 282, 3, 0.5, "COMMON V/UHF Control Unit", "Pilot V/UHF Frequency Selector Switch")
-defineRadioWheel("P_VUHF_CHAN", 1, 3162, 3162, {-0.05, 0.05}, 283, 0.05, {0, 1}, {" 6", " 7", " 8", " 9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", " 1", " 2", " 3", " 4", " 5"}, "COMMON V/UHF Control Unit", "Pilot V/UHF Channel Selector")
+defineToggleSwitch("P_VUHF_25_5_SW", 1, 3160, 281, "COMMON V/UHF Control Unit", "Pilot V/UHF 25W - 5W Switch")
+defineMultipositionSwitch("P_VUHF_FREQ_SEL", 1, 3161, 282, 3, 0.5, "COMMON V/UHF Control Unit", "Pilot V/UHF Frequency Selector Switch")
+defineRadioWheel("P_VUHF_CHAN", 1, 3163, 3163, {-0.05, 0.05}, 283, 0.05, {0, 1}, {" 6", " 7", " 8", " 9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", " 1", " 2", " 3", " 4", " 5"}, "COMMON V/UHF Control Unit", "Pilot V/UHF Channel Selector")
 
 defineIndicatorLight("P_VUHF_TEST_L", 271, "COMMON V/UHF Control Unit Lights", "Pilot V/UHF Test Light (red)")
 
@@ -590,7 +590,7 @@ defineToggleSwitch("P_CE_UHF_SQUELCH", 1, 3456, 341, "CE/BE/EE UHF Radio", "CE/B
 define3PosTumb("P_CE_UHF_TEST_SEL", 1, 3457, 342, "CE/BE/EE UHF Radio", "CE/BE/EE Pilot UHF Test Selector Switch")
 definePushButton("P_CE_UHF_CDE", 1, 3458, 343, "CE/BE/EE UHF Radio", "CE/BE/EE Pilot UHF CDE Button")
 defineMultipositionSwitch("P_CE_UHF_FUNC", 1, 3459, 344, 3, 0.5, "CE/BE/EE UHF Radio", "CE/BE/EE Pilot UHF Function Selector")
-defineRadioWheel("P_CE_UHF_CHAN", 1, 3462, 3462, {-0.05, 0.05}, 348, 0.05, {0, 1}, {" 6", " 7", " 8", " 9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", " 1", " 2", " 3", " 4", " 5"}, "CE/BE/EE UHF Radio", "CE/BE/EE Pilot UHF Channel Selector")
+defineRadioWheel("P_CE_UHF_CHAN", 1, 3463, 3463, {-0.05, 0.05}, 348, 0.05, {0, 1}, {" 6", " 7", " 8", " 9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", " 1", " 2", " 3", " 4", " 5"}, "CE/BE/EE UHF Radio", "CE/BE/EE Pilot UHF Channel Selector")
 
 defineIndicatorLight("P_CE_UHF_CDE_L", 351, "CE/BE/EE UHF Radio Lights", "CE/BE/EE Pilot UHF Radio CDE Light (green)")
 defineIndicatorLight("P_CE_UHF_TEST_L", 352, "CE/BE/EE UHF Radio Lights", "CE/BE/EE Pilot UHF Radio TEST Light (red)")
@@ -738,7 +738,7 @@ defineIntegerFromGetter("EXT_WOW_LEFT", function()
 	if LoGetAircraftDrawArgumentValue(6) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Weight ON Wheels Left Gear")
 
-definePushButton("P_CE_UHF_TEST_BTN", 1, 3461, 345, "CE/BE/EE UHF Radio", "CE/BE/EE Pilot UHF Test Button")
+definePushButton("P_CE_UHF_TEST_BTN", 1, 3462, 345, "CE/BE/EE UHF Radio", "CE/BE/EE Pilot UHF Test Button")
 
 --Navigation Indicator
 defineToggleSwitch("P_EE_IDN_HEAD_SEL", 1, 3655, 1254, "EE Navigation Indicator", "EE Pilot Gyromagnetic/True IDN Heading Selector")	
@@ -763,33 +763,33 @@ definePushButton("P_EE_ALR300_TEST", 1, 3677, 1018, "EE ALR-300", "EE Pilot ALR-
 definePushButton("P_EFC_MV_THL_CUT_IDLE", 1, 3049, 234, "COMMON Engine-Fuel Control", "Pilot Move Throttle Cut/Idle")
 
 --Inertial Navigation System (INS)
-defineMultipositionSwitch("P_EE_INS_PARA_SEL", 1, 3680, 665, 6, 0.1, "EE INS", "EE Pilot Parameters Selector")
-defineMultipositionSwitch("P_EE_INS_MODE_SEL", 1, 3682, 666, 9, 0.125, "EE INS", "EE Pilot Modes Selector")
-defineMultipositionSwitch("P_EE_INS_WAY_SEL", 1, 3684, 667, 10, 0.111, "EE INS", "EE Pilot Waypoints Selectorwheel")
-defineMultipositionSwitch("P_EE_INS_LIGHTS_SEL", 1, 3686, 668, 3, 0.5, "EE INS", "EE Pilot Lights Test and Brightnes Selector")
-definePushButton("P_EE_INS_VD_BTN", 1, 3699, 650, "EE INS", "EE Pilot INS Vertical Designation Button")
-definePushButton("P_EE_INS_PV_BTN", 1, 3700, 651, "EE INS", "EE Pilot INS Position Validation Button")
-definePushButton("P_EE_INS_DI_BTN", 1, 3701, 652, "EE INS", "EE Pilot INS Data Insertion Button")
-definePushButton("P_EE_INS_1_BTN", 1, 3688, 653, "EE INS", "EE Pilot INS - 1 Button")
-definePushButton("P_EE_INS_2_BTN", 1, 3689, 654, "EE INS", "EE Pilot INS N 2 Button")
-definePushButton("P_EE_INS_3_BTN", 1, 3690, 655, "EE INS", "EE Pilot INS + 3 Button")
-definePushButton("P_EE_INS_4_BTN", 1, 3691, 656, "EE INS", "EE Pilot INS W 4 Button")
-definePushButton("P_EE_INS_5_BTN", 1, 3692, 657, "EE INS", "EE Pilot INS 5 Button")
-definePushButton("P_EE_INS_6_BTN", 1, 3693, 658, "EE INS", "EE Pilot INS 6 E Button")
-definePushButton("P_EE_INS_7_BTN", 1, 3694, 659, "EE INS", "EE Pilot INS 7 Button")
-definePushButton("P_EE_INS_8_BTN", 1, 3695, 660, "EE INS", "EE Pilot INS 8 S Button")
-definePushButton("P_EE_INS_9_BTN", 1, 3696, 661, "EE INS", "EE Pilot INS - 9 Button")
-definePushButton("P_EE_INS_AST_BTN", 1, 3698, 662, "EE INS", "EE Pilot INS - * Button")
-definePushButton("P_EE_INS_0_BTN", 1, 3687, 663, "EE INS", "EE Pilot INS - 0 Button")
-definePushButton("P_EE_INS_CLR_BTN", 1, 3697, 664, "EE INS", "EE Pilot INS - CLR Button")
+defineMultipositionSwitch("P_EE_INS_PARA_SEL", 1, 3690, 665, 6, 0.1, "EE INS", "EE Pilot Parameters Selector")
+defineMultipositionSwitch("P_EE_INS_MODE_SEL", 1, 3692, 666, 9, 0.125, "EE INS", "EE Pilot Modes Selector")
+defineMultipositionSwitch("P_EE_INS_WAY_SEL", 1, 3694, 667, 10, 0.111, "EE INS", "EE Pilot Waypoints Selectorwheel")
+defineMultipositionSwitch("P_EE_INS_LIGHTS_SEL", 1, 3696, 668, 3, 0.5, "EE INS", "EE Pilot Lights Test and Brightnes Selector")
+definePushButton("P_EE_INS_VD_BTN", 1, 3709, 650, "EE INS", "EE Pilot INS Vertical Designation Button")
+definePushButton("P_EE_INS_PV_BTN", 1, 3710, 651, "EE INS", "EE Pilot INS Position Validation Button")
+definePushButton("P_EE_INS_DI_BTN", 1, 3711, 652, "EE INS", "EE Pilot INS Data Insertion Button")
+definePushButton("P_EE_INS_1_BTN", 1, 3698, 653, "EE INS", "EE Pilot INS - 1 Button")
+definePushButton("P_EE_INS_2_BTN", 1, 3699, 654, "EE INS", "EE Pilot INS N 2 Button")
+definePushButton("P_EE_INS_3_BTN", 1, 3700, 655, "EE INS", "EE Pilot INS + 3 Button")
+definePushButton("P_EE_INS_4_BTN", 1, 3701, 656, "EE INS", "EE Pilot INS W 4 Button")
+definePushButton("P_EE_INS_5_BTN", 1, 3702, 657, "EE INS", "EE Pilot INS 5 Button")
+definePushButton("P_EE_INS_6_BTN", 1, 3703, 658, "EE INS", "EE Pilot INS 6 E Button")
+definePushButton("P_EE_INS_7_BTN", 1, 3704, 659, "EE INS", "EE Pilot INS 7 Button")
+definePushButton("P_EE_INS_8_BTN", 1, 3705, 660, "EE INS", "EE Pilot INS 8 S Button")
+definePushButton("P_EE_INS_9_BTN", 1, 3706, 661, "EE INS", "EE Pilot INS - 9 Button")
+definePushButton("P_EE_INS_AST_BTN", 1, 3708, 662, "EE INS", "EE Pilot INS - * Button")
+definePushButton("P_EE_INS_0_BTN", 1, 3697, 663, "EE INS", "EE Pilot INS - 0 Button")
+definePushButton("P_EE_INS_CLR_BTN", 1, 3707, 664, "EE INS", "EE Pilot INS - CLR Button")
 
-defineSpringloaded_2PosTumb("P_EE_PIT_INOP", 1, 3705, 3706, 1272, "EE Cockpit", "EE Pilot Inoperative")
+defineSpringloaded_2PosTumb("P_EE_PIT_INOP", 1, 3715, 3716, 1272, "EE Cockpit", "EE Pilot Inoperative")
 definePushButton("P_WL_M_FAIL_R", 1, 3678, 922, "EE Warning Switches", "Pilot Right Master Failure Warning Light Button")
 definePushButton("P_WL_ENG_FIRE_WARN", 1, 3679, 936, "EE Warning Switches", "Pilot Fire Warning Light ENG Button")
 
 -- BARAX
-definePushButton("P_BARAX_L_TEST", 1, 3707, 1260, "EE BARAX", "Pilot BARAX Light Test")
-defineTumb("P_BARAX_STATE_SEL", 1, 3705, 1262, 0.5, {0, 1}, nil, false, "EE BARAX", "Pilot BARAX State Selector OFF/ON/TEST")
-defineToggleSwitch("P_BARAX_EM_RDY", 1, 3706, 1264, "EE BARAX", "Pilot BARAX Emission Ready Korry")
+definePushButton("P_BARAX_L_TEST", 1, 3684, 1260, "EE BARAX", "Pilot BARAX Light Test")
+defineTumb("P_BARAX_STATE_SEL", 1, 3682, 1262, 0.5, {0, 1}, nil, false, "EE BARAX", "Pilot BARAX State Selector OFF/ON/TEST")
+defineToggleSwitch("P_BARAX_EM_RDY", 1, 3683, 1264, "EE BARAX", "Pilot BARAX Emission Ready Korry")
 
 BIOS.protocol.endModule()

@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("MB-339", 0x8200)
 BIOS.protocol.setExportModuleAircrafts({"MB-339A", "MB-339APAN"})
---by WarLord v1.0
+--by WarLord v1.0a
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document
@@ -144,10 +144,12 @@ defineFloat("FW_ADI_BANK_G", 10, {-1, 1}, "Avionics Gauges FW", "Forward ADI Ban
 defineFloat("FW_ADI_GS_G", 11, {-1, 1}, "Avionics Gauges FW", "Forward ADI Glide Slope Indicator")
 defineFloat("AFT_ADI_GS_G", 12, {-1, 1}, "Avionics Gauges AFT", "Aft ADI Glide Slope Indicator")
 defineFloat("AFT_ADI_TURN_G", 13, {-1, 1}, "Avionics Gauges AFT", "Aft ADI Rate-of-Turn Indicator")
-defineFloat("TACHO_G", 16, {0, 1}, "Avionics Gauges", "Tachometer")
+defineFloat("TACHO_RPM_G", 16, {0, 1}, "Avionics Gauges", "Tachometer Percent RPM")
 defineFloat("AFT_ALT_CFLAG_G", 19, {0, 1}, "Avionics Gauges AFT", "Aft Altimeter CODE OFF Flag")
 defineFloat("ADI_OFF_G", 21, {0, 1}, "Avionics Gauges", "ADI OFF Flag")
-
+defineFloat("FW_ADI_GS_WARN_G", 22, {0, 1}, "Avionics Gauges", "Forward ADI Glide Slope Warning Flag")
+defineFloat("FW_ADI_FD_FLAG_G", 23, {0, 1}, "Avionics Gauges", "Forward ADI Flight Director Flag")
+defineFloat("TACHO_G", 33, {0, 1}, "Avionics Gauges", "Tachometer")
 
 --Chrono
 definePushButton("FW_CLOCK_BTN", 1, 3106, 44, "Clock FW", "Forward Clock Start/Stop/Reset")
@@ -157,6 +159,11 @@ defineRotary("FW_CLOCK_SET_KNOB", 1, 3108, 51, "Clock FW", "Forward Clock Set Ro
 definePushButton("AFT_CLOCK_BTN", 1, 3109, 28, "Clock AFT", "Aft Clock Start/Stop/Reset")
 defineToggleSwitch("AFT_CLOCK_SET_PULL", 1, 3110, 29, "Clock AFT", "Aft Clock Set Pull")
 defineRotary("AFT_CLOCK_SET_KNOB", 1, 3111, 30, "Clock AFT", "Aft Clock Set Rotate")
+
+defineFloat("AFT_CLOCK_M_G", 24, {0, 1}, "Clock Gauges AFT", "Aft Clock Minutes Indicator")
+defineFloat("AFT_CLOCK_H_G", 25, {0, 1}, "Clock Gauges AFT", "Aft Clock Hours Indicator")
+defineFloat("AFT_CLOCK_S_G", 26, {0, 1}, "Clock Gauges AFT", "Aft Clock Seconds Indicator")
+defineFloat("AFT_CLOCK_SET_G", 27, {0, 1}, "Clock Gauges AFT", "Aft Clock Set Indicator")
 
 -- ADI
 definePotentiometer("FW_ADI_PITCH", 1, 3112, 15, {0, 1}, "ADI FW", "Forward ADI Pitch Adjustment")
@@ -226,6 +233,8 @@ defineSpringloaded_3PosTumb("AFT_RUDDER_TRIM", 1, 3152, 3153, 519, "Gear AFT", "
 defineFloat("GEAR_HND_G", 1, {0, 1}, "Gear Gauges", "Gear Handle Position")
 
 defineIndicatorLightGear("NOSE_GEAR_L", 20, "Gear Light", "Nose Gear Light (green)")
+defineIndicatorLightGear("RIGHT_GEAR_L", 31, "Gear Light", "Right Gear Light (green)")
+defineIndicatorLightGear("LEFT_GEAR_L", 31, "Gear Light", "Left Gear Light (green)")
 
 --Lights
 define3PosTumb("FW_LIGHT_TAXI_LAND", 1, 3156, 321, "Lights FW", "Forward Taxi/Landing Lights")
@@ -383,9 +392,9 @@ defineToggleSwitch("WP_MASTER_ARM_INIB", 1, 3303, 170, "Weapons", "Master Arm In
 define3PosTumb("GUN_PWR", 1, 3304, 478, "Gunsight", "Gunsight Power")
 definePotentiometer("GUN_BRIGHT", 1, 3306, 479, {0, 1}, "Gunsight", "Gunsight Brightness")
 definePushButton("GUN_TEST", 1, 3307, 480, "Gunsight", "Gunsight Test")
-definePotentiometer("GUN_DEP_100", 1, 3308, 481, {0, 1}, "Gunsight", "Gunsight Depression reticle x 100")
-definePotentiometer("GUN_DEP_10", 1, 3309, 482, {0, 1}, "Gunsight", "Gunsight Depression reticle x 10")
-definePotentiometer("GUN_DEP_1", 1, 3310, 483, {0, 1}, "Gunsight", "Gunsight Depression reticle x 1")
+defineMultipositionSwitch("GUN_DEP_100", 1, 3308, 481, 10, 0.1, "Gunsight", "Gunsight Depression reticle x 100")
+defineMultipositionSwitch("GUN_DEP_10", 1, 3309, 482, 10, 0.1, "Gunsight", "Gunsight Depression reticle x 10")
+defineMultipositionSwitch("GUN_DEP_1", 1, 3310, 483, 10, 0.1, "Gunsight", "Gunsight Depression reticle x 1")
 
 --VOR
 definePotentiometer("FW_VOR_FREQU_1MHZ", 1, 3311, 563, {0, 1}, "VOR FW", "Forward VOR Frequency 1MHz")
