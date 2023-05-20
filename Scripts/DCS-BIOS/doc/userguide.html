@@ -540,6 +540,7 @@ table.CodeRay td.code>pre{padding:0}
             <li><a href="#_the_mastercaution_example_sketch">The MasterCaution Example Sketch</a></li>
             <li><a href="#_using_the_control_reference_documentation">Using the Control-Reference Documentation</a></li>
 			<li><a href="#_use_the_control_reference">Use the Control-Reference</a></li>
+			<li><a href="#_bort">Bios Reference Tool (Bort)</a></li>
 			<li><a href="#_pointercal">Pointer Calibration Tool</a></li>
           </ul>
         </li>
@@ -1371,6 +1372,15 @@ DcsBios::Switch2Pos ufcMasterCaution("UFC_MASTER_CAUTION", 10);
                 interact with their DCS aircraft. Most importantly, you do not need
                 to be a programmer or electronic engineer to accomplish this task.
                 With DCS-BIOS, it&#8217;s straight forward.</p>
+              <div class="admonitionblock note">
+                <table>
+                  <tr>
+                    <td class="icon"><i class="fa icon-note" title="Note"></i> </td>
+                    <td class="content"> <a href="https://github.com/DCSFlightpanels/dcs-bios-arduino_examples">Here</a> you can find some example Sketches from Users and there Cockpits </td>
+                  </tr>
+                </table>
+              </div>
+              <p>&nbsp;</p>
             </div>
           </div>
         </div>
@@ -1515,7 +1525,7 @@ DcsBios::LED masterCaution(0x1012, 0x0800, 13);</code></pre>
 <i class="fa icon-note" title="Note"></i>
                   </td>
                   <td class="content"><ol>
-                    <li>Install Google Chrome</li>
+                    <li>Install Google Chrome or a Chrome Based Browser (Vivaldi,...) </li>
                     <li>Chrome -&gt; "Settings" -&gt; "More Tools" -&gt; "Extensions", check "Developer mode"</li>
                     <li>Click "Load unpacked extension..." and choose your "<em>C:\Users\&lt;username&gt;\Saved Games\DCS\Scripts\DCS-BIOS\doc</em>" folder</li>
                     <li>A new extension "DCS-BIOS Control Reference Live Preview" <br>
@@ -1529,6 +1539,13 @@ DcsBios::LED masterCaution(0x1012, 0x0800, 13);</code></pre>
               </table>
             </div>
           </div>
+		  <div class="sect3">
+            <h4 id="_bort">Bios Reference Tool (Bort)</h4>
+            <div class="paragraph">
+              Since the End of Support  for Chrome based browsers  Apps. There is an Standalone Program Called BORT <em>(Bios Reference Tool)</em>
+              <p>You Can get it Here: <a href="https://github.com/charliefoxtwo/Bort/releases">GitHub BORT</a></p>
+              <p>or in the <a href="https://github.com/DCSFlightpanels/DCSFlightpanels/releases">DCSFlightpanels</a> download is a Program included called <strong>ctrlref.exe</strong></p>
+            </div>
 		  <div class="sect3">
             <h4 id="_pointercal">Pointer Calibration Tool</h4>
             <div class="paragraph">
@@ -2388,7 +2405,7 @@ DcsBios::StringBuffer&lt;7&gt; uhfFrequencyBuffer(0x1180, onUhfFrequencyChange);
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-08-30</div>
+Last updated 2023-05-20</div>
 </div>
 </body>
 </html>
