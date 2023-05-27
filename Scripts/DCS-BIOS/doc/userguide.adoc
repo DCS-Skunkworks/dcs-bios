@@ -227,7 +227,7 @@ NOTE: Take special care not to alter any of the existing code that comes with th
 
 To develop a sketch for your panel, you are going to copy pieces of example code from a reference document that we have provided.
 
-* Go to your saved Games folder/DCS-BIOS/doc and double-click on the file `control-reference.html` 
+* Go to your saved Games folder/Scripts/DCS-BIOS/doc and double-click on the file `control-reference.html` 
 Your web browser will automatically open and display all sorts of colorful headings and code.
 If you see a red warning instead, you need to enable JavaScript in your web browser and reload the page.
 
@@ -235,6 +235,7 @@ This web page is the reference document we are referring to.
 It lists every single DCS module that DCS-BIOS supports, every single panel found in that aircraft, and every single corresponding switch, push button and rotary knob or whatever associated with that panel and the corresponding code that you will use to create your sketch.
  
 Along the top of the web page, there are "filters" in the form of drop down menus that can be used to display precisely what you are looking for.
+Select the desired aircraft module in the "Module" list.
 You have the choice of what aircraft you would like to work with, the type of information you would like displayed (basic or advanced) and every single panel on the aircraft you chose to work with.
 Stay away from the advanced tab until you know what you are doing.
 
@@ -334,7 +335,7 @@ This  serial port is the means by which your PC and your Arduino Board communica
 To initiate this connection you need specify the COM Port to use.
 You will use the same COM Port that the Arduino IDE used to program your board.
 
-* Double-click `connect-serial-port.cmd` which is in the DCS-BIOS folder you previously downloaded.
+* Double-click `connect-serial-port.cmd` which must be downloaded seperate at the release Page. Choose Source code(zip) and in the Programms folder you find it.
 A console window should pop up. Type in the number of the COM port that your Arduino board is connected to and press Return.
 Leave the console window open.
 
