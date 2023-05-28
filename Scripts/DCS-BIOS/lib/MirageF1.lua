@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("MirageF1", 0x8600)
 BIOS.protocol.setExportModuleAircrafts({"Mirage-F1CE"})
---by WarLord v1.3a
+--by WarLord v1.3b
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document  
@@ -23,7 +23,7 @@ local defineSpringloaded_2PosTumb = BIOS.util.defineSpringloaded_2PosTumb
 --remove Arg# Stick #34
 
 ----Common
-defineToggleSwitch("P_STICK_HIDE", 1, 3001, 34, "COMMON Misc", "Pilot Hide Stick Toggle")
+defineToggleSwitch("P_STICK_HIDE", 1, 3001, 34, "COMMON Misc", "Pilot Show/Hide Flight Stick")
 defineSpringloaded_3PosTumb("P_INCIDENCE_TEST", 1, 3011, 3010, 98, "COMMON Misc", "Pilot Incidence Test Switch")
 definePushButton("P_ALT_PTT", 1, 3120, 405, "Misc", "COMMON Pilot Alternative PTT")
 
@@ -179,17 +179,17 @@ definePotentiometer("P_EER_REG_L_KNB", 1, 3166, 355, {0, 1}, "COMMON Engine Emer
 defineToggleSwitch("P_EER_SW_CV", 1, 3167, 357, "COMMON Engine Emergency Regulation", "Pilot Emergency Regulation Switch Guard")
 defineToggleSwitch("P_EER_SW", 1, 3168, 358, "COMMON Engine Emergency Regulation", "Pilot Emergency Regulation Switch")
 defineSpringloaded_3PosTumb("P_EER_CONTROL", 1, 3170, 3169, 359, "COMMON Engine Emergency Regulation", "Pilot Emergency Regulation Control Lever")
-defineToggleSwitch("P_EER_BRAKE_CHUTE", 1, 3171, 54, "COMMON Engine Emergency Regulation", "Pilot Brake Chute Control")
+defineToggleSwitch("P_EER_BRAKE_CHUTE", 1, 3175, 54, "COMMON Engine Emergency Regulation", "Pilot Brake Chute Control")
 
 defineIndicatorLight("P_EER_REG_L", 356, "COMMON Engine Emergency Regulation Light", "Pilot Emergency Regulation Light (red)")
 
 --Canopy controls
-defineToggleSwitch("P_CANOPY_LOCK", 1, 3172, 55, "COMMON Canopy", "Pilot Canopy Lock Control")
-definePushButton("P_CANOPY_EMBRITTLE", 1, 3173, 56, "COMMON Canopy", "Pilot Canopy Embrittle Control")
-defineToggleSwitch("P_CANOPY_HINGE", 1, 3174, 3, "COMMON Canopy", "Pilot Canopy Hinged Handle")
-defineToggleSwitch("P_CANOPY_SEAL", 1, 3175, 233, "COMMON Canopy", "Pilot Canopy Seal Valve Control Lever")
-defineToggleSwitch("P_CANOPY_MIRRORS", 1, 3176, 2, "COMMON Canopy", "Pilot Mirrors")
-defineToggleSwitch("P_CANOPY_OPEN", 1, 3178, 1, "COMMON Canopy", "Pilot Canopy Open/Close")
+defineToggleSwitch("P_CANOPY_LOCK", 1, 3176, 55, "COMMON Canopy", "Pilot Canopy Lock Control")
+definePushButton("P_CANOPY_EMBRITTLE", 1, 3177, 56, "COMMON Canopy", "Pilot Canopy Embrittle Control")
+defineToggleSwitch("P_CANOPY_HINGE", 1, 3178, 3, "COMMON Canopy", "Pilot Canopy Hinged Handle")
+defineToggleSwitch("P_CANOPY_SEAL", 1, 3179, 233, "COMMON Canopy", "Pilot Canopy Seal Valve Control Lever")
+defineToggleSwitch("P_CANOPY_MIRRORS", 1, 3180, 2, "COMMON Canopy", "Pilot Mirrors")
+defineToggleSwitch("P_CANOPY_OPEN", 1, 3182, 1, "COMMON Canopy", "Pilot Canopy Open/Close")
 
 defineFloat("CANOPY_POS", 1, {0, 1}, "COMMON Canopy Gauges", "Canopy Position")
 
@@ -256,9 +256,9 @@ definePushButton("P_FRS_SPHER_IND_MB_BTN", 1, 3232, 202, "COMMON Flight Ref Syst
 definePotentiometer("P_FRS_SPHER_IND_MB_KNB", 1, 3233, 1117, {0, 1}, "COMMON Flight Ref System", "Pilot Spherical Indicator Pole Setting and Marker Beacon Light Test (Turn)")
 definePushButton("P_FRS_STBY_HORIZON_UNCAGE_BTN", 1, 3235, 1132, "COMMON Flight Ref System", "Pilot Standby Horizon Uncage and Aircraft Model Control (Push)")
 definePotentiometer("P_FRS_STBY_HORIZON_UNCAGE_KNB", 1, 3236, 1133, {0, 1}, "COMMON Flight Ref System", "Pilot Standby Horizon Uncage and Aircraft Model Control (Turn)")
-defineMultipositionSwitch("P_FRS_HDG_REF_SYS", 1, 3237, 537, 4, 0.3333, "COMMON Flight Ref System", "Pilot Heading and Vertical Reference System Control Switch")
-defineToggleSwitch("P_FRS_EMERG_GYRO", 1, 3239, 538, "COMMON Flight Ref System", "Pilot Emergency Gyromagnetic Compass Switch")
-definePushButton("P_FRS_HDG_EREC", 1, 3240, 540, "COMMON Flight Ref System", "Pilot Heading Control Unit Erection Button")
+defineMultipositionSwitch("P_FRS_HDG_REF_SYS", 1, 3238, 537, 4, 0.3333, "COMMON Flight Ref System", "Pilot Heading and Vertical Reference System Control Switch")
+defineToggleSwitch("P_FRS_EMERG_GYRO", 1, 3240, 538, "COMMON Flight Ref System", "Pilot Emergency Gyromagnetic Compass Switch")
+definePushButton("P_FRS_HDG_EREC", 1, 3241, 540, "COMMON Flight Ref System", "Pilot Heading Control Unit Erection Button")
 
 defineIndicatorLight("P_FRS_SPHER_IND_DN_L", 1279, "COMMON Flight Ref System Lights", "Pilot Spherical Indicator Day/Night Light (yellow)")
 
@@ -791,5 +791,7 @@ definePushButton("P_WL_ENG_FIRE_WARN", 1, 3679, 936, "EE Warning Switches", "Pil
 definePushButton("P_BARAX_L_TEST", 1, 3684, 1260, "EE BARAX", "Pilot BARAX Light Test")
 defineTumb("P_BARAX_STATE_SEL", 1, 3682, 1262, 0.5, {0, 1}, nil, false, "EE BARAX", "Pilot BARAX State Selector OFF/ON/TEST")
 defineToggleSwitch("P_BARAX_EM_RDY", 1, 3683, 1264, "EE BARAX", "Pilot BARAX Emission Ready Korry")
+defineToggleSwitch("P_CANOPY_MIRRORS2", 1, 3181, 2, "COMMON Canopy", "Pilot Mirrors 2")
+defineToggleSwitch("P_CANOPY_OPEN2", 1, 3183, 1, "COMMON Canopy", "Pilot Canopy Open/Close 2")
 
 BIOS.protocol.endModule()

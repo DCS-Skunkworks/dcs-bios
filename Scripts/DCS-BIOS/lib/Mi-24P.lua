@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("Mi-24P", 0x6800)
 BIOS.protocol.setExportModuleAircrafts({"Mi-24P"})
---v1.2 by WarLord&charliefoxtwo
+--v1.2a by WarLord&charliefoxtwo
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document  
@@ -937,11 +937,11 @@ defineMultipositionSwitch("PLT_JADRO_MODUL", 50, 3001, 438, 3, 0.1, "Jadro-1I", 
 definePotentiometer("PLT_JADRO_VOL", 50, 3019, 426, {0, 1}, "Jadro-1I", "PILOT Jadro-1I Volume")
 definePotentiometer("PLT_JADRO_SQUELCH", 50, 3022, 421, {0, 1}, "Jadro-1I", "PILOT Jadro-1I Squelch")
 definePushButton("PLT_JADRO_TEST", 50, 3025, 423, "Jadro-1I", "PILOT Jadro-1I Test")
-defineFixedStepTumb("PLT_JADRO_1M", 50, 3004, 437, 0.1, {0, 1}, {-0.1, 0.1}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17"}, "Jadro-1I", "PILOT Jadro-1I Frequency 1MHz")
-defineFixedStepTumb("PLT_JADRO_100K", 50, 3007, 436, 0.1, {0, 1}, {-0.1, 0.1}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"}, "Jadro-1I", "PILOT Jadro-1I Frequency 100KHz")
-defineFixedStepTumb("PLT_JADRO_10K", 50, 3010, 429, 0.1, {0, 1}, {-0.1, 0.1}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"}, "Jadro-1I", "PILOT Jadro-1I Frequency 10KHz")
-defineFixedStepTumb("PLT_JADRO_1K", 50, 3013, 428, 0.1, {0, 1}, {-0.1, 0.1}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"}, "Jadro-1I", "PILOT Jadro-1I Frequency 1KHz")
-defineFixedStepTumb("PLT_JADRO_100H", 50, 3016, 427, 0.1, {0, 1}, {-0.1, 0.1}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"}, "Jadro-1I", "PILOT Jadro-1I Frequency 100Hz")
+defineFixedStepTumb("PLT_JADRO_1M", 50, 3004, 437, 0.1, {0.2, 1.6}, {-0.1, 0.1}, nil, "Jadro-1I", "PILOT Jadro-1I Frequency 1MHz")
+defineFixedStepTumb("PLT_JADRO_100K", 50, 3007, 436, 0.1, {0, 0.9}, {-0.1, 0.1}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"}, "Jadro-1I", "PILOT Jadro-1I Frequency 100KHz")
+defineFixedStepTumb("PLT_JADRO_10K", 50, 3010, 429, 0.1, {0, 0.9}, {-0.1, 0.1}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"}, "Jadro-1I", "PILOT Jadro-1I Frequency 10KHz")
+defineFixedStepTumb("PLT_JADRO_1K", 50, 3013, 428, 0.1, {0, 0.9}, {-0.1, 0.1}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"}, "Jadro-1I", "PILOT Jadro-1I Frequency 1KHz")
+defineFixedStepTumb("PLT_JADRO_100H", 50, 3016, 427, 0.1, {0, 0.9}, {-0.1, 0.1}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"}, "Jadro-1I", "PILOT Jadro-1I Frequency 100Hz")
 
 local function getJadroFrequency()
     local yfreq0 = string.format("%.0f", GetDevice(0):get_argument_value(435)*10)
