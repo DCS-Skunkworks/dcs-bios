@@ -5234,106 +5234,135 @@ docdata["FA-18C_hornet"] =
                                                                                }
                                                     },
                                    "KY-58 Control": {
-                                                         "KY58_FILL_SELECT": {
-                                                                                            "category": "KY-58 Control",
-                                                                                        "control_type": "selector",
-                                                                                         "description": "KY-58 Fill Select Knob, Z 1-5/1/2/3/4/5/6/Z ALL",
-                                                                                          "identifier": "KY58_FILL_SELECT",
-                                                                                              "inputs": [ {
-                                                                                                            "description": "switch to previous or next state",
-                                                                                                              "interface": "fixed_step"
-                                                                                                        }, {
-                                                                                                            "description": "set position",
-                                                                                                              "interface": "set_state",
-                                                                                                              "max_value": 7
-                                                                                                        } ],
-                                                                                 "momentary_positions": "none",
-                                                                                             "outputs": [ {
-                                                                                                                "address": 29900,
-                                                                                                            "description": "selector position",
-                                                                                                                   "mask": 1792,
-                                                                                                              "max_value": 7,
-                                                                                                               "shift_by": 8,
-                                                                                                                 "suffix": "",
-                                                                                                                   "type": "integer"
-                                                                                                        } ],
-                                                                                    "physical_variant": "limited_rotary"
-                                                                             },
-                                                         "KY58_MODE_SELECT": {
-                                                                                            "category": "KY-58 Control",
-                                                                                        "control_type": "selector",
-                                                                                         "description": "KY-58 Mode Select Knob, P/C/LD/RV",
-                                                                                          "identifier": "KY58_MODE_SELECT",
-                                                                                              "inputs": [ {
-                                                                                                            "description": "switch to previous or next state",
-                                                                                                              "interface": "fixed_step"
-                                                                                                        }, {
-                                                                                                            "description": "set position",
-                                                                                                              "interface": "set_state",
-                                                                                                              "max_value": 3
-                                                                                                        } ],
-                                                                                 "momentary_positions": "none",
-                                                                                             "outputs": [ {
-                                                                                                                "address": 29898,
-                                                                                                            "description": "selector position",
-                                                                                                                   "mask": 49152,
-                                                                                                              "max_value": 3,
-                                                                                                               "shift_by": 14,
-                                                                                                                 "suffix": "",
-                                                                                                                   "type": "integer"
-                                                                                                        } ],
-                                                                                    "physical_variant": "limited_rotary"
-                                                                             },
-                                                        "KY58_POWER_SELECT": {
-                                                                                            "category": "KY-58 Control",
-                                                                                        "control_type": "selector",
-                                                                                         "description": "KY-58 Power Select Knob, OFF/ON/TD",
-                                                                                          "identifier": "KY58_POWER_SELECT",
-                                                                                              "inputs": [ {
-                                                                                                            "description": "switch to previous or next state",
-                                                                                                              "interface": "fixed_step"
-                                                                                                        }, {
-                                                                                                            "description": "set position",
-                                                                                                              "interface": "set_state",
-                                                                                                              "max_value": 2
-                                                                                                        } ],
-                                                                                 "momentary_positions": "none",
-                                                                                             "outputs": [ {
-                                                                                                                "address": 29900,
-                                                                                                            "description": "selector position",
-                                                                                                                   "mask": 6144,
-                                                                                                              "max_value": 2,
-                                                                                                               "shift_by": 11,
-                                                                                                                 "suffix": "",
-                                                                                                                   "type": "integer"
-                                                                                                        } ],
-                                                                                    "physical_variant": "limited_rotary"
-                                                                             },
-                                                              "KY58_VOLUME": {
-                                                                                     "category": "KY-58 Control",
-                                                                                 "control_type": "limited_dial",
-                                                                                  "description": "KY-58 Volume Control Knob",
-                                                                                   "identifier": "KY58_VOLUME",
-                                                                                       "inputs": [ {
-                                                                                                     "description": "set the position of the dial",
-                                                                                                       "interface": "set_state",
-                                                                                                       "max_value": 65535
-                                                                                                 }, {
-                                                                                                        "description": "turn the dial left or right",
-                                                                                                          "interface": "variable_step",
-                                                                                                          "max_value": 65535,
-                                                                                                     "suggested_step": 3200
-                                                                                                 } ],
-                                                                                      "outputs": [ {
-                                                                                                         "address": 30030,
-                                                                                                     "description": "position of the potentiometer",
-                                                                                                            "mask": 65535,
-                                                                                                       "max_value": 65535,
-                                                                                                        "shift_by": 0,
-                                                                                                          "suffix": "",
-                                                                                                            "type": "integer"
-                                                                                                 } ]
-                                                                             }
+                                                          "KY58_FILL_SELECT": {
+                                                                                             "category": "KY-58 Control",
+                                                                                         "control_type": "selector",
+                                                                                          "description": "KY-58 Fill Select Knob, Z 1-5/1/2/3/4/5/6/Z ALL",
+                                                                                           "identifier": "KY58_FILL_SELECT",
+                                                                                               "inputs": [ {
+                                                                                                             "description": "switch to previous or next state",
+                                                                                                               "interface": "fixed_step"
+                                                                                                         }, {
+                                                                                                             "description": "set position",
+                                                                                                               "interface": "set_state",
+                                                                                                               "max_value": 7
+                                                                                                         } ],
+                                                                                  "momentary_positions": "none",
+                                                                                              "outputs": [ {
+                                                                                                                 "address": 29900,
+                                                                                                             "description": "selector position",
+                                                                                                                    "mask": 1792,
+                                                                                                               "max_value": 7,
+                                                                                                                "shift_by": 8,
+                                                                                                                  "suffix": "",
+                                                                                                                    "type": "integer"
+                                                                                                         } ],
+                                                                                     "physical_variant": "limited_rotary"
+                                                                              },
+                                                        "KY58_FILL_SEL_PULL": {
+                                                                                             "category": "KY-58 Control",
+                                                                                         "control_type": "selector",
+                                                                                          "description": "KY-58 Fill Select Knob, Pull",
+                                                                                           "identifier": "KY58_FILL_SEL_PULL",
+                                                                                               "inputs": [ {
+                                                                                                             "description": "switch to previous or next state",
+                                                                                                               "interface": "fixed_step"
+                                                                                                         }, {
+                                                                                                             "description": "set position",
+                                                                                                               "interface": "set_state",
+                                                                                                               "max_value": 1
+                                                                                                         }, {
+                                                                                                                "argument": "TOGGLE",
+                                                                                                             "description": "Toggle switch state",
+                                                                                                               "interface": "action"
+                                                                                                         } ],
+                                                                                  "momentary_positions": "none",
+                                                                                              "outputs": [ {
+                                                                                                                 "address": 29912,
+                                                                                                             "description": "selector position",
+                                                                                                                    "mask": 512,
+                                                                                                               "max_value": 1,
+                                                                                                                "shift_by": 9,
+                                                                                                                  "suffix": "",
+                                                                                                                    "type": "integer"
+                                                                                                         } ],
+                                                                                     "physical_variant": "toggle_switch"
+                                                                              },
+                                                          "KY58_MODE_SELECT": {
+                                                                                             "category": "KY-58 Control",
+                                                                                         "control_type": "selector",
+                                                                                          "description": "KY-58 Mode Select Knob, P/C/LD/RV",
+                                                                                           "identifier": "KY58_MODE_SELECT",
+                                                                                               "inputs": [ {
+                                                                                                             "description": "switch to previous or next state",
+                                                                                                               "interface": "fixed_step"
+                                                                                                         }, {
+                                                                                                             "description": "set position",
+                                                                                                               "interface": "set_state",
+                                                                                                               "max_value": 3
+                                                                                                         } ],
+                                                                                  "momentary_positions": "none",
+                                                                                              "outputs": [ {
+                                                                                                                 "address": 29898,
+                                                                                                             "description": "selector position",
+                                                                                                                    "mask": 49152,
+                                                                                                               "max_value": 3,
+                                                                                                                "shift_by": 14,
+                                                                                                                  "suffix": "",
+                                                                                                                    "type": "integer"
+                                                                                                         } ],
+                                                                                     "physical_variant": "limited_rotary"
+                                                                              },
+                                                         "KY58_POWER_SELECT": {
+                                                                                             "category": "KY-58 Control",
+                                                                                         "control_type": "selector",
+                                                                                          "description": "KY-58 Power Select Knob, OFF/ON/TD",
+                                                                                           "identifier": "KY58_POWER_SELECT",
+                                                                                               "inputs": [ {
+                                                                                                             "description": "switch to previous or next state",
+                                                                                                               "interface": "fixed_step"
+                                                                                                         }, {
+                                                                                                             "description": "set position",
+                                                                                                               "interface": "set_state",
+                                                                                                               "max_value": 2
+                                                                                                         } ],
+                                                                                  "momentary_positions": "none",
+                                                                                              "outputs": [ {
+                                                                                                                 "address": 29900,
+                                                                                                             "description": "selector position",
+                                                                                                                    "mask": 6144,
+                                                                                                               "max_value": 2,
+                                                                                                                "shift_by": 11,
+                                                                                                                  "suffix": "",
+                                                                                                                    "type": "integer"
+                                                                                                         } ],
+                                                                                     "physical_variant": "limited_rotary"
+                                                                              },
+                                                               "KY58_VOLUME": {
+                                                                                      "category": "KY-58 Control",
+                                                                                  "control_type": "limited_dial",
+                                                                                   "description": "KY-58 Volume Control Knob",
+                                                                                    "identifier": "KY58_VOLUME",
+                                                                                        "inputs": [ {
+                                                                                                      "description": "set the position of the dial",
+                                                                                                        "interface": "set_state",
+                                                                                                        "max_value": 65535
+                                                                                                  }, {
+                                                                                                         "description": "turn the dial left or right",
+                                                                                                           "interface": "variable_step",
+                                                                                                           "max_value": 65535,
+                                                                                                      "suggested_step": 3200
+                                                                                                  } ],
+                                                                                       "outputs": [ {
+                                                                                                          "address": 30030,
+                                                                                                      "description": "position of the potentiometer",
+                                                                                                             "mask": 65535,
+                                                                                                        "max_value": 65535,
+                                                                                                         "shift_by": 0,
+                                                                                                           "suffix": "",
+                                                                                                             "type": "integer"
+                                                                                                  } ]
+                                                                              }
                                                     },
                                "LH Advisory Panel": {
                                                             "LH_ADV_ASPJ_OH": {

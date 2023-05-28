@@ -4355,6 +4355,35 @@ docdata["MirageF1"] =
                                                                                                         } ],
                                                                                     "physical_variant": "toggle_switch"
                                                                              },
+                                                        "P_CANOPY_MIRRORS2": {
+                                                                                            "category": "COMMON Canopy",
+                                                                                        "control_type": "selector",
+                                                                                         "description": "Pilot Mirrors 2",
+                                                                                          "identifier": "P_CANOPY_MIRRORS2",
+                                                                                              "inputs": [ {
+                                                                                                            "description": "switch to previous or next state",
+                                                                                                              "interface": "fixed_step"
+                                                                                                        }, {
+                                                                                                            "description": "set position",
+                                                                                                              "interface": "set_state",
+                                                                                                              "max_value": 1
+                                                                                                        }, {
+                                                                                                               "argument": "TOGGLE",
+                                                                                                            "description": "Toggle switch state",
+                                                                                                              "interface": "action"
+                                                                                                        } ],
+                                                                                 "momentary_positions": "none",
+                                                                                             "outputs": [ {
+                                                                                                                "address": 34728,
+                                                                                                            "description": "selector position",
+                                                                                                                   "mask": 2048,
+                                                                                                              "max_value": 1,
+                                                                                                               "shift_by": 11,
+                                                                                                                 "suffix": "",
+                                                                                                                   "type": "integer"
+                                                                                                        } ],
+                                                                                    "physical_variant": "toggle_switch"
+                                                                             },
                                                             "P_CANOPY_OPEN": {
                                                                                             "category": "COMMON Canopy",
                                                                                         "control_type": "selector",
@@ -4379,6 +4408,35 @@ docdata["MirageF1"] =
                                                                                                                    "mask": 4,
                                                                                                               "max_value": 1,
                                                                                                                "shift_by": 2,
+                                                                                                                 "suffix": "",
+                                                                                                                   "type": "integer"
+                                                                                                        } ],
+                                                                                    "physical_variant": "toggle_switch"
+                                                                             },
+                                                           "P_CANOPY_OPEN2": {
+                                                                                            "category": "COMMON Canopy",
+                                                                                        "control_type": "selector",
+                                                                                         "description": "Pilot Canopy Open/Close 2",
+                                                                                          "identifier": "P_CANOPY_OPEN2",
+                                                                                              "inputs": [ {
+                                                                                                            "description": "switch to previous or next state",
+                                                                                                              "interface": "fixed_step"
+                                                                                                        }, {
+                                                                                                            "description": "set position",
+                                                                                                              "interface": "set_state",
+                                                                                                              "max_value": 1
+                                                                                                        }, {
+                                                                                                               "argument": "TOGGLE",
+                                                                                                            "description": "Toggle switch state",
+                                                                                                              "interface": "action"
+                                                                                                        } ],
+                                                                                 "momentary_positions": "none",
+                                                                                             "outputs": [ {
+                                                                                                                "address": 34728,
+                                                                                                            "description": "selector position",
+                                                                                                                   "mask": 4096,
+                                                                                                              "max_value": 1,
+                                                                                                               "shift_by": 12,
                                                                                                                  "suffix": "",
                                                                                                                    "type": "integer"
                                                                                                         } ],
@@ -9540,7 +9598,7 @@ docdata["MirageF1"] =
                                                            "P_STICK_HIDE": {
                                                                                           "category": "COMMON Misc",
                                                                                       "control_type": "selector",
-                                                                                       "description": "Pilot Hide Stick Toggle",
+                                                                                       "description": "Pilot Show/Hide Flight Stick",
                                                                                         "identifier": "P_STICK_HIDE",
                                                                                             "inputs": [ {
                                                                                                           "description": "switch to previous or next state",
