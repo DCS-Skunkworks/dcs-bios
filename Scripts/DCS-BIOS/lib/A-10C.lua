@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("A-10C", 0x1000)
 BIOS.protocol.setExportModuleAircrafts({"A-10C", "A-10C_2"})
---overhaul by WarLord&DeadMeat v2.7
+--overhaul by WarLord,charliefoxtwo,talbotmcinnis&DeadMeat v2.9
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 
@@ -565,11 +565,11 @@ defineRockerSwitch("UFC_SEL", 8, 3024, 3024, 3025, 3025, 407, "UFC", "SEL Up/Dow
 defineRockerSwitch("UFC_DEPR", 8, 3026, 3026, 3027, 3027, 408, "UFC", "DEPR Up/Down")
 defineRockerSwitch("UFC_INTEN", 8, 3028, 3028, 3029, 3029, 409, "UFC", "INTEN Incr/Decr")
 definePushButton("UFC_COM1", 8, 3030, 531, "UFC", "Control VHF UHF Radio (A-10C II)")
-definePushButton("UFC_COM_SEC", 8, 3031, 532, "UFC", "No Function 1")
-definePushButton("UFC_IFF", 8, 3032, 533, "UFC", "No Function 2")
+definePushButton("UFC_COM_SEC", 8, 3031, 532, "UFC", "COM SEC (A-10C II)")
+definePushButton("UFC_IFF", 8, 3032, 533, "UFC", "IFF (A-10C II)")
 definePushButton("UFC_COM2", 8, 3033, 534, "UFC", "Toggle ARC-210 RT2 Status (A-10C II)")
-definePushButton("UFC_ECCM", 8, 3034, 535, "UFC", "No Function 3")
-definePushButton("UFC_IDM", 8, 3035, 536, "UFC", "No Function 4")
+definePushButton("UFC_ECCM", 8, 3034, 535, "UFC", "ECCM (A-10C II)")
+definePushButton("UFC_IDM", 8, 3035, 536, "UFC", "IDM (A-10C II)")
 
 definePushButton("UFC_MASTER_CAUTION", 24, 3001, 403, "UFC", "Master Caution Reset")
 definePushButton("GEAR_HORN_SILENCE", 24, 3003, 127, "Landing Gear and Flap Control Panel", "Landing Gear Horn Silence")
@@ -1311,8 +1311,8 @@ defineMultipositionSwitch("ARC210_SEC_SW", 55, 3044, 553, 7, 0.1, "ARC-210", "AR
 defineTumb("ARC210_100MHZ_SEL", 55, 3025, 554, 0.1, {0, 0.3}, nil, false, "ARC-210 Radio", "ARC-210 100MHz Selector")
 defineTumb("ARC210_10MHZ_SEL", 55, 3023, 555, 0.1, {0, 0.9}, nil, false, "ARC-210 Radio", "ARC-210 10MHz Selector")
 defineTumb("ARC210_1MHZ_SEL", 55, 3021, 556, 0.1, {0, 0.9}, nil, false, "ARC-210 Radio", "ARC-210 1MHz Selector")
-defineTumb("ARC210_100KHZ_SEL", 55, 3019, 557, 0.1, {0, 0.9}, nil, false, "ARC-210 Radio", "ARC-210 100kHz Selector")
-defineTumb("ARC210_25KHZ_SEL", 55, 3017, 558, 0.1, {0, 0.3}, nil, false, "ARC-210 Radio", "ARC-210 25kHz Selector")
+defineTumb("ARC210_100KHZ_SEL", 55, 3019, 557, 0.1, {0, 0.9}, nil, false, "ARC-210 Radio", "ARC-210 100KHz Selector")
+defineTumb("ARC210_25KHZ_SEL", 55, 3017, 558, 0.1, {0, 0.3}, nil, false, "ARC-210 Radio", "ARC-210 25KHz Selector")
 
 definePushButton("ARC210_ENTER", 55, 3014, 573, "ARC-210", "ARC-210 Enter")
 definePushButton("ARC210_OFF_FREQ", 55, 3013, 572, "ARC-210", "ARC-210 Offset Frequency")
