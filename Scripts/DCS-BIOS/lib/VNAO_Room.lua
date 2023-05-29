@@ -10,7 +10,7 @@ local definePushButton = BIOS.util.definePushButton
 local definePotentiometer = BIOS.util.definePotentiometer
 local defineToggleSwitch = BIOS.util.defineToggleSwitch
 
-definePushButton("SLIDE_PREV", 2, 10001, 0, "Systems", "Previous Slide")	
+definePushButton("SLIDE_PREV", 2, 10001, 0, "Systems", "Previous Slide")
 definePushButton("SLIDE_NEXT", 2, 10002, 0, "Systems", "Next Slide")
 defineToggleSwitch("LIGHTS", 6, 10003, 387, "Systems", "Light Switch")
 definePotentiometer("LIGHT_DIM", 6, 10004, 387, {0, 1}, "Systems", "Light Dimming")

@@ -44,7 +44,7 @@ BIOS.util.MemoryMapEntry = {
 function BIOS.util.MemoryMapEntry:create(args)
 	assert(args.address)
 	self.allocations = {}
-	
+
 	local self = BIOS.util.shallowCopy(BIOS.util.MemoryMapEntry)
 	self.address = args.address
 	return self
@@ -66,7 +66,7 @@ function BIOS.util.MemoryMapEntry:setDirtyIfAble()
 end
 function BIOS.util.MemoryMapEntry:allocate(args)
 	assert(args.maxValue)
-	
+
 	local bitsRequired = math.ceil(BIOS.util.log2(args.maxValue+1))
 	assert(bitsRequired <= (16 - self.allocatedBitCounter))
 	local shiftBy = self.allocatedBitCounter
@@ -89,7 +89,7 @@ function coerce_nil_to_string(value)
 	else
 		return value
 	end
-end	 
+end
 
 ---Constructs a string of the specified length with the left padded by whitespace if necessary.
 ---@param str string The base text
@@ -98,7 +98,7 @@ end
 function padLeft(str, len)
 	str = coerce_nil_to_string(tostring(str))
     return string.rep(' ', len - #str)..str
-end	
+end
 
 BIOS.util.MemoryAllocation = {
 	value = nil,
@@ -137,8 +137,8 @@ BIOS.util.StringAllocation = {
 }
 function BIOS.util.StringAllocation:setValue(value)
 	local i = 1
-	
-        if value == nil then 
+
+        if value == nil then
 		BIOS.log(string.format("Util.lua: item %s is sending a nil value", msg or "nil"))
 		return
         end
@@ -159,7 +159,7 @@ BIOS.util.MemoryMap = {
 }
 function BIOS.util.MemoryMap:create(args)
 	assert(args.baseAddress)
-	
+
 	local self = BIOS.util.shallowCopy(BIOS.util.MemoryMap)
 	self.baseAddress = args.baseAddress
 	self.lastAddress = self.baseAddress
@@ -182,9 +182,9 @@ function BIOS.util.MemoryMap:flushData()
 	-- Return a string containing a sequence of write accesses
 	-- that contain all entries marked as dirty.
 	-- Resets the "dirty bit".
-	
+
 	local ret = ""
-	
+
 	local address = self.baseAddress
 	local entry = self:getEntry(address)
 
@@ -198,7 +198,7 @@ function BIOS.util.MemoryMap:flushData()
 		-- no changes at all
 		return ""
 	end
-	
+
 	-- prepare write access
 	local writeStartAddress = address
 	local writeLength = 2
@@ -206,7 +206,7 @@ function BIOS.util.MemoryMap:flushData()
 	local lastWriteDataAddress = address
 	entry.dirty = false
 	address = address + 2
-	
+
 	while address <= self.lastAddress do
 		entry = self:getEntry(address)
 		-- advance to the next changed value
@@ -234,7 +234,7 @@ function BIOS.util.MemoryMap:flushData()
 		end
 		address = address + 2
 	end
-	
+
 	return ret .. BIOS.util.encodeInt(writeStartAddress) .. BIOS.util.encodeInt(writeLength) .. writeData
 end
 function BIOS.util.MemoryMap:getEntry(address)
@@ -260,7 +260,7 @@ function BIOS.util.MemoryMap:allocateInt(args)
 	-- position at the end of the memory map. Consecutive calls with args.allocateStringCharacter
 	-- set will allocate consecutive bytes in the memory map.
 	assert(args.maxValue)
-	
+
 	local bitsRequired = math.ceil(BIOS.util.log2(args.maxValue+1))
 	local address = nil
 	if args.allocateStringCharacter then
@@ -268,10 +268,10 @@ function BIOS.util.MemoryMap:allocateInt(args)
 	else
 		address = self.baseAddress
 	end
-	
+
 	while true do
 		local entry = self:getEntry(address)
-		
+
 		local cannotFitValue = (16 - entry.allocatedBitCounter) < bitsRequired
 		local invalidCharacterAllocation = args.allocateStringCharacter and not (entry.allocatedBitCounter == 0 or entry.allocatedBitCounter == 8)
 		invalidCharacterAllocation = invalidCharacterAllocation or (args.allocateFirstStringCharacter and entry.allocatedBitCounter ~= 0)
@@ -285,10 +285,10 @@ function BIOS.util.MemoryMap:allocateInt(args)
 end
 function BIOS.util.MemoryMap:allocateString(args)
 	assert(args.maxLength)
-	
+
 	local stringAlloc = BIOS.util.shallowCopy(BIOS.util.StringAllocation)
 	stringAlloc.characterAllocations = {}
-	
+
 	stringAlloc.characterAllocations[1] = self:allocateInt{ maxValue = 255, allocateStringCharacter = true, allocateFirstStringCharacter = true }
 	for i = 2, args.maxLength, 1 do
 		stringAlloc.characterAllocations[i] = self:allocateInt{ maxValue = 255, allocateStringCharacter = true }
@@ -387,10 +387,10 @@ function BIOS.util.definePotentiometer(msg, device_id, command, arg_number, limi
 		elseif value:match("[0-9]+") then
 			newValue = BIOS.util.cap(tonumber(value), {0, 65535})
 		end
-		
+
 		GetDevice(device_id):performClickableAction(command, newValue/65535*intervalLength + limits[1])
 	end
-	
+
 	local intervalLength = limits[2] - limits[1]
 	local value = moduleBeingDefined.memoryMap:allocateInt {
 		maxValue = 65535
@@ -515,7 +515,7 @@ function BIOS.util.defineSetCommandTumb(msg, device_id, command, arg_number, ste
 			n = n + 1
 		end
 	end
-	
+
 	local enumAlloc = moduleBeingDefined.memoryMap:allocateInt{ maxValue = last_n }
 	local strAlloc = nil
 	if output_map then
@@ -526,9 +526,9 @@ function BIOS.util.defineSetCommandTumb(msg, device_id, command, arg_number, ste
 		strAlloc = moduleBeingDefined.memoryMap:allocateString{ maxLength = max_len }
 	end
 	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
-		local value = dev0:get_argument_value(arg_number)		
+		local value = dev0:get_argument_value(arg_number)
 		local n = tonumber(string.format("%.0f", (value - limits[1]) / step))
-		
+
 		if n > last_n then n = last_n end
 		if n == last_n and cycle == "skiplast" then n = 0 end
 		enumAlloc:setValue(n)
@@ -536,7 +536,7 @@ function BIOS.util.defineSetCommandTumb(msg, device_id, command, arg_number, ste
 			strAlloc:setValue(output_map[n+1])
 		end
 	end
-	
+
 	local max_value = last_n - (cycle == "skiplast" and 1 or 0)
 	document {
 		identifier = msg,
@@ -578,21 +578,21 @@ function BIOS.util.defineSetCommandTumb(msg, device_id, command, arg_number, ste
 			docentry.outputs[2].description = docentry.outputs[2].description .. '"'..output_map[i]..'" '
 		end
 	end
-	
+
 	moduleBeingDefined.inputProcessors[msg] = function(state)
-		local value = GetDevice(0):get_argument_value(arg_number)		
+		local value = GetDevice(0):get_argument_value(arg_number)
 		local n = tonumber(string.format("%.0f", (value - limits[1]) / step))
 		local new_n = n
 		if state == "INC" then
 			new_n = cap(n+1, {0, last_n}, cycle)
 			if cycle == "skiplast" and new_n == last_n then new_n = 0 end
-		
+
 			GetDevice(device_id):SetCommand(command, limits[1] + step*new_n)
 			GetDevice(0):set_argument_value(arg_number, limits[1] + step*new_n)
 		elseif state == "DEC" then
 			new_n = cap(n-1, {0, last_n}, cycle)
 			if cycle == "skiplast" and new_n == last_n then new_n = last_n - 1 end
-			
+
 			GetDevice(device_id):SetCommand(command, limits[1] + step*new_n)
 			GetDevice(0):set_argument_value(arg_number, limits[1] + step*new_n)
 		else
@@ -607,7 +607,7 @@ end
 function BIOS.util.defineTumb(msg, device_id, command, arg_number, step, limits, output_map, cycle, category, description)
 	local span = limits[2] - limits[1]
 	local last_n = tonumber(string.format("%.0f", span / step))
-	
+
 	local value_enum = output_map
 	if not value_enum then
 		value_enum = {}
@@ -617,7 +617,7 @@ function BIOS.util.defineTumb(msg, device_id, command, arg_number, step, limits,
 			n = n + 1
 		end
 	end
-	
+
 	local enumAlloc = moduleBeingDefined.memoryMap:allocateInt{ maxValue = last_n }
 	local strAlloc = nil
 	if output_map then
@@ -630,7 +630,7 @@ function BIOS.util.defineTumb(msg, device_id, command, arg_number, step, limits,
 	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
 		local value = dev0:get_argument_value(arg_number)
 		local n = tonumber(string.format("%.0f", (value - limits[1]) / step))
-		
+
 		if n > last_n then n = last_n end
 		if n == last_n and cycle == "skiplast" then n = 0 end
 		enumAlloc:setValue(n)
@@ -638,8 +638,8 @@ function BIOS.util.defineTumb(msg, device_id, command, arg_number, step, limits,
 			strAlloc:setValue(output_map[n+1])
 		end
 	end
-	
-		
+
+
 	local max_value = last_n - (cycle == "skiplast" and 1 or 0)
 	document {
 		identifier = msg,
@@ -684,20 +684,20 @@ function BIOS.util.defineTumb(msg, device_id, command, arg_number, step, limits,
 			docentry.outputs[2].description = docentry.outputs[2].description .. '"'..output_map[i]..'" '
 		end
 	end
-	
+
 	moduleBeingDefined.inputProcessors[msg] = function(state)
-		local value = GetDevice(0):get_argument_value(arg_number)		
+		local value = GetDevice(0):get_argument_value(arg_number)
 		local n = tonumber(string.format("%.0f", (value - limits[1]) / step))
 		local new_n = n
 		if state == "INC" then
 			new_n = cap(n+1, {0, last_n}, cycle)
 			if cycle == "skiplast" and new_n == last_n then new_n = 0 end
-		
+
 			GetDevice(device_id):performClickableAction(command, limits[1] + step*new_n)
 		elseif state == "DEC" then
 			new_n = cap(n-1, {0, last_n}, cycle)
 			if cycle == "skiplast" and new_n == last_n then new_n = last_n - 1 end
-			
+
 			GetDevice(device_id):performClickableAction(command, limits[1] + step*new_n)
 		elseif state == "TOGGLE" then
 			if n == 0 then new_n = 1 elseif n == 1 then new_n = 0 end
@@ -723,7 +723,7 @@ function BIOS.util.defineToggleSwitchToggleOnly(msg, device_id, command, arg_num
 	docentry.inputs = {
 		{ interface = "action", argument = "TOGGLE", description = "toggle switch state" }
 	}
-	
+
 	moduleBeingDefined.inputProcessors[msg] = function(state)
 		if state == "TOGGLE" then
 			GetDevice(device_id):performClickableAction(command, 1)
@@ -737,7 +737,7 @@ function BIOS.util.defineFixedStepTumb(msg, device_id, command, arg_number, step
 	assert(docentry.inputs[2].interface == "set_state")
 	docentry.inputs[2] = nil
 	moduleBeingDefined.documentation[category][msg].control_type = "discrete_dial"
-	
+
 	moduleBeingDefined.inputProcessors[msg] = function(state)
 		if state == "DEC" then
 			GetDevice(device_id):performClickableAction(command, rel_args[1])
@@ -769,18 +769,18 @@ function BIOS.util.defineFixedStepInput(msg, device_id, command, rel_args, categ
 end
 
 function BIOS.util.defineVariableStepTumb(msg, device_id, command, arg_number, max_step, category, description)
-	
+
 	local rotationAlloc = moduleBeingDefined.memoryMap:allocateInt{ maxValue = 65535 }
 	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
 		local value = dev0:get_argument_value(arg_number)
 		rotationAlloc:setValue(value * 65535)
 	end
-	
+
 	moduleBeingDefined.inputProcessors[msg] = function(state)
 		local delta = tonumber(state) / 65535 * max_step
 		GetDevice(device_id):performClickableAction(command, delta)
 	end
-	
+
 	document {
 		identifier = msg,
 		category = category,
@@ -800,7 +800,7 @@ function BIOS.util.defineVariableStepTumb(msg, device_id, command, arg_number, m
 			}
 		}
 	}
-	
+
 end
 
 function BIOS.util.defineString(msg, getter, maxLength, category, description)
@@ -809,10 +809,10 @@ function BIOS.util.defineString(msg, getter, maxLength, category, description)
     moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
 
         local value = getter(dev0)--ammo
-        if value == nil then 
+        if value == nil then
             error("function " .. msg .. " is sending a nil value from its getter")
         end
-		
+
         alloc:setValue(value)
     end
 
@@ -840,7 +840,7 @@ function BIOS.util.defineElectricallyHeldSwitch(msg, device_id, pos_command, neg
 	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
 		alloc:setValue(dev0:get_argument_value(arg_number))
 	end
-	
+
 	document {
 		identifier = msg,
 		category = category,
@@ -874,7 +874,7 @@ function BIOS.util.defineElectricallyHeldSwitch(msg, device_id, pos_command, neg
 end
 
 function BIOS.util.defineRockerSwitch(msg, device_id, pos_command, pos_stop_command, neg_command, neg_stop_command, arg_number, category, description)
-	
+
 	local alloc = moduleBeingDefined.memoryMap:allocateInt{ maxValue = 2 }
 	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
 		local lut = {["-1"] = "0", ["0"] = "1", ["1"] = "2"}
@@ -1026,7 +1026,7 @@ function BIOS.util.defineRadioWheel(msg, device_id, command1, command2, command_
 	assert(docentry.inputs[2].interface == "set_state")
 	docentry.inputs[2] = nil
 	moduleBeingDefined.documentation[category][msg].control_type = "discrete_dial"
-	
+
 	moduleBeingDefined.inputProcessors[msg] = function(state)
 		if state == "INC" then
 			GetDevice(device_id):performClickableAction(command2, command_args[2])
@@ -1090,7 +1090,7 @@ function BIOS.util.define8BitFloatFromGetter(msg, getter, limits, category, desc
 	}
 end
 
-function BIOS.util.defineDoubleCommandButton(msg, device_id, start_command, stop_command, arg_number, category, description)	
+function BIOS.util.defineDoubleCommandButton(msg, device_id, start_command, stop_command, arg_number, category, description)
 	local value = moduleBeingDefined.memoryMap:allocateInt{ maxValue = 1 }
 	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
 		value:setValue(dev0:get_argument_value(arg_number))
@@ -1129,7 +1129,7 @@ function BIOS.util.defineDoubleCommandButton(msg, device_id, start_command, stop
 	end
 end
 
-function BIOS.util.defineMomentaryRockerSwitch(msg, device_id, pos_command, pos_stop_command, neg_command, neg_stop_command, arg_number, category, description)	
+function BIOS.util.defineMomentaryRockerSwitch(msg, device_id, pos_command, pos_stop_command, neg_command, neg_stop_command, arg_number, category, description)
 	local alloc = moduleBeingDefined.memoryMap:allocateInt{ maxValue = 2 }
 	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
 		local lut = {["-1"] = "0", ["0"] = "1", ["1"] = "2"}
@@ -1200,7 +1200,7 @@ function BIOS.util.defineSpringloaded_3PosTumb(msg, device_id, downSwitch, upSwi
 			alloc:setValue(2)
 		end
 	end
-	
+
 	document {
 		identifier = msg,
 		category = category,
@@ -1225,14 +1225,14 @@ function BIOS.util.defineSpringloaded_3PosTumb(msg, device_id, downSwitch, upSwi
 		local dev = GetDevice(device_id)
 		if toState == "0" then --downSwitch
 			dev:performClickableAction(downSwitch, 0)
-			dev:performClickableAction(upSwitch, 0) 
-			dev:performClickableAction(downSwitch, -1)		
+			dev:performClickableAction(upSwitch, 0)
+			dev:performClickableAction(downSwitch, -1)
 	    elseif toState == "1" then --Stop
 			dev:performClickableAction(downSwitch, 0)
-			dev:performClickableAction(upSwitch, 0) 		
+			dev:performClickableAction(upSwitch, 0)
 		elseif toState == "2" then --upSwitch
 			dev:performClickableAction(downSwitch, 0)
-			dev:performClickableAction(upSwitch, 0) 
+			dev:performClickableAction(upSwitch, 0)
 			dev:performClickableAction(upSwitch, 1)
 		end
 	end
@@ -1248,7 +1248,7 @@ function BIOS.util.defineSpringloaded_2PosTumb(msg, device_id, downSwitch, upSwi
 			alloc:setValue(1)
 		end
 	end
-	
+
 	document {
 		identifier = msg,
 		category = category,
@@ -1273,10 +1273,10 @@ function BIOS.util.defineSpringloaded_2PosTumb(msg, device_id, downSwitch, upSwi
 		local dev = GetDevice(device_id)
 		if toState == "0" then
 			dev:performClickableAction(downSwitch, 0)
-			dev:performClickableAction(upSwitch, 0) 		
+			dev:performClickableAction(upSwitch, 0)
 		elseif toState == "1" then
 			dev:performClickableAction(downSwitch, 0)
-			dev:performClickableAction(upSwitch, 0) 
+			dev:performClickableAction(upSwitch, 0)
 			dev:performClickableAction(upSwitch, 1)
 		end
 	end
@@ -1294,7 +1294,7 @@ function BIOS.util.define3Pos2CommandSwitchA10(msg, device_id, downSwitch, upSwi
 			alloc:setValue(2)
 		end
 	end
-	
+
 	document {
 		identifier = msg,
 		category = category,
@@ -1319,21 +1319,21 @@ function BIOS.util.define3Pos2CommandSwitchA10(msg, device_id, downSwitch, upSwi
 		local dev = GetDevice(device_id)
 		if toState == "0" then --downSwitch
 			dev:performClickableAction(downSwitch, 0)
-			dev:performClickableAction(upSwitch, 0) 
-			dev:performClickableAction(downSwitch, -0.5)		
+			dev:performClickableAction(upSwitch, 0)
+			dev:performClickableAction(downSwitch, -0.5)
 	    elseif toState == "1" then --Stop
 			dev:performClickableAction(downSwitch, 0)
-			dev:performClickableAction(upSwitch, 0) 		
+			dev:performClickableAction(upSwitch, 0)
 		elseif toState == "2" then --upSwitch
 			dev:performClickableAction(downSwitch, 0)
-			dev:performClickableAction(upSwitch, 0) 
+			dev:performClickableAction(upSwitch, 0)
 			dev:performClickableAction(upSwitch, 1)
 		end
 	end
 end
 
 function BIOS.util.define3Pos2CommandSwitchF5(msg, device_id, pos_command, neg_command, arg_number, category, description)
-	
+
 	local alloc = moduleBeingDefined.memoryMap:allocateInt{ maxValue = 2 }
 	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
 		local lut = {["-1"] = "0", ["0"] = "1", ["1"] = "2"}
@@ -1404,7 +1404,7 @@ function BIOS.util.defineFloatWithValueConversion(msg, arg_number, limits, input
 end
 
 function BIOS.util.define3PosMossi(msg, device_id, command, arg_number, category, description)
-	
+
 	local alloc = moduleBeingDefined.memoryMap:allocateInt{ maxValue = 2 }
 	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
 		local lut = {["-1"] = "0", ["0"] = "1", ["1"] = "2"}

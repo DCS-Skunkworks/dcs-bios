@@ -3,7 +3,7 @@ BIOS.protocol.setExportModuleAircrafts({"Mi-8MT"})
 
 local documentation = moduleBeingDefined.documentation
 
-local document = BIOS.util.document  
+local document = BIOS.util.document
 
 local defineFloat = BIOS.util.defineFloat
 local defineIndicatorLight = BIOS.util.defineIndicatorLight
@@ -298,7 +298,7 @@ definePushButton("DPL_DEC_PATH",15, 3006, 809, "Navigation", "Decrease Path KM B
 definePushButton("DPL_INC_PATH",15, 3007, 810, "Navigation", "Increase Path KM Button")
 definePushButton("DPL_DEC_DEV",15, 3008, 803, "Navigation", "Decrease Deviation KM Button")
 definePushButton("DPL_INC_DEV",15, 3009, 804, "Navigation", "Increase Deviation KM Button")
- 
+
 defineToggleSwitch("ADI_R_ATT_PWR",7, 3004, 487, "ADI", "Right Attitude Indicator Power Switch, ON/OFF")
 defineToggleSwitch("ADI_L_ATT_PWR",6, 3004, 335, "ADI", "Left Attitude Indicator Power Switch, ON/OFF")
 definePushButton("ADI_L_ATT_KNOB",6, 3002, 11, "ADI", "Left Attitude Indicator Cage Knob - Push to cage")
@@ -358,7 +358,7 @@ defineToggleSwitch("ARCUD_LCK",41, 3012, 481, "ARC-UD", "ARC-UD, Lock Switch, LO
 
 defineToggleSwitch("PKV_DBL",47, 3005, 0, "PKV Sight", "Sight Double")
 
-defineToggleSwitch("CLOCK_HEAT",45, 3006, 521, "Clock", "Clock Heating Switch, ON/OFF") 
+defineToggleSwitch("CLOCK_HEAT",45, 3006, 521, "Clock", "Clock Heating Switch, ON/OFF")
 
 definePushButton("UV26_SEQ",48, 3004, 914, "UV-26", "CMD Num of Sequences Button")
 definePushButton("UV26_RST",48, 3008, 864, "UV-26", "CMD Reset to Default Program Button")
@@ -366,7 +366,7 @@ definePushButton("UV26_STOP_DSP",48, 3009, 865, "UV-26", "CMD Stop Dispense Butt
 
 defineToggleSwitch("BLST_L_OPEN",17, 3015, 215, "UV-26", "Left Window, OPEN/CLOSE")
 defineToggleSwitch("BLST_R_OPEN",17, 3016, 216, "UV-26", "Right Window, OPEN/CLOSE")
- 
+
 defineToggleSwitch("BRK_WHEEN",17, 3017, 881, "Brakes", "Wheel Brakes Handle")
 defineToggleSwitch("BRK_PARK",17, 3024, 930, "Brakes", "Parking Brake Handle")
 definePushButton("ACC_RST",17, 3006, 925, "Something", "Accelerometer Reset Button - Push to reset")

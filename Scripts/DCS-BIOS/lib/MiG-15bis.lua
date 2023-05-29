@@ -212,7 +212,7 @@ defineFloat("ARC5_TUNE_METER", 176, {0, 1}, "ARC5", "ARC-5 Tuning Meter")
 defineFloat("ARC5_TUNE", 175, {0, 1}, "ARC5", "ARC-5 Tuning")
 defineFloat("ARC5_BEARING", 38, {0, 1}, "ARC5", "ARC-5 Bearing")
 defineFloat("ARC5_FREQ", 239, {0.0,	0.0695,	0.14, 0.2865, 0.43, 0.7155, 1.0}, "ARC5", "ARC-5 Freq Scale")
-defineIndicatorLight("ARC5_PW_LIGHT", 183, "ARC5", "ARC-5 Power Light (green)")	
+defineIndicatorLight("ARC5_PW_LIGHT", 183, "ARC5", "ARC-5 Power Light (green)")
 
 -- RSI-6K Radio
 defineRotary("RSI6K_VOL", 30, 3001, 126, "RSI6K", "RSI-6K Audio Volume Knob")
@@ -253,9 +253,9 @@ defineFloat("SBY_COMPASS_BANK", 1, {-1, 1}, "Gauges", "Standby Compass Bank")
 
 -- Warning, Caution and IndicatorLights
 defineIndicatorLight("FIRE_TEST_LIGHT", 135, "Warning, Caution and IndicatorLights","Fire Alarm Test Light (red)")
-defineIndicatorLight("ISO_VALVE_LIGHT", 119, "Warning, Caution and IndicatorLights", "Isolating Valve Indicator Light (green)")	
+defineIndicatorLight("ISO_VALVE_LIGHT", 119, "Warning, Caution and IndicatorLights", "Isolating Valve Indicator Light (green)")
 defineIndicatorLight("AIRBRAKE_LIGHT", 124, "Warning, Caution and IndicatorLights", "Airbrake Light (green)")
-defineIndicatorLight("FUEL2_EMPTY_LIGHT", 50, "Warning, Caution and IndicatorLights", "Fuel Tank 2 Empty Warning Light (green)")		
+defineIndicatorLight("FUEL2_EMPTY_LIGHT", 50, "Warning, Caution and IndicatorLights", "Fuel Tank 2 Empty Warning Light (green)")
 defineIndicatorLight("FUEL_LINE_LIGHT", 51, "Warning, Caution and IndicatorLights","Fuel Line Warning Light (red)")
 defineIndicatorLight("FUEL_WING_EMPTY_LIGHT", 52, "Warning, Caution and IndicatorLights", "Fuel Tank Wing Empty Warning Light (green)")
 defineIndicatorLight("GEAR_WARN_LIGHT", 53, "Warning, Caution and IndicatorLights", "Landing Gear Warning Light (white)")

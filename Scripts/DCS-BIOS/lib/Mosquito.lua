@@ -3,7 +3,7 @@ BIOS.protocol.setExportModuleAircrafts({"MosquitoFBMkVI"})
 --v1.2a by WarLord
 local documentation = moduleBeingDefined.documentation
 
-local document = BIOS.util.document  
+local document = BIOS.util.document
 
 local defineFloat = BIOS.util.defineFloat
 local defineIndicatorLight = BIOS.util.defineIndicatorLight
@@ -22,7 +22,7 @@ local define3PosMossi = BIOS.util.define3PosMossi
 
 --Main Pit
 definePushButton("STICK_BTN_A", 5, 3005, 245, "Stick", "Stick Button A - MG Trigger")
-definePushButton("STICK_BTN_B1", 5, 3006, 246, "Stick", "Stick Button B1 - Cannon Trigger")	
+definePushButton("STICK_BTN_B1", 5, 3006, 246, "Stick", "Stick Button B1 - Cannon Trigger")
 definePushButton("STICK_BTN_B2", 5, 3007, 244, "Stick", "Stick Button B2 - Secondary & Drop Ordnance Trigger")
 definePotentiometer("STICK_WH_BRK", 2, 3001, 248, {0, 1}, "Stick", "Stick Wheel Brakes Lever")
 definePushButton("STICK_WH_BRK_LOCK", 2, 3004, 291, "Stick", "Stick Wheel Brakes Lever Lock")
@@ -139,7 +139,7 @@ defineIndicatorLight("MAIN_PANEL_C_LAMP_L", 271, "Main Panel Lights", "Main Pane
 defineIndicatorLight("MAIN_PANEL_L_LAMP_L", 270, "Main Panel Lights", "Main Panel Left Lamp (white)")
 
 --Clock
-definePushButton("CLOCK_PIN_PULL", 19, 3003, 101, "Clock", "Clock Set (Pull)")  
+definePushButton("CLOCK_PIN_PULL", 19, 3003, 101, "Clock", "Clock Set (Pull)")
 defineRotary("CLOCK_PIN_TURN", 19, 3001, 102, "Clock", "Clock Set (Turn)")
 defineRotary("CLOCK_REF_H", 19, 3005, 375, "Clock", "Clock Reference Hours")
 defineRotary("CLOCK_REF_M", 19, 3007, 376, "Clock", "Clock Reference Minutes")
@@ -229,7 +229,7 @@ definePotentiometer("CHART_L_DIM", 4, 3095, 303, {0, 1}, "Port Wall", "Chart Tab
 defineToggleSwitch("AERIAL_BRAKE", 31, 3001, 202, "Starboard Wall", "Aerial Winch  Brake Lever")
 define3PosMossi("AERIAL_WINCH", 31, 3004, 356, "Starboard Wall", "Aerial Winch Rotary Handle")
 definePushButton("AERIAL_REEL", 31, 3005, 357, "Starboard Wall", "Aerial Winch Reel Lock")
-defineToggleSwitch("TRANS_TYPF_SW", 4, 3113, 307, "Starboard Wall", "Transmitter TypeF Switch")	
+defineToggleSwitch("TRANS_TYPF_SW", 4, 3113, 307, "Starboard Wall", "Transmitter TypeF Switch")
 defineToggleSwitch("LT_T1154_PW", 28, 3001, 305, "Starboard Wall", "T.1154 R.1155 L.T. Power Unit Switch")
 defineToggleSwitch("HT_T1154_PW", 28, 3003, 306, "Starboard Wall", "T.1154 R.1155 H.T. Power Unit Switch")
 
@@ -242,14 +242,14 @@ define3PosTumb("PORT_FUEL_COCK", 3, 3073, 193, "Lower Fuselage Part", "Fuel Cock
 define3PosTumb("STBD_FUEL_COCK", 3, 3076, 194, "Lower Fuselage Part", "Fuel Cock Starboard")
 defineToggleSwitch("TRANSFER_COCK_OUT", 3, 3079, 195, "Lower Fuselage Part", "Transfer Fuel Cock")
 definePushButton("PORT_OIL_DILUTION", 3, 3050, 197, "Lower Fuselage Part", "Oil Dilution Switch Port")
-definePushButton("STBD_OIL_DILUTION", 3, 3051, 198, "Lower Fuselage Part", "Oil Dilution Switch Starboard")      
-defineToggleSwitch("TANK_PRESS", 3, 3089, 196, "Lower Fuselage Part", "Tank Pressurizing Lever")   
+definePushButton("STBD_OIL_DILUTION", 3, 3051, 198, "Lower Fuselage Part", "Oil Dilution Switch Starboard")
+defineToggleSwitch("TANK_PRESS", 3, 3089, 196, "Lower Fuselage Part", "Tank Pressurizing Lever")
 defineToggleSwitch("PORT_OIL_SUPPLY", 3, 3091, 200, "Lower Fuselage Part", "Auxiliary Oil Supply Lever Port")
 defineToggleSwitch("STBD_OIL_SUPPLY", 3, 3093, 199, "Lower Fuselage Part", "Auxiliary Oil Supply Lever Starboard")
 defineToggleSwitch("CABIN_HEATER_LVR", 2, 3057, 203, "Lower Fuselage Part", "Cabin Heater Control")
-defineToggleSwitch("GUN_HEATER_LVR", 2, 3059, 204, "Lower Fuselage Part", "Gun Heater Control")	       	
+defineToggleSwitch("GUN_HEATER_LVR", 2, 3059, 204, "Lower Fuselage Part", "Gun Heater Control")
 defineToggleSwitch("PORT_ARMREST", 2, 3020, 256, "Lower Fuselage Part", "Arm Rest Port")
-defineToggleSwitch("STBD_ARMREST", 2, 3061, 257, "Lower Fuselage Part", "Arm Rest Starboard")				
+defineToggleSwitch("STBD_ARMREST", 2, 3061, 257, "Lower Fuselage Part", "Arm Rest Starboard")
 defineToggleSwitch("HARNESS_LVR", 5, 3043, 323, "Lower Fuselage Part", "Arm Rest Port")
 defineToggleSwitch("HYDR_SEL", 2, 3069, 333, "Lower Fuselage Part", "Arm Rest Starboard")
 
@@ -307,7 +307,7 @@ defineRotary("R1155_RANGE_LOW", 25, 3074, 234, "R1155", "R.1155 Tuning (Coarse)"
 defineToggleSwitch("R1155_HETI", 25, 3077, 230, "R1155", "R.1155 Heterodyne Switch")
 definePotentiometer("R1155_METER_BAL", 25, 3079, 225, {-1, 1}, "R1155", "R.1155 Meter Balance Knob")	--
 defineToggleSwitch("R1155_FILTER", 25, 3082, 226, "R1155", "R.1155 Filter Switch")
-definePotentiometer("R1155_METER_AMP", 25, 3084, 227, {0, 1}, "R1155", "R.1155 Meter Amplitude Knob")			
+definePotentiometer("R1155_METER_AMP", 25, 3084, 227, {0, 1}, "R1155", "R.1155 Meter Amplitude Knob")
 defineToggleSwitch("R1155_METER_DEF", 25, 3087, 235, "R1155", "R.1155 Meter Deflection Sensitivity Switch")
 define3PosMossi("R1155_AURAL_SENSE", 25, 3089, 236, "R1155", "R.1155 Aural Sense Switch")
 defineToggleSwitch("R1155_SW_SPEED", 25, 3090, 237, "R1155", "R.1155 Meter Frequency Switch")

@@ -3,7 +3,7 @@ BIOS.protocol.setExportModuleAircrafts({"SpitfireLFMkIX", "SpitfireLFMkIXCW"})
 --overhaul by WarLord v2.0
 local documentation = moduleBeingDefined.documentation
 
-local document = BIOS.util.document  
+local document = BIOS.util.document
 
 local defineFloat = BIOS.util.defineFloat
 local defineIndicatorLight = BIOS.util.defineIndicatorLight
@@ -19,7 +19,7 @@ local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 -- remove Arg# Pilot 165
 
 --Oxygen Apparatus Controls
-defineToggleSwitch("OXY_VALVE", 3, 3003, 13, "Cockpit", "Oxygen Valve")  
+defineToggleSwitch("OXY_VALVE", 3, 3003, 13, "Cockpit", "Oxygen Valve")
 defineToggleSwitch("SAFETY",5, 3001, 3, "Weapons", "Safety Lever")
 definePushButton("BUTTON_MG",5, 3003, 4, "Weapons", "MG Trigger")
 definePushButton("BUTTON_CAN",5, 3004, 5, "Weapons", "Cannons Trigger")
@@ -31,10 +31,10 @@ defineRotary("ALT_MBAR",1, 3037, 30, "Cockpit", "Altimeter Pressure Set")
 defineRotary("DI",1, 3041, 32, "Cockpit", "Directional Gyro Adjust")
 definePushButton("FUEL_GAUGE",1, 3005, 44, "Cockpit", "Show Fuel Contents")
 defineToggleSwitch("NAV_LIGHTS",1, 3007, 46, "Lights", "Nav. Lights On/Off")
-defineToggleSwitch("FLAPS", 1, 3009, 47, "Cockpit", "Landing Flaps Up/Down")  
-defineToggleSwitch("UC_BLIND", 1, 3011, 50, "Cockpit", "U/C Indicator Blind Up/Down")  
-definePushButton("CLK_PINION_PULL", 17, 3006, 54, "Cockpit", "Winding/Adjustment Clock Pull out.")  
-defineRotary("CLK_PINION", 17, 3004, 55, "Cockpit", "Winding/Adjustment Clock")  
+defineToggleSwitch("FLAPS", 1, 3009, 47, "Cockpit", "Landing Flaps Up/Down")
+defineToggleSwitch("UC_BLIND", 1, 3011, 50, "Cockpit", "U/C Indicator Blind Up/Down")
+definePushButton("CLK_PINION_PULL", 17, 3006, 54, "Cockpit", "Winding/Adjustment Clock Pull out.")
+defineRotary("CLK_PINION", 17, 3004, 55, "Cockpit", "Winding/Adjustment Clock")
 defineToggleSwitch("MAGNETO0",2, 3015, 56, "Engine", "No. 1 Magneto On/Off")
 defineToggleSwitch("MAGNETO1",2, 3017, 57, "Engine", "No. 2 Magneto On/Off")
 defineToggleSwitch("BLOWER",2, 3019, 58, "Engine", "Supercharger Mode Auto/M.S.")

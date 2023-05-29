@@ -3,7 +3,7 @@ BIOS.protocol.setExportModuleAircrafts({"P-47D-30", "P-47D-30bl1", "P-47D-40"})
 --by WarLord
 local documentation = moduleBeingDefined.documentation
 
-local document = BIOS.util.document  
+local document = BIOS.util.document
 
 local defineFloat = BIOS.util.defineFloat
 local defineIndicatorLight = BIOS.util.defineIndicatorLight
@@ -91,8 +91,8 @@ defineToggleSwitch("CANOPY_JETT_SW", 2, 3020, 157, "Canopy Controls", "Cockpit J
 definePushButton("HATCH_KNB", 2, 3016, 154, "Canopy Controls", "Canopy Hatch Knobs")
 
 --Main Panel
-definePushButton("CLK_PINION_PULL", 5, 3006, 8, "Main Panel", "Clock Pullout")  
-defineRotary("CLK_PINION", 5, 3004, 7, "Main Panel", "Clock Winding/Adjustment") 
+definePushButton("CLK_PINION_PULL", 5, 3006, 8, "Main Panel", "Clock Pullout")
+defineRotary("CLK_PINION", 5, 3004, 7, "Main Panel", "Clock Winding/Adjustment")
 define3PosTumb("STARTER_SW", 3, 3021, 63, "Main Panel", "Starter Switch")
 definePotentiometer("PRIMER_TURN", 3, 3022, 65, {0, 1}, "Main Panel", "Primer Pump Turn")
 definePushButton("PRIMER_PULL", 3, 3025, 64, "Main Panel", "Primer Pump Pull")
@@ -133,7 +133,7 @@ defineToggleSwitch("OAP_SEL_SW", 14, 3041, 143, "Drop Ordinance Panel", "OAP Sel
 defineToggleSwitch("ARM_B_HAND", 14, 3035, 228, "Drop Ordinance Panel", "Arming Handle Belly")
 defineToggleSwitch("ARM_L_HAND", 14, 3031, 229, "Drop Ordinance Panel", "Arming Handle Left")
 defineToggleSwitch("ARM_R_HAND", 14, 3033, 230, "Drop Ordinance Panel", "Arming Handle Right")
- 
+
 --Rockets Distributor Control Panel
 defineMultipositionSwitch("RKT_REL_MODE", 22, 3001, 221, 3, 0.1,"Rockets Control Panel" ,"Rockets Release Mode")
 defineToggleSwitch("RKT_DELAY_SW", 22, 3004, 222, "Rockets Control Panel", "Rockets Delay Switch")
@@ -209,7 +209,7 @@ definePushButton("IFF_DESTR_2", 15, 3089, 186, "Starboard Wall", "Secret Radio D
 definePotentiometer("RH_C5_CAP", 19, 3004, 168, {0, 1}, "Starboard Wall", "RH C5 Assy. Cover")
 defineToggleSwitch("TAIL_LOCK", 2, 3042, 101, "Starboard Wall", "Tail Wheel Lock Lever")
 
-definePotentiometer("OXY_BYPASS", 4, 3005, 130, {0, 1}, "Oxygen", "Oxygen Emergency By-pass") 
+definePotentiometer("OXY_BYPASS", 4, 3005, 130, {0, 1}, "Oxygen", "Oxygen Emergency By-pass")
 defineToggleSwitch("OXY_AUTOMIX", 4, 3003, 131, "Oxygen", "Oxygen Auto-Mix On-Off")
 
 definePushButton("RLB_KEY", 8, 3035, 96, "Recognition Lights", "Recognition Lights KEY Button")
@@ -233,7 +233,7 @@ definePotentiometer("DETROLA_VOL", 24, 3002, 138, {0, 1}, "Detrola Receiver", "D
 
 --Deck
 defineTumb("MAIN_FUEL_SEL", 3, 3047, 85,  0.25, {0, 1}, nil, true, "Deck" ,"Main Fuel Tank Selector")
-defineMultipositionSwitch("DROP_TANK_SEL", 3, 3050, 86, 3, 0.5, "Deck" ,"Droptank Selector")        
+defineMultipositionSwitch("DROP_TANK_SEL", 3, 3050, 86, 3, 0.5, "Deck" ,"Droptank Selector")
 defineToggleSwitch("AIRFILTER", 3, 3033, 114, "Deck", "Air Filter By-Pass Lever")
 defineToggleSwitch("HYDR_HP", 2, 3052, 160, "Deck", "Hydraulic System Hand Pump")
 definePotentiometer("CARBAIR", 3, 3054, 161, {0, 1}, "Deck", "Carburettor Heater Lever")

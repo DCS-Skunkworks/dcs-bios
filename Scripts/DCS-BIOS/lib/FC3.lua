@@ -110,12 +110,12 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	_barFuel = BarFuel(fuel, plane)
 	_barGLoad = BarGLoad(gload)
 	_barVVI = BarVVI(vvi, plane)
-	
+
 	local eng2 = LoGetEngineInfo()
-    if eng2 ~= nil then 
-	    _RPMLeft = string.format("%3.0d", eng2.RPM.left) 
-        _RPMRight = string.format("%3.0d", eng2.RPM.right) 
-        _TEMPLeft = string.format("%4.0d", eng2.Temperature.left) 
+    if eng2 ~= nil then
+	    _RPMLeft = string.format("%3.0d", eng2.RPM.left)
+        _RPMRight = string.format("%3.0d", eng2.RPM.right)
+        _TEMPLeft = string.format("%4.0d", eng2.Temperature.left)
         _TEMPRight = string.format("%4.0d", eng2.Temperature.right)
 		_HYDPressLeft = string.format(eng2.HydraulicPressure.left)
 		_HYDPressRight = string.format(eng2.HydraulicPressure.right)
@@ -123,22 +123,22 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 		_FuelConRight = string.format("%4.0d", (eng2.FuelConsumption.right * 7936.641))
     else
         _RPMLeft = "---"
-        _RPMRight = "---" 
-        _TEMPLeft = "----" 
+        _RPMRight = "---"
+        _TEMPLeft = "----"
         _TEMPRight = "----"
 		_HYDPressLeft = "---"
 		_HYDPressRight = "---"
 		_FuelConLeft = "----"
 		_FuelConRight = "----"
     end
-	
+
 	local mech = LoGetMechInfo()
-    if mech ~= nil then 
-        _GearStatus = mech.gear.value 
+    if mech ~= nil then
+        _GearStatus = mech.gear.value
     else
-        _GearStatus = 0 
+        _GearStatus = 0
     end
-	
+
 	local chfl = LoGetSnares()
     if (chfl ~= nil and type(chfl) == "table") then
 		_chaff = string.format("%3.0d", chfl.chaff)
@@ -147,7 +147,7 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
         _chaff = "---"
 		_flare = "---"
     end
-	
+
 
 
 	--[[ US PLANES ]]--
@@ -217,7 +217,7 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	if fuel > 100 then _fuel = string.format("%4d", fuel)
 	else _fuel = string.format("%4.1f", fuel) end
      if _fuel == nil then return end
-	 
+
 	-- G LOAD
 	if plane == "A-10A" then
 		if gload < -5 then gload = -5

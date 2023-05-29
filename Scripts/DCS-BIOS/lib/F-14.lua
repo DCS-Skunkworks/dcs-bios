@@ -185,14 +185,14 @@ local function getHUD_Mode()
         hud_m = "1"
     elseif GetDevice(0):get_argument_value(1015) == 1 then  --Take Off
         hud_m = "1"
-    elseif GetDevice(0):get_argument_value(1014) == 1 then  --Cruise  
+    elseif GetDevice(0):get_argument_value(1014) == 1 then  --Cruise
         hud_m = "2"
-    elseif GetDevice(0):get_argument_value(1013) == 1 then  --A2A  
+    elseif GetDevice(0):get_argument_value(1013) == 1 then  --A2A
         hud_m = "3"
-    elseif GetDevice(0):get_argument_value(1012) == 1 then  --A2G 
+    elseif GetDevice(0):get_argument_value(1012) == 1 then  --A2G
         hud_m = "4"
-    elseif GetDevice(0):get_argument_value(1011) == 1 then  --Landing  
-        hud_m = "5"    
+    elseif GetDevice(0):get_argument_value(1011) == 1 then  --Landing
+        hud_m = "5"
 	else
 	    hud_m = "1"
     end
@@ -201,20 +201,20 @@ end
 
 local function getSTEER_Mode()
     local steer_m = "2"
-    if GetDevice(0) == nil then 
+    if GetDevice(0) == nil then
 		steer_m = "2"
 	elseif GetDevice(0):get_argument_value(1002) == 1 then  --TACAN
         steer_m = "1"
-    elseif GetDevice(0):get_argument_value(1003) == 1 then  --DEST 
+    elseif GetDevice(0):get_argument_value(1003) == 1 then  --DEST
         steer_m = "2"
-    elseif GetDevice(0):get_argument_value(1004) == 1 then  --AWL/PCD  
+    elseif GetDevice(0):get_argument_value(1004) == 1 then  --AWL/PCD
         steer_m = "3"
     elseif GetDevice(0):get_argument_value(1005) == 1 then  --Vector
         steer_m = "4"
-    elseif GetDevice(0):get_argument_value(1006) == 1 then  --Manual  
-        steer_m = "5"    
+    elseif GetDevice(0):get_argument_value(1006) == 1 then  --Manual
+        steer_m = "5"
 	else
-	    steer_m = "2"		
+	    steer_m = "2"
     end
     return steer_m
 end
@@ -231,16 +231,16 @@ local function getAIRSOURCE_Mode()
         airsource_m = "3"
     elseif GetDevice(0):get_argument_value(932) == 1 then  --BOTH
         airsource_m = "4"
-    elseif GetDevice(0):get_argument_value(933) == 1 then  --OFF 
-        airsource_m = "5"    
+    elseif GetDevice(0):get_argument_value(933) == 1 then  --OFF
+        airsource_m = "5"
 	else
 	    airsource_m = "5"
     end
     return airsource_m
 end
 
---------------------------------- Matchstick  
-local function parse_indication_number_index(indicator_id) 
+--------------------------------- Matchstick
+local function parse_indication_number_index(indicator_id)
 -- Custom version of parse_indication function that uses numbers for the index of the output table
 -- for use in situations where the names of values in the indication are unusable (eg random GUID)
 -- also adds the number of rows to the table at index 0
@@ -265,7 +265,7 @@ local function get_radio_remote_display(indicatorId,testButtonId)-- Data from sp
     local data = parse_indication_number_index(indicatorId);-- status of relevant test button (ID 15004 = Pilot UHF, 405 = RIO UHF, 15003 = Pilot VHF/UHF)
     local testPressed = GetDevice(0):get_argument_value(testButtonId)
     local retVal
- 
+
     if data and data[0] then
 -- data[0] holds the length of the data table. 7 Indicates it is in manual frequency mode otherwise it is in preset mode.
 -- testPressed indicates the current value of the specified radio display test button - if pressed we need to return the test value not the current manual or preset frequency.
@@ -313,9 +313,9 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 			HSD_MAN_CRSint = tonumber(HSD_MAN_CRS)
         end
 end
---------------------------------- Matchstick End   
+--------------------------------- Matchstick End
 
------------------------------------------ BIOS-Profile  
+----------------------------------------- BIOS-Profile
 
 -- Hydraulics
 defineToggleSwitch("PLT_HYD_TRANS_PUMPLT_SW", 13, 3001, 629, "Hydraulics", "PILOT Hydraulic Transfer Pump Switch")
@@ -555,7 +555,7 @@ local function getARC159_High_Frequency()
 	local freq = tostring(arc_159:get_frequency())
 	if freq == "nan" then freq = "000000" end
 	freq = string.sub(freq, 1, 3)
-	return tonumber(freq)	
+	return tonumber(freq)
 end
 local function getARC159_Decimal_DIAL3_Frequency()
 	--Export : 225975
@@ -564,7 +564,7 @@ local function getARC159_Decimal_DIAL3_Frequency()
 	if freq == "nan" then freq = "000000" end
 	--Get the 9
 	freq = string.sub(freq, 4, 4)
-	return tonumber(freq)	
+	return tonumber(freq)
 end
 
 local function getARC159_Decimal_DIAL4_Frequency()
@@ -575,7 +575,7 @@ local function getARC159_Decimal_DIAL4_Frequency()
 	if freq == "nan" then freq = "000000" end
 	--Get the 75
 	freq = string.sub(freq, 5, 6)
-	return tonumber(freq)	
+	return tonumber(freq)
 end
 
 defineIntegerFromGetter("PLT_UHF_DIAL4_FREQ", getARC159_Decimal_DIAL4_Frequency, 100, "UHF 1", "PILOT Dial 4 ARC-159 Frequency")
@@ -586,7 +586,7 @@ moduleBeingDefined.inputProcessors["SET_UHF_FREQ"] = function(freq)
 	freq = freq:gsub("%.", "")
 	freq = tonumber(freq)
 	if type(freq) == "nil" then return end
-	
+
 	GetDevice(3):set_frequency(freq*1000)
 end
 
@@ -606,7 +606,7 @@ definePotentiometer("RIO_VUHF_BRIGHTNESS", 4, 3405, 360, {0, 1}, "VUHF", "RIO VU
 
 local function getARC182_High_Frequency()
 	--225000288
-	-- 65000056	
+	-- 65000056
 	local arc_182 = GetDevice(4)
 	local freq = tostring(arc_182:get_frequency())
     if freq == "nan" then freq = "000000" end
@@ -615,7 +615,7 @@ local function getARC182_High_Frequency()
 	else
 	freq = string.sub(freq, 1, 3)
 	end
-	return tonumber(freq)	
+	return tonumber(freq)
 end
 local function getARC182_Decimal_DIAL3_Frequency()
 	--225975288
@@ -629,7 +629,7 @@ local function getARC182_Decimal_DIAL3_Frequency()
 	else
 	freq = string.sub(freq, 4, 4)
 	end
-	return tonumber(freq)	
+	return tonumber(freq)
 end
 
 local function getARC182_Decimal_DIAL4_Frequency()
@@ -645,7 +645,7 @@ local function getARC182_Decimal_DIAL4_Frequency()
 	else
 	freq = string.sub(freq, 5, 6)
 	end
-	return tonumber(freq)	
+	return tonumber(freq)
 end
 
 defineIntegerFromGetter("RIO_VUHF_DIAL4_FREQ", getARC182_Decimal_DIAL4_Frequency, 100, "VUHF", "RIO Dial 4 ARC-182 Frequency")
@@ -656,7 +656,7 @@ moduleBeingDefined.inputProcessors["SET_VUHF_FREQ"] = function(freq)
 	freq = freq:gsub("%.", "")
 	freq = tonumber(freq)
 	if type(freq) == "nil" then return end
-	
+
 	GetDevice(4):set_frequency(freq*1000)
 end
 
@@ -732,7 +732,7 @@ defineToggleSwitch("PLT_SPOIL_OVER_COVER_OUTBOARD", 15, 3429, 903, "Spoiler", "P
 defineToggleSwitch("PLT_SPOIL_OVER_INBOARD", 15, 3430, 908, "Spoiler", "PILOT Inboard Spoiler Override")
 defineToggleSwitch("PLT_SPOIL_OVER_OUTBOARD", 15, 3431, 907, "Spoiler", "PILOT Outboard Spoiler Override")
 
--- Gun Elevation 
+-- Gun Elevation
 defineRotary("PLT_GUN_ELEV_ADJUST", 55, 3131, 1000, "Gun", "PILOT Gun Elevation Lead Adjustment")
 defineRotary("PLT_GUN_AMMU_COUNT_ADJUST", 55, 3132, 1022, "Gun", "PILOT Gun Ammunition Counter Adjustment")
 
@@ -979,7 +979,7 @@ defineIndicatorLightLANTTop("RIO_LANTIRN_1_FLIR", 678, "LANTIRN","RIO LANTIRN FL
 defineIndicatorLightLANT("RIO_LANTIRN_2_FLIRTCS", 678, "LANTIRN","RIO LANTIRN FLIR TCS Light (BOOTH) (green)")
 defineIndicatorLightLANTBottom("RIO_LANTIRN_3_TCS", 678, "LANTIRN","RIO LANTIRN TCS Light (BOTTOM) (green)")
 defineIndicatorLightMulti1("RIO_LANTIRN_IBIT", 679, "LANTIRN","RIO LANTIRN IBIT Light (green)")
-defineIndicatorLightMulti1("RIO_LANTIRN_LASERARMED", 680, "LANTIRN","RIO LANTIRN LASER ARMED Light (green)")	
+defineIndicatorLightMulti1("RIO_LANTIRN_LASERARMED", 680, "LANTIRN","RIO LANTIRN LASER ARMED Light (green)")
 
 -- Indicator Lights PLT
 defineIndicatorLight("PLT_TACAN_COMAND_PLT", 290, "PLT Indicator Lights","PILOT TACAN Command Light PLT (green)")
@@ -1016,7 +1016,7 @@ defineIndicatorLight("PLT_HUD_LIGHT_LStall", 9356, "PLT Indicator Lights","PILOT
 defineIndicatorLight("PLT_HUD_LIGHT_SAM", 9357, "PLT Indicator Lights","PILOT HUD SAM (red)")
 defineIndicatorLight("PLT_HUD_LIGHT_AAA", 9358, "PLT Indicator Lights","PILOT HUD AAA (red)")
 defineIndicatorLight("PLT_HUD_LIGHT_AI", 9359, "PLT Indicator Lights","PILOT HUD AI (red)")
-defineIndicatorLight("PLT_VDI_LIGHT_ADJAC", 9360, "PLT Indicator Lights","PILOT VDI ADJ A/C Light (red)") 
+defineIndicatorLight("PLT_VDI_LIGHT_ADJAC", 9360, "PLT Indicator Lights","PILOT VDI ADJ A/C Light (red)")
 defineIndicatorLight("PLT_VDI_LIGHT_LANDCHK", 9361, "PLT Indicator Lights","PILOT VDI LANDING CHK Light (red)")
 defineIndicatorLight("PLT_VDI_LIGHT_ACLRDY", 9362, "PLT Indicator Lights","PILOT VDI ACL READY Light (red)")
 defineIndicatorLight("PLT_VDI_LIGHT_APCLR", 9363, "PLT Indicator Lights","PILOT VDI A/P CPLR Light (red)")
@@ -1031,7 +1031,7 @@ defineIndicatorLight("PLT_REFUELPROBE_LIGHT", 15002, "PLT Indicator Lights","PIL
 defineIndicatorLight("PLT_MASTERTEST_GO", 15010, "PLT Indicator Lights","PILOT MASTER TEST GO Light (green)")
 defineIndicatorLight("PLT_MASTERTEST_NOGO", 15011, "PLT Indicator Lights","PILOT MASTER TEST NOGO Light (red)")
 defineIndicatorLight("PLT_R_ENG_FIRE", 15014, "PLT Indicator Lights","PILOT Right Engine Fire Light (red)")
-defineIndicatorLight("PLT_L_ENG_FIRE", 15015, "PLT Indicator Lights","PILOT Left Engine Fire Light (red)") 
+defineIndicatorLight("PLT_L_ENG_FIRE", 15015, "PLT Indicator Lights","PILOT Left Engine Fire Light (red)")
 defineIndicatorLight("PLT_WARN_LGEN", 15016, "PLT Indicator Lights","PILOT Warning Lamp Left Generator (yellow)")
 defineIndicatorLight("PLT_WARN_LOILHOT", 15017, "PLT Indicator Lights","PILOT Warning Lamp Left Oil Hot (yellow)")
 defineIndicatorLight("PLT_WARN_LFUELPRESS", 15018, "PLT Indicator Lights","PILOT Warning Lamp Left Fuel Pressure (yellow)")
@@ -1072,8 +1072,8 @@ defineIndicatorLight("PLT_WARN_INLETICE", 15052, "PLT Indicator Lights","PILOT W
 defineIndicatorLight("PLT_WARN_RUDDERAUTH", 15053, "PLT Indicator Lights","PILOT Warning Lamp Rudder Auth (yellow)")
 defineIndicatorLight("PLT_WARN_LINLET", 15054, "PLT Indicator Lights","PILOT Warning Lamp Left Inlet (yellow)")
 defineIndicatorLight("PLT_WARN_ANRS", 15055, "PLT Indicator Lights","PILOT Warning Lamp ANRS (green)")
-defineIndicatorLight("PLT_WARN_ROLLSTAB2", 15056, "PLT Indicator Lights","PILOT Warning Lamp Roll Stabilizer 2 (yellow)")	
-defineIndicatorLight("PLT_WARN_SPOILERS", 15057, "PLT Indicator Lights","PILOT Warning Lamp Spoilers (yellow)")	
+defineIndicatorLight("PLT_WARN_ROLLSTAB2", 15056, "PLT Indicator Lights","PILOT Warning Lamp Roll Stabilizer 2 (yellow)")
+defineIndicatorLight("PLT_WARN_SPOILERS", 15057, "PLT Indicator Lights","PILOT Warning Lamp Spoilers (yellow)")
 defineIndicatorLight("PLT_WARN_TRANSRECT", 15058, "PLT Indicator Lights","PILOT Warning Lamp Trans Rect (green)")
 defineIndicatorLight("PLT_WARN_REDUCESPEED", 15059, "PLT Indicator Lights","PILOT Warning Lamp Reduce Speed (yellow)")
 defineIndicatorLight("PLT_WARN_INTERTRIM", 15060, "PLT Indicator Lights","PILOT Warning Lamp Inter Trim (green)")
@@ -1088,7 +1088,7 @@ defineIndicatorLight("PLT_VDI_LIGHT_ALTLOW", 15073, "PLT Indicator Lights","PILO
 defineIndicatorLight("PLT_HOOK_LIGHT", 15090, "PLT Indicator Lights","PILOT Hook Light (red)")
 defineIndicatorLight("PLT_RADAR_ALT_LIGHT", 19107, "PLT Indicator Lights","PILOT Radar Altimeter Warning Light (red)")
 defineIndicatorLight("PLT_RADAR_ALT_TEST_LIGHT", 19108, "PLT Indicator Lights","PILOT Radar Altimeter Test Light (red)")
-defineIndicatorLight("PLT_SLATS_IND_LIGHT", 8310, "Gauges as Light", "PILOT Slats Indicator as Light")	
+defineIndicatorLight("PLT_SLATS_IND_LIGHT", 8310, "Gauges as Light", "PILOT Slats Indicator as Light")
 defineIndicatorLight("PLT_FLAPS_IND_LIGHT", 8311, "Gauges as Light", "PILOT Flaps Indicator as Light")
 defineIndicatorLight("PLT_SPDBRK_IND_LIGHT", 8307, "Gauges as Light", "PILOT Speedbrake Indicator as Light")
 defineIndicatorLight("PLT_SPDBRK_FULL_LIGHT", 8308, "Gauges as Light", "PILOT Speedbrake Full Indicator as Light")
@@ -1129,13 +1129,13 @@ defineIndicatorLight("RIO_FLOOD_LIGHTS_W", 1807, "RIO Indicator Lights","RIO Whi
 defineIndicatorLight("RIO_ACLS_TEST_LIGHT", 2016, "RIO Indicator Lights","RIO ACLS Test Light (green)")
 defineIndicatorLight("RIO_CAD_OXYLOW", 2199, "RIO Indicator Lights","RIO CAD OXY LOW Light (green)")
 defineIndicatorLight("RIO_MASTERCAUTION_LIGHT", 2200, "RIO Indicator Lights","RIO MASTER CAUTION Light (red)")
-defineIndicatorLight("RIO_IFF_LIGHT", 2201, "RIO Indicator Lights","RIO IFF Light (green)")	
-defineIndicatorLight("RIO_RCV_LIGHT", 2202, "RIO Indicator Lights","RIO RCV Light (green)")	
-defineIndicatorLight("RIO_XMIT_LIGHT", 2203, "RIO Indicator Lights","RIO XMIT Light (green)")	
-defineIndicatorLight("RIO_SAM_LIGHT", 2204, "RIO Indicator Lights","RIO SAM Light (red)")	
-defineIndicatorLight("RIO_AAA_LIGHT", 2205, "RIO Indicator Lights","RIO AAA Light (red)")	
-defineIndicatorLight("RIO_CW_LIGHT", 2206, "RIO Indicator Lights","RIO CW Light (red)")	
-defineIndicatorLight("RIO_AI_LIGHT", 2208, "RIO Indicator Lights","RIO AI Light (red)")		
+defineIndicatorLight("RIO_IFF_LIGHT", 2201, "RIO Indicator Lights","RIO IFF Light (green)")
+defineIndicatorLight("RIO_RCV_LIGHT", 2202, "RIO Indicator Lights","RIO RCV Light (green)")
+defineIndicatorLight("RIO_XMIT_LIGHT", 2203, "RIO Indicator Lights","RIO XMIT Light (green)")
+defineIndicatorLight("RIO_SAM_LIGHT", 2204, "RIO Indicator Lights","RIO SAM Light (red)")
+defineIndicatorLight("RIO_AAA_LIGHT", 2205, "RIO Indicator Lights","RIO AAA Light (red)")
+defineIndicatorLight("RIO_CW_LIGHT", 2206, "RIO Indicator Lights","RIO CW Light (red)")
+defineIndicatorLight("RIO_AI_LIGHT", 2208, "RIO Indicator Lights","RIO AI Light (red)")
 defineIndicatorLight("RIO_CAD_CDHOT", 2209, "RIO Indicator Lights","RIO CAD C D HOT Light (green)")
 defineIndicatorLight("RIO_CAD_CABINPRESS", 2210, "RIO Indicator Lights","RIO CAD CABIN PRESS Light (green)")
 defineIndicatorLight("RIO_CAD_FUELLOW", 2211, "RIO Indicator Lights","RIO CAD FUEL LOW Light (green)")
@@ -1187,7 +1187,7 @@ defineIndicatorLight("RIO_DDI_LIGHTS_BEACON", 2256, "RIO Indicator Lights","RIO 
 defineIndicatorLight("RIO_DDI_LIGHTS_SEACDUB", 2257, "RIO Indicator Lights","RIO DDI SEAC DUB Light (green)")
 defineIndicatorLight("RIO_DDI_LIGHTS_DROP", 2258, "RIO Indicator Lights","RIO DDI DROP Light (green)")
 defineIndicatorLight("RIO_DDI_LIGHTS_BEACOFF", 2259, "RIO Indicator Lights","RIO DDI BEAC OFF Light (green)")
-defineIndicatorLight("RIO_DDI_LIGHTS_RETBASE", 2260, "RIO Indicator Lights","RIO DDI RET BASE Light (green)")	
+defineIndicatorLight("RIO_DDI_LIGHTS_RETBASE", 2260, "RIO Indicator Lights","RIO DDI RET BASE Light (green)")
 defineIndicatorLight("RIO_TID_SCREEN_LIGHT", 3450, "RIO Indicator Lights","RIO TID Screen Light (light green)")
 defineIndicatorLight("RIO_IFF_TEST_LIGHT", 8052, "RIO Indicator Lights","RIO IFF Test Light (green)")
 defineIndicatorLight("RIO_IFF_REPLY_LIGHT", 8053, "RIO Indicator Lights","RIO IFF Reply Light (green)")
@@ -1317,20 +1317,20 @@ defineFloat("PLT_ENGINE_FF_R", 1062, {0, 1}, "PLT Gauges", "PILOT Engine FF Righ
 defineFloat("PLT_ENGINE_OIL_PRESS_L", 1066, {0, 1}, "PLT Gauges", "PILOT Engine Oil Pressure Left")
 defineFloat("PLT_ENGINE_OIL_PRESS_R", 1065, {0, 1}, "PLT Gauges", "PILOT Engine Oil Pressure Right")
 defineFloat("PLT_ENGINE_NOZZLE_L", 1068, {0, 1}, "PLT Gauges", "PILOT Engine Nozzle Left")
-defineFloat("PLT_ENGINE_NOZZLE_R", 1067, {0, 1}, "PLT Gauges", "PILOT Engine Nozzle Right")       
+defineFloat("PLT_ENGINE_NOZZLE_R", 1067, {0, 1}, "PLT Gauges", "PILOT Engine Nozzle Right")
 defineFloat("PLT_CLOCK_H", 1096, {0, 1}, "PLT Gauges", "PILOT Clock Hours")
-defineFloat("PLT_CLOCK_M", 1097, {0, 1}, "PLT Gauges", "PILOT Clock Minutes") 
-defineFloat("PLT_CLOCK_TS", 1098, {0, 1}, "PLT Gauges", "PILOT Clock Timer Seconds") 
-defineFloat("PLT_CLOCK_T", 1099, {0, 1}, "PLT Gauges", "PILOT Clock Timer") 
-defineFloat("PLT_CLOCK_TM", 2000, {0, 1}, "PLT Gauges", "PILOT Clock Timer Minutes")   
-defineFloat("PLT_SWEEP_MIN", 2047, {0, 1}, "PLT Gauges", "PILOT Wing Sweep Minimum Index") 
-defineFloat("PLT_SWEEP_COM", 2001, {0, 1}, "PLT Gauges", "PILOT Wing Sweep Commanded") 
+defineFloat("PLT_CLOCK_M", 1097, {0, 1}, "PLT Gauges", "PILOT Clock Minutes")
+defineFloat("PLT_CLOCK_TS", 1098, {0, 1}, "PLT Gauges", "PILOT Clock Timer Seconds")
+defineFloat("PLT_CLOCK_T", 1099, {0, 1}, "PLT Gauges", "PILOT Clock Timer")
+defineFloat("PLT_CLOCK_TM", 2000, {0, 1}, "PLT Gauges", "PILOT Clock Timer Minutes")
+defineFloat("PLT_SWEEP_MIN", 2047, {0, 1}, "PLT Gauges", "PILOT Wing Sweep Minimum Index")
+defineFloat("PLT_SWEEP_COM", 2001, {0, 1}, "PLT Gauges", "PILOT Wing Sweep Commanded")
 defineFloat("PLT_SWEEP_POS", 2002, {0, 1}, "PLT Gauges", "PILOT Wing Sweep Position")
 defineFloat("PLT_SWEEP_FLAG_OFF", 15091, {0, 1}, "PLT Gauges", "PILOT Wing Sweep OFF Flag")
-defineFloat("PLT_SWEEP_FLAG_AUTO", 15092, {0, 1}, "PLT Gauges", "PILOT Wing Sweep AUTO Flag") 
-defineFloat("PLT_SWEEP_FLAG_MAN", 15093, {0, 1}, "PLT Gauges", "PILOT Wing Sweep MAN Flag") 
-defineFloat("PLT_SWEEP_FLAG_EMER", 15094, {0, 1}, "PLT Gauges", "PILOT Wing Sweep EMER Flag") 
-defineFloat("PLT_SWEEP_FLAG_OVER", 15095, {0, 1}, "PLT Gauges", "PILOT Wing Sweep OVER Flag") 
+defineFloat("PLT_SWEEP_FLAG_AUTO", 15092, {0, 1}, "PLT Gauges", "PILOT Wing Sweep AUTO Flag")
+defineFloat("PLT_SWEEP_FLAG_MAN", 15093, {0, 1}, "PLT Gauges", "PILOT Wing Sweep MAN Flag")
+defineFloat("PLT_SWEEP_FLAG_EMER", 15094, {0, 1}, "PLT Gauges", "PILOT Wing Sweep EMER Flag")
+defineFloat("PLT_SWEEP_FLAG_OVER", 15095, {0, 1}, "PLT Gauges", "PILOT Wing Sweep OVER Flag")
 defineFloat("PLT_AOA_UNITS", 2003, {0, 1}, "PLT Gauges", "PILOT AOA Unit Slider")
 defineFloat("PLT_AOA_UNITS_OFF", 16004, {0, 1}, "PLT Gauges", "PILOT AOA Unit OFF Flag")
 defineFloat("PLT_ALTIMETER_NEEDLE", 104, {0, 1}, "PLT Gauges", "PILOT Altimeter Needle Barometric")
@@ -1434,7 +1434,7 @@ defineFloat("PLT_SPDBRK_OFF", 8306, {0, 1}, "PLT Gauges", "PILOT Speedbrake OFF 
 defineFloat("PLT_SPDBRK_IND", 8307, {0, 1}, "PLT Gauges", "PILOT Speedbrake Indicator")
 defineFloat("PLT_SPDBRK_FULL", 8308, {0, 1}, "PLT Gauges", "PILOT Speedbrake Full Indicator")
 defineFloat("PLT_SLATS_OFF", 8309, {0, 1}, "PLT Gauges", "PILOT Slats OFF Flag")
-defineFloat("PLT_SLATS_IND", 8310, {0, 1}, "PLT Gauges", "PILOT Slats Indicator")	
+defineFloat("PLT_SLATS_IND", 8310, {0, 1}, "PLT Gauges", "PILOT Slats Indicator")
 defineFloat("PLT_FLAPS_IND", 8311, {0, 1}, "PLT Gauges", "PILOT Flaps Indicator")
 defineFloat("PLT_SPOILER_DN_OL", 8315, {0, 1}, "PLT Gauges", "PILOT Spoiler DN Outer Left")
 defineFloat("PLT_SPOILER_DN_IL", 8316, {0, 1}, "PLT Gauges", "PILOT Spoiler DN Inner Left")
@@ -1507,7 +1507,7 @@ defineFloat("RIO_AIRSPEED_INNER", 251, {0, 1}, "RIO Gauges", "RIO Airspeed Numbe
 defineFloat("RIO_AIRSPEED_POINTER1", 252, {0, 1}, "RIO Gauges", "RIO Airspeed Pointer 1")
 defineFloat("RIO_AIRSPEED_POINTER2", 253, {0, 1}, "RIO Gauges", "RIO Airspeed Pointer 2")
 defineFloat("RIO_CMDS_CHAFF_COUNT_10", 392, {0, 1}, "RIO Gauges", "RIO CMDS Chaff Counter 10")
-defineFloat("RIO_CMDS_CHAFF_COUNT_1", 393, {0, 1}, "RIO Gauges", "RIO CMDS Chaff Counter 1")		
+defineFloat("RIO_CMDS_CHAFF_COUNT_1", 393, {0, 1}, "RIO Gauges", "RIO CMDS Chaff Counter 1")
 local function getChaffCount()
     local function a(n) return GetDevice(0):get_argument_value(n) end
     local digit1 = string.format("%.0f", GetDevice(0):get_argument_value(392)*10)
@@ -1516,10 +1516,10 @@ local function getChaffCount()
 	if digit2 == nil then digit2 = "0" end
     return tonumber(digit1 .. digit2)
 end
-defineIntegerFromGetter("RIO_CMDS_CHAFFCNT_DISPLAY", getChaffCount, 99, "CMDS", "RIO CMDS Chaff Counter Display")	
+defineIntegerFromGetter("RIO_CMDS_CHAFFCNT_DISPLAY", getChaffCount, 99, "CMDS", "RIO CMDS Chaff Counter Display")
 
 defineFloat("RIO_CMDS_FLARE_COUNT_10", 394, {0, 1}, "RIO Gauges", "RIO CMDS Flare Counter 10")
-defineFloat("RIO_CMDS_FLARE_COUNT_1", 395, {0, 1}, "RIO Gauges", "RIO CMDS Flare Counter 1")		
+defineFloat("RIO_CMDS_FLARE_COUNT_1", 395, {0, 1}, "RIO Gauges", "RIO CMDS Flare Counter 1")
 local function getFlareCount()
     local function a(n) return GetDevice(0):get_argument_value(n) end
     local digit1 = string.format("%.0f", GetDevice(0):get_argument_value(394)*10)
@@ -1531,7 +1531,7 @@ end
 defineIntegerFromGetter("RIO_CMDS_FLARECNT_DISPLAY", getFlareCount, 99, "CMDS", "RIO CMDS Flare Counter Display")
 
 defineFloat("RIO_CMDS_JAMM_COUNT_10", 396, {0, 1}, "RIO Gauges", "RIO CMDS Jammer Counter 10")
-defineFloat("RIO_CMDS_JAMM_COUNT_1", 397, {0, 1}, "RIO Gauges", "RIO CMDS Jammer Counter 1")		
+defineFloat("RIO_CMDS_JAMM_COUNT_1", 397, {0, 1}, "RIO Gauges", "RIO CMDS Jammer Counter 1")
 local function getJammerCount()
     local function a(n) return GetDevice(0):get_argument_value(n) end
     local digit1 = string.format("%.0f", GetDevice(0):get_argument_value(396)*10)
@@ -1546,9 +1546,9 @@ defineFloat("RIO_TACAN_COMAND_IND", 414, {0, 1}, "RIO Gauges", "RIO TACAN Comman
 defineFloat("RIO_ELEVATION_RADAR", 2121, {-1, 1}, "RIO Gauges", "RIO Radar Elevation Arrow")
 defineFloat("RIO_ELEVATION_TCS", 2122, {-1, 1}, "RIO Gauges", "RIO TCS Elevation Arrow")
 defineFloat("RIO_CLOCK_H", 4150, {0, 1}, "RIO Gauges", "RIO Clock Hours")
-defineFloat("RIO_CLOCK_M", 4151, {0, 1}, "RIO Gauges", "RIO Clock Minutes") 
-defineFloat("RIO_CLOCK_TS", 4152, {0, 1}, "RIO Gauges", "RIO Clock Timer Seconds") 
-defineFloat("RIO_CLOCK_T", 4153, {0, 1}, "RIO Gauges", "RIO Clock Timer") 
+defineFloat("RIO_CLOCK_M", 4151, {0, 1}, "RIO Gauges", "RIO Clock Minutes")
+defineFloat("RIO_CLOCK_TS", 4152, {0, 1}, "RIO Gauges", "RIO Clock Timer Seconds")
+defineFloat("RIO_CLOCK_T", 4153, {0, 1}, "RIO Gauges", "RIO Clock Timer")
 defineFloat("RIO_ALTIMETER_NEEDLE", 20104, {0, 1}, "RIO Gauges", "RIO Altimeter Needle Barometric")
 defineFloat("RIO_FUEL_TOTAL_10K", 2117, {0, 1}, "RIO Gauges", "RIO Fuel Total 10000")
 defineFloat("RIO_FUEL_TOTAL_1K", 2118, {0, 1}, "RIO Gauges", "RIO Fuel Total 1000")

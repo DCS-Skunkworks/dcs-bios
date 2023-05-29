@@ -335,7 +335,7 @@ defineToggleSwitch("FRONT_GUNSIDE_RETICLE", 1,3011, 105,"Gunsight", "FRONT ASP-3
 definePotentiometer("FRONT_GUNSIDE_DEPRESS", 1, 3016, 106, {0, 1}, "Gunsight", "FRONT ASP-3NMU Gunsight Mirror Depression")
 definePotentiometer("FRONT_GUNSIDE_DISTANCE", 1, 3002, 107, {0, 1}, "Gunsight", "FRONT ASP-3NMU Gunsight Target Distance")
 
--- CLOCK 
+-- CLOCK
 definePushButton("FRONT_CLOCK_PUSH_L", 12, 3001, 335,"Clock" , "FRONT Clock Left Push Button")
 defineRotary("FRONT_CLOCK_ROTATE_L", 12, 3003, 336, "Clock", "FRONT Clock Left Rotate Knob")
 definePushButton("FRONT_CLOCK_PUSH_R", 12, 3004, 337,"Clock" , "FRONT Clock Right Push Button")
@@ -355,7 +355,7 @@ defineRotary("FRONT_RV5M_HEIGH_KNOB", 14, 3001, 61, "RV5M", "FRONT RV-5M Radio A
 definePushButton("BACK_RV5M_TEST", 14, 3005, 398,"RV5M" , "BACK RV-5M Radio Altimeter Test Button")
 defineRotary("BACK_RV5M_HEIGH_KNOB", 14, 3004, 399, "RV5M", "BACK RV-5M Radio Altimeter Decision Height Knob")
 
--- GMK 
+-- GMK
 defineToggleSwitch("FRONT_GMK_SELECT", 17,3002, 204,"GMK", "FRONT GMK-1AE GMC Hemisphere Selection Switch, N(orth)/S(outh)")
 defineToggleSwitch("FRONT_GMK_MODE", 17,3004, 207,"GMK", "FRONT GMK-1AE GMC Mode Switch, MC(Magnetic Compass Mode)/GC(Directional Gyro Mode)")
 define3PosTumb("FRONT_GMK_TEST", 17, 3003, 205, "GMK", "FRONT GMK-1AE GMC Test Switch, 0/OFF/300")
@@ -555,12 +555,12 @@ defineToggleSwitch("L39ZA_FRONT_EMERG_MISSILE_COVER", 3, 3054, 591,"Weapon Syste
 definePushButton("L39ZA_FRONT_EMERG_MISSILE", 3, 3055, 592,"Weapon System", "L-39ZA FRONT Emergency Launch Missiles")
 defineToggleSwitch("L39ZA_FRONT_ARM_GUN_OUT", 3, 3056, 597,"Weapon System", "L-39ZA FRONT Arm Outer Guns")
 defineToggleSwitch("L39ZA_FRONT_ARM_GUN_IN", 3, 3057, 598,"Weapon System", "L-39ZA FRONT Arm Inner Guns")
-defineToggleSwitch("L39ZA_FRONT_ARM_BOMBS", 3, 3058, 596,"Weapon System", "L-39ZA FRONT Arm Bombs")	
-define3PosTumb("L39ZA_FRONT_BOMB_SERIES", 3, 3059, 584, "Weapon System", "L-39ZA FRONT Bombs Series")	
+defineToggleSwitch("L39ZA_FRONT_ARM_BOMBS", 3, 3058, 596,"Weapon System", "L-39ZA FRONT Arm Bombs")
+define3PosTumb("L39ZA_FRONT_BOMB_SERIES", 3, 3059, 584, "Weapon System", "L-39ZA FRONT Bombs Series")
 defineToggleSwitch("L39ZA_FRONT_OUT_EMERG_JETT_COVER", 3, 3010, 269,"Weapon System", "L-39ZA FRONT Emergency Jettison Outboard Stations Switch Cover, OPEN/CLOSE")
 defineToggleSwitch("L39ZA_FRONT_OUT_EMERG_JETT", 3, 3011, 270,"Weapon System", "L-39ZA FRONT Emergency Jettison Outboard Stations Switch, ON/OFF")
 defineToggleSwitch("L39ZA_FRONT_WAEPON_SW", 4, 3038, 629,"Weapon System", "L-39ZA FRONT CB Weapon Switch, ON/OFF")
-definePushButton("L39ZA_FRONT_DEBLOCK_GUN", 3, 3077, 599,"Weapon System" , "L-39ZA FRONT Deblock Guns")	
+definePushButton("L39ZA_FRONT_DEBLOCK_GUN", 3, 3077, 599,"Weapon System" , "L-39ZA FRONT Deblock Guns")
 defineToggleSwitch("L39C_FRONT_BOMB_EMERG_JETT_COVER", 3, 3008, 267,"Weapon System", "L-39C FRONT Arm/Safe Bombs Emergency Jettison Switch Cover, OPEN/CLOSE")
 defineToggleSwitch("L39C_FRONT_EMERG_JETT_COVER", 3, 3010, 269,"Weapon System", "L-39C FRONT Emergency Jettison Switch Cover, OPEN/CLOSE")
 defineToggleSwitch("L39C_FRONT_EMERG_JETT", 3, 3011, 270,"Weapon System", "L-39C FRONT Emergency Jettison Switch, ON/OFF")
@@ -687,12 +687,12 @@ defineToggleSwitch("FRONT_PANEL_HOOD", 0,3003, 627,"Misc", "FRONT Panel Visor Ex
 
 local function getRSBNNAV()
     local digit = string.format("%.0f", GetDevice(0):get_argument_value(191)*40+1)
-    return tonumber(digit) 
+    return tonumber(digit)
 end
 
 local function getRSBNNAVS()
     local digit1 = string.format("%.0f", GetDevice(0):get_argument_value(191)*40+1)
-    return tostring(digit1) 
+    return tostring(digit1)
 end
 defineIntegerFromGetter("FRONT_RSBN_CHAN_NAV_DISPLAY", getRSBNNAV, 40, "Readings", "FRONT RSBN NAV Channel Display")
 defineString("FRONT_RSBN_CHAN_NAV_DISPLAY_STRING", getRSBNNAVS, 2, "Readings", "FRONT RSBN NAV Channel Display (string)")
@@ -735,5 +735,5 @@ defineString("BACK_RADIO_CHN_DISPLAY_STRING", getRadioPresetChan_BACKS, 2, "Read
 
 defineFloat("FRONT_CANOPY_POS", 139, {0, 1}, "Gauges", "FRONT Canopy Position")
 defineFloat("BACK_CANOPY_POS", 140, {0, 1}, "Gauges", "BACK Door Position")
-  
+
 BIOS.protocol.endModule()

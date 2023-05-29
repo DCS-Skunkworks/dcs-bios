@@ -3,7 +3,7 @@ BIOS.protocol.setExportModuleAircrafts({"Bf-109K-4"})
 --overhaul by WarLord v2.0
 local documentation = moduleBeingDefined.documentation
 
-local document = BIOS.util.document  
+local document = BIOS.util.document
 
 local defineFloat = BIOS.util.defineFloat
 local defineIndicatorLight = BIOS.util.defineIndicatorLight
@@ -116,7 +116,7 @@ defineRotary("CLOCK_SET", 19, 3004, 22, "Cockpit", "Clock Adjusting Knob")
 defineToggleSwitch("CLOCK_TIME_LEVER", 19, 3006, 23, "Cockpit", "Time Setting Lever")
 definePushButton("CLOCK_TIMER", 19, 3008, 24, "Cockpit", "Start/Stop/Reset Chronometer")
 
--- Gun Sight 
+-- Gun Sight
 definePotentiometer("SIGHT_BRIGHT", 1, 3044, 48, {0, 1}, "Gun Sight", "Gun Sight Brightness")
 definePushButton("SIGHT_FOLD", 3, 3007, 139, "Gun Sight", "Gun Sight Fold")
 defineToggleSwitch("SIGHT_SCREEN", 3, 3010, 47, "Gun Sight", "Gun Sight Smoked Screen Up/Down")
@@ -211,98 +211,98 @@ local function getManifold()
      local returnValue = (GetDevice(0):get_argument_value(32))*65+10
      return returnValue
 end
-defineIntegerFromGetter("MANIFOLD_PRESSURE_VALUE", getManifold, 65000, 
+defineIntegerFromGetter("MANIFOLD_PRESSURE_VALUE", getManifold, 65000,
 "Gauge Values", "Manifold Pressure kg/cm2")
 
 local function getMW50()
      local returnValue = (GetDevice(0):get_argument_value(1))*30
      return returnValue
 end
-defineIntegerFromGetter("METHANOL_WATER_PRES_VALUE", getMW50, 65000, 
+defineIntegerFromGetter("METHANOL_WATER_PRES_VALUE", getMW50, 65000,
 "Gauge Values", "Methanol Water Pres kg/cm2 Read as X.X")
 
 local function getPropPitch()
      local returnValue = (GetDevice(0):get_argument_value(30))*63+26
      return returnValue
 end
-defineIntegerFromGetter("PROPELLER_PITCH_DEG_VALUE", getPropPitch, 65000, 
+defineIntegerFromGetter("PROPELLER_PITCH_DEG_VALUE", getPropPitch, 65000,
 "Gauge Values", "Propeller Pitch Degrees")
 
 local function getFuelLevel()
      local returnValue = (GetDevice(0):get_argument_value(33))*400
      return returnValue
 end
-defineIntegerFromGetter("FUEL_LEVEL_VALUE", getFuelLevel, 65000, 
+defineIntegerFromGetter("FUEL_LEVEL_VALUE", getFuelLevel, 65000,
 "Gauge Values", "Fuel Level Liters")
 
 local function getFuelPressure()
      local returnValue = (GetDevice(0):get_argument_value(25))*20
      return returnValue
 end
-defineIntegerFromGetter("FUEL_PRESSURE_VALUE", getFuelPressure, 65000, 
+defineIntegerFromGetter("FUEL_PRESSURE_VALUE", getFuelPressure, 65000,
 "Gauge Values", "Fuel Pres kg/cm2 Read as X.X")
 
 local function getOilPressure()
      local returnValue = (GetDevice(0):get_argument_value(26))*100
      return returnValue
 end
-defineIntegerFromGetter("OIL_PRESSURE_VALUE", getOilPressure, 65000, 
+defineIntegerFromGetter("OIL_PRESSURE_VALUE", getOilPressure, 65000,
 "Gauge Values", "Oil Pressure kg/cm2 Read as X.X or XX.X")
 
 local function getOilTemp()
      local returnValue = (GetDevice(0):get_argument_value(28))*130
      return returnValue
 end
-defineIntegerFromGetter("OIL_TEMPERATURE_VALUE", getOilTemp, 65000, 
+defineIntegerFromGetter("OIL_TEMPERATURE_VALUE", getOilTemp, 65000,
 "Gauge Values", "Oil Temp °C")
 
 local function getCoolantTemp()
      local returnValue = (GetDevice(0):get_argument_value(27))*130
      return returnValue
 end
-defineIntegerFromGetter("COOLANT_TEMPERATURE_VALUE", getCoolantTemp, 65000, 
+defineIntegerFromGetter("COOLANT_TEMPERATURE_VALUE", getCoolantTemp, 65000,
 "Gauge Values", "Coolant Temp °C")
 
 local function getOxygenPressure()
      local returnValue = (GetDevice(0):get_argument_value(34))*250
      return returnValue
 end
-defineIntegerFromGetter("OXYGEN_PRESSURE_VALUE", getOxygenPressure, 65000, 
+defineIntegerFromGetter("OXYGEN_PRESSURE_VALUE", getOxygenPressure, 65000,
 "Gauge Values", "Oxygen Pressure kg/cm2")
 
 local function getAirspeed()
      local returnValue = (GetDevice(0):get_argument_value(2))*750
      return returnValue
 end
-defineIntegerFromGetter("AIRSPEED_VALUE", getAirspeed, 65000, 
+defineIntegerFromGetter("AIRSPEED_VALUE", getAirspeed, 65000,
 "Gauge Values", "Airspeed km/h")
 
 local function getAltitude()
      local returnValue = (GetDevice(0):get_argument_value(9))*9999
      return returnValue
 end
-defineIntegerFromGetter("ALTITUDE_VALUE", getAltitude, 65000, 
+defineIntegerFromGetter("ALTITUDE_VALUE", getAltitude, 65000,
 "Gauge Values", "Altitude Meters")
 
 local function getTachometer()
      local returnValue = (GetDevice(0):get_argument_value(29))*3200+400
      return returnValue
 end
-defineIntegerFromGetter("TACHOMETER_VALUE", getTachometer, 65000, 
+defineIntegerFromGetter("TACHOMETER_VALUE", getTachometer, 65000,
 "Gauge Values", "Tachometer RPM")
 
 local function getBaro()
      local returnValue = (GetDevice(0):get_argument_value(10))*120+920
      return returnValue
 end
-defineIntegerFromGetter("BAROMETRIC_PRESSURE_VALUE", getBaro, 65000, 
+defineIntegerFromGetter("BAROMETRIC_PRESSURE_VALUE", getBaro, 65000,
 "Gauge Values", "Barometric Pressure mb")
 
 local function getHDG()
      local returnValue = (GetDevice(0):get_argument_value(13))*360
      return returnValue
 end
-defineIntegerFromGetter("COMPASS_HEADING_VALUE", getHDG, 65000, 
+defineIntegerFromGetter("COMPASS_HEADING_VALUE", getHDG, 65000,
 "Gauge Values", "Compass Heading")
 
 

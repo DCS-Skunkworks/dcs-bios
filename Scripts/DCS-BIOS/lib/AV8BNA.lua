@@ -31,7 +31,7 @@ local function defineAV8BCommSelector(msg, device_id, command, arg_delta, arg_nu
 			GetDevice(device_id):performClickableAction(command, currentValue - arg_delta)
 		end
 	end
-	
+
 	local value = moduleBeingDefined.memoryMap:allocateInt {
 		maxValue = 65535
 	}
@@ -115,10 +115,10 @@ local function getARC210_COMM1_String_Frequency()
 	local arc_210_comm1 = GetDevice(2)
 	local freq = tostring(arc_210_comm1:get_frequency())
 	if(string.len(freq) == 8) then
-		return freq:sub(1,2) .. "." .. freq:sub(3,5)	
+		return freq:sub(1,2) .. "." .. freq:sub(3,5)
 	else
-		return freq:sub(1,3) .. "." .. freq:sub(4,6)	
-	end	
+		return freq:sub(1,3) .. "." .. freq:sub(4,6)
+	end
 end
 defineString("COMM1_STRING_FREQ", getARC210_COMM1_String_Frequency, 7, "UFC Display", "COMM1 ARC-210 Frequency (string)")
 
@@ -126,10 +126,10 @@ local function getARC210_COMM2_String_Frequency()
 	local arc_210_comm2 = GetDevice(3)
 	local freq = tostring(arc_210_comm2:get_frequency())
 	if(string.len(freq) == 8) then
-		return freq:sub(1,2) .. "." .. freq:sub(3,5)	
+		return freq:sub(1,2) .. "." .. freq:sub(3,5)
 	else
-		return freq:sub(1,3) .. "." .. freq:sub(4,6)	
-	end	
+		return freq:sub(1,3) .. "." .. freq:sub(4,6)
+	end
 end
 defineString("COMM2_STRING_FREQ", getARC210_COMM2_String_Frequency, 7, "UFC Display", "COMM2 ARC-210 Frequency (string)")
 
@@ -629,7 +629,7 @@ local function getComm2Text()
     if parse_indication(5) == nil then return (" "):rep(2) end
     local txt = parse_indication(5)["ufc_chnl_2_m"] or ""
     return (" "):rep(2 - #txt) .. txt:sub(1,2)
-end 
+end
 defineString("UFC_COMM2_DISPLAY", getComm2Text, 2, "UFC Display", "UFC Comm2 Preset Display")
 
 
@@ -678,7 +678,7 @@ local function getUfcText()
 	if parse_indication(5) == nil then return (" "):rep(12) end
 	local leftStr = parse_indication(5)["ufc_left_position"] or ""
 	local rightStr = parse_indication(5)["ufc_right_position"] or ""
-	
+
     local displayStr = leftStr .. (" "):rep(12 - #leftStr - #rightStr) .. rightStr
     return displayStr
 end

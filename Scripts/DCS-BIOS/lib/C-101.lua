@@ -42,13 +42,13 @@ definePushButton("BACK_R_BATT_ISO_BTN", 1, 3403, 938, "Electrical Panel", "BACK 
 defineToggleSwitch("BACK_ESS_BUS_COVER", 1, 3404, 933, "Electrical Panel", "BACK ESS BUS Cover")
 definePushButton("BACK_ESS_BUS_BTN", 1, 3405, 934, "Electrical Panel", "BACK ESS BUS Transfer")
 
--- CAWS Lighting/Test 
+-- CAWS Lighting/Test
 defineToggleSwitch("FRONT_CAWS_BRIGHT_DIM", 1, 3012, 320, "CAWS Lighting", "FRONT CAWS Panel Bright/Dim")
 definePushButton("FRONT_LAMP_TEST", 1, 3013, 321, "CAWS Lighting", "FRONT Lamp Test")
 defineToggleSwitch("BACK_CAWS_BRIGHT_DIM", 1, 3406, 931, "CAWS Lighting", "BACK CAWS Panel Bright/Dim")
 definePushButton("BACK_LAMP_TEST", 1, 3407, 932, "CAWS Lighting", "BACK Lamp Test")
 
--- Primary ADI 
+-- Primary ADI
 definePushButton("FRONT_PRI_ADI_TEST", 1, 3166, 117, "ADI", "FRONT Primary ADI Test")
 definePushButton("BACK_PRI_ADI_TEST", 1, 3688, 995, "ADI", "BACK Primary ADI Test")
 
@@ -58,7 +58,7 @@ definePotentiometer("FRONT_BAK_ADI_CAGE_KNOB", 1, 3241, 533, {0, 1}, "ADI", "FRO
 definePushButton("BACK_BAK_ADI_CAGE_BNT", 1, 3408, 782, "ADI", "BACK Cage Standby Attitude Indicator Button")
 definePotentiometer("BACK_BAK_ADI_CAGE_KNOB", 1, 3409, 783, {0, 1}, "ADI", "BACK Cage Standby Attitude Indicator Knob")
 
--- ALTIMETER 
+-- ALTIMETER
 defineRotary("FRONT_ALTIMETER_KNOB", 1, 3015, 66, "Altimeter", "FRONT Altimeter Baro Adjust")
 defineRotary("BACK_ALTIMETER_KNOB", 1, 3410, 792, "Altimeter", "BACK Altimeter Baro Adjust")
 
@@ -82,7 +82,7 @@ defineToggleSwitch("FRONT_CANOPY_LOCK", 1, 3041, 13, "Canopy", "FRONT Canopy Loc
 defineToggleSwitch("BACK_CANOPY_SAFE", 1, 3508, 750, "Canopy", "BACK Canopy Safety Catch")
 defineToggleSwitch("BACK_CANOPY_LOCK", 1, 3509, 749, "Canopy", "BACK Canopy Locking Handle")
 
--- G METER 
+-- G METER
 definePushButton("FRONT_GMETER_RESET", 1, 3042, 25, "G Meter", "FRONT Reset Max/Min Needles")
 definePushButton("BACK_GMETER_RESET", 1, 3415, 774, "G Meter", "BACK Reset Max/Min Needles")
 
@@ -105,7 +105,7 @@ defineTumb("FRONT_LIGHTS_TAXI_R", 2, 3110, 330, 0.5, {0, 1}, nil, false, "Extern
 defineToggleSwitch("BACK_LIGHTS_PRIO_TAXI_L", 2, 3420, 941, "External Lights", "BACK Left Taxi/Landing Lights Forward Cockpit Priority")
 defineToggleSwitch("BACK_LIGHTS_PRIO_TAXI_R", 2, 3421, 942, "External Lights", "BACK Right Taxi/Landing Lights Forward Cockpit Priority")
 
--- FUEL PANEL 
+-- FUEL PANEL
 defineToggleSwitch("FRONT_FUSE_TANK_PUMP_COVER", 1, 3044, 119, "Fuel Panel", "FRONT Fuselage Tank Pump Cover")
 defineToggleSwitch("FRONT_ENG_FUEL_VALVE_PUMP_COVER", 1, 3045, 121, "Fuel Panel", "FRONT Engine Fuel Valve Cover")
 definePushButton("FRONT_FUSE_TANK_PUMP", 1, 3046, 120, "Fuel Panel", "FRONT Fuselage Tank Pump Button")
@@ -194,7 +194,7 @@ define3PosTumb("BACK_CONT_ING_START", 1, 3427, 827, "Engine Start Panel", "BACK 
 definePushButton("BACK_ENG_START_TEST_BTN", 1, 3428, 828, "Engine Start Panel", "BACK Engine Start Test Button")
 definePotentiometer("BACK_ENG_START_TEST_KNB", 1, 3537, 1275, {0, 1}, "Engine Start Panel", "BACK Engine Start Test Knob")
 
--- OXYGEN SYSTEM 
+-- OXYGEN SYSTEM
 defineToggleSwitch("FRONT_OXY_SUPPLY", 1, 3117, 425, "Oxygen System", "FRONT Oxygen Supply")
 defineToggleSwitch("FRONT_OXY_REGULATOR", 1, 3996, 997, "Oxygen System", "FRONT Oxygen Regulator - 100%/AIRMIX")
 defineToggleSwitch("BACK_OXY_SUPPLY", 1, 3429, 253, "Oxygen System", "BACK Oxygen Supply")
@@ -287,7 +287,7 @@ defineToggleSwitch("BACK_CB_HOTMIC", 6, 3034, 891, "Intercom", "BACK Circuit Bre
 definePushButton("BACK_CALL_BTN", 6, 3035, 945, "Intercom", "BACK Call Button")
 definePotentiometer("BACK_INTER_VOL", 6, 3036, 946, {0, 1}, "Intercom", "BACK Intercom Volume")
 
--- MISC FUNCTIONS 
+-- MISC FUNCTIONS
 definePushButton("FRONT_ANTISKITD_PW", 1, 3043, 516, "Misc", "FRONT Antiskid ON/OFF")
 definePushButton("FRONT_NAV_PRIO", 1, 3119, 336, "Misc", "FRONT NAV Priority")
 definePushButton("FRONT_UHF_PRIO", 1, 3162, 334, "Misc", "FRONT UHF Priority")
@@ -303,7 +303,7 @@ definePushButton("BACK_PITOT_PW", 1, 3488, 940, "Misc", "BACK Pitot Heat ON/OFF"
 definePushButton("BACK_GEAR_MUTE", 1, 3489, 770, "Misc", "BACK Landing Gear Warning Mute")
 definePushButton("BACK_GEAR_OVER", 1, 3490, 939, "Misc", "BACK Landing Gear Override")
 defineToggleSwitch("FRONT_PARK_BRAKE_LVR", 1, 3238, 333, "Misc", "FRONT Parking Brake Lever")
-defineToggleSwitch("BACK_PARK_BRAKE_LVR", 1, 3492, 65, "Misc", "BACK Parking Brake Lever") 
+defineToggleSwitch("BACK_PARK_BRAKE_LVR", 1, 3492, 65, "Misc", "BACK Parking Brake Lever")
 defineTumb("FRONT_RUDDER_ADJ_H", 1, 3888, 1279, 2, {-1, 1}, nil, false, "Misc", "FRONT Adjust Rudder Pedals Handle")
 definePotentiometer("FRONT_RUDDER_ADJ", 1, 3240, 311, {0, 1}, "Misc", "FRONT Adjust Rudder Pedals")
 defineTumb("BACK_RUDDER_ADJ_H", 1, 3889, 1280, 2, {-1, 1}, nil, false, "Misc", "BACK Adjust Rudder Pedals Handle")
@@ -369,7 +369,7 @@ defineIntegerFromGetter("EXT_WOW_LEFT", function()
 end, 1, "External Aircraft Model", "Weight ON Wheels Left Gear")
 
 --------------------------------------- FORWARD COCKPIT ONLY FUNCTIONS
--- PRESSURIZATION/AIRCON SYSTEM 
+-- PRESSURIZATION/AIRCON SYSTEM
 defineMultipositionSwitch("FRONT_AIR_COND_MASTER", 1, 3120, 419, 3, 0.5,"Aircon System" ,"FRONT Air-Conditioning Master Switch")
 defineToggleSwitch("FRONT_AIR_FLOW_MODE", 1, 3121, 420, "Aircon System", "FRONT Air Flow Mode")
 defineToggleSwitch("FRONT_EMERG_VENT", 1, 3122, 421, "Aircon System", "FRONT Emergency Ventilation")
@@ -377,11 +377,11 @@ defineToggleSwitch("FRONT_TEMP_MODE", 1, 3123, 422, "Aircon System", "FRONT Temp
 definePotentiometer("FRONT_TEMP_REGULATOR", 1, 3124, 423, {0, 1}, "Aircon System", "FRONT Temperatur Regulation Control")
 defineTumb("FRONT_TEMP_CONTROL_MAN", 1, 3125, 424, 2, {-1, 1}, nil, false, "Aircon System", "FRONT Manual Temperatur Control")
 
--- STALL SYSTEM 
+-- STALL SYSTEM
 define3PosTumb("FRONT_STALL_WARN_TEST", 1, 3199, 331, "Stall System", "FRONT Stall Warning Test")
 defineToggleSwitch("FRONT_STALL_WARN_PW", 1, 3200, 332, "Stall System", "FRONT Stall Warning Power")
 
--- IFF PANEL 
+-- IFF PANEL
 defineMultipositionSwitch("FRONT_IFF_CODE_SEL", 1, 3203, 346, 4, 0.25,"IFF" ,"FRONT IFF Code Selector")
 defineMultipositionSwitch("FRONT_IFF_MASTER_SW", 1, 3204, 347, 5, 0.25,"IFF" ,"FRONT IFF Master Switch")
 defineMultipositionSwitch("FRONT_IFF_AUDIO_LIGHT", 1, 3205, 348, 3, 0.5,"IFF" ,"FRONT IFF Audio Light Switch")
@@ -411,10 +411,10 @@ definePushButton("FRONT_ANTI_RAIN", 1, 3222, 314, "Misc", "FRONT Anti-Rain Fluid
 
 
 --------------------------------------- REAR COCKPIT ONLY FUNCTIONS
--- OXYGEN SYSTEM 
+-- OXYGEN SYSTEM
 defineToggleSwitch("BACK_OXY_PRESS_WARN_SW", 1, 3527, 1196, "Misc", "BACK Oxygen Pressure Warning Switch")
 
--- IFR hood 
+-- IFR hood
 defineToggleSwitch("BACK_IFR_HOOD", 1, 3551, 329, "Misc", "BACK IFR Hood Close/Open")
 
 -- UNKNOWN BUTTONS/SWITCHES
@@ -429,7 +429,7 @@ definePotentiometer("CC_FRONT_MRP_LAMP_TEST_KNB", 1, 3704, 1313, {0, 1}, "MRP", 
 definePushButton("CC_BACK_MRP_LAMP_TEST_BTN", 1, 3703, 1317, "MRP", "C-101CC BACK MPR Lamp Test Button")
 definePotentiometer("CC_BACK_MRP_LAMP_TEST_KNB", 1, 3705, 1318, {0, 1}, "MRP", "C-101CC BACK MPR Lamp Test Knob")
 
--- FLIGHT DIRECTOR 
+-- FLIGHT DIRECTOR
 definePushButton("CC_FRONT_FD_HDG_MODE", 1, 3171, 210, "Flight Director", "C-101CC FRONT Flight Director Heading Mode")
 definePushButton("CC_FRONT_FD_ALT_MODE", 1, 3172, 215, "Flight Director", "C-101CC FRONT Flight Director Altitude Mode")
 definePushButton("CC_FRONT_FD_NAV_MODE", 1, 3174, 211, "Flight Director", "C-101CC FRONT Flight Director Navigation Mode")
@@ -464,26 +464,26 @@ defineMultipositionSwitch("CC_BACK_UHF_FUNCT", 11,3027,868,4,0.1,"UHF Radio" ,"C
 defineMultipositionSwitch("CC_BACK_UHF_FREQU", 11,3028,869,3,0.5,"UHF Radio" ,"C-101CC BACK UHF Radio Frequency Mode Dial")
 defineToggleSwitch("CC_BACK_UHF_TEST", 11, 3021, 875, "UHF Radio", "C-101CC BACK UHF Radio Test Selector Switch")
 defineToggleSwitch("CC_BACK_UHF_SQL", 11, 3029,872, "UHF Radio", "C-101CC BACK UHF Radio Squelch Switch")
-defineToggleSwitch("CC_BACK_UHF_POWER", 11, 3030,876, "UHF Radio", "C-101CC BACK UHF Radio Power Transmit Selector Switch")	
+defineToggleSwitch("CC_BACK_UHF_POWER", 11, 3030,876, "UHF Radio", "C-101CC BACK UHF Radio Power Transmit Selector Switch")
 
--- VHF COMM/NAV 
+-- VHF COMM/NAV
 defineMultipositionSwitch("CC_FRONT_VHF_COMM_PW", 10, 3004,653,3,0.5,"VHF" ,"C-101CC FRONT VHF COMM Switch OFF/PWR/TEST")
 defineRotary("CC_FRONT_VHF_COMM_FREQ_100", 10, 3001,640, "VHF" ,"C-101CC FRONT VHF COMM Frequency Control 100 MHz")
-definePotentiometer("CC_FRONT_VHF_COMM_VOL", 10, 3003, 655, {0, 1}, "VHF", "C-101CC FRONT VHF COMM Volume Control")	
+definePotentiometer("CC_FRONT_VHF_COMM_VOL", 10, 3003, 655, {0, 1}, "VHF", "C-101CC FRONT VHF COMM Volume Control")
 defineRadioWheel("CC_FRONT_VHF_COMM_FREQ_10", 10, 3002, 3002, {-0.025, 0.025}, 641, 0.025, {0, 1.0}, nil, "VHF" ,"C-101CC FRONT VHF COMM Frequency Control 10 kHz")
 define3PosTumb("CC_FRONT_VHF_NAV_TEST", 12, 3005, 650, "VHF", "C-101CC FRONT VHF NAV Test Switch")
 defineMultipositionSwitch("CC_FRONT_VHF_NAV_CONTROL", 12,3004,657,5,0.25,"VHF" ,"C-101CC FRONT VHF NAV Control Switch")
 defineRotary("CC_FRONT_VHF_NAV_FREQ_1", 12,3001,645, "VHF1" ,"C-101CC FRONT VHF NAV Frequency Control 1 MHz")
-definePotentiometer("CC_FRONT_VHF_NAV_VOL", 12, 3003, 659, {0, 1}, "VHF", "C-101CC FRONT VHF NAV Volume Control")	
+definePotentiometer("CC_FRONT_VHF_NAV_VOL", 12, 3003, 659, {0, 1}, "VHF", "C-101CC FRONT VHF NAV Volume Control")
 defineRadioWheel("CC_FRONT_VHF_NAV_FREQ_50", 12, 3002, 3002, {-0.025, 0.025}, 646, 0.025, {0, 1.0}, nil, "VHF" ,"C-101CC FRONT VHF NAV Frequency Control 50 kHz")
 defineMultipositionSwitch("CC_BACK_VHF_COMM_PW", 10,3014,917,3,0.5,"VHF" ,"C-101CC BACK VHF COMM Switch OFF/PWR/TEST")
 defineRotary("CC_BACK_VHF_COMM_FREQ_1", 10, 3001, 904, "VHF" ,"C-101CC BACK VHF COMM Frequency Control 1 MHz")
-definePotentiometer("CC_BACK_VHF_COMM_VOL", 10, 3003, 919, {0, 1}, "VHF", "C-101CC BACK VHF COMM Volume Control")	
+definePotentiometer("CC_BACK_VHF_COMM_VOL", 10, 3003, 919, {0, 1}, "VHF", "C-101CC BACK VHF COMM Volume Control")
 defineRadioWheel("CC_BACK_VHF_COMM_FREQ_10", 10, 3002, 3002, {-0.025, 0.025}, 905, 0.025, {0, 1.0}, nil, "VHF" ,"C-101CC BACK VHF COMM Frequency Control 0.025 MHz")
 defineToggleSwitch("CC_BACK_VHF_NAV_TEST", 12, 3015, 915, "VHF", "C-101CC BACK VHF NAV Test Switch")
 defineMultipositionSwitch("CC_BACK_VHF_NAV_CONTROL", 12, 3014, 921,5,0.25,"VHF" ,"C-101CC BACK VHF NAV Control Switch")
 defineRotary("CC_BACK_VHF_NAV_FREQ_1", 12, 3011, 906, "VHF", "C-101CC BACK VHF NAV Frequency Control 1 MHz")
-definePotentiometer("CC_BACK_VHF_NAV_VOL", 12, 3013, 923, {0, 1}, "VHF", "C-101CC BACK VHF NAV Volume Control")	
+definePotentiometer("CC_BACK_VHF_NAV_VOL", 12, 3013, 923, {0, 1}, "VHF", "C-101CC BACK VHF NAV Volume Control")
 defineRadioWheel("CC_BACK_VHF_NAV_FREQ_50", 12, 3012, 3012, {-0.025, 0.025}, 907, 0.025, {0, 1.0}, nil, "VHF" ,"C-101CC BACK VHF NAV Frequency Control 50 kHz")
 
 -- INTERCOM PANEL
@@ -502,7 +502,7 @@ definePushButton("CC_BACK_INTER_VUHF_BTN", 6, 3041, 1109, "Intercom", "C-101CC B
 definePotentiometer("CC_BACK_INTER_VUHF_KNB", 6, 3042, 1110, {0, 1}, "Intercom", "C-101CC BACK Intercom V/UHF Switch (turn)")
 defineMultipositionSwitch("CC_BACK_INTER_MAIN_SEL", 6,3043,947,7,0.1,"Intercom" ,"C-101CC BACK Intercom Main Mode Selector")
 
--- ADI KNOB 
+-- ADI KNOB
 definePushButton("CC_FRONT_ADI_TEST", 1,3346,683, "ADI", "C-101CC FRONT ADI Test Switch")
 definePotentiometer("CC_FRONT_ADI_DH_SET", 1, 3347, 412, {0, 1}, "ADI", "C-101CC FRONT Decision Height Setting")
 definePotentiometer("CC_FRONT_ADI_HSI_BRIGHT", 1, 3161, 411, {0, 1}, "ADI", "C-101CC FRONT ADI/HSI Digital Displays Brightness")
@@ -510,13 +510,13 @@ definePushButton("CC_BACK_ADI_TEST", 1,3600,1045, "ADI", "C-101CC BACK ADI Test 
 definePotentiometer("CC_BACK_ADI_DH_SET", 1, 3601, 924, {0, 1}, "ADI", "C-101CC BACK Decision Height Setting")
 definePotentiometer("CC_BACK_ADI_HSI_BRIGHT", 1, 3443, 923, {0, 1}, "ADI", "C-101CC BACK ADI/HSI Digital Displays Brightness")
 
--- STANDBY ALTIMETER 
+-- STANDBY ALTIMETER
 definePotentiometer("CC_FRONT_STBY_ALT_BARO", 1, 3344, 620, {0, 1}, "Standby Altimeter", "C-101CC FRONT Standby Altimeter Baro Adjust")
 definePushButton("CC_FRONT_STBY_ALT_TAP", 1, 3549, 1190, "Standby Altimeter", "C-101CC FRONT Standby Altimeter Tap Glass")
 definePotentiometer("CC_BACK_STBY_ALT_BARO", 1, 3605, 1021, {0, 1}, "Standby Altimeter", "C-101CC BACK Standby Altimeter Baro Adjust")
 definePushButton("CC_BACK_STBY_ALT_TAP", 1, 3550, 1191, "Standby Altimeter", "C-101CC BACK Standby Altimeter Tap Glass")
 
--- AHRS CONTROL PANEL 	
+-- AHRS CONTROL PANEL
 defineToggleSwitch("CC_FRONT_DME_SEL", 12,3006,340, "AHRS", "C-101CC FRONT DME Selector")
 defineToggleSwitch("CC_FRONT_RADAR_ALT", 1,3028,341, "AHRS", "C-101CC FRONT Radio Altimeter")
 defineMultipositionSwitch("CC_FRONT_AHRS_EMERG_LOC_TRANS", 1,3026,339,3,0.5,"AHRS" ,"C-101CC FRONT AHRS Emergency Locator Tranmsitter")
@@ -564,7 +564,7 @@ defineIndicatorLight("CC_BACK_MRP_LAMP", 1319, "Warning, Caution and IndicatorLi
 defineIndicatorLight("CC_FRONT_TELEBRIEFING_LAMP", 719, "Warning, Caution and IndicatorLights","C-101CC FRONT Telebriefing Lamp (yellow)")
 
 --------------------------------------- FORWARD COCKPIT ONLY FUNCTIONS
--- SCAR CONTROL UNIT 
+-- SCAR CONTROL UNIT
 defineToggleSwitch("CC_FRONT_SCAR_MASTER_MODE_COVER", 1,3254,690, "SCAR", "C-101CC FRONT SCAR Master Mode Cover")
 defineMultipositionSwitch("CC_FRONT_SCAR_MASTER_MODE", 1,3255,691,3,0.5,"SCAR" ,"C-101CC FRONT SCAR Master Mode")
 defineToggleSwitch("CC_FRONT_SCAR_MASTER_ARM", 1,3256,692, "SCAR", "C-101CC FRONT SCAR Master Arm")
@@ -594,7 +594,7 @@ definePotentiometer("CC_FRONT_ADF_GAIN", 13,3009,678, {0, 1}, "ADF", "C-101CC FR
 defineToggleSwitch("CC_FRONT_ADF_TONE_SW", 13, 3010, 679, "ADF", "C-101CC FRONT ADF Tone Switch")
 defineToggleSwitch("CC_FRONT_ADF_TRANS_SW", 13, 3011, 680, "ADF", "C-101CC FRONT ADF Transfer Switch")
 
--- GYROSCOPE PLATFORM 
+-- GYROSCOPE PLATFORM
 defineMultipositionSwitch("CC_FRONT_GYRO_FUNC_SEL", 1,3321,728,3,0.5,"Gyro" ,"C-101CC FRONT Gyro Function Selector")
 definePushButton("CC_FRONT_GYRO_SYNC_HDG_SET_BTN", 1, 3324, 1305, "Gyro", "C-101CC FRONT Gyro Synchnonizer and Heading Set Button")
 definePotentiometer("CC_FRONT_GYRO_SYNC_HDG_SET_KNB", 1,3322,729, {0, 1}, "Gyro", "C-101CC FRONT Gyro Synchnonizer and Heading Set Knob")
@@ -619,7 +619,7 @@ defineToggleSwitch("CC_FRONT_WP_ARM", 1,3341,711, "Weapons", "C-101CC FRONT Weap
 defineToggleSwitch("CC_FRONT_WP_SIGHT_CAM", 1,3342,712, "Weapons", "C-101CC FRONT Weapon Switch Sight Camera")
 defineToggleSwitch("CC_FRONT_WP_UHF_RACAL", 1,3680,704, "Weapons", "C-101CC FRONT Weapon Switch UHF Racal")
 
--- CIRCUIT BREAKERS 
+-- CIRCUIT BREAKERS
 defineToggleSwitch("CC_FRONT_CB_GYRO", 1,3538,436, "CB Panel", "C-101CC FRONT Circuit Breaker Gyro Platform")
 defineToggleSwitch("CC_FRONT_CB_DME", 1,3539,437, "CB Panel", "C-101CC FRONT Circuit Breaker DME")
 defineToggleSwitch("CC_FRONT_CB_FD", 1,3291,1382, "CB Panel", "C-101CC FRONT Circuit Breaker Flight Director")
@@ -657,10 +657,10 @@ definePotentiometer("CC_FRONT_TELEBRIEFING_KNB", 1, 3554, 849, {0, 1}, "Misc", "
 defineToggleSwitch("CC_BACK_STALL_WARN_TEST", 1,3606,1208, "Misc", "C-101CC BACK Stall Warning Test")
 defineToggleSwitch("CC_BACK_STALL_WARN_PW", 1,3607,1209, "Misc", "C-101CC BACK Stall Warning Power")
 definePotentiometer("CC_BACK_AOA_ADJ", 1,3653,279, {0, 1}, "Misc", "C-101CC BACK AOA Adjust")
-defineToggleSwitch("CC_BACK_EMERG_PITCH_TRIM", 1,3473,842, "Misc", "C-101CC BACK Emergency Pitch Trim Breaker")	
+defineToggleSwitch("CC_BACK_EMERG_PITCH_TRIM", 1,3473,842, "Misc", "C-101CC BACK Emergency Pitch Trim Breaker")
 
 --======== C-101EB COCKPIT ========
--- ALTIMETER 
+-- ALTIMETER
 definePushButton("EB_FRONT_ALT_TAP", 1, 3164, 68, "Altimeter", "C-101EB FRONT Altimeter Tap Glass")
 definePushButton("EB_BACK_ALT_TAP", 1, 3411, 802, "Altimeter", "C-101EB BACK Altimeter Tap Glass")
 
@@ -728,7 +728,7 @@ definePotentiometer("EB_FRONT_UHF_DIM", 11,3014,206, {0, 1}, "UHF Radio", "C-101
 defineSpringloaded_3PosTumb("BACK_UHF_TEST_SW", 11, 3037, 3038, 844, "UHF Radio", "C-101EB BACK UHF Frequency/Test Switch")
 definePotentiometer("EB_BACK_UHF_DIM", 11, 3039, 845, {0, 1}, "UHF Radio", "C-101EB BACK UHF Digital Display Dimmer")
 
--- FLIGHT DIRECTOR 
+-- FLIGHT DIRECTOR
 definePushButton("EB_FRONT_FD_GO_MODE", 1,3170,210, "Flight Director", "C-101EB FRONT Flight Director GO-Around Mode")
 definePushButton("EB_FRONT_FD_HDG_MODE", 1,3171,211, "Flight Director", "C-101EB FRONT Flight Director Heading Mode")
 definePushButton("EB_FRONT_FD_ALT_HOLD_MODE", 1,3172,212, "Flight Director", "C-101EB FRONT Flight Director Altitude Hold Mode")
@@ -783,7 +783,7 @@ definePushButton("EB_FRONT_TCN_TEST", 12, 3004, 390, "TACAN", "C-101EB FRONT TAC
 definePotentiometer("EB_FRONT_TCN_VOL", 12, 3005, 392, {0, 1}, "TACAN", "C-101EB FRONT TACAN Volume")
 defineMultipositionSwitch("EB_FRONT_TCN_MODE", 12, 3006, 393, 5, 0.25,"TACAN" ,"C-101EB FRONT TACAN Mode")
 
--- CIRCUIT BREAKERS 
+-- CIRCUIT BREAKERS
 defineToggleSwitch("EB_FRONT_CB_VERT_GYRO_DC", 1,3064,436, "CB Panel", "C-101EB FRONT Circuit Breaker Vertical Gyro DC")
 defineToggleSwitch("EB_FRONT_CB_DIR_GYRO_DC", 1,3065,437, "CB Panel", "C-101EB FRONT Circuit Breaker Directional Gyro DC")
 defineToggleSwitch("EB_FRONT_CB_IFF_PRIM", 1,3086,462, "CB Panel", "C-101EB FRONT Circuit Breaker IFF Prim DC")

@@ -82,7 +82,7 @@ defineIndicatorLight("D_SPOILER_CAUTION", 865, "Warning Lamps", "Spoiler-Caution
 defineFloat("BDHI_HDG", 780, {0, 1}, "BDHI", "BDHI Heading")
 defineFloat("BDHI_NEEDLE1", 781, {0, 1}, "BDHI", "BDHI Needle 1")
 defineFloat("BDHI_NEEDLE2", 782, {0, 1}, "BDHI", "BDHI Needle 2")
-defineFloat("BDHI_DME_FLAG", 786, {0, 1}, "BDHI", "BDHI Flag")	
+defineFloat("BDHI_DME_FLAG", 786, {0, 1}, "BDHI", "BDHI Flag")
 defineFloat("BDHI_DME_Xxx", 785, {0, 1}, "BDHI", "BDHI Xnn")
 defineFloat("BDHI_DME_xXx", 784, {0, 1}, "BDHI", "BDHI nXn")
 defineFloat("BDHI_DME_xxX", 783, {0, 1}, "BDHI", "BDHI nnX")
@@ -111,7 +111,7 @@ defineIndicatorLight("D_ADVISORY_INRANGE", 866, "Advisory Lights", "In Range Lig
 defineIndicatorLight("D_ADVISORY_SETRANGE", 867, "Advisory Lights", "Set Range Light (yellow)")
 defineIndicatorLight("D_ADVISORY_DIVE", 868, "Advisory Lights", "Dive Light (yellow)")
 
---Radar Scope 
+--Radar Scope
 defineFloat("APG53A-LEFTRANGE", 406, {0, 1}, "Radar Control Panel Gauges", "Radar Profile Range")
 defineFloat("APG53A-BOTTOMRANGE", 407, {0, 1}, "Radar Control Panel Gauges", "Radar Plan Range")
 defineFloat("AFCS_HDG_100s", 167, {0, 1}, "AFCS", "AFCS Heading 100's")

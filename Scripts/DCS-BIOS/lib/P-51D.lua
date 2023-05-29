@@ -3,7 +3,7 @@ BIOS.protocol.setExportModuleAircrafts({"P-51D", "TF-51D", "P-51D-30-NA"})
 
 local documentation = moduleBeingDefined.documentation
 
-local document = BIOS.util.document  
+local document = BIOS.util.document
 
 local defineFloat = BIOS.util.defineFloat
 local defineIndicatorLight = BIOS.util.defineIndicatorLight
@@ -57,7 +57,7 @@ definePushButton("MICROPHONE_ON", 6, 3001, 44, "Cockpit Mechanical", "Microphone
 defineToggleSwitch("ARM_REST", 6, 3009, 200, "Cockpit Mechanical", "Arm rest")
 definePotentiometer("CANOPY_HAND_CRANK", 6, 3002, 147, {-6, 6}, "Cockpit Mechanical", "Canopy Hand Crank")
 defineToggleSwitch("CANOPY_EMERGENCY_RELEASE_HANDLE", 6, 3003,149, "Cockpit Mechanical", "Canopy Emergency Release Handle")
-defineToggleSwitch("OXYGEN_AUTO_MIX", 7, 3003, 131, "Oxygen System", "Auto-Mix On-Off")					 
+defineToggleSwitch("OXYGEN_AUTO_MIX", 7, 3003, 131, "Oxygen System", "Auto-Mix On-Off")
 defineToggleSwitch("OXYGEN_BY-PASS", 7, 3001, 130, "Oxygen System", "Oxygen Emergency By-pass")
 defineFloat("PANEL_LIGHTS", 165, {0, 1}, "Light System", "Panel Background Lighting (green)")
 defineMultipositionSwitch("FUEL_SELECTOR_VALVE", 9, 3001, 85, 5, 0.1, "Fuel System", "Fuel Selector Valve")
@@ -199,7 +199,7 @@ local function getAirspeed()
      local returnValue = (GetDevice(0):get_argument_value(11))*1000
      return returnValue
 end
-defineIntegerFromGetter("AIRSPEED_MPH_VALUE", getAirspeed, 65000, 
+defineIntegerFromGetter("AIRSPEED_MPH_VALUE", getAirspeed, 65000,
 "Gauge Values", "Airspeed MPH")
 
 local function getAltitude()
@@ -255,7 +255,7 @@ local function getManifoldPres()
      local returnValue = (GetDevice(0):get_argument_value(10))*65+10
      return returnValue
 end
-defineIntegerFromGetter("MANIFOLD_PRESSURE_VALUE", getManifoldPres, 65000, 
+defineIntegerFromGetter("MANIFOLD_PRESSURE_VALUE", getManifoldPres, 65000,
 "Gauge Values", "Manifold Pressure")
 
 local function getVacuum()
@@ -283,7 +283,7 @@ local function getAmps()
      local returnValue = (GetDevice(0):get_argument_value(101))*150
      return returnValue
 end
-defineIntegerFromGetter("AMMETER_VALUE", getAmps, 65000, 
+defineIntegerFromGetter("AMMETER_VALUE", getAmps, 65000,
 "Gauge Values", "Ammeter")
 
 local function getOxygen()

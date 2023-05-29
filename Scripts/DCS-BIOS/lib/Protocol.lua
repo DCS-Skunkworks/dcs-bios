@@ -19,7 +19,7 @@ function BIOS.protocol.setExportModuleAircrafts(acftList)
 			end
 		end
 	end
-	
+
 	-- next, add module name to all aircrafts it should be on
 	for _, acftName in pairs(acftList) do
 		if aircraftNameToModuleNames[acftName] == nil then
@@ -29,7 +29,7 @@ function BIOS.protocol.setExportModuleAircrafts(acftList)
 			moduleList[#moduleList+1] = moduleBeingDefined.name
 		end
 	end
-	
+
 	-- recompute aircraftNameToModules
 	aircraftNameToModules = {}
 	for acftName, moduleNames in pairs(aircraftNameToModuleNames) do
@@ -39,11 +39,11 @@ function BIOS.protocol.setExportModuleAircrafts(acftList)
 			modules[#modules+1] = exportModules[moduleName]
 		end
 	end
-	
+
 	BIOS.dbg.aircraftNameToModuleNames = aircraftNameToModuleNames
 	BIOS.dbg.aircraftNameToModules = aircraftNameToModules
 	BIOS.dbg.exportModules = exportModules
-	
+
 	lastAcftName = ""
 end
 
@@ -120,7 +120,7 @@ function BIOS.protocol.step()
 	bytesInTransit = bytesInTransit - ((curTime - lastFrameTime) * BIOS.protocol.maxBytesPerSecond)
 	lastFrameTime = curTime
 	if bytesInTransit < 0 then bytesInTransit = 0 end
-	
+
 	-- determine active aircraft
 	local acftName = "NONE"
 	local selfData = LoGetSelfData()
@@ -137,13 +137,13 @@ function BIOS.protocol.step()
 		end
 		lastAcftName = acftName
 	end
-	
+
 	-- export data
 	if curTime >= nextLowFreqStepTime then
 		-- runs 30 times per second
 		updateCounter = (updateCounter + 1) % 256
 		metadataEndModule.data.updateCounter = updateCounter
-		
+
 		-- if the last frame update has not been completely transmitted, skip a frame
 		if bytesInTransit > 0 then
 			-- TODO: increase a frame skip counter for logging purposes
@@ -152,29 +152,29 @@ function BIOS.protocol.step()
 		end
 		metadataEndModule.data.updateSkipCounter = updateSkipCounter
 		nextLowFreqStepTime = curTime + .033
-		
+
 		-- send frame sync sequence
 		bytesInTransit = bytesInTransit + 4
 		BIOS.protocol_io.queue(string.char(0x55, 0x55, 0x55, 0x55))
-		
+
 		-- export aircraft-independent data
 		for k, v in pairs(metadataStartModule.exportHooks) do v() end
 		metadataStartModule.memoryMap:autosyncStep()
 		local data = metadataStartModule.memoryMap:flushData()
 		bytesInTransit = bytesInTransit + data:len()
 		BIOS.protocol_io.queue(data)
-		
+
 		if acftModules then
 			for _, acftModule in pairs(acftModules) do
 				local dev0 = GetDevice(0)
 				if dev0 ~= nil and type(dev0) ~= "number" then
 					dev0:update_arguments()
 				end
-				
+
 				for k, v in pairs(acftModule.exportHooks) do
 					v(dev0)
 				end
-				
+
 				acftModule.memoryMap:autosyncStep()
 				acftModule.memoryMap:autosyncStep()
 				local data = acftModule.memoryMap:flushData()
@@ -189,7 +189,7 @@ function BIOS.protocol.step()
 		bytesInTransit = bytesInTransit + data:len()
 		BIOS.protocol_io.queue(data)
 	end
-	
+
 end
 
 function BIOS.protocol.shutdown()

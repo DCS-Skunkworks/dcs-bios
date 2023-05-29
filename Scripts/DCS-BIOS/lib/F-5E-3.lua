@@ -25,14 +25,14 @@ local function getTacanChannel()
     if GetDevice(0):get_argument_value(263) == 0 then
         tcn_2 = "0"
     else
-    	tcn_2 = "1"    
+    	tcn_2 = "1"
     end
     local tcn_1 = string.format("%.1f", GetDevice(0):get_argument_value(264)):sub(3)
     local tcn_0 = string.format("%.1f", GetDevice(0):get_argument_value(265)):sub(3)
 
 	local tcn_xy = ""
 	if GetDevice(0):get_argument_value(266) == 0 then
-		tcn_xy = "X"	
+		tcn_xy = "X"
 		else
 		tcn_xy = "Y"
 	end

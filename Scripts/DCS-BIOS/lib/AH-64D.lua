@@ -3,7 +3,7 @@ BIOS.protocol.setExportModuleAircrafts({"AH-64D_BLK_II"})
 --v1.2b by WarLord & charliefoxtwo
 local documentation = moduleBeingDefined.documentation
 
-local document = BIOS.util.document  
+local document = BIOS.util.document
 
 local parse_indication = BIOS.util.parse_indication
 
@@ -401,7 +401,7 @@ definePushButton("CPG_KU_ENT", 30, 3006, 212, "CPG Keyboard Unit", "Gunner Keybo
 definePotentiometer("CPG_KU_BRT", 30, 3050, 621, {0, 1}, "CPG Keyboard Unit", "Gunner Scratchpad Keyboard Brightness Knob")
 
 defineString("CPG_KU_DISPLAY", function() return txt_CPG_KU end, 22, "CPG Keyboard Unit", "Gunner Keyboard Unit Display")
- 
+
 -- Enhanced Up-Front Display
 local JSON = loadfile([[Scripts\JSON.lua]])()
 local eufd_indicator_data_file = io.open(lfs.writedir()..[[Scripts\DCS-BIOS\doc\json\AH-64D_EUFD.json]], "r")

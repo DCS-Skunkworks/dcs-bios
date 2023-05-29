@@ -535,7 +535,7 @@ defineIndicatorLight("GUV_PWR_LGHT", 701, "UPK-23-250-2 Panel", "UPK-23-250-2 On
 
 --SAU
 defineIndicatorLight("SAU_STAB_LGHT", 546, "SAU", "SAU Stabilization Light (green)")
-defineIndicatorLight("SAU_PRIV", 547, "SAU", "SAU Recover Mode Light (green)") 
+defineIndicatorLight("SAU_PRIV", 547, "SAU", "SAU Recover Mode Light (green)")
 defineIndicatorLight("SAU_CMD_LND", 544, "SAU", "SAU Command Landing Light (green)")
 defineIndicatorLight("SAU_AUTO_LND", 545, "SAU", "SAU Auto Landing Light (green)")
 
@@ -612,8 +612,8 @@ defineFloat("CLOCK_H", 115, {0, 1}, "Center Pedestal Panel", "Clock Hours Pointe
 defineFloat("CLOCK_M", 116, {0, 1}, "Center Pedestal Panel", "Clock Minutes Pointer")
 defineFloat("CLOCK_S", 117, {0, 1}, "Center Pedestal Panel", "Clock Seconds Pointer")
 defineFloat("CLOCK_MT_IND", 118, {0, 1}, "Center Pedestal Panel", "Clock Missiontimer Indicator")
-defineFloat("CLOCK_MT_H", 119, {0, 1}, "Center Pedestal Panel", "Clock Missiontimer Hours Pointer") 
-defineFloat("CLOCK_MT_M", 120, {0, 1}, "Center Pedestal Panel", "Clock Missiontimer Minutes Pointer")  
+defineFloat("CLOCK_MT_H", 119, {0, 1}, "Center Pedestal Panel", "Clock Missiontimer Hours Pointer")
+defineFloat("CLOCK_MT_M", 120, {0, 1}, "Center Pedestal Panel", "Clock Missiontimer Minutes Pointer")
 defineFloat("CLOCK_T_M", 121, {0, 1}, "Center Pedestal Panel", "Clock Timer Minutes Pointer")
 defineFloat("CLOCK_T_S", 122, {0, 1}, "Center Pedestal Panel", "Clock Timer Seconds Pointer")
 defineIndicatorLight("ARC_IBN_LIGHT", 145, "Center Pedestal Panel", "ARC IBN Light (green)")

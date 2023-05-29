@@ -3,7 +3,7 @@ BIOS.protocol.setExportModuleAircrafts({"SA342M", "SA342Minigun", "SA342Mistral"
 
 local documentation = moduleBeingDefined.documentation
 
-local document = BIOS.util.document  
+local document = BIOS.util.document
 
 local defineFloat = BIOS.util.defineFloat
 local defineIndicatorLight = BIOS.util.defineIndicatorLight
@@ -436,7 +436,7 @@ local function getBAROPRESS()
 	 local baromille = (GetDevice(0):get_argument_value(95))*10000
 	 local barocent = (GetDevice(0):get_argument_value(92))*1000
 	 local barodix = (GetDevice(0):get_argument_value(90))*100
-	 local barounit = (GetDevice(0):get_argument_value(88))*10	 
+	 local barounit = (GetDevice(0):get_argument_value(88))*10
 	 baro = baromille + barocent + barodix + barounit
      return returnValue
 end

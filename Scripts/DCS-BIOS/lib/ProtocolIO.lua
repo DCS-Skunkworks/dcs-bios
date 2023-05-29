@@ -39,7 +39,7 @@ function BIOS.protocol_io.TCPServer:step()
 	local have_closed_connections = false
 	-- receive data
 	for _, conninfo in pairs(self.connections) do
-	
+
 		local data, err, partial = conninfo.conn:receive(4096)
 		if data then
 			conninfo.rxbuf = conninfo.rxbuf .. data
@@ -49,7 +49,7 @@ function BIOS.protocol_io.TCPServer:step()
 			conninfo.closed = true
 			have_closed_connections = true
 		end
-	
+
 		while true do
 			local line, rest = conninfo.rxbuf:match("^([^\n]*)\n(.*)")
 			if line then
@@ -60,7 +60,7 @@ function BIOS.protocol_io.TCPServer:step()
 			end
 		end
 	end
-	
+
 	-- eliminate closed connections
 	if have_closed_connections then
 		local old_connections = self.connections
@@ -114,13 +114,13 @@ function BIOS.protocol_io.UDPListener:init()
 end
 function BIOS.protocol_io.UDPListener:step()
 	local lInput = nil
-	
+
 	while true do
 		lInput = self.conn:receive()
 		if not lInput then break end
 		self.rxbuf = self.rxbuf .. lInput
 	end
-	
+
 	while true do
 		local line, rest = self.rxbuf:match("^([^\n]*)\n(.*)")
 		if line then
@@ -154,13 +154,13 @@ function BIOS.protocol_io.queue(msg)
 end
 function BIOS.protocol_io.flush()
 	local MAX_PAYLOAD_SIZE = 2048
-	
+
 	local packet = ""
 	for _, v in pairs(msg_buf) do
 		if packet:len() + v:len() > MAX_PAYLOAD_SIZE then
 			for _, v in pairs(BIOS.protocol_io.connections) do
 				if v.send then v:send(packet) end
-			end			
+			end
 			packet = ""
 		end
 		packet = packet .. v

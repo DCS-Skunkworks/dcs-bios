@@ -19,7 +19,7 @@ local defineFloat = BIOS.util.defineFloat
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 local defineString = BIOS.util.defineString
 
--- Remove Arg: Stick #970 
+-- Remove Arg: Stick #970
 ----Left Console
 defineMultipositionSwitch("SAIU_SEL_BAK", 11, 3002, 500, 4, 0.333, "Left Console", "Backup SAIU Knob Selector")
 definePushButton("GEAR_LIGH_TEST_BTN", 32, 3003, 501, "Left Console", "Landing Gear Indicator Light Test Button")
@@ -89,7 +89,7 @@ definePushButton("SELF_DESTR_BTN", 37, 3045, 543, "Misc", "Self Destruct Button"
 --RADIO
 definePotentiometer("RADIO_VOL", 24, 3047, 545, {0, 1}, "Radio", "Radio Volume Knob")
 defineToggleSwitch("RADIO_SQUELCH", 24, 3048, 546, "Radio", "Squelch OFF/SQL/ACKN")
-defineMultipositionSwitch("RADIO_MODE_SEL", 24, 3049, 547, 6, 0.2, "Radio", "Radio Mode Selector")    
+defineMultipositionSwitch("RADIO_MODE_SEL", 24, 3049, 547, 6, 0.2, "Radio", "Radio Mode Selector")
 definePushButton("RADIO_CONT_HANDOVER", 24, 3050, 548, "Radio", "Radio Control Handover")
 definePushButton("RADIO_BTN_1", 24, 3051, 549, "Radio", "Radio Button 1/TONE")
 definePushButton("RADIO_BTN_2", 24, 3052, 550, "Radio", "Radio Button 2/-")
@@ -140,12 +140,12 @@ definePushButton("UFCP_BTN_L4", 46, 3226, 724, "UFCP", "UFCP Button L4")
 definePushButton("UFCP_BTN_R4", 46, 3227, 725, "UFCP", "UFCP Button R4")
 definePushButton("UFCP_BTN_NA2", 46, 3228, 726, "UFCP", "UFCP Button N/A (2)")
 definePushButton("UFCP_BTN_NA3", 46, 3229, 727, "UFCP", "UFCP Button N/A (3)")
-	
+
 definePotentiometer("HUD_CONTR_KNB", 46, 3230, 728, {0, 1}, "UFCP", "HUD Contrast Knob")
 definePotentiometer("HUD_BRIGHT_KNB", 46, 3231, 729, {0, 1}, "UFCP", "HUD Brightness Knob")
 define3PosTumb("UFCP_PLUS_MINUS_SW", 46, 3232, 730, "UFCP", "+/,/- Switch")
 definePotentiometer("HUD_BAK_RETICLE_KNB", 46, 3233, 731, {0, 1}, "UFCP", "HUD Backup Reticle Knob")
-definePotentiometer("UFCP_BRIGHT_KNB", 46, 3234, 732, {0, 1}, "UFCP", "UFCP Brightness Knob")	
+definePotentiometer("UFCP_BRIGHT_KNB", 46, 3234, 732, {0, 1}, "UFCP", "UFCP Brightness Knob")
 define3PosTumb("PARACHUTE_DEPLOY_JETT", 35, 3235, 733, "UFCP", "Deploy/Jettison Parachute")
 
 --Left MFCD
@@ -252,7 +252,7 @@ definePushButton("MFCD_R_CONT_PLUS", 47, 3331, 829, "MFCD Right", "Right MFCD Co
 definePushButton("MFCD_R_CONT_MINUS", 47, 3332, 830, "MFCD Right", "Right MFCD Cont -")
 definePushButton("MFCD_R_BRT_PLUS", 47, 3333, 831, "MFCD Right", "Right MFCD Brightness +")
 definePushButton("MFCD_R_BRT_MINUS", 47, 3334, 832, "MFCD Right", "Right MFCD Brightness -")
-	
+
 defineRotary("BARO_ALT_SET_KNB", 8, 3342, 840, "Center Front", "BARO Altitude Setting Knob")
 definePotentiometer("EMERG_BRAKE_HANDLE", 32, 3343, 841, {0, 1}, "Center Front", "Emergency Brake Handle")
 
@@ -280,7 +280,7 @@ defineToggleSwitch("HUD_MFCD_DAY_NIGHT_SW", 7, 3409, 907, "Right Console", "HUD/
 
 defineMultipositionSwitch("INS_MODE_SEL_KNB", 18, 3410, 908, 4, 0.333, "Right Console", "INS Mode Knob Selector")
 
---AAP 
+--AAP
 definePotentiometer("AAP_BRIGHT_KNB", 7, 3411, 909, {0, 1}, "AAP", "AAP Brightness Knob")
 defineToggleSwitch("HUD_SYMB_REJECT_SW", 7, 3412, 910, "AAP", "HUD Symbology Reject Switch")
 definePushButton("AAP_ACMI_BTN", 7, 3413, 911, "AAP", "AAP ACMI Button")
@@ -384,19 +384,19 @@ defineToggleSwitch("MIRROR_L", 0, 1625, 962, "Canopy", "Left Mirror")
 defineIndicatorLight("LG_L_TRANS", 100, "Warning, Caution and IndicatorLights", "Landing Gear Transition Light (red)")
 defineIndicatorLight("LG_L_LEFT", 101, "Warning, Caution and IndicatorLights", "Landing Gear Left Light (green)")
 defineIndicatorLight("LG_L_NOSE", 102, "Warning, Caution and IndicatorLights", "Landing Gear Nose Light (green)")
-defineIndicatorLight("LG_L_RIGHT", 103, "Warning, Caution and IndicatorLights", "Landing Gear Right Light (green)")    
+defineIndicatorLight("LG_L_RIGHT", 103, "Warning, Caution and IndicatorLights", "Landing Gear Right Light (green)")
 defineIndicatorLight("LG_L_S_B", 104, "Warning, Caution and IndicatorLights", "Landing Gear SB Light (green)")
 defineIndicatorLight("LG_L_D_CH", 105, "Warning, Caution and IndicatorLights", "Landing Gear D CH Light (red)")
-defineIndicatorLight("LG_L_TEF", 106, "Warning, Caution and IndicatorLights", "Landing Gear TEF Light (green)")   
+defineIndicatorLight("LG_L_TEF", 106, "Warning, Caution and IndicatorLights", "Landing Gear TEF Light (green)")
 
-defineIndicatorLight("FCS_RESET_L", 110, "Warning, Caution and IndicatorLights", "FCS Reset Light (green)")     
+defineIndicatorLight("FCS_RESET_L", 110, "Warning, Caution and IndicatorLights", "FCS Reset Light (green)")
 
 defineIndicatorLight("BACK_CONSOLES_L", 120, "Warning, Caution and IndicatorLights", "Console Backlights (green)")
 defineIndicatorLight("BACK_INST_DISP_L", 121, "Warning, Caution and IndicatorLights", "Instrument Display Backlights (green)")
-defineIndicatorLight("BACK_CLOCK_L", 122, "Warning, Caution and IndicatorLights", "Clock Backlights") 
-defineIndicatorLight("WARN_L_BRT", 123, "Warning, Caution and IndicatorLights", "Warn Lights Brightness") 
-defineIndicatorLight("BACK_FLOOD_L", 125, "Warning, Caution and IndicatorLights", "All Flood Backlights (green)")    
-    
+defineIndicatorLight("BACK_CLOCK_L", 122, "Warning, Caution and IndicatorLights", "Clock Backlights")
+defineIndicatorLight("WARN_L_BRT", 123, "Warning, Caution and IndicatorLights", "Warn Lights Brightness")
+defineIndicatorLight("BACK_FLOOD_L", 125, "Warning, Caution and IndicatorLights", "All Flood Backlights (green)")
+
 defineIndicatorLight("WARN_L_MASTER", 130, "Warning, Caution and IndicatorLights", "Warning Light MASTER WARNING (red)")
 defineIndicatorLight("WARN_L_FIRE", 131, "Warning, Caution and IndicatorLights", "Warning Light FIRE (red)")
 defineIndicatorLight("WARN_L_FCS", 132, "Warning, Caution and IndicatorLights", "Warning Light FCS (red)")
@@ -412,18 +412,18 @@ defineIndicatorLight("UFCP_BTN_L_NULL2", 157, "Warning, Caution and IndicatorLig
 
 defineIndicatorLight("STATE_L_PITCH_TRIM", 160, "Warning, Caution and IndicatorLights", "Status Light PITCH TRIM (green)")
 defineIndicatorLight("STATE_L_ROLL_TRIM", 161, "Warning, Caution and IndicatorLights", "Status Light ROLL TRIM (green)")
-defineIndicatorLight("STATE_L_YAW_TRIM", 162, "Warning, Caution and IndicatorLights", "Status Light YAW TRIM (green)")    
+defineIndicatorLight("STATE_L_YAW_TRIM", 162, "Warning, Caution and IndicatorLights", "Status Light YAW TRIM (green)")
 defineIndicatorLight("STATE_L_AA", 163, "Warning, Caution and IndicatorLights", "Status Light AA (green)")
 defineIndicatorLight("STATE_L_AG1", 164, "Warning, Caution and IndicatorLights", "Status Light AG1 (green)")
 defineIndicatorLight("STATE_L_AG2", 165, "Warning, Caution and IndicatorLights", "Status Light AG2 (green)")
-defineIndicatorLight("STATE_L_EFCS", 166, "Warning, Caution and IndicatorLights", "Status Light EFCS (green)") 
-defineIndicatorLight("STATE_L_TANK_N3", 167, "Warning, Caution and IndicatorLights", "Status Light No.3 TANK (green)")    
+defineIndicatorLight("STATE_L_EFCS", 166, "Warning, Caution and IndicatorLights", "Status Light EFCS (green)")
+defineIndicatorLight("STATE_L_TANK_N3", 167, "Warning, Caution and IndicatorLights", "Status Light No.3 TANK (green)")
 defineIndicatorLight("STATE_L_TANK_N1", 166, "Warning, Caution and IndicatorLights", "Status Light No.1 TANK (green)")
 defineIndicatorLight("STATE_L_WING_DT", 169, "Warning, Caution and IndicatorLights", "Status Light WING DT (green)")
 defineIndicatorLight("STATE_L_CTR_DT", 170, "Warning, Caution and IndicatorLights", "Status Light CTR DT (green)")
-defineIndicatorLight("STATE_L_NULL", 171, "Warning, Caution and IndicatorLights", "Status Light ----- (green)")  
-defineIndicatorLight("STATE_L_START", 172, "Warning, Caution and IndicatorLights", "Status Light START (green)") 
-defineIndicatorLight("STATE_L_AB", 173, "Warning, Caution and IndicatorLights", "Status Light AB (green)")    
+defineIndicatorLight("STATE_L_NULL", 171, "Warning, Caution and IndicatorLights", "Status Light ----- (green)")
+defineIndicatorLight("STATE_L_START", 172, "Warning, Caution and IndicatorLights", "Status Light START (green)")
+defineIndicatorLight("STATE_L_AB", 173, "Warning, Caution and IndicatorLights", "Status Light AB (green)")
 defineIndicatorLight("STATE_L_COMBAT", 174, "Warning, Caution and IndicatorLights", "Status Light COMBAT (green)")
 defineIndicatorLight("STATE_L_EMG_HYD", 175, "Warning, Caution and IndicatorLights", "Status Light EMG HYD (green)")
 defineIndicatorLight("STATE_L_NWS", 176, "Warning, Caution and IndicatorLights", "Status Light NWS (green)")
@@ -440,37 +440,37 @@ defineIndicatorLight("WARN_L_REDUCE_RPM", 207, "Warning, Caution and IndicatorLi
 defineIndicatorLight("WARN_L_CONFIG", 208, "Warning, Caution and IndicatorLights", "Warning Light CONFIG (red)")
 defineIndicatorLight("WARN_L_FUEL_PUMP", 209, "Warning, Caution and IndicatorLights", "Warning Light FUEL PUMP (red)")
 defineIndicatorLight("WARN_L_AC_SYS", 210, "Warning, Caution and IndicatorLights", "Warning Light AC SYS (red)")
-defineIndicatorLight("WARN_L_OIL", 211, "Warning, Caution and IndicatorLights", "Warning Light OIL (red)")   
+defineIndicatorLight("WARN_L_OIL", 211, "Warning, Caution and IndicatorLights", "Warning Light OIL (red)")
 defineIndicatorLight("WARN_L_DL", 212, "Warning, Caution and IndicatorLights", "Warning Light DL (red)")
 defineIndicatorLight("WARN_L_START_PUMP", 213, "Warning, Caution and IndicatorLights", "Warning Light START PUMP (red)")
 defineIndicatorLight("WARN_L_DC_GEN", 214, "Warning, Caution and IndicatorLights", "Warning Light DC GEN (red)")
-defineIndicatorLight("WARN_L_STARTER", 215, "Warning, Caution and IndicatorLights", "Warning Light STARTER (red)")    
+defineIndicatorLight("WARN_L_STARTER", 215, "Warning, Caution and IndicatorLights", "Warning Light STARTER (red)")
 defineIndicatorLight("WARN_L_FCS3", 216, "Warning, Caution and IndicatorLights", "Warning Light FCS 3 (red)")
 defineIndicatorLight("WARN_L_BRAKE", 217, "Warning, Caution and IndicatorLights", "Warning Light BRAKE (red)")
 defineIndicatorLight("WARN_L_BATT", 218, "Warning, Caution and IndicatorLights", "Warning Light BATT (red)")
-defineIndicatorLight("WARN_L_ENG_TEMP", 219, "Warning, Caution and IndicatorLights", "Warning Light ENG TEMP (red)")     
+defineIndicatorLight("WARN_L_ENG_TEMP", 219, "Warning, Caution and IndicatorLights", "Warning Light ENG TEMP (red)")
 defineIndicatorLight("WARN_L_FCS2", 220, "Warning, Caution and IndicatorLights", "Warning Light FCS 2 (yellow)")
 defineIndicatorLight("WARN_L_ANTI_SKID", 221, "Warning, Caution and IndicatorLights", "Warning Light ANTI SKID (yellow)")
-defineIndicatorLight("WARN_L_TRU", 222, "Warning, Caution and IndicatorLights", "Warning Light TRU (yellow)") 
-defineIndicatorLight("WARN_L_ANTI_SURGE", 223, "Warning, Caution and IndicatorLights", "Warning Light ANTI SURGE (yellow)")      
+defineIndicatorLight("WARN_L_TRU", 222, "Warning, Caution and IndicatorLights", "Warning Light TRU (yellow)")
+defineIndicatorLight("WARN_L_ANTI_SURGE", 223, "Warning, Caution and IndicatorLights", "Warning Light ANTI SURGE (yellow)")
 defineIndicatorLight("WARN_L_FCS1", 224, "Warning, Caution and IndicatorLights", "Warning Light FCS 1 (yellow)")
 defineIndicatorLight("WARN_L_NWS", 225, "Warning, Caution and IndicatorLights", "Warning Light NWS (yellow)")
-defineIndicatorLight("WARN_L_STATIC_INV", 226, "Warning, Caution and IndicatorLights", "Warning Light STATIC_INV (yellow)") 
-defineIndicatorLight("WARN_L_ANTI_ICING", 227, "Warning, Caution and IndicatorLights", "Warning Light ANTI ICING (yellow)")    
+defineIndicatorLight("WARN_L_STATIC_INV", 226, "Warning, Caution and IndicatorLights", "Warning Light STATIC_INV (yellow)")
+defineIndicatorLight("WARN_L_ANTI_ICING", 227, "Warning, Caution and IndicatorLights", "Warning Light ANTI ICING (yellow)")
 defineIndicatorLight("WARN_L_ROLL_CAS", 228, "Warning, Caution and IndicatorLights", "Warning Light ROLL CAS (yellow)")
 defineIndicatorLight("WARN_L_ECS", 229, "Warning, Caution and IndicatorLights", "Warning Light ECS (yellow)")
-defineIndicatorLight("WARN_L_EMMC", 230, "Warning, Caution and IndicatorLights", "Warning Light EMMC (yellow)") 
+defineIndicatorLight("WARN_L_EMMC", 230, "Warning, Caution and IndicatorLights", "Warning Light EMMC (yellow)")
 defineIndicatorLight("WARN_L_SEC", 231, "Warning, Caution and IndicatorLights", "Warning Light SEC (yellow)")
 defineIndicatorLight("WARN_L_YAW_CAS", 232, "Warning, Caution and IndicatorLights", "Warning Light YAW CAS (yellow)")
 defineIndicatorLight("WARN_L_EQUIP_HOT", 233, "Warning, Caution and IndicatorLights", "Warning Light EQUIP HOT (yellow)")
-defineIndicatorLight("WARN_L_LWC", 234, "Warning, Caution and IndicatorLights", "Warning Light LWC (yellow)") 
-defineIndicatorLight("WARN_L_EDU", 235, "Warning, Caution and IndicatorLights", "Warning Light EDU (yellow)")    
-defineIndicatorLight("WARN_L_AUTOPILOT", 236, "Warning, Caution and IndicatorLights", "Warning Light AUTOPILOT (yellow)") 
+defineIndicatorLight("WARN_L_LWC", 234, "Warning, Caution and IndicatorLights", "Warning Light LWC (yellow)")
+defineIndicatorLight("WARN_L_EDU", 235, "Warning, Caution and IndicatorLights", "Warning Light EDU (yellow)")
+defineIndicatorLight("WARN_L_AUTOPILOT", 236, "Warning, Caution and IndicatorLights", "Warning Light AUTOPILOT (yellow)")
 defineIndicatorLight("WARN_L_PITOT_HEAT", 237, "Warning, Caution and IndicatorLights", "Warning Light PITOT HEAT (yellow)")
 defineIndicatorLight("WARN_L_AVIONS", 238, "Warning, Caution and IndicatorLights", "Warning Light AVIONS (yellow)")
 defineIndicatorLight("WARN_L_DEEC", 239, "Warning, Caution and IndicatorLights", "Warning Light DEEC (yellow)")
-defineIndicatorLight("WARN_L_EFCS", 240, "Warning, Caution and IndicatorLights", "Warning Light EFCS (yellow)") 
-defineIndicatorLight("WARN_L_SEAT", 241, "Warning, Caution and IndicatorLights", "Warning Light SEAT (yellow)")     
+defineIndicatorLight("WARN_L_EFCS", 240, "Warning, Caution and IndicatorLights", "Warning Light EFCS (yellow)")
+defineIndicatorLight("WARN_L_SEAT", 241, "Warning, Caution and IndicatorLights", "Warning Light SEAT (yellow)")
 defineIndicatorLight("WARN_L_OXY_BLINK", 242, "Warning, Caution and IndicatorLights", "Warning Light OXY BLINK (green)")
 
 defineIndicatorLight("AAP_BTN_L_ACMI", 260, "Warning, Caution and IndicatorLights", "AAP Button Light ACMI (green)")
@@ -492,11 +492,11 @@ defineIndicatorLight("AAP_BTN_L_IFF", 275, "Warning, Caution and IndicatorLights
 defineIndicatorLight("AAP_BTN_L_INS", 276, "Warning, Caution and IndicatorLights", "AAP Button Light INS (green)")
 defineIndicatorLight("AAP_BTN_L_VMMC1", 277, "Warning, Caution and IndicatorLights", "AAP Button Light VMMC1 (green)")
 defineIndicatorLight("AAP_BTN_L_VMMC2", 278, "Warning, Caution and IndicatorLights", "AAP Button Light VMMC2 (green)")
-defineIndicatorLight("AAP_BTN_L_SAIU", 279, "Warning, Caution and IndicatorLights", "AAP Button Light SAIU (green)")       
+defineIndicatorLight("AAP_BTN_L_SAIU", 279, "Warning, Caution and IndicatorLights", "AAP Button Light SAIU (green)")
 defineIndicatorLight("AAP_BTN_L_CMBT", 280, "Warning, Caution and IndicatorLights", "AAP Button Light CMBT (green)")
-defineIndicatorLight("AAP_BTN_L_TRAIN", 281, "Warning, Caution and IndicatorLights", "AAP Button Light TRAIN (green)")     
+defineIndicatorLight("AAP_BTN_L_TRAIN", 281, "Warning, Caution and IndicatorLights", "AAP Button Light TRAIN (green)")
 defineIndicatorLight("RADIO_PAD_ERR_L", 295, "Warning, Caution and IndicatorLights", "Radio PAD Error Light (red)")
-defineIndicatorLight("AAR_L", 419, "Warning, Caution and IndicatorLights", "AAR Light")    
+defineIndicatorLight("AAR_L", 419, "Warning, Caution and IndicatorLights", "AAR Light")
 defineIndicatorLight("FLASH_LIGHT_L", 969, "Warning, Caution and IndicatorLights", "Flash Light")
 
 defineIndicatorLight("MFCD_BACKLIGHT_L", 140, "Warning, Caution and IndicatorLights", "MFCD Backlight Left")
@@ -581,13 +581,13 @@ local function processUFCPLine(ufcpLine, lineNum)
 	local cur_winr      = ufcpLine["cur_win"..lineNum.."r"]
 	local UFCPLineLength = 8
 	local txt_win
-		 
+
 	if temp_txt_win ~= null then
 			txt_win = temp_txt_win:gsub(string.char(127),"^")
 	 else
 		 txt_win = ""
 	 end
-	
+
 	if txt_win_fill ~= null then
 	   local full_txt_win_fill  = txt_win_fill..string.rep(" ",UFCPLineLength - string.len(txt_win_fill))
 	   if temp_txt_win ~= null then
@@ -612,7 +612,7 @@ local function processUFCPLine(ufcpLine, lineNum)
 	else
 	   processedUFCPLine = txt_winr
 	end
-	return processedUFCPLine      
+	return processedUFCPLine
  end
 
 defineString("UFCP_LINE_1",function() return coerce_nil_to_string(processUFCPLine(parse_indication(3), 1)) end,8,"UFCP","UFCP Display Line 1")
@@ -641,11 +641,11 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	end
 	if radioDisplay.radio_take then
 		radio_to_light = 1;
-	end 
+	end
 	if radioDisplay.radio_go then
 		radio_go_light = 1;
 	end
-	
+
 	-- Radio Display Line 2 uses unprintable characters to display the power symbol - replace these with something printable
 	if radioDisplay.radio_disp_l2 then
 		local charReplacements = {
@@ -653,7 +653,7 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 			[string.char(30)] = "|",
 			[string.char(31)] = "^"
 		}
-		radio_line_2 = radioDisplay.radio_disp_l2:gsub(".",charReplacements)	
+		radio_line_2 = radioDisplay.radio_disp_l2:gsub(".",charReplacements)
 	end
 
 	if radioDisplay["#3#"] then
@@ -663,7 +663,7 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 			   tempString = radioDisplay.radio_disp_l1:sub(1,radioDisplay.radio_disp_l1:len() - 1)..radioDisplay.radio_cursor
 			else
 			   tempString = radioDisplay.radio_cursor
-			end 
+			end
 		else
 			tempString = radioDisplay.radio_disp_l1
 		end
@@ -678,7 +678,7 @@ defineIntegerFromGetter("RADIO_TO_LIGHT", function() return radio_to_light end, 
 defineIntegerFromGetter("RADIO_GO_LIGHT", function() return radio_go_light end, 1, "Radio", "Radio Go Indicator Light")
 defineString("RADIO_LINE_1", function() return coerce_nil_to_string(radio_line_1) end,8,"Radio","Radio Display Line 1")
 defineString("RADIO_LINE_2", function() return coerce_nil_to_string(radio_line_2) end,8,"Radio","Radio Display Line 2")
-defineIndicatorLight("GEAR_LEVER_L", 107, "Warning, Caution and IndicatorLights", "Landing Gear Lever Light (red)") 
+defineIndicatorLight("GEAR_LEVER_L", 107, "Warning, Caution and IndicatorLights", "Landing Gear Lever Light (red)")
 definePushButton("SEAT_EJECT_H", 38, 3483, 981, "Right Console", "Eject Seat Eject Handle")
 
 BIOS.protocol.endModule()

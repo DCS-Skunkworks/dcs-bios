@@ -17,7 +17,7 @@ local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 -- ELECTRIC
 defineToggleSwitch("CLOCK_HEAT", 5, 3023, 23, "Electric", "Clock Heat")
 defineToggleSwitch("PITOT_HEAT", 5, 3024, 24, "Electric", "Pitot Heat")
-defineToggleSwitch("NAV_LIGHT", 5, 3025, 25, "Electric", "Nav Light") 
+defineToggleSwitch("NAV_LIGHT", 5, 3025, 25, "Electric", "Nav Light")
 defineToggleSwitch("ACCU", 5, 3026, 26, "Electric", "Battery")
 defineToggleSwitch("SHUNT", 5, 3027, 27, "Electric", "Shunt")
 defineToggleSwitch("RADIO", 5, 3028, 28, "Electric", "Radio")
@@ -56,7 +56,7 @@ defineRotary("OIL_RAD", 2, 3048, 48, "Motor", "Oil Radiator")
 defineToggleSwitch("FUEL_VALVE", 2, 3062, 62, "Motor", "Fuel Valve")
 definePushButton("MAN_RATCHET", 2, 3064, 64, "Motor" , "Manual Ratchet Relay")
 
--- WEAPON 
+-- WEAPON
 definePushButton("GUN_L_RECHARG_WING", 7, 3060, 60, "Weapons" , "Gun Wing Left Recharge")
 definePushButton("GUN_R_RECHARG_WING", 7, 3061, 61, "Weapons" , "Gun Wing Right Recharge")
 definePushButton("GUN_R_RECHARG_NOSE", 7, 3070, 70, "Weapons" , "Gun Nose Left Recharge")
@@ -78,7 +78,7 @@ defineRotary("OXY_ADJ_VALVE", 6, 3074, 74, "Oxygen", "Oxygen Adjusting Valve")
 defineRotary("OXY_EMERG_VALVE", 6, 3075, 75, "Oxygen", "Oxygen Emergency Valve")
 defineRotary("OXY_OFF_VALVE", 6, 3076, 76, "Oxygen", "Oxygen Shutoff Valve")
 
--- Gauges 
+-- Gauges
 defineFloat("CLOCK_H", 1, {0, 1}, "Gauges", "Clock Hours")
 defineFloat("CLOCK_M", 2, {0, 1}, "Gauges", "Clock Minutes")
 defineFloat("CLOCK_S", 3, {0, 1}, "Gauges", "Clock Seconds")

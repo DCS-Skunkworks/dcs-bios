@@ -3,7 +3,7 @@ BIOS.protocol.setExportModuleAircrafts({"A-10C", "A-10C_2", "AJS37", "AV8BNA", "
 -- v2.0 by Celemourn
 local documentation = moduleBeingDefined.documentation
 
-local document = BIOS.util.document  
+local document = BIOS.util.document
 
 local defineRotary = BIOS.util.defineRotary
 local defineIndicatorLight = BIOS.util.defineIndicatorLight

@@ -153,7 +153,7 @@ defineIndicatorLight("LWR_HEMI_LOWER", 32, "LWR", "Lamp hemisphere lower (yellow
 defineIndicatorLight("LWR_LASER_RANGE", 33, "LWR", "Lamp laser range finder (yellow)")
 defineIndicatorLight("LWR_LASER_TARGETING", 34, "LWR", "Lamp laser targeting system (yellow)")
 definePushButton("LWR_RESET", 36, 3001, 35, "LWR", "Reset Button")
---UV-26 Countermeasures Control Panel 
+--UV-26 Countermeasures Control Panel
 local function getUV26Display()
     local ind = parse_indication(7)
     if ind == nil then return "   " end
@@ -356,12 +356,12 @@ local function parse_EKRAN()
 	local ret = {}
 	local li = list_indication(4)
 	if li == "" then return nil end
-	
+
 	local m = li:gmatch("([^\n]*)\n")
 	local newval = false
 	local name = nil
 	local value = {}
-	
+
 	while true do
 		local line = m()
 		if not line then
@@ -540,7 +540,7 @@ define8BitFloat("ENG_R_CUTOFF_VLV_HANDLE_POS", 555, {0, 1}, "Engines Cut-Off Val
 defineToggleSwitch("ENG_ROTOR_BREAK", 4, 3011, 556, "Engines Cut-Off Valves", "Rotor break")
 
 ----Right Pane
---PVI-800 Navigation Control Panel 
+--PVI-800 Navigation Control Panel
 local indPVI = nil
 moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	indPVI = parse_indication(5)
@@ -639,10 +639,10 @@ defineToggleSwitch("PVI_INU_FIX", 20, 3028, 325, "PVI-800 Control Panel", "INU f
 defineToggleSwitch("PVI_POWER", 25, 3016, 326, "PVI-800 Control Panel", "Datalink power Switch")
 defineTumb("PVI_MODES", 20, 3026, 324, 0.1, {0, 0.6}, nil, false, "PVI-800 Control Panel", "Master mode selector")
 definePotentiometer("PVI_BRIGHTNESS", 20, 3029, 327, {0, 1}, "PVI-800 Control Panel", "Brightness Knob")
---PVTz-800 Off-Board Targeting Data Link Mode Panel 
+--PVTz-800 Off-Board Targeting Data Link Mode Panel
 defineTumb("DLNK_SELF_ID", 25, 3014, 328, 0.1, {0, 0.3}, nil, false, "Datalink Mode Panel", "Datalink self ID selector")
 defineTumb("DLNK_MASTER_MODE", 25, 3015, 329, 0.1, {0, 0.3}, nil, false, "Datalink Mode Panel", "Datalink master mode selector")
---Autopilot Panel 
+--Autopilot Panel
 defineLedPushButton("AP_BANK_HOLD_BTN", 33, 3001, 330, "Autopilot Panel", "Bank hold button")
 definePushButtonLed("AP_BANK_HOLD_LED", 330, "Autopilot Panel", "Bank hold LED (green)")
 defineLedPushButton("AP_HDG_HOLD_BTN", 33, 3002, 332, "Autopilot Panel", "Heading hold button")

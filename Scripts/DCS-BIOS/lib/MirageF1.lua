@@ -3,7 +3,7 @@ BIOS.protocol.setExportModuleAircrafts({"Mirage-F1CE"})
 --by WarLord v1.3b
 local documentation = moduleBeingDefined.documentation
 
-local document = BIOS.util.document  
+local document = BIOS.util.document
 
 local defineFloat = BIOS.util.defineFloat
 local defineIndicatorLight = BIOS.util.defineIndicatorLight
@@ -741,8 +741,8 @@ end, 1, "External Aircraft Model", "Weight ON Wheels Left Gear")
 definePushButton("P_CE_UHF_TEST_BTN", 1, 3462, 345, "CE/BE/EE UHF Radio", "CE/BE/EE Pilot UHF Test Button")
 
 --Navigation Indicator
-defineToggleSwitch("P_EE_IDN_HEAD_SEL", 1, 3655, 1254, "EE Navigation Indicator", "EE Pilot Gyromagnetic/True IDN Heading Selector")	
-defineToggleSwitch("P_EE_VOR_RDR_NEEDLE_SEL", 1, 3656, 1255, "EE Navigation Indicator", "EE Pilot VOR/Radar Narrow Needle Selector")	
+defineToggleSwitch("P_EE_IDN_HEAD_SEL", 1, 3655, 1254, "EE Navigation Indicator", "EE Pilot Gyromagnetic/True IDN Heading Selector")
+defineToggleSwitch("P_EE_VOR_RDR_NEEDLE_SEL", 1, 3656, 1255, "EE Navigation Indicator", "EE Pilot VOR/Radar Narrow Needle Selector")
 defineMultipositionSwitch("P_EE_NAV_MODE_SEL", 1, 3657, 1256, 6, 0.2, "EE Navigation Indicator", "EE Pilot Mode Selector Switch")
 defineSpringloaded_3PosTumb("P_EE_VECTOR_ADJ", 1, 3658, 3659, 1257, "EE Navigation Indicator", "EE Pilot Additional Vector Bearing/Distance Adjustment Switch")
 

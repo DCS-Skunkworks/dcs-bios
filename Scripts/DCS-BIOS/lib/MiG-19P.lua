@@ -288,7 +288,7 @@ defineIndicatorLight("SRO2B_RWR_PW", 496, "Warning, Caution and IndicatorLights"
 defineIndicatorLight("SRO2B_RWR_LOCK", 497, "Warning, Caution and IndicatorLights","Radar Warning Receiver LOCK Lamp (red)")
 defineIndicatorLight("ARK5_FREQ_SCALE_L", 519, "Warning, Caution and IndicatorLights","ARK5 Frequency Scale Light (yellow)")
 
--- Gauges 
+-- Gauges
 defineFloat("ARK5_FREQ_SCALE", 354, {-1, 1}, "Gauges", "ARK5 Frequency Scale")
 defineFloat("ARK5_FREQ_150_SCALE", 413, {0, 1}, "Gauges", "ARK5 Frequency 150-310 Scale")
 defineFloat("ARK5_FREQ_310_SCALE", 414, {0, 1}, "Gauges", "ARK5 Frequency 310-640 Scale")

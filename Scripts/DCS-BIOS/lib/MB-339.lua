@@ -50,7 +50,6 @@ local function defineIndicatorLightGear(msg, arg_number, category, description) 
 	}
 end
 
-
 --Breakers
 defineToggleSwitch("CB_IFF", 1, 3911, 1114, "Circuit Breakers", "C/B IFF")
 defineToggleSwitch("CB_HYD_PRESS", 1, 3912, 1115, "Circuit Breakers", "C/B Hyd Press")

@@ -14,7 +14,7 @@ local defineIndicatorLight = BIOS.util.defineIndicatorLight
 local defineFloat = BIOS.util.defineFloat
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
-defineRotary("ALT_SET", 2, 3001, 6, "Main Panel" , "Altimeter Setting") 
+defineRotary("ALT_SET", 2, 3001, 6, "Main Panel" , "Altimeter Setting")
 defineToggleSwitch("MASTER_SW", 4, 3051, 18, "Main Panel", "Master Switch")
 defineToggleSwitch("BOOST_SW", 4, 3052, 19, "Main Panel", "Electric Fuel Pump")
 defineToggleSwitch("CANOPY", 6, 71, 0, "Main Panel", "Canopy Open/Close")

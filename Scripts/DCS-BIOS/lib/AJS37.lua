@@ -3,7 +3,7 @@ BIOS.protocol.setExportModuleAircrafts({"AJS37"})
 
 local documentation = moduleBeingDefined.documentation
 
-local document = BIOS.util.document  
+local document = BIOS.util.document
 
 local parse_indication = BIOS.util.parse_indication
 
@@ -251,7 +251,7 @@ definePushButton("MASTER_CAUTION_RESET", 26, 3001, 446, "Warning Panel", "Master
 
 --Countermeasures
 defineTumb("JAMMER_MODE_SELECTOR", 28, 3024, 317, 0.1, {0, 0.4}, nil, false, "Countermeasures", "Jammer Mode Selector")
-defineTumb("JAMMER_BAND_SELECTOR", 28, 3025, 318, 0.1, {0, 0.4}, nil, false, "Countermeasures", "Jammer Band Selector") 
+defineTumb("JAMMER_BAND_SELECTOR", 28, 3025, 318, 0.1, {0, 0.4}, nil, false, "Countermeasures", "Jammer Band Selector")
 defineTumb("COUNTERMEASURE_MODE_SELECTOR", 28, 3026, 319, 0.1, {0, 0.4}, nil, false, "Countermeasures", "Countermeasure Operation Mode Selector")
 defineTumb("COUNTERMEASURE_STREAK_MODE_SELECTOR", 28, 3027, 320, 0.1, {0.0, 0.1}, nil, false, "Countermeasures", "Countermeasure Streak Mode Selector")
 defineTumb("COUNTERMEASURE_CHAFF_FLARES_SELECTOR", 28, 3028, 322, 0.1, {0, 0.2}, nil, false, "Countermeasures", "Countermeasure Chaff/Flares Selector")
@@ -549,7 +549,7 @@ defineIndicatorLight("REVERSAL_L", 460, "Front Panel Lights", "Thrust Reverser L
 defineIndicatorLight1("BURNER_STAGE1_L", 405, "Front Panel Lights", "Afterburner Stage 1 Lamp (white)")
 defineIndicatorLight2("BURNER_STAGE2_L", 405, "Front Panel Lights", "Afterburner Stage 2 Lamp (white)")
 defineIndicatorLight3("BURNER_STAGE3_L", 405, "Front Panel Lights", "Afterburner Stage 3 Lamp (white)")
-definePushButton("SNABBRESNING", 22, 3091, 0, "Radar", "Snabbresning") --No Arg left bottom radar display 
+definePushButton("SNABBRESNING", 22, 3091, 0, "Radar", "Snabbresning") --No Arg left bottom radar display
 define3PosTumb("SEAT_HEIGHT", 22, 3404, 212, "Flight Data Unit", "Seat Height Adjustment")
 defineRotary("AIRSPEED_INDEXER", 22, 3410, 104, "Flight Data Unit", "Airspeed Indexer")
 defineToggleSwitch("BYPASS_FIRE_COVER", 2, 3308, 309, "Weapon System", "Bypass Firing Circuit Cover")

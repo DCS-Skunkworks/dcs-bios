@@ -4,9 +4,9 @@ BIOS.protocol.setExportModuleAircrafts(BIOS.ALL_PLAYABLE_AIRCRAFT)
 local defineString = BIOS.util.defineString
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 
-local latDeg, latSec 
+local latDeg, latSec
 local latFractionalSec = 0
-local lonDeg, lonSec 
+local lonDeg, lonSec
 local lonFractionalSec = 0
 local altFt = 0
 local hdgDeg
@@ -23,48 +23,48 @@ local function LoGetGLoad()
 	return au.y
 end
 
-moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()	
+moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	if not LoIsOwnshipExportAllowed() then return end -- skip this data if ownship export is disabled
-	
+
 	playerName = LoGetPilotName()
 		if playerName == nil then playerName = "XXX" end
-    
-	
+
+
 	startTime = LoGetMissionStartTime() or 0
 	misstime = string.format(startTime)
 	startTimeLow = startTime%65536
 	startTimeHigh = (startTime - startTimeLow)/65536
-	
-	local modTimeFloat = LoGetModelTime() or 0	
+
+	local modTimeFloat = LoGetModelTime() or 0
 	modtime = string.format("%5.0f", modTimeFloat)
 	local modTimeHundredth = math.floor (modTimeFloat*100)
 	modTimeLow = modTimeHundredth%65536
 	modTimeHigh = (modTimeHundredth - modTimeLow) / 65536
-			
+
 	iasDisp = LoGetIndicatedAirSpeed()
 		if iasDisp == nil then iasDisp = "0000" end
 	iasEU = string.format("%4d", math.floor(0.5 + iasDisp * 3.6))           -- km/h
 	iasUS = string.format("%4d", math.floor(0.5 + iasDisp * 1.94384449))	-- knots
-	
+
     gload = LoGetGLoad() or 0
 	if math.abs(gload) > 10 then _gLoad = string.format(" %2d ", gload)
 	else _gLoad = string.format("%4.1f", gload) end
-	
+
 	local selfData = LoGetSelfData()
 	if selfData == nil then return end
 		if selfData.LatLongAlt == nil then return end
 	altFt = selfData.LatLongAlt.Alt / 0.3048
 	local lat = "0"
 	local lat = selfData.LatLongAlt.Lat
-		if lat < 0 then lat = 0 - lat 
+		if lat < 0 then lat = 0 - lat
 						latDir = "S"
-		else lat = lat 
-			 latDir = "N" end		 
+		else lat = lat
+			 latDir = "N" end
 	local lon = selfData.LatLongAlt.Long
-		if lon < 0 then lon = 0 - lon 
+		if lon < 0 then lon = 0 - lon
 						lonDir	= "W"
-		else lon = lon 
-		     lonDir = "E" end			 
+		else lon = lon
+		     lonDir = "E" end
 
 	latDeg = math.floor(lat)
 	lat1 = (lat - latDeg) * 60 -- to sec
@@ -75,7 +75,7 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	lon1 = (lon - lonDeg) * 60 -- to sec
 	lonSec = math.floor(lon1)
 	lonFractionalSec = lon1 - lonSec
-	
+
 	if selfData.Heading ~= nil then
 		local hdgDegValue = selfData.Heading / (2 * math.pi) * 360
 		hdgDeg = math.floor(hdgDegValue)
@@ -143,7 +143,7 @@ end, 127, "Heading", "Heading (Fractional Degrees, divide by 127)")
 
 defineString("MISS_TIME",  misstime, 8, "Time", "Mission Start Time")
 defineString("MOD_TIME", function() return modtime or "00000" end, 6, "Time", "Model Time in sec")
-  
+
 defineIntegerFromGetter("TIME_START_HIGH", function() return startTimeHigh end, 65535, "Time", "Start time high bits in seconds")
 defineIntegerFromGetter("TIME_START_LOW", function() return startTimeLow end, 65535, "Time", "Start time low bits in seconds")
 defineIntegerFromGetter("TIME_MODEL_HIGH", function() return modTimeHigh end, 65535, "Time", "Model time high bits in hundredth of a second")

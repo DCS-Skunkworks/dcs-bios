@@ -95,7 +95,7 @@ definePotentiometer("FRONT_RDF_VOLUME", 21, 3001, 247, {0, 1}, "ARK 15M", "Fore 
 definePushButton("FRONT_RDF_MODE3", 21, 3004, 248, "ARK 15M", "Fore RDF Loop")
 definePushButton("FRONT_RDF_CSWITCH", 21, 3010, 249, "ARK 15M", "Fore RDF Control")
 defineToggleSwitch("FRONT_CB_ADF", 21, 3025, 104, "ARK 15M", "Fore ADF Marker")
------ Canopy Controls	
+----- Canopy Controls
 defineToggleSwitch("FRONT_HATCH_L", 2, 3051, 267, "Canopy", "Fore Left Canopy Lever")
 definePushButton("FRONT_HATCH_R", 2, 3062, 288, "Canopy", "Fore Right Canopy Lever")
 definePushButton("FRONT_HATCH_JET", 2, 3059, 266, "Canopy", "Fore Canopy Jettison")
@@ -293,12 +293,12 @@ local function getBaklan5Frequency()
 	elseif bfreq1F > 0.1 and bfreq1F <= 0.2 then bfreq1 = "12"
 	elseif bfreq1F > 0.2  then bfreq1 = "13"
 	end
-	
+
     local bfreq2 = string.format("%.0f", GetDevice(0):get_argument_value(93)*10)--
 	if bfreq2 == nil then bfreq2 = "0" end
     local bfreq3 = string.format("%.0f", GetDevice(0):get_argument_value(94)*10)--
 	if bfreq3 == nil then bfreq3 = "0" end
-	
+
     local bfreq4 = "00"
 	local bfreq4F = GetDevice(0):get_argument_value(95)
 	if     bfreq4F == nil then bfreq4 = "00"
@@ -308,7 +308,7 @@ local function getBaklan5Frequency()
 	elseif bfreq4F >= 0.75 and bfreq4F < 1 then bfreq4 = "75"
 	elseif bfreq4F >= 1                   then bfreq4 = "00"
 	end
-	
+
 	return  bfreq1 .. bfreq2 .. "." .. bfreq3 .. bfreq4
 end
 defineString("BAKLAN5_FREQ", getBaklan5Frequency, 7, "BAKLAN-5", "Fore VHF Radio Frequency (String)")

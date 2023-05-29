@@ -34,7 +34,7 @@ local slope = {}
 		slope[a]= (input[a+1]-input[a]) / (output[a+1]-output[a])
 	end
 
-	for a=1,#output-1 do 
+	for a=1,#output-1 do
 		if actual_value >= output[a] and actual_value <= output[a+1] then
             		range = a
            		break
@@ -42,7 +42,7 @@ local slope = {}
 	end
 
 	final_value= ( slope[range] * (actual_value-output[range]) ) + input[range]
-	
+
 	return final_value
 end
 --------------------------
@@ -52,11 +52,11 @@ local function defineEmergencyParkingBrake(msg, device_id, emergency_command, pa
 		if dev0:get_argument_value(arg_number) < 0.64 then
 			alloc:setValue(0)
 		elseif dev0:get_argument_value(arg_number) > 0.66 then
-			alloc:setValue(2)			
+			alloc:setValue(2)
 		else alloc:setValue(1)
 		end
 	end
-	
+
 	document {
 		identifier = msg,
 		category = category,
@@ -84,12 +84,12 @@ local function defineEmergencyParkingBrake(msg, device_id, emergency_command, pa
 			dev:performClickableAction(emergency_command, -1)
 		 elseif toState == "1" then --release Park
 		 	dev:performClickableAction(park_command, 1)
-            dev:performClickableAction(park_command, 0)		
-	     elseif toState == "2" then --Park 		 
-			dev:performClickableAction(park_command, 1)				
+            dev:performClickableAction(park_command, 0)
+	     elseif toState == "2" then --Park
+			dev:performClickableAction(park_command, 1)
 		end
 	end
-end					
+end
 --------------------------
 local function defineToggleSwitchToggleOnly2(msg, device_id, command, arg_number, category, description)
 	local alloc = moduleBeingDefined.memoryMap:allocateInt{ maxValue = 1 }
@@ -100,7 +100,7 @@ local function defineToggleSwitchToggleOnly2(msg, device_id, command, arg_number
 			alloc:setValue(1)
 		end
 	end
-	
+
 	document {
 		identifier = msg,
 		category = category,
@@ -120,7 +120,7 @@ local function defineToggleSwitchToggleOnly2(msg, device_id, command, arg_number
 			}
 		}
 	}
-	
+
 	moduleBeingDefined.inputProcessors[msg] = function(toState)
 		local fromState = GetDevice(0):get_argument_value(arg_number)
 		if fromState == 0 and toState == "1" then
@@ -144,7 +144,7 @@ local function defineMissionComputerSwitch(msg, device_id, mc1_off_command, mc2_
 			alloc:setValue(2)
 		end
 	end
-	
+
 	document {
 		identifier = msg,
 		category = category,
@@ -166,12 +166,12 @@ local function defineMissionComputerSwitch(msg, device_id, mc1_off_command, mc2_
 	}
 	moduleBeingDefined.inputProcessors[msg] = function(toState)
 		local dev = GetDevice(device_id)
-		dev:performClickableAction(mc1_off_command, 0) 
-		dev:performClickableAction(mc2_off_command, 0) 
+		dev:performClickableAction(mc1_off_command, 0)
+		dev:performClickableAction(mc2_off_command, 0)
 		if toState == "0" then
-			dev:performClickableAction(mc2_off_command, -1) 
+			dev:performClickableAction(mc2_off_command, -1)
 		elseif toState == "2" then
-			dev:performClickableAction(mc1_off_command, 1) 
+			dev:performClickableAction(mc1_off_command, 1)
 		end
 	end
 end
@@ -185,7 +185,7 @@ local function defineEjectionHandleSwitch(msg, device_id, command, arg_number, c
 			alloc:setValue(1)
 		end
 	end
-	
+
 	document {
 		identifier = msg,
 		category = category,
@@ -205,7 +205,7 @@ local function defineEjectionHandleSwitch(msg, device_id, command, arg_number, c
 			}
 		}
 	}
-	
+
 	moduleBeingDefined.inputProcessors[msg] = function(toState)
 		local fromState = GetDevice(0):get_argument_value(arg_number)
 		if fromState == 0 and toState == "1" then
@@ -218,7 +218,7 @@ end
 
 -- functions by Capt Zeen
 local function defineFrequency(msg, id_device_number, category, description)
-	
+
 	local alloc = moduleBeingDefined.memoryMap:allocateInt { maxValue = 65535 }
 	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(freq)
 	local dato=GetDevice(id_device_number)
@@ -244,18 +244,18 @@ local function defineFrequency(msg, id_device_number, category, description)
 end
 
 local function defineFloatFromUFCChannel(msg, _channel, category, description)
-	
-	
-		 
-	 
+
+
+
+
 	local alloc = moduleBeingDefined.memoryMap:allocateInt { maxValue = 65535 }
 	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
-	
+
 	local ufc = parse_indication(6)
 	UFC_Comm1Display = "  "
 	UFC_Comm2Display = "  "
 
-	
+
 			if not ufc then
 				return
 			end
@@ -264,42 +264,42 @@ local function defineFloatFromUFCChannel(msg, _channel, category, description)
 			local valor=1
 			local nuevo=""
 			if _channel==1 then
-				nuevo=UFC_Comm1Display 
+				nuevo=UFC_Comm1Display
 			else
-				nuevo=UFC_Comm2Display 
+				nuevo=UFC_Comm2Display
 			end
 
-			
-			if nuevo==" 1" then valor=1 
-			elseif nuevo==" 2" then valor=2 
-			elseif nuevo==" 3" then valor=3 
-			elseif nuevo==" 4" then valor=4 
-			elseif nuevo==" 5" then valor=5 
-			elseif nuevo==" 6" then valor=6 
-			elseif nuevo==" 7" then valor=7 
-			elseif nuevo==" 8" then valor=8 
-			elseif nuevo==" 9" then valor=9 
-			elseif nuevo=="`0" then valor=10 
-			elseif nuevo=="`1" then valor=11 
-			elseif nuevo=="`2" then valor=12 
-			elseif nuevo=="`3" then valor=13 
-			elseif nuevo=="`4" then valor=14 
-			elseif nuevo=="`5" then valor=15 
-			elseif nuevo=="`6" then valor=16 
-			elseif nuevo=="`7" then valor=17 
-			elseif nuevo=="`8" then valor=18 
-			elseif nuevo=="`9" then valor=19 
+
+			if nuevo==" 1" then valor=1
+			elseif nuevo==" 2" then valor=2
+			elseif nuevo==" 3" then valor=3
+			elseif nuevo==" 4" then valor=4
+			elseif nuevo==" 5" then valor=5
+			elseif nuevo==" 6" then valor=6
+			elseif nuevo==" 7" then valor=7
+			elseif nuevo==" 8" then valor=8
+			elseif nuevo==" 9" then valor=9
+			elseif nuevo=="`0" then valor=10
+			elseif nuevo=="`1" then valor=11
+			elseif nuevo=="`2" then valor=12
+			elseif nuevo=="`3" then valor=13
+			elseif nuevo=="`4" then valor=14
+			elseif nuevo=="`5" then valor=15
+			elseif nuevo=="`6" then valor=16
+			elseif nuevo=="`7" then valor=17
+			elseif nuevo=="`8" then valor=18
+			elseif nuevo=="`9" then valor=19
 			elseif nuevo=="~0" then valor=20
-			elseif nuevo=="G" then valor=21 
+			elseif nuevo=="G" then valor=21
 			elseif nuevo=="M" then valor=22
 			elseif nuevo=="C" then valor=23
-			elseif nuevo=="S" then valor=24 
+			elseif nuevo=="S" then valor=24
 			 end
 
-		 
+
 			alloc:setValue(valor)
 		end
-		
+
 	document {
 		identifier = msg,
 		category = category,
@@ -324,8 +324,8 @@ end
 -- radio freqs: by Capt Zeen
 defineFrequency("COMM1_FREQ", 38, "Comms frequency", "COMM1 FREQ")
 defineFrequency("COMM2_FREQ", 39, "Comms frequency", "COMM2 FREQ")
-defineFloatFromUFCChannel("COMM1_CHANNEL_NUMERIC", 1, "Comms frequency", "Comm 1 Channel as number")   
-defineFloatFromUFCChannel("COMM2_CHANNEL_NUMERIC", 2, "Comms frequency", "Comm 2 Channel as number")   
+defineFloatFromUFCChannel("COMM1_CHANNEL_NUMERIC", 1, "Comms frequency", "Comm 1 Channel as number")
+defineFloatFromUFCChannel("COMM2_CHANNEL_NUMERIC", 2, "Comms frequency", "Comm 2 Channel as number")
 
 ---- INSTRUMENT PANEL
 -- 1. Lock/Shoot Lights
@@ -1081,7 +1081,7 @@ defineToggleSwitch("LIGHTS_TEST_SW", 9, 3007, 416, "Interior Lights Panel", "Lig
 
 -- 5. Sensor Panel
 define3PosTumb("FLIR_SW", 62, 3001, 439, "Sensor Panel", "FLIR Switch, ON/STBY/OFF")
-defineToggleSwitch("LTD_R_SW", 62, 3002, 441, "Sensor Panel", "LTD/R Switch, ARM/SAFE") 
+defineToggleSwitch("LTD_R_SW", 62, 3002, 441, "Sensor Panel", "LTD/R Switch, ARM/SAFE")
 defineToggleSwitch("LST_NFLR_SW", 62, 3003, 442, "Sensor Panel", "LST/NFLR Switch, ON/OFF")
 defineTumb("RADAR_SW", 42, 3001, 440, 0.1, {0, 0.3}, nil, false, "Sensor Panel", "RADAR Switch Change ,OFF/STBY/OPR/EMERG(PULL)")
 definePushButton("RADAR_SW_PULL", 42, 3002, 440, "Sensor Panel", "RADAR Switch Pull (MW to pull), OFF/STBY/OPR/EMERG(PULL)")
@@ -1218,5 +1218,7 @@ defineFloat("INT_THROTTLE_RIGHT", 105, {0, 1}, "Throttle Quadrant", "Right Throt
 defineFloat("AOA_INDEXER_HIGH_F", 4, {0, 1}, "Angle of Attack Indexer Lights", "AOA Indexer High as Float (green)")
 defineFloat("AOA_INDEXER_NORMAL_F", 5, {0, 1}, "Angle of Attack Indexer Lights", "AOA Indexer Normal as Float (yellow)")
 defineFloat("AOA_INDEXER_LOW_F", 6, {0, 1}, "Angle of Attack Indexer Lights", "AOA Indexer Low as Float (red)")
+
+defineToggleSwitch("KY58_FILL_SEL_PULL", 41, 3003, 0, "KY-58 Control", "KY-58 Fill Select Knob, Pull")
 
 BIOS.protocol.endModule()

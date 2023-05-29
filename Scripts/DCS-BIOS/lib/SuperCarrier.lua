@@ -3,7 +3,7 @@ BIOS.protocol.setExportModuleAircrafts(BIOS.ALL_PLAYABLE_AIRCRAFT)
 
 local documentation = moduleBeingDefined.documentation
 
-local document = BIOS.util.document  
+local document = BIOS.util.document
 
 local definePushButton = BIOS.util.definePushButton
 local defineIndicatorLight = BIOS.util.defineIndicatorLight

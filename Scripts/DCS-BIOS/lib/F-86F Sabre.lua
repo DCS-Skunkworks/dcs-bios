@@ -3,7 +3,7 @@ BIOS.protocol.setExportModuleAircrafts({"F-86F Sabre"})
 --by ArturDCS,WarLord v3.0
 local documentation = moduleBeingDefined.documentation
 
-local document = BIOS.util.document  
+local document = BIOS.util.document
 
 local defineFloat = BIOS.util.defineFloat
 local defineIndicatorLight = BIOS.util.defineIndicatorLight
@@ -317,7 +317,7 @@ local function getBand()
      local returnValue = (((GetDevice(0):get_argument_value(804))*3)+1)
      return returnValue
 end
-defineIntegerFromGetter("ARN6_BAND_DISP", getBand, 65000, 
+defineIntegerFromGetter("ARN6_BAND_DISP", getBand, 65000,
 "Gauge Values", "ARN-6 Band")
 
 local function getARN6Freq()
@@ -333,112 +333,112 @@ local function getARN6Freq()
    end
    return returnValue
 end
-defineIntegerFromGetter("ARN6_FREQUENCY", getARN6Freq, 65000, 
+defineIntegerFromGetter("ARN6_FREQUENCY", getARN6Freq, 65000,
 "Gauge Values", "ARN-6 Frequency")
 
 local function getBearing()
      local returnValue = (GetDevice(0):get_argument_value(600))*360
      return returnValue
 end
-defineIntegerFromGetter("ARN6_BEARING_VALUE", getBearing, 65000, 
+defineIntegerFromGetter("ARN6_BEARING_VALUE", getBearing, 65000,
 "Gauge Values", "ARN-6 Bearing Value")
 
 local function getScale()
      local returnValue = (GetDevice(0):get_argument_value(814))*360
      return returnValue
 end
-defineIntegerFromGetter("ARN6_SCALE_VALUE", getScale, 65000, 
+defineIntegerFromGetter("ARN6_SCALE_VALUE", getScale, 65000,
 "Gauge Values", "ARN-6 Scale Value")
 
 local function getMach()
      local returnValue = (((-0.1871*(GetDevice(0):get_argument_value(179))^4)+(1.0314*(GetDevice(0):get_argument_value(179))^3)-(1.3069*(GetDevice(0):get_argument_value(179))^2)+(1.5846*(GetDevice(0):get_argument_value(179)))+0.4231)*100)
      return returnValue
 end
-defineIntegerFromGetter("MACH_NUMBER_VALUE_X.XX", getMach, 65000, 
+defineIntegerFromGetter("MACH_NUMBER_VALUE_X.XX", getMach, 65000,
 "Gauge Values", "Mach Number Value Read As X.XX")
 
 local function getAirspeed()
      local returnValue = (((GetDevice(0):get_argument_value(178))*625)+40)
      return returnValue
 end
-defineIntegerFromGetter("AIRSPEED_VALUE", getAirspeed, 65000, 
+defineIntegerFromGetter("AIRSPEED_VALUE", getAirspeed, 65000,
 "Gauge Values", "Airspeed Value")
 
 local function getAlt()
      local returnValue = (GetDevice(0):get_argument_value(707))*100000
      return returnValue
 end
-defineIntegerFromGetter("ALTITUDE_VALUE", getAlt, 65000, 
+defineIntegerFromGetter("ALTITUDE_VALUE", getAlt, 65000,
 "Gauge Values", "Altitude Value")
 
 local function getExhTemp()
      local returnValue = (GetDevice(0):get_argument_value(12))*1000
      return returnValue
 end
-defineIntegerFromGetter("EXHAUST_TEMP_VALUE", getExhTemp, 65000, 
+defineIntegerFromGetter("EXHAUST_TEMP_VALUE", getExhTemp, 65000,
 "Gauge Values", "Exhaust Temperature Value")
 
 local function getOilPres()
      local returnValue = (GetDevice(0):get_argument_value(112))*100
      return returnValue
 end
-defineIntegerFromGetter("OIL_PRESSURE_VALUE", getOilPres, 65000, 
+defineIntegerFromGetter("OIL_PRESSURE_VALUE", getOilPres, 65000,
 "Gauge Values", "Oil Pressure Value")
 
 local function getFuelFlow()
      local returnValue = (GetDevice(0):get_argument_value(531))*10000
      return returnValue
 end
-defineIntegerFromGetter("FUEL_FLOW_VALUE", getFuelFlow, 65000, 
+defineIntegerFromGetter("FUEL_FLOW_VALUE", getFuelFlow, 65000,
 "Gauge Values", "Fuel Flow Value")
 
 local function getVolt()
      local returnValue = (GetDevice(0):get_argument_value(601))*100
      return returnValue
 end
-defineIntegerFromGetter("DC_VOLTAGE_VALUE", getVolt, 65000, 
+defineIntegerFromGetter("DC_VOLTAGE_VALUE", getVolt, 65000,
 "Gauge Values", "DC Voltage Value")
 
 local function getLoad()
      local returnValue = (GetDevice(0):get_argument_value(602))*100
      return returnValue
 end
-defineIntegerFromGetter("LOADMETER_VALUE", getLoad, 65000, 
+defineIntegerFromGetter("LOADMETER_VALUE", getLoad, 65000,
 "Gauge Values", "Loadmeter Value")
 
 local function getTach()
      local returnValue = ((5.894*(GetDevice(0):get_argument_value(16))^3)+(3.021*(GetDevice(0):get_argument_value(16))^2)+(101.29*(GetDevice(0):get_argument_value(16)))+0.0758)
      return returnValue
 end
-defineIntegerFromGetter("TACHOMETER_VALUE", getTach, 65000, 
+defineIntegerFromGetter("TACHOMETER_VALUE", getTach, 65000,
 "Gauge Values", "Tachometer Value")
 
 local function getHydPres()
      local returnValue = (GetDevice(0):get_argument_value(109))*4000
      return returnValue
 end
-defineIntegerFromGetter("HYDRAULIC_PRES_VALUE", getHydPres, 65000, 
+defineIntegerFromGetter("HYDRAULIC_PRES_VALUE", getHydPres, 65000,
 "Gauge Values", "Hydraulic Pressure Value")
 
 local function getFuelQuant()
      local returnValue = (GetDevice(0):get_argument_value(22))*3200
      return returnValue
 end
-defineIntegerFromGetter("FUEL_QUANTITY_VALUE", getFuelQuant, 65000, 
+defineIntegerFromGetter("FUEL_QUANTITY_VALUE", getFuelQuant, 65000,
 "Gauge Values", "Fuel Quantity Value")
 
 local function getOxyPres()
      local returnValue = (GetDevice(0):get_argument_value(353))*500
      return returnValue
 end
-defineIntegerFromGetter("OXYGEN_PRESSURE_VALUE", getOxyPres, 65000, 
+defineIntegerFromGetter("OXYGEN_PRESSURE_VALUE", getOxyPres, 65000,
 "Gauge Values", "Oxygen Pressure Value")
 
 local function getCockpitAlt()
      local returnValue = (GetDevice(0):get_argument_value(114))*50000
      return returnValue
 end
-defineIntegerFromGetter("COCKPIT_ALT_VALUE", getCockpitAlt, 65000, 
+defineIntegerFromGetter("COCKPIT_ALT_VALUE", getCockpitAlt, 65000,
 "Gauge Values", "Cockpit Altitude Value")
 
 local function getHDG()
@@ -450,14 +450,14 @@ local function getHDG()
      end
      return heading
 end
-defineIntegerFromGetter("HEADING_VALUE", getHDG, 65000,"Gauge Values", 
+defineIntegerFromGetter("HEADING_VALUE", getHDG, 65000,"Gauge Values",
 "Heading Value")
 
 local function getVVI()
      local returnValue = (-1319.8*(GetDevice(0):get_argument_value(24))^5)+(0.00000005*(GetDevice(0):get_argument_value(24))^4)+(4334.8*(GetDevice(0):get_argument_value(24))^3)+(0.0000002*(GetDevice(0):get_argument_value(24))^2)+(2988.1*(GetDevice(0):get_argument_value(24)))+0.0000001
      return returnValue
 end
-defineIntegerFromGetter("VVI_VALUE", getVVI, 65000, 
+defineIntegerFromGetter("VVI_VALUE", getVVI, 65000,
 "Gauge Values", "Verticl Velocity VVI")
 
 defineIndicatorLight("RADAR_TGT_L",618, "Lamps", "Radar Target Indicator Light (red)")

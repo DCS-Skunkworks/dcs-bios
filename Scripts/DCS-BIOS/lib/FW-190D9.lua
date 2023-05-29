@@ -3,7 +3,7 @@ BIOS.protocol.setExportModuleAircrafts({"FW-190D9"})
 --overhaul by WarLord v2.0
 local documentation = moduleBeingDefined.documentation
 
-local document = BIOS.util.document  
+local document = BIOS.util.document
 
 local defineFloat = BIOS.util.defineFloat
 local defineIndicatorLight = BIOS.util.defineIndicatorLight

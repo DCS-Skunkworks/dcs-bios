@@ -3,7 +3,7 @@ BIOS.protocol.setExportModuleAircrafts({"Mi-24P"})
 --v1.2a by WarLord&charliefoxtwo
 local documentation = moduleBeingDefined.documentation
 
-local document = BIOS.util.document  
+local document = BIOS.util.document
 
 local defineFixedStepInput = BIOS.util.defineFixedStepInput
 local defineFloat = BIOS.util.defineFloat
@@ -209,7 +209,7 @@ definePushButton("OP_GYRO_2_CAGE", 26, 3003, 701, "MGV1SU", "OPERATOR Cage Gyro 
 
 --UKT2
 defineRotary("PLT_UKT2_PITCH_TRIM", 18, 3001, 951, "UKT-2", "PILOT UKT-2 Pitch Trim Knob")
- 
+
 defineFloat("PLT_UKT2_PITCH", 949, {-1, 1}, "UKT-2 Gauges", "PILOT UKT-2 Pitch")
 defineFloat("PLT_UKT2_ROLL", 950, {1, -1}, "UKT-2 Gauges", "PILOT UKT-2 Roll")
 defineFloat("PLT_UKT2_FAIL_FLG", 948, {0, 1}, "UKT-2 Gauges", "PILOT UKT-2 Failure Flag")
@@ -1009,7 +1009,7 @@ defineSpringloaded_3PosTumb("PLT_ARCU2_FRAME", 54, 3002, 3003, 325, "ARC-U2 ", "
 defineToggleSwitch("PLT_ARCU2_SENS", 54, 3004, 326, "ARC-U2 ", "PILOT ARC-U2 switcher sensitivity B-M")
 define3PosTumb("PLT_ARCU2_COMPASS", 54, 3005, 327, "ARC-U2 ", "PILOT ARC-U2 switcher COMPASS R-852–RADIOLINK–COMPASS R-828")
 
---SPU-8 
+--SPU-8
 defineToggleSwitch("PLT_SPU8_NET", 55, 3007, 452, "SPU-8 PLT", "PILOT SPU-8 Network 1/2 Switch (N/F)")
 definePotentiometer("PLT_SPU8_RADIO_VOL", 55, 3002, 453, {0, 1}, "SPU-8 PLT", "PILOT SPU-8 Radio Volume Knob")
 definePushButton("PLT_SPU8_CIRC", 55, 3008, 454, "SPU-8 PLT", "PILOT SPU-8 Circular Call Button (N/F)")

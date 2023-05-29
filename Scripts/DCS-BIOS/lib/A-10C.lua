@@ -116,7 +116,7 @@ local function getTacanChannel()
     if GetDevice(0):get_argument_value(263) == 0 then
         tcn_2 = "0"
     else
-    	tcn_2 = "1"    
+    	tcn_2 = "1"
     end
     local tcn_1 = string.format("%.1f", GetDevice(0):get_argument_value(264)):sub(3)
     local tcn_0 = string.format("%.1f", GetDevice(0):get_argument_value(265)):sub(3)
@@ -194,11 +194,11 @@ document {
 	}
 }
 moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
-	
+
 	local line1, line2 = getCMSPDisplayLines(dev0)
 	cmsp1Alloc:setValue(line1)
 	cmsp2Alloc:setValue(line2)
-	
+
 end
 
 defineFloat("SAI_PITCH", 63, {-1, 1}, "Standby Attitude Indicator", "SAI Pitch")
@@ -462,7 +462,7 @@ defineToggleSwitch("CMSP_JTSN", 4, 3008, 358, "CMSP", "JTSN / OFF")
 definePotentiometer("CMSP_BRT", 4, 3009, 359, {0.15, 0.85}, "CMSP", "Brightness")
 
 local function defineCMSPSwitch(msg, device_id, down_command, up_command, arg_number, category, description)
-	
+
 	local alloc = moduleBeingDefined.memoryMap:allocateInt{ maxValue = 2 }
 	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
 		local lut = {["0.0"] = "0", ["0.1"] = "1", ["0.2"] = "2"}
@@ -726,7 +726,7 @@ moduleBeingDefined.inputProcessors["EFCP_EMER_TRIM"] = function(args)
 		args = tostring(currentState - 1)
 		if args == "-1" then args = "4" end
 	end
-	
+
 	if args == "0" then
 		GetDevice(38):performClickableAction(3025, 0)
 	elseif args == "1" then
@@ -742,8 +742,8 @@ moduleBeingDefined.inputProcessors["EFCP_EMER_TRIM"] = function(args)
 		GetDevice(38):performClickableAction(3025, 0)
 		GetDevice(38):performClickableAction(3020, 0.4)
 	end
-	
-	
+
+
 end
 define3PosTumb("EFCP_AILERON_EMER_DISENGAGE", 38, 3021, 177, "Emergency Flight Control Panel", "Aileron Emergency Disengage LEFT - OFF - RIGHT")
 define3PosTumb("EFCP_ELEVATOR_EMER_DISENGAGE", 38, 3022, 180, "Emergency Flight Control Panel", "Elevator Emergency Disengage LEFT - OFF - RIGHT")
@@ -945,7 +945,7 @@ moduleBeingDefined.inputProcessors["TACAN_1"] = function(args)
 			GetDevice(74):performClickableAction(3003, 1)
 		else
 			GetDevice(74):performClickableAction(3003, 0)
-		end	
+		end
 	else
 		oldInputHandler(args)
 	end
@@ -984,7 +984,7 @@ moduleBeingDefined.inputProcessors["SET_UHF"] = function(freq)
 	freq = freq:gsub("%.", "")
 	freq = tonumber(freq)
 	if type(freq) == "nil" then return end
-	
+
 	GetDevice(54):set_frequency(freq*1000)
 end
 
@@ -1003,7 +1003,7 @@ moduleBeingDefined.inputProcessors["SET_VHF_AM"] = function(freq)
 	freq = freq:gsub("%.", "")
 	freq = tonumber(freq)
 	if type(freq) == "nil" then return end
-	
+
 	GetDevice(55):set_frequency(freq*1000)
 end
 
@@ -1022,7 +1022,7 @@ moduleBeingDefined.inputProcessors["SET_VHF_FM"] = function(freq)
 	freq = freq:gsub("%.", "")
 	freq = tonumber(freq)
 	if type(freq) == "nil" then return end
-	
+
 	GetDevice(56):set_frequency(freq*1000)
 end
 
@@ -1152,7 +1152,7 @@ local CDU_LINE_LEN = 24
 
 moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	local cdu = parse_indication(3)
-	
+
 	if cdu then
 	local cursor_pos = 2
 	if cdu.ScratchString then cursor_pos = cdu.ScratchString:len()+2 end
