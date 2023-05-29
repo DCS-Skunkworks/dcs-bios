@@ -54,13 +54,13 @@ Your panels will always maintain their functionality.
 ==== DCS-BIOS has an extremely efficient protocol design
 The communication protocol that DCS-BIOS uses to talk to your panel was designed with slow serial ports in mind.
 Your indicators, gauges and displays will never stutter or lag during a flurry of activity in the cockpit.
-Pressing the signal lamp test button when spooling up the engines, or when half your caution lights panel is blinking after a SAM hit will have no impact on how fast your cockpit instruments respond.  
+Pressing the signal lamp test button when spooling up the engines, or when half your caution lights panel is blinking after a SAM hit will have no impact on how fast your cockpit instruments respond.
 
 ==== DCS-BIOS covers everything.
 There are a variety of interface boards available that allow you to connect switches or rotary encoders or maybe even both to DCS.
 DCS-BIOS however, extends way beyond any solution you might presently find.
 In fact, it is the most comprehensive means of connecting your switch panel to any combination of your DCS aircrafts' buttons, switches, rotary encoders, potentiometers, push buttons, three way switches etc., etc.
-In short, if it can be manipulated using Lua, DCS-BIOS supports it. 
+In short, if it can be manipulated using Lua, DCS-BIOS supports it.
 
 ==== DCS-BIOS makes use of the extremely popular Arduino ecosystem
 DCS-BIOS was designed to work with the http://www.arduino.cc[Arduino family of microcontroller boards.]
@@ -98,8 +98,8 @@ We will assume you have access to the following:
 
 * A computer that has DCS: World and the A-10C module installed with access to the internet and a free USB port
 * An Arduino board (the http://arduino.cc/en/Main/ArduinoBoardUno[Arduino UNO] is a good choice for beginners)
-* A momentary on push button (the kind that stays on as long as you are pressing it) 
-* An LED (any colour and/or size) but not one of those super high powered, go blind if you look at it, types. 
+* A momentary on push button (the kind that stays on as long as you are pressing it)
+* An LED (any colour and/or size) but not one of those super high powered, go blind if you look at it, types.
 * A 220ohm 1/4 watt resistor
 * 24 gauge wire or jumper wires
 
@@ -125,11 +125,11 @@ This should take you to your DCS configuration folder (it has several subfolders
 ----
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\BIOS.lua]])
 ----
-  
+
 WARNING: You should never use any word processing software to edit text files.
 Word processing software saves formatting information in the file which will render it unusable.
 
-Note: If you use the Raygun Software from Buddyfox (A-10C UFC), his entry must stand above the DCS-BIOS entry in the Export.lua !!! 
+Note: If you use the Raygun Software from Buddyfox (A-10C UFC), his entry must stand above the DCS-BIOS entry in the Export.lua !!!
 
 
 ==== Step 2: Connecting your LED and Push Button Switch
@@ -167,7 +167,7 @@ image::uno1.jpg[651, 651]
 
 *You have now completed all of the required wiring for you first switch panel.*
 
-NOTE: The USB port provides power to the Arduino board but many boards also have a jack that allows you use an external power supply such as a wallwart providing it supplies 7 to 12V and the centre pin is positive. 
+NOTE: The USB port provides power to the Arduino board but many boards also have a jack that allows you use an external power supply such as a wallwart providing it supplies 7 to 12V and the centre pin is positive.
 
 
 
@@ -178,7 +178,7 @@ You use it to write small programs (they are called "sketches") and upload them 
 You should probably read the page describing how to use the IDE on the Arduino web site.
 It is very simple and you should have little to no difficulty understanding what to do.
 So to continue...
-   
+
 . Download and install the Arduino IDE http://arduino.cc/en/Main/Software[from the Arduino website.]
 
 The Arduino IDE uses what are referred to as "Libraries" to help you make various types of devices work properly using a minimum of commands.
@@ -213,13 +213,13 @@ In order to simplify this process you will begin your sketch by opening a "templ
 Until such day as you become an Arduino programming expert you will start every new sketch with this template.
 It provides all of the essential code necessary to communicate with DCS.
 It automatically reads the state of your connected switches and reports this to DCS-BIOS which then updates the switches of your DCS aircraft.
- 
+
 Another function of this template is to automatically gather output data from DCS.
 You can use this data to make gauges function, displays work or indicator lights to light up.
 We will provide you with several examples in the appendix.
 
 
-NOTE: Take special care not to alter any of the existing code that comes with this template as you work on your sketch.  
+NOTE: Take special care not to alter any of the existing code that comes with this template as you work on your sketch.
 
 ==== So lets begin:
 
@@ -227,13 +227,13 @@ NOTE: Take special care not to alter any of the existing code that comes with th
 
 To develop a sketch for your panel, you are going to copy pieces of example code from a reference document that we have provided.
 
-* Go to your saved Games folder/Scripts/DCS-BIOS/doc and double-click on the file `control-reference.html` 
+* Go to your saved Games folder/Scripts/DCS-BIOS/doc and double-click on the file `control-reference.html`
 Your web browser will automatically open and display all sorts of colorful headings and code.
 If you see a red warning instead, you need to enable JavaScript in your web browser and reload the page.
 
 This web page is the reference document we are referring to.
 It lists every single DCS module that DCS-BIOS supports, every single panel found in that aircraft, and every single corresponding switch, push button and rotary knob or whatever associated with that panel and the corresponding code that you will use to create your sketch.
- 
+
 Along the top of the web page, there are "filters" in the form of drop down menus that can be used to display precisely what you are looking for.
 Select the desired aircraft module in the "Module" list.
 You have the choice of what aircraft you would like to work with, the type of information you would like displayed (basic or advanced) and every single panel on the aircraft you chose to work with.
@@ -245,7 +245,7 @@ The first entry should be the one for the Master Caution Light.
 
 * left click in the box with the yellow background to highlight the example code.
 Then copy the selected text to your clipboard by pressing `Ctrl+C`.
-Now move to the Arduino IDE and paste this line in the space just below where it says "paste your code below here".   
+Now move to the Arduino IDE and paste this line in the space just below where it says "paste your code below here".
 
 * Now go back to the control reference web page.
 Scroll down a bit until you come to the `UFC_MASTER_CAUTION / Master Caution Reset` entry.
@@ -255,7 +255,7 @@ Move to the Arduino IDE and paste this line in the space below the last one.
 
 Did you notice the red highlighting in the control reference document?
 It highlights the word "PIN" or "PIN_A, PIN_B" etc.
-These are temporary placeholders that you will be changing.  
+These are temporary placeholders that you will be changing.
 
 * Lets start with the switch that you are using to reset the Master Caution.
 You attached it to Pin 10 on the Arduino board.
@@ -267,10 +267,10 @@ The line of code for the Master Caution switch should have changed as follows:
 [source,c++]
 ----
 DcsBios::Switch2Pos ufcMasterCaution("UFC_MASTER_CAUTION", PIN);
-DcsBios::Switch2Pos ufcMasterCaution("UFC_MASTER_CAUTION", 10);  
----- 
+DcsBios::Switch2Pos ufcMasterCaution("UFC_MASTER_CAUTION", 10);
+----
 
-* You now do the same for the LED that respresents the Master Caution warning. 
+* You now do the same for the LED that respresents the Master Caution warning.
 As before, you go into the Arduino IDE, to the line of code you pasted for it.
 Change the word "PIN" to the pin number you connected the LED to.
 The word "PIN' gets replaced with 13.
@@ -310,7 +310,7 @@ Now that your sketch is done, you need to load it onto your Arduino board.
 The specifics of this process may vary slightly for different Arduino boards but for the most part they all follow the same basic routine.
 We use the Arduino UNO in this example.
 
-NOTE: The Arduino website has http://arduino.cc/en/Guide/HomePage[step-by-step instructions for each board.] 
+NOTE: The Arduino website has http://arduino.cc/en/Guide/HomePage[step-by-step instructions for each board.]
 
 * With your sketch open in the Arduino IDE you need to tell the IDE what board you are using.
 Do this by Clicking on `Tools -> Board` and then select your board from the list that is displayed.
@@ -318,12 +318,12 @@ Do this by Clicking on `Tools -> Board` and then select your board from the list
 Click `Tools -> Port` and select the port from the list.
 
 
-NOTE: If you are unsure of the port number, it is identified in the `Control Panel/Devices and Printers` page. 
+NOTE: If you are unsure of the port number, it is identified in the `Control Panel/Devices and Printers` page.
 
 * The final step is to initiate the upload.
 This is done by clicking on the Arrow in the circle just below the Edit drop down menu.
 When the upload begins, a green bar will apear and show the progress of the upload.
-When it disappears the upload is complete.  
+When it disappears the upload is complete.
 
 
 * After loading your program onto your Arduino board, you can close the Arduino software.
@@ -352,18 +352,18 @@ For example, to use COM5, the line should look like this:
 ----
 set COMPORT=5
 ----
- 
+
 * Save the file and close Notepad++.
 
 WARNING: If you make a copy of the script, you need to place it in the same folder as the original. Otherwise it will not find the `socat` executable.
 
 ==== Summary
 You can make any panel you like using this template file.
- 
+
 * Add the lines of code from the `control-reference.html` documentation to your sketch for the switches and/or LED's you wish to use.
-  
+
 * Upload that sketch to your Arduino board.
- 
+
 * Connect the appropriate switch type and/or LED to the appropriate pin number on the Arduino board.
 
 * Initiate the serial connection to DCS.
@@ -394,7 +394,7 @@ The information provided at this point may require some level of knowledge with 
 
 === The MasterCaution Example Sketch
 
-This section takes a closer look at the different parts of the MasterCaution example sketch. 
+This section takes a closer look at the different parts of the MasterCaution example sketch.
 
 [source,c++]
 ----
@@ -415,7 +415,7 @@ void loop() {
   DcsBios::loop(); // <6>
 }
 
-  
+
 }
 ----
 
@@ -426,7 +426,7 @@ void loop() {
 Refer to the control reference documentation for more examples.
 <5> In your `setup()` function, you have to call `DcsBios::setup()` to initialize the DCS-BIOS Arduino Library.
 <6> In your `loop()` function, you have to call `DcsBios::loop()`. This causes the DCS-BIOS Arduino library to notify DCS if any inputs (push buttons, switches, etc.) have changed, and to update any outputs (LEDs, servo motors, displays, etc.) with the latest data from DCS.
-  
+
 
 
 === Using the Control-Reference Documentation
@@ -480,11 +480,11 @@ DCS-BIOS also includes indicator LED's in the Controls as follows:
 Each control is identified by a unique identifier and is associated with a category, which is usually the panel it is found on in the DCS aircraft cockpit.
 
 .example:
-`DcsBios::SwitchPos2 ahcpCicu("AHCP_CICU", PIN);` 
+`DcsBios::SwitchPos2 ahcpCicu("AHCP_CICU", PIN);`
 
-* whereas `ahcpCicu` indicates the CICU switch on the AHCP panel.  
+* whereas `ahcpCicu` indicates the CICU switch on the AHCP panel.
 
-* The first notation between the brackets `"AHCP_CICU"` is a placeholder for a piece of data that gets sent to DCS when a change occurs to a pin on the Arduino board.  
+* The first notation between the brackets `"AHCP_CICU"` is a placeholder for a piece of data that gets sent to DCS when a change occurs to a pin on the Arduino board.
 
 * The second notation `PIN` is also a placeholder however, you have to replace it with the pin number that your control is attached to.  In the Control-Reference document, placeholder that require you to assign a specific pin number to are always highlighted in"RED"
 There also a few knobs/switches in your cockpit represented with two separate controls.
@@ -731,9 +731,9 @@ DcsBios::ActionButton ahcpCicuToggle("AHCP_CICU", "TOGGLE", PIN);
 .Code Examples
 [source,c++]
 ----
-DcsBios::ActionButton ahcpCicuToggle("AHCP_CICU", "TOGGLE", 10);  
+DcsBios::ActionButton ahcpCicuToggle("AHCP_CICU", "TOGGLE", 10);
 ----
- 
+
 
 === LED
 
@@ -747,7 +747,7 @@ The LED class is used for indicator lights.
 .Constructor Parameters
 address:: The address of the integer output
 mask:: The mask of the integer output
-pin:: The number of the Arduino pin that the LED (and current-limiting resistor) are connected to. Prior to connecting multiple LED's to your Arduino board, it would be advisable to read the section on LED's on the Arduino web site.  
+pin:: The number of the Arduino pin that the LED (and current-limiting resistor) are connected to. Prior to connecting multiple LED's to your Arduino board, it would be advisable to read the section on LED's on the Arduino web site.
 
 .Circuit
 
@@ -773,7 +773,7 @@ DcsBios::ServoOutput (unsigned int address, char pin, int minPulseWidth, int max
 .Circuit
 Servos have 3 wires which are black, red and orange or yellow.
 Black and red are for 5V power in.
-The orange or yellow wire is the signal and must be plugged into one of the PWM pins having the ~designation. On the Uno those pins are ~3, ~5, ~6, ~9, ~10, ~11. 
+The orange or yellow wire is the signal and must be plugged into one of the PWM pins having the ~designation. On the Uno those pins are ~3, ~5, ~6, ~9, ~10, ~11.
 
 image::DCSBIOSservo.png[500, 500]
 

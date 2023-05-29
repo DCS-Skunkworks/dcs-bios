@@ -523,7 +523,7 @@ table.CodeRay td.code>pre{padding:0}
     Using equations from <a href="http://www.ti.com/lit/an/slyt324/slyt324.pdf">RS-485: Passive failsafe for an idle bus</a> by Thomas Kugelstadt, Senior Applications Engineer at Texas Instruments.
 
     <h2 class="Stil3">Step 1: Calculate R<sub>FS</sub></h2>
-    
+
     Supply voltage: <input id="Vs" type="text" value="5"> V<br>
     Tolerance: <select id="Vs_tolerance">
       <option value="5">5%</option>
@@ -534,21 +534,21 @@ table.CodeRay td.code>pre{padding:0}
     For proper termination, use 100 ohm for Cat5 cable, 120 ohm for standard RS-485 cable. If your cable is short enough so you don't care about reflections, you can try higher values.<br><br>
     <button id="calc_RFS">Calculate R<sub>FS</sub></button>
     <div id="step1_output"></div>
-    
+
     <h2 class="Stil3">Step 2: Calculate R<sub>T2</sub></h2>
-    <p>R<sub>FS</sub>: 
+    <p>R<sub>FS</sub>:
       <input id="R_FS" type="text">
     </p>
     <button id="calc_RT2">Calculate R<sub>T2</sub></button>
     <div id="step2_output"></div>
 
     <h2 class="Stil3">Step 3: Determine max. number of devices</h2>
-    <p>R<sub>T2</sub>: 
+    <p>R<sub>T2</sub>:
       <input id="R_T2" type="text">
     </p>
     <button id="calc_stats">Calculate</button><br>
     <div id="step3_output"></div>
-    
+
     <p>
       <script src="js/jquery-3.7.0.min.js"></script>
     </p>
