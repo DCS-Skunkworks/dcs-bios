@@ -31,5 +31,4 @@ timeout 5
 if "%PROTOCOL%" == "UDP" socat\socat %VERBOSE% UDP4-RECV:5010,ip-add-membership=239.255.50.10:0.0.0.0,reuseaddr!!udp-sendto:localhost:7778 /dev/ttyS%TTYNUM%
 if "%PROTOCOL%" == "TCP" socat\socat %VERBOSE% TCP4-CONNECT:127.0.0.1:7778 /dev/ttyS%TTYNUM%
 
-
 pause

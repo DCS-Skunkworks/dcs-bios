@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("MB-339PAN", 0x8200)
 BIOS.protocol.setExportModuleAircrafts({"MB-339PAN"})
---by WarLord 
+--by WarLord
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document
@@ -147,7 +147,7 @@ defineToggleSwitch("SMK_COLOR", 17, 3137, 332, "Smokes" , "Smoke Color Switch")
 
 --SOUND_SYSTEM
 defineToggleSwitch("WARN_SILENCE", 19, 10164, 382, "Sound System" , "WARNING SILENCE")
- 
+
 --NAV
 defineToggleSwitch("FLT_HDG", 23, 10184, 333, "NAV" , "FLT DIR HDG Button")
 defineToggleSwitch("FLT_GS_ARM", 23, 10185, 334, "NAV" , "FLT DIR GS ARM Button")
