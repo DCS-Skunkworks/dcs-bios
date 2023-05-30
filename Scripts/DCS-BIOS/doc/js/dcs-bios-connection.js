@@ -1,6 +1,6 @@
 var ProtocolParser = function() {
 	var parser = Object.create(ProtocolParser.prototype);
-	
+
 	var state = "WAIT_FOR_SYNC";
 	var sync_byte_count = 0;
 	var address_buffer = new ArrayBuffer(2);
@@ -12,17 +12,17 @@ var ProtocolParser = function() {
 	var data_buffer = new ArrayBuffer(2);
 	var data_uint8 = new Uint8Array(data_buffer);
 	var data_uint16 = new Uint16Array(data_buffer);
-	
+
 	parser.processChar = function(c) {
 		switch(state) {
 			case "WAIT_FOR_SYNC":
 			break;
-			
+
 			case "ADDRESS_LOW":
 				address_uint8[0] = c;
 				state = "ADDRESS_HIGH";
 			break;
-			
+
 			case "ADDRESS_HIGH":
 				address_uint8[1] = c;
 				if (address_uint16[0] != 0x5555) {
@@ -31,23 +31,23 @@ var ProtocolParser = function() {
 					state = "WAIT_FOR_SYNC";
 				}
 			break;
-			
+
 			case "COUNT_LOW":
 				count_uint8[0] = c;
 				state = "COUNT_HIGH";
 			break;
-			
+
 			case "COUNT_HIGH":
 				count_uint8[1] = c;
 				state = "DATA_LOW";
 			break;
-			
+
 			case "DATA_LOW":
 				data_uint8[0] = c;
 				count_uint16[0]--;
 				state = "DATA_HIGH";
 			break;
-			
+
 			case "DATA_HIGH":
 				data_uint8[1] = c;
 				count_uint16[0]--;
@@ -59,21 +59,21 @@ var ProtocolParser = function() {
 					state = "DATA_LOW";
 				}
 			break;
-				
+
 		}
-		
+
 		if (c == 0x55)
 			sync_byte_count++;
 		else
 			sync_byte_count = 0;
-			
+
 		if (sync_byte_count == 4) {
 			state = "ADDRESS_LOW";
 			sync_byte_count = 0;
 			$(document).trigger("dcs-bios-frame-sync");
 		}
 	}
-	
+
 	return parser;
 }
 
@@ -90,18 +90,18 @@ $(function() {
 	if (typeof chrome == "undefined") return;
 	if (!chrome.sockets) return;
 	if (!chrome.sockets.tcp) return;
-	
+
     var socketId;
 	var parser = ProtocolParser();
-	
+
     var onReceive = function(info) {
         if (info.socketId != socketId) return;
-		
+
 		var data = new DataView(info.data);
 		for (var i=0; i<data.byteLength; i++)
 			parser.processChar(data.getUint8(i));
     };
-    
+
 	tcp.create()
 	.then(function(createInfo) {
 		socketId = createInfo.socketId;
@@ -116,11 +116,11 @@ $(function() {
 		chrome.sockets.tcp.onReceive.addListener(onReceive);
 		console.log(socketId);
 	});
-	
+
 	$(document).on("dcs-bios-send", function(evt, msg) {
 		chrome.sockets.tcp.send(socketId, rawStringToBuffer(msg), function(result) {
-		
+
 		});
 	});
-	
+
 });

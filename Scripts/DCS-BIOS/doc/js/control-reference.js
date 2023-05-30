@@ -14,7 +14,7 @@ function highlightThis() {
 }
 
 $(function() {
-	var moduleSelect = $("<select>");	
+	var moduleSelect = $("<select>");
 	_.each(docdata, function(value, key) {
 		moduleSelect.append($("<option>").attr("value", key).text(key));
 	});
@@ -22,7 +22,7 @@ $(function() {
 	headerDiv.append($("<span>").text("Module: "));
 	headerDiv.append(moduleSelect);
 	$("#app").attr("style", "padding-top: 50px;");
-	
+
 	var viewSelect = $("<select>");
 	viewSelect.append($("<option>").attr("value", "simple").text("Simple"));
 	viewSelect.append($("<option>").attr("value", "advanced").text("Advanced"));
@@ -37,60 +37,60 @@ $(function() {
 	headerDiv.append($("<span>").text(" View: "));
 	headerDiv.append(viewSelect);
 
-	
+
 	var categoryFilter = $("<select>");
 	headerDiv.append($("<span>").text(" Category Filter: "));
 	headerDiv.append(categoryFilter);
-	
+
 	headerDiv.append($('<span> </span>'));
-	
+
 	var button = $("<button>").text("Pointer Calibration Tool");
 	button.on("click", function() {
 		$("#pointercal").toggle(!$("#pointercal").is(':visible'));
 	});
 	headerDiv.append(button);
-	
+
 	headerDiv.append($('<span> </span>'));
-	
+
  	var button2 = $("<button>").text("Refresh");
     button2.on("click", function() {
 		chrome.runtime.reload()
     });
     headerDiv.append(button2);
-	
+
 	headerDiv.append($('<span> </span>'));
-	
+
 	var button3 = $("<button>").text("?");
 	button3.on("click", function() {
 		window.open('../Start.html');
 		//chrome.browser.openTab({url: "Start.html"});
 	});
 	headerDiv.append(button3);
-	
+
 	$("#app").append(headerDiv);
 	$("#app").append($('<iframe id="pointercal" style="display:none" src="pointercal.html" width="100%" height="500"></iframe>'));
 
 	var controlsDiv = $("<div>");
 	$("#app").append(controlsDiv);
-	
+
 	var exportStreamListeners = [];
-	
+
 	var init = function() {
 		augmentData();
-		
+
 		moduleSelect.on("change", onModuleSelect);
 		onModuleSelect();
-		
+
 		categoryFilter.on("change", redraw);
 		viewSelect.on("change", redraw);
-		
+
 		$(document).on("dcs-bios-write", function(evt, address, data) {
 			_.each(exportStreamListeners, function(listener) {
 				listener(address, data);
 			});
 		});
 	}
-	
+
 	var defaultSnippetPrecedence = [
 		"Switch2Pos",
 		"Switch3Pos",
@@ -106,7 +106,7 @@ $(function() {
 		"Matrix3Pos",
 		"AnalogMultiPos",
 	];
-	
+
 	var augmentData = function() {
 		// add information about example code snippets
 		_.each(docdata, function(module) {
@@ -115,7 +115,7 @@ $(function() {
 			})
 		});
 	};
-	
+
 	var augmentControl = function(control) {
 		var defaultSnippet = null;
 		var io = null;
@@ -187,9 +187,9 @@ $(function() {
 		defaultSnippet.default = true;
 		control.default_snippet = defaultSnippet;
 	}
-	
+
 	var moduleData;
-	
+
 	var onModuleSelect = function() {
 		moduleData = docdata[moduleSelect.val()];
 		categoryFilter.empty();
@@ -199,7 +199,7 @@ $(function() {
 		});
 		redraw();
 	};
-	
+
 	var redraw = function() {
 		exportStreamListeners = [];
 		controlsDiv.empty();
@@ -214,7 +214,7 @@ $(function() {
 			});
 		});
 	};
-	
+
 	var makeControl = function(control) {
 		var div = $("<div>");
 		div.append($("<div>")
@@ -225,14 +225,14 @@ $(function() {
                            .attr("class", "controlidentifier").text(moduleSelect.val()+"/"+control.identifier)
                            .on("click", highlightThis))
 			      );
-			
+
 		var bodyDiv = $("<div>").attr("class", "controlbody");
 		div.append(bodyDiv);
 		var inputDiv = $("<div>").attr("class", "inputs");
 		var outputDiv = $("<div>").attr("class", "outputs");
 		bodyDiv.append(inputDiv);
 		bodyDiv.append(outputDiv);
-		
+
 		if (viewSelect.val() == "simple") {
 			_.each(control.inputs, function(input) {
 				_.each(input.snippets, function(snippet) {
@@ -248,19 +248,19 @@ $(function() {
 			});
 			return div;
 		}
-		
+
 		_.each(control.inputs, function(input) {
 			inputDiv.append(makeInput(input, control));
 		});
-		
+
 
 		_.each(control.outputs, function(output) {
 			outputDiv.append(makeOutput(output, control));
 		});
-		
+
 		return div;
 	};
-	
+
 	var idCamelCase = function(input) {
 		var ret = "";
 		var capitalize = false;
@@ -291,11 +291,11 @@ $(function() {
 			hex = "0" + hex;
 		return "0x" + hex;
 	};
-	
+
 	var makeSnippet = function(snippet, io, control) {
 		var code = $("<code>");
 		code.on("click", highlightThis);
-		
+
 		var cid = control.identifier;
 		switch(snippet.type) {
 			case "ActionButton":
@@ -303,7 +303,7 @@ $(function() {
 			code.append($("<i>").attr("style", "color: red;").text("PIN"));
 			code.append($("<span>").text(");"));
 			break;
-			
+
 			case "RotaryEncoder_fixed_step":
 			code.append($("<span>").text('DcsBios::RotaryEncoder '+idCamelCase(cid)+'("'+cid+'", "DEC", "INC", '));
 			code.append($("<i>").attr("style", "color: red;").text("PIN_A"));
@@ -311,7 +311,7 @@ $(function() {
 			code.append($("<i>").attr("style", "color: red;").text("PIN_B"));
 			code.append($("<span>").text(');'));
 			break;
-			
+
 			case "RotaryEncoder_variable_step":
 			code.append($("<span>").text('DcsBios::RotaryEncoder '+idCamelCase(cid)+'("'+cid+'", "-'+io.suggested_step.toString()+'", "+'+io.suggested_step.toString()+'", '));
 			code.append($("<i>").attr("style", "color: red;").text("PIN_A"));
@@ -319,13 +319,13 @@ $(function() {
 			code.append($("<i>").attr("style", "color: red;").text("PIN_B"));
 			code.append($("<span>").text(');'));
 			break;
-			
+
 			case "Switch2Pos":
 			code.append($("<span>").text('DcsBios::Switch2Pos '+idCamelCase(cid)+'("'+cid+'", '));
 			code.append($("<i>").attr("style", "color: red;").text("PIN"));
 			code.append($("<span>").text(");"));
 			break;
-			
+
 			case "Matrix2Pos":
 			code.append($("<span>").text('DcsBios::Matrix2Pos '+idCamelCase(cid)+'("'+cid+'", '));
 			code.append($("<i>").attr("style", "color: red;").text("ROW"));
@@ -333,7 +333,7 @@ $(function() {
 			code.append($("<i>").attr("style", "color: red;").text("COL"));
 			code.append($("<span>").text(');'));
 			break
-			
+
 			case "Matrix3Pos":
 			code.append($("<span>").text('DcsBios::Matrix3Pos '+idCamelCase(cid)+'("'+cid+'", '));
 			code.append($("<i>").attr("style", "color: red;").text("ROW_A"));
@@ -342,10 +342,10 @@ $(function() {
 			code.append($("<span>").text(", "));
 			code.append($("<i>").attr("style", "color: red;").text("ROW_B"));
 			code.append($("<span>").text(", "));
-			code.append($("<i>").attr("style", "color: red;").text("COL_B"));			
+			code.append($("<i>").attr("style", "color: red;").text("COL_B"));
 			code.append($("<span>").text(');'));
 			break;
-			
+
 			case "Switch3Pos":
 			code.append($("<span>").text('DcsBios::Switch3Pos '+idCamelCase(cid)+'("'+cid+'", '));
 			code.append($("<i>").attr("style", "color: red;").text("PIN_A"));
@@ -353,13 +353,13 @@ $(function() {
 			code.append($("<i>").attr("style", "color: red;").text("PIN_B"));
 			code.append($("<span>").text(');'));
 			break;
-			
+
 			case "Potentiometer":
 			code.append($("<span>").text('DcsBios::Potentiometer '+idCamelCase(cid)+'("'+cid+'", '));
 			code.append($("<i>").attr("style", "color: red;").text("PIN"));
 			code.append($("<span>").text(");"));
 			break;
-			
+
 			case "SwitchMultiPos":
 			code.append($("<span>").text('const byte '+idCamelCase(cid+'_PINS')+'['+(io.max_value+1).toString()+'] = {'));
 			code.append($("<i>").attr("style", "color: red;").text(snippet.pin_template));
@@ -367,7 +367,7 @@ $(function() {
 			code.append($("<br>"));
 			code.append($("<span>").text('DcsBios::SwitchMultiPos '+idCamelCase(cid)+'("'+cid+'", '+idCamelCase(cid+'_PINS')+', '+(io.max_value+1).toString()+');'));
 			break;
-			
+
 			case "AnalogMultiPos":
 			code.append($("<span>").text('DcsBios::AnalogMultiPos '+idCamelCase(cid)+'("'+cid+'", '));
 			code.append($("<i>").attr("style", "color: red;").text("PIN"));
@@ -377,7 +377,7 @@ $(function() {
 			code.append($("<i>").attr("style", "color: red;").text("(RESOLUTION/STEPS)"));
 			code.append($("<span>").text(');'));
 			break;
-			
+
 			case "generic_integer_output":
 			code.append($("<span>").text('void '+idCamelCase("ON_"+cid+"_CHANGE")+'(unsigned int newValue) {'));
 			code.append($("<br>"));
@@ -388,13 +388,13 @@ $(function() {
 			code.append($("<br>"));
 			code.append($("<span>").text("DcsBios::IntegerBuffer "+idCamelCase(cid+"_BUFFER")+'('+hex(io.address)+', '+hex(io.mask)+', '+io.shift_by+', '+idCamelCase("ON_"+cid+"_CHANGE")+');'));
 			break;
-			
+
 			case "LED":
 			code.append($("<span>").text('DcsBios::LED '+idCamelCase(cid)+'('+hex(io.address)+', '+hex(io.mask)+', '));
 			code.append($("<i>").attr("style", "color: red;").text("PIN"));
 			code.append($("<span>").text(");"));
 			break;
-			
+
 			case "ServoOutput":
 			code.append($("<span>").text('DcsBios::ServoOutput '+idCamelCase(cid)+'('+hex(io.address)+', '));
 			code.append($("<i>").attr("style", "color: red;").text("PIN"));
@@ -404,7 +404,7 @@ $(function() {
 			code.append($("<i>").attr("style", "color: red;").text("2400"));
 			code.append($("<span>").text(");"));
 			break;
-			
+
 			case "StringBuffer":
 			code.append($("<span>").text('void '+idCamelCase("ON_"+cid+"_CHANGE")+'(char* newValue) {'));
 			code.append($("<br>"));
@@ -415,7 +415,7 @@ $(function() {
 			code.append($("<br>"));
 			code.append($("<span>").text("DcsBios::StringBuffer<"+io.max_length.toString()+"> "+idCamelCase(cid+io.suffix+"_BUFFER")+'('+hex(io.address)+', '+idCamelCase("ON_"+cid+"_CHANGE")+');'));
 			break;
-			
+
 			case "FloatBuffer":
 			var ending = "";
 			if(io.max_value == 255) ending = ", true"
@@ -425,7 +425,7 @@ $(function() {
 		}
 		return code;
 	};
-	
+
 	var makeInput = function(input, control) {
 		var div = $("<div>").attr("class", "input");
 		if (viewSelect.val() == "simple") {
@@ -453,7 +453,7 @@ $(function() {
 				div.append(makeSnippet(snippet, input, control));
 			});
 		}
-		
+
 		if (viewSelect.val() == "livedata") {
 			div.append($("<b>Input Interface: </b>"));
 			div.append($("<span>").text(input["interface"]+" "));
@@ -511,14 +511,14 @@ $(function() {
 				});
 			}
 		}
-		
+
 		return div;
 	};
-	
+
 	var makeOutput = function(output, control) {
 		var div = $("<div>").attr("class", "output");
 		if (viewSelect.val() == "simple") return div;
-				
+
 		if (viewSelect.val() == "advanced") {
 			div.append($("<b>Output Type: </b>"));
 			div.append($("<span>").text(output.type));
@@ -542,11 +542,11 @@ $(function() {
 				div.append(makeSnippet(snippet, output, control));
 			});
 		}
-		
+
 		if (viewSelect.val() == "livedata") {
 			div.append($("<b>Output Type: </b>"));
 			div.append($("<span>").text(output.type));
-			
+
 			var currentValueWrapper = $("<span>");
 			div.append(currentValueWrapper);
 			currentValueWrapper.append($("<b> Current Value: </b>"));
@@ -583,7 +583,7 @@ $(function() {
 						if (output.address + output.max_length > (address[0]+1)) {
 							stringBuffer_uint8[address[0] - output.address + 1] = data_uint8[1];
 						}
-						
+
 						var str = "";
 						for (var i=0; i<stringBuffer.byteLength; i++) {
 							if (stringBuffer_uint8[i] == 0) break;
@@ -595,10 +595,10 @@ $(function() {
 				});
 			}
 		}
-		
+
 		return div;
 	};
-	
+
 	init();
-	
+
 });
