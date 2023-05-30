@@ -14,8 +14,8 @@ Works also for Pit Builders and Arduino users!
 
   If want to support us, You find infos at the bottom of this page!
   With that money, we buy the planes to integrade them in Flightpanel DCS-BIOS fork.
-  
-- Release/Prerelease are mostly for the stable version of DCS. 
+
+- Release/Prerelease are mostly for the stable version of DCS.
 - DCS Beta Users should use the master branch of the fork. _(Start a Flight before Programming to update the json Files)_
 - Arduino Users should download the `Source code(zip)` on the Release page to get all needed files
 - Flightpanel users download the `DCS-BIOS_0.7.XXX.zip`
@@ -87,11 +87,11 @@ Currently, DCS-BIOS supports the following aircraft modules:
 * Superbug Mod _(F-18 E+F+Growler)_
 * Mods (FC3): **VSN-Mods, PAK-FA Project, Civil Aircraft Mod, Upuaut's Bell-47G, Mirage F.1, SU-30 FAMILY PROJECT, MIG-23UB Project,
               Virtual Cockpits, AC-130**
-  
+
   Use always the latest version of the Mods!
-  
-  For DCS Flightpanels: 
-  FC3 are only supported with Keyemulator. But some Exports can made as Strings (FC3.lua) and CommonData 
+
+  For DCS Flightpanels:
+  FC3 are only supported with Keyemulator. But some Exports can made as Strings (FC3.lua) and CommonData
 
 If you want to add support for another module, please get in touch.(see below)
 
@@ -104,7 +104,7 @@ Add at the bottom  in \DCS-BIOS\lib\AircraftList.lua
 
 a("PlaneName", false)
 
-To get the correct Plane Name, open the control-reference page while you fly that plane. 
+To get the correct Plane Name, open the control-reference page while you fly that plane.
 In MetadataStat you find the Plane Name.
 
 == For setting up the Control-reference Page:
@@ -112,17 +112,17 @@ In MetadataStat you find the Plane Name.
 1. Install Google Chrome
 2. Copy in the AddressBar `chrome://extensions/`, check "Developer mode" top right corner.
 3. Click "Load unpacked extension..." and choose your "C:\Users\<username>\Saved Games\DCS\Scripts\DCS-BIOS\doc" folder
-4. A new extension "DCS-BIOS Control Reference Live Preview" 
+4. A new extension "DCS-BIOS Control Reference Live Preview"
    will be visible under "Apps". `chrome://apps/`
 5. Exit "Settings"
 6. Start DCS, load a Mission and jump in a Plane
-7. Click "Apps" in your Browser. Your DCS-BIOS extension be there. From there you can see the controls change as you fly and manipulate the cockpit. 
+7. Click "Apps" in your Browser. Your DCS-BIOS extension be there. From there you can see the controls change as you fly and manipulate the cockpit.
 
   Remember to hit the Refresh Button after you restart/change a mission, so Chrome gets a new connection to DCS-BIOS.
-  
+
 == socat
 
-There are 2 socat versions, 32 and 64 bit. Choose that version that fits best for you. 
+There are 2 socat versions, 32 and 64 bit. Choose that version that fits best for you.
 The files in the zip File must be unzipped direct in the socat folder.
 
   The path must be: /socat/socat.exe
@@ -153,6 +153,6 @@ The copy of `socat` that comes with DCS-BIOS is licensed under the GPLv2 (see `/
 * Here you find the https://github.com/DCSFlightpanels/dcs-bios-arduino-library[DCSFlightpanels arduino-library]
 * Here you find the https://github.com/DCSFlightpanels/dcs-bios-arduino_examples[DCSFlightpanels arduino-Examples]
 
-* If you want to support us: https://www.paypal.me/FPDCSBIOS[Here you can Donate.] 
+* If you want to support us: https://www.paypal.me/FPDCSBIOS[Here you can Donate.]
 
                       (100% of donations are spent on acquiring new planes, this to keep the project alive and up to date)
