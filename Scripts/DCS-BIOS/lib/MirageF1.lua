@@ -66,7 +66,6 @@ defineFloat("P_FCS_TRIM_ROLL_G", 724, {-1, 1}, "COMMON Flight Control System Gau
 defineFloat("P_FCS_TRIM_P_G", 725, {-1, 1}, "COMMON Flight Control System Gauges", "Pilot Pitch Trim Indicator")
 defineFloat("P_FCS_CABIN_PRESS_G", 726, {0, 1}, "COMMON Flight Control System Gauges", "Pilot Cabin Altimeter Gauge")
 
-
 --Engine and Fuel Controls
 definePushButton("P_EFC_THL_CUT_IDLE", 1, 3051, 239, "COMMON Engine-Fuel Control", "Pilot Throttle Cut/Idle Switch")
 defineSpringloaded_2PosTumb("P_EFC_ENG_RELIGHT", 1, 3052, 3053, 240, "COMMON Engine-Fuel Control", "Pilot In-flight Relight Control")
@@ -120,7 +119,6 @@ defineFloat("P_FS_FUEL_REMAIN_1000_G", 1146, {0, 1}, "COMMON Fuel System Gauges"
 defineFloat("P_FS_FUEL_REMAIN_100_G", 1147, {0, 1}, "COMMON Fuel System Gauges", "Pilot Fuel Remaining Drum 100")
 defineFloat("P_FS_FUEL_REMAIN_10_G", 1148, {0, 1}, "COMMON Fuel System Gauges", "Pilot Fuel Remaining Drum 10")
 defineFloat("P_FS_FUEL_REMAIN_1_G", 1149, {0, 1}, "COMMON Fuel System Gauges", "Pilot Fuel Remaining Drum 1")
-
 
 --Radar Control Stick
 definePushButton("P_RCS_ALT_DIFF", 1, 3100, 259, "COMMON Radar Control Stick", "Pilot Radar Control Stick Elevation/Altitude Difference Button")
