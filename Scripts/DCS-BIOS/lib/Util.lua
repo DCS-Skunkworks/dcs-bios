@@ -1,4 +1,4 @@
---15.04.2023
+--04.06.2023
 BIOS.util = {}
 
 function BIOS.util.log2(n)
@@ -1448,4 +1448,35 @@ function BIOS.util.define3PosMossi(msg, device_id, command, arg_number, category
 		if fromState == -1 and toState == 1 then dev:performClickableAction(command, 0) dev:performClickableAction(command, 1) dev:performClickableAction(command, 0) dev:performClickableAction(command, 1) end
 		if fromState == 1 and toState == -1 then dev:performClickableAction(command, 0) dev:performClickableAction(command, -1) end
 	end
+end
+
+function BIOS.util.defineIndicatorLight08(msg, arg_number, category, description) --red
+	local value = moduleBeingDefined.memoryMap:allocateInt {
+		maxValue = 1
+	}
+	assert(value.shiftBy ~= nil)
+	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
+		if dev0:get_argument_value(arg_number) >= 0.5 and dev0:get_argument_value(arg_number) < 0.9 then
+			value:setValue(1)
+		else
+		    value:setValue(0)
+		end
+	end
+	document {
+		identifier = msg,
+		category = category,
+		description = description,
+		control_type = "led",
+		inputs = {},
+		outputs = {
+			{ ["type"] = "integer",
+			  suffix = "",
+			  address = value.address,
+			  mask = value.mask,
+			  shift_by = value.shiftBy,
+			  max_value = 1,
+			  description = "Multi Led Color 1; Light is on between 0.4 and 0.59"
+			}
+		}
+	}
 end
