@@ -126,8 +126,12 @@ defineToggleSwitch("BUS_RESET_CV", 1, 3100, 233, "Electrical", "Bus Reset Cover"
 
 --Simple avionics
 defineRotary("FW_SET_INDEX", 1, 3101, 541, "Avionics FW", "Forward Set Index")
-defineRotary("FW_ALTIMETER_KNOB", 1, 3102, 241, "Avionics FW", "Forward Altimeter Pressure Setting")
+defineRotary("FW_ALT_KNOB", 1, 3102, 241, "Avionics FW", "Forward Altimeter Pressure Setting")
 definePushButton("FW_G_RESET", 1, 3104, 259, "Avionics FW", "Forward Reset Min/Max G")
+
+defineFloat("FW_ALT_100_G", 50, {0, 1}, "Avionics Gauges FW", "Forward Altimeter 100 ft count Needle")
+defineFloat("FW_ALT_1000_G", 52, {0, 1}, "Avionics Gauges FW", "Forward Altimeter 1000 ft count")
+defineFloat("FW_ALT_10000_G", 53, {0, 1}, "Avionics Gauges FW", "Forward Altimeter 10000 ft count")
 
 defineRotary("AFT_ALTIMETER_KNOB", 1, 3103, 570, "Avionics AFT", "Aft Altimeter Pressure Setting")
 definePushButton("AFT_G_RESET", 1, 3105, 691, "Avionics AFT", "Aft Reset Min/Max G")
@@ -149,11 +153,20 @@ defineFloat("ADI_OFF_G", 21, {0, 1}, "Avionics Gauges", "ADI OFF Flag")
 defineFloat("FW_ADI_GS_WARN_G", 22, {0, 1}, "Avionics Gauges", "Forward ADI Glide Slope Warning Flag")
 defineFloat("FW_ADI_FD_FLAG_G", 23, {0, 1}, "Avionics Gauges", "Forward ADI Flight Director Flag")
 defineFloat("TACHO_G", 33, {0, 1}, "Avionics Gauges", "Tachometer")
+defineFloat("HYD_PRESS_MAIN_G", 150, {0, 1}, "Avionics Gauges", "Main Hydraulic Pressure Gauge")
+defineFloat("HYD_PRESS_EMERG_G", 151, {0, 1}, "Avionics Gauges", "Emergency Hydraulic Pressure Gauge")
+defineFloat("OIL_PRESS_G", 152, {0, 1}, "Avionics Gauges", "Oil Pressure Gauge")
+defineFloat("OXY_PRESS_G", 153, {0, 1}, "Avionics Gauges", "Oxygen Pressure Gauge")
 
 --Chrono
 definePushButton("FW_CLOCK_BTN", 1, 3106, 44, "Clock FW", "Forward Clock Start/Stop/Reset")
 defineToggleSwitch("FW_CLOCK_SET_PULL", 1, 3107, 45, "Clock FW", "Forward Clock Set Pull")
 defineRotary("FW_CLOCK_SET_KNOB", 1, 3108, 51, "Clock FW", "Forward Clock Set Rotate")
+
+defineFloat("FW_CLOCK_M_G", 46, {0, 1}, "Clock Gauges FW", "Forward Clock Minutes Indicator")
+defineFloat("FW_CLOCK_H_G", 47, {0, 1}, "Clock Gauges FW", "Forward Clock Hours Indicator")
+defineFloat("FW_CLOCK_S_G", 48, {0, 1}, "Clock Gauges FW", "Forward Clock Seconds Indicator")
+defineFloat("FW_CLOCK_SET_G", 49, {0, 1}, "Clock Gauges FW", "Forward Clock Set Indicator")
 
 definePushButton("AFT_CLOCK_BTN", 1, 3109, 28, "Clock AFT", "Aft Clock Start/Stop/Reset")
 defineToggleSwitch("AFT_CLOCK_SET_PULL", 1, 3110, 29, "Clock AFT", "Aft Clock Set Pull")
@@ -185,6 +198,10 @@ defineRotary("AFT_HSI_CRS", 1, 3121, 187, "HSI AFT", "Aft HSI Course Set")
 definePushButton("AFT_HSI_TCN", 1, 3222, 57, "HSI AFT", "Aft HSI TACAN")
 definePushButton("AFT_HSI_VOR", 1, 3223, 58, "HSI AFT", "Aft HSI VOR")
 definePushButton("AFT_HSI_RNAV", 1, 3224, 59, "HSI AFT", "Aft HSI RNAV")
+
+defineIndicatorLightGear("AFT_HSI_TCN_L", 54, "HSI Lights AFT", "Aft HSI TACAN Light (green)")
+defineIndicatorLightGear("AFT_HSI_VOR_L", 55, "HSI Lights AFT", "Aft HSI VOR Light (green)")
+defineIndicatorLightGear("AFT_HSI_RNAV_L", 56, "HSI Lights AFT", "Aft HSI RNAVv")
 
 --Flight dir
 definePushButton("FW_FD_HDG", 1, 3122, 333, "Flight Dir FW", "Forward F/D HDG")
@@ -229,11 +246,10 @@ defineToggleSwitch("AFT_LG_ASKID", 1, 3146, 518, "Gear AFT", "Aft Anti-Skid")
 definePushButton("AFT_LG_DL_OVERRIDE", 1, 5001, 14, "Gear AFT", "Aft Down-Lock Override")
 defineSpringloaded_3PosTumb("AFT_RUDDER_TRIM", 1, 3152, 3153, 519, "Gear AFT", "Aft Rudder Trim")
 
-defineFloat("GEAR_HND_G", 1, {0, 1}, "Gear Gauges", "Gear Handle Position")
-
 defineIndicatorLightGear("NOSE_GEAR_L", 20, "Gear Light", "Nose Gear Light (green)")
 defineIndicatorLightGear("RIGHT_GEAR_L", 31, "Gear Light", "Right Gear Light (green)")
-defineIndicatorLightGear("LEFT_GEAR_L", 31, "Gear Light", "Left Gear Light (green)")
+defineIndicatorLightGear("LEFT_GEAR_L", 32, "Gear Light", "Left Gear Light (green)")
+defineIndicatorLightGear("GEAR_HND_L", 42, "Gear Light", "Gear Handle Light (red)")
 
 --Lights
 define3PosTumb("FW_LIGHT_TAXI_LAND", 1, 3156, 321, "Lights FW", "Forward Taxi/Landing Lights")
@@ -377,15 +393,26 @@ definePushButton("WP_JETT_SALVO", 1, 3291, 473, "Weapons", "Salvo Jettison")
 definePushButton("WP_JETT_SEL", 1, 3292, 70, "Weapons", "Selective Jettison")
 define3PosTumb("WP_BOMB_FUZE", 1, 3293, 494, "Weapons", "Bomb Fuze")
 defineToggleSwitch("WP_SEQUENCE", 1, 3294, 495, "Weapons", "Sequence Ripple/Single")
-defineToggleSwitch("WP_STATION1", 1, 3295, 488, "Weapons", "Station 1")
-defineToggleSwitch("WP_STATION2", 1, 3296, 489, "Weapons", "Station 2")
-defineToggleSwitch("WP_STATION3", 1, 3297, 490, "Weapons", "Station 3")
-defineToggleSwitch("WP_STATION4", 1, 3298, 491, "Weapons", "Station 4")
-defineToggleSwitch("WP_STATION5", 1, 3299, 492, "Weapons", "Station 5")
-defineToggleSwitch("WP_STATION6", 1, 3300, 493, "Weapons", "Station 6")
+defineToggleSwitch("WP_STAT1", 1, 3295, 488, "Weapons", "Station 1")
+defineToggleSwitch("WP_STAT2", 1, 3296, 489, "Weapons", "Station 2")
+defineToggleSwitch("WP_STAT3", 1, 3297, 490, "Weapons", "Station 3")
+defineToggleSwitch("WP_STAT4", 1, 3298, 491, "Weapons", "Station 4")
+defineToggleSwitch("WP_STAT5", 1, 3299, 492, "Weapons", "Station 5")
+defineToggleSwitch("WP_STAT6", 1, 3300, 493, "Weapons", "Station 6")
 defineToggleSwitch("WP_GND_FIRE", 1, 3301, 506, "Weapons", "Ground Fire")
 defineToggleSwitch("WP_MASTER_ARM_INIB_CVR", 1, 3302, 169, "Weapons", "Master Arm Inib Guard")
 defineToggleSwitch("WP_MASTER_ARM_INIB", 1, 3303, 170, "Weapons", "Master Arm Inib")
+
+defineFloat("WP_STAT1_G", 69, {0, 1}, "Weapons Gauges", "Station 1 Drum")
+defineFloat("WP_STAT2_G", 68, {0, 1}, "Weapons Gauges", "Station 2 Drum")
+defineFloat("WP_STAT3_G", 67, {0, 1}, "Weapons Gauges", "Station 3 Drum")
+defineFloat("WP_STAT4_G", 66, {0, 1}, "Weapons Gauges", "Station 4 Drum")
+defineFloat("WP_STAT5_G", 65, {0, 1}, "Weapons Gauges", "Station 5 Drum")
+defineFloat("WP_STAT6_G", 64, {0, 1}, "Weapons Gauges", "Station 6 Drum")
+defineFloat("WP_SEQU_G", 161, {0, 1}, "Weapons Gauges", "Sequence Drum")
+defineFloat("WP_BOMB_FUZE_G", 162, {-1, 1}, "Weapons Gauges", "Bomb Fuze Drum")
+
+defineIndicatorLight("WP_MASTER_ARM_L", 163, "Weapons Light", "Master Arm Light (red)")
 
 --Gunsight
 define3PosTumb("GUN_PWR", 1, 3304, 478, "Gunsight", "Gunsight Power")
@@ -405,6 +432,11 @@ definePotentiometer("AFT_VOR_FREQU_1MHZ", 1, 3315, 539, {0, 1}, "VOR AFT", "Aft 
 definePotentiometer("AFT_VOR_FREQU_50KHZ", 1, 3316, 34, {0, 1}, "VOR AFT", "Aft VOR Frequency 50 kHz")
 definePushButton("AFT_VOR_TEST", 1, 3317, 537, "VOR AFT", "Aft VOR Frequency Test")
 defineToggleSwitch("AFT_VOR_PW", 1, 3318, 538, "VOR AFT", "Aft VOR Frequency Power Switch")
+
+defineFloat("AFT_VOR_1000", 35, {0, 1}, "VOR AFT Gauges", "Aft VOR Frequency 1000")
+defineFloat("AFT_VOR_100", 36, {0, 1}, "VOR AFT Gauges", "Aft VOR Frequency 100")
+defineFloat("AFT_VOR_10", 37, {0, 1}, "VOR AFT Gauges", "Aft VOR Frequency 10")
+defineFloat("AFT_VOR_1", 38, {0, 1}, "VOR AFT Gauges", "Aft VOR Frequency 1")
 
 --TACAN
 defineMultipositionSwitch("FW_TCN_MODE", 1, 3319, 569, 5, 0.25, "TACAN FW", "Forward TACAN Mode")
@@ -513,11 +545,11 @@ defineToggleSwitch("AFT_ICS_RADIO_SEL", 1, 3426, 148, "ICS AFT", "Aft ICS COM1/C
 --Oxygen
 defineToggleSwitch("FW_OXY_PW", 1, 3427, 587, "Oxygen FW", "Forward Oxygen Power Supply")
 defineToggleSwitch("FW_OXY_DILUIT", 1, 3428, 589, "Oxygen FW", "Forward Oxygen Diluiter Lever (Normal / 100%)")
-defineToggleSwitch("FW_OXY_EMERG", 1, 3429, 588, "Oxygen FW", "Forward Oxygen Emergengy Lever")
+defineToggleSwitch("FW_OXY_EMERG", 1, 3429, 588, "Oxygen FW", "Forward Oxygen Emergency Lever")
 
 defineToggleSwitch("AFT_OXY_PW", 1, 3430, 113, "Oxygen AFT", "Aft Oxygen Power Supply")
 defineToggleSwitch("AFT_OXY_DILUIT", 1, 3431, 113, "Oxygen AFT", "Aft Oxygen Diluiter Lever (Normal / 100%)")
-defineToggleSwitch("AFT_OXY_EMERG", 1, 3432, 111, "Oxygen AFT", "Aft Oxygen Emergengy Lever")
+defineToggleSwitch("AFT_OXY_EMERG", 1, 3432, 111, "Oxygen AFT", "Aft Oxygen Emergency Lever")
 
 --Cockpit
 definePushButton("FW_GLOVE_COMP", 1, 3433, 206, "Cockpit", "Forward Glove Compartment")
@@ -556,7 +588,6 @@ definePushButton("IFF_CODE_SW_6", 1, 3455, 739, "IFF", "IFF Code Switch 6")
 definePushButton("IFF_TEST_GO", 1, 3456, 743, "IFF", "IFF Test Switch GO")
 definePushButton("IFF_TEST_NOGO", 1, 3457, 744, "IFF", "IFF Test Switch NOGO")
 definePushButton("IFF_TEST_REPLY", 1, 3458, 745, "IFF", "IFF Test Switch REPLY")
-
 
 --Externals
 defineIntegerFromGetter("EXT_SPEED_BRAKE", function()
