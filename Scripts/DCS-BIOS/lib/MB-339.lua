@@ -1,12 +1,13 @@
 BIOS.protocol.beginModule("MB-339", 0x8200)
 BIOS.protocol.setExportModuleAircrafts({"MB-339A", "MB-339APAN"})
---by WarLord v1.0a
+--by WarLord v1.0
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document
 
 local defineIndicatorLight = BIOS.util.defineIndicatorLight
 local defineIndicatorLight08 = BIOS.util.defineIndicatorLight08
+local defineIndicatorLightInverted = BIOS.util.defineIndicatorLightInverted
 local definePushButton = BIOS.util.definePushButton
 local definePotentiometer = BIOS.util.definePotentiometer
 local defineRotary = BIOS.util.defineRotary
@@ -101,13 +102,16 @@ definePushButton("FW_G_RESET", 1, 3104, 259, "Avionics FW", "Forward Reset Min/M
 defineRotary("AFT_ALTIMETER_KNOB", 1, 3103, 570, "Avionics AFT", "Aft Altimeter Pressure Setting")
 definePushButton("AFT_G_RESET", 1, 3105, 691, "Avionics AFT", "Aft Reset Min/Max G")
 
-defineFloat("FW_AIR_SPEED_IND_G", 8, {0, 1}, "Avionics Gauges", "Forward Mach Airspeed Indicator")
+defineFloat("FW_AIRSPEED_IND_G", 8, {0, 1}, "Avionics Gauges", "Forward Mach Airspeed Indicator")
+defineFloat("FW_AIRSPEED_ARROW_O_G", 542, {0, 1}, "Avionics Gauges", "Forward Mach Airspeed Outer Arrow")
+defineFloat("FW_AIRSPEED_DISC_G", 543, {0, 1}, "Avionics Gauges", "Forward Mach Airspeed Disc")
+defineFloat("FW_AIRSPEED_ARROW_I_G", 544, {0, 1}, "Avionics Gauges", "Forward Mach Airspeed Inner Arrow")
 defineFloat("FW_ADI_PITCH_G", 9, {-1, 1}, "Avionics Gauges", "Forward ADI Pitch")
 defineFloat("FW_ADI_BANK_G", 10, {-1, 1}, "Avionics Gauges", "Forward ADI Bank")
 defineFloat("FW_ADI_GS_G", 11, {-1, 1}, "Avionics Gauges", "Forward ADI Glide Slope Indicator")
 defineFloat("FW_ADI_GS_WARN_G", 22, {0, 1}, "Avionics Gauges", "Forward ADI Glide Slope Warning Flag")
 defineFloat("FW_ADI_FD_FLAG_G", 23, {0, 1}, "Avionics Gauges", "Forward ADI Flight Director Flag")
-defineFloat("FW_ALT_100_G", 50, {0, 1}, "Avionics Gauges", "Forward Altimeter 100 ft count Needle")
+defineFloat("FW_ALT_100_G", 50, {0, 1}, "Avionics Gauges", "Forward Altimeter 100 ft count & Needle")
 defineFloat("FW_ALT_1000_G", 52, {0, 1}, "Avionics Gauges", "Forward Altimeter 1000 ft count")
 defineFloat("FW_ALT_10000_G", 53, {0, 1}, "Avionics Gauges", "Forward Altimeter 10000 ft count")
 defineFloat("FW_VVI_G", 208, {-1, 1}, "Avionics Gauges", "Forward Vertical Velocity Indicator")
@@ -116,16 +120,32 @@ defineFloat("FW_ALT_PRESS_100_G", 243, {0, 1}, "Avionics Gauges", "Forward Altim
 defineFloat("FW_ALT_PRESS_10_G", 244, {0, 1}, "Avionics Gauges", "Forward Altimeter Pressure 10")
 defineFloat("FW_ALT_PRESS_1_G", 245, {0, 1}, "Avionics Gauges", "Forward Altimeter Pressure 1")
 defineFloat("FW_COMP_UD_G", 299, {-1, 1}, "Avionics Gauges", "Forward Compassrose Up/Down")
+defineFloat("FW_COMP_NS_G", 305, {0, 1}, "Avionics Gauges", "Forward Compassrose N/S")
 defineFloat("FW_ALT_OFF_G", 311, {0, 1}, "Avionics Gauges", "Forward Altimeter CODE OFF Flag")
+defineFloat("FW_ACCEL_G", 6, {-1, 1}, "Avionics Gauges", "Forward Accelerometer")
 defineFloat("FW_ACCEL_MIN", 320, {0, 1}, "Avionics Gauges", "Forward Accelerometer Min Pointer")
 defineFloat("FW_ACCEL_MAX", 349, {0, 1}, "Avionics Gauges", "Forward Accelerometer Max Pointer")
+defineFloat("AFT_ACCEL_G", 688, {-1, 1}, "Avionics Gauges", "Aft Accelerometer")
+defineFloat("AFT_ACCEL_MIN", 690, {0, 1}, "Avionics Gauges", "Aft Accelerometer Min Pointer")
+defineFloat("AFT_ACCEL_MAX", 689, {0, 1}, "Avionics Gauges", "Aft Accelerometer Max Pointer")
 defineFloat("AFT_ADI_GS_G", 12, {-1, 1}, "Avionics Gauges", "Aft ADI Glide Slope Indicator")
 defineFloat("AFT_ADI_TURN_G", 13, {-1, 1}, "Avionics Gauges", "Aft ADI Rate-of-Turn Indicator")
 defineFloat("AFT_ALT_CFLAG_G", 19, {0, 1}, "Avionics Gauges", "Aft Altimeter CODE OFF Flag")
+defineFloat("AFT_ALT_100_G", 530, {0, 1}, "Avionics Gauges", "Aft Altimeter 100 ft count & Needle")
+defineFloat("AFT_ALT_1000_G", 531, {0, 1}, "Avionics Gauges", "Aft Altimeter 1000 ft count")
+defineFloat("AFT_ALT_10000_G", 532, {0, 1}, "Avionics Gauges", "Aft Altimeter 10000 ft count")
+defineFloat("AFT_ALT_PRESS_1000_G", 533, {0, 1}, "Avionics Gauges", "Aft Altimeter Pressure 1000")
+defineFloat("AFT_ALT_PRESS_100_G", 534, {0, 1}, "Avionics Gauges", "Aft Altimeter Pressure 100")
+defineFloat("AFT_ALT_PRESS_10_G", 535, {0, 1}, "Avionics Gauges", "Aft Altimeter Pressure 10")
+defineFloat("AFT_ALT_PRESS_1_G", 536, {0, 1}, "Avionics Gauges", "Aft Altimeter Pressure 1")
+defineFloat("AFT_AIRSPEED_IND_G", 545, {0, 1}, "Avionics Gauges", "Aft Mach Airspeed Indicator")
+defineFloat("AFT_AIRSPEED_ARROW_O_G", 549, {0, 1}, "Avionics Gauges", "Aft Mach Airspeed Outer Arrow")
+defineFloat("AFT_AIRSPEED_DISC_G", 547, {0, 1}, "Avionics Gauges", "Aft Mach Airspeed Disc")
+defineFloat("AFT_AIRSPEED_ARROW_I_G", 548, {0, 1}, "Avionics Gauges", "Aft Mach Airspeed Inner Arrow")
+defineFloat("AFT_VVI_G", 692, {-1, 1}, "Avionics Gauges", "Aft Vertical Velocity Indicator")
 defineFloat("FLAP_G", 1, {0, 1}, "Avionics Gauges", "Flaps Position Indicator")
 defineFloat("SPEED_BRK_G", 2, {0, 1}, "Avionics Gauges", "Speed Brake Position Indicator")
 defineFloat("LONG_TRIM_G", 3, {-1, 1}, "Avionics Gauges", "Longitudinal Trim Indicator")
-defineFloat("ACCEL_G", 6, {-1, 1}, "Avionics Gauges", "Accelerometer")
 defineFloat("FLAP_LVR_G", 7, {0, 1}, "Avionics Gauges", "Flaps Lever")
 defineFloat("TACHO_RPM_G", 16, {0, 1}, "Avionics Gauges", "Tachometer Percent RPM")
 defineFloat("ADI_OFF_G", 21, {0, 1}, "Avionics Gauges", "ADI OFF Flag")
@@ -137,6 +157,8 @@ defineFloat("OXY_PRESS_G", 153, {0, 1}, "Avionics Gauges", "Oxygen Pressure Gaug
 defineFloat("AOA_OFF_G", 310, {0, 1}, "Avionics Gauges", "AOA OFF Flag")
 defineFloat("AOA_G", 315, {0, 1}, "Avionics Gauges", "AOA Gauge")
 defineFloat("CABIN_PRESS_G", 319, {0, 1}, "Avionics Gauges", "Cabin Pressure Gauge")
+defineFloat("LOADM_GEN1_G", 380, {0, 1}, "Avionics Gauges", "GEN 1 Loadmeter Gauge")
+defineFloat("LOADM_GEN2_G", 381, {0, 1}, "Avionics Gauges", "GEN 2 Loadmeter Gauge")
 
 --Chrono
 definePushButton("FW_CLOCK_BTN", 1, 3106, 44, "Clock FW", "Forward Clock Start/Stop/Reset")
@@ -158,12 +180,31 @@ defineFloat("AFT_CLOCK_SET_G", 27, {0, 1}, "Clock Gauges", "Aft Clock Set Indica
 
 -- ADI
 definePotentiometer("FW_ADI_PITCH", 1, 3112, 15, {0, 1}, "ADI FW", "Forward ADI Pitch Adjustment")
-defineToggleSwitch("FW_ADI_CAGE", 1, 3114, 403, "ADI FW", "Forward ADI Cage")
-definePotentiometer("FW_ADI_ADJUST", 1, 3115, 401, {-1, 1}, "ADI FW", "Forward ADI Adjust")
+defineToggleSwitch("FW_ATT_CAGE", 1, 3114, 403, "ADI FW", "Forward Attitude Indicator Cage")
+definePotentiometer("FW_ATT_ADJUST", 1, 3115, 401, {-1, 1}, "ADI FW", "Forward Attitude Indicator Adjust")
 
 definePotentiometer("AFT_ADI_PITCH", 1, 3113, 388, {0, 1}, "ADI AFT", "Aft ADI Pitch Adjustment")
-defineToggleSwitch("AFT_ADI_CAGE", 1, 3116, 404, "ADI AFT", "Aft ADI Cage")
-definePotentiometer("AFT_ADI_ADJUST", 1, 3117, 402, {-1, 1}, "ADI AFT", "Aft ADI Adjust")
+defineToggleSwitch("AFT_ATT_CAGE", 1, 3116, 404, "ADI AFT", "Aft Attitude Indicator Cage")
+definePotentiometer("AFT_ATT_ADJUST", 1, 3117, 402, {-1, 1}, "ADI AFT", "Aft Attitude Indicator Adjust")
+
+defineFloat("FW_ADI_SLIP_G", 371, {-1, 1}, "ADI Gauges", "Forward ADI Slipball")
+defineFloat("FW_ADI_STEER_B_BANK_G", 372, {-1, 1}, "ADI Gauges", "Forward ADI Bank Steering Bar")
+defineFloat("FW_ADI_STEER_B_PITCH_G", 373, {-1, 1}, "ADI Gauges", "Forward ADI Pitch Steering Bar")
+defineFloat("FW_ATT_PITCH_G", 389, {-1, 1}, "ADI Gauges", "Forward Attitude Indicator Pitch")
+defineFloat("FW_ATT_BANK_G", 390, {-1, 1}, "ADI Gauges", "Forward Attitude Indicator Bank")
+defineFloat("FW_ATT_OFF_G", 405, {0, 1}, "ADI Gauges", "Forward Attitude Indicator OFF Flag")
+defineFloat("AFT_ADI_PITCH_G", 386, {-1, 1}, "ADI Gauges", "Aft ADI Pitch")
+defineFloat("AFT_ADI_BANK_G", 387, {-1, 1}, "ADI Gauges", "Aft ADI Bank")
+defineFloat("AFT_ADI_OFF_G", 393, {0, 1}, "ADI Gauges", "Aft ADI OFF Flag")
+defineFloat("AFT_ADI_GLIDE_WARN_G", 394, {0, 1}, "ADI Gauges", "Aft ADI Glide Slope Warning Flag")
+defineFloat("AFT_ADI_CRS_WARN_G", 395, {0, 1}, "ADI Gauges", "Aft ADI Course Warning Flag")
+defineFloat("AFT_ADI_STEER_B_BANK_G", 396, {-1, 1}, "ADI Gauges", "Aft ADI Bank Steering Bar")
+defineFloat("AFT_ADI_STEER_B_PITCH_G", 397, {-1, 1}, "ADI Gauges", "Aft ADI Pitch Steering Bar")
+defineFloat("AFT_ADI_SLIP_G", 397, {-1, 1}, "ADI Gauges", "Aft ADI Slipball")
+defineFloat("AFT_ATT_PITCH_G", 391, {-1, 1}, "ADI Gauges", "Aft Attitude Indicator Pitch")
+defineFloat("AFT_ATT_BANK_G", 392, {-1, 1}, "ADI Gauges", "Aft Attitude Indicator Bank")
+defineFloat("AFT_ATT_OFF_G", 406, {-1, 1}, "ADI Gauges", "Aft Attitude Indicator OFF Flag")
+defineFloat("ADI_TURN_G", 687, {-1, 1}, "ADI Gauges", "ADI Rate of Turn Indicator")
 
 --HSI
 defineRotary("FW_HSI_HDG", 1, 3118, 362, "HSI FW", "Forward HSI Heading Set")
@@ -178,12 +219,30 @@ definePushButton("AFT_HSI_TCN", 1, 3222, 57, "HSI AFT", "Aft HSI TACAN")
 definePushButton("AFT_HSI_VOR", 1, 3223, 58, "HSI AFT", "Aft HSI VOR")
 definePushButton("AFT_HSI_RNAV", 1, 3224, 59, "HSI AFT", "Aft HSI RNAV")
 
+defineFloat("FW_HSI_CRS_1_G", 350, {0, 1}, "HSI Gauges", "Forward HSI Course Drum 1")
+defineFloat("FW_HSI_CRS_10_G", 351, {0, 1}, "HSI Gauges", "Forward HSI Course Drum 10")
+defineFloat("FW_HSI_CRS_100_G", 352, {0, 1}, "HSI Gauges", "Forward HSI Course Drum 100")
+defineFloat("FW_HSI_CRS_A_G", 354, {0, 1}, "HSI Gauges", "Forward HSI Course Arrow")
+defineFloat("FW_HSI_OFF_G", 355, {0, 1}, "HSI Gauges", "Forward HSI OFF Flag")
+defineFloat("FW_HSI_DIST_G", 356, {0, 1}, "HSI Gauges", "Forward HSI Distance Bar")
+defineFloat("FW_HSI_DIST_1_G", 357, {0, 1}, "HSI Gauges", "Forward HSI Distance Drum 1")
+defineFloat("FW_HSI_DIST_10_G", 358, {0, 1}, "HSI Gauges", "Forward HSI Distance Drum 10")
+defineFloat("FW_HSI_DIST_100_G", 359, {0, 1}, "HSI Gauges", "Forward HSI Distance Drum 100")
+defineFloat("FW_HSI_CRS_DEV_G", 360, {-1, 1}, "HSI Gauges", "Forward HSI Course Deviation Bar")
+defineFloat("FW_HSI_COMP_G", 361, {0, 1}, "HSI Gauges", "Forward HSI Compass Rose")
+defineFloat("FW_HSI_SEL_HD_G", 363, {0, 1}, "HSI Gauges", "Forward HSI Selected Heading Indicator")
+defineFloat("FW_HSI_POINT_1_G", 364, {0, 1}, "HSI Gauges", "Forward HSI Bearing Pointer 1")
+defineFloat("FW_HSI_POINT_2_G", 365, {0, 1}, "HSI Gauges", "Forward HSI Bearing Pointer 2")
+defineFloat("FW_HSI_DEV_G", 366, {0, 1}, "HSI Gauges", "Forward HSI Deviation Flag")
+defineFloat("FW_HSI_ARROW_UP_G", 367, {0, 1}, "HSI Gauges", "Forward HSI Arrow UP")
+defineFloat("FW_HSI_ARROW_DN_G", 368, {0, 1}, "HSI Gauges", "Forward HSI Arrow DN")
+
 defineFloat("AFT_HSI_CRS_1_G", 184, {0, 1}, "HSI Gauges", "Aft HSI Course Drum 1")
 defineFloat("AFT_HSI_CRS_10_G", 185, {0, 1}, "HSI Gauges", "Aft HSI Course Drum 10")
 defineFloat("AFT_HSI_CRS_100_G", 186, {0, 1}, "HSI Gauges", "Aft HSI Course Drum 100")
 defineFloat("AFT_HSI_CRS_A_G", 188, {0, 1}, "HSI Gauges", "Aft HSI Course Arrow")
 defineFloat("AFT_HSI_OFF_G", 189, {0, 1}, "HSI Gauges", "Aft HSI OFF Flag")
-defineFloat("AFT_HSI_DIST_G", 190, {0, 1}, "HSI Gauges", "Aft HSI Distance Flag")
+defineFloat("AFT_HSI_DIST_G", 190, {0, 1}, "HSI Gauges", "Aft HSI Distance Bar")
 defineFloat("AFT_HSI_DIST_1_G", 191, {0, 1}, "HSI Gauges", "Aft HSI Distance Drum 1")
 defineFloat("AFT_HSI_DIST_10_G", 192, {0, 1}, "HSI Gauges", "Aft HSI Distance Drum 10")
 defineFloat("AFT_HSI_DIST_100_G", 193, {0, 1}, "HSI Gauges", "Aft HSI Distance Drum 100")
@@ -195,6 +254,10 @@ defineFloat("AFT_HSI_POINT_2_G", 199, {0, 1}, "HSI Gauges", "Aft HSI Bearing Poi
 defineFloat("AFT_HSI_DEV_G", 200, {0, 1}, "HSI Gauges", "Aft HSI Deviation Flag")
 defineFloat("AFT_HSI_ARROW_UP_G", 201, {0, 1}, "HSI Gauges", "Aft HSI Arrow UP")
 defineFloat("AFT_HSI_ARROW_DN_G", 202, {0, 1}, "HSI Gauges", "Aft HSI Arrow DN")
+
+defineIndicatorLight08("FW_HSI_TCN_L", 369, "HSI Lights", "Forward HSI TACAN Light (green)")
+defineIndicatorLight08("FW_HSI_VOR_L", 370, "HSI Lights", "Forward HSI VOR Light (green)")
+defineIndicatorLight08("FW_HSI_RNAV_L", 383, "HSI Lights", "Forward HSI RNAV Light (green)")
 
 defineIndicatorLight08("AFT_HSI_TCN_L", 54, "HSI Lights", "Aft HSI TACAN Light (green)")
 defineIndicatorLight08("AFT_HSI_VOR_L", 55, "HSI Lights", "Aft HSI VOR Light (green)")
@@ -221,6 +284,12 @@ defineIndicatorLight08("FW_FD_STBY_L", 341, "Flight Dir Lights", "Forward F/D ST
 defineIndicatorLight08("FW_FD_RADIO_NAV_L", 342, "Flight Dir Lights", "Forward F/D RADIO NAV Light (green)")
 defineIndicatorLight08("FW_FD_GS_L", 343, "Flight Dir Lights", "Forward F/D GS Light (green)")
 defineIndicatorLight08("FW_FD_ALT_HOLD_L", 344, "Flight Dir Lights", "Forward F/D ALT HOLD Light (green)")
+defineIndicatorLight08("AFT_FD_HDG_L", 694, "Flight Dir Lights", "Aft F/D HDG Light (green)")
+defineIndicatorLight08("AFT_FD_GS_ARM_L", 696, "Flight Dir Lights", "Aft F/D GS ARM Light (green)")
+defineIndicatorLight08("AFT_FD_STBY_L", 698, "Flight Dir Lights", "Aft F/D STBY Light (green)")
+defineIndicatorLight08("AFT_FD_RADIO_NAV_L", 700, "Flight Dir Lights", "Aft F/D RADIO NAV Light (green)")
+defineIndicatorLight08("AFT_FD_GS_L", 702, "Flight Dir Lights", "Aft F/D GS Light (green)")
+defineIndicatorLight08("AFT_FD_ALT_HOLD_L", 704, "Flight Dir Lights", "Aft F/D ALT HOLD Light (green)")
 
 --Fuel
 defineMultipositionSwitch("FW_FUEL_TANK_SEL", 1, 3134, 257, 5, 0.25, "Fuel FW", "Forward Fuel Tank Selector")
@@ -239,6 +308,7 @@ defineToggleSwitch("AFT_FUEL_DUMP", 1, 3144, 160, "Fuel AFT", "Aft Fuel Dump")
 defineFloat("FW_FUEL_G", 312, {0, 1}, "Fuel Gauge", "Foreward Fuel Gauge")
 defineFloat("AFT_FUEL_G", 329, {0, 1}, "Fuel Gauge", "Aft Fuel Gauge")
 defineFloat("FUEL_FLOW_G", 313, {0, 1}, "Fuel Gauge", "Fuel Flow Gauge")
+defineFloat("AFT_FUEL_TRANS_G", 520, {0, 1}, "Fuel Gauge", "Aft Fuel Transfer Drum")
 
 --L/G & Ground
 defineToggleSwitch("FW_LG_GEAR_LVR", 1, 3154, 4, "Gear FW", "Foreward Gear Lever")
@@ -257,7 +327,7 @@ defineSpringloaded_3PosTumb("AFT_RUDDER_TRIM", 1, 3152, 3153, 519, "Gear AFT", "
 defineIndicatorLight08("NOSE_GEAR_L", 20, "Gear Lights", "Nose Gear Light (green)")
 defineIndicatorLight08("RIGHT_GEAR_L", 31, "Gear Lights", "Right Gear Light (green)")
 defineIndicatorLight08("LEFT_GEAR_L", 32, "Gear Lights", "Left Gear Light (green)")
---defineIndicatorLight08("GEAR_HND_L", 42, "Gear Lights", "Gear Handle Light (red)")
+defineIndicatorLight08("GEAR_HND_L", 42, "Gear Lights", "Gear Handle Light (red)")
 defineIndicatorLight08("TRIM_RUD_L", 251, "Gear Lights", "Takeoff Trim Rudder Light (green)")
 defineIndicatorLight08("TRIM_AIL_L", 252, "Gear Lights", "Takeoff Trim Aileron Light (green)")
 
@@ -277,10 +347,17 @@ definePotentiometer("AFT_LIGHT_FLOOD", 1, 3162, 512, {0, 1}, "Lights AFT", "Aft 
 definePotentiometer("AFT_LIGHT_CONSOLE", 1, 3163, 511, {0, 1}, "Lights AFT", "Aft Console Lights")
 defineToggleSwitch("AFT_LIGHT_WARN_BRIGHT", 1, 3171, 107, "Lights AFT", "Aft Warn Lights Bright/Dim")
 
+defineFloat("FW_LIGHT_INST_BACK_L", 507, {0, 1}, "Lights", "Foreward Instrument Backlights (white)")
+defineFloat("FW_LIGHT_PANEL_BACK_L", 508, {0, 1}, "Lights", "Foreward Panel Backlights (white)")
+defineFloat("FW_LIGHT_FLOOD_L", 508, {0, 1}, "Lights", "Foreward Flood Lights (red)")
+defineFloat("AFT_LIGHT_INST_BACK_L", 513, {0, 1}, "Lights", "Aft Instrument Backlights (white)")
+defineFloat("AFT_LIGHT_PANEL_BACK_L", 514, {0, 1}, "Lights", "Aft Panel Backlights (white)")
+defineFloat("AFT_LIGHT_FLOOD_L", 515, {0, 1}, "Lights", "Aft Flood Lights (red)")
+
 --Warning panel
 definePushButton("WARN_L_TEST", 1, 3172, 304, "Warning Panel", "Warn Lights Test")
 definePushButton("FW_MASTER_CAUTION", 1, 3173, 591, "Warning Panel", "Forward Master Caution Reset")
-definePushButton("AFT_MASTER_CAUTION", 1, 3173, 591, "Warning Panel", "Aft Master Caution Reset")
+definePushButton("AFT_MASTER_CAUTION", 1, 3173, 592, "Warning Panel", "Aft Master Caution Reset")
 definePushButton("WARN_SILENT", 1, 3177, 382, "Warning Panel", "Warning Silence")
 
 defineIndicatorLight08("MASTER_CAUTION_L", 209, "Warning Panel Light", "Master Caution Light (yellow)")
@@ -309,6 +386,9 @@ defineIndicatorLight08("FIRE_L", 253, "Warning Panel Light", "Fire Light (red)")
 defineIndicatorLight08("STEER_L", 254, "Warning Panel Light", "STEER Light (green)")
 defineIndicatorLight08("ASKIT_L", 255, "Warning Panel Light", "A/SKIT Light (yellow)")
 defineIndicatorLight08("OVERHEAT_L", 256, "Warning Panel Light", "OVERHEAT Light (yellow)")
+defineIndicatorLight08("CANOPY_L", 399, "Warning Panel Light", "CANOPY Light (red)")
+defineFloat("MCP_BRIGHT_L", 746, {0, 1}, "Warning Panel Light", "Warning Panel Brightness")
+
 
 --Engine
 defineToggleSwitch("ENG_MASTER", 1, 3178, 238, "Engine", "Engine Master")
@@ -353,7 +433,11 @@ define3PosTumb("AI_AFT_PITOT_AICE", 1, 3206, 149, "Anti Ice", "Rear Pitot Anti-I
 define3PosTumb("AI_WS_DEMIST", 1, 3207, 178, "Anti Ice", "Windshield Demist")
 define3PosTumb("AI_WS_RAIN", 1, 3208, 177, "Anti Ice", "Windshield Rain RMVL")
 
--- Ejection seat
+defineFloat("AI_AOA_G", 528, {0, 1}, "Anti Ice Gauges", "Anti-Ice AOA Drum")
+defineFloat("AI_PITOT_G", 709, {0, 1}, "Anti Ice Gauges", "Anti-Ice PITOT Drum")
+defineFloat("AI_ENG_G", 529, {0, 1}, "Anti Ice Gauges", "Anti-Ice ENG Drum")
+
+--Ejection seat
 defineToggleSwitch("SEAT_FIRE", 1, 3209, 205, "Seat", "Seat Firing Handle")
 defineSpringloaded_3PosTumb("SEAT_ADJ", 1, 3211, 3212, 323, "Seat", "Adj Seat UP/DOWN")
 defineToggleSwitch("SEAT_PIN_CANOPY", 1, 3213, 377, "Seat", "Ejection Safety Pin to Canopy")
@@ -376,7 +460,7 @@ definePushButton("AFT_CONTROL_ADF", 1, 3236, 271, "Control Shift AFT", "Aft ADF 
 
 defineIndicatorLight08("FW_CONTROL_TCN", 325, "Control Shift Lights", "Forward TACAN Control Shift Light (green)")
 defineIndicatorLight08("FW_CONTROL_ILS", 327, "Control Shift Lights", "Forward VOR-ILS Control Shift Light (green)")
-defineIndicatorLight08("FW_CONTROL_NAV", 278, "Control Shift Lights", "Forward NAV Control Shift Light (green)")
+defineIndicatorLight08("FW_CONTROL_NAV", 385, "Control Shift Lights", "Forward NAV Control Shift Light (green)")
 defineIndicatorLight08("FW_CONTROL_COM1_L", 308, "Control Shift Lights", "Forward COMM1 Control Shift Light (green)")
 defineIndicatorLight08("FW_CONTROL_COM2_L", 316, "Control Shift Lights", "Forward COMM2 Control Shift Light (green)")
 defineIndicatorLight08("FW_CONTROL_ADF", 318, "Control Shift Lights", "Forward ADF Control Shift Light (green)")
@@ -386,6 +470,7 @@ defineIndicatorLight08("AFT_CONTROL_NAV", 278, "Control Shift Lights", "Aft NAV 
 defineIndicatorLight08("AFT_CONTROL_COM1_L", 268, "Control Shift Lights", "Aft COMM1 Control Shift Light (green)")
 defineIndicatorLight08("AFT_CONTROL_COM2_L", 270, "Control Shift Lights", "Aft COMM2 Control Shift Light (green)")
 defineIndicatorLight08("AFT_CONTROL_ADF", 272, "Control Shift Lights", "Aft ADF Control Shift Light (green)")
+
 --CDU
 defineToggleSwitch("FW_CDU_GPS_PW", 1, 3237, 345, "CDU FW", "Forward CDU AHRS/GPS System")
 definePushButton("FW_CDU_ROW1", 1, 3238, 600, "CDU FW", "Forward CDU Row 1")
@@ -466,7 +551,13 @@ defineFloat("WP_STAT6_G", 64, {0, 1}, "Weapons Gauges", "Station 6 Drum")
 defineFloat("WP_SEQU_G", 161, {0, 1}, "Weapons Gauges", "Sequence Drum")
 defineFloat("WP_BOMB_FUZE_G", 162, {-1, 1}, "Weapons Gauges", "Bomb Fuze Drum")
 
-defineIndicatorLight("WP_MASTER_ARM_L", 163, "Weapons Light", "Master Arm Light (red)")
+defineIndicatorLight("WP_MASTER_ARM_L", 163, "Weapons Lights", "Master Arm Light (red)")
+defineIndicatorLight("WP_STAT1_G", 496, "Weapons Lights", "Station 1 Light (green)")
+defineIndicatorLight("WP_STAT2_G", 497, "Weapons Lights", "Station 2 Light (green)")
+defineIndicatorLight("WP_STAT3_G", 498, "Weapons Lights", "Station 3 Light (green)")
+defineIndicatorLight("WP_STAT4_G", 499, "Weapons Lights", "Station 4 Light (green)")
+defineIndicatorLight("WP_STAT5_G", 500, "Weapons Lights", "Station 5 Light (green)")
+defineIndicatorLight("WP_STAT6_G", 501, "Weapons Lights", "Station 6 Light (green)")
 
 --Gunsight
 define3PosTumb("GUN_PWR", 1, 3304, 478, "Gunsight", "Gunsight Power")
@@ -475,6 +566,10 @@ definePushButton("GUN_TEST", 1, 3307, 480, "Gunsight", "Gunsight Test")
 defineMultipositionSwitch("GUN_DEP_100", 1, 3308, 481, 10, 0.1, "Gunsight", "Gunsight Depression reticle x 100")
 defineMultipositionSwitch("GUN_DEP_10", 1, 3309, 482, 10, 0.1, "Gunsight", "Gunsight Depression reticle x 10")
 defineMultipositionSwitch("GUN_DEP_1", 1, 3310, 483, 10, 0.1, "Gunsight", "Gunsight Depression reticle x 1")
+
+defineIndicatorLightInverted("FW_GUN_PRE_G", 477, "Gunsight Gauges", "Forward Gunsight Present")
+defineFloat("FW_CAM_IND_G", 708, {0, 1}, "Gunsight Gauges", "Forward Camera Indicator")
+defineIndicatorLight08("FW_CAM_PRE_G", 954, "Gunsight Gauges", "Forward Camera Present")
 
 --VOR
 definePotentiometer("FW_VOR_FREQU_1MHZ", 1, 3311, 563, {0, 1}, "VOR FW", "Forward VOR Frequency 1MHz")
@@ -486,6 +581,11 @@ definePotentiometer("AFT_VOR_FREQU_1MHZ", 1, 3315, 539, {0, 1}, "VOR AFT", "Aft 
 definePotentiometer("AFT_VOR_FREQU_50KHZ", 1, 3316, 34, {0, 1}, "VOR AFT", "Aft VOR Frequency 50 kHz")
 definePushButton("AFT_VOR_TEST", 1, 3317, 537, "VOR AFT", "Aft VOR Frequency Test")
 defineToggleSwitch("AFT_VOR_PW", 1, 3318, 538, "VOR AFT", "Aft VOR Frequency Power Switch")
+
+defineFloat("FW_VOR_1000", 565, {0, 1}, "VOR Gauges", "Forward VOR Frequency 1000")
+defineFloat("FW_VOR_100", 566, {0, 1}, "VOR Gauges", "Forward VOR Frequency 100")
+defineFloat("FW_VOR_10", 567, {0, 1}, "VOR Gauges", "Forward VOR Frequency 10")
+defineFloat("FW_VOR_1", 568, {0, 1}, "VOR Gauges", "Forward VOR Frequency 1")
 
 defineFloat("AFT_VOR_1000", 35, {0, 1}, "VOR Gauges", "Aft VOR Frequency 1000")
 defineFloat("AFT_VOR_100", 36, {0, 1}, "VOR Gauges", "Aft VOR Frequency 100")
@@ -504,6 +604,18 @@ defineToggleSwitch("AFT_TCN_XY", 1, 3325, 572, "TACAN AFT", "Aft TACAN X/Y Switc
 defineMultipositionSwitch("AFT_TCN_1", 1, 3326, 573, 10, 0.1, "TACAN AFT", "Aft TACAN Units")
 defineMultipositionSwitch("AFT_TCN_10", 1, 3327, 574, 13, 0.08333, "TACAN AFT", "Aft TACAN Tens")
 definePushButton("AFT_TCN_TEST", 1, 3328, 575, "TACAN AFT", "Aft TACAN Test")
+
+defineIndicatorLight("FW_TCN_TEST_L", 556, "TACAN Lights", "Forward TACAN Test Light (red)")
+defineIndicatorLight("AFT_TCN_TEST_L", 576, "TACAN Lights", "Aft TACAN Test Light (red)")
+
+defineFloat("FW_TCN_XY_G", 557, {0, 1}, "TACAN Gauges", "Forward TACAN X/Y Drum")
+defineFloat("FW_TCN_1_G", 558, {0, 1}, "TACAN Gauges", "Forward TACAN 1 Drum")
+defineFloat("FW_TCN_10_G", 559, {0, 1}, "TACAN Gauges", "Forward TACAN 10 Drum")
+defineFloat("FW_TCN_100_G", 560, {0, 1}, "TACAN Gauges", "Forward TACAN 100 Drum")
+defineFloat("AFT_TCN_XY_G", 577, {0, 1}, "TACAN Gauges", "Aft TACAN X/Y Drum")
+defineFloat("AFT_TCN_1_G", 578, {0, 1}, "TACAN Gauges", "Aft TACAN 1 Drum")
+defineFloat("AFT_TCN_10_G", 579, {0, 1}, "TACAN Gauges", "Aft TACAN 10 Drum")
+defineFloat("AFT_TCN_100_G", 580, {0, 1}, "TACAN Gauges", "Aft TACAN 100 Drum")
 
 --Comm1
 defineMultipositionSwitch("FW_COM1_FUNC", 1, 3329, 664, 4, 0.33, "Comm1 FW", "Forward Comm 1 Function")
@@ -559,6 +671,7 @@ defineSpringloaded_3PosTumb("AFT_COM2_SQUELCH", 1, 3389, 3389, 158, "Comm2 AFT",
 defineToggleSwitch("AFT_COM2_MOD", 1, 3391, 157, "Comm2 AFT", "Aft Comm 2 Modulation")
 defineToggleSwitch("AFT_COM2_TOD", 1, 3392, 159, "Comm2 AFT", "Aft Comm 2 TOD")
 
+defineIndicatorLight("FW_COM2_FAIL_L", 653, "Comm2 Lights", "Forward Comm 2 FAIL Light (red)")
 defineIndicatorLight("AFT_COM2_FAIL_L", 293, "Comm2 Lights", "Aft Comm 2 FAIL Light (red)")
 
 --ICS
@@ -607,6 +720,7 @@ defineToggleSwitch("AFT_OXY_PW", 1, 3430, 113, "Oxygen AFT", "Aft Oxygen Power S
 defineToggleSwitch("AFT_OXY_DILUIT", 1, 3431, 113, "Oxygen AFT", "Aft Oxygen Diluiter Lever (Normal / 100%)")
 defineToggleSwitch("AFT_OXY_EMERG", 1, 3432, 111, "Oxygen AFT", "Aft Oxygen Emergency Lever")
 
+defineFloat("FW_OXY_FLOW_G", 306, {0, 1}, "Oxygen Gauges", "Forward Oxygen Indicator")
 defineFloat("AFT_OXY_FLOW_G", 180, {0, 1}, "Oxygen Gauges", "Aft Oxygen Indicator")
 
 --Cockpit
@@ -621,11 +735,15 @@ defineToggleSwitch("AFT_CANOPY_SEVERANCE_PIN", 1, 3218, 742, "Cockpit", "Aft Can
 defineToggleSwitch("CURTAIN_HANDLE", 1, 3435, 1999, "Cockpit", "Curtain Handle")
 
 defineFloat("CANOPY_POS_G", 181, {0, 1}, "Cockpit Gauges", "Canopy Position")
+defineFloat("FW_MIRROR_POS_G", 400, {0, 1}, "Cockpit Gauges", "Forward Mirror Position")
+defineFloat("AFT_MIRROR_POS_G", 594, {0, 1}, "Cockpit Gauges", "Aft Mirror Position")
 defineIndicatorLight("CURTAIN_G", 1998, "Cockpit Gauges", "Curtain Present")
 defineFloat("CURTAIN_POS_G", 1999, {0, 1}, "Cockpit Gauges", "Curtain Position")
 
 --ELT
 defineSpringloaded_3PosTumb("ELT_SW", 1, 3436, 3436, 727, "ELT", "ELT Switch")
+
+defineIndicatorLight("ELT_L", 740, "ELT Lights", "ELT Light (red)")
 
 --IFF
 defineMultipositionSwitch("IFF_MASTER", 1, 3438, 714, 5, 0.25, "IFF", "IFF Master")
@@ -648,6 +766,20 @@ definePushButton("IFF_CODE_SW_6", 1, 3455, 739, "IFF", "IFF Code Switch 6")
 definePushButton("IFF_TEST_GO", 1, 3456, 743, "IFF", "IFF Test Switch GO")
 definePushButton("IFF_TEST_NOGO", 1, 3457, 744, "IFF", "IFF Test Switch NOGO")
 definePushButton("IFF_TEST_REPLY", 1, 3458, 745, "IFF", "IFF Test Switch REPLY")
+
+defineFloat("IFF_MODE_10_G", 728, {0, 1}, "IFF Gauges", "IFF Mode 10 Drum")
+defineFloat("IFF_MODE_1_G", 729, {0, 1}, "IFF Gauges", "IFF Mode 1 Drum")
+defineFloat("IFF_MODE3A_1000_G", 730, {0, 1}, "IFF Gauges", "IFF Mode 3/A 1000 Drum")
+defineFloat("IFF_MODE3A_100_G", 731, {0, 1}, "IFF Gauges", "IFF Mode 3/A 100 Drum")
+defineFloat("IFF_MODE3A_10_G", 732, {0, 1}, "IFF Gauges", "IFF Mode 3/A 10 Drum")
+defineFloat("IFF_MODE3A_1_G", 733, {0, 1}, "IFF Gauges", "IFF Mode 3/A 1 Drum")
+
+defineIndicatorLight("IFF_TEST_GO_L", 724, "IFF Lights", "IFF Test Switch GO Light (green)")
+defineIndicatorLight("IFF_TEST_NOGO_L", 725, "IFF Lights", "IFF Test Switch NOGO Light (red)")
+defineIndicatorLight("IFF_TEST_REPLY_L", 726, "IFF Lights", "IFF Test Switch REPLY Light (green)")
+defineIndicatorLight("IFF_ALT_L", 724, "IFF Lights", "IFF ALT Light (red)")
+defineIndicatorLight("IFF_KIT_L", 725, "IFF Lights", "IFF KIT Light (red)")
+defineIndicatorLight("IFF_ANT_L", 726, "IFF Lights", "IFF ANT Light (red)")
 
 --Externals
 defineIntegerFromGetter("EXT_SPEED_BRAKE", function()
