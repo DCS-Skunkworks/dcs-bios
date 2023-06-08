@@ -540,7 +540,7 @@ defineFloat("SET_AIRSPEED", 70, {0, 1}, "Airspeed Indicator", "Set Airspeed")
 defineFloat("MACH_INDICATOR", 49, {0, 1}, "Airspeed Indicator", "Mach Indicator")
 
 --Standby Attitude Indicator
-defineFloat("SAI_PITCH", 63, {-1, -0.902, -0.793, -0.687, -0.576, -0.450, -0.339, -0.225, -0.115, 0, 0.114, 0.225, 0.336, 0.445, 0.569, 0.679, 0.784, 0.893, 0.995}, "SAI", " SAI Pitch")
+defineFloat("SAI_PITCH", 63, {-1, 0.995}, "SAI", "SAI Pitch")
 defineFloat("SAI_BANK", 64, {1, -1}, "SAI", "SAI Bank")
 defineFloat("SAI_OFF_FLAG", 65, {0, 1}, "SAI", "SAI Off Flag")
 defineFloat("SAI_AIRCRAFTREFERENCESYMBOL", 68, {-1, 1}, "SAI", "SAI Aircraft Reference Symbol")

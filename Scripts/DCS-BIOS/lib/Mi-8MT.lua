@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("Mi-8MT", 0x2600)
 BIOS.protocol.setExportModuleAircrafts({"Mi-8MT"})
-
+--overhaul by WarLord
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document

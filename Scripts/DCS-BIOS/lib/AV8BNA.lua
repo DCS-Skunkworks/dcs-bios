@@ -60,7 +60,7 @@ local function defineAV8BCommSelector(msg, device_id, command, arg_delta, arg_nu
 	}
 end
 
----- MAIN INSTRUMENT PANEL:
+----MAIN INSTRUMENT PANEL:
 --Master Modes Panel (MSC)
 definePushButton("NAV_SEL", 12, 3282, 282, "Master Modes", "NAV Master Mode Selector")
 definePushButton("VSTOL_SEL", 12, 3284, 284, "Master Modes", "VSTOL Master Mode Selector")
@@ -251,7 +251,7 @@ definePushButton("STOPWATCH_LAP", 12, 3052, 1122, "Bulkhead", "Stopwatch Lap/Res
 --Seat
 defineToggleSwitch("SEAT_SAFE_LEVER", 12, 3800, 800, "Seat", "Seat Ground Safety Lever")
 
----- CENTER CONSOLE:
+----CENTER CONSOLE:
 --Flights Instruments Panel
 define3PosTumb("NAV_CRS", 11, 3364, 364, "Flight Instruments", "NAV Course Setting")
 defineRotary("BARO_PRESSURE", 10, 3653, 653, "Flight Instruments", "Barometric Pressure Calibration")
@@ -268,7 +268,7 @@ defineToggleSwitch("FLIR", 14, 3429, 429, "Misc", "FLIR Power Switch")
 --INS Panel
 defineMultipositionSwitch("INS_MODE", 11, 3421, 421, 8, 0.1, "INS" , "INS Mode Knob OFF/SEA/GND/NAV/IFA/GYRO/GB/TEST")
 
----- LEFT CONSOLE:
+----LEFT CONSOLE:
 --Trim Panel
 defineMultipositionSwitch("YAW_TRIM_SW", 28, 3471, 471, 3, 0.5, "Trim", "RPS/YAW Trim Switch TEST/ON/OFF")
 defineMultipositionSwitch("TRIM_MODE", 28, 3472, 472, 3, 0.5, "Trim", "Trim Mode Switch APRCH/HVR/OFF")
@@ -315,7 +315,7 @@ define3PosTumb("SEAT_ADJ", 12, 3502, 502, "Bulkhead Left", "Seat Adjustment Swit
 defineToggleSwitch("FUEL_SHUTOFF", 9, 3519, 519, "Bulkhead Left", "Fuel Shutoff Lever")
 defineToggleSwitch("DECS_SW", 9, 3520, 520, "Bulkhead Left", "DECS Switch")
 
----- RIGHT CONSOLE:
+----RIGHT CONSOLE:
 --Electrical Panel
 defineToggleSwitch("DC_TEST_SW", 1, 3609, 609, "Electric Panel", "DC Test Switch")
 defineMultipositionSwitch("APU_GEN_SW", 1, 3610, 610, 3, 0.5, "Electric Panel", "APU Generator Switch OFF/ON/RESET")
@@ -359,7 +359,7 @@ defineMultipositionSwitch("CABIN_DEFOG", 36, 3641, 641, 3, 0.5, "ECS" , "Cabin D
 defineMultipositionSwitch("ECS_AFT", 36, 3642, 642, 3, 0.5, "ECS" , "Aft Equipment Bay ECS Switch RESET/ON/OFF")
 defineMultipositionSwitch("CABIN_PRESS_SWITCH", 36, 3643, 643, 3, 0.5, "ECS" , "Cabin Pressure Switch NORM/DUMP/RAM")
 
----- FLOOD LAMPS:
+----FLOOD LAMPS:
 definePotentiometer("FLOOD_R_CAN_T", 34, 3150, 150, {-1, 1}, "Flood Lamps", "Flood Right Canopy Frame Top")
 definePotentiometer("FLOOD_R_CAN_B", 34, 3151, 151, {-1, 1}, "Flood Lamps", "Flood Right Canopy Frame Btm")
 definePotentiometer("FLOOD_R_BH_FWD", 34, 3152, 152, {-1, 1}, "Flood Lamps", "Flood Right BH FWD")
@@ -371,13 +371,13 @@ definePotentiometer("FLOOD_L_BH_FWD", 34, 3157, 157, {-1, 1}, "Flood Lamps", "Fl
 definePotentiometer("FLOOD_L_CAN_B", 34, 3158, 158, {-1, 1}, "Flood Lamps", "Flood Left Canopy Frame Btm")
 definePotentiometer("FLOOD_L_CAN_T", 34, 3159, 159, {-1, 1}, "Flood Lamps", "Flood Left Canopy Frame Top")
 
----- CANOPY CONTROLS:
+----CANOPY CONTROLS:
 defineToggleSwitch("CANOPY_HAND_L", 28, 3801, 801, "Canopy", "Canopy Handle Left")
 defineToggleSwitch("CANOPY_HAND_R", 28, 3802, 802, "Canopy", "Canopy Handle Right")
 defineToggleSwitch("CANOPY_LOCK", 28, 3803, 803, "Canopy", "Canopy Locking Lever")
 defineFloat("CANOPY_POS", 38, {0, 1}, "Canopy", "Canopy Position")
 
----- Indicator Lights & Gauges
+----Indicator Lights & Gauges
 --MIP INNER LEFT
 defineIndicatorLight("MC_LIGHT", 196, "Warning, Caution and IndicatorLights","MasterCaution Lamp (yellow)")
 defineIndicatorLight("MW_LIGHT", 197, "Warning, Caution and IndicatorLights","MasterWarning Lamp (red)")
