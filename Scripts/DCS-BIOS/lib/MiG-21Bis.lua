@@ -66,8 +66,8 @@ defineToggleSwitch("FIRE_EXT_CVR", 53, 3026, 324, "Left Vertical Forward Panel",
 definePushButton("FIRE_EXT", 53, 3027, 325, "Left Vertical Forward Panel", "Fire Extinguisher")
 
 --Lights
-definePotentiometer("TXT_LIGHT", 46, 3231, 612, {0, 1}, "Right Horizontal Aft Panel", "Text Backlights")
-definePotentiometer("GAUGE_LIGHT", 46, 3232, 156, {0, 1}, "Right Horizontal Aft Panel", "Gauge Backlights")
+definePotentiometer("TXT_LIGHT", 46, 3231, 612, {-1, 1}, "Right Horizontal Aft Panel", "Text Backlights")
+definePotentiometer("GAUGE_LIGHT", 46, 3232, 156, {-1, 1}, "Right Horizontal Aft Panel", "Gauge Backlights")
 definePotentiometer("RED_LIGHT", 46, 3233, 157, {0, 1}, "Right Horizontal Forward Panel", "Red Lights")
 definePotentiometer("WHITE_LIGHT", 46, 3234, 222, {0, 1}, "Canopy Frame", "White Lights")
 defineTumb("NAV_LIGHTS", 46, 3032, 194, 0.33, {0.0, 0.99}, nil, true, "Avionics Power Panel", "Nav Lights Off/Dim/Med/Bright")
