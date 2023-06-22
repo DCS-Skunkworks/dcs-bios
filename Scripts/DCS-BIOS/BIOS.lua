@@ -43,6 +43,7 @@ dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\C-101.lua]]) -- ID = 12, ProperNam
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Christen Eagle II.lua]]) -- ID = 14, ProperName = Christen Eagle II
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Edge540.lua]]) -- ID = 15, ProperName = Edge 540
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\F-14.lua]]) -- ID = 16, ProperName = F-14A/B Tomcat
+dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\F-15E.lua]]) -- ID = 44, ProperName = F-15E Strike Eagle
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\F-16C_50.lua]]) -- ID = 17, ProperName = F-16C Viper
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\F-22A.lua]]) -- ID = 40, ProperName = F-22A Raptor
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\F-5E-3.lua]]) -- ID = 18, ProperName = F-5E Tiger II
