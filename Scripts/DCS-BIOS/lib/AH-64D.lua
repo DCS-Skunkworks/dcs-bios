@@ -851,9 +851,9 @@ defineString("PLT_CMWS_PAGE", function() return cmws_page end, 4, "PLT CMWS", "C
 
 -- text lines
 defineString("PLT_CMWS_FLARE_LETTER", function() return flare_letter end, 1, "PLT CMWS", "Flare Letter (F)")
-defineString("PLT_CMWS_FLARE_COUNT", function() return flare_count end, 2, "PLT CMWS", "Flare Count")
+defineString("PLT_CMWS_FLARE_COUNT", function() return flare_count end, 3, "PLT CMWS", "Flare Count")
 defineString("PLT_CMWS_CHAFF_LETTER", function() return chaff_letter end, 1, "PLT CMWS", "Chaff Letter (C)")
-defineString("PLT_CMWS_CHAFF_COUNT", function() return chaff_count end, 2, "PLT CMWS", "Chaff Count")
+defineString("PLT_CMWS_CHAFF_COUNT", function() return chaff_count end, 3, "PLT CMWS", "Chaff Count")
 defineString("PLT_CMWS_BIT_LINE_1", function() return bit_line_1 end, 3, "PLT CMWS", "Bit test line 1 ('BIT'/'SYS')")
 defineString("PLT_CMWS_BIT_LINE_2", function() return bit_line_2 end, 4, "PLT CMWS", "Bit test line 2 ('I/P'/'PASS')")
 
