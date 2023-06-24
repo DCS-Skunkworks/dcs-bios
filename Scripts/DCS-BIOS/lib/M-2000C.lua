@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("M-2000C", 0x7200)
 BIOS.protocol.setExportModuleAircrafts({"M-2000C"})
---v1.38a by Ergo,Matchstick,MisterKnife,WarLord,Espresso29470
+--v1.38b by Ergo,Matchstick,MisterKnife,WarLord,Espresso29470
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 
@@ -392,8 +392,6 @@ defineIndicatorLight("FUEL_AV_D", 366, "FUEL SYSTEM", "O - FUEL - Right AV Light
 defineIndicatorLight("FUEL_V_G", 367, "FUEL SYSTEM", "O - FUEL - Left V Light (yellow)")
 defineIndicatorLight("FUEL_V_D", 368, "FUEL SYSTEM", "O - FUEL - Right V Light (yellow)")
 defineString("FUEL_FLOW", function() return fuelFlow end, FUEL_FLOW_LEN, "FUEL SYSTEM", "O - FUEL - Fuel Flow Display")
-defineString("FUEL_JAUGE", function() return fuelJauge end, 4, "FUEL SYSTEM", "O - FUEL - JAUGE Display")
-defineString("FUEL_TOTAL", function() return fuelTotal end, 4, "FUEL SYSTEM", "O - FUEL - Total Display")
 
 --ACCELEROMETER
 defineFloat("GMETER_NEEDLE", 347, {-1, 1}, "G-METER", "O - ACC - G Needle")
@@ -856,6 +854,7 @@ definePotentiometer("MIRROR_ORIENT", 40, 3009, 9, {0, 1}, "CANOPY", "I - Mirror 
 defineRotary("COC_CLOCK_ROT", 2, 3922, 922, "CLOCK", "I - CLOCK - Clock Rewind/Adjust")
 defineToggleSwitch("COC_CLOCK_BTN", 2, 3923, 923, "CLOCK", "I - CLOCK - Clock Start/Stop/Reset")
 defineToggleSwitch("COC_CLOCK_ADJ", 2, 3924, 924, "CLOCK", "I - CLOCK - Clock time adjustment knob")
-
+defineString("FUEL_JAUGE", function() return fuelJauge end, 4, "FUEL SYSTEM", "O - FUEL - JAUGE Display")
+defineString("FUEL_TOTAL", function() return fuelTotal end, 4, "FUEL SYSTEM", "O - FUEL - Total Display")
 
 BIOS.protocol.endModule()
