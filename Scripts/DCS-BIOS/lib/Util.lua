@@ -1480,3 +1480,14 @@ function BIOS.util.defineIndicatorLight08(msg, arg_number, category, description
 		}
 	}
 end
+
+function BIOS.util.round(num, numDecimalPlaces, returnstring)
+	if returnstring == nil then
+		returnstring = false
+	end
+	if returnstring then
+		return string.format("%." .. (numDecimalPlaces or 0) .. "f", num)
+	else
+		return tonumber(string.format("%." .. (numDecimalPlaces or 0) .. "f", num))
+	end
+end
