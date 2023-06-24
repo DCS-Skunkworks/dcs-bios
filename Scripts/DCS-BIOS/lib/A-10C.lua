@@ -1185,9 +1185,11 @@ local arc_210_data_file = io.open(lfs.writedir()..[[Scripts\DCS-BIOS\doc\json\A-
 local arc_210_data = JSON:decode(arc_210_data_file:read("*a"))
 arc_210_data_file:close()
 arc_210_data_file = nil
+arc_210_freq = "       "
 
 moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	local arc = parse_indication(18)
+	arc_210_freq = coerce_nil_to_string(arc["freq_label_mhz"]) .. "." .. coerce_nil_to_string(arc["freq_label_khz"])
 
 	if arc then
 		-- todo: figure out how to get the active page (doesn't seem to be exported like CDU page...)
@@ -1331,6 +1333,7 @@ definePushButton("ARC210_BRIGHT_INC", 55, 3008, 560, "ARC-210", "ARC-210 Brightn
 definePushButton("ARC210_BRIGHT_DEC", 55, 3009, 559, "ARC-210", "ARC-210 Brightness Decrease")
 
 defineIndicatorLight("ARC210_PRESENT", 998, "ARC-210", "ARC-210 Present")
+defineString("ARC210_FREQUENCY", function() return arc_210_freq end, 7, "ARC-210 Display", "ARC-210 Frequency (String)")
 
 defineIntegerFromGetter("EXT_BOTTOM_LIGHT", function()
 	if LoGetAircraftDrawArgumentValue(201) > 0 then return 1 else return 0 end
