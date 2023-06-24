@@ -50,7 +50,7 @@ local fuelJauge = ""
 local fuelTotal = ""
 local FUEL_FLOW_LEN = 3
 
-moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
+moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
 	local fuel = parse_indication(3)
 	if not fuel then return end
 	fuelFlow = padLeft(fuel.txt_fuel_g, FUEL_FLOW_LEN)
