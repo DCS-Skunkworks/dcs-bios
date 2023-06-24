@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("A-10C", 0x1000)
 BIOS.protocol.setExportModuleAircrafts({"A-10C", "A-10C_2"})
---overhaul by WarLord,charliefoxtwo,talbotmcinnis&DeadMeat v2.9
+--overhaul by WarLord,charliefoxtwo,talbotmcinnis&DeadMeat v2.9a
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 
