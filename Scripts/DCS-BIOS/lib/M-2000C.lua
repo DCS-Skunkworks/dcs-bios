@@ -46,13 +46,22 @@ end
 
 -- parse fuel
 local fuelFlow = ""
+local fuelJauge = ""
+local fuelTotal = ""
 local FUEL_FLOW_LEN = 3
 
-moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
+moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
 	local fuel = parse_indication(3)
 	if not fuel then return end
-
 	fuelFlow = padLeft(fuel.txt_fuel_g, FUEL_FLOW_LEN)
+	local jauge_thous = BIOS.util.round(dev0:get_argument_value(349),1,true)
+	local jauge_cents = BIOS.util.round(dev0:get_argument_value(350),1,true)
+	local jauge_tens = BIOS.util.round(dev0:get_argument_value(351),1,true)
+	fuelJauge = string.sub(jauge_thous,3,3) .. string.sub(jauge_cents,3,3)  .. string.sub(jauge_tens,3,3)  .. "0"
+	local fuelTotal_thous = BIOS.util.round(dev0:get_argument_value(352),1,true)
+	local fuelTotal_cents = BIOS.util.round(dev0:get_argument_value(353),1,true)
+	local fuelTotal_tens = BIOS.util.round(dev0:get_argument_value(354),1,true)
+	fuelTotal = string.sub(fuelTotal_thous,3,3) .. string.sub(fuelTotal_cents,3,3)  .. string.sub(fuelTotal_tens,3,3)  .. "0"
 end
 
 -- parse PCA upper
@@ -383,6 +392,8 @@ defineIndicatorLight("FUEL_AV_D", 366, "FUEL SYSTEM", "O - FUEL - Right AV Light
 defineIndicatorLight("FUEL_V_G", 367, "FUEL SYSTEM", "O - FUEL - Left V Light (yellow)")
 defineIndicatorLight("FUEL_V_D", 368, "FUEL SYSTEM", "O - FUEL - Right V Light (yellow)")
 defineString("FUEL_FLOW", function() return fuelFlow end, FUEL_FLOW_LEN, "FUEL SYSTEM", "O - FUEL - Fuel Flow Display")
+defineString("FUEL_JAUGE", function() return fuelJauge end, 4, "FUEL SYSTEM", "O - FUEL - JAUGE Display")
+defineString("FUEL_TOTAL", function() return fuelTotal end, 4, "FUEL SYSTEM", "O - FUEL - Total Display")
 
 --ACCELEROMETER
 defineFloat("GMETER_NEEDLE", 347, {-1, 1}, "G-METER", "O - ACC - G Needle")
