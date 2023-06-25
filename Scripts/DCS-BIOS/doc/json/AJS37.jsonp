@@ -2671,6 +2671,104 @@ docdata["AJS37"] =
                                                                    "physical_variant": "limited_rotary"
                                                             }
                                },
+          "FR22 Radio Gauges": {
+                                        "FR22_DRUM_1": {
+                                                               "category": "FR22 Radio Gauges",
+                                                           "control_type": "analog_gauge",
+                                                            "description": "Radio Frequency 1",
+                                                             "identifier": "FR22_DRUM_1",
+                                                                 "inputs": [  ],
+                                                                "outputs": [ {
+                                                                                   "address": 18152,
+                                                                               "description": "gauge position",
+                                                                                      "mask": 65535,
+                                                                                 "max_value": 65535,
+                                                                                  "shift_by": 0,
+                                                                                    "suffix": "",
+                                                                                      "type": "integer"
+                                                                           } ]
+                                                       },
+                                       "FR22_DRUM_10": {
+                                                               "category": "FR22 Radio Gauges",
+                                                           "control_type": "analog_gauge",
+                                                            "description": "Radio Frequency 10",
+                                                             "identifier": "FR22_DRUM_10",
+                                                                 "inputs": [  ],
+                                                                "outputs": [ {
+                                                                                   "address": 18150,
+                                                                               "description": "gauge position",
+                                                                                      "mask": 65535,
+                                                                                 "max_value": 65535,
+                                                                                  "shift_by": 0,
+                                                                                    "suffix": "",
+                                                                                      "type": "integer"
+                                                                           } ]
+                                                       },
+                                      "FR22_DRUM_100": {
+                                                               "category": "FR22 Radio Gauges",
+                                                           "control_type": "analog_gauge",
+                                                            "description": "Radio Frequency 100",
+                                                             "identifier": "FR22_DRUM_100",
+                                                                 "inputs": [  ],
+                                                                "outputs": [ {
+                                                                                   "address": 18148,
+                                                                               "description": "gauge position",
+                                                                                      "mask": 65535,
+                                                                                 "max_value": 65535,
+                                                                                  "shift_by": 0,
+                                                                                    "suffix": "",
+                                                                                      "type": "integer"
+                                                                           } ]
+                                                       },
+                                     "FR22_DRUM_1000": {
+                                                               "category": "FR22 Radio Gauges",
+                                                           "control_type": "analog_gauge",
+                                                            "description": "Radio Frequency 1000",
+                                                             "identifier": "FR22_DRUM_1000",
+                                                                 "inputs": [  ],
+                                                                "outputs": [ {
+                                                                                   "address": 18146,
+                                                                               "description": "gauge position",
+                                                                                      "mask": 65535,
+                                                                                 "max_value": 65535,
+                                                                                  "shift_by": 0,
+                                                                                    "suffix": "",
+                                                                                      "type": "integer"
+                                                                           } ]
+                                                       },
+                                    "FR22_DRUM_10000": {
+                                                               "category": "FR22 Radio Gauges",
+                                                           "control_type": "analog_gauge",
+                                                            "description": "Radio Frequency 10000",
+                                                             "identifier": "FR22_DRUM_10000",
+                                                                 "inputs": [  ],
+                                                                "outputs": [ {
+                                                                                   "address": 18144,
+                                                                               "description": "gauge position",
+                                                                                      "mask": 65535,
+                                                                                 "max_value": 65535,
+                                                                                  "shift_by": 0,
+                                                                                    "suffix": "",
+                                                                                      "type": "integer"
+                                                                           } ]
+                                                       },
+                                   "FR22_DRUM_100000": {
+                                                               "category": "FR22 Radio Gauges",
+                                                           "control_type": "analog_gauge",
+                                                            "description": "Radio Frequency 100000",
+                                                             "identifier": "FR22_DRUM_100000",
+                                                                 "inputs": [  ],
+                                                                "outputs": [ {
+                                                                                   "address": 18142,
+                                                                               "description": "gauge position",
+                                                                                      "mask": 65535,
+                                                                                 "max_value": 65535,
+                                                                                  "shift_by": 0,
+                                                                                    "suffix": "",
+                                                                                      "type": "integer"
+                                                                           } ]
+                                                       }
+                               },
            "Flight Data Unit": {
                                                "AFK_15_DEG_MODE": {
                                                                                  "category": "Flight Data Unit",
@@ -4095,54 +4193,118 @@ docdata["AJS37"] =
                                                                }
                                },
            "Indicator Lights": {
-                                    "ATT_LAMP": {
-                                                        "category": "Indicator Lights",
-                                                    "control_type": "led",
-                                                     "description": "ATT Lamp",
-                                                      "identifier": "ATT_LAMP",
-                                                          "inputs": [  ],
-                                                         "outputs": [ {
-                                                                            "address": 17944,
-                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                               "mask": 4096,
-                                                                          "max_value": 1,
-                                                                           "shift_by": 12,
-                                                                             "suffix": "",
-                                                                               "type": "integer"
-                                                                    } ]
-                                                },
-                                   "HOJD_LAMP": {
-                                                        "category": "Indicator Lights",
-                                                    "control_type": "led",
-                                                     "description": "HOJD Lamp",
-                                                      "identifier": "HOJD_LAMP",
-                                                          "inputs": [  ],
-                                                         "outputs": [ {
-                                                                            "address": 17944,
-                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                               "mask": 8192,
-                                                                          "max_value": 1,
-                                                                           "shift_by": 13,
-                                                                             "suffix": "",
-                                                                               "type": "integer"
-                                                                    } ]
-                                                },
-                                   "SPAK_LAMP": {
-                                                        "category": "Indicator Lights",
-                                                    "control_type": "led",
-                                                     "description": "SPAK Lamp",
-                                                      "identifier": "SPAK_LAMP",
-                                                          "inputs": [  ],
-                                                         "outputs": [ {
-                                                                            "address": 17944,
-                                                                        "description": "0 if light is off, 1 if light is on",
-                                                                               "mask": 2048,
-                                                                          "max_value": 1,
-                                                                           "shift_by": 11,
-                                                                             "suffix": "",
-                                                                               "type": "integer"
-                                                                    } ]
-                                                }
+                                         "ATT_LAMP": {
+                                                             "category": "Indicator Lights",
+                                                         "control_type": "led",
+                                                          "description": "ATT Lamp",
+                                                           "identifier": "ATT_LAMP",
+                                                               "inputs": [  ],
+                                                              "outputs": [ {
+                                                                                 "address": 17944,
+                                                                             "description": "0 if light is off, 1 if light is on",
+                                                                                    "mask": 4096,
+                                                                               "max_value": 1,
+                                                                                "shift_by": 12,
+                                                                                  "suffix": "",
+                                                                                    "type": "integer"
+                                                                         } ]
+                                                     },
+                                        "CI_BRIGHT": {
+                                                             "category": "Indicator Lights",
+                                                         "control_type": "analog_gauge",
+                                                          "description": "CI Light Brightness",
+                                                           "identifier": "CI_BRIGHT",
+                                                               "inputs": [  ],
+                                                              "outputs": [ {
+                                                                                 "address": 18162,
+                                                                             "description": "gauge position",
+                                                                                    "mask": 65535,
+                                                                               "max_value": 65535,
+                                                                                "shift_by": 0,
+                                                                                  "suffix": "",
+                                                                                    "type": "integer"
+                                                                         } ]
+                                                     },
+                                   "CONSOLE_BRIGHT": {
+                                                             "category": "Indicator Lights",
+                                                         "control_type": "analog_gauge",
+                                                          "description": "Console Light Brightness",
+                                                           "identifier": "CONSOLE_BRIGHT",
+                                                               "inputs": [  ],
+                                                              "outputs": [ {
+                                                                                 "address": 18168,
+                                                                             "description": "gauge position",
+                                                                                    "mask": 65535,
+                                                                               "max_value": 65535,
+                                                                                "shift_by": 0,
+                                                                                  "suffix": "",
+                                                                                    "type": "integer"
+                                                                         } ]
+                                                     },
+                                     "FLOOD_BRIGHT": {
+                                                             "category": "Indicator Lights",
+                                                         "control_type": "analog_gauge",
+                                                          "description": "Flood Light Brightness",
+                                                           "identifier": "FLOOD_BRIGHT",
+                                                               "inputs": [  ],
+                                                              "outputs": [ {
+                                                                                 "address": 18166,
+                                                                             "description": "gauge position",
+                                                                                    "mask": 65535,
+                                                                               "max_value": 65535,
+                                                                                "shift_by": 0,
+                                                                                  "suffix": "",
+                                                                                    "type": "integer"
+                                                                         } ]
+                                                     },
+                                        "HOJD_LAMP": {
+                                                             "category": "Indicator Lights",
+                                                         "control_type": "led",
+                                                          "description": "HOJD Lamp",
+                                                           "identifier": "HOJD_LAMP",
+                                                               "inputs": [  ],
+                                                              "outputs": [ {
+                                                                                 "address": 17944,
+                                                                             "description": "0 if light is off, 1 if light is on",
+                                                                                    "mask": 8192,
+                                                                               "max_value": 1,
+                                                                                "shift_by": 13,
+                                                                                  "suffix": "",
+                                                                                    "type": "integer"
+                                                                         } ]
+                                                     },
+                                     "PANEL_BRIGHT": {
+                                                             "category": "Indicator Lights",
+                                                         "control_type": "analog_gauge",
+                                                          "description": "Panel Light Brightness",
+                                                           "identifier": "PANEL_BRIGHT",
+                                                               "inputs": [  ],
+                                                              "outputs": [ {
+                                                                                 "address": 18164,
+                                                                             "description": "gauge position",
+                                                                                    "mask": 65535,
+                                                                               "max_value": 65535,
+                                                                                "shift_by": 0,
+                                                                                  "suffix": "",
+                                                                                    "type": "integer"
+                                                                         } ]
+                                                     },
+                                        "SPAK_LAMP": {
+                                                             "category": "Indicator Lights",
+                                                         "control_type": "led",
+                                                          "description": "SPAK Lamp",
+                                                           "identifier": "SPAK_LAMP",
+                                                               "inputs": [  ],
+                                                              "outputs": [ {
+                                                                                 "address": 17944,
+                                                                             "description": "0 if light is off, 1 if light is on",
+                                                                                    "mask": 2048,
+                                                                               "max_value": 1,
+                                                                                "shift_by": 11,
+                                                                                  "suffix": "",
+                                                                                    "type": "integer"
+                                                                         } ]
+                                                     }
                                },
                      "Lights": {
                                         "ANTI_COLLISION_LIGHTS": {
@@ -5824,598 +5986,886 @@ docdata["AJS37"] =
                                                             }
                                },
            "Raw Gauge Values": {
-                                           "ADI_AOA_INDICATOR": {
-                                                                        "category": "Raw Gauge Values",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "ADI AoA Indicator",
-                                                                      "identifier": "ADI_AOA_INDICATOR",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                            "address": 18004,
-                                                                                        "description": "gauge position",
-                                                                                               "mask": 65535,
-                                                                                          "max_value": 65535,
-                                                                                           "shift_by": 0,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ]
-                                                                },
-                                                 "ADI_HEADING": {
-                                                                        "category": "Raw Gauge Values",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "ADI Heading",
-                                                                      "identifier": "ADI_HEADING",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                            "address": 17992,
-                                                                                        "description": "gauge position",
-                                                                                               "mask": 65535,
-                                                                                          "max_value": 65535,
-                                                                                           "shift_by": 0,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ]
-                                                                },
-                                          "ADI_HORIZONTAL_ILS": {
-                                                                        "category": "Raw Gauge Values",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "ADI Horizontal ILS",
-                                                                      "identifier": "ADI_HORIZONTAL_ILS",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                            "address": 18000,
-                                                                                        "description": "gauge position",
-                                                                                               "mask": 65535,
-                                                                                          "max_value": 65535,
-                                                                                           "shift_by": 0,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ]
-                                                                },
-                                                   "ADI_PITCH": {
-                                                                        "category": "Raw Gauge Values",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "ADI Pitch",
-                                                                      "identifier": "ADI_PITCH",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                            "address": 17990,
-                                                                                        "description": "gauge position",
-                                                                                               "mask": 65535,
-                                                                                          "max_value": 65535,
-                                                                                           "shift_by": 0,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ]
-                                                                },
-                                                    "ADI_ROLL": {
-                                                                        "category": "Raw Gauge Values",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "ADI Roll",
-                                                                      "identifier": "ADI_ROLL",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                            "address": 17994,
-                                                                                        "description": "gauge position",
-                                                                                               "mask": 65535,
-                                                                                          "max_value": 65535,
-                                                                                           "shift_by": 0,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ]
-                                                                },
-                                                "ADI_SLIPBALL": {
-                                                                        "category": "Raw Gauge Values",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "ADI Slipball",
-                                                                      "identifier": "ADI_SLIPBALL",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                            "address": 18002,
-                                                                                        "description": "gauge position",
-                                                                                               "mask": 65535,
-                                                                                          "max_value": 65535,
-                                                                                           "shift_by": 0,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ]
-                                                                },
-                                            "ADI_VERTICAL_ILS": {
-                                                                        "category": "Raw Gauge Values",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "ADI Vertical ILS",
-                                                                      "identifier": "ADI_VERTICAL_ILS",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                            "address": 17998,
-                                                                                        "description": "gauge position",
-                                                                                               "mask": 65535,
-                                                                                          "max_value": 65535,
-                                                                                           "shift_by": 0,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ]
-                                                                },
-                                       "ADI_VERTICAL_VELOCITY": {
-                                                                        "category": "Raw Gauge Values",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "ADI Vertical Velocity",
-                                                                      "identifier": "ADI_VERTICAL_VELOCITY",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                            "address": 17996,
-                                                                                        "description": "gauge position",
-                                                                                               "mask": 65535,
-                                                                                          "max_value": 65535,
-                                                                                           "shift_by": 0,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ]
-                                                                },
-                                                "AIRSPEED_M/S": {
-                                                                        "category": "Raw Gauge Values",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "Airspeed m/s",
-                                                                      "identifier": "AIRSPEED_M/S",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                            "address": 17968,
-                                                                                        "description": "gauge position",
-                                                                                               "mask": 65535,
-                                                                                          "max_value": 65535,
-                                                                                           "shift_by": 0,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ]
-                                                                },
-                                            "ALTIMETER_10000M": {
-                                                                        "category": "Raw Gauge Values",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "Altimeter 10000 Meter",
-                                                                      "identifier": "ALTIMETER_10000M",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                            "address": 17978,
-                                                                                        "description": "gauge position",
-                                                                                               "mask": 65535,
-                                                                                          "max_value": 65535,
-                                                                                           "shift_by": 0,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ]
-                                                                },
-                                             "ALTIMETER_1000M": {
-                                                                        "category": "Raw Gauge Values",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "Altimeter 1000 Meter",
-                                                                      "identifier": "ALTIMETER_1000M",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                            "address": 17980,
-                                                                                        "description": "gauge position",
-                                                                                               "mask": 65535,
-                                                                                          "max_value": 65535,
-                                                                                           "shift_by": 0,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ]
-                                                                },
-                                     "ALTIMETER_BARO_1000_HPA": {
-                                                                        "category": "Raw Gauge Values",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "Altimeter Baro 1000 hPa X000",
-                                                                      "identifier": "ALTIMETER_BARO_1000_HPA",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                            "address": 17988,
-                                                                                        "description": "gauge position",
-                                                                                               "mask": 65535,
-                                                                                          "max_value": 65535,
-                                                                                           "shift_by": 0,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ]
-                                                                },
-                                      "ALTIMETER_BARO_100_HPA": {
-                                                                        "category": "Raw Gauge Values",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "Altimeter Baro 100 hPa 0X00",
-                                                                      "identifier": "ALTIMETER_BARO_100_HPA",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                            "address": 17986,
-                                                                                        "description": "gauge position",
-                                                                                               "mask": 65535,
-                                                                                          "max_value": 65535,
-                                                                                           "shift_by": 0,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ]
-                                                                },
-                                       "ALTIMETER_BARO_10_HPA": {
-                                                                        "category": "Raw Gauge Values",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "Altimeter Baro 10 hPa 00X0",
-                                                                      "identifier": "ALTIMETER_BARO_10_HPA",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                            "address": 17984,
-                                                                                        "description": "gauge position",
-                                                                                               "mask": 65535,
-                                                                                          "max_value": 65535,
-                                                                                           "shift_by": 0,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ]
-                                                                },
-                                        "ALTIMETER_BARO_1_HPA": {
-                                                                        "category": "Raw Gauge Values",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "Altimeter Baro 1 hPa 000X",
-                                                                      "identifier": "ALTIMETER_BARO_1_HPA",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                            "address": 17982,
-                                                                                        "description": "gauge position",
-                                                                                               "mask": 65535,
-                                                                                          "max_value": 65535,
-                                                                                           "shift_by": 0,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ]
-                                                                },
-                                     "BACKUP_ALTIMETER_10000M": {
-                                                                        "category": "Raw Gauge Values",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "Backup Altimeter 10000 Meter",
-                                                                      "identifier": "BACKUP_ALTIMETER_10000M",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                            "address": 18014,
-                                                                                        "description": "gauge position",
-                                                                                               "mask": 65535,
-                                                                                          "max_value": 65535,
-                                                                                           "shift_by": 0,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ]
-                                                                },
-                                      "BACKUP_ALTIMETER_1000M": {
-                                                                        "category": "Raw Gauge Values",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "Backup Altimeter 1000 Meter",
-                                                                      "identifier": "BACKUP_ALTIMETER_1000M",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                            "address": 18016,
-                                                                                        "description": "gauge position",
-                                                                                               "mask": 65535,
-                                                                                          "max_value": 65535,
-                                                                                           "shift_by": 0,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ]
-                                                                },
-                                   "BACKUP_INDICATED_AIRSPEED": {
-                                                                        "category": "Raw Gauge Values",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "Backup Indicated Airspeed",
-                                                                      "identifier": "BACKUP_INDICATED_AIRSPEED",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                            "address": 18012,
-                                                                                        "description": "gauge position",
-                                                                                               "mask": 65535,
-                                                                                          "max_value": 65535,
-                                                                                           "shift_by": 0,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ]
-                                                                },
-                                                "BACKUP_PITCH": {
-                                                                        "category": "Raw Gauge Values",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "Backup Pitch",
-                                                                      "identifier": "BACKUP_PITCH",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                            "address": 18018,
-                                                                                        "description": "gauge position",
-                                                                                               "mask": 65535,
-                                                                                          "max_value": 65535,
-                                                                                           "shift_by": 0,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ]
-                                                                },
-                                                 "BACKUP_ROLL": {
-                                                                        "category": "Raw Gauge Values",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "Backup Roll",
-                                                                      "identifier": "BACKUP_ROLL",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                            "address": 18020,
-                                                                                        "description": "gauge position",
-                                                                                               "mask": 65535,
-                                                                                          "max_value": 65535,
-                                                                                           "shift_by": 0,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ]
-                                                                },
-                                        "CI_COMMANDED_HEADING": {
-                                                                        "category": "Raw Gauge Values",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "CI Commanded Heading",
-                                                                      "identifier": "CI_COMMANDED_HEADING",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                            "address": 18008,
-                                                                                        "description": "gauge position",
-                                                                                               "mask": 65535,
-                                                                                          "max_value": 65535,
-                                                                                           "shift_by": 0,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ]
-                                                                },
-                                                  "CI_HEADING": {
-                                                                        "category": "Raw Gauge Values",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "CI Heading",
-                                                                      "identifier": "CI_HEADING",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                            "address": 18006,
-                                                                                        "description": "gauge position",
-                                                                                               "mask": 65535,
-                                                                                          "max_value": 65535,
-                                                                                           "shift_by": 0,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ]
-                                                                },
-                                          "DISTANCE_INDICATOR": {
-                                                                        "category": "Raw Gauge Values",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "Distance Indicator",
-                                                                      "identifier": "DISTANCE_INDICATOR",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                            "address": 18022,
-                                                                                        "description": "gauge position",
-                                                                                               "mask": 65535,
-                                                                                          "max_value": 65535,
-                                                                                           "shift_by": 0,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ]
-                                                                },
-                                               "ENGINE_RPM_10": {
-                                                                        "category": "Raw Gauge Values",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "Engine RPM 10",
-                                                                      "identifier": "ENGINE_RPM_10",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                            "address": 17964,
-                                                                                        "description": "gauge position",
-                                                                                               "mask": 65535,
-                                                                                          "max_value": 65535,
-                                                                                           "shift_by": 0,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ]
-                                                                },
-                                              "ENGINE_RPM_100": {
-                                                                        "category": "Raw Gauge Values",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "Engine RPM 100",
-                                                                      "identifier": "ENGINE_RPM_100",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                            "address": 17962,
-                                                                                        "description": "gauge position",
-                                                                                               "mask": 65535,
-                                                                                          "max_value": 65535,
-                                                                                           "shift_by": 0,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ]
-                                                                },
-                                                 "ENGINE_TEMP": {
-                                                                        "category": "Raw Gauge Values",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "Engine Temp",
-                                                                      "identifier": "ENGINE_TEMP",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                            "address": 17966,
-                                                                                        "description": "gauge position",
-                                                                                               "mask": 65535,
-                                                                                          "max_value": 65535,
-                                                                                           "shift_by": 0,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ]
-                                                                },
-                                                  "FUEL_LEVEL": {
-                                                                        "category": "Raw Gauge Values",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "Fuel Level",
-                                                                      "identifier": "FUEL_LEVEL",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                            "address": 18024,
-                                                                                        "description": "gauge position",
-                                                                                               "mask": 65535,
-                                                                                          "max_value": 65535,
-                                                                                           "shift_by": 0,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ]
-                                                                },
-                                                 "FUEL_NEEDED": {
-                                                                        "category": "Raw Gauge Values",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "Fuel Needed",
-                                                                      "identifier": "FUEL_NEEDED",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                            "address": 18026,
-                                                                                        "description": "gauge position",
-                                                                                               "mask": 65535,
-                                                                                          "max_value": 65535,
-                                                                                           "shift_by": 0,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ]
-                                                                },
-                                    "MACH_METER_FIRST_DECIMAL": {
-                                                                        "category": "Raw Gauge Values",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "Mach Meter First Decimal 0.X0",
-                                                                      "identifier": "MACH_METER_FIRST_DECIMAL",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                            "address": 17972,
-                                                                                        "description": "gauge position",
-                                                                                               "mask": 65535,
-                                                                                          "max_value": 65535,
-                                                                                           "shift_by": 0,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ]
-                                                                },
-                                          "MACH_METER_INTEGER": {
-                                                                        "category": "Raw Gauge Values",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "Mach Meter Integer X.00",
-                                                                      "identifier": "MACH_METER_INTEGER",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                            "address": 17970,
-                                                                                        "description": "gauge position",
-                                                                                               "mask": 65535,
-                                                                                          "max_value": 65535,
-                                                                                           "shift_by": 0,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ]
-                                                                },
-                                   "MACH_METER_SECOND_DECIMAL": {
-                                                                        "category": "Raw Gauge Values",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "Mach Meter Second Decimal 0.0X",
-                                                                      "identifier": "MACH_METER_SECOND_DECIMAL",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                            "address": 17974,
-                                                                                        "description": "gauge position",
-                                                                                               "mask": 65535,
-                                                                                          "max_value": 65535,
-                                                                                           "shift_by": 0,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ]
-                                                                },
-                                            "MAGNETIC_HEADING": {
-                                                                        "category": "Raw Gauge Values",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "Magnetic Heading",
-                                                                      "identifier": "MAGNETIC_HEADING",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                            "address": 18010,
-                                                                                        "description": "gauge position",
-                                                                                               "mask": 65535,
-                                                                                          "max_value": 65535,
-                                                                                           "shift_by": 0,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ]
-                                                                },
-                                                      "PEDALS": {
-                                                                        "category": "Raw Gauge Values",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "Pedals",
-                                                                      "identifier": "PEDALS",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                            "address": 17958,
-                                                                                        "description": "gauge position",
-                                                                                               "mask": 65535,
-                                                                                          "max_value": 65535,
-                                                                                           "shift_by": 0,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ]
-                                                                },
-                                                 "STICK_PITCH": {
-                                                                        "category": "Raw Gauge Values",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "Stick Pitch",
-                                                                      "identifier": "STICK_PITCH",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                            "address": 17954,
-                                                                                        "description": "gauge position",
-                                                                                               "mask": 65535,
-                                                                                          "max_value": 65535,
-                                                                                           "shift_by": 0,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ]
-                                                                },
-                                                  "STICK_ROLL": {
-                                                                        "category": "Raw Gauge Values",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "Stick Roll",
-                                                                      "identifier": "STICK_ROLL",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                            "address": 17956,
-                                                                                        "description": "gauge position",
-                                                                                               "mask": 65535,
-                                                                                          "max_value": 65535,
-                                                                                           "shift_by": 0,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ]
-                                                                },
-                                                    "THROTTLE": {
-                                                                        "category": "Raw Gauge Values",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "Throttle",
-                                                                      "identifier": "THROTTLE",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                            "address": 17960,
-                                                                                        "description": "gauge position",
-                                                                                               "mask": 65535,
-                                                                                          "max_value": 65535,
-                                                                                           "shift_by": 0,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ]
-                                                                },
-                                       "VERTICAL_ACCELERATION": {
-                                                                        "category": "Raw Gauge Values",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "Vertical Acceleration G Meter",
-                                                                      "identifier": "VERTICAL_ACCELERATION",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                            "address": 17976,
-                                                                                        "description": "gauge position",
-                                                                                               "mask": 65535,
-                                                                                          "max_value": 65535,
-                                                                                           "shift_by": 0,
-                                                                                             "suffix": "",
-                                                                                               "type": "integer"
-                                                                                    } ]
-                                                                }
+                                            "ADI_AOA_INDICATOR": {
+                                                                         "category": "Raw Gauge Values",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "ADI AoA Indicator",
+                                                                       "identifier": "ADI_AOA_INDICATOR",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 18114,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                                  "ADI_HEADING": {
+                                                                         "category": "Raw Gauge Values",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "ADI Heading",
+                                                                       "identifier": "ADI_HEADING",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 17992,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                           "ADI_HORIZONTAL_ILS": {
+                                                                         "category": "Raw Gauge Values",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "ADI Horizontal ILS",
+                                                                       "identifier": "ADI_HORIZONTAL_ILS",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 18000,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                                 "ADI_OFF_FLAG": {
+                                                                         "category": "Raw Gauge Values",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "ADI OFF Flag",
+                                                                       "identifier": "ADI_OFF_FLAG",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 18116,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                                    "ADI_PITCH": {
+                                                                         "category": "Raw Gauge Values",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "ADI Pitch",
+                                                                       "identifier": "ADI_PITCH",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 17990,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                                     "ADI_ROLL": {
+                                                                         "category": "Raw Gauge Values",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "ADI Roll",
+                                                                       "identifier": "ADI_ROLL",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 17994,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                                 "ADI_SLIPBALL": {
+                                                                         "category": "Raw Gauge Values",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "ADI Slipball",
+                                                                       "identifier": "ADI_SLIPBALL",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 18002,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                             "ADI_VERTICAL_ILS": {
+                                                                         "category": "Raw Gauge Values",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "ADI Vertical ILS",
+                                                                       "identifier": "ADI_VERTICAL_ILS",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 17998,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                        "ADI_VERTICAL_VELOCITY": {
+                                                                         "category": "Raw Gauge Values",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "ADI Vertical Velocity",
+                                                                       "identifier": "ADI_VERTICAL_VELOCITY",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 17996,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                                 "AIRSPEED_M/S": {
+                                                                         "category": "Raw Gauge Values",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "Airspeed m/s",
+                                                                       "identifier": "AIRSPEED_M/S",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 17968,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                            "AIRSPEED_OFF_FLAG": {
+                                                                         "category": "Raw Gauge Values",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "Airspeed OFF Flag",
+                                                                       "identifier": "AIRSPEED_OFF_FLAG",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 18140,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                             "ALTIMETER_10000M": {
+                                                                         "category": "Raw Gauge Values",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "Altimeter 10000 Meter",
+                                                                       "identifier": "ALTIMETER_10000M",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 17978,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                              "ALTIMETER_1000M": {
+                                                                         "category": "Raw Gauge Values",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "Altimeter 1000 Meter",
+                                                                       "identifier": "ALTIMETER_1000M",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 17980,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                      "ALTIMETER_BARO_1000_HPA": {
+                                                                         "category": "Raw Gauge Values",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "Altimeter Baro 1000 hPa X000",
+                                                                       "identifier": "ALTIMETER_BARO_1000_HPA",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 17988,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                       "ALTIMETER_BARO_100_HPA": {
+                                                                         "category": "Raw Gauge Values",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "Altimeter Baro 100 hPa 0X00",
+                                                                       "identifier": "ALTIMETER_BARO_100_HPA",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 17986,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                        "ALTIMETER_BARO_10_HPA": {
+                                                                         "category": "Raw Gauge Values",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "Altimeter Baro 10 hPa 00X0",
+                                                                       "identifier": "ALTIMETER_BARO_10_HPA",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 17984,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                         "ALTIMETER_BARO_1_HPA": {
+                                                                         "category": "Raw Gauge Values",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "Altimeter Baro 1 hPa 000X",
+                                                                       "identifier": "ALTIMETER_BARO_1_HPA",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 17982,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                           "ALTIMETER_OFF_FLAG": {
+                                                                         "category": "Raw Gauge Values",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "Altimeter OFF Flag",
+                                                                       "identifier": "ALTIMETER_OFF_FLAG",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 18138,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                           "ALTIMETER_STD_FLAG": {
+                                                                         "category": "Raw Gauge Values",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "Altimeter STD Flag",
+                                                                       "identifier": "ALTIMETER_STD_FLAG",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 18136,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                      "BACKUP_ALTIMETER_10000M": {
+                                                                         "category": "Raw Gauge Values",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "Backup Altimeter 10000 Meter",
+                                                                       "identifier": "BACKUP_ALTIMETER_10000M",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 18014,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                       "BACKUP_ALTIMETER_1000M": {
+                                                                         "category": "Raw Gauge Values",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "Backup Altimeter 1000 Meter",
+                                                                       "identifier": "BACKUP_ALTIMETER_1000M",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 18016,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                      "BACKUP_ALTIMETER_DRUM_1": {
+                                                                         "category": "Raw Gauge Values",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "Backup Altimeter Drum 1",
+                                                                       "identifier": "BACKUP_ALTIMETER_DRUM_1",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 18160,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                     "BACKUP_ALTIMETER_DRUM_10": {
+                                                                         "category": "Raw Gauge Values",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "Backup Altimeter Drum 10",
+                                                                       "identifier": "BACKUP_ALTIMETER_DRUM_10",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 18158,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                    "BACKUP_ALTIMETER_DRUM_100": {
+                                                                         "category": "Raw Gauge Values",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "Backup Altimeter Drum 100",
+                                                                       "identifier": "BACKUP_ALTIMETER_DRUM_100",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 18156,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                   "BACKUP_ALTIMETER_DRUM_1000": {
+                                                                         "category": "Raw Gauge Values",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "Backup Altimeter Drum 1000",
+                                                                       "identifier": "BACKUP_ALTIMETER_DRUM_1000",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 18154,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                    "BACKUP_INDICATED_AIRSPEED": {
+                                                                         "category": "Raw Gauge Values",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "Backup Indicated Airspeed",
+                                                                       "identifier": "BACKUP_INDICATED_AIRSPEED",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 18012,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                              "BACKUP_OFF_FLAG": {
+                                                                         "category": "Raw Gauge Values",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "Backup ADI OFF Flag",
+                                                                       "identifier": "BACKUP_OFF_FLAG",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 18134,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                                 "BACKUP_PITCH": {
+                                                                         "category": "Raw Gauge Values",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "Backup ADI Pitch",
+                                                                       "identifier": "BACKUP_PITCH",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 18018,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                                  "BACKUP_ROLL": {
+                                                                         "category": "Raw Gauge Values",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "Backup ADI Roll",
+                                                                       "identifier": "BACKUP_ROLL",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 18020,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                        "BRAKE_PRESS_INDICATOR": {
+                                                                         "category": "Raw Gauge Values",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "Brake Pressure Indicator",
+                                                                       "identifier": "BRAKE_PRESS_INDICATOR",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 18128,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                        "CABIN_PRESS_INDICATOR": {
+                                                                         "category": "Raw Gauge Values",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "Cabin Pressure Indicator",
+                                                                       "identifier": "CABIN_PRESS_INDICATOR",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 18126,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                         "CI_COMMANDED_HEADING": {
+                                                                         "category": "Raw Gauge Values",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "CI Commanded Heading",
+                                                                       "identifier": "CI_COMMANDED_HEADING",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 18008,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                                   "CI_HEADING": {
+                                                                         "category": "Raw Gauge Values",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "CI Heading",
+                                                                       "identifier": "CI_HEADING",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 18006,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                                  "CI_OFF_FLAG": {
+                                                                         "category": "Raw Gauge Values",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "CI OFF Flag",
+                                                                       "identifier": "CI_OFF_FLAG",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 18132,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                           "DISTANCE_INDICATOR": {
+                                                                         "category": "Raw Gauge Values",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "Distance Indicator",
+                                                                       "identifier": "DISTANCE_INDICATOR",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 18022,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                      "DISTANCE_INDICATOR_UNIT": {
+                                                                         "category": "Raw Gauge Values",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "Distance Indicator Unit KM/MILS",
+                                                                       "identifier": "DISTANCE_INDICATOR_UNIT",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 18120,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                                "ENGINE_NOZZLE": {
+                                                                         "category": "Raw Gauge Values",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "Engine Nozzle",
+                                                                       "identifier": "ENGINE_NOZZLE",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 18004,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                                "ENGINE_RPM_10": {
+                                                                         "category": "Raw Gauge Values",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "Engine RPM 10",
+                                                                       "identifier": "ENGINE_RPM_10",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 17964,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                               "ENGINE_RPM_100": {
+                                                                         "category": "Raw Gauge Values",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "Engine RPM 100",
+                                                                       "identifier": "ENGINE_RPM_100",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 17962,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                                  "ENGINE_TEMP": {
+                                                                         "category": "Raw Gauge Values",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "Engine Temp",
+                                                                       "identifier": "ENGINE_TEMP",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 17966,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                                "EPR_INDICATOR": {
+                                                                         "category": "Raw Gauge Values",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "EPR Indicator",
+                                                                       "identifier": "EPR_INDICATOR",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 18122,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                                   "FUEL_LEVEL": {
+                                                                         "category": "Raw Gauge Values",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "Fuel Level",
+                                                                       "identifier": "FUEL_LEVEL",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 18024,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                                  "FUEL_NEEDED": {
+                                                                         "category": "Raw Gauge Values",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "Fuel Needed",
+                                                                       "identifier": "FUEL_NEEDED",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 18026,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                     "MACH_METER_FIRST_DECIMAL": {
+                                                                         "category": "Raw Gauge Values",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "Mach Meter First Decimal 0.X0",
+                                                                       "identifier": "MACH_METER_FIRST_DECIMAL",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 17972,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                           "MACH_METER_INTEGER": {
+                                                                         "category": "Raw Gauge Values",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "Mach Meter Integer X.00",
+                                                                       "identifier": "MACH_METER_INTEGER",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 17970,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                    "MACH_METER_SECOND_DECIMAL": {
+                                                                         "category": "Raw Gauge Values",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "Mach Meter Second Decimal 0.0X",
+                                                                       "identifier": "MACH_METER_SECOND_DECIMAL",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 17974,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                             "MAGNETIC_HEADING": {
+                                                                         "category": "Raw Gauge Values",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "Magnetic Heading",
+                                                                       "identifier": "MAGNETIC_HEADING",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 18010,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                          "OXY_PRESS_INDICATOR": {
+                                                                         "category": "Raw Gauge Values",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "Oxygen Pressure Indicator",
+                                                                       "identifier": "OXY_PRESS_INDICATOR",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 18124,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                                       "PEDALS": {
+                                                                         "category": "Raw Gauge Values",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "Pedals",
+                                                                       "identifier": "PEDALS",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 17958,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                         "PITCH_TRIM_INDICATOR": {
+                                                                         "category": "Raw Gauge Values",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "Pitch Trim Indicator",
+                                                                       "identifier": "PITCH_TRIM_INDICATOR",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 18130,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                                  "STICK_PITCH": {
+                                                                         "category": "Raw Gauge Values",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "Stick Pitch",
+                                                                       "identifier": "STICK_PITCH",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 17954,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                                   "STICK_ROLL": {
+                                                                         "category": "Raw Gauge Values",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "Stick Roll",
+                                                                       "identifier": "STICK_ROLL",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 17956,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                                     "THROTTLE": {
+                                                                         "category": "Raw Gauge Values",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "Throttle",
+                                                                       "identifier": "THROTTLE",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 17960,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                        "VERTICAL_ACCELERATION": {
+                                                                         "category": "Raw Gauge Values",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "Vertical Acceleration G Meter",
+                                                                       "identifier": "VERTICAL_ACCELERATION",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 17976,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                    "VERTICAL_ACCELERATION_MAX": {
+                                                                         "category": "Raw Gauge Values",
+                                                                     "control_type": "analog_gauge",
+                                                                      "description": "Max Vertical Acceleration G Meter",
+                                                                       "identifier": "VERTICAL_ACCELERATION_MAX",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                             "address": 18118,
+                                                                                         "description": "gauge position",
+                                                                                                "mask": 65535,
+                                                                                           "max_value": 65535,
+                                                                                            "shift_by": 0,
+                                                                                              "suffix": "",
+                                                                                                "type": "integer"
+                                                                                     } ]
+                                                                 }
                                },
                        "Test": {
                                    "MISL_SEL_BTN": {

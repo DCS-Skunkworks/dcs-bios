@@ -4178,6 +4178,20 @@ docdata["M-2000C"] =
                                                                                            "type": "string"
                                                                                 } ]
                                                             },
+                                              "FUEL_JAUGE": {
+                                                                    "category": "FUEL SYSTEM",
+                                                                "control_type": "display",
+                                                                 "description": "O - FUEL - JAUGE Display",
+                                                                  "identifier": "FUEL_JAUGE",
+                                                                      "inputs": [  ],
+                                                                     "outputs": [ {
+                                                                                        "address": 29570,
+                                                                                    "description": "O - FUEL - JAUGE Display",
+                                                                                     "max_length": 4,
+                                                                                         "suffix": "",
+                                                                                           "type": "string"
+                                                                                } ]
+                                                            },
                                          "FUEL_JAUG_CENTS": {
                                                                     "category": "FUEL SYSTEM",
                                                                 "control_type": "analog_gauge",
@@ -4304,6 +4318,20 @@ docdata["M-2000C"] =
                                                                                        "shift_by": 9,
                                                                                          "suffix": "",
                                                                                            "type": "integer"
+                                                                                } ]
+                                                            },
+                                              "FUEL_TOTAL": {
+                                                                    "category": "FUEL SYSTEM",
+                                                                "control_type": "display",
+                                                                 "description": "O - FUEL - Total Display",
+                                                                  "identifier": "FUEL_TOTAL",
+                                                                      "inputs": [  ],
+                                                                     "outputs": [ {
+                                                                                        "address": 29574,
+                                                                                    "description": "O - FUEL - Total Display",
+                                                                                     "max_length": 4,
+                                                                                         "suffix": "",
+                                                                                           "type": "string"
                                                                                 } ]
                                                             },
                                           "FUEL_TRANSF_SW": {
