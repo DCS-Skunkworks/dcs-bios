@@ -289,8 +289,8 @@ defineFloat("ADI_ROLL", 107, {-1, 1}, "Raw Gauge Values", "ADI Roll")
 defineFloat("ADI_VERTICAL_VELOCITY", 108, {-1, 1}, "Raw Gauge Values", "ADI Vertical Velocity")
 defineFloat("ADI_VERTICAL_ILS", 109, {1, -1}, "Raw Gauge Values", "ADI Vertical ILS")
 defineFloat("ADI_HORIZONTAL_ILS", 110, {1, -1}, "Raw Gauge Values", "ADI Horizontal ILS")
-defineFloat("ADI_SLIPBALL", 111, {-1, 1}, "Raw Gauge Values", "ADI Slipball")
-defineFloat("ADI_AOA_INDICATOR", 147, {0, 1}, "Raw Gauge Values", "ADI AoA Indicator")
+defineFloat("ADI_SLIPBALL", 1810, {-1, 1}, "Raw Gauge Values", "ADI Slipball")
+defineFloat("ENGINE_NOZZLE", 147, {0, 1}, "Raw Gauge Values", "Engine Nozzle")
 defineFloat("CI_HEADING", 128, {1, -1}, "Raw Gauge Values", "CI Heading")
 defineFloat("CI_COMMANDED_HEADING", 129, {1, 0}, "Raw Gauge Values", "CI Commanded Heading")
 defineFloat("MAGNETIC_HEADING", 127, {1, -1}, "Raw Gauge Values", "Magnetic Heading")
@@ -565,5 +565,7 @@ defineRotary("ALT_SET_TURN", 22, 3306, 123, "Flight Data Unit", "Altimeter Setti
 
 defineToggleSwitch("TOGGLE_MIRRORS", 0, 1625, 0, "Cockpit", "Toggle Mirrors")
 defineFloat("CANOPY_POS", 10, {0, 1}, "Cockpit", "Canopy Position")
+defineFloat("ADI_AOA_INDICATOR", 120, {0, 1}, "Raw Gauge Values", "ADI AoA Indicator")
+defineFloat("ADI_OFF_FLAG", 160, {0, 1}, "Raw Gauge Values", "ADI OFF Flag")
 
 BIOS.protocol.endModule()
