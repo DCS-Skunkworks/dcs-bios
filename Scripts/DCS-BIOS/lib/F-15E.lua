@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("F-15E", 0x9200)
 BIOS.protocol.setExportModuleAircrafts({"F-15ESE"})
---by WarLord&Maverick87Shaka v1.0
+--by WarLord&Maverick87Shaka v1.0a
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 
@@ -93,11 +93,11 @@ definePushButton("F_UFC_B2", 56, 3002, 271, "Front UFC", "FRONT UFC Push Button 
 definePushButton("F_UFC_B3", 56, 3003, 272, "Front UFC", "FRONT UFC Push Button 3")
 definePushButton("F_UFC_B4", 56, 3004, 273, "Front UFC", "FRONT UFC Push Button 4")
 definePushButton("F_UFC_B5", 56, 3005, 274, "Front UFC", "FRONT UFC Push Button 5")
-definePushButton("F_UFC_B10", 56, 3006, 275, "Front UFC", "FRONT UFC Push Button 10")
-definePushButton("F_UFC_B9", 56, 3007, 276, "Front UFC", "FRONT UFC Push Button 9")
+definePushButton("F_UFC_B10", 56, 3010, 275, "Front UFC", "FRONT UFC Push Button 10")
+definePushButton("F_UFC_B9", 56, 3009, 276, "Front UFC", "FRONT UFC Push Button 9")
 definePushButton("F_UFC_B8", 56, 3008, 277, "Front UFC", "FRONT UFC Push Button 8")
-definePushButton("F_UFC_B7", 56, 3009, 278, "Front UFC", "FRONT UFC Push Button 7")
-definePushButton("F_UFC_B6", 56, 3010, 279, "Front UFC", "FRONT UFC Push Button 6")
+definePushButton("F_UFC_B7", 56, 3007, 278, "Front UFC", "FRONT UFC Push Button 7")
+definePushButton("F_UFC_B6", 56, 3006, 279, "Front UFC", "FRONT UFC Push Button 6")
 
 definePushButton("F_UFC_PRE_CHAN_L_PULL", 56, 3055, 680, "Front UFC", "FRONT Left UHF Preset Channel Switch")
 defineRotary("F_UFC_PRE_CHAN_L_SEL", 56, 3011, 280, "Front UFC", "FRONT Left UHF Preset Channel Selector")
@@ -871,11 +871,11 @@ definePushButton("R_UFC_B2", 57, 3002, 1294, "Rear UFC", "REAR UFC Push Button 2
 definePushButton("R_UFC_B3", 57, 3003, 1295, "Rear UFC", "REAR UFC Push Button 3")
 definePushButton("R_UFC_B4", 57, 3004, 1296, "Rear UFC", "REAR UFC Push Button 4")
 definePushButton("R_UFC_B5", 57, 3005, 1297, "Rear UFC", "REAR UFC Push Button 5")
-definePushButton("R_UFC_B10", 57, 3006, 1298, "Rear UFC", "REAR UFC Push Button 10")
-definePushButton("R_UFC_B9", 57, 3007, 1299, "Rear UFC", "REAR UFC Push Button 9")
+definePushButton("R_UFC_B10", 57, 3010, 1298, "Rear UFC", "REAR UFC Push Button 10")
+definePushButton("R_UFC_B9", 57, 3009, 1299, "Rear UFC", "REAR UFC Push Button 9")
 definePushButton("R_UFC_B8", 57, 3008, 1300, "Rear UFC", "REAR UFC Push Button 8")
-definePushButton("R_UFC_B7", 57, 3009, 1301, "Rear UFC", "REAR UFC Push Button 7")
-definePushButton("R_UFC_B6", 57, 3010, 1302, "Rear UFC", "REAR UFC Push Button 6")
+definePushButton("R_UFC_B7", 57, 3007, 1301, "Rear UFC", "REAR UFC Push Button 7")
+definePushButton("R_UFC_B6", 57, 3006, 1302, "Rear UFC", "REAR UFC Push Button 6")
 
 definePushButton("R_UFC_PRE_CHAN_L_PULL", 57, 3055, 1304, "Rear UFC", "REAR Left UHF Preset Channel Switch")
 defineRotary("R_UFC_PRE_CHAN_L_SEL", 57, 3011, 1303, "Rear UFC", "REAR Left UHF Preset Channel Selector")

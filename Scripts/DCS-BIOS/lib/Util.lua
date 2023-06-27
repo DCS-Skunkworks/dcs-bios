@@ -1,4 +1,4 @@
---24.06.2023
+--26.06.2023
 BIOS.util = {}
 
 function BIOS.util.log2(n)
@@ -1475,7 +1475,7 @@ function BIOS.util.defineIndicatorLight08(msg, arg_number, category, description
 			  mask = value.mask,
 			  shift_by = value.shiftBy,
 			  max_value = 1,
-			  description = "Multi Led Color 1; Light is on between 0.4 and 0.59"
+			  description = "LED; Light is on between 0.51 and 0.89"
 			}
 		}
 	}
