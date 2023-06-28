@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("F-15E", 0x9200)
 BIOS.protocol.setExportModuleAircrafts({"F-15ESE"})
---by WarLord&Maverick87Shaka v1.0a
+--by WarLord&Maverick87Shaka v1.0b
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 
@@ -1067,8 +1067,8 @@ definePotentiometer("R_VOL_ILS", 11, 3514, 1424, {0, 1}, "Rear Volume", "REAR IL
 definePotentiometer("R_VOL_TCN", 10, 3515, 1425, {0, 1}, "Rear Volume", "REAR TACAN Volume")
 
 --MICS
-define3PosTumb("R_MIC_CRYPT", 13, 3426, 1426, "Rear MICS", "REAR MICS Crypto Switch")
-defineMultipositionSwitch("R_MIC_SW", 13, 3427, 1427, 3, 0.5, "Rear MICS", "REAR MIC Switch")
+define3PosTumb("R_MIC_CRYPT", 17, 3426, 1426, "Rear MICS", "REAR MICS Crypto Switch")
+defineMultipositionSwitch("R_MIC_SW", 17, 3427, 1427, 3, 0.5, "Rear MICS", "REAR MIC Switch")
 definePushButton("R_MIC_VW_SILENT", 29, 3428, 1428, "Rear MICS", "REAR MICS VW/Tone Silence Switch")
 
 --RADIO
