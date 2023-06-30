@@ -302,6 +302,7 @@ local function build_ufc_line_3(ufcData)
 	-- Special Characters and their indexes
 	lineSpecial = replaceIndexIfValue(lineSpecial, ufcData.UFC_SC_03L1, 4)
 	lineSpecial = replaceIndexIfValue(lineSpecial, ufcData.UFC_SC_03L2, 6)
+	lineSpecial = replaceIndexIfValue(lineSpecial, ufcData.UFC_SC_03ILS, 7)
 
 	return lineChars, lineSpecial
 end
