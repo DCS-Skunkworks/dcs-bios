@@ -566,8 +566,8 @@ definePushButton("F_MPD_L_B18", 34, 3078, 207, "Front Left MPD", "FRONT Left MPD
 definePushButton("F_MPD_L_B19", 34, 3079, 206, "Front Left MPD", "FRONT Left MPD Push Button 19")
 definePushButton("F_MPD_L_B20", 34, 3080, 205, "Front Left MPD", "FRONT Left MPD Push Button 20")
 defineSpringloaded_3PosTumb("F_MPD_L_PW", 34, 3081, 3081, 221, "Front Left MPD", "FRONT Left MPD Power Switch")
-defineSpringloaded_3PosTumb("F_MPD_L_BRIGHT", 34, 3082, 3082, 222, "Front Left MPD", "FRONT Left MPD Brightness Control")
-defineSpringloaded_3PosTumb("F_MPD_L_CONT", 34, 3083, 3083, 223, "Front Left MPD", "FRONT Left MPD Contrast Control")
+defineSpringloaded_3PosTumb("F_MPD_L_BRIGHT", 34, 3083, 3083, 222, "Front Left MPD", "FRONT Left MPD Brightness Control")
+defineSpringloaded_3PosTumb("F_MPD_L_CONT", 34, 3082, 3082, 223, "Front Left MPD", "FRONT Left MPD Contrast Control")
 
 --CENTER MPCD
 definePushButton("F_MPCD_C_B1", 35, 3061, 251, "Front Center MPCD", "FRONT Center MPCD Push Button 1")
@@ -591,8 +591,8 @@ definePushButton("F_MPCD_C_B18", 35, 3078, 254, "Front Center MPCD", "FRONT Cent
 definePushButton("F_MPCD_C_B19", 35, 3079, 253, "Front Center MPCD", "FRONT Center MPCD Push Button 19")
 definePushButton("F_MPCD_C_B20", 35, 3080, 252, "Front Center MPCD", "FRONT Center MPCD Push Button 20")
 defineSpringloaded_3PosTumb("F_MPCD_C_PW", 35, 3081, 3081, 267, "Front Center MPCD", "FRONT Center MPCD Power Switch")
-defineSpringloaded_3PosTumb("F_MPCD_C_BRIGHT", 35, 3082, 3082, 268, "Front Center MPCD", "FRONT Center MPCD Brightness Control")
-defineSpringloaded_3PosTumb("F_MPCD_C_CONT", 35, 3083, 3083, 269, "Front Center MPCD", "FRONT Center MPCD Contrast Control")
+defineSpringloaded_3PosTumb("F_MPCD_C_BRIGHT", 35, 3083, 3083, 268, "Front Center MPCD", "FRONT Center MPCD Brightness Control")
+defineSpringloaded_3PosTumb("F_MPCD_C_CONT", 35, 3082, 3082, 269, "Front Center MPCD", "FRONT Center MPCD Contrast Control")
 
 --RIGHT MFD
 definePushButton("F_MPD_R_B1", 36, 3061, 228, "Front Right MPD", "FRONT Right MPD Push Button 1")
@@ -616,8 +616,8 @@ definePushButton("F_MPD_R_B18", 36, 3078, 231, "Front Right MPD", "FRONT Right M
 definePushButton("F_MPD_R_B19", 36, 3079, 230, "Front Right MPD", "FRONT Right MPD Push Button 19")
 definePushButton("F_MPD_R_B20", 36, 3080, 229, "Front Right MPD", "FRONT Right MPD Push Button 20")
 defineSpringloaded_3PosTumb("F_MPD_R_PW", 36, 3081, 3081, 244, "Front Right MPD", "FRONT Right MPD Power Switch")
-defineSpringloaded_3PosTumb("F_MPD_R_BRIGHT", 36, 3082, 3082, 245, "Front Right MPD", "FRONT Right MPD Brightness Control")
-defineSpringloaded_3PosTumb("F_MPD_R_CONT", 36, 3083, 3083, 246, "Front Right MPD", "FRONT Right MPD Contrast Control")
+defineSpringloaded_3PosTumb("F_MPD_R_BRIGHT", 36, 3083, 3083, 245, "Front Right MPD", "FRONT Right MPD Brightness Control")
+defineSpringloaded_3PosTumb("F_MPD_R_CONT", 36, 3082, 3082, 246, "Front Right MPD", "FRONT Right MPD Contrast Control")
 
 ---LEFT INSTRUMENTS PANEL
 --NUC
@@ -964,8 +964,8 @@ definePushButton("R_MPCD_L_B18", 37, 3078, 1207, "Rear Left MPCD", "REAR Left MP
 definePushButton("R_MPCD_L_B19", 37, 3079, 1206, "Rear Left MPCD", "REAR Left MPCD Push Button 19")
 definePushButton("R_MPCD_L_B20", 37, 3080, 1205, "Rear Left MPCD", "REAR Left MPCD Push Button 20")
 defineSpringloaded_3PosTumb("R_MPCD_L_PW", 37, 3081, 3081, 1221, "Rear Left MPCD", "REAR Left MPCD Power Switch")
-defineSpringloaded_3PosTumb("R_MPCD_L_BRIGHT", 37, 3082, 3082, 1222, "Rear Left MPCD", "REAR Left MPCD Brightness Control")
-defineSpringloaded_3PosTumb("R_MPCD_L_CONT", 37, 3083, 3083, 1223, "Rear Left MPCD", "REAR Left MPCD Contrast Control")
+defineSpringloaded_3PosTumb("R_MPCD_L_BRIGHT", 37, 3083, 3083, 1222, "Rear Left MPCD", "REAR Left MPCD Brightness Control")
+defineSpringloaded_3PosTumb("R_MPCD_L_CONT", 37, 3082, 3082, 1223, "Rear Left MPCD", "REAR Left MPCD Contrast Control")
 
 --LEFT MPD
 definePushButton("R_MPD_L_B1", 38, 3061, 1228, "Rear Left MPD", "REAR Left MPD Push Button 1")
@@ -989,8 +989,8 @@ definePushButton("R_MPD_L_B18", 38, 3078, 1231, "Rear Left MPD", "REAR Left MPD 
 definePushButton("R_MPD_L_B19", 38, 3079, 1230, "Rear Left MPD", "REAR Left MPD Push Button 19")
 definePushButton("R_MPD_L_B20", 38, 3080, 1229, "Rear Left MPD", "REAR Left MPD Push Button 20")
 defineSpringloaded_3PosTumb("R_MPD_L_PW", 38, 3081, 3081, 1244, "Rear Left MPD", "REAR Left MPD Power Switch")
-defineSpringloaded_3PosTumb("R_MPD_L_BRIGHT", 38, 3082, 3082, 1245, "Rear Left MPD", "REAR Left MPD Brightness Control")
-defineSpringloaded_3PosTumb("R_MPD_L_CONT", 38, 3083, 3083, 1246, "Rear Left MPD", "REAR Left MPD Contrast Control")
+defineSpringloaded_3PosTumb("R_MPD_L_BRIGHT", 38, 3083, 3083, 1245, "Rear Left MPD", "REAR Left MPD Brightness Control")
+defineSpringloaded_3PosTumb("R_MPD_L_CONT", 38, 3082, 3082, 1246, "Rear Left MPD", "REAR Left MPD Contrast Control")
 
 --RIGHT MPD
 definePushButton("R_MPD_R_B1", 39, 3061, 1251, "Rear Right MPD", "REAR Right MPD Push Button 1")
@@ -1014,8 +1014,8 @@ definePushButton("R_MPD_R_B18", 39, 3078, 1254, "Rear Right MPD", "REAR Right MP
 definePushButton("R_MPD_R_B19", 39, 3079, 1253, "Rear Right MPD", "REAR Right MPD Push Button 19")
 definePushButton("R_MPD_R_B20", 39, 3080, 1252, "Rear Right MPD", "REAR Right MPD Push Button 20")
 defineSpringloaded_3PosTumb("R_MPD_R_PW", 39, 3081, 3081, 1267, "Rear Right MPD", "REAR Right MPD Power Switch")
-defineSpringloaded_3PosTumb("R_MPD_R_BRIGHT", 39, 3082, 3082, 1268, "Rear Right MPD", "REAR Right MPD Brightness Control")
-defineSpringloaded_3PosTumb("R_MPD_R_CONT", 39, 3083, 3083, 1269, "Rear Right MPD", "REAR Right MPD Contrast Control")
+defineSpringloaded_3PosTumb("R_MPD_R_BRIGHT", 39, 3083, 3083, 1268, "Rear Right MPD", "REAR Right MPD Brightness Control")
+defineSpringloaded_3PosTumb("R_MPD_R_CONT", 39, 3082, 3082, 1269, "Rear Right MPD", "REAR Right MPD Contrast Control")
 
 --RIGHT MPCD
 definePushButton("R_MPCD_R_B1", 40, 3061, 1274, "Rear Right MPCD", "REAR Right MPCD Push Button 1")
@@ -1039,8 +1039,8 @@ definePushButton("R_MPCD_R_B18", 40, 3078, 1277, "Rear Right MPCD", "REAR Right 
 definePushButton("R_MPCD_R_B19", 40, 3079, 1276, "Rear Right MPCD", "REAR Right MPCD Push Button 19")
 definePushButton("R_MPCD_R_B20", 40, 3080, 1275, "Rear Right MPCD", "REAR Right MPCD Push Button 20")
 defineSpringloaded_3PosTumb("R_MPCD_R_PW", 40, 3081, 3081, 1290, "Rear Right MPCD", "REAR Right MPCD Power Switch")
-defineSpringloaded_3PosTumb("R_MPCD_R_BRIGHT", 40, 3082, 3082, 1291, "Rear Right MPCD", "REAR Right MPCD Brightness Control")
-defineSpringloaded_3PosTumb("R_MPCD_R_CONT", 40, 3083, 3083, 1292, "Rear Right MPCD", "REAR Right MPCD Contrast Control")
+defineSpringloaded_3PosTumb("R_MPCD_R_BRIGHT", 40, 3083, 3083, 1291, "Rear Right MPCD", "REAR Right MPCD Brightness Control")
+defineSpringloaded_3PosTumb("R_MPCD_R_CONT", 40, 3082, 3082, 1292, "Rear Right MPCD", "REAR Right MPCD Contrast Control")
 
 ---LEFT INSTRUMENTS PANEL
 --NUC
