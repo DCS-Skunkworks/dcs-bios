@@ -363,23 +363,23 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	F_UFC_Line5, F_UFC_Line5_dots = build_ufc_line_5(f_ufc)
 	F_UFC_Line6, F_UFC_Line6_dots = build_ufc_line_6(f_ufc)
 
-	F_UFC_SC_02A 	= coerce_nil_to_string(f_ufc.UFC_SC_02A)
-	F_UFC_SC_02B 	= coerce_nil_to_string(f_ufc.UFC_SC_02B)
-	F_UFC_SC_11_SPA = coerce_nil_to_string(f_ufc.UFC_SC_11_SPA)
-	F_UFC_SC_11_SPB = coerce_nil_to_string(f_ufc.UFC_SC_11_SPB)
-	F_UFC_SC_03L1	= coerce_nil_to_string(f_ufc.UFC_SC_03L1)
-	F_UFC_SC_03L2	= coerce_nil_to_string(f_ufc.UFC_SC_03L2)
-	F_UFC_SC_10_SPA	= coerce_nil_to_string(f_ufc.UFC_SC_10_SPA)
-	F_UFC_SC_10_SPB	= coerce_nil_to_string(f_ufc.UFC_SC_10_SPB)
-	--FIX for degrees chars didn't send over DCS-BIOS buffer
-	F_UFC_SC_02A 		= F_UFC_SC_02A:gsub("°","'")
-	F_UFC_SC_02B 		= F_UFC_SC_02B:gsub("°","'")
-	F_UFC_SC_11_SPA 	= F_UFC_SC_11_SPA:gsub("°","'")
-	F_UFC_SC_11_SPB 	= F_UFC_SC_11_SPB:gsub("°","'")
-	F_UFC_SC_03L1 		= F_UFC_SC_03L1:gsub("°","'")
-	F_UFC_SC_03L2 		= F_UFC_SC_03L2:gsub("°","'")
-	F_UFC_SC_10_SPA 	= F_UFC_SC_10_SPA:gsub("°","'")
-	F_UFC_SC_10_SPB 	= F_UFC_SC_10_SPB:gsub("°","'")
+	-- F_UFC_SC_02A 	= coerce_nil_to_string(f_ufc.UFC_SC_02A)
+	-- F_UFC_SC_02B 	= coerce_nil_to_string(f_ufc.UFC_SC_02B)
+	-- F_UFC_SC_11_SPA = coerce_nil_to_string(f_ufc.UFC_SC_11_SPA)
+	-- F_UFC_SC_11_SPB = coerce_nil_to_string(f_ufc.UFC_SC_11_SPB)
+	-- F_UFC_SC_03L1	= coerce_nil_to_string(f_ufc.UFC_SC_03L1)
+	-- F_UFC_SC_03L2	= coerce_nil_to_string(f_ufc.UFC_SC_03L2)
+	-- F_UFC_SC_10_SPA	= coerce_nil_to_string(f_ufc.UFC_SC_10_SPA)
+	-- F_UFC_SC_10_SPB	= coerce_nil_to_string(f_ufc.UFC_SC_10_SPB)
+	-- --FIX for degrees chars didn't send over DCS-BIOS buffer
+	-- F_UFC_SC_02A 		= F_UFC_SC_02A:gsub("°","'")
+	-- F_UFC_SC_02B 		= F_UFC_SC_02B:gsub("°","'")
+	-- F_UFC_SC_11_SPA 	= F_UFC_SC_11_SPA:gsub("°","'")
+	-- F_UFC_SC_11_SPB 	= F_UFC_SC_11_SPB:gsub("°","'")
+	-- F_UFC_SC_03L1 		= F_UFC_SC_03L1:gsub("°","'")
+	-- F_UFC_SC_03L2 		= F_UFC_SC_03L2:gsub("°","'")
+	-- F_UFC_SC_10_SPA 	= F_UFC_SC_10_SPA:gsub("°","'")
+	-- F_UFC_SC_10_SPB 	= F_UFC_SC_10_SPB:gsub("°","'")
 
 	--REAR UFC
 	R_UFC_Line1L = coerce_nil_to_string(r_ufc.UFC_SC_01)
@@ -476,8 +476,8 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 		local piece2 = R_UFC_Line5R:sub(5, string.len(R_UFC_Line5R))
 		R_UFC_ActiveUHF2 = piece1 .. "." .. piece2:sub(1, -2)
 	else
-		R_UFC_ActiveUHF2 = F_UFC_Line6R:sub(1, -2)
-		R_UFC_ActiveUHF2 = F_UFC_ActiveUHF2:match'^%s*(.*)'
+		R_UFC_ActiveUHF2 = R_UFC_Line6R:sub(1, -2)
+		R_UFC_ActiveUHF2 = R_UFC_ActiveUHF2:match'^%s*(.*)'
 	end
 
 end
