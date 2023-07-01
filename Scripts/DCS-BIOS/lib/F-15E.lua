@@ -146,8 +146,8 @@ F_UFC_Line3_dots 	= "                    "
 F_UFC_Line4_dots 	= "                    "
 F_UFC_Line5_dots 	= "                    "
 F_UFC_Line6_dots 	= "                    "
--- F_UFC_ActiveUHF1 	= "          "
--- F_UFC_ActiveUHF2 	= "          "
+F_UFC_ActiveUHF1 	= "          "
+F_UFC_ActiveUHF2 	= "          "
 -- F_UFC_SC_02A		= " "
 -- F_UFC_SC_02B		= " "
 -- F_UFC_SC_11_SPA		= " "
@@ -341,6 +341,30 @@ local function build_ufc_line_6(ufcData)
 
 	return lineChars, lineSpecial
 end
+
+-- UFC Active Radios
+local function determine_active_radios(line5, line6)
+	activeUHF1 = "        "
+	activeUHF2 = "        "
+
+	if line6:find("*") == 1 then
+		activeUHF1 = line6:sub(2, 4)
+	elseif line5:find("*") == 1 then
+		activeUHF1 = line5:sub(2, 5) .. "." .. line5:sub(6,8)
+	else
+		activeUHF1 = line5:sub(2, 7)
+	end
+
+	if line6:reverse():find("*") == 1 then
+		activeUHF2 = line6:sub(18, 19):gsub('^%s*(.-)%s*$', '%1')
+	elseif line5:reverse():find("*") == 1 then
+		activeUHF2 = line5:sub(13, 16) .. "." .. line5:sub(17,19)
+	else
+		activeUHF2 = line5:sub(14,19)
+	end
+
+	return activeUHF1, activeUHF2
+end
 -- New UFC implementation proposal end
 
 moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
@@ -362,6 +386,7 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	F_UFC_Line4, F_UFC_Line4_dots = build_ufc_line_4(f_ufc)
 	F_UFC_Line5, F_UFC_Line5_dots = build_ufc_line_5(f_ufc)
 	F_UFC_Line6, F_UFC_Line6_dots = build_ufc_line_6(f_ufc)
+	F_UFC_ActiveUHF1, F_UFC_ActiveUHF2 = determine_active_radios(F_UFC_Line5, F_UFC_Line6)
 
 	-- F_UFC_SC_02A 	= coerce_nil_to_string(f_ufc.UFC_SC_02A)
 	-- F_UFC_SC_02B 	= coerce_nil_to_string(f_ufc.UFC_SC_02B)
@@ -494,8 +519,8 @@ defineString("F_UFC_Line3_DISPLAY_DOTS", function() return F_UFC_Line3_dots end,
 defineString("F_UFC_Line4_DISPLAY_DOTS", function() return F_UFC_Line4_dots end, 20, "Front UFC Display", "Line 4 (special characters)")
 defineString("F_UFC_Line5_DISPLAY_DOTS", function() return F_UFC_Line5_dots end, 20, "Front UFC Display", "Line 5 (special characters)")
 defineString("F_UFC_Line6_DISPLAY_DOTS", function() return F_UFC_Line6_dots end, 20, "Front UFC Display", "Line 6 (special characters)")
--- defineString("F_UFC_ACTIVE_UHF1", function() return F_UFC_ActiveUHF1 end, 10, "Front UFC Display", "Active UHF 1 (special)")
--- defineString("F_UFC_ACTIVE_UHF2", function() return F_UFC_ActiveUHF2 end, 10, "Front UFC Display", "Active UHF 2 (special)")
+defineString("F_UFC_ACTIVE_UHF1", function() return F_UFC_ActiveUHF1 end, 8, "Front UFC Display", "Active UHF 1 (special)")
+defineString("F_UFC_ACTIVE_UHF2", function() return F_UFC_ActiveUHF2 end, 8, "Front UFC Display", "Active UHF 2 (special)")
 -- defineString("F_UFC_SC_02A", function() return F_UFC_SC_02A end, 1, "Front UFC Display", "Line 2A Left")
 -- defineString("F_UFC_SC_02B", function() return F_UFC_SC_02B end, 1, "Front UFC Display", "Line 2B Left")
 -- defineString("F_UFC_SC_11_SPA", function() return F_UFC_SC_11_SPA end, 1, "Front UFC Display", "Line 2A Right")
