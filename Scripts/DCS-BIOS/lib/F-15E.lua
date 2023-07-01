@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("F-15E", 0x9200)
 BIOS.protocol.setExportModuleAircrafts({"F-15ESE"})
---by WarLord&Maverick87Shaka v1.0b
+--by WarLord&Maverick87Shaka v1.0b UFC proposal by RafaPolit
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 
