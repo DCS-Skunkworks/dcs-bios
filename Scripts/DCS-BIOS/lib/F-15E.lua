@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("F-15E", 0x9200)
 BIOS.protocol.setExportModuleAircrafts({"F-15ESE"})
---by WarLord&Maverick87Shaka v1.0b
+--by WarLord&Maverick87Shaka, contributions by RafaPolit v1.1
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 
@@ -146,16 +146,9 @@ F_UFC_Line3_dots 	= "                    "
 F_UFC_Line4_dots 	= "                    "
 F_UFC_Line5_dots 	= "                    "
 F_UFC_Line6_dots 	= "                    "
-F_UFC_ActiveUHF1 	= "          "
-F_UFC_ActiveUHF2 	= "          "
-F_UFC_SC_02A		= " "
-F_UFC_SC_02B		= " "
-F_UFC_SC_11_SPA		= " "
-F_UFC_SC_11_SPB		= " "
-F_UFC_SC_03L1		= " "
-F_UFC_SC_03L2		= " "
-F_UFC_SC_10_SPA		= " "
-F_UFC_SC_10_SPB		= " "
+F_UFC_ActiveUHF1 	= "        "
+F_UFC_ActiveUHF2 	= "        "
+
 --REAR SEAT UFC DISPLAY (ID:20)
 R_UFC_Line1			= "                    "
 R_UFC_Line2			= "                    "
@@ -169,40 +162,169 @@ R_UFC_Line3_dots 	= "                    "
 R_UFC_Line4_dots 	= "                    "
 R_UFC_Line5_dots 	= "                    "
 R_UFC_Line6_dots 	= "                    "
-R_UFC_ActiveUHF1 	= "          "
-R_UFC_ActiveUHF2 	= "          "
-R_UFC_SC_02A		= " "
-R_UFC_SC_02B		= " "
-R_UFC_SC_11_SPA		= " "
-R_UFC_SC_11_SPB		= " "
-R_UFC_SC_03L1		= " "
-R_UFC_SC_03L2		= " "
-R_UFC_SC_10_SPA		= " "
-R_UFC_SC_10_SPB		= " "
+R_UFC_ActiveUHF1 	= "        "
+R_UFC_ActiveUHF2 	= "        "
 
 ufc_string_length 	= 20
 
-local function build_ufc_line (left,right,central)
-	UFC_LineLtrim = left:gsub("[:.°]","")
-	left = left:gsub("�"," ") -- PresentPosition Menu BUG workaround, line can be removed after fix.
-	UFC_LineRtrim = right:gsub("[:.°]","")
-	UFC_LineSpacing = ufc_string_length - string.len(UFC_LineRtrim)
-	UFC_Line = string.format("%-".. UFC_LineSpacing .."s%s", UFC_LineLtrim, UFC_LineRtrim)
-	UFC_LineLdots = left:gsub("[^:.°]"," ")
-	UFC_LineRdots = right:gsub("[^:.°]"," ")
-	UFC_LineDotsSpacing = ufc_string_length - string.len(UFC_LineRtrim)
-	UFC_Line_dots = string.format("%-".. UFC_LineDotsSpacing .."s%s", UFC_LineLdots, UFC_LineRdots)
-	if central ~= '' then
-		UFC_LineSpacing = (ufc_string_length/2) - (string.len(central)/2)
-		UFC_Linecent = string.format("%-".. UFC_LineSpacing .."s%s", "", central)
-		for i = 1, #UFC_Linecent do
-			local c = UFC_Linecent:sub(i,i)
-			if c ~= ' ' then
-				UFC_Line_dots = UFC_Line_dots:sub(1, i-1) .. c .. UFC_Line_dots:sub(i+1)
-			end
-		end
+local function replaceSpecial(str, result)
+    special = result or ""
+    i = str.find(str, "[:.`]")
+
+    if i ~= nil then
+        special = string.format("%s%" .. i - 1 .. "s", special, string.sub(str, i, i))
+        replaceSpecial(string.sub(str, i + 1), special)
+    end
+
+    return special
+end
+
+local function prepareCharsAndSpecial(str)
+    str = str:gsub("°", "`")
+    strChars = str:gsub("[:.`]","")
+    strSpecial = string.len(strChars) > 0 and string.format("%-" .. string.len(strChars) .. "s", replaceSpecial(str)) or ""
+
+    return str, strChars, strSpecial
+end
+
+local function replaceCharAtIndex(str, index, character)
+    startChars = string.sub(str, 1, index - 1)
+    remainingChars = string.sub(str, index + 1)
+    return string.format("%s%s%s", startChars, character, remainingChars)
+end
+
+local function replaceIndexIfValue(str, charValue, index)
+	charData = coerce_nil_to_string(charValue):gsub("°", "`")
+
+	if string.len(charData) > 0 then
+		return replaceCharAtIndex(str, index, charData):gsub("`", "'")
 	end
-	return { ["line"] = UFC_Line, ["line_dots"] = UFC_Line_dots }
+
+	return str
+end
+
+local function combine_ufc_line(left, center, right, centerStart)
+    left = coerce_nil_to_string(left)
+    right = coerce_nil_to_string(right)
+    center = coerce_nil_to_string(center)
+
+    left, leftChars, leftSpecial = prepareCharsAndSpecial(left)
+    right, rightChars, rightSpecial = prepareCharsAndSpecial(right)
+    center, centerChars, centerSpecial = prepareCharsAndSpecial(center)
+
+    paddingSpaces = ufc_string_length - string.len(rightChars)
+
+    lineChars = string.format("%-" .. paddingSpaces .. "s%s", leftChars, rightChars)
+    lineSpecial = string.format("%-" .. paddingSpaces .. "s%s", leftSpecial, rightSpecial)
+
+    centerCharsLen = string.len(centerChars)
+
+    if centerCharsLen > 0 then
+        centerStart = centerStart or math.floor((ufc_string_length - centerCharsLen) / 2) + 1
+
+        for i = 0, centerCharsLen - 1 do
+            lineChars = replaceCharAtIndex(lineChars, centerStart + i, string.sub(centerChars, i + 1, i + 1))
+            lineSpecial = replaceCharAtIndex(lineSpecial, centerStart + i, string.sub(centerSpecial, i + 1, i + 1))
+        end
+    end
+
+    return lineChars, lineSpecial:gsub("`", "'")
+end
+
+-- UFC Line 1
+local function build_ufc_line_1(ufcData)
+	lineChars, lineSpecial = combine_ufc_line(ufcData.UFC_SC_01, ufcData.UFC_CC_01, ufcData.UFC_SC_12)
+
+	-- Special Characters and their indexes
+	lineSpecial = replaceIndexIfValue(lineSpecial, ufcData.UFC_SC_R23R3, 14)
+	lineSpecial = replaceIndexIfValue(lineSpecial, ufcData.UFC_SC_R1, 17)
+
+	return lineChars, lineSpecial
+end
+
+-- UFC Line 2
+local function build_ufc_line_2(ufcData)
+	lineChars, lineSpecial = combine_ufc_line(ufcData.UFC_SC_02, ufcData.UFC_CC_02, ufcData.UFC_SC_11)
+
+	-- Special Characters and their indexes
+	lineSpecial = replaceIndexIfValue(lineSpecial, ufcData.UFC_SC_02A, 3)
+	lineSpecial = replaceIndexIfValue(lineSpecial, ufcData.UFC_SC_02B, 5)
+	lineSpecial = replaceIndexIfValue(lineSpecial, ufcData.UFC_SC_11_SPA, 16)
+	lineSpecial = replaceIndexIfValue(lineSpecial, ufcData.UFC_SC_11_SPB, 18)
+
+	return lineChars, lineSpecial
+end
+
+-- UFC Line 3
+local function build_ufc_line_3(ufcData)
+	lineChars, lineSpecial = combine_ufc_line(ufcData.UFC_SC_03, ufcData.UFC_CC_03, ufcData.UFC_SC_10)
+
+	-- Special Characters and their indexes
+	lineSpecial = replaceIndexIfValue(lineSpecial, ufcData.UFC_SC_03L1, 4)
+	lineSpecial = replaceIndexIfValue(lineSpecial, ufcData.UFC_SC_03L2, 6)
+	lineSpecial = replaceIndexIfValue(lineSpecial, ufcData.UFC_SC_03ILS, 7)
+
+	return lineChars, lineSpecial
+end
+
+
+-- UFC Line 4
+local function build_ufc_line_4(ufcData)
+	lineChars, lineSpecial = combine_ufc_line(ufcData.UFC_SC_04, nil, ufcData.UFC_SC_09)
+
+	-- Special Characters and their indexes
+	-- Currently none
+
+	return lineChars, lineSpecial
+end
+
+-- UFC Line 5
+local function build_ufc_line_5(ufcData)
+	lineChars, lineSpecial = combine_ufc_line(ufcData.UFC_SC_05, nil, ufcData.UFC_SC_08)
+
+	-- Special Characters and their indexes
+	lineSpecial = replaceIndexIfValue(lineSpecial, ufcData.UFC_SC_05A, 5)
+	lineSpecial = replaceIndexIfValue(lineSpecial, ufcData.UFC_SC_08A, 16)
+
+	return lineChars, lineSpecial
+end
+
+-- UFC Line 6
+local function build_ufc_line_6(ufcData)
+	lineChars, lineSpecial = combine_ufc_line(ufcData.UFC_SC_06, ufcData.UFC_CC_04, ufcData.UFC_SC_07, 6)
+
+	userInput = coerce_nil_to_string(ufcData.UFC_CC_04):gsub("°", "`")
+	specialOffset = string.find(userInput, "[EW]") == 1 and 1 or 0
+
+	-- Special Characters and their indexes
+	lineSpecial = replaceIndexIfValue(lineSpecial, ufcData.UFC_LL_INPUT_DEG, 8 + specialOffset)
+	lineSpecial = replaceIndexIfValue(lineSpecial, ufcData.UFC_LL_INPUT_MIN, 10 + specialOffset)
+
+	return lineChars, lineSpecial
+end
+
+-- UFC Active Radios
+local function determine_active_radios(line5, line6)
+	activeUHF1 = "        "
+	activeUHF2 = "        "
+
+	if line6:find("*") == 1 then
+		activeUHF1 = line6:sub(2, 4)
+	elseif line5:find("*") == 1 then
+		activeUHF1 = line5:sub(2, 5) .. "." .. line5:sub(6,8)
+	else
+		activeUHF1 = line5:sub(2, 7)
+	end
+
+	if line6:reverse():find("*") == 1 then
+		activeUHF2 = line6:sub(18, 19):gsub('^%s*(.-)%s*$', '%1')
+	elseif line5:reverse():find("*") == 1 then
+		activeUHF2 = line5:sub(13, 16) .. "." .. line5:sub(17,19)
+	else
+		activeUHF2 = line5:sub(14,19)
+	end
+
+	return activeUHF1, activeUHF2
 end
 
 moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
@@ -217,161 +339,23 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 		return
 	end
 
-	F_UFC_Line1L = coerce_nil_to_string(f_ufc.UFC_SC_01)
-	F_UFC_Line1R = coerce_nil_to_string(f_ufc.UFC_SC_12)
-	F_UFC_Line1C = coerce_nil_to_string(f_ufc.UFC_CC_01)
-	F_Line1Array = build_ufc_line (F_UFC_Line1L,F_UFC_Line1R,F_UFC_Line1C)
-	F_UFC_Line1 = F_Line1Array["line"]
-	F_UFC_Line1_dots = F_Line1Array["line_dots"]
-
-	F_UFC_Line2L = coerce_nil_to_string(f_ufc.UFC_SC_02)
-	F_UFC_Line2R = coerce_nil_to_string(f_ufc.UFC_SC_11)
-	F_UFC_Line2C = coerce_nil_to_string(f_ufc.UFC_CC_02)
-	F_Line2Array = build_ufc_line (F_UFC_Line2L,F_UFC_Line2R,F_UFC_Line2C)
-	F_UFC_Line2 = F_Line2Array["line"]
-	F_UFC_Line2_dots = F_Line2Array["line_dots"]
-
-	F_UFC_Line3L = coerce_nil_to_string(f_ufc.UFC_SC_03)
-	F_UFC_Line3R = coerce_nil_to_string(f_ufc.UFC_SC_10)
-	F_UFC_Line3C = coerce_nil_to_string(f_ufc.UFC_CC_03)
-	F_Line3Array = build_ufc_line (F_UFC_Line3L,F_UFC_Line3R,F_UFC_Line3C)
-	F_UFC_Line3 = F_Line3Array["line"]
-	F_UFC_Line3_dots = F_Line3Array["line_dots"]
-
-	F_UFC_Line4L = coerce_nil_to_string(f_ufc.UFC_SC_04)
-	F_UFC_Line4R = coerce_nil_to_string(f_ufc.UFC_SC_09)
-	F_Line4Array = build_ufc_line (F_UFC_Line4L,F_UFC_Line4R,"")
-	F_UFC_Line4 = F_Line4Array["line"]
-	F_UFC_Line4_dots = F_Line4Array["line_dots"]
-
-	F_UFC_Line5L = coerce_nil_to_string(f_ufc.UFC_SC_05)
-	F_UFC_Line5R = coerce_nil_to_string(f_ufc.UFC_SC_08)
-	F_Line5Array = build_ufc_line (F_UFC_Line5L,F_UFC_Line5R,"")
-	F_UFC_Line5 = F_Line5Array["line"]
-	F_UFC_Line5_dots = F_Line5Array["line_dots"]
-
-	F_UFC_Line6L = coerce_nil_to_string(f_ufc.UFC_SC_06)
-	F_UFC_Line6R = coerce_nil_to_string(f_ufc.UFC_SC_07)
-	F_UFC_Line6C = coerce_nil_to_string(f_ufc.UFC_CC_04)
-	F_Line6Array = build_ufc_line (F_UFC_Line6L,F_UFC_Line6R,F_UFC_Line6C)
-	F_UFC_Line6 = F_Line6Array["line"]
-	F_UFC_Line6_dots = F_Line6Array["line_dots"]
-
-	F_UFC_SC_02A 	= coerce_nil_to_string(f_ufc.UFC_SC_02A)
-	F_UFC_SC_02B 	= coerce_nil_to_string(f_ufc.UFC_SC_02B)
-	F_UFC_SC_11_SPA = coerce_nil_to_string(f_ufc.UFC_SC_11_SPA)
-	F_UFC_SC_11_SPB = coerce_nil_to_string(f_ufc.UFC_SC_11_SPB)
-	F_UFC_SC_03L1	= coerce_nil_to_string(f_ufc.UFC_SC_03L1)
-	F_UFC_SC_03L2	= coerce_nil_to_string(f_ufc.UFC_SC_03L2)
-	F_UFC_SC_10_SPA	= coerce_nil_to_string(f_ufc.UFC_SC_10_SPA)
-	F_UFC_SC_10_SPB	= coerce_nil_to_string(f_ufc.UFC_SC_10_SPB)
-	--FIX for degrees chars didn't send over DCS-BIOS buffer
-	F_UFC_SC_02A 		= F_UFC_SC_02A:gsub("°","'")
-	F_UFC_SC_02B 		= F_UFC_SC_02B:gsub("°","'")
-	F_UFC_SC_11_SPA 	= F_UFC_SC_11_SPA:gsub("°","'")
-	F_UFC_SC_11_SPB 	= F_UFC_SC_11_SPB:gsub("°","'")
-	F_UFC_SC_03L1 		= F_UFC_SC_03L1:gsub("°","'")
-	F_UFC_SC_03L2 		= F_UFC_SC_03L2:gsub("°","'")
-	F_UFC_SC_10_SPA 	= F_UFC_SC_10_SPA:gsub("°","'")
-	F_UFC_SC_10_SPB 	= F_UFC_SC_10_SPB:gsub("°","'")
+	-- F_UFC Lines
+	F_UFC_Line1, F_UFC_Line1_dots = build_ufc_line_1(f_ufc)
+	F_UFC_Line2, F_UFC_Line2_dots = build_ufc_line_2(f_ufc)
+	F_UFC_Line3, F_UFC_Line3_dots = build_ufc_line_3(f_ufc)
+	F_UFC_Line4, F_UFC_Line4_dots = build_ufc_line_4(f_ufc)
+	F_UFC_Line5, F_UFC_Line5_dots = build_ufc_line_5(f_ufc)
+	F_UFC_Line6, F_UFC_Line6_dots = build_ufc_line_6(f_ufc)
+	F_UFC_ActiveUHF1, F_UFC_ActiveUHF2 = determine_active_radios(F_UFC_Line5, F_UFC_Line6)
 
 	--REAR UFC
-	R_UFC_Line1L = coerce_nil_to_string(r_ufc.UFC_SC_01)
-	R_UFC_Line1R = coerce_nil_to_string(r_ufc.UFC_SC_12)
-	R_UFC_Line1C = coerce_nil_to_string(r_ufc.UFC_CC_01)
-	R_Line1Array = build_ufc_line (R_UFC_Line1L,R_UFC_Line1R,R_UFC_Line1C)
-	R_UFC_Line1 = R_Line1Array["line"]
-	R_UFC_Line1_dots = R_Line1Array["line_dots"]
-
-	R_UFC_Line2L = coerce_nil_to_string(r_ufc.UFC_SC_02)
-	R_UFC_Line2R = coerce_nil_to_string(r_ufc.UFC_SC_11)
-	R_UFC_Line2C = coerce_nil_to_string(r_ufc.UFC_CC_02)
-	R_Line2Array = build_ufc_line (R_UFC_Line2L,R_UFC_Line2R,R_UFC_Line2C)
-	R_UFC_Line2 = R_Line2Array["line"]
-	R_UFC_Line2_dots = R_Line2Array["line_dots"]
-
-	R_UFC_Line3L = coerce_nil_to_string(r_ufc.UFC_SC_03)
-	R_UFC_Line3R = coerce_nil_to_string(r_ufc.UFC_SC_10)
-	R_UFC_Line3C = coerce_nil_to_string(r_ufc.UFC_CC_03)
-	R_Line3Array = build_ufc_line (R_UFC_Line3L,R_UFC_Line3R,R_UFC_Line3C)
-	R_UFC_Line3 = R_Line3Array["line"]
-	R_UFC_Line3_dots = R_Line3Array["line_dots"]
-
-	R_UFC_Line4L = coerce_nil_to_string(r_ufc.UFC_SC_04)
-	R_UFC_Line4R = coerce_nil_to_string(r_ufc.UFC_SC_09)
-	R_Line4Array = build_ufc_line (R_UFC_Line4L,R_UFC_Line4R,"")
-	R_UFC_Line4 = R_Line4Array["line"]
-	R_UFC_Line4_dots = R_Line4Array["line_dots"]
-
-	R_UFC_Line5L = coerce_nil_to_string(r_ufc.UFC_SC_05)
-	R_UFC_Line5R = coerce_nil_to_string(r_ufc.UFC_SC_08)
-	R_Line5Array = build_ufc_line (R_UFC_Line5L,R_UFC_Line5R,"")
-	R_UFC_Line5 = R_Line5Array["line"]
-	R_UFC_Line5_dots = R_Line5Array["line_dots"]
-
-	R_UFC_Line6L = coerce_nil_to_string(r_ufc.UFC_SC_06)
-	R_UFC_Line6R = coerce_nil_to_string(r_ufc.UFC_SC_07)
-	R_UFC_Line6C = coerce_nil_to_string(r_ufc.UFC_CC_04)
-	R_Line6Array = build_ufc_line (R_UFC_Line6L,R_UFC_Line6R,R_UFC_Line6C)
-	R_UFC_Line6 = R_Line6Array["line"]
-	R_UFC_Line6_dots = R_Line6Array["line_dots"]
-
-	R_UFC_SC_02A 	= coerce_nil_to_string(r_ufc.UFC_SC_02A)
-	R_UFC_SC_02B 	= coerce_nil_to_string(r_ufc.UFC_SC_02B)
-	R_UFC_SC_11_SPA = coerce_nil_to_string(r_ufc.UFC_SC_11_SPA)
-	R_UFC_SC_11_SPB = coerce_nil_to_string(r_ufc.UFC_SC_11_SPB)
-	R_UFC_SC_03L1	= coerce_nil_to_string(r_ufc.UFC_SC_03L1)
-	R_UFC_SC_03L2	= coerce_nil_to_string(r_ufc.UFC_SC_03L2)
-	R_UFC_SC_10_SPA	= coerce_nil_to_string(r_ufc.UFC_SC_10_SPA)
-	R_UFC_SC_10_SPB	= coerce_nil_to_string(r_ufc.UFC_SC_10_SPB)
-	--FIX for degrees chars didn't send over DCS-BIOS buffer
-	R_UFC_SC_02A 		= R_UFC_SC_02A:gsub("°","'")
-	R_UFC_SC_02B 		= R_UFC_SC_02B:gsub("°","'")
-	R_UFC_SC_11_SPA 	= R_UFC_SC_11_SPA:gsub("°","'")
-	R_UFC_SC_11_SPB 	= R_UFC_SC_11_SPB:gsub("°","'")
-	R_UFC_SC_03L1 		= R_UFC_SC_03L1:gsub("°","'")
-	R_UFC_SC_03L2 		= R_UFC_SC_03L2:gsub("°","'")
-	R_UFC_SC_10_SPA 	= R_UFC_SC_10_SPA:gsub("°","'")
-	R_UFC_SC_10_SPB 	= R_UFC_SC_10_SPB:gsub("°","'")
-
-	f_uhf1_active = F_UFC_Line5L:find('*', 1, true) == 1
-	if f_uhf1_active then
-		local piece1 = F_UFC_Line5L:sub(1, 5)
-		local piece2 = F_UFC_Line5L:sub(6, string.len(F_UFC_Line5L))
-		F_UFC_ActiveUHF1 = piece1:sub(2) .. "." .. piece2
-	else
-		F_UFC_ActiveUHF1 = F_UFC_Line6L:sub(2)
-	end
-
-	f_uhf2_active = F_UFC_Line5R:sub(-string.len('*')) == '*'
-	if f_uhf2_active then
-		local piece1 = F_UFC_Line5R:sub(1, 4)
-		local piece2 = F_UFC_Line5R:sub(5, string.len(F_UFC_Line5R))
-		F_UFC_ActiveUHF2 = piece1 .. "." .. piece2:sub(1, -2)
-	else
-		F_UFC_ActiveUHF2 = F_UFC_Line6R:sub(1, -2)
-		F_UFC_ActiveUHF2 = F_UFC_ActiveUHF2:match'^%s*(.*)'
-	end
-
-	r_uhf1_active = R_UFC_Line5L:find('*', 1, true) == 1
-	if r_uhf1_active then
-		local piece1 = R_UFC_Line5L:sub(1, 5)
-		local piece2 = R_UFC_Line5L:sub(6, string.len(R_UFC_Line5L))
-		R_UFC_ActiveUHF1 = piece1:sub(2) .. "." .. piece2
-	else
-		R_UFC_ActiveUHF1 = R_UFC_Line6L:sub(2)
-	end
-
-	r_uhf2_active = R_UFC_Line5R:sub(-string.len('*')) == '*'
-	if r_uhf2_active then
-		local piece1 = R_UFC_Line5R:sub(1, 4)
-		local piece2 = R_UFC_Line5R:sub(5, string.len(R_UFC_Line5R))
-		R_UFC_ActiveUHF2 = piece1 .. "." .. piece2:sub(1, -2)
-	else
-		R_UFC_ActiveUHF2 = F_UFC_Line6R:sub(1, -2)
-		R_UFC_ActiveUHF2 = F_UFC_ActiveUHF2:match'^%s*(.*)'
-	end
-
+	R_UFC_Line1, R_UFC_Line1_dots = build_ufc_line_1(r_ufc)
+	R_UFC_Line2, R_UFC_Line2_dots = build_ufc_line_2(r_ufc)
+	R_UFC_Line3, R_UFC_Line3_dots = build_ufc_line_3(r_ufc)
+	R_UFC_Line4, R_UFC_Line4_dots = build_ufc_line_4(r_ufc)
+	R_UFC_Line5, R_UFC_Line5_dots = build_ufc_line_5(r_ufc)
+	R_UFC_Line6, R_UFC_Line6_dots = build_ufc_line_6(r_ufc)
+	R_UFC_ActiveUHF1, R_UFC_ActiveUHF2 = determine_active_radios(R_UFC_Line5, R_UFC_Line6)
 end
 
 defineString("F_UFC_Line1_DISPLAY", function() return F_UFC_Line1 end, 20, "Front UFC Display", "Line 1")
@@ -386,16 +370,8 @@ defineString("F_UFC_Line3_DISPLAY_DOTS", function() return F_UFC_Line3_dots end,
 defineString("F_UFC_Line4_DISPLAY_DOTS", function() return F_UFC_Line4_dots end, 20, "Front UFC Display", "Line 4 (special characters)")
 defineString("F_UFC_Line5_DISPLAY_DOTS", function() return F_UFC_Line5_dots end, 20, "Front UFC Display", "Line 5 (special characters)")
 defineString("F_UFC_Line6_DISPLAY_DOTS", function() return F_UFC_Line6_dots end, 20, "Front UFC Display", "Line 6 (special characters)")
-defineString("F_UFC_ACTIVE_UHF1", function() return F_UFC_ActiveUHF1 end, 10, "Front UFC Display", "Active UHF 1 (special)")
-defineString("F_UFC_ACTIVE_UHF2", function() return F_UFC_ActiveUHF2 end, 10, "Front UFC Display", "Active UHF 2 (special)")
-defineString("F_UFC_SC_02A", function() return F_UFC_SC_02A end, 1, "Front UFC Display", "Line 2A Left")
-defineString("F_UFC_SC_02B", function() return F_UFC_SC_02B end, 1, "Front UFC Display", "Line 2B Left")
-defineString("F_UFC_SC_11_SPA", function() return F_UFC_SC_11_SPA end, 1, "Front UFC Display", "Line 2A Right")
-defineString("F_UFC_SC_11_SPB", function() return F_UFC_SC_11_SPB end, 1, "Front UFC Display", "Line 2B Right")
-defineString("F_UFC_SC_03L1", function() return F_UFC_SC_03L1 end, 1, "Front UFC Display", "Line 3A Left")
-defineString("F_UFC_SC_03L2", function() return F_UFC_SC_03L2 end, 1, "Front UFC Display", "Line 3B Left")
-defineString("F_UFC_SC_10_SPA", function() return F_UFC_SC_10_SPA end, 1, "Front UFC Display", "Line 3A Right")
-defineString("F_UFC_SC_10_SPB", function() return F_UFC_SC_10_SPB end, 1, "Front UFC Display", "Line 3B Right")
+defineString("F_UFC_ACTIVE_UHF1", function() return F_UFC_ActiveUHF1 end, 8, "Front UFC Display", "Active UHF 1 (special)")
+defineString("F_UFC_ACTIVE_UHF2", function() return F_UFC_ActiveUHF2 end, 8, "Front UFC Display", "Active UHF 2 (special)")
 
 --HUD Control Panel
 definePotentiometer("F_HUD_BRIGHT", 55, 3120, 120, {0, 1}, "Front HUD Control Panel", "FRONT HUD Brightness Control")
@@ -924,17 +900,8 @@ defineString("R_UFC_Line3_DISPLAY_DOTS", function() return R_UFC_Line3_dots end,
 defineString("R_UFC_Line4_DISPLAY_DOTS", function() return R_UFC_Line4_dots end, 20, "Rear UFC Display", "Line 4 (special characters)")
 defineString("R_UFC_Line5_DISPLAY_DOTS", function() return R_UFC_Line5_dots end, 20, "Rear UFC Display", "Line 5 (special characters)")
 defineString("R_UFC_Line6_DISPLAY_DOTS", function() return R_UFC_Line6_dots end, 20, "Rear UFC Display", "Line 6 (special characters)")
-defineString("R_UFC_ACTIVE_UHF1", function() return R_UFC_ActiveUHF1 end, 10, "Rear UFC Display", "Active UHF 1 (special)")
-defineString("R_UFC_ACTIVE_UHF2", function() return R_UFC_ActiveUHF2 end, 10, "Rear UFC Display", "Active UHF 2 (special)")
-defineString("R_UFC_SC_02A", function() return R_UFC_SC_02A end, 1, "Rear UFC Display", "Line 2A Left")
-defineString("R_UFC_SC_02B", function() return R_UFC_SC_02B end, 1, "Rear UFC Display", "Line 2B Left")
-defineString("R_UFC_SC_11_SPA", function() return R_UFC_SC_11_SPA end, 1, "Rear UFC Display", "Line 2A Right")
-defineString("R_UFC_SC_11_SPB", function() return R_UFC_SC_11_SPB end, 1, "Rear UFC Display", "Line 2B Right")
-defineString("R_UFC_SC_03L1", function() return R_UFC_SC_03L1 end, 1, "Rear UFC Display", "Line 3A Left")
-defineString("R_UFC_SC_03L2", function() return R_UFC_SC_03L2 end, 1, "Rear UFC Display", "Line 3B Left")
-defineString("R_UFC_SC_10_SPA", function() return R_UFC_SC_10_SPA end, 1, "Rear UFC Display", "Line 3A Right")
-defineString("R_UFC_SC_10_SPB", function() return R_UFC_SC_10_SPB end, 1, "Rear UFC Display", "Line 3B Right")
-
+defineString("R_UFC_ACTIVE_UHF1", function() return R_UFC_ActiveUHF1 end, 8, "Rear UFC Display", "Active UHF 1 (special)")
+defineString("R_UFC_ACTIVE_UHF2", function() return R_UFC_ActiveUHF2 end, 8, "Rear UFC Display", "Active UHF 2 (special)")
 
 --Emergency Jettison and Misc Handles
 definePushButton("R_RUDDER_PED_ADJ", 18, 3346, 1346, "Rear Misc", "REAR Rudder Pedal Ajust Handle")
