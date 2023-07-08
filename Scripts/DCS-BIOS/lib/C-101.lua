@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("C-101", 0x3600)
 BIOS.protocol.setExportModuleAircrafts({"C-101CC", "C-101EB"})
---by WarLord
+--by WarLord v1.1
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document
@@ -368,7 +368,7 @@ defineIntegerFromGetter("EXT_WOW_LEFT", function()
 	if LoGetAircraftDrawArgumentValue(6) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Weight ON Wheels Left Gear")
 
----------------------------------------FORWARD COCKPIT ONLY FUNCTIONS
+--------------FORWARD COCKPIT ONLY FUNCTIONS
 --PRESSURIZATION/AIRCON SYSTEM
 defineMultipositionSwitch("FRONT_AIR_COND_MASTER", 1, 3120, 419, 3, 0.5,"Aircon System" ,"FRONT Air-Conditioning Master Switch")
 defineToggleSwitch("FRONT_AIR_FLOW_MODE", 1, 3121, 420, "Aircon System", "FRONT Air Flow Mode")
@@ -410,7 +410,7 @@ defineToggleSwitch("FRONT_PITCH_TRIM_TONE_MUTE", 1, 3236, 196, "Misc", "FRONT Pi
 definePushButton("FRONT_ANTI_RAIN", 1, 3222, 314, "Misc", "FRONT Anti-Rain Fluid")
 
 
----------------------------------------REAR COCKPIT ONLY FUNCTIONS
+--------------REAR COCKPIT ONLY FUNCTIONS
 --OXYGEN SYSTEM
 defineToggleSwitch("BACK_OXY_PRESS_WARN_SW", 1, 3527, 1196, "Misc", "BACK Oxygen Pressure Warning Switch")
 
@@ -652,7 +652,7 @@ defineMultipositionSwitch("CC_FRONT_EMERG_FUEL_LEVER", 1,3354,726,9,0.1,"Misc" ,
 definePushButton("CC_FRONT_TELEBRIEFING_BTN", 1, 3320, 718, "Misc", "C-101CC FRONT Telebriefing Button")
 definePotentiometer("CC_FRONT_TELEBRIEFING_KNB", 1, 3554, 849, {0, 1}, "Misc", "C-101CC FRONT Telebriefing Knob")
 
----------------------------------------REAR COCKPIT ONLY FUNCTIONS
+--------------REAR COCKPIT ONLY FUNCTIONS
 --MISC FUNCTIONS
 defineToggleSwitch("CC_BACK_STALL_WARN_TEST", 1,3606,1208, "Misc", "C-101CC BACK Stall Warning Test")
 defineToggleSwitch("CC_BACK_STALL_WARN_PW", 1,3607,1209, "Misc", "C-101CC BACK Stall Warning Power")
@@ -774,7 +774,7 @@ definePotentiometer("EB_BACK_ADJ_ADI_PITCH", 1,3600,990, {0, 1}, "Misc", "C-101E
 definePotentiometer("EB_FRONT_HSI_BRIGHT", 1,3161,343, {0, 1}, "Misc", "C-101EB FRONT HSI Digit Brightness")
 definePotentiometer("EB_BACK_HSI_BRIGHT", 1,3443,766, {0, 1}, "Misc", "C-101EB BACK HSI Digit Brightness")
 
----------------------------------------FORWARD COCKPIT ONLY FUNCTIONS
+--------------FORWARD COCKPIT ONLY FUNCTIONS
 --TACAN PANEL
 defineRotary("EB_FRONT_TCN_CHAN_10", 12, 3001, 387, "TACAN", "C-101EB FRONT TACAN Channel 00x-12x")
 defineMultipositionSwitch("EB_FRONT_TCN_CHAN_1", 12, 3002, 388,10,0.1,"TACAN" ,"C-101EB FRONT TACAN Channel xx1")
@@ -805,4 +805,31 @@ defineToggleSwitch("EB_FRONT_CB_VOR_26", 1,3078,532, "CB Panel", "C-101EB FRONT 
 defineToggleSwitch("EB_FRONT_CB_SMOKE_COL", 1,3643,851, "CB Panel", "C-101EB FRONT Circuit Breaker Colour Smoke")
 defineToggleSwitch("EB_FRONT_CB_SMOKE_WH", 1,3644,852, "CB Panel", "C-101EB FRONT Circuit Breaker White Smoke")
 
+defineIndicatorLight("CC_FRONT_WP_LOW_FUEL", 150, "Warning, Caution and IndicatorLights", "C-101CC FRONT Warning Panel LOW FUEL Lamp (red)")
+defineIndicatorLight("CC_FRONT_WP_FIRE", 151, "Warning, Caution and IndicatorLights", "C-101CC FRONT Warning Panel FIRE Lamp (red)")
+defineIndicatorLight("CC_FRONT_WP_OXY_P", 152, "Warning, Caution and IndicatorLights", "C-101CC FRONT Warning Panel OXY PRESS Lamp (red)")
+defineIndicatorLight("CC_FRONT_WP_CANOPY", 153, "Warning, Caution and IndicatorLights", "C-101CC FRONT Warning Panel CANOPY Lamp (red)")
+defineIndicatorLight("CC_FRONT_WP_CKPT_P", 154, "Warning, Caution and IndicatorLights", "C-101CC FRONT Warning Panel CKPT RESS Lamp (red)")
+defineIndicatorLight("CC_FRONT_WP_HYD_P", 155, "Warning, Caution and IndicatorLights", "C-101CC FRONT Warning Panel HYD PRESS Lamp (red)")
+defineIndicatorLight("CC_FRONT_WP_OIL_P", 156, "Warning, Caution and IndicatorLights", "C-101CC FRONT Warning Panel OIL PRESS Lamp (red)")
+defineIndicatorLight("CC_FRONT_WP_CHP_DECT", 157, "Warning, Caution and IndicatorLights", "C-101CC FRONT Warning Panel CHP DETECT Lamp (red)")
+defineIndicatorLight("CC_FRONT_WP_BAT", 158, "Warning, Caution and IndicatorLights", "C-101CC FRONT Warning Panel BATTERY Lamp (red)")
+defineIndicatorLight("CC_FRONT_WP_GEN", 159, "Warning, Caution and IndicatorLights", "C-101CC FRONT Warning Panel GENERATOR Lamp (red)")
+defineIndicatorLight("CC_FRONT_WP_FUEL_P", 160, "Warning, Caution and IndicatorLights", "C-101CC FRONT Warning Panel FUEL PRESS Lamp (yellow)")
+defineIndicatorLight("CC_FRONT_WP_FUEL_V", 161, "Warning, Caution and IndicatorLights", "C-101CC FRONT Warning Panel FUEL VALVE Lamp (yellow)")
+defineIndicatorLight("CC_FRONT_WP_AIR", 162, "Warning, Caution and IndicatorLights", "C-101CC FRONT Warning Panel AIR COND Lamp (yellow)")
+defineIndicatorLight("CC_FRONT_WP_GEAR", 163, "Warning, Caution and IndicatorLights", "C-101CC FRONT Warning Panel GEAR^ Lamp (yellow)")
+defineIndicatorLight("CC_FRONT_WP_PITOT", 164, "Warning, Caution and IndicatorLights", "C-101CC FRONT Warning Panel PITOT HEAT Lamp (yellow)")
+defineIndicatorLight("CC_FRONT_WP_COMP", 165, "Warning, Caution and IndicatorLights", "C-101CC FRONT Warning Panel COMPUTER Lamp (yellow)")
+defineIndicatorLight("CC_FRONT_WP_AICE", 166, "Warning, Caution and IndicatorLights", "C-101CC FRONT Warning Panel ANTI-ICE Lamp (yellow)")
+defineIndicatorLight("CC_FRONT_WP_AOA", 167, "Warning, Caution and IndicatorLights", "C-101CC FRONT Warning Panel AOA/STALL Lamp (yellow)")
+defineIndicatorLight("CC_FRONT_WP_NORM", 168, "Warning, Caution and IndicatorLights", "C-101CC FRONT Warning Panel NORM INV Lamp (yellow)")
+defineIndicatorLight("CC_FRONT_WP_STBY", 169, "Warning, Caution and IndicatorLights", "C-101CC FRONT Warning Panel STBY INV Lamp (yellow)")
+defineIndicatorLight("CC_FRONT_WP_BUS_ON", 175, "Warning, Caution and IndicatorLights", "C-101CC FRONT Warning Panel Bus Transfer ON Lamp (yellow)")
+defineIndicatorLight("CC_FRONT_WARN_L", 170, "Warning, Caution and IndicatorLights", "C-101CC FRONT WARNING Lamp (red)")
+defineIndicatorLight("CC_FRONT_FIRE_L", 171, "Warning, Caution and IndicatorLights", "C-101CC FRONT FIRE Lamp (red)")
+defineIndicatorLight("CC_FRONT_CAUTION_L", 172, "Warning, Caution and IndicatorLights", "C-101CC FRONT CAUTION Lamp (yellow)")
+defineIndicatorLight("CC_FRONT_OFF_L", 173, "Warning, Caution and IndicatorLights", "C-101CC FRONT OFF Lamp (yellow)")
+defineIndicatorLight("CC_FRONT_ASKID_L", 174, "Warning, Caution and IndicatorLights", "C-101CC FRONT ANTI SKID Lamp (red)")
+--175 ff
 BIOS.protocol.endModule()

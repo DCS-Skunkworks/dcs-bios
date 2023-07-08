@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("A-10C", 0x1000)
 BIOS.protocol.setExportModuleAircrafts({"A-10C", "A-10C_2"})
---overhaul by WarLord,charliefoxtwo,talbotmcinnis&DeadMeat v2.9a
+--overhaul by WarLord,charliefoxtwo,talbotmcinnis&DeadMeat v2.9b
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 
@@ -1314,7 +1314,7 @@ defineTumb("ARC210_100MHZ_SEL", 55, 3025, 554, 0.1, {0, 0.3}, nil, false, "ARC-2
 defineTumb("ARC210_10MHZ_SEL", 55, 3023, 555, 0.1, {0, 0.9}, nil, false, "ARC-210 Radio", "ARC-210 10MHz Selector")
 defineTumb("ARC210_1MHZ_SEL", 55, 3021, 556, 0.1, {0, 0.9}, nil, false, "ARC-210 Radio", "ARC-210 1MHz Selector")
 defineTumb("ARC210_100KHZ_SEL", 55, 3019, 557, 0.1, {0, 0.9}, nil, false, "ARC-210 Radio", "ARC-210 100KHz Selector")
-defineTumb("ARC210_25KHZ_SEL", 55, 3017, 558, 0.1, {0, 0.3}, nil, false, "ARC-210 Radio", "ARC-210 25KHz Selector")
+defineTumb("ARC210_25KHZ_SEL", 55, 3017, 558, 0.1, {0, 0.3}, {"00", "25", "50", "75"}, false, "ARC-210 Radio", "ARC-210 25KHz Selector")
 
 definePushButton("ARC210_ENTER", 55, 3014, 573, "ARC-210", "ARC-210 Enter")
 definePushButton("ARC210_OFF_FREQ", 55, 3013, 572, "ARC-210", "ARC-210 Offset Frequency")
