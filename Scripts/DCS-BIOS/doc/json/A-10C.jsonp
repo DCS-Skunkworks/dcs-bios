@@ -1283,7 +1283,7 @@ docdata["A-10C"] =
                                                                                          "identifier": "ARC210_FREQUENCY",
                                                                                              "inputs": [  ],
                                                                                             "outputs": [ {
-                                                                                                               "address": 4992,
+                                                                                                               "address": 4994,
                                                                                                            "description": "ARC-210 Frequency (String)",
                                                                                                             "max_length": 7,
                                                                                                                 "suffix": "",
@@ -1608,8 +1608,14 @@ docdata["A-10C"] =
                                                                                                           "mask": 49152,
                                                                                                      "max_value": 3,
                                                                                                       "shift_by": 14,
-                                                                                                        "suffix": "",
+                                                                                                        "suffix": "_INT",
                                                                                                           "type": "integer"
+                                                                                               }, {
+                                                                                                       "address": 4992,
+                                                                                                   "description": "possible values: \"00\" \"25\" \"50\" \"75\" ",
+                                                                                                    "max_length": 2,
+                                                                                                        "suffix": "_STR",
+                                                                                                          "type": "string"
                                                                                                } ],
                                                                            "physical_variant": "limited_rotary"
                                                                     }
