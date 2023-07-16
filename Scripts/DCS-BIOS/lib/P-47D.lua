@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("P-47D", 0x5200)
 BIOS.protocol.setExportModuleAircrafts({"P-47D-30", "P-47D-30bl1", "P-47D-40"})
---by WarLord
+--by WarLord v1.1
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document
@@ -228,8 +228,8 @@ defineToggleSwitch("RCTRL_TLOCK", 23, 3017, 155, "Radio", "Switch Locking Lever"
 defineSpringloaded_3PosTumb("RCTRL_T_MODE", 23, 3008, 3007, 156, "Radio", "Radio Mode Switch")
 definePotentiometer("RCTRL_VOL", 23, 3015, 77, {0, 1}, "Radio", "Radio Volume")
 
-definePotentiometer("DETROLA_FREQU_SEL", 24, 3001, 137, {0, 1}, "Detrola Receiver", "Detrola Frequency Selector")
-definePotentiometer("DETROLA_VOL", 24, 3002, 138, {0, 1}, "Detrola Receiver", "Detrola Volume")
+definePotentiometer("DETROLA_FREQU_SEL", 24, 3004, 137, {0, 1}, "Detrola Receiver", "Detrola Frequency Selector")
+definePotentiometer("DETROLA_VOL", 24, 3001, 138, {0, 1}, "Detrola Receiver", "Detrola Volume")
 
 --Deck
 defineTumb("MAIN_FUEL_SEL", 3, 3047, 85,  0.25, {0, 1}, nil, true, "Deck" ,"Main Fuel Tank Selector")
