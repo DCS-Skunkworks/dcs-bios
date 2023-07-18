@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("Yak-52", 0x2000)
 BIOS.protocol.setExportModuleAircrafts({"Yak-52"})
---by WarLord
+--by WarLord v1.1
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document
@@ -84,10 +84,10 @@ definePotentiometer("FRONT_FRIC_R_LEVER", 3, 3057, 237, {0, 1}, "Louvers Quadran
 defineToggleSwitch("FRONT_MIXHEAT", 3, 3060, 238, "Starboard Wall", "Fore Carburettor Heater Lever")
 defineRotary("FRONT_EMER_VALVE", 6, 3044, 239, "Starboard Wall", "Fore Pneumatic Emergency Valve 1")
 defineToggleSwitch("FRONT_SDG_HEMI", 20, 3001, 258, "GMK-1A", "Fore Gyro Hemisphere Selector")
-defineTumb("FRONT_SDG_MODE", 20, 3003, 259, 2.0, {-1, 1}, nil, false, "GMK-1A", "Fore Gyro Mode MC/GC")
+defineTumb("FRONT_SDG_MODE", 20, 3003, 259, 1, {-1, 0}, nil, false, "GMK-1A", "Fore Gyro Mode MC/GC")
 define3PosTumb("FRONT_SDG_CONTROL", 20, 3005, 260, "GMK-1A", "Fore Gyro Test Switch, 0 deg/OFF/300deg")
 define3PosTumb("FRONT_SDG_COURSE", 20, 3007, 261, "GMK-1A", "Fore Gyro Heading Selector, Counter-Clockwise/OFF/Clockwise")
-defineRotary("FRONT_SDG_LAT", 20, 3009, 262, "GMK-1A", "Fore Gyro Latitude Selector")
+definePotentiometer("FRONT_SDG_LAT", 20, 3009, 262, {0, 1}, "GMK-1A", "Fore Gyro Latitude Selector")
 defineTumb("FRONT_RDF_CHANNEL", 21, 3022, 244, 0.1, {0.0, 0.5}, nil, false, "ARK 15M", "Fore RDF Channel Selector")
 defineToggleSwitch("FRONT_RDF_LISTEN", 21, 3007, 245, "ARK 15M", "Fore RDF Listen Mode")
 defineToggleSwitch("FRONT_RDF_MODE12", 21, 3019, 246, "ARK 15M", "Fore RDF Mode")
