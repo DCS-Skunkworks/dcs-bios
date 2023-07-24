@@ -12412,7 +12412,7 @@
                                                                   "FRONT_MIRROR": {
                                                                                                  "category": "Misc",
                                                                                              "control_type": "selector",
-                                                                                              "description": "FRONT Mirror",
+                                                                                              "description": "FRONT Show Mirror",
                                                                                                "identifier": "FRONT_MIRROR",
                                                                                                    "inputs": [ {
                                                                                                                  "description": "switch to previous or next state",
@@ -12437,6 +12437,31 @@
                                                                                                                         "type": "integer"
                                                                                                              } ],
                                                                                          "physical_variant": "toggle_switch"
+                                                                                  },
+                                                              "FRONT_MIRROR_ADJ": {
+                                                                                          "category": "Misc",
+                                                                                      "control_type": "limited_dial",
+                                                                                       "description": "FRONT Adjust Mirror",
+                                                                                        "identifier": "FRONT_MIRROR_ADJ",
+                                                                                            "inputs": [ {
+                                                                                                          "description": "set the position of the dial",
+                                                                                                            "interface": "set_state",
+                                                                                                            "max_value": 65535
+                                                                                                      }, {
+                                                                                                             "description": "turn the dial left or right",
+                                                                                                               "interface": "variable_step",
+                                                                                                               "max_value": 65535,
+                                                                                                          "suggested_step": 3200
+                                                                                                      } ],
+                                                                                           "outputs": [ {
+                                                                                                              "address": 14184,
+                                                                                                          "description": "position of the potentiometer",
+                                                                                                                 "mask": 65535,
+                                                                                                            "max_value": 65535,
+                                                                                                             "shift_by": 0,
+                                                                                                               "suffix": "",
+                                                                                                                 "type": "integer"
+                                                                                                      } ]
                                                                                   },
                                                                 "FRONT_NAV_PRIO": {
                                                                                               "api_variant": "momentary_last_position",
@@ -16489,6 +16514,54 @@
                                                                                                               "type": "integer"
                                                                                                    } ]
                                                                                },
+                                                           "CC_FRONT_ASKID_L": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "C-101CC FRONT ANTI SKID Lamp (red)",
+                                                                                     "identifier": "CC_FRONT_ASKID_L",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 14182,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 1024,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 10,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                         "CC_FRONT_CAUTION_L": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "C-101CC FRONT CAUTION Lamp (yellow)",
+                                                                                     "identifier": "CC_FRONT_CAUTION_L",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 14182,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 256,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 8,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                            "CC_FRONT_FIRE_L": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "C-101CC FRONT FIRE Lamp (red)",
+                                                                                     "identifier": "CC_FRONT_FIRE_L",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 14182,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 128,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 7,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
                                                           "CC_FRONT_MRP_LAMP": {
                                                                                        "category": "Warning, Caution and IndicatorLights",
                                                                                    "control_type": "led",
@@ -16505,6 +16578,22 @@
                                                                                                               "type": "integer"
                                                                                                    } ]
                                                                                },
+                                                             "CC_FRONT_OFF_L": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "C-101CC FRONT OFF Lamp (yellow)",
+                                                                                     "identifier": "CC_FRONT_OFF_L",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 14182,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 512,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 9,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
                                                  "CC_FRONT_TELEBRIEFING_LAMP": {
                                                                                        "category": "Warning, Caution and IndicatorLights",
                                                                                    "control_type": "led",
@@ -16517,6 +16606,358 @@
                                                                                                               "mask": 8,
                                                                                                          "max_value": 1,
                                                                                                           "shift_by": 3,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                            "CC_FRONT_WARN_L": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "C-101CC FRONT WARNING Lamp (red)",
+                                                                                     "identifier": "CC_FRONT_WARN_L",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 14182,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 64,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 6,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                           "CC_FRONT_WP_AICE": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "C-101CC FRONT Warning Panel ANTI-ICE Lamp (yellow)",
+                                                                                     "identifier": "CC_FRONT_WP_AICE",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 14182,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 2,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 1,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                            "CC_FRONT_WP_AIR": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "C-101CC FRONT Warning Panel AIR COND Lamp (yellow)",
+                                                                                     "identifier": "CC_FRONT_WP_AIR",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 14180,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 8192,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 13,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                            "CC_FRONT_WP_AOA": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "C-101CC FRONT Warning Panel AOA/STALL Lamp (yellow)",
+                                                                                     "identifier": "CC_FRONT_WP_AOA",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 14182,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 4,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 2,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                            "CC_FRONT_WP_BAT": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "C-101CC FRONT Warning Panel BATTERY Lamp (red)",
+                                                                                     "identifier": "CC_FRONT_WP_BAT",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 14180,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 512,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 9,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                         "CC_FRONT_WP_BUS_ON": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "C-101CC FRONT Warning Panel Bus Transfer ON Lamp (yellow)",
+                                                                                     "identifier": "CC_FRONT_WP_BUS_ON",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 14182,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 32,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 5,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                         "CC_FRONT_WP_CANOPY": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "C-101CC FRONT Warning Panel CANOPY Lamp (red)",
+                                                                                     "identifier": "CC_FRONT_WP_CANOPY",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 14180,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 16,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 4,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                       "CC_FRONT_WP_CHP_DECT": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "C-101CC FRONT Warning Panel CHP DETECT Lamp (red)",
+                                                                                     "identifier": "CC_FRONT_WP_CHP_DECT",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 14180,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 256,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 8,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                         "CC_FRONT_WP_CKPT_P": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "C-101CC FRONT Warning Panel CKPT RESS Lamp (red)",
+                                                                                     "identifier": "CC_FRONT_WP_CKPT_P",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 14180,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 32,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 5,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                           "CC_FRONT_WP_COMP": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "C-101CC FRONT Warning Panel COMPUTER Lamp (yellow)",
+                                                                                     "identifier": "CC_FRONT_WP_COMP",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 14182,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 1,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 0,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                           "CC_FRONT_WP_FIRE": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "C-101CC FRONT Warning Panel FIRE Lamp (red)",
+                                                                                     "identifier": "CC_FRONT_WP_FIRE",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 14180,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 4,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 2,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                         "CC_FRONT_WP_FUEL_P": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "C-101CC FRONT Warning Panel FUEL PRESS Lamp (yellow)",
+                                                                                     "identifier": "CC_FRONT_WP_FUEL_P",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 14180,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 2048,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 11,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                         "CC_FRONT_WP_FUEL_V": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "C-101CC FRONT Warning Panel FUEL VALVE Lamp (yellow)",
+                                                                                     "identifier": "CC_FRONT_WP_FUEL_V",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 14180,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 4096,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 12,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                           "CC_FRONT_WP_GEAR": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "C-101CC FRONT Warning Panel GEAR^ Lamp (yellow)",
+                                                                                     "identifier": "CC_FRONT_WP_GEAR",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 14180,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 16384,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 14,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                            "CC_FRONT_WP_GEN": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "C-101CC FRONT Warning Panel GENERATOR Lamp (red)",
+                                                                                     "identifier": "CC_FRONT_WP_GEN",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 14180,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 1024,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 10,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                          "CC_FRONT_WP_HYD_P": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "C-101CC FRONT Warning Panel HYD PRESS Lamp (red)",
+                                                                                     "identifier": "CC_FRONT_WP_HYD_P",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 14180,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 64,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 6,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                       "CC_FRONT_WP_LOW_FUEL": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "C-101CC FRONT Warning Panel LOW FUEL Lamp (red)",
+                                                                                     "identifier": "CC_FRONT_WP_LOW_FUEL",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 14180,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 2,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 1,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                           "CC_FRONT_WP_NORM": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "C-101CC FRONT Warning Panel NORM INV Lamp (yellow)",
+                                                                                     "identifier": "CC_FRONT_WP_NORM",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 14182,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 8,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 3,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                          "CC_FRONT_WP_OIL_P": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "C-101CC FRONT Warning Panel OIL PRESS Lamp (red)",
+                                                                                     "identifier": "CC_FRONT_WP_OIL_P",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 14180,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 128,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 7,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                          "CC_FRONT_WP_OXY_P": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "C-101CC FRONT Warning Panel OXY PRESS Lamp (red)",
+                                                                                     "identifier": "CC_FRONT_WP_OXY_P",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 14180,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 8,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 3,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                          "CC_FRONT_WP_PITOT": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "C-101CC FRONT Warning Panel PITOT HEAT Lamp (yellow)",
+                                                                                     "identifier": "CC_FRONT_WP_PITOT",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 14180,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 32768,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 15,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                           "CC_FRONT_WP_STBY": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "C-101CC FRONT Warning Panel STBY INV Lamp (yellow)",
+                                                                                     "identifier": "CC_FRONT_WP_STBY",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 14182,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 16,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 4,
                                                                                                             "suffix": "",
                                                                                                               "type": "integer"
                                                                                                    } ]

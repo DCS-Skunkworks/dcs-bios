@@ -11546,6 +11546,83 @@ docdata["F-15E"] =
                                                                                "physical_variant": "push_button"
                                                                         }
                                                },
+                      "Rear Laser Code Panel": {
+                                                   "R_LCP_LASER_DIG_2": {
+                                                                                       "category": "Rear Laser Code Panel",
+                                                                                   "control_type": "selector",
+                                                                                    "description": "REAR Laser Digit 2",
+                                                                                     "identifier": "R_LCP_LASER_DIG_2",
+                                                                                         "inputs": [ {
+                                                                                                       "description": "switch to previous or next state",
+                                                                                                         "interface": "fixed_step"
+                                                                                                   }, {
+                                                                                                       "description": "set position",
+                                                                                                         "interface": "set_state",
+                                                                                                         "max_value": 2
+                                                                                                   } ],
+                                                                            "momentary_positions": "none",
+                                                                                        "outputs": [ {
+                                                                                                           "address": 38334,
+                                                                                                       "description": "selector position",
+                                                                                                              "mask": 3,
+                                                                                                         "max_value": 2,
+                                                                                                          "shift_by": 0,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ],
+                                                                               "physical_variant": "toggle_switch"
+                                                                        },
+                                                   "R_LCP_LASER_DIG_3": {
+                                                                                       "category": "Rear Laser Code Panel",
+                                                                                   "control_type": "selector",
+                                                                                    "description": "REAR Laser Digit 3",
+                                                                                     "identifier": "R_LCP_LASER_DIG_3",
+                                                                                         "inputs": [ {
+                                                                                                       "description": "switch to previous or next state",
+                                                                                                         "interface": "fixed_step"
+                                                                                                   }, {
+                                                                                                       "description": "set position",
+                                                                                                         "interface": "set_state",
+                                                                                                         "max_value": 7
+                                                                                                   } ],
+                                                                            "momentary_positions": "none",
+                                                                                        "outputs": [ {
+                                                                                                           "address": 38334,
+                                                                                                       "description": "selector position",
+                                                                                                              "mask": 28,
+                                                                                                         "max_value": 7,
+                                                                                                          "shift_by": 2,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ],
+                                                                               "physical_variant": "toggle_switch"
+                                                                        },
+                                                   "R_LCP_LASER_DIG_4": {
+                                                                                       "category": "Rear Laser Code Panel",
+                                                                                   "control_type": "selector",
+                                                                                    "description": "REAR Laser Digit 4",
+                                                                                     "identifier": "R_LCP_LASER_DIG_4",
+                                                                                         "inputs": [ {
+                                                                                                       "description": "switch to previous or next state",
+                                                                                                         "interface": "fixed_step"
+                                                                                                   }, {
+                                                                                                       "description": "set position",
+                                                                                                         "interface": "set_state",
+                                                                                                         "max_value": 7
+                                                                                                   } ],
+                                                                            "momentary_positions": "none",
+                                                                                        "outputs": [ {
+                                                                                                           "address": 38334,
+                                                                                                       "description": "selector position",
+                                                                                                              "mask": 224,
+                                                                                                         "max_value": 7,
+                                                                                                          "shift_by": 5,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ],
+                                                                               "physical_variant": "toggle_switch"
+                                                                        }
+                                               },
                              "Rear Left MPCD": {
                                                        "R_MPCD_L_B1": {
                                                                                   "api_variant": "momentary_last_position",

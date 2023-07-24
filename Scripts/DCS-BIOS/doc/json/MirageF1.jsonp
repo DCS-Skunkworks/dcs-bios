@@ -4238,297 +4238,347 @@ docdata["MirageF1"] =
                                                                             }
                                                    },
                                   "COMMON Canopy": {
-                                                       "P_CANOPY_EMBRITTLE": {
-                                                                                         "api_variant": "momentary_last_position",
-                                                                                            "category": "COMMON Canopy",
-                                                                                        "control_type": "selector",
-                                                                                         "description": "Pilot Canopy Embrittle Control",
-                                                                                          "identifier": "P_CANOPY_EMBRITTLE",
-                                                                                              "inputs": [ {
-                                                                                                            "description": "switch to previous or next state",
-                                                                                                              "interface": "fixed_step"
-                                                                                                        }, {
-                                                                                                            "description": "set position",
-                                                                                                              "interface": "set_state",
-                                                                                                              "max_value": 1
-                                                                                                        }, {
-                                                                                                               "argument": "TOGGLE",
-                                                                                                            "description": "Toggle switch state",
-                                                                                                              "interface": "action"
-                                                                                                        } ],
-                                                                                 "momentary_positions": "none",
-                                                                                             "outputs": [ {
-                                                                                                                "address": 34362,
-                                                                                                            "description": "selector position",
-                                                                                                                   "mask": 16384,
-                                                                                                              "max_value": 1,
-                                                                                                               "shift_by": 14,
-                                                                                                                 "suffix": "",
-                                                                                                                   "type": "integer"
-                                                                                                        } ],
-                                                                                    "physical_variant": "push_button"
-                                                                             },
-                                                           "P_CANOPY_HINGE": {
-                                                                                            "category": "COMMON Canopy",
-                                                                                        "control_type": "selector",
-                                                                                         "description": "Pilot Canopy Hinged Handle",
-                                                                                          "identifier": "P_CANOPY_HINGE",
-                                                                                              "inputs": [ {
-                                                                                                            "description": "switch to previous or next state",
-                                                                                                              "interface": "fixed_step"
-                                                                                                        }, {
-                                                                                                            "description": "set position",
-                                                                                                              "interface": "set_state",
-                                                                                                              "max_value": 1
-                                                                                                        }, {
-                                                                                                               "argument": "TOGGLE",
-                                                                                                            "description": "Toggle switch state",
-                                                                                                              "interface": "action"
-                                                                                                        } ],
-                                                                                 "momentary_positions": "none",
-                                                                                             "outputs": [ {
-                                                                                                                "address": 34362,
-                                                                                                            "description": "selector position",
-                                                                                                                   "mask": 32768,
-                                                                                                              "max_value": 1,
-                                                                                                               "shift_by": 15,
-                                                                                                                 "suffix": "",
-                                                                                                                   "type": "integer"
-                                                                                                        } ],
-                                                                                    "physical_variant": "toggle_switch"
-                                                                             },
-                                                            "P_CANOPY_LOCK": {
-                                                                                            "category": "COMMON Canopy",
-                                                                                        "control_type": "selector",
-                                                                                         "description": "Pilot Canopy Lock Control",
-                                                                                          "identifier": "P_CANOPY_LOCK",
-                                                                                              "inputs": [ {
-                                                                                                            "description": "switch to previous or next state",
-                                                                                                              "interface": "fixed_step"
-                                                                                                        }, {
-                                                                                                            "description": "set position",
-                                                                                                              "interface": "set_state",
-                                                                                                              "max_value": 1
-                                                                                                        }, {
-                                                                                                               "argument": "TOGGLE",
-                                                                                                            "description": "Toggle switch state",
-                                                                                                              "interface": "action"
-                                                                                                        } ],
-                                                                                 "momentary_positions": "none",
-                                                                                             "outputs": [ {
-                                                                                                                "address": 34362,
-                                                                                                            "description": "selector position",
-                                                                                                                   "mask": 8192,
-                                                                                                              "max_value": 1,
-                                                                                                               "shift_by": 13,
-                                                                                                                 "suffix": "",
-                                                                                                                   "type": "integer"
-                                                                                                        } ],
-                                                                                    "physical_variant": "toggle_switch"
-                                                                             },
-                                                       "P_CANOPY_L_MIRRORS": {
-                                                                                            "category": "COMMON Canopy",
-                                                                                        "control_type": "selector",
-                                                                                         "description": "Pilot Left Mirrors",
-                                                                                          "identifier": "P_CANOPY_L_MIRRORS",
-                                                                                              "inputs": [ {
-                                                                                                            "description": "switch to previous or next state",
-                                                                                                              "interface": "fixed_step"
-                                                                                                        }, {
-                                                                                                            "description": "set position",
-                                                                                                              "interface": "set_state",
-                                                                                                              "max_value": 1
-                                                                                                        }, {
-                                                                                                               "argument": "TOGGLE",
-                                                                                                            "description": "Toggle switch state",
-                                                                                                              "interface": "action"
-                                                                                                        } ],
-                                                                                 "momentary_positions": "none",
-                                                                                             "outputs": [ {
-                                                                                                                "address": 34370,
-                                                                                                            "description": "selector position",
-                                                                                                                   "mask": 4,
-                                                                                                              "max_value": 1,
-                                                                                                               "shift_by": 2,
-                                                                                                                 "suffix": "",
-                                                                                                                   "type": "integer"
-                                                                                                        } ],
-                                                                                    "physical_variant": "toggle_switch"
-                                                                             },
-                                                          "P_CANOPY_L_OPEN": {
-                                                                                            "category": "COMMON Canopy",
-                                                                                        "control_type": "selector",
-                                                                                         "description": "Pilot Left Canopy Open/Close",
-                                                                                          "identifier": "P_CANOPY_L_OPEN",
-                                                                                              "inputs": [ {
-                                                                                                            "description": "switch to previous or next state",
-                                                                                                              "interface": "fixed_step"
-                                                                                                        }, {
-                                                                                                            "description": "set position",
-                                                                                                              "interface": "set_state",
-                                                                                                              "max_value": 1
-                                                                                                        }, {
-                                                                                                               "argument": "TOGGLE",
-                                                                                                            "description": "Toggle switch state",
-                                                                                                              "interface": "action"
-                                                                                                        } ],
-                                                                                 "momentary_positions": "none",
-                                                                                             "outputs": [ {
-                                                                                                                "address": 34370,
-                                                                                                            "description": "selector position",
-                                                                                                                   "mask": 16,
-                                                                                                              "max_value": 1,
-                                                                                                               "shift_by": 4,
-                                                                                                                 "suffix": "",
-                                                                                                                   "type": "integer"
-                                                                                                        } ],
-                                                                                    "physical_variant": "toggle_switch"
-                                                                             },
-                                                        "P_CANOPY_MIRRORS2": {
-                                                                                            "category": "COMMON Canopy",
-                                                                                        "control_type": "selector",
-                                                                                         "description": "Pilot Mirrors 2",
-                                                                                          "identifier": "P_CANOPY_MIRRORS2",
-                                                                                              "inputs": [ {
-                                                                                                            "description": "switch to previous or next state",
-                                                                                                              "interface": "fixed_step"
-                                                                                                        }, {
-                                                                                                            "description": "set position",
-                                                                                                              "interface": "set_state",
-                                                                                                              "max_value": 1
-                                                                                                        }, {
-                                                                                                               "argument": "TOGGLE",
-                                                                                                            "description": "Toggle switch state",
-                                                                                                              "interface": "action"
-                                                                                                        } ],
-                                                                                 "momentary_positions": "none",
-                                                                                             "outputs": [ {
-                                                                                                                "address": 34730,
-                                                                                                            "description": "selector position",
-                                                                                                                   "mask": 1,
-                                                                                                              "max_value": 1,
-                                                                                                               "shift_by": 0,
-                                                                                                                 "suffix": "",
-                                                                                                                   "type": "integer"
-                                                                                                        } ],
-                                                                                    "physical_variant": "toggle_switch"
-                                                                             },
-                                                           "P_CANOPY_OPEN2": {
-                                                                                            "category": "COMMON Canopy",
-                                                                                        "control_type": "selector",
-                                                                                         "description": "Pilot Canopy Open/Close 2",
-                                                                                          "identifier": "P_CANOPY_OPEN2",
-                                                                                              "inputs": [ {
-                                                                                                            "description": "switch to previous or next state",
-                                                                                                              "interface": "fixed_step"
-                                                                                                        }, {
-                                                                                                            "description": "set position",
-                                                                                                              "interface": "set_state",
-                                                                                                              "max_value": 1
-                                                                                                        }, {
-                                                                                                               "argument": "TOGGLE",
-                                                                                                            "description": "Toggle switch state",
-                                                                                                              "interface": "action"
-                                                                                                        } ],
-                                                                                 "momentary_positions": "none",
-                                                                                             "outputs": [ {
-                                                                                                                "address": 34730,
-                                                                                                            "description": "selector position",
-                                                                                                                   "mask": 2,
-                                                                                                              "max_value": 1,
-                                                                                                               "shift_by": 1,
-                                                                                                                 "suffix": "",
-                                                                                                                   "type": "integer"
-                                                                                                        } ],
-                                                                                    "physical_variant": "toggle_switch"
-                                                                             },
-                                                       "P_CANOPY_R_MIRRORS": {
-                                                                                            "category": "COMMON Canopy",
-                                                                                        "control_type": "selector",
-                                                                                         "description": "Pilot Right Mirrors",
-                                                                                          "identifier": "P_CANOPY_R_MIRRORS",
-                                                                                              "inputs": [ {
-                                                                                                            "description": "switch to previous or next state",
-                                                                                                              "interface": "fixed_step"
-                                                                                                        }, {
-                                                                                                            "description": "set position",
-                                                                                                              "interface": "set_state",
-                                                                                                              "max_value": 1
-                                                                                                        }, {
-                                                                                                               "argument": "TOGGLE",
-                                                                                                            "description": "Toggle switch state",
-                                                                                                              "interface": "action"
-                                                                                                        } ],
-                                                                                 "momentary_positions": "none",
-                                                                                             "outputs": [ {
-                                                                                                                "address": 34370,
-                                                                                                            "description": "selector position",
-                                                                                                                   "mask": 2,
-                                                                                                              "max_value": 1,
-                                                                                                               "shift_by": 1,
-                                                                                                                 "suffix": "",
-                                                                                                                   "type": "integer"
-                                                                                                        } ],
-                                                                                    "physical_variant": "toggle_switch"
-                                                                             },
-                                                          "P_CANOPY_R_OPEN": {
-                                                                                            "category": "COMMON Canopy",
-                                                                                        "control_type": "selector",
-                                                                                         "description": "Pilot Right Canopy Open/Close",
-                                                                                          "identifier": "P_CANOPY_R_OPEN",
-                                                                                              "inputs": [ {
-                                                                                                            "description": "switch to previous or next state",
-                                                                                                              "interface": "fixed_step"
-                                                                                                        }, {
-                                                                                                            "description": "set position",
-                                                                                                              "interface": "set_state",
-                                                                                                              "max_value": 1
-                                                                                                        }, {
-                                                                                                               "argument": "TOGGLE",
-                                                                                                            "description": "Toggle switch state",
-                                                                                                              "interface": "action"
-                                                                                                        } ],
-                                                                                 "momentary_positions": "none",
-                                                                                             "outputs": [ {
-                                                                                                                "address": 34370,
-                                                                                                            "description": "selector position",
-                                                                                                                   "mask": 8,
-                                                                                                              "max_value": 1,
-                                                                                                               "shift_by": 3,
-                                                                                                                 "suffix": "",
-                                                                                                                   "type": "integer"
-                                                                                                        } ],
-                                                                                    "physical_variant": "toggle_switch"
-                                                                             },
-                                                            "P_CANOPY_SEAL": {
-                                                                                            "category": "COMMON Canopy",
-                                                                                        "control_type": "selector",
-                                                                                         "description": "Pilot Canopy Seal Valve Control Lever",
-                                                                                          "identifier": "P_CANOPY_SEAL",
-                                                                                              "inputs": [ {
-                                                                                                            "description": "switch to previous or next state",
-                                                                                                              "interface": "fixed_step"
-                                                                                                        }, {
-                                                                                                            "description": "set position",
-                                                                                                              "interface": "set_state",
-                                                                                                              "max_value": 1
-                                                                                                        }, {
-                                                                                                               "argument": "TOGGLE",
-                                                                                                            "description": "Toggle switch state",
-                                                                                                              "interface": "action"
-                                                                                                        } ],
-                                                                                 "momentary_positions": "none",
-                                                                                             "outputs": [ {
-                                                                                                                "address": 34370,
-                                                                                                            "description": "selector position",
-                                                                                                                   "mask": 1,
-                                                                                                              "max_value": 1,
-                                                                                                               "shift_by": 0,
-                                                                                                                 "suffix": "",
-                                                                                                                   "type": "integer"
-                                                                                                        } ],
-                                                                                    "physical_variant": "toggle_switch"
-                                                                             }
+                                                           "P_CANOPY_EMBRITTLE": {
+                                                                                             "api_variant": "momentary_last_position",
+                                                                                                "category": "COMMON Canopy",
+                                                                                            "control_type": "selector",
+                                                                                             "description": "Pilot Canopy Embrittle Control",
+                                                                                              "identifier": "P_CANOPY_EMBRITTLE",
+                                                                                                  "inputs": [ {
+                                                                                                                "description": "switch to previous or next state",
+                                                                                                                  "interface": "fixed_step"
+                                                                                                            }, {
+                                                                                                                "description": "set position",
+                                                                                                                  "interface": "set_state",
+                                                                                                                  "max_value": 1
+                                                                                                            }, {
+                                                                                                                   "argument": "TOGGLE",
+                                                                                                                "description": "Toggle switch state",
+                                                                                                                  "interface": "action"
+                                                                                                            } ],
+                                                                                     "momentary_positions": "none",
+                                                                                                 "outputs": [ {
+                                                                                                                    "address": 34362,
+                                                                                                                "description": "selector position",
+                                                                                                                       "mask": 16384,
+                                                                                                                  "max_value": 1,
+                                                                                                                   "shift_by": 14,
+                                                                                                                     "suffix": "",
+                                                                                                                       "type": "integer"
+                                                                                                            } ],
+                                                                                        "physical_variant": "push_button"
+                                                                                 },
+                                                               "P_CANOPY_HINGE": {
+                                                                                                "category": "COMMON Canopy",
+                                                                                            "control_type": "selector",
+                                                                                             "description": "Pilot Canopy Hinged Handle",
+                                                                                              "identifier": "P_CANOPY_HINGE",
+                                                                                                  "inputs": [ {
+                                                                                                                "description": "switch to previous or next state",
+                                                                                                                  "interface": "fixed_step"
+                                                                                                            }, {
+                                                                                                                "description": "set position",
+                                                                                                                  "interface": "set_state",
+                                                                                                                  "max_value": 1
+                                                                                                            }, {
+                                                                                                                   "argument": "TOGGLE",
+                                                                                                                "description": "Toggle switch state",
+                                                                                                                  "interface": "action"
+                                                                                                            } ],
+                                                                                     "momentary_positions": "none",
+                                                                                                 "outputs": [ {
+                                                                                                                    "address": 34362,
+                                                                                                                "description": "selector position",
+                                                                                                                       "mask": 32768,
+                                                                                                                  "max_value": 1,
+                                                                                                                   "shift_by": 15,
+                                                                                                                     "suffix": "",
+                                                                                                                       "type": "integer"
+                                                                                                            } ],
+                                                                                        "physical_variant": "toggle_switch"
+                                                                                 },
+                                                                "P_CANOPY_LOCK": {
+                                                                                                "category": "COMMON Canopy",
+                                                                                            "control_type": "selector",
+                                                                                             "description": "Pilot Canopy Lock Control",
+                                                                                              "identifier": "P_CANOPY_LOCK",
+                                                                                                  "inputs": [ {
+                                                                                                                "description": "switch to previous or next state",
+                                                                                                                  "interface": "fixed_step"
+                                                                                                            }, {
+                                                                                                                "description": "set position",
+                                                                                                                  "interface": "set_state",
+                                                                                                                  "max_value": 1
+                                                                                                            }, {
+                                                                                                                   "argument": "TOGGLE",
+                                                                                                                "description": "Toggle switch state",
+                                                                                                                  "interface": "action"
+                                                                                                            } ],
+                                                                                     "momentary_positions": "none",
+                                                                                                 "outputs": [ {
+                                                                                                                    "address": 34362,
+                                                                                                                "description": "selector position",
+                                                                                                                       "mask": 8192,
+                                                                                                                  "max_value": 1,
+                                                                                                                   "shift_by": 13,
+                                                                                                                     "suffix": "",
+                                                                                                                       "type": "integer"
+                                                                                                            } ],
+                                                                                        "physical_variant": "toggle_switch"
+                                                                                 },
+                                                           "P_CANOPY_L_MIRRORS": {
+                                                                                                "category": "COMMON Canopy",
+                                                                                            "control_type": "selector",
+                                                                                             "description": "Pilot Hide Left Mirrors",
+                                                                                              "identifier": "P_CANOPY_L_MIRRORS",
+                                                                                                  "inputs": [ {
+                                                                                                                "description": "switch to previous or next state",
+                                                                                                                  "interface": "fixed_step"
+                                                                                                            }, {
+                                                                                                                "description": "set position",
+                                                                                                                  "interface": "set_state",
+                                                                                                                  "max_value": 1
+                                                                                                            }, {
+                                                                                                                   "argument": "TOGGLE",
+                                                                                                                "description": "Toggle switch state",
+                                                                                                                  "interface": "action"
+                                                                                                            } ],
+                                                                                     "momentary_positions": "none",
+                                                                                                 "outputs": [ {
+                                                                                                                    "address": 34370,
+                                                                                                                "description": "selector position",
+                                                                                                                       "mask": 4,
+                                                                                                                  "max_value": 1,
+                                                                                                                   "shift_by": 2,
+                                                                                                                     "suffix": "",
+                                                                                                                       "type": "integer"
+                                                                                                            } ],
+                                                                                        "physical_variant": "toggle_switch"
+                                                                                 },
+                                                       "P_CANOPY_L_MIRRORS_ADJ": {
+                                                                                         "category": "COMMON Canopy",
+                                                                                     "control_type": "limited_dial",
+                                                                                      "description": "Pilot Hide Left Mirrors",
+                                                                                       "identifier": "P_CANOPY_L_MIRRORS_ADJ",
+                                                                                           "inputs": [ {
+                                                                                                         "description": "set the position of the dial",
+                                                                                                           "interface": "set_state",
+                                                                                                           "max_value": 65535
+                                                                                                     }, {
+                                                                                                            "description": "turn the dial left or right",
+                                                                                                              "interface": "variable_step",
+                                                                                                              "max_value": 65535,
+                                                                                                         "suggested_step": 3200
+                                                                                                     } ],
+                                                                                          "outputs": [ {
+                                                                                                             "address": 34734,
+                                                                                                         "description": "position of the potentiometer",
+                                                                                                                "mask": 65535,
+                                                                                                           "max_value": 65535,
+                                                                                                            "shift_by": 0,
+                                                                                                              "suffix": "",
+                                                                                                                "type": "integer"
+                                                                                                     } ]
+                                                                                 },
+                                                              "P_CANOPY_L_OPEN": {
+                                                                                                "category": "COMMON Canopy",
+                                                                                            "control_type": "selector",
+                                                                                             "description": "Pilot Left Canopy Open/Close",
+                                                                                              "identifier": "P_CANOPY_L_OPEN",
+                                                                                                  "inputs": [ {
+                                                                                                                "description": "switch to previous or next state",
+                                                                                                                  "interface": "fixed_step"
+                                                                                                            }, {
+                                                                                                                "description": "set position",
+                                                                                                                  "interface": "set_state",
+                                                                                                                  "max_value": 1
+                                                                                                            }, {
+                                                                                                                   "argument": "TOGGLE",
+                                                                                                                "description": "Toggle switch state",
+                                                                                                                  "interface": "action"
+                                                                                                            } ],
+                                                                                     "momentary_positions": "none",
+                                                                                                 "outputs": [ {
+                                                                                                                    "address": 34370,
+                                                                                                                "description": "selector position",
+                                                                                                                       "mask": 16,
+                                                                                                                  "max_value": 1,
+                                                                                                                   "shift_by": 4,
+                                                                                                                     "suffix": "",
+                                                                                                                       "type": "integer"
+                                                                                                            } ],
+                                                                                        "physical_variant": "toggle_switch"
+                                                                                 },
+                                                            "P_CANOPY_MIRRORS2": {
+                                                                                                "category": "COMMON Canopy",
+                                                                                            "control_type": "selector",
+                                                                                             "description": "Pilot Mirrors 2",
+                                                                                              "identifier": "P_CANOPY_MIRRORS2",
+                                                                                                  "inputs": [ {
+                                                                                                                "description": "switch to previous or next state",
+                                                                                                                  "interface": "fixed_step"
+                                                                                                            }, {
+                                                                                                                "description": "set position",
+                                                                                                                  "interface": "set_state",
+                                                                                                                  "max_value": 1
+                                                                                                            }, {
+                                                                                                                   "argument": "TOGGLE",
+                                                                                                                "description": "Toggle switch state",
+                                                                                                                  "interface": "action"
+                                                                                                            } ],
+                                                                                     "momentary_positions": "none",
+                                                                                                 "outputs": [ {
+                                                                                                                    "address": 34730,
+                                                                                                                "description": "selector position",
+                                                                                                                       "mask": 1,
+                                                                                                                  "max_value": 1,
+                                                                                                                   "shift_by": 0,
+                                                                                                                     "suffix": "",
+                                                                                                                       "type": "integer"
+                                                                                                            } ],
+                                                                                        "physical_variant": "toggle_switch"
+                                                                                 },
+                                                               "P_CANOPY_OPEN2": {
+                                                                                                "category": "COMMON Canopy",
+                                                                                            "control_type": "selector",
+                                                                                             "description": "Pilot Canopy Open/Close 2",
+                                                                                              "identifier": "P_CANOPY_OPEN2",
+                                                                                                  "inputs": [ {
+                                                                                                                "description": "switch to previous or next state",
+                                                                                                                  "interface": "fixed_step"
+                                                                                                            }, {
+                                                                                                                "description": "set position",
+                                                                                                                  "interface": "set_state",
+                                                                                                                  "max_value": 1
+                                                                                                            }, {
+                                                                                                                   "argument": "TOGGLE",
+                                                                                                                "description": "Toggle switch state",
+                                                                                                                  "interface": "action"
+                                                                                                            } ],
+                                                                                     "momentary_positions": "none",
+                                                                                                 "outputs": [ {
+                                                                                                                    "address": 34730,
+                                                                                                                "description": "selector position",
+                                                                                                                       "mask": 2,
+                                                                                                                  "max_value": 1,
+                                                                                                                   "shift_by": 1,
+                                                                                                                     "suffix": "",
+                                                                                                                       "type": "integer"
+                                                                                                            } ],
+                                                                                        "physical_variant": "toggle_switch"
+                                                                                 },
+                                                           "P_CANOPY_R_MIRRORS": {
+                                                                                                "category": "COMMON Canopy",
+                                                                                            "control_type": "selector",
+                                                                                             "description": "Pilot Hide Right Mirrors",
+                                                                                              "identifier": "P_CANOPY_R_MIRRORS",
+                                                                                                  "inputs": [ {
+                                                                                                                "description": "switch to previous or next state",
+                                                                                                                  "interface": "fixed_step"
+                                                                                                            }, {
+                                                                                                                "description": "set position",
+                                                                                                                  "interface": "set_state",
+                                                                                                                  "max_value": 1
+                                                                                                            }, {
+                                                                                                                   "argument": "TOGGLE",
+                                                                                                                "description": "Toggle switch state",
+                                                                                                                  "interface": "action"
+                                                                                                            } ],
+                                                                                     "momentary_positions": "none",
+                                                                                                 "outputs": [ {
+                                                                                                                    "address": 34370,
+                                                                                                                "description": "selector position",
+                                                                                                                       "mask": 2,
+                                                                                                                  "max_value": 1,
+                                                                                                                   "shift_by": 1,
+                                                                                                                     "suffix": "",
+                                                                                                                       "type": "integer"
+                                                                                                            } ],
+                                                                                        "physical_variant": "toggle_switch"
+                                                                                 },
+                                                       "P_CANOPY_R_MIRRORS_ADJ": {
+                                                                                         "category": "COMMON Canopy",
+                                                                                     "control_type": "limited_dial",
+                                                                                      "description": "Pilot Hide Right Mirrors",
+                                                                                       "identifier": "P_CANOPY_R_MIRRORS_ADJ",
+                                                                                           "inputs": [ {
+                                                                                                         "description": "set the position of the dial",
+                                                                                                           "interface": "set_state",
+                                                                                                           "max_value": 65535
+                                                                                                     }, {
+                                                                                                            "description": "turn the dial left or right",
+                                                                                                              "interface": "variable_step",
+                                                                                                              "max_value": 65535,
+                                                                                                         "suggested_step": 3200
+                                                                                                     } ],
+                                                                                          "outputs": [ {
+                                                                                                             "address": 34732,
+                                                                                                         "description": "position of the potentiometer",
+                                                                                                                "mask": 65535,
+                                                                                                           "max_value": 65535,
+                                                                                                            "shift_by": 0,
+                                                                                                              "suffix": "",
+                                                                                                                "type": "integer"
+                                                                                                     } ]
+                                                                                 },
+                                                              "P_CANOPY_R_OPEN": {
+                                                                                                "category": "COMMON Canopy",
+                                                                                            "control_type": "selector",
+                                                                                             "description": "Pilot Right Canopy Open/Close",
+                                                                                              "identifier": "P_CANOPY_R_OPEN",
+                                                                                                  "inputs": [ {
+                                                                                                                "description": "switch to previous or next state",
+                                                                                                                  "interface": "fixed_step"
+                                                                                                            }, {
+                                                                                                                "description": "set position",
+                                                                                                                  "interface": "set_state",
+                                                                                                                  "max_value": 1
+                                                                                                            }, {
+                                                                                                                   "argument": "TOGGLE",
+                                                                                                                "description": "Toggle switch state",
+                                                                                                                  "interface": "action"
+                                                                                                            } ],
+                                                                                     "momentary_positions": "none",
+                                                                                                 "outputs": [ {
+                                                                                                                    "address": 34370,
+                                                                                                                "description": "selector position",
+                                                                                                                       "mask": 8,
+                                                                                                                  "max_value": 1,
+                                                                                                                   "shift_by": 3,
+                                                                                                                     "suffix": "",
+                                                                                                                       "type": "integer"
+                                                                                                            } ],
+                                                                                        "physical_variant": "toggle_switch"
+                                                                                 },
+                                                                "P_CANOPY_SEAL": {
+                                                                                                "category": "COMMON Canopy",
+                                                                                            "control_type": "selector",
+                                                                                             "description": "Pilot Canopy Seal Valve Control Lever",
+                                                                                              "identifier": "P_CANOPY_SEAL",
+                                                                                                  "inputs": [ {
+                                                                                                                "description": "switch to previous or next state",
+                                                                                                                  "interface": "fixed_step"
+                                                                                                            }, {
+                                                                                                                "description": "set position",
+                                                                                                                  "interface": "set_state",
+                                                                                                                  "max_value": 1
+                                                                                                            }, {
+                                                                                                                   "argument": "TOGGLE",
+                                                                                                                "description": "Toggle switch state",
+                                                                                                                  "interface": "action"
+                                                                                                            } ],
+                                                                                     "momentary_positions": "none",
+                                                                                                 "outputs": [ {
+                                                                                                                    "address": 34370,
+                                                                                                                "description": "selector position",
+                                                                                                                       "mask": 1,
+                                                                                                                  "max_value": 1,
+                                                                                                                   "shift_by": 0,
+                                                                                                                     "suffix": "",
+                                                                                                                       "type": "integer"
+                                                                                                            } ],
+                                                                                        "physical_variant": "toggle_switch"
+                                                                                 }
                                                    },
                            "COMMON Canopy Gauges": {
                                                        "CANOPY_POS": {
