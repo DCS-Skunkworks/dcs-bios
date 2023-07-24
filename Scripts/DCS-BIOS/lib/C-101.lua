@@ -404,11 +404,10 @@ definePotentiometer("FRONT_IFF_TEST_KNOB", 1, 3535, 1257, {0, 1}, "IFF", "FRONT 
 defineMultipositionSwitch("FRONT_IFF_IDENT", 1, 3220, 361, 3, 0.5,"IFF" ,"FRONT IFF Ident Switch")
 
 --MISC FUNCTIONS
-defineToggleSwitch("FRONT_MIRROR", 1, 3239, 10, "Misc", "FRONT Mirror")
+defineToggleSwitch("FRONT_MIRROR", 1, 3239, 10, "Misc", "FRONT Show Mirror")
 defineToggleSwitch("FRONT_COMPASS_LIGHT", 2, 3252, 850, "Misc", "FRONT Compass Light Switch")
 defineToggleSwitch("FRONT_PITCH_TRIM_TONE_MUTE", 1, 3236, 196, "Misc", "FRONT Pitch Trim Tone Mute")
 definePushButton("FRONT_ANTI_RAIN", 1, 3222, 314, "Misc", "FRONT Anti-Rain Fluid")
-
 
 --------------REAR COCKPIT ONLY FUNCTIONS
 --OXYGEN SYSTEM
@@ -832,4 +831,5 @@ defineIndicatorLight("CC_FRONT_CAUTION_L", 172, "Warning, Caution and IndicatorL
 defineIndicatorLight("CC_FRONT_OFF_L", 173, "Warning, Caution and IndicatorLights", "C-101CC FRONT OFF Lamp (yellow)")
 defineIndicatorLight("CC_FRONT_ASKID_L", 174, "Warning, Caution and IndicatorLights", "C-101CC FRONT ANTI SKID Lamp (red)")
 --175 ff
+definePotentiometer("FRONT_MIRROR_ADJ", 1, 3242, 10, {0, 1}, "Misc", "FRONT Adjust Mirror")
 BIOS.protocol.endModule()

@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("F-15E", 0x9200)
 BIOS.protocol.setExportModuleAircrafts({"F-15ESE"})
---by WarLord&Maverick87Shaka, contributions by RafaPolit v1.1
+--by WarLord,Maverick87Shaka&RafaPolit v1.1b
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 
@@ -643,12 +643,12 @@ definePushButton("F_TQ_L_FINGER", 15, 3697, 697, "Front Throttle Quadrant", "FRO
 definePushButton("F_TQ_R_FINGER", 15, 3698, 698, "Front Throttle Quadrant", "FRONT Throttle Right Throttle Finger Lift")
 
 --VOL
-definePotentiometer("F_VOL_CAUTION", 59, 3502, 502, {0, 1}, "Front Volume", "FRONT Caution Volume")
-definePotentiometer("F_VOL_LAUNCH", 59, 3503, 503, {0, 1}, "Front Volume", "FRONT Launch Volume")
-definePotentiometer("F_VOL_ICS", 13, 3504, 504, {0, 1}, "Front Volume", "FRONT ICS Volume")
-definePotentiometer("F_VOL_WPN", 44, 3505, 505, {0, 1}, "Front Volume", "FRONT WPN Volume")
-definePotentiometer("F_VOL_ILS", 11, 3506, 506, {0, 1}, "Front Volume", "FRONT ILS Volume")
-definePotentiometer("F_VOL_TCN", 10, 3507, 507, {0, 1}, "Front Volume", "FRONT TACAN Volume")
+definePotentiometer("F_VOL_CAUTION", 59, 3501, 502, {0, 1}, "Front Volume", "FRONT Caution Volume")
+definePotentiometer("F_VOL_LAUNCH", 59, 3502, 503, {0, 1}, "Front Volume", "FRONT Launch Volume")
+definePotentiometer("F_VOL_ICS", 13, 3503, 504, {0, 1}, "Front Volume", "FRONT ICS Volume")
+definePotentiometer("F_VOL_WPN", 47, 3504, 505, {0, 1}, "Front Volume", "FRONT WPN Volume")
+definePotentiometer("F_VOL_ILS", 11, 3505, 506, {0, 1}, "Front Volume", "FRONT ILS Volume")
+definePotentiometer("F_VOL_TCN", 10, 3506, 507, {0, 1}, "Front Volume", "FRONT TACAN Volume")
 
 --MICS
 define3PosTumb("F_MIC_CRYPT", 13, 3508, 508, "Front MICS", "FRONT MICS Crypto Switch")
@@ -678,7 +678,7 @@ defineMultipositionSwitch("F_EXTL_T_FLOOD", 22, 3468, 468, 3, 0.5, "Front Extern
 
 --SENSOR
 defineMultipositionSwitch("F_S_RDR_TER_FOL", 65, 3469, 469, 3, 0.5, "Front Sensor", "FRONT Terrrain Follow Radar Switch")
-defineMultipositionSwitch("F_S_RDR_ALT", 31, 3470, 470, 3, 0.5, "Front Sensor", "FRONT Radar Altitude Switch")
+defineMultipositionSwitch("F_S_RDR_ALT", 67, 3470, 470, 3, 0.5, "Front Sensor", "FRONT Radar Altitude Switch")
 defineMultipositionSwitch("F_S_RDR_MODE", 3, 3471, 471, 4, 0.33, "Front Sensor", "FRONT Radar Mode Selector")
 defineMultipositionSwitch("F_S_INS", 42, 3472, 472, 4, 0.33, "Front Sensor", "FRONT INS Knob")
 definePotentiometer("F_S_NAV_FLIR_GAIN", 50, 3473, 473, {0, 1}, "Front Sensor", "FRONT Nav FLIR Gain")
@@ -1026,12 +1026,12 @@ defineToggleSwitch("R_EW_ECM_PODS_MODE", 61, 3932, 1418, "Rear EW Panel", "REAR 
 defineMultipositionSwitch("R_EW_ICS_OP_MODE", 61, 3933, 1419, 3, 0.5, "Rear EW Panel", "REAR ICS Operational Mode Switch STBY/AUTO/MAN")
 
 --VOL
-definePotentiometer("R_VOL_CAUTION", 59, 3510, 1420, {0, 1}, "Rear Volume", "REAR Caution Volume")
-definePotentiometer("R_VOL_LAUNCH", 59, 3511, 1421, {0, 1}, "Rear Volume", "REAR Launch Volume")
-definePotentiometer("R_VOL_ICS", 61, 3512, 1422, {0, 1}, "Rear Volume", "REAR ICS Volume")
-definePotentiometer("R_VOL_WPN", 44, 3513, 1423, {0, 1}, "Rear Volume", "REAR WPN Volume")
-definePotentiometer("R_VOL_ILS", 11, 3514, 1424, {0, 1}, "Rear Volume", "REAR ILS Volume")
-definePotentiometer("R_VOL_TCN", 10, 3515, 1425, {0, 1}, "Rear Volume", "REAR TACAN Volume")
+definePotentiometer("R_VOL_CAUTION", 59, 3601, 1420, {0, 1}, "Rear Volume", "REAR Caution Volume")
+definePotentiometer("R_VOL_LAUNCH", 59, 3602, 1421, {0, 1}, "Rear Volume", "REAR Launch Volume")
+definePotentiometer("R_VOL_ICS", 61, 3603, 1422, {0, 1}, "Rear Volume", "REAR ICS Volume")
+definePotentiometer("R_VOL_WPN", 47, 3604, 1423, {0, 1}, "Rear Volume", "REAR WPN Volume")
+definePotentiometer("R_VOL_ILS", 11, 3605, 1424, {0, 1}, "Rear Volume", "REAR ILS Volume")
+definePotentiometer("R_VOL_TCN", 10, 3606, 1425, {0, 1}, "Rear Volume", "REAR TACAN Volume")
 
 --MICS
 define3PosTumb("R_MIC_CRYPT", 17, 3426, 1426, "Rear MICS", "REAR MICS Crypto Switch")
@@ -1221,5 +1221,10 @@ end, 1, "External Aircraft Model", "Weight ON Wheels Right Gear")
 defineIntegerFromGetter("EXT_WOW_LEFT", function()
 	if LoGetAircraftDrawArgumentValue(6) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Weight ON Wheels Left Gear")
+
+--Laser Code Panel
+defineMultipositionSwitch("R_LCP_LASER_DIG_2", 44, 3071, 71, 3, 0.1, "Rear Laser Code Panel", "REAR Laser Digit 2")
+defineMultipositionSwitch("R_LCP_LASER_DIG_3", 44, 3072, 72, 8, 0.1, "Rear Laser Code Panel", "REAR Laser Digit 3")
+defineMultipositionSwitch("R_LCP_LASER_DIG_4", 44, 3073, 73, 8, 0.1, "Rear Laser Code Panel", "REAR Laser Digit 4")
 
 BIOS.protocol.endModule()

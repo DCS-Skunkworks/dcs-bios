@@ -186,10 +186,10 @@ defineToggleSwitch("P_CANOPY_LOCK", 1, 3161, 55, "COMMON Canopy", "Pilot Canopy 
 definePushButton("P_CANOPY_EMBRITTLE", 1, 3162, 56, "COMMON Canopy", "Pilot Canopy Embrittle Control")
 defineToggleSwitch("P_CANOPY_HINGE", 1, 3163, 3, "COMMON Canopy", "Pilot Canopy Hinged Handle")
 defineToggleSwitch("P_CANOPY_SEAL", 1, 3164, 233, "COMMON Canopy", "Pilot Canopy Seal Valve Control Lever")
-defineToggleSwitch("P_CANOPY_R_MIRRORS", 1, 3165, 2, "COMMON Canopy", "Pilot Right Mirrors")
-defineToggleSwitch("P_CANOPY_L_MIRRORS", 1, 3166, 2, "COMMON Canopy", "Pilot Left Mirrors")
-defineToggleSwitch("P_CANOPY_R_OPEN", 1, 3167, 1, "COMMON Canopy", "Pilot Right Canopy Open/Close")
-defineToggleSwitch("P_CANOPY_L_OPEN", 1, 3168, 1, "COMMON Canopy", "Pilot Left Canopy Open/Close")
+defineToggleSwitch("P_CANOPY_R_MIRRORS", 1, 3165, 2, "COMMON Canopy", "Pilot Hide Right Mirrors")
+defineToggleSwitch("P_CANOPY_L_MIRRORS", 1, 3167, 2, "COMMON Canopy", "Pilot Hide Left Mirrors")
+defineToggleSwitch("P_CANOPY_R_OPEN", 1, 3170, 1, "COMMON Canopy", "Pilot Right Canopy Open/Close")
+defineToggleSwitch("P_CANOPY_L_OPEN", 1, 3171, 1, "COMMON Canopy", "Pilot Left Canopy Open/Close")
 
 defineFloat("CANOPY_POS", 1, {0, 1}, "COMMON Canopy Gauges", "Canopy Position")
 
@@ -796,5 +796,8 @@ defineTumb("P_BARAX_STATE_SEL", 1, 3682, 1262, 0.5, {0, 1}, nil, false, "EE BARA
 defineToggleSwitch("P_BARAX_EM_RDY", 1, 3683, 1264, "EE BARAX", "Pilot BARAX Emission Ready Korry")
 defineToggleSwitch("P_CANOPY_MIRRORS2", 1, 3181, 2, "COMMON Canopy", "Pilot Mirrors 2")
 defineToggleSwitch("P_CANOPY_OPEN2", 1, 3183, 1, "COMMON Canopy", "Pilot Canopy Open/Close 2")
+
+definePotentiometer("P_CANOPY_R_MIRRORS_ADJ", 1, 3166, 2, {0, 1}, "COMMON Canopy", "Pilot Hide Right Mirrors")
+definePotentiometer("P_CANOPY_L_MIRRORS_ADJ", 1, 3168, 2, {0, 1}, "COMMON Canopy", "Pilot Hide Left Mirrors")
 
 BIOS.protocol.endModule()
