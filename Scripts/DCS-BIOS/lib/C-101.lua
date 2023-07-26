@@ -830,6 +830,9 @@ defineIndicatorLight("CC_FRONT_FIRE_L", 171, "Warning, Caution and IndicatorLigh
 defineIndicatorLight("CC_FRONT_CAUTION_L", 172, "Warning, Caution and IndicatorLights", "C-101CC FRONT CAUTION Lamp (yellow)")
 defineIndicatorLight("CC_FRONT_OFF_L", 173, "Warning, Caution and IndicatorLights", "C-101CC FRONT OFF Lamp (yellow)")
 defineIndicatorLight("CC_FRONT_ASKID_L", 174, "Warning, Caution and IndicatorLights", "C-101CC FRONT ANTI SKID Lamp (red)")
---175 ff
+defineIndicatorLight("CC_FRONT_BUS_TRANS_ON_L", 175, "Warning, Caution and IndicatorLights", "C-101CC FRONT Bus Transfer ON Lamp (yellow)")
+defineIndicatorLight("CC_FRONT_BAT_OFF_L_L", 176, "Warning, Caution and IndicatorLights", "C-101CC FRONT Left Batterie OFF Lamp (yellow)")
+defineIndicatorLight("CC_FRONT_BAT_OFF_R_L", 177, "Warning, Caution and IndicatorLights", "C-101CC FRONT Right Batterie OFF Lamp (yellow)")
+--178 ff
 definePotentiometer("FRONT_MIRROR_ADJ", 1, 3242, 10, {0, 1}, "Misc", "FRONT Adjust Mirror")
 BIOS.protocol.endModule()
