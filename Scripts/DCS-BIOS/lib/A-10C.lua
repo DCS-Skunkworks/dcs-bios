@@ -1189,9 +1189,9 @@ arc_210_freq = "       "
 
 moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	local arc = parse_indication(18)
-	arc_210_freq = coerce_nil_to_string(arc["freq_label_mhz"]) .. "." .. coerce_nil_to_string(arc["freq_label_khz"])
 
 	if arc then
+		arc_210_freq = coerce_nil_to_string(arc["freq_label_mhz"]) .. "." .. coerce_nil_to_string(arc["freq_label_khz"])
 		-- todo: figure out how to get the active page (doesn't seem to be exported like CDU page...)
 		arcItems = getDisplayItems(arc, arc_210_data)
 	end
