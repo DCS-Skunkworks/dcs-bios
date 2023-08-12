@@ -74,7 +74,64 @@ function BIOS.protocol.endModule()
 			file:close()
 		end
 	end
+	local function saveAddresses()
+		local moduleName = moduleBeingDefined.name
+
+		local path = lfs.writedir()..[[Scripts\DCS-BIOS\doc\Addresses.h]]
+		local existingDefines = {}
+		local lineOrder = {} -- To maintain the order of lines
+
+		-- Read existing content
+		local fileRead, errRead = io.open(path, "r")
+		if fileRead then
+			for line in fileRead:lines() do
+				local identifier = line:match("#define%s+([%w_]+)")
+				if identifier then
+					existingDefines[identifier] = line
+					table.insert(lineOrder, identifier)
+				end
+			end
+			fileRead:close()
+		end
+
+		for _, category in pairs(moduleBeingDefined.documentation) do
+			for identifier, args in pairs(category) do
+				local outputs = args.outputs or {}
+				for _, output in pairs(outputs) do
+					local full_identifier = moduleName .. "_" .. identifier
+					-- Replace all characters that are not A-Z, a-z, 0-9, or _ with _
+					full_identifier = full_identifier:gsub("[^A-Za-z0-9_]", "_")
+					-- Replace successive underscores with a single _
+					full_identifier = full_identifier:gsub("_+", "_")
+
+					local addressStr = output.address and string.format("0x%X", output.address) or "nil"
+					local maskStr = output.mask and string.format("0x%X", output.mask) or "nil"
+					local shiftByStr = output.shift_by and tostring(output.shift_by) or "nil"
+
+					local line = "#define " .. full_identifier .. " " .. addressStr .. ", " .. maskStr .. ", " .. shiftByStr
+
+					if not existingDefines[full_identifier] then
+						table.insert(lineOrder, full_identifier)
+					end
+
+					existingDefines[full_identifier] = line
+				end
+			end
+		end
+
+		-- Write the updated content to the file
+		local address_header_file, err = io.open(path, "w")
+		if err then
+			print("Error opening file:", err) -- Print error if unable to open file
+			return
+		end
+		for _, identifier in ipairs(lineOrder) do
+			address_header_file:write(existingDefines[identifier] .. "\n")
+		end
+		address_header_file:close() -- Close the header file
+	end
 	pcall(saveDoc)
+	pcall(saveAddresses)
 	moduleBeingDefined = nil
   end
 end
