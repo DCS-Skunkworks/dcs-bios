@@ -57,7 +57,7 @@ function BIOS.protocol.beginModule(name, baseAddress)
 	exportModules[name] = moduleBeingDefined
 end
 function BIOS.protocol.endModule()
-  if BIOSdevMode == 1 then
+	if BIOSdevMode == 1 then
 	local function saveDoc()
 		local JSON = loadfile([[Scripts\JSON.lua]])()
 		local file, err = io.open(lfs.writedir()..[[Scripts\DCS-BIOS\doc\json\]]..moduleBeingDefined.name..".json", "w")
@@ -98,17 +98,14 @@ function BIOS.protocol.endModule()
 			for identifier, args in pairs(category) do
 				local outputs = args.outputs or {}
 				for _, output in pairs(outputs) do
-					local full_identifier = moduleName .. "_" .. identifier
-					-- Replace all characters that are not A-Z, a-z, 0-9, or _ with _
-					full_identifier = full_identifier:gsub("[^A-Za-z0-9_]", "_")
-					-- Replace successive underscores with a single _
-					full_identifier = full_identifier:gsub("_+", "_")
+					local full_identifier = BIOS.util.addressDefineIdentifier(moduleName, identifier)
+					local addressStr = output.address and string.format("0x%X", output.address) or ""
+					local maskStr = output.mask and string.format("0x%X", output.mask) or ""
+					local shiftByStr = output.shift_by and tostring(output.shift_by) or ""
 
-					local addressStr = output.address and string.format("0x%X", output.address) or "nil"
-					local maskStr = output.mask and string.format("0x%X", output.mask) or "nil"
-					local shiftByStr = output.shift_by and tostring(output.shift_by) or "nil"
-
-					local line = "#define " .. full_identifier .. " " .. addressStr .. ", " .. maskStr .. ", " .. shiftByStr
+					local line = "#define " .. full_identifier .. " " .. addressStr
+					if maskStr ~= "" then line = line .. ", " .. maskStr end
+					if shiftByStr ~= "" then line = line .. ", " .. shiftByStr end
 
 					if not existingDefines[full_identifier] then
 						table.insert(lineOrder, full_identifier)
@@ -133,13 +130,13 @@ function BIOS.protocol.endModule()
 	pcall(saveDoc)
 	pcall(saveAddresses)
 	moduleBeingDefined = nil
-  end
+	end
 end
-
 
 local metadataStartModule = nil
 local metadataEndModule = nil
 function BIOS.protocol.init()
+
 	-- called after all aircraft modules have been loaded
 	metadataStartModule = exportModules["MetadataStart"]
 	metadataEndModule = exportModules["MetadataEnd"]
