@@ -16530,6 +16530,54 @@
                                                                                                               "type": "integer"
                                                                                                    } ]
                                                                                },
+                                                       "CC_FRONT_BAT_OFF_L_L": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "C-101CC FRONT Left Batterie OFF Lamp (yellow)",
+                                                                                     "identifier": "CC_FRONT_BAT_OFF_L_L",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 14182,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 4096,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 12,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                       "CC_FRONT_BAT_OFF_R_L": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "C-101CC FRONT Right Batterie OFF Lamp (yellow)",
+                                                                                     "identifier": "CC_FRONT_BAT_OFF_R_L",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 14182,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 8192,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 13,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
+                                                    "CC_FRONT_BUS_TRANS_ON_L": {
+                                                                                       "category": "Warning, Caution and IndicatorLights",
+                                                                                   "control_type": "led",
+                                                                                    "description": "C-101CC FRONT Bus Transfer ON Lamp (yellow)",
+                                                                                     "identifier": "CC_FRONT_BUS_TRANS_ON_L",
+                                                                                         "inputs": [  ],
+                                                                                        "outputs": [ {
+                                                                                                           "address": 14182,
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 2048,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 11,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                                   } ]
+                                                                               },
                                                          "CC_FRONT_CAUTION_L": {
                                                                                        "category": "Warning, Caution and IndicatorLights",
                                                                                    "control_type": "led",
