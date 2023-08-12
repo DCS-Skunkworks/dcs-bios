@@ -329,12 +329,12 @@ end
 
 moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 
-	local f_ufc = parse_indication(8)
+	local f_ufc = parse_indication(9)
 	if not f_ufc then
 		return
 	end
 
-	local r_ufc = parse_indication(20)
+	local r_ufc = parse_indication(18)
 	if not r_ufc then
 		return
 	end
