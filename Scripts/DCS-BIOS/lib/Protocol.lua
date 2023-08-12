@@ -103,6 +103,7 @@ function BIOS.protocol.endModule()
 					local maskStr = output.mask and string.format("0x%X", output.mask) or ""
 					local shiftByStr = output.shift_by and tostring(output.shift_by) or ""
 
+					-- Define line with address, mask, and shiftby
 					local line = "#define " .. full_identifier .. " " .. addressStr
 					if maskStr ~= "" then line = line .. ", " .. maskStr end
 					if shiftByStr ~= "" then line = line .. ", " .. shiftByStr end
@@ -112,6 +113,18 @@ function BIOS.protocol.endModule()
 					end
 
 					existingDefines[full_identifier] = line
+
+					-- Additional line with only the address and _ADDR suffix
+					if addressStr ~= "" then
+						local addressOnlyIdentifier = full_identifier .. "_ADDR"
+						local addressOnlyLine = "#define " .. addressOnlyIdentifier .. " " .. addressStr
+
+						if not existingDefines[addressOnlyIdentifier] then
+							table.insert(lineOrder, addressOnlyIdentifier)
+						end
+
+						existingDefines[addressOnlyIdentifier] = addressOnlyLine
+					end
 				end
 			end
 		end
