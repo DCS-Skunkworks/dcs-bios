@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("MirageF1", 0x8600)
 BIOS.protocol.setExportModuleAircrafts({"Mirage-F1CE", "Mirage-F1EE"})
---by WarLord v1.5
+--by WarLord v1.6
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document
@@ -542,7 +542,7 @@ defineFloat("P_CE_NAV_IDN_FLAG_G", 1306, {0, 1}, "CE/BE Navigation Indicator Gau
 --Radar Detector Indicator
 definePushButton("P_CE_RD_L_BRT_BTN", 1, 3494, 1290, "CE/BE Radar Detector", "CE/BE Pilot 'T' Test Button (Push)")
 definePotentiometer("P_C_RD_L_BRT_KNB", 1, 3495, 1237, {0, 1}, "C Radar Detector", "C Pilot Indicator Lights Intensity Adjusting Knob (Turn)")
-defineSpringloaded_3PosTumb("P_C_RD_TEST", 1, 35498, 3497, 1238, "C Radar Detector", "C Pilot Radar Detector Indicator Test Selector")
+defineSpringloaded_3PosTumb("P_C_RD_TEST", 1, 3498, 3497, 1238, "C Radar Detector", "C Pilot Radar Detector Indicator Test Selector")
 
 defineIndicatorLight("P_CE_RD_NOT_L", 1230, "CE/BE Radar Detector Lights", "CE/BE Pilot NATURE OF THREAT Light (red)")
 defineIndicatorLight("P_CE_RD_TWS_L", 1233, "CE/BE Radar Detector Lights", "CE/BE Pilot TWS Light (red)")
@@ -790,7 +790,7 @@ defineSpringloaded_2PosTumb("P_EE_PIT_INOP", 1, 3715, 3716, 1272, "EE Cockpit", 
 definePushButton("P_WL_M_FAIL_R", 1, 3678, 922, "EE Warning Switches", "Pilot Right Master Failure Warning Light Button")
 definePushButton("P_WL_ENG_FIRE_WARN", 1, 3679, 936, "EE Warning Switches", "Pilot Fire Warning Light ENG Button")
 
--- BARAX
+--BARAX
 definePushButton("P_BARAX_L_TEST", 1, 3684, 1260, "EE BARAX", "Pilot BARAX Light Test")
 defineTumb("P_BARAX_STATE_SEL", 1, 3682, 1262, 0.5, {0, 1}, nil, false, "EE BARAX", "Pilot BARAX State Selector OFF/ON/TEST")
 defineToggleSwitch("P_BARAX_EM_RDY", 1, 3683, 1264, "EE BARAX", "Pilot BARAX Emission Ready Korry")
@@ -799,5 +799,14 @@ defineToggleSwitch("P_CANOPY_OPEN2", 1, 3183, 1, "COMMON Canopy", "Pilot Canopy 
 
 definePotentiometer("P_CANOPY_R_MIRRORS_ADJ", 1, 3166, 2, {0, 1}, "COMMON Canopy", "Pilot Hide Right Mirrors")
 definePotentiometer("P_CANOPY_L_MIRRORS_ADJ", 1, 3168, 2, {0, 1}, "COMMON Canopy", "Pilot Hide Left Mirrors")
+
+--AN/ALE-40 Programmer
+defineToggleSwitch("P_CHAFF_BURST", 1, 3900, 1401, "COMMON ALE-40", "Pilot Chaff Burst Interval Reduction Switch")
+defineMultipositionSwitch("P_CHAFF_BURST_INT_SEL", 1, 3901, 1402, 4, 0.1, "COMMON ALE-40", "Pilot Chaff Burst Interval Selector")
+defineMultipositionSwitch("P_CHAFF_BURST_CNT_SEL", 1, 3902, 1403, 6, 0.1, "COMMON ALE-40", "Pilot Chaff Burst Count Selector")
+defineMultipositionSwitch("P_CHAFF_SALVO_INT_SEL", 1, 3903, 1404, 7, 0.1, "COMMON ALE-40", "Pilot Chaff Salvo Interval Selector")
+defineMultipositionSwitch("P_CHAFF_SALVO_CNT_SEL", 1, 3904, 1405, 5, 0.1, "COMMON ALE-40", "Pilot Chaff Salvo Count Selector")
+defineMultipositionSwitch("P_FLARE_BURST_INT_SEL", 1, 3905, 1406, 5, 0.1, "COMMON ALE-40", "Pilot Chaff Burst Interval Selector")
+defineMultipositionSwitch("P_FLARE_BURST_CNT_SEL", 1, 3906, 1407, 5, 0.1, "COMMON ALE-40", "Pilot Chaff Burst Count Selector")
 
 BIOS.protocol.endModule()
