@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("SA342", 0x5800)
 BIOS.protocol.setExportModuleAircrafts({"SA342M", "SA342Minigun", "SA342Mistral", "SA342L"})
---overhaul by WarLord 2.0
+--overhaul by WarLord 2.0a
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document
@@ -240,16 +240,16 @@ definePushButton("UHF_RADIO_BUTTON_DRW", 30, 3002, 384, "UHF Radio", "UHF Radio 
 definePushButton("UHF_RADIO_BUTTON_VLD", 36, 3163, 385, "UHF Radio", "UHF Radio Button VLD")
 defineRotary("UHF_PAGE_KNOB", 30, 3004, 386, "UHF Radio", "UHF Radio Page Knob")
 definePushButton("UHF_RADIO_BUTTON_CONF", 30, 3005, 387, "UHF Radio", "UHF Radio Button CONF")
-definePushButton("UHF_RADIO_BUTTON_1", 38, 3166, 388, "UHF Radio", "UHF Radio Button 1")
-definePushButton("UHF_RADIO_BUTTON_2", 38, 3167, 389, "UHF Radio", "UHF Radio Button 2")
-definePushButton("UHF_RADIO_BUTTON_3", 38, 3168, 390, "UHF Radio", "UHF Radio Button 3")
-definePushButton("UHF_RADIO_BUTTON_4", 38, 3169, 391, "UHF Radio", "UHF Radio Button 4")
-definePushButton("UHF_RADIO_BUTTON_5", 38, 3170, 392, "UHF Radio", "UHF Radio Button 5")
-definePushButton("UHF_RADIO_BUTTON_6", 38, 3171, 393, "UHF Radio", "UHF Radio Button 6")
-definePushButton("UHF_RADIO_BUTTON_7", 38, 3172, 394, "UHF Radio", "UHF Radio Button 7")
-definePushButton("UHF_RADIO_BUTTON_8", 38, 3173, 395, "UHF Radio", "UHF Radio Button 8")
-definePushButton("UHF_RADIO_BUTTON_9", 38, 3174, 396, "UHF Radio", "UHF Radio Button 9")
-definePushButton("UHF_RADIO_BUTTON_0", 38, 3175, 397, "UHF Radio", "UHF Radio Button 0")
+definePushButton("UHF_RADIO_BUTTON_1", 36, 3166, 388, "UHF Radio", "UHF Radio Button 1")
+definePushButton("UHF_RADIO_BUTTON_2", 36, 3167, 389, "UHF Radio", "UHF Radio Button 2")
+definePushButton("UHF_RADIO_BUTTON_3", 36, 3168, 390, "UHF Radio", "UHF Radio Button 3")
+definePushButton("UHF_RADIO_BUTTON_4", 36, 3169, 391, "UHF Radio", "UHF Radio Button 4")
+definePushButton("UHF_RADIO_BUTTON_5", 36, 3170, 392, "UHF Radio", "UHF Radio Button 5")
+definePushButton("UHF_RADIO_BUTTON_6", 36, 3171, 393, "UHF Radio", "UHF Radio Button 6")
+definePushButton("UHF_RADIO_BUTTON_7", 36, 3172, 394, "UHF Radio", "UHF Radio Button 7")
+definePushButton("UHF_RADIO_BUTTON_8", 36, 3173, 395, "UHF Radio", "UHF Radio Button 8")
+definePushButton("UHF_RADIO_BUTTON_9", 36, 3174, 396, "UHF Radio", "UHF Radio Button 9")
+definePushButton("UHF_RADIO_BUTTON_0", 36, 3175, 397, "UHF Radio", "UHF Radio Button 0")
 
 --Indicator Lights
 defineIndicatorLight("FD_LAMP_VE", 233, "Indicator Lights", "FD Lamp VE (yellow)")
