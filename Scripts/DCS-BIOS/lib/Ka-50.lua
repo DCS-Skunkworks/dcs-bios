@@ -52,6 +52,8 @@ local function definePushButtonLed(msg, arg_number, category, description)
 			  address = value.address,
 			  mask = value.mask,
 			  shift_by = value.shiftBy,
+			  address_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg),
+			  address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg) .. "_ADDR"
 			  max_value = 1,
 			  description = "0 if light is off, 1 if light is on"
 			}

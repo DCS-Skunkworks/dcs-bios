@@ -46,6 +46,8 @@ local function defineIndicatorLight1(msg, arg_number, category, description)
 			  address = value.address,
 			  mask = value.mask,
 			  shift_by = value.shiftBy,
+			  address_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg),
+			  address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg) .. "_ADDR"
 			  max_value = 1,
 			  description = "Afterburner Stage Light 1"
 			}
@@ -77,6 +79,8 @@ local function defineIndicatorLight2(msg, arg_number, category, description)
 			  address = value.address,
 			  mask = value.mask,
 			  shift_by = value.shiftBy,
+			  address_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg),
+			  address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg) .. "_ADDR"
 			  max_value = 1,
 			  description = "Afterburner Stage Light 2"
 			}
@@ -108,6 +112,8 @@ local function defineIndicatorLight3(msg, arg_number, category, description)
 			  address = value.address,
 			  mask = value.mask,
 			  shift_by = value.shiftBy,
+			  address_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg),
+			  address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg) .. "_ADDR"
 			  max_value = 1,
 			  description = "Afterburner Stage Light 3"
 			}

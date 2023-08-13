@@ -4890,11 +4890,13 @@ docdata["A-10C"] =
                                                                   "identifier": "CMSP1",
                                                                       "inputs": [  ],
                                                                      "outputs": [ {
-                                                                                        "address": 4096,
-                                                                                    "description": "CMSP Display Line 1 (19 characters)",
-                                                                                     "max_length": 19,
-                                                                                         "suffix": "",
-                                                                                           "type": "string"
+                                                                                                    "address": 4096,
+                                                                                         "address_identifier": "A_10C_CMSP1",
+                                                                                    "address_only_identifier": "A_10C_CMSP1_ADDR",
+                                                                                                "description": "CMSP Display Line 1 (19 characters)",
+                                                                                                 "max_length": 19,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "string"
                                                                                 } ]
                                                             },
                                                    "CMSP2": {
@@ -4904,11 +4906,13 @@ docdata["A-10C"] =
                                                                   "identifier": "CMSP2",
                                                                       "inputs": [  ],
                                                                      "outputs": [ {
-                                                                                        "address": 4116,
-                                                                                    "description": "CMSP Display Line 2 (19 characters)",
-                                                                                     "max_length": 19,
-                                                                                         "suffix": "",
-                                                                                           "type": "string"
+                                                                                                    "address": 4116,
+                                                                                         "address_identifier": "A_10C_CMSP2",
+                                                                                    "address_only_identifier": "A_10C_CMSP2_ADDR",
+                                                                                                "description": "CMSP Display Line 2 (19 characters)",
+                                                                                                 "max_length": 19,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "string"
                                                                                 } ]
                                                             },
                                                "CMSP_ARW1": {
@@ -5078,13 +5082,15 @@ docdata["A-10C"] =
                                                                                        } ],
                                                                 "momentary_positions": "last",
                                                                             "outputs": [ {
-                                                                                               "address": 4324,
-                                                                                           "description": "switch position: 0 - down, 1 - center, 2 - up",
-                                                                                                  "mask": 1536,
-                                                                                             "max_value": 2,
-                                                                                              "shift_by": 9,
-                                                                                                "suffix": "",
-                                                                                                  "type": "integer"
+                                                                                                           "address": 4324,
+                                                                                                "address_identifier": "A_10C_CMSP_DISP",
+                                                                                           "address_only_identifier": "A_10C_CMSP_DISP_ADDR",
+                                                                                                       "description": "switch position: 0 - down, 1 - center, 2 - up",
+                                                                                                              "mask": 1536,
+                                                                                                         "max_value": 2,
+                                                                                                          "shift_by": 9,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
                                                                                        } ],
                                                                    "physical_variant": "toggle_switch"
                                                             },
@@ -5100,13 +5106,15 @@ docdata["A-10C"] =
                                                                                        } ],
                                                                 "momentary_positions": "last",
                                                                             "outputs": [ {
-                                                                                               "address": 4324,
-                                                                                           "description": "switch position: 0 - down, 1 - center, 2 - up",
-                                                                                                  "mask": 96,
-                                                                                             "max_value": 2,
-                                                                                              "shift_by": 5,
-                                                                                                "suffix": "",
-                                                                                                  "type": "integer"
+                                                                                                           "address": 4324,
+                                                                                                "address_identifier": "A_10C_CMSP_JMR",
+                                                                                           "address_only_identifier": "A_10C_CMSP_JMR_ADDR",
+                                                                                                       "description": "switch position: 0 - down, 1 - center, 2 - up",
+                                                                                                              "mask": 96,
+                                                                                                         "max_value": 2,
+                                                                                                          "shift_by": 5,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
                                                                                        } ],
                                                                    "physical_variant": "toggle_switch"
                                                             },
@@ -5180,13 +5188,15 @@ docdata["A-10C"] =
                                                                                        } ],
                                                                 "momentary_positions": "last",
                                                                             "outputs": [ {
-                                                                                               "address": 4324,
-                                                                                           "description": "switch position: 0 - down, 1 - center, 2 - up",
-                                                                                                  "mask": 24,
-                                                                                             "max_value": 2,
-                                                                                              "shift_by": 3,
-                                                                                                "suffix": "",
-                                                                                                  "type": "integer"
+                                                                                                           "address": 4324,
+                                                                                                "address_identifier": "A_10C_CMSP_MWS",
+                                                                                           "address_only_identifier": "A_10C_CMSP_MWS_ADDR",
+                                                                                                       "description": "switch position: 0 - down, 1 - center, 2 - up",
+                                                                                                              "mask": 24,
+                                                                                                         "max_value": 2,
+                                                                                                          "shift_by": 3,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
                                                                                        } ],
                                                                    "physical_variant": "toggle_switch"
                                                             },
@@ -5234,13 +5244,15 @@ docdata["A-10C"] =
                                                                                        } ],
                                                                 "momentary_positions": "last",
                                                                             "outputs": [ {
-                                                                                               "address": 4324,
-                                                                                           "description": "switch position: 0 - down, 1 - center, 2 - up",
-                                                                                                  "mask": 384,
-                                                                                             "max_value": 2,
-                                                                                              "shift_by": 7,
-                                                                                                "suffix": "",
-                                                                                                  "type": "integer"
+                                                                                                           "address": 4324,
+                                                                                                "address_identifier": "A_10C_CMSP_RWR",
+                                                                                           "address_only_identifier": "A_10C_CMSP_RWR_ADDR",
+                                                                                                       "description": "switch position: 0 - down, 1 - center, 2 - up",
+                                                                                                              "mask": 384,
+                                                                                                         "max_value": 2,
+                                                                                                          "shift_by": 7,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
                                                                                        } ],
                                                                    "physical_variant": "toggle_switch"
                                                             },
