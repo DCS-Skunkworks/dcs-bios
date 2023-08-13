@@ -54,7 +54,7 @@ local function defineAV8BCommSelector(msg, device_id, command, arg_delta, arg_nu
 			  mask = value.mask,
 			  shift_by = value.shiftBy,
 			  address_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg),
-			  address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg) .. "_ADDR"
+			  address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg) .. "_ADDR",
 			  max_value = 65535,
 			  description = "rotation of the knob"
 			}

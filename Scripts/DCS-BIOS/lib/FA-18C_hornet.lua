@@ -72,7 +72,7 @@ local function defineEmergencyParkingBrake(msg, device_id, emergency_command, pa
 			  mask = alloc.mask,
 			  shift_by = alloc.shiftBy,
 			  address_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg),
-			  address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg) .. "_ADDR"
+			  address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg) .. "_ADDR",
 			  max_value = 2,
 			  description = "switch position -- 0 = emergency, 1 = parking, 2 = release"
 			}
@@ -118,7 +118,7 @@ local function defineToggleSwitchToggleOnly2(msg, device_id, command, arg_number
 			  mask = alloc.mask,
 			  shift_by = alloc.shiftBy,
 			  address_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg),
-			  address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg) .. "_ADDR"
+			  address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg) .. "_ADDR",
 			  max_value = 1,
 			  description = "switch position -- 0 = off, 1 = on"
 			}
@@ -164,7 +164,7 @@ local function defineMissionComputerSwitch(msg, device_id, mc1_off_command, mc2_
 			  mask = alloc.mask,
 			  shift_by = alloc.shiftBy,
 			  address_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg),
-			  address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg) .. "_ADDR"
+			  address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg) .. "_ADDR",
 			  max_value = 2,
 			  description = "switch position -- 0 = 1OFF, 1 = NORM, 2 = 2OFF"
 			}
@@ -207,7 +207,7 @@ local function defineEjectionHandleSwitch(msg, device_id, command, arg_number, c
 			  mask = alloc.mask,
 			  shift_by = alloc.shiftBy,
 			  address_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg),
-			  address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg) .. "_ADDR"
+			  address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg) .. "_ADDR",
 			  max_value = 1,
 			  description = "switch position -- 0 = off, 1 = on"
 			}
@@ -245,7 +245,7 @@ local function defineFrequency(msg, id_device_number, category, description)
 			  mask = alloc.mask,
 			  shift_by = alloc.shiftBy,
 			  address_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg),
-			  address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg) .. "_ADDR"
+			  address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg) .. "_ADDR",
 			  max_value = 65535,
 			  description = "frequency"
 			}
@@ -323,7 +323,7 @@ local function defineFloatFromUFCChannel(msg, _channel, category, description)
 			  mask = alloc.mask,
 			  shift_by = alloc.shiftBy,
 			  address_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg),
-			  address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg) .. "_ADDR"
+			  address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg) .. "_ADDR",
 			  max_value = 65535,
 			  description = "gauge position"
 			}
