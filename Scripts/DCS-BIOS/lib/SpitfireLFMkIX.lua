@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("SpitfireLFMkIX", 0x5400)
 BIOS.protocol.setExportModuleAircrafts({"SpitfireLFMkIX", "SpitfireLFMkIXCW"})
---overhaul by WarLord v2.0
+--overhaul by WarLord v2.1
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document
@@ -107,7 +107,7 @@ definePushButton("IFF_1",4, 3025, 110, "Radio", "I.F.F. Detonate Button 2")
 -- Fuel Cocks & Tertiary
 defineToggleSwitch("FUEL_COCK", 2, 3037, 100, "Engine", "Main Tank On/Off")
 defineToggleSwitch("DROPTANK_COCK", 2, 3041, 98, "Engine", "Drop Tank On/Off")
-defineToggleSwitch("DROPTANK_JETT", 5, 3041, 99, "Engine", "Drop Tank Release Handle")
+defineToggleSwitch("DROPTANK_JETT", 5, 3013, 99, "Engine", "Drop Tank Release Handle")
 
 -- Canopy Controls
 defineToggleSwitch("HATCH",1, 3051, 149, "Cockpit", "Canopy Open/Close Control")
