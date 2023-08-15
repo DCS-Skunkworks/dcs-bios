@@ -386,17 +386,17 @@ $(function() {
 			code.append($("<br>"));
 			code.append($("<span>").text("}"));
 			code.append($("<br>"));
-			code.append($("<span>").text("DcsBios::IntegerBuffer "+idCamelCase(cid+"_BUFFER")+'('+hex(io.address)+', '+hex(io.mask)+', '+io.shift_by+', '+idCamelCase("ON_"+cid+"_CHANGE")+');'));
+			code.append($("<span>").text("DcsBios::IntegerBuffer "+idCamelCase(cid+"_BUFFER")+'('+io.address_identifier+', '+idCamelCase("ON_"+cid+"_CHANGE")+');'));
 			break;
 
 			case "LED":
-			code.append($("<span>").text('DcsBios::LED '+idCamelCase(cid)+'('+hex(io.address)+', '+hex(io.mask)+', '));
+			code.append($("<span>").text('DcsBios::LED '+idCamelCase(cid)+'('+io.address_identifier+', '));
 			code.append($("<i>").attr("style", "color: red;").text("PIN"));
 			code.append($("<span>").text(");"));
 			break;
 
 			case "ServoOutput":
-			code.append($("<span>").text('DcsBios::ServoOutput '+idCamelCase(cid)+'('+hex(io.address)+', '));
+			code.append($("<span>").text('DcsBios::ServoOutput '+idCamelCase(cid)+'('+io.address_only_identifier+', '));
 			code.append($("<i>").attr("style", "color: red;").text("PIN"));
 			code.append($("<span>").text(", "));
 			code.append($("<i>").attr("style", "color: red;").text("544"));
@@ -413,13 +413,13 @@ $(function() {
 			code.append($("<br>"));
 			code.append($("<span>").text("}"));
 			code.append($("<br>"));
-			code.append($("<span>").text("DcsBios::StringBuffer<"+io.max_length.toString()+"> "+idCamelCase(cid+io.suffix+"_BUFFER")+'('+hex(io.address)+', '+idCamelCase("ON_"+cid+"_CHANGE")+');'));
+			code.append($("<span>").text("DcsBios::StringBuffer<"+io.max_length.toString()+"> "+idCamelCase(cid+io.suffix+"_BUFFER")+'('+io.address_identifier+', '+idCamelCase("ON_"+cid+"_CHANGE")+');'));
 			break;
 
 			case "FloatBuffer":
 			var ending = "";
 			if(io.max_value == 255) ending = ", true"
-			code.append($("<span>").text("DcsBios::FloatBuffer "+idCamelCase(cid+io.suffix+"_BUFFER")+'('+hex(io.address)+', '+hex(io.mask)+', '+io.shift_by.toString()+', '+io.value_range[0].toFixed()+', '+io.value_range[1]+ending+');'));
+			code.append($("<span>").text("DcsBios::FloatBuffer "+idCamelCase(cid+io.suffix+"_BUFFER")+'('+io.address_identifier+', '+io.value_range[0].toFixed()+', '+io.value_range[1]+ending+');'));
 			break;
 
 		}

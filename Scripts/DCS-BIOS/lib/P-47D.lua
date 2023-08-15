@@ -43,6 +43,8 @@ local function defineIndicatorLightMulti1(msg, arg_number, category, description
 			  address = value.address,
 			  mask = value.mask,
 			  shift_by = value.shiftBy,
+			  address_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg),
+			  address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg) .. "_ADDR",
 			  max_value = 1,
 			  description = "Light is on below 0.51"
 			}
@@ -74,6 +76,8 @@ local function defineIndicatorLightMulti2(msg, arg_number, category, description
 			  address = value.address,
 			  mask = value.mask,
 			  shift_by = value.shiftBy,
+			  address_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg),
+			  address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg) .. "_ADDR",
 			  max_value = 1,
 			  description = "Light is on grater than 0.51"
 			}

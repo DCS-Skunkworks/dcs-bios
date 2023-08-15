@@ -171,6 +171,8 @@ document {
 		  address = cmsp1Alloc.address,
 		  mask = cmsp1Alloc.mask,
 		  shift_by = cmsp1Alloc.shiftBy,
+		  address_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg),
+		  address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg) .. "_ADDR",
 		  max_length = cmsp1Alloc.maxLength,
 		  description = "CMSP Display Line 1 (19 characters)"
 		}
@@ -189,6 +191,8 @@ document {
 		  mask = cmsp2Alloc.mask,
 		  shift_by = cmsp2Alloc.shiftBy,
 		  max_length = cmsp2Alloc.maxLength,
+		  address_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg),
+		  address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg) .. "_ADDR",
 		  description = "CMSP Display Line 2 (19 characters)"
 		}
 	}
@@ -484,6 +488,8 @@ local function defineCMSPSwitch(msg, device_id, down_command, up_command, arg_nu
 			  address = alloc.address,
 			  mask = alloc.mask,
 			  shift_by = alloc.shiftBy,
+			  address_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg),
+			  address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg) .. "_ADDR",
 			  max_value = 2,
 			  description = "switch position: 0 - down, 1 - center, 2 - up"
 			}

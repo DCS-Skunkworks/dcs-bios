@@ -47,6 +47,8 @@ local function defineIndicatorLightMulti1(msg, arg_number, category, description
 			  address = value.address,
 			  mask = value.mask,
 			  shift_by = value.shiftBy,
+			  address_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg),
+			  address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg) .. "_ADDR",
 			  max_value = 1,
 			  description = "Multi Led Color 1; Light is on between 0.1 and 0.59"
 			}
@@ -78,6 +80,8 @@ local function defineIndicatorLightMulti2(msg, arg_number, category, description
 			  address = value.address,
 			  mask = value.mask,
 			  shift_by = value.shiftBy,
+			  address_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg),
+			  address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg) .. "_ADDR",
 			  max_value = 1,
 			  description = "Multi Led Color 2; Light is on between 0.61 and 1"
 			}
