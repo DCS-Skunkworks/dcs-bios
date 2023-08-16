@@ -31,6 +31,14 @@ local function document(args)
 	assert(args.category)
 	if not args.category then args.category = "No Category" end
 	if not moduleBeingDefined.documentation[args.category] then moduleBeingDefined.documentation[args.category] = {} end
+	
+	if args.outputs then
+		for _, output in ipairs(args.outputs) do
+			output.address_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, args.identifier)
+			output.address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, args.identifier) .. "_ADDR"
+		end
+	end
+
 	moduleBeingDefined.documentation[args.category][args.identifier] = args
 end
 BIOS.util.document = document
@@ -341,8 +349,6 @@ function BIOS.util.defineIndicatorLight(msg, arg_number, category, description)
 			  address = value.address,
 			  mask = value.mask,
 			  shift_by = value.shiftBy,
-			  address_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg),
-			  address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg) .. "_ADDR",
 			  max_value = 1,
 			  description = "0 if light is off, 1 if light is on"
 			}
@@ -375,8 +381,6 @@ function BIOS.util.defineIndicatorLightInverted(msg, arg_number, category, descr
 			  address = value.address,
 			  mask = value.mask,
 			  shift_by = value.shiftBy,
-			  address_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg),
-			  address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg) .. "_ADDR",
 			  max_value = 1,
 			  description = "0 if light is off, 1 if light is on"
 			}
@@ -434,8 +438,6 @@ function BIOS.util.definePotentiometer(msg, device_id, command, arg_number, limi
 			  address = value.address,
 			  mask = value.mask,
 			  shift_by = value.shiftBy,
-			  address_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg),
-			  address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg) .. "_ADDR",
 			  max_value = 65535,
 			  description = "position of the potentiometer"
 			}
@@ -467,8 +469,6 @@ function BIOS.util.defineRotary(msg, device_id, command, arg_number, category, d
 			  address = value.address,
 			  mask = value.mask,
 			  shift_by = value.shiftBy,
-			  address_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg),
-			  address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg) .. "_ADDR",
 			  max_value = 65535,
 			  description = "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)"
 			}
@@ -504,8 +504,6 @@ function BIOS.util.defineRotaryPlus(msg, device_id, command2, command1, arg_numb
 			  address = value.address,
 			  mask = value.mask,
 			  shift_by = value.shiftBy,
-			  address_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg),
-			  address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg) .. "_ADDR",
 			  max_value = 65535,
 			  description = "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)"
 			}
@@ -581,8 +579,6 @@ function BIOS.util.defineSetCommandTumb(msg, device_id, command, arg_number, ste
 			  address = enumAlloc.address,
 			  mask = enumAlloc.mask,
 			  shift_by = enumAlloc.shiftBy,
-			  address_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg),
-			  address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg) .. "_ADDR",
 			  max_value = max_value,
 			  description = "selector position"
 			}
@@ -686,8 +682,6 @@ function BIOS.util.defineTumb(msg, device_id, command, arg_number, step, limits,
 			  address = enumAlloc.address,
 			  mask = enumAlloc.mask,
 			  shift_by = enumAlloc.shiftBy,
-			  address_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg),
-			  address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg) .. "_ADDR",
 			  max_value = max_value,
 			  description = "selector position"
 			}
@@ -826,8 +820,6 @@ function BIOS.util.defineVariableStepTumb(msg, device_id, command, arg_number, m
 			  address = rotationAlloc.address,
 			  mask = rotationAlloc.mask,
 			  shift_by = rotationAlloc.shiftBy,
-			  address_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg),
-			  address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg) .. "_ADDR",
 			  max_value = 65535,
 			  description = "rotation of the knob (not the value being manipulated!)"
 			}
@@ -861,8 +853,6 @@ function BIOS.util.defineString(msg, getter, maxLength, category, description)
               address = alloc.address,
               mask = alloc.mask,
               shift_by = alloc.shiftBy,
-              address_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg),
-			  address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg) .. "_ADDR",
               max_length = alloc.maxLength,
               description = description
             }
@@ -891,8 +881,6 @@ function BIOS.util.defineElectricallyHeldSwitch(msg, device_id, pos_command, neg
 			  address = alloc.address,
 			  mask = alloc.mask,
 			  shift_by = alloc.shiftBy,
-			  address_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg),
-			  address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg) .. "_ADDR",
 			  max_value = 1,
 			  description = "switch position -- 0 = off, 1 = on"
 			}
@@ -933,8 +921,6 @@ function BIOS.util.defineRockerSwitch(msg, device_id, pos_command, pos_stop_comm
 			  address = alloc.address,
 			  mask = alloc.mask,
 			  shift_by = alloc.shiftBy,
-			  address_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg),
-			  address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg) .. "_ADDR",
 			  max_value = 2,
 			  description = "selector position"
 			}
@@ -1001,8 +987,6 @@ function BIOS.util.defineFloat(msg, arg_number, limits, category, description)
 			  address = alloc.address,
 			  mask = alloc.mask,
 			  shift_by = alloc.shiftBy,
-			  address_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg),
-			  address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg) .. "_ADDR",
 			  max_value = 65535,
 			  description = "gauge position"
 			}
@@ -1030,8 +1014,6 @@ function BIOS.util.define8BitFloat(msg, arg_number, limits, category, descriptio
 			  address = alloc.address,
 			  mask = alloc.mask,
 			  shift_by = alloc.shiftBy,
-			  address_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg),
-			  address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg) .. "_ADDR",
 			  max_value = 255,
 			  description = "gauge position"
 			}
@@ -1056,8 +1038,6 @@ function BIOS.util.defineIntegerFromGetter(msg, getter, maxValue, category, desc
 			  address = alloc.address,
 			  mask = alloc.mask,
 			  shift_by = alloc.shiftBy,
-			  address_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg),
-			  address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg) .. "_ADDR",
 			  max_value = maxValue,
 			  description = description
 			}
@@ -1100,8 +1080,6 @@ function BIOS.util.defineFloatFromGetter(msg, getter, limits, category, descript
 			  address = alloc.address,
 			  mask = alloc.mask,
 			  shift_by = alloc.shiftBy,
-			  address_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg),
-			  address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg) .. "_ADDR",
 			  max_value = 65535,
 			  description = description,
 			  value_range = limits
@@ -1129,8 +1107,6 @@ function BIOS.util.define8BitFloatFromGetter(msg, getter, limits, category, desc
 			  address = alloc.address,
 			  mask = alloc.mask,
 			  shift_by = alloc.shiftBy,
-			  address_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg),
-			  address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg) .. "_ADDR",
 			  max_value = 255,
 			  description = description,
 			  value_range = limits
@@ -1160,8 +1136,6 @@ function BIOS.util.defineDoubleCommandButton(msg, device_id, start_command, stop
 			  address = value.address,
 			  mask = value.mask,
 			  shift_by = value.shiftBy,
-			  address_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg),
-			  address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg) .. "_ADDR",
 			  max_value = 1,
 			  description = "selector position"
 			}
@@ -1203,8 +1177,6 @@ function BIOS.util.defineMomentaryRockerSwitch(msg, device_id, pos_command, pos_
 			  address = alloc.address,
 			  mask = alloc.mask,
 			  shift_by = alloc.shiftBy,
-			  address_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg),
-			  address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg) .. "_ADDR",
 			  max_value = 2,
 			  description = "button position"
 			}
@@ -1268,8 +1240,6 @@ function BIOS.util.defineSpringloaded_3PosTumb(msg, device_id, downSwitch, upSwi
 			  address = alloc.address,
 			  mask = alloc.mask,
 			  shift_by = alloc.shiftBy,
-			  address_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg),
-			  address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg) .. "_ADDR",
 			  max_value = 2,
 			  description = "switch position -- 0 = Down, 1 = Mid,  2 = Up"
 			}
@@ -1318,8 +1288,6 @@ function BIOS.util.defineSpringloaded_2PosTumb(msg, device_id, downSwitch, upSwi
 			  address = alloc.address,
 			  mask = alloc.mask,
 			  shift_by = alloc.shiftBy,
-			  address_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg),
-			  address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg) .. "_ADDR",
 			  max_value = 1,
 			  description = "switch position -- 0 = Down, 1 = Up"
 			}
@@ -1366,8 +1334,6 @@ function BIOS.util.define3Pos2CommandSwitchA10(msg, device_id, downSwitch, upSwi
 			  address = alloc.address,
 			  mask = alloc.mask,
 			  shift_by = alloc.shiftBy,
-			  address_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg),
-			  address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg) .. "_ADDR",
 			  max_value = 2,
 			  description = "switch position -- 0 = Down, 1 = Mid ,  2 = UP"
 			}
@@ -1412,8 +1378,6 @@ function BIOS.util.define3Pos2CommandSwitchF5(msg, device_id, pos_command, neg_c
 			  address = alloc.address,
 			  mask = alloc.mask,
 			  shift_by = alloc.shiftBy,
-			  address_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg),
-			  address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg) .. "_ADDR",
 			  max_value = 2,
 			  description = "selector position -- 0 = Left, 1 = Mid ,  2 = Right"
 			}
@@ -1457,8 +1421,6 @@ function BIOS.util.defineFloatWithValueConversion(msg, arg_number, limits, input
 			  address = alloc.address,
 			  mask = alloc.mask,
 			  shift_by = alloc.shiftBy,
-			  address_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg),
-			  address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg) .. "_ADDR",
 			  max_value = 65535,
 			  description = "gauge position"
 			}
@@ -1487,8 +1449,6 @@ function BIOS.util.define3PosMossi(msg, device_id, command, arg_number, category
 			  address = alloc.address,
 			  mask = alloc.mask,
 			  shift_by = alloc.shiftBy,
-			  address_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg),
-			  address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg) .. "_ADDR",
 			  max_value = 2,
 			  description = "selector position -- 0 = Left, 1 = Mid ,  2 = Right"
 			}
@@ -1539,8 +1499,6 @@ function BIOS.util.defineIndicatorLight08(msg, arg_number, category, description
 			  address = value.address,
 			  mask = value.mask,
 			  shift_by = value.shiftBy,
-			  address_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg),
-			  address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg) .. "_ADDR",
 			  max_value = 1,
 			  description = "LED; Light is on between 0.51 and 0.89"
 			}

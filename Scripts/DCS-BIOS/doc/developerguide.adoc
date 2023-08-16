@@ -221,8 +221,6 @@ document {
     address = tacanTestLEDState.address,
     mask = tacanTestLEDState.mask,
     shift_by = tacanTestLEDState.shiftBy,
-    address_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, "BATTERY_POWER"),
-    address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, "BATTERY_POWER") .. "_ADDR",
     max_value = 1,
     description = "1 if light is on, 0 if light is off"
   }
