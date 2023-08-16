@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("AV8BNA", 0x7800)
 BIOS.protocol.setExportModuleAircrafts({"AV8BNA"})
---by WarLord,Matchstick v2.3b
+--by WarLord,Matchstick v2.3c
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 

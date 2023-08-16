@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("Mi-8MT", 0x2600)
 BIOS.protocol.setExportModuleAircrafts({"Mi-8MT", "Mi-8MTV2"})
---overhaul by WarLord
+--overhaul by WarLord 2.0
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document
@@ -364,8 +364,8 @@ definePushButton("UV26_SEQ",48, 3004, 914, "UV-26", "CMD Num of Sequences Button
 definePushButton("UV26_RST",48, 3008, 864, "UV-26", "CMD Reset to Default Program Button")
 definePushButton("UV26_STOP_DSP",48, 3009, 865, "UV-26", "CMD Stop Dispense Button")
 
-defineToggleSwitch("BLST_L_OPEN",17, 3015, 215, "UV-26", "Left Window, OPEN/CLOSE")
-defineToggleSwitch("BLST_R_OPEN",17, 3016, 216, "UV-26", "Right Window, OPEN/CLOSE")
+definePushButton("BLST_L_OPEN",17, 3018, 213, "Cockpit", "Left Window, OPEN/CLOSE")
+definePushButton("BLST_R_OPEN",17, 3019, 214, "Cockpit", "Right Window, OPEN/CLOSE")
 
 defineToggleSwitch("BRK_WHEEN",17, 3017, 881, "Brakes", "Wheel Brakes Handle")
 defineToggleSwitch("BRK_PARK",17, 3024, 930, "Brakes", "Parking Brake Handle")

@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("Ka-50", 0x1800)
 BIOS.protocol.setExportModuleAircrafts({"Ka-50", "Ka-50_3"})
---overhaul by WarLord v2.0a
+--overhaul by WarLord v2.0b
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document
