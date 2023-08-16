@@ -149,7 +149,6 @@ end
 local metadataStartModule = nil
 local metadataEndModule = nil
 function BIOS.protocol.init()
-
 	-- called after all aircraft modules have been loaded
 	metadataStartModule = exportModules["MetadataStart"]
 	metadataEndModule = exportModules["MetadataEnd"]
