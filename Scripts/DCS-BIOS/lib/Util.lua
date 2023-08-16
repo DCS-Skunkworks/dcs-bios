@@ -36,12 +36,20 @@ end
 BIOS.util.document = document
 
 function BIOS.util.addressDefineIdentifier(moduleName, identifier)
-    local full_identifier = moduleName .. "_" .. identifier
-    -- Replace all characters that are not A-Z, a-z, 0-9, or _ with _
-    full_identifier = full_identifier:gsub("[^A-Za-z0-9_]", "_")
-    -- Replace successive underscores with a single _
-    full_identifier = full_identifier:gsub("_+", "_")
-    return full_identifier
+	if moduleName == nil then
+		BIOS.log(string.format("Nil module name found for identifier %s", identifier))
+		return "UNKNOWN"
+	end
+	if identifier == nil then
+		BIOS.log(string.format("Nil identifier found in module %s", moduleName))
+		return "UNKNOWN"
+	end
+
+	local full_identifier = moduleName .. "_" .. identifier
+	full_identifier = full_identifier:gsub("[^A-Za-z0-9_]", "_") -- Replace all characters that are not A-Z, a-z, 0-9, or _ with _
+	full_identifier = full_identifier:gsub("_+", "_") -- Replace successive underscores with a single _
+
+	return full_identifier
 end
 
 BIOS.util.MemoryMapEntry = {

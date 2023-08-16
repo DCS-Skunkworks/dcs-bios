@@ -171,8 +171,8 @@ document {
 		  address = cmsp1Alloc.address,
 		  mask = cmsp1Alloc.mask,
 		  shift_by = cmsp1Alloc.shiftBy,
-		  address_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg),
-		  address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg) .. "_ADDR",
+		  address_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, "CMSP1"),
+		  address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, "CMSP1") .. "_ADDR",
 		  max_length = cmsp1Alloc.maxLength,
 		  description = "CMSP Display Line 1 (19 characters)"
 		}
@@ -191,8 +191,8 @@ document {
 		  mask = cmsp2Alloc.mask,
 		  shift_by = cmsp2Alloc.shiftBy,
 		  max_length = cmsp2Alloc.maxLength,
-		  address_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg),
-		  address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, msg) .. "_ADDR",
+		  address_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, "CMSP2"),
+		  address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, "CMSP2") .. "_ADDR",
 		  description = "CMSP Display Line 2 (19 characters)"
 		}
 	}
