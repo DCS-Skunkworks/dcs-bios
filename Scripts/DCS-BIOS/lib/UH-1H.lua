@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("UH-1H", 0x1400)
 BIOS.protocol.setExportModuleAircrafts({"UH-1H", "Bell47_2"})
-
+--v2.0
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document
@@ -79,8 +79,8 @@ defineFloat("GMC_CRS1", 159, {0, 1}, "GMC", "GMC Course Pointer 1")
 defineFloat("GMC_CRS2", 160, {0, 1}, "GMC", "GMC Course Pointer 2")
 defineFloat("GMC_HDG_MARKER", 162, {0, 1}, "GMC", "GMC Heading Marker")
 defineFloat("GMC_HDG", 165, {0, 1}, "GMC", "GMC Heading")
-defineFloat("GMC_ANNUNCIATOR", 166, {-1, 1}, "GMC Annunciator", "GMC Annunciator")
-defineFloat("GMC_PWRFAIL", 167, {0, 1}, "GMC Power Fail", "GMC Power Fail")
+defineFloat("GMC_ANNUNCIATOR", 166, {-1, 1}, "GMC", "GMC Annunciator")
+defineFloat("GMC_PWRFAIL", 167, {0, 1}, "GMC", "GMC Power Fail")
 
 defineFloat("RMI_CRS1", 266, {0, 1}, "Copilot RMI", "RMI Course Pointer 1")
 defineFloat("RMI_CRS2", 267, {0, 1}, "Copilot RMI", "RMI Course Pointer 2")
@@ -361,7 +361,6 @@ defineMultipositionSwitch("VHFFM_MODE", 23, 3007, 35, 4, 0.1, "VHF FM Radio", "M
 defineTumb("VHFFM_SQUELCH", 23, 3005, 36, 0.1, {0, 0.2}, nil, false, "VHF FM Radio", "Squelch Mode: DIS / CARR / TONE")
 definePotentiometer("VHFFM_VOL", 23, 3006, 37, {0.3, 1}, "VHF FM Radio", "Volume Control")
 
-
 defineTumb("VHFNAV_PWR", 25, 3003, 51, 0.1, {0.8, 1.0}, nil, false, "VHF NAV Radio", "VHF NAV Off / On / Test")
 
 local function getVhfNavFreq()
@@ -478,7 +477,6 @@ end, 1, "External Aircraft Model", "Strobe Light (red)")
 defineIntegerFromGetter("EXT_WOW_SKID", function()
 	if LoGetAircraftDrawArgumentValue(104) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Weight ON Skids")
-
 
 -- Radar Altimeter Display, Chaff and Flare counters as numeric values
 local function getRadarAltAsNumber()
