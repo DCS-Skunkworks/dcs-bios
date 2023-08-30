@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("F-22A", 0x6600)
 BIOS.protocol.setExportModuleAircrafts({"F-22A"})
---v1.0 by WarLord
+--v1.0a by WarLord
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 
@@ -44,7 +44,7 @@ definePotentiometer("MAP_LIGHT_R_SW", 1, 3002, 717, {0, 1}, "Avionics System", "
 definePushButton("EJECT_HANDLE", 1, 3011, 999, "Avionics System", "Eject Handle")
 definePotentiometer("MFD_BRIGHT_SW", 1, 3003, 704, {0, 1}, "Avionics System", "MFD Brightness")
 definePotentiometer("PFD_BRIGHT_SW", 1, 3004, 705, {0, 1}, "Avionics System", "PFD Brightness")
-definePotentiometer("CONSOLE_LIGHTS_SW", 1, 3001, 706, {0, 1}, "Avionics System", "Console Lights")
+definePotentiometer("CONSOLE_LIGHTS_SW", 1, 3005, 706, {0, 1}, "Avionics System", "Console Lights")
 definePotentiometer("FLOOD_LIGHTS_SW", 1, 3006, 707, {0, 1}, "Avionics System", "Flood Lights")
 definePotentiometer("FORMATION_LIGHTS_SW", 1, 3007, 714, {0, 1}, "Avionics System", "Formation Lights")
 defineToggleSwitch("DAY_NIGHT_MODE", 1, 3008, 718, "Avionics System", "Day/Night Mode")
