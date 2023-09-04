@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("F-22A", 0x6600)
 BIOS.protocol.setExportModuleAircrafts({"F-22A"})
---v1.0a by WarLord
+--v1.0b by WarLord
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 
@@ -187,7 +187,7 @@ defineFloat("CANOPY_POS", 181, {0, 1}, "Gauges", "Canopy Position")
 
 -- WARNING, CAUTION AND INDICATORLIGHTS
 defineIndicatorLight("FLOOD_LIGHTS", 750, "Warning, Caution and IndicatorLights", "Flood Lights (green)")
-defineIndicatorLight("FLOOD_LIGHTS", 750, "Warning, Caution and IndicatorLights", "Flood Lights (green)")
+defineFloat("FLOOD_LIGHTS_F", 750, {0, 1}, "Warning, Caution and IndicatorLights", "Flood Lights as Float (green)")
 defineIndicatorLight("PANEL_LIGHTS", 751, "Warning, Caution and IndicatorLights", "Panel Lights (green)")
 defineIndicatorLight("BATTERY_L", 700, "Warning, Caution and IndicatorLights", "Battery Lamp (green)")
 defineIndicatorLight("GEAR_NOSE_L", 723, "Warning, Caution and IndicatorLights", "Gear Nose Lamp (green)")
@@ -246,5 +246,6 @@ defineIntegerFromGetter("EXT_WOW_LEFT", function()
 	if LoGetAircraftDrawArgumentValue(6) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Weight ON Wheels Left Gear")
 
+defineFloat("PANEL_LIGHTS_F", 751, {0, 1}, "Warning, Caution and IndicatorLights", "Panel Lights as Float (green)")
 
 BIOS.protocol.endModule()
