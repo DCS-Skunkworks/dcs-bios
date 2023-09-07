@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("M-2000C", 0x7200)
 BIOS.protocol.setExportModuleAircrafts({"M-2000C"})
---v1.38c by Ergo,Matchstick,MisterKnife,WarLord,Espresso29470
+--v1.39 by Ergo,Matchstick,MisterKnife,WarLord,Espresso29470
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 
@@ -359,7 +359,7 @@ define3PosTumb("EW_MODE_SEL_SW", 13, 3605, 605, "EW PANEL", "I - EW Mode Selecto
 
 --EXTERIOR LIGHTS
 defineToggleSwitch("POLICE_LGT_SW", 16, 3449, 449, "EXT LIGHTS", "I - Police Lights Switch")
-defineToggleSwitch("ANTI-COL_LGT_SW", 16, 3453, 453, "EXT LIGHTS", "I - Anti-Collision Lights Switch")
+defineToggleSwitch("ANTI_COL_LGT_SW", 16, 3453, 453, "EXT LIGHTS", "I - Anti-Collision Lights Switch")
 defineToggleSwitch("NAV_LGT_SW", 16, 3454, 454, "EXT LIGHTS", "I - Navigation Lights Switch")
 defineToggleSwitch("FORM_LGT_SW", 16, 3455, 455, "EXT LIGHTS", "I - Formation Lights Switch")
 definePotentiometer("REFUEL_LGT_BRIGHT_KNOB", 16, 3920, 920, {0, 1}, "EXT LIGHTS", "I - Refuel Lights Brightness Knob")
@@ -413,34 +413,34 @@ defineFloat("HSI_FLAG_D", 345, {0, 1}, "HSI", "O - HSI - Right Flag")
 defineFloat("HSI_FLAG_M", 346, {0, 1}, "HSI", "O - HSI - Center Flag")
 
 --IFF
-defineMultipositionSwitch("RAD_IFF_MODE_SW", 11, 3598, 598, 6, 0.2, "IFF", "I - IFF_INT -  Mode Switch")
-defineMultipositionSwitch("RAD_IFF_POW_SW", 11, 3600, 600, 3, 0.5, "IFF", "I - IFF_INT -  Power Switch")
-defineToggleSwitch("RAD_IFF_L_R_SEL", 11, 3599, 599, "IFF", "I - IFF_INT -  L/R Selector")
+defineMultipositionSwitch("RAD_IFF_MODE_SW", 11, 3598, 598, 6, 0.2, "IFF", "I - IFF INT -  Mode Switch")
+defineMultipositionSwitch("RAD_IFF_POW_SW", 11, 3600, 600, 3, 0.5, "IFF", "I - IFF INT -  Power Switch")
+defineToggleSwitch("RAD_IFF_L_R_SEL", 11, 3599, 599, "IFF", "I - IFF INT -  L/R Selector")
 
-defineTumb("RAD_IFF_CODE-4_SEL", 11, 3601, 601, 0.1, {0, 0.9}, nil, false, "IFF", "I - IFF_INT -  Code-4 Selector")
-defineTumb("RAD_IFF_CODE-3_SEL", 11, 3602, 602, 0.1, {0, 0.9}, nil, false, "IFF", "I - IFF_INT -  Code-3 Selector")
-defineTumb("RAD_IFF_CODE-2_SEL", 11, 3603, 603, 0.1, {0, 0.9}, nil, false, "IFF", "I - IFF_INT -  Code-2 Selector")
-defineTumb("RAD_IFF_CODE-1_SEL", 11, 3604, 604, 0.1, {0, 0.9}, nil, false, "IFF", "I - IFF_INT -  Code-1 Selector")
+defineTumb("RAD_IFF_CODE4_SEL", 11, 3601, 601, 0.1, {0, 0.9}, nil, false, "IFF", "I - IFF INT -  Code-4 Selector")
+defineTumb("RAD_IFF_CODE3_SEL", 11, 3602, 602, 0.1, {0, 0.9}, nil, false, "IFF", "I - IFF INT -  Code-3 Selector")
+defineTumb("RAD_IFF_CODE2_SEL", 11, 3603, 603, 0.1, {0, 0.9}, nil, false, "IFF", "I - IFF INT -  Code-2 Selector")
+defineTumb("RAD_IFF_CODE1_SEL", 11, 3604, 604, 0.1, {0, 0.9}, nil, false, "IFF", "I - IFF INT -  Code-1 Selector")
 
-defineTumb("MODE-1_10_SEL", 4, 3377, 377, 0.1, {0, 0.9}, nil, false, "IFF", "I - IFF_REP - Mode-1 Tens Selector")
-defineTumb("MODE-1_1_SEL", 4, 3378, 378, 0.1, {0, 0.9}, nil, false, "IFF", "I - IFF_REP - Mode-1 Ones Selector")
-defineTumb("MODE-3A_1K_SEL", 4, 3379, 379, 0.1, {0, 0.9}, nil, false, "IFF", "I - IFF_REP - Mode-3A Thousands Selector")
-defineTumb("MODE-3A_100_SEL", 4, 3380, 380, 0.1, {0, 0.9}, nil, false, "IFF", "I - IFF_REP - Mode-3A Hundreds Selector")
-defineTumb("MODE-3A_10_SEL", 4, 3381, 381, 0.1, {0, 0.9}, nil, false, "IFF", "I - IFF_REP - Mode-3A Tens Selector")
-defineTumb("MODE-3A_1_SEL", 4, 3382, 382, 0.1, {0, 0.9}, nil, false, "IFF", "I - IFF_REP - Mode-3A Ones Selector")
+defineTumb("MODE_1_10_SEL", 4, 3377, 377, 0.1, {0, 0.9}, nil, false, "IFF", "I - IFF REP - Mode-1 Tens Selector")
+defineTumb("MODE_1_1_SEL", 4, 3378, 378, 0.1, {0, 0.9}, nil, false, "IFF", "I - IFF REP - Mode-1 Ones Selector")
+defineTumb("MODE_A_1K_SEL", 4, 3379, 379, 0.1, {0, 0.9}, nil, false, "IFF", "I - IFF REP - Mode-3A Thousands Selector")
+defineTumb("MODE_3A_100_SEL", 4, 3380, 380, 0.1, {0, 0.9}, nil, false, "IFF", "I - IFF REP - Mode-3A Hundreds Selector")
+defineTumb("MODE_3A_10_SEL", 4, 3381, 381, 0.1, {0, 0.9}, nil, false, "IFF", "I - IFF REP - Mode-3A Tens Selector")
+defineTumb("MODE_3A_1_SEL", 4, 3382, 382, 0.1, {0, 0.9}, nil, false, "IFF", "I - IFF REP - Mode-3A Ones Selector")
 
-defineToggleSwitch("IDENT_PWR_SW", 4, 3383, 383, "IFF", "I - IFF_REP - Ident Power Switch")
-defineToggleSwitch("MODE-1_SW", 4, 3384, 384, "IFF", "I - IFF_REP - Mode-1 Switch")
-defineToggleSwitch("MODE-2_SW", 4, 3385, 385, "IFF", "I - IFF_REP - Mode-2 Switch")
-defineToggleSwitch("MODE-3A_SW", 4, 3386, 386, "IFF", "I - IFF_REP - Mode-3A Switch")
-defineToggleSwitch("MODE-C_SW", 4, 3387, 387, "IFF", "I - IFF_REP - Mode-C Switch")
-defineToggleSwitch("IFF_M4_SW", 4, 3390, 390, "IFF", "I - IFF_REP - ON/OUT MODE 4 Switch")
-defineIndicatorLight("IFF_ON", 388, "IFF", "O - IFF_REP - ON Light (green)")
-defineIndicatorLight("IFF_FAULT", 394, "IFF", "O - IFF_REP - Fault Light (yellow)")
+defineToggleSwitch("IDENT_PWR_SW", 4, 3383, 383, "IFF", "I - IFF REP - Ident Power Switch")
+defineToggleSwitch("MODE_1_SW", 4, 3384, 384, "IFF", "I - IFF REP - Mode-1 Switch")
+defineToggleSwitch("MODE_2_SW", 4, 3385, 385, "IFF", "I - IFF REP - Mode-2 Switch")
+defineToggleSwitch("MODE_3A_SW", 4, 3386, 386, "IFF", "I - IFF REP - Mode-3A Switch")
+defineToggleSwitch("MODE_C_SW", 4, 3387, 387, "IFF", "I - IFF REP - Mode-C Switch")
+defineToggleSwitch("IFF_M4_SW", 4, 3390, 390, "IFF", "I - IFF REP - ON/OUT MODE 4 Switch")
+defineIndicatorLight("IFF_ON", 388, "IFF", "O - IFF REP - ON Light (green)")
+defineIndicatorLight("IFF_FAULT", 394, "IFF", "O - IFF REP - Fault Light (yellow)")
 
 --INTERIOR LIGHTS
 definePotentiometer("LGT_BRIGHT_CTRL_TEST", 9, 3575, 575, {0, 1}, "INT LIGHTS", "I - PCN Brightnes/Test")
-definePotentiometer("DASH_U.V._LGT_KNOB", 16, 3639, 639, {0, 1}, "INT LIGHTS", "I - Dashboard U.V. Lights Knob")
+definePotentiometer("DASH_UV_LGT_KNOB", 16, 3639, 639, {0, 1}, "INT LIGHTS", "I - Dashboard U.V. Lights Knob")
 definePotentiometer("DASH_PANEL_LGT_KNOB", 16, 3640, 640, {0, 1}, "INT LIGHTS", "I - Dashboard Panel Lights Knob")
 definePotentiometer("RED_FLOOD_LGT_KNOB", 16, 3641, 641, {0, 1}, "INT LIGHTS", "I - Red Flood Lights Knob")
 definePotentiometer("CONS_PANEL_LGT_KNOB", 16, 3642, 642, {0, 1}, "INT LIGHTS", "I - Console Panel Lights Knob")
@@ -450,7 +450,7 @@ definePotentiometer("WH_FLOOD_LGT_KNOB", 16, 3644, 644, {0, 1}, "INT LIGHTS", "I
 --LEFT CONSOLE
 defineToggleSwitch("EMER_THROTTLE_COV", 7, 3464, 464, "LEFT CONSOLE", "I - Emergency Throttle Cover")
 defineToggleSwitch("EMER_THROTTLE_HAND", 7, 3465, 465, "LEFT CONSOLE", "I - Emergency Throttle")
-definePushButton("ENG_IN-FLGT_START_SW", 7, 3468, 468, "LEFT CONSOLE", "I - Engine In-Flight Start Switch")
+definePushButton("ENG_INFLGT_START_SW", 7, 3468, 468, "LEFT CONSOLE", "I - Engine In-Flight Start Switch")
 defineToggleSwitch("AB_EMER_CUTOFF_SW_COV", 4, 3471, 471, "LEFT CONSOLE", "I - A/B Emergency Cutoff Switch Cover")
 defineToggleSwitch("AB_EMER_CUTOFF_SW", 4, 3472, 472, "LEFT CONSOLE", "I - A/B Emergency Cutoff Switch")
 defineToggleSwitch("SEC_HUILE_SW_COVER", 7, 3473, 473, "LEFT CONSOLE", "I - Secours Huile Switch Cover")
@@ -459,8 +459,8 @@ defineToggleSwitch("ENG_EMER_CTRL_COV", 7, 3475, 475, "LEFT CONSOLE", "I - Engin
 defineToggleSwitch("ENG_EMER_CTRL_SW", 7, 3476, 476, "LEFT CONSOLE", "I - Engine Emergency Control Switch")
 defineToggleSwitch("FBW_CH_5_SW_COV", 17, 3479, 479, "LEFT CONSOLE", "I - FBW - Channel 5 Switch Cover")
 defineToggleSwitch("FBW_CH_5_SW", 17, 3480, 480, "LEFT CONSOLE", "I - FBW - Channel 5 Switch")
-defineToggleSwitch("ANTI-SKID_SW_COV", 22, 3458, 458, "LEFT CONSOLE", "I - Anti-Skid Switch Cover")
-defineToggleSwitch("ANTI-SKID_SW", 22, 3459, 459, "LEFT CONSOLE", "I - Anti-Skid Switch")
+defineToggleSwitch("ANTI_SKID_SW_COV", 22, 3458, 458, "LEFT CONSOLE", "I - Anti-Skid Switch Cover")
+defineToggleSwitch("ANTI_SKID_SW", 22, 3459, 459, "LEFT CONSOLE", "I - Anti-Skid Switch")
 defineToggleSwitch("SERPAM_REC_SW", 16, 3452, 452, "LEFT CONSOLE", "I - SERPAM Recorder Switch")
 
 definePushButton("RAD_VALI_CHAN_CHANGE", 11, 3489, 489, "RADAR", "I - Validate Channel Change")
@@ -472,7 +472,7 @@ defineToggleSwitch("SAFE_GND_SW", 0, 3407, 407, "LEFT PANEL", "I - LDG - Safety 
 defineToggleSwitch("LDG_EMER_REL_LEV", 4, 3408, 408, "LEFT PANEL", "I - LDG - Landing Gear Emergency Release Lever")
 defineToggleSwitch("FBW_GAIN_MODE_SW_COV", 3, 3420, 420, "LEFT PANEL", "I - FBW - Gain Mode Switch Cover")
 defineToggleSwitch("FBW_GAIN_MODE_SW", 3, 3421, 421, "LEFT PANEL", "I - FBW - Gain Mode Switch")
-defineToggleSwitch("FBW_G-LIM_SW", 3, 3422, 422, "LEFT PANEL", "I - FBW - G-Limiter Switch")
+defineToggleSwitch("FBW_GLIM_SW", 3, 3422, 422, "LEFT PANEL", "I - FBW - G-Limiter Switch")
 defineToggleSwitch("FBW_RESET_BTN", 17, 3423, 423, "LEFT PANEL", "I - FBW - Reset Button")
 defineIndicatorLightInverted("LANDING_GEAR_LEVER_LIGHT", 405, "LEFT PANEL", "O - LDG - Landing Gear Lever Light (red)")
 definePushButton("EMER_JETT", 6, 3409, 409, "LEFT PANEL", "I - Emergency Jettison Button")
@@ -722,7 +722,7 @@ defineToggleSwitch("UHF_SIL_SW", 20, 3430, 430, "UHF RADIO", "I - UHF - SIL Swit
 defineToggleSwitch("UHF_CDE_SW", 20, 3432, 432, "UHF RADIO", "I - UHF - CDE Switch")
 definePushButton("UHF_TEST_SW", 20, 3434, 434, "UHF RADIO", "I - UHF - TEST Switch")
 defineSetCommandTumb("UHF_PRESET_KNOB", 20, 3435, 435, 0.05, {0, 0.95}, {" 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"}, true, "UHF RADIO", "Preset Knob UHF")
-define3PosTumb("UHF_E+A2_SW", 20, 3431, 431, "UHF RADIO", "I - UHF - E+A2 Switch")
+define3PosTumb("UHF_EA2_SW", 20, 3431, 431, "UHF RADIO", "I - UHF - E+A2 Switch")
 defineFloat("UHF_PRESET", 436, {0, 1}, "UHF RADIO", "O - UHF - PRESET Display")
 defineString("UHF_FREQUENCY", function() return uhfFrequency end, 5, "UHF RADIO", "O - UHF - Frequency Report Display")
 
