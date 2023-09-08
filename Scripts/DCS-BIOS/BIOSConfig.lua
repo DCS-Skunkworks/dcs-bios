@@ -1,6 +1,12 @@
+local UDPServer = require "lib.io.UDPServer"
+local UDPSender = require "lib.io.UDPSender"
+local UDPListener = require "lib.io.UDPListener"
+local TCPServer = require "lib.io.TCPServer"
+
 BIOS.protocol_io.connections = {
-	BIOS.protocol_io.DefaultMulticastSender:create(),
-	BIOS.protocol_io.TCPServer:create(),
-	-- BIOS.protocol_io.UDPSender:create({ port = 7777, host = "192.168.1.177" }),
-	BIOS.protocol_io.UDPListener:create({ port = 7778 })
+	-- UDPServer:new(
+	-- 	UDPSender:new(),
+	-- 	UDPListener:new()
+	-- ),
+	TCPServer:new()
 }

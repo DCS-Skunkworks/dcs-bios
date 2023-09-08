@@ -15,8 +15,10 @@ end
 
 package.path  = package.path..";.\\LuaSocket\\?.lua"
 package.cpath = package.cpath..";.\\LuaSocket\\?.dll"
-  
-socket = require("socket")
+
+package.path = lfs.writedir() .. [[Scripts\DCS-BIOS\?.lua;]] .. package.path
+package.path = lfs.writedir() .. [[Scripts\DCS-BIOS\lib\?.lua;]] .. package.path
+package.path = lfs.writedir() .. [[Scripts\DCS-BIOS\lib\io\?.lua;]] .. package.path
 
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Util.lua]])
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\ProtocolIO.lua]])
