@@ -1,10 +1,10 @@
 module("UDPSender", package.seeall)
 
 local socket = require "socket"
-local UDPConnection = require "UDPConnection"
+local Connection = require "Connection"
 
---- @class UDPSender: UDPConnection
-local UDPSender = UDPConnection:new("239.255.50.10", 5010)
+--- @class UDPSender: Connection
+local UDPSender = Connection:new("239.255.50.10", 5010)
 
 --- Creates a socket for sending UDP packets
 --- @param host string? the host to connect to

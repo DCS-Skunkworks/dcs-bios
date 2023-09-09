@@ -1,11 +1,11 @@
 module("UDPListener", package.seeall)
 
 local socket = require "socket"
-local UDPConnection = require "UDPConnection"
+local ReadableConnection = require "ReadableConnection"
 
---- @class UDPListener: UDPConnection
---- @field rxbuf string a receiver buffer
-local UDPListener = UDPConnection:new("*", 7778)
+--- @class UDPListener: ReadableConnection
+--- @field private rxbuf string a receiver buffer
+local UDPListener = ReadableConnection:new("*", 7778)
 
 --- Creates a socket for receiving UDP packets
 --- @param host string? the host to listen to
@@ -39,15 +39,7 @@ function UDPListener:step()
 		self.rxbuf = self.rxbuf .. lInput
 	end
 
-	while true do
-		local line, rest = self.rxbuf:match("^([^\n]*)\n(.*)")
-		if line then
-			self.rxbuf = rest
-			BIOS.protocol.processInputLine(line)
-		else
-			break
-		end
-	end
+	self:processBuffer()
 end
 
 return UDPListener

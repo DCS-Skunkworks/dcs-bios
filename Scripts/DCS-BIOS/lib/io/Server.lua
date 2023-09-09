@@ -1,7 +1,5 @@
 module("Server", package.seeall)
 
-local socket = require "socket"
-
 --- @class Server
 local Server = {
 }
@@ -24,7 +22,9 @@ function Server:step()
     error("step must be implemented by the Server subclass", 2)
 end
 
-function Server:send(msg)
+--- Sends a message to the client
+--- @param message string the message to send
+function Server:send(message)
     error("send must be implemented by the Server subclass", 2)
 end
 

@@ -5,9 +5,10 @@ local Server = require "Server"
 local Connection = require "Connection"
 
 --- @class TCPServer: Server
---- @field acceptor table the TCP connection acceptor
---- @field tcpConnection Connection the connection information
---- @field connections table[] the active TCP socket connections
+--- @field private acceptor table the TCP connection acceptor
+--- @field private host string the host to connect to
+--- @field private port number the port on the host to connect to
+--- @field private connections table[] the active TCP socket connections
 local TCPServer = Server:new()
 
 --- Creates a server for sending and receiving TCP packets
@@ -16,7 +17,8 @@ local TCPServer = Server:new()
 function TCPServer:new(host, port)
 	--- @type TCPServer
     local o = {
-		tcpConnection = Connection:new(host or "*", port or 7778),
+		host = host or "*",
+		port = port or 7778,
 		acceptor = {},
 		connections = {}
 	}
@@ -26,7 +28,7 @@ function TCPServer:new(host, port)
 end
 
 function TCPServer:init()
-	self.acceptor = socket.bind(self.tcpConnection.host, self.tcpConnection.port, 10)
+	self.acceptor = socket.bind(self.host, self.port, 10)
 	self.acceptor:settimeout(0)
 	self.connections = {}
 end
