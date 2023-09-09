@@ -56,90 +56,95 @@ function BIOS.protocol.beginModule(name, baseAddress)
 	moduleBeingDefined.exportHooks = {}
 	exportModules[name] = moduleBeingDefined
 end
+
+function BIOS.protocol.saveJSON(jsonPath)
+	local JSON = loadfile([[Scripts\JSON.lua]])()
+	local file, err = io.open(lfs.writedir()..jsonPath..moduleBeingDefined.name..".json", "w")
+	local json_string = JSON:encode_pretty(moduleBeingDefined.documentation)
+	if file then
+		file:write(json_string)
+		file:close()
+	end
+	local file, err = io.open(lfs.writedir()..jsonPath..moduleBeingDefined.name..".jsonp", "w")
+	if file then
+		file:write('docdata["'..moduleBeingDefined.name..'"] =\n')
+		file:write(json_string)
+		file:write(";\n")
+		file:close()
+	end
+end
+
 function BIOS.protocol.endModule()
 	if BIOSdevMode == 1 then
-	local function saveDoc()
-		local JSON = loadfile([[Scripts\JSON.lua]])()
-		local file, err = io.open(lfs.writedir()..[[Scripts\DCS-BIOS\doc\json\]]..moduleBeingDefined.name..".json", "w")
-		local json_string = JSON:encode_pretty(moduleBeingDefined.documentation)
-		if file then
-			file:write(json_string)
-			file:close()
-		end
-		local file, err = io.open(lfs.writedir()..[[Scripts\DCS-BIOS\doc\json\]]..moduleBeingDefined.name..".jsonp", "w")
-		if file then
-			file:write('docdata["'..moduleBeingDefined.name..'"] =\n')
-			file:write(json_string)
-			file:write(";\n")
-			file:close()
-		end
-	end
-	local function saveAddresses()
-		local moduleName = moduleBeingDefined.name
+		BIOS.protocol.saveJSON([[Scripts\DCS-BIOS\json\generated\]])
+		BIOS.protocol.saveJSON([[Scripts\DCS-BIOS\doc\json\]])
+		
+		local function saveAddresses()
+			local moduleName = moduleBeingDefined.name
 
-		local path = lfs.writedir()..[[Scripts\DCS-BIOS\doc\Addresses.h]]
-		local existingDefines = {}
-		local lineOrder = {} -- To maintain the order of lines
+			local path = lfs.writedir()..[[Scripts\DCS-BIOS\doc\Addresses.h]]
+			local existingDefines = {}
+			local lineOrder = {} -- To maintain the order of lines
 
-		-- Read existing content
-		local fileRead, errRead = io.open(path, "r")
-		if fileRead then
-			for line in fileRead:lines() do
-				local identifier = line:match("#define%s+([%w_]+)")
-				if identifier then
-					existingDefines[identifier] = line
-					table.insert(lineOrder, identifier)
-				end
-			end
-			fileRead:close()
-		end
-
-		for _, category in pairs(moduleBeingDefined.documentation) do
-			for identifier, args in pairs(category) do
-				local outputs = args.outputs or {}
-				for _, output in pairs(outputs) do
-					local full_identifier = BIOS.util.addressDefineIdentifier(moduleName, identifier)
-					local addressStr = output.address and string.format("0x%X", output.address) or ""
-					local maskStr = output.mask and string.format("0x%X", output.mask) or ""
-					local shiftByStr = output.shift_by and tostring(output.shift_by) or ""
-
-					-- Define line with address, mask, and shiftby
-					local line = "#define " .. full_identifier .. " " .. addressStr
-					if maskStr ~= "" then line = line .. ", " .. maskStr end
-					if shiftByStr ~= "" then line = line .. ", " .. shiftByStr end
-
-					if not existingDefines[full_identifier] then
-						table.insert(lineOrder, full_identifier)
+			-- Read existing content
+			local fileRead, errRead = io.open(path, "r")
+			if fileRead then
+				for line in fileRead:lines() do
+					local identifier = line:match("#define%s+([%w_]+)")
+					if identifier then
+						existingDefines[identifier] = line
+						table.insert(lineOrder, identifier)
 					end
+				end
+				fileRead:close()
+			end
 
-					existingDefines[full_identifier] = line
+			for _, category in pairs(moduleBeingDefined.documentation) do
+				for identifier, args in pairs(category) do
+					local outputs = args.outputs or {}
+					for _, output in pairs(outputs) do
+						local full_identifier = BIOS.util.addressDefineIdentifier(moduleName, identifier)
+						local addressStr = output.address and string.format("0x%X", output.address) or ""
+						local maskStr = output.mask and string.format("0x%X", output.mask) or ""
+						local shiftByStr = output.shift_by and tostring(output.shift_by) or ""
 
-					-- Additional line with only the address and _ADDR suffix
-					if addressStr ~= "" then
-						local addressOnlyIdentifier = full_identifier .. "_ADDR"
-						local addressOnlyLine = "#define " .. addressOnlyIdentifier .. " " .. addressStr
+						-- Define line with address, mask, and shiftby
+						local line = "#define " .. full_identifier .. " " .. addressStr
+						if maskStr ~= "" then line = line .. ", " .. maskStr end
+						if shiftByStr ~= "" then line = line .. ", " .. shiftByStr end
 
-						if not existingDefines[addressOnlyIdentifier] then
-							table.insert(lineOrder, addressOnlyIdentifier)
+						if not existingDefines[full_identifier] then
+							table.insert(lineOrder, full_identifier)
 						end
 
-						existingDefines[addressOnlyIdentifier] = addressOnlyLine
+						existingDefines[full_identifier] = line
+
+						-- Additional line with only the address and _ADDR suffix
+						if addressStr ~= "" then
+							local addressOnlyIdentifier = full_identifier .. "_ADDR"
+							local addressOnlyLine = "#define " .. addressOnlyIdentifier .. " " .. addressStr
+
+							if not existingDefines[addressOnlyIdentifier] then
+								table.insert(lineOrder, addressOnlyIdentifier)
+							end
+
+							existingDefines[addressOnlyIdentifier] = addressOnlyLine
+						end
 					end
 				end
 			end
-		end
 
-		-- Write the updated content to the file
-		local address_header_file, err = io.open(path, "w")
-		if err then
-			print("Error opening file:", err) -- Print error if unable to open file
-			return
+			-- Write the updated content to the file
+			local address_header_file, err = io.open(path, "w")
+			if err then
+				print("Error opening file:", err) -- Print error if unable to open file
+				return
+			end
+			for _, identifier in ipairs(lineOrder) do
+				address_header_file:write(existingDefines[identifier] .. "\n")
+			end
+			address_header_file:close() -- Close the header file
 		end
-		for _, identifier in ipairs(lineOrder) do
-			address_header_file:write(existingDefines[identifier] .. "\n")
-		end
-		address_header_file:close() -- Close the header file
-	end
 	pcall(saveDoc)
 	pcall(saveAddresses)
 	moduleBeingDefined = nil
