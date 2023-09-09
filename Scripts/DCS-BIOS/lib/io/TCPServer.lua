@@ -2,13 +2,13 @@ module("TCPServer", package.seeall)
 
 local socket = require "socket"
 local Server = require "Server"
-local Connection = require "Connection"
+local TCPConnection = require "TCPConnection"
 
 --- @class TCPServer: Server
 --- @field private acceptor table the TCP connection acceptor
 --- @field private host string the host to connect to
 --- @field private port number the port on the host to connect to
---- @field private connections table[] the active TCP socket connections
+--- @field private connections TCPConnection[] the active TCP socket connections
 local TCPServer = Server:new()
 
 --- Creates a server for sending and receiving TCP packets
@@ -27,68 +27,56 @@ function TCPServer:new(host, port)
     return o
 end
 
+--- Initializes the TCP server with a connection acceptor to receive any incoming connections
 function TCPServer:init()
-	self.acceptor = socket.bind(self.host, self.port, 10)
+---@diagnostic disable-next-line: assign-type-mismatch
+	self.acceptor = socket.bind(self.host, self.port, 10) -- this is correct, diagnostics disabled
 	self.acceptor:settimeout(0)
 	self.connections = {}
 end
 
+--- Accpets new connections, receives incoming data, and removes old connections
 function TCPServer:step()
-	-- accept new connections
-	local newconn = self.acceptor:accept()
-	if newconn then
-		newconn:settimeout(0)
-		-- todo: tablify this
-		local newconn_info = { conn = newconn, rxbuf = "" }
-		self.connections[#self.connections+1] = newconn_info
-	end
+	self:acceptConnections()
 
-	local have_closed_connections = false
+	local itemsToRemove = {}
 	-- receive data
-	for _, conninfo in pairs(self.connections) do
+	for i, conninfo in ipairs(self.connections) do
+		local success, err = conninfo:receive()
 
-		local data, err, partial = conninfo.conn:receive(4096)
-		if data then
-			conninfo.rxbuf = conninfo.rxbuf .. data
-		elseif partial and #partial > 0 then
-			conninfo.rxbuf = conninfo.rxbuf .. partial
-		elseif err == "closed" then
-			conninfo.closed = true
-			have_closed_connections = true
-		end
-
-		while true do
-			local line, rest = conninfo.rxbuf:match("^([^\n]*)\n(.*)")
-			if line then
-				conninfo.rxbuf = rest
-				BIOS.protocol.processInputLine(line)
-			else
-				break
-			end
+		if not success and err == "closed" then
+			table.insert(itemsToRemove, i)
 		end
 	end
 
 	-- eliminate closed connections
-	if have_closed_connections then
-		local old_connections = self.connections
-		self.connections = {}
-		for _, conninfo in pairs(old_connections) do
-			if not conninfo.closed then
-				self.connections[#self.connections+1] = conninfo
-			end
-		end
+	for _, indexToremove in ipairs(itemsToRemove) do
+		table.remove(self.connections, indexToremove)
 	end
 end
 
+--- @private
+--- Accepts any incoming connections
+function TCPServer:acceptConnections()
+	local newconn = self.acceptor:accept()
+	if newconn then
+		newconn:settimeout(0)
+		table.insert(self.connections, TCPConnection:new(newconn))
+	end
+end
+
+--- Sends a message to all TCP connections connected to the server
+--- @param msg string the message to send
 function TCPServer:send(msg)
-	for k, conninfo in pairs(self.connections) do
-		socket.try(conninfo.conn:send(msg))
+	for _, conninfo in ipairs(self.connections) do
+		conninfo:send(msg)
 	end
 end
 
+--- Closes all TCP connections connected to the server
 function TCPServer:close()
-    for _, connInfo in pairs(self.connections) do
-        socket.try(connInfo.conn:close())
+    for _, connInfo in ipairs(self.connections) do
+        connInfo:close()
     end
     self.connections = {}
 end

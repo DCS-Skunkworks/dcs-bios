@@ -21,7 +21,8 @@ end
 
 --- initializes the socket connection
 function UDPSender:init()
-	self.connection = socket.udp()
+---@diagnostic disable-next-line: undefined-field
+	self.connection = socket.udp() -- this is correct, diagnostics disabled
     self.connection:setpeername(self.host, self.port)
 end
 

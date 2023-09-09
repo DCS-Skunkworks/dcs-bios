@@ -1,6 +1,5 @@
 module("UDPServer", package.seeall)
 
-local socket = require "socket"
 local Server = require "Server"
 
 --- @class UDPServer: Server
@@ -22,19 +21,24 @@ function UDPServer:new(sender, listener)
     return o
 end
 
+--- Initializes the sender and listener of the UDP server
 function UDPServer:init()
     self.sender:init()
     self.listener:init()
 end
 
+--- Receives and processes incoming data
 function UDPServer:step()
-    self.listener:step()
+    self.listener:receive()
 end
 
+--- Sends data to the client
+--- @param msg string the data to send
 function UDPServer:send(msg)
     self.sender:send(msg)
 end
 
+--- Closes the sender and listener connections
 function UDPServer:close()
     self.sender:close()
     self.listener:close()

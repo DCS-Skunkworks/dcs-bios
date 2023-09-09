@@ -23,10 +23,13 @@ function Connection:new(host, port)
     return o
 end
 
+--- @abstract
+--- Initializes the connection
 function Connection:init()
     error("init must be implemented by the Connection subclass", 2)
 end
 
+--- Closes the connection
 function Connection:close()
     socket.try(self.connection:close())
 end
