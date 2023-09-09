@@ -6,7 +6,7 @@ local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document
 
-local parse_indication = BIOS.util.parse_indication
+local parse_indication = Parse_indication
 
 local defineIndicatorLight = BIOS.util.defineIndicatorLight
 local definePushButton = BIOS.util.definePushButton
@@ -651,16 +651,16 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 
 	if not odu then return end
 
-	oduOption1Select = coerce_nil_to_string(odu["ODU_Option_1_Slc"])
-	oduOption1Text = coerce_nil_to_string(odu["ODU_Option_1_Text"])
-	oduOption2Select = coerce_nil_to_string(odu["ODU_Option_2_Slc"])
-	oduOption2Text = coerce_nil_to_string(odu["ODU_Option_2_Text"])
-	oduOption3Select = coerce_nil_to_string(odu["ODU_Option_3_Slc"])
-	oduOption3Text = coerce_nil_to_string(odu["ODU_Option_3_Text"])
-	oduOption4Select = coerce_nil_to_string(odu["ODU_Option_4_Slc"])
-	oduOption4Text = coerce_nil_to_string(odu["ODU_Option_4_Text"])
-	oduOption5Select = coerce_nil_to_string(odu["ODU_Option_5_Slc"])
-	oduOption5Text = coerce_nil_to_string(odu["ODU_Option_5_Text"])
+	oduOption1Select = Coerce_nil_to_string(odu["ODU_Option_1_Slc"])
+	oduOption1Text = Coerce_nil_to_string(odu["ODU_Option_1_Text"])
+	oduOption2Select = Coerce_nil_to_string(odu["ODU_Option_2_Slc"])
+	oduOption2Text = Coerce_nil_to_string(odu["ODU_Option_2_Text"])
+	oduOption3Select = Coerce_nil_to_string(odu["ODU_Option_3_Slc"])
+	oduOption3Text = Coerce_nil_to_string(odu["ODU_Option_3_Text"])
+	oduOption4Select = Coerce_nil_to_string(odu["ODU_Option_4_Slc"])
+	oduOption4Text = Coerce_nil_to_string(odu["ODU_Option_4_Text"])
+	oduOption5Select = Coerce_nil_to_string(odu["ODU_Option_5_Slc"])
+	oduOption5Text = Coerce_nil_to_string(odu["ODU_Option_5_Text"])
 end
 
 defineString("AV8BNA_ODU_1_SELECT", function() return oduOption1Select end, 1, "ODU", "ODU Option 1 Select (string)")

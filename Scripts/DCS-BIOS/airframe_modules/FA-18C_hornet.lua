@@ -6,7 +6,7 @@ local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document
 
-local parse_indication = BIOS.util.parse_indication
+local parse_indication = Parse_indication
 
 local defineIndicatorLight = BIOS.util.defineIndicatorLight
 local defineIndicatorLightInverted = BIOS.util.defineIndicatorLightInverted
@@ -259,8 +259,8 @@ local function defineFloatFromUFCChannel(msg, _channel, category, description)
 			if not ufc then
 				return
 			end
-			UFC_Comm1Display 				= coerce_nil_to_string(ufc.UFC_Comm1Display)
-			UFC_Comm2Display 				= coerce_nil_to_string(ufc.UFC_Comm2Display)
+			UFC_Comm1Display 				= Coerce_nil_to_string(ufc.UFC_Comm1Display)
+			UFC_Comm2Display 				= Coerce_nil_to_string(ufc.UFC_Comm2Display)
 			local valor=1
 			local nuevo=""
 			if _channel==1 then
@@ -511,25 +511,25 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	if not ufc then
 		return
 	end
-	UFC_Comm1Display 				= coerce_nil_to_string(ufc.UFC_Comm1Display)
+	UFC_Comm1Display 				= Coerce_nil_to_string(ufc.UFC_Comm1Display)
 	UFC_Comm1Display = processUfcTwoDigitDisplay(UFC_Comm1Display)
-	UFC_Comm2Display 				= coerce_nil_to_string(ufc.UFC_Comm2Display)
+	UFC_Comm2Display 				= Coerce_nil_to_string(ufc.UFC_Comm2Display)
 	UFC_Comm2Display = processUfcTwoDigitDisplay(UFC_Comm2Display)
-	UFC_OptionCueing1 				= coerce_nil_to_string(ufc.UFC_OptionCueing1)
-	UFC_OptionCueing2 				= coerce_nil_to_string(ufc.UFC_OptionCueing2)
-	UFC_OptionCueing3 				= coerce_nil_to_string(ufc.UFC_OptionCueing3)
-	UFC_OptionCueing4 				= coerce_nil_to_string(ufc.UFC_OptionCueing4)
-	UFC_OptionCueing5 				= coerce_nil_to_string(ufc.UFC_OptionCueing5)
-	UFC_OptionDisplay1 				= coerce_nil_to_string(ufc.UFC_OptionDisplay1)
-	UFC_OptionDisplay2 				= coerce_nil_to_string(ufc.UFC_OptionDisplay2)
-	UFC_OptionDisplay3 				= coerce_nil_to_string(ufc.UFC_OptionDisplay3)
-	UFC_OptionDisplay4 				= coerce_nil_to_string(ufc.UFC_OptionDisplay4)
-	UFC_OptionDisplay5 				= coerce_nil_to_string(ufc.UFC_OptionDisplay5)
-	UFC_ScratchPadNumberDisplay 	= coerce_nil_to_string(ufc.UFC_ScratchPadNumberDisplay)
+	UFC_OptionCueing1 				= Coerce_nil_to_string(ufc.UFC_OptionCueing1)
+	UFC_OptionCueing2 				= Coerce_nil_to_string(ufc.UFC_OptionCueing2)
+	UFC_OptionCueing3 				= Coerce_nil_to_string(ufc.UFC_OptionCueing3)
+	UFC_OptionCueing4 				= Coerce_nil_to_string(ufc.UFC_OptionCueing4)
+	UFC_OptionCueing5 				= Coerce_nil_to_string(ufc.UFC_OptionCueing5)
+	UFC_OptionDisplay1 				= Coerce_nil_to_string(ufc.UFC_OptionDisplay1)
+	UFC_OptionDisplay2 				= Coerce_nil_to_string(ufc.UFC_OptionDisplay2)
+	UFC_OptionDisplay3 				= Coerce_nil_to_string(ufc.UFC_OptionDisplay3)
+	UFC_OptionDisplay4 				= Coerce_nil_to_string(ufc.UFC_OptionDisplay4)
+	UFC_OptionDisplay5 				= Coerce_nil_to_string(ufc.UFC_OptionDisplay5)
+	UFC_ScratchPadNumberDisplay 	= Coerce_nil_to_string(ufc.UFC_ScratchPadNumberDisplay)
 	UFC_ScratchPadNumberDisplay = (" "):rep(8-UFC_ScratchPadNumberDisplay:len())..UFC_ScratchPadNumberDisplay
-	UFC_ScratchPadString1Display 	= coerce_nil_to_string(ufc.UFC_ScratchPadString1Display)
+	UFC_ScratchPadString1Display 	= Coerce_nil_to_string(ufc.UFC_ScratchPadString1Display)
 	UFC_ScratchPadString1Display = processUfcTwoDigitDisplay(UFC_ScratchPadString1Display)
-	UFC_ScratchPadString2Display 	= coerce_nil_to_string(ufc.UFC_ScratchPadString2Display)
+	UFC_ScratchPadString2Display 	= Coerce_nil_to_string(ufc.UFC_ScratchPadString2Display)
 	UFC_ScratchPadString2Display = processUfcTwoDigitDisplay(UFC_ScratchPadString2Display)
 end
 
@@ -721,31 +721,31 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	if not ifei then
 		return
 	end
-	txt_BINGO 		= coerce_nil_to_string(ifei.txt_BINGO)
-	txt_CLOCK_H		= coerce_nil_to_string(ifei.txt_CLOCK_H)
-	txt_CLOCK_M		= coerce_nil_to_string(ifei.txt_CLOCK_M)
-	txt_CLOCK_S		= coerce_nil_to_string(ifei.txt_CLOCK_S)
-	txt_TIMER_H		= coerce_nil_to_string(ifei.txt_TIMER_H)
-	txt_TIMER_M		= coerce_nil_to_string(ifei.txt_TIMER_M)
-	txt_TIMER_S		= coerce_nil_to_string(ifei.txt_TIMER_S)
-	txt_DD_1		= coerce_nil_to_string(ifei.txt_DD_1)
-	txt_DD_2		= coerce_nil_to_string(ifei.txt_DD_2)
-	txt_DD_3		= coerce_nil_to_string(ifei.txt_DD_3)
-	txt_DD_4		= coerce_nil_to_string(ifei.txt_DD_4)
-	txt_FF_L		= coerce_nil_to_string(ifei.txt_FF_L)
-	txt_FF_R		= coerce_nil_to_string(ifei.txt_FF_R)
-	txt_FUEL_DOWN	= coerce_nil_to_string(ifei.txt_FUEL_DOWN)
-	txt_FUEL_UP		= coerce_nil_to_string(ifei.txt_FUEL_UP)
-	txt_OilPress_L	= coerce_nil_to_string(ifei.txt_OilPress_L)
-	txt_OilPress_R	= coerce_nil_to_string(ifei.txt_OilPress_R)
-	txt_RPM_L		= coerce_nil_to_string(ifei.txt_RPM_L)
-	txt_RPM_R		= coerce_nil_to_string(ifei.txt_RPM_R)
-	txt_TEMP_L		= coerce_nil_to_string(ifei.txt_TEMP_L)
-	txt_TEMP_R		= coerce_nil_to_string(ifei.txt_TEMP_R)
-	txt_Codes		= coerce_nil_to_string(ifei.txt_Codes)
-	txt_SP			= coerce_nil_to_string(ifei.txt_SP)
-	txt_TimeSetMode	= coerce_nil_to_string(ifei.txt_TimeSetMode)
-	txt_T			= coerce_nil_to_string(ifei.txt_T)
+	txt_BINGO 		= Coerce_nil_to_string(ifei.txt_BINGO)
+	txt_CLOCK_H		= Coerce_nil_to_string(ifei.txt_CLOCK_H)
+	txt_CLOCK_M		= Coerce_nil_to_string(ifei.txt_CLOCK_M)
+	txt_CLOCK_S		= Coerce_nil_to_string(ifei.txt_CLOCK_S)
+	txt_TIMER_H		= Coerce_nil_to_string(ifei.txt_TIMER_H)
+	txt_TIMER_M		= Coerce_nil_to_string(ifei.txt_TIMER_M)
+	txt_TIMER_S		= Coerce_nil_to_string(ifei.txt_TIMER_S)
+	txt_DD_1		= Coerce_nil_to_string(ifei.txt_DD_1)
+	txt_DD_2		= Coerce_nil_to_string(ifei.txt_DD_2)
+	txt_DD_3		= Coerce_nil_to_string(ifei.txt_DD_3)
+	txt_DD_4		= Coerce_nil_to_string(ifei.txt_DD_4)
+	txt_FF_L		= Coerce_nil_to_string(ifei.txt_FF_L)
+	txt_FF_R		= Coerce_nil_to_string(ifei.txt_FF_R)
+	txt_FUEL_DOWN	= Coerce_nil_to_string(ifei.txt_FUEL_DOWN)
+	txt_FUEL_UP		= Coerce_nil_to_string(ifei.txt_FUEL_UP)
+	txt_OilPress_L	= Coerce_nil_to_string(ifei.txt_OilPress_L)
+	txt_OilPress_R	= Coerce_nil_to_string(ifei.txt_OilPress_R)
+	txt_RPM_L		= Coerce_nil_to_string(ifei.txt_RPM_L)
+	txt_RPM_R		= Coerce_nil_to_string(ifei.txt_RPM_R)
+	txt_TEMP_L		= Coerce_nil_to_string(ifei.txt_TEMP_L)
+	txt_TEMP_R		= Coerce_nil_to_string(ifei.txt_TEMP_R)
+	txt_Codes		= Coerce_nil_to_string(ifei.txt_Codes)
+	txt_SP			= Coerce_nil_to_string(ifei.txt_SP)
+	txt_TimeSetMode	= Coerce_nil_to_string(ifei.txt_TimeSetMode)
+	txt_T			= Coerce_nil_to_string(ifei.txt_T)
 	if ifei.RPMTexture == nil then RPMTexture = "0" else RPMTexture = "1" end
 	if ifei.TempTexture == nil then TempTexture = "0" else TempTexture = "1" end
 	if ifei.FFTexture == nil then FFTexture = "0" else FFTexture = "1" end

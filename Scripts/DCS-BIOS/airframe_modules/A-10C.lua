@@ -6,7 +6,7 @@ local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document
 
-local parse_indication = BIOS.util.parse_indication
+local parse_indication = Parse_indication
 
 local defineIndicatorLight = BIOS.util.defineIndicatorLight
 local definePushButton = BIOS.util.definePushButton
@@ -1191,7 +1191,7 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	local arc = parse_indication(18)
 
 	if arc then
-		arc_210_freq = coerce_nil_to_string(arc["freq_label_mhz"]) .. "." .. coerce_nil_to_string(arc["freq_label_khz"])
+		arc_210_freq = Coerce_nil_to_string(arc["freq_label_mhz"]) .. "." .. Coerce_nil_to_string(arc["freq_label_khz"])
 		-- todo: figure out how to get the active page (doesn't seem to be exported like CDU page...)
 		arcItems = getDisplayItems(arc, arc_210_data)
 	end

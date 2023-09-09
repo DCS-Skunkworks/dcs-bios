@@ -4,29 +4,12 @@ BIOS.util = {}
 local MemoryAllocation = require "lib.MemoryAllocation"
 local StringAllocation = require "lib.StringAllocation"
 
-function BIOS.util.log2(n)
-	return math.log(n) / math.log(2)
-end
-
 function BIOS.util.shallowCopy(source, dest)
 	dest = dest or {}
 	for k, v in pairs(source) do
 		dest[k] = v
 	end
 	return dest
-end
-
-function BIOS.util.parse_indication(indicator_id)
-	local ret = {}
-	local li = list_indication(indicator_id)
-	if li == "" then return nil end
-	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
-	while true do
-        local name, value = m()
-        if not name then break end
-		ret[name] = value
-	end
-	return ret
 end
 
 local function document(args)
@@ -97,7 +80,7 @@ end
 function BIOS.util.MemoryMapEntry:allocate(args)
 	assert(args.maxValue)
 
-	local bitsRequired = math.ceil(BIOS.util.log2(args.maxValue+1))
+	local bitsRequired = Bit_space_required(args.maxValue)
 	assert(bitsRequired <= (16 - self.allocatedBitCounter))
 	local shiftBy = self.allocatedBitCounter
 	--local shiftBy = (16 - self.allocatedBitCounter - bitsRequired)
@@ -111,23 +94,6 @@ function BIOS.util.MemoryMapEntry:allocate(args)
 	self.allocatedBitCounter = self.allocatedBitCounter + bitsRequired
 	self.allocations[#self.allocations+1] = memoryAllocation
 	return memoryAllocation
-end
-
-function coerce_nil_to_string(value)
-	if value == nil then
-		return ""
-	else
-		return value
-	end
-end
-
----Constructs a string of the specified length with the left padded by whitespace if necessary.
----@param str string The base text
----@param len number The length the string should be
----@return string result A new string of length len, with whitespace padding added to the left as necessary
-function padLeft(str, len)
-	str = coerce_nil_to_string(tostring(str))
-    return string.rep(' ', len - #str)..str
 end
 
 
@@ -240,7 +206,7 @@ function BIOS.util.MemoryMap:allocateInt(args)
 	-- set will allocate consecutive bytes in the memory map.
 	assert(args.maxValue)
 
-	local bitsRequired = math.ceil(BIOS.util.log2(args.maxValue+1))
+	local bitsRequired = Bit_space_required(args.maxValue)
 	local address = nil
 	if args.allocateStringCharacter then
 		address = self.lastAddress
