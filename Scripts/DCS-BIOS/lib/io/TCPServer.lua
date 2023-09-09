@@ -12,13 +12,13 @@ local TCPConnection = require "TCPConnection"
 local TCPServer = Server:new()
 
 --- Creates a server for sending and receiving TCP packets
---- @param host string? the host to connect to
---- @param port number? the port on the host to connect to
+--- @param host string the host to connect to
+--- @param port number the port on the host to connect to
 function TCPServer:new(host, port)
 	--- @type TCPServer
 	local o = {
-		host = host or "*",
-		port = port or 7778,
+		host = host,
+		port = port,
 		acceptor = {},
 		connections = {}
 	}

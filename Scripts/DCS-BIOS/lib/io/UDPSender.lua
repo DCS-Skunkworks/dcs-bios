@@ -4,18 +4,19 @@ local socket = require "socket"
 local Connection = require "Connection"
 
 --- @class UDPSender: Connection
-local UDPSender = Connection:new("239.255.50.10", 5010)
+local UDPSender = Connection:new("", -1)
 
 --- Creates a socket for sending UDP packets
---- @param host string? the host to connect to
---- @param port number? the port on the host to connect to
+--- @param host string the host to connect to
+--- @param port number the port on the host to connect to
 function UDPSender:new(host, port)
 	--- @type UDPSender
-	local o = {}
+	local o = {
+		host = host,
+		port = port
+	}
 	setmetatable(o, self)
 	self.__index = self
-	o.host = host or o.host
-	o.port = port or o.port
 	return o
 end
 

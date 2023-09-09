@@ -4,18 +4,19 @@ local socket = require "socket"
 local ReadableConnection = require "ReadableConnection"
 
 --- @class UDPListener: ReadableConnection
-local UDPListener = ReadableConnection:new("*", 7778)
+local UDPListener = ReadableConnection:new("", -1)
 
 --- Creates a socket for receiving UDP packets
---- @param host string? the host to listen to
---- @param port number? the port to listen on
+--- @param host string the host to listen to
+--- @param port number the port to listen on
 function UDPListener:new(host, port)
 	--- @type UDPListener
-	local o = {}
+	local o = {
+		host = host,
+		port = port
+	}
 	setmetatable(o, self)
 	self.__index = self
-	o.host = host or o.host
-	o.port = port or o.port
 	return o
 end
 
