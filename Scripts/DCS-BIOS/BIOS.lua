@@ -15,12 +15,17 @@ end
 
 package.path  = package.path..";.\\LuaSocket\\?.lua"
 package.cpath = package.cpath..";.\\LuaSocket\\?.dll"
-  
+
+package.path = lfs.writedir() .. [[Scripts\DCS-BIOS\?.lua;]] .. package.path
+package.path = lfs.writedir() .. [[Scripts\DCS-BIOS\lib\?.lua;]] .. package.path
+package.path = lfs.writedir() .. [[Scripts\DCS-BIOS\lib\io\?.lua;]] .. package.path
+
 socket = require("socket")
 
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Util.lua]])
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\ProtocolIO.lua]])
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Protocol.lua]])
+dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\MemoryAllocation.lua]])
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\common_modules\MetadataEnd.lua]])
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\common_modules\MetadataStart.lua]])
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\common_modules\CommonData.lua]])

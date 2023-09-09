@@ -1,6 +1,8 @@
 --12.08.2023
 BIOS.util = {}
 
+local MemoryAllocation = require "lib.MemoryAllocation"
+
 function BIOS.util.log2(n)
 	return math.log(n) / math.log(2)
 end
@@ -89,6 +91,8 @@ function BIOS.util.MemoryMapEntry:setDirtyIfAble()
 		end
 	end
 end
+
+
 function BIOS.util.MemoryMapEntry:allocate(args)
 	assert(args.maxValue)
 
@@ -96,16 +100,16 @@ function BIOS.util.MemoryMapEntry:allocate(args)
 	assert(bitsRequired <= (16 - self.allocatedBitCounter))
 	local shiftBy = self.allocatedBitCounter
 	--local shiftBy = (16 - self.allocatedBitCounter - bitsRequired)
-	local alloc = BIOS.util.shallowCopy(BIOS.util.MemoryAllocation)
-	alloc.address = self.address
-	alloc.maxValue = args.maxValue
-	alloc.memoryMapEntry = self
-	alloc.multiplier = math.pow(2, shiftBy)
-	alloc.mask = (math.pow(2, bitsRequired) - 1) * math.pow(2, shiftBy)
-	alloc.shiftBy = shiftBy
+	local memoryAllocation = MemoryAllocation:new()
+	memoryAllocation.address = self.address
+	memoryAllocation.maxValue = args.maxValue
+	memoryAllocation.memoryMapEntry = self
+	memoryAllocation.multiplier = math.pow(2, shiftBy)
+	memoryAllocation.mask = (math.pow(2, bitsRequired) - 1) * math.pow(2, shiftBy)
+	memoryAllocation.shiftBy = shiftBy
 	self.allocatedBitCounter = self.allocatedBitCounter + bitsRequired
-	self.allocations[#self.allocations+1] = alloc
-	return alloc
+	self.allocations[#self.allocations+1] = memoryAllocation
+	return memoryAllocation
 end
 
 function coerce_nil_to_string(value)
@@ -123,38 +127,6 @@ end
 function padLeft(str, len)
 	str = coerce_nil_to_string(tostring(str))
     return string.rep(' ', len - #str)..str
-end
-
-BIOS.util.MemoryAllocation = {
-	value = nil,
-	memoryMapEntry = nil,
-	maxValue = nil,
-	multiplier = nil
-}
-function BIOS.util.MemoryAllocation:setValue(value)
-	-- ignore nil values (on MP servers with player export disabled, some values are not available)
-	if value == nil then return end
-	if value ~= value then
-        -- check for NaN (Not a Number)
-        return
-    end
-	assert(self.maxValue)
-	assert(value)
-	value = math.floor(value)
-	if value < 0 then
-		BIOS.log(string.format("Util.lua: value %f is too small for address %d mask %d", value, self.address, self.mask))
-		return
-	end
-	if value > self.maxValue then
-		BIOS.log(string.format("Util.lua: value %f is too large for address %d mask %d", value, self.address, self.mask))
-		return
-	end
-	assert(value >= 0)
-	assert(value <= self.maxValue)
-	if self.value ~= value then
-		self.value = value
-		self.memoryMapEntry.dirty = true
-	end
 end
 
 BIOS.util.StringAllocation = {
