@@ -4,9 +4,9 @@ local UDPListener = require "lib.io.UDPListener"
 local TCPServer = require "lib.io.TCPServer"
 
 BIOS.protocol_io.connections = {
-	-- UDPServer:new(
-	-- 	UDPSender:new(),
-	-- 	UDPListener:new()
-	-- ),
+	UDPServer:new(
+		UDPSender:new(),
+		UDPListener:new()
+	),
 	TCPServer:new()
 }

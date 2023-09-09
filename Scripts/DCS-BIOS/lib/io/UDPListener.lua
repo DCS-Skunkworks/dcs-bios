@@ -27,7 +27,7 @@ function UDPListener:init()
     local conn = socket.udp()
     conn:setsockname(self.host, self.port)
     conn:settimeout(0)
-    self.connections = conn
+    self.connection = conn
 end
 
 function UDPListener:step()
@@ -38,8 +38,6 @@ function UDPListener:step()
 		if not lInput then break end
 		self.rxbuf = self.rxbuf .. lInput
 	end
-
-	if self.rxbuf then BIOS.log("rxbuf: " .. self.rxbuf) end
 
 	while true do
 		local line, rest = self.rxbuf:match("^([^\n]*)\n(.*)")

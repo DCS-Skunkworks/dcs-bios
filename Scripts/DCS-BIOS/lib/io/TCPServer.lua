@@ -33,7 +33,6 @@ function TCPServer:step()
 	-- accept new connections
 	local newconn = self.acceptor:accept()
 	if newconn then
-		BIOS.log("got new connection!")
 		newconn:settimeout(0)
 		-- todo: tablify this
 		local newconn_info = { conn = newconn, txbuf = "", rxbuf = "" }
@@ -46,13 +45,10 @@ function TCPServer:step()
 
 		local data, err, partial = conninfo.conn:receive(4096)
 		if data then
-			BIOS.log("got full data")
 			conninfo.rxbuf = conninfo.rxbuf .. data
 		elseif partial and #partial > 0 then
-			BIOS.log("got partial data")
 			conninfo.rxbuf = conninfo.rxbuf .. partial
 		elseif err == "closed" then
-			BIOS.log("connection closed")
 			conninfo.closed = true
 			have_closed_connections = true
 		end
@@ -82,7 +78,6 @@ end
 
 function TCPServer:send(msg)
 	for k, conninfo in pairs(self.connections) do
-		BIOS.log("sending tcp message to " .. tostring(k))
 		socket.try(conninfo.conn:send(msg))
 	end
 end
