@@ -2,6 +2,7 @@
 BIOS.util = {}
 
 local MemoryAllocation = require "lib.MemoryAllocation"
+local StringAllocation = require "lib.StringAllocation"
 
 function BIOS.util.log2(n)
 	return math.log(n) / math.log(2)
@@ -129,26 +130,7 @@ function padLeft(str, len)
     return string.rep(' ', len - #str)..str
 end
 
-BIOS.util.StringAllocation = {
-	characterAllocations = nil
-}
-function BIOS.util.StringAllocation:setValue(value)
-	local i = 1
 
-        if value == nil then
-		BIOS.log(string.format("Util.lua: item %s is sending a nil value", msg or "nil"))
-		return
-        end
-
-	while i <= value:len() and i <= #self.characterAllocations do
-		self.characterAllocations[i]:setValue(value:byte(i))
-		i = i + 1
-	end
-	while i <= #self.characterAllocations do
-		self.characterAllocations[i]:setValue(32) -- space
-		i = i + 1
-	end
-end
 
 BIOS.util.MemoryMap = {
 	baseAddress = nil,
@@ -283,16 +265,15 @@ end
 function BIOS.util.MemoryMap:allocateString(args)
 	assert(args.maxLength)
 
-	local stringAlloc = BIOS.util.shallowCopy(BIOS.util.StringAllocation)
-	stringAlloc.characterAllocations = {}
+	local stringAllocation = StringAllocation:new()
 
-	stringAlloc.characterAllocations[1] = self:allocateInt{ maxValue = 255, allocateStringCharacter = true, allocateFirstStringCharacter = true }
+	stringAllocation.characterAllocations[1] = self:allocateInt{ maxValue = 255, allocateStringCharacter = true, allocateFirstStringCharacter = true }
 	for i = 2, args.maxLength, 1 do
-		stringAlloc.characterAllocations[i] = self:allocateInt{ maxValue = 255, allocateStringCharacter = true }
+		stringAllocation.characterAllocations[i] = self:allocateInt{ maxValue = 255, allocateStringCharacter = true }
 	end
-	stringAlloc.address = stringAlloc.characterAllocations[1].address
-	stringAlloc.maxLength = args.maxLength
-	return stringAlloc
+	stringAllocation.address = stringAllocation.characterAllocations[1].address
+	stringAllocation.maxLength = args.maxLength
+	return stringAllocation
 end
 
 
