@@ -16,20 +16,20 @@ local TCPServer = Server:new()
 --- @param port number? the port on the host to connect to
 function TCPServer:new(host, port)
 	--- @type TCPServer
-    local o = {
+	local o = {
 		host = host or "*",
 		port = port or 7778,
 		acceptor = {},
 		connections = {}
 	}
-    setmetatable(o, self)
-    self.__index = self
-    return o
+	setmetatable(o, self)
+	self.__index = self
+	return o
 end
 
 --- Initializes the TCP server with a connection acceptor to receive any incoming connections
 function TCPServer:init()
----@diagnostic disable-next-line: assign-type-mismatch
+	---@diagnostic disable-next-line: assign-type-mismatch
 	self.acceptor = socket.bind(self.host, self.port, 10) -- this is correct, diagnostics disabled
 	self.acceptor:settimeout(0)
 	self.connections = {}
@@ -75,10 +75,10 @@ end
 
 --- Closes all TCP connections connected to the server
 function TCPServer:close()
-    for _, connInfo in ipairs(self.connections) do
-        connInfo:close()
-    end
-    self.connections = {}
+	for _, connInfo in ipairs(self.connections) do
+		connInfo:close()
+	end
+	self.connections = {}
 end
 
 return TCPServer

@@ -10,15 +10,15 @@ local ReadableConnection = Connection:new("", -1)
 --- @param host string the host to listen to
 --- @param port number the port to listen on
 function ReadableConnection:new(host, port)
-    --- @type ReadableConnection
-    local o = {
+	--- @type ReadableConnection
+	local o = {
 		host = host,
 		port = port,
 		rxbuf = ""
 	}
-    setmetatable(o, self)
-    self.__index = self
-    return o
+	setmetatable(o, self)
+	self.__index = self
+	return o
 end
 
 --- @abstract

@@ -10,20 +10,20 @@ local UDPSender = Connection:new("239.255.50.10", 5010)
 --- @param host string? the host to connect to
 --- @param port number? the port on the host to connect to
 function UDPSender:new(host, port)
-    --- @type UDPSender
-    local o = {}
-    setmetatable(o, self)
-    self.__index = self
-    o.host = host or o.host
-    o.port = port or o.port
-    return o
+	--- @type UDPSender
+	local o = {}
+	setmetatable(o, self)
+	self.__index = self
+	o.host = host or o.host
+	o.port = port or o.port
+	return o
 end
 
 --- initializes the socket connection
 function UDPSender:init()
----@diagnostic disable-next-line: undefined-field
+	---@diagnostic disable-next-line: undefined-field
 	self.connection = socket.udp() -- this is correct, diagnostics disabled
-    self.connection:setpeername(self.host, self.port)
+	self.connection:setpeername(self.host, self.port)
 end
 
 ---@param msg string the message to send
