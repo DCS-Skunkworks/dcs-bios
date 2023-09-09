@@ -25,7 +25,6 @@ end
 function UDPServer:init()
     self.sender:init()
     self.listener:init()
-    self.connections = { self.sender.connection, self.listener.connection }
 end
 
 function UDPServer:step()
@@ -34,6 +33,11 @@ end
 
 function UDPServer:send(msg)
     self.sender:send(msg)
+end
+
+function UDPServer:close()
+    self.sender:close()
+    self.listener:close()
 end
 
 return UDPServer

@@ -7,16 +7,18 @@ local Connection = require "Connection"
 --- @class TCPServer: Server
 --- @field acceptor table the TCP connection acceptor
 --- @field tcpConnection Connection the connection information
+--- @field connections table[] the active TCP socket connections
 local TCPServer = Server:new()
 
---- Creates a socket for sending UDP packets
+--- Creates a server for sending and receiving TCP packets
 --- @param host string? the host to connect to
 --- @param port number? the port on the host to connect to
 function TCPServer:new(host, port)
 	--- @type TCPServer
     local o = {
 		tcpConnection = Connection:new(host or "*", port or 7778),
-		acceptor = {}
+		acceptor = {},
+		connections = {}
 	}
     setmetatable(o, self)
     self.__index = self
@@ -35,7 +37,7 @@ function TCPServer:step()
 	if newconn then
 		newconn:settimeout(0)
 		-- todo: tablify this
-		local newconn_info = { conn = newconn, txbuf = "", rxbuf = "" }
+		local newconn_info = { conn = newconn, rxbuf = "" }
 		self.connections[#self.connections+1] = newconn_info
 	end
 
