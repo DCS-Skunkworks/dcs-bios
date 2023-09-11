@@ -46,7 +46,7 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	iasEU = string.format("%4d", math.floor(0.5 + iasDisp * 3.6))           -- km/h
 	iasUS = string.format("%4d", math.floor(0.5 + iasDisp * 1.94384449))	-- knots
 
-    gload = LoGetGLoad() or 0
+    local gload = LoGetGLoad() or 0
 	if math.abs(gload) > 10 then _gLoad = string.format(" %2d ", gload)
 	else _gLoad = string.format("%4.1f", gload) end
 

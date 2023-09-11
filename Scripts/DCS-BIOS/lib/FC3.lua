@@ -18,6 +18,7 @@ local _AoA = " -- "
 local _gLoad = " -- "
 local _radarAltitude = 0
 local _barFuel = 0
+local _gload = 0
 local _barGLoad = 0
 local _barVVI = 8
 
@@ -25,9 +26,16 @@ local _adiBank = 0.0
 local _adiPitch = 0.0
 local _adiYaw = 0.0
 
+local _glidedeviation
+local _sidedeviation
+local _slipball
+
+local _chaff
+local _flare
+
 local function LoGetSelfPlane()
 	local selfdata = LoGetSelfData()
-	if selfdata == nil then selfdata = "XXX" end
+	if selfdata == nil then return "XXX" end
 	return selfdata.Name
 end
 
@@ -55,8 +63,8 @@ local function BarFuel(fuel, plane)
 	return barf
 end
 
-local function BarGLoad(gload)
-	local barg = math.floor((gload / 11) * 16)
+local function BarGLoad(_gload)
+	local barg = math.floor((_gload / 11) * 16)
 
 	if barg < 0 then barg = 0
 	elseif barg > 16 then barg = 16 end
@@ -103,14 +111,16 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	local mach = LoGetMachNumber() or 0
 	local fuel = LoGetFuelAll() or 0
 	local aoa = LoGetAngleOfAttack() or 0
-	_glidedev = LoGetGlideDeviation()
-	_sidedev = LoGetSideDeviation()
+	_glidedeviation = LoGetGlideDeviation()
+	_sidedeviation = LoGetSideDeviation()
 	_slipball = LoGetSlipBallPosition()
 
-	_barFuel = BarFuel(fuel, plane)
-	_barGLoad = BarGLoad(gload)
-	_barVVI = BarVVI(vvi, plane)
+	_gload = LoGetAccelerationUnits().y or 0
+	_barFuel = BarFuel(fuel, plane) or 0
+	_barGLoad = BarGLoad(_gload) or 0
+	_barVVI = BarVVI(vvi, plane) or 0
 
+	
 	local eng2 = LoGetEngineInfo()
     if eng2 ~= nil then
 	    _RPMLeft = string.format("%3.0d", eng2.RPM.left)
@@ -220,8 +230,8 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 
 	-- G LOAD
 	if plane == "A-10A" then
-		if gload < -5 then gload = -5
-		elseif gload > 10 then gload = 10 end
+		if _gload < -5 then _gload = -5
+		elseif _gload > 10 then _gload = 10 end
 	end
 
 	_indicatedAirspeed = string.format("%4d", ias)
@@ -280,8 +290,8 @@ defineIntegerFromGetter("FC3_VVI_BAR", function() return _barVVI end, 16, "Bar",
 define8BitFloatFromGetter("FC3_ADI_BANK", function() return _adiBank or 0 end, {-1, 1}, "Float", "ADI Bank")
 define8BitFloatFromGetter("FC3_ADI_PITCH", function() return _adiPitch or 0 end, {-1, 1}, "Float", "ADI Pitch")
 define8BitFloatFromGetter("FC3_ADI_YAW", function() return _adiYaw or 0 end, {-1, 1}, "Float", "ADI Yaw")
-define8BitFloatFromGetter("FC3_GLIDE_DEVIATION", function() return _glidedev or 0 end, {-1, 1}, "Float", "Glide Deviation")
-define8BitFloatFromGetter("FC3_SIDE_DEVIATION", function() return _sidedev or 0 end, {-1, 1}, "Float", "Side Deviation")
+define8BitFloatFromGetter("FC3_GLIDE_DEVIATION", function() return _glidedeviation or 0 end, {-1, 1}, "Float", "Glide Deviation")
+define8BitFloatFromGetter("FC3_SIDE_DEVIATION", function() return _sidedeviation or 0 end, {-1, 1}, "Float", "Side Deviation")
 define8BitFloatFromGetter("FC3_SLIP_BALL_POSITION", function() return _slipball or 0 end, {-1, 1}, "Float", "Slip Ball Position")
 
 --Externals
