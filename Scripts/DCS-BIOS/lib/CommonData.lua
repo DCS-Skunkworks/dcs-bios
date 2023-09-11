@@ -24,7 +24,7 @@ local modtime
 local iasEU
 local iasUS
 
-local gLoad
+local gLoad -- string
 
 local latDir
 local lonDir
