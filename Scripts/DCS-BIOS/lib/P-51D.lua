@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("P-51D", 0x5000)
 BIOS.protocol.setExportModuleAircrafts({"P-51D", "TF-51D", "P-51D-30-NA"})
-
+--v.1.0
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document
@@ -58,7 +58,7 @@ defineToggleSwitch("ARM_REST", 6, 3009, 200, "Cockpit Mechanical", "Arm rest")
 definePotentiometer("CANOPY_HAND_CRANK", 6, 3002, 147, {-6, 6}, "Cockpit Mechanical", "Canopy Hand Crank")
 defineToggleSwitch("CANOPY_EMERGENCY_RELEASE_HANDLE", 6, 3003,149, "Cockpit Mechanical", "Canopy Emergency Release Handle")
 defineToggleSwitch("OXYGEN_AUTO_MIX", 7, 3003, 131, "Oxygen System", "Auto-Mix On-Off")
-defineToggleSwitch("OXYGEN_BY-PASS", 7, 3001, 130, "Oxygen System", "Oxygen Emergency By-pass")
+defineToggleSwitch("OXYGEN_BYPASS", 7, 3001, 130, "Oxygen System", "Oxygen Emergency Bypass")
 defineFloat("PANEL_LIGHTS", 165, {0, 1}, "Light System", "Panel Background Lighting (green)")
 defineMultipositionSwitch("FUEL_SELECTOR_VALVE", 9, 3001, 85, 5, 0.1, "Fuel System", "Fuel Selector Valve")
 defineToggleSwitch("FUEL_SHUT_OFF_VALVE", 9, 3005, 86, "Fuel System", "Fuel Shut-Off Valve")
