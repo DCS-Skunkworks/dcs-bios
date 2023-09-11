@@ -1,7 +1,7 @@
 ---@meta
 
 ---@class lfs 
---- DCS Lua File System
+--- DCS Local File System
 lfs = {}
 
 ---@return string Returns the root location of DCS location in user folder
