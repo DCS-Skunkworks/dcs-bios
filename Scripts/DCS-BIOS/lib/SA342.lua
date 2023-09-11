@@ -417,12 +417,11 @@ end
 defineIntegerFromGetter("ADF_HEADING_VALUE", getADFHDG, 65000, "Gauge Values", "ADF Heading Value")
 
 local function getADFDIST()
-     local returnValue = dist
 	 local cent = (GetDevice(0):get_argument_value(110))*1000
 	 local dix = (GetDevice(0):get_argument_value(111))*100
 	 local unit = (GetDevice(0):get_argument_value(112))*10
-	 dist = cent + dix + unit
-     return returnValue
+	 local dist = cent + dix + unit
+     return dist
 end
 defineIntegerFromGetter("ADF_DISTANCE_VALUE", getADFDIST, 65000, "Gauge Values", "ADF Distance Value")
 
@@ -433,13 +432,12 @@ end
 defineIntegerFromGetter("BARO_ALT_VALUE", getBAROALT, 65000, "Gauge Values", "Barometric Altimeter Value")
 
 local function getBAROPRESS()
-     local returnValue = baro
 	 local baromille = (GetDevice(0):get_argument_value(95))*10000
 	 local barocent = (GetDevice(0):get_argument_value(92))*1000
 	 local barodix = (GetDevice(0):get_argument_value(90))*100
 	 local barounit = (GetDevice(0):get_argument_value(88))*10
-	 baro = baromille + barocent + barodix + barounit
-     return returnValue
+	 local baro = baromille + barocent + barodix + barounit
+     return baro
 end
 defineIntegerFromGetter("BARO_PRESS_VALUE", getBAROPRESS, 65000, "Gauge Values", "Barometric Pressure Value")
 
