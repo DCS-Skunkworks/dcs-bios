@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("JF-17", 0x4800)
 BIOS.protocol.setExportModuleAircrafts({"JF-17"})
--- by WarLord,Matchstick v1.6
+--v1.6a by WarLord,Matchstick
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document
@@ -589,7 +589,7 @@ local function processUFCPLine(ufcpLine, lineNum)
 	 end
 
 	 local processedUFCPLine
-	 
+
 	if txt_win_fill ~= nil then
 	   local full_txt_win_fill  = txt_win_fill..string.rep(" ",UFCPLineLength - string.len(txt_win_fill))
 	   if temp_txt_win ~= nil then
