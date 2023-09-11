@@ -525,7 +525,9 @@ local function getR863Frequency()
 	elseif freq4F >= 87.5                   then freq4 = "00"
 	end
 
-	return  freq1 .. freq2 .. "." .. freq3 .. freq4 or "100.000"
+    local frequency = freq1 .. freq2 .. "." .. freq3 .. freq4
+
+	return  frequency or "100.000"
 end
 
 defineTumb("R828_PRST_CHAN_SEL", 39, 3001, 735, 0.1, {0, 0.9}, nil, false, "R-828", "R-828, Radio Channel Selector Knob")

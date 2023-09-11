@@ -1725,8 +1725,9 @@ end
 
 OR, XOR, AND = 1, 3, 4
 
-function bitoper(a, b, oper)
-   local r, m, s = 0, 2^31
+local function bitoper(a, b, oper)
+   local r, m, s = 0, 2^31, 0
+
    repeat
       s,a,b = a+b+m, a%m, b%m
       r,m = r + m*oper%(s-a-b), m/2

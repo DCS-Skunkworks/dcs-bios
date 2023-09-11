@@ -41,7 +41,7 @@ local slope = {}
        		end     -- check the range of the value
 	end
 
-	final_value= ( slope[range] * (actual_value-output[range]) ) + input[range]
+	local final_value= ( slope[range] * (actual_value-output[range]) ) + input[range]
 
 	return final_value
 end
