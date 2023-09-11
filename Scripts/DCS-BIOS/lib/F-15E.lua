@@ -21,6 +21,41 @@ local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 local defineString = BIOS.util.defineString
 local defineRotary = BIOS.util.defineRotary
 
+
+--UFC DISPLAY (ID: 8)
+local F_UFC_Line1			= "                    "
+local F_UFC_Line2			= "                    "
+local F_UFC_Line3			= "                    "
+local F_UFC_Line4			= "                    "
+local F_UFC_Line5			= "                    "
+local F_UFC_Line6			= "                    "
+local F_UFC_Line1_dots 	= "                    "
+local F_UFC_Line2_dots 	= "                    "
+local F_UFC_Line3_dots 	= "                    "
+local F_UFC_Line4_dots 	= "                    "
+local F_UFC_Line5_dots 	= "                    "
+local F_UFC_Line6_dots 	= "                    "
+local F_UFC_ActiveUHF1 	= "        "
+local F_UFC_ActiveUHF2 	= "        "
+
+--REAR SEAT UFC DISPLAY (ID:20)
+local R_UFC_Line1			= "                    "
+local R_UFC_Line2			= "                    "
+local R_UFC_Line3			= "                    "
+local R_UFC_Line4			= "                    "
+local R_UFC_Line5			= "                    "
+local R_UFC_Line6			= "                    "
+local R_UFC_Line1_dots 	= "                    "
+local R_UFC_Line2_dots 	= "                    "
+local R_UFC_Line3_dots 	= "                    "
+local R_UFC_Line4_dots 	= "                    "
+local R_UFC_Line5_dots 	= "                    "
+local R_UFC_Line6_dots 	= "                    "
+local R_UFC_ActiveUHF1 	= "        "
+local R_UFC_ActiveUHF2 	= "        "
+
+local ufc_string_length 	= 20
+
 -- remove Arg# Pilot 1020 / WSO 1021 / WSO INSTR 1039
 ----------------------------------------- Extra Functions
 local function defineIndicatorLightMulti1(msg, arg_number, category, description) --red
@@ -133,43 +168,10 @@ definePushButton("F_UFC_KEY__0", 56, 3036, 305, "Front UFC", "FRONT -/0 Key")
 definePushButton("F_UFC_KEY_DATA", 56, 3037, 306, "Front UFC", "FRONT Data Key")
 definePushButton("F_UFC_KEY_MENU", 56, 3038, 307, "Front UFC", "FRONT Menu Key")
 
---UFC DISPLAY (ID: 8)
-F_UFC_Line1			= "                    "
-F_UFC_Line2			= "                    "
-F_UFC_Line3			= "                    "
-F_UFC_Line4			= "                    "
-F_UFC_Line5			= "                    "
-F_UFC_Line6			= "                    "
-F_UFC_Line1_dots 	= "                    "
-F_UFC_Line2_dots 	= "                    "
-F_UFC_Line3_dots 	= "                    "
-F_UFC_Line4_dots 	= "                    "
-F_UFC_Line5_dots 	= "                    "
-F_UFC_Line6_dots 	= "                    "
-F_UFC_ActiveUHF1 	= "        "
-F_UFC_ActiveUHF2 	= "        "
-
---REAR SEAT UFC DISPLAY (ID:20)
-R_UFC_Line1			= "                    "
-R_UFC_Line2			= "                    "
-R_UFC_Line3			= "                    "
-R_UFC_Line4			= "                    "
-R_UFC_Line5			= "                    "
-R_UFC_Line6			= "                    "
-R_UFC_Line1_dots 	= "                    "
-R_UFC_Line2_dots 	= "                    "
-R_UFC_Line3_dots 	= "                    "
-R_UFC_Line4_dots 	= "                    "
-R_UFC_Line5_dots 	= "                    "
-R_UFC_Line6_dots 	= "                    "
-R_UFC_ActiveUHF1 	= "        "
-R_UFC_ActiveUHF2 	= "        "
-
-ufc_string_length 	= 20
 
 local function replaceSpecial(str, result)
-    special = result or ""
-    i = str.find(str, "[:.`]")
+    local special = result or ""
+    local i = str.find(str, "[:.`]")
 
     if i ~= nil then
         special = string.format("%s%" .. i - 1 .. "s", special, string.sub(str, i, i))
@@ -181,20 +183,20 @@ end
 
 local function prepareCharsAndSpecial(str)
     str = str:gsub("°", "`")
-    strChars = str:gsub("[:.`]","")
-    strSpecial = string.len(strChars) > 0 and string.format("%-" .. string.len(strChars) .. "s", replaceSpecial(str)) or ""
+    local strChars = str:gsub("[:.`]","")
+    local strSpecial = string.len(strChars) > 0 and string.format("%-" .. string.len(strChars) .. "s", replaceSpecial(str)) or ""
 
     return str, strChars, strSpecial
 end
 
 local function replaceCharAtIndex(str, index, character)
-    startChars = string.sub(str, 1, index - 1)
-    remainingChars = string.sub(str, index + 1)
+    local startChars = string.sub(str, 1, index - 1)
+    local remainingChars = string.sub(str, index + 1)
     return string.format("%s%s%s", startChars, character, remainingChars)
 end
 
 local function replaceIndexIfValue(str, charValue, index)
-	charData = coerce_nil_to_string(charValue):gsub("°", "`")
+	local charData = coerce_nil_to_string(charValue):gsub("°", "`")
 
 	if string.len(charData) > 0 then
 		return replaceCharAtIndex(str, index, charData):gsub("`", "'")
@@ -207,17 +209,19 @@ local function combine_ufc_line(left, center, right, centerStart)
     left = coerce_nil_to_string(left)
     right = coerce_nil_to_string(right)
     center = coerce_nil_to_string(center)
-
+	local leftChars, leftSpecial
+	local rightChars, rightSpecial
+	local centerChars, centerSpecial
     left, leftChars, leftSpecial = prepareCharsAndSpecial(left)
     right, rightChars, rightSpecial = prepareCharsAndSpecial(right)
     center, centerChars, centerSpecial = prepareCharsAndSpecial(center)
 
-    paddingSpaces = ufc_string_length - string.len(rightChars)
+    local paddingSpaces = ufc_string_length - string.len(rightChars)
 
-    lineChars = string.format("%-" .. paddingSpaces .. "s%s", leftChars, rightChars)
-    lineSpecial = string.format("%-" .. paddingSpaces .. "s%s", leftSpecial, rightSpecial)
+    local lineChars = string.format("%-" .. paddingSpaces .. "s%s", leftChars, rightChars)
+    local lineSpecial = string.format("%-" .. paddingSpaces .. "s%s", leftSpecial, rightSpecial)
 
-    centerCharsLen = string.len(centerChars)
+    local centerCharsLen = string.len(centerChars)
 
     if centerCharsLen > 0 then
         centerStart = centerStart or math.floor((ufc_string_length - centerCharsLen) / 2) + 1
@@ -233,7 +237,7 @@ end
 
 -- UFC Line 1
 local function build_ufc_line_1(ufcData)
-	lineChars, lineSpecial = combine_ufc_line(ufcData.UFC_SC_01, ufcData.UFC_CC_01, ufcData.UFC_SC_12)
+	local lineChars, lineSpecial = combine_ufc_line(ufcData.UFC_SC_01, ufcData.UFC_CC_01, ufcData.UFC_SC_12)
 
 	-- Special Characters and their indexes
 	lineSpecial = replaceIndexIfValue(lineSpecial, ufcData.UFC_SC_R23R3, 14)
@@ -244,7 +248,7 @@ end
 
 -- UFC Line 2
 local function build_ufc_line_2(ufcData)
-	lineChars, lineSpecial = combine_ufc_line(ufcData.UFC_SC_02, ufcData.UFC_CC_02, ufcData.UFC_SC_11)
+	local lineChars, lineSpecial = combine_ufc_line(ufcData.UFC_SC_02, ufcData.UFC_CC_02, ufcData.UFC_SC_11)
 
 	-- Special Characters and their indexes
 	lineSpecial = replaceIndexIfValue(lineSpecial, ufcData.UFC_SC_02A, 3)
@@ -257,7 +261,7 @@ end
 
 -- UFC Line 3
 local function build_ufc_line_3(ufcData)
-	lineChars, lineSpecial = combine_ufc_line(ufcData.UFC_SC_03, ufcData.UFC_CC_03, ufcData.UFC_SC_10)
+	local lineChars, lineSpecial = combine_ufc_line(ufcData.UFC_SC_03, ufcData.UFC_CC_03, ufcData.UFC_SC_10)
 
 	-- Special Characters and their indexes
 	lineSpecial = replaceIndexIfValue(lineSpecial, ufcData.UFC_SC_03L1, 4)
@@ -270,7 +274,7 @@ end
 
 -- UFC Line 4
 local function build_ufc_line_4(ufcData)
-	lineChars, lineSpecial = combine_ufc_line(ufcData.UFC_SC_04, nil, ufcData.UFC_SC_09)
+	local lineChars, lineSpecial = combine_ufc_line(ufcData.UFC_SC_04, nil, ufcData.UFC_SC_09)
 
 	-- Special Characters and their indexes
 	-- Currently none
@@ -280,7 +284,7 @@ end
 
 -- UFC Line 5
 local function build_ufc_line_5(ufcData)
-	lineChars, lineSpecial = combine_ufc_line(ufcData.UFC_SC_05, nil, ufcData.UFC_SC_08)
+	local lineChars, lineSpecial = combine_ufc_line(ufcData.UFC_SC_05, nil, ufcData.UFC_SC_08)
 
 	-- Special Characters and their indexes
 	lineSpecial = replaceIndexIfValue(lineSpecial, ufcData.UFC_SC_05A, 5)
@@ -291,10 +295,10 @@ end
 
 -- UFC Line 6
 local function build_ufc_line_6(ufcData)
-	lineChars, lineSpecial = combine_ufc_line(ufcData.UFC_SC_06, ufcData.UFC_CC_04, ufcData.UFC_SC_07, 6)
+	local lineChars, lineSpecial = combine_ufc_line(ufcData.UFC_SC_06, ufcData.UFC_CC_04, ufcData.UFC_SC_07, 6)
 
-	userInput = coerce_nil_to_string(ufcData.UFC_CC_04):gsub("°", "`")
-	specialOffset = string.find(userInput, "[EW]") == 1 and 1 or 0
+	local userInput = coerce_nil_to_string(ufcData.UFC_CC_04):gsub("°", "`")
+	local specialOffset = string.find(userInput, "[EW]") == 1 and 1 or 0
 
 	-- Special Characters and their indexes
 	lineSpecial = replaceIndexIfValue(lineSpecial, ufcData.UFC_LL_INPUT_DEG, 8 + specialOffset)
@@ -305,8 +309,8 @@ end
 
 -- UFC Active Radios
 local function determine_active_radios(line5, line6)
-	activeUHF1 = "        "
-	activeUHF2 = "        "
+	local activeUHF1 = "        "
+	local activeUHF2 = "        "
 
 	if line6:find("*") == 1 then
 		activeUHF1 = line6:sub(2, 4)
