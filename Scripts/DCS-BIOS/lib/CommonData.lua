@@ -58,8 +58,9 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	iasUS = string.format("%4d", math.floor(0.5 + iasDisp * 1.94384449))	-- knots
 
     local gload = LoGetGLoad() or 0
-	if math.abs(gload) > 10 then gLoad = string.format(" %2d ", gload)
-	else gLoad = string.format("%4.1f", gload) end
+
+	if math.abs(gload) > 10 then _gLoad = string.format(" %2d ", gload)
+	else _gLoad = string.format("%4.1f", gload) end
 
 	local selfData = LoGetSelfData()
 	if selfData == nil then return end
