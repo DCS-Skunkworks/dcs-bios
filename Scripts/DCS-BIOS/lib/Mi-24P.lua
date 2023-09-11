@@ -912,7 +912,8 @@ local function getARCROPFrequency()
     local freq2 = string.format("%.0f", GetDevice(0):get_argument_value(643)/(1/9))
 	if freq2 == nil then freq2 = "0" end
 	local freq3 = ARC15_FREQ_POS[string.format("%.0f", GetDevice(0):get_argument_value(644)/(1/20))]
-	if freq3 == nil then freq3 = "000" end    local frequency = freq1 .. freq2 .. freq3
+	if freq3 == nil then freq3 = "000" end    
+    local frequency = freq1 .. freq2 .. freq3
 	
     return  frequency or "000000"
 end
