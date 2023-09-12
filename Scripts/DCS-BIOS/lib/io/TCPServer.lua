@@ -39,44 +39,44 @@ end
 function TCPServer:step()
 	self:acceptConnections()
 
-	local itemsToRemove = {}
+	local items_to_remove = {}
 	-- receive data
-	for i, conninfo in ipairs(self.connections) do
-		local success, err = conninfo:receive()
+	for i, connection_info in ipairs(self.connections) do
+		local success, err = connection_info:receive()
 
 		if not success and err == "closed" then
-			table.insert(itemsToRemove, i)
+			table.insert(items_to_remove, i)
 		end
 	end
 
 	-- eliminate closed connections
-	for _, indexToremove in ipairs(itemsToRemove) do
-		table.remove(self.connections, indexToremove)
+	for _, index_to_remove in ipairs(items_to_remove) do
+		table.remove(self.connections, index_to_remove)
 	end
 end
 
 --- @private
 --- Accepts any incoming connections
 function TCPServer:acceptConnections()
-	local newconn = self.acceptor:accept()
-	if newconn then
-		newconn:settimeout(0)
-		table.insert(self.connections, TCPConnection:new(newconn))
+	local new_connection = self.acceptor:accept()
+	if new_connection then
+		new_connection:settimeout(0)
+		table.insert(self.connections, TCPConnection:new(new_connection))
 	end
 end
 
 --- Sends a message to all TCP connections connected to the server
 --- @param msg string the message to send
 function TCPServer:send(msg)
-	for _, conninfo in ipairs(self.connections) do
-		conninfo:send(msg)
+	for _, connection_info in ipairs(self.connections) do
+		connection_info:send(msg)
 	end
 end
 
 --- Closes all TCP connections connected to the server
 function TCPServer:close()
-	for _, connInfo in ipairs(self.connections) do
-		connInfo:close()
+	for _, connection_info in ipairs(self.connections) do
+		connection_info:close()
 	end
 	self.connections = {}
 end

@@ -33,11 +33,11 @@ end
 --- @return boolean, string? success whether the reception was successful, and the error if not (UDP reception is always successful)
 function UDPListener:receive()
 	while true do
-		local lInput = self.connection:receive()
-		if not lInput then
+		local l_input = self.connection:receive()
+		if not l_input then
 			break
 		end
-		self:appendToBuffer(lInput)
+		self:appendToBuffer(l_input)
 	end
 
 	self:processBuffer()
