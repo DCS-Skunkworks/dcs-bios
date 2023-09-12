@@ -1,7 +1,7 @@
 module("UDPSender", package.seeall)
 
-local socket = require "socket"
-local Connection = require "Connection"
+local Connection = require("Connection")
+local socket = require("socket")
 
 --- @class UDPSender: Connection
 local UDPSender = Connection:new("", -1)
@@ -13,7 +13,7 @@ function UDPSender:new(host, port)
 	--- @type UDPSender
 	local o = {
 		host = host,
-		port = port
+		port = port,
 	}
 	setmetatable(o, self)
 	self.__index = self

@@ -1,8 +1,8 @@
 module("TCPServer", package.seeall)
 
-local socket = require "socket"
-local Server = require "Server"
-local TCPConnection = require "TCPConnection"
+local Server = require("Server")
+local TCPConnection = require("TCPConnection")
+local socket = require("socket")
 
 --- @class TCPServer: Server
 --- @field private acceptor table the TCP connection acceptor
@@ -20,7 +20,7 @@ function TCPServer:new(host, port)
 		host = host,
 		port = port,
 		acceptor = {},
-		connections = {}
+		connections = {},
 	}
 	setmetatable(o, self)
 	self.__index = self

@@ -1,7 +1,7 @@
 module("UDPListener", package.seeall)
 
-local socket = require "socket"
-local ReadableConnection = require "ReadableConnection"
+local ReadableConnection = require("ReadableConnection")
+local socket = require("socket")
 
 --- @class UDPListener: ReadableConnection
 local UDPListener = ReadableConnection:new("", -1)
@@ -13,7 +13,7 @@ function UDPListener:new(host, port)
 	--- @type UDPListener
 	local o = {
 		host = host,
-		port = port
+		port = port,
 	}
 	setmetatable(o, self)
 	self.__index = self
@@ -34,7 +34,9 @@ end
 function UDPListener:receive()
 	while true do
 		local lInput = self.connection:receive()
-		if not lInput then break end
+		if not lInput then
+			break
+		end
 		self:appendToBuffer(lInput)
 	end
 

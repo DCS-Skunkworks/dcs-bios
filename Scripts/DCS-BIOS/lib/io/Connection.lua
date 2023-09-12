@@ -1,6 +1,6 @@
 module("Connection", package.seeall)
 
-local socket = require "socket"
+local socket = require("socket")
 
 --- @class Connection
 --- @field host string the host to connect to
@@ -16,7 +16,7 @@ function Connection:new(host, port)
 	local o = {
 		host = host,
 		port = port,
-		connection = {}
+		connection = {},
 	}
 	setmetatable(o, self)
 	self.__index = self

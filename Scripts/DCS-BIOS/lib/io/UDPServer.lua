@@ -1,6 +1,6 @@
 module("UDPServer", package.seeall)
 
-local Server = require "Server"
+local Server = require("Server")
 
 --- @class UDPServer: Server
 --- @field sender UDPSender
@@ -14,7 +14,7 @@ function UDPServer:new(sender, listener)
 	--- @type UDPServer
 	local o = {
 		sender = sender,
-		listener = listener
+		listener = listener,
 	}
 	setmetatable(o, self)
 	self.__index = self

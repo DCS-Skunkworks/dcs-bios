@@ -1,6 +1,6 @@
 module("UDPListener", package.seeall)
 
-local Connection = require "Connection"
+local Connection = require("Connection")
 
 --- @class ReadableConnection: Connection
 --- @field private rxbuf string buffer which stores received data until it can be processed
@@ -14,7 +14,7 @@ function ReadableConnection:new(host, port)
 	local o = {
 		host = host,
 		port = port,
-		rxbuf = ""
+		rxbuf = "",
 	}
 	setmetatable(o, self)
 	self.__index = self

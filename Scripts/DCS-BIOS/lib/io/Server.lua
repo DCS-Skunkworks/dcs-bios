@@ -1,14 +1,12 @@
 module("Server", package.seeall)
 
 --- @class Server
-local Server = {
-}
+local Server = {}
 
 --- Constructs a new server
 function Server:new()
 	--- @type Server
-	local o = {
-	}
+	local o = {}
 	setmetatable(o, self)
 	self.__index = self
 	return o

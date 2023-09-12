@@ -1,7 +1,7 @@
 module("UDPListener", package.seeall)
 
-local socket = require "socket"
-local ReadableConnection = require "ReadableConnection"
+local ReadableConnection = require("ReadableConnection")
+local socket = require("socket")
 
 --- @class TCPConnection: ReadableConnection
 local TCPConnection = ReadableConnection:new("", -1)
@@ -12,7 +12,7 @@ function TCPConnection:new(connection)
 	--- @type TCPConnection
 	local o = {
 		rxbuf = "",
-		connection = connection
+		connection = connection,
 	}
 	setmetatable(o, self)
 	self.__index = self
