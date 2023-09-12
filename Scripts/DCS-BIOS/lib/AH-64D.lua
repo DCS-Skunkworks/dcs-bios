@@ -405,8 +405,11 @@ defineString("CPG_KU_DISPLAY", function() return txt_CPG_KU end, 22, "CPG Keyboa
 -- Enhanced Up-Front Display
 local JSON = loadfile([[Scripts\JSON.lua]])()
 local eufd_indicator_data_file = io.open(lfs.writedir()..[[Scripts\DCS-BIOS\doc\json\AH-64D_EUFD.json]], "r")
-local eufd_indicator_data = JSON:decode(eufd_indicator_data_file:read("*a"))
-eufd_indicator_data_file:close()
+local eufd_indicator_data
+if(eufd_indicator_data_file ~= nil) then
+	eufd_indicator_data = JSON:decode(eufd_indicator_data_file:read("*a"))
+	eufd_indicator_data_file:close()
+end
 eufd_indicator_data_file = nil
 
 local LINE_LEN = 56
@@ -414,7 +417,7 @@ local LINE_LEN = 56
 local function parse_eufd(indicator_id)
 	local dcs_eufd = parse_indication(indicator_id)
 	-- todo: return different page based on the actual page
-	return getDisplayLines(dcs_eufd, LINE_LEN, 14, eufd_indicator_data, function() return "MAIN" end)
+	return getDisplayLines(dcs_eufd or {}, LINE_LEN, 14, eufd_indicator_data, function() return "MAIN" end, {})
 end
 
 local plt_EUFD = {}

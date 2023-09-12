@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("JF-17", 0x4800)
 BIOS.protocol.setExportModuleAircrafts({"JF-17"})
--- by WarLord,Matchstick v1.6
+--v1.6a by WarLord,Matchstick
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document
@@ -582,16 +582,18 @@ local function processUFCPLine(ufcpLine, lineNum)
 	local UFCPLineLength = 8
 	local txt_win
 
-	if temp_txt_win ~= null then
+	if temp_txt_win ~= nil then
 			txt_win = temp_txt_win:gsub(string.char(127),"^")
 	 else
 		 txt_win = ""
 	 end
 
-	if txt_win_fill ~= null then
+	 local processedUFCPLine
+
+	if txt_win_fill ~= nil then
 	   local full_txt_win_fill  = txt_win_fill..string.rep(" ",UFCPLineLength - string.len(txt_win_fill))
-	   if temp_txt_win ~= null then
-		  if cur_win ~= null then
+	   if temp_txt_win ~= nil then
+		  if cur_win ~= nil then
 			 if txt_win:find("-") then
 				processedUFCPLine = txt_win:sub(1,txt_win:find("-") - cur_win:len()) .. cur_win .. txt_win:sub(txt_win:find("-") + cur_win:len()) .. full_txt_win_fill:sub(txt_win:len()+1)
 			 else
@@ -601,13 +603,13 @@ local function processUFCPLine(ufcpLine, lineNum)
 			 processedUFCPLine = txt_win .. full_txt_win_fill:sub(txt_win:len() + 1)
 		  end
 		else
-		  if cur_winr ~= null then
+		  if cur_winr ~= nil then
 			 processedUFCPLine = full_txt_win_fill:sub(1,UFCPLineLength - txt_winr:len()) .. txt_winr:sub(1,txt_winr:len() - cur_winr:len())..cur_winr
 		  else
 			 processedUFCPLine = full_txt_win_fill:sub(1,UFCPLineLength - txt_winr:len())..txt_winr
 		  end
 		end
-	elseif txt_win ~= null then
+	elseif txt_win ~= nil then
 	   processedUFCPLine = txt_win
 	else
 	   processedUFCPLine = txt_winr

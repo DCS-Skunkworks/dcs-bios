@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("FA-18C_hornet", 0x7400)
 BIOS.protocol.setExportModuleAircrafts({"FA-18C_hornet", "EA-18G", "FA-18E", "FA-18F"}) -- FA-18C + Mods
--- F/A-18 Module created by AndrewW, modified by WarLord,charliefoxtwo&DeadMeat v1.7b
+--v1.8 F/A-18 Module created by AndrewW, modified by WarLord,charliefoxtwo&DeadMeat
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 
@@ -41,7 +41,7 @@ local slope = {}
        		end     -- check the range of the value
 	end
 
-	final_value= ( slope[range] * (actual_value-output[range]) ) + input[range]
+	local final_value= ( slope[range] * (actual_value-output[range]) ) + input[range]
 
 	return final_value
 end

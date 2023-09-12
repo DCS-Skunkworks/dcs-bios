@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("Mi-24P", 0x6800)
 BIOS.protocol.setExportModuleAircrafts({"Mi-24P"})
---v1.2a by WarLord&charliefoxtwo
+--v1.2b by WarLord&charliefoxtwo
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document
@@ -861,7 +861,9 @@ local function getARCLPLTFrequency()
 	if freq2 == nil then freq2 = "0" end
 	local freq3 = ARC15_FREQ_POS[string.format("%.0f", GetDevice(0):get_argument_value(469)/(1/20))]
 	if freq3 == nil then freq3 = "000" end
-	return  freq1 .. freq2 .. freq3 or "000000"
+    local frequency = freq1 .. freq2 .. freq3
+
+	return  frequency or "000000"
 end
 defineString("PLT_ARC_FREQ_L", getARCLPLTFrequency, 6, "ARC-15 PLT", "PILOT ARC-15 Left Frequency (String)")
 
@@ -872,7 +874,9 @@ local function getARCRPLTFrequency()
 	if freq2 == nil then freq2 = "0" end
 	local freq3 = ARC15_FREQ_POS[string.format("%.0f", GetDevice(0):get_argument_value(466)/(1/20))]
 	if freq3 == nil then freq3 = "000" end
-	return  freq1 .. freq2 .. freq3 or "000000"
+    local frequency = freq1 .. freq2 .. freq3
+
+    return  frequency or "000000"
 end
 defineString("PLT_ARC_FREQ_R", getARCRPLTFrequency, 6, "ARC-15 PLT", "PILOT ARC-15 Right Frequency (String)")
 
@@ -896,7 +900,9 @@ local function getARCLOPFrequency()
 	if freq2 == nil then freq2 = "0" end
 	local freq3 = ARC15_FREQ_POS[string.format("%.0f", GetDevice(0):get_argument_value(641)/(1/20))]
 	if freq3 == nil then freq3 = "000" end
-	return  freq1 .. freq2 .. freq3 or "000000"
+    local frequency = freq1 .. freq2 .. freq3
+
+    return  frequency or "000000"
 end
 defineString("OP_ARC_FREQ_L", getARCLOPFrequency, 6, "ARC-15 OP", "OPERATOR ARC-15 Left Frequency (String)")
 
@@ -907,7 +913,9 @@ local function getARCROPFrequency()
 	if freq2 == nil then freq2 = "0" end
 	local freq3 = ARC15_FREQ_POS[string.format("%.0f", GetDevice(0):get_argument_value(644)/(1/20))]
 	if freq3 == nil then freq3 = "000" end
-	return  freq1 .. freq2 .. freq3 or "000000"
+    local frequency = freq1 .. freq2 .. freq3
+
+    return  frequency or "000000"
 end
 defineString("OP_ARC_FREQ_R", getARCROPFrequency, 6, "ARC-15 OP", "OPERATOR ARC-15 Right Frequency (String)")
 

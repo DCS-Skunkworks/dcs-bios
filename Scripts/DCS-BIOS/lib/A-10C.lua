@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("A-10C", 0x1000)
 BIOS.protocol.setExportModuleAircrafts({"A-10C", "A-10C_2"})
---overhaul by WarLord,charliefoxtwo,talbotmcinnis&DeadMeat v2.9c
+--v3.0 overhaul by WarLord,charliefoxtwo,talbotmcinnis&DeadMeat
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 
@@ -501,17 +501,17 @@ local function defineCMSPSwitch(msg, device_id, down_command, up_command, arg_nu
 		end
 		local fromState = string.format("%.1f", GetDevice(0):get_argument_value(arg_number))
 		local fslut = {["0.0"] = -1, ["0.1"] = 0, ["0.2"] = 1}
-		fromState = fslut[fromState]
+		local fromStateMapped = fslut[fromState]
 		local dev = GetDevice(device_id)
-		if fromState == 0 and toState == 1 then dev:performClickableAction(up_command, 0.2) end
-		if fromState == 1 and toState == 0 then dev:performClickableAction(up_command, 0.1) end
-		if fromState == 0 and toState == -1 then dev:performClickableAction(down_command, 0.0) end
-		if fromState == -1 and toState == 0 then dev:performClickableAction(down_command, 0.1) end
-		if fromState == -1 and toState == 1 then
+		if fromStateMapped == 0 and toState == 1 then dev:performClickableAction(up_command, 0.2) end
+		if fromStateMapped == 1 and toState == 0 then dev:performClickableAction(up_command, 0.1) end
+		if fromStateMapped == 0 and toState == -1 then dev:performClickableAction(down_command, 0.0) end
+		if fromStateMapped == -1 and toState == 0 then dev:performClickableAction(down_command, 0.1) end
+		if fromStateMapped == -1 and toState == 1 then
 			dev:performClickableAction(down_command, 0.1)
 			dev:performClickableAction(up_command, 0.2)
 		end
-		if fromState == 1 and toState == -1 then
+		if fromStateMapped == 1 and toState == -1 then
 			dev:performClickableAction(up_command, 0.1)
 			dev:performClickableAction(down_command, 0.0)
 		end
@@ -1097,8 +1097,13 @@ definePotentiometer("RWR_BRT", 29, 3001, 16, {0.15, 0.85}, "RWR", "Display Brigh
 
 local JSON = loadfile([[Scripts\JSON.lua]])()
 local cdu_indicator_data_file = io.open(lfs.writedir()..[[Scripts\DCS-BIOS\doc\json\A-10C_CDU.json]], "r")
-local cdu_indicator_data = JSON:decode(cdu_indicator_data_file:read("*a"))
-cdu_indicator_data_file:close()
+local cdu_indicator_data
+
+if(cdu_indicator_data_file ~= nil) then
+	cdu_indicator_data = JSON:decode(cdu_indicator_data_file:read("*a"))
+	cdu_indicator_data_file:close()
+end
+
 cdu_indicator_data_file = nil
 
 cdu_indicator_data["ScratchBorders"] = {
@@ -1166,7 +1171,7 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	}
 						end
 
-	cdu_lines = getDisplayLines(cdu, CDU_LINE_LEN, 10, cdu_indicator_data, getPageName, replaceMap)
+	cdu_lines = getDisplayLines(cdu or {}, CDU_LINE_LEN, 10, cdu_indicator_data, getPageName, replaceMap)
 					end
 
 defineString("CDU_LINE0", function() return cdu_lines[1] end, CDU_LINE_LEN, "CDU Display", "CDU Line 1")
@@ -1182,10 +1187,15 @@ defineString("CDU_LINE9", function() return cdu_lines[10] end, CDU_LINE_LEN, "CD
 
 local arcItems = {}
 local arc_210_data_file = io.open(lfs.writedir()..[[Scripts\DCS-BIOS\doc\json\A-10C_ARC-210.json]], "r")
-local arc_210_data = JSON:decode(arc_210_data_file:read("*a"))
-arc_210_data_file:close()
+
+local arc_210_data
+if(arc_210_data_file ~= nil) then
+	arc_210_data = JSON:decode(arc_210_data_file:read("*a"))
+	arc_210_data_file:close()
+end
+
 arc_210_data_file = nil
-arc_210_freq = "       "
+local arc_210_freq = "       "
 
 moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	local arc = parse_indication(18)
@@ -1193,7 +1203,7 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	if arc then
 		arc_210_freq = coerce_nil_to_string(arc["freq_label_mhz"]) .. "." .. coerce_nil_to_string(arc["freq_label_khz"])
 		-- todo: figure out how to get the active page (doesn't seem to be exported like CDU page...)
-		arcItems = getDisplayItems(arc, arc_210_data)
+		arcItems = getDisplayItems(arc, arc_210_data,  function() return nil end, {})
 	end
 end
 

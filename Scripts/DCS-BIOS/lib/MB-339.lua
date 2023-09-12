@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("MB-339", 0x8200)
 BIOS.protocol.setExportModuleAircrafts({"MB-339A", "MB-339APAN"})
---by WarLord v1.0
+--by WarLord v1.1
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document
@@ -368,7 +368,7 @@ defineIndicatorLight08("MCP_BATT2_L", 213, "Warning Panel Light", "NO 2 BATT Lig
 defineIndicatorLight08("MCP_BATT_HOT_L", 214, "Warning Panel Light", "BATT HOT Light (yellow)")
 defineIndicatorLight08("MCP_AC_ESS_BUS_L", 215, "Warning Panel Light", "AC ESS BUS Light (yellow)")
 defineIndicatorLight08("MCP_AC_SEC_BUS_L", 216, "Warning Panel Light", "AC SEC BUS Light (yellow)")
-defineIndicatorLight08("MCP_CKT BKR_L", 217, "Warning Panel Light", "CKT BKR Light (yellow)")
+defineIndicatorLight08("MCP_CKT_BKR_L", 217, "Warning Panel Light", "CKT BKR Light (yellow)")
 defineIndicatorLight08("MCP_AIL_SERVO_L", 218, "Warning Panel Light", "AIL SERVO Light (yellow)")
 defineIndicatorLight08("MCP_OXY_LOW_L", 219, "Warning Panel Light", "OXY LOW Light (yellow)")
 defineIndicatorLight08("MCP_DUCT_AICE_L", 220, "Warning Panel Light", "DUCT ANTI-ICE Light (yellow)")
@@ -458,18 +458,18 @@ definePushButton("AFT_CONTROL_COM1", 1, 3234, 267, "Control Shift AFT", "Aft COM
 definePushButton("AFT_CONTROL_COM2", 1, 3235, 269, "Control Shift AFT", "Aft COMM2 Control Shift")
 definePushButton("AFT_CONTROL_ADF", 1, 3236, 271, "Control Shift AFT", "Aft ADF Control Shift")
 
-defineIndicatorLight08("FW_CONTROL_TCN", 325, "Control Shift Lights", "Forward TACAN Control Shift Light (green)")
-defineIndicatorLight08("FW_CONTROL_ILS", 327, "Control Shift Lights", "Forward VOR-ILS Control Shift Light (green)")
-defineIndicatorLight08("FW_CONTROL_NAV", 385, "Control Shift Lights", "Forward NAV Control Shift Light (green)")
+defineIndicatorLight08("FW_CONTROL_TCN_L", 325, "Control Shift Lights", "Forward TACAN Control Shift Light (green)")
+defineIndicatorLight08("FW_CONTROL_ILS_L", 327, "Control Shift Lights", "Forward VOR-ILS Control Shift Light (green)")
+defineIndicatorLight08("FW_CONTROL_NAV_L", 385, "Control Shift Lights", "Forward NAV Control Shift Light (green)")
 defineIndicatorLight08("FW_CONTROL_COM1_L", 308, "Control Shift Lights", "Forward COMM1 Control Shift Light (green)")
 defineIndicatorLight08("FW_CONTROL_COM2_L", 316, "Control Shift Lights", "Forward COMM2 Control Shift Light (green)")
-defineIndicatorLight08("FW_CONTROL_ADF", 318, "Control Shift Lights", "Forward ADF Control Shift Light (green)")
-defineIndicatorLight08("AFT_CONTROL_TCN", 274, "Control Shift Lights", "Aft TACAN Control Shift Light (green)")
-defineIndicatorLight08("AFT_CONTROL_ILS", 276, "Control Shift Lights", "Aft VOR-ILS Control Shift Light (green)")
-defineIndicatorLight08("AFT_CONTROL_NAV", 278, "Control Shift Lights", "Aft NAV Control Shift Light (green)")
+defineIndicatorLight08("FW_CONTROL_ADF_L", 318, "Control Shift Lights", "Forward ADF Control Shift Light (green)")
+defineIndicatorLight08("AFT_CONTROL_TCN_L", 274, "Control Shift Lights", "Aft TACAN Control Shift Light (green)")
+defineIndicatorLight08("AFT_CONTROL_ILS_L", 276, "Control Shift Lights", "Aft VOR-ILS Control Shift Light (green)")
+defineIndicatorLight08("AFT_CONTROL_NAV_L", 278, "Control Shift Lights", "Aft NAV Control Shift Light (green)")
 defineIndicatorLight08("AFT_CONTROL_COM1_L", 268, "Control Shift Lights", "Aft COMM1 Control Shift Light (green)")
 defineIndicatorLight08("AFT_CONTROL_COM2_L", 270, "Control Shift Lights", "Aft COMM2 Control Shift Light (green)")
-defineIndicatorLight08("AFT_CONTROL_ADF", 272, "Control Shift Lights", "Aft ADF Control Shift Light (green)")
+defineIndicatorLight08("AFT_CONTROL_ADF_L", 272, "Control Shift Lights", "Aft ADF Control Shift Light (green)")
 
 --CDU
 defineToggleSwitch("FW_CDU_GPS_PW", 1, 3237, 345, "CDU FW", "Forward CDU AHRS/GPS System")
@@ -552,12 +552,12 @@ defineFloat("WP_SEQU_G", 161, {0, 1}, "Weapons Gauges", "Sequence Drum")
 defineFloat("WP_BOMB_FUZE_G", 162, {-1, 1}, "Weapons Gauges", "Bomb Fuze Drum")
 
 defineIndicatorLight("WP_MASTER_ARM_L", 163, "Weapons Lights", "Master Arm Light (red)")
-defineIndicatorLight("WP_STAT1_G", 496, "Weapons Lights", "Station 1 Light (green)")
-defineIndicatorLight("WP_STAT2_G", 497, "Weapons Lights", "Station 2 Light (green)")
-defineIndicatorLight("WP_STAT3_G", 498, "Weapons Lights", "Station 3 Light (green)")
-defineIndicatorLight("WP_STAT4_G", 499, "Weapons Lights", "Station 4 Light (green)")
-defineIndicatorLight("WP_STAT5_G", 500, "Weapons Lights", "Station 5 Light (green)")
-defineIndicatorLight("WP_STAT6_G", 501, "Weapons Lights", "Station 6 Light (green)")
+defineIndicatorLight("WP_STAT1_L", 496, "Weapons Lights", "Station 1 Light (green)")
+defineIndicatorLight("WP_STAT2_L", 497, "Weapons Lights", "Station 2 Light (green)")
+defineIndicatorLight("WP_STAT3_L", 498, "Weapons Lights", "Station 3 Light (green)")
+defineIndicatorLight("WP_STAT4_L", 499, "Weapons Lights", "Station 4 Light (green)")
+defineIndicatorLight("WP_STAT5_L", 500, "Weapons Lights", "Station 5 Light (green)")
+defineIndicatorLight("WP_STAT6_L", 501, "Weapons Lights", "Station 6 Light (green)")
 
 --Gunsight
 define3PosTumb("GUN_PWR", 1, 3304, 478, "Gunsight", "Gunsight Power")

@@ -17,6 +17,18 @@ local startTimeHigh = 0
 local modTimeLow = 0
 local modTimeHigh = 0
 
+local playerName
+local startTime
+local modtime
+
+local iasEU
+local iasUS
+
+local gLoad -- string
+
+local latDir
+local lonDir
+
 local function LoGetGLoad()
 	local au = LoGetAccelerationUnits()
 	if au == nil then return end
@@ -27,11 +39,9 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	if not LoIsOwnshipExportAllowed() then return end -- skip this data if ownship export is disabled
 
 	playerName = LoGetPilotName()
-		if playerName == nil then playerName = "XXX" end
-
+	if playerName == nil then playerName = "XXX" end
 
 	startTime = LoGetMissionStartTime() or 0
-	misstime = string.format(startTime)
 	startTimeLow = startTime%65536
 	startTimeHigh = (startTime - startTimeLow)/65536
 
@@ -42,13 +52,15 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	modTimeHigh = (modTimeHundredth - modTimeLow) / 65536
 
 	iasDisp = LoGetIndicatedAirSpeed()
-		if iasDisp == nil then iasDisp = "0000" end
+	if iasDisp == nil then iasDisp = "0000" end
+
 	iasEU = string.format("%4d", math.floor(0.5 + iasDisp * 3.6))           -- km/h
 	iasUS = string.format("%4d", math.floor(0.5 + iasDisp * 1.94384449))	-- knots
 
-    gload = LoGetGLoad() or 0
-	if math.abs(gload) > 10 then _gLoad = string.format(" %2d ", gload)
-	else _gLoad = string.format("%4.1f", gload) end
+    local gload = LoGetGLoad() or 0
+
+	if math.abs(gload) > 10 then gLoad = string.format(" %2d ", gload)
+	else gLoad = string.format("%4.1f", gload) end
 
 	local selfData = LoGetSelfData()
 	if selfData == nil then return end
@@ -67,12 +79,12 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 		     lonDir = "E" end
 
 	latDeg = math.floor(lat)
-	lat1 = (lat - latDeg) * 60 -- to sec
+	local lat1 = (lat - latDeg) * 60 -- to sec
 	latSec = math.floor(lat1)
 	latFractionalSec = lat1 - latSec
 
 	lonDeg = math.floor(lon)
-	lon1 = (lon - lonDeg) * 60 -- to sec
+	local lon1 = (lon - lonDeg) * 60 -- to sec
 	lonSec = math.floor(lon1)
 	lonFractionalSec = lon1 - lonSec
 
@@ -89,11 +101,11 @@ local function misstime()
   if mtseconds <= 0 then
     return "00:00:00";
   else
-	mtsec = string.format("%02.f", math.floor(mtseconds));
-    mthours = string.format("%02.f", math.floor(mtseconds/3600));
-    mtmins = string.format("%02.f", math.floor(mtseconds/60 - (mthours*60)));
+	local mtsec = string.format("%02.f", math.floor(mtseconds or 0));
+    local mthours = string.format("%02.f", math.floor(mtseconds/3600));
+    local mtmins = string.format("%02.f", math.floor(mtseconds/60 - (mthours*60)));
+	return mthours .. ":" .. mtmins .. ":" .. mtsec
   end
-     return mthours .. ":" .. mtmins .. ":" .. mtsec
 end
 
 local function getVersion()
@@ -149,6 +161,6 @@ defineIntegerFromGetter("TIME_START_LOW", function() return startTimeLow end, 65
 defineIntegerFromGetter("TIME_MODEL_HIGH", function() return modTimeHigh end, 65535, "Time", "Model time high bits in hundredth of a second")
 defineIntegerFromGetter("TIME_MODEL_LOW", function() return modTimeLow end, 65535, "Time", "Model time low bits in hundredth of a second")
 
-defineString("G_LOAD", function() return _gLoad or "0000" end, 4, "Speed", "G Load")
+defineString("G_LOAD", function() return gLoad or "0000" end, 4, "Speed", "G Load")
 
 BIOS.protocol.endModule()
