@@ -1,0 +1,17 @@
+# exclude everything by default
+/*
+
+# opt-in new code through a series of exclusions and inclusions https://stackoverflow.com/questions/5533050/
+!.styluaignore
+!.stylua.toml
+!/Scripts
+/Scripts/*
+!/Scripts/DCS-BIOS
+/Scripts/DCS-BIOS/*
+!/Scripts/DCS-BIOS/lib
+/Scripts/DCS-BIOS/lib/*
+!/Scripts/DCS-BIOS/lib/modules
+!/Scripts/DCS-BIOS/lib/io
+
+# opt-in test code
+!/Scripts/DCS-BIOS/test
