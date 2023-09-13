@@ -1,34 +1,27 @@
-module("UDPListener", package.seeall)
+module("TCPConnection", package.seeall)
 
 local ReadableConnection = require("ReadableConnection")
-local socket = require("socket")
 
 --- @class TCPConnection: ReadableConnection
-local TCPConnection = ReadableConnection:new("", -1)
+local TCPConnection = ReadableConnection:new("", -1, {})
 
 --- Creates a socket for sending and receiving TCP packets
---- @param connection table the TCP connection
-function TCPConnection:new(connection)
-	--- @type TCPConnection
-	local o = {
-		rxbuf = "",
-		connection = connection,
-	}
+--- @param connection TCPSocketConnection the TCP connection
+--- @param socket Socket the lua socket
+--- @return TCPConnection connection the newly-created TCP connection
+function TCPConnection:new(connection, socket)
+	local o = ReadableConnection:new("", -1, socket)
 	setmetatable(o, self)
+	---@cast o TCPConnection
+	o.connection = connection
 	self.__index = self
 	return o
-end
-
---- Stores the connection
---- @param connection table the TCP connection
-function TCPConnection:setConnection(connection)
-	self.connection = connection
 end
 
 --- Sends data to the TCP socket connection
 --- @param data string the data to send
 function TCPConnection:send(data)
-	socket.try(self.connection:send(data))
+	self.socket.try(self.connection:send(data))
 end
 
 --- Receives data from the connection and processes it

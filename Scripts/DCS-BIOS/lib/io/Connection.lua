@@ -1,22 +1,23 @@
 module("Connection", package.seeall)
 
-local socket = require("socket")
-
 --- @class Connection
 --- @field host string the host to connect to
 --- @field port number the port on the host to connect to
---- @field connection table the lua socket connection
+--- @field connection SocketConnection the lua socket connection
+--- @field socket Socket the lua socket
 local Connection = {}
 
 --- Creates a connection for sending packets
 --- @param host string the host to connect to
 --- @param port number the port on the host to connect to
-function Connection:new(host, port)
+--- @param socket Socket the socket to use
+function Connection:new(host, port, socket)
 	--- @type Connection
 	local o = {
 		host = host,
 		port = port,
 		connection = {},
+		socket = socket,
 	}
 	setmetatable(o, self)
 	self.__index = self
@@ -31,7 +32,7 @@ end
 
 --- Closes the connection
 function Connection:close()
-	socket.try(self.connection:close())
+	self.socket.try(self.connection:close())
 end
 
 return Connection

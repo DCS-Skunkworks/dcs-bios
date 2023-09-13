@@ -1,12 +1,16 @@
-local TCPServer = require("lib.io.TCPServer")
-local UDPListener = require("lib.io.UDPListener")
-local UDPSender = require("lib.io.UDPSender")
-local UDPServer = require("lib.io.UDPServer")
+local TCPServer = require("TCPServer")
+local UDPServer = require("UDPServer")
+local socket = require("socket") --[[@as Socket]]
+
+local udp_send_address = "239.255.50.10"
+local udp_send_port = 5010
+local udp_receive_address = "*"
+local udp_receive_port = 7778
+
+local tcp_address = "*"
+local tcp_port = 7778
 
 BIOS.protocol_io.connections = {
-	UDPServer:new(
-		UDPSender:new("239.255.50.10", 5010),
-		UDPListener:new("*", 7778)
-	),
-	TCPServer:new("*", 7778),
+	UDPServer:new(udp_send_address, udp_send_port, udp_receive_address, udp_receive_port, socket),
+	TCPServer:new(tcp_address, tcp_port, socket),
 }

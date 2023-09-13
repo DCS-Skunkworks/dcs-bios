@@ -1,20 +1,26 @@
 module("UDPServer", package.seeall)
 
 local Server = require("Server")
+local UDPListener = require("UDPListener")
+local UDPSender = require("UDPSender")
 
 --- @class UDPServer: Server
---- @field sender UDPSender
---- @field listener UDPListener
+--- @field private sender UDPSender
+--- @field private listener UDPListener
 local UDPServer = Server:new()
 
 --- Creates a socket for receiving UDP packets
---- @param sender UDPSender the UDP sender to use
---- @param listener UDPListener the UDPListener to use
-function UDPServer:new(sender, listener)
+--- @param send_address string the address to send data to
+--- @param send_port integer the port to send data to
+--- @param receive_address string the address to receive data from
+--- @param receive_port integer the port to receive data from
+--- @param socket Socket the lua socket
+--- @return UDPServer server the newly-created UDP server
+function UDPServer:new(send_address, send_port, receive_address, receive_port, socket)
 	--- @type UDPServer
 	local o = {
-		sender = sender,
-		listener = listener,
+		sender = UDPSender:new(send_address, send_port, socket),
+		listener = UDPListener:new(receive_address, receive_port, socket),
 	}
 	setmetatable(o, self)
 	self.__index = self

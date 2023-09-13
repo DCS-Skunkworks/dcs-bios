@@ -1,35 +1,33 @@
 module("UDPSender", package.seeall)
 
 local Connection = require("Connection")
-local socket = require("socket")
 
 --- @class UDPSender: Connection
-local UDPSender = Connection:new("", -1)
+local UDPSender = Connection:new("", -1, {})
 
 --- Creates a socket for sending UDP packets
 --- @param host string the host to connect to
 --- @param port number the port on the host to connect to
-function UDPSender:new(host, port)
-	--- @type UDPSender
-	local o = {
-		host = host,
-		port = port,
-	}
+--- @param socket Socket the lua socket
+--- @return UDPSender udp_sender the new UDP Sender
+function UDPSender:new(host, port, socket)
+	local o = Connection:new(host, port, socket)
 	setmetatable(o, self)
 	self.__index = self
+	---@cast o UDPSender
 	return o
 end
 
 --- initializes the socket connection
 function UDPSender:init()
-	---@diagnostic disable-next-line: undefined-field
-	self.connection = socket.udp() -- this is correct, diagnostics disabled
+	self.connection = self.socket.udp()
 	self.connection:setpeername(self.host, self.port)
 end
 
----@param msg string the message to send
+--- sends data to the udp socket
+--- @param msg string the message to send
 function UDPSender:send(msg)
-	socket.try(self.connection:send(msg))
+	self.socket.try(self.connection:send(msg))
 end
 
 return UDPSender

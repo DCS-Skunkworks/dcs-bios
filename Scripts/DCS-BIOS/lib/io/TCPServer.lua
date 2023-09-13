@@ -2,23 +2,25 @@ module("TCPServer", package.seeall)
 
 local Server = require("Server")
 local TCPConnection = require("TCPConnection")
-local socket = require("socket")
 
 --- @class TCPServer: Server
---- @field private acceptor table the TCP connection acceptor
+--- @field private acceptor TCPSocketConnection the TCP connection acceptor
 --- @field private host string the host to connect to
 --- @field private port number the port on the host to connect to
 --- @field private connections TCPConnection[] the active TCP socket connections
+--- @field private socket Socket the lua socket
 local TCPServer = Server:new()
 
 --- Creates a server for sending and receiving TCP packets
 --- @param host string the host to connect to
 --- @param port number the port on the host to connect to
-function TCPServer:new(host, port)
+--- @param socket Socket the lua socket
+function TCPServer:new(host, port, socket)
 	--- @type TCPServer
 	local o = {
 		host = host,
 		port = port,
+		socket = socket,
 		acceptor = {},
 		connections = {},
 	}
@@ -29,8 +31,7 @@ end
 
 --- Initializes the TCP server with a connection acceptor to receive any incoming connections
 function TCPServer:init()
-	---@diagnostic disable-next-line: assign-type-mismatch
-	self.acceptor = socket.bind(self.host, self.port, 10) -- this is correct, diagnostics disabled
+	self.acceptor = self.socket.bind(self.host, self.port, 10)
 	self.acceptor:settimeout(0)
 	self.connections = {}
 end
@@ -61,7 +62,7 @@ function TCPServer:acceptConnections()
 	local new_connection = self.acceptor:accept()
 	if new_connection then
 		new_connection:settimeout(0)
-		table.insert(self.connections, TCPConnection:new(new_connection))
+		table.insert(self.connections, TCPConnection:new(new_connection, self.socket))
 	end
 end
 
