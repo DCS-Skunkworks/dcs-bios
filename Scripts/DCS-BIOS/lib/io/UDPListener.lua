@@ -3,15 +3,16 @@ module("UDPListener", package.seeall)
 local ReadableConnection = require("ReadableConnection")
 
 --- @class UDPListener: ReadableConnection
-local UDPListener = ReadableConnection:new("", -1, {})
+local UDPListener = ReadableConnection:new("", -1, {}, function() end)
 
 --- Creates a socket for receiving UDP packets
 --- @param host string the host to listen to
 --- @param port number the port to listen on
 --- @param socket Socket the lua socket
+--- @param on_receive fun(value: string) function to run when receiving data
 --- @return UDPListener udp_listener the new UDP listener
-function UDPListener:new(host, port, socket)
-	local o = ReadableConnection:new(host, port, socket)
+function UDPListener:new(host, port, socket, on_receive)
+	local o = ReadableConnection:new(host, port, socket, on_receive)
 	setmetatable(o, self)
 	self.__index = self
 	---@cast o UDPListener

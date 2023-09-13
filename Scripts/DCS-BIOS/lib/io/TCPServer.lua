@@ -9,13 +9,15 @@ local TCPConnection = require("TCPConnection")
 --- @field private port number the port on the host to connect to
 --- @field private connections TCPConnection[] the active TCP socket connections
 --- @field private socket Socket the lua socket
+--- @field private on_receive fun(value: string) function to run when receiving data
 local TCPServer = Server:new()
 
 --- Creates a server for sending and receiving TCP packets
 --- @param host string the host to connect to
 --- @param port number the port on the host to connect to
 --- @param socket Socket the lua socket
-function TCPServer:new(host, port, socket)
+--- @param on_receive fun(value: string) function to run when receiving data
+function TCPServer:new(host, port, socket, on_receive)
 	--- @type TCPServer
 	local o = {
 		host = host,
@@ -23,6 +25,7 @@ function TCPServer:new(host, port, socket)
 		socket = socket,
 		acceptor = {},
 		connections = {},
+		on_receive = on_receive,
 	}
 	setmetatable(o, self)
 	self.__index = self
@@ -62,7 +65,7 @@ function TCPServer:acceptConnections()
 	local new_connection = self.acceptor:accept()
 	if new_connection then
 		new_connection:settimeout(0)
-		table.insert(self.connections, TCPConnection:new(new_connection, self.socket))
+		table.insert(self.connections, TCPConnection:new(new_connection, self.socket, self.on_receive))
 	end
 end
 

@@ -3,14 +3,15 @@ module("TCPConnection", package.seeall)
 local ReadableConnection = require("ReadableConnection")
 
 --- @class TCPConnection: ReadableConnection
-local TCPConnection = ReadableConnection:new("", -1, {})
+local TCPConnection = ReadableConnection:new("", -1, {}, function() end)
 
 --- Creates a socket for sending and receiving TCP packets
 --- @param connection TCPSocketConnection the TCP connection
 --- @param socket Socket the lua socket
+--- @param on_receive fun(value: string) function to run when receiving data
 --- @return TCPConnection connection the newly-created TCP connection
-function TCPConnection:new(connection, socket)
-	local o = ReadableConnection:new("", -1, socket)
+function TCPConnection:new(connection, socket, on_receive)
+	local o = ReadableConnection:new("", -1, socket, on_receive)
 	setmetatable(o, self)
 	---@cast o TCPConnection
 	o.connection = connection

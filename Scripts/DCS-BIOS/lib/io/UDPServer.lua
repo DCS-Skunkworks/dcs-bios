@@ -15,12 +15,13 @@ local UDPServer = Server:new()
 --- @param receive_address string the address to receive data from
 --- @param receive_port integer the port to receive data from
 --- @param socket Socket the lua socket
+--- @param on_receive fun(value: string) function to run when receiving data
 --- @return UDPServer server the newly-created UDP server
-function UDPServer:new(send_address, send_port, receive_address, receive_port, socket)
+function UDPServer:new(send_address, send_port, receive_address, receive_port, socket, on_receive)
 	--- @type UDPServer
 	local o = {
 		sender = UDPSender:new(send_address, send_port, socket),
-		listener = UDPListener:new(receive_address, receive_port, socket),
+		listener = UDPListener:new(receive_address, receive_port, socket, on_receive),
 	}
 	setmetatable(o, self)
 	self.__index = self
