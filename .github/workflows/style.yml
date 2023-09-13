@@ -1,0 +1,20 @@
+name: Validate style
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    name: Validate style
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Stylua check
+        uses: JohnnyMorganz/stylua-action@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          version: 0.17.0 # pin to a specific version in case of formatting changes
+          # CLI arguments
+          args: --check .
