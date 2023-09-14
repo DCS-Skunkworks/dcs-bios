@@ -1149,8 +1149,12 @@ local replaceMap = {
     ["я"] = string.char(0xB1),
 }
 
+--- Gets the current CDU page, or nil if one isn't found
+--- @return string page_name the name of the current CDU page
 local function getPageName()
-	return list_cockpit_params():match('CDU_PAGE:"([0-9A-Za-z_]+)"'):sub(5)
+	local page = list_cockpit_params():match('CDU_PAGE:"([0-9A-Za-z_]+)"')
+	if not page then return "EGI1" end -- special case due to ED bug that results in nil being exported instead of EGI1
+	return page:sub(5)
 end
 
 local CDU_LINE_LEN = 24
