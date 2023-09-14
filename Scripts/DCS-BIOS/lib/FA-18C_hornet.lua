@@ -1221,4 +1221,22 @@ defineFloat("AOA_INDEXER_LOW_F", 6, {0, 1}, "Angle of Attack Indexer Lights", "A
 
 defineToggleSwitch("KY58_FILL_SEL_PULL", 41, 3003, 0, "KY-58 Control", "KY-58 Fill Select Knob, Pull")
 
+defineString("IFEI_FIELD_BINGO", function() return padLeft(txt_BINGO, 5) end, 5, "Integrated Fuel/Engine Indicator (IFEI)", "BINGO")
+defineString("IFEI_FIELD_CLOCK", function()
+	return padLeft(txt_CLOCK_H, 2) .. padLeft(txt_DD_1, 1) .. padLeft(txt_CLOCK_M, 2) .. padLeft(txt_DD_2, 1) .. padLeft(txt_CLOCK_S, 2)
+end, 8, "Integrated Fuel/Engine Indicator (IFEI)", "CLOCK")
+defineString("IFEI_FIELD_TIMER", function()
+	return padLeft(txt_TIMER_H, 2) .. padLeft(txt_DD_3, 1) .. padLeft(txt_TIMER_M, 2) .. padLeft(txt_DD_4, 1) .. padLeft(txt_TIMER_S, 2)
+end, 8, "Integrated Fuel/Engine Indicator (IFEI)", "TIMER")
+defineString("IFEI_FIELD_RPM_L", function() return padLeft(txt_RPM_L, 3) end, 3, "Integrated Fuel/Engine Indicator (IFEI)", "RPM_L")
+defineString("IFEI_FIELD_RPM_R", function() return padLeft(txt_RPM_R, 3) end, 3, "Integrated Fuel/Engine Indicator (IFEI)", "RPM_R")
+defineString("IFEI_FIELD_TEMP_L", function() return padLeft(coerce_nil_to_string(txt_SP) .. coerce_nil_to_string(txt_TEMP_L), 3) end, 3, "Integrated Fuel/Engine Indicator (IFEI)", "TEMP_L")
+defineString("IFEI_FIELD_TEMP_R", function() return padLeft(coerce_nil_to_string(txt_Codes) .. coerce_nil_to_string(txt_TEMP_R), 3) end, 3, "Integrated Fuel/Engine Indicator (IFEI)", "TEMP_R")
+defineString("IFEI_FIELD_FF_L", function() return padLeft(txt_FF_L, 3) end, 3, "Integrated Fuel/Engine Indicator (IFEI)", "FF_L")
+defineString("IFEI_FIELD_FF_R", function() return padLeft(txt_FF_R, 3) end, 3, "Integrated Fuel/Engine Indicator (IFEI)", "FF_R")
+defineString("IFEI_FIELD_OIL_PRESS_L", function() return padLeft(txt_OilPress_L, 3) end, 3, "Integrated Fuel/Engine Indicator (IFEI)", "OilPress_L")
+defineString("IFEI_FIELD_OIL_PRESS_R", function() return padLeft(txt_OilPress_R, 3) end, 3, "Integrated Fuel/Engine Indicator (IFEI)", "OilPress_R")
+defineString("IFEI_FIELD_FUEL_UP", function() return padLeft(coerce_nil_to_string(txt_FUEL_UP) .. coerce_nil_to_string(txt_T), 6) end, 6, "Integrated Fuel/Engine Indicator (IFEI)", "FUEL_UP")
+defineString("IFEI_FIELD_FUEL_DOWN", function() return padLeft(coerce_nil_to_string(txt_FUEL_DOWN) .. coerce_nil_to_string(txt_TimeSetMode), 6) end, 6, "Integrated Fuel/Engine Indicator (IFEI)", "FUEL_DOWN")
+
 BIOS.protocol.endModule()

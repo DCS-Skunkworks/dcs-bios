@@ -121,7 +121,7 @@ end
 ---@param len number The length the string should be
 ---@return string result A new string of length len, with whitespace padding added to the left as necessary
 function padLeft(str, len)
-	str = coerce_nil_to_string(tostring(str))
+	str = tostring(coerce_nil_to_string(str))
     return string.rep(' ', len - #str)..str
 end
 
