@@ -1154,7 +1154,10 @@ local replaceMap = {
 local function getPageName()
 	local page = list_cockpit_params():match('CDU_PAGE:"([0-9A-Za-z_]+)"')
 	if not page then return "EGI1" end -- special case due to ED bug that results in nil being exported instead of EGI1
-	return page:sub(5)
+	local page_name = page:sub(5)
+	if page_name == "WIND1" then return "WIND" end -- for some reason, ED seems to display WIND, not WIND1
+	if page_name == "WNDEDIT1" then return "WNDEDIT" end -- same as above, but for WINDEDIT
+	return page_name
 end
 
 local CDU_LINE_LEN = 24
