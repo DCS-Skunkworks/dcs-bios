@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("F-15E", 0x9200)
 BIOS.protocol.setExportModuleAircrafts({"F-15ESE"})
---by WarLord,Maverick87Shaka&RafaPolit v1.1d
+--by WarLord,Maverick87Shaka&RafaPolit v1.2b
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 
@@ -418,11 +418,11 @@ definePushButton("F_ARM_EMERG_JETT_BTN", 44, 3340, 340, "Front Armament Panel", 
 
 --Fuel Monitor Panel
 defineMultipositionSwitch("F_FUEL_TOTAL", 17, 3381, 381, 7, 0.1, "Front Fuel Monitor Panel", "FRONT Fuel Totalizer Selector")
-definePotentiometer("F_FUEL_BINGO", 17, 3385, 385, {0, 1}, "Front Fuel Monitor Panel", "FRONT Fuel Bingo Selection")
+defineRotary("F_FUEL_BINGO", 17, 3385, 385, "Front Fuel Monitor Panel", "FRONT Fuel Bingo Selection")
 
 --Landing Gear Panel
 defineToggleSwitch("F_LG_GEAR", 21, 3324, 324, "Front Landing Gear Panel", "FRONT Landing Gear Lever")
-definePushButton("F_LG_GEAR_TONE", 21, 3325, 325, "Front Landing Gear Panel", "FRONT Landing Gear Warning Tone Silence Switch")
+definePushButton("F_LG_GEAR_TONE", 29, 3325, 325, "Front Landing Gear Panel", "FRONT Landing Gear Warning Tone Silence Switch")
 defineToggleSwitch("F_LG_EMERG_GEAR_PULL", 21, 3337, 337, "Front Landing Gear Panel", "FRONT Emergency Landing Gear Handle PUSH/PULL")
 defineToggleSwitch("F_LG_EMERG_GEAR_ROT", 21, 3431, 431, "Front Landing Gear Panel", "FRONT Emergency Landing Gear Handle ROTATE")
 
@@ -436,10 +436,10 @@ defineIndicatorLight("F_LG_HND_L", 333, "Front Landing Gear Panel Lights", "FRON
 
 --Flight Instruments
 defineToggleSwitch("F_FI_PITCH_RATE", 18, 3335, 335, "Front Flight Instruments", "FRONT Pitch Ratio Switch")
-definePotentiometer("F_FI_BAK_ADI_CAGE_KNOB", 17, 3351, 351, {0, 1}, "Front Flight Instruments", "FRONT Backup ADI Cage/Pitch Adjust Knob")
+definePotentiometer("F_FI_BAK_ADI_CAGE_KNOB", 17, 3351, 351, {-1, 1}, "Front Flight Instruments", "FRONT Backup ADI Cage/Pitch Adjust Knob")
 definePushButton("F_FI_BAK_ADI_CAGE_PULL", 17, 3350, 350, "Front Flight Instruments", "FRONT Backup ADI Cage/Pitch Adjust Pull")
-definePotentiometer("F_FI_ALT_ADJ", 17, 3360, 360, {0, 1}, "Front Flight Instruments", "FRONT Altitude adjust")
-definePotentiometer("F_FI_CLOCK_ADJ", 17, 3366, 366, {0, 1}, "Front Flight Instruments", "FRONT Clock adjust")
+defineRotary("F_FI_ALT_ADJ", 17, 3360, 360, "Front Flight Instruments", "FRONT Altitude Adjust")
+definePotentiometer("F_FI_CLOCK_ADJ", 17, 3366, 366, {0, 1}, "Front Flight Instruments", "FRONT Clock Adjust")
 definePotentiometer("F_FI_CLOCK_STOP", 17, 3367, 367, {0, 1}, "Front Flight Instruments", "FRONT Timer Stop")
 
 defineFloat("F_FI_PITCH_RATE_G", 334, {0, 1}, "Front Flight Instruments Gauges", "FRONT Pitch Ratio Gauge")
@@ -609,7 +609,7 @@ defineMultipositionSwitch("F_CAS_YAW", 18, 3452, 452, 3, 0.25, "Front CAS", "FRO
 defineMultipositionSwitch("F_CAS_ROLL", 18, 3453, 453, 3, 0.25, "Front CAS", "FRONT Roll CAS Switch")
 defineMultipositionSwitch("F_CAS_PITCH", 18, 3454, 454, 3, 0.25, "Front CAS", "FRONT Pitch CAS Switch")
 definePushButton("F_CAS_BIT", 18, 3455, 455, "Front CAS", "FRONT CAS BIT Button")
-defineToggleSwitch("F_CAS_TF_COUP", 18, 3456, 456, "Front CAS", "FRONT CAS TF Couple Switch")
+defineToggleSwitch("F_CAS_TF_COUP", 65, 3456, 456, "Front CAS", "FRONT CAS TF Couple Switch")
 definePushButton("F_CAS_TO_TRIM", 18, 3457, 457, "Front CAS", "FRONT CAS T/O Trim Button")
 
 defineIndicatorLight("F_CAS_TRIM_L", 458, "Front CAS Lights", "FRONT CAS Trim Light (green)")
@@ -1142,9 +1142,9 @@ defineIndicatorLight("F_MC_SPARE_L", 432, "Front Main Caution Lights Panel", "FR
 defineIndicatorLight("R_MC_L_ENG_FIRE_L", 1171, "Rear Main Caution Lights Panel", "REAR ENG FIRE LEFT Light (red)")
 defineIndicatorLight("R_MC_R_ENG_FIRE_L", 1172, "Rear Main Caution Lights Panel", "REAR ENG FIRE RIGHT Light (red)")
 defineIndicatorLight("R_MC_CAN_UNLOCK_L", 1173, "Rear Main Caution Lights Panel", "REAR CANOPY UNLOCKED Light (red)")
-defineIndicatorLight("R_MC_LOW ALT_L", 1174, "Rear Main Caution Lights Panel", "REAR LOW ALT Light (red)")
+defineIndicatorLight("R_MC_LOW_ALT_L", 1174, "Rear Main Caution Lights Panel", "REAR LOW ALT Light (red)")
 defineIndicatorLight("R_MC_MASTER_CAUTION_L", 1177, "Rear Main Caution Lights Panel", "REAR MASTER CAUTION Light (yellow)")
-defineIndicatorLight("R_MC_TF FAIL_L", 1178, "Rear Main Caution Lights Panel", "REAR TF FAIL Light (red)")
+defineIndicatorLight("R_MC_TF_FAIL_L", 1178, "Rear Main Caution Lights Panel", "REAR TF FAIL Light (red)")
 defineIndicatorLight("R_MC_ENG_L", 1179, "Rear Main Caution Lights Panel", "REAR ENGINE Light (yellow)")
 defineIndicatorLight("R_MC_HYD_L", 1180, "Rear Main Caution Lights Panel", "REAR HYD Light (yellow)")
 defineIndicatorLight("R_MC_FLT_CONT_L", 1181, "Rear Main Caution Lights Panel", "REAR FLT CONTROL Light (yellow)")
