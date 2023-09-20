@@ -61,5 +61,4 @@ function TestServer:testCreateTCPServer()
 	server:step()
 	server:send("foo")
 	server:close()
-	lu.assertIsFalse(true, "test failure")
 end
