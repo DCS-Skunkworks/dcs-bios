@@ -1,4 +1,5 @@
 package.path = "./Scripts/DCS-BIOS/test/?.lua;" .. package.path
+package.path = "./Scripts/DCS-BIOS/test/ext/?.lua;" .. package.path
 package.path = "./Scripts/DCS-BIOS/test/io/?.lua;" .. package.path
 package.path = "./Scripts/DCS-BIOS/?.lua;" .. package.path
 package.path = "./Scripts/DCS-BIOS/lib/?.lua;" .. package.path
