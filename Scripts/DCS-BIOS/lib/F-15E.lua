@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("F-15E", 0x9200)
 BIOS.protocol.setExportModuleAircrafts({"F-15ESE"})
---by WarLord,Maverick87Shaka&RafaPolit v1.2b
+--by WarLord,Maverick87Shaka&RafaPolit v1.2c
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 
@@ -412,12 +412,12 @@ defineIndicatorLight("F_AMAD_R_ENG_BURN_L", 134, "Front AMAD Panel Lights", "FRO
 
 --Armament Panel
 defineToggleSwitch("F_ARM_MASTER_ARM", 44, 3323, 323, "Front Armament Panel", "FRONT Armament Panel Master Arm")
-defineMultipositionSwitch("F_ARM_JETT_SEL", 44, 3321, 321, 7, 0.3, "Front Armament Panel", "FRONT Armament Jettison Selector")
+defineTumb("F_ARM_JETT_SEL", 44, 3321, 321, 0.3, {-0.9, 0.9}, nil, false, "Front Armament Panel", "FRONT Armament Jettison Selector")
 definePushButton("F_ARM_JETT_BTN", 44, 3322, 322, "Front Armament Panel", "FRONT Armament Jettison Button")
 definePushButton("F_ARM_EMERG_JETT_BTN", 44, 3340, 340, "Front Armament Panel", "FRONT Armament Emergency Jettison Button")
 
 --Fuel Monitor Panel
-defineMultipositionSwitch("F_FUEL_TOTAL", 17, 3381, 381, 7, 0.1, "Front Fuel Monitor Panel", "FRONT Fuel Totalizer Selector")
+defineTumb("F_FUEL_TOTAL", 17, 3381, 381, 0.1, {-0.1, 0.5}, nil, false, "Front Fuel Monitor Panel", "FRONT Fuel Totalizer Selector")
 defineRotary("F_FUEL_BINGO", 17, 3385, 385, "Front Fuel Monitor Panel", "FRONT Fuel Bingo Selection")
 
 --Landing Gear Panel
