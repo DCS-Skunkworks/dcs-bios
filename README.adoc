@@ -96,6 +96,16 @@ Currently, DCS-BIOS supports the following aircraft modules:
 
 If you want to add support for another module, please get in touch.(see below)
 
+== For Hardware Developers
+
+If you are working a lot with hardware, it may come in handy to log and replay dcs-bios data. There are two scripts in `\Programs\tools` that allow you to do so.
+
+`python connect-logger.py` will log all dcs-bios data to `dcsbios_data.json`. Ensure that you start the logger before loading a mission, to capture the mission-start message properly.
+
+`python replay-log.py` will ask for a serial port like `connect-serial-port.cmd` and replay the data to that com-port. When it reaches the end of the file, it will loop forever until you close it. The first message will not be repeated as this is usualy the mission-start message and should only be sent once.
+
+`dcsbios_data.json` This file contains the logged data in hex format. If you are familiar with the format of dcs-bios messages, you may modify the file by hand if needed. The included sample file is a recording of the A-10C with a blinking Master Caution light.
+
 == Mod Support
 
 If you want to add a FC3 based Mod (eg. VSN_Mod Planes) for commondata suport, you must follow
