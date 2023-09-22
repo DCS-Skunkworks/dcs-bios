@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("AH-64D", 0x8000)
 BIOS.protocol.setExportModuleAircrafts({"AH-64D_BLK_II"})
---v1.2c by WarLord & charliefoxtwo
+--v1.2d by WarLord & charliefoxtwo
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document
