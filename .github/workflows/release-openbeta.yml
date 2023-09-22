@@ -1,9 +1,10 @@
 name: Release latest openbeta
 
 on:
-  push:
-    branches:
-      - master
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    # Release at 22.00, Github does not guarantee exact time
+    - cron:  '0 22 * * *'
 
 env:
   RELEASE_FILE_NAME: 'DCS-BIOS_openbeta.zip'
