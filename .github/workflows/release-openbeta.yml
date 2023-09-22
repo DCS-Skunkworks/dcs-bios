@@ -1,0 +1,51 @@
+name: Release latest openbeta
+
+on:
+  push:
+    branches:
+      - master
+
+env:
+  RELEASE_FILE_NAME: 'DCS-BIOS_openbeta.zip'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    name: Release zip file
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Archive Release
+        uses: thedoctor0/zip-release@0.7.1
+        with:
+          type: zip
+          filename: 'DCS-BIOS_openbeta.zip'
+          directory: './Scripts'
+          exclusions: '/*test/*'
+
+      - name: Update latest tag
+        uses: rickstaa/action-create-tag@v1
+        id: tag_create
+        with:
+          tag: latest
+          force_push_tag: true
+          message: Latest release
+
+      - name: Upload Release
+        uses: ncipollo/release-action@v1.12.0
+        with:
+          allowUpdates: true
+          artifactErrorsFailBuild: true
+          artifacts: './Scripts/DCS-BIOS_openbeta.zip'
+          commit: master
+          makeLatest: true
+          name: DCS-BIOS Openbeta
+          prerelease: true
+          removeArtifacts: true
+          tag: latest
+          updateOnlyUnreleased: true
