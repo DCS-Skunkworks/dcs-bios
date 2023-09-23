@@ -6,6 +6,7 @@ local exportModules = {}
 local aircraftNameToModuleNames = {}
 local aircraftNameToModules = {}
 local lastAcftName = ""
+local addresses = {}
 
 function BIOS.protocol.setExportModuleAircrafts(acftList)
 	-- first, delete moduleName from all mappings
@@ -76,24 +77,7 @@ function BIOS.protocol.endModule()
 	end
 	local function saveAddresses()
 		local moduleName = moduleBeingDefined.name
-
-		local path = lfs.writedir()..[[Scripts\DCS-BIOS\doc\Addresses.h]]
-		local existingDefines = {}
-		local lineOrder = {} -- To maintain the order of lines
-
-		-- Read existing content
-		local fileRead, errRead = io.open(path, "r")
-		if fileRead then
-			for line in fileRead:lines() do
-				local identifier = line:match("#define%s+([%w_]+)")
-				if identifier then
-					existingDefines[identifier] = line
-					table.insert(lineOrder, identifier)
-				end
-			end
-			fileRead:close()
-		end
-
+	
 		for _, category in pairs(moduleBeingDefined.documentation) do
 			for identifier, args in pairs(category) do
 				local outputs = args.outputs or {}
@@ -107,43 +91,49 @@ function BIOS.protocol.endModule()
 					local line = "#define " .. full_identifier .. " " .. addressStr
 					if maskStr ~= "" then line = line .. ", " .. maskStr end
 					if shiftByStr ~= "" then line = line .. ", " .. shiftByStr end
-
-					if not existingDefines[full_identifier] then
-						table.insert(lineOrder, full_identifier)
+	
+					if not addresses[full_identifier] then
+						addresses[full_identifier] = line
 					end
-
-					existingDefines[full_identifier] = line
-
+	
 					-- Additional line with only the address and _ADDR suffix
 					if addressStr ~= "" then
 						local addressOnlyIdentifier = full_identifier .. "_ADDR"
 						local addressOnlyLine = "#define " .. addressOnlyIdentifier .. " " .. addressStr
 
-						if not existingDefines[addressOnlyIdentifier] then
-							table.insert(lineOrder, addressOnlyIdentifier)
+						if not addresses[addressOnlyIdentifier] then
+							addresses[addressOnlyIdentifier] = addressOnlyLine
 						end
-
-						existingDefines[addressOnlyIdentifier] = addressOnlyLine
 					end
 				end
 			end
 		end
-
-		-- Write the updated content to the file
-		local address_header_file, err = io.open(path, "w")
-		if err then
-			print("Error opening file:", err) -- Print error if unable to open file
-			return
-		end
-		for _, identifier in ipairs(lineOrder) do
-			address_header_file:write(existingDefines[identifier] .. "\n")
-		end
-		address_header_file:close() -- Close the header file
 	end
 	pcall(saveDoc)
 	pcall(saveAddresses)
 	moduleBeingDefined = nil
 	end
+end
+function BIOS.protocol.writeAddressesFile()
+	-- Sort the identifiers before writing
+	local sortedIdentifiers = {}
+	for identifier in pairs(addresses) do
+		table.insert(sortedIdentifiers, identifier)
+	end
+	table.sort(sortedIdentifiers)
+
+	-- Write the updated content to the file
+	local address_header_file, err = io.open(lfs.writedir()..[[Scripts\DCS-BIOS\doc\Addresses.h]], "w")
+	if err then
+		print("Error opening file:", err) -- Print error if unable to open file
+		return
+	end
+	for _, identifier in ipairs(sortedIdentifiers) do
+		address_header_file:write(addresses[identifier] .. "\n")
+	end
+	address_header_file:close() -- Close the header file
+
+	addresses = nil -- Release the memory
 end
 function BIOS.protocol.writeNewModule(mod)
 	moduleBeingDefined = mod
@@ -158,6 +148,8 @@ function BIOS.protocol.init()
 	-- called after all aircraft modules have been loaded
 	metadataStartModule = exportModules["MetadataStart"]
 	metadataEndModule = exportModules["MetadataEnd"]
+
+	BIOS.protocol.writeAddressesFile()
 end
 
 local acftModules = nil
