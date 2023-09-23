@@ -20,6 +20,15 @@ package.path = lfs.writedir() .. [[Scripts\DCS-BIOS\?.lua;]] .. package.path
 package.path = lfs.writedir() .. [[Scripts\DCS-BIOS\lib\?.lua;]] .. package.path
 package.path = lfs.writedir() .. [[Scripts\DCS-BIOS\lib\io\?.lua;]] .. package.path
 
+package.path = lfs.writedir() .. [[Scripts\DCS-BIOS\?.lua;]] .. package.path
+package.path = lfs.writedir() .. [[Scripts\DCS-BIOS\lib\?.lua;]] .. package.path
+package.path = lfs.writedir() .. [[Scripts\DCS-BIOS\lib\io\?.lua;]] .. package.path
+package.path = lfs.writedir() .. [[Scripts\DCS-BIOS\lib\modules\?.lua;]] .. package.path
+package.path = lfs.writedir() .. [[Scripts\DCS-BIOS\lib\modules\aircraft_modules\?.lua;]] .. package.path
+package.path = lfs.writedir() .. [[Scripts\DCS-BIOS\lib\modules\common_modules\?.lua;]] .. package.path
+package.path = lfs.writedir() .. [[Scripts\DCS-BIOS\lib\modules\documentation\?.lua;]] .. package.path
+package.path = lfs.writedir() .. [[Scripts\DCS-BIOS\lib\modules\memory_map\?.lua;]] .. package.path
+
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Util.lua]])
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\ProtocolIO.lua]])
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Protocol.lua]])
@@ -32,7 +41,10 @@ dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\TextDisplay.lua]])
 -- Following text: Example (case sensitive!): -- ID = x, ProperName = <pretty name>
 -- is used by DCSFlightpanels GUI to pick up DCS-BIOS modules
 -- ID range 1-3 is used internally in DCSFlightpanels. New modules must have an uniques ID.
-dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\A-4E-C.lua]]) -- ID = 6, ProperName = A-4E Skyhawk
+local A_4E_C = require "A-4E-C"
+BIOS.protocol.writeNewModule(A_4E_C)
+
+-- dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\A-4E-C.lua]]) -- ID = 6, ProperName = A-4E Skyhawk
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\A-10C.lua]]) -- ID = 5, ProperName = A-10C Thunderbolt/II
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\A-29B.lua]]) -- ID = 41, ProperName = A-29B Super Tucano
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\AH-6J.lua]]) -- ID = 7, ProperName = AH-6J Littlebird
@@ -69,7 +81,9 @@ dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Mig-21Bis.lua]]) -- ID = 32, Prope
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Mosquito.lua]]) -- ID = 45, ProperName = Mosquito FB Mk. VI
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\NS430.lua]]) -- ID = 33, ProperName = NS 430 GPS
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\P-47D.lua]]) -- ID = 34, ProperName = P-47D Thunderbolt
-dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\P-51D.lua]]) -- ID = 35, ProperName = TF/P-51D Mustang
+-- dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\P-51D.lua]]) -- ID = 35, ProperName = TF/P-51D Mustang
+local P_51D = require "P-51D"
+BIOS.protocol.writeNewModule(P_51D)
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\SA342.lua]]) -- ID = 36, ProperName = SA342 Gazelle
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\SpitfireLFMkIX.lua]]) -- ID = 37, ProperName = Spitfire LF Mk. IX
 --dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\SuperCarrier.lua]])
