@@ -396,7 +396,7 @@ $(function() {
 			break;
 
 			case "ServoOutput":
-			code.append($("<span>").text('DcsBios::ServoOutput '+idCamelCase(cid)+'('+io.address_only_identifier+', '));
+			code.append($("<span>").text('DcsBios::ServoOutput '+idCamelCase(cid)+'('+io.address_identifier+'_ADDR, '));
 			code.append($("<i>").attr("style", "color: red;").text("PIN"));
 			code.append($("<span>").text(", "));
 			code.append($("<i>").attr("style", "color: red;").text("544"));
