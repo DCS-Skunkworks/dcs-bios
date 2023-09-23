@@ -145,6 +145,12 @@ function BIOS.protocol.endModule()
 	moduleBeingDefined = nil
 	end
 end
+function BIOS.protocol.writeNewModule(mod)
+	moduleBeingDefined = mod
+	exportModules[mod.name] = mod
+	BIOS.protocol.setExportModuleAircrafts(mod.aircraftList)
+	BIOS.protocol.endModule()
+end
 
 local metadataStartModule = nil
 local metadataEndModule = nil

@@ -14,6 +14,10 @@ package.path = "./Scripts/DCS-BIOS/lib/modules/memory_map/?.lua;" .. package.pat
 BIOS = {}
 function BIOS.log(str) end -- noop
 
+require("AircraftTest") -- high-level tests for specific aircraft
+require("MemoryMapTest") -- unit tests for the memory map
+require("MemoryMapEntryTest") -- unit tests for memory map entries
+require("ModuleTest") -- unit tests for core aircraft module functionality
 require("ServerTest") -- unit tests for tcp/udp server code
 
 local lu = require("luaunit")
