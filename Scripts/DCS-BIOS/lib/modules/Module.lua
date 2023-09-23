@@ -417,6 +417,34 @@ end
 
 --- Adds a new integer output based on a custom getter function
 --- @param identifier string the unique identifier for the control
+--- @param draw_arg_id integer the dcs argument number
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @return Control control the control which was added to the module
+function Module:defineBitFromDrawArgument(identifier, draw_arg_id, category, description)
+	return self:defineIntegerFromGetter(identifier, function()
+		if LoGetAircraftDrawArgumentValue(draw_arg_id) > 0 then
+			return 1
+		else
+			return 0
+		end
+	end, 1, category, description)
+end
+
+--- Adds a new integer output based on a custom getter function
+--- @param identifier string the unique identifier for the control
+--- @param arg_number integer the dcs argument number
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @return Control control the control which was added to the module
+function Module:defineFloatFromDrawArgument(identifier, arg_number, category, description)
+	return self:defineIntegerFromGetter(identifier, function()
+		return math.floor(LoGetAircraftDrawArgumentValue(arg_number) * 65535)
+	end, 65535, category, description)
+end
+
+--- Adds a new integer output based on a custom getter function
+--- @param identifier string the unique identifier for the control
 --- @param getter fun(): integer the getter function which will return an integer
 --- @param maxValue integer the maximum value the getter will return
 --- @param category string the category in which the control should appear

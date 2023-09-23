@@ -256,48 +256,27 @@ P_51D:defineFloat("FUEL_TANK_RIGHT", 156, { 0, 1 }, "Fuel System", "Fuel Tank Ri
 P_51D:defineFloat("FUEL_TANK_FUSELAGE", 160, { 0, 1 }, "Fuel System", "Fuel Tank Fuselage")
 
 --Externals
-P_51D:defineIntegerFromGetter("EXT_POSITION_LIGHT_LEFT", function()
-	if LoGetAircraftDrawArgumentValue(190) > 0 then
-		return 1
-	else
-		return 0
-	end
-end, 1, "External Aircraft Model", "Left Position Light (red)")
-P_51D:defineIntegerFromGetter("EXT_POSITION_LIGHT_RIGHT", function()
-	if LoGetAircraftDrawArgumentValue(191) > 0 then
-		return 1
-	else
-		return 0
-	end
-end, 1, "External Aircraft Model", "Right Position Light (green)")
-P_51D:defineIntegerFromGetter("EXT_POSITION_LIGHT_TAIL", function()
-	if LoGetAircraftDrawArgumentValue(192) > 0 then
-		return 1
-	else
-		return 0
-	end
-end, 1, "External Aircraft Model", "Tail Position Light (white)")
-P_51D:defineIntegerFromGetter("EXT_RECOC_LIGHT_RD", function()
-	if LoGetAircraftDrawArgumentValue(200) > 0 then
-		return 1
-	else
-		return 0
-	end
-end, 1, "External Aircraft Model", "Red Recognition Light (red)")
-P_51D:defineIntegerFromGetter("EXT_RECOC_LIGHT_GN", function()
-	if LoGetAircraftDrawArgumentValue(201) > 0 then
-		return 1
-	else
-		return 0
-	end
-end, 1, "External Aircraft Model", "Green Recognition Light (green)")
-P_51D:defineIntegerFromGetter("EXT_RECOC_LIGHT_YE", function()
-	if LoGetAircraftDrawArgumentValue(202) > 0 then
-		return 1
-	else
-		return 0
-	end
-end, 1, "External Aircraft Model", "Amber Recognition Light (yellow)")
+P_51D:defineBitFromDrawArgument("EXT_POSITION_LIGHT_LEFT", 190, "External Aircraft Model", "Left Position Light (red)")
+P_51D:defineBitFromDrawArgument(
+	"EXT_POSITION_LIGHT_RIGHT",
+	191,
+	"External Aircraft Model",
+	"Right Position Light (green)"
+)
+P_51D:defineBitFromDrawArgument(
+	"EXT_POSITION_LIGHT_TAIL",
+	192,
+	"External Aircraft Model",
+	"Tail Position Light (white)"
+)
+P_51D:defineBitFromDrawArgument("EXT_RECOC_LIGHT_RD", 200, "External Aircraft Model", "Red Recognition Light (red)")
+P_51D:defineBitFromDrawArgument("EXT_RECOC_LIGHT_GN", 201, "External Aircraft Model", "Green Recognition Light (green)")
+P_51D:defineBitFromDrawArgument(
+	"EXT_RECOC_LIGHT_YE",
+	202,
+	"External Aircraft Model",
+	"Amber Recognition Light (yellow)"
+)
 
 --[[--Gauge Values--]]
 --
@@ -430,37 +409,13 @@ P_51D:defineIntegerFromGetter("ACCELEROMETER_VALUE", getAccel, 65000, "Gauge Val
 P_51D:defineIndicatorLight("WINDSHIELD_OIL_L", 412, "Damage", "Windshield Oil Splashes (black)")
 P_51D:defineFloat("WINDSHIELD_CRACKS", 413, { 0, 1 }, "Damage", "Windshield Crack Holes")
 
-P_51D:defineIntegerFromGetter("EXT_WOW_TAIL", function()
-	if LoGetAircraftDrawArgumentValue(1) > 0 then
-		return 1
-	else
-		return 0
-	end
-end, 1, "External Aircraft Model", "Weight ON Wheels Tail Gear")
+P_51D:defineBitFromDrawArgument("EXT_WOW_TAIL", 1, "External Aircraft Model", "Weight ON Wheels Tail Gear")
 
-P_51D:defineIntegerFromGetter("EXT_WOW_RIGHT", function()
-	if LoGetAircraftDrawArgumentValue(4) > 0 then
-		return 1
-	else
-		return 0
-	end
-end, 1, "External Aircraft Model", "Weight ON Wheels Right Gear")
+P_51D:defineBitFromDrawArgument("EXT_WOW_RIGHT", 4, "External Aircraft Model", "Weight ON Wheels Right Gear")
 
-P_51D:defineIntegerFromGetter("EXT_WOW_LEFT", function()
-	if LoGetAircraftDrawArgumentValue(6) > 0 then
-		return 1
-	else
-		return 0
-	end
-end, 1, "External Aircraft Model", "Weight ON Wheels Left Gear")
+P_51D:defineBitFromDrawArgument("EXT_WOW_LEFT", 6, "External Aircraft Model", "Weight ON Wheels Left Gear")
 
-P_51D:defineIntegerFromGetter("EXT_LANDING_LIGHT", function()
-	if LoGetAircraftDrawArgumentValue(208) > 0 then
-		return 1
-	else
-		return 0
-	end
-end, 1, "External Aircraft Model", "Landing Light (white)")
+P_51D:defineBitFromDrawArgument("EXT_LANDING_LIGHT", 208, "External Aircraft Model", "Landing Light (white)")
 
 P_51D:defineFloat("CANOPY_POS", 162, { 0, 1 }, "Cockpit Mechanical", "Canopy Position")
 P_51D:defineRadioWheel(

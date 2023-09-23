@@ -433,33 +433,83 @@ function TestModule:testAddRadioWheel()
 	lu.assertEquals(string_output.address, moduleAddress + 2) -- string will require new address
 end
 
+function TestModule:testAddBitFromDrawArgument()
+	local id = "MY_BIT_DRAW"
+	local draw_arg_id = 1
+	local category = "Bit Draw Arguments"
+	local description = "This is a bit draw argument"
+
+	local control = self.module:defineBitFromDrawArgument(id, draw_arg_id, category, description)
+
+	lu.assertEquals(control, self.module.documentation[category][id])
+	lu.assertEquals(control.control_type, ControlType.metadata)
+	lu.assertEquals(control.category, category)
+	lu.assertEquals(control.description, description)
+	lu.assertEquals(control.identifier, id)
+	lu.assertIsNil(control.physical_variant)
+	lu.assertIsNil(control.api_variant)
+
+	lu.assertEquals(#control.inputs, 0)
+
+	lu.assertEquals(#control.outputs, 1)
+	local integer_output = control.outputs[1] --[[@as IntegerOutput]]
+	lu.assertEquals(integer_output.type, OutputType.integer)
+	lu.assertEquals(integer_output.max_value, 1)
+	lu.assertEquals(integer_output.suffix, Suffix.none)
+	lu.assertEquals(integer_output.address, moduleAddress) -- first control, should be plenty of room, no need to move the address
+end
+
+function TestModule:testAddFloatFromDrawArgument()
+	local id = "MY_FLOAT_DRAW"
+	local draw_arg_id = 1
+	local category = "Float Draw Arguments"
+	local description = "This is a float draw argument"
+
+	local control = self.module:defineFloatFromDrawArgument(id, draw_arg_id, category, description)
+
+	lu.assertEquals(control, self.module.documentation[category][id])
+	lu.assertEquals(control.control_type, ControlType.metadata)
+	lu.assertEquals(control.category, category)
+	lu.assertEquals(control.description, description)
+	lu.assertEquals(control.identifier, id)
+	lu.assertIsNil(control.physical_variant)
+	lu.assertIsNil(control.api_variant)
+
+	lu.assertEquals(#control.inputs, 0)
+
+	lu.assertEquals(#control.outputs, 1)
+	local integer_output = control.outputs[1] --[[@as IntegerOutput]]
+	lu.assertEquals(integer_output.type, OutputType.integer)
+	lu.assertEquals(integer_output.max_value, 65535)
+	lu.assertEquals(integer_output.suffix, Suffix.none)
+	lu.assertEquals(integer_output.address, moduleAddress) -- first control, should be plenty of room, no need to move the address
+end
+
 function TestModule:testAddIntegerFromGetter()
-	function TestModule:testAddTumbNoCycle()
-		local id = "MY_INT_GETTER"
-		local getter = function(dev0) end
-		local max_value = 255
-		local category = "Integer Getters"
-		local description = "This is an integer getter"
+	local id = "MY_INT_GETTER"
+	local getter = function(dev0) end
+	local max_value = 255
+	local category = "Integer Getters"
+	local description = "This is an integer getter"
 
-		local control = self.module:defineIntegerFromGetter(id, getter, max_value, category, description)
+	local control = self.module:defineIntegerFromGetter(id, getter, max_value, category, description)
 
-		lu.assertEquals(control, self.module.documentation[category][id])
-		lu.assertEquals(control.control_type, ControlType.metadata)
-		lu.assertEquals(control.category, category)
-		lu.assertEquals(control.description, description)
-		lu.assertEquals(control.identifier, id)
-		lu.assertIsNil(control.physical_variant)
-		lu.assertIsNil(control.api_variant)
+	lu.assertEquals(control, self.module.documentation[category][id])
+	lu.assertEquals(control.control_type, ControlType.metadata)
+	lu.assertEquals(control.category, category)
+	lu.assertEquals(control.description, description)
+	lu.assertEquals(control.identifier, id)
+	lu.assertIsNil(control.physical_variant)
+	lu.assertIsNil(control.api_variant)
 
-		lu.assertEquals(#control.inputs, 0)
+	lu.assertEquals(#control.inputs, 0)
 
-		lu.assertEquals(#control.outputs, 1)
-		local integer_output = control.outputs[1] --[[@as IntegerOutput]]
-		lu.assertEquals(integer_output.type, OutputType.integer)
-		lu.assertEquals(integer_output.max_value, max_value)
-		lu.assertEquals(integer_output.suffix, Suffix.none)
-		lu.assertEquals(integer_output.address, moduleAddress) -- first control, should be plenty of room, no need to move the address
-	end
+	lu.assertEquals(#control.outputs, 1)
+	local integer_output = control.outputs[1] --[[@as IntegerOutput]]
+	lu.assertEquals(integer_output.type, OutputType.integer)
+	lu.assertEquals(integer_output.max_value, max_value)
+	lu.assertEquals(integer_output.suffix, Suffix.none)
+	lu.assertEquals(integer_output.address, moduleAddress) -- first control, should be plenty of room, no need to move the address
 end
 
 function TestModule:testAddTumbNoCycle()
