@@ -35,6 +35,7 @@ local function document(args)
 	if args.outputs then
 		for _, output in ipairs(args.outputs) do
 			output.address_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, args.identifier)
+			output.address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, args.identifier) .. "_ADDR"
 		end
 	end
 

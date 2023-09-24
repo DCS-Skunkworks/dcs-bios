@@ -8,14 +8,15 @@ docdata["NS430"] =
                                                      "identifier": "GLOW",
                                                          "inputs": [  ],
                                                         "outputs": [ {
-                                                                                  "address": 1550,
-                                                                       "address_identifier": "NS430_GLOW",
-                                                                              "description": "0 if light is off, 1 if light is on",
-                                                                                     "mask": 4,
-                                                                                "max_value": 1,
-                                                                                 "shift_by": 2,
-                                                                                   "suffix": "",
-                                                                                     "type": "integer"
+                                                                                       "address": 1550,
+                                                                            "address_identifier": "NS430_GLOW",
+                                                                       "address_only_identifier": "NS430_GLOW_ADDR",
+                                                                                   "description": "0 if light is off, 1 if light is on",
+                                                                                          "mask": 4,
+                                                                                     "max_value": 1,
+                                                                                      "shift_by": 2,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
                                                                    } ]
                                                },
                          "NS430_BIG_LEFT_BTN": {
@@ -31,14 +32,15 @@ docdata["NS430"] =
                                                                        "suggested_step": 3200
                                                                    } ],
                                                         "outputs": [ {
-                                                                                  "address": 1542,
-                                                                       "address_identifier": "NS430_NS430_BIG_LEFT_BTN",
-                                                                              "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
-                                                                                     "mask": 65535,
-                                                                                "max_value": 65535,
-                                                                                 "shift_by": 0,
-                                                                                   "suffix": "_KNOB_POS",
-                                                                                     "type": "integer"
+                                                                                       "address": 1542,
+                                                                            "address_identifier": "NS430_NS430_BIG_LEFT_BTN",
+                                                                       "address_only_identifier": "NS430_NS430_BIG_LEFT_BTN_ADDR",
+                                                                                   "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                                          "mask": 65535,
+                                                                                     "max_value": 65535,
+                                                                                      "shift_by": 0,
+                                                                                        "suffix": "_KNOB_POS",
+                                                                                          "type": "integer"
                                                                    } ]
                                                },
                         "NS430_BIG_RIGHT_BTN": {
@@ -54,14 +56,15 @@ docdata["NS430"] =
                                                                        "suggested_step": 3200
                                                                    } ],
                                                         "outputs": [ {
-                                                                                  "address": 1546,
-                                                                       "address_identifier": "NS430_NS430_BIG_RIGHT_BTN",
-                                                                              "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
-                                                                                     "mask": 65535,
-                                                                                "max_value": 65535,
-                                                                                 "shift_by": 0,
-                                                                                   "suffix": "_KNOB_POS",
-                                                                                     "type": "integer"
+                                                                                       "address": 1546,
+                                                                            "address_identifier": "NS430_NS430_BIG_RIGHT_BTN",
+                                                                       "address_only_identifier": "NS430_NS430_BIG_RIGHT_BTN_ADDR",
+                                                                                   "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                                          "mask": 65535,
+                                                                                     "max_value": 65535,
+                                                                                      "shift_by": 0,
+                                                                                        "suffix": "_KNOB_POS",
+                                                                                          "type": "integer"
                                                                    } ]
                                                },
                                   "NS430_CDI": {
@@ -79,14 +82,15 @@ docdata["NS430"] =
                                                                           } ],
                                                    "momentary_positions": "first_and_last",
                                                                "outputs": [ {
-                                                                                         "address": 1536,
-                                                                              "address_identifier": "NS430_NS430_CDI",
-                                                                                     "description": "selector position",
-                                                                                            "mask": 32,
-                                                                                       "max_value": 1,
-                                                                                        "shift_by": 5,
-                                                                                          "suffix": "",
-                                                                                            "type": "integer"
+                                                                                              "address": 1536,
+                                                                                   "address_identifier": "NS430_NS430_CDI",
+                                                                              "address_only_identifier": "NS430_NS430_CDI_ADDR",
+                                                                                          "description": "selector position",
+                                                                                                 "mask": 32,
+                                                                                            "max_value": 1,
+                                                                                             "shift_by": 5,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
                                                                           } ],
                                                       "physical_variant": "push_button"
                                                },
@@ -105,14 +109,15 @@ docdata["NS430"] =
                                                                           } ],
                                                    "momentary_positions": "first_and_last",
                                                                "outputs": [ {
-                                                                                         "address": 1536,
-                                                                              "address_identifier": "NS430_NS430_CLR",
-                                                                                     "description": "selector position",
-                                                                                            "mask": 8192,
-                                                                                       "max_value": 1,
-                                                                                        "shift_by": 13,
-                                                                                          "suffix": "",
-                                                                                            "type": "integer"
+                                                                                              "address": 1536,
+                                                                                   "address_identifier": "NS430_NS430_CLR",
+                                                                              "address_only_identifier": "NS430_NS430_CLR_ADDR",
+                                                                                          "description": "selector position",
+                                                                                                 "mask": 8192,
+                                                                                            "max_value": 1,
+                                                                                             "shift_by": 13,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
                                                                           } ],
                                                       "physical_variant": "push_button"
                                                },
@@ -131,14 +136,15 @@ docdata["NS430"] =
                                                                           } ],
                                                    "momentary_positions": "first_and_last",
                                                                "outputs": [ {
-                                                                                         "address": 1536,
-                                                                              "address_identifier": "NS430_NS430_COM_FLIP_FLOP",
-                                                                                     "description": "selector position",
-                                                                                            "mask": 8,
-                                                                                       "max_value": 1,
-                                                                                        "shift_by": 3,
-                                                                                          "suffix": "",
-                                                                                            "type": "integer"
+                                                                                              "address": 1536,
+                                                                                   "address_identifier": "NS430_NS430_COM_FLIP_FLOP",
+                                                                              "address_only_identifier": "NS430_NS430_COM_FLIP_FLOP_ADDR",
+                                                                                          "description": "selector position",
+                                                                                                 "mask": 8,
+                                                                                            "max_value": 1,
+                                                                                             "shift_by": 3,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
                                                                           } ],
                                                       "physical_variant": "push_button"
                                                },
@@ -157,14 +163,15 @@ docdata["NS430"] =
                                                                           } ],
                                                    "momentary_positions": "first_and_last",
                                                                "outputs": [ {
-                                                                                         "address": 1536,
-                                                                              "address_identifier": "NS430_NS430_DIRECT_TO",
-                                                                                     "description": "selector position",
-                                                                                            "mask": 2048,
-                                                                                       "max_value": 1,
-                                                                                        "shift_by": 11,
-                                                                                          "suffix": "",
-                                                                                            "type": "integer"
+                                                                                              "address": 1536,
+                                                                                   "address_identifier": "NS430_NS430_DIRECT_TO",
+                                                                              "address_only_identifier": "NS430_NS430_DIRECT_TO_ADDR",
+                                                                                          "description": "selector position",
+                                                                                                 "mask": 2048,
+                                                                                            "max_value": 1,
+                                                                                             "shift_by": 11,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
                                                                           } ],
                                                       "physical_variant": "push_button"
                                                },
@@ -183,14 +190,15 @@ docdata["NS430"] =
                                                                           } ],
                                                    "momentary_positions": "first_and_last",
                                                                "outputs": [ {
-                                                                                         "address": 1536,
-                                                                              "address_identifier": "NS430_NS430_ENT",
-                                                                                     "description": "selector position",
-                                                                                            "mask": 16384,
-                                                                                       "max_value": 1,
-                                                                                        "shift_by": 14,
-                                                                                          "suffix": "",
-                                                                                            "type": "integer"
+                                                                                              "address": 1536,
+                                                                                   "address_identifier": "NS430_NS430_ENT",
+                                                                              "address_only_identifier": "NS430_NS430_ENT_ADDR",
+                                                                                          "description": "selector position",
+                                                                                                 "mask": 16384,
+                                                                                            "max_value": 1,
+                                                                                             "shift_by": 14,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
                                                                           } ],
                                                       "physical_variant": "push_button"
                                                },
@@ -209,14 +217,15 @@ docdata["NS430"] =
                                                                           } ],
                                                    "momentary_positions": "first_and_last",
                                                                "outputs": [ {
-                                                                                         "address": 1536,
-                                                                              "address_identifier": "NS430_NS430_FPL",
-                                                                                     "description": "selector position",
-                                                                                            "mask": 512,
-                                                                                       "max_value": 1,
-                                                                                        "shift_by": 9,
-                                                                                          "suffix": "",
-                                                                                            "type": "integer"
+                                                                                              "address": 1536,
+                                                                                   "address_identifier": "NS430_NS430_FPL",
+                                                                              "address_only_identifier": "NS430_NS430_FPL_ADDR",
+                                                                                          "description": "selector position",
+                                                                                                 "mask": 512,
+                                                                                            "max_value": 1,
+                                                                                             "shift_by": 9,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
                                                                           } ],
                                                       "physical_variant": "push_button"
                                                },
@@ -235,14 +244,15 @@ docdata["NS430"] =
                                                                           } ],
                                                    "momentary_positions": "first_and_last",
                                                                "outputs": [ {
-                                                                                         "address": 1536,
-                                                                              "address_identifier": "NS430_NS430_MENU",
-                                                                                     "description": "selector position",
-                                                                                            "mask": 4096,
-                                                                                       "max_value": 1,
-                                                                                        "shift_by": 12,
-                                                                                          "suffix": "",
-                                                                                            "type": "integer"
+                                                                                              "address": 1536,
+                                                                                   "address_identifier": "NS430_NS430_MENU",
+                                                                              "address_only_identifier": "NS430_NS430_MENU_ADDR",
+                                                                                          "description": "selector position",
+                                                                                                 "mask": 4096,
+                                                                                            "max_value": 1,
+                                                                                             "shift_by": 12,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
                                                                           } ],
                                                       "physical_variant": "push_button"
                                                },
@@ -261,14 +271,15 @@ docdata["NS430"] =
                                                                           } ],
                                                    "momentary_positions": "first_and_last",
                                                                "outputs": [ {
-                                                                                         "address": 1536,
-                                                                              "address_identifier": "NS430_NS430_MSG",
-                                                                                     "description": "selector position",
-                                                                                            "mask": 256,
-                                                                                       "max_value": 1,
-                                                                                        "shift_by": 8,
-                                                                                          "suffix": "",
-                                                                                            "type": "integer"
+                                                                                              "address": 1536,
+                                                                                   "address_identifier": "NS430_NS430_MSG",
+                                                                              "address_only_identifier": "NS430_NS430_MSG_ADDR",
+                                                                                          "description": "selector position",
+                                                                                                 "mask": 256,
+                                                                                            "max_value": 1,
+                                                                                             "shift_by": 8,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
                                                                           } ],
                                                       "physical_variant": "push_button"
                                                },
@@ -287,14 +298,15 @@ docdata["NS430"] =
                                                                           } ],
                                                    "momentary_positions": "first_and_last",
                                                                "outputs": [ {
-                                                                                         "address": 1536,
-                                                                              "address_identifier": "NS430_NS430_OBS",
-                                                                                     "description": "selector position",
-                                                                                            "mask": 64,
-                                                                                       "max_value": 1,
-                                                                                        "shift_by": 6,
-                                                                                          "suffix": "",
-                                                                                            "type": "integer"
+                                                                                              "address": 1536,
+                                                                                   "address_identifier": "NS430_NS430_OBS",
+                                                                              "address_only_identifier": "NS430_NS430_OBS_ADDR",
+                                                                                          "description": "selector position",
+                                                                                                 "mask": 64,
+                                                                                            "max_value": 1,
+                                                                                             "shift_by": 6,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
                                                                           } ],
                                                       "physical_variant": "push_button"
                                                },
@@ -313,14 +325,15 @@ docdata["NS430"] =
                                                                           } ],
                                                    "momentary_positions": "first_and_last",
                                                                "outputs": [ {
-                                                                                         "address": 1536,
-                                                                              "address_identifier": "NS430_NS430_OBS1",
-                                                                                     "description": "selector position",
-                                                                                            "mask": 128,
-                                                                                       "max_value": 1,
-                                                                                        "shift_by": 7,
-                                                                                          "suffix": "",
-                                                                                            "type": "integer"
+                                                                                              "address": 1536,
+                                                                                   "address_identifier": "NS430_NS430_OBS1",
+                                                                              "address_only_identifier": "NS430_NS430_OBS1_ADDR",
+                                                                                          "description": "selector position",
+                                                                                                 "mask": 128,
+                                                                                            "max_value": 1,
+                                                                                             "shift_by": 7,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
                                                                           } ],
                                                       "physical_variant": "push_button"
                                                },
@@ -339,14 +352,15 @@ docdata["NS430"] =
                                                                           } ],
                                                    "momentary_positions": "first_and_last",
                                                                "outputs": [ {
-                                                                                         "address": 1536,
-                                                                              "address_identifier": "NS430_NS430_PROC",
-                                                                                     "description": "selector position",
-                                                                                            "mask": 1024,
-                                                                                       "max_value": 1,
-                                                                                        "shift_by": 10,
-                                                                                          "suffix": "",
-                                                                                            "type": "integer"
+                                                                                              "address": 1536,
+                                                                                   "address_identifier": "NS430_NS430_PROC",
+                                                                              "address_only_identifier": "NS430_NS430_PROC_ADDR",
+                                                                                          "description": "selector position",
+                                                                                                 "mask": 1024,
+                                                                                            "max_value": 1,
+                                                                                             "shift_by": 10,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
                                                                           } ],
                                                       "physical_variant": "push_button"
                                                },
@@ -365,14 +379,15 @@ docdata["NS430"] =
                                                                           } ],
                                                    "momentary_positions": "first_and_last",
                                                                "outputs": [ {
-                                                                                         "address": 1536,
-                                                                              "address_identifier": "NS430_NS430_PWR_VOL_PUSH_SQ_POW",
-                                                                                     "description": "selector position",
-                                                                                            "mask": 1,
-                                                                                       "max_value": 1,
-                                                                                        "shift_by": 0,
-                                                                                          "suffix": "",
-                                                                                            "type": "integer"
+                                                                                              "address": 1536,
+                                                                                   "address_identifier": "NS430_NS430_PWR_VOL_PUSH_SQ_POW",
+                                                                              "address_only_identifier": "NS430_NS430_PWR_VOL_PUSH_SQ_POW_ADDR",
+                                                                                          "description": "selector position",
+                                                                                                 "mask": 1,
+                                                                                            "max_value": 1,
+                                                                                             "shift_by": 0,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
                                                                           } ],
                                                       "physical_variant": "push_button"
                                                },
@@ -392,14 +407,15 @@ docdata["NS430"] =
                                                                        "suggested_step": 3200
                                                                    } ],
                                                         "outputs": [ {
-                                                                                  "address": 1538,
-                                                                       "address_identifier": "NS430_NS430_PWR_VOL_PUSH_SQ_VOL",
-                                                                              "description": "position of the potentiometer",
-                                                                                     "mask": 65535,
-                                                                                "max_value": 65535,
-                                                                                 "shift_by": 0,
-                                                                                   "suffix": "",
-                                                                                     "type": "integer"
+                                                                                       "address": 1538,
+                                                                            "address_identifier": "NS430_NS430_PWR_VOL_PUSH_SQ_VOL",
+                                                                       "address_only_identifier": "NS430_NS430_PWR_VOL_PUSH_SQ_VOL_ADDR",
+                                                                                   "description": "position of the potentiometer",
+                                                                                          "mask": 65535,
+                                                                                     "max_value": 65535,
+                                                                                      "shift_by": 0,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
                                                                    } ]
                                                },
                               "NS430_RNG_RKR": {
@@ -417,14 +433,15 @@ docdata["NS430"] =
                                                                           } ],
                                                    "momentary_positions": "first_and_last",
                                                                "outputs": [ {
-                                                                                         "address": 1550,
-                                                                              "address_identifier": "NS430_NS430_RNG_RKR",
-                                                                                     "description": "button position",
-                                                                                            "mask": 3,
-                                                                                       "max_value": 2,
-                                                                                        "shift_by": 0,
-                                                                                          "suffix": "",
-                                                                                            "type": "integer"
+                                                                                              "address": 1550,
+                                                                                   "address_identifier": "NS430_NS430_RNG_RKR",
+                                                                              "address_only_identifier": "NS430_NS430_RNG_RKR_ADDR",
+                                                                                          "description": "button position",
+                                                                                                 "mask": 3,
+                                                                                            "max_value": 2,
+                                                                                             "shift_by": 0,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
                                                                           } ],
                                                       "physical_variant": "rocker_switch"
                                                },
@@ -443,14 +460,15 @@ docdata["NS430"] =
                                                                           } ],
                                                    "momentary_positions": "first_and_last",
                                                                "outputs": [ {
-                                                                                         "address": 1536,
-                                                                              "address_identifier": "NS430_NS430_SMALL_LEFT_BTN_PUSH",
-                                                                                     "description": "selector position",
-                                                                                            "mask": 4,
-                                                                                       "max_value": 1,
-                                                                                        "shift_by": 2,
-                                                                                          "suffix": "",
-                                                                                            "type": "integer"
+                                                                                              "address": 1536,
+                                                                                   "address_identifier": "NS430_NS430_SMALL_LEFT_BTN_PUSH",
+                                                                              "address_only_identifier": "NS430_NS430_SMALL_LEFT_BTN_PUSH_ADDR",
+                                                                                          "description": "selector position",
+                                                                                                 "mask": 4,
+                                                                                            "max_value": 1,
+                                                                                             "shift_by": 2,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
                                                                           } ],
                                                       "physical_variant": "push_button"
                                                },
@@ -467,14 +485,15 @@ docdata["NS430"] =
                                                                        "suggested_step": 3200
                                                                    } ],
                                                         "outputs": [ {
-                                                                                  "address": 1544,
-                                                                       "address_identifier": "NS430_NS430_SMALL_LEFT_BTN_ROT",
-                                                                              "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
-                                                                                     "mask": 65535,
-                                                                                "max_value": 65535,
-                                                                                 "shift_by": 0,
-                                                                                   "suffix": "_KNOB_POS",
-                                                                                     "type": "integer"
+                                                                                       "address": 1544,
+                                                                            "address_identifier": "NS430_NS430_SMALL_LEFT_BTN_ROT",
+                                                                       "address_only_identifier": "NS430_NS430_SMALL_LEFT_BTN_ROT_ADDR",
+                                                                                   "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                                          "mask": 65535,
+                                                                                     "max_value": 65535,
+                                                                                      "shift_by": 0,
+                                                                                        "suffix": "_KNOB_POS",
+                                                                                          "type": "integer"
                                                                    } ]
                                                },
                  "NS430_SMALL_RIGHT_BTN_PUSH": {
@@ -492,14 +511,15 @@ docdata["NS430"] =
                                                                           } ],
                                                    "momentary_positions": "first_and_last",
                                                                "outputs": [ {
-                                                                                         "address": 1536,
-                                                                              "address_identifier": "NS430_NS430_SMALL_RIGHT_BTN_PUSH",
-                                                                                     "description": "selector position",
-                                                                                            "mask": 32768,
-                                                                                       "max_value": 1,
-                                                                                        "shift_by": 15,
-                                                                                          "suffix": "",
-                                                                                            "type": "integer"
+                                                                                              "address": 1536,
+                                                                                   "address_identifier": "NS430_NS430_SMALL_RIGHT_BTN_PUSH",
+                                                                              "address_only_identifier": "NS430_NS430_SMALL_RIGHT_BTN_PUSH_ADDR",
+                                                                                          "description": "selector position",
+                                                                                                 "mask": 32768,
+                                                                                            "max_value": 1,
+                                                                                             "shift_by": 15,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
                                                                           } ],
                                                       "physical_variant": "push_button"
                                                },
@@ -516,14 +536,15 @@ docdata["NS430"] =
                                                                        "suggested_step": 3200
                                                                    } ],
                                                         "outputs": [ {
-                                                                                  "address": 1548,
-                                                                       "address_identifier": "NS430_NS430_SMALL_RIGHT_BTN_ROT",
-                                                                              "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
-                                                                                     "mask": 65535,
-                                                                                "max_value": 65535,
-                                                                                 "shift_by": 0,
-                                                                                   "suffix": "_KNOB_POS",
-                                                                                     "type": "integer"
+                                                                                       "address": 1548,
+                                                                            "address_identifier": "NS430_NS430_SMALL_RIGHT_BTN_ROT",
+                                                                       "address_only_identifier": "NS430_NS430_SMALL_RIGHT_BTN_ROT_ADDR",
+                                                                                   "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                                          "mask": 65535,
+                                                                                     "max_value": 65535,
+                                                                                      "shift_by": 0,
+                                                                                        "suffix": "_KNOB_POS",
+                                                                                          "type": "integer"
                                                                    } ]
                                                },
                        "NS430_VLOC_FLIP_FLOP": {
@@ -541,14 +562,15 @@ docdata["NS430"] =
                                                                           } ],
                                                    "momentary_positions": "first_and_last",
                                                                "outputs": [ {
-                                                                                         "address": 1536,
-                                                                              "address_identifier": "NS430_NS430_VLOC_FLIP_FLOP",
-                                                                                     "description": "selector position",
-                                                                                            "mask": 16,
-                                                                                       "max_value": 1,
-                                                                                        "shift_by": 4,
-                                                                                          "suffix": "",
-                                                                                            "type": "integer"
+                                                                                              "address": 1536,
+                                                                                   "address_identifier": "NS430_NS430_VLOC_FLIP_FLOP",
+                                                                              "address_only_identifier": "NS430_NS430_VLOC_FLIP_FLOP_ADDR",
+                                                                                          "description": "selector position",
+                                                                                                 "mask": 16,
+                                                                                            "max_value": 1,
+                                                                                             "shift_by": 4,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
                                                                           } ],
                                                       "physical_variant": "push_button"
                                                },
@@ -567,14 +589,15 @@ docdata["NS430"] =
                                                                           } ],
                                                    "momentary_positions": "first_and_last",
                                                                "outputs": [ {
-                                                                                         "address": 1536,
-                                                                              "address_identifier": "NS430_NS430_VOL_PUSH_ID_PUSH",
-                                                                                     "description": "selector position",
-                                                                                            "mask": 2,
-                                                                                       "max_value": 1,
-                                                                                        "shift_by": 1,
-                                                                                          "suffix": "",
-                                                                                            "type": "integer"
+                                                                                              "address": 1536,
+                                                                                   "address_identifier": "NS430_NS430_VOL_PUSH_ID_PUSH",
+                                                                              "address_only_identifier": "NS430_NS430_VOL_PUSH_ID_PUSH_ADDR",
+                                                                                          "description": "selector position",
+                                                                                                 "mask": 2,
+                                                                                            "max_value": 1,
+                                                                                             "shift_by": 1,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
                                                                           } ],
                                                       "physical_variant": "push_button"
                                                },
@@ -594,14 +617,15 @@ docdata["NS430"] =
                                                                        "suggested_step": 3200
                                                                    } ],
                                                         "outputs": [ {
-                                                                                  "address": 1540,
-                                                                       "address_identifier": "NS430_NS430_VOL_PUSH_ID_VOL",
-                                                                              "description": "position of the potentiometer",
-                                                                                     "mask": 65535,
-                                                                                "max_value": 65535,
-                                                                                 "shift_by": 0,
-                                                                                   "suffix": "",
-                                                                                     "type": "integer"
+                                                                                       "address": 1540,
+                                                                            "address_identifier": "NS430_NS430_VOL_PUSH_ID_VOL",
+                                                                       "address_only_identifier": "NS430_NS430_VOL_PUSH_ID_VOL_ADDR",
+                                                                                   "description": "position of the potentiometer",
+                                                                                          "mask": 65535,
+                                                                                     "max_value": 65535,
+                                                                                      "shift_by": 0,
+                                                                                        "suffix": "",
+                                                                                          "type": "integer"
                                                                    } ]
                                                }
              }

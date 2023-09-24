@@ -7,6 +7,7 @@ module("Output", package.seeall)
 --- @field type OutputType
 --- @field description string
 --- @field address_identifier string?
+--- @field address_only_identifier string?
 local Output = {}
 
 return Output

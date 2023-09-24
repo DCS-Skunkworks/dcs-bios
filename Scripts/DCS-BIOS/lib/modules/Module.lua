@@ -606,6 +606,7 @@ function Module:addControl(control)
 	if control.outputs then
 		for _, output in ipairs(control.outputs) do
 			output.address_identifier = self:addressDefineIdentifier(control.identifier)
+			output.address_only_identifier = self:addressDefineIdentifier(control.identifier) .. "_ADDR"
 		end
 	end
 
