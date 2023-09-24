@@ -79,59 +79,61 @@ function BIOS.protocol.endModule()
 	end
 end
 function BIOS.protocol.saveAddresses()
-	local addresses = {}
+	if BIOSdevMode == 1 then
+		local addresses = {}
 
-	for moduleName, moduleBeingDefined in pairs(exportModules) do
-		for _, category in pairs(moduleBeingDefined.documentation) do
-			for identifier, args in pairs(category) do
-				local outputs = args.outputs or {}
-				for _, output in pairs(outputs) do
-					local address_identifier = output.address_identifier or BIOS.util.addressDefineIdentifier(moduleName, identifier)
-					local addressStr = output.address and string.format("0x%X", output.address) or ""
-					local maskStr = output.mask and string.format("0x%X", output.mask) or ""
-					local shiftByStr = output.shift_by and tostring(output.shift_by) or ""
+		for moduleName, moduleBeingDefined in pairs(exportModules) do
+			for _, category in pairs(moduleBeingDefined.documentation) do
+				for identifier, args in pairs(category) do
+					local outputs = args.outputs or {}
+					for _, output in pairs(outputs) do
+						local address_identifier = output.address_identifier or BIOS.util.addressDefineIdentifier(moduleName, identifier)
+						local addressStr = output.address and string.format("0x%X", output.address) or ""
+						local maskStr = output.mask and string.format("0x%X", output.mask) or ""
+						local shiftByStr = output.shift_by and tostring(output.shift_by) or ""
 
-					-- Define line with address, mask, and shiftby
-					local line = "#define " .. address_identifier .. " " .. addressStr
-					if maskStr ~= "" then line = line .. ", " .. maskStr end
-					if shiftByStr ~= "" then line = line .. ", " .. shiftByStr end
-	
-					if not addresses[address_identifier] then
-						addresses[address_identifier] = line
-					end
-	
-					-- Additional line with only the address and _ADDR suffix
-					if addressStr ~= "" then
-						local addressOnlyIdentifier = address_identifier .. "_ADDR"
-						local addressOnlyLine = "#define " .. addressOnlyIdentifier .. " " .. addressStr
+						-- Define line with address, mask, and shiftby
+						local line = "#define " .. address_identifier .. " " .. addressStr
+						if maskStr ~= "" then line = line .. ", " .. maskStr end
+						if shiftByStr ~= "" then line = line .. ", " .. shiftByStr end
+		
+						if not addresses[address_identifier] then
+							addresses[address_identifier] = line
+						end
+		
+						-- Additional line with only the address and _ADDR suffix
+						if addressStr ~= "" then
+							local addressOnlyIdentifier = address_identifier .. "_ADDR"
+							local addressOnlyLine = "#define " .. addressOnlyIdentifier .. " " .. addressStr
 
-						if not addresses[addressOnlyIdentifier] then
-							addresses[addressOnlyIdentifier] = addressOnlyLine
+							if not addresses[addressOnlyIdentifier] then
+								addresses[addressOnlyIdentifier] = addressOnlyLine
+							end
 						end
 					end
 				end
 			end
 		end
-	end
 
-	-- Sort the identifiers before writing
-	local sortedIdentifiers = {}
-	for identifier in pairs(addresses) do
-		table.insert(sortedIdentifiers, identifier)
-	end
-	table.sort(sortedIdentifiers)
-
-	-- Write the header file
-	local address_header_file, err = io.open(lfs.writedir()..[[Scripts\DCS-BIOS\doc\Addresses.h]], "w")
-	if err then
-		print("Error opening file:", err) -- Print error if unable to open file
-		return
-	else
-		for _, identifier in ipairs(sortedIdentifiers) do
-			address_header_file:write(addresses[identifier] .. "\n")
+		-- Sort the identifiers before writing
+		local sortedIdentifiers = {}
+		for identifier in pairs(addresses) do
+			table.insert(sortedIdentifiers, identifier)
 		end
+		table.sort(sortedIdentifiers)
 
-		address_header_file:close() -- Close the header file
+		-- Write the header file
+		local address_header_file, err = io.open(lfs.writedir()..[[Scripts\DCS-BIOS\doc\Addresses.h]], "w")
+		if err then
+			print("Error opening file:", err) -- Print error if unable to open file
+			return
+		else
+			for _, identifier in ipairs(sortedIdentifiers) do
+				address_header_file:write(addresses[identifier] .. "\n")
+			end
+
+			address_header_file:close() -- Close the header file
+		end
 	end
 end
 function BIOS.protocol.writeNewModule(mod)
