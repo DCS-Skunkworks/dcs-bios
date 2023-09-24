@@ -82,23 +82,23 @@ function BIOS.protocol.endModule()
 			for identifier, args in pairs(category) do
 				local outputs = args.outputs or {}
 				for _, output in pairs(outputs) do
-					local full_identifier = BIOS.util.addressDefineIdentifier(moduleName, identifier)
+					local address_identifier = output.address_identifier or BIOS.util.addressDefineIdentifier(moduleName, identifier)
 					local addressStr = output.address and string.format("0x%X", output.address) or ""
 					local maskStr = output.mask and string.format("0x%X", output.mask) or ""
 					local shiftByStr = output.shift_by and tostring(output.shift_by) or ""
 
 					-- Define line with address, mask, and shiftby
-					local line = "#define " .. full_identifier .. " " .. addressStr
+					local line = "#define " .. address_identifier .. " " .. addressStr
 					if maskStr ~= "" then line = line .. ", " .. maskStr end
 					if shiftByStr ~= "" then line = line .. ", " .. shiftByStr end
 	
-					if not addresses[full_identifier] then
-						addresses[full_identifier] = line
+					if not addresses[address_identifier] then
+						addresses[address_identifier] = line
 					end
 	
 					-- Additional line with only the address and _ADDR suffix
 					if addressStr ~= "" then
-						local addressOnlyIdentifier = full_identifier .. "_ADDR"
+						local addressOnlyIdentifier = address_identifier .. "_ADDR"
 						local addressOnlyLine = "#define " .. addressOnlyIdentifier .. " " .. addressStr
 
 						if not addresses[addressOnlyIdentifier] then
