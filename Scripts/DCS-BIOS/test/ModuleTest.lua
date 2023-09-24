@@ -201,16 +201,7 @@ function TestModule:testAddMultipositionSwitch()
 	local category = "Multiposition Switches"
 	local description = "This is a multiposition switch"
 
-	local control = self.module:defineMultipositionSwitch(
-		id,
-		device_id,
-		command,
-		arg_number,
-		num_positions,
-		increment,
-		category,
-		description
-	)
+	local control = self.module:defineMultipositionSwitch(id, device_id, command, arg_number, num_positions, increment, category, description)
 
 	lu.assertEquals(control, self.module.documentation[category][id])
 	lu.assertEquals(control.control_type, ControlType.selector)
@@ -314,18 +305,7 @@ function TestModule:testAddFixedStepTumb()
 	local category = "Fixed-step Tumbs"
 	local description = "This is a fixed-step tumb"
 
-	local control = self.module:defineFixedStepTumb(
-		id,
-		device_id,
-		command,
-		arg_number,
-		step,
-		limits,
-		rel_args,
-		output_map,
-		category,
-		description
-	)
+	local control = self.module:defineFixedStepTumb(id, device_id, command, arg_number, step, limits, rel_args, output_map, category, description)
 
 	lu.assertEquals(control, self.module.documentation[category][id])
 	lu.assertEquals(control.control_type, ControlType.discrete_dial)
@@ -392,19 +372,7 @@ function TestModule:testAddRadioWheel()
 	local category = "Radio Wheels"
 	local description = "This is a radio wheel"
 
-	local control = self.module:defineRadioWheel(
-		id,
-		device_id,
-		decrement_command,
-		increment_command,
-		rel_args,
-		arg_number,
-		step,
-		limits,
-		output_map,
-		category,
-		description
-	)
+	local control = self.module:defineRadioWheel(id, device_id, decrement_command, increment_command, rel_args, arg_number, step, limits, output_map, category, description)
 
 	lu.assertEquals(control, self.module.documentation[category][id])
 	lu.assertEquals(control.control_type, ControlType.discrete_dial)
@@ -524,18 +492,7 @@ function TestModule:testAddTumbNoCycle()
 	local category = "Tumbs"
 	local description = "This is a tumb"
 
-	local control = self.module:defineTumb(
-		id,
-		device_id,
-		command,
-		arg_number,
-		step,
-		limits,
-		output_map,
-		cycle,
-		category,
-		description
-	)
+	local control = self.module:defineTumb(id, device_id, command, arg_number, step, limits, output_map, cycle, category, description)
 
 	lu.assertEquals(control, self.module.documentation[category][id])
 	lu.assertEquals(control.control_type, ControlType.selector)
@@ -579,8 +536,7 @@ function TestModule:testAddTumbCycle()
 	local category = "Tumbs"
 	local description = "This is a tumb"
 
-	local control =
-		self.module:defineTumb(id, device_id, command, arg_number, step, limits, nil, cycle, category, description)
+	local control = self.module:defineTumb(id, device_id, command, arg_number, step, limits, nil, cycle, category, description)
 
 	lu.assertEquals(control, self.module.documentation[category][id])
 	lu.assertEquals(control.control_type, ControlType.selector)

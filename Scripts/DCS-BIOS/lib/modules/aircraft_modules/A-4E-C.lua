@@ -266,22 +266,8 @@ A_4E_C:defineToggleSwitch("JATO_ARM", 2, 3158, 133, "Mechanical Systems", "JATO 
 A_4E_C:defineToggleSwitch("JATO_JETT_SAFE", 2, 3159, 134, "Mechanical Systems", "JATO JETTISON-SAFE Switch")
 
 --Fuel Systems
-A_4E_C:define3PosTumb(
-	"DROP_PRESS_REFUEL",
-	20,
-	3144,
-	101,
-	"Fuel Systems",
-	"Drop Tanks Pressurization and Flight Refuel Switch"
-)
-A_4E_C:define3PosTumb(
-	"EMERG_TRANS_FUEL_DUMP",
-	20,
-	3143,
-	103,
-	"Fuel Systems",
-	"Emergency Transfer and Wing Fuel Dump Switch"
-)
+A_4E_C:define3PosTumb("DROP_PRESS_REFUEL", 20, 3144, 101, "Fuel Systems", "Drop Tanks Pressurization and Flight Refuel Switch")
+A_4E_C:define3PosTumb("EMERG_TRANS_FUEL_DUMP", 20, 3143, 103, "Fuel Systems", "Emergency Transfer and Wing Fuel Dump Switch")
 A_4E_C:defineToggleSwitch("FUEL_CONTROL", 20, 3145, 104, "Fuel Systems", "Fuel Control Switch")
 A_4E_C:defineToggleSwitch("MAN_FUEL_OFF_LV", 20, 3146, 130, "Fuel Systems", "Manual Fuel Shutoff Lever")
 A_4E_C:defineToggleSwitch("MAN_FUEL_OFF_CATCH", 20, 3147, 131, "Fuel Systems", "Manual Fuel Shutoff Catch")
@@ -348,48 +334,12 @@ A_4E_C:define3PosTumb("LIGHT_INT_BRIGHT", 2, 3084, 108, "Lights", "Console Light
 A_4E_C:definePotentiometer("LIGHT_INT_FLOOD_WHT", 2, 3081, 110, { 0, 1 }, "Lights", "White FloodLight Control")
 
 --UHF Radio
-A_4E_C:defineMultipositionSwitch(
-	"ARC51_FREQ_PRE",
-	28,
-	3101,
-	361,
-	20,
-	0.05,
-	"UHF Radio",
-	"ARC-51 UHF Preset Channel Selector"
-)
+A_4E_C:defineMultipositionSwitch("ARC51_FREQ_PRE", 28, 3101, 361, 20, 0.05, "UHF Radio", "ARC-51 UHF Preset Channel Selector")
 A_4E_C:definePotentiometer("ARC51_VOL", 28, 3099, 365, { 0, 1 }, "UHF Radio", "ARC-51 UHF Volume")
 A_4E_C:define3PosTumb("ARC51_XMIT_MODE", 28, 3098, 366, "UHF Radio", "ARC-51 UHF Frequency Mode")
-A_4E_C:defineMultipositionSwitch(
-	"ARC51_FREQ_10MHZ",
-	28,
-	3102,
-	367,
-	18,
-	0.05,
-	"UHF Radio",
-	"ARC-51 UHF Manual Frequency 10 MHz"
-)
-A_4E_C:defineMultipositionSwitch(
-	"ARC51_FREQ_1MHZ",
-	28,
-	3103,
-	368,
-	10,
-	0.1,
-	"UHF Radio",
-	"ARC-51 UHF Manual Frequency 1 MHz"
-)
-A_4E_C:defineMultipositionSwitch(
-	"ARC51_FREQ_50KHZ",
-	28,
-	3104,
-	369,
-	20,
-	0.05,
-	"UHF Radio",
-	"ARC-51 UHF Manual Frequency 50 kHz"
-)
+A_4E_C:defineMultipositionSwitch("ARC51_FREQ_10MHZ", 28, 3102, 367, 18, 0.05, "UHF Radio", "ARC-51 UHF Manual Frequency 10 MHz")
+A_4E_C:defineMultipositionSwitch("ARC51_FREQ_1MHZ", 28, 3103, 368, 10, 0.1, "UHF Radio", "ARC-51 UHF Manual Frequency 1 MHz")
+A_4E_C:defineMultipositionSwitch("ARC51_FREQ_50KHZ", 28, 3104, 369, 20, 0.05, "UHF Radio", "ARC-51 UHF Manual Frequency 50 kHz")
 A_4E_C:defineToggleSwitch("ARC51_SQUELCH", 28, 3100, 370, "UHF Radio", "ARC-51 UHF Squelch Disable")
 A_4E_C:defineMultipositionSwitch("ARC51_MODE", 28, 3097, 372, 4, 0.1, "UHF Radio", "ARC-51 UHF Mode")
 
@@ -426,12 +376,7 @@ A_4E_C:define3PosTumb("ASN41_LON_SLEW", 23, 3166, 249, "Doppler Nav", "ASN-41 De
 A_4E_C:defineFloatFromDrawArgument("EXT_SPEED_BRAKES", 500, "External Aircraft Model", "Speed Brakes")
 A_4E_C:defineFloatFromDrawArgument("EXT_HOOK", 25, "External Aircraft Model", "Hook")
 A_4E_C:defineBitFromDrawArgument("EXT_POSITION_LIGHT_LEFT", 190, "External Aircraft Model", "Left Position Light (red)")
-A_4E_C:defineBitFromDrawArgument(
-	"EXT_POSITION_LIGHT_RIGHT",
-	191,
-	"External Aircraft Model",
-	"Right Position Light (green)"
-)
+A_4E_C:defineBitFromDrawArgument("EXT_POSITION_LIGHT_RIGHT", 191, "External Aircraft Model", "Right Position Light (green)")
 A_4E_C:defineBitFromDrawArgument("EXT_TAIL_LIGHT", 192, "External Aircraft Model", "Tail Light (white)")
 A_4E_C:defineBitFromDrawArgument("EXT_STROBE_TOP", 198, "External Aircraft Model", "Top Strobe Light (red)")
 A_4E_C:defineBitFromDrawArgument("EXT_STROBE_BOTTOM", 199, "External Aircraft Model", "Bottom Strobe Light (red)")
