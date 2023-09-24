@@ -46,15 +46,11 @@ function MemoryAllocation:setValue(value)
 	assert(value)
 	value = math.floor(value)
 	if value < 0 then
-		BIOS.log(
-			string.format("Util.lua: value %f is too small for address %d mask %d", value, self.address, self.mask)
-		)
+		BIOS.log(string.format("Util.lua: value %f is too small for address %d mask %d", value, self.address, self.mask))
 		return
 	end
 	if value > self.maxValue then
-		BIOS.log(
-			string.format("Util.lua: value %f is too large for address %d mask %d", value, self.address, self.mask)
-		)
+		BIOS.log(string.format("Util.lua: value %f is too large for address %d mask %d", value, self.address, self.mask))
 		return
 	end
 	assert(value >= 0)

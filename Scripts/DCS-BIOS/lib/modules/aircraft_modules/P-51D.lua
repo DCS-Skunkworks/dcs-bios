@@ -19,18 +19,7 @@ P_51D:definePushButton("CIRC_PRO_RST", 14, 3025, 112, "Right Switch Panel", "Cir
 P_51D:definePotentiometer("RT_FLRES_LT", 14, 3007, 100, { 0, 1 }, "Right Switch Panel", "Right Fluorescent Light")
 P_51D:defineToggleSwitch("GUNSIGHT_ON_OFF", 1, 3004, 41, "K14 Gunsight", "Gunsight On/Off")
 P_51D:defineToggleSwitch("RET_MASK_LVR", 1, 3006, 39, "K14 Gunsight", "Fixed Reticle Mask Lever")
-P_51D:defineTumb(
-	"GUNSIGHT_FIXED_GYRO",
-	1,
-	3016,
-	40,
-	0.1,
-	{ 0, 0.2 },
-	nil,
-	false,
-	"K14 Gunsight",
-	"Fixed Fixed-Gyro Gyro"
-)
+P_51D:defineTumb("GUNSIGHT_FIXED_GYRO", 1, 3016, 40, 0.1, { 0, 0.2 }, nil, false, "K14 Gunsight", "Fixed Fixed-Gyro Gyro")
 P_51D:definePotentiometer("GUNSIGHT_BRT", 1, 3005, 42, { 0, 1 }, "K14 Gunsight", "Gun Sight Brightness")
 P_51D:definePotentiometer("WING_SPAN_SEL", 1, 3001, 35, { 0, 1 }, "K14 Gunsight", "Wing Span Selector")
 P_51D:defineToggleSwitch("HYD_REL", 3, 3001, 79, "Hydraulic System", "Hydraulic Release Knob")
@@ -52,14 +41,7 @@ P_51D:definePotentiometer("LOCK_PROPELLER_MIXTURE", 5, 3014, 49, { 0, 1 }, "Engi
 P_51D:definePushButton("MICROPHONE_ON", 6, 3001, 44, "Cockpit Mechanical", "Microphone On")
 P_51D:defineToggleSwitch("ARM_REST", 6, 3009, 200, "Cockpit Mechanical", "Arm rest")
 P_51D:definePotentiometer("CANOPY_HAND_CRANK", 6, 3002, 147, { -6, 6 }, "Cockpit Mechanical", "Canopy Hand Crank")
-P_51D:defineToggleSwitch(
-	"CANOPY_EMERGENCY_RELEASE_HANDLE",
-	6,
-	3003,
-	149,
-	"Cockpit Mechanical",
-	"Canopy Emergency Release Handle"
-)
+P_51D:defineToggleSwitch("CANOPY_EMERGENCY_RELEASE_HANDLE", 6, 3003, 149, "Cockpit Mechanical", "Canopy Emergency Release Handle")
 P_51D:defineToggleSwitch("OXYGEN_AUTO_MIX", 7, 3003, 131, "Oxygen System", "Auto-Mix On-Off")
 P_51D:defineToggleSwitch("OXYGEN_BYPASS", 7, 3001, 130, "Oxygen System", "Oxygen Emergency By-pass")
 P_51D:defineFloat("PANEL_LIGHTS", 165, { 0, 1 }, "Light System", "Panel Background Lighting (green)")
@@ -82,54 +64,14 @@ P_51D:definePotentiometer("FLAPS_CONTROL_HANDLE", 12, 3001, 94, { 0, 1 }, "Contr
 P_51D:defineToggleSwitch("LANDING_GEAR_CONTR0L_HANDLE", 12, 3003, 150, "Control System", "Landing Gear Control Handle")
 P_51D:definePushButton("LOCK_STICK_FRWD_NEUT", 12, 3015, 173, "Control System", "Lock Stick Forward/Neutral")
 P_51D:definePotentiometer("COCKPIT_LIGHTS", 13, 3001, 71, { 0, 1 }, "Front Switch Box", "Cockpit Lights")
-P_51D:defineTumb(
-	"IGNITION",
-	13,
-	3005,
-	66,
-	0.1,
-	{ 0.0, 0.3 },
-	nil,
-	false,
-	"Front Switch Box",
-	"Ignition Off/Right/Left/Both"
-)
+P_51D:defineTumb("IGNITION", 13, 3005, 66, 0.1, { 0.0, 0.3 }, nil, false, "Front Switch Box", "Ignition Off/Right/Left/Both")
 P_51D:define3PosTumb("GUN_CONTROL", 13, 3007, 67, "Front Switch Box", "Gun/Camera Control")
-P_51D:definePushButton(
-	"SILENCE_GEAR_HORN",
-	13,
-	3008,
-	72,
-	"Front Switch Box",
-	"Silence Landing Gear Warning Horn Cut Off"
-)
+P_51D:definePushButton("SILENCE_GEAR_HORN", 13, 3008, 72, "Front Switch Box", "Silence Landing Gear Warning Horn Cut Off")
 P_51D:define3PosTumb("LEFT_BOMB_ARM_CHEM", 13, 3013, 69, "Front Switch Box", "Left Bomb Arm/Chemical Release")
 P_51D:define3PosTumb("RIGHT_BOMB_ARM_CHEM", 13, 3014, 70, "Front Switch Box", "Right Bomb Arm/Chemical Release")
-P_51D:defineTumb(
-	"ROCKETS_BOMBS_MODES",
-	13,
-	3015,
-	68,
-	0.1,
-	{ 0, 0.3 },
-	nil,
-	false,
-	"Front Switch Box",
-	"Rockets/Bombs Modes"
-)
+P_51D:defineTumb("ROCKETS_BOMBS_MODES", 13, 3015, 68, 0.1, { 0, 0.3 }, nil, false, "Front Switch Box", "Rockets/Bombs Modes")
 P_51D:defineToggleSwitch("SUPERCHARGER_SWITCH_COVER", 15, 3002, 58, "Engine Control Panel", "Supercharger Switch Cover")
-P_51D:defineTumb(
-	"SUPERCHARGER_AUTO_LOW_HIGH",
-	15,
-	3001,
-	57,
-	0.1,
-	{ 0.0, 0.2 },
-	nil,
-	false,
-	"Engine Control Panel",
-	"Supercharger Auto/Low/High"
-)
+P_51D:defineTumb("SUPERCHARGER_AUTO_LOW_HIGH", 15, 3001, 57, 0.1, { 0.0, 0.2 }, nil, false, "Engine Control Panel", "Supercharger Auto/Low/High")
 P_51D:definePushButton("HIGH_BLOWER_TEST_LAMP", 15, 3004, 60, "Engine Control Panel", "High Blower Lamp Test")
 P_51D:defineIndicatorLight("HIGH_BLOWER_LAMP", 59, "Engine Control Panel", "High Blower Lamp (yellow)")
 P_51D:defineToggleSwitch("FUEL_BOOSTER", 15, 3005, 61, "Engine Control Panel", "Fuel Booster On/Off")
@@ -150,31 +92,12 @@ P_51D:defineFloat("AHORIZON_PITCH_SHIFT", 16, { -1, 1 }, "Artificial Horizon", "
 P_51D:defineFloat("AHORIZON_CAGED", 20, { 0, 1 }, "Artificial Horizon", "Artificial Horizon - Caged")
 P_51D:defineRotary("PITCH_ADJUST", 19, 3002, 17, "Artificial Horizon", "Pitch Adjustment")
 P_51D:definePushButton("CAGE_BUTTON", 19, 3001, 19, "Artificial Horizon", "Artificial Horizon Cage")
-P_51D:definePotentiometer(
-	"CAGE_ROTARY",
-	19,
-	3003,
-	18,
-	{ 0, 0.14 },
-	"Artificial Horizon",
-	"Artificial Horizon Cage Rotary"
-)
+P_51D:definePotentiometer("CAGE_ROTARY", 19, 3003, 18, { 0, 0.14 }, "Artificial Horizon", "Artificial Horizon Cage Rotary")
 P_51D:defineFloat("DIRECTIONAL_GYRO", 12, { 0, 1 }, "Directional Gyro", "Directional Gyro Heading")
 P_51D:definePushButton("HDG_CAGE_BUTTON", 20, 3003, 179, "Directional Gyro", "Directional Gyro Cage")
 P_51D:defineRotary("HDG_CAGE_ROTARY", 20, 3001, 13, "Directional Gyro", "Directional Gyro Heading Set")
 P_51D:defineFloat("TURN_INDICATOR", 27, { -1, 1 }, "Turn Indicator", "Turn Indicator")
-P_51D:defineFixedStepTumb(
-	"CLOCK_ADJUST_BUTTON",
-	22,
-	3001,
-	8,
-	1,
-	{ 0, 1 },
-	{ -1, 1 },
-	nil,
-	"Clock",
-	"Clock Adjust Button"
-)
+P_51D:defineFixedStepTumb("CLOCK_ADJUST_BUTTON", 22, 3001, 8, 1, { 0, 1 }, { -1, 1 }, nil, "Clock", "Clock Adjust Button")
 P_51D:defineRotary("CLOCK_ADJUST", 22, 3002, 7, "Clock", "Clock Adjust")
 P_51D:defineFloat("CLOCK_HOURS", 4, { 0, 1.0 }, "Clock", "Clock Hours")
 P_51D:defineFloat("CLOCK_MINUTES", 5, { 0, 1.0 }, "Clock", "Clock Minutes")
@@ -199,15 +122,7 @@ P_51D:defineIndicatorLight("VHF_RADIO_D_LIGHT", 125, "VHF Radio", "VHF Radio D L
 P_51D:defineIndicatorLight("VHF_RADIO_TX_LIGHT", 126, "VHF Radio", "VHF Radio TX Light (white)")
 P_51D:defineToggleSwitch("WARNING_RADAR_POWER", 25, 3001, 114, "Tail Warning Radar", "Tail Warning Radar Power")
 P_51D:definePushButton("WARNING_RADAR_TEST", 25, 3003, 115, "Tail Warning Radar", "Tail Warning Radar Test")
-P_51D:definePotentiometer(
-	"WARNING_RADAR_LIGHT",
-	25,
-	3004,
-	113,
-	{ 0, 1 },
-	"Tail Warning Radar",
-	"Tail Warning Radar Light Control"
-)
+P_51D:definePotentiometer("WARNING_RADAR_LIGHT", 25, 3004, 113, { 0, 1 }, "Tail Warning Radar", "Tail Warning Radar Light Control")
 P_51D:defineIndicatorLight("RADAR_WARNING_LIGHT", 161, "Tail Warning Radar", "Radar Warning Light (yellow)")
 P_51D:definePotentiometer("DETROLA_FREQUENCY", 26, 3004, 137, { 0, 1 }, "Detrola", "Detrola Frequency Selector")
 P_51D:definePotentiometer("DETROLA_VOLUME", 26, 3001, 138, { 0, 1 }, "Detrola", "Detrola Volume")
@@ -220,18 +135,7 @@ P_51D:define3PosTumb("IFF_TIME_OFF_ON", 27, 3003, 141, "IFF", "IFF Time/Off/On")
 P_51D:defineTumb("IFF_CODE", 27, 3016, 139, 0.1, { 0, 0.5 }, nil, false, "IFF", "IFF Code 1-6")
 P_51D:defineToggleSwitch("HOMING_ADAPTER_POWER", 28, 3004, 153, "Homing Adapter", "Homing Adapter CW/MCW Switch")
 P_51D:definePushButton("HOMING_ADAPTER_CB", 28, 3003, 154, "Homing Adapter", "Homing Adapter Circuit Breaker")
-P_51D:defineTumb(
-	"HOMING_ADAPTER_MODE",
-	28,
-	3001,
-	152,
-	0.1,
-	{ 0, 0.2 },
-	nil,
-	false,
-	"Homing Adapter",
-	"Homing Adapter Mode Switch"
-)
+P_51D:defineTumb("HOMING_ADAPTER_MODE", 28, 3001, 152, 0.1, { 0, 0.2 }, nil, false, "Homing Adapter", "Homing Adapter Mode Switch")
 P_51D:defineFloat("ACCELEROMETER_MAIN", 175, { 0, 1 }, "Accelerometer", "Accelerometer Main")
 P_51D:defineFloat("ACCELEROMETER_MIN", 177, { 0, 1 }, "Accelerometer", "Accelerometer Min")
 P_51D:defineFloat("ACCELEROMETER_MAX", 178, { 0, 1 }, "Accelerometer", "Accelerometer Max")
@@ -257,26 +161,11 @@ P_51D:defineFloat("FUEL_TANK_FUSELAGE", 160, { 0, 1 }, "Fuel System", "Fuel Tank
 
 --Externals
 P_51D:defineBitFromDrawArgument("EXT_POSITION_LIGHT_LEFT", 190, "External Aircraft Model", "Left Position Light (red)")
-P_51D:defineBitFromDrawArgument(
-	"EXT_POSITION_LIGHT_RIGHT",
-	191,
-	"External Aircraft Model",
-	"Right Position Light (green)"
-)
-P_51D:defineBitFromDrawArgument(
-	"EXT_POSITION_LIGHT_TAIL",
-	192,
-	"External Aircraft Model",
-	"Tail Position Light (white)"
-)
+P_51D:defineBitFromDrawArgument("EXT_POSITION_LIGHT_RIGHT", 191, "External Aircraft Model", "Right Position Light (green)")
+P_51D:defineBitFromDrawArgument("EXT_POSITION_LIGHT_TAIL", 192, "External Aircraft Model", "Tail Position Light (white)")
 P_51D:defineBitFromDrawArgument("EXT_RECOC_LIGHT_RD", 200, "External Aircraft Model", "Red Recognition Light (red)")
 P_51D:defineBitFromDrawArgument("EXT_RECOC_LIGHT_GN", 201, "External Aircraft Model", "Green Recognition Light (green)")
-P_51D:defineBitFromDrawArgument(
-	"EXT_RECOC_LIGHT_YE",
-	202,
-	"External Aircraft Model",
-	"Amber Recognition Light (yellow)"
-)
+P_51D:defineBitFromDrawArgument("EXT_RECOC_LIGHT_YE", 202, "External Aircraft Model", "Amber Recognition Light (yellow)")
 
 --[[--Gauge Values--]]
 --
@@ -338,13 +227,7 @@ local function getVacuum()
 	local returnValue = (GetDevice(0):get_argument_value(9)) * 100
 	return returnValue
 end
-P_51D:defineIntegerFromGetter(
-	"VACUUM_SUCTION_VALUE",
-	getVacuum,
-	65000,
-	"Gauge Values",
-	"Vacuum Suction read as X.X or XX.X"
-)
+P_51D:defineIntegerFromGetter("VACUUM_SUCTION_VALUE", getVacuum, 65000, "Gauge Values", "Vacuum Suction read as X.X or XX.X")
 
 local function getOilTemp()
 	local returnValue = (GetDevice(0):get_argument_value(30)) * 100
@@ -386,13 +269,7 @@ local function getFuseFuel()
 	local returnValue = (GetDevice(0):get_argument_value(160)) * 85
 	return returnValue
 end
-P_51D:defineIntegerFromGetter(
-	"FUSELAGE_FUEL_TANK_VALUE",
-	getFuseFuel,
-	65000,
-	"Gauge Values",
-	"Fuselage Fuel Tank Gallons"
-)
+P_51D:defineIntegerFromGetter("FUSELAGE_FUEL_TANK_VALUE", getFuseFuel, 65000, "Gauge Values", "Fuselage Fuel Tank Gallons")
 
 local function getBaro()
 	local returnValue = (GetDevice(0):get_argument_value(97)) * 290 + 2810
@@ -418,19 +295,7 @@ P_51D:defineBitFromDrawArgument("EXT_WOW_LEFT", 6, "External Aircraft Model", "W
 P_51D:defineBitFromDrawArgument("EXT_LANDING_LIGHT", 208, "External Aircraft Model", "Landing Light (white)")
 
 P_51D:defineFloat("CANOPY_POS", 162, { 0, 1 }, "Cockpit Mechanical", "Canopy Position")
-P_51D:defineRadioWheel(
-	"RKT_COUNT_CON",
-	4,
-	3009,
-	3010,
-	{ -1 / 11, 1 / 11 },
-	75,
-	1 / 11,
-	{ 0, 1.0 },
-	nil,
-	"Weapon Control",
-	"Rockets Counter Control"
-)
+P_51D:defineRadioWheel("RKT_COUNT_CON", 4, 3009, 3010, { -1 / 11, 1 / 11 }, 75, 1 / 11, { 0, 1.0 }, nil, "Weapon Control", "Rockets Counter Control")
 P_51D:defineFloat("AILERON_TRIM_G", 170, { -1, 1 }, "Control System", "Aileron Trim Gauge")
 P_51D:defineFloat("RUDDER_TRIM_G", 172, { -1, 1 }, "Control System", "Rudder Trim Gauge")
 P_51D:defineFloat("ELEVATOR_TRIM_G", 171, { -1, 1 }, "Control System", "Elevator Trim Gauge")
