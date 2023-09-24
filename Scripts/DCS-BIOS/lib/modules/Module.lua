@@ -56,7 +56,7 @@ end
 function Module:defineFloat(identifier, arg_number, limits, category, description)
 	local intervalLength = limits[2] - limits[1]
 	local max_value = 65535
-	local alloc = self.memoryMap:allocateInt(max_value)
+	local alloc = self:allocateInt(max_value)
 
 	self:addExportHook(function(dev0)
 		alloc:setValue(((dev0:get_argument_value(arg_number) - limits[1]) / intervalLength) * max_value)
@@ -78,7 +78,7 @@ end
 --- @param description string additional information about the control
 --- @return Control control the control which was added to the module
 function Module:defineIndicatorLight(identifier, arg_number, category, description)
-	local value = self.memoryMap:allocateInt(1)
+	local value = self:allocateInt(1)
 
 	assert(value.shiftBy ~= nil)
 	self:addExportHook(function(dev0)
@@ -140,7 +140,7 @@ function Module:definePotentiometer(identifier, device_id, command, arg_number, 
 		GetDevice(device_id):performClickableAction(command, newValue / max_value * intervalLength + limits[1])
 	end)
 
-	local value = self.memoryMap:allocateInt(max_value)
+	local value = self:allocateInt(max_value)
 
 	self:addExportHook(function(dev0)
 		value:setValue(((dev0:get_argument_value(arg_number) - limits[1]) / intervalLength) * max_value)
@@ -224,7 +224,7 @@ function Module:defineRotary(identifier, device_id, command, arg_number, categor
 		GetDevice(device_id):performClickableAction(command, tonumber(value) / max_value)
 	end)
 
-	local value = self.memoryMap:allocateInt(max_value)
+	local value = self:allocateInt(max_value)
 
 	local control = Control:new(category, ControlType.analog_dial, identifier, description, {
 		VariableStepInput:new(3200, max_value, "turn the dial left or right"),
@@ -417,13 +417,41 @@ end
 
 --- Adds a new integer output based on a custom getter function
 --- @param identifier string the unique identifier for the control
+--- @param draw_arg_id integer the dcs argument number
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @return Control control the control which was added to the module
+function Module:defineBitFromDrawArgument(identifier, draw_arg_id, category, description)
+	return self:defineIntegerFromGetter(identifier, function()
+		if LoGetAircraftDrawArgumentValue(draw_arg_id) > 0 then
+			return 1
+		else
+			return 0
+		end
+	end, 1, category, description)
+end
+
+--- Adds a new integer output based on a custom getter function
+--- @param identifier string the unique identifier for the control
+--- @param arg_number integer the dcs argument number
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @return Control control the control which was added to the module
+function Module:defineFloatFromDrawArgument(identifier, arg_number, category, description)
+	return self:defineIntegerFromGetter(identifier, function()
+		return math.floor(LoGetAircraftDrawArgumentValue(arg_number) * 65535)
+	end, 65535, category, description)
+end
+
+--- Adds a new integer output based on a custom getter function
+--- @param identifier string the unique identifier for the control
 --- @param getter fun(): integer the getter function which will return an integer
 --- @param maxValue integer the maximum value the getter will return
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
 --- @return Control control the control which was added to the module
 function Module:defineIntegerFromGetter(identifier, getter, maxValue, category, description)
-	local alloc = self.memoryMap:allocateInt(maxValue)
+	local alloc = self:allocateInt(maxValue)
 	self:addExportHook(function(_)
 		alloc:setValue(getter())
 	end)
@@ -479,7 +507,7 @@ function Module:defineTumb(
 	--  also apparently anything with radio wheel
 	--  It's unclear if that should affect allocateInt.maxValue, so we'll leave that for the future
 	local max_value = last_n - (cycle == "skiplast" and 1 or 0)
-	local enumAlloc = self.memoryMap:allocateInt(max_value)
+	local enumAlloc = self:allocateInt(max_value)
 	local strAlloc = nil
 	if output_map then
 		local max_len = 0
@@ -488,7 +516,7 @@ function Module:defineTumb(
 				max_len = output_map[i]:len()
 			end
 		end
-		strAlloc = self.memoryMap:allocateString(max_len)
+		strAlloc = self:allocateString(max_len)
 	end
 	self:addExportHook(function(dev0)
 		local value = dev0:get_argument_value(arg_number)
@@ -582,14 +610,26 @@ function Module:defineTumb(
 	return control
 end
 
---- @private
+--- Allocates space for a string to the memory map of the module
+--- @param max_length integer the maximum length of the string
+--- @return StringAllocation alloc the space allocated for the string
+function Module:allocateString(max_length)
+	return self.memoryMap:allocateString(max_length)
+end
+
+--- Allocates space for an integer to the memory map of the module
+--- @param max_value integer the maximum value of the integer
+--- @return MemoryAllocation alloc the space allocated for the integer
+function Module:allocateInt(max_value)
+	return self.memoryMap:allocateInt(max_value)
+end
+
 --- Adds an export hook to the module
 --- @param func fun(dev0: CockpitDevice) callback function called when exporting data, provided with device 0
 function Module:addExportHook(func)
 	table.insert(self.exportHooks, func)
 end
 
---- @private
 --- adds an input processor to the module
 --- @param msg string
 --- @param func fun(value: string | integer)
