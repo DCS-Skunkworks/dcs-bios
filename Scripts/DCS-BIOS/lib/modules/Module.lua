@@ -106,8 +106,7 @@ end
 --- @param description string additional information about the control
 --- @return Control control the control which was added to the module
 function Module:definePushButton(identifier, device_id, command, arg_number, category, description)
-	local control =
-		self:defineTumb(identifier, device_id, command, arg_number, 1, { 0, 1 }, nil, false, category, description)
+	local control = self:defineTumb(identifier, device_id, command, arg_number, 1, { 0, 1 }, nil, false, category, description)
 	control.physical_variant = PhysicalVariant.push_button
 	control.api_variant = ApiVariant.momentary_last_position
 
@@ -166,8 +165,7 @@ end
 --- @param description string additional information about the control
 --- @return Control control the control which was added to the module
 function Module:defineToggleSwitch(identifier, device_id, command, arg_number, category, description)
-	local control =
-		self:defineTumb(identifier, device_id, command, arg_number, 1, { 0, 1 }, nil, false, category, description)
+	local control = self:defineTumb(identifier, device_id, command, arg_number, 1, { 0, 1 }, nil, false, category, description)
 	control.physical_variant = PhysicalVariant.toggle_switch
 
 	return control
@@ -183,28 +181,8 @@ end
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
 --- @return Control control the control which was added to the module
-function Module:defineMultipositionSwitch(
-	identifier,
-	device_id,
-	command,
-	arg_number,
-	num_positions,
-	increment,
-	category,
-	description
-)
-	local control = self:defineTumb(
-		identifier,
-		device_id,
-		command,
-		arg_number,
-		increment,
-		{ 0, increment * (num_positions - 1) },
-		nil,
-		false,
-		category,
-		description
-	)
+function Module:defineMultipositionSwitch(identifier, device_id, command, arg_number, num_positions, increment, category, description)
+	local control = self:defineTumb(identifier, device_id, command, arg_number, increment, { 0, increment * (num_positions - 1) }, nil, false, category, description)
 	control.physical_variant = PhysicalVariant.toggle_switch
 
 	return control
@@ -229,11 +207,7 @@ function Module:defineRotary(identifier, device_id, command, arg_number, categor
 	local control = Control:new(category, ControlType.analog_dial, identifier, description, {
 		VariableStepInput:new(3200, max_value, "turn the dial left or right"),
 	}, {
-		IntegerOutput:new(
-			value,
-			Suffix.knob_pos,
-			"the rotation of the knob in the cockpit (not the value that is controlled by this knob!)"
-		),
+		IntegerOutput:new(value, Suffix.knob_pos, "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)"),
 	}, nil, nil, ApiVariant.multiturn)
 	self:addControl(control)
 
@@ -253,8 +227,7 @@ end
 --- @param description string additional information about the control
 --- @return Control control the control which was added to the module
 function Module:define3PosTumb(identifier, device_id, command, arg_number, category, description)
-	local control =
-		self:defineTumb(identifier, device_id, command, arg_number, 1, { -1, 1 }, nil, false, category, description)
+	local control = self:defineTumb(identifier, device_id, command, arg_number, 1, { -1, 1 }, nil, false, category, description)
 	control.physical_variant = PhysicalVariant.three_position_switch
 
 	return control
@@ -272,30 +245,8 @@ end
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
 --- @return Control control the control which was added to the module
-function Module:defineFixedStepTumb(
-	identifier,
-	device_id,
-	command,
-	arg_number,
-	step,
-	limits,
-	rel_args,
-	output_map,
-	category,
-	description
-)
-	local control = self:defineTumb(
-		identifier,
-		device_id,
-		command,
-		arg_number,
-		step,
-		limits,
-		output_map,
-		true,
-		category,
-		description
-	)
+function Module:defineFixedStepTumb(identifier, device_id, command, arg_number, step, limits, rel_args, output_map, category, description)
+	local control = self:defineTumb(identifier, device_id, command, arg_number, step, limits, output_map, true, category, description)
 	assert(control.inputs[2].interface == "set_state") -- todo: type if necessary
 	control.inputs[2] = nil
 	control.control_type = ControlType.discrete_dial
@@ -344,14 +295,7 @@ end
 --- @param increment_command integer the dcs command when incrementing
 --- @param decrement_value number the data to send to dcs when the step is decremented
 --- @param increment_value number the data to send to dcs when the step is incremented
-function Module:addTwoCommandFixedStepInputProcessor(
-	identifier,
-	device_id,
-	decrement_command,
-	increment_command,
-	decrement_value,
-	increment_value
-)
+function Module:addTwoCommandFixedStepInputProcessor(identifier, device_id, decrement_command, increment_command, decrement_value, increment_value)
 	self:addInputProcessor(identifier, function(state)
 		if state == "DEC" then
 			GetDevice(device_id):performClickableAction(decrement_command, decrement_value)
@@ -374,43 +318,13 @@ end
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
 --- @return Control control the control which was added to the module
-function Module:defineRadioWheel(
-	identifier,
-	device_id,
-	decrement_command,
-	increment_command,
-	rel_args,
-	arg_number,
-	step,
-	limits,
-	output_map,
-	category,
-	description
-)
-	local control = self:defineTumb(
-		identifier,
-		device_id,
-		decrement_command,
-		arg_number,
-		step,
-		limits,
-		output_map,
-		"skiplast",
-		category,
-		description
-	)
+function Module:defineRadioWheel(identifier, device_id, decrement_command, increment_command, rel_args, arg_number, step, limits, output_map, category, description)
+	local control = self:defineTumb(identifier, device_id, decrement_command, arg_number, step, limits, output_map, "skiplast", category, description)
 	assert(control.inputs[2].interface == "set_state")
 	control.inputs[2] = nil
 	control.control_type = ControlType.discrete_dial
 
-	self:addTwoCommandFixedStepInputProcessor(
-		identifier,
-		device_id,
-		decrement_command,
-		increment_command,
-		rel_args[1],
-		rel_args[2]
-	)
+	self:addTwoCommandFixedStepInputProcessor(identifier, device_id, decrement_command, increment_command, rel_args[1], rel_args[2])
 
 	return control
 end
@@ -477,18 +391,7 @@ end
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
 --- @return Control control the control which was added to the module
-function Module:defineTumb(
-	identifier,
-	device_id,
-	command,
-	arg_number,
-	step,
-	limits,
-	output_map,
-	cycle,
-	category,
-	description
-)
+function Module:defineTumb(identifier, device_id, command, arg_number, step, limits, output_map, cycle, category, description)
 	local span = limits[2] - limits[1]
 	local last_n = tonumber(string.format("%.0f", span / step))
 	assert(last_n)
@@ -560,16 +463,7 @@ function Module:defineTumb(
 
 	local variant = cycle and PhysicalVariant.infinite_rotary or PhysicalVariant.limited_rotary
 
-	local control = Control:new(
-		category,
-		ControlType.selector,
-		identifier,
-		description,
-		inputs,
-		outputs,
-		MomentaryPositions.none,
-		variant
-	)
+	local control = Control:new(category, ControlType.selector, identifier, description, inputs, outputs, MomentaryPositions.none, variant)
 
 	self:addControl(control)
 
