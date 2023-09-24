@@ -6,7 +6,6 @@ local exportModules = {}
 local aircraftNameToModuleNames = {}
 local aircraftNameToModules = {}
 local lastAcftName = ""
-local addresses = {}
 
 function BIOS.protocol.setExportModuleAircrafts(acftList)
 	-- first, delete moduleName from all mappings
@@ -75,9 +74,14 @@ function BIOS.protocol.endModule()
 			file:close()
 		end
 	end
-	local function saveAddresses()
-		local moduleName = moduleBeingDefined.name
-	
+	pcall(saveDoc)
+	moduleBeingDefined = nil
+	end
+end
+function BIOS.protocol.saveAddresses()
+	local addresses = {}
+
+	for moduleName, moduleBeingDefined in pairs(exportModules) do
 		for _, category in pairs(moduleBeingDefined.documentation) do
 			for identifier, args in pairs(category) do
 				local outputs = args.outputs or {}
@@ -109,12 +113,7 @@ function BIOS.protocol.endModule()
 			end
 		end
 	end
-	pcall(saveDoc)
-	pcall(saveAddresses)
-	moduleBeingDefined = nil
-	end
-end
-function BIOS.protocol.writeAddressesFile()
+
 	-- Sort the identifiers before writing
 	local sortedIdentifiers = {}
 	for identifier in pairs(addresses) do
@@ -122,18 +121,18 @@ function BIOS.protocol.writeAddressesFile()
 	end
 	table.sort(sortedIdentifiers)
 
-	-- Write the updated content to the file
+	-- Write the header file
 	local address_header_file, err = io.open(lfs.writedir()..[[Scripts\DCS-BIOS\doc\Addresses.h]], "w")
 	if err then
 		print("Error opening file:", err) -- Print error if unable to open file
 		return
-	end
-	for _, identifier in ipairs(sortedIdentifiers) do
-		address_header_file:write(addresses[identifier] .. "\n")
-	end
-	address_header_file:close() -- Close the header file
+	else
+		for _, identifier in ipairs(sortedIdentifiers) do
+			address_header_file:write(addresses[identifier] .. "\n")
+		end
 
-	addresses = nil -- Release the memory
+		address_header_file:close() -- Close the header file
+	end
 end
 function BIOS.protocol.writeNewModule(mod)
 	moduleBeingDefined = mod
@@ -149,7 +148,7 @@ function BIOS.protocol.init()
 	metadataStartModule = exportModules["MetadataStart"]
 	metadataEndModule = exportModules["MetadataEnd"]
 
-	BIOS.protocol.writeAddressesFile()
+	BIOS.protocol.saveAddresses()
 end
 
 local acftModules = nil
