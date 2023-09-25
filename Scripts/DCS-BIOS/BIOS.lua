@@ -66,7 +66,9 @@ dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\FA-18C_hornet.lua]]) -- ID = 20, P
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\FC3.lua]]) -- ID = 4, ProperName = Flaming Cliffs 3
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\FW-190A8.lua]]) -- ID = 21, ProperName = Fw 190 A-8 Anton
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\FW-190D9.lua]]) -- ID = 22, ProperName = Fw 190 D-9 Dora
-dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\I-16.lua]]) -- ID = 23, ProperName = I-16 
+-- dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\I-16.lua]]) -- ID = 23, ProperName = I-16 
+local I_16 = require "I-16"
+BIOS.protocol.writeNewModule(I_16)
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\JF-17.lua]]) -- ID = 24, ProperName = JF-17 Thunder
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Ka-50.lua]]) -- ID = 25, ProperName = Ka-50 Black Shark/III
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\L-39.lua]]) -- ID = 26, ProperName = L-39 Albatros
