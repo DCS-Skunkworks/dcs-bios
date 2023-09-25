@@ -82,33 +82,42 @@ function BIOS.protocol.saveAddresses()
 	if BIOSdevMode == 1 then
 		local addresses = {}
 
+		local function addLine(identifier, line)
+			if not addresses[identifier] then
+				addresses[identifier] = line
+			end
+		end
+
 		for moduleName, moduleBeingDefined in pairs(exportModules) do
 			for _, category in pairs(moduleBeingDefined.documentation) do
 				for identifier, args in pairs(category) do
 					local outputs = args.outputs or {}
 					for _, output in pairs(outputs) do
-						local address_identifier = output.address_identifier or BIOS.util.addressDefineIdentifier(moduleName, identifier)
-						local addressStr = output.address and string.format("0x%X", output.address) or ""
-						local maskStr = output.mask and string.format("0x%X", output.mask) or ""
-						local shiftByStr = output.shift_by and tostring(output.shift_by) or ""
+						local address_identifier = (output.address_mask_shift_identifier or BIOS.util.addressDefineIdentifier(moduleName, identifier)) .. "_A"
+						local address_mask_identifier = (output.address_mask_shift_identifier or BIOS.util.addressDefineIdentifier(moduleName, identifier)) .. "_AM"
+						local address_mask_shiftby_identifier = output.address_mask_shift_identifier or BIOS.util.addressDefineIdentifier(moduleName, identifier)
+						local address = output.address and string.format("0x%04X", output.address) or ""
+						local mask = output.mask and string.format("0x%04X", output.mask) or ""
+						local shift_by = output.shift_by and tostring(output.shift_by) or ""
 
-						-- Define line with address, mask, and shiftby
-						local line = "#define " .. address_identifier .. " " .. addressStr
-						if maskStr ~= "" then line = line .. ", " .. maskStr end
-						if shiftByStr ~= "" then line = line .. ", " .. shiftByStr end
-		
-						if not addresses[address_identifier] then
-							addresses[address_identifier] = line
-						end
-		
-						-- Additional line with only the address and _ADDR suffix
-						if addressStr ~= "" then
-							local addressOnlyIdentifier = address_identifier .. "_ADDR"
-							local addressOnlyLine = "#define " .. addressOnlyIdentifier .. " " .. addressStr
+						local address_line = "#define " .. address_identifier .. " " .. address
+						local address_mask_line = "#define " .. address_mask_identifier .. " " .. address .. ", " .. mask
+						local address_mask_shiftby_line = "#define " .. address_mask_shiftby_identifier .. " " .. address .. ", " .. mask .. ", " .. shift_by
 
-							if not addresses[addressOnlyIdentifier] then
-								addresses[addressOnlyIdentifier] = addressOnlyLine
+						-- #define lines based on type
+						if output.type == "integer" then
+							addLine(address_mask_shiftby_identifier, address_mask_shiftby_line)
+							if output.max_value == 1 then
+								addLine(address_mask_identifier, address_mask_line)
+							elseif output.max_value == 65535 then
+								addLine(address_identifier, address_line)
 							end
+						end
+						if output.type == "string" then
+							addLine(address_identifier, address_line)
+						end
+						if output.type == "float" then
+							addLine(address_mask_shiftby_identifier, address_mask_shiftby_line)
 						end
 					end
 				end
