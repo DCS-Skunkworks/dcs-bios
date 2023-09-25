@@ -19,7 +19,7 @@ local VariableStepInput = require("VariableStepInput")
 --- @class Module
 --- @field name string the name of the module
 --- @field documentation Documentation TODO
---- @field inputProcessors { [string]: fun(value: string | integer) } functions to run on receiving data
+--- @field inputProcessors { [string]: fun(value: string) } functions to run on receiving data
 --- @field memoryMap MemoryMap a map of all memory allocations for sending and receiving data
 --- @field exportHooks fun(value: any)[] functions to run on sending data
 --- @field aircraftList string[] list of aircraft ids to export to
@@ -118,7 +118,7 @@ end
 --- @param device_id integer the dcs device id
 --- @param command integer the dcs command
 --- @param arg_number integer the dcs argument number
---- @param limits number[] a length-2 array with the lower and upper bounds of the data as used in dcs
+--- @param limits number[]? a length-2 array with the lower and upper bounds of the data as used in dcs
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
 --- @return Control control the control which was added to the module
@@ -526,7 +526,7 @@ end
 
 --- adds an input processor to the module
 --- @param msg string
---- @param func fun(value: string | integer)
+--- @param func fun(value: string)
 function Module:addInputProcessor(msg, func)
 	self.inputProcessors[msg] = func
 end
