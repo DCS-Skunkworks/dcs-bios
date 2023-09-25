@@ -87,7 +87,9 @@ dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\P-47D.lua]]) -- ID = 34, ProperNam
 local P_51D = require "P-51D"
 BIOS.protocol.writeNewModule(P_51D)
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\SA342.lua]]) -- ID = 36, ProperName = SA342 Gazelle
-dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\SpitfireLFMkIX.lua]]) -- ID = 37, ProperName = Spitfire LF Mk. IX
+-- dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\SpitfireLFMkIX.lua]]) -- ID = 37, ProperName = Spitfire LF Mk. IX
+local SpitfireLFMkIX = require "SpitfireLFMkIX"
+BIOS.protocol.writeNewModule(SpitfireLFMkIX)
 --dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\SuperCarrier.lua]])
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\UH-1H.lua]]) -- ID = 38, ProperName = UH-1H Huey
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\VNAO_Room.lua]])

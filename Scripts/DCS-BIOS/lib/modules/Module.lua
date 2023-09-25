@@ -504,6 +504,55 @@ function Module:defineTumb(identifier, device_id, command, arg_number, step, lim
 	return control
 end
 
+--- Adds a 3-position switch with a spring-loaded return
+--- @param identifier string the unique identifier for the control
+--- @param device_id integer the dcs device id
+--- @param down_switch integer the dcs command to move the switch down
+--- @param up_switch integer the dcs command to move the switch up
+--- @param arg_number integer the dcs argument number
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @return Control control the control which was added to the module
+function Module:defineSpringloaded_3PosTumb(identifier, device_id, down_switch, up_switch, arg_number, category, description)
+	local alloc = self:allocateInt(2)
+	self:addExportHook(function(dev0)
+		local val = dev0:get_argument_value(arg_number)
+		if val == -1 then
+			alloc:setValue(0)
+		elseif val == 0 then
+			alloc:setValue(1)
+		elseif val == 1 then
+			alloc:setValue(2)
+		end
+	end)
+
+	local control = Control:new(category, ControlType.three_pos_two_command_switch_open_close, identifier, description, {
+		SetStateInput:new(2, "set the switch position"),
+	}, {
+		IntegerOutput:new(alloc, Suffix.none, "switch position -- 0 = Down, 1 = Mid,  2 = Up"),
+	})
+
+	self:addControl(control)
+
+	self:addInputProcessor(identifier, function(toState)
+		local dev = GetDevice(device_id)
+		if toState == "0" then --downSwitch
+			dev:performClickableAction(down_switch, 0)
+			dev:performClickableAction(up_switch, 0)
+			dev:performClickableAction(down_switch, -1)
+		elseif toState == "1" then --Stop
+			dev:performClickableAction(down_switch, 0)
+			dev:performClickableAction(up_switch, 0)
+		elseif toState == "2" then --upSwitch
+			dev:performClickableAction(down_switch, 0)
+			dev:performClickableAction(up_switch, 0)
+			dev:performClickableAction(up_switch, 1)
+		end
+	end)
+
+	return control
+end
+
 --- Allocates space for a string to the memory map of the module
 --- @param max_length integer the maximum length of the string
 --- @return StringAllocation alloc the space allocated for the string
