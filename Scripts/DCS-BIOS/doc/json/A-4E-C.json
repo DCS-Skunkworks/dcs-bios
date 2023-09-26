@@ -151,16 +151,16 @@
                                                                                       } ],
                                                                   "physical_variant": "toggle_switch"
                                                            },
-                                          "AFCS_HDG_100s": {
+                                          "AFCS_HDG_100S": {
                                                                    "category": "AFCS",
                                                                "control_type": "analog_gauge",
                                                                 "description": "AFCS Heading 100's",
-                                                                 "identifier": "AFCS_HDG_100s",
+                                                                 "identifier": "AFCS_HDG_100S",
                                                                      "inputs": [  ],
                                                                     "outputs": [ {
                                                                                                    "address": 33910,
-                                                                                        "address_identifier": "A_4E_C_AFCS_HDG_100s",
-                                                                                   "address_only_identifier": "A_4E_C_AFCS_HDG_100s_ADDR",
+                                                                                        "address_identifier": "A_4E_C_AFCS_HDG_100S",
+                                                                                   "address_only_identifier": "A_4E_C_AFCS_HDG_100S_ADDR",
                                                                                                "description": "gauge position",
                                                                                                       "mask": 65535,
                                                                                                  "max_value": 65535,
@@ -169,16 +169,16 @@
                                                                                                       "type": "integer"
                                                                                } ]
                                                            },
-                                           "AFCS_HDG_10s": {
+                                           "AFCS_HDG_10S": {
                                                                    "category": "AFCS",
                                                                "control_type": "analog_gauge",
                                                                 "description": "AFCS Heading 10's",
-                                                                 "identifier": "AFCS_HDG_10s",
+                                                                 "identifier": "AFCS_HDG_10S",
                                                                      "inputs": [  ],
                                                                     "outputs": [ {
                                                                                                    "address": 33912,
-                                                                                        "address_identifier": "A_4E_C_AFCS_HDG_10s",
-                                                                                   "address_only_identifier": "A_4E_C_AFCS_HDG_10s_ADDR",
+                                                                                        "address_identifier": "A_4E_C_AFCS_HDG_10S",
+                                                                                   "address_only_identifier": "A_4E_C_AFCS_HDG_10S_ADDR",
                                                                                                "description": "gauge position",
                                                                                                       "mask": 65535,
                                                                                                  "max_value": 65535,
@@ -187,16 +187,16 @@
                                                                                                       "type": "integer"
                                                                                } ]
                                                            },
-                                            "AFCS_HDG_1s": {
+                                            "AFCS_HDG_1S": {
                                                                    "category": "AFCS",
                                                                "control_type": "analog_gauge",
                                                                 "description": "AFCS Heading 1's",
-                                                                 "identifier": "AFCS_HDG_1s",
+                                                                 "identifier": "AFCS_HDG_1S",
                                                                      "inputs": [  ],
                                                                     "outputs": [ {
                                                                                                    "address": 33914,
-                                                                                        "address_identifier": "A_4E_C_AFCS_HDG_1s",
-                                                                                   "address_only_identifier": "A_4E_C_AFCS_HDG_1s_ADDR",
+                                                                                        "address_identifier": "A_4E_C_AFCS_HDG_1S",
+                                                                                   "address_only_identifier": "A_4E_C_AFCS_HDG_1S_ADDR",
                                                                                                "description": "gauge position",
                                                                                                       "mask": 65535,
                                                                                                  "max_value": 65535,
@@ -1517,6 +1517,42 @@
                                                                }
                                      },
                              "BDHI": {
+                                          "BDHI_DME_00X": {
+                                                                  "category": "BDHI",
+                                                              "control_type": "analog_gauge",
+                                                               "description": "BDHI nnX",
+                                                                "identifier": "BDHI_DME_00X",
+                                                                    "inputs": [  ],
+                                                                   "outputs": [ {
+                                                                                                  "address": 33898,
+                                                                                       "address_identifier": "A_4E_C_BDHI_DME_00X",
+                                                                                  "address_only_identifier": "A_4E_C_BDHI_DME_00X_ADDR",
+                                                                                              "description": "gauge position",
+                                                                                                     "mask": 65535,
+                                                                                                "max_value": 65535,
+                                                                                                 "shift_by": 0,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                              } ]
+                                                          },
+                                          "BDHI_DME_0X0": {
+                                                                  "category": "BDHI",
+                                                              "control_type": "analog_gauge",
+                                                               "description": "BDHI nXn",
+                                                                "identifier": "BDHI_DME_0X0",
+                                                                    "inputs": [  ],
+                                                                   "outputs": [ {
+                                                                                                  "address": 33896,
+                                                                                       "address_identifier": "A_4E_C_BDHI_DME_0X0",
+                                                                                  "address_only_identifier": "A_4E_C_BDHI_DME_0X0_ADDR",
+                                                                                              "description": "gauge position",
+                                                                                                     "mask": 65535,
+                                                                                                "max_value": 65535,
+                                                                                                 "shift_by": 0,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                              } ]
+                                                          },
                                          "BDHI_DME_FLAG": {
                                                                   "category": "BDHI",
                                                               "control_type": "analog_gauge",
@@ -1535,52 +1571,16 @@
                                                                                                      "type": "integer"
                                                                               } ]
                                                           },
-                                          "BDHI_DME_Xxx": {
+                                          "BDHI_DME_X00": {
                                                                   "category": "BDHI",
                                                               "control_type": "analog_gauge",
                                                                "description": "BDHI Xnn",
-                                                                "identifier": "BDHI_DME_Xxx",
+                                                                "identifier": "BDHI_DME_X00",
                                                                     "inputs": [  ],
                                                                    "outputs": [ {
                                                                                                   "address": 33894,
-                                                                                       "address_identifier": "A_4E_C_BDHI_DME_Xxx",
-                                                                                  "address_only_identifier": "A_4E_C_BDHI_DME_Xxx_ADDR",
-                                                                                              "description": "gauge position",
-                                                                                                     "mask": 65535,
-                                                                                                "max_value": 65535,
-                                                                                                 "shift_by": 0,
-                                                                                                   "suffix": "",
-                                                                                                     "type": "integer"
-                                                                              } ]
-                                                          },
-                                          "BDHI_DME_xXx": {
-                                                                  "category": "BDHI",
-                                                              "control_type": "analog_gauge",
-                                                               "description": "BDHI nXn",
-                                                                "identifier": "BDHI_DME_xXx",
-                                                                    "inputs": [  ],
-                                                                   "outputs": [ {
-                                                                                                  "address": 33896,
-                                                                                       "address_identifier": "A_4E_C_BDHI_DME_xXx",
-                                                                                  "address_only_identifier": "A_4E_C_BDHI_DME_xXx_ADDR",
-                                                                                              "description": "gauge position",
-                                                                                                     "mask": 65535,
-                                                                                                "max_value": 65535,
-                                                                                                 "shift_by": 0,
-                                                                                                   "suffix": "",
-                                                                                                     "type": "integer"
-                                                                              } ]
-                                                          },
-                                          "BDHI_DME_xxX": {
-                                                                  "category": "BDHI",
-                                                              "control_type": "analog_gauge",
-                                                               "description": "BDHI nnX",
-                                                                "identifier": "BDHI_DME_xxX",
-                                                                    "inputs": [  ],
-                                                                   "outputs": [ {
-                                                                                                  "address": 33898,
-                                                                                       "address_identifier": "A_4E_C_BDHI_DME_xxX",
-                                                                                  "address_only_identifier": "A_4E_C_BDHI_DME_xxX_ADDR",
+                                                                                       "address_identifier": "A_4E_C_BDHI_DME_X00",
+                                                                                  "address_only_identifier": "A_4E_C_BDHI_DME_X00_ADDR",
                                                                                               "description": "gauge position",
                                                                                                      "mask": 65535,
                                                                                                 "max_value": 65535,
@@ -1939,34 +1939,16 @@
                                                                                    } ],
                                                                "physical_variant": "3_position_switch"
                                                         },
-                                         "CM_BANK1_Xx": {
-                                                                "category": "Countermeasures",
-                                                            "control_type": "analog_gauge",
-                                                             "description": "CM Bank 1 10's",
-                                                              "identifier": "CM_BANK1_Xx",
-                                                                  "inputs": [  ],
-                                                                 "outputs": [ {
-                                                                                                "address": 33990,
-                                                                                     "address_identifier": "A_4E_C_CM_BANK1_Xx",
-                                                                                "address_only_identifier": "A_4E_C_CM_BANK1_Xx_ADDR",
-                                                                                            "description": "gauge position",
-                                                                                                   "mask": 65535,
-                                                                                              "max_value": 65535,
-                                                                                               "shift_by": 0,
-                                                                                                 "suffix": "",
-                                                                                                   "type": "integer"
-                                                                            } ]
-                                                        },
-                                         "CM_BANK1_xX": {
+                                         "CM_BANK1_0X": {
                                                                 "category": "Countermeasures",
                                                             "control_type": "analog_gauge",
                                                              "description": "CM Bank 1 1's",
-                                                              "identifier": "CM_BANK1_xX",
+                                                              "identifier": "CM_BANK1_0X",
                                                                   "inputs": [  ],
                                                                  "outputs": [ {
                                                                                                 "address": 33992,
-                                                                                     "address_identifier": "A_4E_C_CM_BANK1_xX",
-                                                                                "address_only_identifier": "A_4E_C_CM_BANK1_xX_ADDR",
+                                                                                     "address_identifier": "A_4E_C_CM_BANK1_0X",
+                                                                                "address_only_identifier": "A_4E_C_CM_BANK1_0X_ADDR",
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -1975,16 +1957,16 @@
                                                                                                    "type": "integer"
                                                                             } ]
                                                         },
-                                         "CM_BANK2_Xx": {
+                                         "CM_BANK1_X0": {
                                                                 "category": "Countermeasures",
                                                             "control_type": "analog_gauge",
-                                                             "description": "CM Bank 2 10's",
-                                                              "identifier": "CM_BANK2_Xx",
+                                                             "description": "CM Bank 1 10's",
+                                                              "identifier": "CM_BANK1_X0",
                                                                   "inputs": [  ],
                                                                  "outputs": [ {
-                                                                                                "address": 33994,
-                                                                                     "address_identifier": "A_4E_C_CM_BANK2_Xx",
-                                                                                "address_only_identifier": "A_4E_C_CM_BANK2_Xx_ADDR",
+                                                                                                "address": 33990,
+                                                                                     "address_identifier": "A_4E_C_CM_BANK1_X0",
+                                                                                "address_only_identifier": "A_4E_C_CM_BANK1_X0_ADDR",
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -1993,16 +1975,34 @@
                                                                                                    "type": "integer"
                                                                             } ]
                                                         },
-                                         "CM_BANK2_xX": {
+                                         "CM_BANK2_0X": {
                                                                 "category": "Countermeasures",
                                                             "control_type": "analog_gauge",
                                                              "description": "CM Bank 2 1's",
-                                                              "identifier": "CM_BANK2_xX",
+                                                              "identifier": "CM_BANK2_0X",
                                                                   "inputs": [  ],
                                                                  "outputs": [ {
                                                                                                 "address": 33996,
-                                                                                     "address_identifier": "A_4E_C_CM_BANK2_xX",
-                                                                                "address_only_identifier": "A_4E_C_CM_BANK2_xX_ADDR",
+                                                                                     "address_identifier": "A_4E_C_CM_BANK2_0X",
+                                                                                "address_only_identifier": "A_4E_C_CM_BANK2_0X_ADDR",
+                                                                                            "description": "gauge position",
+                                                                                                   "mask": 65535,
+                                                                                              "max_value": 65535,
+                                                                                               "shift_by": 0,
+                                                                                                 "suffix": "",
+                                                                                                   "type": "integer"
+                                                                            } ]
+                                                        },
+                                         "CM_BANK2_X0": {
+                                                                "category": "Countermeasures",
+                                                            "control_type": "analog_gauge",
+                                                             "description": "CM Bank 2 10's",
+                                                              "identifier": "CM_BANK2_X0",
+                                                                  "inputs": [  ],
+                                                                 "outputs": [ {
+                                                                                                "address": 33994,
+                                                                                     "address_identifier": "A_4E_C_CM_BANK2_X0",
+                                                                                "address_only_identifier": "A_4E_C_CM_BANK2_X0_ADDR",
                                                                                             "description": "gauge position",
                                                                                                    "mask": 65535,
                                                                                               "max_value": 65535,
@@ -2044,11 +2044,11 @@
                                                         }
                                      },
                       "Doppler Nav": {
-                                          "APN153-DRIFT-GAUGE": {
+                                          "APN153_DRIFT_GAUGE": {
                                                                         "category": "Doppler Nav",
                                                                     "control_type": "analog_gauge",
                                                                      "description": "Drift Gauge",
-                                                                      "identifier": "APN153-DRIFT-GAUGE",
+                                                                      "identifier": "APN153_DRIFT_GAUGE",
                                                                           "inputs": [  ],
                                                                          "outputs": [ {
                                                                                                         "address": 33916,
@@ -2062,52 +2062,16 @@
                                                                                                            "type": "integer"
                                                                                     } ]
                                                                 },
-                                            "APN153-SPEED-Xnn": {
-                                                                        "category": "Doppler Nav",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "Speed Xnn",
-                                                                      "identifier": "APN153-SPEED-Xnn",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                                        "address": 33918,
-                                                                                             "address_identifier": "A_4E_C_APN153_SPEED_Xnn",
-                                                                                        "address_only_identifier": "A_4E_C_APN153_SPEED_Xnn_ADDR",
-                                                                                                    "description": "gauge position",
-                                                                                                           "mask": 65535,
-                                                                                                      "max_value": 65535,
-                                                                                                       "shift_by": 0,
-                                                                                                         "suffix": "",
-                                                                                                           "type": "integer"
-                                                                                    } ]
-                                                                },
-                                            "APN153-SPEED-nXn": {
-                                                                        "category": "Doppler Nav",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "Speed nXn",
-                                                                      "identifier": "APN153-SPEED-nXn",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                                        "address": 33920,
-                                                                                             "address_identifier": "A_4E_C_APN153_SPEED_nXn",
-                                                                                        "address_only_identifier": "A_4E_C_APN153_SPEED_nXn_ADDR",
-                                                                                                    "description": "gauge position",
-                                                                                                           "mask": 65535,
-                                                                                                      "max_value": 65535,
-                                                                                                       "shift_by": 0,
-                                                                                                         "suffix": "",
-                                                                                                           "type": "integer"
-                                                                                    } ]
-                                                                },
-                                            "APN153-SPEED-nnX": {
+                                            "APN153_SPEED_00X": {
                                                                         "category": "Doppler Nav",
                                                                     "control_type": "analog_gauge",
                                                                      "description": "Speed nnX",
-                                                                      "identifier": "APN153-SPEED-nnX",
+                                                                      "identifier": "APN153_SPEED_00X",
                                                                           "inputs": [  ],
                                                                          "outputs": [ {
                                                                                                         "address": 33922,
-                                                                                             "address_identifier": "A_4E_C_APN153_SPEED_nnX",
-                                                                                        "address_only_identifier": "A_4E_C_APN153_SPEED_nnX_ADDR",
+                                                                                             "address_identifier": "A_4E_C_APN153_SPEED_00X",
+                                                                                        "address_only_identifier": "A_4E_C_APN153_SPEED_00X_ADDR",
                                                                                                     "description": "gauge position",
                                                                                                            "mask": 65535,
                                                                                                       "max_value": 65535,
@@ -2116,16 +2080,16 @@
                                                                                                            "type": "integer"
                                                                                     } ]
                                                                 },
-                                          "ASN41-MAGVAR-Xxxxx": {
+                                            "APN153_SPEED_0X0": {
                                                                         "category": "Doppler Nav",
                                                                     "control_type": "analog_gauge",
-                                                                     "description": "MagVar Xnnnn",
-                                                                      "identifier": "ASN41-MAGVAR-Xxxxx",
+                                                                     "description": "Speed nXn",
+                                                                      "identifier": "APN153_SPEED_0X0",
                                                                           "inputs": [  ],
                                                                          "outputs": [ {
-                                                                                                        "address": 33980,
-                                                                                             "address_identifier": "A_4E_C_ASN41_MAGVAR_Xxxxx",
-                                                                                        "address_only_identifier": "A_4E_C_ASN41_MAGVAR_Xxxxx_ADDR",
+                                                                                                        "address": 33920,
+                                                                                             "address_identifier": "A_4E_C_APN153_SPEED_0X0",
+                                                                                        "address_only_identifier": "A_4E_C_APN153_SPEED_0X0_ADDR",
                                                                                                     "description": "gauge position",
                                                                                                            "mask": 65535,
                                                                                                       "max_value": 65535,
@@ -2134,178 +2098,16 @@
                                                                                                            "type": "integer"
                                                                                     } ]
                                                                 },
-                                          "ASN41-MAGVAR-xXxxx": {
+                                            "APN153_SPEED_X00": {
                                                                         "category": "Doppler Nav",
                                                                     "control_type": "analog_gauge",
-                                                                     "description": "MagVar nXnnn",
-                                                                      "identifier": "ASN41-MAGVAR-xXxxx",
+                                                                     "description": "Speed Xnn",
+                                                                      "identifier": "APN153_SPEED_X00",
                                                                           "inputs": [  ],
                                                                          "outputs": [ {
-                                                                                                        "address": 33982,
-                                                                                             "address_identifier": "A_4E_C_ASN41_MAGVAR_xXxxx",
-                                                                                        "address_only_identifier": "A_4E_C_ASN41_MAGVAR_xXxxx_ADDR",
-                                                                                                    "description": "gauge position",
-                                                                                                           "mask": 65535,
-                                                                                                      "max_value": 65535,
-                                                                                                       "shift_by": 0,
-                                                                                                         "suffix": "",
-                                                                                                           "type": "integer"
-                                                                                    } ]
-                                                                },
-                                          "ASN41-MAGVAR-xxXxx": {
-                                                                        "category": "Doppler Nav",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "MagVar nnXnn",
-                                                                      "identifier": "ASN41-MAGVAR-xxXxx",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                                        "address": 33984,
-                                                                                             "address_identifier": "A_4E_C_ASN41_MAGVAR_xxXxx",
-                                                                                        "address_only_identifier": "A_4E_C_ASN41_MAGVAR_xxXxx_ADDR",
-                                                                                                    "description": "gauge position",
-                                                                                                           "mask": 65535,
-                                                                                                      "max_value": 65535,
-                                                                                                       "shift_by": 0,
-                                                                                                         "suffix": "",
-                                                                                                           "type": "integer"
-                                                                                    } ]
-                                                                },
-                                          "ASN41-MAGVAR-xxxXx": {
-                                                                        "category": "Doppler Nav",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "MagVar nnnXn",
-                                                                      "identifier": "ASN41-MAGVAR-xxxXx",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                                        "address": 33986,
-                                                                                             "address_identifier": "A_4E_C_ASN41_MAGVAR_xxxXx",
-                                                                                        "address_only_identifier": "A_4E_C_ASN41_MAGVAR_xxxXx_ADDR",
-                                                                                                    "description": "gauge position",
-                                                                                                           "mask": 65535,
-                                                                                                      "max_value": 65535,
-                                                                                                       "shift_by": 0,
-                                                                                                         "suffix": "",
-                                                                                                           "type": "integer"
-                                                                                    } ]
-                                                                },
-                                          "ASN41-MAGVAR-xxxxX": {
-                                                                        "category": "Doppler Nav",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "MagVar nnnnX",
-                                                                      "identifier": "ASN41-MAGVAR-xxxxX",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                                        "address": 33988,
-                                                                                             "address_identifier": "A_4E_C_ASN41_MAGVAR_xxxxX",
-                                                                                        "address_only_identifier": "A_4E_C_ASN41_MAGVAR_xxxxX_ADDR",
-                                                                                                    "description": "gauge position",
-                                                                                                           "mask": 65535,
-                                                                                                      "max_value": 65535,
-                                                                                                       "shift_by": 0,
-                                                                                                         "suffix": "",
-                                                                                                           "type": "integer"
-                                                                                    } ]
-                                                                },
-                                           "ASN41-WINDDIR-Xxx": {
-                                                                        "category": "Doppler Nav",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "Wind Direction Xnn",
-                                                                      "identifier": "ASN41-WINDDIR-Xxx",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                                        "address": 33974,
-                                                                                             "address_identifier": "A_4E_C_ASN41_WINDDIR_Xxx",
-                                                                                        "address_only_identifier": "A_4E_C_ASN41_WINDDIR_Xxx_ADDR",
-                                                                                                    "description": "gauge position",
-                                                                                                           "mask": 65535,
-                                                                                                      "max_value": 65535,
-                                                                                                       "shift_by": 0,
-                                                                                                         "suffix": "",
-                                                                                                           "type": "integer"
-                                                                                    } ]
-                                                                },
-                                           "ASN41-WINDDIR-xXx": {
-                                                                        "category": "Doppler Nav",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "Wind Direction nXn",
-                                                                      "identifier": "ASN41-WINDDIR-xXx",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                                        "address": 33976,
-                                                                                             "address_identifier": "A_4E_C_ASN41_WINDDIR_xXx",
-                                                                                        "address_only_identifier": "A_4E_C_ASN41_WINDDIR_xXx_ADDR",
-                                                                                                    "description": "gauge position",
-                                                                                                           "mask": 65535,
-                                                                                                      "max_value": 65535,
-                                                                                                       "shift_by": 0,
-                                                                                                         "suffix": "",
-                                                                                                           "type": "integer"
-                                                                                    } ]
-                                                                },
-                                           "ASN41-WINDDIR-xxX": {
-                                                                        "category": "Doppler Nav",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "Wind Direction nnX",
-                                                                      "identifier": "ASN41-WINDDIR-xxX",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                                        "address": 33978,
-                                                                                             "address_identifier": "A_4E_C_ASN41_WINDDIR_xxX",
-                                                                                        "address_only_identifier": "A_4E_C_ASN41_WINDDIR_xxX_ADDR",
-                                                                                                    "description": "gauge position",
-                                                                                                           "mask": 65535,
-                                                                                                      "max_value": 65535,
-                                                                                                       "shift_by": 0,
-                                                                                                         "suffix": "",
-                                                                                                           "type": "integer"
-                                                                                    } ]
-                                                                },
-                                         "ASN41-WINDSPEED-Xxx": {
-                                                                        "category": "Doppler Nav",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "Windspeed Xnn",
-                                                                      "identifier": "ASN41-WINDSPEED-Xxx",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                                        "address": 33968,
-                                                                                             "address_identifier": "A_4E_C_ASN41_WINDSPEED_Xxx",
-                                                                                        "address_only_identifier": "A_4E_C_ASN41_WINDSPEED_Xxx_ADDR",
-                                                                                                    "description": "gauge position",
-                                                                                                           "mask": 65535,
-                                                                                                      "max_value": 65535,
-                                                                                                       "shift_by": 0,
-                                                                                                         "suffix": "",
-                                                                                                           "type": "integer"
-                                                                                    } ]
-                                                                },
-                                         "ASN41-WINDSPEED-xXx": {
-                                                                        "category": "Doppler Nav",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "Windspeed nXn",
-                                                                      "identifier": "ASN41-WINDSPEED-xXx",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                                        "address": 33970,
-                                                                                             "address_identifier": "A_4E_C_ASN41_WINDSPEED_xXx",
-                                                                                        "address_only_identifier": "A_4E_C_ASN41_WINDSPEED_xXx_ADDR",
-                                                                                                    "description": "gauge position",
-                                                                                                           "mask": 65535,
-                                                                                                      "max_value": 65535,
-                                                                                                       "shift_by": 0,
-                                                                                                         "suffix": "",
-                                                                                                           "type": "integer"
-                                                                                    } ]
-                                                                },
-                                         "ASN41-WINDSPEED-xxX": {
-                                                                        "category": "Doppler Nav",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "Windspeed nnX",
-                                                                      "identifier": "ASN41-WINDSPEED-xxX",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                                        "address": 33972,
-                                                                                             "address_identifier": "A_4E_C_ASN41_WINDSPEED_xxX",
-                                                                                        "address_only_identifier": "A_4E_C_ASN41_WINDSPEED_xxX_ADDR",
+                                                                                                        "address": 33918,
+                                                                                             "address_identifier": "A_4E_C_APN153_SPEED_X00",
+                                                                                        "address_only_identifier": "A_4E_C_APN153_SPEED_X00_ADDR",
                                                                                                     "description": "gauge position",
                                                                                                            "mask": 65535,
                                                                                                       "max_value": 65535,
@@ -2368,6 +2170,78 @@
                                                                                            } ],
                                                                        "physical_variant": "3_position_switch"
                                                                 },
+                                          "ASN41_MAGVAR_0000X": {
+                                                                        "category": "Doppler Nav",
+                                                                    "control_type": "analog_gauge",
+                                                                     "description": "MagVar nnnnX",
+                                                                      "identifier": "ASN41_MAGVAR_0000X",
+                                                                          "inputs": [  ],
+                                                                         "outputs": [ {
+                                                                                                        "address": 33988,
+                                                                                             "address_identifier": "A_4E_C_ASN41_MAGVAR_0000X",
+                                                                                        "address_only_identifier": "A_4E_C_ASN41_MAGVAR_0000X_ADDR",
+                                                                                                    "description": "gauge position",
+                                                                                                           "mask": 65535,
+                                                                                                      "max_value": 65535,
+                                                                                                       "shift_by": 0,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                                    } ]
+                                                                },
+                                          "ASN41_MAGVAR_000X0": {
+                                                                        "category": "Doppler Nav",
+                                                                    "control_type": "analog_gauge",
+                                                                     "description": "MagVar nnnXn",
+                                                                      "identifier": "ASN41_MAGVAR_000X0",
+                                                                          "inputs": [  ],
+                                                                         "outputs": [ {
+                                                                                                        "address": 33986,
+                                                                                             "address_identifier": "A_4E_C_ASN41_MAGVAR_000X0",
+                                                                                        "address_only_identifier": "A_4E_C_ASN41_MAGVAR_000X0_ADDR",
+                                                                                                    "description": "gauge position",
+                                                                                                           "mask": 65535,
+                                                                                                      "max_value": 65535,
+                                                                                                       "shift_by": 0,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                                    } ]
+                                                                },
+                                          "ASN41_MAGVAR_00X00": {
+                                                                        "category": "Doppler Nav",
+                                                                    "control_type": "analog_gauge",
+                                                                     "description": "MagVar nnXnn",
+                                                                      "identifier": "ASN41_MAGVAR_00X00",
+                                                                          "inputs": [  ],
+                                                                         "outputs": [ {
+                                                                                                        "address": 33984,
+                                                                                             "address_identifier": "A_4E_C_ASN41_MAGVAR_00X00",
+                                                                                        "address_only_identifier": "A_4E_C_ASN41_MAGVAR_00X00_ADDR",
+                                                                                                    "description": "gauge position",
+                                                                                                           "mask": 65535,
+                                                                                                      "max_value": 65535,
+                                                                                                       "shift_by": 0,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                                    } ]
+                                                                },
+                                          "ASN41_MAGVAR_0X000": {
+                                                                        "category": "Doppler Nav",
+                                                                    "control_type": "analog_gauge",
+                                                                     "description": "MagVar nXnnn",
+                                                                      "identifier": "ASN41_MAGVAR_0X000",
+                                                                          "inputs": [  ],
+                                                                         "outputs": [ {
+                                                                                                        "address": 33982,
+                                                                                             "address_identifier": "A_4E_C_ASN41_MAGVAR_0X000",
+                                                                                        "address_only_identifier": "A_4E_C_ASN41_MAGVAR_0X000_ADDR",
+                                                                                                    "description": "gauge position",
+                                                                                                           "mask": 65535,
+                                                                                                      "max_value": 65535,
+                                                                                                       "shift_by": 0,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                                    } ]
+                                                                },
                                             "ASN41_MAGVAR_BTN": {
                                                                             "api_variant": "momentary_last_position",
                                                                                "category": "Doppler Nav",
@@ -2421,6 +2295,60 @@
                                                                                                       "max_value": 65535,
                                                                                                        "shift_by": 0,
                                                                                                          "suffix": "_KNOB_POS",
+                                                                                                           "type": "integer"
+                                                                                    } ]
+                                                                },
+                                          "ASN41_MAGVAR_X0000": {
+                                                                        "category": "Doppler Nav",
+                                                                    "control_type": "analog_gauge",
+                                                                     "description": "MagVar Xnnnn",
+                                                                      "identifier": "ASN41_MAGVAR_X0000",
+                                                                          "inputs": [  ],
+                                                                         "outputs": [ {
+                                                                                                        "address": 33980,
+                                                                                             "address_identifier": "A_4E_C_ASN41_MAGVAR_X0000",
+                                                                                        "address_only_identifier": "A_4E_C_ASN41_MAGVAR_X0000_ADDR",
+                                                                                                    "description": "gauge position",
+                                                                                                           "mask": 65535,
+                                                                                                      "max_value": 65535,
+                                                                                                       "shift_by": 0,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                                    } ]
+                                                                },
+                                           "ASN41_WINDDIR_00X": {
+                                                                        "category": "Doppler Nav",
+                                                                    "control_type": "analog_gauge",
+                                                                     "description": "Wind Direction nnX",
+                                                                      "identifier": "ASN41_WINDDIR_00X",
+                                                                          "inputs": [  ],
+                                                                         "outputs": [ {
+                                                                                                        "address": 33978,
+                                                                                             "address_identifier": "A_4E_C_ASN41_WINDDIR_00X",
+                                                                                        "address_only_identifier": "A_4E_C_ASN41_WINDDIR_00X_ADDR",
+                                                                                                    "description": "gauge position",
+                                                                                                           "mask": 65535,
+                                                                                                      "max_value": 65535,
+                                                                                                       "shift_by": 0,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                                    } ]
+                                                                },
+                                           "ASN41_WINDDIR_0X0": {
+                                                                        "category": "Doppler Nav",
+                                                                    "control_type": "analog_gauge",
+                                                                     "description": "Wind Direction nXn",
+                                                                      "identifier": "ASN41_WINDDIR_0X0",
+                                                                          "inputs": [  ],
+                                                                         "outputs": [ {
+                                                                                                        "address": 33976,
+                                                                                             "address_identifier": "A_4E_C_ASN41_WINDDIR_0X0",
+                                                                                        "address_only_identifier": "A_4E_C_ASN41_WINDDIR_0X0_ADDR",
+                                                                                                    "description": "gauge position",
+                                                                                                           "mask": 65535,
+                                                                                                      "max_value": 65535,
+                                                                                                       "shift_by": 0,
+                                                                                                         "suffix": "",
                                                                                                            "type": "integer"
                                                                                     } ]
                                                                 },
@@ -2480,6 +2408,60 @@
                                                                                                            "type": "integer"
                                                                                     } ]
                                                                 },
+                                           "ASN41_WINDDIR_X00": {
+                                                                        "category": "Doppler Nav",
+                                                                    "control_type": "analog_gauge",
+                                                                     "description": "Wind Direction Xnn",
+                                                                      "identifier": "ASN41_WINDDIR_X00",
+                                                                          "inputs": [  ],
+                                                                         "outputs": [ {
+                                                                                                        "address": 33974,
+                                                                                             "address_identifier": "A_4E_C_ASN41_WINDDIR_X00",
+                                                                                        "address_only_identifier": "A_4E_C_ASN41_WINDDIR_X00_ADDR",
+                                                                                                    "description": "gauge position",
+                                                                                                           "mask": 65535,
+                                                                                                      "max_value": 65535,
+                                                                                                       "shift_by": 0,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                                    } ]
+                                                                },
+                                         "ASN41_WINDSPEED_00X": {
+                                                                        "category": "Doppler Nav",
+                                                                    "control_type": "analog_gauge",
+                                                                     "description": "Windspeed nnX",
+                                                                      "identifier": "ASN41_WINDSPEED_00X",
+                                                                          "inputs": [  ],
+                                                                         "outputs": [ {
+                                                                                                        "address": 33972,
+                                                                                             "address_identifier": "A_4E_C_ASN41_WINDSPEED_00X",
+                                                                                        "address_only_identifier": "A_4E_C_ASN41_WINDSPEED_00X_ADDR",
+                                                                                                    "description": "gauge position",
+                                                                                                           "mask": 65535,
+                                                                                                      "max_value": 65535,
+                                                                                                       "shift_by": 0,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                                    } ]
+                                                                },
+                                         "ASN41_WINDSPEED_0X0": {
+                                                                        "category": "Doppler Nav",
+                                                                    "control_type": "analog_gauge",
+                                                                     "description": "Windspeed nXn",
+                                                                      "identifier": "ASN41_WINDSPEED_0X0",
+                                                                          "inputs": [  ],
+                                                                         "outputs": [ {
+                                                                                                        "address": 33970,
+                                                                                             "address_identifier": "A_4E_C_ASN41_WINDSPEED_0X0",
+                                                                                        "address_only_identifier": "A_4E_C_ASN41_WINDSPEED_0X0_ADDR",
+                                                                                                    "description": "gauge position",
+                                                                                                           "mask": 65535,
+                                                                                                      "max_value": 65535,
+                                                                                                       "shift_by": 0,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                                    } ]
+                                                                },
                                          "ASN41_WINDSPEED_BTN": {
                                                                             "api_variant": "momentary_last_position",
                                                                                "category": "Doppler Nav",
@@ -2533,6 +2515,24 @@
                                                                                                       "max_value": 65535,
                                                                                                        "shift_by": 0,
                                                                                                          "suffix": "_KNOB_POS",
+                                                                                                           "type": "integer"
+                                                                                    } ]
+                                                                },
+                                         "ASN41_WINDSPEED_X00": {
+                                                                        "category": "Doppler Nav",
+                                                                    "control_type": "analog_gauge",
+                                                                     "description": "Windspeed Xnn",
+                                                                      "identifier": "ASN41_WINDSPEED_X00",
+                                                                          "inputs": [  ],
+                                                                         "outputs": [ {
+                                                                                                        "address": 33968,
+                                                                                             "address_identifier": "A_4E_C_ASN41_WINDSPEED_X00",
+                                                                                        "address_only_identifier": "A_4E_C_ASN41_WINDSPEED_X00_ADDR",
+                                                                                                    "description": "gauge position",
+                                                                                                           "mask": 65535,
+                                                                                                      "max_value": 65535,
+                                                                                                       "shift_by": 0,
+                                                                                                         "suffix": "",
                                                                                                            "type": "integer"
                                                                                     } ]
                                                                 },
@@ -2879,88 +2879,16 @@
                                                                 }
                                      },
           "Doppler Nav Destination": {
-                                          "NAV_DEST_LAT_Xnnnn": {
-                                                                        "category": "Doppler Nav Destination",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "Destination Latitude Xnnnn",
-                                                                      "identifier": "NAV_DEST_LAT_Xnnnn",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                                        "address": 33946,
-                                                                                             "address_identifier": "A_4E_C_NAV_DEST_LAT_Xnnnn",
-                                                                                        "address_only_identifier": "A_4E_C_NAV_DEST_LAT_Xnnnn_ADDR",
-                                                                                                    "description": "gauge position",
-                                                                                                           "mask": 65535,
-                                                                                                      "max_value": 65535,
-                                                                                                       "shift_by": 0,
-                                                                                                         "suffix": "",
-                                                                                                           "type": "integer"
-                                                                                    } ]
-                                                                },
-                                          "NAV_DEST_LAT_nXnnn": {
-                                                                        "category": "Doppler Nav Destination",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "Destination Latitude nXnnn",
-                                                                      "identifier": "NAV_DEST_LAT_nXnnn",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                                        "address": 33948,
-                                                                                             "address_identifier": "A_4E_C_NAV_DEST_LAT_nXnnn",
-                                                                                        "address_only_identifier": "A_4E_C_NAV_DEST_LAT_nXnnn_ADDR",
-                                                                                                    "description": "gauge position",
-                                                                                                           "mask": 65535,
-                                                                                                      "max_value": 65535,
-                                                                                                       "shift_by": 0,
-                                                                                                         "suffix": "",
-                                                                                                           "type": "integer"
-                                                                                    } ]
-                                                                },
-                                          "NAV_DEST_LAT_nnXnn": {
-                                                                        "category": "Doppler Nav Destination",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "Destination Latitude nnXnn",
-                                                                      "identifier": "NAV_DEST_LAT_nnXnn",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                                        "address": 33950,
-                                                                                             "address_identifier": "A_4E_C_NAV_DEST_LAT_nnXnn",
-                                                                                        "address_only_identifier": "A_4E_C_NAV_DEST_LAT_nnXnn_ADDR",
-                                                                                                    "description": "gauge position",
-                                                                                                           "mask": 65535,
-                                                                                                      "max_value": 65535,
-                                                                                                       "shift_by": 0,
-                                                                                                         "suffix": "",
-                                                                                                           "type": "integer"
-                                                                                    } ]
-                                                                },
-                                          "NAV_DEST_LAT_nnnXn": {
-                                                                        "category": "Doppler Nav Destination",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "Destination Latitude nnnXn",
-                                                                      "identifier": "NAV_DEST_LAT_nnnXn",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                                        "address": 33952,
-                                                                                             "address_identifier": "A_4E_C_NAV_DEST_LAT_nnnXn",
-                                                                                        "address_only_identifier": "A_4E_C_NAV_DEST_LAT_nnnXn_ADDR",
-                                                                                                    "description": "gauge position",
-                                                                                                           "mask": 65535,
-                                                                                                      "max_value": 65535,
-                                                                                                       "shift_by": 0,
-                                                                                                         "suffix": "",
-                                                                                                           "type": "integer"
-                                                                                    } ]
-                                                                },
-                                          "NAV_DEST_LAT_nnnnX": {
+                                          "NAV_DEST_LAT_0000X": {
                                                                         "category": "Doppler Nav Destination",
                                                                     "control_type": "analog_gauge",
                                                                      "description": "Destination Latitude nnnnX",
-                                                                      "identifier": "NAV_DEST_LAT_nnnnX",
+                                                                      "identifier": "NAV_DEST_LAT_0000X",
                                                                           "inputs": [  ],
                                                                          "outputs": [ {
                                                                                                         "address": 33954,
-                                                                                             "address_identifier": "A_4E_C_NAV_DEST_LAT_nnnnX",
-                                                                                        "address_only_identifier": "A_4E_C_NAV_DEST_LAT_nnnnX_ADDR",
+                                                                                             "address_identifier": "A_4E_C_NAV_DEST_LAT_0000X",
+                                                                                        "address_only_identifier": "A_4E_C_NAV_DEST_LAT_0000X_ADDR",
                                                                                                     "description": "gauge position",
                                                                                                            "mask": 65535,
                                                                                                       "max_value": 65535,
@@ -2969,16 +2897,16 @@
                                                                                                            "type": "integer"
                                                                                     } ]
                                                                 },
-                                         "NAV_DEST_LON_Xnnnnn": {
+                                          "NAV_DEST_LAT_000X0": {
                                                                         "category": "Doppler Nav Destination",
                                                                     "control_type": "analog_gauge",
-                                                                     "description": "Destination Longitude Xnnnnn",
-                                                                      "identifier": "NAV_DEST_LON_Xnnnnn",
+                                                                     "description": "Destination Latitude nnnXn",
+                                                                      "identifier": "NAV_DEST_LAT_000X0",
                                                                           "inputs": [  ],
                                                                          "outputs": [ {
-                                                                                                        "address": 33956,
-                                                                                             "address_identifier": "A_4E_C_NAV_DEST_LON_Xnnnnn",
-                                                                                        "address_only_identifier": "A_4E_C_NAV_DEST_LON_Xnnnnn_ADDR",
+                                                                                                        "address": 33952,
+                                                                                             "address_identifier": "A_4E_C_NAV_DEST_LAT_000X0",
+                                                                                        "address_only_identifier": "A_4E_C_NAV_DEST_LAT_000X0_ADDR",
                                                                                                     "description": "gauge position",
                                                                                                            "mask": 65535,
                                                                                                       "max_value": 65535,
@@ -2987,16 +2915,16 @@
                                                                                                            "type": "integer"
                                                                                     } ]
                                                                 },
-                                         "NAV_DEST_LON_nXnnnn": {
+                                          "NAV_DEST_LAT_00X00": {
                                                                         "category": "Doppler Nav Destination",
                                                                     "control_type": "analog_gauge",
-                                                                     "description": "Destination Longitude nXnnnn",
-                                                                      "identifier": "NAV_DEST_LON_nXnnnn",
+                                                                     "description": "Destination Latitude nnXnn",
+                                                                      "identifier": "NAV_DEST_LAT_00X00",
                                                                           "inputs": [  ],
                                                                          "outputs": [ {
-                                                                                                        "address": 33958,
-                                                                                             "address_identifier": "A_4E_C_NAV_DEST_LON_nXnnnn",
-                                                                                        "address_only_identifier": "A_4E_C_NAV_DEST_LON_nXnnnn_ADDR",
+                                                                                                        "address": 33950,
+                                                                                             "address_identifier": "A_4E_C_NAV_DEST_LAT_00X00",
+                                                                                        "address_only_identifier": "A_4E_C_NAV_DEST_LAT_00X00_ADDR",
                                                                                                     "description": "gauge position",
                                                                                                            "mask": 65535,
                                                                                                       "max_value": 65535,
@@ -3005,16 +2933,16 @@
                                                                                                            "type": "integer"
                                                                                     } ]
                                                                 },
-                                         "NAV_DEST_LON_nnXnnn": {
+                                          "NAV_DEST_LAT_0X000": {
                                                                         "category": "Doppler Nav Destination",
                                                                     "control_type": "analog_gauge",
-                                                                     "description": "Destination Longitude nnXnnn",
-                                                                      "identifier": "NAV_DEST_LON_nnXnnn",
+                                                                     "description": "Destination Latitude nXnnn",
+                                                                      "identifier": "NAV_DEST_LAT_0X000",
                                                                           "inputs": [  ],
                                                                          "outputs": [ {
-                                                                                                        "address": 33960,
-                                                                                             "address_identifier": "A_4E_C_NAV_DEST_LON_nnXnnn",
-                                                                                        "address_only_identifier": "A_4E_C_NAV_DEST_LON_nnXnnn_ADDR",
+                                                                                                        "address": 33948,
+                                                                                             "address_identifier": "A_4E_C_NAV_DEST_LAT_0X000",
+                                                                                        "address_only_identifier": "A_4E_C_NAV_DEST_LAT_0X000_ADDR",
                                                                                                     "description": "gauge position",
                                                                                                            "mask": 65535,
                                                                                                       "max_value": 65535,
@@ -3023,16 +2951,16 @@
                                                                                                            "type": "integer"
                                                                                     } ]
                                                                 },
-                                         "NAV_DEST_LON_nnnXnn": {
+                                          "NAV_DEST_LAT_X0000": {
                                                                         "category": "Doppler Nav Destination",
                                                                     "control_type": "analog_gauge",
-                                                                     "description": "Destination Longitude nnnXnn",
-                                                                      "identifier": "NAV_DEST_LON_nnnXnn",
+                                                                     "description": "Destination Latitude Xnnnn",
+                                                                      "identifier": "NAV_DEST_LAT_X0000",
                                                                           "inputs": [  ],
                                                                          "outputs": [ {
-                                                                                                        "address": 33962,
-                                                                                             "address_identifier": "A_4E_C_NAV_DEST_LON_nnnXnn",
-                                                                                        "address_only_identifier": "A_4E_C_NAV_DEST_LON_nnnXnn_ADDR",
+                                                                                                        "address": 33946,
+                                                                                             "address_identifier": "A_4E_C_NAV_DEST_LAT_X0000",
+                                                                                        "address_only_identifier": "A_4E_C_NAV_DEST_LAT_X0000_ADDR",
                                                                                                     "description": "gauge position",
                                                                                                            "mask": 65535,
                                                                                                       "max_value": 65535,
@@ -3041,34 +2969,106 @@
                                                                                                            "type": "integer"
                                                                                     } ]
                                                                 },
-                                         "NAV_DEST_LON_nnnnXn": {
-                                                                        "category": "Doppler Nav Destination",
-                                                                    "control_type": "analog_gauge",
-                                                                     "description": "Destination Longitude nnnnXn",
-                                                                      "identifier": "NAV_DEST_LON_nnnnXn",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                                        "address": 33964,
-                                                                                             "address_identifier": "A_4E_C_NAV_DEST_LON_nnnnXn",
-                                                                                        "address_only_identifier": "A_4E_C_NAV_DEST_LON_nnnnXn_ADDR",
-                                                                                                    "description": "gauge position",
-                                                                                                           "mask": 65535,
-                                                                                                      "max_value": 65535,
-                                                                                                       "shift_by": 0,
-                                                                                                         "suffix": "",
-                                                                                                           "type": "integer"
-                                                                                    } ]
-                                                                },
-                                         "NAV_DEST_LON_nnnnnX": {
+                                         "NAV_DEST_LON_00000X": {
                                                                         "category": "Doppler Nav Destination",
                                                                     "control_type": "analog_gauge",
                                                                      "description": "Destination Longitude nnnnnX",
-                                                                      "identifier": "NAV_DEST_LON_nnnnnX",
+                                                                      "identifier": "NAV_DEST_LON_00000X",
                                                                           "inputs": [  ],
                                                                          "outputs": [ {
                                                                                                         "address": 33966,
-                                                                                             "address_identifier": "A_4E_C_NAV_DEST_LON_nnnnnX",
-                                                                                        "address_only_identifier": "A_4E_C_NAV_DEST_LON_nnnnnX_ADDR",
+                                                                                             "address_identifier": "A_4E_C_NAV_DEST_LON_00000X",
+                                                                                        "address_only_identifier": "A_4E_C_NAV_DEST_LON_00000X_ADDR",
+                                                                                                    "description": "gauge position",
+                                                                                                           "mask": 65535,
+                                                                                                      "max_value": 65535,
+                                                                                                       "shift_by": 0,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                                    } ]
+                                                                },
+                                         "NAV_DEST_LON_0000X0": {
+                                                                        "category": "Doppler Nav Destination",
+                                                                    "control_type": "analog_gauge",
+                                                                     "description": "Destination Longitude nnnnXn",
+                                                                      "identifier": "NAV_DEST_LON_0000X0",
+                                                                          "inputs": [  ],
+                                                                         "outputs": [ {
+                                                                                                        "address": 33964,
+                                                                                             "address_identifier": "A_4E_C_NAV_DEST_LON_0000X0",
+                                                                                        "address_only_identifier": "A_4E_C_NAV_DEST_LON_0000X0_ADDR",
+                                                                                                    "description": "gauge position",
+                                                                                                           "mask": 65535,
+                                                                                                      "max_value": 65535,
+                                                                                                       "shift_by": 0,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                                    } ]
+                                                                },
+                                         "NAV_DEST_LON_000X00": {
+                                                                        "category": "Doppler Nav Destination",
+                                                                    "control_type": "analog_gauge",
+                                                                     "description": "Destination Longitude nnnXnn",
+                                                                      "identifier": "NAV_DEST_LON_000X00",
+                                                                          "inputs": [  ],
+                                                                         "outputs": [ {
+                                                                                                        "address": 33962,
+                                                                                             "address_identifier": "A_4E_C_NAV_DEST_LON_000X00",
+                                                                                        "address_only_identifier": "A_4E_C_NAV_DEST_LON_000X00_ADDR",
+                                                                                                    "description": "gauge position",
+                                                                                                           "mask": 65535,
+                                                                                                      "max_value": 65535,
+                                                                                                       "shift_by": 0,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                                    } ]
+                                                                },
+                                         "NAV_DEST_LON_00X000": {
+                                                                        "category": "Doppler Nav Destination",
+                                                                    "control_type": "analog_gauge",
+                                                                     "description": "Destination Longitude nnXnnn",
+                                                                      "identifier": "NAV_DEST_LON_00X000",
+                                                                          "inputs": [  ],
+                                                                         "outputs": [ {
+                                                                                                        "address": 33960,
+                                                                                             "address_identifier": "A_4E_C_NAV_DEST_LON_00X000",
+                                                                                        "address_only_identifier": "A_4E_C_NAV_DEST_LON_00X000_ADDR",
+                                                                                                    "description": "gauge position",
+                                                                                                           "mask": 65535,
+                                                                                                      "max_value": 65535,
+                                                                                                       "shift_by": 0,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                                    } ]
+                                                                },
+                                         "NAV_DEST_LON_0X0000": {
+                                                                        "category": "Doppler Nav Destination",
+                                                                    "control_type": "analog_gauge",
+                                                                     "description": "Destination Longitude nXnnnn",
+                                                                      "identifier": "NAV_DEST_LON_0X0000",
+                                                                          "inputs": [  ],
+                                                                         "outputs": [ {
+                                                                                                        "address": 33958,
+                                                                                             "address_identifier": "A_4E_C_NAV_DEST_LON_0X0000",
+                                                                                        "address_only_identifier": "A_4E_C_NAV_DEST_LON_0X0000_ADDR",
+                                                                                                    "description": "gauge position",
+                                                                                                           "mask": 65535,
+                                                                                                      "max_value": 65535,
+                                                                                                       "shift_by": 0,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                                    } ]
+                                                                },
+                                         "NAV_DEST_LON_X00000": {
+                                                                        "category": "Doppler Nav Destination",
+                                                                    "control_type": "analog_gauge",
+                                                                     "description": "Destination Longitude Xnnnnn",
+                                                                      "identifier": "NAV_DEST_LON_X00000",
+                                                                          "inputs": [  ],
+                                                                         "outputs": [ {
+                                                                                                        "address": 33956,
+                                                                                             "address_identifier": "A_4E_C_NAV_DEST_LON_X00000",
+                                                                                        "address_only_identifier": "A_4E_C_NAV_DEST_LON_X00000_ADDR",
                                                                                                     "description": "gauge position",
                                                                                                            "mask": 65535,
                                                                                                       "max_value": 65535,
@@ -3079,11 +3079,11 @@
                                                                 }
                                      },
                "Doppler Nav Lights": {
-                                         "APN153-MEMORYLIGHT": {
+                                         "APN153_MEMORYLIGHT": {
                                                                        "category": "Doppler Nav Lights",
                                                                    "control_type": "led",
                                                                     "description": "Memory Light (yellow)",
-                                                                     "identifier": "APN153-MEMORYLIGHT",
+                                                                     "identifier": "APN153_MEMORYLIGHT",
                                                                          "inputs": [  ],
                                                                         "outputs": [ {
                                                                                                        "address": 33904,
@@ -3099,88 +3099,16 @@
                                                                }
                                      },
              "Doppler Nav Position": {
-                                          "NAV_CURPOS_LAT_Xnnnn": {
-                                                                          "category": "Doppler Nav Position",
-                                                                      "control_type": "analog_gauge",
-                                                                       "description": "Current Latitude Xnnnn",
-                                                                        "identifier": "NAV_CURPOS_LAT_Xnnnn",
-                                                                            "inputs": [  ],
-                                                                           "outputs": [ {
-                                                                                                          "address": 33924,
-                                                                                               "address_identifier": "A_4E_C_NAV_CURPOS_LAT_Xnnnn",
-                                                                                          "address_only_identifier": "A_4E_C_NAV_CURPOS_LAT_Xnnnn_ADDR",
-                                                                                                      "description": "gauge position",
-                                                                                                             "mask": 65535,
-                                                                                                        "max_value": 65535,
-                                                                                                         "shift_by": 0,
-                                                                                                           "suffix": "",
-                                                                                                             "type": "integer"
-                                                                                      } ]
-                                                                  },
-                                          "NAV_CURPOS_LAT_nXnnn": {
-                                                                          "category": "Doppler Nav Position",
-                                                                      "control_type": "analog_gauge",
-                                                                       "description": "Current Latitude nXnnn",
-                                                                        "identifier": "NAV_CURPOS_LAT_nXnnn",
-                                                                            "inputs": [  ],
-                                                                           "outputs": [ {
-                                                                                                          "address": 33926,
-                                                                                               "address_identifier": "A_4E_C_NAV_CURPOS_LAT_nXnnn",
-                                                                                          "address_only_identifier": "A_4E_C_NAV_CURPOS_LAT_nXnnn_ADDR",
-                                                                                                      "description": "gauge position",
-                                                                                                             "mask": 65535,
-                                                                                                        "max_value": 65535,
-                                                                                                         "shift_by": 0,
-                                                                                                           "suffix": "",
-                                                                                                             "type": "integer"
-                                                                                      } ]
-                                                                  },
-                                          "NAV_CURPOS_LAT_nnXnn": {
-                                                                          "category": "Doppler Nav Position",
-                                                                      "control_type": "analog_gauge",
-                                                                       "description": "Current Latitude nnXnn",
-                                                                        "identifier": "NAV_CURPOS_LAT_nnXnn",
-                                                                            "inputs": [  ],
-                                                                           "outputs": [ {
-                                                                                                          "address": 33928,
-                                                                                               "address_identifier": "A_4E_C_NAV_CURPOS_LAT_nnXnn",
-                                                                                          "address_only_identifier": "A_4E_C_NAV_CURPOS_LAT_nnXnn_ADDR",
-                                                                                                      "description": "gauge position",
-                                                                                                             "mask": 65535,
-                                                                                                        "max_value": 65535,
-                                                                                                         "shift_by": 0,
-                                                                                                           "suffix": "",
-                                                                                                             "type": "integer"
-                                                                                      } ]
-                                                                  },
-                                          "NAV_CURPOS_LAT_nnnXn": {
-                                                                          "category": "Doppler Nav Position",
-                                                                      "control_type": "analog_gauge",
-                                                                       "description": "Current Latitude nnnXn",
-                                                                        "identifier": "NAV_CURPOS_LAT_nnnXn",
-                                                                            "inputs": [  ],
-                                                                           "outputs": [ {
-                                                                                                          "address": 33930,
-                                                                                               "address_identifier": "A_4E_C_NAV_CURPOS_LAT_nnnXn",
-                                                                                          "address_only_identifier": "A_4E_C_NAV_CURPOS_LAT_nnnXn_ADDR",
-                                                                                                      "description": "gauge position",
-                                                                                                             "mask": 65535,
-                                                                                                        "max_value": 65535,
-                                                                                                         "shift_by": 0,
-                                                                                                           "suffix": "",
-                                                                                                             "type": "integer"
-                                                                                      } ]
-                                                                  },
-                                          "NAV_CURPOS_LAT_nnnnX": {
+                                          "NAV_CURPOS_LAT_0000X": {
                                                                           "category": "Doppler Nav Position",
                                                                       "control_type": "analog_gauge",
                                                                        "description": "Current Latitude nnnnX",
-                                                                        "identifier": "NAV_CURPOS_LAT_nnnnX",
+                                                                        "identifier": "NAV_CURPOS_LAT_0000X",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
                                                                                                           "address": 33932,
-                                                                                               "address_identifier": "A_4E_C_NAV_CURPOS_LAT_nnnnX",
-                                                                                          "address_only_identifier": "A_4E_C_NAV_CURPOS_LAT_nnnnX_ADDR",
+                                                                                               "address_identifier": "A_4E_C_NAV_CURPOS_LAT_0000X",
+                                                                                          "address_only_identifier": "A_4E_C_NAV_CURPOS_LAT_0000X_ADDR",
                                                                                                       "description": "gauge position",
                                                                                                              "mask": 65535,
                                                                                                         "max_value": 65535,
@@ -3189,16 +3117,16 @@
                                                                                                              "type": "integer"
                                                                                       } ]
                                                                   },
-                                         "NAV_CURPOS_LON_Xnnnnn": {
+                                          "NAV_CURPOS_LAT_000X0": {
                                                                           "category": "Doppler Nav Position",
                                                                       "control_type": "analog_gauge",
-                                                                       "description": "Current Longitude Xnnnnn",
-                                                                        "identifier": "NAV_CURPOS_LON_Xnnnnn",
+                                                                       "description": "Current Latitude nnnXn",
+                                                                        "identifier": "NAV_CURPOS_LAT_000X0",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
-                                                                                                          "address": 33934,
-                                                                                               "address_identifier": "A_4E_C_NAV_CURPOS_LON_Xnnnnn",
-                                                                                          "address_only_identifier": "A_4E_C_NAV_CURPOS_LON_Xnnnnn_ADDR",
+                                                                                                          "address": 33930,
+                                                                                               "address_identifier": "A_4E_C_NAV_CURPOS_LAT_000X0",
+                                                                                          "address_only_identifier": "A_4E_C_NAV_CURPOS_LAT_000X0_ADDR",
                                                                                                       "description": "gauge position",
                                                                                                              "mask": 65535,
                                                                                                         "max_value": 65535,
@@ -3207,16 +3135,16 @@
                                                                                                              "type": "integer"
                                                                                       } ]
                                                                   },
-                                         "NAV_CURPOS_LON_nXnnnn": {
+                                          "NAV_CURPOS_LAT_00X00": {
                                                                           "category": "Doppler Nav Position",
                                                                       "control_type": "analog_gauge",
-                                                                       "description": "Current Longitude nXnnnn",
-                                                                        "identifier": "NAV_CURPOS_LON_nXnnnn",
+                                                                       "description": "Current Latitude nnXnn",
+                                                                        "identifier": "NAV_CURPOS_LAT_00X00",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
-                                                                                                          "address": 33936,
-                                                                                               "address_identifier": "A_4E_C_NAV_CURPOS_LON_nXnnnn",
-                                                                                          "address_only_identifier": "A_4E_C_NAV_CURPOS_LON_nXnnnn_ADDR",
+                                                                                                          "address": 33928,
+                                                                                               "address_identifier": "A_4E_C_NAV_CURPOS_LAT_00X00",
+                                                                                          "address_only_identifier": "A_4E_C_NAV_CURPOS_LAT_00X00_ADDR",
                                                                                                       "description": "gauge position",
                                                                                                              "mask": 65535,
                                                                                                         "max_value": 65535,
@@ -3225,16 +3153,16 @@
                                                                                                              "type": "integer"
                                                                                       } ]
                                                                   },
-                                         "NAV_CURPOS_LON_nnXnnn": {
+                                          "NAV_CURPOS_LAT_0X000": {
                                                                           "category": "Doppler Nav Position",
                                                                       "control_type": "analog_gauge",
-                                                                       "description": "Current Longitude nnXnnn",
-                                                                        "identifier": "NAV_CURPOS_LON_nnXnnn",
+                                                                       "description": "Current Latitude nXnnn",
+                                                                        "identifier": "NAV_CURPOS_LAT_0X000",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
-                                                                                                          "address": 33938,
-                                                                                               "address_identifier": "A_4E_C_NAV_CURPOS_LON_nnXnnn",
-                                                                                          "address_only_identifier": "A_4E_C_NAV_CURPOS_LON_nnXnnn_ADDR",
+                                                                                                          "address": 33926,
+                                                                                               "address_identifier": "A_4E_C_NAV_CURPOS_LAT_0X000",
+                                                                                          "address_only_identifier": "A_4E_C_NAV_CURPOS_LAT_0X000_ADDR",
                                                                                                       "description": "gauge position",
                                                                                                              "mask": 65535,
                                                                                                         "max_value": 65535,
@@ -3243,16 +3171,16 @@
                                                                                                              "type": "integer"
                                                                                       } ]
                                                                   },
-                                         "NAV_CURPOS_LON_nnnXnn": {
+                                          "NAV_CURPOS_LAT_X0000": {
                                                                           "category": "Doppler Nav Position",
                                                                       "control_type": "analog_gauge",
-                                                                       "description": "Current Longitude nnnXnn",
-                                                                        "identifier": "NAV_CURPOS_LON_nnnXnn",
+                                                                       "description": "Current Latitude Xnnnn",
+                                                                        "identifier": "NAV_CURPOS_LAT_X0000",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
-                                                                                                          "address": 33940,
-                                                                                               "address_identifier": "A_4E_C_NAV_CURPOS_LON_nnnXnn",
-                                                                                          "address_only_identifier": "A_4E_C_NAV_CURPOS_LON_nnnXnn_ADDR",
+                                                                                                          "address": 33924,
+                                                                                               "address_identifier": "A_4E_C_NAV_CURPOS_LAT_X0000",
+                                                                                          "address_only_identifier": "A_4E_C_NAV_CURPOS_LAT_X0000_ADDR",
                                                                                                       "description": "gauge position",
                                                                                                              "mask": 65535,
                                                                                                         "max_value": 65535,
@@ -3261,34 +3189,106 @@
                                                                                                              "type": "integer"
                                                                                       } ]
                                                                   },
-                                         "NAV_CURPOS_LON_nnnnXn": {
-                                                                          "category": "Doppler Nav Position",
-                                                                      "control_type": "analog_gauge",
-                                                                       "description": "Current Longitude nnnnXn",
-                                                                        "identifier": "NAV_CURPOS_LON_nnnnXn",
-                                                                            "inputs": [  ],
-                                                                           "outputs": [ {
-                                                                                                          "address": 33942,
-                                                                                               "address_identifier": "A_4E_C_NAV_CURPOS_LON_nnnnXn",
-                                                                                          "address_only_identifier": "A_4E_C_NAV_CURPOS_LON_nnnnXn_ADDR",
-                                                                                                      "description": "gauge position",
-                                                                                                             "mask": 65535,
-                                                                                                        "max_value": 65535,
-                                                                                                         "shift_by": 0,
-                                                                                                           "suffix": "",
-                                                                                                             "type": "integer"
-                                                                                      } ]
-                                                                  },
-                                         "NAV_CURPOS_LON_nnnnnX": {
+                                         "NAV_CURPOS_LON_00000X": {
                                                                           "category": "Doppler Nav Position",
                                                                       "control_type": "analog_gauge",
                                                                        "description": "Current Longitude nnnnnX",
-                                                                        "identifier": "NAV_CURPOS_LON_nnnnnX",
+                                                                        "identifier": "NAV_CURPOS_LON_00000X",
                                                                             "inputs": [  ],
                                                                            "outputs": [ {
                                                                                                           "address": 33944,
-                                                                                               "address_identifier": "A_4E_C_NAV_CURPOS_LON_nnnnnX",
-                                                                                          "address_only_identifier": "A_4E_C_NAV_CURPOS_LON_nnnnnX_ADDR",
+                                                                                               "address_identifier": "A_4E_C_NAV_CURPOS_LON_00000X",
+                                                                                          "address_only_identifier": "A_4E_C_NAV_CURPOS_LON_00000X_ADDR",
+                                                                                                      "description": "gauge position",
+                                                                                                             "mask": 65535,
+                                                                                                        "max_value": 65535,
+                                                                                                         "shift_by": 0,
+                                                                                                           "suffix": "",
+                                                                                                             "type": "integer"
+                                                                                      } ]
+                                                                  },
+                                         "NAV_CURPOS_LON_0000X0": {
+                                                                          "category": "Doppler Nav Position",
+                                                                      "control_type": "analog_gauge",
+                                                                       "description": "Current Longitude nnnnXn",
+                                                                        "identifier": "NAV_CURPOS_LON_0000X0",
+                                                                            "inputs": [  ],
+                                                                           "outputs": [ {
+                                                                                                          "address": 33942,
+                                                                                               "address_identifier": "A_4E_C_NAV_CURPOS_LON_0000X0",
+                                                                                          "address_only_identifier": "A_4E_C_NAV_CURPOS_LON_0000X0_ADDR",
+                                                                                                      "description": "gauge position",
+                                                                                                             "mask": 65535,
+                                                                                                        "max_value": 65535,
+                                                                                                         "shift_by": 0,
+                                                                                                           "suffix": "",
+                                                                                                             "type": "integer"
+                                                                                      } ]
+                                                                  },
+                                         "NAV_CURPOS_LON_000X00": {
+                                                                          "category": "Doppler Nav Position",
+                                                                      "control_type": "analog_gauge",
+                                                                       "description": "Current Longitude nnnXnn",
+                                                                        "identifier": "NAV_CURPOS_LON_000X00",
+                                                                            "inputs": [  ],
+                                                                           "outputs": [ {
+                                                                                                          "address": 33940,
+                                                                                               "address_identifier": "A_4E_C_NAV_CURPOS_LON_000X00",
+                                                                                          "address_only_identifier": "A_4E_C_NAV_CURPOS_LON_000X00_ADDR",
+                                                                                                      "description": "gauge position",
+                                                                                                             "mask": 65535,
+                                                                                                        "max_value": 65535,
+                                                                                                         "shift_by": 0,
+                                                                                                           "suffix": "",
+                                                                                                             "type": "integer"
+                                                                                      } ]
+                                                                  },
+                                         "NAV_CURPOS_LON_00X000": {
+                                                                          "category": "Doppler Nav Position",
+                                                                      "control_type": "analog_gauge",
+                                                                       "description": "Current Longitude nnXnnn",
+                                                                        "identifier": "NAV_CURPOS_LON_00X000",
+                                                                            "inputs": [  ],
+                                                                           "outputs": [ {
+                                                                                                          "address": 33938,
+                                                                                               "address_identifier": "A_4E_C_NAV_CURPOS_LON_00X000",
+                                                                                          "address_only_identifier": "A_4E_C_NAV_CURPOS_LON_00X000_ADDR",
+                                                                                                      "description": "gauge position",
+                                                                                                             "mask": 65535,
+                                                                                                        "max_value": 65535,
+                                                                                                         "shift_by": 0,
+                                                                                                           "suffix": "",
+                                                                                                             "type": "integer"
+                                                                                      } ]
+                                                                  },
+                                         "NAV_CURPOS_LON_0X0000": {
+                                                                          "category": "Doppler Nav Position",
+                                                                      "control_type": "analog_gauge",
+                                                                       "description": "Current Longitude nXnnnn",
+                                                                        "identifier": "NAV_CURPOS_LON_0X0000",
+                                                                            "inputs": [  ],
+                                                                           "outputs": [ {
+                                                                                                          "address": 33936,
+                                                                                               "address_identifier": "A_4E_C_NAV_CURPOS_LON_0X0000",
+                                                                                          "address_only_identifier": "A_4E_C_NAV_CURPOS_LON_0X0000_ADDR",
+                                                                                                      "description": "gauge position",
+                                                                                                             "mask": 65535,
+                                                                                                        "max_value": 65535,
+                                                                                                         "shift_by": 0,
+                                                                                                           "suffix": "",
+                                                                                                             "type": "integer"
+                                                                                      } ]
+                                                                  },
+                                         "NAV_CURPOS_LON_X00000": {
+                                                                          "category": "Doppler Nav Position",
+                                                                      "control_type": "analog_gauge",
+                                                                       "description": "Current Longitude Xnnnnn",
+                                                                        "identifier": "NAV_CURPOS_LON_X00000",
+                                                                            "inputs": [  ],
+                                                                           "outputs": [ {
+                                                                                                          "address": 33934,
+                                                                                               "address_identifier": "A_4E_C_NAV_CURPOS_LON_X00000",
+                                                                                          "address_only_identifier": "A_4E_C_NAV_CURPOS_LON_X00000_ADDR",
                                                                                                       "description": "gauge position",
                                                                                                              "mask": 65535,
                                                                                                         "max_value": 65535,
@@ -4481,11 +4481,11 @@
                                                                  }
                                      },
                            "Lights": {
-                                                  "APG53A-GLOW": {
+                                                  "APG53A_GLOW": {
                                                                          "category": "Lights",
                                                                      "control_type": "analog_gauge",
                                                                       "description": "Radar Glow Light (green)",
-                                                                       "identifier": "APG53A-GLOW",
+                                                                       "identifier": "APG53A_GLOW",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
                                                                                                          "address": 34014,
@@ -4499,11 +4499,11 @@
                                                                                                             "type": "integer"
                                                                                      } ]
                                                                  },
-                                               "LIGHTS-CONSOLE": {
+                                               "LIGHTS_CONSOLE": {
                                                                          "category": "Lights",
                                                                      "control_type": "analog_gauge",
                                                                       "description": "Console Lights (red)",
-                                                                       "identifier": "LIGHTS-CONSOLE",
+                                                                       "identifier": "LIGHTS_CONSOLE",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
                                                                                                          "address": 34012,
@@ -4517,11 +4517,11 @@
                                                                                                             "type": "integer"
                                                                                      } ]
                                                                  },
-                                             "LIGHTS-FLOOD-RED": {
+                                             "LIGHTS_FLOOD_RED": {
                                                                          "category": "Lights",
                                                                      "control_type": "analog_gauge",
                                                                       "description": "Red Flood Lights (red)",
-                                                                       "identifier": "LIGHTS-FLOOD-RED",
+                                                                       "identifier": "LIGHTS_FLOOD_RED",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
                                                                                                          "address": 34008,
@@ -4535,11 +4535,11 @@
                                                                                                             "type": "integer"
                                                                                      } ]
                                                                  },
-                                           "LIGHTS-FLOOD-WHITE": {
+                                           "LIGHTS_FLOOD_WHITE": {
                                                                          "category": "Lights",
                                                                      "control_type": "analog_gauge",
                                                                       "description": "White Flood Lights (white)",
-                                                                       "identifier": "LIGHTS-FLOOD-WHITE",
+                                                                       "identifier": "LIGHTS_FLOOD_WHITE",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
                                                                                                          "address": 34006,
@@ -4553,11 +4553,11 @@
                                                                                                             "type": "integer"
                                                                                      } ]
                                                                  },
-                                           "LIGHTS-INSTRUMENTS": {
+                                           "LIGHTS_INSTRUMENTS": {
                                                                          "category": "Lights",
                                                                      "control_type": "analog_gauge",
                                                                       "description": "Instrument Lights (red)",
-                                                                       "identifier": "LIGHTS-INSTRUMENTS",
+                                                                       "identifier": "LIGHTS_INSTRUMENTS",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
                                                                                                          "address": 34010,
@@ -5127,52 +5127,70 @@
                                                                                                           "type": "integer"
                                                                                    } ]
                                                                },
-                                               "ALT_ADJ_NNxx": {
-                                                                       "category": "Main Flight Instruments",
-                                                                   "control_type": "analog_gauge",
-                                                                    "description": "Altimeter Adjustment NNxx",
-                                                                     "identifier": "ALT_ADJ_NNxx",
-                                                                         "inputs": [  ],
-                                                                        "outputs": [ {
-                                                                                                       "address": 33846,
-                                                                                            "address_identifier": "A_4E_C_ALT_ADJ_NNxx",
-                                                                                       "address_only_identifier": "A_4E_C_ALT_ADJ_NNxx_ADDR",
-                                                                                                   "description": "gauge position",
-                                                                                                          "mask": 65535,
-                                                                                                     "max_value": 65535,
-                                                                                                      "shift_by": 0,
-                                                                                                        "suffix": "",
-                                                                                                          "type": "integer"
-                                                                                   } ]
-                                                               },
-                                               "ALT_ADJ_xxNx": {
-                                                                       "category": "Main Flight Instruments",
-                                                                   "control_type": "analog_gauge",
-                                                                    "description": "Altimeter Adjustment xxNx",
-                                                                     "identifier": "ALT_ADJ_xxNx",
-                                                                         "inputs": [  ],
-                                                                        "outputs": [ {
-                                                                                                       "address": 33848,
-                                                                                            "address_identifier": "A_4E_C_ALT_ADJ_xxNx",
-                                                                                       "address_only_identifier": "A_4E_C_ALT_ADJ_xxNx_ADDR",
-                                                                                                   "description": "gauge position",
-                                                                                                          "mask": 65535,
-                                                                                                     "max_value": 65535,
-                                                                                                      "shift_by": 0,
-                                                                                                        "suffix": "",
-                                                                                                          "type": "integer"
-                                                                                   } ]
-                                                               },
-                                               "ALT_ADJ_xxxN": {
+                                               "ALT_ADJ_000N": {
                                                                        "category": "Main Flight Instruments",
                                                                    "control_type": "analog_gauge",
                                                                     "description": "Altimeter Adjustment xxxN",
-                                                                     "identifier": "ALT_ADJ_xxxN",
+                                                                     "identifier": "ALT_ADJ_000N",
                                                                          "inputs": [  ],
                                                                         "outputs": [ {
                                                                                                        "address": 33850,
-                                                                                            "address_identifier": "A_4E_C_ALT_ADJ_xxxN",
-                                                                                       "address_only_identifier": "A_4E_C_ALT_ADJ_xxxN_ADDR",
+                                                                                            "address_identifier": "A_4E_C_ALT_ADJ_000N",
+                                                                                       "address_only_identifier": "A_4E_C_ALT_ADJ_000N_ADDR",
+                                                                                                   "description": "gauge position",
+                                                                                                          "mask": 65535,
+                                                                                                     "max_value": 65535,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                   } ]
+                                                               },
+                                               "ALT_ADJ_00N0": {
+                                                                       "category": "Main Flight Instruments",
+                                                                   "control_type": "analog_gauge",
+                                                                    "description": "Altimeter Adjustment xxNx",
+                                                                     "identifier": "ALT_ADJ_00N0",
+                                                                         "inputs": [  ],
+                                                                        "outputs": [ {
+                                                                                                       "address": 33848,
+                                                                                            "address_identifier": "A_4E_C_ALT_ADJ_00N0",
+                                                                                       "address_only_identifier": "A_4E_C_ALT_ADJ_00N0_ADDR",
+                                                                                                   "description": "gauge position",
+                                                                                                          "mask": 65535,
+                                                                                                     "max_value": 65535,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                   } ]
+                                                               },
+                                               "ALT_ADJ_NN00": {
+                                                                       "category": "Main Flight Instruments",
+                                                                   "control_type": "analog_gauge",
+                                                                    "description": "Altimeter Adjustment NNxx",
+                                                                     "identifier": "ALT_ADJ_NN00",
+                                                                         "inputs": [  ],
+                                                                        "outputs": [ {
+                                                                                                       "address": 33846,
+                                                                                            "address_identifier": "A_4E_C_ALT_ADJ_NN00",
+                                                                                       "address_only_identifier": "A_4E_C_ALT_ADJ_NN00_ADDR",
+                                                                                                   "description": "gauge position",
+                                                                                                          "mask": 65535,
+                                                                                                     "max_value": 65535,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                                   } ]
+                                                               },
+                                                      "AOA_G": {
+                                                                       "category": "Main Flight Instruments",
+                                                                   "control_type": "analog_gauge",
+                                                                    "description": "Angle Of Attack",
+                                                                     "identifier": "AOA_G",
+                                                                         "inputs": [  ],
+                                                                        "outputs": [ {
+                                                                                                       "address": 33880,
+                                                                                            "address_identifier": "A_4E_C_AOA_G",
+                                                                                       "address_only_identifier": "A_4E_C_AOA_G_ADDR",
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -5245,24 +5263,6 @@
                                                                                                        "address": 33820,
                                                                                             "address_identifier": "A_4E_C_ATTGYRO_STBY_ROLL",
                                                                                        "address_only_identifier": "A_4E_C_ATTGYRO_STBY_ROLL_ADDR",
-                                                                                                   "description": "gauge position",
-                                                                                                          "mask": 65535,
-                                                                                                     "max_value": 65535,
-                                                                                                      "shift_by": 0,
-                                                                                                        "suffix": "",
-                                                                                                          "type": "integer"
-                                                                                   } ]
-                                                               },
-                                              "AngleOfAttack": {
-                                                                       "category": "Main Flight Instruments",
-                                                                   "control_type": "analog_gauge",
-                                                                    "description": "Angle Of Attack",
-                                                                     "identifier": "AngleOfAttack",
-                                                                         "inputs": [  ],
-                                                                        "outputs": [ {
-                                                                                                       "address": 33880,
-                                                                                            "address_identifier": "A_4E_C_AngleOfAttack",
-                                                                                       "address_only_identifier": "A_4E_C_AngleOfAttack_ADDR",
                                                                                                    "description": "gauge position",
                                                                                                           "mask": 65535,
                                                                                                      "max_value": 65535,
@@ -5579,11 +5579,11 @@
                                                                                                         "type": "integer"
                                                                                  } ]
                                                              },
-                                                   "Canopy": {
+                                                "CANOPY_SW": {
                                                                             "category": "Mechanical Systems",
                                                                         "control_type": "selector",
                                                                          "description": "Canopy",
-                                                                          "identifier": "Canopy",
+                                                                          "identifier": "CANOPY_SW",
                                                                               "inputs": [ {
                                                                                             "description": "switch to previous or next state",
                                                                                               "interface": "fixed_step"
@@ -5599,8 +5599,8 @@
                                                                  "momentary_positions": "none",
                                                                              "outputs": [ {
                                                                                                             "address": 34056,
-                                                                                                 "address_identifier": "A_4E_C_Canopy",
-                                                                                            "address_only_identifier": "A_4E_C_Canopy_ADDR",
+                                                                                                 "address_identifier": "A_4E_C_CANOPY_SW",
+                                                                                            "address_only_identifier": "A_4E_C_CANOPY_SW_ADDR",
                                                                                                         "description": "selector position",
                                                                                                                "mask": 8192,
                                                                                                           "max_value": 1,
@@ -6189,11 +6189,11 @@
                                                           }
                                      },
        "Radar Control Panel Gauges": {
-                                         "APG53A-BOTTOMRANGE": {
+                                         "APG53A_BOTTOMRANGE": {
                                                                        "category": "Radar Control Panel Gauges",
                                                                    "control_type": "analog_gauge",
                                                                     "description": "Radar Plan Range",
-                                                                     "identifier": "APG53A-BOTTOMRANGE",
+                                                                     "identifier": "APG53A_BOTTOMRANGE",
                                                                          "inputs": [  ],
                                                                         "outputs": [ {
                                                                                                        "address": 33908,
@@ -6207,11 +6207,11 @@
                                                                                                           "type": "integer"
                                                                                    } ]
                                                                },
-                                           "APG53A-LEFTRANGE": {
+                                           "APG53A_LEFTRANGE": {
                                                                        "category": "Radar Control Panel Gauges",
                                                                    "control_type": "analog_gauge",
                                                                     "description": "Radar Profile Range",
-                                                                     "identifier": "APG53A-LEFTRANGE",
+                                                                     "identifier": "APG53A_LEFTRANGE",
                                                                          "inputs": [  ],
                                                                         "outputs": [ {
                                                                                                        "address": 33906,
@@ -6751,70 +6751,34 @@
                                                            }
                                      },
                         "UHF Radio": {
-                                         "ARC51-FREQ-PRESET": {
-                                                                      "category": "UHF Radio",
-                                                                  "control_type": "analog_gauge",
-                                                                   "description": "Frequency Preset",
-                                                                    "identifier": "ARC51-FREQ-PRESET",
-                                                                        "inputs": [  ],
-                                                                       "outputs": [ {
-                                                                                                      "address": 34004,
-                                                                                           "address_identifier": "A_4E_C_ARC51_FREQ_PRESET",
-                                                                                      "address_only_identifier": "A_4E_C_ARC51_FREQ_PRESET_ADDR",
-                                                                                                  "description": "gauge position",
-                                                                                                         "mask": 65535,
-                                                                                                    "max_value": 65535,
-                                                                                                     "shift_by": 0,
-                                                                                                       "suffix": "",
-                                                                                                         "type": "integer"
-                                                                                  } ]
-                                                              },
-                                          "ARC51-FREQ-XXxxx": {
-                                                                      "category": "UHF Radio",
-                                                                  "control_type": "analog_gauge",
-                                                                   "description": "Frequency XXnnn",
-                                                                    "identifier": "ARC51-FREQ-XXxxx",
-                                                                        "inputs": [  ],
-                                                                       "outputs": [ {
-                                                                                                      "address": 33998,
-                                                                                           "address_identifier": "A_4E_C_ARC51_FREQ_XXxxx",
-                                                                                      "address_only_identifier": "A_4E_C_ARC51_FREQ_XXxxx_ADDR",
-                                                                                                  "description": "gauge position",
-                                                                                                         "mask": 65535,
-                                                                                                    "max_value": 65535,
-                                                                                                     "shift_by": 0,
-                                                                                                       "suffix": "",
-                                                                                                         "type": "integer"
-                                                                                  } ]
-                                                              },
-                                          "ARC51-FREQ-xxXxx": {
-                                                                      "category": "UHF Radio",
-                                                                  "control_type": "analog_gauge",
-                                                                   "description": "Frequency nnXnn",
-                                                                    "identifier": "ARC51-FREQ-xxXxx",
-                                                                        "inputs": [  ],
-                                                                       "outputs": [ {
-                                                                                                      "address": 34000,
-                                                                                           "address_identifier": "A_4E_C_ARC51_FREQ_xxXxx",
-                                                                                      "address_only_identifier": "A_4E_C_ARC51_FREQ_xxXxx_ADDR",
-                                                                                                  "description": "gauge position",
-                                                                                                         "mask": 65535,
-                                                                                                    "max_value": 65535,
-                                                                                                     "shift_by": 0,
-                                                                                                       "suffix": "",
-                                                                                                         "type": "integer"
-                                                                                  } ]
-                                                              },
-                                          "ARC51-FREQ-xxxXX": {
+                                          "ARC51_FREQ_000XX": {
                                                                       "category": "UHF Radio",
                                                                   "control_type": "analog_gauge",
                                                                    "description": "Frequency nnnXX",
-                                                                    "identifier": "ARC51-FREQ-xxxXX",
+                                                                    "identifier": "ARC51_FREQ_000XX",
                                                                         "inputs": [  ],
                                                                        "outputs": [ {
                                                                                                       "address": 34002,
-                                                                                           "address_identifier": "A_4E_C_ARC51_FREQ_xxxXX",
-                                                                                      "address_only_identifier": "A_4E_C_ARC51_FREQ_xxxXX_ADDR",
+                                                                                           "address_identifier": "A_4E_C_ARC51_FREQ_000XX",
+                                                                                      "address_only_identifier": "A_4E_C_ARC51_FREQ_000XX_ADDR",
+                                                                                                  "description": "gauge position",
+                                                                                                         "mask": 65535,
+                                                                                                    "max_value": 65535,
+                                                                                                     "shift_by": 0,
+                                                                                                       "suffix": "",
+                                                                                                         "type": "integer"
+                                                                                  } ]
+                                                              },
+                                          "ARC51_FREQ_00X00": {
+                                                                      "category": "UHF Radio",
+                                                                  "control_type": "analog_gauge",
+                                                                   "description": "Frequency nnXnn",
+                                                                    "identifier": "ARC51_FREQ_00X00",
+                                                                        "inputs": [  ],
+                                                                       "outputs": [ {
+                                                                                                      "address": 34000,
+                                                                                           "address_identifier": "A_4E_C_ARC51_FREQ_00X00",
+                                                                                      "address_only_identifier": "A_4E_C_ARC51_FREQ_00X00_ADDR",
                                                                                                   "description": "gauge position",
                                                                                                          "mask": 65535,
                                                                                                     "max_value": 65535,
@@ -6930,6 +6894,42 @@
                                                                                                                 "type": "integer"
                                                                                          } ],
                                                                      "physical_variant": "toggle_switch"
+                                                              },
+                                         "ARC51_FREQ_PRESET": {
+                                                                      "category": "UHF Radio",
+                                                                  "control_type": "analog_gauge",
+                                                                   "description": "Frequency Preset",
+                                                                    "identifier": "ARC51_FREQ_PRESET",
+                                                                        "inputs": [  ],
+                                                                       "outputs": [ {
+                                                                                                      "address": 34004,
+                                                                                           "address_identifier": "A_4E_C_ARC51_FREQ_PRESET",
+                                                                                      "address_only_identifier": "A_4E_C_ARC51_FREQ_PRESET_ADDR",
+                                                                                                  "description": "gauge position",
+                                                                                                         "mask": 65535,
+                                                                                                    "max_value": 65535,
+                                                                                                     "shift_by": 0,
+                                                                                                       "suffix": "",
+                                                                                                         "type": "integer"
+                                                                                  } ]
+                                                              },
+                                          "ARC51_FREQ_XX000": {
+                                                                      "category": "UHF Radio",
+                                                                  "control_type": "analog_gauge",
+                                                                   "description": "Frequency XXnnn",
+                                                                    "identifier": "ARC51_FREQ_XX000",
+                                                                        "inputs": [  ],
+                                                                       "outputs": [ {
+                                                                                                      "address": 33998,
+                                                                                           "address_identifier": "A_4E_C_ARC51_FREQ_XX000",
+                                                                                      "address_only_identifier": "A_4E_C_ARC51_FREQ_XX000_ADDR",
+                                                                                                  "description": "gauge position",
+                                                                                                         "mask": 65535,
+                                                                                                    "max_value": 65535,
+                                                                                                     "shift_by": 0,
+                                                                                                       "suffix": "",
+                                                                                                         "type": "integer"
+                                                                                  } ]
                                                               },
                                                 "ARC51_MODE": {
                                                                              "category": "UHF Radio",
@@ -7153,6 +7153,24 @@
                                                                                                            "type": "integer"
                                                                                     } ]
                                                                 },
+                                                "D_GLARE_LAWS": {
+                                                                        "category": "Warning Lamps",
+                                                                    "control_type": "led",
+                                                                     "description": "Glareshield LAWS (red)",
+                                                                      "identifier": "D_GLARE_LAWS",
+                                                                          "inputs": [  ],
+                                                                         "outputs": [ {
+                                                                                                        "address": 33884,
+                                                                                             "address_identifier": "A_4E_C_D_GLARE_LAWS",
+                                                                                        "address_only_identifier": "A_4E_C_D_GLARE_LAWS_ADDR",
+                                                                                                    "description": "0 if light is off, 1 if light is on",
+                                                                                                           "mask": 1024,
+                                                                                                      "max_value": 1,
+                                                                                                       "shift_by": 10,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                                    } ]
+                                                                },
                                                 "D_GLARE_OBST": {
                                                                         "category": "Warning Lamps",
                                                                     "control_type": "led",
@@ -7228,7 +7246,7 @@
                                                 "D_RADAR_WARN": {
                                                                         "category": "Warning Lamps",
                                                                     "control_type": "led",
-                                                                     "description": "Glareshield LAWS (red)",
+                                                                     "description": "Radar Altitude Warning (red)",
                                                                       "identifier": "D_RADAR_WARN",
                                                                           "inputs": [  ],
                                                                          "outputs": [ {
@@ -7236,9 +7254,9 @@
                                                                                              "address_identifier": "A_4E_C_D_RADAR_WARN",
                                                                                         "address_only_identifier": "A_4E_C_D_RADAR_WARN_ADDR",
                                                                                                     "description": "0 if light is off, 1 if light is on",
-                                                                                                           "mask": 1024,
+                                                                                                           "mask": 64,
                                                                                                       "max_value": 1,
-                                                                                                       "shift_by": 10,
+                                                                                                       "shift_by": 6,
                                                                                                          "suffix": "",
                                                                                                            "type": "integer"
                                                                                     } ]

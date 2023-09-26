@@ -85,7 +85,7 @@ A_4E_C:defineIndicatorLight("D_RADAR_WARN", 605, "Warning Lamps", "Radar Altitud
 A_4E_C:defineIndicatorLight("D_OIL_LOW", 150, "Warning Lamps", "Oil Low Light (yellow)")
 A_4E_C:defineIndicatorLight("D_GLARE_WHEELS", 154, "Warning Lamps", "Glareshield Wheels (white)")
 A_4E_C:defineIndicatorLight("D_GLARE_LABS", 155, "Warning Lamps", "Glareshield LABS (yellow)")
-A_4E_C:defineIndicatorLight("D_RADAR_WARN", 156, "Warning Lamps", "Glareshield LAWS (red)")
+A_4E_C:defineIndicatorLight("D_GLARE_LAWS", 156, "Warning Lamps", "Glareshield LAWS (red)")
 A_4E_C:defineIndicatorLight("D_GLARE_OBST", 157, "Warning Lamps", "Glareshield OBST (yellow)")
 A_4E_C:defineIndicatorLight("D_GLARE_IFF", 158, "Warning Lamps", "Glareshield IFF (white)")
 A_4E_C:defineIndicatorLight("D_GLARE_FIRE", 159, "Warning Lamps", "Glareshield Fire (red)")
