@@ -42,7 +42,7 @@ function TestAircraft:validateControlNames(module_name, documentation)
 			lu.assertNotStrContains(identifier, "__", false)
 
 			-- verify this key is not a duplicate
-			lu.assertNotTableContains(all_keys, identifier)
+			lu.assertNotIsTrue(all_keys[identifier], "identifier " .. identifier .. " already exists")
 			all_keys[identifier] = true
 		end
 	end
