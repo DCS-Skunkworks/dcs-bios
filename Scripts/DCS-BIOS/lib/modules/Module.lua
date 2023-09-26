@@ -305,6 +305,33 @@ function Module:addTwoCommandFixedStepInputProcessor(identifier, device_id, decr
 	end)
 end
 
+--- Adds a new string output based on a custom getter function
+--- @param identifier string the unique identifier for the control
+--- @param getter fun(dev0: CockpitDevice): string the getter function which will return a string
+--- @param max_length integer the maximum length of the string
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @return Control control the control which was added to the module
+function Module:defineString(identifier, getter, max_length, category, description)
+	local alloc = self:allocateString(max_length)
+	self:addExportHook(function(dev0)
+		local value = getter(dev0) --ammo
+		if value == nil then
+			error("function " .. identifier .. " is sending a nil value from its getter")
+		end
+
+		alloc:setValue(value)
+	end)
+
+	local control = Control:new(category, ControlType.display, identifier, description, {}, {
+		StringOutput:new(alloc, Suffix.none, description),
+	})
+
+	self:addControl(control)
+
+	return control
+end
+
 --- Defines a two-command fixed-step rotary input
 --- @param identifier string the unique identifier for the control
 --- @param device_id integer the dcs device id
@@ -359,15 +386,15 @@ end
 
 --- Adds a new integer output based on a custom getter function
 --- @param identifier string the unique identifier for the control
---- @param getter fun(): integer the getter function which will return an integer
+--- @param getter fun(dev0: CockpitDevice): integer the getter function which will return an integer
 --- @param maxValue integer the maximum value the getter will return
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
 --- @return Control control the control which was added to the module
 function Module:defineIntegerFromGetter(identifier, getter, maxValue, category, description)
 	local alloc = self:allocateInt(maxValue)
-	self:addExportHook(function(_)
-		alloc:setValue(getter())
+	self:addExportHook(function(dev0)
+		alloc:setValue(getter(dev0))
 	end)
 
 	local control = Control:new(category, ControlType.metadata, identifier, description, {}, {
