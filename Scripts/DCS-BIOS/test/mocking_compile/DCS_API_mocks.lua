@@ -1,4 +1,4 @@
----@diagnostic disable: duplicate-set-field, missing-return
+---@diagnostic disable: duplicate-set-field
 
 ---@class CockpitDevice
 --- DCS Cockpit Device
@@ -22,12 +22,16 @@ function CockpitDevice:set_frequency(frequency) end
 
 --- @func Gets a device's frequency
 --- @return number
-function CockpitDevice:get_frequency() end
+function CockpitDevice:get_frequency()
+	return 0
+end
 
 --- @func Gets a device based on the device ID as specified in devices.lua
 --- @param argument_id integer
 --- @return number The current value of the CockpitDevice
-function CockpitDevice:get_argument_value(argument_id) end
+function CockpitDevice:get_argument_value(argument_id)
+	return 0
+end
 
 --- @func Makes the device perform an action
 --- @param command_id integer
@@ -37,12 +41,16 @@ function CockpitDevice:performClickableAction(command_id, argument) end
 --- @func Gets a device based on the device ID as specified in devices.lua
 --- @param device_id integer
 --- @return CockpitDevice
-function GetDevice(device_id) end
+function GetDevice(device_id)
+	return CockpitDevice
+end
 
 --- @func Gets the draw value for a certain animation
 --- @param draw_argument_id integer
 --- @return number
-function LoGetAircraftDrawArgumentValue(draw_argument_id) end
+function LoGetAircraftDrawArgumentValue(draw_argument_id)
+	return 0
+end
 
 --- Contains Postions and Altitude
 --- @class LatLongAlt
@@ -62,31 +70,43 @@ LatLongAlt = {}
 --- @field Heading number
 --- @diagnostic disable-next-line: duplicate-doc-field
 --- @field LatLongAlt LatLongAlt
-AicraftData = {}
+AicraftData = { Name = "Test", Heading = 0, LatLongAlt({ Lat = 0, Long = 0, Alt = 0 }) }
 
 --- @func Returns SelfData that holds information about the aircraft
 --- @return AicraftData
-function LoGetSelfData() end
+function LoGetSelfData()
+	return AicraftData
+end
 
 --- @func Returns the simulation time
 --- @return number
-function LoGetModelTime() end
+function LoGetModelTime()
+	return 0
+end
 
 --- @func Returns the mission start time
 --- @return number
-function LoGetMissionStartTime() end
+function LoGetMissionStartTime()
+	return 0
+end
 
 --- @func Returns whether own ships/aircraft data can be exported.
 --- @return boolean
-function LoIsOwnshipExportAllowed() end
+function LoIsOwnshipExportAllowed()
+	return true
+end
 
 --- @func Returns pilot's name
 --- @return string
-function LoGetPilotName() end
+function LoGetPilotName()
+	return "Neil Armstrong"
+end
 
 --- @func Returns indicated airspeed
 --- @return number
-function LoGetIndicatedAirSpeed() end
+function LoGetIndicatedAirSpeed()
+	return 0
+end
 
 --- Contains acceleration info for all dimensions
 --- @class AccelerationUnit
@@ -96,11 +116,13 @@ function LoGetIndicatedAirSpeed() end
 --- @field y number
 --- @diagnostic disable-next-line: duplicate-doc-field
 --- @field z number
-AccelerationUnit = {}
+AccelerationUnit = { x = 0, y = 0, z = 0 }
 
 --- @func Returns G Load
 --- @return AccelerationUnit
-function LoGetAccelerationUnits() end
+function LoGetAccelerationUnits()
+	return AccelerationUnit
+end
 
 --- @func Returns ADI pitch, band, yaw
 --- @return number
@@ -113,15 +135,19 @@ end
 --- @field chaff number
 --- @diagnostic disable-next-line: duplicate-doc-field
 --- @field flare number
-CounterMeasures = {}
+CounterMeasures = { chaff = 0, flare = 0 }
 
 --- @func Returns information about countermeasures
 --- @return CounterMeasures
-function LoGetSnares() end
+function LoGetSnares()
+	return CounterMeasures
+end
 
 --- @func Returns a list of strings for a cockpit indicator (screen)
---- @return string
-function list_indication(indicator_id) end
+--- @return table<string>
+function list_indication(indicator_id)
+	return { "A", "B", "C" }
+end
 
 --- @class CockpitPage
 --- @diagnostic disable-next-line: duplicate-doc-field
@@ -131,66 +157,92 @@ CockpitPage = {}
 --- @func Searches for matches in CockpitPage
 --- @param search_value string
 --- @return CockpitPage
-function CockpitPage:match(search_value) end
+function CockpitPage:match(search_value)
+	return CockpitPage
+end
 
 --- @func sub? CockpitPage
 --- @param index integer
 --- @return string
-function CockpitPage:sub(index) end
+function CockpitPage:sub(index)
+	return "A"
+end
 
 --- @func Returns a list of pages (cockpit screens)
---- @return CockpitPage
-function list_cockpit_params() end
+--- @return table<CockpitPage>
+function list_cockpit_params()
+	return { CockpitPage }
+end
 
 --- @func Maps value to from input_range to output_range
 --- @param argument_value number
 --- @param input_range table
 --- @param output_range table
 --- @return number
-function ValueConvert(argument_value, input_range, output_range) end
+function ValueConvert(argument_value, input_range, output_range)
+	return 0
+end
 
 --- @func Returns  altitude above sea level
 --- @return number
-function LoGetAltitudeAboveSeaLevel() end
+function LoGetAltitudeAboveSeaLevel()
+	return 0
+end
 
 --- @func Returns  altitude above ground level
 --- @return number
-function LoGetAltitudeAboveGroundLevel() end
+function LoGetAltitudeAboveGroundLevel()
+	return 0
+end
 
 --- @func Returns vertical velocity
 --- @return number
-function LoGetVerticalVelocity() end
+function LoGetVerticalVelocity()
+	return 0
+end
 
 --- @func Returns true air speed
 --- @return number
-function LoGetTrueAirSpeed() end
+function LoGetTrueAirSpeed()
+	return 0
+end
 
 --- @func Returns mach number
 --- @return number
-function LoGetMachNumber() end
+function LoGetMachNumber()
+	return 0
+end
 
 --- @func Returns angle of attack
 --- @return number
-function LoGetAngleOfAttack() end
+function LoGetAngleOfAttack()
+	return 0
+end
 
 --- @func Returns glide deviation
 --- @return number
-function LoGetGlideDeviation() end
+function LoGetGlideDeviation()
+	return 0
+end
 
 --- @func Returns side deviation
 --- @return number
-function LoGetSideDeviation() end
+function LoGetSideDeviation()
+	return 0
+end
 
 --- @func Returns slip ball position
 --- @return number
-function LoGetSlipBallPosition() end
+function LoGetSlipBallPosition()
+	return 0
+end
 
 --- @class EngineSide
 --- @diagnostic disable-next-line: duplicate-doc-field
 --- @field right number
 --- @diagnostic disable-next-line: duplicate-doc-field
 --- @field left number
-EngineSide = {}
+EngineSide = { right = 0, left = 0 }
 
 --- @class EngineInformation
 --- @diagnostic disable-next-line: duplicate-doc-field
@@ -201,24 +253,28 @@ EngineSide = {}
 --- @field HydraulicPressure EngineSide
 --- @diagnostic disable-next-line: duplicate-doc-field
 --- @field FuelConsumption EngineSide
-EngineInformation = {}
+EngineInformation = { RPM = EngineSide, Temperature = EngineSide, HydraulicPressure = EngineSide, FuelConsumption = EngineSide }
 
 --- @func Returns engine information
 --- @return EngineInformation
-function LoGetEngineInfo() end
+function LoGetEngineInfo()
+	return EngineInformation
+end
 
 --- @class GearValue
 --- @diagnostic disable-next-line: duplicate-doc-field
 --- @field right number
 --- @diagnostic disable-next-line: duplicate-doc-field
 --- @field left number
-GearValue = {}
+GearValue = { right = 0, left = 0 }
 
 --- @class MechanicalInformation
 --- @diagnostic disable-next-line: duplicate-doc-field
 --- @field gear GearValue
-MechanicalInformation = {}
+MechanicalInformation = { gear = GearValue }
 
 --- @func Returns mechanical information
 --- @return MechanicalInformation
-function LoGetMechInfo() end
+function LoGetMechInfo()
+	return MechanicalInformation
+end
