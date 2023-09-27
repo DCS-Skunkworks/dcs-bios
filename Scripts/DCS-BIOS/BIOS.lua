@@ -54,7 +54,9 @@ dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Alphajet.lua]]) -- ID = 9, ProperN
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\AV8BNA.lua]]) -- ID = 10, ProperName = AV-8B Night Attack
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Bf-109K-4.lua]]) -- ID = 11, ProperName = Bf 109 K-4 Kurfurst
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\C-101.lua]]) -- ID = 12, ProperName = C-101 Aviojet
-dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Christen Eagle II.lua]]) -- ID = 14, ProperName = Christen Eagle II
+-- dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Christen Eagle II.lua]]) -- ID = 14, ProperName = Christen Eagle II
+local Christen_Eagle_II = require "Christen Eagle II"
+BIOS.protocol.writeNewModule(Christen_Eagle_II)
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Edge540.lua]]) -- ID = 15, ProperName = Edge 540
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\F-14.lua]]) -- ID = 16, ProperName = F-14A/B Tomcat
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\F-15E.lua]]) -- ID = 44, ProperName = F-15E Strike Eagle
