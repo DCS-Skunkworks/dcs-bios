@@ -137,23 +137,10 @@ function LoGetSnares() end
 --- @return string
 function list_indication(indicator_id) end
 
---- @class CockpitPage
---- @diagnostic disable-next-line: duplicate-doc-field
---- @field sub string
-CockpitPage = {}
-
---- @func Searches for matches in CockpitPage
---- @param search_value string
---- @return CockpitPage
-function CockpitPage:match(search_value) end
-
---- @func sub? CockpitPage
---- @param index integer
---- @return string
-function CockpitPage:sub(index) end
+CockpitPage = ""
 
 --- @func Returns a list of pages (cockpit screens)
---- @return CockpitPage
+--- @return string[]
 function list_cockpit_params() end
 
 --- @func Maps value to from input_range to output_range

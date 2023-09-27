@@ -149,24 +149,7 @@ function list_indication(indicator_id)
 	return { "A", "B", "C" }
 end
 
---- @class CockpitPage
---- @diagnostic disable-next-line: duplicate-doc-field
---- @field sub string
-CockpitPage = {}
-
---- @func Searches for matches in CockpitPage
---- @param search_value string
---- @return CockpitPage
-function CockpitPage:match(search_value)
-	return CockpitPage
-end
-
---- @func sub? CockpitPage
---- @param index integer
---- @return string
-function CockpitPage:sub(index)
-	return "A"
-end
+CockpitPage = ""
 
 --- @func Returns a list of pages (cockpit screens)
 --- @return CockpitPage[]
@@ -253,8 +236,7 @@ EngineSide = { right = 0, left = 0 }
 --- @field HydraulicPressure EngineSide
 --- @diagnostic disable-next-line: duplicate-doc-field
 --- @field FuelConsumption EngineSide
-EngineInformation =
-	{ RPM = EngineSide, Temperature = EngineSide, HydraulicPressure = EngineSide, FuelConsumption = EngineSide }
+EngineInformation = { RPM = EngineSide, Temperature = EngineSide, HydraulicPressure = EngineSide, FuelConsumption = EngineSide }
 
 --- @func Returns engine information
 --- @return EngineInformation
