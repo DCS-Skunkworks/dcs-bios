@@ -60,7 +60,7 @@ end
 --- @field Long number
 --- @diagnostic disable-next-line: duplicate-doc-field
 --- @field Alt number Altitude in meters
-LatLongAlt = {}
+LatLongAlt = { Lat = 0, Long = 0, Alt = 0 }
 
 --- Contains Aircraft Data
 --- @class AicraftData
@@ -70,7 +70,7 @@ LatLongAlt = {}
 --- @field Heading number
 --- @diagnostic disable-next-line: duplicate-doc-field
 --- @field LatLongAlt LatLongAlt
-AicraftData = { Name = "Test", Heading = 0, LatLongAlt({ Lat = 0, Long = 0, Alt = 0 }) }
+AicraftData = { Name = "Test", Heading = 0, LatLongAlt }
 
 --- @func Returns SelfData that holds information about the aircraft
 --- @return AicraftData
@@ -144,7 +144,7 @@ function LoGetSnares()
 end
 
 --- @func Returns a list of strings for a cockpit indicator (screen)
---- @return table<string>
+--- @return string[]
 function list_indication(indicator_id)
 	return { "A", "B", "C" }
 end
@@ -169,7 +169,7 @@ function CockpitPage:sub(index)
 end
 
 --- @func Returns a list of pages (cockpit screens)
---- @return table<CockpitPage>
+--- @return CockpitPage[]
 function list_cockpit_params()
 	return { CockpitPage }
 end
@@ -253,7 +253,8 @@ EngineSide = { right = 0, left = 0 }
 --- @field HydraulicPressure EngineSide
 --- @diagnostic disable-next-line: duplicate-doc-field
 --- @field FuelConsumption EngineSide
-EngineInformation = { RPM = EngineSide, Temperature = EngineSide, HydraulicPressure = EngineSide, FuelConsumption = EngineSide }
+EngineInformation =
+	{ RPM = EngineSide, Temperature = EngineSide, HydraulicPressure = EngineSide, FuelConsumption = EngineSide }
 
 --- @func Returns engine information
 --- @return EngineInformation
