@@ -41,12 +41,14 @@ dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\TextDisplay.lua]])
 -- Following text: Example (case sensitive!): -- ID = x, ProperName = <pretty name>
 -- is used by DCSFlightpanels GUI to pick up DCS-BIOS modules
 -- ID range 1-3 is used internally in DCSFlightpanels. New modules must have an uniques ID.
+
+dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\A-10C.lua]]) -- ID = 5, ProperName = A-10C Thunderbolt/II
+-- dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\A-29B.lua]]) -- ID = 41, ProperName = A-29B Super Tucano
+local A_29B = require "A-29B"
+BIOS.protocol.writeNewModule(A_29B)
+-- dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\A-4E-C.lua]]) -- ID = 6, ProperName = A-4E Skyhawk
 local A_4E_C = require "A-4E-C"
 BIOS.protocol.writeNewModule(A_4E_C)
-
--- dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\A-4E-C.lua]]) -- ID = 6, ProperName = A-4E Skyhawk
-dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\A-10C.lua]]) -- ID = 5, ProperName = A-10C Thunderbolt/II
-dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\A-29B.lua]]) -- ID = 41, ProperName = A-29B Super Tucano
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\AH-6J.lua]]) -- ID = 7, ProperName = AH-6J Littlebird
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\AH-64D.lua]]) -- ID = 46, ProperName = AH-64D Apache
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\AJS37.lua]]) -- ID = 8, ProperName = AJS-37 Viggen
