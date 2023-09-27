@@ -10,7 +10,25 @@ env:
   RELEASE_FILE_NAME: 'DCS-BIOS_openbeta.zip'
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    name: Run unit tests
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up lua
+        uses: leafo/gh-actions-lua@v10
+        with:
+          luaVersion: "5.1.5"
+
+      - name: test
+        run: |
+          lua ./Scripts/DCS-BIOS/test/TestSuite.lua
+
   release:
+    needs: test
     runs-on: ubuntu-latest
 
     permissions:
