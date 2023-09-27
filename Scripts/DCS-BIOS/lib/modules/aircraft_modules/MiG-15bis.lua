@@ -186,10 +186,10 @@ MiG_15bis:defineFloat("ASP3_RANGE", 245, { 0, 1 }, "ASP3N Gunsight", "ASP-3N Gun
 
 -- ARC-5 radio compass
 MiG_15bis:definePotentiometer("ARC5_VOL", 29, 3001, 180, { 0, 1 }, "ARC5", "ARC-5 Audio Volume Knob")
-MiG_15bis:defineTumb("ARC5_BAND", 29, 3004, 177, 0.5, { 0, 1 }, nil, false, "ARC5", "ARC-5 Frequency Band Switch")
+MiG_15bis:defineTumb("ARC5_BAND_SW", 29, 3004, 177, 0.5, { 0, 1 }, nil, false, "ARC5", "ARC-5 Frequency Band Switch")
 MiG_15bis:defineTumb("ARC5_SELECT", 29, 3003, 174, 0.1, { 0, 0.4 }, nil, false, "ARC5", "ARC-5 Function Selector Switch")
 MiG_15bis:define3PosTumb("ARC5_LOOP", 29, 3006, 178, "ARC5", "ARC-5 LOOP L-R Switch")
-MiG_15bis:definePotentiometer("ARC5_TUNE", 29, 3005, 175, { 0, 1 }, "ARC5", "ARC-5 Tuning Crank")
+MiG_15bis:definePotentiometer("ARC5_TUNE_CRANK", 29, 3005, 175, { 0, 1 }, "ARC5", "ARC-5 Tuning Crank")
 MiG_15bis:definePotentiometer("ARC5_LIGHT", 29, 3007, 181, { 0, 1 }, "ARC5", "ARC-5 Scale Light Knob")
 MiG_15bis:defineToggleSwitch("ARC5_TGL_TFL", 29, 3002, 173, "ARC5", "ARC-5 TLG-TLF Switch")
 MiG_15bis:definePushButton("ARC5_CONTROL", 29, 3008, 182, "ARC5", "ARC-5 Take Control Button")

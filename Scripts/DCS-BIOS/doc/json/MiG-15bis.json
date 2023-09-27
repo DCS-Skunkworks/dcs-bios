@@ -186,6 +186,33 @@
                                                                                                                 "type": "integer"
                                                                                          } ]
                                                                      },
+                                                     "ARC5_BAND_SW": {
+                                                                                    "category": "ARC5",
+                                                                                "control_type": "selector",
+                                                                                 "description": "ARC-5 Frequency Band Switch",
+                                                                                  "identifier": "ARC5_BAND_SW",
+                                                                                      "inputs": [ {
+                                                                                                    "description": "switch to previous or next state",
+                                                                                                      "interface": "fixed_step"
+                                                                                                }, {
+                                                                                                    "description": "set position",
+                                                                                                      "interface": "set_state",
+                                                                                                      "max_value": 2
+                                                                                                } ],
+                                                                         "momentary_positions": "none",
+                                                                                     "outputs": [ {
+                                                                                                                    "address": 9328,
+                                                                                                         "address_identifier": "MiG_15bis_ARC5_BAND_SW",
+                                                                                                    "address_only_identifier": "MiG_15bis_ARC5_BAND_SW_ADDR",
+                                                                                                                "description": "selector position",
+                                                                                                                       "mask": 6,
+                                                                                                                  "max_value": 2,
+                                                                                                                   "shift_by": 1,
+                                                                                                                     "suffix": "",
+                                                                                                                       "type": "integer"
+                                                                                                } ],
+                                                                            "physical_variant": "limited_rotary"
+                                                                     },
                                                      "ARC5_BEARING": {
                                                                              "category": "ARC5",
                                                                          "control_type": "analog_gauge",
@@ -519,6 +546,33 @@
                                                                                                   "address_identifier": "MiG_15bis_ARC5_TUNE",
                                                                                              "address_only_identifier": "MiG_15bis_ARC5_TUNE_ADDR",
                                                                                                          "description": "gauge position",
+                                                                                                                "mask": 65535,
+                                                                                                           "max_value": 65535,
+                                                                                                            "shift_by": 0,
+                                                                                                              "suffix": "",
+                                                                                                                "type": "integer"
+                                                                                         } ]
+                                                                     },
+                                                  "ARC5_TUNE_CRANK": {
+                                                                             "category": "ARC5",
+                                                                         "control_type": "limited_dial",
+                                                                          "description": "ARC-5 Tuning Crank",
+                                                                           "identifier": "ARC5_TUNE_CRANK",
+                                                                               "inputs": [ {
+                                                                                             "description": "set the position of the dial",
+                                                                                               "interface": "set_state",
+                                                                                               "max_value": 65535
+                                                                                         }, {
+                                                                                                "description": "turn the dial left or right",
+                                                                                                  "interface": "variable_step",
+                                                                                                  "max_value": 65535,
+                                                                                             "suggested_step": 3200
+                                                                                         } ],
+                                                                              "outputs": [ {
+                                                                                                             "address": 9334,
+                                                                                                  "address_identifier": "MiG_15bis_ARC5_TUNE_CRANK",
+                                                                                             "address_only_identifier": "MiG_15bis_ARC5_TUNE_CRANK_ADDR",
+                                                                                                         "description": "position of the potentiometer",
                                                                                                                 "mask": 65535,
                                                                                                            "max_value": 65535,
                                                                                                             "shift_by": 0,
