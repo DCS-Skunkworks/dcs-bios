@@ -71,28 +71,42 @@ function Module:defineFloat(identifier, arg_number, limits, category, descriptio
 	return control
 end
 
---- Adds a new indicator light control
+--- Adds a new indicator light control which will enable the LED when the argument value is greater than or equal to 0.3
 --- @param identifier string the unique identifier for the control
 --- @param arg_number integer the dcs argument number
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
 --- @return Control control the control which was added to the module
 function Module:defineIndicatorLight(identifier, arg_number, category, description)
-	local value = self:allocateInt(1)
+	return self:defineGatedIndicatorLight(identifier, arg_number, 0.3, nil, category, description)
+end
 
-	assert(value.shiftBy ~= nil)
-	self:addExportHook(function(dev0)
-		if dev0:get_argument_value(arg_number) < 0.3 then
-			value:setValue(0)
-		else
-			value:setValue(1)
-		end
-	end)
+--- Adds a new indicator light control with specific min and max values for enabling the light
+--- @param identifier string the unique identifier for the control
+--- @param arg_number integer the dcs argument number
+--- @param min number? the inclusive minimum value required in order to turn the light on (or nil if none)
+--- @param max number? the exclusive maximum value allowed in order to turn the light on (or nil if none)
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @return Control control the control which was added to the module
+function Module:defineGatedIndicatorLight(identifier, arg_number, min, max, category, description)
+	local alloc = self:allocateInt(1)
 
 	local control = Control:new(category, ControlType.led, identifier, description, {}, {
-		IntegerOutput:new(value, Suffix.none, "0 if light is off, 1 if light is on"),
+		IntegerOutput:new(alloc, Suffix.none, "0 if light is off, 1 if light is on"),
 	})
 	self:addControl(control)
+
+	self:addExportHook(function(dev0)
+		local arg_value = dev0:get_argument_value(arg_number)
+		local greater_than_min = (not min) or arg_value >= min
+		local less_than_max = (not max) or arg_value < max
+		if greater_than_min and less_than_max then
+			alloc:setValue(1)
+		else
+			alloc:setValue(0)
+		end
+	end)
 
 	return control
 end

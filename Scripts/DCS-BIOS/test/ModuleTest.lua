@@ -35,6 +35,7 @@ end
 
 require("FloatTest")
 require("IndicatorLightTest")
+require("GatedIndicatorLightTest")
 require("PushButtonTest")
 require("PotentiometerTest")
 require("ToggleSwitchTest")
