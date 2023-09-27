@@ -152,7 +152,7 @@ end
 CockpitPage = ""
 
 --- @func Returns a list of pages (cockpit screens)
---- @return CockpitPage[]
+--- @return string[]
 function list_cockpit_params()
 	return { CockpitPage }
 end
