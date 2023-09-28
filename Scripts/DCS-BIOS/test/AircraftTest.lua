@@ -11,6 +11,10 @@ function TestAircraft:testA4EC()
 	self:validateModule(require("A-4E-C"), "A-4E-C", 0x8400)
 end
 
+function TestAircraft:testAlphajet()
+	self:validateModule(require("Alphajet"), "Alphajet", 0x6400)
+end
+
 function TestAircraft:testCEII()
 	self:validateModule(require("Christen Eagle II"), "Christen Eagle II", 0x2800)
 end
