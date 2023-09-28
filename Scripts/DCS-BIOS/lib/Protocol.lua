@@ -59,7 +59,7 @@ end
 function BIOS.protocol.endModule()
 	if BIOSdevMode == 1 then
 	local function saveDoc()
-		local JSON = loadfile([[Scripts\JSON.lua]])()
+		local JSON = GetJSON()()
 		local file, err = io.open(lfs.writedir()..[[Scripts\DCS-BIOS\doc\json\]]..moduleBeingDefined.name..".json", "w")
 		local json_string = JSON:encode_pretty(moduleBeingDefined.documentation)
 		if file then

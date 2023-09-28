@@ -403,7 +403,7 @@ definePotentiometer("CPG_KU_BRT", 30, 3050, 621, {0, 1}, "CPG Keyboard Unit", "G
 defineString("CPG_KU_DISPLAY", function() return txt_CPG_KU end, 22, "CPG Keyboard Unit", "Gunner Keyboard Unit Display")
 
 -- Enhanced Up-Front Display
-local JSON = loadfile([[Scripts\JSON.lua]])()
+local JSON = GetJSON()()
 local eufd_indicator_data_file = io.open(lfs.writedir()..[[Scripts\DCS-BIOS\src\json\AH-64D_EUFD.json]], "r")
 local eufd_indicator_data
 if(eufd_indicator_data_file ~= nil) then

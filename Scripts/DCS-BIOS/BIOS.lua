@@ -29,6 +29,7 @@ package.path = lfs.writedir() .. [[Scripts\DCS-BIOS\lib\modules\common_modules\?
 package.path = lfs.writedir() .. [[Scripts\DCS-BIOS\lib\modules\documentation\?.lua;]] .. package.path
 package.path = lfs.writedir() .. [[Scripts\DCS-BIOS\lib\modules\memory_map\?.lua;]] .. package.path
 
+dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\common\common.lua]])
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Util.lua]])
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\ProtocolIO.lua]])
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Protocol.lua]])
@@ -106,7 +107,7 @@ dofile(lfs.writedir()..[[Scripts\DCS-BIOS\BIOSConfig.lua]])
 
 --Saves aliases for each aircraft for external programs
 local function saveAliases()
-	local JSON = loadfile([[Scripts\JSON.lua]])()
+	local JSON = GetJSON()()
 	local file, err = io.open(lfs.writedir()..[[Scripts\DCS-BIOS\doc\json\AircraftAliases.json]], "w")
 	local json_string = JSON:encode_pretty(BIOS.dbg.aircraftNameToModuleNames)
 	if file then
