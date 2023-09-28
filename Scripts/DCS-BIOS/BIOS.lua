@@ -28,7 +28,6 @@ package.path = lfs.writedir() .. [[Scripts\DCS-BIOS\lib\modules\aircraft_modules
 package.path = lfs.writedir() .. [[Scripts\DCS-BIOS\lib\modules\common_modules\?.lua;]] .. package.path
 package.path = lfs.writedir() .. [[Scripts\DCS-BIOS\lib\modules\documentation\?.lua;]] .. package.path
 package.path = lfs.writedir() .. [[Scripts\DCS-BIOS\lib\modules\memory_map\?.lua;]] .. package.path
-package.path = lfs.writedir() .. [[Scripts\DCS-BIOS\lib\common\?.lua;]] .. package.path
 
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\common\common.lua]])
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Util.lua]])

@@ -1,8 +1,8 @@
 -- This can be used to run the DCS-BIOS JSON generation locally without
 -- starting a DCS mission
--- DCS-BIOS wiki have information on how to install the lua interpreter. No need to install
+-- DCS-BIOS wiki Developer Guide have information on how to install the lua interpreter. No need to install
 -- additional lua modules such as socket etc.
--- Execute => lua LocalCompile-lua
+-- Execute => lua LocalCompile-lua or run it via VS Code task
 
 local dcs_variant = "DCS"
 DCS_USER_DIR_ROOT = os.getenv("USERPROFILE") .. "\\Saved Games\\" .. dcs_variant .. "\\"
