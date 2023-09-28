@@ -59,7 +59,7 @@ function TestTumb:testAddTumbNoCycle()
 
 	local string_output = control.outputs[2] --[[@as StringOutput]]
 	lu.assertEquals(string_output.type, OutputType.string)
-	lu.assertEquals(string_output.maxLength, 1)
+	lu.assertEquals(string_output.max_length, 1)
 	lu.assertEquals(string_output.suffix, Suffix.str)
 
 	lu.assertEquals(string_output.address, moduleAddress + 2) -- string will require new address
