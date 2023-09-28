@@ -225,8 +225,8 @@ Mosquito:defineToggleSwitch("HT_T1154_PW", 28, 3003, 306, "Starboard Wall", "T.1
 Mosquito:defineIndicatorLight("GEN_WARN_L", 177, "Starboard Wall Lights", "Generator Warning Light (red)")
 
 --Lower Fuselage Part
-Mosquito:defineToggleSwitch("PORT_CUT-OUT", 3, 3071, 192, "Lower Fuselage Part", "Engine Cut-Out Handle Port")
-Mosquito:defineToggleSwitch("STBD_CUT-OUT", 3, 3095, 191, "Lower Fuselage Part", "Engine Cut-Out Handle Starboard")
+Mosquito:defineToggleSwitch("PORT_CUT_OUT", 3, 3071, 192, "Lower Fuselage Part", "Engine Cut-Out Handle Port")
+Mosquito:defineToggleSwitch("STBD_CUT_OUT", 3, 3095, 191, "Lower Fuselage Part", "Engine Cut-Out Handle Starboard")
 Mosquito:define3PosTumb("PORT_FUEL_COCK", 3, 3073, 193, "Lower Fuselage Part", "Fuel Cock Port")
 Mosquito:define3PosTumb("STBD_FUEL_COCK", 3, 3076, 194, "Lower Fuselage Part", "Fuel Cock Starboard")
 Mosquito:defineToggleSwitch("TRANSFER_COCK_OUT", 3, 3079, 195, "Lower Fuselage Part", "Transfer Fuel Cock")
