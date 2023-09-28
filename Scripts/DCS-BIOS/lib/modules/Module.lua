@@ -232,6 +232,70 @@ function Module:defineRotary(identifier, device_id, command, arg_number, categor
 	return control
 end
 
+--- Adds an infitely-looping rotary, like an encoder
+--- @param identifier string the unique identifier for the control
+--- @param device_id integer the dcs device id
+--- @param command integer the dcs command
+--- @param arg_number integer the dcs argument number
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @return Control control the control which was added to the module
+function Module:define3PosMossi(identifier, device_id, command, arg_number, category, description)
+	local max_value = 2
+
+	local value = self:allocateInt(max_value)
+
+	local control = Control:new(category, ControlType.selector, identifier, description, {
+		SetStateInput:new(max_value, "set the switch position -- 0 = left, 1 = centered, 2 = right"),
+	}, {
+		IntegerOutput:new(value, Suffix.knob_pos, "selector position -- 0 = Left, 1 = Mid ,  2 = Right"),
+	}, nil, nil, ApiVariant.momentary_last_position)
+	self:addControl(control)
+
+	self:addExportHook(function(dev0)
+		local lut = { ["-1"] = "0", ["0"] = "1", ["1"] = "2" }
+		value:setValue(lut[string.format("%.0f", dev0:get_argument_value(arg_number))])
+	end)
+
+	self:addInputProcessor(identifier, function(toState)
+		if toState == "0" then
+			toState = -1
+		elseif toState == "1" then
+			toState = 0
+		elseif toState == "2" then
+			toState = 1
+		else
+			return
+		end
+		local fromState = GetDevice(0):get_argument_value(arg_number)
+		local dev = GetDevice(device_id)
+		if fromState == 0 and toState == 1 then
+			dev:performClickableAction(command, 0)
+			dev:performClickableAction(command, 1)
+		end
+		if fromState == 1 and toState == 0 then
+			dev:performClickableAction(command, 0)
+		end
+		if fromState == 0 and toState == -1 then
+			dev:performClickableAction(command, -1)
+		end
+		if fromState == -1 and toState == 0 then
+			dev:performClickableAction(command, 0)
+			dev:performClickableAction(command, 1)
+		end
+		if fromState == -1 and toState == 1 then
+			dev:performClickableAction(command, 0)
+			dev:performClickableAction(command, 1)
+			dev:performClickableAction(command, 0)
+			dev:performClickableAction(command, 1)
+		end
+		if fromState == 1 and toState == -1 then
+			dev:performClickableAction(command, 0)
+			dev:performClickableAction(command, -1)
+		end
+	end)
+end
+
 --- Adds a 3-position toggle switch with dcs data values between -1 and 1
 --- @param identifier string the unique identifier for the control
 --- @param device_id integer the dcs device id
