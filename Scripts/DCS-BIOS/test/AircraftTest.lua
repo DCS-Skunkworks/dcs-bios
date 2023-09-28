@@ -23,6 +23,10 @@ function TestAircraft:testFW190A8()
 	self:validateModule(require("FW-190A8"), "FW-190A8", 0x3800)
 end
 
+function TestAircraft:testFW190D9()
+	self:validateModule(require("FW-190D9"), "FW-190D9", 0x3400)
+end
+
 function TestAircraft:testI16()
 	self:validateModule(require("I-16"), "I-16", 0x4000)
 end
