@@ -11,7 +11,7 @@ local MemoryMapEntry = {}
 
 --- Creates a new memory map entry
 --- @param address number the memory address
---- @return unknown
+--- @return MemoryMapEntry
 function MemoryMapEntry:new(address)
 	--- @type MemoryMapEntry
 	local o = {
