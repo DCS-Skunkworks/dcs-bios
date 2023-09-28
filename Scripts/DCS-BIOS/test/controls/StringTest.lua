@@ -38,7 +38,7 @@ function TestString:testAddString()
 	lu.assertEquals(#control.outputs, 1)
 	local string_output = control.outputs[1] --[[@as StringOutput]]
 	lu.assertEquals(string_output.type, OutputType.string)
-	lu.assertEquals(string_output.maxLength, max_length)
+	lu.assertEquals(string_output.max_length, max_length)
 	lu.assertEquals(string_output.suffix, Suffix.none)
 	lu.assertEquals(string_output.address, moduleAddress) -- first control, should be plenty of room, no need to move the address
 end

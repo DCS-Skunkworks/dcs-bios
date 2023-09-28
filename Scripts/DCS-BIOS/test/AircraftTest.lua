@@ -39,6 +39,10 @@ function TestAircraft:testSpitfireLFMkIX()
 	self:validateModule(require("SpitfireLFMkIX"), "SpitfireLFMkIX", 0x5400)
 end
 
+function TestAircraft:testYak52()
+	self:validateModule(require("Yak-52"), "Yak-52", 0x2000)
+end
+
 --- Validates a module is as expected and that control names are valid
 --- @param module Module
 --- @param expected_name string
