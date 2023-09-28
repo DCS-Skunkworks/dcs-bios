@@ -346,6 +346,69 @@ function Module:defineString(identifier, getter, max_length, category, descripti
 	return control
 end
 
+--- Adds a rocker switch with momentary on and off positions
+--- @param identifier string the unique identifier for the control
+--- @param device_id integer the dcs device id
+--- @param pos_command integer the dcs command to use when moving the switch up
+--- @param pos_stop_command integer the dcs command to use when moving the switch down from the up position
+--- @param neg_command integer the dcs command to use when moving the switch down
+--- @param neg_stop_command integer the dcs command to use when moving the switch up from the down position
+--- @param arg_number integer the dcs argument number
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @return Control
+function Module:defineRockerSwitch(identifier, device_id, pos_command, pos_stop_command, neg_command, neg_stop_command, arg_number, category, description)
+	local alloc = self:allocateInt(2)
+	self:addExportHook(function(dev0)
+		local lut = { [-1] = 0, [0] = 1, [1] = 2 }
+		alloc:setValue(lut[Module.round(dev0:get_argument_value(arg_number))])
+	end)
+
+	local control = Control:new(category, ControlType.selector, identifier, description, {
+		SetStateInput:new(2, "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up"),
+	}, {
+		IntegerOutput:new(alloc, Suffix.none, "selector position"),
+	}, MomentaryPositions.first_and_last, PhysicalVariant.rocker_switch)
+
+	self:addControl(control)
+
+	self:addInputProcessor(identifier, function(toState)
+		if toState == "0" then
+			toState = -1
+		elseif toState == "1" then
+			toState = 0
+		elseif toState == "2" then
+			toState = 1
+		else
+			return
+		end
+		local fromState = GetDevice(0):get_argument_value(arg_number)
+		local dev = GetDevice(device_id)
+		if fromState == 0 and toState == 1 then
+			dev:performClickableAction(pos_command, 1)
+		end
+		if fromState == 1 and toState == 0 then
+			dev:performClickableAction(pos_stop_command, 0)
+		end
+		if fromState == 0 and toState == -1 then
+			dev:performClickableAction(neg_command, -1)
+		end
+		if fromState == -1 and toState == 0 then
+			dev:performClickableAction(neg_stop_command, 0)
+		end
+		if fromState == -1 and toState == 1 then
+			dev:performClickableAction(neg_stop_command, 0)
+			dev:performClickableAction(pos_command, 1)
+		end
+		if fromState == 1 and toState == -1 then
+			dev:performClickableAction(pos_stop_command, 0)
+			dev:performClickableAction(neg_command, -1)
+		end
+	end)
+
+	return control
+end
+
 --- Defines a two-command fixed-step rotary input
 --- @param identifier string the unique identifier for the control
 --- @param device_id integer the dcs device id
@@ -671,6 +734,15 @@ function Module.cap(value, min_value, max_value, cycle)
 		end
 	end
 	return value
+end
+
+--- @private
+--- rounds a number because that's too difficult for the built-in math library
+--- taken from https://stackoverflow.com/a/26777901
+--- @param num number the number to round
+--- @return integer number the rounded number
+function Module.round(num)
+	return num >= 0 and math.floor(num + 0.5) or math.ceil(num - 0.5)
 end
 
 return Module
