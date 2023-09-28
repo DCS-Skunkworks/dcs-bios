@@ -145,8 +145,8 @@ function list_cockpit_params() end
 
 --- @func Maps value to from input_range to output_range
 --- @param argument_value number
---- @param input_range table
---- @param output_range table
+--- @param input_range table<number>
+--- @param output_range table<number>
 --- @return number
 function ValueConvert(argument_value, input_range, output_range) end
 
