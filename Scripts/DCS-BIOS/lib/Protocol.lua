@@ -116,9 +116,6 @@ function BIOS.protocol.saveAddresses()
 						if output.type == "string" then
 							addLine(address_identifier, address_line)
 						end
-						if output.type == "float" then
-							addLine(address_mask_shiftby_identifier, address_mask_shiftby_line)
-						end
 					end
 				end
 			end
