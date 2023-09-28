@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global, duplicate-set-field, cast-local-type, deprecated, unbalanced-assignments, need-check-nil, param-type-mismatch, undefined-field, redundant-parameter, inject-field, lowercase-global
 --[[
         luaunit.lua
 
@@ -117,7 +118,7 @@ exit the framework while we are running. When we are not running, it behaves nor
 ]]
 
 M.oldOsExit = os.exit
-os.exit = function(...) 
+os.exit = function(...)
     if M.LuaUnit and #M.LuaUnit.instances ~= 0 then
         local msg = [[You are trying to exit but there is still a running instance of LuaUnit.
 LuaUnit expects to run until the end before exiting with a complete status of successful/failed tests.
