@@ -57,7 +57,9 @@ dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\AJS37.lua]]) -- ID = 8, ProperName
 local Alphajet = require "Alphajet"
 BIOS.protocol.writeNewModule(Alphajet)
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\AV8BNA.lua]]) -- ID = 10, ProperName = AV-8B Night Attack
-dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Bf-109K-4.lua]]) -- ID = 11, ProperName = Bf 109 K-4 Kurfurst
+--dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Bf-109K-4.lua]]) -- ID = 11, ProperName = Bf 109 K-4 Kurfurst
+local Bf_109K_4 = require "Bf-109K-4"
+BIOS.protocol.writeNewModule(Bf_109K_4)
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\C-101.lua]]) -- ID = 12, ProperName = C-101 Aviojet
 -- dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Christen Eagle II.lua]]) -- ID = 14, ProperName = Christen Eagle II
 local Christen_Eagle_II = require "Christen Eagle II"
