@@ -9,11 +9,6 @@ TestModule = {}
 local moduleName = "MyModule"
 local moduleAddress = 0x4200
 
-function ValueConvert(value, input_range, output_range)
-	local slope = 1.0 * (output_range[2] - output_range[1]) / (input_range[2] - input_range[1])
-	return output_range[1] + slope * (value - input_range[1])
-end
-
 function TestModule:setUp()
 	self.module = Module:new(moduleName, moduleAddress, {})
 end
@@ -33,6 +28,7 @@ function LoGetAircraftDrawArgumentValue()
 	return GetDevice().value
 end
 
+require("GaugeValueTest")
 require("FloatTest")
 require("IndicatorLightTest")
 require("GatedIndicatorLightTest")

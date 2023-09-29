@@ -16,6 +16,10 @@ jobs:
         with:
           luaVersion: "5.1.5"
 
+      - name: compile
+        run: |
+          lua ./Scripts/DCS-BIOS/test/compile/LocalCompile.lua
+
       - name: test
         run: |
           lua ./Scripts/DCS-BIOS/test/TestSuite.lua
