@@ -2,6 +2,7 @@ BIOS.protocol = {}
 BIOS.protocol.maxBytesPerSecond = BIOS.protocol.maxBytesPerSecond or 11000
 BIOS.protocol.maxBytesInTransit = BIOS.protocol.maxBytesPerSecond or 4000
 
+--- @type Module[]
 local exportModules = {}
 local aircraftNameToModuleNames = {}
 local aircraftNameToModules = {}
@@ -187,6 +188,11 @@ local lastFrameTime = LoGetModelTime()
 local updateCounter = 0
 local updateSkipCounter = 0
 function BIOS.protocol.step()
+
+	if( metadataStartModule == nil or  metadataEndModule == nil) then
+		error("Either MetadataStart or MetadataEnd was nil.", 1) -- this should never happen since init() is being called but it removes intellisense warnings
+	end
+
 	-- rate limiting
 	local curTime = LoGetModelTime()
 	bytesInTransit = bytesInTransit - ((curTime - lastFrameTime) * BIOS.protocol.maxBytesPerSecond)
@@ -199,6 +205,7 @@ function BIOS.protocol.step()
 	if selfData then
 		acftName = selfData["Name"]
 	end
+	
 	metadataStartModule.data.acftName = acftName
 	acftModules = aircraftNameToModules[acftName]
 	if lastAcftName ~= acftName then
@@ -210,11 +217,11 @@ function BIOS.protocol.step()
 		lastAcftName = acftName
 	end
 
-	-- export data
+	-- export data 
 	if curTime >= nextLowFreqStepTime then
 		-- runs 30 times per second
 		updateCounter = (updateCounter + 1) % 256
-		metadataEndModule.data.updateCounter = updateCounter
+		metadataEndModule:setUpdateCounter(updateCounter)
 
 		-- if the last frame update has not been completely transmitted, skip a frame
 		if bytesInTransit > 0 then
@@ -222,7 +229,7 @@ function BIOS.protocol.step()
 			updateSkipCounter = (updateSkipCounter + 1) % 256
 			return
 		end
-		metadataEndModule.data.updateSkipCounter = updateSkipCounter
+		metadataEndModule:setUpdateSkipCounter(updateSkipCounter)
 		nextLowFreqStepTime = curTime + .033
 
 		-- send frame sync sequence
@@ -236,6 +243,7 @@ function BIOS.protocol.step()
 		bytesInTransit = bytesInTransit + data:len()
 		BIOS.protocol_io.queue(data)
 
+		-- Export aircraft data
 		if acftModules then
 			for _, acftModule in pairs(acftModules) do
 				local dev0 = GetDevice(0)
