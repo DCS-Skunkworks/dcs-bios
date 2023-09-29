@@ -98,6 +98,29 @@ function Module:defineFloat(identifier, arg_number, limits, category, descriptio
 	return control
 end
 
+function Module:define8BitFloatFromGetter(identifier, func, limits, category, description)
+	-- same as defineFloat, but only allocates an 8-bit int
+	local max_value = 255
+	local intervalLength = limits[2] - limits[1]
+	local alloc = self:allocateInt(max_value)
+
+	self:addExportHook(function()
+		alloc:setValue(((func() - limits[1]) / intervalLength) * 255)
+	end)
+
+	local alloc = moduleBeingDefined.memoryMap:allocateInt({ maxValue = 255 })
+	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks + 1] = function(dev0)
+		alloc:setValue(((func() - limits[1]) / intervalLength) * 255)
+	end
+
+	local control = Control:new(category, ControlType.metadata, identifier, description, {}, {
+		IntegerOutput:new(alloc, Suffix.none, description),
+	})
+	self:addControl(control)
+
+	return control
+end
+
 --- Adds a new indicator light control which will enable the LED when the argument value is greater than or equal to 0.3
 --- @param identifier string the unique identifier for the control
 --- @param arg_number integer the dcs argument number

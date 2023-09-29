@@ -196,6 +196,10 @@ EngineSide = {}
 --- @field HydraulicPressure EngineSide
 --- @diagnostic disable-next-line: duplicate-doc-field
 --- @field FuelConsumption EngineSide
+--- @diagnostic disable-next-line: duplicate-doc-field
+--- @field fuel_internal number
+---@diagnostic disable-next-line: duplicate-doc-field
+--- @field fuel_external number
 EngineInformation = {}
 
 --- @func Returns engine information
@@ -207,6 +211,8 @@ function LoGetEngineInfo() end
 --- @field right number
 --- @diagnostic disable-next-line: duplicate-doc-field
 --- @field left number
+--- @diagnostic disable-next-line: duplicate-doc-field
+--- @field value number Gear status
 GearValue = {}
 
 --- @class MechanicalInformation
