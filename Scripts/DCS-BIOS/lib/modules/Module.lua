@@ -46,6 +46,36 @@ function Module:new(name, baseAddress, acftList)
 	return o
 end
 
+--- Reserves space in the memory map for an integer with the specified max value
+---@param max_value integer the max value of the integer to reserve space for
+function Module:reserveIntValue(max_value)
+	self:allocateInt(max_value)
+end
+
+--- Defines a gauge from floating-point data with limits. This generally is not used in any new modules and is used in existing modules to provide the integer output of a gauge
+--- @param identifier string the unique identifier for the control
+--- @param arg_number integer the dcs argument number
+--- @param output_range number[] a length-2 array with the lower and upper bounds of the output data - lower bound must be greater than or equal to zero
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @return Control control the control which was added to the module
+function Module:defineGaugeValue(identifier, arg_number, output_range, category, description)
+	assert(output_range[1] >= 0)
+
+	local max_value = 65535
+	local alloc = self:allocateInt(max_value)
+	self:addExportHook(function(dev0)
+		alloc:setValue(Module.valueConvert(dev0:get_argument_value(arg_number), { 0, 1 }, output_range))
+	end)
+
+	local control = Control:new(category, ControlType.metadata, identifier, description, {}, {
+		IntegerOutput:new(alloc, Suffix.none, description),
+	})
+	self:addControl(control)
+
+	return control
+end
+
 --- Defines a gauge from floating-point data with limits
 --- @param identifier string the unique identifier for the control
 --- @param arg_number integer the dcs argument number
@@ -54,15 +84,12 @@ end
 --- @param description string additional information about the control
 --- @return Control control the control which was added to the module
 function Module:defineFloat(identifier, arg_number, limits, category, description)
-	local intervalLength = limits[2] - limits[1]
 	local max_value = 65535
 	local alloc = self:allocateInt(max_value)
-
 	self:addExportHook(function(dev0)
-		alloc:setValue(((dev0:get_argument_value(arg_number) - limits[1]) / intervalLength) * max_value)
+		alloc:setValue(Module.valueConvert(dev0:get_argument_value(arg_number), limits, { 0, max_value }))
 	end)
 
-	-- todo: almost identical to below for allocating an int, just different descriptions?
 	local control = Control:new(category, ControlType.analog_gauge, identifier, description, {}, {
 		IntegerOutput:new(alloc, Suffix.none, "gauge position"),
 	})
@@ -736,13 +763,22 @@ function Module.cap(value, min_value, max_value, cycle)
 	return value
 end
 
---- @private
 --- rounds a number because that's too difficult for the built-in math library
 --- taken from https://stackoverflow.com/a/26777901
 --- @param num number the number to round
 --- @return integer number the rounded number
 function Module.round(num)
 	return num >= 0 and math.floor(num + 0.5) or math.ceil(num - 0.5)
+end
+
+--- @func Maps value to from input_range to output_range
+--- @param argument_value number the number to map
+--- @param input_range number[] a length-2 array of the range of the input value
+--- @param output_range number[] a length-2 array of the range the value should be mapped to
+--- @return number
+function Module.valueConvert(argument_value, input_range, output_range)
+	local slope = 1.0 * (output_range[2] - output_range[1]) / (input_range[2] - input_range[1])
+	return output_range[1] + slope * (argument_value - input_range[1])
 end
 
 return Module

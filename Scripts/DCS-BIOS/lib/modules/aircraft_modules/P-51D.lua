@@ -169,119 +169,43 @@ P_51D:defineBitFromDrawArgument("EXT_RECOC_LIGHT_YE", 202, "External Aircraft Mo
 
 --[[--Gauge Values--]]
 --
-local function getAirspeed()
-	local returnValue = (GetDevice(0):get_argument_value(11)) * 1000
-	return returnValue
-end
-P_51D:defineIntegerFromGetter("AIRSPEED_MPH_VALUE", getAirspeed, 65000, "Gauge Values", "Airspeed MPH")
+P_51D:defineGaugeValue("AIRSPEED_MPH_VALUE", 11, { 0, 1000 }, "Gauge Values", "Airspeed MPH")
 
-local function getAltitude()
-	local returnValue = (GetDevice(0):get_argument_value(96)) * 100000
-	return returnValue
-end
-P_51D:defineIntegerFromGetter("ALTIMETER_VALUE", getAltitude, 65000, "Gauge Values", "Altimeter")
+P_51D:defineGaugeValue("ALTIMETER_VALUE", 96, { 0, 100000 }, "Gauge Values", "Altimeter")
 
-local function getEngineRPM()
-	local returnValue = (GetDevice(0):get_argument_value(23)) * 4500
-	return returnValue
-end
-P_51D:defineIntegerFromGetter("ENGINE_RPM_VALUE", getEngineRPM, 65000, "Gauge Values", "Engine RPM Value")
+P_51D:defineGaugeValue("ENGINE_RPM_VALUE", 23, { 0, 4500 }, "Gauge Values", "Engine RPM Value")
 
-local function getGyro()
-	local returnValue = (GetDevice(0):get_argument_value(12)) * 360
-	return returnValue
-end
-P_51D:defineIntegerFromGetter("DIRECTIONAL_GYRO_VALUE", getGyro, 65000, "Gauge Values", "Directional Gyro")
+P_51D:defineGaugeValue("DIRECTIONAL_GYRO_VALUE", 12, { 0, 360 }, "Gauge Values", "Directional Gyro")
 
-local function getHDG()
-	local returnValue = (GetDevice(0):get_argument_value(1)) * 360
-	return returnValue
-end
-P_51D:defineIntegerFromGetter("HEADING_VALUE", getHDG, 65000, "Gauge Values", "Remote Compass Heading")
+P_51D:defineGaugeValue("HEADING_VALUE", 1, { 0, 360 }, "Gauge Values", "Remote Compass Heading")
 
-local function getCRS()
-	local returnValue = (GetDevice(0):get_argument_value(2)) * 360
-	return returnValue
-end
-P_51D:defineIntegerFromGetter("COURSE_VALUE", getCRS, 65000, "Gauge Values", "Remote Compass Course")
+P_51D:defineGaugeValue("COURSE_VALUE", 2, { 0, 360 }, "Gauge Values", "Remote Compass Course")
 
-local function getFuelPres()
-	local returnValue = (GetDevice(0):get_argument_value(32)) * 25
-	return returnValue
-end
-P_51D:defineIntegerFromGetter("FUEL_PRESSURE_VALUE", getFuelPres, 65000, "Gauge Values", "Fuel Pressure")
+P_51D:defineGaugeValue("FUEL_PRESSURE_VALUE", 32, { 0, 25 }, "Gauge Values", "Fuel Pressure")
 
-local function getHydPres()
-	local returnValue = (GetDevice(0):get_argument_value(78)) * 2000
-	return returnValue
-end
-P_51D:defineIntegerFromGetter("HYDRAULIC_PRESSURE_VALUE", getHydPres, 65000, "Gauge Values", "Hydraulic Pressure")
+P_51D:defineGaugeValue("HYDRAULIC_PRESSURE_VALUE", 78, { 0, 2000 }, "Gauge Values", "Hydraulic Pressure")
 
-local function getManifoldPres()
-	local returnValue = (GetDevice(0):get_argument_value(10)) * 65 + 10
-	return returnValue
-end
-P_51D:defineIntegerFromGetter("MANIFOLD_PRESSURE_VALUE", getManifoldPres, 65000, "Gauge Values", "Manifold Pressure")
+P_51D:defineGaugeValue("MANIFOLD_PRESSURE_VALUE", 10, { 10, 75 }, "Gauge Values", "Manifold Pressure")
 
-local function getVacuum()
-	local returnValue = (GetDevice(0):get_argument_value(9)) * 100
-	return returnValue
-end
-P_51D:defineIntegerFromGetter("VACUUM_SUCTION_VALUE", getVacuum, 65000, "Gauge Values", "Vacuum Suction read as X.X or XX.X")
+P_51D:defineGaugeValue("VACUUM_SUCTION_VALUE", 9, { 0, 100 }, "Gauge Values", "Vacuum Suction read as X.X or XX.X")
 
-local function getOilTemp()
-	local returnValue = (GetDevice(0):get_argument_value(30)) * 100
-	return returnValue
-end
-P_51D:defineIntegerFromGetter("OIL_TEMPERATURE_VALUE", getOilTemp, 65000, "Gauge Values", "Oil Temperature")
+P_51D:defineGaugeValue("OIL_TEMPERATURE_VALUE", 30, { 0, 100 }, "Gauge Values", "Oil Temperature")
 
-local function getOilPres()
-	local returnValue = (GetDevice(0):get_argument_value(31)) * 200
-	return returnValue
-end
-P_51D:defineIntegerFromGetter("OIL_PRESSURE_VALUE", getOilPres, 65000, "Gauge Values", "Oil Pressure")
+P_51D:defineGaugeValue("OIL_PRESSURE_VALUE", 31, { 0, 200 }, "Gauge Values", "Oil Pressure")
 
-local function getAmps()
-	local returnValue = (GetDevice(0):get_argument_value(101)) * 150
-	return returnValue
-end
-P_51D:defineIntegerFromGetter("AMMETER_VALUE", getAmps, 65000, "Gauge Values", "Ammeter")
+P_51D:defineGaugeValue("AMMETER_VALUE", 101, { 0, 150 }, "Gauge Values", "Ammeter")
 
-local function getOxygen()
-	local returnValue = (GetDevice(0):get_argument_value(34)) * 500
-	return returnValue
-end
-P_51D:defineIntegerFromGetter("OXYGEN_PRESSURE_VALUE", getOxygen, 65000, "Gauge Values", "Oxygen Pressure")
+P_51D:defineGaugeValue("OXYGEN_PRESSURE_VALUE", 34, { 0, 500 }, "Gauge Values", "Oxygen Pressure")
 
-local function getLeftFuel()
-	local returnValue = (GetDevice(0):get_argument_value(155)) * 92
-	return returnValue
-end
-P_51D:defineIntegerFromGetter("LEFT_FUEL_TANK_VALUE", getLeftFuel, 65000, "Gauge Values", "Left Fuel Tank Gallons")
+P_51D:defineGaugeValue("LEFT_FUEL_TANK_VALUE", 155, { 0, 92 }, "Gauge Values", "Left Fuel Tank Gallons")
 
-local function getRightFuel()
-	local returnValue = (GetDevice(0):get_argument_value(156)) * 92
-	return returnValue
-end
-P_51D:defineIntegerFromGetter("RIGHT_FUEL_TANK_VALUE", getRightFuel, 65000, "Gauge Values", "Right Fuel Tank Gallons")
+P_51D:defineGaugeValue("RIGHT_FUEL_TANK_VALUE", 156, { 0, 92 }, "Gauge Values", "Right Fuel Tank Gallons")
 
-local function getFuseFuel()
-	local returnValue = (GetDevice(0):get_argument_value(160)) * 85
-	return returnValue
-end
-P_51D:defineIntegerFromGetter("FUSELAGE_FUEL_TANK_VALUE", getFuseFuel, 65000, "Gauge Values", "Fuselage Fuel Tank Gallons")
+P_51D:defineGaugeValue("FUSELAGE_FUEL_TANK_VALUE", 160, { 0, 85 }, "Gauge Values", "Fuselage Fuel Tank Gallons")
 
-local function getBaro()
-	local returnValue = (GetDevice(0):get_argument_value(97)) * 290 + 2810
-	return returnValue
-end
-P_51D:defineIntegerFromGetter("BAROMETRIC_PRESSURE_VALUE", getBaro, 65000, "Gauge Values", "Barometric Pressure")
+P_51D:defineGaugeValue("BAROMETRIC_PRESSURE_VALUE", 97, { 2810, 3100 }, "Gauge Values", "Barometric Pressure")
 
-local function getAccel()
-	local returnValue = (GetDevice(0):get_argument_value(175)) * 17 - 5
-	return returnValue
-end
-P_51D:defineIntegerFromGetter("ACCELEROMETER_VALUE", getAccel, 65000, "Gauge Values", "Accelerometer")
+P_51D:reserveIntValue(65535) -- removed non-functional ACCELEROMETER_VALUE (#248)
 
 P_51D:defineIndicatorLight("WINDSHIELD_OIL_L", 412, "Damage", "Windshield Oil Splashes (black)")
 P_51D:defineFloat("WINDSHIELD_CRACKS", 413, { 0, 1 }, "Damage", "Windshield Crack Holes")

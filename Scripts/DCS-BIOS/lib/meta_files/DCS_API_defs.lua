@@ -143,13 +143,6 @@ CockpitPage = ""
 --- @return string[]
 function list_cockpit_params() end
 
---- @func Maps value to from input_range to output_range
---- @param argument_value number
---- @param input_range table<number>
---- @param output_range table<number>
---- @return number
-function ValueConvert(argument_value, input_range, output_range) end
-
 --- @func Returns  altitude above sea level
 --- @return number
 function LoGetAltitudeAboveSeaLevel() end
