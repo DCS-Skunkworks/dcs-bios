@@ -23,6 +23,14 @@ function TestAircraft:testCommonData()
 	self:validateModule(require("CommonData"), "CommonData", 0x0400)
 end
 
+function TestAircraft:testMetadataStart()
+	self:validateModule(require("MetadataStart"), "MetadataStart", 0x0000)
+end
+
+function TestAircraft:testMetadataEnd()
+	self:validateModule(require("MetadataEnd"), "MetadataEnd", 0xfffe)
+end
+
 function TestAircraft:testF22A()
 	self:validateModule(require("F-22A"), "F-22A", 0x6600)
 end
@@ -33,6 +41,10 @@ end
 
 function TestAircraft:testFW190D9()
 	self:validateModule(require("FW-190D9"), "FW-190D9", 0x3400)
+end
+
+function TestAircraft:testBf109K4()
+	self:validateModule(require("Bf-109K-4"), "Bf-109K-4", 0x4200)
 end
 
 function TestAircraft:testI16()
