@@ -197,134 +197,28 @@ Bf_109K_4:defineIndicatorLight("LANDINGGEARGREENLIGHTLEFT", 57, "Indicator", "La
 Bf_109K_4:defineIndicatorLight("LANDINGGEARGREENLIGHTRIGHT", 58, "Indicator", "LandingGearLightRight (green)")
 Bf_109K_4:defineIndicatorLight("FUEL_RESERVE_LAMP", 164, "Indicator", "Fuel Reserve Lamp")
 
--- Gauge Formulas
-local function getManifold()
-	local returnValue = (GetDevice(0):get_argument_value(32)) * 65 + 10
-	return returnValue
-end
-Bf_109K_4:defineIntegerFromGetter("MANIFOLD_PRESSURE_VALUE", getManifold, 65000, "Gauge Values", "Manifold Pressure kg/cm2")
-
-local function getMW50()
-	local returnValue = (GetDevice(0):get_argument_value(1)) * 30
-	return returnValue
-end
-Bf_109K_4:defineIntegerFromGetter("METHANOL_WATER_PRES_VALUE", getMW50, 65000, "Gauge Values", "Methanol Water Pres kg/cm2 Read as X.X")
-
-local function getPropPitch()
-	local returnValue = (GetDevice(0):get_argument_value(30)) * 63 + 26
-	return returnValue
-end
-Bf_109K_4:defineIntegerFromGetter("PROPELLER_PITCH_DEG_VALUE", getPropPitch, 65000, "Gauge Values", "Propeller Pitch Degrees")
-
-local function getFuelLevel()
-	local returnValue = (GetDevice(0):get_argument_value(33)) * 400
-	return returnValue
-end
-Bf_109K_4:defineIntegerFromGetter("FUEL_LEVEL_VALUE", getFuelLevel, 65000, "Gauge Values", "Fuel Level Liters")
-
-local function getFuelPressure()
-	local returnValue = (GetDevice(0):get_argument_value(25)) * 20
-	return returnValue
-end
-Bf_109K_4:defineIntegerFromGetter("FUEL_PRESSURE_VALUE", getFuelPressure, 65000, "Gauge Values", "Fuel Pres kg/cm2 Read as X.X")
-
-local function getOilPressure()
-	local returnValue = (GetDevice(0):get_argument_value(26)) * 100
-	return returnValue
-end
-Bf_109K_4:defineIntegerFromGetter("OIL_PRESSURE_VALUE", getOilPressure, 65000, "Gauge Values", "Oil Pressure kg/cm2 Read as X.X or XX.X")
-
-local function getOilTemp()
-	local returnValue = (GetDevice(0):get_argument_value(28)) * 130
-	return returnValue
-end
-Bf_109K_4:defineIntegerFromGetter("OIL_TEMPERATURE_VALUE", getOilTemp, 65000, "Gauge Values", "Oil Temp °C")
-
-local function getCoolantTemp()
-	local returnValue = (GetDevice(0):get_argument_value(27)) * 130
-	return returnValue
-end
-Bf_109K_4:defineIntegerFromGetter("COOLANT_TEMPERATURE_VALUE", getCoolantTemp, 65000, "Gauge Values", "Coolant Temp °C")
-
-local function getOxygenPressure()
-	local returnValue = (GetDevice(0):get_argument_value(34)) * 250
-	return returnValue
-end
-Bf_109K_4:defineIntegerFromGetter("OXYGEN_PRESSURE_VALUE", getOxygenPressure, 65000, "Gauge Values", "Oxygen Pressure kg/cm2")
-
-local function getAirspeed()
-	local returnValue = (GetDevice(0):get_argument_value(2)) * 750
-	return returnValue
-end
-Bf_109K_4:defineIntegerFromGetter("AIRSPEED_VALUE", getAirspeed, 65000, "Gauge Values", "Airspeed km/h")
-
-local function getAltitude()
-	local returnValue = (GetDevice(0):get_argument_value(9)) * 9999
-	return returnValue
-end
-Bf_109K_4:defineIntegerFromGetter("ALTITUDE_VALUE", getAltitude, 65000, "Gauge Values", "Altitude Meters")
-
-local function getTachometer()
-	local returnValue = (GetDevice(0):get_argument_value(29)) * 3200 + 400
-	return returnValue
-end
-Bf_109K_4:defineIntegerFromGetter("TACHOMETER_VALUE", getTachometer, 65000, "Gauge Values", "Tachometer RPM")
-
-local function getBaro()
-	local returnValue = (GetDevice(0):get_argument_value(10)) * 120 + 920
-	return returnValue
-end
-Bf_109K_4:defineIntegerFromGetter("BAROMETRIC_PRESSURE_VALUE", getBaro, 65000, "Gauge Values", "Barometric Pressure mb")
-
-local function getHDG()
-	local returnValue = (GetDevice(0):get_argument_value(13)) * 360
-	return returnValue
-end
-Bf_109K_4:defineIntegerFromGetter("COMPASS_HEADING_VALUE", getHDG, 65000, "Gauge Values", "Compass Heading")
+Bf_109K_4:defineGaugeValue("MANIFOLD_PRESSURE_VALUE", 32, { 10, 65 + 10 }, "Gauge Values", "Manifold Pressure kg/cm2")
+Bf_109K_4:defineGaugeValue("METHANOL_WATER_PRES_VALUE", 1, { 0, 30 }, "Gauge Values", "Methanol Water Pres kg/cm2 Read as X.X")
+Bf_109K_4:defineGaugeValue("PROPELLER_PITCH_DEG_VALUE", 30, { 26, 63 + 26 }, "Gauge Values", "Propeller Pitch Degrees")
+Bf_109K_4:defineGaugeValue("FUEL_LEVEL_VALUE", 33, { 0, 400 }, "Gauge Values", "Fuel Level Liters")
+Bf_109K_4:defineGaugeValue("FUEL_PRESSURE_VALUE", 25, { 0, 20 }, "Gauge Values", "Fuel Pres kg/cm2 Read as X.X")
+Bf_109K_4:defineGaugeValue("OIL_PRESSURE_VALUE", 26, { 0, 100 }, "Gauge Values", "Oil Pressure kg/cm2 Read as X.X or XX.X")
+Bf_109K_4:defineGaugeValue("OIL_TEMPERATURE_VALUE", 28, { 0, 130 }, "Gauge Values", "Oil Temp °C")
+Bf_109K_4:defineGaugeValue("COOLANT_TEMPERATURE_VALUE", 27, { 0, 130 }, "Gauge Values", "Coolant Temp °C")
+Bf_109K_4:defineGaugeValue("OXYGEN_PRESSURE_VALUE", 34, { 0, 250 }, "Gauge Values", "Oxygen Pressure kg/cm2")
+Bf_109K_4:defineGaugeValue("AIRSPEED_VALUE", 2, { 0, 750 }, "Gauge Values", "Airspeed km/h")
+Bf_109K_4:defineGaugeValue("ALTITUDE_VALUE", 9, { 0, 9999 }, "Gauge Values", "Altitude Meters")
+Bf_109K_4:defineGaugeValue("TACHOMETER_VALUE", 29, { 400, 3200 + 400 }, "Gauge Values", "Tachometer RPM")
+Bf_109K_4:defineGaugeValue("BAROMETRIC_PRESSURE_VALUE", 10, { 920, 920 + 120 }, "Gauge Values", "Barometric Pressure mb")
+Bf_109K_4:defineGaugeValue("COMPASS_HEADING_VALUE", 13, { 0, 360 }, "Gauge Values", "Compass Heading")
 
 --Externals
-Bf_109K_4:defineIntegerFromGetter("EXT_POSITION_LIGHT_LEFT", function()
-	if LoGetAircraftDrawArgumentValue(190) > 0 then
-		return 1
-	else
-		return 0
-	end
-end, 1, "External Aircraft Model", "Left Position Light (red)")
-Bf_109K_4:defineIntegerFromGetter("EXT_POSITION_LIGHT_RIGHT", function()
-	if LoGetAircraftDrawArgumentValue(191) > 0 then
-		return 1
-	else
-		return 0
-	end
-end, 1, "External Aircraft Model", "Right Position Light (green)")
-Bf_109K_4:defineIntegerFromGetter("EXT_POSITION_LIGHT_TAIL", function()
-	if LoGetAircraftDrawArgumentValue(192) > 0 then
-		return 1
-	else
-		return 0
-	end
-end, 1, "External Aircraft Model", "Tail Position Light (white)")
-Bf_109K_4:defineIntegerFromGetter("EXT_WOW_NOSE", function()
-	if LoGetAircraftDrawArgumentValue(1) > 0 then
-		return 1
-	else
-		return 0
-	end
-end, 1, "External Aircraft Model", "Weight ON Wheels Nose Gear")
-Bf_109K_4:defineIntegerFromGetter("EXT_WOW_RIGHT", function()
-	if LoGetAircraftDrawArgumentValue(4) > 0 then
-		return 1
-	else
-		return 0
-	end
-end, 1, "External Aircraft Model", "Weight ON Wheels Right Gear")
-Bf_109K_4:defineIntegerFromGetter("EXT_WOW_LEFT", function()
-	if LoGetAircraftDrawArgumentValue(6) > 0 then
-		return 1
-	else
-		return 0
-	end
-end, 1, "External Aircraft Model", "Weight ON Wheels Left Gear")
+Bf_109K_4:defineBitFromDrawArgument("EXT_POSITION_LIGHT_LEFT", 190, "External Aircraft Model", "Left Position Light (red)")
+Bf_109K_4:defineBitFromDrawArgument("EXT_POSITION_LIGHT_RIGHT", 191, "External Aircraft Model", "Right Position Light (green)")
+Bf_109K_4:defineBitFromDrawArgument("EXT_POSITION_LIGHT_TAIL", 192, "External Aircraft Model", "Tail Position Light (white)")
+Bf_109K_4:defineBitFromDrawArgument("EXT_WOW_NOSE", 1, "External Aircraft Model", "Weight ON Wheels Nose Gear")
+Bf_109K_4:defineBitFromDrawArgument("EXT_WOW_RIGHT", 4, "External Aircraft Model", "Weight ON Wheels Right Gear")
+Bf_109K_4:defineBitFromDrawArgument("EXT_WOW_LEFT", 6, "External Aircraft Model", "Weight ON Wheels Left Gear")
 
 Bf_109K_4:defineToggleSwitch("COCKPIT_VENT_L", 4, 3060, 98, "Cockpit", "Left Cockpit Vent")
 Bf_109K_4:defineToggleSwitch("COCKPIT_VENT_R", 4, 3062, 99, "Cockpit", "Right Cockpit Vent")
