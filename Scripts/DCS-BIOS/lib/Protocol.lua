@@ -190,7 +190,7 @@ local updateSkipCounter = 0
 function BIOS.protocol.step()
 
 	if( metadataStartModule == nil or  metadataEndModule == nil) then
-		return -- this should never happen since init() is being called but it removes intellisense warnings
+		error("Either MetadataStart or MetadataEnd was nil.", 1) -- this should never happen since init() is being called but it removes intellisense warnings
 	end
 
 	-- rate limiting
