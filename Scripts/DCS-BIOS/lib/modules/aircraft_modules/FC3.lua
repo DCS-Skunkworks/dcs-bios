@@ -435,8 +435,8 @@ FC3:define8BitFloatFromGetter("FC3_SLIP_BALL_POSITION", function()
 end, { -1, 1 }, "Float", "Slip Ball Position")
 
 --Externals
-FC3:defineBitFromDrawArgument("EXT_SPEED_BRAKE_RIGHT", 182, "External Aircraft Model", "Right Speed Brake")
-FC3:defineBitFromDrawArgument("EXT_SPEED_BRAKE_LEFT", 184, "External Aircraft Model", "Left Speed Brake")
+FC3:defineFloatFromDrawArgument("EXT_SPEED_BRAKE_RIGHT", 182, "External Aircraft Model", "Right Speed Brake")
+FC3:defineFloatFromDrawArgument("EXT_SPEED_BRAKE_LEFT", 184, "External Aircraft Model", "Left Speed Brake")
 FC3:defineBitFromDrawArgument("EXT_POSITION_LIGHT_LEFT", 190, "External Aircraft Model", "Left Position Light (red)")
 FC3:defineBitFromDrawArgument("EXT_POSITION_LIGHT_RIGHT", 191, "External Aircraft Model", "Right Position Light (green)")
 FC3:defineBitFromDrawArgument("EXT_STROBE", 192, "External Aircraft Model", "Strobe Light")
