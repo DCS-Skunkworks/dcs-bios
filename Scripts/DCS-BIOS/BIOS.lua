@@ -83,8 +83,14 @@ dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/FC3.lua]]) -- ID = 4, ProperName =
 -- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/FW-190A8.lua]]) -- ID = 21, ProperName = Fw 190 A-8 Anton
 local FW_190A8 = require "FW-190A8"
 BIOS.protocol.writeNewModule(FW_190A8)
-dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/FW-190D9.lua]]) -- ID = 22, ProperName = Fw 190 D-9 Dora
+--dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/FW-190D9.lua]]) -- ID = 22, ProperName = Fw 190 D-9 Dora
+local FW_190D9 = require "FW-190D9"
+BIOS.protocol.writeNewModule(FW_190D9)
+
+-- dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\I-16.lua]]) -- ID = 23, ProperName = I-16 
+
 -- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/I-16.lua]]) -- ID = 23, ProperName = I-16 
+
 local I_16 = require "I-16"
 BIOS.protocol.writeNewModule(I_16)
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/JF-17.lua]]) -- ID = 24, ProperName = JF-17 Thunder
