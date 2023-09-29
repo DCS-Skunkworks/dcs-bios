@@ -19,6 +19,10 @@ function TestAircraft:testCEII()
 	self:validateModule(require("Christen Eagle II"), "Christen Eagle II", 0x2800)
 end
 
+function TestAircraft:testCommonData()
+	self:validateModule(require("CommonData"), "CommonData", 0x0400)
+end
+
 function TestAircraft:testF22A()
 	self:validateModule(require("F-22A"), "F-22A", 0x6600)
 end

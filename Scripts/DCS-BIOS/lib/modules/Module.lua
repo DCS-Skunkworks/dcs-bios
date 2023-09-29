@@ -763,7 +763,6 @@ function Module.cap(value, min_value, max_value, cycle)
 	return value
 end
 
---- @private
 --- rounds a number because that's too difficult for the built-in math library
 --- taken from https://stackoverflow.com/a/26777901
 --- @param num number the number to round
