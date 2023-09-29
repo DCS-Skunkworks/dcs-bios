@@ -35,7 +35,9 @@ dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\ProtocolIO.lua]])
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\Protocol.lua]])
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\MetadataEnd.lua]])
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\MetadataStart.lua]])
-dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\CommonData.lua]])
+-- dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\CommonData.lua]])
+local CommonData = require "CommonData"
+BIOS.protocol.writeNewModule(CommonData)
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\DigitalDisplay.lua]])
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\TextDisplay.lua]])
 ----------------------------------------------------------------------------Modules Start------------------------------------
