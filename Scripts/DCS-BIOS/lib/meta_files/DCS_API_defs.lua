@@ -198,7 +198,7 @@ EngineSide = {}
 --- @field FuelConsumption EngineSide
 --- @diagnostic disable-next-line: duplicate-doc-field
 --- @field fuel_internal number
----@diagnostic disable-next-line: duplicate-doc-field
+--- @diagnostic disable-next-line: duplicate-doc-field
 --- @field fuel_external number
 EngineInformation = {}
 

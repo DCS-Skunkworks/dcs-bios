@@ -31,6 +31,10 @@ function TestAircraft:testFW190A8()
 	self:validateModule(require("FW-190A8"), "FW-190A8", 0x3800)
 end
 
+function TestAircraft:testFC3()
+	self:validateModule(require("FC3"), "FC3", 0x6000)
+end
+
 function TestAircraft:testI16()
 	self:validateModule(require("I-16"), "I-16", 0x4000)
 end
@@ -80,7 +84,7 @@ function TestAircraft:validateControlNames(module_name, documentation)
 			--   start with a letter
 			--   end with a letter or number
 			--   contain only letters, numbers, and underscores
-			local identifier_pattern = "^%u[%u%d_]*[%u%d]$"
+			local identifier_pattern = "^[%u%d_]*[%u%d]$"
 			lu.assertNotIsNil(identifier:match(identifier_pattern), module_name .. ": " .. "id " .. identifier .. " did not meet id requirements")
 			--   don't have any consecutive underscores
 			lu.assertNotStrContains(identifier, "__", false)

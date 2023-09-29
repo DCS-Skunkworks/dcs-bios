@@ -435,60 +435,13 @@ FC3:define8BitFloatFromGetter("FC3_SLIP_BALL_POSITION", function()
 end, { -1, 1 }, "Float", "Slip Ball Position")
 
 --Externals
-FC3:defineIntegerFromGetter("EXT_SPEED_BRAKE_RIGHT", function()
-	return math.floor(LoGetAircraftDrawArgumentValue(182) * 65535)
-end, 65535, "External Aircraft Model", "Right Speed Brake")
-
-FC3:defineIntegerFromGetter("EXT_SPEED_BRAKE_LEFT", function()
-	return math.floor(LoGetAircraftDrawArgumentValue(184) * 65535)
-end, 65535, "External Aircraft Model", "Left Speed Brake")
-
-FC3:defineIntegerFromGetter("EXT_POSITION_LIGHT_LEFT", function()
-	if LoGetAircraftDrawArgumentValue(190) > 0 then
-		return 1
-	else
-		return 0
-	end
-end, 1, "External Aircraft Model", "Left Position Light (red)")
-
-FC3:defineIntegerFromGetter("EXT_POSITION_LIGHT_RIGHT", function()
-	if LoGetAircraftDrawArgumentValue(191) > 0 then
-		return 1
-	else
-		return 0
-	end
-end, 1, "External Aircraft Model", "Right Position Light (green)")
-
-FC3:defineIntegerFromGetter("EXT_STROBE", function()
-	if LoGetAircraftDrawArgumentValue(192) > 0 then
-		return 1
-	else
-		return 0
-	end
-end, 1, "External Aircraft Model", "Strobe Light")
-
-FC3:defineIntegerFromGetter("EXT_WOW_NOSE", function()
-	if LoGetAircraftDrawArgumentValue(1) > 0 then
-		return 1
-	else
-		return 0
-	end
-end, 1, "External Aircraft Model", "Weight ON Wheels Nose Gear")
-
-FC3:defineIntegerFromGetter("EXT_WOW_RIGHT", function()
-	if LoGetAircraftDrawArgumentValue(4) > 0 then
-		return 1
-	else
-		return 0
-	end
-end, 1, "External Aircraft Model", "Weight ON Wheels Right Gear")
-
-FC3:defineIntegerFromGetter("EXT_WOW_LEFT", function()
-	if LoGetAircraftDrawArgumentValue(6) > 0 then
-		return 1
-	else
-		return 0
-	end
-end, 1, "External Aircraft Model", "Weight ON Wheels Left Gear")
+FC3:defineBitFromDrawArgument("EXT_SPEED_BRAKE_RIGHT", 182, "External Aircraft Model", "Right Speed Brake")
+FC3:defineBitFromDrawArgument("EXT_SPEED_BRAKE_LEFT", 184, "External Aircraft Model", "Left Speed Brake")
+FC3:defineBitFromDrawArgument("EXT_POSITION_LIGHT_LEFT", 190, "External Aircraft Model", "Left Position Light (red)")
+FC3:defineBitFromDrawArgument("EXT_POSITION_LIGHT_RIGHT", 191, "External Aircraft Model", "Right Position Light (green)")
+FC3:defineBitFromDrawArgument("EXT_STROBE", 192, "External Aircraft Model", "Strobe Light")
+FC3:defineBitFromDrawArgument("EXT_WOW_NOSE", 1, "External Aircraft Model", "Weight ON Wheels Nose Gear")
+FC3:defineBitFromDrawArgument("EXT_WOW_RIGHT", 4, "External Aircraft Model", "Weight ON Wheels Right Gear")
+FC3:defineBitFromDrawArgument("EXT_WOW_LEFT", 6, "External Aircraft Model", "Weight ON Wheels Left Gear")
 
 return FC3
