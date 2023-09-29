@@ -404,7 +404,7 @@ defineString("CPG_KU_DISPLAY", function() return txt_CPG_KU end, 22, "CPG Keyboa
 
 -- Enhanced Up-Front Display
 local JSON = BIOS.json
-local eufd_indicator_data_file = io.open(lfs.writedir()..[[Scripts\DCS-BIOS\src\json\AH-64D_EUFD.json]], "r")
+local eufd_indicator_data_file = io.open(lfs.writedir()..[[Scripts/DCS-BIOS/src/json/AH-64D_EUFD.json]], "r")
 local eufd_indicator_data
 if(eufd_indicator_data_file ~= nil) then
 	eufd_indicator_data = JSON:decode(eufd_indicator_data_file:read("*a"))

@@ -60,13 +60,13 @@ function BIOS.protocol.endModule()
 	if BIOSdevMode == 1 then
 	local function saveDoc()
 		local JSON = BIOS.json
-		local file, err = io.open(lfs.writedir()..[[Scripts\DCS-BIOS\doc\json\]]..moduleBeingDefined.name..".json", "w")
+		local file, err = io.open(lfs.writedir()..[[Scripts/DCS-BIOS/doc/json/]]..moduleBeingDefined.name..".json", "w")
 		local json_string = JSON:encode_pretty(moduleBeingDefined.documentation)
 		if file then
 			file:write(json_string)
 			file:close()
 		end
-		local file, err = io.open(lfs.writedir()..[[Scripts\DCS-BIOS\doc\json\]]..moduleBeingDefined.name..".jsonp", "w")
+		local file, err = io.open(lfs.writedir()..[[Scripts/DCS-BIOS/doc/json/]]..moduleBeingDefined.name..".jsonp", "w")
 		if file then
 			file:write('docdata["'..moduleBeingDefined.name..'"] =\n')
 			file:write(json_string)
@@ -77,7 +77,7 @@ function BIOS.protocol.endModule()
 	local function saveAddresses()
 		local moduleName = moduleBeingDefined.name
 
-		local path = lfs.writedir()..[[Scripts\DCS-BIOS\doc\Addresses.h]]
+		local path = lfs.writedir()..[[Scripts/DCS-BIOS/doc/Addresses.h]]
 		local existingDefines = {}
 		local lineOrder = {} -- To maintain the order of lines
 
