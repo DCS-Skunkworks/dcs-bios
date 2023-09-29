@@ -35,7 +35,9 @@ BIOS.json = json and json() or require "JSON" -- if that fails, fall back to mod
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/Util.lua]])
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/ProtocolIO.lua]])
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/Protocol.lua]])
-dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/MetadataEnd.lua]])
+--dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/MetadataEnd.lua]])
+local MetadataEnd = require "MetadataEnd"
+BIOS.protocol.writeNewModule(MetadataEnd)
 --dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/MetadataStart.lua]])
 local MetadataStart = require "MetadataStart"
 BIOS.protocol.writeNewModule(MetadataStart)
@@ -63,7 +65,9 @@ dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/AJS37.lua]]) -- ID = 8, ProperName
 local Alphajet = require "Alphajet"
 BIOS.protocol.writeNewModule(Alphajet)
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/AV8BNA.lua]]) -- ID = 10, ProperName = AV-8B Night Attack
-dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/Bf-109K-4.lua]]) -- ID = 11, ProperName = Bf 109 K-4 Kurfurst
+--dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/Bf-109K-4.lua]]) -- ID = 11, ProperName = Bf 109 K-4 Kurfurst
+local Bf_109K_4 = require "Bf-109K-4"
+BIOS.protocol.writeNewModule(Bf_109K_4)
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/C-101.lua]]) -- ID = 12, ProperName = C-101 Aviojet
 -- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/Christen Eagle II.lua]]) -- ID = 14, ProperName = Christen Eagle II
 local Christen_Eagle_II = require "Christen Eagle II"
@@ -82,7 +86,9 @@ dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/FC3.lua]]) -- ID = 4, ProperName =
 -- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/FW-190A8.lua]]) -- ID = 21, ProperName = Fw 190 A-8 Anton
 local FW_190A8 = require "FW-190A8"
 BIOS.protocol.writeNewModule(FW_190A8)
-dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/FW-190D9.lua]]) -- ID = 22, ProperName = Fw 190 D-9 Dora
+--dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/FW-190D9.lua]]) -- ID = 22, ProperName = Fw 190 D-9 Dora
+local FW_190D9 = require "FW-190D9"
+BIOS.protocol.writeNewModule(FW_190D9)
 -- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/I-16.lua]]) -- ID = 23, ProperName = I-16 
 local I_16 = require "I-16"
 BIOS.protocol.writeNewModule(I_16)
