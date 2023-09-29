@@ -2442,24 +2442,6 @@ docdata["P-51D"] =
                                                           }
                                },
                "Gauge Values": {
-                                         "ACCELEROMETER_VALUE": {
-                                                                        "category": "Gauge Values",
-                                                                    "control_type": "metadata",
-                                                                     "description": "Accelerometer",
-                                                                      "identifier": "ACCELEROMETER_VALUE",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                                        "address": 20668,
-                                                                                             "address_identifier": "P_51D_ACCELEROMETER_VALUE",
-                                                                                        "address_only_identifier": "P_51D_ACCELEROMETER_VALUE_ADDR",
-                                                                                                    "description": "Accelerometer",
-                                                                                                           "mask": 65535,
-                                                                                                      "max_value": 65000,
-                                                                                                       "shift_by": 0,
-                                                                                                         "suffix": "",
-                                                                                                           "type": "integer"
-                                                                                    } ]
-                                                                },
                                           "AIRSPEED_MPH_VALUE": {
                                                                         "category": "Gauge Values",
                                                                     "control_type": "metadata",
@@ -2472,7 +2454,7 @@ docdata["P-51D"] =
                                                                                         "address_only_identifier": "P_51D_AIRSPEED_MPH_VALUE_ADDR",
                                                                                                     "description": "Airspeed MPH",
                                                                                                            "mask": 65535,
-                                                                                                      "max_value": 65000,
+                                                                                                      "max_value": 65535,
                                                                                                        "shift_by": 0,
                                                                                                          "suffix": "",
                                                                                                            "type": "integer"
@@ -2490,7 +2472,7 @@ docdata["P-51D"] =
                                                                                         "address_only_identifier": "P_51D_ALTIMETER_VALUE_ADDR",
                                                                                                     "description": "Altimeter",
                                                                                                            "mask": 65535,
-                                                                                                      "max_value": 65000,
+                                                                                                      "max_value": 65535,
                                                                                                        "shift_by": 0,
                                                                                                          "suffix": "",
                                                                                                            "type": "integer"
@@ -2508,7 +2490,7 @@ docdata["P-51D"] =
                                                                                         "address_only_identifier": "P_51D_AMMETER_VALUE_ADDR",
                                                                                                     "description": "Ammeter",
                                                                                                            "mask": 65535,
-                                                                                                      "max_value": 65000,
+                                                                                                      "max_value": 65535,
                                                                                                        "shift_by": 0,
                                                                                                          "suffix": "",
                                                                                                            "type": "integer"
@@ -2526,7 +2508,7 @@ docdata["P-51D"] =
                                                                                         "address_only_identifier": "P_51D_BAROMETRIC_PRESSURE_VALUE_ADDR",
                                                                                                     "description": "Barometric Pressure",
                                                                                                            "mask": 65535,
-                                                                                                      "max_value": 65000,
+                                                                                                      "max_value": 65535,
                                                                                                        "shift_by": 0,
                                                                                                          "suffix": "",
                                                                                                            "type": "integer"
@@ -2544,7 +2526,7 @@ docdata["P-51D"] =
                                                                                         "address_only_identifier": "P_51D_COURSE_VALUE_ADDR",
                                                                                                     "description": "Remote Compass Course",
                                                                                                            "mask": 65535,
-                                                                                                      "max_value": 65000,
+                                                                                                      "max_value": 65535,
                                                                                                        "shift_by": 0,
                                                                                                          "suffix": "",
                                                                                                            "type": "integer"
@@ -2562,7 +2544,7 @@ docdata["P-51D"] =
                                                                                         "address_only_identifier": "P_51D_DIRECTIONAL_GYRO_VALUE_ADDR",
                                                                                                     "description": "Directional Gyro",
                                                                                                            "mask": 65535,
-                                                                                                      "max_value": 65000,
+                                                                                                      "max_value": 65535,
                                                                                                        "shift_by": 0,
                                                                                                          "suffix": "",
                                                                                                            "type": "integer"
@@ -2580,7 +2562,7 @@ docdata["P-51D"] =
                                                                                         "address_only_identifier": "P_51D_ENGINE_RPM_VALUE_ADDR",
                                                                                                     "description": "Engine RPM Value",
                                                                                                            "mask": 65535,
-                                                                                                      "max_value": 65000,
+                                                                                                      "max_value": 65535,
                                                                                                        "shift_by": 0,
                                                                                                          "suffix": "",
                                                                                                            "type": "integer"
@@ -2598,7 +2580,7 @@ docdata["P-51D"] =
                                                                                         "address_only_identifier": "P_51D_FUEL_PRESSURE_VALUE_ADDR",
                                                                                                     "description": "Fuel Pressure",
                                                                                                            "mask": 65535,
-                                                                                                      "max_value": 65000,
+                                                                                                      "max_value": 65535,
                                                                                                        "shift_by": 0,
                                                                                                          "suffix": "",
                                                                                                            "type": "integer"
@@ -2616,7 +2598,7 @@ docdata["P-51D"] =
                                                                                         "address_only_identifier": "P_51D_FUSELAGE_FUEL_TANK_VALUE_ADDR",
                                                                                                     "description": "Fuselage Fuel Tank Gallons",
                                                                                                            "mask": 65535,
-                                                                                                      "max_value": 65000,
+                                                                                                      "max_value": 65535,
                                                                                                        "shift_by": 0,
                                                                                                          "suffix": "",
                                                                                                            "type": "integer"
@@ -2634,7 +2616,7 @@ docdata["P-51D"] =
                                                                                         "address_only_identifier": "P_51D_HEADING_VALUE_ADDR",
                                                                                                     "description": "Remote Compass Heading",
                                                                                                            "mask": 65535,
-                                                                                                      "max_value": 65000,
+                                                                                                      "max_value": 65535,
                                                                                                        "shift_by": 0,
                                                                                                          "suffix": "",
                                                                                                            "type": "integer"
@@ -2652,7 +2634,7 @@ docdata["P-51D"] =
                                                                                         "address_only_identifier": "P_51D_HYDRAULIC_PRESSURE_VALUE_ADDR",
                                                                                                     "description": "Hydraulic Pressure",
                                                                                                            "mask": 65535,
-                                                                                                      "max_value": 65000,
+                                                                                                      "max_value": 65535,
                                                                                                        "shift_by": 0,
                                                                                                          "suffix": "",
                                                                                                            "type": "integer"
@@ -2670,7 +2652,7 @@ docdata["P-51D"] =
                                                                                         "address_only_identifier": "P_51D_LEFT_FUEL_TANK_VALUE_ADDR",
                                                                                                     "description": "Left Fuel Tank Gallons",
                                                                                                            "mask": 65535,
-                                                                                                      "max_value": 65000,
+                                                                                                      "max_value": 65535,
                                                                                                        "shift_by": 0,
                                                                                                          "suffix": "",
                                                                                                            "type": "integer"
@@ -2688,7 +2670,7 @@ docdata["P-51D"] =
                                                                                         "address_only_identifier": "P_51D_MANIFOLD_PRESSURE_VALUE_ADDR",
                                                                                                     "description": "Manifold Pressure",
                                                                                                            "mask": 65535,
-                                                                                                      "max_value": 65000,
+                                                                                                      "max_value": 65535,
                                                                                                        "shift_by": 0,
                                                                                                          "suffix": "",
                                                                                                            "type": "integer"
@@ -2706,7 +2688,7 @@ docdata["P-51D"] =
                                                                                         "address_only_identifier": "P_51D_OIL_PRESSURE_VALUE_ADDR",
                                                                                                     "description": "Oil Pressure",
                                                                                                            "mask": 65535,
-                                                                                                      "max_value": 65000,
+                                                                                                      "max_value": 65535,
                                                                                                        "shift_by": 0,
                                                                                                          "suffix": "",
                                                                                                            "type": "integer"
@@ -2724,7 +2706,7 @@ docdata["P-51D"] =
                                                                                         "address_only_identifier": "P_51D_OIL_TEMPERATURE_VALUE_ADDR",
                                                                                                     "description": "Oil Temperature",
                                                                                                            "mask": 65535,
-                                                                                                      "max_value": 65000,
+                                                                                                      "max_value": 65535,
                                                                                                        "shift_by": 0,
                                                                                                          "suffix": "",
                                                                                                            "type": "integer"
@@ -2742,7 +2724,7 @@ docdata["P-51D"] =
                                                                                         "address_only_identifier": "P_51D_OXYGEN_PRESSURE_VALUE_ADDR",
                                                                                                     "description": "Oxygen Pressure",
                                                                                                            "mask": 65535,
-                                                                                                      "max_value": 65000,
+                                                                                                      "max_value": 65535,
                                                                                                        "shift_by": 0,
                                                                                                          "suffix": "",
                                                                                                            "type": "integer"
@@ -2760,7 +2742,7 @@ docdata["P-51D"] =
                                                                                         "address_only_identifier": "P_51D_RIGHT_FUEL_TANK_VALUE_ADDR",
                                                                                                     "description": "Right Fuel Tank Gallons",
                                                                                                            "mask": 65535,
-                                                                                                      "max_value": 65000,
+                                                                                                      "max_value": 65535,
                                                                                                        "shift_by": 0,
                                                                                                          "suffix": "",
                                                                                                            "type": "integer"
@@ -2778,7 +2760,7 @@ docdata["P-51D"] =
                                                                                         "address_only_identifier": "P_51D_VACUUM_SUCTION_VALUE_ADDR",
                                                                                                     "description": "Vacuum Suction read as X.X or XX.X",
                                                                                                            "mask": 65535,
-                                                                                                      "max_value": 65000,
+                                                                                                      "max_value": 65535,
                                                                                                        "shift_by": 0,
                                                                                                          "suffix": "",
                                                                                                            "type": "integer"
@@ -3468,11 +3450,11 @@ docdata["P-51D"] =
                                                                                  } ],
                                                              "physical_variant": "toggle_switch"
                                                       },
-                                    "OXYGEN_BY-PASS": {
+                                     "OXYGEN_BYPASS": {
                                                                      "category": "Oxygen System",
                                                                  "control_type": "selector",
                                                                   "description": "Oxygen Emergency By-pass",
-                                                                   "identifier": "OXYGEN_BY-PASS",
+                                                                   "identifier": "OXYGEN_BYPASS",
                                                                        "inputs": [ {
                                                                                      "description": "switch to previous or next state",
                                                                                        "interface": "fixed_step"
@@ -3488,8 +3470,8 @@ docdata["P-51D"] =
                                                           "momentary_positions": "none",
                                                                       "outputs": [ {
                                                                                                      "address": 20494,
-                                                                                          "address_identifier": "P_51D_OXYGEN_BY_PASS",
-                                                                                     "address_only_identifier": "P_51D_OXYGEN_BY_PASS_ADDR",
+                                                                                          "address_identifier": "P_51D_OXYGEN_BYPASS",
+                                                                                     "address_only_identifier": "P_51D_OXYGEN_BYPASS_ADDR",
                                                                                                  "description": "selector position",
                                                                                                         "mask": 64,
                                                                                                    "max_value": 1,
@@ -4553,7 +4535,7 @@ docdata["P-51D"] =
                                                                                     "address_only_identifier": "P_51D_RKT_COUNT_CON_ADDR",
                                                                                                 "description": "selector position",
                                                                                                        "mask": 3840,
-                                                                                                  "max_value": 9,
+                                                                                                  "max_value": 10,
                                                                                                    "shift_by": 8,
                                                                                                      "suffix": "",
                                                                                                        "type": "integer"
