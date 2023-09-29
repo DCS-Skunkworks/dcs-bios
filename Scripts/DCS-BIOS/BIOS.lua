@@ -70,6 +70,7 @@ local Bf_109K_4 = require "Bf-109K-4"
 BIOS.protocol.writeNewModule(Bf_109K_4)
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/C-101.lua]]) -- ID = 12, ProperName = C-101 Aviojet
 -- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/Christen Eagle II.lua]]) -- ID = 14, ProperName = Christen Eagle II
+
 local Christen_Eagle_II = require "Christen Eagle II"
 BIOS.protocol.writeNewModule(Christen_Eagle_II)
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/Edge540.lua]]) -- ID = 15, ProperName = Edge 540

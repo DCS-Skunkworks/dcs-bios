@@ -63,6 +63,10 @@ function TestAircraft:testP51D()
 	self:validateModule(require("P-51D"), "P-51D", 0x5000)
 end
 
+function TestAircraft:testBf109K4()
+	self:validateModule(require("Bf-109K-4"), "Bf-109K-4", 0x4200)
+end
+
 function TestAircraft:testSpitfireLFMkIX()
 	self:validateModule(require("SpitfireLFMkIX"), "SpitfireLFMkIX", 0x5400)
 end
