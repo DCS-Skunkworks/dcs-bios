@@ -199,7 +199,7 @@ function BIOS.protocol.step()
 	if selfData then
 		acftName = selfData["Name"]
 	end
-	metadataStartModule.data.acftName = acftName
+	metadataStartModule:setAircraftName(acftName)
 	acftModules = aircraftNameToModules[acftName]
 	if lastAcftName ~= acftName then
 		if acftModules then
@@ -266,7 +266,7 @@ end
 
 function BIOS.protocol.shutdown()
 	-- Nullify the aircraft name and publish one last frame to identify end of mission.
-	metadataStartModule.data.acftName = ""
+	metadataStartModule:setAircraftName("")
 
 	-- send frame sync sequence
 	BIOS.protocol_io.queue(string.char(0x55, 0x55, 0x55, 0x55))
