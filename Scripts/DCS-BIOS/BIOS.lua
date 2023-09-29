@@ -67,6 +67,8 @@ dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\F-14.lua]]) -- ID = 16, ProperName
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\F-15E.lua]]) -- ID = 44, ProperName = F-15E Strike Eagle
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\F-16C_50.lua]]) -- ID = 17, ProperName = F-16C Viper
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\F-22A.lua]]) -- ID = 40, ProperName = F-22A Raptor
+local F_22A = require "F-22A"
+BIOS.protocol.writeNewModule(F_22A)
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\F-5E-3.lua]]) -- ID = 18, ProperName = F-5E Tiger II
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\F-86F Sabre.lua]]) -- ID = 19, ProperName = F-86F Sabre
 dofile(lfs.writedir()..[[Scripts\DCS-BIOS\lib\FA-18C_hornet.lua]]) -- ID = 20, ProperName = F/A-18C Hornet

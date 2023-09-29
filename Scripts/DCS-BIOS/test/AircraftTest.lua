@@ -19,6 +19,10 @@ function TestAircraft:testCEII()
 	self:validateModule(require("Christen Eagle II"), "Christen Eagle II", 0x2800)
 end
 
+function TestAircraft:testF22A()
+	self:validateModule(require("F-22A"), "F-22A", 0x6600)
+end
+
 function TestAircraft:testFW190A8()
 	self:validateModule(require("FW-190A8"), "FW-190A8", 0x3800)
 end
