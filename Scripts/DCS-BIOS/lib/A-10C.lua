@@ -1095,7 +1095,7 @@ defineToggleSwitch("ANT_EGIHQTOD", 54, 3017, 708, "Antenna Panel", "EGI HQ TOD S
 
 definePotentiometer("RWR_BRT", 29, 3001, 16, {0.15, 0.85}, "RWR", "Display Brightness")
 
-local JSON = GetJSON()()
+local JSON = BIOS.json
 local cdu_indicator_data_file = io.open(lfs.writedir()..[[Scripts\DCS-BIOS\src\json\A-10C_CDU.json]], "r")
 local cdu_indicator_data
 
