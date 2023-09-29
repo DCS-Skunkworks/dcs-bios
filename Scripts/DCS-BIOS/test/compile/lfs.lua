@@ -5,7 +5,7 @@ lfs = {}
 
 ---@diagnostic disable-next-line: duplicate-set-field
 lfs.writedir = function()
-	return ""
+	return "./"
 end
 
 return lfs

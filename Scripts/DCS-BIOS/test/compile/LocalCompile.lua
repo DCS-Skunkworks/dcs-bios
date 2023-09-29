@@ -17,4 +17,4 @@ end
 lfs = require("lfs")
 
 -- Include these that will mock the DCS APIs and the socket.
-dofile([[./Scripts/DCS-BIOS/BIOS.lua]])
+dofile([[Scripts/DCS-BIOS/BIOS.lua]])
