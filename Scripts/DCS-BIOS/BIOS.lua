@@ -70,7 +70,9 @@ dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/Edge540.lua]]) -- ID = 15, ProperN
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/F-14.lua]]) -- ID = 16, ProperName = F-14A/B Tomcat
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/F-15E.lua]]) -- ID = 44, ProperName = F-15E Strike Eagle
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/F-16C_50.lua]]) -- ID = 17, ProperName = F-16C Viper
-dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/F-22A.lua]]) -- ID = 40, ProperName = F-22A Raptor
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/F-22A.lua]]) -- ID = 40, ProperName = F-22A Raptor
+local F_22A = require "F-22A"
+BIOS.protocol.writeNewModule(F_22A)
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/F-5E-3.lua]]) -- ID = 18, ProperName = F-5E Tiger II
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/F-86F Sabre.lua]]) -- ID = 19, ProperName = F-86F Sabre
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/FA-18C_hornet.lua]]) -- ID = 20, ProperName = F/A-18C Hornet
@@ -93,7 +95,9 @@ dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/MirageF1.lua]]) -- ID = 13, Proper
 -- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/MiG-15bis.lua]]) -- ID = 30, ProperName = MiG-15bis
 local MiG_15bis = require "MiG-15bis"
 BIOS.protocol.writeNewModule(MiG_15bis)
-dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/MiG-19P.lua]]) -- ID = 31, ProperName = MiG-19P Farmer
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/MiG-19P.lua]]) -- ID = 31, ProperName = MiG-19P Farmer
+local MiG_19P = require "MiG-19P"
+BIOS.protocol.writeNewModule(MiG_19P)
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/MiG-21Bis.lua]]) -- ID = 32, ProperName = MiG-21bis
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/Mosquito.lua]]) -- ID = 45, ProperName = Mosquito FB Mk. VI
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/NS430.lua]]) -- ID = 33, ProperName = NS 430 GPS
@@ -107,7 +111,9 @@ local SpitfireLFMkIX = require "SpitfireLFMkIX"
 BIOS.protocol.writeNewModule(SpitfireLFMkIX)
 --dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/SuperCarrier.lua]])
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/UH-1H.lua]]) -- ID = 38, ProperName = UH-1H Huey
-dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/VNAO_Room.lua]])
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/VNAO_Room.lua]])
+local VNAO_Room = require "VNAO_Room"
+BIOS.protocol.writeNewModule(VNAO_Room)
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/VNAO_T-45.lua]]) -- ID = 43, ProperName = T-45 Goshawk
 -- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/Yak-52.lua]]) -- ID = 39, ProperName = Yak-52
 local Yak_52 = require "Yak-52"

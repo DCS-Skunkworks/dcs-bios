@@ -23,6 +23,10 @@ function TestAircraft:testCommonData()
 	self:validateModule(require("CommonData"), "CommonData", 0x0400)
 end
 
+function TestAircraft:testF22A()
+	self:validateModule(require("F-22A"), "F-22A", 0x6600)
+end
+
 function TestAircraft:testFW190A8()
 	self:validateModule(require("FW-190A8"), "FW-190A8", 0x3800)
 end
@@ -35,12 +39,20 @@ function TestAircraft:testMiG_15bis()
 	self:validateModule(require("MiG-15bis"), "MiG-15bis", 0x2400)
 end
 
+function TestAircraft:testMiG_19P()
+	self:validateModule(require("MiG-19P"), "MiG-19P", 0x1600)
+end
+
 function TestAircraft:testP51D()
 	self:validateModule(require("P-51D"), "P-51D", 0x5000)
 end
 
 function TestAircraft:testSpitfireLFMkIX()
 	self:validateModule(require("SpitfireLFMkIX"), "SpitfireLFMkIX", 0x5400)
+end
+
+function TestAircraft:testVNAORoom()
+	self:validateModule(require("VNAO_Room"), "VNAO_Room", 0x0500)
 end
 
 function TestAircraft:testYak52()

@@ -1263,13 +1263,13 @@
                                                                                   "identifier": "EXT_ANTI_COL",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                                    "address": 26156,
+                                                                                                                    "address": 26150,
                                                                                                          "address_identifier": "F_22A_EXT_ANTI_COL",
                                                                                                     "address_only_identifier": "F_22A_EXT_ANTI_COL_ADDR",
                                                                                                                 "description": "Anticollision Lights (white)",
-                                                                                                                       "mask": 1,
+                                                                                                                       "mask": 32768,
                                                                                                                   "max_value": 1,
-                                                                                                                   "shift_by": 0,
+                                                                                                                   "shift_by": 15,
                                                                                                                      "suffix": "",
                                                                                                                        "type": "integer"
                                                                                                 } ]
@@ -1281,13 +1281,13 @@
                                                                                   "identifier": "EXT_BEACON_L",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                                    "address": 26156,
+                                                                                                                    "address": 26158,
                                                                                                          "address_identifier": "F_22A_EXT_BEACON_L",
                                                                                                     "address_only_identifier": "F_22A_EXT_BEACON_L_ADDR",
                                                                                                                 "description": "Beacon Lights (red)",
-                                                                                                                       "mask": 2,
+                                                                                                                       "mask": 1,
                                                                                                                   "max_value": 1,
-                                                                                                                   "shift_by": 1,
+                                                                                                                   "shift_by": 0,
                                                                                                                      "suffix": "",
                                                                                                                        "type": "integer"
                                                                                                 } ]
@@ -1303,9 +1303,9 @@
                                                                                                          "address_identifier": "F_22A_EXT_COCKPIT_LIGHT",
                                                                                                     "address_only_identifier": "F_22A_EXT_COCKPIT_LIGHT_ADDR",
                                                                                                                 "description": "Cockpit Light (white)",
-                                                                                                                       "mask": 32768,
+                                                                                                                       "mask": 16384,
                                                                                                                   "max_value": 1,
-                                                                                                                   "shift_by": 15,
+                                                                                                                   "shift_by": 14,
                                                                                                                      "suffix": "",
                                                                                                                        "type": "integer"
                                                                                                 } ]
@@ -1317,7 +1317,7 @@
                                                                                   "identifier": "EXT_FORMATION_LIGHTS",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                                    "address": 26154,
+                                                                                                                    "address": 26156,
                                                                                                          "address_identifier": "F_22A_EXT_FORMATION_LIGHTS",
                                                                                                     "address_only_identifier": "F_22A_EXT_FORMATION_LIGHTS_ADDR",
                                                                                                                 "description": "Formation Lights (yellow green)",
@@ -1339,9 +1339,9 @@
                                                                                                          "address_identifier": "F_22A_EXT_GUN_DOOR",
                                                                                                     "address_only_identifier": "F_22A_EXT_GUN_DOOR_ADDR",
                                                                                                                 "description": "Gun Door",
-                                                                                                                       "mask": 2048,
+                                                                                                                       "mask": 1024,
                                                                                                                   "max_value": 1,
-                                                                                                                   "shift_by": 11,
+                                                                                                                   "shift_by": 10,
                                                                                                                      "suffix": "",
                                                                                                                        "type": "integer"
                                                                                                 } ]
@@ -1357,9 +1357,9 @@
                                                                                                          "address_identifier": "F_22A_EXT_LIGHT_TAIL",
                                                                                                     "address_only_identifier": "F_22A_EXT_LIGHT_TAIL_ADDR",
                                                                                                                 "description": "Tail Light (white)",
-                                                                                                                       "mask": 16384,
+                                                                                                                       "mask": 8192,
                                                                                                                   "max_value": 1,
-                                                                                                                   "shift_by": 14,
+                                                                                                                   "shift_by": 13,
                                                                                                                      "suffix": "",
                                                                                                                        "type": "integer"
                                                                                                 } ]
@@ -1375,9 +1375,9 @@
                                                                                                          "address_identifier": "F_22A_EXT_POSITION_LIGHT_WINGL",
                                                                                                     "address_only_identifier": "F_22A_EXT_POSITION_LIGHT_WINGL_ADDR",
                                                                                                                 "description": "Position Light Wing Left (red)",
-                                                                                                                       "mask": 4096,
+                                                                                                                       "mask": 2048,
                                                                                                                   "max_value": 1,
-                                                                                                                   "shift_by": 12,
+                                                                                                                   "shift_by": 11,
                                                                                                                      "suffix": "",
                                                                                                                        "type": "integer"
                                                                                                 } ]
@@ -1393,9 +1393,9 @@
                                                                                                          "address_identifier": "F_22A_EXT_POSITION_LIGHT_WINGR",
                                                                                                     "address_only_identifier": "F_22A_EXT_POSITION_LIGHT_WINGR_ADDR",
                                                                                                                 "description": "Position Light Wing Right (green)",
-                                                                                                                       "mask": 8192,
+                                                                                                                       "mask": 4096,
                                                                                                                   "max_value": 1,
-                                                                                                                   "shift_by": 13,
+                                                                                                                   "shift_by": 12,
                                                                                                                      "suffix": "",
                                                                                                                        "type": "integer"
                                                                                                 } ]
@@ -1407,7 +1407,7 @@
                                                                                   "identifier": "EXT_REFUEL_DOOR",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                                    "address": 26152,
+                                                                                                                    "address": 26154,
                                                                                                          "address_identifier": "F_22A_EXT_REFUEL_DOOR",
                                                                                                     "address_only_identifier": "F_22A_EXT_REFUEL_DOOR_ADDR",
                                                                                                                 "description": "Fuel Door",
@@ -1425,13 +1425,13 @@
                                                                                   "identifier": "EXT_WOW_LEFT",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                                    "address": 26156,
+                                                                                                                    "address": 26158,
                                                                                                          "address_identifier": "F_22A_EXT_WOW_LEFT",
                                                                                                     "address_only_identifier": "F_22A_EXT_WOW_LEFT_ADDR",
                                                                                                                 "description": "Weight ON Wheels Left Gear",
-                                                                                                                       "mask": 16,
+                                                                                                                       "mask": 8,
                                                                                                                   "max_value": 1,
-                                                                                                                   "shift_by": 4,
+                                                                                                                   "shift_by": 3,
                                                                                                                      "suffix": "",
                                                                                                                        "type": "integer"
                                                                                                 } ]
@@ -1443,13 +1443,13 @@
                                                                                   "identifier": "EXT_WOW_NOSE",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                                    "address": 26156,
+                                                                                                                    "address": 26158,
                                                                                                          "address_identifier": "F_22A_EXT_WOW_NOSE",
                                                                                                     "address_only_identifier": "F_22A_EXT_WOW_NOSE_ADDR",
                                                                                                                 "description": "Weight ON Wheels Nose Gear",
-                                                                                                                       "mask": 4,
+                                                                                                                       "mask": 2,
                                                                                                                   "max_value": 1,
-                                                                                                                   "shift_by": 2,
+                                                                                                                   "shift_by": 1,
                                                                                                                      "suffix": "",
                                                                                                                        "type": "integer"
                                                                                                 } ]
@@ -1461,13 +1461,13 @@
                                                                                   "identifier": "EXT_WOW_RIGHT",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                                    "address": 26156,
+                                                                                                                    "address": 26158,
                                                                                                          "address_identifier": "F_22A_EXT_WOW_RIGHT",
                                                                                                     "address_only_identifier": "F_22A_EXT_WOW_RIGHT_ADDR",
                                                                                                                 "description": "Weight ON Wheels Right Gear",
-                                                                                                                       "mask": 8,
+                                                                                                                       "mask": 4,
                                                                                                                   "max_value": 1,
-                                                                                                                   "shift_by": 3,
+                                                                                                                   "shift_by": 2,
                                                                                                                      "suffix": "",
                                                                                                                        "type": "integer"
                                                                                                 } ]
@@ -4368,186 +4368,222 @@
                                                             }
                                             },
     "Warning, Caution and IndicatorLights": {
-                                                   "BATTERY_L": {
-                                                                        "category": "Warning, Caution and IndicatorLights",
-                                                                    "control_type": "led",
-                                                                     "description": "Battery Lamp (green)",
-                                                                      "identifier": "BATTERY_L",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                                        "address": 26150,
-                                                                                             "address_identifier": "F_22A_BATTERY_L",
-                                                                                        "address_only_identifier": "F_22A_BATTERY_L_ADDR",
-                                                                                                    "description": "0 if light is off, 1 if light is on",
-                                                                                                           "mask": 8,
-                                                                                                      "max_value": 1,
-                                                                                                       "shift_by": 3,
-                                                                                                         "suffix": "",
-                                                                                                           "type": "integer"
-                                                                                    } ]
-                                                                },
-                                                 "CLIPBOARD_L": {
-                                                                        "category": "Warning, Caution and IndicatorLights",
-                                                                    "control_type": "led",
-                                                                     "description": "Clipboard Left",
-                                                                      "identifier": "CLIPBOARD_L",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                                        "address": 26150,
-                                                                                             "address_identifier": "F_22A_CLIPBOARD_L",
-                                                                                        "address_only_identifier": "F_22A_CLIPBOARD_L_ADDR",
-                                                                                                    "description": "0 if light is off, 1 if light is on",
-                                                                                                           "mask": 128,
-                                                                                                      "max_value": 1,
-                                                                                                       "shift_by": 7,
-                                                                                                         "suffix": "",
-                                                                                                           "type": "integer"
-                                                                                    } ]
-                                                                },
-                                                 "CLIPBOARD_R": {
-                                                                        "category": "Warning, Caution and IndicatorLights",
-                                                                    "control_type": "led",
-                                                                     "description": "Clipboard Right",
-                                                                      "identifier": "CLIPBOARD_R",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                                        "address": 26150,
-                                                                                             "address_identifier": "F_22A_CLIPBOARD_R",
-                                                                                        "address_only_identifier": "F_22A_CLIPBOARD_R_ADDR",
-                                                                                                    "description": "0 if light is off, 1 if light is on",
-                                                                                                           "mask": 256,
-                                                                                                      "max_value": 1,
-                                                                                                       "shift_by": 8,
-                                                                                                         "suffix": "",
-                                                                                                           "type": "integer"
-                                                                                    } ]
-                                                                },
-                                                "FLOOD_LIGHTS": {
-                                                                        "category": "Warning, Caution and IndicatorLights",
-                                                                    "control_type": "led",
-                                                                     "description": "Flood Lights (green)",
-                                                                      "identifier": "FLOOD_LIGHTS",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                                        "address": 26150,
-                                                                                             "address_identifier": "F_22A_FLOOD_LIGHTS",
-                                                                                        "address_only_identifier": "F_22A_FLOOD_LIGHTS_ADDR",
-                                                                                                    "description": "0 if light is off, 1 if light is on",
-                                                                                                           "mask": 2,
-                                                                                                      "max_value": 1,
-                                                                                                       "shift_by": 1,
-                                                                                                         "suffix": "",
-                                                                                                           "type": "integer"
-                                                                                    } ]
-                                                                },
-                                                    "GARFIELD": {
-                                                                        "category": "Warning, Caution and IndicatorLights",
-                                                                    "control_type": "led",
-                                                                     "description": "Garfield",
-                                                                      "identifier": "GARFIELD",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                                        "address": 26150,
-                                                                                             "address_identifier": "F_22A_GARFIELD",
-                                                                                        "address_only_identifier": "F_22A_GARFIELD_ADDR",
-                                                                                                    "description": "0 if light is off, 1 if light is on",
-                                                                                                           "mask": 512,
-                                                                                                      "max_value": 1,
-                                                                                                       "shift_by": 9,
-                                                                                                         "suffix": "",
-                                                                                                           "type": "integer"
-                                                                                    } ]
-                                                                },
-                                                 "GEAR_LEFT_L": {
-                                                                        "category": "Warning, Caution and IndicatorLights",
-                                                                    "control_type": "led",
-                                                                     "description": "Gear Left Lamp (green)",
-                                                                      "identifier": "GEAR_LEFT_L",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                                        "address": 26150,
-                                                                                             "address_identifier": "F_22A_GEAR_LEFT_L",
-                                                                                        "address_only_identifier": "F_22A_GEAR_LEFT_L_ADDR",
-                                                                                                    "description": "0 if light is off, 1 if light is on",
-                                                                                                           "mask": 32,
-                                                                                                      "max_value": 1,
-                                                                                                       "shift_by": 5,
-                                                                                                         "suffix": "",
-                                                                                                           "type": "integer"
-                                                                                    } ]
-                                                                },
-                                                 "GEAR_NOSE_L": {
-                                                                        "category": "Warning, Caution and IndicatorLights",
-                                                                    "control_type": "led",
-                                                                     "description": "Gear Nose Lamp (green)",
-                                                                      "identifier": "GEAR_NOSE_L",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                                        "address": 26150,
-                                                                                             "address_identifier": "F_22A_GEAR_NOSE_L",
-                                                                                        "address_only_identifier": "F_22A_GEAR_NOSE_L_ADDR",
-                                                                                                    "description": "0 if light is off, 1 if light is on",
-                                                                                                           "mask": 16,
-                                                                                                      "max_value": 1,
-                                                                                                       "shift_by": 4,
-                                                                                                         "suffix": "",
-                                                                                                           "type": "integer"
-                                                                                    } ]
-                                                                },
-                                                "GEAR_RIGHT_L": {
-                                                                        "category": "Warning, Caution and IndicatorLights",
-                                                                    "control_type": "led",
-                                                                     "description": "Gear Right Lamp (green)",
-                                                                      "identifier": "GEAR_RIGHT_L",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                                        "address": 26150,
-                                                                                             "address_identifier": "F_22A_GEAR_RIGHT_L",
-                                                                                        "address_only_identifier": "F_22A_GEAR_RIGHT_L_ADDR",
-                                                                                                    "description": "0 if light is off, 1 if light is on",
-                                                                                                           "mask": 64,
-                                                                                                      "max_value": 1,
-                                                                                                       "shift_by": 6,
-                                                                                                         "suffix": "",
-                                                                                                           "type": "integer"
-                                                                                    } ]
-                                                                },
-                                                "PANEL_LIGHTS": {
-                                                                        "category": "Warning, Caution and IndicatorLights",
-                                                                    "control_type": "led",
-                                                                     "description": "Panel Lights (green)",
-                                                                      "identifier": "PANEL_LIGHTS",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                                        "address": 26150,
-                                                                                             "address_identifier": "F_22A_PANEL_LIGHTS",
-                                                                                        "address_only_identifier": "F_22A_PANEL_LIGHTS_ADDR",
-                                                                                                    "description": "0 if light is off, 1 if light is on",
-                                                                                                           "mask": 4,
-                                                                                                      "max_value": 1,
-                                                                                                       "shift_by": 2,
-                                                                                                         "suffix": "",
-                                                                                                           "type": "integer"
-                                                                                    } ]
-                                                                },
-                                                       "PHOTO": {
-                                                                        "category": "Warning, Caution and IndicatorLights",
-                                                                    "control_type": "led",
-                                                                     "description": "Photo",
-                                                                      "identifier": "PHOTO",
-                                                                          "inputs": [  ],
-                                                                         "outputs": [ {
-                                                                                                        "address": 26150,
-                                                                                             "address_identifier": "F_22A_PHOTO",
-                                                                                        "address_only_identifier": "F_22A_PHOTO_ADDR",
-                                                                                                    "description": "0 if light is off, 1 if light is on",
-                                                                                                           "mask": 1024,
-                                                                                                      "max_value": 1,
-                                                                                                       "shift_by": 10,
-                                                                                                         "suffix": "",
-                                                                                                           "type": "integer"
-                                                                                    } ]
-                                                                }
+                                                     "BATTERY_L": {
+                                                                          "category": "Warning, Caution and IndicatorLights",
+                                                                      "control_type": "led",
+                                                                       "description": "Battery Lamp (green)",
+                                                                        "identifier": "BATTERY_L",
+                                                                            "inputs": [  ],
+                                                                           "outputs": [ {
+                                                                                                          "address": 26150,
+                                                                                               "address_identifier": "F_22A_BATTERY_L",
+                                                                                          "address_only_identifier": "F_22A_BATTERY_L_ADDR",
+                                                                                                      "description": "0 if light is off, 1 if light is on",
+                                                                                                             "mask": 4,
+                                                                                                        "max_value": 1,
+                                                                                                         "shift_by": 2,
+                                                                                                           "suffix": "",
+                                                                                                             "type": "integer"
+                                                                                      } ]
+                                                                  },
+                                                   "CLIPBOARD_L": {
+                                                                          "category": "Warning, Caution and IndicatorLights",
+                                                                      "control_type": "led",
+                                                                       "description": "Clipboard Left",
+                                                                        "identifier": "CLIPBOARD_L",
+                                                                            "inputs": [  ],
+                                                                           "outputs": [ {
+                                                                                                          "address": 26150,
+                                                                                               "address_identifier": "F_22A_CLIPBOARD_L",
+                                                                                          "address_only_identifier": "F_22A_CLIPBOARD_L_ADDR",
+                                                                                                      "description": "0 if light is off, 1 if light is on",
+                                                                                                             "mask": 64,
+                                                                                                        "max_value": 1,
+                                                                                                         "shift_by": 6,
+                                                                                                           "suffix": "",
+                                                                                                             "type": "integer"
+                                                                                      } ]
+                                                                  },
+                                                   "CLIPBOARD_R": {
+                                                                          "category": "Warning, Caution and IndicatorLights",
+                                                                      "control_type": "led",
+                                                                       "description": "Clipboard Right",
+                                                                        "identifier": "CLIPBOARD_R",
+                                                                            "inputs": [  ],
+                                                                           "outputs": [ {
+                                                                                                          "address": 26150,
+                                                                                               "address_identifier": "F_22A_CLIPBOARD_R",
+                                                                                          "address_only_identifier": "F_22A_CLIPBOARD_R_ADDR",
+                                                                                                      "description": "0 if light is off, 1 if light is on",
+                                                                                                             "mask": 128,
+                                                                                                        "max_value": 1,
+                                                                                                         "shift_by": 7,
+                                                                                                           "suffix": "",
+                                                                                                             "type": "integer"
+                                                                                      } ]
+                                                                  },
+                                                  "FLOOD_LIGHTS": {
+                                                                          "category": "Warning, Caution and IndicatorLights",
+                                                                      "control_type": "led",
+                                                                       "description": "Flood Lights (green)",
+                                                                        "identifier": "FLOOD_LIGHTS",
+                                                                            "inputs": [  ],
+                                                                           "outputs": [ {
+                                                                                                          "address": 26150,
+                                                                                               "address_identifier": "F_22A_FLOOD_LIGHTS",
+                                                                                          "address_only_identifier": "F_22A_FLOOD_LIGHTS_ADDR",
+                                                                                                      "description": "0 if light is off, 1 if light is on",
+                                                                                                             "mask": 1,
+                                                                                                        "max_value": 1,
+                                                                                                         "shift_by": 0,
+                                                                                                           "suffix": "",
+                                                                                                             "type": "integer"
+                                                                                      } ]
+                                                                  },
+                                                "FLOOD_LIGHTS_F": {
+                                                                          "category": "Warning, Caution and IndicatorLights",
+                                                                      "control_type": "analog_gauge",
+                                                                       "description": "Flood Lights as Float (green)",
+                                                                        "identifier": "FLOOD_LIGHTS_F",
+                                                                            "inputs": [  ],
+                                                                           "outputs": [ {
+                                                                                                          "address": 26152,
+                                                                                               "address_identifier": "F_22A_FLOOD_LIGHTS_F",
+                                                                                          "address_only_identifier": "F_22A_FLOOD_LIGHTS_F_ADDR",
+                                                                                                      "description": "gauge position",
+                                                                                                             "mask": 65535,
+                                                                                                        "max_value": 65535,
+                                                                                                         "shift_by": 0,
+                                                                                                           "suffix": "",
+                                                                                                             "type": "integer"
+                                                                                      } ]
+                                                                  },
+                                                      "GARFIELD": {
+                                                                          "category": "Warning, Caution and IndicatorLights",
+                                                                      "control_type": "led",
+                                                                       "description": "Garfield",
+                                                                        "identifier": "GARFIELD",
+                                                                            "inputs": [  ],
+                                                                           "outputs": [ {
+                                                                                                          "address": 26150,
+                                                                                               "address_identifier": "F_22A_GARFIELD",
+                                                                                          "address_only_identifier": "F_22A_GARFIELD_ADDR",
+                                                                                                      "description": "0 if light is off, 1 if light is on",
+                                                                                                             "mask": 256,
+                                                                                                        "max_value": 1,
+                                                                                                         "shift_by": 8,
+                                                                                                           "suffix": "",
+                                                                                                             "type": "integer"
+                                                                                      } ]
+                                                                  },
+                                                   "GEAR_LEFT_L": {
+                                                                          "category": "Warning, Caution and IndicatorLights",
+                                                                      "control_type": "led",
+                                                                       "description": "Gear Left Lamp (green)",
+                                                                        "identifier": "GEAR_LEFT_L",
+                                                                            "inputs": [  ],
+                                                                           "outputs": [ {
+                                                                                                          "address": 26150,
+                                                                                               "address_identifier": "F_22A_GEAR_LEFT_L",
+                                                                                          "address_only_identifier": "F_22A_GEAR_LEFT_L_ADDR",
+                                                                                                      "description": "0 if light is off, 1 if light is on",
+                                                                                                             "mask": 16,
+                                                                                                        "max_value": 1,
+                                                                                                         "shift_by": 4,
+                                                                                                           "suffix": "",
+                                                                                                             "type": "integer"
+                                                                                      } ]
+                                                                  },
+                                                   "GEAR_NOSE_L": {
+                                                                          "category": "Warning, Caution and IndicatorLights",
+                                                                      "control_type": "led",
+                                                                       "description": "Gear Nose Lamp (green)",
+                                                                        "identifier": "GEAR_NOSE_L",
+                                                                            "inputs": [  ],
+                                                                           "outputs": [ {
+                                                                                                          "address": 26150,
+                                                                                               "address_identifier": "F_22A_GEAR_NOSE_L",
+                                                                                          "address_only_identifier": "F_22A_GEAR_NOSE_L_ADDR",
+                                                                                                      "description": "0 if light is off, 1 if light is on",
+                                                                                                             "mask": 8,
+                                                                                                        "max_value": 1,
+                                                                                                         "shift_by": 3,
+                                                                                                           "suffix": "",
+                                                                                                             "type": "integer"
+                                                                                      } ]
+                                                                  },
+                                                  "GEAR_RIGHT_L": {
+                                                                          "category": "Warning, Caution and IndicatorLights",
+                                                                      "control_type": "led",
+                                                                       "description": "Gear Right Lamp (green)",
+                                                                        "identifier": "GEAR_RIGHT_L",
+                                                                            "inputs": [  ],
+                                                                           "outputs": [ {
+                                                                                                          "address": 26150,
+                                                                                               "address_identifier": "F_22A_GEAR_RIGHT_L",
+                                                                                          "address_only_identifier": "F_22A_GEAR_RIGHT_L_ADDR",
+                                                                                                      "description": "0 if light is off, 1 if light is on",
+                                                                                                             "mask": 32,
+                                                                                                        "max_value": 1,
+                                                                                                         "shift_by": 5,
+                                                                                                           "suffix": "",
+                                                                                                             "type": "integer"
+                                                                                      } ]
+                                                                  },
+                                                  "PANEL_LIGHTS": {
+                                                                          "category": "Warning, Caution and IndicatorLights",
+                                                                      "control_type": "led",
+                                                                       "description": "Panel Lights (green)",
+                                                                        "identifier": "PANEL_LIGHTS",
+                                                                            "inputs": [  ],
+                                                                           "outputs": [ {
+                                                                                                          "address": 26150,
+                                                                                               "address_identifier": "F_22A_PANEL_LIGHTS",
+                                                                                          "address_only_identifier": "F_22A_PANEL_LIGHTS_ADDR",
+                                                                                                      "description": "0 if light is off, 1 if light is on",
+                                                                                                             "mask": 2,
+                                                                                                        "max_value": 1,
+                                                                                                         "shift_by": 1,
+                                                                                                           "suffix": "",
+                                                                                                             "type": "integer"
+                                                                                      } ]
+                                                                  },
+                                                "PANEL_LIGHTS_F": {
+                                                                          "category": "Warning, Caution and IndicatorLights",
+                                                                      "control_type": "analog_gauge",
+                                                                       "description": "Panel Lights as Float (green)",
+                                                                        "identifier": "PANEL_LIGHTS_F",
+                                                                            "inputs": [  ],
+                                                                           "outputs": [ {
+                                                                                                          "address": 26160,
+                                                                                               "address_identifier": "F_22A_PANEL_LIGHTS_F",
+                                                                                          "address_only_identifier": "F_22A_PANEL_LIGHTS_F_ADDR",
+                                                                                                      "description": "gauge position",
+                                                                                                             "mask": 65535,
+                                                                                                        "max_value": 65535,
+                                                                                                         "shift_by": 0,
+                                                                                                           "suffix": "",
+                                                                                                             "type": "integer"
+                                                                                      } ]
+                                                                  },
+                                                         "PHOTO": {
+                                                                          "category": "Warning, Caution and IndicatorLights",
+                                                                      "control_type": "led",
+                                                                       "description": "Photo",
+                                                                        "identifier": "PHOTO",
+                                                                            "inputs": [  ],
+                                                                           "outputs": [ {
+                                                                                                          "address": 26150,
+                                                                                               "address_identifier": "F_22A_PHOTO",
+                                                                                          "address_only_identifier": "F_22A_PHOTO_ADDR",
+                                                                                                      "description": "0 if light is off, 1 if light is on",
+                                                                                                             "mask": 512,
+                                                                                                        "max_value": 1,
+                                                                                                         "shift_by": 9,
+                                                                                                           "suffix": "",
+                                                                                                             "type": "integer"
+                                                                                      } ]
+                                                                  }
                                             },
                            "Weapon System": {
                                                 "EMERG_JETT": {
