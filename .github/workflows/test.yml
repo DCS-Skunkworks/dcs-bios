@@ -1,6 +1,6 @@
 name: Run unit tests
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   test:
@@ -15,6 +15,10 @@ jobs:
         uses: leafo/gh-actions-lua@v10
         with:
           luaVersion: "5.1.5"
+
+      - name: compile
+        run: |
+          lua ./Scripts/DCS-BIOS/test/compile/LocalCompile.lua
 
       - name: test
         run: |

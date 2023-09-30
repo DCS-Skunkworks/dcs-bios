@@ -17,6 +17,7 @@ end
 --- Adds a new control
 --- @param control Control
 function Category:addControl(control)
+	assert(self[control.identifier] == nil, "Control " .. control.identifier .. " already exists in category")
 	self[control.identifier] = control
 end
 

@@ -19,6 +19,7 @@ local defineString = BIOS.util.defineString
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 local define3PosTumb = BIOS.util.define3PosTumb
 
+local TextDisplay = require("TextDisplay")
 local getDisplayLines = TextDisplay.GetDisplayLines
 
 -- remove Arg# PLT 956; CPG 957
@@ -403,8 +404,8 @@ definePotentiometer("CPG_KU_BRT", 30, 3050, 621, {0, 1}, "CPG Keyboard Unit", "G
 defineString("CPG_KU_DISPLAY", function() return txt_CPG_KU end, 22, "CPG Keyboard Unit", "Gunner Keyboard Unit Display")
 
 -- Enhanced Up-Front Display
-local JSON = loadfile([[Scripts\JSON.lua]])()
-local eufd_indicator_data_file = io.open(lfs.writedir()..[[Scripts\DCS-BIOS\src\json\AH-64D_EUFD.json]], "r")
+local JSON = BIOS.json
+local eufd_indicator_data_file = io.open(lfs.writedir()..[[Scripts/DCS-BIOS/src/json/AH-64D_EUFD.json]], "r")
 local eufd_indicator_data
 if(eufd_indicator_data_file ~= nil) then
 	eufd_indicator_data = JSON:decode(eufd_indicator_data_file:read("*a"))

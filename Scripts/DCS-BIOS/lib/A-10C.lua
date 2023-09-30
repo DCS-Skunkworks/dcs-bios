@@ -29,6 +29,8 @@ local define8BitFloat = BIOS.util.define8BitFloat
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 local defineRadioWheel = BIOS.util.defineRadioWheel
 
+local TextDisplay = require("TextDisplay")
+local DigitalDisplay = require("DigitalDisplay")
 local getDisplayLines = TextDisplay.GetDisplayLines
 local getDisplayItems = DigitalDisplay.GetDisplayItems
 
@@ -1095,8 +1097,8 @@ defineToggleSwitch("ANT_EGIHQTOD", 54, 3017, 708, "Antenna Panel", "EGI HQ TOD S
 
 definePotentiometer("RWR_BRT", 29, 3001, 16, {0.15, 0.85}, "RWR", "Display Brightness")
 
-local JSON = loadfile([[Scripts\JSON.lua]])()
-local cdu_indicator_data_file = io.open(lfs.writedir()..[[Scripts\DCS-BIOS\src\json\A-10C_CDU.json]], "r")
+local JSON = BIOS.json
+local cdu_indicator_data_file = io.open(lfs.writedir()..[[Scripts/DCS-BIOS/src/json/A-10C_CDU.json]], "r")
 local cdu_indicator_data
 
 if(cdu_indicator_data_file ~= nil) then
@@ -1193,7 +1195,7 @@ defineString("CDU_LINE8", function() return cdu_lines[9] end, CDU_LINE_LEN, "CDU
 defineString("CDU_LINE9", function() return cdu_lines[10] end, CDU_LINE_LEN, "CDU Display", "CDU Line 10")
 
 local arcItems = {}
-local arc_210_data_file = io.open(lfs.writedir()..[[Scripts\DCS-BIOS\src\json\A-10C_ARC-210.json]], "r")
+local arc_210_data_file = io.open(lfs.writedir()..[[Scripts/DCS-BIOS/src/json/A-10C_ARC-210.json]], "r")
 
 local arc_210_data
 if(arc_210_data_file ~= nil) then

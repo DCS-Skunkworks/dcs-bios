@@ -22,17 +22,7 @@ local Control = {}
 --- @param physicalVariant PhysicalVariant? TODO
 --- @param apiVariant ApiVariant? TODO
 --- @return Control
-function Control:new(
-	category,
-	controlType,
-	identifier,
-	description,
-	inputs,
-	outputs,
-	momentaryPositions,
-	physicalVariant,
-	apiVariant
-)
+function Control:new(category, controlType, identifier, description, inputs, outputs, momentaryPositions, physicalVariant, apiVariant)
 	--- @type Control
 	local o = {
 		category = category,

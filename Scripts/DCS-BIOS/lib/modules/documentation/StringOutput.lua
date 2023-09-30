@@ -3,7 +3,7 @@ module("StringOutput", package.seeall)
 local OutputType = require("OutputType")
 
 --- @class StringOutput: Output
---- @field maxLength integer
+--- @field max_length integer
 local StringOutput = {}
 
 --- TODO
@@ -14,7 +14,7 @@ local StringOutput = {}
 function StringOutput:new(allocation, suffix, description)
 	--- @type StringOutput
 	local o = {
-		maxLength = allocation.maxLength,
+		max_length = allocation.maxLength,
 		address = allocation.address,
 		suffix = suffix,
 		description = description,
