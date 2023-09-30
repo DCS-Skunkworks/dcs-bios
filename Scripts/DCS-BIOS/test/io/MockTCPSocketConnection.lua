@@ -17,8 +17,6 @@ end
 --- @func Accepts any pending incoming connection
 --- @return TCPSocketConnection? connection a new socket connection for the incoming connection
 --- @return string? error the error message, if any
-function MockTCPSocketConnection:accept()
-	return MockTCPSocketConnection:new()
-end
+function MockTCPSocketConnection:accept() return MockTCPSocketConnection:new() end
 
 return MockTCPSocketConnection

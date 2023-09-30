@@ -22,17 +22,13 @@ function MockSocket.try(ret1, ...) end
 
 --- @func Gets the current udp socket connection
 --- @return UDPSocketConnection socket_connection the udp socket connection
-function MockSocket.udp()
-	return MockUDPSocketConnection:new()
-end
+function MockSocket.udp() return MockUDPSocketConnection:new() end
 
 --- @func Creates and returns a connection acceptor bound to the specified address
 --- @param address string the address to bind to
 --- @param port integer the port on the address to bind to
 --- @param backlog integer? the number of allowed connectinos to be queued
 --- @return TCPSocketConnection connection the server object which can accept connections
-function MockSocket.bind(address, port, backlog)
-	return MockTCPSocketConnection:new()
-end
+function MockSocket.bind(address, port, backlog) return MockTCPSocketConnection:new() end
 
 return MockSocket
