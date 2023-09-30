@@ -11,6 +11,10 @@ function TestAircraft:testA4EC()
 	self:validateModule(require("A-4E-C"), "A-4E-C", 0x8400)
 end
 
+function TestAircraft:testAH6J()
+	self:validateModule(require("AH-6J"), "AH-6J", 0x6200)
+end
+
 function TestAircraft:testAlphajet()
 	self:validateModule(require("Alphajet"), "Alphajet", 0x6400)
 end
@@ -21,6 +25,10 @@ end
 
 function TestAircraft:testCommonData()
 	self:validateModule(require("CommonData"), "CommonData", 0x0400)
+end
+
+function TestAircraft:Edge540()
+	self:validateModule(require("Edge540"), "Edge540", 0x5600)
 end
 
 function TestAircraft:testMetadataStart()
@@ -55,8 +63,16 @@ function TestAircraft:testMiG_15bis()
 	self:validateModule(require("MiG-15bis"), "MiG-15bis", 0x2400)
 end
 
+function TestAircraft:testP47D()
+	self:validateModule(require("P-47D"), "P-47D", 0x5200)
+end
+
 function TestAircraft:testMiG_19P()
 	self:validateModule(require("MiG-19P"), "MiG-19P", 0x1600)
+end
+
+function TestAircraft:testNS430()
+	self:validateModule(require("NS430"), "NS430", 0x0600)
 end
 
 function TestAircraft:testP51D()
@@ -77,6 +93,10 @@ end
 
 function TestAircraft:testVNAORoom()
 	self:validateModule(require("VNAO_Room"), "VNAO_Room", 0x0500)
+end
+
+function TestAircraft:testVNAOT45()
+	self:validateModule(require("VNAO_T-45"), "VNAO_T-45", 0x9000)
 end
 
 function TestAircraft:testYak52()
