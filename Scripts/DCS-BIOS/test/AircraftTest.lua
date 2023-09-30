@@ -23,6 +23,10 @@ function TestAircraft:testCommonData()
 	self:validateModule(require("CommonData"), "CommonData", 0x0400)
 end
 
+function TestAircraft:Edge540()
+	self:validateModule(require("Edge540"), "Edge540", 0x5600)
+end
+
 function TestAircraft:testMetadataStart()
 	self:validateModule(require("MetadataStart"), "MetadataStart", 0x0000)
 end
