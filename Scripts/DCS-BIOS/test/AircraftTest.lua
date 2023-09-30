@@ -11,6 +11,10 @@ function TestAircraft:testA4EC()
 	self:validateModule(require("A-4E-C"), "A-4E-C", 0x8400)
 end
 
+function TestAircraft:testAH6J()
+	self:validateModule(require("AH-6J"), "AH-6J", 0x6200)
+end
+
 function TestAircraft:testAlphajet()
 	self:validateModule(require("Alphajet"), "Alphajet", 0x6400)
 end

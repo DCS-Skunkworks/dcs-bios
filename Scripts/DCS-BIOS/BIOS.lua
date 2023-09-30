@@ -58,7 +58,9 @@ BIOS.protocol.writeNewModule(A_29B)
 -- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/A-4E-C.lua]]) -- ID = 6, ProperName = A-4E Skyhawk
 local A_4E_C = require "A-4E-C"
 BIOS.protocol.writeNewModule(A_4E_C)
-dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/AH-6J.lua]]) -- ID = 7, ProperName = AH-6J Littlebird
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/AH-6J.lua]]) -- ID = 7, ProperName = AH-6J Littlebird
+local AH_6J = require "AH-6J"
+BIOS.protocol.writeNewModule(AH_6J)
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/AH-64D.lua]]) -- ID = 46, ProperName = AH-64D Apache
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/AJS37.lua]]) -- ID = 8, ProperName = AJS-37 Viggen
 -- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/Alphajet.lua]]) -- ID = 9, ProperName = Alphajet
