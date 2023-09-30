@@ -55,6 +55,10 @@ function TestAircraft:testI16()
 	self:validateModule(require("I-16"), "I-16", 0x4000)
 end
 
+function TestAircraft:testL39()
+	self:validateModule(require("L-39"), "L-39", 0x3200)
+end
+
 function TestAircraft:testMetadataStart()
 	self:validateModule(require("MetadataStart"), "MetadataStart", 0x0000)
 end

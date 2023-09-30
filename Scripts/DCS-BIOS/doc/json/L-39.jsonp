@@ -11249,6 +11249,63 @@ docdata["L-39"] =
                                                                                                                                   "type": "integer"
                                                                                                      } ]
                                                                                  },
+                                                           "BACK_FLAPS_DN_LAMP": {
+                                                                                         "category": "Warning, Caution and IndicatorLights",
+                                                                                     "control_type": "led",
+                                                                                      "description": "FRONT Flaps 44° Lamp (green)",
+                                                                                       "identifier": "BACK_FLAPS_DN_LAMP",
+                                                                                           "inputs": [  ],
+                                                                                          "outputs": [ {
+                                                                                                                               "address": 13102,
+                                                                                                                    "address_identifier": "L_39_BACK_FLAPS_DN_LAMP_A",
+                                                                                                               "address_mask_identifier": "L_39_BACK_FLAPS_DN_LAMP_AM",
+                                                                                                         "address_mask_shift_identifier": "L_39_BACK_FLAPS_DN_LAMP",
+                                                                                                                           "description": "0 if light is off, 1 if light is on",
+                                                                                                                                  "mask": 2,
+                                                                                                                             "max_value": 1,
+                                                                                                                              "shift_by": 1,
+                                                                                                                                "suffix": "",
+                                                                                                                                  "type": "integer"
+                                                                                                     } ]
+                                                                                 },
+                                                           "BACK_FLAPS_TO_LAMP": {
+                                                                                         "category": "Warning, Caution and IndicatorLights",
+                                                                                     "control_type": "led",
+                                                                                      "description": "FRONT Flaps 25° Lamp (green)",
+                                                                                       "identifier": "BACK_FLAPS_TO_LAMP",
+                                                                                           "inputs": [  ],
+                                                                                          "outputs": [ {
+                                                                                                                               "address": 13102,
+                                                                                                                    "address_identifier": "L_39_BACK_FLAPS_TO_LAMP_A",
+                                                                                                               "address_mask_identifier": "L_39_BACK_FLAPS_TO_LAMP_AM",
+                                                                                                         "address_mask_shift_identifier": "L_39_BACK_FLAPS_TO_LAMP",
+                                                                                                                           "description": "0 if light is off, 1 if light is on",
+                                                                                                                                  "mask": 1,
+                                                                                                                             "max_value": 1,
+                                                                                                                              "shift_by": 0,
+                                                                                                                                "suffix": "",
+                                                                                                                                  "type": "integer"
+                                                                                                     } ]
+                                                                                 },
+                                                           "BACK_FLAPS_UP_LAMP": {
+                                                                                         "category": "Warning, Caution and IndicatorLights",
+                                                                                     "control_type": "led",
+                                                                                      "description": "FRONT Flaps 0° Lamp (green)",
+                                                                                       "identifier": "BACK_FLAPS_UP_LAMP",
+                                                                                           "inputs": [  ],
+                                                                                          "outputs": [ {
+                                                                                                                               "address": 13100,
+                                                                                                                    "address_identifier": "L_39_BACK_FLAPS_UP_LAMP_A",
+                                                                                                               "address_mask_identifier": "L_39_BACK_FLAPS_UP_LAMP_AM",
+                                                                                                         "address_mask_shift_identifier": "L_39_BACK_FLAPS_UP_LAMP",
+                                                                                                                           "description": "0 if light is off, 1 if light is on",
+                                                                                                                                  "mask": 32768,
+                                                                                                                             "max_value": 1,
+                                                                                                                              "shift_by": 15,
+                                                                                                                                "suffix": "",
+                                                                                                                                  "type": "integer"
+                                                                                                     } ]
+                                                                                 },
                                                            "BACK_FUEL_150_LAMP": {
                                                                                          "category": "Warning, Caution and IndicatorLights",
                                                                                      "control_type": "led",
@@ -12054,14 +12111,14 @@ docdata["L-39"] =
                                                                                        "identifier": "FRONT_FLAPS_DN_LAMP",
                                                                                            "inputs": [  ],
                                                                                           "outputs": [ {
-                                                                                                                               "address": 13102,
+                                                                                                                               "address": 13100,
                                                                                                                     "address_identifier": "L_39_FRONT_FLAPS_DN_LAMP_A",
                                                                                                                "address_mask_identifier": "L_39_FRONT_FLAPS_DN_LAMP_AM",
                                                                                                          "address_mask_shift_identifier": "L_39_FRONT_FLAPS_DN_LAMP",
                                                                                                                            "description": "0 if light is off, 1 if light is on",
-                                                                                                                                  "mask": 2,
+                                                                                                                                  "mask": 16384,
                                                                                                                              "max_value": 1,
-                                                                                                                              "shift_by": 1,
+                                                                                                                              "shift_by": 14,
                                                                                                                                 "suffix": "",
                                                                                                                                   "type": "integer"
                                                                                                      } ]
@@ -12073,14 +12130,14 @@ docdata["L-39"] =
                                                                                        "identifier": "FRONT_FLAPS_TO_LAMP",
                                                                                            "inputs": [  ],
                                                                                           "outputs": [ {
-                                                                                                                               "address": 13102,
+                                                                                                                               "address": 13100,
                                                                                                                     "address_identifier": "L_39_FRONT_FLAPS_TO_LAMP_A",
                                                                                                                "address_mask_identifier": "L_39_FRONT_FLAPS_TO_LAMP_AM",
                                                                                                          "address_mask_shift_identifier": "L_39_FRONT_FLAPS_TO_LAMP",
                                                                                                                            "description": "0 if light is off, 1 if light is on",
-                                                                                                                                  "mask": 1,
+                                                                                                                                  "mask": 8192,
                                                                                                                              "max_value": 1,
-                                                                                                                              "shift_by": 0,
+                                                                                                                              "shift_by": 13,
                                                                                                                                 "suffix": "",
                                                                                                                                   "type": "integer"
                                                                                                      } ]
@@ -12097,9 +12154,9 @@ docdata["L-39"] =
                                                                                                                "address_mask_identifier": "L_39_FRONT_FLAPS_UP_LAMP_AM",
                                                                                                          "address_mask_shift_identifier": "L_39_FRONT_FLAPS_UP_LAMP",
                                                                                                                            "description": "0 if light is off, 1 if light is on",
-                                                                                                                                  "mask": 32768,
+                                                                                                                                  "mask": 4096,
                                                                                                                              "max_value": 1,
-                                                                                                                              "shift_by": 15,
+                                                                                                                              "shift_by": 12,
                                                                                                                                 "suffix": "",
                                                                                                                                   "type": "integer"
                                                                                                      } ]
