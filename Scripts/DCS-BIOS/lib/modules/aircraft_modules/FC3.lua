@@ -95,9 +95,7 @@ local function BarGLoad(gload)
 	elseif barg > 16 then
 		barg = 16
 	end
-	if barg == nil then
-		return
-	end
+
 	return barg
 end
 
@@ -117,9 +115,7 @@ local function BarVVI(vvi, plane)
 	elseif bar > 0 then
 		bar = math.ceil(bar)
 	end
-	if bar == nil then
-		return
-	end
+
 	return bar + 8
 end
 
