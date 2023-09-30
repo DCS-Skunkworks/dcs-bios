@@ -44,8 +44,6 @@ BIOS.protocol.writeNewModule(MetadataStart)
 -- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/CommonData.lua]])
 local CommonData = require "CommonData"
 BIOS.protocol.writeNewModule(CommonData)
-dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/DigitalDisplay.lua]])
-dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/TextDisplay.lua]])
 ----------------------------------------------------------------------------Modules Start------------------------------------
 -- Following text: Example (case sensitive!): -- ID = x, ProperName = <pretty name>
 -- is used by DCSFlightpanels GUI to pick up DCS-BIOS modules
