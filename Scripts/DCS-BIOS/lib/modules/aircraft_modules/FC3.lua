@@ -120,23 +120,11 @@ local function BarVVI(vvi, plane)
 end
 
 local function allowMach(plane)
-	if plane == "A-10A" then
-		return false
-	elseif plane == "Su-25T" then
-		return false
-	else
-		return true
-	end
+	return plane ~= "A-10A" and plane ~= "Su-25T"
 end
 
 local function allowTAS(plane)
-	if plane == "Su-25" then
-		return true
-	elseif plane == "Su-25T" then
-		return true
-	else
-		return false
-	end
+	return plane == "Su-25" or plane == "Su-25T"
 end
 
 FC3:addExportHook(function()
@@ -339,11 +327,7 @@ FC3:addExportHook(function()
 		right_hydraulic = string.format(engineInfo.HydraulicPressure.right)
 	end
 
-	if mech ~= nil then
-		gear_status = mech.gear.value
-	else
-		gear_status = 0
-	end
+	gear_status = mech and mech.gear.value or 0
 end)
 
 FC3:addExportHook(function()
