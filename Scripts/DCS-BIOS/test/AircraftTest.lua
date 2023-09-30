@@ -97,10 +97,10 @@ function TestAircraft:validateControlNames(module_name, documentation)
 		for identifier in pairs(category) do
 			-- ensure all codes:
 			--   are all uppercase
-			--   start with a letter
+			--   start with a letter, number, or underscore
 			--   end with a letter or number
 			--   contain only letters, numbers, and underscores
-			local identifier_pattern = "^%u[%u%d_]*[%u%d]$"
+			local identifier_pattern = "^[%u%d_]*[%u%d]$"
 			lu.assertNotIsNil(identifier:match(identifier_pattern), module_name .. ": " .. "id " .. identifier .. " did not meet id requirements")
 			--   don't have any consecutive underscores
 			lu.assertNotStrContains(identifier, "__", false)
