@@ -87,6 +87,10 @@ function TestAircraft:testSpitfireLFMkIX()
 	self:validateModule(require("SpitfireLFMkIX"), "SpitfireLFMkIX", 0x5400)
 end
 
+function TestAircraft:testSuperCarrier()
+	self:validateModule(require("SuperCarrier"), "SuperCarrier", 0x0700)
+end
+
 function TestAircraft:testVNAORoom()
 	self:validateModule(require("VNAO_Room"), "VNAO_Room", 0x0500)
 end
