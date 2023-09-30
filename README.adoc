@@ -1,7 +1,7 @@
 ifdef::env-github[{set:link-ext:adoc}]
 ifndef::env-github[{set:link-ext:html}]
 
-== Flightpanel DCS-BIOS
+== DCSSKUNKWORKS DCS-BIOS
 
 DCS-BIOS is a `Export.lua` file for use with http://www.digitalcombatsimulator.com/[DCS: World].
 It provides a stable, documented interface for external hardware and software to interact with the clickable cockpit of a DCS: World aircraft.
@@ -20,9 +20,9 @@ Works also for Pit Builders and Arduino users!
 - Arduino Users should download the `Source code(zip)` on the Release page to get all needed files
 - Flightpanel users download the `DCS-BIOS_0.7.XXX.zip`
 
-Problems/Infos see our Wiki: https://github.com/DCSFlightpanels/DCSFlightpanels/wiki[DCS-Flightpanel/DCSBIOS Wiki]
+Problems/Infos see our Wiki: https://github.com/DCSSKUNKWORKS/dcs-bios/wiki[DCSSKUNKWORKS DCS-BIOS Wiki]
 
-https://github.com/DCSFlightpanels/dcs-bios/blob/master/Scripts/DCS-BIOS/doc/DCS-BIOS-FLIGHTPANELS_Install%20Guide.pdf[Quick Setup Guide]
+https://github.com/DCSSKUNKWORKS/dcs-bios/blob/master/Scripts/DCS-BIOS/doc/DCS-BIOS-FLIGHTPANELS_Install%20Guide.pdf[Quick Setup Guide]
 
 == For Panel Builders
 
@@ -96,6 +96,16 @@ Currently, DCS-BIOS supports the following aircraft modules:
 
 If you want to add support for another module, please get in touch.(see below)
 
+== For Hardware Developers
+
+If you are working a lot with hardware, it may come in handy to log and replay dcs-bios data. There are two scripts in `\Programs\tools` that allow you to do so.
+
+`python connect-logger.py` will log all dcs-bios data to `dcsbios_data.json`. Ensure that you start the logger before loading a mission, to capture the mission-start message properly.
+
+`python replay-log.py` will ask for a serial port like `connect-serial-port.cmd` and replay the data to that com-port. When it reaches the end of the file, it will loop forever until you close it. The first message will not be repeated as this is usualy the mission-start message and should only be sent once.
+
+`dcsbios_data.json` This file contains the logged data in hex format. If you are familiar with the format of dcs-bios messages, you may modify the file by hand if needed. The included sample file is a recording of the A-10C with a blinking Master Caution light.
+
 == Mod Support
 
 If you want to add a FC3 based Mod (eg. VSN_Mod Planes) for commondata suport, you must follow
@@ -121,7 +131,7 @@ https://www.youtube.com/channel/UCwECFPfC3QJiNYS5fskF2vg/[DCS-BIOS Channel on Yo
 
 == Contribute
 
-If you have a question or found a bug, please https://github.com/DCSFlightpanels/dcs-bios/issues[open an issue on the GitHub issue tracker].
+If you have a question or found a bug, please https://github.com/DCSSKUNKWORKS/dcs-bios/issues[open an issue on the GitHub issue tracker].
 
 If you want to contribute code or documentation, please send a pull request on GitHub.
 
@@ -135,10 +145,10 @@ The copy of `socat` that comes with DCS-BIOS is licensed under the GPLv2 (see `/
 
 == Support
 
-* Here you find our https://discord.gg/5svGwKX[DCSFlightpanels Discord Server]
-* Here you find the https://github.com/DCSFlightpanels/DCSFlightpanels[DCSFlightpanels Software]
-* Here you find the https://github.com/DCSFlightpanels/DCS-Flightpanels-Profiles[DCSFlightpanels-Profiles]
-* Here you find the https://github.com/DCSFlightpanels/dcs-bios-arduino-library[DCSFlightpanels arduino-library]
-* Here you find the https://github.com/DCSFlightpanels/dcs-bios-arduino_examples[DCSFlightpanels arduino-Examples]
+* Here you find our https://discord.gg/5svGwKX[DCSSKUNKWORKS Discord Server]
+* Here you find the https://github.com/DCSSKUNKWORKS/DCSFlightpanels[DCSFlightpanels Software]
+* Here you find the https://github.com/DCSSKUNKWORKS/DCS-Flightpanels-Profiles[DCSFlightpanels-Profiles]
+* Here you find the https://github.com/DCSSKUNKWORKS/dcs-bios-arduino-library[DCSFlightpanels arduino-library]
+* Here you find the https://github.com/DCSSKUNKWORKS/dcs-bios-arduino_examples[DCSFlightpanels arduino-Examples
 
 * If you want to support us: https://www.paypal.me/FPDCSBIOS[Here you can Donate.]

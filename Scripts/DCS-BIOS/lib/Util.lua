@@ -164,7 +164,7 @@ function BIOS.util.StringAllocation:setValue(value)
 	local i = 1
 
         if value == nil then
-		BIOS.log(string.format("Util.lua: item %s is sending a nil value", msg or "nil"))
+		BIOS.log(string.format("Util.lua: item is sending a nil value"))
 		return
         end
 

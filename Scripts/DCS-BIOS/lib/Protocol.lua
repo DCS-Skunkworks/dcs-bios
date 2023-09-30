@@ -2,6 +2,7 @@ BIOS.protocol = {}
 BIOS.protocol.maxBytesPerSecond = BIOS.protocol.maxBytesPerSecond or 11000
 BIOS.protocol.maxBytesInTransit = BIOS.protocol.maxBytesPerSecond or 4000
 
+--- @type Module[]
 local exportModules = {}
 local aircraftNameToModuleNames = {}
 local aircraftNameToModules = {}
@@ -59,14 +60,14 @@ end
 function BIOS.protocol.endModule()
 	if BIOSdevMode == 1 then
 	local function saveDoc()
-		local JSON = loadfile([[Scripts\JSON.lua]])()
-		local file, err = io.open(lfs.writedir()..[[Scripts\DCS-BIOS\doc\json\]]..moduleBeingDefined.name..".json", "w")
+		local JSON = BIOS.json
+		local file, err = io.open(lfs.writedir()..[[Scripts/DCS-BIOS/doc/json/]]..moduleBeingDefined.name..".json", "w")
 		local json_string = JSON:encode_pretty(moduleBeingDefined.documentation)
 		if file then
 			file:write(json_string)
 			file:close()
 		end
-		local file, err = io.open(lfs.writedir()..[[Scripts\DCS-BIOS\doc\json\]]..moduleBeingDefined.name..".jsonp", "w")
+		local file, err = io.open(lfs.writedir()..[[Scripts/DCS-BIOS/doc/json/]]..moduleBeingDefined.name..".jsonp", "w")
 		if file then
 			file:write('docdata["'..moduleBeingDefined.name..'"] =\n')
 			file:write(json_string)
@@ -77,7 +78,7 @@ function BIOS.protocol.endModule()
 	local function saveAddresses()
 		local moduleName = moduleBeingDefined.name
 
-		local path = lfs.writedir()..[[Scripts\DCS-BIOS\doc\Addresses.h]]
+		local path = lfs.writedir()..[[Scripts/DCS-BIOS/doc/Addresses.h]]
 		local existingDefines = {}
 		local lineOrder = {} -- To maintain the order of lines
 
@@ -145,6 +146,12 @@ function BIOS.protocol.endModule()
 	moduleBeingDefined = nil
 	end
 end
+function BIOS.protocol.writeNewModule(mod)
+	moduleBeingDefined = mod
+	exportModules[mod.name] = mod
+	BIOS.protocol.setExportModuleAircrafts(mod.aircraftList)
+	BIOS.protocol.endModule()
+end
 
 local metadataStartModule = nil
 local metadataEndModule = nil
@@ -181,6 +188,11 @@ local lastFrameTime = LoGetModelTime()
 local updateCounter = 0
 local updateSkipCounter = 0
 function BIOS.protocol.step()
+
+	if( metadataStartModule == nil or  metadataEndModule == nil) then
+		error("Either MetadataStart or MetadataEnd was nil.", 1) -- this should never happen since init() is being called but it removes intellisense warnings
+	end
+
 	-- rate limiting
 	local curTime = LoGetModelTime()
 	bytesInTransit = bytesInTransit - ((curTime - lastFrameTime) * BIOS.protocol.maxBytesPerSecond)
@@ -193,8 +205,10 @@ function BIOS.protocol.step()
 	if selfData then
 		acftName = selfData["Name"]
 	end
-	metadataStartModule.data.acftName = acftName
-	acftModules = aircraftNameToModules[acftName]
+
+	metadataStartModule:setAircraftName(acftName)
+
+  acftModules = aircraftNameToModules[acftName]
 	if lastAcftName ~= acftName then
 		if acftModules then
 			for _, acftModule in pairs(acftModules) do
@@ -204,11 +218,11 @@ function BIOS.protocol.step()
 		lastAcftName = acftName
 	end
 
-	-- export data
+	-- export data 
 	if curTime >= nextLowFreqStepTime then
 		-- runs 30 times per second
 		updateCounter = (updateCounter + 1) % 256
-		metadataEndModule.data.updateCounter = updateCounter
+		metadataEndModule:setUpdateCounter(updateCounter)
 
 		-- if the last frame update has not been completely transmitted, skip a frame
 		if bytesInTransit > 0 then
@@ -216,7 +230,7 @@ function BIOS.protocol.step()
 			updateSkipCounter = (updateSkipCounter + 1) % 256
 			return
 		end
-		metadataEndModule.data.updateSkipCounter = updateSkipCounter
+		metadataEndModule:setUpdateSkipCounter(updateSkipCounter)
 		nextLowFreqStepTime = curTime + .033
 
 		-- send frame sync sequence
@@ -230,6 +244,7 @@ function BIOS.protocol.step()
 		bytesInTransit = bytesInTransit + data:len()
 		BIOS.protocol_io.queue(data)
 
+		-- Export aircraft data
 		if acftModules then
 			for _, acftModule in pairs(acftModules) do
 				local dev0 = GetDevice(0)
@@ -260,7 +275,7 @@ end
 
 function BIOS.protocol.shutdown()
 	-- Nullify the aircraft name and publish one last frame to identify end of mission.
-	metadataStartModule.data.acftName = ""
+	metadataStartModule:setAircraftName("")
 
 	-- send frame sync sequence
 	BIOS.protocol_io.queue(string.char(0x55, 0x55, 0x55, 0x55))
