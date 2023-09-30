@@ -1,3 +1,6 @@
+module("DigitalDisplay", package.seeall)
+
+--- @class DigitalDisplay
 DigitalDisplay = {}
 
 ---Replaces all instances of the keys of the provided map with the values in the provided map
@@ -79,3 +82,5 @@ function DigitalDisplay.GetDisplayItems(dcsDisplay, displayIndicatorData, getDis
 
     return displayLines
 end
+
+return DigitalDisplay
