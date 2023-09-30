@@ -25,8 +25,9 @@ end
 ---@param displayIndicatorData table The data from the json file containing information about the display
 ---@param getDisplayPage function Gets the current display page
 ---@param replaceSymbolMap table Map of symbols to replace from -> to
+---@param parentMap table? map of pages to their parent pages
 ---@return table displayLines The lines of the display
-function TextDisplay.GetDisplayLines(dcsDisplay, width, height, displayIndicatorData, getDisplayPage, replaceSymbolMap)
+function TextDisplay.GetDisplayLines(dcsDisplay, width, height, displayIndicatorData, getDisplayPage, replaceSymbolMap, parentMap)
     local emptyLine = string.rep(" ", width)
 
     local displayLines = {}
@@ -38,6 +39,8 @@ function TextDisplay.GetDisplayLines(dcsDisplay, width, height, displayIndicator
     end
 
     local displayPage = getDisplayPage()
+    parentMap = parentMap or {}
+    local parentPage = parentMap[displayPage]
 
     for k, v in pairs(dcsDisplay) do
         local candidates = displayIndicatorData[k]
@@ -50,11 +53,18 @@ function TextDisplay.GetDisplayLines(dcsDisplay, width, height, displayIndicator
                 render_instructions = candidates[1]
             else
                 for _, ri in pairs(candidates) do
+                    local parent_instructions = nil
                     for _, page in pairs(ri.pages) do
                         if displayPage == page then
                             render_instructions = ri
                             break
+                        elseif parentPage == page then
+                            parent_instructions = ri
                         end
+                    end
+                    -- if we haven't found anything for this page, let's try the parent page
+                    if render_instructions == nil then
+                        render_instructions = parent_instructions
                     end
                 end
             end
