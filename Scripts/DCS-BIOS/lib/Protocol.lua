@@ -130,7 +130,7 @@ function BIOS.protocol.saveAddresses()
 		table.sort(sortedIdentifiers)
 
 		-- Write the header file
-		local address_header_file, err = io.open(lfs.writedir()..[[Scripts\DCS-BIOS\doc\Addresses.h]], "w")
+		local address_header_file, err = io.open(lfs.writedir()..[[Scripts/DCS-BIOS/doc/Addresses.h]], "w")
 		if err then
 			print("Error opening file:", err) -- Print error if unable to open file
 			return
