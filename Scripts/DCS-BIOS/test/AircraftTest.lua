@@ -63,6 +63,10 @@ function TestAircraft:testMetadataEnd()
 	self:validateModule(require("MetadataEnd"), "MetadataEnd", 0xfffe)
 end
 
+function TestAircraft:testMi_24P()
+	self:validateModule(require("Mi-24P"), "Mi-24P", 0x6800)
+end
+
 function TestAircraft:testMiG_15bis()
 	self:validateModule(require("MiG-15bis"), "MiG-15bis", 0x2400)
 end

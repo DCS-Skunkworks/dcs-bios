@@ -103,7 +103,9 @@ dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/L-39.lua]]) -- ID = 26, ProperName
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/M-2000C.lua]]) -- ID = 27, ProperName = M-2000C
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/MB-339.lua]]) -- ID = 28, ProperName = MB-339A/PAN
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/Mi-8MT.lua]]) -- ID = 29, ProperName = Mi-8MT
-dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/Mi-24P.lua]]) -- ID = 42, ProperName = Mi-24P HIND
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/Mi-24P.lua]]) -- ID = 42, ProperName = Mi-24P HIND
+local Mi_24P = require "Mi-24P"
+BIOS.protocol.writeNewModule(Mi_24P)
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/MirageF1.lua]]) -- ID = 13, ProperName = Mirage F1
 -- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/MiG-15bis.lua]]) -- ID = 30, ProperName = MiG-15bis
 local MiG_15bis = require "MiG-15bis"
