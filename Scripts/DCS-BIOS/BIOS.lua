@@ -110,7 +110,9 @@ BIOS.protocol.writeNewModule(MiG_19P)
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/MiG-21Bis.lua]]) -- ID = 32, ProperName = MiG-21bis
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/Mosquito.lua]]) -- ID = 45, ProperName = Mosquito FB Mk. VI
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/NS430.lua]]) -- ID = 33, ProperName = NS 430 GPS
-dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/P-47D.lua]]) -- ID = 34, ProperName = P-47D Thunderbolt
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/P-47D.lua]]) -- ID = 34, ProperName = P-47D Thunderbolt
+local P_47D = require "P-47D"
+BIOS.protocol.writeNewModule(P_47D)
 -- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/P-51D.lua]]) -- ID = 35, ProperName = TF/P-51D Mustang
 local P_51D = require "P-51D"
 BIOS.protocol.writeNewModule(P_51D)
