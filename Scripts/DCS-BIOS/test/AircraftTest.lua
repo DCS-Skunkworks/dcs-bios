@@ -91,6 +91,10 @@ function TestAircraft:testVNAORoom()
 	self:validateModule(require("VNAO_Room"), "VNAO_Room", 0x0500)
 end
 
+function TestAircraft:testVNAOT45()
+	self:validateModule(require("VNAO_T-45"), "VNAO_T-45", 0x9000)
+end
+
 function TestAircraft:testYak52()
 	self:validateModule(require("Yak-52"), "Yak-52", 0x2000)
 end
