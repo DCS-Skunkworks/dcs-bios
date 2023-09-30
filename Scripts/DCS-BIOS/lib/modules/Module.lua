@@ -115,11 +115,6 @@ function Module:define8BitFloatFromGetter(identifier, func, limits, category, de
 		alloc:setValue(((func() - limits[1]) / intervalLength) * 255)
 	end)
 
-	local alloc = moduleBeingDefined.memoryMap:allocateInt({ maxValue = 255 })
-	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks + 1] = function(dev0)
-		alloc:setValue(((func() - limits[1]) / intervalLength) * 255)
-	end
-
 	local control = Control:new(category, ControlType.metadata, identifier, description, {}, {
 		IntegerOutput:new(alloc, Suffix.none, description),
 	})

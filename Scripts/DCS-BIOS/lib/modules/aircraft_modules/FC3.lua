@@ -8,17 +8,21 @@ local FC3 = Module:new("FC3", 0x6000, BIOS.FLAMING_CLIFFS_AIRCRAFT)
 local altitude = " -- "
 local altitude_ground_level = " ---- "
 local _altitude_sea_level = " ---- "
+local radar_altitude = 0
+
 local vertical_velocity = " -- "
 local indicated_airspeed = " -- "
 local true_air_speed = " -- "
 local mach_number = " -- "
+local vvi_bar = 8
+
 local angle_of_attack = " -- "
-local radar_altitude = 0
+
 local fuel_bar = 0
 local fuel_percentage = " -- "
+
 local gload = 0
 local gload_bar = 0
-local vvi_bar = 8
 
 local adi_bank = 0.0
 local adi_pitch = 0.0
@@ -31,6 +35,7 @@ local slip_ball_position
 local chaffs
 local flares
 
+local gear_status
 local left_rpm = "----"
 local right_rpm = "----"
 local left_temp = "----"
@@ -142,73 +147,18 @@ local function allowTAS(plane)
 end
 
 FC3:addExportHook(function()
-	local selfdata = LoGetSelfData()
+	--[[ Altitude ]]
 	local plane = GetPlaneName()
-
 	local alt_sea = LoGetAltitudeAboveSeaLevel() or 0
 	local alt_ground = LoGetAltitudeAboveGroundLevel() or 0
 	local alt = alt_sea or 0
-	local vvi = LoGetVerticalVelocity() or 0
-	local ias = LoGetIndicatedAirSpeed() or 0
-	local tas = LoGetTrueAirSpeed() or 0
-	local mach = LoGetMachNumber() or 0
-	local fuel_all = LoGetFuelAll() or 0
-	local aoa = LoGetAngleOfAttack() or 0
-	glide_deviation = LoGetGlideDeviation()
-	side_deviation = LoGetSideDeviation()
-	slip_ball_position = LoGetSlipBallPosition()
-
-	gload = LoGetAccelerationUnits().y or 0
-	fuel_bar = BarFuel(fuel_all, plane) or 0
-	gload_bar = BarGLoad(gload) or 0
-	vvi_bar = BarVVI(vvi, plane) or 0
-
-	local engineInfo = LoGetEngineInfo()
-	if engineInfo ~= nil then
-		left_rpm = string.format("%3.0d", engineInfo.RPM.left)
-		right_rpm = string.format("%3.0d", engineInfo.RPM.right)
-		left_temp = string.format("%4.0d", engineInfo.Temperature.left)
-		right_temp = string.format("%4.0d", engineInfo.Temperature.right)
-		left_hydraulic = string.format(engineInfo.HydraulicPressure.left)
-		right_hydraulic = string.format(engineInfo.HydraulicPressure.right)
-		left_fuel_consumption = string.format("%4.0d", (engineInfo.FuelConsumption.left * 7936.641))
-		right_fuel_consumption = string.format("%4.0d", (engineInfo.FuelConsumption.right * 7936.641))
-	end
-
-	local mech = LoGetMechInfo()
-	if mech ~= nil then
-		_GearStatus = mech.gear.value
-	else
-		_GearStatus = 0
-	end
-
-	local chfl = LoGetSnares()
-	if chfl ~= nil and type(chfl) == "table" then
-		chaffs = string.format("%3.0d", chfl.chaff)
-		flares = string.format("%3.0d", chfl.flare)
-	else
-		chaffs = "---"
-		flares = "---"
-	end
 
 	--[[ US PLANES ]]
 	--
 	if plane == "A-10A" or plane == "F-15C" or plane == "MiG-29G" then
-		ias = ias * 1.94384449 -- knots
-		tas = tas * 1.94384449 -- knots
 		alt = alt * 3.2808399 -- feets
 		alt_sea = alt_sea * 3.2808399 -- feets
 		alt_ground = alt_ground * 3.2808399 -- feets
-		vvi = vvi * 196.850394 -- feets per minute
-		fuel_all = math.floor(fuel_all * 0.022) * 100
-		aoa = aoa + 10
-
-		if vvi > 6000 then
-			vvi = 6000
-		elseif vvi < -6000 then
-			vvi = -6000
-		end
-		vvi = vvi / 1000
 
 		--[[ RADAR ALTIMITER ]]
 		--
@@ -218,24 +168,17 @@ FC3:addExportHook(function()
 				radar_altitude = 0
 			end
 		end
-		fuel_all = fuel_all / 100
-		fuel_percentage = string.format("%3.1f", math.floor(fuel_all))
 
 	--[[ RU PLANES ]]
 	--
 	elseif plane == "MiG-29A" or plane == "MiG-29S" or plane == "Su-25" or plane == "Su-25T" or plane == "Su-27" or plane == "Su-33" or plane == "J-11A" then
-		ias = math.floor(ias * 0.36) * 10
-		tas = math.floor(tas * 0.36) * 10
-		if tas < 400 then
-			tas = 400
-		end
 		alt = math.floor(alt * 0.1) * 10
 		if alt_ground > 1500 then
 			radar_altitude = 0
 		else
 			radar_altitude = 1
 		end
-		fuel_all = math.floor(fuel_all / 10) * 10
+
 		if radar_altitude == 0 then
 			alt = math.floor(alt / 10) * 10
 		end
@@ -251,10 +194,118 @@ FC3:addExportHook(function()
 	else
 		altitude = string.format("%4d", alt)
 	end
+
 	altitude_ground_level = string.format("%6d", alt_ground)
 	_altitude_sea_level = string.format("%6d", alt_sea)
+end)
 
-	-- AOA
+FC3:addExportHook(function()
+	--[[ Speed ]]
+	local plane = GetPlaneName()
+	local vvi = LoGetVerticalVelocity() or 0
+	vvi_bar = BarVVI(vvi, plane) or 0
+	local ias = LoGetIndicatedAirSpeed() or 0
+	local tas = LoGetTrueAirSpeed() or 0
+	local mach = LoGetMachNumber() or 0
+
+	--[[ US PLANES ]]
+	--
+	if plane == "A-10A" or plane == "F-15C" or plane == "MiG-29G" then
+		ias = ias * 1.94384449 -- knots
+		tas = tas * 1.94384449 -- knots
+		vvi = vvi * 196.850394 -- feets per minute
+
+		if vvi > 6000 then
+			vvi = 6000
+		elseif vvi < -6000 then
+			vvi = -6000
+		end
+		vvi = vvi / 1000
+
+	--[[ RU PLANES ]]
+	--
+	elseif plane == "MiG-29A" or plane == "MiG-29S" or plane == "Su-25" or plane == "Su-25T" or plane == "Su-27" or plane == "Su-33" or plane == "J-11A" then
+		ias = math.floor(ias * 0.36) * 10
+		tas = math.floor(tas * 0.36) * 10
+		if tas < 400 then
+			tas = 400
+		end
+	end
+
+	indicated_airspeed = string.format("%4d", ias)
+
+	-- MACH NUMBER
+	if allowMach(plane) then
+		if mach < 0.5 then
+			mach = 0.5
+		end
+		mach_number = string.format("%4.2f", mach)
+	end
+
+	-- TAS
+	if allowTAS(plane) then
+		true_air_speed = string.format("%4d", tas)
+	end
+
+	if vvi >= 100 then
+		vertical_velocity = string.format("%4d", vvi)
+	elseif vvi >= 10 then
+		vertical_velocity = string.format("%3d ", vvi)
+	elseif vvi <= -10 then
+		vertical_velocity = string.format("%3d ", vvi)
+	else
+		vertical_velocity = string.format("%4.1f", vvi)
+	end
+end)
+
+FC3:addExportHook(function()
+	--[[ Fuel ]]
+	local plane = GetPlaneName()
+	local fuel_all = LoGetFuelAll() or 0
+	local engineInfo = LoGetEngineInfo()
+
+	if engineInfo ~= nil then
+		left_fuel_consumption = string.format("%4.0d", (engineInfo.FuelConsumption.left * 7936.641))
+		right_fuel_consumption = string.format("%4.0d", (engineInfo.FuelConsumption.right * 7936.641))
+	end
+
+	--[[ US PLANES ]]
+	--
+	if plane == "A-10A" or plane == "F-15C" or plane == "MiG-29G" then
+		fuel_all = math.floor(fuel_all * 0.022) * 100
+		fuel_all = fuel_all / 100
+		fuel_percentage = string.format("%3.1f", math.floor(fuel_all))
+
+	--[[ RU PLANES ]]
+	--
+	elseif plane == "MiG-29A" or plane == "MiG-29S" or plane == "Su-25" or plane == "Su-25T" or plane == "Su-27" or plane == "Su-33" or plane == "J-11A" then
+		fuel_all = math.floor(fuel_all / 10) * 10
+	end
+
+	fuel_bar = BarFuel(fuel_all, plane) or 0
+
+	if fuel_all > 100 then
+		fuel_percentage = string.format("%4d", fuel_all)
+	else
+		fuel_percentage = string.format("%4.1f", fuel_all)
+	end
+end)
+
+FC3:addExportHook(function()
+	--[[Angle of attack]]
+	local plane = GetPlaneName()
+	local aoa = LoGetAngleOfAttack() or 0
+
+	--[[ US PLANES ]]
+	--
+	if plane == "A-10A" or plane == "F-15C" or plane == "MiG-29G" then
+		aoa = aoa + 10
+
+	--[[ RU PLANES ]]
+	--
+	elseif plane == "MiG-29A" or plane == "MiG-29S" or plane == "Su-25" or plane == "Su-25T" or plane == "Su-27" or plane == "Su-33" or plane == "J-11A" then
+	end
+
 	if plane == "A-10A" then
 		if aoa < 0 then
 			aoa = 0
@@ -274,20 +325,61 @@ FC3:addExportHook(function()
 			aoa = 40
 		end
 	end
+
 	if math.abs(aoa) >= 10 then
 		angle_of_attack = string.format(" %2d ", aoa)
 	else
 		angle_of_attack = string.format("%4.1f", aoa)
 	end
+end)
 
-	if fuel_all > 100 then
-		fuel_percentage = string.format("%4d", fuel_all)
+FC3:addExportHook(function()
+	--[[Engine & Mechanical]]
+	local engineInfo = LoGetEngineInfo()
+	local mech = LoGetMechInfo()
+
+	if engineInfo ~= nil then
+		left_rpm = string.format("%3.0d", engineInfo.RPM.left)
+		right_rpm = string.format("%3.0d", engineInfo.RPM.right)
+		left_temp = string.format("%4.0d", engineInfo.Temperature.left)
+		right_temp = string.format("%4.0d", engineInfo.Temperature.right)
+		left_hydraulic = string.format(engineInfo.HydraulicPressure.left)
+		right_hydraulic = string.format(engineInfo.HydraulicPressure.right)
+	end
+
+	if mech ~= nil then
+		gear_status = mech.gear.value
 	else
-		fuel_percentage = string.format("%4.1f", fuel_all)
+		gear_status = 0
 	end
-	if fuel_percentage == nil then
-		return
+end)
+
+FC3:addExportHook(function()
+	--[[Deviation and Slipball]]
+
+	glide_deviation = LoGetGlideDeviation()
+	side_deviation = LoGetSideDeviation()
+	slip_ball_position = LoGetSlipBallPosition()
+end)
+
+FC3:addExportHook(function()
+	--[[Countermeasures]]
+	local counter_measures = LoGetSnares()
+
+	if counter_measures ~= nil and type(counter_measures) == "table" then
+		chaffs = string.format("%3.0d", counter_measures.chaff)
+		flares = string.format("%3.0d", counter_measures.flare)
+	else
+		chaffs = "---"
+		flares = "---"
 	end
+end)
+
+FC3:addExportHook(function()
+	--[[G Load]]
+	local plane = GetPlaneName()
+	gload = LoGetAccelerationUnits().y or 0
+	gload_bar = BarGLoad(gload) or 0
 
 	-- G LOAD
 	if plane == "A-10A" then
@@ -297,31 +389,10 @@ FC3:addExportHook(function()
 			gload = 10
 		end
 	end
+end)
 
-	indicated_airspeed = string.format("%4d", ias)
-
-	-- MACH NUMBER
-	if allowMach(plane) then
-		if mach < 0.5 then
-			mach = 0.5
-		end
-		mach_number = string.format("%4.2f", mach)
-	end
-	-- TAS
-	if allowTAS(plane) then
-		true_air_speed = string.format("%4d", tas)
-	end
-
-	if vvi >= 100 then
-		vertical_velocity = string.format("%4d", vvi)
-	elseif vvi >= 10 then
-		vertical_velocity = string.format("%3d ", vvi)
-	elseif vvi <= -10 then
-		vertical_velocity = string.format("%3d ", vvi)
-	else
-		vertical_velocity = string.format("%4.1f", vvi)
-	end
-
+FC3:addExportHook(function()
+	--[[Pitch Bank Yaw]]
 	adi_pitch, adi_bank, adi_yaw = LoGetADIPitchBankYaw()
 end)
 
@@ -386,7 +457,7 @@ end, 10, "Engine", "Fuel Consumption Right Engine")
 
 --Mechanical
 FC3:defineIntegerFromGetter("FC3_GEAR", function()
-	return _GearStatus
+	return gear_status
 end, 1, "Mechanical", "Gear Status")
 
 --Countermeasures
