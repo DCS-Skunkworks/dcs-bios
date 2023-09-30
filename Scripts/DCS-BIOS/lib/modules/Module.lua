@@ -108,11 +108,10 @@ end
 function Module:define8BitFloatFromGetter(identifier, getter, limits, category, description)
 	-- same as defineFloat, but only allocates an 8-bit int
 	local max_value = 255
-	local intervalLength = limits[2] - limits[1]
 	local alloc = self:allocateInt(max_value)
 
 	self:addExportHook(function()
-		alloc:setValue(((getter() - limits[1]) / intervalLength) * 255)
+		alloc:setValue(Module.valueConvert(getter(), limits, { 0, max_value }))
 	end)
 
 	local control = Control:new(category, ControlType.metadata, identifier, description, {}, {
