@@ -3630,12 +3630,19 @@
                                                             },
                                        "CLOCK_ADJUST_PULL": {
                                                                            "category": "Clock",
-                                                                       "control_type": "action",
+                                                                       "control_type": "selector",
                                                                         "description": "Adjustment Dial Pull",
                                                                          "identifier": "CLOCK_ADJUST_PULL",
                                                                              "inputs": [ {
+                                                                                           "description": "switch to previous or next state",
+                                                                                             "interface": "fixed_step"
+                                                                                       }, {
+                                                                                           "description": "set position",
+                                                                                             "interface": "set_state",
+                                                                                             "max_value": 1
+                                                                                       }, {
                                                                                               "argument": "TOGGLE",
-                                                                                           "description": "toggle switch state",
+                                                                                           "description": "Toggle switch state",
                                                                                              "interface": "action"
                                                                                        } ],
                                                                 "momentary_positions": "none",
@@ -3651,7 +3658,7 @@
                                                                                                                   "suffix": "",
                                                                                                                     "type": "integer"
                                                                                        } ],
-                                                                   "physical_variant": "limited_rotary"
+                                                                   "physical_variant": "toggle_switch"
                                                             }
                                    },
                         "Cockpit": {
@@ -4759,12 +4766,12 @@
                                                        }
                                    },
                           "Doors": {
-                                       "DOOR_L-PTR": {
+                                       "DOOR_L_PTR": {
                                                                  "api_variant": "momentary_last_position",
                                                                     "category": "Doors",
                                                                 "control_type": "selector",
                                                                  "description": "Door Handle Left",
-                                                                  "identifier": "DOOR_L-PTR",
+                                                                  "identifier": "DOOR_L_PTR",
                                                                       "inputs": [ {
                                                                                     "description": "switch to previous or next state",
                                                                                       "interface": "fixed_step"
@@ -4792,12 +4799,12 @@
                                                                                 } ],
                                                             "physical_variant": "push_button"
                                                      },
-                                       "DOOR_R-PTR": {
+                                       "DOOR_R_PTR": {
                                                                  "api_variant": "momentary_last_position",
                                                                     "category": "Doors",
                                                                 "control_type": "selector",
                                                                  "description": "Door Handle Right",
-                                                                  "identifier": "DOOR_R-PTR",
+                                                                  "identifier": "DOOR_R_PTR",
                                                                       "inputs": [ {
                                                                                     "description": "switch to previous or next state",
                                                                                       "interface": "fixed_step"
@@ -8914,11 +8921,14 @@
                                                                                                                "suffix": "_INT",
                                                                                                                  "type": "integer"
                                                                                     }, {
-                                                                                            "address": 5344,
-                                                                                        "description": "possible values: \"1\" \"2\" \"3\" \"4\" \"5\" \"6\" \"7\" \"8\" \"9\" \"10\" \"11\" \"12\" \"13\" \"14\" \"15\" \"16\" \"17\" \"18\" \"19\" \"20\" ",
-                                                                                         "max_length": 2,
-                                                                                             "suffix": "_STR",
-                                                                                               "type": "string"
+                                                                                                              "address": 5344,
+                                                                                                   "address_identifier": "UH_1H_UHF_PRESET_A",
+                                                                                              "address_mask_identifier": "UH_1H_UHF_PRESET_AM",
+                                                                                        "address_mask_shift_identifier": "UH_1H_UHF_PRESET",
+                                                                                                          "description": "possible values: \"1\" \"2\" \"3\" \"4\" \"5\" \"6\" \"7\" \"8\" \"9\" \"10\" \"11\" \"12\" \"13\" \"14\" \"15\" \"16\" \"17\" \"18\" \"19\" \"20\"",
+                                                                                                           "max_length": 2,
+                                                                                                               "suffix": "_STR",
+                                                                                                                 "type": "string"
                                                                                     } ],
                                                                 "physical_variant": "limited_rotary"
                                                          },
@@ -9170,11 +9180,14 @@
                                                                                                               "suffix": "_INT",
                                                                                                                 "type": "integer"
                                                                                    }, {
-                                                                                           "address": 5356,
-                                                                                       "description": "possible values: \"3\" \"4\" \"5\" \"6\" \"7\" ",
-                                                                                        "max_length": 1,
-                                                                                            "suffix": "_STR",
-                                                                                              "type": "string"
+                                                                                                             "address": 5356,
+                                                                                                  "address_identifier": "UH_1H_VHFFM_FREQ1_A",
+                                                                                             "address_mask_identifier": "UH_1H_VHFFM_FREQ1_AM",
+                                                                                       "address_mask_shift_identifier": "UH_1H_VHFFM_FREQ1",
+                                                                                                         "description": "possible values: \"3\" \"4\" \"5\" \"6\" \"7\"",
+                                                                                                          "max_length": 1,
+                                                                                                              "suffix": "_STR",
+                                                                                                                "type": "string"
                                                                                    } ],
                                                                "physical_variant": "limited_rotary"
                                                         },
@@ -9264,11 +9277,14 @@
                                                                                                               "suffix": "_INT",
                                                                                                                 "type": "integer"
                                                                                    }, {
-                                                                                           "address": 5358,
-                                                                                       "description": "possible values: \"0\" \"5\" ",
-                                                                                        "max_length": 1,
-                                                                                            "suffix": "_STR",
-                                                                                              "type": "string"
+                                                                                                             "address": 5358,
+                                                                                                  "address_identifier": "UH_1H_VHFFM_FREQ4_A",
+                                                                                             "address_mask_identifier": "UH_1H_VHFFM_FREQ4_AM",
+                                                                                       "address_mask_shift_identifier": "UH_1H_VHFFM_FREQ4",
+                                                                                                         "description": "possible values: \"0\" \"5\"",
+                                                                                                          "max_length": 1,
+                                                                                                              "suffix": "_STR",
+                                                                                                                "type": "string"
                                                                                    } ],
                                                                "physical_variant": "limited_rotary"
                                                         },
