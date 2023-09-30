@@ -262,6 +262,7 @@ FC3:addExportHook(function()
 	--[[ Fuel ]]
 	local plane = GetPlaneName()
 	local fuel_all = LoGetFuelAll() or 0
+	fuel_bar = BarFuel(fuel_all, plane) or 0
 	local engineInfo = LoGetEngineInfo()
 
 	if engineInfo ~= nil then
@@ -281,8 +282,6 @@ FC3:addExportHook(function()
 	elseif plane == "MiG-29A" or plane == "MiG-29S" or plane == "Su-25" or plane == "Su-25T" or plane == "Su-27" or plane == "Su-33" or plane == "J-11A" then
 		fuel_all = math.floor(fuel_all / 10) * 10
 	end
-
-	fuel_bar = BarFuel(fuel_all, plane) or 0
 
 	if fuel_all > 100 then
 		fuel_percentage = string.format("%4d", fuel_all)
