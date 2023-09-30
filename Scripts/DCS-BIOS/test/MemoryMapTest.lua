@@ -7,9 +7,7 @@ local lu = require("luaunit")
 TestMemoryMap = {}
 local memory_map_address = 0x4200
 
-function TestMemoryMap:setUp()
-	self.memory_map = MemoryMap:new(memory_map_address)
-end
+function TestMemoryMap:setUp() self.memory_map = MemoryMap:new(memory_map_address) end
 
 function TestMemoryMap:testCreateMemoryMap()
 	local map = self.memory_map

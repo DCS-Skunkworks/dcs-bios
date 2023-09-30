@@ -295,12 +295,8 @@ define8BitFloatFromGetter("FC3_SIDE_DEVIATION", function() return _sidedeviation
 define8BitFloatFromGetter("FC3_SLIP_BALL_POSITION", function() return _slipball or 0 end, {-1, 1}, "Float", "Slip Ball Position")
 
 --Externals
-defineIntegerFromGetter("EXT_SPEED_BRAKE_RIGHT", function()
-	return math.floor(LoGetAircraftDrawArgumentValue(182)*65535)
-end, 65535, "External Aircraft Model", "Right Speed Brake")
-defineIntegerFromGetter("EXT_SPEED_BRAKE_LEFT", function()
-	return math.floor(LoGetAircraftDrawArgumentValue(184)*65535)
-end, 65535, "External Aircraft Model", "Left Speed Brake")
+defineIntegerFromGetter("EXT_SPEED_BRAKE_RIGHT", function()	return math.floor(LoGetAircraftDrawArgumentValue(182)*65535) end, 65535, "External Aircraft Model", "Right Speed Brake")
+defineIntegerFromGetter("EXT_SPEED_BRAKE_LEFT", function() return math.floor(LoGetAircraftDrawArgumentValue(184)*65535) end, 65535, "External Aircraft Model", "Left Speed Brake")
 
 defineIntegerFromGetter("EXT_POSITION_LIGHT_LEFT", function()
 	if LoGetAircraftDrawArgumentValue(190) > 0 then return 1 else return 0 end
