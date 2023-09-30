@@ -11,6 +11,10 @@ function TestAircraft:testA4EC()
 	self:validateModule(require("A-4E-C"), "A-4E-C", 0x8400)
 end
 
+function TestAircraft:testAH6J()
+	self:validateModule(require("AH-6J"), "AH-6J", 0x6200)
+end
+
 function TestAircraft:testAlphajet()
 	self:validateModule(require("Alphajet"), "Alphajet", 0x6400)
 end
@@ -21,6 +25,10 @@ end
 
 function TestAircraft:testCommonData()
 	self:validateModule(require("CommonData"), "CommonData", 0x0400)
+end
+
+function TestAircraft:Edge540()
+	self:validateModule(require("Edge540"), "Edge540", 0x5600)
 end
 
 function TestAircraft:testMetadataStart()
@@ -61,6 +69,10 @@ end
 
 function TestAircraft:testMiG_19P()
 	self:validateModule(require("MiG-19P"), "MiG-19P", 0x1600)
+end
+
+function TestAircraft:testNS430()
+	self:validateModule(require("NS430"), "NS430", 0x0600)
 end
 
 function TestAircraft:testP51D()

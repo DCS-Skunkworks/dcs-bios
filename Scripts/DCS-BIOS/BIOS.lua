@@ -58,7 +58,9 @@ BIOS.protocol.writeNewModule(A_29B)
 -- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/A-4E-C.lua]]) -- ID = 6, ProperName = A-4E Skyhawk
 local A_4E_C = require "A-4E-C"
 BIOS.protocol.writeNewModule(A_4E_C)
-dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/AH-6J.lua]]) -- ID = 7, ProperName = AH-6J Littlebird
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/AH-6J.lua]]) -- ID = 7, ProperName = AH-6J Littlebird
+local AH_6J = require "AH-6J"
+BIOS.protocol.writeNewModule(AH_6J)
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/AH-64D.lua]]) -- ID = 46, ProperName = AH-64D Apache
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/AJS37.lua]]) -- ID = 8, ProperName = AJS-37 Viggen
 -- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/Alphajet.lua]]) -- ID = 9, ProperName = Alphajet
@@ -73,7 +75,9 @@ dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/C-101.lua]]) -- ID = 12, ProperNam
 
 local Christen_Eagle_II = require "Christen Eagle II"
 BIOS.protocol.writeNewModule(Christen_Eagle_II)
-dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/Edge540.lua]]) -- ID = 15, ProperName = Edge 540
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/Edge540.lua]]) -- ID = 15, ProperName = Edge 540
+local Edge540 = require "Edge540"
+BIOS.protocol.writeNewModule(Edge540)
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/F-14.lua]]) -- ID = 16, ProperName = F-14A/B Tomcat
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/F-15E.lua]]) -- ID = 44, ProperName = F-15E Strike Eagle
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/F-16C_50.lua]]) -- ID = 17, ProperName = F-16C Viper
@@ -109,7 +113,9 @@ local MiG_19P = require "MiG-19P"
 BIOS.protocol.writeNewModule(MiG_19P)
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/MiG-21Bis.lua]]) -- ID = 32, ProperName = MiG-21bis
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/Mosquito.lua]]) -- ID = 45, ProperName = Mosquito FB Mk. VI
-dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/NS430.lua]]) -- ID = 33, ProperName = NS 430 GPS
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/NS430.lua]]) -- ID = 33, ProperName = NS 430 GPS
+local NS430 = require "NS430"
+BIOS.protocol.writeNewModule(NS430)
 -- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/P-47D.lua]]) -- ID = 34, ProperName = P-47D Thunderbolt
 local P_47D = require "P-47D"
 BIOS.protocol.writeNewModule(P_47D)
