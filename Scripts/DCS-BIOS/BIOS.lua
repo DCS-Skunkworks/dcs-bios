@@ -119,6 +119,8 @@ dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/SA342.lua]]) -- ID = 36, ProperNam
 local SpitfireLFMkIX = require "SpitfireLFMkIX"
 BIOS.protocol.writeNewModule(SpitfireLFMkIX)
 --dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/SuperCarrier.lua]])
+-- local SuperCarrier = require "SuperCarrier"
+-- BIOS.protocol.writeNewModule(SuperCarrier)
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/UH-1H.lua]]) -- ID = 38, ProperName = UH-1H Huey
 -- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/VNAO_Room.lua]])
 local VNAO_Room = require "VNAO_Room"
