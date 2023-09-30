@@ -9,7 +9,7 @@ local Module = require("Module")
 --- @class MetadataEnd : Module
 --- @func setUpdateCounter
 --- @func setUpdateSkipCounter
-local MetadataEnd = Module:new("MetadataEnd", 0xfffe, BIOS.ALL_PLAYABLE_AIRCRAFT)
+local MetadataEnd = Module:new("MetadataEnd", 0xfffe, {})
 
 local updateCounter = 0
 local updateSkipCounter = 0
