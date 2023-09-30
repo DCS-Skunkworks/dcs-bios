@@ -1157,8 +1157,6 @@ local function getPageName()
 	local page = list_cockpit_params():match('CDU_PAGE:"([0-9A-Za-z_]+)"')
 	if not page then return "EGI1" end -- special case due to ED bug that results in nil being exported instead of EGI1
 	local page_name = page:sub(5)
-	if page_name == "WIND1" then return "WIND" end -- for some reason, ED seems to display WIND, not WIND1
-	if page_name == "WNDEDIT1" then return "WNDEDIT" end -- same as above, but for WINDEDIT
 	return page_name
 end
 
@@ -1180,7 +1178,15 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	}
 						end
 
-	cdu_lines = getDisplayLines(cdu or {}, CDU_LINE_LEN, 10, cdu_indicator_data, getPageName, replaceMap)
+	-- the wind pages inherit from a parent
+	local parentMap = {
+		["WIND1"] = "WIND",
+		["WIND2"] = "WIND",
+		["WNDEDIT1"] = "WNDEDIT",
+		["WNDEDIT2"] = "WNDEDIT"
+	}
+
+	cdu_lines = getDisplayLines(cdu or {}, CDU_LINE_LEN, 10, cdu_indicator_data, getPageName, replaceMap, parentMap)
 					end
 
 defineString("CDU_LINE0", function() return cdu_lines[1] end, CDU_LINE_LEN, "CDU Display", "CDU Line 1")
