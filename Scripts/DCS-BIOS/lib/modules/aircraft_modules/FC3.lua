@@ -84,9 +84,6 @@ local function BarFuel(fuel, plane)
 	if barf > 16 then
 		barf = 16
 	end
-	if barf == nil then
-		return
-	end
 	return barf
 end
 
@@ -399,7 +396,6 @@ end)
 FC3:defineString("FC3_ALTITUDE", function()
 	return altitude or "000000"
 end, 6, "Altitude", "Altitude")
-
 FC3:defineString("FC3_ALTITUDE_GROUND", function()
 	return altitude_ground_level or "000000"
 end, 6, "Altitude", "Altitude above Ground")
