@@ -132,6 +132,16 @@ function Module:defineIndicatorLight(identifier, arg_number, category, descripti
 	return self:defineGatedIndicatorLight(identifier, arg_number, 0.3, nil, category, description)
 end
 
+--- Adds a new indicator light control which will enable the LED when the argument value is less than 0.3
+--- @param identifier string the unique identifier for the control
+--- @param arg_number integer the dcs argument number
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @return Control control the control which was added to the module
+function Module:defineIndicatorLightInverted(identifier, arg_number, category, description)
+	return self:defineGatedIndicatorLight(identifier, arg_number, nil, 0.3, category, description)
+end
+
 --- Adds a new indicator light control with specific min and max values for enabling the light
 --- @param identifier string the unique identifier for the control
 --- @param arg_number integer the dcs argument number
