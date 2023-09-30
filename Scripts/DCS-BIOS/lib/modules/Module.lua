@@ -711,7 +711,6 @@ function Module:addInputProcessor(msg, func)
 	self.inputProcessors[msg] = func
 end
 
---- @private
 --- @param control Control
 function Module:addControl(control)
 	local category = self.documentation:getOrAddCategory(control.category)

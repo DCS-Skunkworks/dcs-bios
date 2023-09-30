@@ -59,6 +59,10 @@ function TestAircraft:testMiG_19P()
 	self:validateModule(require("MiG-19P"), "MiG-19P", 0x1600)
 end
 
+function TestAircraft:testNS430()
+	self:validateModule(require("NS430"), "NS430", 0x0600)
+end
+
 function TestAircraft:testP51D()
 	self:validateModule(require("P-51D"), "P-51D", 0x5000)
 end
