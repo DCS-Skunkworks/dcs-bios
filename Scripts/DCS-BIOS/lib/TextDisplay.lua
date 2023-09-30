@@ -1,3 +1,6 @@
+module("TextDisplay", package.seeall)
+
+--- @class TextDisplay
 TextDisplay = {}
 
 ---Replaces all instances of the keys of the provided map with the values in the provided map
@@ -81,3 +84,5 @@ function TextDisplay.GetDisplayLines(dcsDisplay, width, height, displayIndicator
 
     return displayLines
 end
+
+return TextDisplay

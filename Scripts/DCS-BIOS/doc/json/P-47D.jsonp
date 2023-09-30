@@ -5085,18 +5085,20 @@ docdata["P-47D"] =
                                                                    },
                                                    "L_UV_LAMP_BL": {
                                                                            "category": "Warning, Caution and IndicatorLights",
-                                                                       "control_type": "Multi Led Color 2",
+                                                                       "control_type": "led",
                                                                         "description": "Left UV Instruments Lamp (blue)",
                                                                          "identifier": "L_UV_LAMP_BL",
                                                                              "inputs": [  ],
                                                                             "outputs": [ {
-                                                                                               "address": 21060,
-                                                                                           "description": "Light is on grater than 0.51",
-                                                                                                  "mask": 2,
-                                                                                             "max_value": 1,
-                                                                                              "shift_by": 1,
-                                                                                                "suffix": "",
-                                                                                                  "type": "integer"
+                                                                                                           "address": 21060,
+                                                                                                "address_identifier": "P_47D_L_UV_LAMP_BL",
+                                                                                           "address_only_identifier": "P_47D_L_UV_LAMP_BL_ADDR",
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 2,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 1,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
                                                                                        } ]
                                                                    },
                                                       "OXY_LOW_L": {
@@ -5137,18 +5139,20 @@ docdata["P-47D"] =
                                                                    },
                                                    "R_UV_LAMP_BL": {
                                                                            "category": "Warning, Caution and IndicatorLights",
-                                                                       "control_type": "Multi Led Color 2",
+                                                                       "control_type": "led",
                                                                         "description": "Right UV Instruments Lamp (blue)",
                                                                          "identifier": "R_UV_LAMP_BL",
                                                                              "inputs": [  ],
                                                                             "outputs": [ {
-                                                                                               "address": 21060,
-                                                                                           "description": "Light is on grater than 0.51",
-                                                                                                  "mask": 4,
-                                                                                             "max_value": 1,
-                                                                                              "shift_by": 2,
-                                                                                                "suffix": "",
-                                                                                                  "type": "integer"
+                                                                                                           "address": 21060,
+                                                                                                "address_identifier": "P_47D_R_UV_LAMP_BL",
+                                                                                           "address_only_identifier": "P_47D_R_UV_LAMP_BL_ADDR",
+                                                                                                       "description": "0 if light is off, 1 if light is on",
+                                                                                                              "mask": 4,
+                                                                                                         "max_value": 1,
+                                                                                                          "shift_by": 2,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
                                                                                        } ]
                                                                    },
                                                  "TURB_OVER_SP_L": {
