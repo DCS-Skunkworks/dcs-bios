@@ -19,6 +19,10 @@ function TestAircraft:testAlphajet()
 	self:validateModule(require("Alphajet"), "Alphajet", 0x6400)
 end
 
+function TestAircraft:testBf109K4()
+	self:validateModule(require("Bf-109K-4"), "Bf-109K-4", 0x4200)
+end
+
 function TestAircraft:testCEII()
 	self:validateModule(require("Christen Eagle II"), "Christen Eagle II", 0x2800)
 end
@@ -29,14 +33,6 @@ end
 
 function TestAircraft:Edge540()
 	self:validateModule(require("Edge540"), "Edge540", 0x5600)
-end
-
-function TestAircraft:testMetadataStart()
-	self:validateModule(require("MetadataStart"), "MetadataStart", 0x0000)
-end
-
-function TestAircraft:testMetadataEnd()
-	self:validateModule(require("MetadataEnd"), "MetadataEnd", 0xfffe)
 end
 
 function TestAircraft:testF22A()
@@ -51,20 +47,20 @@ function TestAircraft:testFW190D9()
 	self:validateModule(require("FW-190D9"), "FW-190D9", 0x3400)
 end
 
-function TestAircraft:testBf109K4()
-	self:validateModule(require("Bf-109K-4"), "Bf-109K-4", 0x4200)
-end
-
 function TestAircraft:testI16()
 	self:validateModule(require("I-16"), "I-16", 0x4000)
 end
 
-function TestAircraft:testMiG_15bis()
-	self:validateModule(require("MiG-15bis"), "MiG-15bis", 0x2400)
+function TestAircraft:testMetadataStart()
+	self:validateModule(require("MetadataStart"), "MetadataStart", 0x0000)
 end
 
-function TestAircraft:testP47D()
-	self:validateModule(require("P-47D"), "P-47D", 0x5200)
+function TestAircraft:testMetadataEnd()
+	self:validateModule(require("MetadataEnd"), "MetadataEnd", 0xfffe)
+end
+
+function TestAircraft:testMiG_15bis()
+	self:validateModule(require("MiG-15bis"), "MiG-15bis", 0x2400)
 end
 
 function TestAircraft:testMiG_19P()
@@ -75,12 +71,12 @@ function TestAircraft:testNS430()
 	self:validateModule(require("NS430"), "NS430", 0x0600)
 end
 
-function TestAircraft:testP51D()
-	self:validateModule(require("P-51D"), "P-51D", 0x5000)
+function TestAircraft:testP47D()
+	self:validateModule(require("P-47D"), "P-47D", 0x5200)
 end
 
-function TestAircraft:testBf109K4()
-	self:validateModule(require("Bf-109K-4"), "Bf-109K-4", 0x4200)
+function TestAircraft:testP51D()
+	self:validateModule(require("P-51D"), "P-51D", 0x5000)
 end
 
 function TestAircraft:testSpitfireLFMkIX()
