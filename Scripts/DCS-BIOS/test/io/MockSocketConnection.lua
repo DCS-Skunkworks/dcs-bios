@@ -20,18 +20,14 @@ function MockSocketConnection:settimeout(value) end
 --- @param data string the data to send
 --- @return integer? success_code
 --- @return string? error
-function MockSocketConnection:send(data)
-	return 1
-end
+function MockSocketConnection:send(data) return 1 end
 
 --- @func Receives data from the socket
 --- @param buffer_size integer? the max amount of data to receive
 --- @return string? data the data received
 --- @return string? error whether there was an error receiving data
 --- @return string? partial any partial data received
-function MockSocketConnection:receive(buffer_size)
-	return nil, nil, nil
-end
+function MockSocketConnection:receive(buffer_size) return nil, nil, nil end
 
 --- @func Closes the socket connection
 function MockSocketConnection:close() end
