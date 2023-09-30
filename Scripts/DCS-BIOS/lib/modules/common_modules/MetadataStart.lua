@@ -9,7 +9,7 @@ local Module = require("Module")
 
 --- @class MetadataStart: Module
 --- @field setAircraftName  function
-local MetadataStart = Module:new("MetadataStart", 0x0000, BIOS.ALL_PLAYABLE_AIRCRAFT)
+local MetadataStart = Module:new("MetadataStart", 0x0000, {})
 
 -- "data" will be set by the Protocol module
 local aircraft_name
