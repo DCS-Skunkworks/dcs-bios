@@ -9,9 +9,7 @@ TestModule = {}
 local moduleName = "MyModule"
 local moduleAddress = 0x4200
 
-function TestModule:setUp()
-	self.module = Module:new(moduleName, moduleAddress, {})
-end
+function TestModule:setUp() self.module = Module:new(moduleName, moduleAddress, {}) end
 
 function TestModule:testCreateModule()
 	lu.assertEquals(self.module.name, moduleName)
@@ -20,13 +18,9 @@ end
 
 Input_Processor_Device = MockDevice:new(0)
 
-function GetDevice()
-	return Input_Processor_Device
-end
+function GetDevice() return Input_Processor_Device end
 
-function LoGetAircraftDrawArgumentValue()
-	return GetDevice().value
-end
+function LoGetAircraftDrawArgumentValue() return GetDevice().value end
 
 require("GaugeValueTest")
 require("FloatTest")
