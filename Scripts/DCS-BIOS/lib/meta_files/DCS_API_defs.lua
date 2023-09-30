@@ -135,7 +135,7 @@ CounterMeasures = {}
 --- @return CounterMeasures 
 function LoGetSnares() end
 
---- @func Returns a list of strings for a cockpit indicator (screen)
+--- @func Returns a string for a cockpit indicator (screen)
 --- @return string
 function list_indication(indicator_id) end
 
@@ -198,6 +198,10 @@ EngineSide = {}
 --- @field HydraulicPressure EngineSide
 --- @diagnostic disable-next-line: duplicate-doc-field
 --- @field FuelConsumption EngineSide
+--- @diagnostic disable-next-line: duplicate-doc-field
+--- @field fuel_internal number
+--- @diagnostic disable-next-line: duplicate-doc-field
+--- @field fuel_external number
 EngineInformation = {}
 
 --- @func Returns engine information
@@ -209,6 +213,8 @@ function LoGetEngineInfo() end
 --- @field right number
 --- @diagnostic disable-next-line: duplicate-doc-field
 --- @field left number
+--- @diagnostic disable-next-line: duplicate-doc-field
+--- @field value number Gear status
 GearValue = {}
 
 --- @class MechanicalInformation
