@@ -386,17 +386,17 @@ $(function() {
 			code.append($("<br>"));
 			code.append($("<span>").text("}"));
 			code.append($("<br>"));
-			code.append($("<span>").text("DcsBios::IntegerBuffer "+idCamelCase(cid+"_BUFFER")+'('+io.address_identifier+', '+idCamelCase("ON_"+cid+"_CHANGE")+');'));
+			code.append($("<span>").text("DcsBios::IntegerBuffer "+idCamelCase(cid+"_BUFFER")+'('+io.address_mask_shift_identifier+', '+idCamelCase("ON_"+cid+"_CHANGE")+');'));
 			break;
 
 			case "LED":
-			code.append($("<span>").text('DcsBios::LED '+idCamelCase(cid)+'('+io.address_identifier+', '));
+			code.append($("<span>").text('DcsBios::LED '+idCamelCase(cid)+'('+io.address_mask_identifier+', '));
 			code.append($("<i>").attr("style", "color: red;").text("PIN"));
 			code.append($("<span>").text(");"));
 			break;
 
 			case "ServoOutput":
-			code.append($("<span>").text('DcsBios::ServoOutput '+idCamelCase(cid)+'('+io.address_only_identifier+', '));
+			code.append($("<span>").text('DcsBios::ServoOutput '+idCamelCase(cid)+'('+io.address_identifier+', '));
 			code.append($("<i>").attr("style", "color: red;").text("PIN"));
 			code.append($("<span>").text(", "));
 			code.append($("<i>").attr("style", "color: red;").text("544"));
@@ -418,8 +418,8 @@ $(function() {
 
 			case "FloatBuffer":
 			var ending = "";
-			if(io.max_value == 255) ending = ", true"
-			code.append($("<span>").text("DcsBios::FloatBuffer "+idCamelCase(cid+io.suffix+"_BUFFER")+'('+io.address_identifier+', '+io.value_range[0].toFixed()+', '+io.value_range[1]+ending+');'));
+			if (io.max_value == 255) ending = ", true"
+			code.append($("<span>").text("DcsBios::FloatBuffer "+idCamelCase(cid+io.suffix+"_BUFFER")+'('+io.address_mask_shift_identifier+', '+io.value_range[0].toFixed()+', '+io.value_range[1]+ending+');'));
 			break;
 
 		}
