@@ -1,3 +1,5 @@
+local ProtocolIO = require("ProtocolIO")
+
 BIOS.protocol = {}
 BIOS.protocol.maxBytesPerSecond = BIOS.protocol.maxBytesPerSecond or 11000
 BIOS.protocol.maxBytesInTransit = BIOS.protocol.maxBytesPerSecond or 4000
@@ -234,14 +236,14 @@ function BIOS.protocol.step()
 
 		-- send frame sync sequence
 		bytesInTransit = bytesInTransit + 4
-		BIOS.protocol_io.queue(string.char(0x55, 0x55, 0x55, 0x55))
+		ProtocolIO.queue(string.char(0x55, 0x55, 0x55, 0x55))
 
 		-- export aircraft-independent data
 		for k, v in pairs(metadataStartModule.exportHooks) do v() end
 		metadataStartModule.memoryMap:autosyncStep()
 		local data = metadataStartModule.memoryMap:flushData()
 		bytesInTransit = bytesInTransit + data:len()
-		BIOS.protocol_io.queue(data)
+		ProtocolIO.queue(data)
 
 		-- Export aircraft data
 		if acftModules then
@@ -259,7 +261,7 @@ function BIOS.protocol.step()
 				acftModule.memoryMap:autosyncStep()
 				local data = acftModule.memoryMap:flushData()
 				bytesInTransit = bytesInTransit + data:len()
-				BIOS.protocol_io.queue(data)
+				ProtocolIO.queue(data)
 			end
 		end
 
@@ -267,7 +269,7 @@ function BIOS.protocol.step()
 		metadataEndModule.memoryMap:autosyncStep()
 		local data = metadataEndModule.memoryMap:flushData()
 		bytesInTransit = bytesInTransit + data:len()
-		BIOS.protocol_io.queue(data)
+		ProtocolIO.queue(data)
 	end
 
 end
@@ -277,18 +279,18 @@ function BIOS.protocol.shutdown()
 	metadataStartModule:setAircraftName("")
 
 	-- send frame sync sequence
-	BIOS.protocol_io.queue(string.char(0x55, 0x55, 0x55, 0x55))
+	ProtocolIO.queue(string.char(0x55, 0x55, 0x55, 0x55))
 
 	-- export aircraft-independent data: MetadataStart
 	for k, v in pairs(metadataStartModule.exportHooks) do v() end
 	metadataStartModule.memoryMap:autosyncStep()
 	local data = metadataStartModule.memoryMap:flushData()
-	BIOS.protocol_io.queue(data)
+	ProtocolIO.queue(data)
 
 	-- export aircraft-independent data: MetadataEnd
 	for k, v in pairs(metadataEndModule.exportHooks) do v() end
 	metadataEndModule.memoryMap:autosyncStep()
 	local data = metadataEndModule.memoryMap:flushData()
-	BIOS.protocol_io.queue(data)
+	ProtocolIO.queue(data)
 end
 

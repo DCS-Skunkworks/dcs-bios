@@ -29,11 +29,13 @@ package.path = lfs.writedir() .. [[Scripts/DCS-BIOS/lib/modules/common_modules/?
 package.path = lfs.writedir() .. [[Scripts/DCS-BIOS/lib/modules/documentation/?.lua;]] .. package.path
 package.path = lfs.writedir() .. [[Scripts/DCS-BIOS/lib/modules/memory_map/?.lua;]] .. package.path
 
+-- all requires must come after updates to package.path
+local ProtocolIO = require("ProtocolIO")
+
 local json = loadfile([[Scripts/JSON.lua]]) -- try to load json from dcs
 BIOS.json = json and json() or require "JSON" -- if that fails, fall back to module that we can define
 
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/Util.lua]])
-dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/ProtocolIO.lua]])
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/Protocol.lua]])
 --dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/MetadataEnd.lua]])
 local MetadataEnd = require "MetadataEnd"
@@ -164,7 +166,7 @@ PrevExport.LuaExportAfterNextFrame = LuaExportAfterNextFrame
 -- Lua Export Functions
 LuaExportStart = function()
 	
-	for _, v in pairs(BIOS.protocol_io.connections) do v:init() end
+	for _, v in pairs(ProtocolIO.connections) do v:init() end
 	BIOS.protocol.init()
 	
 	-- Chain previously-included export as necessary
@@ -176,8 +178,8 @@ end
 LuaExportStop = function()
 	
 	BIOS.protocol.shutdown()
-	BIOS.protocol_io.flush()
-	for _, v in pairs(BIOS.protocol_io.connections) do v:close() end
+	ProtocolIO.flush()
+	for _, v in pairs(ProtocolIO.connections) do v:close() end
 	
 	-- Chain previously-included export as necessary
 	if PrevExport.LuaExportStop then
@@ -187,7 +189,7 @@ end
 
 function LuaExportBeforeNextFrame()
 	
-	for _, v in pairs(BIOS.protocol_io.connections) do
+	for _, v in pairs(ProtocolIO.connections) do
 		if v.step then v:step() end
 	end
 	
@@ -201,7 +203,7 @@ end
 function LuaExportAfterNextFrame()
 	
 	BIOS.protocol.step()
-	BIOS.protocol_io.flush()
+	ProtocolIO.flush()
 
 	-- Chain previously-included export as necessary
 	if PrevExport.LuaExportAfterNextFrame then
