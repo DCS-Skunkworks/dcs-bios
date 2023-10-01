@@ -76,6 +76,31 @@ function Module:defineGaugeValue(identifier, arg_number, output_range, category,
 	return control
 end
 
+--- Defines a gauge from floating-point data with limits. This generally is not used in any new modules and is used in existing modules to provide the integer output of a gauge
+--- @param identifier string the unique identifier for the control
+--- @param arg_number integer the dcs argument number
+--- @param max_step number the control
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @return Control control the control which was added to the module
+function Module:defineVariableStepTumb(identifier, device_id, command, arg_number, max_step, category, description)
+	local rotationAlloc = self:allocateInt(65535)
+	self.exportHooks[#self.exportHooks + 1] = function(dev0)
+		local value = dev0:get_argument_value(arg_number)
+		rotationAlloc:setValue(value * 65535)
+	end
+
+	self:addInputProcessor(identifier, function(state)
+		local delta = tonumber(state) / 65535 * max_step
+		GetDevice(device_id):performClickableAction(command, delta)
+	end)
+
+	local control = Control:new(category, ControlType.discrete_dial, identifier, description, { VariableStepInput:new(3200, 65535, description) }, {})
+	self:addControl(control)
+
+	return control
+end
+
 --- Defines a gauge from floating-point data with limits
 --- @param identifier string the unique identifier for the control
 --- @param arg_number integer the dcs argument number
