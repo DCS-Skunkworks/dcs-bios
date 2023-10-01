@@ -1,7 +1,10 @@
+local ProtocolIO = require("ProtocolIO")
+
 BIOS.protocol = {}
 BIOS.protocol.maxBytesPerSecond = BIOS.protocol.maxBytesPerSecond or 11000
 BIOS.protocol.maxBytesInTransit = BIOS.protocol.maxBytesPerSecond or 4000
 
+--- @type Module[]
 local exportModules = {}
 local aircraftNameToModuleNames = {}
 local aircraftNameToModules = {}
@@ -59,14 +62,14 @@ end
 function BIOS.protocol.endModule()
 	if BIOSdevMode == 1 then
 	local function saveDoc()
-		local JSON = loadfile([[Scripts\JSON.lua]])()
-		local file, err = io.open(lfs.writedir()..[[Scripts\DCS-BIOS\doc\json\]]..moduleBeingDefined.name..".json", "w")
+		local JSON = BIOS.json
+		local file, err = io.open(lfs.writedir()..[[Scripts/DCS-BIOS/doc/json/]]..moduleBeingDefined.name..".json", "w")
 		local json_string = JSON:encode_pretty(moduleBeingDefined.documentation)
 		if file then
 			file:write(json_string)
 			file:close()
 		end
-		local file, err = io.open(lfs.writedir()..[[Scripts\DCS-BIOS\doc\json\]]..moduleBeingDefined.name..".jsonp", "w")
+		local file, err = io.open(lfs.writedir()..[[Scripts/DCS-BIOS/doc/json/]]..moduleBeingDefined.name..".jsonp", "w")
 		if file then
 			file:write('docdata["'..moduleBeingDefined.name..'"] =\n')
 			file:write(json_string)
@@ -74,76 +77,79 @@ function BIOS.protocol.endModule()
 			file:close()
 		end
 	end
-	local function saveAddresses()
-		local moduleName = moduleBeingDefined.name
+	pcall(saveDoc)
+	moduleBeingDefined = nil
+	end
+end
+function BIOS.protocol.saveAddresses()
+	if BIOSdevMode == 1 then
+		local addresses = {}
 
-		local path = lfs.writedir()..[[Scripts\DCS-BIOS\doc\Addresses.h]]
-		local existingDefines = {}
-		local lineOrder = {} -- To maintain the order of lines
-
-		-- Read existing content
-		local fileRead, errRead = io.open(path, "r")
-		if fileRead then
-			for line in fileRead:lines() do
-				local identifier = line:match("#define%s+([%w_]+)")
-				if identifier then
-					existingDefines[identifier] = line
-					table.insert(lineOrder, identifier)
-				end
+		local function addLine(identifier, line)
+			if not addresses[identifier] then
+				addresses[identifier] = line
 			end
-			fileRead:close()
 		end
 
-		for _, category in pairs(moduleBeingDefined.documentation) do
-			for identifier, args in pairs(category) do
-				local outputs = args.outputs or {}
-				for _, output in pairs(outputs) do
-					local full_identifier = BIOS.util.addressDefineIdentifier(moduleName, identifier)
-					local addressStr = output.address and string.format("0x%X", output.address) or ""
-					local maskStr = output.mask and string.format("0x%X", output.mask) or ""
-					local shiftByStr = output.shift_by and tostring(output.shift_by) or ""
+		for moduleName, moduleBeingDefined in pairs(exportModules) do
+			for _, category in pairs(moduleBeingDefined.documentation) do
+				for identifier, args in pairs(category) do
+					local outputs = args.outputs or {}
+					for _, output in pairs(outputs) do
+						local address_identifier = (output.address_mask_shift_identifier or BIOS.util.addressDefineIdentifier(moduleName, identifier)) .. "_A"
+						local address_mask_identifier = (output.address_mask_shift_identifier or BIOS.util.addressDefineIdentifier(moduleName, identifier)) .. "_AM"
+						local address_mask_shiftby_identifier = output.address_mask_shift_identifier or BIOS.util.addressDefineIdentifier(moduleName, identifier)
+						local address = output.address and string.format("0x%04X", output.address) or ""
+						local mask = output.mask and string.format("0x%04X", output.mask) or ""
+						local shift_by = output.shift_by and tostring(output.shift_by) or ""
 
-					-- Define line with address, mask, and shiftby
-					local line = "#define " .. full_identifier .. " " .. addressStr
-					if maskStr ~= "" then line = line .. ", " .. maskStr end
-					if shiftByStr ~= "" then line = line .. ", " .. shiftByStr end
+						local address_line = "#define " .. address_identifier .. " " .. address
+						local address_mask_line = "#define " .. address_mask_identifier .. " " .. address .. ", " .. mask
+						local address_mask_shiftby_line = "#define " .. address_mask_shiftby_identifier .. " " .. address .. ", " .. mask .. ", " .. shift_by
 
-					if not existingDefines[full_identifier] then
-						table.insert(lineOrder, full_identifier)
-					end
-
-					existingDefines[full_identifier] = line
-
-					-- Additional line with only the address and _ADDR suffix
-					if addressStr ~= "" then
-						local addressOnlyIdentifier = full_identifier .. "_ADDR"
-						local addressOnlyLine = "#define " .. addressOnlyIdentifier .. " " .. addressStr
-
-						if not existingDefines[addressOnlyIdentifier] then
-							table.insert(lineOrder, addressOnlyIdentifier)
+						-- #define lines based on type
+						if output.type == "integer" then
+							addLine(address_mask_shiftby_identifier, address_mask_shiftby_line)
+							if output.max_value == 1 then
+								addLine(address_mask_identifier, address_mask_line)
+							elseif output.max_value == 65535 then
+								addLine(address_identifier, address_line)
+							end
 						end
-
-						existingDefines[addressOnlyIdentifier] = addressOnlyLine
+						if output.type == "string" then
+							addLine(address_identifier, address_line)
+						end
 					end
 				end
 			end
 		end
 
-		-- Write the updated content to the file
-		local address_header_file, err = io.open(path, "w")
+		-- Sort the identifiers before writing
+		local sortedIdentifiers = {}
+		for identifier in pairs(addresses) do
+			table.insert(sortedIdentifiers, identifier)
+		end
+		table.sort(sortedIdentifiers)
+
+		-- Write the header file
+		local address_header_file, err = io.open(lfs.writedir()..[[Scripts/DCS-BIOS/doc/Addresses.h]], "w")
 		if err then
 			print("Error opening file:", err) -- Print error if unable to open file
 			return
+		else
+			for _, identifier in ipairs(sortedIdentifiers) do
+				address_header_file:write(addresses[identifier] .. "\n")
+			end
+
+			address_header_file:close() -- Close the header file
 		end
-		for _, identifier in ipairs(lineOrder) do
-			address_header_file:write(existingDefines[identifier] .. "\n")
-		end
-		address_header_file:close() -- Close the header file
 	end
-	pcall(saveDoc)
-	pcall(saveAddresses)
-	moduleBeingDefined = nil
-	end
+end
+function BIOS.protocol.writeNewModule(mod)
+	moduleBeingDefined = mod
+	exportModules[mod.name] = mod
+	BIOS.protocol.setExportModuleAircrafts(mod.aircraftList)
+	BIOS.protocol.endModule()
 end
 
 local metadataStartModule = nil
@@ -152,6 +158,8 @@ function BIOS.protocol.init()
 	-- called after all aircraft modules have been loaded
 	metadataStartModule = exportModules["MetadataStart"]
 	metadataEndModule = exportModules["MetadataEnd"]
+
+	BIOS.protocol.saveAddresses()
 end
 
 local acftModules = nil
@@ -181,6 +189,11 @@ local lastFrameTime = LoGetModelTime()
 local updateCounter = 0
 local updateSkipCounter = 0
 function BIOS.protocol.step()
+
+	if( metadataStartModule == nil or  metadataEndModule == nil) then
+		error("Either MetadataStart or MetadataEnd was nil.", 1) -- this should never happen since init() is being called but it removes intellisense warnings
+	end
+
 	-- rate limiting
 	local curTime = LoGetModelTime()
 	bytesInTransit = bytesInTransit - ((curTime - lastFrameTime) * BIOS.protocol.maxBytesPerSecond)
@@ -193,8 +206,10 @@ function BIOS.protocol.step()
 	if selfData then
 		acftName = selfData["Name"]
 	end
-	metadataStartModule.data.acftName = acftName
-	acftModules = aircraftNameToModules[acftName]
+
+	metadataStartModule:setAircraftName(acftName)
+
+  acftModules = aircraftNameToModules[acftName]
 	if lastAcftName ~= acftName then
 		if acftModules then
 			for _, acftModule in pairs(acftModules) do
@@ -204,11 +219,11 @@ function BIOS.protocol.step()
 		lastAcftName = acftName
 	end
 
-	-- export data
+	-- export data 
 	if curTime >= nextLowFreqStepTime then
 		-- runs 30 times per second
 		updateCounter = (updateCounter + 1) % 256
-		metadataEndModule.data.updateCounter = updateCounter
+		metadataEndModule:setUpdateCounter(updateCounter)
 
 		-- if the last frame update has not been completely transmitted, skip a frame
 		if bytesInTransit > 0 then
@@ -216,20 +231,21 @@ function BIOS.protocol.step()
 			updateSkipCounter = (updateSkipCounter + 1) % 256
 			return
 		end
-		metadataEndModule.data.updateSkipCounter = updateSkipCounter
+		metadataEndModule:setUpdateSkipCounter(updateSkipCounter)
 		nextLowFreqStepTime = curTime + .033
 
 		-- send frame sync sequence
 		bytesInTransit = bytesInTransit + 4
-		BIOS.protocol_io.queue(string.char(0x55, 0x55, 0x55, 0x55))
+		ProtocolIO.queue(string.char(0x55, 0x55, 0x55, 0x55))
 
 		-- export aircraft-independent data
 		for k, v in pairs(metadataStartModule.exportHooks) do v() end
 		metadataStartModule.memoryMap:autosyncStep()
 		local data = metadataStartModule.memoryMap:flushData()
 		bytesInTransit = bytesInTransit + data:len()
-		BIOS.protocol_io.queue(data)
+		ProtocolIO.queue(data)
 
+		-- Export aircraft data
 		if acftModules then
 			for _, acftModule in pairs(acftModules) do
 				local dev0 = GetDevice(0)
@@ -245,7 +261,7 @@ function BIOS.protocol.step()
 				acftModule.memoryMap:autosyncStep()
 				local data = acftModule.memoryMap:flushData()
 				bytesInTransit = bytesInTransit + data:len()
-				BIOS.protocol_io.queue(data)
+				ProtocolIO.queue(data)
 			end
 		end
 
@@ -253,28 +269,28 @@ function BIOS.protocol.step()
 		metadataEndModule.memoryMap:autosyncStep()
 		local data = metadataEndModule.memoryMap:flushData()
 		bytesInTransit = bytesInTransit + data:len()
-		BIOS.protocol_io.queue(data)
+		ProtocolIO.queue(data)
 	end
 
 end
 
 function BIOS.protocol.shutdown()
 	-- Nullify the aircraft name and publish one last frame to identify end of mission.
-	metadataStartModule.data.acftName = ""
+	metadataStartModule:setAircraftName("")
 
 	-- send frame sync sequence
-	BIOS.protocol_io.queue(string.char(0x55, 0x55, 0x55, 0x55))
+	ProtocolIO.queue(string.char(0x55, 0x55, 0x55, 0x55))
 
 	-- export aircraft-independent data: MetadataStart
 	for k, v in pairs(metadataStartModule.exportHooks) do v() end
 	metadataStartModule.memoryMap:autosyncStep()
 	local data = metadataStartModule.memoryMap:flushData()
-	BIOS.protocol_io.queue(data)
+	ProtocolIO.queue(data)
 
 	-- export aircraft-independent data: MetadataEnd
 	for k, v in pairs(metadataEndModule.exportHooks) do v() end
 	metadataEndModule.memoryMap:autosyncStep()
 	local data = metadataEndModule.memoryMap:flushData()
-	BIOS.protocol_io.queue(data)
+	ProtocolIO.queue(data)
 end
 

@@ -114,7 +114,6 @@ a("FA-18E", true)
 a("FA-18F", true)
 a("FlankerEx", false)
 a("Flyer1", false)--1903 Wright Flyer
-a("Hercules", false)
 a("J-20A", false)
 a("MB-339PAN", false)
 a("Mig-23UB", false)

@@ -13,6 +13,8 @@ end
 --- DCS Cockpit Device
 CockpitDevice = {}
 
+--- @func Updates device's arguments
+function CockpitDevice:update_arguments() end
 
 --- @func Sets command for a device
 --- @param command_id integer
@@ -133,35 +135,15 @@ CounterMeasures = {}
 --- @return CounterMeasures 
 function LoGetSnares() end
 
---- @func Returns a list of strings for a cockpit indicator (screen)
+--- @func Returns a string for a cockpit indicator (screen)
 --- @return string
 function list_indication(indicator_id) end
 
---- @class CockpitPage
---- @diagnostic disable-next-line: duplicate-doc-field
---- @field sub string
-CockpitPage = {}
-
---- @func Searches for matches in CockpitPage
---- @param search_value string
---- @return CockpitPage
-function CockpitPage:match(search_value) end
-
---- @func sub? CockpitPage
---- @param index integer
---- @return string
-function CockpitPage:sub(index) end
+CockpitPage = ""
 
 --- @func Returns a list of pages (cockpit screens)
---- @return CockpitPage
+--- @return string[]
 function list_cockpit_params() end
-
---- @func Maps value to from input_range to output_range
---- @param argument_value number
---- @param input_range table
---- @param output_range table
---- @return number
-function ValueConvert(argument_value, input_range, output_range) end
 
 --- @func Returns  altitude above sea level
 --- @return number
@@ -216,6 +198,10 @@ EngineSide = {}
 --- @field HydraulicPressure EngineSide
 --- @diagnostic disable-next-line: duplicate-doc-field
 --- @field FuelConsumption EngineSide
+--- @diagnostic disable-next-line: duplicate-doc-field
+--- @field fuel_internal number
+--- @diagnostic disable-next-line: duplicate-doc-field
+--- @field fuel_external number
 EngineInformation = {}
 
 --- @func Returns engine information
@@ -227,6 +213,8 @@ function LoGetEngineInfo() end
 --- @field right number
 --- @diagnostic disable-next-line: duplicate-doc-field
 --- @field left number
+--- @diagnostic disable-next-line: duplicate-doc-field
+--- @field value number Gear status
 GearValue = {}
 
 --- @class MechanicalInformation

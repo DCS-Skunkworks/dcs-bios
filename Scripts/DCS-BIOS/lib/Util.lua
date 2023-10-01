@@ -34,8 +34,9 @@ local function document(args)
 	
 	if args.outputs then
 		for _, output in ipairs(args.outputs) do
-			output.address_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, args.identifier)
-			output.address_only_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, args.identifier) .. "_ADDR"
+			output.address_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, args.identifier) .. "_A"
+			output.address_mask_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, args.identifier) .. "_AM"
+			output.address_mask_shift_identifier = BIOS.util.addressDefineIdentifier(moduleBeingDefined.name, args.identifier)
 		end
 	end
 
@@ -164,7 +165,7 @@ function BIOS.util.StringAllocation:setValue(value)
 	local i = 1
 
         if value == nil then
-		BIOS.log(string.format("Util.lua: item %s is sending a nil value", msg or "nil"))
+		BIOS.log(string.format("Util.lua: item is sending a nil value"))
 		return
         end
 

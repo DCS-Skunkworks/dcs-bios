@@ -1,0 +1,74 @@
+name: Release latest openbeta
+
+on:
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    # Release at 22.00, Github does not guarantee exact time
+    - cron:  '0 22 * * *'
+
+env:
+  RELEASE_FILE_NAME: 'DCS-BIOS_openbeta.zip'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    name: Run unit tests
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up lua
+        uses: leafo/gh-actions-lua@v10
+        with:
+          luaVersion: "5.1.5"
+
+      - name: compile
+        run: |
+          lua ./Scripts/DCS-BIOS/test/compile/LocalCompile.lua
+
+      - name: test
+        run: |
+          lua ./Scripts/DCS-BIOS/test/TestSuite.lua
+
+  release:
+    needs: test
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    name: Release zip file
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Archive Release
+        uses: thedoctor0/zip-release@0.7.1
+        with:
+          type: zip
+          filename: 'DCS-BIOS_openbeta.zip'
+          directory: './Scripts'
+          exclusions: '/*test/*'
+
+      - name: Update latest tag
+        uses: rickstaa/action-create-tag@v1
+        id: tag_create
+        with:
+          tag: latest
+          force_push_tag: true
+          message: Nightly build of master branch
+
+      - name: Upload Release
+        uses: ncipollo/release-action@v1.12.0
+        with:
+          allowUpdates: true
+          artifactErrorsFailBuild: true
+          artifacts: './Scripts/DCS-BIOS_openbeta.zip'
+          commit: master
+          makeLatest: true
+          name: DCS-BIOS Openbeta
+          prerelease: true
+          removeArtifacts: true
+          tag: latest
+          updateOnlyUnreleased: true

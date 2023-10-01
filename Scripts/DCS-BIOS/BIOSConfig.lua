@@ -1,6 +1,17 @@
-BIOS.protocol_io.connections = {
-	BIOS.protocol_io.DefaultMulticastSender:create(),
-	BIOS.protocol_io.TCPServer:create(),
-	-- BIOS.protocol_io.UDPSender:create({ port = 7777, host = "192.168.1.177" }),
-	BIOS.protocol_io.UDPListener:create({ port = 7778 })
+local ProtocolIO = require("ProtocolIO")
+local TCPServer = require("TCPServer")
+local UDPServer = require("UDPServer")
+local socket = require("socket") --[[@as Socket]]
+
+local udp_send_address = "239.255.50.10"
+local udp_send_port = 5010
+local udp_receive_address = "*"
+local udp_receive_port = 7778
+
+local tcp_address = "*"
+local tcp_port = 7778
+
+ProtocolIO.connections = {
+	UDPServer:new(udp_send_address, udp_send_port, udp_receive_address, udp_receive_port, socket, BIOS.protocol.processInputLine),
+	TCPServer:new(tcp_address, tcp_port, socket, BIOS.protocol.processInputLine),
 }

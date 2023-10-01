@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("A-10C", 0x1000)
 BIOS.protocol.setExportModuleAircrafts({"A-10C", "A-10C_2"})
---v3.0 overhaul by WarLord,charliefoxtwo,talbotmcinnis&DeadMeat
+--v3.1a overhaul by WarLord,charliefoxtwo,talbotmcinnis&DeadMeat
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 
@@ -29,6 +29,8 @@ local define8BitFloat = BIOS.util.define8BitFloat
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 local defineRadioWheel = BIOS.util.defineRadioWheel
 
+local TextDisplay = require("TextDisplay")
+local DigitalDisplay = require("DigitalDisplay")
 local getDisplayLines = TextDisplay.GetDisplayLines
 local getDisplayItems = DigitalDisplay.GetDisplayItems
 
@@ -1095,8 +1097,8 @@ defineToggleSwitch("ANT_EGIHQTOD", 54, 3017, 708, "Antenna Panel", "EGI HQ TOD S
 
 definePotentiometer("RWR_BRT", 29, 3001, 16, {0.15, 0.85}, "RWR", "Display Brightness")
 
-local JSON = loadfile([[Scripts\JSON.lua]])()
-local cdu_indicator_data_file = io.open(lfs.writedir()..[[Scripts\DCS-BIOS\doc\json\A-10C_CDU.json]], "r")
+local JSON = BIOS.json
+local cdu_indicator_data_file = io.open(lfs.writedir()..[[Scripts/DCS-BIOS/src/json/A-10C_CDU.json]], "r")
 local cdu_indicator_data
 
 if(cdu_indicator_data_file ~= nil) then
@@ -1149,8 +1151,13 @@ local replaceMap = {
     ["я"] = string.char(0xB1),
 }
 
+--- Gets the current CDU page, or nil if one isn't found
+--- @return string page_name the name of the current CDU page
 local function getPageName()
-	return list_cockpit_params():match('CDU_PAGE:"([0-9A-Za-z_]+)"'):sub(5)
+	local page = list_cockpit_params():match('CDU_PAGE:"([0-9A-Za-z_]+)"')
+	if not page then return "EGI1" end -- special case due to ED bug that results in nil being exported instead of EGI1
+	local page_name = page:sub(5)
+	return page_name
 end
 
 local CDU_LINE_LEN = 24
@@ -1171,7 +1178,15 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	}
 						end
 
-	cdu_lines = getDisplayLines(cdu or {}, CDU_LINE_LEN, 10, cdu_indicator_data, getPageName, replaceMap)
+	-- the wind pages inherit from a parent
+	local parentMap = {
+		["WIND1"] = "WIND",
+		["WIND2"] = "WIND",
+		["WNDEDIT1"] = "WNDEDIT",
+		["WNDEDIT2"] = "WNDEDIT"
+	}
+
+	cdu_lines = getDisplayLines(cdu or {}, CDU_LINE_LEN, 10, cdu_indicator_data, getPageName, replaceMap, parentMap)
 					end
 
 defineString("CDU_LINE0", function() return cdu_lines[1] end, CDU_LINE_LEN, "CDU Display", "CDU Line 1")
@@ -1186,7 +1201,7 @@ defineString("CDU_LINE8", function() return cdu_lines[9] end, CDU_LINE_LEN, "CDU
 defineString("CDU_LINE9", function() return cdu_lines[10] end, CDU_LINE_LEN, "CDU Display", "CDU Line 10")
 
 local arcItems = {}
-local arc_210_data_file = io.open(lfs.writedir()..[[Scripts\DCS-BIOS\doc\json\A-10C_ARC-210.json]], "r")
+local arc_210_data_file = io.open(lfs.writedir()..[[Scripts/DCS-BIOS/src/json/A-10C_ARC-210.json]], "r")
 
 local arc_210_data
 if(arc_210_data_file ~= nil) then
