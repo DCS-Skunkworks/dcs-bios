@@ -1,5 +1,4 @@
 BIOS = {}
-dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/AircraftList.lua]])
 
 BIOSdevMode = 1 -- 1 DevMode / 0 UserMode
 
