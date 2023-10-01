@@ -84,16 +84,16 @@ end
 --- @param description string additional information about the control
 --- @return Control control the control which was added to the module
 function Module:defineVariableStepTumb(identifier, device_id, command, arg_number, max_step, category, description)
-	local rotationAlloc = moduleBeingDefined.memoryMap:allocateInt({ maxValue = 65535 })
+	local rotationAlloc = self:allocateInt(65535)
 	self.exportHooks[#self.exportHooks + 1] = function(dev0)
 		local value = dev0:get_argument_value(arg_number)
 		rotationAlloc:setValue(value * 65535)
 	end
 
-	moduleBeingDefined.inputProcessors[identifier] = function(state)
+	self:addInputProcessor(identifier, function(state)
 		local delta = tonumber(state) / 65535 * max_step
 		GetDevice(device_id):performClickableAction(command, delta)
-	end
+	end)
 
 	local control = Control:new(category, ControlType.discrete_dial, identifier, description, { VariableStepInput:new(3200, 65535, description) }, {})
 	self:addControl(control)
