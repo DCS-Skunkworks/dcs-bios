@@ -95,6 +95,10 @@ function TestAircraft:testSuperCarrier()
 	self:validateModule(require("SuperCarrier"), "SuperCarrier", 0x0700)
 end
 
+function TestAircraft:testUH1H()
+	self:validateModule(require("UH-1H"), "UH-1H", 0x1400)
+end
+
 function TestAircraft:testVNAORoom()
 	self:validateModule(require("VNAO_Room"), "VNAO_Room", 0x0500)
 end
