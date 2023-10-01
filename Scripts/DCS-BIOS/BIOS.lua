@@ -85,7 +85,9 @@ dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/F-16C_50.lua]]) -- ID = 17, Proper
 local F_22A = require "F-22A"
 BIOS.protocol.writeNewModule(F_22A)
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/F-5E-3.lua]]) -- ID = 18, ProperName = F-5E Tiger II
-dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/F-86F Sabre.lua]]) -- ID = 19, ProperName = F-86F Sabre
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/F-86F Sabre.lua]]) -- ID = 19, ProperName = F-86F Sabre
+local F_86F_Sabre = require "F-86F Sabre"
+BIOS.protocol.writeNewModule(F_86F_Sabre)
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/FA-18C_hornet.lua]]) -- ID = 20, ProperName = F/A-18C Hornet
 --dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/FC3.lua]]) -- ID = 4, ProperName = Flaming Cliffs 3
 local FC3 = require "FC3"
