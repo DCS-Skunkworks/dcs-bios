@@ -43,6 +43,10 @@ function TestAircraft:testF22A()
 	self:validateModule(require("F-22A"), "F-22A", 0x6600)
 end
 
+function TestAircraft:testFC3()
+	self:validateModule(require("FC3"), "FC3", 0x6000)
+end
+
 function TestAircraft:testFW190A8()
 	self:validateModule(require("FW-190A8"), "FW-190A8", 0x3800)
 end
