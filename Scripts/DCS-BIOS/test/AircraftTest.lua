@@ -23,6 +23,10 @@ function TestAircraft:testBf109K4()
 	self:validateModule(require("Bf-109K-4"), "Bf-109K-4", 0x4200)
 end
 
+function TestAircraft:testC101()
+	self:validateModule(require("C-101"), "C-101", 0x3600)
+end
+
 function TestAircraft:testCEII()
 	self:validateModule(require("Christen Eagle II"), "Christen Eagle II", 0x2800)
 end
