@@ -31,6 +31,7 @@ end
 require("GaugeValueTest")
 require("FloatTest")
 require("IndicatorLightTest")
+require("IndicatorLightInvertedTest")
 require("GatedIndicatorLightTest")
 require("PushButtonTest")
 require("PotentiometerTest")
