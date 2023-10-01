@@ -28,7 +28,7 @@ function StringAllocation:setValue(value)
 	local i = 1
 
 	if value == nil then
-		BIOS.log(string.format("Util.lua: item is sending a nil value"))
+		Logg:log(string.format("Util.lua: item is sending a nil value"))
 		return
 	end
 

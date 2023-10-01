@@ -46,11 +46,11 @@ BIOS.util.document = document
 
 function BIOS.util.addressDefineIdentifier(moduleName, identifier)
 	if moduleName == nil then
-		BIOS.log(string.format("Nil module name found for identifier %s", identifier))
+		Logg:log(string.format("Nil module name found for identifier %s", identifier))
 		return "UNKNOWN"
 	end
 	if identifier == nil then
-		BIOS.log(string.format("Nil identifier found in module %s", moduleName))
+		Logg:log(string.format("Nil identifier found in module %s", moduleName))
 		return "UNKNOWN"
 	end
 
@@ -143,11 +143,11 @@ function BIOS.util.MemoryAllocation:setValue(value)
 	assert(value)
 	value = math.floor(value)
 	if value < 0 then
-		BIOS.log(string.format("Util.lua: value %f is too small for address %d mask %d", value, self.address, self.mask))
+		Logg:log(string.format("Util.lua: value %f is too small for address %d mask %d", value, self.address, self.mask))
 		return
 	end
 	if value > self.maxValue then
-		BIOS.log(string.format("Util.lua: value %f is too large for address %d mask %d", value, self.address, self.mask))
+		Logg:log(string.format("Util.lua: value %f is too large for address %d mask %d", value, self.address, self.mask))
 		return
 	end
 	assert(value >= 0)
@@ -165,8 +165,8 @@ function BIOS.util.StringAllocation:setValue(value)
 	local i = 1
 
         if value == nil then
-		BIOS.log(string.format("Util.lua: item is sending a nil value"))
-		return
+			Logg:log(string.format("Util.lua: item is sending a nil value"))
+			return
         end
 
 	while i <= value:len() and i <= #self.characterAllocations do
