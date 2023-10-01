@@ -3971,11 +3971,11 @@
                                                                                                       } ],
                                                                                   "physical_variant": "toggle_switch"
                                                                            },
-                                                       "PLT_STATIC-VALVE": {
+                                                       "PLT_STATIC_VALVE": {
                                                                                           "category": "Cockpit Mechanics PLT",
                                                                                       "control_type": "selector",
                                                                                        "description": "PILOT Static valve sensor select LEFT/BOTH/RIGHT",
-                                                                                        "identifier": "PLT_STATIC-VALVE",
+                                                                                        "identifier": "PLT_STATIC_VALVE",
                                                                                             "inputs": [ {
                                                                                                           "description": "switch to previous or next state",
                                                                                                             "interface": "fixed_step"
@@ -12776,8 +12776,36 @@
                                                            "OP_SIGHT_CHECK": {
                                                                                             "category": "I9K113",
                                                                                         "control_type": "selector",
-                                                                                         "description": "OPERATOR Sight WORK-CHECK",
+                                                                                         "description": "OPERATOR Sight CHECK2-NEUTR-CHECK1",
                                                                                           "identifier": "OP_SIGHT_CHECK",
+                                                                                              "inputs": [ {
+                                                                                                            "description": "switch to previous or next state",
+                                                                                                              "interface": "fixed_step"
+                                                                                                        }, {
+                                                                                                            "description": "set position",
+                                                                                                              "interface": "set_state",
+                                                                                                              "max_value": 2
+                                                                                                        } ],
+                                                                                 "momentary_positions": "none",
+                                                                                             "outputs": [ {
+                                                                                                                                  "address": 26960,
+                                                                                                                       "address_identifier": "Mi_24P_OP_SIGHT_CHECK_A",
+                                                                                                                  "address_mask_identifier": "Mi_24P_OP_SIGHT_CHECK_AM",
+                                                                                                            "address_mask_shift_identifier": "Mi_24P_OP_SIGHT_CHECK",
+                                                                                                                              "description": "selector position",
+                                                                                                                                     "mask": 192,
+                                                                                                                                "max_value": 2,
+                                                                                                                                 "shift_by": 6,
+                                                                                                                                   "suffix": "",
+                                                                                                                                     "type": "integer"
+                                                                                                        } ],
+                                                                                    "physical_variant": "3_position_switch"
+                                                                             },
+                                                       "OP_SIGHT_CHECK_BTN": {
+                                                                                            "category": "I9K113",
+                                                                                        "control_type": "selector",
+                                                                                         "description": "OPERATOR Sight WORK-CHECK",
+                                                                                          "identifier": "OP_SIGHT_CHECK_BTN",
                                                                                               "inputs": [ {
                                                                                                             "description": "switch to previous or next state",
                                                                                                               "interface": "fixed_step"
@@ -12793,9 +12821,9 @@
                                                                                  "momentary_positions": "none",
                                                                                              "outputs": [ {
                                                                                                                                   "address": 26960,
-                                                                                                                       "address_identifier": "Mi_24P_OP_SIGHT_CHECK_A",
-                                                                                                                  "address_mask_identifier": "Mi_24P_OP_SIGHT_CHECK_AM",
-                                                                                                            "address_mask_shift_identifier": "Mi_24P_OP_SIGHT_CHECK",
+                                                                                                                       "address_identifier": "Mi_24P_OP_SIGHT_CHECK_BTN_A",
+                                                                                                                  "address_mask_identifier": "Mi_24P_OP_SIGHT_CHECK_BTN_AM",
+                                                                                                            "address_mask_shift_identifier": "Mi_24P_OP_SIGHT_CHECK_BTN",
                                                                                                                               "description": "selector position",
                                                                                                                                      "mask": 256,
                                                                                                                                 "max_value": 1,
@@ -14798,6 +14826,25 @@
                                                                                                          "address_mask_identifier": "Mi_24P_OP_PANEL1_L_AM",
                                                                                                    "address_mask_shift_identifier": "Mi_24P_OP_PANEL1_L",
                                                                                                                      "description": "0 if light is off, 1 if light is on",
+                                                                                                                            "mask": 128,
+                                                                                                                       "max_value": 1,
+                                                                                                                        "shift_by": 7,
+                                                                                                                          "suffix": "",
+                                                                                                                            "type": "integer"
+                                                                                               } ]
+                                                                           },
+                                                            "OP_PANEL2_L": {
+                                                                                   "category": "Internal Lights",
+                                                                               "control_type": "led",
+                                                                                "description": "OPERATOR Panel 2 Lighting (red)",
+                                                                                 "identifier": "OP_PANEL2_L",
+                                                                                     "inputs": [  ],
+                                                                                    "outputs": [ {
+                                                                                                                         "address": 27198,
+                                                                                                              "address_identifier": "Mi_24P_OP_PANEL2_L_A",
+                                                                                                         "address_mask_identifier": "Mi_24P_OP_PANEL2_L_AM",
+                                                                                                   "address_mask_shift_identifier": "Mi_24P_OP_PANEL2_L",
+                                                                                                                     "description": "0 if light is off, 1 if light is on",
                                                                                                                             "mask": 256,
                                                                                                                        "max_value": 1,
                                                                                                                         "shift_by": 8,
@@ -14922,11 +14969,14 @@
                                                                                                                                   "suffix": "_INT",
                                                                                                                                     "type": "integer"
                                                                                                        }, {
-                                                                                                               "address": 27136,
-                                                                                                           "description": "possible values: \"0\" \"1\" \"2\" \"3\" \"4\" \"5\" \"6\" \"7\" \"8\" \"9\" ",
-                                                                                                            "max_length": 1,
-                                                                                                                "suffix": "_STR",
-                                                                                                                  "type": "string"
+                                                                                                                                 "address": 27136,
+                                                                                                                      "address_identifier": "Mi_24P_PLT_JADRO_100H_A",
+                                                                                                                 "address_mask_identifier": "Mi_24P_PLT_JADRO_100H_AM",
+                                                                                                           "address_mask_shift_identifier": "Mi_24P_PLT_JADRO_100H",
+                                                                                                                             "description": "possible values: \"0\" \"1\" \"2\" \"3\" \"4\" \"5\" \"6\" \"7\" \"8\" \"9\"",
+                                                                                                                              "max_length": 1,
+                                                                                                                                  "suffix": "_STR",
+                                                                                                                                    "type": "string"
                                                                                                        } ],
                                                                                    "physical_variant": "infinite_rotary"
                                                                             },
@@ -14952,11 +15002,14 @@
                                                                                                                                   "suffix": "_INT",
                                                                                                                                     "type": "integer"
                                                                                                        }, {
-                                                                                                               "address": 27130,
-                                                                                                           "description": "possible values: \"0\" \"1\" \"2\" \"3\" \"4\" \"5\" \"6\" \"7\" \"8\" \"9\" ",
-                                                                                                            "max_length": 1,
-                                                                                                                "suffix": "_STR",
-                                                                                                                  "type": "string"
+                                                                                                                                 "address": 27130,
+                                                                                                                      "address_identifier": "Mi_24P_PLT_JADRO_100K_A",
+                                                                                                                 "address_mask_identifier": "Mi_24P_PLT_JADRO_100K_AM",
+                                                                                                           "address_mask_shift_identifier": "Mi_24P_PLT_JADRO_100K",
+                                                                                                                             "description": "possible values: \"0\" \"1\" \"2\" \"3\" \"4\" \"5\" \"6\" \"7\" \"8\" \"9\"",
+                                                                                                                              "max_length": 1,
+                                                                                                                                  "suffix": "_STR",
+                                                                                                                                    "type": "string"
                                                                                                        } ],
                                                                                    "physical_variant": "infinite_rotary"
                                                                             },
@@ -14982,11 +15035,14 @@
                                                                                                                                   "suffix": "_INT",
                                                                                                                                     "type": "integer"
                                                                                                        }, {
-                                                                                                               "address": 27132,
-                                                                                                           "description": "possible values: \"0\" \"1\" \"2\" \"3\" \"4\" \"5\" \"6\" \"7\" \"8\" \"9\" ",
-                                                                                                            "max_length": 1,
-                                                                                                                "suffix": "_STR",
-                                                                                                                  "type": "string"
+                                                                                                                                 "address": 27132,
+                                                                                                                      "address_identifier": "Mi_24P_PLT_JADRO_10K_A",
+                                                                                                                 "address_mask_identifier": "Mi_24P_PLT_JADRO_10K_AM",
+                                                                                                           "address_mask_shift_identifier": "Mi_24P_PLT_JADRO_10K",
+                                                                                                                             "description": "possible values: \"0\" \"1\" \"2\" \"3\" \"4\" \"5\" \"6\" \"7\" \"8\" \"9\"",
+                                                                                                                              "max_length": 1,
+                                                                                                                                  "suffix": "_STR",
+                                                                                                                                    "type": "string"
                                                                                                        } ],
                                                                                    "physical_variant": "infinite_rotary"
                                                                             },
@@ -15012,11 +15068,14 @@
                                                                                                                                   "suffix": "_INT",
                                                                                                                                     "type": "integer"
                                                                                                        }, {
-                                                                                                               "address": 27134,
-                                                                                                           "description": "possible values: \"0\" \"1\" \"2\" \"3\" \"4\" \"5\" \"6\" \"7\" \"8\" \"9\" ",
-                                                                                                            "max_length": 1,
-                                                                                                                "suffix": "_STR",
-                                                                                                                  "type": "string"
+                                                                                                                                 "address": 27134,
+                                                                                                                      "address_identifier": "Mi_24P_PLT_JADRO_1K_A",
+                                                                                                                 "address_mask_identifier": "Mi_24P_PLT_JADRO_1K_AM",
+                                                                                                           "address_mask_shift_identifier": "Mi_24P_PLT_JADRO_1K",
+                                                                                                                             "description": "possible values: \"0\" \"1\" \"2\" \"3\" \"4\" \"5\" \"6\" \"7\" \"8\" \"9\"",
+                                                                                                                              "max_length": 1,
+                                                                                                                                  "suffix": "_STR",
+                                                                                                                                    "type": "string"
                                                                                                        } ],
                                                                                    "physical_variant": "infinite_rotary"
                                                                             },
