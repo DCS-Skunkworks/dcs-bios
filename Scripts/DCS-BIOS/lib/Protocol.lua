@@ -75,75 +75,72 @@ function BIOS.protocol.endModule()
 			file:close()
 		end
 	end
-	local function saveAddresses()
-		local moduleName = moduleBeingDefined.name
+	pcall(saveDoc)
+	moduleBeingDefined = nil
+	end
+end
+function BIOS.protocol.saveAddresses()
+	if BIOSdevMode == 1 then
+		local addresses = {}
 
-		local path = lfs.writedir()..[[Scripts/DCS-BIOS/doc/Addresses.h]]
-		local existingDefines = {}
-		local lineOrder = {} -- To maintain the order of lines
-
-		-- Read existing content
-		local fileRead, errRead = io.open(path, "r")
-		if fileRead then
-			for line in fileRead:lines() do
-				local identifier = line:match("#define%s+([%w_]+)")
-				if identifier then
-					existingDefines[identifier] = line
-					table.insert(lineOrder, identifier)
-				end
+		local function addLine(identifier, line)
+			if not addresses[identifier] then
+				addresses[identifier] = line
 			end
-			fileRead:close()
 		end
 
-		for _, category in pairs(moduleBeingDefined.documentation) do
-			for identifier, args in pairs(category) do
-				local outputs = args.outputs or {}
-				for _, output in pairs(outputs) do
-					local full_identifier = BIOS.util.addressDefineIdentifier(moduleName, identifier)
-					local addressStr = output.address and string.format("0x%X", output.address) or ""
-					local maskStr = output.mask and string.format("0x%X", output.mask) or ""
-					local shiftByStr = output.shift_by and tostring(output.shift_by) or ""
+		for moduleName, moduleBeingDefined in pairs(exportModules) do
+			for _, category in pairs(moduleBeingDefined.documentation) do
+				for identifier, args in pairs(category) do
+					local outputs = args.outputs or {}
+					for _, output in pairs(outputs) do
+						local address_identifier = (output.address_mask_shift_identifier or BIOS.util.addressDefineIdentifier(moduleName, identifier)) .. "_A"
+						local address_mask_identifier = (output.address_mask_shift_identifier or BIOS.util.addressDefineIdentifier(moduleName, identifier)) .. "_AM"
+						local address_mask_shiftby_identifier = output.address_mask_shift_identifier or BIOS.util.addressDefineIdentifier(moduleName, identifier)
+						local address = output.address and string.format("0x%04X", output.address) or ""
+						local mask = output.mask and string.format("0x%04X", output.mask) or ""
+						local shift_by = output.shift_by and tostring(output.shift_by) or ""
 
-					-- Define line with address, mask, and shiftby
-					local line = "#define " .. full_identifier .. " " .. addressStr
-					if maskStr ~= "" then line = line .. ", " .. maskStr end
-					if shiftByStr ~= "" then line = line .. ", " .. shiftByStr end
+						local address_line = "#define " .. address_identifier .. " " .. address
+						local address_mask_line = "#define " .. address_mask_identifier .. " " .. address .. ", " .. mask
+						local address_mask_shiftby_line = "#define " .. address_mask_shiftby_identifier .. " " .. address .. ", " .. mask .. ", " .. shift_by
 
-					if not existingDefines[full_identifier] then
-						table.insert(lineOrder, full_identifier)
-					end
-
-					existingDefines[full_identifier] = line
-
-					-- Additional line with only the address and _ADDR suffix
-					if addressStr ~= "" then
-						local addressOnlyIdentifier = full_identifier .. "_ADDR"
-						local addressOnlyLine = "#define " .. addressOnlyIdentifier .. " " .. addressStr
-
-						if not existingDefines[addressOnlyIdentifier] then
-							table.insert(lineOrder, addressOnlyIdentifier)
+						-- #define lines based on type
+						if output.type == "integer" then
+							addLine(address_mask_shiftby_identifier, address_mask_shiftby_line)
+							if output.max_value == 1 then
+								addLine(address_mask_identifier, address_mask_line)
+							elseif output.max_value == 65535 then
+								addLine(address_identifier, address_line)
+							end
 						end
-
-						existingDefines[addressOnlyIdentifier] = addressOnlyLine
+						if output.type == "string" then
+							addLine(address_identifier, address_line)
+						end
 					end
 				end
 			end
 		end
 
-		-- Write the updated content to the file
-		local address_header_file, err = io.open(path, "w")
+		-- Sort the identifiers before writing
+		local sortedIdentifiers = {}
+		for identifier in pairs(addresses) do
+			table.insert(sortedIdentifiers, identifier)
+		end
+		table.sort(sortedIdentifiers)
+
+		-- Write the header file
+		local address_header_file, err = io.open(lfs.writedir()..[[Scripts/DCS-BIOS/doc/Addresses.h]], "w")
 		if err then
 			print("Error opening file:", err) -- Print error if unable to open file
 			return
+		else
+			for _, identifier in ipairs(sortedIdentifiers) do
+				address_header_file:write(addresses[identifier] .. "\n")
+			end
+
+			address_header_file:close() -- Close the header file
 		end
-		for _, identifier in ipairs(lineOrder) do
-			address_header_file:write(existingDefines[identifier] .. "\n")
-		end
-		address_header_file:close() -- Close the header file
-	end
-	pcall(saveDoc)
-	pcall(saveAddresses)
-	moduleBeingDefined = nil
 	end
 end
 function BIOS.protocol.writeNewModule(mod)
@@ -159,6 +156,8 @@ function BIOS.protocol.init()
 	-- called after all aircraft modules have been loaded
 	metadataStartModule = exportModules["MetadataStart"]
 	metadataEndModule = exportModules["MetadataEnd"]
+
+	BIOS.protocol.saveAddresses()
 end
 
 local acftModules = nil

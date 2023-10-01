@@ -752,8 +752,9 @@ function Module:addControl(control)
 	-- todo: move this further down?
 	if control.outputs then
 		for _, output in ipairs(control.outputs) do
-			output.address_identifier = self:addressDefineIdentifier(control.identifier)
-			output.address_only_identifier = self:addressDefineIdentifier(control.identifier) .. "_ADDR"
+			output.address_identifier = self:addressDefineIdentifier(control.identifier) .. "_A"
+			output.address_mask_identifier = self:addressDefineIdentifier(control.identifier) .. "_AM"
+			output.address_mask_shift_identifier = self:addressDefineIdentifier(control.identifier)
 		end
 	end
 
