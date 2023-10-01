@@ -1,0 +1,90 @@
+local ActionArgument = require("ActionArgument")
+local ControlType = require("ControlType")
+local InputType = require("InputType")
+local MockDevice = require("MockDevice")
+local Module = require("Module")
+local OutputType = require("OutputType")
+local PhysicalVariant = require("PhysicalVariant")
+local Suffix = require("Suffix")
+
+local lu = require("luaunit")
+
+--- @class TestToggleSwitchToggleOnly
+--- @field module Module
+TestToggleSwitchToggleOnly = {}
+local moduleName = "MyModule"
+local moduleAddress = 0x4200
+
+function TestToggleSwitchToggleOnly:setUp()
+	self.module = Module:new(moduleName, moduleAddress, {})
+	Input_Processor_Device = MockDevice:new(0)
+end
+
+local id = "MY_TOGGLE_ONLY_SWITCH"
+local device_id = 1
+local command = 2
+local arg_number = 3
+local category = "Toggle-Only Switches"
+local description = "This is a toggle-only switch"
+
+function TestToggleSwitchToggleOnly:testAddToggleSwitchToggleOnly()
+	local control = self.module:defineToggleSwitchToggleOnly(id, device_id, command, arg_number, category, description)
+
+	lu.assertEquals(control, self.module.documentation[category][id])
+	lu.assertEquals(control.control_type, ControlType.action)
+	lu.assertEquals(control.category, category)
+	lu.assertEquals(control.description, description)
+	lu.assertEquals(control.identifier, id)
+	lu.assertEquals(control.physical_variant, PhysicalVariant.toggle_switch)
+	lu.assertIsNil(control.api_variant)
+
+	lu.assertEquals(#control.inputs, 1)
+
+	local action_input = control.inputs[1] --[[@as ActionInput]]
+	lu.assertEquals(action_input.interface, InputType.action)
+	lu.assertEquals(action_input.argument, ActionArgument.toggle)
+
+	lu.assertEquals(#control.outputs, 1)
+	local output = control.outputs[1] --[[@as IntegerOutput]]
+	lu.assertEquals(output.type, OutputType.integer)
+	lu.assertEquals(output.max_value, 1)
+	lu.assertEquals(output.suffix, Suffix.none)
+	lu.assertEquals(output.address, moduleAddress) -- first control, should be plenty of room, no need to move the address
+end
+function TestToggleSwitchToggleOnly:testValue()
+	self.module:defineToggleSwitchToggleOnly(id, device_id, command, arg_number, category, description)
+
+	local export_hook = self.module.exportHooks[1]
+
+	local alloc = self.module.memoryMap.entries[moduleAddress].allocations[1]
+
+	export_hook(MockDevice:new(0))
+	lu.assertEquals(alloc.value, 0)
+
+	export_hook(MockDevice:new(1))
+	lu.assertEquals(alloc.value, 1)
+end
+
+function TestToggleSwitchToggleOnly:testInputToggleFromOff()
+	self.module:defineToggleSwitchToggleOnly(id, device_id, command, arg_number, category, description)
+	local input_processor = self.module.inputProcessors[id]
+
+	input_processor("TOGGLE")
+
+	lu.assertEquals(#Input_Processor_Device.clickable_actions, 1)
+	local action = Input_Processor_Device.clickable_actions[1]
+	lu.assertAlmostEquals(action[command], 1)
+end
+
+function TestToggleSwitchToggleOnly:testInputToggleFromOn()
+	self.module:defineToggleSwitchToggleOnly(id, device_id, command, arg_number, category, description)
+	local input_processor = self.module.inputProcessors[id]
+
+	Input_Processor_Device.value = 1
+
+	input_processor("TOGGLE")
+
+	lu.assertEquals(#Input_Processor_Device.clickable_actions, 1)
+	local action = Input_Processor_Device.clickable_actions[1]
+	lu.assertAlmostEquals(action[command], 1)
+end

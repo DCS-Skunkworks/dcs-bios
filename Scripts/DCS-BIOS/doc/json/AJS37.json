@@ -265,12 +265,19 @@
                     "Doppler": {
                                    "DOPPLER_LAND_SEA_MODE": {
                                                                            "category": "Doppler",
-                                                                       "control_type": "action",
+                                                                       "control_type": "selector",
                                                                         "description": "Doppler Land/Sea Mode",
                                                                          "identifier": "DOPPLER_LAND_SEA_MODE",
                                                                              "inputs": [ {
+                                                                                           "description": "switch to previous or next state",
+                                                                                             "interface": "fixed_step"
+                                                                                       }, {
+                                                                                           "description": "set position",
+                                                                                             "interface": "set_state",
+                                                                                             "max_value": 1
+                                                                                       }, {
                                                                                               "argument": "TOGGLE",
-                                                                                           "description": "toggle switch state",
+                                                                                           "description": "Toggle switch state",
                                                                                              "interface": "action"
                                                                                        } ],
                                                                 "momentary_positions": "none",
@@ -286,7 +293,7 @@
                                                                                                                   "suffix": "",
                                                                                                                     "type": "integer"
                                                                                        } ],
-                                                                   "physical_variant": "limited_rotary"
+                                                                   "physical_variant": "toggle_switch"
                                                             }
                                },
             "Electric System": {
@@ -676,11 +683,11 @@
                                                                                         } ],
                                                                     "physical_variant": "toggle_switch"
                                                              },
-                                                   "DE-ICE": {
+                                                   "DE_ICE": {
                                                                      "category": "Engine Panel",
                                                                  "control_type": "limited_dial",
                                                                   "description": "Windscreen De-Ice",
-                                                                   "identifier": "DE-ICE",
+                                                                   "identifier": "DE_ICE",
                                                                        "inputs": [ {
                                                                                      "description": "set the position of the dial",
                                                                                        "interface": "set_state",
@@ -3141,7 +3148,7 @@
                                                "AFK_15_DEG_MODE": {
                                                                                  "category": "Flight Data Unit",
                                                                              "control_type": "action",
-                                                                              "description": "AFK 15 Deg Mode",
+                                                                              "description": "AFK 15 Deg Mode (view output with AOA_15_L)",
                                                                                "identifier": "AFK_15_DEG_MODE",
                                                                                    "inputs": [ {
                                                                                                     "argument": "TOGGLE",
@@ -3149,44 +3156,8 @@
                                                                                                    "interface": "action"
                                                                                              } ],
                                                                       "momentary_positions": "none",
-                                                                                  "outputs": [ {
-                                                                                                                       "address": 17940,
-                                                                                                            "address_identifier": "AJS37_AFK_15_DEG_MODE_A",
-                                                                                                       "address_mask_identifier": "AJS37_AFK_15_DEG_MODE_AM",
-                                                                                                 "address_mask_shift_identifier": "AJS37_AFK_15_DEG_MODE",
-                                                                                                                   "description": "selector position",
-                                                                                                                          "mask": 8192,
-                                                                                                                     "max_value": 1,
-                                                                                                                      "shift_by": 13,
-                                                                                                                        "suffix": "",
-                                                                                                                          "type": "integer"
-                                                                                             } ],
-                                                                         "physical_variant": "limited_rotary"
-                                                                  },
-                                                    "AFK_MODE_3": {
-                                                                                 "category": "Flight Data Unit",
-                                                                             "control_type": "action",
-                                                                              "description": "AFK Mode 3",
-                                                                               "identifier": "AFK_MODE_3",
-                                                                                   "inputs": [ {
-                                                                                                    "argument": "TOGGLE",
-                                                                                                 "description": "toggle switch state",
-                                                                                                   "interface": "action"
-                                                                                             } ],
-                                                                      "momentary_positions": "none",
-                                                                                  "outputs": [ {
-                                                                                                                       "address": 17940,
-                                                                                                            "address_identifier": "AJS37_AFK_MODE_3_A",
-                                                                                                       "address_mask_identifier": "AJS37_AFK_MODE_3_AM",
-                                                                                                 "address_mask_shift_identifier": "AJS37_AFK_MODE_3",
-                                                                                                                   "description": "selector position",
-                                                                                                                          "mask": 4096,
-                                                                                                                     "max_value": 1,
-                                                                                                                      "shift_by": 12,
-                                                                                                                        "suffix": "",
-                                                                                                                          "type": "integer"
-                                                                                             } ],
-                                                                         "physical_variant": "limited_rotary"
+                                                                                  "outputs": [  ],
+                                                                         "physical_variant": "toggle_switch"
                                                                   },
                                               "AIRSPEED_INDEXER": {
                                                                        "api_variant": "multiturn",
@@ -3422,15 +3393,12 @@
                                                                          "physical_variant": "toggle_switch"
                                                                   },
                                             "BACKUP_ALT_SETTING": {
+                                                                       "api_variant": "multiturn",
                                                                           "category": "Flight Data Unit",
-                                                                      "control_type": "limited_dial",
+                                                                      "control_type": "analog_dial",
                                                                        "description": "Backup Altimeter Setting",
                                                                         "identifier": "BACKUP_ALT_SETTING",
                                                                             "inputs": [ {
-                                                                                          "description": "set the position of the dial",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 65535
-                                                                                      }, {
                                                                                              "description": "turn the dial left or right",
                                                                                                "interface": "variable_step",
                                                                                                "max_value": 65535,
@@ -3441,11 +3409,11 @@
                                                                                                      "address_identifier": "AJS37_BACKUP_ALT_SETTING_A",
                                                                                                 "address_mask_identifier": "AJS37_BACKUP_ALT_SETTING_AM",
                                                                                           "address_mask_shift_identifier": "AJS37_BACKUP_ALT_SETTING",
-                                                                                                            "description": "position of the potentiometer",
+                                                                                                            "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
                                                                                                                    "mask": 65535,
                                                                                                               "max_value": 65535,
                                                                                                                "shift_by": 0,
-                                                                                                                 "suffix": "",
+                                                                                                                 "suffix": "_KNOB_POS",
                                                                                                                    "type": "integer"
                                                                                       } ]
                                                                   },
@@ -3841,7 +3809,7 @@
                                                                                                                         "suffix": "",
                                                                                                                           "type": "integer"
                                                                                              } ],
-                                                                         "physical_variant": "limited_rotary"
+                                                                         "physical_variant": "toggle_switch"
                                                                   },
                                                 "MAG_CORRECTION": {
                                                                        "api_variant": "multiturn",
@@ -3995,12 +3963,19 @@
                                                                   },
                                                  "PARKING_BRAKE": {
                                                                                  "category": "Flight Data Unit",
-                                                                             "control_type": "action",
+                                                                             "control_type": "selector",
                                                                               "description": "Parking Brake",
                                                                                "identifier": "PARKING_BRAKE",
                                                                                    "inputs": [ {
+                                                                                                 "description": "switch to previous or next state",
+                                                                                                   "interface": "fixed_step"
+                                                                                             }, {
+                                                                                                 "description": "set position",
+                                                                                                   "interface": "set_state",
+                                                                                                   "max_value": 1
+                                                                                             }, {
                                                                                                     "argument": "TOGGLE",
-                                                                                                 "description": "toggle switch state",
+                                                                                                 "description": "Toggle switch state",
                                                                                                    "interface": "action"
                                                                                              } ],
                                                                       "momentary_positions": "none",
@@ -4016,7 +3991,7 @@
                                                                                                                         "suffix": "",
                                                                                                                           "type": "integer"
                                                                                              } ],
-                                                                         "physical_variant": "limited_rotary"
+                                                                         "physical_variant": "toggle_switch"
                                                                   },
                                                "PITCH_GEAR_MODE": {
                                                                                  "category": "Flight Data Unit",
@@ -4339,7 +4314,7 @@
                                                                                             "address_identifier": "AJS37_BURNER_STAGE1_L_A",
                                                                                        "address_mask_identifier": "AJS37_BURNER_STAGE1_L_AM",
                                                                                  "address_mask_shift_identifier": "AJS37_BURNER_STAGE1_L",
-                                                                                                   "description": "Afterburner Stage Light 1",
+                                                                                                   "description": "0 if light is off, 1 if light is on",
                                                                                                           "mask": 16384,
                                                                                                      "max_value": 1,
                                                                                                       "shift_by": 14,
@@ -4358,7 +4333,7 @@
                                                                                             "address_identifier": "AJS37_BURNER_STAGE2_L_A",
                                                                                        "address_mask_identifier": "AJS37_BURNER_STAGE2_L_AM",
                                                                                  "address_mask_shift_identifier": "AJS37_BURNER_STAGE2_L",
-                                                                                                   "description": "Afterburner Stage Light 2",
+                                                                                                   "description": "0 if light is off, 1 if light is on",
                                                                                                           "mask": 32768,
                                                                                                      "max_value": 1,
                                                                                                       "shift_by": 15,
@@ -4377,7 +4352,7 @@
                                                                                             "address_identifier": "AJS37_BURNER_STAGE3_L_A",
                                                                                        "address_mask_identifier": "AJS37_BURNER_STAGE3_L_AM",
                                                                                  "address_mask_shift_identifier": "AJS37_BURNER_STAGE3_L",
-                                                                                                   "description": "Afterburner Stage Light 3",
+                                                                                                   "description": "0 if light is off, 1 if light is on",
                                                                                                           "mask": 256,
                                                                                                      "max_value": 1,
                                                                                                       "shift_by": 8,
@@ -4618,7 +4593,7 @@
                                              "ALTITUDE_VALUE": {
                                                                        "category": "Gauge Values",
                                                                    "control_type": "metadata",
-                                                                    "description": "Altitude Value",
+                                                                    "description": "Altitude Value (up to 10K ft)",
                                                                      "identifier": "ALTITUDE_VALUE",
                                                                          "inputs": [  ],
                                                                         "outputs": [ {
@@ -4626,9 +4601,9 @@
                                                                                                   "address_identifier": "AJS37_ALTITUDE_VALUE_A",
                                                                                              "address_mask_identifier": "AJS37_ALTITUDE_VALUE_AM",
                                                                                        "address_mask_shift_identifier": "AJS37_ALTITUDE_VALUE",
-                                                                                                         "description": "Altitude Value",
+                                                                                                         "description": "Altitude Value (up to 10K ft)",
                                                                                                                 "mask": 65535,
-                                                                                                           "max_value": 65000,
+                                                                                                           "max_value": 65535,
                                                                                                             "shift_by": 0,
                                                                                                               "suffix": "",
                                                                                                                 "type": "integer"
@@ -4647,7 +4622,7 @@
                                                                                        "address_mask_shift_identifier": "AJS37_CI_COMMAND_HEADING_VALUE",
                                                                                                          "description": "CI Commanded Heading Value",
                                                                                                                 "mask": 65535,
-                                                                                                           "max_value": 65000,
+                                                                                                           "max_value": 65535,
                                                                                                             "shift_by": 0,
                                                                                                               "suffix": "",
                                                                                                                 "type": "integer"
@@ -4685,7 +4660,7 @@
                                                                                        "address_mask_shift_identifier": "AJS37_ENGINE_RPM_VALUE",
                                                                                                          "description": "Engine RPM Value",
                                                                                                                 "mask": 65535,
-                                                                                                           "max_value": 65000,
+                                                                                                           "max_value": 65535,
                                                                                                             "shift_by": 0,
                                                                                                               "suffix": "",
                                                                                                                 "type": "integer"
@@ -4704,7 +4679,7 @@
                                                                                        "address_mask_shift_identifier": "AJS37_ENGINE_TEMP_VALUE",
                                                                                                          "description": "Engine Temp Value",
                                                                                                                 "mask": 65535,
-                                                                                                           "max_value": 65000,
+                                                                                                           "max_value": 65535,
                                                                                                             "shift_by": 0,
                                                                                                               "suffix": "",
                                                                                                                 "type": "integer"
@@ -4723,7 +4698,7 @@
                                                                                        "address_mask_shift_identifier": "AJS37_FUEL_LEVEL_VALUE",
                                                                                                          "description": "Fuel Level Value",
                                                                                                                 "mask": 65535,
-                                                                                                           "max_value": 65000,
+                                                                                                           "max_value": 65535,
                                                                                                             "shift_by": 0,
                                                                                                               "suffix": "",
                                                                                                                 "type": "integer"
@@ -4742,7 +4717,7 @@
                                                                                        "address_mask_shift_identifier": "AJS37_FUEL_NEEDED_VALUE",
                                                                                                          "description": "Fuel Needed Value",
                                                                                                                 "mask": 65535,
-                                                                                                           "max_value": 65000,
+                                                                                                           "max_value": 65535,
                                                                                                             "shift_by": 0,
                                                                                                               "suffix": "",
                                                                                                                 "type": "integer"
@@ -5914,7 +5889,7 @@
                                    "AJS37_NAV_INDICATOR_DATA_1": {
                                                                          "category": "Navigation Panel",
                                                                      "control_type": "display",
-                                                                      "description": "Navigataion Panel Data Digit 1",
+                                                                      "description": "Navigation Panel Data Digit 1",
                                                                        "identifier": "AJS37_NAV_INDICATOR_DATA_1",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
@@ -5922,7 +5897,7 @@
                                                                                                     "address_identifier": "AJS37_AJS37_NAV_INDICATOR_DATA_1_A",
                                                                                                "address_mask_identifier": "AJS37_AJS37_NAV_INDICATOR_DATA_1_AM",
                                                                                          "address_mask_shift_identifier": "AJS37_AJS37_NAV_INDICATOR_DATA_1",
-                                                                                                           "description": "Navigataion Panel Data Digit 1",
+                                                                                                           "description": "Navigation Panel Data Digit 1",
                                                                                                             "max_length": 1,
                                                                                                                 "suffix": "",
                                                                                                                   "type": "string"
@@ -5931,7 +5906,7 @@
                                    "AJS37_NAV_INDICATOR_DATA_2": {
                                                                          "category": "Navigation Panel",
                                                                      "control_type": "display",
-                                                                      "description": "Navigataion Panel Data Digit 2",
+                                                                      "description": "Navigation Panel Data Digit 2",
                                                                        "identifier": "AJS37_NAV_INDICATOR_DATA_2",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
@@ -5939,7 +5914,7 @@
                                                                                                     "address_identifier": "AJS37_AJS37_NAV_INDICATOR_DATA_2_A",
                                                                                                "address_mask_identifier": "AJS37_AJS37_NAV_INDICATOR_DATA_2_AM",
                                                                                          "address_mask_shift_identifier": "AJS37_AJS37_NAV_INDICATOR_DATA_2",
-                                                                                                           "description": "Navigataion Panel Data Digit 2",
+                                                                                                           "description": "Navigation Panel Data Digit 2",
                                                                                                             "max_length": 1,
                                                                                                                 "suffix": "",
                                                                                                                   "type": "string"
@@ -5948,7 +5923,7 @@
                                    "AJS37_NAV_INDICATOR_DATA_3": {
                                                                          "category": "Navigation Panel",
                                                                      "control_type": "display",
-                                                                      "description": "Navigataion Panel Data Digit 3",
+                                                                      "description": "Navigation Panel Data Digit 3",
                                                                        "identifier": "AJS37_NAV_INDICATOR_DATA_3",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
@@ -5956,7 +5931,7 @@
                                                                                                     "address_identifier": "AJS37_AJS37_NAV_INDICATOR_DATA_3_A",
                                                                                                "address_mask_identifier": "AJS37_AJS37_NAV_INDICATOR_DATA_3_AM",
                                                                                          "address_mask_shift_identifier": "AJS37_AJS37_NAV_INDICATOR_DATA_3",
-                                                                                                           "description": "Navigataion Panel Data Digit 3",
+                                                                                                           "description": "Navigation Panel Data Digit 3",
                                                                                                             "max_length": 1,
                                                                                                                 "suffix": "",
                                                                                                                   "type": "string"
@@ -5965,7 +5940,7 @@
                                    "AJS37_NAV_INDICATOR_DATA_4": {
                                                                          "category": "Navigation Panel",
                                                                      "control_type": "display",
-                                                                      "description": "Navigataion Panel Data Digit 4",
+                                                                      "description": "Navigation Panel Data Digit 4",
                                                                        "identifier": "AJS37_NAV_INDICATOR_DATA_4",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
@@ -5973,7 +5948,7 @@
                                                                                                     "address_identifier": "AJS37_AJS37_NAV_INDICATOR_DATA_4_A",
                                                                                                "address_mask_identifier": "AJS37_AJS37_NAV_INDICATOR_DATA_4_AM",
                                                                                          "address_mask_shift_identifier": "AJS37_AJS37_NAV_INDICATOR_DATA_4",
-                                                                                                           "description": "Navigataion Panel Data Digit 4",
+                                                                                                           "description": "Navigation Panel Data Digit 4",
                                                                                                             "max_length": 1,
                                                                                                                 "suffix": "",
                                                                                                                   "type": "string"
@@ -5982,7 +5957,7 @@
                                    "AJS37_NAV_INDICATOR_DATA_5": {
                                                                          "category": "Navigation Panel",
                                                                      "control_type": "display",
-                                                                      "description": "Navigataion Panel Data Digit 5",
+                                                                      "description": "Navigation Panel Data Digit 5",
                                                                        "identifier": "AJS37_NAV_INDICATOR_DATA_5",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
@@ -5990,7 +5965,7 @@
                                                                                                     "address_identifier": "AJS37_AJS37_NAV_INDICATOR_DATA_5_A",
                                                                                                "address_mask_identifier": "AJS37_AJS37_NAV_INDICATOR_DATA_5_AM",
                                                                                          "address_mask_shift_identifier": "AJS37_AJS37_NAV_INDICATOR_DATA_5",
-                                                                                                           "description": "Navigataion Panel Data Digit 5",
+                                                                                                           "description": "Navigation Panel Data Digit 5",
                                                                                                             "max_length": 1,
                                                                                                                 "suffix": "",
                                                                                                                   "type": "string"
@@ -5999,7 +5974,7 @@
                                    "AJS37_NAV_INDICATOR_DATA_6": {
                                                                          "category": "Navigation Panel",
                                                                      "control_type": "display",
-                                                                      "description": "Navigataion Panel Data Digit 6",
+                                                                      "description": "Navigation Panel Data Digit 6",
                                                                        "identifier": "AJS37_NAV_INDICATOR_DATA_6",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
@@ -6007,7 +5982,7 @@
                                                                                                     "address_identifier": "AJS37_AJS37_NAV_INDICATOR_DATA_6_A",
                                                                                                "address_mask_identifier": "AJS37_AJS37_NAV_INDICATOR_DATA_6_AM",
                                                                                          "address_mask_shift_identifier": "AJS37_AJS37_NAV_INDICATOR_DATA_6",
-                                                                                                           "description": "Navigataion Panel Data Digit 6",
+                                                                                                           "description": "Navigation Panel Data Digit 6",
                                                                                                             "max_length": 1,
                                                                                                                 "suffix": "",
                                                                                                                   "type": "string"
@@ -6397,6 +6372,38 @@
                                                                                                               "suffix": "",
                                                                                                                 "type": "integer"
                                                                                    } ]
+                                                               },
+                                            "RADAR_GAIN_MODE": {
+                                                                              "category": "Radar",
+                                                                          "control_type": "selector",
+                                                                           "description": "Lin/Log Radar Gain Switch",
+                                                                            "identifier": "RADAR_GAIN_MODE",
+                                                                                "inputs": [ {
+                                                                                              "description": "switch to previous or next state",
+                                                                                                "interface": "fixed_step"
+                                                                                          }, {
+                                                                                              "description": "set position",
+                                                                                                "interface": "set_state",
+                                                                                                "max_value": 1
+                                                                                          }, {
+                                                                                                 "argument": "TOGGLE",
+                                                                                              "description": "Toggle switch state",
+                                                                                                "interface": "action"
+                                                                                          } ],
+                                                                   "momentary_positions": "none",
+                                                                               "outputs": [ {
+                                                                                                                    "address": 17920,
+                                                                                                         "address_identifier": "AJS37_RADAR_GAIN_MODE_A",
+                                                                                                    "address_mask_identifier": "AJS37_RADAR_GAIN_MODE_AM",
+                                                                                              "address_mask_shift_identifier": "AJS37_RADAR_GAIN_MODE",
+                                                                                                                "description": "selector position",
+                                                                                                                       "mask": 16384,
+                                                                                                                  "max_value": 1,
+                                                                                                                   "shift_by": 14,
+                                                                                                                     "suffix": "",
+                                                                                                                       "type": "integer"
+                                                                                          } ],
+                                                                      "physical_variant": "toggle_switch"
                                                                },
                                                "RADAR_IFF_ID": {
                                                                            "api_variant": "momentary_last_position",
@@ -6921,17 +6928,17 @@
                                                                                                                   "type": "integer"
                                                                                      } ]
                                                                  },
-                                                 "AIRSPEED_M/S": {
+                                                  "AIRSPEED_MS": {
                                                                          "category": "Raw Gauge Values",
                                                                      "control_type": "analog_gauge",
                                                                       "description": "Airspeed m/s",
-                                                                       "identifier": "AIRSPEED_M/S",
+                                                                       "identifier": "AIRSPEED_MS",
                                                                            "inputs": [  ],
                                                                           "outputs": [ {
                                                                                                                "address": 17968,
-                                                                                                    "address_identifier": "AJS37_AIRSPEED_M_S_A",
-                                                                                               "address_mask_identifier": "AJS37_AIRSPEED_M_S_AM",
-                                                                                         "address_mask_shift_identifier": "AJS37_AIRSPEED_M_S",
+                                                                                                    "address_identifier": "AJS37_AIRSPEED_MS_A",
+                                                                                               "address_mask_identifier": "AJS37_AIRSPEED_MS_AM",
+                                                                                         "address_mask_shift_identifier": "AJS37_AIRSPEED_MS",
                                                                                                            "description": "gauge position",
                                                                                                                   "mask": 65535,
                                                                                                              "max_value": 65535,

@@ -62,7 +62,9 @@ BIOS.protocol.writeNewModule(A_4E_C)
 local AH_6J = require "AH-6J"
 BIOS.protocol.writeNewModule(AH_6J)
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/AH-64D.lua]]) -- ID = 46, ProperName = AH-64D Apache
-dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/AJS37.lua]]) -- ID = 8, ProperName = AJS-37 Viggen
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/AJS37.lua]]) -- ID = 8, ProperName = AJS-37 Viggen
+local AJS37 = require "AJS37"
+BIOS.protocol.writeNewModule(AJS37)
 -- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/Alphajet.lua]]) -- ID = 9, ProperName = Alphajet
 local Alphajet = require "Alphajet"
 BIOS.protocol.writeNewModule(Alphajet)

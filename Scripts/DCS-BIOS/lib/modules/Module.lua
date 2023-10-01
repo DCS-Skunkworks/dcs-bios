@@ -271,6 +271,38 @@ function Module:defineToggleSwitch(identifier, device_id, command, arg_number, c
 	return control
 end
 
+--- Adds a two-position toggle switch with only a toggle action, which always sends 1 as a clickable action regardless of switch state
+--- @param identifier string the unique identifier for the control
+--- @param device_id integer the dcs device id
+--- @param command integer the dcs command
+--- @param arg_number integer the dcs argument number
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @return Control control the control which was added to the module
+function Module:defineToggleSwitchToggleOnly(identifier, device_id, command, arg_number, category, description)
+	local alloc = self:allocateInt(1)
+
+	local control = Control:new(category, ControlType.action, identifier, description, {
+		ActionInput:new(ActionArgument.toggle, "toggle switch state"),
+	}, {
+		IntegerOutput:new(alloc, Suffix.none, "selector position"),
+	}, MomentaryPositions.none, PhysicalVariant.toggle_switch)
+
+	self:addControl(control)
+
+	self:addInputProcessor(identifier, function(state)
+		if state == "TOGGLE" then
+			GetDevice(device_id):performClickableAction(command, 1)
+		end
+	end)
+
+	self:addExportHook(function(dev0)
+		alloc:setValue(dev0:get_argument_value(arg_number))
+	end)
+
+	return control
+end
+
 --- Adds an n-position switch
 --- @param identifier string the unique identifier for the control
 --- @param device_id integer the dcs device id
@@ -795,6 +827,29 @@ function Module:addressDefineIdentifier(identifier)
 	full_identifier = full_identifier:gsub("_+", "_") -- Replace successive underscores with a single _
 
 	return full_identifier
+end
+
+--- Parses a dcs indication from a string into a key-value table, or nil if no data is available
+--- @param indicator_id integer
+--- @return {[string]: string}?
+function Module.parse_indication(indicator_id)
+	local ret = {}
+	local li = list_indication(indicator_id)
+
+	if li == "" then
+		return nil
+	end
+
+	local match = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
+	while true do
+		local name, value = match()
+		if not name then
+			break
+		end
+		ret[name] = value
+	end
+
+	return ret
 end
 
 --- Returns a vlue that is between the limits provided
