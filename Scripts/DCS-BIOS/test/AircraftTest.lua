@@ -87,6 +87,10 @@ function TestAircraft:testMetadataEnd()
 	self:validateModule(require("MetadataEnd"), "MetadataEnd", 0xfffe)
 end
 
+function TestAircraft:testMB339()
+	self:validateModule(require("MB-339"), "MB-339", 0x8200)
+end
+
 function TestAircraft:testMi_24P()
 	self:validateModule(require("Mi-24P"), "Mi-24P", 0x6800)
 end
