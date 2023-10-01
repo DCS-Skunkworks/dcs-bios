@@ -36,6 +36,7 @@ BIOS.json = json and json() or require "JSON" -- if that fails, fall back to mod
 
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/Util.lua]])
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/Protocol.lua]])
+dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/common/Functions.lua]])
 --dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/MetadataEnd.lua]])
 local MetadataEnd = require "MetadataEnd"
 BIOS.protocol.writeNewModule(MetadataEnd)

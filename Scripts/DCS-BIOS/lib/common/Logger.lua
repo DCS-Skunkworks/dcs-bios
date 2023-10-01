@@ -8,7 +8,7 @@ local Logger = {}
 
 --- @func Returns new Logger
 --- @return Logger
-function Logger:new(logfile)
+function Logger:new(logfile)	
 	local o = {
 		logfile = io.open(logfile, "w"),
 		maxBytesToLog = 50000,
