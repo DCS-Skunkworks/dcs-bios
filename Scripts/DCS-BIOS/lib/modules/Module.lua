@@ -147,6 +147,30 @@ function Module:define8BitFloatFromGetter(identifier, getter, limits, category, 
 	return control
 end
 
+--- Adds a new Float but only but only allocates an 8-bit int. Max value is 255
+--- @param identifier string the unique identifier for the control
+--- @param argument_id integer the unique identifier for the control
+--- @param limits number[] a length-2 array with the lower and upper bounds of the data as used in dcs
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @return Control control the control which was added to the module
+function Module:define8BitFloat(identifier, argument_id, limits, category, description)
+	-- same as defineFloat, but only allocates an 8-bit int
+	local max_value = 255
+	local intervalLength = limits[2] - limits[1]
+	local alloc = self:allocateInt(max_value)
+	self.exportHooks[#self.exportHooks + 1] = function(dev0)
+		alloc:setValue(((dev0:get_argument_value(argument_id) - limits[1]) / intervalLength) * 255)
+	end
+
+	local control = Control:new(category, ControlType.analog_gauge, identifier, description, {}, {
+		IntegerOutput:new(alloc, Suffix.none, "gauge position"),
+	})
+	self:addControl(control)
+
+	return control
+end
+
 --- Adds a new indicator light control which will enable the LED when the argument value is greater than or equal to 0.3
 --- @param identifier string the unique identifier for the control
 --- @param arg_number integer the dcs argument number
