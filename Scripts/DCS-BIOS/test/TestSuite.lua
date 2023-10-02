@@ -16,7 +16,9 @@ package.path = "./Scripts/DCS-BIOS/lib/modules/memory_map/?.lua;" .. package.pat
 BIOS = {}
 Logg = {}
 lfs = {}
-function lfs.writedir() end
+function lfs.writedir()
+	return " "
+end
 function Logg.log(str) end -- noop
 
 require("AircraftTest") -- high-level tests for specific aircraft
