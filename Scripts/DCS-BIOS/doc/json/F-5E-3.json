@@ -1802,27 +1802,29 @@
                                             },
                                     "Fuel": {
                                                       "AUTOBAL": {
-                                                                         "category": "Fuel",
-                                                                     "control_type": "selector",
-                                                                      "description": "Autobalance Switch, LEFT/NEUT/RIGHT",
-                                                                       "identifier": "AUTOBAL",
-                                                                           "inputs": [ {
-                                                                                         "description": "set the switch position -- 0 = left, 1 = centered, 2 = right",
-                                                                                           "interface": "set_state",
-                                                                                           "max_value": 2
-                                                                                     } ],
-                                                                          "outputs": [ {
-                                                                                                               "address": 30222,
-                                                                                                    "address_identifier": "F_5E_3_AUTOBAL_A",
-                                                                                               "address_mask_identifier": "F_5E_3_AUTOBAL_AM",
-                                                                                         "address_mask_shift_identifier": "F_5E_3_AUTOBAL",
-                                                                                                           "description": "selector position -- 0 = Left, 1 = Mid ,  2 = Right",
-                                                                                                                  "mask": 3,
-                                                                                                             "max_value": 2,
-                                                                                                              "shift_by": 0,
-                                                                                                                "suffix": "",
-                                                                                                                  "type": "integer"
-                                                                                     } ]
+                                                                                "category": "Fuel",
+                                                                            "control_type": "selector",
+                                                                             "description": "Autobalance Switch, LEFT/NEUT/RIGHT",
+                                                                              "identifier": "AUTOBAL",
+                                                                                  "inputs": [ {
+                                                                                                "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 2
+                                                                                            } ],
+                                                                     "momentary_positions": "first_and_last",
+                                                                                 "outputs": [ {
+                                                                                                                      "address": 30222,
+                                                                                                           "address_identifier": "F_5E_3_AUTOBAL_A",
+                                                                                                      "address_mask_identifier": "F_5E_3_AUTOBAL_AM",
+                                                                                                "address_mask_shift_identifier": "F_5E_3_AUTOBAL",
+                                                                                                                  "description": "selector position",
+                                                                                                                         "mask": 3,
+                                                                                                                    "max_value": 2,
+                                                                                                                     "shift_by": 0,
+                                                                                                                       "suffix": "",
+                                                                                                                         "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "rocker_switch"
                                                                  },
                                                     "CROSSFEED": {
                                                                                 "category": "Fuel",
@@ -2931,17 +2933,17 @@
                                                                                                                       "type": "integer"
                                                                                          } ]
                                                                      },
-                                                      "HSI_Range_1": {
+                                                      "HSI_RANGE_1": {
                                                                              "category": "Gauges",
                                                                          "control_type": "analog_gauge",
                                                                           "description": "HSI Range 1",
-                                                                           "identifier": "HSI_Range_1",
+                                                                           "identifier": "HSI_RANGE_1",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
                                                                                                                    "address": 30430,
-                                                                                                        "address_identifier": "F_5E_3_HSI_Range_1_A",
-                                                                                                   "address_mask_identifier": "F_5E_3_HSI_Range_1_AM",
-                                                                                             "address_mask_shift_identifier": "F_5E_3_HSI_Range_1",
+                                                                                                        "address_identifier": "F_5E_3_HSI_RANGE_1_A",
+                                                                                                   "address_mask_identifier": "F_5E_3_HSI_RANGE_1_AM",
+                                                                                             "address_mask_shift_identifier": "F_5E_3_HSI_RANGE_1",
                                                                                                                "description": "gauge position",
                                                                                                                       "mask": 65535,
                                                                                                                  "max_value": 65535,
@@ -2950,17 +2952,17 @@
                                                                                                                       "type": "integer"
                                                                                          } ]
                                                                      },
-                                                     "HSI_Range_10": {
+                                                     "HSI_RANGE_10": {
                                                                              "category": "Gauges",
                                                                          "control_type": "analog_gauge",
                                                                           "description": "HSI Range 10",
-                                                                           "identifier": "HSI_Range_10",
+                                                                           "identifier": "HSI_RANGE_10",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
                                                                                                                    "address": 30428,
-                                                                                                        "address_identifier": "F_5E_3_HSI_Range_10_A",
-                                                                                                   "address_mask_identifier": "F_5E_3_HSI_Range_10_AM",
-                                                                                             "address_mask_shift_identifier": "F_5E_3_HSI_Range_10",
+                                                                                                        "address_identifier": "F_5E_3_HSI_RANGE_10_A",
+                                                                                                   "address_mask_identifier": "F_5E_3_HSI_RANGE_10_AM",
+                                                                                             "address_mask_shift_identifier": "F_5E_3_HSI_RANGE_10",
                                                                                                                "description": "gauge position",
                                                                                                                       "mask": 65535,
                                                                                                                  "max_value": 65535,
@@ -2969,17 +2971,17 @@
                                                                                                                       "type": "integer"
                                                                                          } ]
                                                                      },
-                                                    "HSI_Range_100": {
+                                                    "HSI_RANGE_100": {
                                                                              "category": "Gauges",
                                                                          "control_type": "analog_gauge",
                                                                           "description": "HSI Range 100",
-                                                                           "identifier": "HSI_Range_100",
+                                                                           "identifier": "HSI_RANGE_100",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
                                                                                                                    "address": 30426,
-                                                                                                        "address_identifier": "F_5E_3_HSI_Range_100_A",
-                                                                                                   "address_mask_identifier": "F_5E_3_HSI_Range_100_AM",
-                                                                                             "address_mask_shift_identifier": "F_5E_3_HSI_Range_100",
+                                                                                                        "address_identifier": "F_5E_3_HSI_RANGE_100_A",
+                                                                                                   "address_mask_identifier": "F_5E_3_HSI_RANGE_100_AM",
+                                                                                             "address_mask_shift_identifier": "F_5E_3_HSI_RANGE_100",
                                                                                                                "description": "gauge position",
                                                                                                                       "mask": 65535,
                                                                                                                  "max_value": 65535,
@@ -4209,506 +4211,652 @@
                                      "HSI": {
                                                 "HSI_CRS_KNOB": {
                                                                         "category": "HSI",
-                                                                    "control_type": "variable_step_dial",
+                                                                    "control_type": "discrete_dial",
                                                                      "description": "HSI Course Set Knob",
                                                                       "identifier": "HSI_CRS_KNOB",
                                                                           "inputs": [ {
-                                                                                           "description": "rotate the knob",
+                                                                                           "description": "HSI Course Set Knob",
                                                                                              "interface": "variable_step",
                                                                                              "max_value": 65535,
                                                                                         "suggested_step": 3200
                                                                                     } ],
-                                                                         "outputs": [ {
-                                                                                                              "address": 30414,
-                                                                                                   "address_identifier": "F_5E_3_HSI_CRS_KNOB_A",
-                                                                                              "address_mask_identifier": "F_5E_3_HSI_CRS_KNOB_AM",
-                                                                                        "address_mask_shift_identifier": "F_5E_3_HSI_CRS_KNOB",
-                                                                                                          "description": "rotation of the knob (not the value being manipulated!)",
-                                                                                                                 "mask": 65535,
-                                                                                                            "max_value": 65535,
-                                                                                                             "shift_by": 0,
-                                                                                                               "suffix": "",
-                                                                                                                 "type": "integer"
-                                                                                    } ]
+                                                                         "outputs": [  ]
                                                                 },
                                                 "HSI_HDG_KNOB": {
                                                                         "category": "HSI",
-                                                                    "control_type": "variable_step_dial",
+                                                                    "control_type": "discrete_dial",
                                                                      "description": "HSI Heading Set Knob",
                                                                       "identifier": "HSI_HDG_KNOB",
                                                                           "inputs": [ {
-                                                                                           "description": "rotate the knob",
+                                                                                           "description": "HSI Heading Set Knob",
                                                                                              "interface": "variable_step",
                                                                                              "max_value": 65535,
                                                                                         "suggested_step": 3200
                                                                                     } ],
-                                                                         "outputs": [ {
-                                                                                                              "address": 30412,
-                                                                                                   "address_identifier": "F_5E_3_HSI_HDG_KNOB_A",
-                                                                                              "address_mask_identifier": "F_5E_3_HSI_HDG_KNOB_AM",
-                                                                                        "address_mask_shift_identifier": "F_5E_3_HSI_HDG_KNOB",
-                                                                                                          "description": "rotation of the knob (not the value being manipulated!)",
-                                                                                                                 "mask": 65535,
-                                                                                                            "max_value": 65535,
-                                                                                                             "shift_by": 0,
-                                                                                                               "suffix": "",
-                                                                                                                 "type": "integer"
-                                                                                    } ]
+                                                                         "outputs": [  ]
                                                                 }
                                             },
                                      "IFF": {
-                                                     "IFF4_CODE_SEL": {
-                                                                                     "category": "IFF",
-                                                                                 "control_type": "selector",
-                                                                                  "description": "IFF MODE 4 CODE Selector, ZERO/B/A/HOLD",
-                                                                                   "identifier": "IFF4_CODE_SEL",
-                                                                                       "inputs": [ {
-                                                                                                     "description": "switch to previous or next state",
-                                                                                                       "interface": "fixed_step"
-                                                                                                 }, {
-                                                                                                     "description": "set position",
-                                                                                                       "interface": "set_state",
-                                                                                                       "max_value": 3
-                                                                                                 } ],
-                                                                          "momentary_positions": "none",
-                                                                                      "outputs": [ {
-                                                                                                                           "address": 30344,
-                                                                                                                "address_identifier": "F_5E_3_IFF4_CODE_SEL_A",
-                                                                                                           "address_mask_identifier": "F_5E_3_IFF4_CODE_SEL_AM",
-                                                                                                     "address_mask_shift_identifier": "F_5E_3_IFF4_CODE_SEL",
-                                                                                                                       "description": "selector position",
-                                                                                                                              "mask": 12,
-                                                                                                                         "max_value": 3,
-                                                                                                                          "shift_by": 2,
-                                                                                                                            "suffix": "",
-                                                                                                                              "type": "integer"
-                                                                                                 } ],
-                                                                             "physical_variant": "limited_rotary"
-                                                                      },
-                                                "IFF4_CODE_SEL_PULL": {
-                                                                                     "category": "IFF",
-                                                                                 "control_type": "selector",
-                                                                                  "description": "IFF MODE 4 CODE Selector Pull",
-                                                                                   "identifier": "IFF4_CODE_SEL_PULL",
-                                                                                       "inputs": [ {
-                                                                                                     "description": "switch to previous or next state",
-                                                                                                       "interface": "fixed_step"
-                                                                                                 }, {
-                                                                                                     "description": "set position",
-                                                                                                       "interface": "set_state",
-                                                                                                       "max_value": 1
-                                                                                                 }, {
-                                                                                                        "argument": "TOGGLE",
-                                                                                                     "description": "Toggle switch state",
-                                                                                                       "interface": "action"
-                                                                                                 } ],
-                                                                          "momentary_positions": "none",
-                                                                                      "outputs": [ {
-                                                                                                                           "address": 30350,
-                                                                                                                "address_identifier": "F_5E_3_IFF4_CODE_SEL_PULL_A",
-                                                                                                           "address_mask_identifier": "F_5E_3_IFF4_CODE_SEL_PULL_AM",
-                                                                                                     "address_mask_shift_identifier": "F_5E_3_IFF4_CODE_SEL_PULL",
-                                                                                                                       "description": "selector position",
-                                                                                                                              "mask": 1,
-                                                                                                                         "max_value": 1,
-                                                                                                                          "shift_by": 0,
-                                                                                                                            "suffix": "",
-                                                                                                                              "type": "integer"
-                                                                                                 } ],
-                                                                             "physical_variant": "toggle_switch"
-                                                                      },
-                                                      "IFF4_CONTROL": {
-                                                                                     "category": "IFF",
-                                                                                 "control_type": "selector",
-                                                                                  "description": "IFF MODE 4 Control Switch, ON/OUT",
-                                                                                   "identifier": "IFF4_CONTROL",
-                                                                                       "inputs": [ {
-                                                                                                     "description": "switch to previous or next state",
-                                                                                                       "interface": "fixed_step"
-                                                                                                 }, {
-                                                                                                     "description": "set position",
-                                                                                                       "interface": "set_state",
-                                                                                                       "max_value": 1
-                                                                                                 }, {
-                                                                                                        "argument": "TOGGLE",
-                                                                                                     "description": "Toggle switch state",
-                                                                                                       "interface": "action"
-                                                                                                 } ],
-                                                                          "momentary_positions": "none",
-                                                                                      "outputs": [ {
-                                                                                                                           "address": 30344,
-                                                                                                                "address_identifier": "F_5E_3_IFF4_CONTROL_A",
-                                                                                                           "address_mask_identifier": "F_5E_3_IFF4_CONTROL_AM",
-                                                                                                     "address_mask_shift_identifier": "F_5E_3_IFF4_CONTROL",
-                                                                                                                       "description": "selector position",
-                                                                                                                              "mask": 32768,
-                                                                                                                         "max_value": 1,
-                                                                                                                          "shift_by": 15,
-                                                                                                                            "suffix": "",
-                                                                                                                              "type": "integer"
-                                                                                                 } ],
-                                                                             "physical_variant": "toggle_switch"
-                                                                      },
-                                                        "IFF4_IDENT": {
-                                                                                     "category": "IFF",
-                                                                                 "control_type": "selector",
-                                                                                  "description": "IFF Identification of Position (IP) Switch, IDENT/OUT/MIC",
-                                                                                   "identifier": "IFF4_IDENT",
-                                                                                       "inputs": [ {
-                                                                                                     "description": "switch to previous or next state",
-                                                                                                       "interface": "fixed_step"
-                                                                                                 }, {
-                                                                                                     "description": "set position",
-                                                                                                       "interface": "set_state",
-                                                                                                       "max_value": 2
-                                                                                                 } ],
-                                                                          "momentary_positions": "none",
-                                                                                      "outputs": [ {
-                                                                                                                           "address": 30346,
-                                                                                                                "address_identifier": "F_5E_3_IFF4_IDENT_A",
-                                                                                                           "address_mask_identifier": "F_5E_3_IFF4_IDENT_AM",
-                                                                                                     "address_mask_shift_identifier": "F_5E_3_IFF4_IDENT",
-                                                                                                                       "description": "selector position",
-                                                                                                                              "mask": 48,
-                                                                                                                         "max_value": 2,
-                                                                                                                          "shift_by": 4,
-                                                                                                                            "suffix": "",
-                                                                                                                              "type": "integer"
-                                                                                                 } ],
-                                                                             "physical_variant": "3_position_switch"
-                                                                      },
-                                                           "IFF4_M1": {
-                                                                                     "category": "IFF",
-                                                                                 "control_type": "selector",
-                                                                                  "description": "IFF Mode Select/TEST Switch, M-1 /ON/OUT",
-                                                                                   "identifier": "IFF4_M1",
-                                                                                       "inputs": [ {
-                                                                                                     "description": "switch to previous or next state",
-                                                                                                       "interface": "fixed_step"
-                                                                                                 }, {
-                                                                                                     "description": "set position",
-                                                                                                       "interface": "set_state",
-                                                                                                       "max_value": 2
-                                                                                                 } ],
-                                                                          "momentary_positions": "none",
-                                                                                      "outputs": [ {
-                                                                                                                           "address": 30344,
-                                                                                                                "address_identifier": "F_5E_3_IFF4_M1_A",
-                                                                                                           "address_mask_identifier": "F_5E_3_IFF4_M1_AM",
-                                                                                                     "address_mask_shift_identifier": "F_5E_3_IFF4_M1",
-                                                                                                                       "description": "selector position",
-                                                                                                                              "mask": 1536,
-                                                                                                                         "max_value": 2,
-                                                                                                                          "shift_by": 9,
-                                                                                                                            "suffix": "",
-                                                                                                                              "type": "integer"
-                                                                                                 } ],
-                                                                             "physical_variant": "3_position_switch"
-                                                                      },
-                                                           "IFF4_M2": {
-                                                                                     "category": "IFF",
-                                                                                 "control_type": "selector",
-                                                                                  "description": "IFF Mode Select/TEST Switch, M-2 /ON/OUT",
-                                                                                   "identifier": "IFF4_M2",
-                                                                                       "inputs": [ {
-                                                                                                     "description": "switch to previous or next state",
-                                                                                                       "interface": "fixed_step"
-                                                                                                 }, {
-                                                                                                     "description": "set position",
-                                                                                                       "interface": "set_state",
-                                                                                                       "max_value": 2
-                                                                                                 } ],
-                                                                          "momentary_positions": "none",
-                                                                                      "outputs": [ {
-                                                                                                                           "address": 30344,
-                                                                                                                "address_identifier": "F_5E_3_IFF4_M2_A",
-                                                                                                           "address_mask_identifier": "F_5E_3_IFF4_M2_AM",
-                                                                                                     "address_mask_shift_identifier": "F_5E_3_IFF4_M2",
-                                                                                                                       "description": "selector position",
-                                                                                                                              "mask": 6144,
-                                                                                                                         "max_value": 2,
-                                                                                                                          "shift_by": 11,
-                                                                                                                            "suffix": "",
-                                                                                                                              "type": "integer"
-                                                                                                 } ],
-                                                                             "physical_variant": "3_position_switch"
-                                                                      },
-                                                           "IFF4_M3": {
-                                                                                     "category": "IFF",
-                                                                                 "control_type": "selector",
-                                                                                  "description": "IFF Mode Select/TEST Switch, M-3/A /ON/OUT",
-                                                                                   "identifier": "IFF4_M3",
-                                                                                       "inputs": [ {
-                                                                                                     "description": "switch to previous or next state",
-                                                                                                       "interface": "fixed_step"
-                                                                                                 }, {
-                                                                                                     "description": "set position",
-                                                                                                       "interface": "set_state",
-                                                                                                       "max_value": 2
-                                                                                                 } ],
-                                                                          "momentary_positions": "none",
-                                                                                      "outputs": [ {
-                                                                                                                           "address": 30344,
-                                                                                                                "address_identifier": "F_5E_3_IFF4_M3_A",
-                                                                                                           "address_mask_identifier": "F_5E_3_IFF4_M3_AM",
-                                                                                                     "address_mask_shift_identifier": "F_5E_3_IFF4_M3",
-                                                                                                                       "description": "selector position",
-                                                                                                                              "mask": 24576,
-                                                                                                                         "max_value": 2,
-                                                                                                                          "shift_by": 13,
-                                                                                                                            "suffix": "",
-                                                                                                                              "type": "integer"
-                                                                                                 } ],
-                                                                             "physical_variant": "3_position_switch"
-                                                                      },
-                                                       "IFF4_MASTER": {
-                                                                                     "category": "IFF",
-                                                                                 "control_type": "selector",
-                                                                                  "description": "IFF MODE 3/A Code Selector Wheel 4",
-                                                                                   "identifier": "IFF4_MASTER",
-                                                                                       "inputs": [ {
-                                                                                                     "description": "switch to previous or next state",
-                                                                                                       "interface": "fixed_step"
-                                                                                                 }, {
-                                                                                                     "description": "set position",
-                                                                                                       "interface": "set_state",
-                                                                                                       "max_value": 10
-                                                                                                 } ],
-                                                                          "momentary_positions": "none",
-                                                                                      "outputs": [ {
-                                                                                                                           "address": 30348,
-                                                                                                                "address_identifier": "F_5E_3_IFF4_MASTER_A",
-                                                                                                           "address_mask_identifier": "F_5E_3_IFF4_MASTER_AM",
-                                                                                                     "address_mask_shift_identifier": "F_5E_3_IFF4_MASTER",
-                                                                                                                       "description": "selector position",
-                                                                                                                              "mask": 61440,
-                                                                                                                         "max_value": 10,
-                                                                                                                          "shift_by": 12,
-                                                                                                                            "suffix": "",
-                                                                                                                              "type": "integer"
-                                                                                                 } ],
-                                                                             "physical_variant": "limited_rotary"
-                                                                      },
-                                                  "IFF4_MASTER_PULL": {
-                                                                                     "category": "IFF",
-                                                                                 "control_type": "selector",
-                                                                                  "description": "IFF MASTER Control Selector Pull",
-                                                                                   "identifier": "IFF4_MASTER_PULL",
-                                                                                       "inputs": [ {
-                                                                                                     "description": "switch to previous or next state",
-                                                                                                       "interface": "fixed_step"
-                                                                                                 }, {
-                                                                                                     "description": "set position",
-                                                                                                       "interface": "set_state",
-                                                                                                       "max_value": 1
-                                                                                                 }, {
-                                                                                                        "argument": "TOGGLE",
-                                                                                                     "description": "Toggle switch state",
-                                                                                                       "interface": "action"
-                                                                                                 } ],
-                                                                          "momentary_positions": "none",
-                                                                                      "outputs": [ {
-                                                                                                                           "address": 30350,
-                                                                                                                "address_identifier": "F_5E_3_IFF4_MASTER_PULL_A",
-                                                                                                           "address_mask_identifier": "F_5E_3_IFF4_MASTER_PULL_AM",
-                                                                                                     "address_mask_shift_identifier": "F_5E_3_IFF4_MASTER_PULL",
-                                                                                                                       "description": "selector position",
-                                                                                                                              "mask": 2,
-                                                                                                                         "max_value": 1,
-                                                                                                                          "shift_by": 1,
-                                                                                                                            "suffix": "",
-                                                                                                                              "type": "integer"
-                                                                                                 } ],
-                                                                             "physical_variant": "toggle_switch"
-                                                                      },
-                                                           "IFF4_MC": {
-                                                                                     "category": "IFF",
-                                                                                 "control_type": "selector",
-                                                                                  "description": "IFF Mode Select/TEST Switch, M-C /ON/OUT",
-                                                                                   "identifier": "IFF4_MC",
-                                                                                       "inputs": [ {
-                                                                                                     "description": "switch to previous or next state",
-                                                                                                       "interface": "fixed_step"
-                                                                                                 }, {
-                                                                                                     "description": "set position",
-                                                                                                       "interface": "set_state",
-                                                                                                       "max_value": 2
-                                                                                                 } ],
-                                                                          "momentary_positions": "none",
-                                                                                      "outputs": [ {
-                                                                                                                           "address": 30346,
-                                                                                                                "address_identifier": "F_5E_3_IFF4_MC_A",
-                                                                                                           "address_mask_identifier": "F_5E_3_IFF4_MC_AM",
-                                                                                                     "address_mask_shift_identifier": "F_5E_3_IFF4_MC",
-                                                                                                                       "description": "selector position",
-                                                                                                                              "mask": 3,
-                                                                                                                         "max_value": 2,
-                                                                                                                          "shift_by": 0,
-                                                                                                                            "suffix": "",
-                                                                                                                              "type": "integer"
-                                                                                                 } ],
-                                                                             "physical_variant": "3_position_switch"
-                                                                      },
-                                                    "IFF4_MON_CONTR": {
-                                                                                     "category": "IFF",
-                                                                                 "control_type": "selector",
-                                                                                  "description": "IFF MODE 4 Monitor Control Switch, AUDIO/OUT/LIGHT",
-                                                                                   "identifier": "IFF4_MON_CONTR",
-                                                                                       "inputs": [ {
-                                                                                                     "description": "switch to previous or next state",
-                                                                                                       "interface": "fixed_step"
-                                                                                                 }, {
-                                                                                                     "description": "set position",
-                                                                                                       "interface": "set_state",
-                                                                                                       "max_value": 2
-                                                                                                 } ],
-                                                                          "momentary_positions": "none",
-                                                                                      "outputs": [ {
-                                                                                                                           "address": 30344,
-                                                                                                                "address_identifier": "F_5E_3_IFF4_MON_CONTR_A",
-                                                                                                           "address_mask_identifier": "F_5E_3_IFF4_MON_CONTR_AM",
-                                                                                                     "address_mask_shift_identifier": "F_5E_3_IFF4_MON_CONTR",
-                                                                                                                       "description": "selector position",
-                                                                                                                              "mask": 384,
-                                                                                                                         "max_value": 2,
-                                                                                                                          "shift_by": 7,
-                                                                                                                            "suffix": "",
-                                                                                                                              "type": "integer"
-                                                                                                 } ],
-                                                                             "physical_variant": "3_position_switch"
-                                                                      },
-                                                          "IFF4_RAD": {
-                                                                                     "category": "IFF",
-                                                                                 "control_type": "selector",
-                                                                                  "description": "IFF RAD TEST/MON Switch, RAD TEST/OUT/MON",
-                                                                                   "identifier": "IFF4_RAD",
-                                                                                       "inputs": [ {
-                                                                                                     "description": "switch to previous or next state",
-                                                                                                       "interface": "fixed_step"
-                                                                                                 }, {
-                                                                                                     "description": "set position",
-                                                                                                       "interface": "set_state",
-                                                                                                       "max_value": 2
-                                                                                                 } ],
-                                                                          "momentary_positions": "none",
-                                                                                      "outputs": [ {
-                                                                                                                           "address": 30346,
-                                                                                                                "address_identifier": "F_5E_3_IFF4_RAD_A",
-                                                                                                           "address_mask_identifier": "F_5E_3_IFF4_RAD_AM",
-                                                                                                     "address_mask_shift_identifier": "F_5E_3_IFF4_RAD",
-                                                                                                                       "description": "selector position",
-                                                                                                                              "mask": 12,
-                                                                                                                         "max_value": 2,
-                                                                                                                          "shift_by": 2,
-                                                                                                                            "suffix": "",
-                                                                                                                              "type": "integer"
-                                                                                                 } ],
-                                                                             "physical_variant": "3_position_switch"
-                                                                      },
-                                                   "IFF4_RAD_TEST_L": {
-                                                                                  "api_variant": "momentary_last_position",
-                                                                                     "category": "IFF",
-                                                                                 "control_type": "selector",
-                                                                                  "description": "Radiation TEST and Monitor Light - Press to test(LMB)",
-                                                                                   "identifier": "IFF4_RAD_TEST_L",
-                                                                                       "inputs": [ {
-                                                                                                     "description": "switch to previous or next state",
-                                                                                                       "interface": "fixed_step"
-                                                                                                 }, {
-                                                                                                     "description": "set position",
-                                                                                                       "interface": "set_state",
-                                                                                                       "max_value": 1
-                                                                                                 }, {
-                                                                                                        "argument": "TOGGLE",
-                                                                                                     "description": "Toggle switch state",
-                                                                                                       "interface": "action"
-                                                                                                 } ],
-                                                                          "momentary_positions": "none",
-                                                                                      "outputs": [ {
-                                                                                                                           "address": 30346,
-                                                                                                                "address_identifier": "F_5E_3_IFF4_RAD_TEST_L_A",
-                                                                                                           "address_mask_identifier": "F_5E_3_IFF4_RAD_TEST_L_AM",
-                                                                                                     "address_mask_shift_identifier": "F_5E_3_IFF4_RAD_TEST_L",
-                                                                                                                       "description": "selector position",
-                                                                                                                              "mask": 32768,
-                                                                                                                         "max_value": 1,
-                                                                                                                          "shift_by": 15,
-                                                                                                                            "suffix": "",
-                                                                                                                              "type": "integer"
-                                                                                                 } ],
-                                                                             "physical_variant": "push_button"
-                                                                      },
-                                                      "IFF4_REPLY_L": {
-                                                                                  "api_variant": "momentary_last_position",
-                                                                                     "category": "IFF",
-                                                                                 "control_type": "selector",
-                                                                                  "description": "MODE 4 REPLY Light - Press to test(LMB)",
-                                                                                   "identifier": "IFF4_REPLY_L",
-                                                                                       "inputs": [ {
-                                                                                                     "description": "switch to previous or next state",
-                                                                                                       "interface": "fixed_step"
-                                                                                                 }, {
-                                                                                                     "description": "set position",
-                                                                                                       "interface": "set_state",
-                                                                                                       "max_value": 1
-                                                                                                 }, {
-                                                                                                        "argument": "TOGGLE",
-                                                                                                     "description": "Toggle switch state",
-                                                                                                       "interface": "action"
-                                                                                                 } ],
-                                                                          "momentary_positions": "none",
-                                                                                      "outputs": [ {
-                                                                                                                           "address": 30346,
-                                                                                                                "address_identifier": "F_5E_3_IFF4_REPLY_L_A",
-                                                                                                           "address_mask_identifier": "F_5E_3_IFF4_REPLY_L_AM",
-                                                                                                     "address_mask_shift_identifier": "F_5E_3_IFF4_REPLY_L",
-                                                                                                                       "description": "selector position",
-                                                                                                                              "mask": 16384,
-                                                                                                                         "max_value": 1,
-                                                                                                                          "shift_by": 14,
-                                                                                                                            "suffix": "",
-                                                                                                                              "type": "integer"
-                                                                                                 } ],
-                                                                             "physical_variant": "push_button"
-                                                                      },
-                                                       "IFF_REPLY_L": {
-                                                                              "category": "IFF",
-                                                                          "control_type": "led",
-                                                                           "description": "IFF Reply Lamp (green)",
-                                                                            "identifier": "IFF_REPLY_L",
-                                                                                "inputs": [  ],
-                                                                               "outputs": [ {
-                                                                                                                    "address": 30344,
-                                                                                                         "address_identifier": "F_5E_3_IFF_REPLY_L_A",
-                                                                                                    "address_mask_identifier": "F_5E_3_IFF_REPLY_L_AM",
-                                                                                              "address_mask_shift_identifier": "F_5E_3_IFF_REPLY_L",
-                                                                                                                "description": "0 if light is off, 1 if light is on",
-                                                                                                                       "mask": 1,
-                                                                                                                  "max_value": 1,
-                                                                                                                   "shift_by": 0,
-                                                                                                                     "suffix": "",
-                                                                                                                       "type": "integer"
-                                                                                          } ]
-                                                                      },
-                                                        "IFF_TEST_L": {
-                                                                              "category": "IFF",
-                                                                          "control_type": "led",
-                                                                           "description": "IFF Test Lamp (green)",
-                                                                            "identifier": "IFF_TEST_L",
-                                                                                "inputs": [  ],
-                                                                               "outputs": [ {
-                                                                                                                    "address": 30344,
-                                                                                                         "address_identifier": "F_5E_3_IFF_TEST_L_A",
-                                                                                                    "address_mask_identifier": "F_5E_3_IFF_TEST_L_AM",
-                                                                                              "address_mask_shift_identifier": "F_5E_3_IFF_TEST_L",
-                                                                                                                "description": "0 if light is off, 1 if light is on",
-                                                                                                                       "mask": 2,
-                                                                                                                  "max_value": 1,
-                                                                                                                   "shift_by": 1,
-                                                                                                                     "suffix": "",
-                                                                                                                       "type": "integer"
-                                                                                          } ]
-                                                                      }
+                                                       "IFF4_CODE_SEL": {
+                                                                                       "category": "IFF",
+                                                                                   "control_type": "selector",
+                                                                                    "description": "IFF MODE 4 CODE Selector, ZERO/B/A/HOLD",
+                                                                                     "identifier": "IFF4_CODE_SEL",
+                                                                                         "inputs": [ {
+                                                                                                       "description": "switch to previous or next state",
+                                                                                                         "interface": "fixed_step"
+                                                                                                   }, {
+                                                                                                       "description": "set position",
+                                                                                                         "interface": "set_state",
+                                                                                                         "max_value": 3
+                                                                                                   } ],
+                                                                            "momentary_positions": "none",
+                                                                                        "outputs": [ {
+                                                                                                                             "address": 30344,
+                                                                                                                  "address_identifier": "F_5E_3_IFF4_CODE_SEL_A",
+                                                                                                             "address_mask_identifier": "F_5E_3_IFF4_CODE_SEL_AM",
+                                                                                                       "address_mask_shift_identifier": "F_5E_3_IFF4_CODE_SEL",
+                                                                                                                         "description": "selector position",
+                                                                                                                                "mask": 12,
+                                                                                                                           "max_value": 3,
+                                                                                                                            "shift_by": 2,
+                                                                                                                              "suffix": "",
+                                                                                                                                "type": "integer"
+                                                                                                   } ],
+                                                                               "physical_variant": "limited_rotary"
+                                                                        },
+                                                  "IFF4_CODE_SEL_PULL": {
+                                                                                       "category": "IFF",
+                                                                                   "control_type": "selector",
+                                                                                    "description": "IFF MODE 4 CODE Selector Pull",
+                                                                                     "identifier": "IFF4_CODE_SEL_PULL",
+                                                                                         "inputs": [ {
+                                                                                                       "description": "switch to previous or next state",
+                                                                                                         "interface": "fixed_step"
+                                                                                                   }, {
+                                                                                                       "description": "set position",
+                                                                                                         "interface": "set_state",
+                                                                                                         "max_value": 1
+                                                                                                   }, {
+                                                                                                          "argument": "TOGGLE",
+                                                                                                       "description": "Toggle switch state",
+                                                                                                         "interface": "action"
+                                                                                                   } ],
+                                                                            "momentary_positions": "none",
+                                                                                        "outputs": [ {
+                                                                                                                             "address": 30350,
+                                                                                                                  "address_identifier": "F_5E_3_IFF4_CODE_SEL_PULL_A",
+                                                                                                             "address_mask_identifier": "F_5E_3_IFF4_CODE_SEL_PULL_AM",
+                                                                                                       "address_mask_shift_identifier": "F_5E_3_IFF4_CODE_SEL_PULL",
+                                                                                                                         "description": "selector position",
+                                                                                                                                "mask": 1,
+                                                                                                                           "max_value": 1,
+                                                                                                                            "shift_by": 0,
+                                                                                                                              "suffix": "",
+                                                                                                                                "type": "integer"
+                                                                                                   } ],
+                                                                               "physical_variant": "toggle_switch"
+                                                                        },
+                                                        "IFF4_CONTROL": {
+                                                                                       "category": "IFF",
+                                                                                   "control_type": "selector",
+                                                                                    "description": "IFF MODE 4 Control Switch, ON/OUT",
+                                                                                     "identifier": "IFF4_CONTROL",
+                                                                                         "inputs": [ {
+                                                                                                       "description": "switch to previous or next state",
+                                                                                                         "interface": "fixed_step"
+                                                                                                   }, {
+                                                                                                       "description": "set position",
+                                                                                                         "interface": "set_state",
+                                                                                                         "max_value": 1
+                                                                                                   }, {
+                                                                                                          "argument": "TOGGLE",
+                                                                                                       "description": "Toggle switch state",
+                                                                                                         "interface": "action"
+                                                                                                   } ],
+                                                                            "momentary_positions": "none",
+                                                                                        "outputs": [ {
+                                                                                                                             "address": 30344,
+                                                                                                                  "address_identifier": "F_5E_3_IFF4_CONTROL_A",
+                                                                                                             "address_mask_identifier": "F_5E_3_IFF4_CONTROL_AM",
+                                                                                                       "address_mask_shift_identifier": "F_5E_3_IFF4_CONTROL",
+                                                                                                                         "description": "selector position",
+                                                                                                                                "mask": 32768,
+                                                                                                                           "max_value": 1,
+                                                                                                                            "shift_by": 15,
+                                                                                                                              "suffix": "",
+                                                                                                                                "type": "integer"
+                                                                                                   } ],
+                                                                               "physical_variant": "toggle_switch"
+                                                                        },
+                                                          "IFF4_IDENT": {
+                                                                                       "category": "IFF",
+                                                                                   "control_type": "selector",
+                                                                                    "description": "IFF Identification of Position (IP) Switch, IDENT/OUT/MIC",
+                                                                                     "identifier": "IFF4_IDENT",
+                                                                                         "inputs": [ {
+                                                                                                       "description": "switch to previous or next state",
+                                                                                                         "interface": "fixed_step"
+                                                                                                   }, {
+                                                                                                       "description": "set position",
+                                                                                                         "interface": "set_state",
+                                                                                                         "max_value": 2
+                                                                                                   } ],
+                                                                            "momentary_positions": "none",
+                                                                                        "outputs": [ {
+                                                                                                                             "address": 30346,
+                                                                                                                  "address_identifier": "F_5E_3_IFF4_IDENT_A",
+                                                                                                             "address_mask_identifier": "F_5E_3_IFF4_IDENT_AM",
+                                                                                                       "address_mask_shift_identifier": "F_5E_3_IFF4_IDENT",
+                                                                                                                         "description": "selector position",
+                                                                                                                                "mask": 48,
+                                                                                                                           "max_value": 2,
+                                                                                                                            "shift_by": 4,
+                                                                                                                              "suffix": "",
+                                                                                                                                "type": "integer"
+                                                                                                   } ],
+                                                                               "physical_variant": "3_position_switch"
+                                                                        },
+                                                             "IFF4_M1": {
+                                                                                       "category": "IFF",
+                                                                                   "control_type": "selector",
+                                                                                    "description": "IFF Mode Select/TEST Switch, M-1 /ON/OUT",
+                                                                                     "identifier": "IFF4_M1",
+                                                                                         "inputs": [ {
+                                                                                                       "description": "switch to previous or next state",
+                                                                                                         "interface": "fixed_step"
+                                                                                                   }, {
+                                                                                                       "description": "set position",
+                                                                                                         "interface": "set_state",
+                                                                                                         "max_value": 2
+                                                                                                   } ],
+                                                                            "momentary_positions": "none",
+                                                                                        "outputs": [ {
+                                                                                                                             "address": 30344,
+                                                                                                                  "address_identifier": "F_5E_3_IFF4_M1_A",
+                                                                                                             "address_mask_identifier": "F_5E_3_IFF4_M1_AM",
+                                                                                                       "address_mask_shift_identifier": "F_5E_3_IFF4_M1",
+                                                                                                                         "description": "selector position",
+                                                                                                                                "mask": 1536,
+                                                                                                                           "max_value": 2,
+                                                                                                                            "shift_by": 9,
+                                                                                                                              "suffix": "",
+                                                                                                                                "type": "integer"
+                                                                                                   } ],
+                                                                               "physical_variant": "3_position_switch"
+                                                                        },
+                                                             "IFF4_M2": {
+                                                                                       "category": "IFF",
+                                                                                   "control_type": "selector",
+                                                                                    "description": "IFF Mode Select/TEST Switch, M-2 /ON/OUT",
+                                                                                     "identifier": "IFF4_M2",
+                                                                                         "inputs": [ {
+                                                                                                       "description": "switch to previous or next state",
+                                                                                                         "interface": "fixed_step"
+                                                                                                   }, {
+                                                                                                       "description": "set position",
+                                                                                                         "interface": "set_state",
+                                                                                                         "max_value": 2
+                                                                                                   } ],
+                                                                            "momentary_positions": "none",
+                                                                                        "outputs": [ {
+                                                                                                                             "address": 30344,
+                                                                                                                  "address_identifier": "F_5E_3_IFF4_M2_A",
+                                                                                                             "address_mask_identifier": "F_5E_3_IFF4_M2_AM",
+                                                                                                       "address_mask_shift_identifier": "F_5E_3_IFF4_M2",
+                                                                                                                         "description": "selector position",
+                                                                                                                                "mask": 6144,
+                                                                                                                           "max_value": 2,
+                                                                                                                            "shift_by": 11,
+                                                                                                                              "suffix": "",
+                                                                                                                                "type": "integer"
+                                                                                                   } ],
+                                                                               "physical_variant": "3_position_switch"
+                                                                        },
+                                                             "IFF4_M3": {
+                                                                                       "category": "IFF",
+                                                                                   "control_type": "selector",
+                                                                                    "description": "IFF Mode Select/TEST Switch, M-3/A /ON/OUT",
+                                                                                     "identifier": "IFF4_M3",
+                                                                                         "inputs": [ {
+                                                                                                       "description": "switch to previous or next state",
+                                                                                                         "interface": "fixed_step"
+                                                                                                   }, {
+                                                                                                       "description": "set position",
+                                                                                                         "interface": "set_state",
+                                                                                                         "max_value": 2
+                                                                                                   } ],
+                                                                            "momentary_positions": "none",
+                                                                                        "outputs": [ {
+                                                                                                                             "address": 30344,
+                                                                                                                  "address_identifier": "F_5E_3_IFF4_M3_A",
+                                                                                                             "address_mask_identifier": "F_5E_3_IFF4_M3_AM",
+                                                                                                       "address_mask_shift_identifier": "F_5E_3_IFF4_M3",
+                                                                                                                         "description": "selector position",
+                                                                                                                                "mask": 24576,
+                                                                                                                           "max_value": 2,
+                                                                                                                            "shift_by": 13,
+                                                                                                                              "suffix": "",
+                                                                                                                                "type": "integer"
+                                                                                                   } ],
+                                                                               "physical_variant": "3_position_switch"
+                                                                        },
+                                                         "IFF4_MASTER": {
+                                                                                       "category": "IFF",
+                                                                                   "control_type": "selector",
+                                                                                    "description": "IFF MASTER Control Selector, EMER/NORM/LOW/STBY/OFF",
+                                                                                     "identifier": "IFF4_MASTER",
+                                                                                         "inputs": [ {
+                                                                                                       "description": "switch to previous or next state",
+                                                                                                         "interface": "fixed_step"
+                                                                                                   }, {
+                                                                                                       "description": "set position",
+                                                                                                         "interface": "set_state",
+                                                                                                         "max_value": 4
+                                                                                                   } ],
+                                                                            "momentary_positions": "none",
+                                                                                        "outputs": [ {
+                                                                                                                             "address": 30344,
+                                                                                                                  "address_identifier": "F_5E_3_IFF4_MASTER_A",
+                                                                                                             "address_mask_identifier": "F_5E_3_IFF4_MASTER_AM",
+                                                                                                       "address_mask_shift_identifier": "F_5E_3_IFF4_MASTER",
+                                                                                                                         "description": "selector position",
+                                                                                                                                "mask": 112,
+                                                                                                                           "max_value": 4,
+                                                                                                                            "shift_by": 4,
+                                                                                                                              "suffix": "",
+                                                                                                                                "type": "integer"
+                                                                                                   } ],
+                                                                               "physical_variant": "limited_rotary"
+                                                                        },
+                                                    "IFF4_MASTER_PULL": {
+                                                                                       "category": "IFF",
+                                                                                   "control_type": "selector",
+                                                                                    "description": "IFF MASTER Control Selector Pull",
+                                                                                     "identifier": "IFF4_MASTER_PULL",
+                                                                                         "inputs": [ {
+                                                                                                       "description": "switch to previous or next state",
+                                                                                                         "interface": "fixed_step"
+                                                                                                   }, {
+                                                                                                       "description": "set position",
+                                                                                                         "interface": "set_state",
+                                                                                                         "max_value": 1
+                                                                                                   }, {
+                                                                                                          "argument": "TOGGLE",
+                                                                                                       "description": "Toggle switch state",
+                                                                                                         "interface": "action"
+                                                                                                   } ],
+                                                                            "momentary_positions": "none",
+                                                                                        "outputs": [ {
+                                                                                                                             "address": 30350,
+                                                                                                                  "address_identifier": "F_5E_3_IFF4_MASTER_PULL_A",
+                                                                                                             "address_mask_identifier": "F_5E_3_IFF4_MASTER_PULL_AM",
+                                                                                                       "address_mask_shift_identifier": "F_5E_3_IFF4_MASTER_PULL",
+                                                                                                                         "description": "selector position",
+                                                                                                                                "mask": 2,
+                                                                                                                           "max_value": 1,
+                                                                                                                            "shift_by": 1,
+                                                                                                                              "suffix": "",
+                                                                                                                                "type": "integer"
+                                                                                                   } ],
+                                                                               "physical_variant": "toggle_switch"
+                                                                        },
+                                                             "IFF4_MC": {
+                                                                                       "category": "IFF",
+                                                                                   "control_type": "selector",
+                                                                                    "description": "IFF Mode Select/TEST Switch, M-C /ON/OUT",
+                                                                                     "identifier": "IFF4_MC",
+                                                                                         "inputs": [ {
+                                                                                                       "description": "switch to previous or next state",
+                                                                                                         "interface": "fixed_step"
+                                                                                                   }, {
+                                                                                                       "description": "set position",
+                                                                                                         "interface": "set_state",
+                                                                                                         "max_value": 2
+                                                                                                   } ],
+                                                                            "momentary_positions": "none",
+                                                                                        "outputs": [ {
+                                                                                                                             "address": 30346,
+                                                                                                                  "address_identifier": "F_5E_3_IFF4_MC_A",
+                                                                                                             "address_mask_identifier": "F_5E_3_IFF4_MC_AM",
+                                                                                                       "address_mask_shift_identifier": "F_5E_3_IFF4_MC",
+                                                                                                                         "description": "selector position",
+                                                                                                                                "mask": 3,
+                                                                                                                           "max_value": 2,
+                                                                                                                            "shift_by": 0,
+                                                                                                                              "suffix": "",
+                                                                                                                                "type": "integer"
+                                                                                                   } ],
+                                                                               "physical_variant": "3_position_switch"
+                                                                        },
+                                                "IFF4_MODE1_SELECTOR1": {
+                                                                                       "category": "IFF",
+                                                                                   "control_type": "selector",
+                                                                                    "description": "IFF MODE 1 Code Selector Wheel 1",
+                                                                                     "identifier": "IFF4_MODE1_SELECTOR1",
+                                                                                         "inputs": [ {
+                                                                                                       "description": "switch to previous or next state",
+                                                                                                         "interface": "fixed_step"
+                                                                                                   }, {
+                                                                                                       "description": "set position",
+                                                                                                         "interface": "set_state",
+                                                                                                         "max_value": 10
+                                                                                                   } ],
+                                                                            "momentary_positions": "none",
+                                                                                        "outputs": [ {
+                                                                                                                             "address": 30346,
+                                                                                                                  "address_identifier": "F_5E_3_IFF4_MODE1_SELECTOR1_A",
+                                                                                                             "address_mask_identifier": "F_5E_3_IFF4_MODE1_SELECTOR1_AM",
+                                                                                                       "address_mask_shift_identifier": "F_5E_3_IFF4_MODE1_SELECTOR1",
+                                                                                                                         "description": "selector position",
+                                                                                                                                "mask": 960,
+                                                                                                                           "max_value": 10,
+                                                                                                                            "shift_by": 6,
+                                                                                                                              "suffix": "",
+                                                                                                                                "type": "integer"
+                                                                                                   } ],
+                                                                               "physical_variant": "limited_rotary"
+                                                                        },
+                                                "IFF4_MODE1_SELECTOR2": {
+                                                                                       "category": "IFF",
+                                                                                   "control_type": "selector",
+                                                                                    "description": "IFF MODE 1 Code Selector Wheel 2",
+                                                                                     "identifier": "IFF4_MODE1_SELECTOR2",
+                                                                                         "inputs": [ {
+                                                                                                       "description": "switch to previous or next state",
+                                                                                                         "interface": "fixed_step"
+                                                                                                   }, {
+                                                                                                       "description": "set position",
+                                                                                                         "interface": "set_state",
+                                                                                                         "max_value": 10
+                                                                                                   } ],
+                                                                            "momentary_positions": "none",
+                                                                                        "outputs": [ {
+                                                                                                                             "address": 30346,
+                                                                                                                  "address_identifier": "F_5E_3_IFF4_MODE1_SELECTOR2_A",
+                                                                                                             "address_mask_identifier": "F_5E_3_IFF4_MODE1_SELECTOR2_AM",
+                                                                                                       "address_mask_shift_identifier": "F_5E_3_IFF4_MODE1_SELECTOR2",
+                                                                                                                         "description": "selector position",
+                                                                                                                                "mask": 15360,
+                                                                                                                           "max_value": 10,
+                                                                                                                            "shift_by": 10,
+                                                                                                                              "suffix": "",
+                                                                                                                                "type": "integer"
+                                                                                                   } ],
+                                                                               "physical_variant": "limited_rotary"
+                                                                        },
+                                                "IFF4_MODE3_SELECTOR1": {
+                                                                                       "category": "IFF",
+                                                                                   "control_type": "selector",
+                                                                                    "description": "IFF MODE 3/A Code Selector Wheel 1",
+                                                                                     "identifier": "IFF4_MODE3_SELECTOR1",
+                                                                                         "inputs": [ {
+                                                                                                       "description": "switch to previous or next state",
+                                                                                                         "interface": "fixed_step"
+                                                                                                   }, {
+                                                                                                       "description": "set position",
+                                                                                                         "interface": "set_state",
+                                                                                                         "max_value": 10
+                                                                                                   } ],
+                                                                            "momentary_positions": "none",
+                                                                                        "outputs": [ {
+                                                                                                                             "address": 30348,
+                                                                                                                  "address_identifier": "F_5E_3_IFF4_MODE3_SELECTOR1_A",
+                                                                                                             "address_mask_identifier": "F_5E_3_IFF4_MODE3_SELECTOR1_AM",
+                                                                                                       "address_mask_shift_identifier": "F_5E_3_IFF4_MODE3_SELECTOR1",
+                                                                                                                         "description": "selector position",
+                                                                                                                                "mask": 15,
+                                                                                                                           "max_value": 10,
+                                                                                                                            "shift_by": 0,
+                                                                                                                              "suffix": "",
+                                                                                                                                "type": "integer"
+                                                                                                   } ],
+                                                                               "physical_variant": "limited_rotary"
+                                                                        },
+                                                "IFF4_MODE3_SELECTOR2": {
+                                                                                       "category": "IFF",
+                                                                                   "control_type": "selector",
+                                                                                    "description": "IFF MODE 3/A Code Selector Wheel 2",
+                                                                                     "identifier": "IFF4_MODE3_SELECTOR2",
+                                                                                         "inputs": [ {
+                                                                                                       "description": "switch to previous or next state",
+                                                                                                         "interface": "fixed_step"
+                                                                                                   }, {
+                                                                                                       "description": "set position",
+                                                                                                         "interface": "set_state",
+                                                                                                         "max_value": 10
+                                                                                                   } ],
+                                                                            "momentary_positions": "none",
+                                                                                        "outputs": [ {
+                                                                                                                             "address": 30348,
+                                                                                                                  "address_identifier": "F_5E_3_IFF4_MODE3_SELECTOR2_A",
+                                                                                                             "address_mask_identifier": "F_5E_3_IFF4_MODE3_SELECTOR2_AM",
+                                                                                                       "address_mask_shift_identifier": "F_5E_3_IFF4_MODE3_SELECTOR2",
+                                                                                                                         "description": "selector position",
+                                                                                                                                "mask": 240,
+                                                                                                                           "max_value": 10,
+                                                                                                                            "shift_by": 4,
+                                                                                                                              "suffix": "",
+                                                                                                                                "type": "integer"
+                                                                                                   } ],
+                                                                               "physical_variant": "limited_rotary"
+                                                                        },
+                                                "IFF4_MODE3_SELECTOR3": {
+                                                                                       "category": "IFF",
+                                                                                   "control_type": "selector",
+                                                                                    "description": "IFF MODE 3/A Code Selector Wheel 3",
+                                                                                     "identifier": "IFF4_MODE3_SELECTOR3",
+                                                                                         "inputs": [ {
+                                                                                                       "description": "switch to previous or next state",
+                                                                                                         "interface": "fixed_step"
+                                                                                                   }, {
+                                                                                                       "description": "set position",
+                                                                                                         "interface": "set_state",
+                                                                                                         "max_value": 10
+                                                                                                   } ],
+                                                                            "momentary_positions": "none",
+                                                                                        "outputs": [ {
+                                                                                                                             "address": 30348,
+                                                                                                                  "address_identifier": "F_5E_3_IFF4_MODE3_SELECTOR3_A",
+                                                                                                             "address_mask_identifier": "F_5E_3_IFF4_MODE3_SELECTOR3_AM",
+                                                                                                       "address_mask_shift_identifier": "F_5E_3_IFF4_MODE3_SELECTOR3",
+                                                                                                                         "description": "selector position",
+                                                                                                                                "mask": 3840,
+                                                                                                                           "max_value": 10,
+                                                                                                                            "shift_by": 8,
+                                                                                                                              "suffix": "",
+                                                                                                                                "type": "integer"
+                                                                                                   } ],
+                                                                               "physical_variant": "limited_rotary"
+                                                                        },
+                                                "IFF4_MODE3_SELECTOR4": {
+                                                                                       "category": "IFF",
+                                                                                   "control_type": "selector",
+                                                                                    "description": "IFF MODE 3/A Code Selector Wheel 4",
+                                                                                     "identifier": "IFF4_MODE3_SELECTOR4",
+                                                                                         "inputs": [ {
+                                                                                                       "description": "switch to previous or next state",
+                                                                                                         "interface": "fixed_step"
+                                                                                                   }, {
+                                                                                                       "description": "set position",
+                                                                                                         "interface": "set_state",
+                                                                                                         "max_value": 10
+                                                                                                   } ],
+                                                                            "momentary_positions": "none",
+                                                                                        "outputs": [ {
+                                                                                                                             "address": 30348,
+                                                                                                                  "address_identifier": "F_5E_3_IFF4_MODE3_SELECTOR4_A",
+                                                                                                             "address_mask_identifier": "F_5E_3_IFF4_MODE3_SELECTOR4_AM",
+                                                                                                       "address_mask_shift_identifier": "F_5E_3_IFF4_MODE3_SELECTOR4",
+                                                                                                                         "description": "selector position",
+                                                                                                                                "mask": 61440,
+                                                                                                                           "max_value": 10,
+                                                                                                                            "shift_by": 12,
+                                                                                                                              "suffix": "",
+                                                                                                                                "type": "integer"
+                                                                                                   } ],
+                                                                               "physical_variant": "limited_rotary"
+                                                                        },
+                                                      "IFF4_MON_CONTR": {
+                                                                                       "category": "IFF",
+                                                                                   "control_type": "selector",
+                                                                                    "description": "IFF MODE 4 Monitor Control Switch, AUDIO/OUT/LIGHT",
+                                                                                     "identifier": "IFF4_MON_CONTR",
+                                                                                         "inputs": [ {
+                                                                                                       "description": "switch to previous or next state",
+                                                                                                         "interface": "fixed_step"
+                                                                                                   }, {
+                                                                                                       "description": "set position",
+                                                                                                         "interface": "set_state",
+                                                                                                         "max_value": 2
+                                                                                                   } ],
+                                                                            "momentary_positions": "none",
+                                                                                        "outputs": [ {
+                                                                                                                             "address": 30344,
+                                                                                                                  "address_identifier": "F_5E_3_IFF4_MON_CONTR_A",
+                                                                                                             "address_mask_identifier": "F_5E_3_IFF4_MON_CONTR_AM",
+                                                                                                       "address_mask_shift_identifier": "F_5E_3_IFF4_MON_CONTR",
+                                                                                                                         "description": "selector position",
+                                                                                                                                "mask": 384,
+                                                                                                                           "max_value": 2,
+                                                                                                                            "shift_by": 7,
+                                                                                                                              "suffix": "",
+                                                                                                                                "type": "integer"
+                                                                                                   } ],
+                                                                               "physical_variant": "3_position_switch"
+                                                                        },
+                                                            "IFF4_RAD": {
+                                                                                       "category": "IFF",
+                                                                                   "control_type": "selector",
+                                                                                    "description": "IFF RAD TEST/MON Switch, RAD TEST/OUT/MON",
+                                                                                     "identifier": "IFF4_RAD",
+                                                                                         "inputs": [ {
+                                                                                                       "description": "switch to previous or next state",
+                                                                                                         "interface": "fixed_step"
+                                                                                                   }, {
+                                                                                                       "description": "set position",
+                                                                                                         "interface": "set_state",
+                                                                                                         "max_value": 2
+                                                                                                   } ],
+                                                                            "momentary_positions": "none",
+                                                                                        "outputs": [ {
+                                                                                                                             "address": 30346,
+                                                                                                                  "address_identifier": "F_5E_3_IFF4_RAD_A",
+                                                                                                             "address_mask_identifier": "F_5E_3_IFF4_RAD_AM",
+                                                                                                       "address_mask_shift_identifier": "F_5E_3_IFF4_RAD",
+                                                                                                                         "description": "selector position",
+                                                                                                                                "mask": 12,
+                                                                                                                           "max_value": 2,
+                                                                                                                            "shift_by": 2,
+                                                                                                                              "suffix": "",
+                                                                                                                                "type": "integer"
+                                                                                                   } ],
+                                                                               "physical_variant": "3_position_switch"
+                                                                        },
+                                                     "IFF4_RAD_TEST_L": {
+                                                                                    "api_variant": "momentary_last_position",
+                                                                                       "category": "IFF",
+                                                                                   "control_type": "selector",
+                                                                                    "description": "Radiation TEST and Monitor Light - Press to test(LMB)",
+                                                                                     "identifier": "IFF4_RAD_TEST_L",
+                                                                                         "inputs": [ {
+                                                                                                       "description": "switch to previous or next state",
+                                                                                                         "interface": "fixed_step"
+                                                                                                   }, {
+                                                                                                       "description": "set position",
+                                                                                                         "interface": "set_state",
+                                                                                                         "max_value": 1
+                                                                                                   }, {
+                                                                                                          "argument": "TOGGLE",
+                                                                                                       "description": "Toggle switch state",
+                                                                                                         "interface": "action"
+                                                                                                   } ],
+                                                                            "momentary_positions": "none",
+                                                                                        "outputs": [ {
+                                                                                                                             "address": 30346,
+                                                                                                                  "address_identifier": "F_5E_3_IFF4_RAD_TEST_L_A",
+                                                                                                             "address_mask_identifier": "F_5E_3_IFF4_RAD_TEST_L_AM",
+                                                                                                       "address_mask_shift_identifier": "F_5E_3_IFF4_RAD_TEST_L",
+                                                                                                                         "description": "selector position",
+                                                                                                                                "mask": 32768,
+                                                                                                                           "max_value": 1,
+                                                                                                                            "shift_by": 15,
+                                                                                                                              "suffix": "",
+                                                                                                                                "type": "integer"
+                                                                                                   } ],
+                                                                               "physical_variant": "push_button"
+                                                                        },
+                                                        "IFF4_REPLY_L": {
+                                                                                    "api_variant": "momentary_last_position",
+                                                                                       "category": "IFF",
+                                                                                   "control_type": "selector",
+                                                                                    "description": "MODE 4 REPLY Light - Press to test(LMB)",
+                                                                                     "identifier": "IFF4_REPLY_L",
+                                                                                         "inputs": [ {
+                                                                                                       "description": "switch to previous or next state",
+                                                                                                         "interface": "fixed_step"
+                                                                                                   }, {
+                                                                                                       "description": "set position",
+                                                                                                         "interface": "set_state",
+                                                                                                         "max_value": 1
+                                                                                                   }, {
+                                                                                                          "argument": "TOGGLE",
+                                                                                                       "description": "Toggle switch state",
+                                                                                                         "interface": "action"
+                                                                                                   } ],
+                                                                            "momentary_positions": "none",
+                                                                                        "outputs": [ {
+                                                                                                                             "address": 30346,
+                                                                                                                  "address_identifier": "F_5E_3_IFF4_REPLY_L_A",
+                                                                                                             "address_mask_identifier": "F_5E_3_IFF4_REPLY_L_AM",
+                                                                                                       "address_mask_shift_identifier": "F_5E_3_IFF4_REPLY_L",
+                                                                                                                         "description": "selector position",
+                                                                                                                                "mask": 16384,
+                                                                                                                           "max_value": 1,
+                                                                                                                            "shift_by": 14,
+                                                                                                                              "suffix": "",
+                                                                                                                                "type": "integer"
+                                                                                                   } ],
+                                                                               "physical_variant": "push_button"
+                                                                        },
+                                                         "IFF_REPLY_L": {
+                                                                                "category": "IFF",
+                                                                            "control_type": "led",
+                                                                             "description": "IFF Reply Lamp (green)",
+                                                                              "identifier": "IFF_REPLY_L",
+                                                                                  "inputs": [  ],
+                                                                                 "outputs": [ {
+                                                                                                                      "address": 30344,
+                                                                                                           "address_identifier": "F_5E_3_IFF_REPLY_L_A",
+                                                                                                      "address_mask_identifier": "F_5E_3_IFF_REPLY_L_AM",
+                                                                                                "address_mask_shift_identifier": "F_5E_3_IFF_REPLY_L",
+                                                                                                                  "description": "0 if light is off, 1 if light is on",
+                                                                                                                         "mask": 1,
+                                                                                                                    "max_value": 1,
+                                                                                                                     "shift_by": 0,
+                                                                                                                       "suffix": "",
+                                                                                                                         "type": "integer"
+                                                                                            } ]
+                                                                        },
+                                                          "IFF_TEST_L": {
+                                                                                "category": "IFF",
+                                                                            "control_type": "led",
+                                                                             "description": "IFF Test Lamp (green)",
+                                                                              "identifier": "IFF_TEST_L",
+                                                                                  "inputs": [  ],
+                                                                                 "outputs": [ {
+                                                                                                                      "address": 30344,
+                                                                                                           "address_identifier": "F_5E_3_IFF_TEST_L_A",
+                                                                                                      "address_mask_identifier": "F_5E_3_IFF_TEST_L_AM",
+                                                                                                "address_mask_shift_identifier": "F_5E_3_IFF_TEST_L",
+                                                                                                                  "description": "0 if light is off, 1 if light is on",
+                                                                                                                         "mask": 2,
+                                                                                                                    "max_value": 1,
+                                                                                                                     "shift_by": 1,
+                                                                                                                       "suffix": "",
+                                                                                                                         "type": "integer"
+                                                                                            } ]
+                                                                        }
                                             },
                          "Internal Lights": {
                                                     "ARM_LIGHTS": {
@@ -6345,11 +6493,14 @@
                                                                                                                          "suffix": "_INT",
                                                                                                                            "type": "integer"
                                                                                               }, {
-                                                                                                      "address": 30466,
-                                                                                                  "description": "possible values: \"00\" \"75\" \"50\" \"25\" \"00\" ",
-                                                                                                   "max_length": 2,
-                                                                                                       "suffix": "_STR",
-                                                                                                         "type": "string"
+                                                                                                                        "address": 30466,
+                                                                                                             "address_identifier": "F_5E_3_UHF_0025MHZ_SEL_A",
+                                                                                                        "address_mask_identifier": "F_5E_3_UHF_0025MHZ_SEL_AM",
+                                                                                                  "address_mask_shift_identifier": "F_5E_3_UHF_0025MHZ_SEL",
+                                                                                                                    "description": "possible values: \"00\" \"75\" \"50\" \"25\" \"00\"",
+                                                                                                                     "max_length": 2,
+                                                                                                                         "suffix": "_STR",
+                                                                                                                           "type": "string"
                                                                                               } ],
                                                                           "physical_variant": "limited_rotary"
                                                                    },
@@ -6379,11 +6530,14 @@
                                                                                                                          "suffix": "_INT",
                                                                                                                            "type": "integer"
                                                                                               }, {
-                                                                                                      "address": 30464,
-                                                                                                  "description": "possible values: \"0\" \"9\" \"8\" \"7\" \"6\" \"5\" \"4\" \"3\" \"2\" \"1\" \"0\" ",
-                                                                                                   "max_length": 1,
-                                                                                                       "suffix": "_STR",
-                                                                                                         "type": "string"
+                                                                                                                        "address": 30464,
+                                                                                                             "address_identifier": "F_5E_3_UHF_01MHZ_SEL_A",
+                                                                                                        "address_mask_identifier": "F_5E_3_UHF_01MHZ_SEL_AM",
+                                                                                                  "address_mask_shift_identifier": "F_5E_3_UHF_01MHZ_SEL",
+                                                                                                                    "description": "possible values: \"0\" \"9\" \"8\" \"7\" \"6\" \"5\" \"4\" \"3\" \"2\" \"1\" \"0\"",
+                                                                                                                     "max_length": 1,
+                                                                                                                         "suffix": "_STR",
+                                                                                                                           "type": "string"
                                                                                               } ],
                                                                           "physical_variant": "limited_rotary"
                                                                    },
@@ -6413,11 +6567,14 @@
                                                                                                                          "suffix": "_INT",
                                                                                                                            "type": "integer"
                                                                                               }, {
-                                                                                                      "address": 30458,
-                                                                                                  "description": "possible values: \"A\" \"3\" \"2\" \"T\" ",
-                                                                                                   "max_length": 1,
-                                                                                                       "suffix": "_STR",
-                                                                                                         "type": "string"
+                                                                                                                        "address": 30458,
+                                                                                                             "address_identifier": "F_5E_3_UHF_100MHZ_SEL_A",
+                                                                                                        "address_mask_identifier": "F_5E_3_UHF_100MHZ_SEL_AM",
+                                                                                                  "address_mask_shift_identifier": "F_5E_3_UHF_100MHZ_SEL",
+                                                                                                                    "description": "possible values: \"A\" \"3\" \"2\" \"T\"",
+                                                                                                                     "max_length": 1,
+                                                                                                                         "suffix": "_STR",
+                                                                                                                           "type": "string"
                                                                                               } ],
                                                                           "physical_variant": "limited_rotary"
                                                                    },
@@ -6447,11 +6604,14 @@
                                                                                                                          "suffix": "_INT",
                                                                                                                            "type": "integer"
                                                                                               }, {
-                                                                                                      "address": 30460,
-                                                                                                  "description": "possible values: \"0\" \"9\" \"8\" \"7\" \"6\" \"5\" \"4\" \"3\" \"2\" \"1\" \"0\" ",
-                                                                                                   "max_length": 1,
-                                                                                                       "suffix": "_STR",
-                                                                                                         "type": "string"
+                                                                                                                        "address": 30460,
+                                                                                                             "address_identifier": "F_5E_3_UHF_10MHZ_SEL_A",
+                                                                                                        "address_mask_identifier": "F_5E_3_UHF_10MHZ_SEL_AM",
+                                                                                                  "address_mask_shift_identifier": "F_5E_3_UHF_10MHZ_SEL",
+                                                                                                                    "description": "possible values: \"0\" \"9\" \"8\" \"7\" \"6\" \"5\" \"4\" \"3\" \"2\" \"1\" \"0\"",
+                                                                                                                     "max_length": 1,
+                                                                                                                         "suffix": "_STR",
+                                                                                                                           "type": "string"
                                                                                               } ],
                                                                           "physical_variant": "limited_rotary"
                                                                    },
@@ -6481,11 +6641,14 @@
                                                                                                                          "suffix": "_INT",
                                                                                                                            "type": "integer"
                                                                                               }, {
-                                                                                                      "address": 30462,
-                                                                                                  "description": "possible values: \"0\" \"9\" \"8\" \"7\" \"6\" \"5\" \"4\" \"3\" \"2\" \"1\" \"0\" ",
-                                                                                                   "max_length": 1,
-                                                                                                       "suffix": "_STR",
-                                                                                                         "type": "string"
+                                                                                                                        "address": 30462,
+                                                                                                             "address_identifier": "F_5E_3_UHF_1MHZ_SEL_A",
+                                                                                                        "address_mask_identifier": "F_5E_3_UHF_1MHZ_SEL_AM",
+                                                                                                  "address_mask_shift_identifier": "F_5E_3_UHF_1MHZ_SEL",
+                                                                                                                    "description": "possible values: \"0\" \"9\" \"8\" \"7\" \"6\" \"5\" \"4\" \"3\" \"2\" \"1\" \"0\"",
+                                                                                                                     "max_length": 1,
+                                                                                                                         "suffix": "_STR",
+                                                                                                                           "type": "string"
                                                                                               } ],
                                                                           "physical_variant": "limited_rotary"
                                                                    },
@@ -6664,11 +6827,14 @@
                                                                                                                          "suffix": "_INT",
                                                                                                                            "type": "integer"
                                                                                               }, {
-                                                                                                      "address": 30456,
-                                                                                                  "description": "possible values: \" 1\" \" 2\" \" 3\" \" 4\" \" 5\" \" 6\" \" 7\" \" 8\" \" 9\" \"10\" \"11\" \"12\" \"13\" \"14\" \"15\" \"16\" \"17\" \"18\" \"19\" \"20\" ",
-                                                                                                   "max_length": 2,
-                                                                                                       "suffix": "_STR",
-                                                                                                         "type": "string"
+                                                                                                                        "address": 30456,
+                                                                                                             "address_identifier": "F_5E_3_UHF_PRESET_SEL_A",
+                                                                                                        "address_mask_identifier": "F_5E_3_UHF_PRESET_SEL_AM",
+                                                                                                  "address_mask_shift_identifier": "F_5E_3_UHF_PRESET_SEL",
+                                                                                                                    "description": "possible values: \" 1\" \" 2\" \" 3\" \" 4\" \" 5\" \" 6\" \" 7\" \" 8\" \" 9\" \"10\" \"11\" \"12\" \"13\" \"14\" \"15\" \"16\" \"17\" \"18\" \"19\" \"20\"",
+                                                                                                                     "max_length": 2,
+                                                                                                                         "suffix": "_STR",
+                                                                                                                           "type": "string"
                                                                                               } ],
                                                                           "physical_variant": "limited_rotary"
                                                                    },
@@ -7009,17 +7175,17 @@
                                                                                                                        "type": "integer"
                                                                                           } ]
                                                                       },
-                                                    "HSI_Range_FLAG": {
+                                                    "HSI_RANGE_FLAG": {
                                                                               "category": "Warning, Caution and IndicatorLights",
                                                                           "control_type": "led",
                                                                            "description": "HSI Range Flag",
-                                                                            "identifier": "HSI_Range_FLAG",
+                                                                            "identifier": "HSI_RANGE_FLAG",
                                                                                 "inputs": [  ],
                                                                                "outputs": [ {
                                                                                                                     "address": 30350,
-                                                                                                         "address_identifier": "F_5E_3_HSI_Range_FLAG_A",
-                                                                                                    "address_mask_identifier": "F_5E_3_HSI_Range_FLAG_AM",
-                                                                                              "address_mask_shift_identifier": "F_5E_3_HSI_Range_FLAG",
+                                                                                                         "address_identifier": "F_5E_3_HSI_RANGE_FLAG_A",
+                                                                                                    "address_mask_identifier": "F_5E_3_HSI_RANGE_FLAG_AM",
+                                                                                              "address_mask_shift_identifier": "F_5E_3_HSI_RANGE_FLAG",
                                                                                                                 "description": "0 if light is off, 1 if light is on",
                                                                                                                        "mask": 16,
                                                                                                                   "max_value": 1,
