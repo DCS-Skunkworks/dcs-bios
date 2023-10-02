@@ -830,6 +830,7 @@ function Module:addressDefineIdentifier(identifier)
 end
 
 --- Parses a dcs indication from a string into a key-value table, or nil if no data is available
+--- Values are separated with "-----------------------------------------\n"
 --- @param indicator_id integer
 --- @return {[string]: string}?
 function Module.parse_indication(indicator_id)
@@ -893,6 +894,23 @@ end
 function Module.valueConvert(argument_value, input_range, output_range)
 	local slope = 1.0 * (output_range[2] - output_range[1]) / (input_range[2] - input_range[1])
 	return output_range[1] + slope * (argument_value - input_range[1])
+end
+
+--- @func Reads a display structure setup JSON file and returns the table
+--- @param json string Path and name of file to read
+--- @return table
+function Module.ReadDisplaySetupFile(json)
+	local JSON = BIOS.json
+	local json_file = io.open(json, "r")
+	local display_setup_structure
+	if json_file ~= nil then
+		--- @type table display_setup_structure
+		display_setup_structure = JSON:decode(json_file:read("*a"))
+		json_file:close()
+		json_file = nil
+	end
+
+	return display_setup_structure or {}
 end
 
 return Module
