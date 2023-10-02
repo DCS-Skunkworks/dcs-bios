@@ -91,6 +91,10 @@ function TestAircraft:testMi_24P()
 	self:validateModule(require("Mi-24P"), "Mi-24P", 0x6800)
 end
 
+function TestAircraft:testMi8MT()
+	self:validateModule(require("Mi-8MT"), "Mi-8MT", 0x2600)
+end
+
 function TestAircraft:testMiG_15bis()
 	self:validateModule(require("MiG-15bis"), "MiG-15bis", 0x2400)
 end

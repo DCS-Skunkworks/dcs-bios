@@ -5029,14 +5029,14 @@
                                                                                          } ],
                                                                   "momentary_positions": "none",
                                                                               "outputs": [ {
-                                                                                                                   "address": 9808,
+                                                                                                                   "address": 9728,
                                                                                                         "address_identifier": "Mi_8MT_AC_VOLT_SEL_A",
                                                                                                    "address_mask_identifier": "Mi_8MT_AC_VOLT_SEL_AM",
                                                                                              "address_mask_shift_identifier": "Mi_8MT_AC_VOLT_SEL",
                                                                                                                "description": "selector position",
-                                                                                                                      "mask": 7680,
+                                                                                                                      "mask": 1920,
                                                                                                                  "max_value": 10,
-                                                                                                                  "shift_by": 9,
+                                                                                                                  "shift_by": 7,
                                                                                                                     "suffix": "",
                                                                                                                       "type": "integer"
                                                                                          } ],
@@ -7670,195 +7670,227 @@
                                                             }
                                     },
                              "IFF": {
-                                                "IFF_DIS": {
-                                                                          "category": "IFF",
-                                                                      "control_type": "selector",
-                                                                       "description": "IFF Transponder Disaster Switch, ON/OFF",
-                                                                        "identifier": "IFF_DIS",
-                                                                            "inputs": [ {
-                                                                                          "description": "switch to previous or next state",
-                                                                                            "interface": "fixed_step"
-                                                                                      }, {
-                                                                                          "description": "set position",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 1
-                                                                                      }, {
-                                                                                             "argument": "TOGGLE",
-                                                                                          "description": "Toggle switch state",
-                                                                                            "interface": "action"
-                                                                                      } ],
-                                                               "momentary_positions": "none",
-                                                                           "outputs": [ {
-                                                                                                                "address": 9792,
-                                                                                                     "address_identifier": "Mi_8MT_IFF_DIS_A",
-                                                                                                "address_mask_identifier": "Mi_8MT_IFF_DIS_AM",
-                                                                                          "address_mask_shift_identifier": "Mi_8MT_IFF_DIS",
-                                                                                                            "description": "selector position",
-                                                                                                                   "mask": 2048,
-                                                                                                              "max_value": 1,
-                                                                                                               "shift_by": 11,
-                                                                                                                 "suffix": "",
-                                                                                                                   "type": "integer"
-                                                                                      } ],
-                                                                  "physical_variant": "toggle_switch"
-                                                           },
-                                          "IFF_DIS_COVER": {
-                                                                          "category": "IFF",
-                                                                      "control_type": "selector",
-                                                                       "description": "IFF Transponder Disaster Switch Cover, OPEN/CLOSE",
-                                                                        "identifier": "IFF_DIS_COVER",
-                                                                            "inputs": [ {
-                                                                                          "description": "switch to previous or next state",
-                                                                                            "interface": "fixed_step"
-                                                                                      }, {
-                                                                                          "description": "set position",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 1
-                                                                                      }, {
-                                                                                             "argument": "TOGGLE",
-                                                                                          "description": "Toggle switch state",
-                                                                                            "interface": "action"
-                                                                                      } ],
-                                                               "momentary_positions": "none",
-                                                                           "outputs": [ {
-                                                                                                                "address": 9792,
-                                                                                                     "address_identifier": "Mi_8MT_IFF_DIS_COVER_A",
-                                                                                                "address_mask_identifier": "Mi_8MT_IFF_DIS_COVER_AM",
-                                                                                          "address_mask_shift_identifier": "Mi_8MT_IFF_DIS_COVER",
-                                                                                                            "description": "selector position",
-                                                                                                                   "mask": 1024,
-                                                                                                              "max_value": 1,
-                                                                                                               "shift_by": 10,
-                                                                                                                 "suffix": "",
-                                                                                                                   "type": "integer"
-                                                                                      } ],
-                                                                  "physical_variant": "toggle_switch"
-                                                           },
-                                              "IFF_ERASE": {
-                                                                       "api_variant": "momentary_last_position",
-                                                                          "category": "IFF",
-                                                                      "control_type": "selector",
-                                                                       "description": "IFF Transponder Erase Button - Push to erase",
-                                                                        "identifier": "IFF_ERASE",
-                                                                            "inputs": [ {
-                                                                                          "description": "switch to previous or next state",
-                                                                                            "interface": "fixed_step"
-                                                                                      }, {
-                                                                                          "description": "set position",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 1
-                                                                                      }, {
-                                                                                             "argument": "TOGGLE",
-                                                                                          "description": "Toggle switch state",
-                                                                                            "interface": "action"
-                                                                                      } ],
-                                                               "momentary_positions": "none",
-                                                                           "outputs": [ {
-                                                                                                                "address": 9792,
-                                                                                                     "address_identifier": "Mi_8MT_IFF_ERASE_A",
-                                                                                                "address_mask_identifier": "Mi_8MT_IFF_ERASE_AM",
-                                                                                          "address_mask_shift_identifier": "Mi_8MT_IFF_ERASE",
-                                                                                                            "description": "selector position",
-                                                                                                                   "mask": 512,
-                                                                                                              "max_value": 1,
-                                                                                                               "shift_by": 9,
-                                                                                                                 "suffix": "",
-                                                                                                                   "type": "integer"
-                                                                                      } ],
-                                                                  "physical_variant": "push_button"
-                                                           },
-                                        "IFF_ERASE_COVER": {
-                                                                          "category": "IFF",
-                                                                      "control_type": "selector",
-                                                                       "description": "IFF Transponder Erase Button Cover, OPEN/CLOSE",
-                                                                        "identifier": "IFF_ERASE_COVER",
-                                                                            "inputs": [ {
-                                                                                          "description": "switch to previous or next state",
-                                                                                            "interface": "fixed_step"
-                                                                                      }, {
-                                                                                          "description": "set position",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 1
-                                                                                      }, {
-                                                                                             "argument": "TOGGLE",
-                                                                                          "description": "Toggle switch state",
-                                                                                            "interface": "action"
-                                                                                      } ],
-                                                               "momentary_positions": "none",
-                                                                           "outputs": [ {
-                                                                                                                "address": 9792,
-                                                                                                     "address_identifier": "Mi_8MT_IFF_ERASE_COVER_A",
-                                                                                                "address_mask_identifier": "Mi_8MT_IFF_ERASE_COVER_AM",
-                                                                                          "address_mask_shift_identifier": "Mi_8MT_IFF_ERASE_COVER",
-                                                                                                            "description": "selector position",
-                                                                                                                   "mask": 256,
-                                                                                                              "max_value": 1,
-                                                                                                               "shift_by": 8,
-                                                                                                                 "suffix": "",
-                                                                                                                   "type": "integer"
-                                                                                      } ],
-                                                                  "physical_variant": "toggle_switch"
-                                                           },
-                                               "IFF_MODE": {
-                                                                          "category": "IFF",
-                                                                      "control_type": "selector",
-                                                                       "description": "IFF Transponder Mode Selector Switch, AUTO/KD/+-15/KP",
-                                                                        "identifier": "IFF_MODE",
-                                                                            "inputs": [ {
-                                                                                          "description": "switch to previous or next state",
-                                                                                            "interface": "fixed_step"
-                                                                                      }, {
-                                                                                          "description": "set position",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 3
-                                                                                      } ],
-                                                               "momentary_positions": "none",
-                                                                           "outputs": [ {
-                                                                                                                "address": 9884,
-                                                                                                     "address_identifier": "Mi_8MT_IFF_MODE_A",
-                                                                                                "address_mask_identifier": "Mi_8MT_IFF_MODE_AM",
-                                                                                          "address_mask_shift_identifier": "Mi_8MT_IFF_MODE",
-                                                                                                            "description": "selector position",
-                                                                                                                   "mask": 1536,
-                                                                                                              "max_value": 3,
-                                                                                                               "shift_by": 9,
-                                                                                                                 "suffix": "",
-                                                                                                                   "type": "integer"
-                                                                                      } ],
-                                                                  "physical_variant": "limited_rotary"
-                                                           },
-                                                "IFF_SEL": {
-                                                                          "category": "IFF",
-                                                                      "control_type": "selector",
-                                                                       "description": "IFF Transponder Device Selector Switch, WORK/RESERVE",
-                                                                        "identifier": "IFF_SEL",
-                                                                            "inputs": [ {
-                                                                                          "description": "switch to previous or next state",
-                                                                                            "interface": "fixed_step"
-                                                                                      }, {
-                                                                                          "description": "set position",
-                                                                                            "interface": "set_state",
-                                                                                            "max_value": 1
-                                                                                      }, {
-                                                                                             "argument": "TOGGLE",
-                                                                                          "description": "Toggle switch state",
-                                                                                            "interface": "action"
-                                                                                      } ],
-                                                               "momentary_positions": "none",
-                                                                           "outputs": [ {
-                                                                                                                "address": 9792,
-                                                                                                     "address_identifier": "Mi_8MT_IFF_SEL_A",
-                                                                                                "address_mask_identifier": "Mi_8MT_IFF_SEL_AM",
-                                                                                          "address_mask_shift_identifier": "Mi_8MT_IFF_SEL",
-                                                                                                            "description": "selector position",
-                                                                                                                   "mask": 64,
-                                                                                                              "max_value": 1,
-                                                                                                               "shift_by": 6,
-                                                                                                                 "suffix": "",
-                                                                                                                   "type": "integer"
-                                                                                      } ],
-                                                                  "physical_variant": "toggle_switch"
-                                                           }
+                                                  "IFF_DIS": {
+                                                                            "category": "IFF",
+                                                                        "control_type": "selector",
+                                                                         "description": "IFF Transponder Disaster Switch, ON/OFF",
+                                                                          "identifier": "IFF_DIS",
+                                                                              "inputs": [ {
+                                                                                            "description": "switch to previous or next state",
+                                                                                              "interface": "fixed_step"
+                                                                                        }, {
+                                                                                            "description": "set position",
+                                                                                              "interface": "set_state",
+                                                                                              "max_value": 1
+                                                                                        }, {
+                                                                                               "argument": "TOGGLE",
+                                                                                            "description": "Toggle switch state",
+                                                                                              "interface": "action"
+                                                                                        } ],
+                                                                 "momentary_positions": "none",
+                                                                             "outputs": [ {
+                                                                                                                  "address": 9792,
+                                                                                                       "address_identifier": "Mi_8MT_IFF_DIS_A",
+                                                                                                  "address_mask_identifier": "Mi_8MT_IFF_DIS_AM",
+                                                                                            "address_mask_shift_identifier": "Mi_8MT_IFF_DIS",
+                                                                                                              "description": "selector position",
+                                                                                                                     "mask": 2048,
+                                                                                                                "max_value": 1,
+                                                                                                                 "shift_by": 11,
+                                                                                                                   "suffix": "",
+                                                                                                                     "type": "integer"
+                                                                                        } ],
+                                                                    "physical_variant": "toggle_switch"
+                                                             },
+                                            "IFF_DIS_COVER": {
+                                                                            "category": "IFF",
+                                                                        "control_type": "selector",
+                                                                         "description": "IFF Transponder Disaster Switch Cover, OPEN/CLOSE",
+                                                                          "identifier": "IFF_DIS_COVER",
+                                                                              "inputs": [ {
+                                                                                            "description": "switch to previous or next state",
+                                                                                              "interface": "fixed_step"
+                                                                                        }, {
+                                                                                            "description": "set position",
+                                                                                              "interface": "set_state",
+                                                                                              "max_value": 1
+                                                                                        }, {
+                                                                                               "argument": "TOGGLE",
+                                                                                            "description": "Toggle switch state",
+                                                                                              "interface": "action"
+                                                                                        } ],
+                                                                 "momentary_positions": "none",
+                                                                             "outputs": [ {
+                                                                                                                  "address": 9792,
+                                                                                                       "address_identifier": "Mi_8MT_IFF_DIS_COVER_A",
+                                                                                                  "address_mask_identifier": "Mi_8MT_IFF_DIS_COVER_AM",
+                                                                                            "address_mask_shift_identifier": "Mi_8MT_IFF_DIS_COVER",
+                                                                                                              "description": "selector position",
+                                                                                                                     "mask": 1024,
+                                                                                                                "max_value": 1,
+                                                                                                                 "shift_by": 10,
+                                                                                                                   "suffix": "",
+                                                                                                                     "type": "integer"
+                                                                                        } ],
+                                                                    "physical_variant": "toggle_switch"
+                                                             },
+                                                "IFF_ERASE": {
+                                                                         "api_variant": "momentary_last_position",
+                                                                            "category": "IFF",
+                                                                        "control_type": "selector",
+                                                                         "description": "IFF Transponder Erase Button - Push to erase",
+                                                                          "identifier": "IFF_ERASE",
+                                                                              "inputs": [ {
+                                                                                            "description": "switch to previous or next state",
+                                                                                              "interface": "fixed_step"
+                                                                                        }, {
+                                                                                            "description": "set position",
+                                                                                              "interface": "set_state",
+                                                                                              "max_value": 1
+                                                                                        }, {
+                                                                                               "argument": "TOGGLE",
+                                                                                            "description": "Toggle switch state",
+                                                                                              "interface": "action"
+                                                                                        } ],
+                                                                 "momentary_positions": "none",
+                                                                             "outputs": [ {
+                                                                                                                  "address": 9792,
+                                                                                                       "address_identifier": "Mi_8MT_IFF_ERASE_A",
+                                                                                                  "address_mask_identifier": "Mi_8MT_IFF_ERASE_AM",
+                                                                                            "address_mask_shift_identifier": "Mi_8MT_IFF_ERASE",
+                                                                                                              "description": "selector position",
+                                                                                                                     "mask": 512,
+                                                                                                                "max_value": 1,
+                                                                                                                 "shift_by": 9,
+                                                                                                                   "suffix": "",
+                                                                                                                     "type": "integer"
+                                                                                        } ],
+                                                                    "physical_variant": "push_button"
+                                                             },
+                                          "IFF_ERASE_COVER": {
+                                                                            "category": "IFF",
+                                                                        "control_type": "selector",
+                                                                         "description": "IFF Transponder Erase Button Cover, OPEN/CLOSE",
+                                                                          "identifier": "IFF_ERASE_COVER",
+                                                                              "inputs": [ {
+                                                                                            "description": "switch to previous or next state",
+                                                                                              "interface": "fixed_step"
+                                                                                        }, {
+                                                                                            "description": "set position",
+                                                                                              "interface": "set_state",
+                                                                                              "max_value": 1
+                                                                                        }, {
+                                                                                               "argument": "TOGGLE",
+                                                                                            "description": "Toggle switch state",
+                                                                                              "interface": "action"
+                                                                                        } ],
+                                                                 "momentary_positions": "none",
+                                                                             "outputs": [ {
+                                                                                                                  "address": 9792,
+                                                                                                       "address_identifier": "Mi_8MT_IFF_ERASE_COVER_A",
+                                                                                                  "address_mask_identifier": "Mi_8MT_IFF_ERASE_COVER_AM",
+                                                                                            "address_mask_shift_identifier": "Mi_8MT_IFF_ERASE_COVER",
+                                                                                                              "description": "selector position",
+                                                                                                                     "mask": 256,
+                                                                                                                "max_value": 1,
+                                                                                                                 "shift_by": 8,
+                                                                                                                   "suffix": "",
+                                                                                                                     "type": "integer"
+                                                                                        } ],
+                                                                    "physical_variant": "toggle_switch"
+                                                             },
+                                                 "IFF_MODE": {
+                                                                            "category": "IFF",
+                                                                        "control_type": "selector",
+                                                                         "description": "IFF Transponder Device Mode Switch, 1/2",
+                                                                          "identifier": "IFF_MODE",
+                                                                              "inputs": [ {
+                                                                                            "description": "switch to previous or next state",
+                                                                                              "interface": "fixed_step"
+                                                                                        }, {
+                                                                                            "description": "set position",
+                                                                                              "interface": "set_state",
+                                                                                              "max_value": 1
+                                                                                        }, {
+                                                                                               "argument": "TOGGLE",
+                                                                                            "description": "Toggle switch state",
+                                                                                              "interface": "action"
+                                                                                        } ],
+                                                                 "momentary_positions": "none",
+                                                                             "outputs": [ {
+                                                                                                                  "address": 9792,
+                                                                                                       "address_identifier": "Mi_8MT_IFF_MODE_A",
+                                                                                                  "address_mask_identifier": "Mi_8MT_IFF_MODE_AM",
+                                                                                            "address_mask_shift_identifier": "Mi_8MT_IFF_MODE",
+                                                                                                              "description": "selector position",
+                                                                                                                     "mask": 128,
+                                                                                                                "max_value": 1,
+                                                                                                                 "shift_by": 7,
+                                                                                                                   "suffix": "",
+                                                                                                                     "type": "integer"
+                                                                                        } ],
+                                                                    "physical_variant": "toggle_switch"
+                                                             },
+                                        "IFF_MODE_SELECTOR": {
+                                                                            "category": "IFF",
+                                                                        "control_type": "selector",
+                                                                         "description": "IFF Transponder Mode Selector Switch, AUTO/KD/+-15/KP",
+                                                                          "identifier": "IFF_MODE_SELECTOR",
+                                                                              "inputs": [ {
+                                                                                            "description": "switch to previous or next state",
+                                                                                              "interface": "fixed_step"
+                                                                                        }, {
+                                                                                            "description": "set position",
+                                                                                              "interface": "set_state",
+                                                                                              "max_value": 3
+                                                                                        } ],
+                                                                 "momentary_positions": "none",
+                                                                             "outputs": [ {
+                                                                                                                  "address": 9884,
+                                                                                                       "address_identifier": "Mi_8MT_IFF_MODE_SELECTOR_A",
+                                                                                                  "address_mask_identifier": "Mi_8MT_IFF_MODE_SELECTOR_AM",
+                                                                                            "address_mask_shift_identifier": "Mi_8MT_IFF_MODE_SELECTOR",
+                                                                                                              "description": "selector position",
+                                                                                                                     "mask": 1536,
+                                                                                                                "max_value": 3,
+                                                                                                                 "shift_by": 9,
+                                                                                                                   "suffix": "",
+                                                                                                                     "type": "integer"
+                                                                                        } ],
+                                                                    "physical_variant": "limited_rotary"
+                                                             },
+                                                  "IFF_SEL": {
+                                                                            "category": "IFF",
+                                                                        "control_type": "selector",
+                                                                         "description": "IFF Transponder Device Selector Switch, WORK/RESERVE",
+                                                                          "identifier": "IFF_SEL",
+                                                                              "inputs": [ {
+                                                                                            "description": "switch to previous or next state",
+                                                                                              "interface": "fixed_step"
+                                                                                        }, {
+                                                                                            "description": "set position",
+                                                                                              "interface": "set_state",
+                                                                                              "max_value": 1
+                                                                                        }, {
+                                                                                               "argument": "TOGGLE",
+                                                                                            "description": "Toggle switch state",
+                                                                                              "interface": "action"
+                                                                                        } ],
+                                                                 "momentary_positions": "none",
+                                                                             "outputs": [ {
+                                                                                                                  "address": 9792,
+                                                                                                       "address_identifier": "Mi_8MT_IFF_SEL_A",
+                                                                                                  "address_mask_identifier": "Mi_8MT_IFF_SEL_AM",
+                                                                                            "address_mask_shift_identifier": "Mi_8MT_IFF_SEL",
+                                                                                                              "description": "selector position",
+                                                                                                                     "mask": 64,
+                                                                                                                "max_value": 1,
+                                                                                                                 "shift_by": 6,
+                                                                                                                   "suffix": "",
+                                                                                                                     "type": "integer"
+                                                                                        } ],
+                                                                    "physical_variant": "toggle_switch"
+                                                             }
                                     },
                        "Indicator": {
                                                 "AGB_3K_LEFT_FAILURE_FLAG": {
@@ -8887,6 +8919,25 @@
                                                                                                                              "type": "integer"
                                                                                                 } ]
                                                                             },
+                                                    "DISS15_COORD_FORWARD": {
+                                                                                    "category": "Indicator",
+                                                                                "control_type": "analog_gauge",
+                                                                                 "description": "diss15_coord_forward",
+                                                                                  "identifier": "DISS15_COORD_FORWARD",
+                                                                                      "inputs": [  ],
+                                                                                     "outputs": [ {
+                                                                                                                          "address": 10058,
+                                                                                                               "address_identifier": "Mi_8MT_DISS15_COORD_FORWARD_A",
+                                                                                                          "address_mask_identifier": "Mi_8MT_DISS15_COORD_FORWARD_AM",
+                                                                                                    "address_mask_shift_identifier": "Mi_8MT_DISS15_COORD_FORWARD",
+                                                                                                                      "description": "gauge position",
+                                                                                                                             "mask": 65535,
+                                                                                                                        "max_value": 65535,
+                                                                                                                         "shift_by": 0,
+                                                                                                                           "suffix": "",
+                                                                                                                             "type": "integer"
+                                                                                                } ]
+                                                                            },
                                                 "DISS15_COORD_MAP_ANGLE_1": {
                                                                                     "category": "Indicator",
                                                                                 "control_type": "analog_gauge",
@@ -8982,17 +9033,17 @@
                                                                                                                              "type": "integer"
                                                                                                 } ]
                                                                             },
-                                              "DISS15_COORD_RIGHT_FORWARD": {
+                                                      "DISS15_COORD_RIGHT": {
                                                                                     "category": "Indicator",
                                                                                 "control_type": "analog_gauge",
-                                                                                 "description": "diss15_coord_right_forward",
-                                                                                  "identifier": "DISS15_COORD_RIGHT_FORWARD",
+                                                                                 "description": "diss15_coord_right",
+                                                                                  "identifier": "DISS15_COORD_RIGHT",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
                                                                                                                           "address": 10066,
-                                                                                                               "address_identifier": "Mi_8MT_DISS15_COORD_RIGHT_FORWARD_A",
-                                                                                                          "address_mask_identifier": "Mi_8MT_DISS15_COORD_RIGHT_FORWARD_AM",
-                                                                                                    "address_mask_shift_identifier": "Mi_8MT_DISS15_COORD_RIGHT_FORWARD",
+                                                                                                               "address_identifier": "Mi_8MT_DISS15_COORD_RIGHT_A",
+                                                                                                          "address_mask_identifier": "Mi_8MT_DISS15_COORD_RIGHT_AM",
+                                                                                                    "address_mask_shift_identifier": "Mi_8MT_DISS15_COORD_RIGHT",
                                                                                                                       "description": "gauge position",
                                                                                                                              "mask": 65535,
                                                                                                                         "max_value": 65535,
@@ -9559,10 +9610,29 @@
                                                                                   "identifier": "LEFTENGINERPM",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                                          "address": 10010,
+                                                                                                                          "address": 10006,
                                                                                                                "address_identifier": "Mi_8MT_LEFTENGINERPM_A",
                                                                                                           "address_mask_identifier": "Mi_8MT_LEFTENGINERPM_AM",
                                                                                                     "address_mask_shift_identifier": "Mi_8MT_LEFTENGINERPM",
+                                                                                                                      "description": "gauge position",
+                                                                                                                             "mask": 65535,
+                                                                                                                        "max_value": 65535,
+                                                                                                                         "shift_by": 0,
+                                                                                                                           "suffix": "",
+                                                                                                                             "type": "integer"
+                                                                                                } ]
+                                                                            },
+                                                      "LEFTENGINERPM_OPER": {
+                                                                                    "category": "Indicator",
+                                                                                "control_type": "analog_gauge",
+                                                                                 "description": "LeftEngineRPM",
+                                                                                  "identifier": "LEFTENGINERPM_OPER",
+                                                                                      "inputs": [  ],
+                                                                                     "outputs": [ {
+                                                                                                                          "address": 10010,
+                                                                                                               "address_identifier": "Mi_8MT_LEFTENGINERPM_OPER_A",
+                                                                                                          "address_mask_identifier": "Mi_8MT_LEFTENGINERPM_OPER_AM",
+                                                                                                    "address_mask_shift_identifier": "Mi_8MT_LEFTENGINERPM_OPER",
                                                                                                                       "description": "gauge position",
                                                                                                                              "mask": 65535,
                                                                                                                         "max_value": 65535,
@@ -10281,10 +10351,29 @@
                                                                                   "identifier": "RIGHTENGINERPM",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                                          "address": 10012,
+                                                                                                                          "address": 10008,
                                                                                                                "address_identifier": "Mi_8MT_RIGHTENGINERPM_A",
                                                                                                           "address_mask_identifier": "Mi_8MT_RIGHTENGINERPM_AM",
                                                                                                     "address_mask_shift_identifier": "Mi_8MT_RIGHTENGINERPM",
+                                                                                                                      "description": "gauge position",
+                                                                                                                             "mask": 65535,
+                                                                                                                        "max_value": 65535,
+                                                                                                                         "shift_by": 0,
+                                                                                                                           "suffix": "",
+                                                                                                                             "type": "integer"
+                                                                                                } ]
+                                                                            },
+                                                     "RIGHTENGINERPM_OPER": {
+                                                                                    "category": "Indicator",
+                                                                                "control_type": "analog_gauge",
+                                                                                 "description": "RightEngineRPM",
+                                                                                  "identifier": "RIGHTENGINERPM_OPER",
+                                                                                      "inputs": [  ],
+                                                                                     "outputs": [ {
+                                                                                                                          "address": 10012,
+                                                                                                               "address_identifier": "Mi_8MT_RIGHTENGINERPM_OPER_A",
+                                                                                                          "address_mask_identifier": "Mi_8MT_RIGHTENGINERPM_OPER_AM",
+                                                                                                    "address_mask_shift_identifier": "Mi_8MT_RIGHTENGINERPM_OPER",
                                                                                                                       "description": "gauge position",
                                                                                                                              "mask": 65535,
                                                                                                                         "max_value": 65535,
@@ -10433,10 +10522,29 @@
                                                                                   "identifier": "ROTORRPM",
                                                                                       "inputs": [  ],
                                                                                      "outputs": [ {
-                                                                                                                          "address": 9996,
+                                                                                                                          "address": 9994,
                                                                                                                "address_identifier": "Mi_8MT_ROTORRPM_A",
                                                                                                           "address_mask_identifier": "Mi_8MT_ROTORRPM_AM",
                                                                                                     "address_mask_shift_identifier": "Mi_8MT_ROTORRPM",
+                                                                                                                      "description": "gauge position",
+                                                                                                                             "mask": 65535,
+                                                                                                                        "max_value": 65535,
+                                                                                                                         "shift_by": 0,
+                                                                                                                           "suffix": "",
+                                                                                                                             "type": "integer"
+                                                                                                } ]
+                                                                            },
+                                                           "ROTORRPM_OPER": {
+                                                                                    "category": "Indicator",
+                                                                                "control_type": "analog_gauge",
+                                                                                 "description": "RotorRPM",
+                                                                                  "identifier": "ROTORRPM_OPER",
+                                                                                      "inputs": [  ],
+                                                                                     "outputs": [ {
+                                                                                                                          "address": 9996,
+                                                                                                               "address_identifier": "Mi_8MT_ROTORRPM_OPER_A",
+                                                                                                          "address_mask_identifier": "Mi_8MT_ROTORRPM_OPER_AM",
+                                                                                                    "address_mask_shift_identifier": "Mi_8MT_ROTORRPM_OPER",
                                                                                                                       "description": "gauge position",
                                                                                                                              "mask": 65535,
                                                                                                                         "max_value": 65535,
@@ -11621,17 +11729,17 @@
                                                                                                                       "type": "integer"
                                                                                          } ]
                                                                      },
-                                                      "LMP_BD1Bomb": {
+                                                      "LMP_BD1BOMB": {
                                                                              "category": "Lamps",
                                                                          "control_type": "led",
                                                                           "description": "BD1 Bomb (yellow)",
-                                                                           "identifier": "LMP_BD1Bomb",
+                                                                           "identifier": "LMP_BD1BOMB",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
                                                                                                                    "address": 9898,
-                                                                                                        "address_identifier": "Mi_8MT_LMP_BD1Bomb_A",
-                                                                                                   "address_mask_identifier": "Mi_8MT_LMP_BD1Bomb_AM",
-                                                                                             "address_mask_shift_identifier": "Mi_8MT_LMP_BD1Bomb",
+                                                                                                        "address_identifier": "Mi_8MT_LMP_BD1BOMB_A",
+                                                                                                   "address_mask_identifier": "Mi_8MT_LMP_BD1BOMB_AM",
+                                                                                             "address_mask_shift_identifier": "Mi_8MT_LMP_BD1BOMB",
                                                                                                                "description": "0 if light is off, 1 if light is on",
                                                                                                                       "mask": 64,
                                                                                                                  "max_value": 1,
@@ -11659,17 +11767,17 @@
                                                                                                                       "type": "integer"
                                                                                          } ]
                                                                      },
-                                                      "LMP_BD2Bomb": {
+                                                      "LMP_BD2BOMB": {
                                                                              "category": "Lamps",
                                                                          "control_type": "led",
                                                                           "description": "BD2 Bomb (yellow)",
-                                                                           "identifier": "LMP_BD2Bomb",
+                                                                           "identifier": "LMP_BD2BOMB",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
                                                                                                                    "address": 9898,
-                                                                                                        "address_identifier": "Mi_8MT_LMP_BD2Bomb_A",
-                                                                                                   "address_mask_identifier": "Mi_8MT_LMP_BD2Bomb_AM",
-                                                                                             "address_mask_shift_identifier": "Mi_8MT_LMP_BD2Bomb",
+                                                                                                        "address_identifier": "Mi_8MT_LMP_BD2BOMB_A",
+                                                                                                   "address_mask_identifier": "Mi_8MT_LMP_BD2BOMB_AM",
+                                                                                             "address_mask_shift_identifier": "Mi_8MT_LMP_BD2BOMB",
                                                                                                                "description": "0 if light is off, 1 if light is on",
                                                                                                                       "mask": 128,
                                                                                                                  "max_value": 1,
@@ -11697,17 +11805,17 @@
                                                                                                                       "type": "integer"
                                                                                          } ]
                                                                      },
-                                                      "LMP_BD3Bomb": {
+                                                      "LMP_BD3BOMB": {
                                                                              "category": "Lamps",
                                                                          "control_type": "led",
                                                                           "description": "BD3 Bomb (yellow)",
-                                                                           "identifier": "LMP_BD3Bomb",
+                                                                           "identifier": "LMP_BD3BOMB",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
                                                                                                                    "address": 9898,
-                                                                                                        "address_identifier": "Mi_8MT_LMP_BD3Bomb_A",
-                                                                                                   "address_mask_identifier": "Mi_8MT_LMP_BD3Bomb_AM",
-                                                                                             "address_mask_shift_identifier": "Mi_8MT_LMP_BD3Bomb",
+                                                                                                        "address_identifier": "Mi_8MT_LMP_BD3BOMB_A",
+                                                                                                   "address_mask_identifier": "Mi_8MT_LMP_BD3BOMB_AM",
+                                                                                             "address_mask_shift_identifier": "Mi_8MT_LMP_BD3BOMB",
                                                                                                                "description": "0 if light is off, 1 if light is on",
                                                                                                                       "mask": 256,
                                                                                                                  "max_value": 1,
@@ -11735,17 +11843,17 @@
                                                                                                                       "type": "integer"
                                                                                          } ]
                                                                      },
-                                                      "LMP_BD4Bomb": {
+                                                      "LMP_BD4BOMB": {
                                                                              "category": "Lamps",
                                                                          "control_type": "led",
                                                                           "description": "BD4 Bomb (yellow)",
-                                                                           "identifier": "LMP_BD4Bomb",
+                                                                           "identifier": "LMP_BD4BOMB",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
                                                                                                                    "address": 9898,
-                                                                                                        "address_identifier": "Mi_8MT_LMP_BD4Bomb_A",
-                                                                                                   "address_mask_identifier": "Mi_8MT_LMP_BD4Bomb_AM",
-                                                                                             "address_mask_shift_identifier": "Mi_8MT_LMP_BD4Bomb",
+                                                                                                        "address_identifier": "Mi_8MT_LMP_BD4BOMB_A",
+                                                                                                   "address_mask_identifier": "Mi_8MT_LMP_BD4BOMB_AM",
+                                                                                             "address_mask_shift_identifier": "Mi_8MT_LMP_BD4BOMB",
                                                                                                                "description": "0 if light is off, 1 if light is on",
                                                                                                                       "mask": 512,
                                                                                                                  "max_value": 1,
@@ -11773,17 +11881,17 @@
                                                                                                                       "type": "integer"
                                                                                          } ]
                                                                      },
-                                                      "LMP_BD5Bomb": {
+                                                      "LMP_BD5BOMB": {
                                                                              "category": "Lamps",
                                                                          "control_type": "led",
                                                                           "description": "BD5 Bomb (yellow)",
-                                                                           "identifier": "LMP_BD5Bomb",
+                                                                           "identifier": "LMP_BD5BOMB",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
                                                                                                                    "address": 9898,
-                                                                                                        "address_identifier": "Mi_8MT_LMP_BD5Bomb_A",
-                                                                                                   "address_mask_identifier": "Mi_8MT_LMP_BD5Bomb_AM",
-                                                                                             "address_mask_shift_identifier": "Mi_8MT_LMP_BD5Bomb",
+                                                                                                        "address_identifier": "Mi_8MT_LMP_BD5BOMB_A",
+                                                                                                   "address_mask_identifier": "Mi_8MT_LMP_BD5BOMB_AM",
+                                                                                             "address_mask_shift_identifier": "Mi_8MT_LMP_BD5BOMB",
                                                                                                                "description": "0 if light is off, 1 if light is on",
                                                                                                                       "mask": 1024,
                                                                                                                  "max_value": 1,
@@ -11811,17 +11919,17 @@
                                                                                                                       "type": "integer"
                                                                                          } ]
                                                                      },
-                                                      "LMP_BD6Bomb": {
+                                                      "LMP_BD6BOMB": {
                                                                              "category": "Lamps",
                                                                          "control_type": "led",
                                                                           "description": "BD6 Bomb (yellow)",
-                                                                           "identifier": "LMP_BD6Bomb",
+                                                                           "identifier": "LMP_BD6BOMB",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
                                                                                                                    "address": 9898,
-                                                                                                        "address_identifier": "Mi_8MT_LMP_BD6Bomb_A",
-                                                                                                   "address_mask_identifier": "Mi_8MT_LMP_BD6Bomb_AM",
-                                                                                             "address_mask_shift_identifier": "Mi_8MT_LMP_BD6Bomb",
+                                                                                                        "address_identifier": "Mi_8MT_LMP_BD6BOMB_A",
+                                                                                                   "address_mask_identifier": "Mi_8MT_LMP_BD6BOMB_AM",
+                                                                                             "address_mask_shift_identifier": "Mi_8MT_LMP_BD6BOMB",
                                                                                                                "description": "0 if light is off, 1 if light is on",
                                                                                                                       "mask": 2048,
                                                                                                                  "max_value": 1,
@@ -17560,10 +17668,35 @@
                                                                              "suggested_step": 3200
                                                                          } ],
                                                               "outputs": [ {
-                                                                                                   "address": 9800,
+                                                                                                   "address": 9798,
                                                                                         "address_identifier": "Mi_8MT_VAR_L_ADJ_A",
                                                                                    "address_mask_identifier": "Mi_8MT_VAR_L_ADJ_AM",
                                                                              "address_mask_shift_identifier": "Mi_8MT_VAR_L_ADJ",
+                                                                                               "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                                                      "mask": 65535,
+                                                                                                 "max_value": 65535,
+                                                                                                  "shift_by": 0,
+                                                                                                    "suffix": "_KNOB_POS",
+                                                                                                      "type": "integer"
+                                                                         } ]
+                                                     },
+                                        "VAR_R_ADJ": {
+                                                          "api_variant": "multiturn",
+                                                             "category": "Variometer",
+                                                         "control_type": "analog_dial",
+                                                          "description": "Variometer Adjustment Knob",
+                                                           "identifier": "VAR_R_ADJ",
+                                                               "inputs": [ {
+                                                                                "description": "turn the dial left or right",
+                                                                                  "interface": "variable_step",
+                                                                                  "max_value": 65535,
+                                                                             "suggested_step": 3200
+                                                                         } ],
+                                                              "outputs": [ {
+                                                                                                   "address": 9800,
+                                                                                        "address_identifier": "Mi_8MT_VAR_R_ADJ_A",
+                                                                                   "address_mask_identifier": "Mi_8MT_VAR_R_ADJ_AM",
+                                                                             "address_mask_shift_identifier": "Mi_8MT_VAR_R_ADJ",
                                                                                                "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
                                                                                                       "mask": 65535,
                                                                                                  "max_value": 65535,
