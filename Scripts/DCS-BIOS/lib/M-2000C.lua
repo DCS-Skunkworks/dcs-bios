@@ -53,7 +53,7 @@ local FUEL_FLOW_LEN = 3
 moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
 	local fuel = parse_indication(3)
 	if not fuel then return end
-	fuelFlow = padLeft(fuel.txt_fuel_g, FUEL_FLOW_LEN)
+	fuelFlow = PadLeft(fuel.txt_fuel_g, FUEL_FLOW_LEN)
 	local jauge_thous = BIOS.util.round(dev0:get_argument_value(349),1,true)
 	local jauge_cents = BIOS.util.round(dev0:get_argument_value(350),1,true)
 	local jauge_tens = BIOS.util.round(dev0:get_argument_value(351),1,true)
@@ -76,11 +76,11 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	local pcaUpper = parse_indication(4)
 	if not pcaUpper then return end
 
-	pcaUpper1 = padLeft(pcaUpper.PCA_LCD_1_0, PCA_UPPER_LEN)
-	pcaUpper2 = padLeft(pcaUpper.PCA_LCD_1_1, PCA_UPPER_LEN)
-	pcaUpper3 = padLeft(pcaUpper.PCA_LCD_1_2, PCA_UPPER_LEN)
-	pcaUpper4 = padLeft(pcaUpper.PCA_LCD_1_3, PCA_UPPER_LEN)
-	pcaUpper5 = padLeft(pcaUpper.PCA_LCD_1_4, PCA_UPPER_LEN)
+	pcaUpper1 = PadLeft(pcaUpper.PCA_LCD_1_0, PCA_UPPER_LEN)
+	pcaUpper2 = PadLeft(pcaUpper.PCA_LCD_1_1, PCA_UPPER_LEN)
+	pcaUpper3 = PadLeft(pcaUpper.PCA_LCD_1_2, PCA_UPPER_LEN)
+	pcaUpper4 = PadLeft(pcaUpper.PCA_LCD_1_3, PCA_UPPER_LEN)
+	pcaUpper5 = PadLeft(pcaUpper.PCA_LCD_1_4, PCA_UPPER_LEN)
 end
 
 -- parse PCA lower
@@ -95,11 +95,11 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	local pcaLower = parse_indication(5)
 	if not pcaLower then return end
 
-	pcaLower1 = padLeft(pcaLower.PCA_LCD_2_0, PCA_LOWER_LEN)
-	pcaLower2 = padLeft(pcaLower.PCA_LCD_2_1, PCA_LOWER_LEN)
-	pcaLower3 = padLeft(pcaLower.PCA_LCD_2_2, PCA_LOWER_LEN)
-	pcaLower4 = padLeft(pcaLower.PCA_LCD_2_3, PCA_LOWER_LEN)
-	pcaLower5 = padLeft(pcaLower.PCA_LCD_2_4, PCA_LOWER_LEN)
+	pcaLower1 = PadLeft(pcaLower.PCA_LCD_2_0, PCA_LOWER_LEN)
+	pcaLower2 = PadLeft(pcaLower.PCA_LCD_2_1, PCA_LOWER_LEN)
+	pcaLower3 = PadLeft(pcaLower.PCA_LCD_2_2, PCA_LOWER_LEN)
+	pcaLower4 = PadLeft(pcaLower.PCA_LCD_2_3, PCA_LOWER_LEN)
+	pcaLower5 = PadLeft(pcaLower.PCA_LCD_2_4, PCA_LOWER_LEN)
 end
 
 -- parse PPA
@@ -111,8 +111,8 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	local ppa = parse_indication(6)
 	if not ppa then return end
 
-	ppaQuantity = padLeft(ppa.text_PPA_QTY, PPA_LEN)
-	ppaInterval = padLeft(ppa.text_PPA_INT, PPA_LEN)
+	ppaQuantity = PadLeft(ppa.text_PPA_QTY, PPA_LEN)
+	ppaInterval = PadLeft(ppa.text_PPA_INT, PPA_LEN)
 end
 
 -- parse PCN upper display
@@ -128,8 +128,8 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	local pcn = parse_indication(9)
 	if not pcn then return end
 
-	pcnLeftDigits = padLeft(pcn.PCN_UL_DIGITS, 8)
-	pcnRightDigits = padLeft(pcn.PCN_UR_DIGITS, 9)
+	pcnLeftDigits = PadLeft(pcn.PCN_UL_DIGITS, 8)
+	pcnRightDigits = PadLeft(pcn.PCN_UR_DIGITS, 9)
 
 	local pcnRight = ""
 	if pcn.PCN_UR_E then pcnRight = pcnRight.."E" end
@@ -166,8 +166,8 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	local pcn = parse_indication(10)
 	if not pcn then return end
 
-	pcnPrep = padLeft(pcn.PCN_BL_DIGITS, 2)
-	pcnDest = padLeft(pcn.PCN_BR_DIGITS, 2)
+	pcnPrep = PadLeft(pcn.PCN_BL_DIGITS, 2)
+	pcnDest = PadLeft(pcn.PCN_BR_DIGITS, 2)
 end
 
 local function getvtbRange()
