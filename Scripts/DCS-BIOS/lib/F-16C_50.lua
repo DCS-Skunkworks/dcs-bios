@@ -1926,10 +1926,10 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	if not cmds then
 		return
 	end
-	CMDS_O1_Amount 				= coerce_nil_to_string(cmds.CMDS_O1_Amount)
-	CMDS_O2_Amount 				= coerce_nil_to_string(cmds.CMDS_O2_Amount)
-	CMDS_CH_Amount 				= coerce_nil_to_string(cmds.CMDS_CH_Amount)
-	CMDS_FL_Amount 				= coerce_nil_to_string(cmds.CMDS_FL_Amount)
+	CMDS_O1_Amount 				= Coerce_nil_to_string(cmds.CMDS_O1_Amount)
+	CMDS_O2_Amount 				= Coerce_nil_to_string(cmds.CMDS_O2_Amount)
+	CMDS_CH_Amount 				= Coerce_nil_to_string(cmds.CMDS_CH_Amount)
+	CMDS_FL_Amount 				= Coerce_nil_to_string(cmds.CMDS_FL_Amount)
 end
 
 defineString("CMDS_O1_Amount", function() return CMDS_O1_Amount end, 4, "CMDS", "CMDS O1 Amount Display")
@@ -1941,7 +1941,7 @@ defineString("CMDS_FL_Amount", function() return CMDS_FL_Amount end, 4, "CMDS", 
 local function get_UHF_CHAN()
     local UHF = parse_indication(10)
 	if UHF and UHF.txtPresetChannel then
-		return coerce_nil_to_string(UHF.txtPresetChannel)
+		return Coerce_nil_to_string(UHF.txtPresetChannel)
 	else
 		return "  "
 	end

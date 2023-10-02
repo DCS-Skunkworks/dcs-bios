@@ -617,10 +617,10 @@ local function processUFCPLine(ufcpLine, lineNum)
 	return processedUFCPLine
  end
 
-defineString("UFCP_LINE_1",function() return coerce_nil_to_string(processUFCPLine(parse_indication(3), 1)) end,8,"UFCP","UFCP Display Line 1")
-defineString("UFCP_LINE_2",function() return coerce_nil_to_string(processUFCPLine(parse_indication(4), 2)) end,8,"UFCP","UFCP Display Line 2")
-defineString("UFCP_LINE_3",function() return coerce_nil_to_string(processUFCPLine(parse_indication(5), 3)) end,8,"UFCP","UFCP Display Line 3")
-defineString("UFCP_LINE_4",function() return coerce_nil_to_string(processUFCPLine(parse_indication(6), 4)) end,8,"UFCP","UFCP Display Line 4")
+defineString("UFCP_LINE_1",function() return Coerce_nil_to_string(processUFCPLine(parse_indication(3), 1)) end,8,"UFCP","UFCP Display Line 1")
+defineString("UFCP_LINE_2",function() return Coerce_nil_to_string(processUFCPLine(parse_indication(4), 2)) end,8,"UFCP","UFCP Display Line 2")
+defineString("UFCP_LINE_3",function() return Coerce_nil_to_string(processUFCPLine(parse_indication(5), 3)) end,8,"UFCP","UFCP Display Line 3")
+defineString("UFCP_LINE_4",function() return Coerce_nil_to_string(processUFCPLine(parse_indication(6), 4)) end,8,"UFCP","UFCP Display Line 4")
 
 local radio_line_1
 local radio_line_2
@@ -678,8 +678,8 @@ end
 defineIntegerFromGetter("RADIO_SQL_LIGHT", function() return radio_sql_light end, 1, "Radio", "Radio Squelch Indicator Light")
 defineIntegerFromGetter("RADIO_TO_LIGHT", function() return radio_to_light end, 1, "Radio", "Radio Take-Over Indicator Light")
 defineIntegerFromGetter("RADIO_GO_LIGHT", function() return radio_go_light end, 1, "Radio", "Radio Go Indicator Light")
-defineString("RADIO_LINE_1", function() return coerce_nil_to_string(radio_line_1) end,8,"Radio","Radio Display Line 1")
-defineString("RADIO_LINE_2", function() return coerce_nil_to_string(radio_line_2) end,8,"Radio","Radio Display Line 2")
+defineString("RADIO_LINE_1", function() return Coerce_nil_to_string(radio_line_1) end,8,"Radio","Radio Display Line 1")
+defineString("RADIO_LINE_2", function() return Coerce_nil_to_string(radio_line_2) end,8,"Radio","Radio Display Line 2")
 defineIndicatorLight("GEAR_LEVER_L", 107, "Warning, Caution and IndicatorLights", "Landing Gear Lever Light (red)")
 definePushButton("SEAT_EJECT_H", 38, 3483, 981, "Right Console", "Eject Seat Eject Handle")
 

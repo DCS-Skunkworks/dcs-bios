@@ -500,12 +500,12 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 
 	if not navData then return end
 
-	navIndicator1 = coerce_nil_to_string(navData["data1"])
-	navIndicator2 = coerce_nil_to_string(navData["data2"])
-	navIndicator3 = coerce_nil_to_string(navData["data3"])
-	navIndicator4 = coerce_nil_to_string(navData["data4"])
-	navIndicator5 = coerce_nil_to_string(navData["data5"])
-	navIndicator6 = coerce_nil_to_string(navData["data6"])
+	navIndicator1 = Coerce_nil_to_string(navData["data1"])
+	navIndicator2 = Coerce_nil_to_string(navData["data2"])
+	navIndicator3 = Coerce_nil_to_string(navData["data3"])
+	navIndicator4 = Coerce_nil_to_string(navData["data4"])
+	navIndicator5 = Coerce_nil_to_string(navData["data5"])
+	navIndicator6 = Coerce_nil_to_string(navData["data6"])
 end
 
 defineString("AJS37_NAV_INDICATOR_DATA_1", function() return navIndicator1 end, 1, "Navigation Panel", "Navigataion Panel Data Digit 1")
@@ -526,8 +526,8 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 
 	if not navData then return end
 
-	destIndicator1 = coerce_nil_to_string(navData["Dest1"])
-	destIndicator2 = coerce_nil_to_string(navData["Dest2"])
+	destIndicator1 = Coerce_nil_to_string(navData["Dest1"])
+	destIndicator2 = Coerce_nil_to_string(navData["Dest2"])
 end
 
 

@@ -30,7 +30,7 @@ local function parse_ku(indicator_id)
 	if not ku then
 		return "                      " -- 22 characters
 	end
-	return coerce_nil_to_string(ku.Standby_text)
+	return Coerce_nil_to_string(ku.Standby_text)
 end
 
 local txt_PLT_KU = ""
@@ -817,8 +817,8 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 
 	if is_test_page then
 		cmws_page = "TEST"
-		bit_line_1 = coerce_nil_to_string(cmws["#42#"])
-		bit_line_2 = coerce_nil_to_string(cmws["#43#"])
+		bit_line_1 = Coerce_nil_to_string(cmws["#42#"])
+		bit_line_2 = Coerce_nil_to_string(cmws["#43#"])
 
 		-- these values are all guesses
 		d_light_dim = int_for_flag(cmws["#45#"])
@@ -829,10 +829,10 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 		fwd_right_sector_dim = int_for_flag(cmws["#9#"])
 	else
 		cmws_page = "MAIN"
-		flare_letter = coerce_nil_to_string(cmws["#83#"])
-		chaff_letter = coerce_nil_to_string(cmws["#84#"])
-		flare_count = coerce_nil_to_string(cmws["#85#"])
-		chaff_count = coerce_nil_to_string(cmws["#86#"])
+		flare_letter = Coerce_nil_to_string(cmws["#83#"])
+		chaff_letter = Coerce_nil_to_string(cmws["#84#"])
+		flare_count = Coerce_nil_to_string(cmws["#85#"])
+		chaff_count = Coerce_nil_to_string(cmws["#86#"])
 		d_light_bright = int_for_flag(cmws["#88#"])
 		d_light_dim = int_for_flag(cmws["#90#"])
 		r_light_bright = int_for_flag(cmws["#87#"])

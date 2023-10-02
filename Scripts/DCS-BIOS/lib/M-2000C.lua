@@ -33,12 +33,12 @@ moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
 	local radios = parse_indication(7)
 	if not radios then return end
 
-	local vhf = coerce_nil_to_string(radios.text_COM_UHF1)
+	local vhf = Coerce_nil_to_string(radios.text_COM_UHF1)
 	if vhf then
 		vhfFrequency = vhf:sub(1,3) .. vhf:sub(5,6)
 	end
 
-	local uhf = coerce_nil_to_string(radios.text_COM_UHF2)
+	local uhf = Coerce_nil_to_string(radios.text_COM_UHF2)
 	if uhf then
 		uhfFrequency = uhf:sub(1,3) .. uhf:sub(5,6)
 	end

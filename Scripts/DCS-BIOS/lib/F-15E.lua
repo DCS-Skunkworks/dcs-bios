@@ -196,7 +196,7 @@ local function replaceCharAtIndex(str, index, character)
 end
 
 local function replaceIndexIfValue(str, charValue, index)
-	local charData = coerce_nil_to_string(charValue):gsub("°", "`")
+	local charData = Coerce_nil_to_string(charValue):gsub("°", "`")
 
 	if string.len(charData) > 0 then
 		return replaceCharAtIndex(str, index, charData):gsub("`", "'")
@@ -206,9 +206,9 @@ local function replaceIndexIfValue(str, charValue, index)
 end
 
 local function combine_ufc_line(left, center, right, centerStart)
-    left = coerce_nil_to_string(left)
-    right = coerce_nil_to_string(right)
-    center = coerce_nil_to_string(center)
+    left = Coerce_nil_to_string(left)
+    right = Coerce_nil_to_string(right)
+    center = Coerce_nil_to_string(center)
 	local leftChars, leftSpecial
 	local rightChars, rightSpecial
 	local centerChars, centerSpecial
@@ -297,7 +297,7 @@ end
 local function build_ufc_line_6(ufcData)
 	local lineChars, lineSpecial = combine_ufc_line(ufcData.UFC_SC_06, ufcData.UFC_CC_04, ufcData.UFC_SC_07, 6)
 
-	local userInput = coerce_nil_to_string(ufcData.UFC_CC_04):gsub("°", "`")
+	local userInput = Coerce_nil_to_string(ufcData.UFC_CC_04):gsub("°", "`")
 	local specialOffset = string.find(userInput, "[EW]") == 1 and 1 or 0
 
 	-- Special Characters and their indexes
