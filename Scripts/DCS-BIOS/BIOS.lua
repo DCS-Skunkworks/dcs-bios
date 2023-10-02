@@ -67,7 +67,9 @@ BIOS.protocol.writeNewModule(AJS37)
 -- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/Alphajet.lua]]) -- ID = 9, ProperName = Alphajet
 local Alphajet = require "Alphajet"
 BIOS.protocol.writeNewModule(Alphajet)
-dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/AV8BNA.lua]]) -- ID = 10, ProperName = AV-8B Night Attack
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/AV8BNA.lua]]) -- ID = 10, ProperName = AV-8B Night Attack
+local AV8BNA = require "AV8BNA"
+BIOS.protocol.writeNewModule(AV8BNA)
 -- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/Bf-109K-4.lua]]) -- ID = 11, ProperName = Bf 109 K-4 Kurfurst
 local Bf_109K_4 = require "Bf-109K-4"
 BIOS.protocol.writeNewModule(Bf_109K_4)
