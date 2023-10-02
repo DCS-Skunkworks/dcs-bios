@@ -16,6 +16,7 @@ package.path = "./Scripts/DCS-BIOS/lib/modules/memory_map/?.lua;" .. package.pat
 BIOS = {}
 Logg = {}
 lfs = {}
+---@diagnostic disable-next-line: duplicate-set-field
 function lfs.writedir()
 	return " "
 end
