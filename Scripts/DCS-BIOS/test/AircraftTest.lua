@@ -38,11 +38,11 @@ end
 function TestAircraft:Edge540()
 	self:validateModule(require("Edge540"), "Edge540", 0x5600)
 end
---[[
+
 function TestAircraft:testF_5E_3()
-	self:validateModule(require("F-5E-3"), "F-5E-3", 0x1200)
+	self:validateModule(require("F-5E-3"), "F-5E-3", 0x7600)
 end
-]]
+
 function TestAircraft:testF14()
 	self:validateModule(require("F-14"), "F-14", 0x1200)
 end
