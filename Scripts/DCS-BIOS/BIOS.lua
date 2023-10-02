@@ -36,13 +36,13 @@ BIOS.json = json and json() or require "JSON" -- if that fails, fall back to mod
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/Util.lua]])
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/Protocol.lua]])
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/common/Functions.lua]])
---dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/MetadataEnd.lua]])
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/MetadataEnd.lua]])
 local MetadataEnd = require "MetadataEnd"
 BIOS.protocol.writeNewModule(MetadataEnd)
---dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/MetadataStart.lua]])
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/MetadataStart.lua]])
 local MetadataStart = require "MetadataStart"
 BIOS.protocol.writeNewModule(MetadataStart)
--- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/CommonData.lua]])
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/CommonData.lua]])
 local CommonData = require "CommonData"
 BIOS.protocol.writeNewModule(CommonData)
 ----------------------------------------------------------------------------Modules Start------------------------------------
@@ -51,112 +51,112 @@ BIOS.protocol.writeNewModule(CommonData)
 -- ID range 1-3 is used internally in DCSFlightpanels. New modules must have an uniques ID.
 
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/A-10C.lua]]) -- ID = 5, ProperName = A-10C Thunderbolt/II
--- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/A-29B.lua]]) -- ID = 41, ProperName = A-29B Super Tucano
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/A-29B.lua]]) -- ID = 41, ProperName = A-29B Super Tucano
 local A_29B = require "A-29B"
 BIOS.protocol.writeNewModule(A_29B)
--- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/A-4E-C.lua]]) -- ID = 6, ProperName = A-4E Skyhawk
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/A-4E-C.lua]]) -- ID = 6, ProperName = A-4E Skyhawk
 local A_4E_C = require "A-4E-C"
 BIOS.protocol.writeNewModule(A_4E_C)
--- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/AH-6J.lua]]) -- ID = 7, ProperName = AH-6J Littlebird
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/AH-6J.lua]]) -- ID = 7, ProperName = AH-6J Littlebird
 local AH_6J = require "AH-6J"
 BIOS.protocol.writeNewModule(AH_6J)
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/AH-64D.lua]]) -- ID = 46, ProperName = AH-64D Apache
--- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/AJS37.lua]]) -- ID = 8, ProperName = AJS-37 Viggen
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/AJS37.lua]]) -- ID = 8, ProperName = AJS-37 Viggen
 local AJS37 = require "AJS37"
 BIOS.protocol.writeNewModule(AJS37)
--- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/Alphajet.lua]]) -- ID = 9, ProperName = Alphajet
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/Alphajet.lua]]) -- ID = 9, ProperName = Alphajet
 local Alphajet = require "Alphajet"
 BIOS.protocol.writeNewModule(Alphajet)
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/AV8BNA.lua]]) -- ID = 10, ProperName = AV-8B Night Attack
---dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/Bf-109K-4.lua]]) -- ID = 11, ProperName = Bf 109 K-4 Kurfurst
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/Bf-109K-4.lua]]) -- ID = 11, ProperName = Bf 109 K-4 Kurfurst
 local Bf_109K_4 = require "Bf-109K-4"
 BIOS.protocol.writeNewModule(Bf_109K_4)
--- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/C-101.lua]]) -- ID = 12, ProperName = C-101 Aviojet
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/C-101.lua]]) -- ID = 12, ProperName = C-101 Aviojet
 local C_101 = require "C-101"
 BIOS.protocol.writeNewModule(C_101)
--- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/Christen Eagle II.lua]]) -- ID = 14, ProperName = Christen Eagle II
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/Christen Eagle II.lua]]) -- ID = 14, ProperName = Christen Eagle II
 local Christen_Eagle_II = require "Christen Eagle II"
 BIOS.protocol.writeNewModule(Christen_Eagle_II)
--- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/Edge540.lua]]) -- ID = 15, ProperName = Edge 540
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/Edge540.lua]]) -- ID = 15, ProperName = Edge 540
 local Edge540 = require "Edge540"
 BIOS.protocol.writeNewModule(Edge540)
--- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/F-14.lua]]) -- ID = 16, ProperName = F-14A/B Tomcat
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/F-14.lua]]) -- ID = 16, ProperName = F-14A/B Tomcat
 local F_14 = require "F-14"
 BIOS.protocol.writeNewModule(F_14)
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/F-15E.lua]]) -- ID = 44, ProperName = F-15E Strike Eagle
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/F-16C_50.lua]]) -- ID = 17, ProperName = F-16C Viper
--- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/F-22A.lua]]) -- ID = 40, ProperName = F-22A Raptor
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/F-22A.lua]]) -- ID = 40, ProperName = F-22A Raptor
 local F_22A = require "F-22A"
 BIOS.protocol.writeNewModule(F_22A)
--- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/F-5E-3.lua]]) -- ID = 18, ProperName = F-5E Tiger II
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/F-5E-3.lua]]) -- ID = 18, ProperName = F-5E Tiger II
 local F_5E_3 = require "F-5E-3"
 BIOS.protocol.writeNewModule(F_5E_3)
--- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/F-86F Sabre.lua]]) -- ID = 19, ProperName = F-86F Sabre
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/F-86F Sabre.lua]]) -- ID = 19, ProperName = F-86F Sabre
 local F_86F_Sabre = require "F-86F Sabre"
 BIOS.protocol.writeNewModule(F_86F_Sabre)
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/FA-18C_hornet.lua]]) -- ID = 20, ProperName = F/A-18C Hornet
---dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/FC3.lua]]) -- ID = 4, ProperName = Flaming Cliffs 3
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/FC3.lua]]) -- ID = 4, ProperName = Flaming Cliffs 3
 local FC3 = require "FC3"
 BIOS.protocol.writeNewModule(FC3)
--- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/FW-190A8.lua]]) -- ID = 21, ProperName = Fw 190 A-8 Anton
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/FW-190A8.lua]]) -- ID = 21, ProperName = Fw 190 A-8 Anton
 local FW_190A8 = require "FW-190A8"
 BIOS.protocol.writeNewModule(FW_190A8)
---dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/FW-190D9.lua]]) -- ID = 22, ProperName = Fw 190 D-9 Dora
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/FW-190D9.lua]]) -- ID = 22, ProperName = Fw 190 D-9 Dora
 local FW_190D9 = require "FW-190D9"
 BIOS.protocol.writeNewModule(FW_190D9)
--- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/I-16.lua]]) -- ID = 23, ProperName = I-16 
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/I-16.lua]]) -- ID = 23, ProperName = I-16 
 local I_16 = require "I-16"
 BIOS.protocol.writeNewModule(I_16)
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/JF-17.lua]]) -- ID = 24, ProperName = JF-17 Thunder
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/Ka-50.lua]]) -- ID = 25, ProperName = Ka-50 Black Shark/III
--- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/L-39.lua]]) -- ID = 26, ProperName = L-39 Albatros
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/L-39.lua]]) -- ID = 26, ProperName = L-39 Albatros
 local L_39 = require "L-39"
 BIOS.protocol.writeNewModule(L_39)
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/M-2000C.lua]]) -- ID = 27, ProperName = M-2000C
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/MB-339.lua]]) -- ID = 28, ProperName = MB-339A/PAN
--- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/Mi-24P.lua]]) -- ID = 42, ProperName = Mi-24P HIND
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/Mi-24P.lua]]) -- ID = 42, ProperName = Mi-24P HIND
 local Mi_24P = require "Mi-24P"
 BIOS.protocol.writeNewModule(Mi_24P)
--- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/Mi-8MT.lua]]) -- ID = 29, ProperName = Mi-8MT
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/Mi-8MT.lua]]) -- ID = 29, ProperName = Mi-8MT
 local Mi_8MT = require "Mi-8MT"
 BIOS.protocol.writeNewModule(Mi_8MT)
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/MirageF1.lua]]) -- ID = 13, ProperName = Mirage F1
--- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/MiG-15bis.lua]]) -- ID = 30, ProperName = MiG-15bis
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/MiG-15bis.lua]]) -- ID = 30, ProperName = MiG-15bis
 local MiG_15bis = require "MiG-15bis"
 BIOS.protocol.writeNewModule(MiG_15bis)
--- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/MiG-19P.lua]]) -- ID = 31, ProperName = MiG-19P Farmer
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/MiG-19P.lua]]) -- ID = 31, ProperName = MiG-19P Farmer
 local MiG_19P = require "MiG-19P"
 BIOS.protocol.writeNewModule(MiG_19P)
--- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/MiG-21Bis.lua]]) -- ID = 32, ProperName = MiG-21bis
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/MiG-21Bis.lua]]) -- ID = 32, ProperName = MiG-21bis
 local MiG_21Bis = require "MiG-21Bis"
 BIOS.protocol.writeNewModule(MiG_21Bis)
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/Mosquito.lua]]) -- ID = 45, ProperName = Mosquito FB Mk. VI
--- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/NS430.lua]]) -- ID = 33, ProperName = NS 430 GPS
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/NS430.lua]]) -- ID = 33, ProperName = NS 430 GPS
 local NS430 = require "NS430"
 BIOS.protocol.writeNewModule(NS430)
--- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/P-47D.lua]]) -- ID = 34, ProperName = P-47D Thunderbolt
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/P-47D.lua]]) -- ID = 34, ProperName = P-47D Thunderbolt
 local P_47D = require "P-47D"
 BIOS.protocol.writeNewModule(P_47D)
--- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/P-51D.lua]]) -- ID = 35, ProperName = TF/P-51D Mustang
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/P-51D.lua]]) -- ID = 35, ProperName = TF/P-51D Mustang
 local P_51D = require "P-51D"
 BIOS.protocol.writeNewModule(P_51D)
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/SA342.lua]]) -- ID = 36, ProperName = SA342 Gazelle
--- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/SpitfireLFMkIX.lua]]) -- ID = 37, ProperName = Spitfire LF Mk. IX
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/SpitfireLFMkIX.lua]]) -- ID = 37, ProperName = Spitfire LF Mk. IX
 local SpitfireLFMkIX = require "SpitfireLFMkIX"
 BIOS.protocol.writeNewModule(SpitfireLFMkIX)
 --dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/SuperCarrier.lua]])
 -- local SuperCarrier = require "SuperCarrier"
 -- BIOS.protocol.writeNewModule(SuperCarrier)
--- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/UH-1H.lua]]) -- ID = 38, ProperName = UH-1H Huey
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/UH-1H.lua]]) -- ID = 38, ProperName = UH-1H Huey
 local UH_1H = require "UH-1H"
 BIOS.protocol.writeNewModule(UH_1H)
--- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/VNAO_Room.lua]])
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/VNAO_Room.lua]])
 local VNAO_Room = require "VNAO_Room"
 BIOS.protocol.writeNewModule(VNAO_Room)
--- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/VNAO_T-45.lua]]) -- ID = 43, ProperName = T-45 Goshawk
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/VNAO_T-45.lua]]) -- ID = 43, ProperName = T-45 Goshawk
 local VNAO_T_45 = require "VNAO_T-45"
 BIOS.protocol.writeNewModule(VNAO_T_45)
--- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/Yak-52.lua]]) -- ID = 39, ProperName = Yak-52
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/Yak-52.lua]]) -- ID = 39, ProperName = Yak-52
 local Yak_52 = require "Yak-52"
 BIOS.protocol.writeNewModule(Yak_52)
 ----------------------------------------------------------------------------Modules End--------------------------------------
