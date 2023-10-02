@@ -4,14 +4,9 @@ dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/AircraftList.lua]])
 BIOSdevMode = 1 -- 1 DevMode / 0 UserMode
 
 BIOS.dbg = {}
-BIOS.logfile = io.open(lfs.writedir()..[[Logs/DCS-BIOS.log]], "w")
-function BIOS.log(str) 
-	if BIOS.logfile then
-		BIOS.logfile:write(str.."\n")
-		BIOS.logfile:flush()
-	end
-end
---in the Plane lua's to log any variables value to the BIOS.log  - BIOS.log(VARIABLE_NAME) Example: BIOS.log(freq)
+
+-- To log use the global Logg module
+
 
 package.path  = package.path..";.\\LuaSocket\\?.lua"
 package.cpath = package.cpath..";.\\LuaSocket\\?.dll"
@@ -23,11 +18,15 @@ package.path = lfs.writedir() .. [[Scripts/DCS-BIOS/lib/io/?.lua;]] .. package.p
 package.path = lfs.writedir() .. [[Scripts/DCS-BIOS/?.lua;]] .. package.path
 package.path = lfs.writedir() .. [[Scripts/DCS-BIOS/lib/?.lua;]] .. package.path
 package.path = lfs.writedir() .. [[Scripts/DCS-BIOS/lib/io/?.lua;]] .. package.path
+package.path = lfs.writedir() .. [[Scripts/DCS-BIOS/lib/common/?.lua;]] .. package.path
 package.path = lfs.writedir() .. [[Scripts/DCS-BIOS/lib/modules/?.lua;]] .. package.path
 package.path = lfs.writedir() .. [[Scripts/DCS-BIOS/lib/modules/aircraft_modules/?.lua;]] .. package.path
 package.path = lfs.writedir() .. [[Scripts/DCS-BIOS/lib/modules/common_modules/?.lua;]] .. package.path
 package.path = lfs.writedir() .. [[Scripts/DCS-BIOS/lib/modules/documentation/?.lua;]] .. package.path
 package.path = lfs.writedir() .. [[Scripts/DCS-BIOS/lib/modules/memory_map/?.lua;]] .. package.path
+
+Logger = require "Logger"
+Logg = Logger:new(lfs.writedir()..[[Logs/DCS-BIOS.log]])
 
 -- all requires must come after updates to package.path
 local ProtocolIO = require("ProtocolIO")
@@ -37,6 +36,7 @@ BIOS.json = json and json() or require "JSON" -- if that fails, fall back to mod
 
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/Util.lua]])
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/Protocol.lua]])
+dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/common/Functions.lua]])
 --dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/MetadataEnd.lua]])
 local MetadataEnd = require "MetadataEnd"
 BIOS.protocol.writeNewModule(MetadataEnd)
