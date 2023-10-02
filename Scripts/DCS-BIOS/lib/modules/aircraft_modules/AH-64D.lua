@@ -749,95 +749,21 @@ AH_64D:defineFloat("CPG_INT_FLOOD_L", 791, { 0, 1 }, "CPG Internal Lights", "Gun
 AH_64D:defineFloat("CPG_SIGNAL_L", 794, { 0, 1 }, "CPG Internal Lights", "Gunner Signal Light (multi color)")
 
 --Externals
-AH_64D:defineIntegerFromGetter("EXT_POSITION_LIGHT_LEFT", function()
-	if LoGetAircraftDrawArgumentValue(190) > 0 then
-		return 1
-	else
-		return 0
-	end
-end, 1, "External Aircraft Model", "Left Position Light (red)")
-AH_64D:defineIntegerFromGetter("EXT_POSITION_LIGHT_RIGHT", function()
-	if LoGetAircraftDrawArgumentValue(191) > 0 then
-		return 1
-	else
-		return 0
-	end
-end, 1, "External Aircraft Model", "Right Position Light (green)")
-AH_64D:defineIntegerFromGetter("EXT_LIGHT_TAIL", function()
-	if LoGetAircraftDrawArgumentValue(192) > 0 then
-		return 1
-	else
-		return 0
-	end
-end, 1, "External Aircraft Model", "Tail Light (white)")
-AH_64D:defineIntegerFromGetter("EXT_STROBE_L", function()
-	if LoGetAircraftDrawArgumentValue(193) > 0 then
-		return 1
-	else
-		return 0
-	end
-end, 1, "External Aircraft Model", "Left Strobe Light (red)")
-AH_64D:defineIntegerFromGetter("EXT_STROBE_R", function()
-	if LoGetAircraftDrawArgumentValue(194) > 0 then
-		return 1
-	else
-		return 0
-	end
-end, 1, "External Aircraft Model", "Right Strobe Light (red)")
-AH_64D:defineIntegerFromGetter("EXT_LIGHT_L", function()
-	if LoGetAircraftDrawArgumentValue(195) > 0 then
-		return 1
-	else
-		return 0
-	end
-end, 1, "External Aircraft Model", "Left Light (white)")
-AH_64D:defineIntegerFromGetter("EXT_LIGHT_R", function()
-	if LoGetAircraftDrawArgumentValue(196) > 0 then
-		return 1
-	else
-		return 0
-	end
-end, 1, "External Aircraft Model", "Right Light (white)")
-AH_64D:defineIntegerFromGetter("EXT_FORMATION_LIGHTS", function()
-	return math.floor(LoGetAircraftDrawArgumentValue(200) * 65535)
-end, 65535, "External Aircraft Model", "Formation Lights (yellow green)")
-AH_64D:defineIntegerFromGetter("EXT_LAND_LIGHT", function()
-	if LoGetAircraftDrawArgumentValue(209) > 0 then
-		return 1
-	else
-		return 0
-	end
-end, 1, "External Aircraft Model", "Landing Light (white)")
-AH_64D:defineIntegerFromGetter("EXT_WIPER_PLT", function()
-	return math.floor(LoGetAircraftDrawArgumentValue(13) * 65535)
-end, 65535, "External Aircraft Model", "Wiper Pilot")
-AH_64D:defineIntegerFromGetter("EXT_WIPER_CPG", function()
-	return math.floor(LoGetAircraftDrawArgumentValue(14) * 65535)
-end, 65535, "External Aircraft Model", "Wiper Gunner")
-AH_64D:defineIntegerFromGetter("EXT_WOW_TAIL", function()
-	if LoGetAircraftDrawArgumentValue(1) > 0 then
-		return 1
-	else
-		return 0
-	end
-end, 1, "External Aircraft Model", "Weight ON Wheels Tail Gear")
-AH_64D:defineIntegerFromGetter("EXT_WOW_RIGHT", function()
-	if LoGetAircraftDrawArgumentValue(4) > 0 then
-		return 1
-	else
-		return 0
-	end
-end, 1, "External Aircraft Model", "Weight ON Wheels Right Gear")
-AH_64D:defineIntegerFromGetter("EXT_WOW_LEFT", function()
-	if LoGetAircraftDrawArgumentValue(6) > 0 then
-		return 1
-	else
-		return 0
-	end
-end, 1, "External Aircraft Model", "Weight ON Wheels Left Gear")
-AH_64D:defineIntegerFromGetter("EXT_ROTOR", function()
-	return math.floor(LoGetAircraftDrawArgumentValue(40) * 65535)
-end, 65535, "External Aircraft Model", "Rotor Move")
+AH_64D:defineBitFromDrawArgument("EXT_POSITION_LIGHT_LEFT", 190, "External Aircraft Model", "Left Position Light (red)")
+AH_64D:defineBitFromDrawArgument("EXT_POSITION_LIGHT_RIGHT", 191, "External Aircraft Model", "Right Position Light (green)")
+AH_64D:defineBitFromDrawArgument("EXT_LIGHT_TAIL", 192, "External Aircraft Model", "Tail Light (white)")
+AH_64D:defineBitFromDrawArgument("EXT_STROBE_L", 193, "External Aircraft Model", "Left Strobe Light (red)")
+AH_64D:defineBitFromDrawArgument("EXT_STROBE_R", 194, "External Aircraft Model", "Right Strobe Light (red)")
+AH_64D:defineBitFromDrawArgument("EXT_LIGHT_L", 195, "External Aircraft Model", "Left Light (white)")
+AH_64D:defineBitFromDrawArgument("EXT_LIGHT_R", 196, "External Aircraft Model", "Right Light (white)")
+AH_64D:defineFloatFromDrawArgument("EXT_FORMATION_LIGHTS", 200, "External Aircraft Model", "Formation Lights (yellow green)")
+AH_64D:defineBitFromDrawArgument("EXT_LAND_LIGHT", 209, "External Aircraft Model", "Landing Light (white)")
+AH_64D:defineFloatFromDrawArgument("EXT_WIPER_PLT", 13, "External Aircraft Model", "Wiper Pilot")
+AH_64D:defineFloatFromDrawArgument("EXT_WIPER_CPG", 14, "External Aircraft Model", "Wiper Gunner")
+AH_64D:defineBitFromDrawArgument("EXT_WOW_TAIL", 1, "External Aircraft Model", "Weight ON Wheels Tail Gear")
+AH_64D:defineBitFromDrawArgument("EXT_WOW_RIGHT", 4, "External Aircraft Model", "Weight ON Wheels Right Gear")
+AH_64D:defineBitFromDrawArgument("EXT_WOW_LEFT", 6, "External Aircraft Model", "Weight ON Wheels Left Gear")
+AH_64D:defineFloatFromDrawArgument("EXT_ROTOR", 40, "External Aircraft Model", "Rotor Move")
 
 AH_64D:defineToggleSwitch("PLT_L_SUNVISOR", 9, 3017, 849, "PLT Cockpit", "Pilot Left Sunvisor")
 AH_64D:defineToggleSwitch("PLT_R_SUNVISOR", 9, 3018, 850, "PLT Cockpit", "Pilot Right Sunvisor")
