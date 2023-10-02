@@ -13,6 +13,7 @@ package.path = "./Scripts/DCS-BIOS/lib/modules/documentation/?.lua;" .. package.
 package.path = "./Scripts/DCS-BIOS/lib/modules/memory_map/?.lua;" .. package.path
 
 -- global functions that haven't been refactored yet
+BIOS = {}
 Logg = {}
 
 function Logg.log(str) end -- noop
