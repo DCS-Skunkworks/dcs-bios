@@ -1,12 +1,24 @@
-BIOS.ALL_PLAYABLE_AIRCRAFT = {}
-BIOS.CLICKABLE_COCKPIT_AIRCRAFT = {}
-BIOS.FLAMING_CLIFFS_AIRCRAFT = {}
-local function a(name, hasClickableCockpit)
-	BIOS.ALL_PLAYABLE_AIRCRAFT[#BIOS.ALL_PLAYABLE_AIRCRAFT+1] = name
-	if hasClickableCockpit then
-		BIOS.CLICKABLE_COCKPIT_AIRCRAFT[#BIOS.CLICKABLE_COCKPIT_AIRCRAFT+1] = name
+module("AircraftList", package.seeall)
+
+--- @class AircraftList
+--- @field ALL_PLAYABLE_AIRCRAFT string[]
+--- @field CLICKABLE_COCKPIT_AIRCRAFT string[]
+--- @field FLAMING_CLIFFS_AIRCRAFT string[]
+local AircraftList = {
+	ALL_PLAYABLE_AIRCRAFT = {},
+	CLICKABLE_COCKPIT_AIRCRAFT = {},
+	FLAMING_CLIFFS_AIRCRAFT = {}
+}
+
+--- Adds an aircraft to the list of all aircraft
+--- @param name string the name of the aircraft as exported from DCS
+--- @param has_clickable_cockpit boolean whether the aircraft has a clickable cockpit (if false, it will be exported with FC3 aircraft)
+local function a(name, has_clickable_cockpit)
+	table.insert(AircraftList.ALL_PLAYABLE_AIRCRAFT, name)
+	if has_clickable_cockpit then
+		table.insert(AircraftList.CLICKABLE_COCKPIT_AIRCRAFT, name)
 	else
-		BIOS.FLAMING_CLIFFS_AIRCRAFT[#BIOS.FLAMING_CLIFFS_AIRCRAFT+1] = name
+		table.insert(AircraftList.FLAMING_CLIFFS_AIRCRAFT, name)
 	end
 end
 
@@ -177,3 +189,5 @@ a("VSN_TornadoGR4", false)
 a("VSN_TornadoIDS", false)
 a("VSN_Su47", false)
 a("VSN_UFO", false)
+
+return AircraftList

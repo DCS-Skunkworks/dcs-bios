@@ -1,9 +1,11 @@
 module("CommonData", package.seeall)
 
+local AircraftList = require("AircraftList")
+
 local Module = require("Module")
 
 --- @class CommonData: Module
-local CommonData = Module:new("CommonData", 0x0400, BIOS.ALL_PLAYABLE_AIRCRAFT)
+local CommonData = Module:new("CommonData", 0x0400, AircraftList.ALL_PLAYABLE_AIRCRAFT)
 
 local latDeg = 0
 local latSec = 0

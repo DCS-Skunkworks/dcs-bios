@@ -1,9 +1,11 @@
 module("SuperCarrier", package.seeall)
 
+local AircraftList = require("AircraftList")
+
 local Module = require("Module")
 
 --- @class SuperCarrier: Module
-local SuperCarrier = Module:new("SuperCarrier", 0x0700, BIOS.ALL_PLAYABLE_AIRCRAFT)
+local SuperCarrier = Module:new("SuperCarrier", 0x0700, AircraftList.ALL_PLAYABLE_AIRCRAFT)
 
 SuperCarrier:definePushButton("CVN_CUT_L", 0, 2, 27, "Panel", "Cut Lights")
 SuperCarrier:definePushButton("CVN_WAVEOFF_L", 0, 3, 28, "Panel", "WaveOff Lights")
