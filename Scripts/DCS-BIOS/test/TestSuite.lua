@@ -13,8 +13,9 @@ package.path = "./Scripts/DCS-BIOS/lib/modules/documentation/?.lua;" .. package.
 package.path = "./Scripts/DCS-BIOS/lib/modules/memory_map/?.lua;" .. package.path
 
 -- global functions that haven't been refactored yet
-BIOS = {}
+Logg = {}
 
+function Logg.log(str) end -- noop
 require("AircraftTest") -- high-level tests for specific aircraft
 require("MemoryMapTest") -- unit tests for the memory map
 require("MemoryMapEntryTest") -- unit tests for memory map entries
