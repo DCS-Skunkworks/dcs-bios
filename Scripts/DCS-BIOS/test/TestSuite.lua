@@ -1,6 +1,7 @@
 package.path = "./Scripts/DCS-BIOS/test/?.lua;" .. package.path
 package.path = "./Scripts/DCS-BIOS/test/controls/?.lua;" .. package.path
 package.path = "./Scripts/DCS-BIOS/test/ext/?.lua;" .. package.path
+package.path = "./Scripts/DCS-BIOS/test/compile/?.lua;" .. package.path
 package.path = "./Scripts/DCS-BIOS/test/io/?.lua;" .. package.path
 package.path = "./Scripts/DCS-BIOS/?.lua;" .. package.path
 package.path = "./Scripts/DCS-BIOS/lib/?.lua;" .. package.path
@@ -15,11 +16,8 @@ package.path = "./Scripts/DCS-BIOS/lib/modules/memory_map/?.lua;" .. package.pat
 -- global functions that haven't been refactored yet
 BIOS = {}
 Logg = {}
-lfs = {}
----@diagnostic disable-next-line: duplicate-set-field
-function lfs.writedir()
-	return " "
-end
+lfs = require("lfs")
+
 function Logg.log(str) end -- noop
 
 require("AircraftTest") -- high-level tests for specific aircraft
