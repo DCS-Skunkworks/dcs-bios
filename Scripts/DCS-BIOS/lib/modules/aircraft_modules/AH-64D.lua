@@ -28,7 +28,7 @@ end
 local function parse_ku(indicator_id)
 	local ku = AH_64D.parse_indication(indicator_id)
 	if not ku then
-		return "                      " -- 22 characters
+		return ""
 	end
 	return functions.coerce_nil_to_string(ku.Standby_text)
 end
