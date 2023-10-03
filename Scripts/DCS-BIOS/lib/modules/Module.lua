@@ -102,6 +102,7 @@ function Module:defineVariableStepTumb(identifier, device_id, command, arg_numbe
 	return control
 end
 
+--- @private
 --- Defines a gauge from floating-point data with limits
 --- @param identifier string the unique identifier for the control
 --- @param arg_number integer the dcs argument number

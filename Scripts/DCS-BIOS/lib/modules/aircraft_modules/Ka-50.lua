@@ -6,6 +6,7 @@ local IntegerOutput = require("IntegerOutput")
 local Module = require("Module")
 local PhysicalVariant = require("PhysicalVariant")
 local Suffix = require("Suffix")
+local functions = require("Functions")
 
 --- @class Ka_50 : Module
 local Ka_50 = Module:new("Ka-50", 0x1800, { "Ka-50", "Ka-50_3" })
@@ -395,22 +396,13 @@ Ka_50:addExportHook(function()
 	indEKRAN = parse_EKRAN()
 end)
 local function getEKRAN_memory()
-	if indEKRAN == nil or indEKRAN.txt_memory == nil then
-		return "0"
-	end
-	return "1"
+	return functions.nil_states_to_str_flag(indEKRAN, indEKRAN and indEKRAN.txt_memory or nil)
 end
 local function getEKRAN_queue()
-	if indEKRAN == nil or indEKRAN.txt_queue == nil then
-		return "0"
-	end
-	return "1"
+	return functions.nil_states_to_str_flag(indEKRAN, indEKRAN and indEKRAN.txt_queue or nil)
 end
 local function getEKRAN_failure()
-	if indEKRAN == nil or indEKRAN.txt_failure == nil then
-		return "0"
-	end
-	return "1"
+	return functions.nil_states_to_str_flag(indEKRAN, indEKRAN and indEKRAN.txt_failure or nil)
 end
 Ka_50:defineString("EKRAN_MEMORY", getEKRAN_memory, 1, "EKRAN", "Memory message")
 Ka_50:defineString("EKRAN_QUEUE", getEKRAN_queue, 1, "EKRAN", "Queue message")

@@ -25,4 +25,26 @@ function Functions.padLeft(str, len)
 	return string.rep(" ", len - #str) .. str
 end
 
+--- @func Takes a string and checks for nil, returns 1 or 0
+--- @param str string
+--- @return integer
+function Functions.nil_state_to_int_flag(str)
+	if str ~= nil then
+		return 1
+	else
+		return 0
+	end
+end
+
+--- @func Takes two strings, returns "1" if neither is nil, otherwise "0"
+--- @param str1 string | nil
+--- @param str2 string | nil
+--- @return string
+function Functions.nil_states_to_str_flag(str1, str2)
+	if str1 == nil or str2 == nil then
+		return "0"
+	end
+	return "1"
+end
+
 return Functions
