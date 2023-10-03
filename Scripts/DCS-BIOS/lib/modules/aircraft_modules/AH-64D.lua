@@ -1,7 +1,7 @@
 module("AH-64D", package.seeall)
+local Functions = require("Functions")
+local JSONHelper = require("JSONHelper")
 local Module = require("Module")
-local functions = require("Functions")
-local json = require("JSONHelper")
 
 --- @class AH_64D: Module
 local AH_64D = Module:new("AH-64D", 0x8000, { "AH-64D_BLK_II" })
@@ -28,9 +28,9 @@ end
 local function parse_ku(indicator_id)
 	local ku = AH_64D.parse_indication(indicator_id)
 	if not ku then
-		return "                      " -- 22 characters
+		return ""
 	end
-	return functions.coerce_nil_to_string(ku.Standby_text)
+	return Functions.coerce_nil_to_string(ku.Standby_text)
 end
 
 --MPD Left
@@ -397,7 +397,7 @@ AH_64D:defineString("CPG_KU_DISPLAY", function()
 end, 22, "CPG Keyboard Unit", "Gunner Keyboard Unit Display")
 
 -- Enhanced Up-Front Display
-local eufd_indicator_data = json.decode_from_file(lfs.writedir() .. [[Scripts/DCS-BIOS/src/json/AH-64D_EUFD.json]])
+local eufd_indicator_data = JSONHelper.decode_from_file(lfs.writedir() .. [[Scripts/DCS-BIOS/src/json/AH-64D_EUFD.json]])
 local LINE_LEN = 56
 
 local function parse_eufd(indicator_id)
@@ -828,8 +828,8 @@ AH_64D:addExportHook(function()
 
 	if is_test_page then
 		cmws_page = "TEST"
-		bit_line_1 = functions.coerce_nil_to_string(cmws["#42#"])
-		bit_line_2 = functions.coerce_nil_to_string(cmws["#43#"])
+		bit_line_1 = Functions.coerce_nil_to_string(cmws["#42#"])
+		bit_line_2 = Functions.coerce_nil_to_string(cmws["#43#"])
 
 		-- these values are all guesses
 		d_light_dim = nil_state_to_int_flag(cmws["#45#"])
@@ -840,10 +840,10 @@ AH_64D:addExportHook(function()
 		fwd_right_sector_dim = nil_state_to_int_flag(cmws["#9#"])
 	else
 		cmws_page = "MAIN"
-		flare_letter = functions.coerce_nil_to_string(cmws["#83#"])
-		chaff_letter = functions.coerce_nil_to_string(cmws["#84#"])
-		flare_count = functions.coerce_nil_to_string(cmws["#85#"])
-		chaff_count = functions.coerce_nil_to_string(cmws["#86#"])
+		flare_letter = Functions.coerce_nil_to_string(cmws["#83#"])
+		chaff_letter = Functions.coerce_nil_to_string(cmws["#84#"])
+		flare_count = Functions.coerce_nil_to_string(cmws["#85#"])
+		chaff_count = Functions.coerce_nil_to_string(cmws["#86#"])
 		d_light_bright = nil_state_to_int_flag(cmws["#88#"])
 		d_light_dim = nil_state_to_int_flag(cmws["#90#"])
 		r_light_bright = nil_state_to_int_flag(cmws["#87#"])
