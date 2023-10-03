@@ -447,7 +447,7 @@ local function getEKRAN_txt2_line1()
 	if indEKRAN == nil or indEKRAN.txt_2 == nil then
 		return ""
 	end
-	return indEKRAN.txt_2[1] or "          "
+	return indEKRAN.txt_2[1] or ""
 end
 local function getEKRAN_txt2_line2()
 	if indEKRAN == nil or indEKRAN.txt_2 == nil then
