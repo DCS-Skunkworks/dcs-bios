@@ -135,7 +135,8 @@ CounterMeasures = {}
 --- @return CounterMeasures 
 function LoGetSnares() end
 
---- @func Returns a string for a cockpit indicator (screen)
+--- @func Returns a string with values separated by -----------------------------------------\n
+---       for a cockpit screen or device
 --- @return string
 function list_indication(indicator_id) end
 
