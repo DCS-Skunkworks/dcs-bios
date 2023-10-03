@@ -3171,12 +3171,15 @@ docdata["AJS37"] =
                                                                          "physical_variant": "toggle_switch"
                                                                   },
                                               "AIRSPEED_INDEXER": {
-                                                                       "api_variant": "multiturn",
                                                                           "category": "Flight Data Unit",
-                                                                      "control_type": "analog_dial",
+                                                                      "control_type": "limited_dial",
                                                                        "description": "Airspeed Indexer",
                                                                         "identifier": "AIRSPEED_INDEXER",
                                                                             "inputs": [ {
+                                                                                          "description": "set the position of the dial",
+                                                                                            "interface": "set_state",
+                                                                                            "max_value": 65535
+                                                                                      }, {
                                                                                              "description": "turn the dial left or right",
                                                                                                "interface": "variable_step",
                                                                                                "max_value": 65535,
@@ -3187,11 +3190,11 @@ docdata["AJS37"] =
                                                                                                      "address_identifier": "AJS37_AIRSPEED_INDEXER_A",
                                                                                                 "address_mask_identifier": "AJS37_AIRSPEED_INDEXER_AM",
                                                                                           "address_mask_shift_identifier": "AJS37_AIRSPEED_INDEXER",
-                                                                                                            "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                                                            "description": "position of the potentiometer",
                                                                                                                    "mask": 65535,
                                                                                                               "max_value": 65535,
                                                                                                                "shift_by": 0,
-                                                                                                                 "suffix": "_KNOB_POS",
+                                                                                                                 "suffix": "",
                                                                                                                    "type": "integer"
                                                                                       } ]
                                                                   },

@@ -424,7 +424,7 @@ AJS37:defineGatedIndicatorLight("BURNER_STAGE2_L", 405, 0.6, nil, "Front Panel L
 AJS37:defineGatedIndicatorLight("BURNER_STAGE3_L", 405, 0.9, nil, "Front Panel Lights", "Afterburner Stage 3 Lamp (white)")
 AJS37:definePushButton("SNABBRESNING", 22, 3091, 0, "Radar", "Snabbresning") --No Arg left bottom radar display
 AJS37:define3PosTumb("SEAT_HEIGHT", 22, 3404, 212, "Flight Data Unit", "Seat Height Adjustment")
-AJS37:defineRotary("AIRSPEED_INDEXER", 22, 3410, 104, "Flight Data Unit", "Airspeed Indexer")
+AJS37:definePotentiometer("AIRSPEED_INDEXER", 22, 3410, 104, { 0, 1 }, "Flight Data Unit", "Airspeed Indexer")
 AJS37:defineToggleSwitch("BYPASS_FIRE_COVER", 2, 3308, 309, "Weapon System", "Bypass Firing Circuit Cover")
 AJS37:definePushButton("BYPASS_FIRE_BTN", 2, 3309, 397, "Weapon System", "Bypass Firing Circuit Button")
 AJS37:definePotentiometer("RADAR_GAIN", 5, 3325, 152, { -1, 1 }, "Radar", "Radar Gain (MKR)")
