@@ -1,6 +1,11 @@
 module("Ka-50", package.seeall)
 
+local Control = require("Control")
+local ControlType = require("ControlType")
+local IntegerOutput = require("IntegerOutput")
 local Module = require("Module")
+local PhysicalVariant = require("PhysicalVariant")
+local Suffix = require("Suffix")
 
 --- @class Ka_50 : Module
 local Ka_50 = Module:new("Ka-50", 0x1800, { "Ka-50", "Ka-50_3" })
@@ -9,28 +14,31 @@ local Ka_50 = Module:new("Ka-50", 0x1800, { "Ka-50", "Ka-50_3" })
 
 -- Hide Stick Arg# 1005
 
-local function Ka_50:definePushButtonLed(msg, arg_number, category, description)
+--- Defines a push button LED
+--- @param self Module the calling module
+--- @param identifier string the unique identifier for the control
+--- @param arg_number integer the dcs argument number
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @return Control control the control which was added to the module
+local function definePushButtonLed(self, identifier, arg_number, category, description)
 	local function round(n)
 		return n % 1 >= 0.5 and math.ceil(n) or math.floor(n)
 	end
-	local value = moduleBeingDefined.memoryMap:allocateInt({
-		maxValue = 1,
+
+	local max_value = 1
+	local alloc = self:allocateInt(max_value)
+	assert(alloc.shiftBy ~= nil)
+	self:addExportHook(function(dev0)
+		alloc:setValue(round(dev0:get_argument_value(arg_number) * 10) % 2)
+	end)
+
+	local control = Control:new(category, ControlType.led, identifier, description, {}, {
+		IntegerOutput:new(alloc, Suffix.none, PhysicalVariant.buttonlight),
 	})
-	assert(value.shiftBy ~= nil)
-	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks + 1] = function(dev0)
-		value:setValue(round(dev0:get_argument_value(arg_number) * 10) % 2)
-	end
-	document({
-		identifier = msg,
-		category = category,
-		description = description,
-		control_type = "led",
-		inputs = {},
-		outputs = {
-			{ ["type"] = "integer", suffix = "", address = value.address, mask = value.mask, shift_by = value.shiftBy, max_value = 1, description = "0 if light is off, 1 if light is on" },
-		},
-		physical_variant = "button_light",
-	})
+	self:addControl(control)
+
+	return control
 end
 
 ----Overhead Panel
@@ -90,32 +98,33 @@ Ka_50:defineIndicatorLight("ML_R_ENG_VLV_CLOSED", 210, "Message Lamps", "Right e
 Ka_50:defineIndicatorLight("ML_R_OUTER_TANK_PUMP", 186, "Message Lamps", "Right outer fuel tank pump is ON (green)")
 Ka_50:defineIndicatorLight("ML_R_INNER_TANK_PUMP", 203, "Message Lamps", "Right inner fuel tank pump is ON (green)")
 --PRTz Data Link Control Panel
-Ka_50:defineTumb("DLNK_SEND_BTN", 25, 3001, 159, 0.3, { 0, 0.3 }, nil, false,  "Datalink Control Panel", "Send/Memory button")
-Ka_50:definePushButtonLed("DLNK_SEND_LED", 159, "Datalink Control Panel", "Send/Memory LED (yellow)")
+Ka_50:defineTumb("DLNK_SEND_BTN", 25, 3001, 159, 0.3, { 0, 0.3 }, nil, false, "Datalink Control Panel", "Send/Memory button")
+
+definePushButtonLed(Ka_50, "DLNK_SEND_LED", 159, "Datalink Control Panel", "Send/Memory LED (yellow)")
 Ka_50:defineTumb("DLNK_ESCAPE_BTN", 25, 3002, 150, 0.3, { 0, 0.3 }, nil, false, "Datalink Control Panel", "Ingress to target button")
-Ka_50:definePushButtonLed("DLNK_ESCAPE_LED", 150, "Datalink Control Panel", "Ingress to target LED (yellow)")
+definePushButtonLed(Ka_50, "DLNK_ESCAPE_LED", 150, "Datalink Control Panel", "Ingress to target LED (yellow)")
 Ka_50:defineTumb("DLNK_ERASE_BTN", 25, 3003, 161, 0.3, { 0, 0.3 }, nil, false, "Datalink Control Panel", "Erase button")
-Ka_50:definePushButtonLed("DLNK_ERASE_LED", 161, "Datalink Control Panel", "Erase LED (yellow)")
+definePushButtonLed(Ka_50, "DLNK_ERASE_LED", 161, "Datalink Control Panel", "Erase LED (yellow)")
 Ka_50:defineTumb("DLNK_CLEAN_BTN", 25, 3004, 15, 0.3, { 0, 0.3 }, nil, false, "Datalink Control Panel", "N/A button")
-Ka_50:definePushButtonLed("DLNK_CLEAN_LED", 15, "Datalink Control Panel", "N/A LED (green)")
+definePushButtonLed(Ka_50, "DLNK_CLEAN_LED", 15, "Datalink Control Panel", "N/A LED (green)")
 Ka_50:defineTumb("DLNK_WINGMAN_ALL_BTN", 25, 3005, 16, 0.3, { 0, 0.3 }, nil, false, "Datalink Control Panel", "To aLL button")
-Ka_50:definePushButtonLed("DLNK_WINGMAN_ALL_LED", 16, "Datalink Control Panel", "To all LED (green)")
+definePushButtonLed(Ka_50, "DLNK_WINGMAN_ALL_LED", 16, "Datalink Control Panel", "To all LED (green)")
 Ka_50:defineTumb("DLNK_WINGMAN_1_BTN", 25, 3006, 17, 0.3, { 0, 0.3 }, nil, false, "Datalink Control Panel", "To wingman 1 button")
-Ka_50:definePushButtonLed("DLNK_WINGMAN_1_LED", 17, "Datalink Control Panel", "To wingman 1 LED (green)")
+definePushButtonLed(Ka_50, "DLNK_WINGMAN_1_LED", 17, "Datalink Control Panel", "To wingman 1 LED (green)")
 Ka_50:defineTumb("DLNK_WINGMAN_2_BTN", 25, 3007, 18, 0.3, { 0, 0.3 }, nil, false, "Datalink Control Panel", "To wingman 2 button")
-Ka_50:definePushButtonLed("DLNK_WINGMAN_2_LED", 18, "Datalink Control Panel", "To wingman 2 LED (green)")
+definePushButtonLed(Ka_50, "DLNK_WINGMAN_2_LED", 18, "Datalink Control Panel", "To wingman 2 LED (green)")
 Ka_50:defineTumb("DLNK_WINGMAN_3_BTN", 25, 3008, 19, 0.3, { 0, 0.3 }, nil, false, "Datalink Control Panel", "To wingman 3 button")
-Ka_50:definePushButtonLed("DLNK_WINGMAN_3_LED", 19, "Datalink Control Panel", "To wingman 3 LED (green)")
+definePushButtonLed(Ka_50, "DLNK_WINGMAN_3_LED", 19, "Datalink Control Panel", "To wingman 3 LED (green)")
 Ka_50:defineTumb("DLNK_WINGMAN_4_BTN", 25, 3009, 20, 0.3, { 0, 0.3 }, nil, false, "Datalink Control Panel", "To wingman 4 button")
-Ka_50:definePushButtonLed("DLNK_WINGMAN_4_LED", 20, "Datalink Control Panel", "To wingman 4 LED (green)")
+definePushButtonLed(Ka_50, "DLNK_WINGMAN_4_LED", 20, "Datalink Control Panel", "To wingman 4 LED (green)")
 Ka_50:defineTumb("DLNK_TARGET_VEHICLE_BTN", 25, 3010, 21, 0.3, { 0, 0.3 }, nil, false, "Datalink Control Panel", "Target #1/Vehicle button")
-Ka_50:definePushButtonLed("DLNK_TARGET_VEHICLE_LED", 21, "Datalink Control Panel", "Target #1/Vehicle LED (green)")
+definePushButtonLed(Ka_50, "DLNK_TARGET_VEHICLE_LED", 21, "Datalink Control Panel", "Target #1/Vehicle LED (green)")
 Ka_50:defineTumb("DLNK_TARGET_SAM_BTN", 25, 3011, 22, 0.3, { 0, 0.3 }, nil, false, "Datalink Control Panel", "Target #2/SAM button")
-Ka_50:definePushButtonLed("DLNK_TARGET_SAM_LED", 22, "Datalink Control Panel", "Target #2/SAM LED (green)")
+definePushButtonLed(Ka_50, "DLNK_TARGET_SAM_LED", 22, "Datalink Control Panel", "Target #2/SAM LED (green)")
 Ka_50:defineTumb("DLNK_TARGET_OTHER_BTN", 25, 3012, 23, 0.3, { 0, 0.3 }, nil, false, "Datalink Control Panel", "Target #3/Other type button")
-Ka_50:definePushButtonLed("DLNK_TARGET_OTHER_LED", 23, "Datalink Control Panel", "Target #3/Other type LED (green)")
+definePushButtonLed(Ka_50, "DLNK_TARGET_OTHER_LED", 23, "Datalink Control Panel", "Target #3/Other type LED (green)")
 Ka_50:defineTumb("DLNK_TARGET_POINT_BTN", 25, 3013, 50, 0.3, { 0, 0.3 }, nil, false, "Datalink Control Panel", "Ingress point button")
-Ka_50:definePushButtonLed("DLNK_TARGET_POINT_LED", 50, "Datalink Control Panel", "Ingress point LED (green)")
+definePushButtonLed(Ka_50, "DLNK_TARGET_POINT_LED", 50, "Datalink Control Panel", "Ingress point LED (green)")
 --Laser Warning Receiver
 Ka_50:defineIndicatorLight("LWR_AZI_0", 25, "LWR", "Lamp azimuth 0 (red)")
 Ka_50:defineIndicatorLight("LWR_AZI_90", 28, "LWR", "Lamp azimuth 90 (red)")
@@ -151,10 +160,10 @@ Ka_50:defineFloat("TEMP_AMBIENT", 587, { -0.946, 0.788 }, "Ambient Temperature",
 ----Left Forward Panel
 --System Controller
 Ka_50:defineTumb("SC_MASTER_CAUTION_BTN", 14, 3001, 44, 0.3, { 0, 0.3 }, nil, false, "System Controller", "Master Caution Button")
-Ka_50:definePushButtonLed("SC_MASTER_CAUTION_LED", 44, "System Controller", "MasterCaution Button LED Brightness (red)")
+definePushButtonLed(Ka_50, "SC_MASTER_CAUTION_LED", 44, "System Controller", "MasterCaution Button LED Brightness (red)")
 Ka_50:definePushButton("SC_LAMPS_TEST", 14, 3002, 45, "System Controller", "Lamps Test Button")
 Ka_50:defineTumb("SC_ROTOR_RPM_BTN", 14, 3003, 46, 0.3, { 0, 0.3 }, nil, false, "System Controller", "Rotor RPM warning Button")
-Ka_50:definePushButtonLed("SC_ROTOR_RPM_LED", 46, "System Controller", "Rotor RPM warning button LED Brightness (yellow)")
+definePushButtonLed(Ka_50, "SC_ROTOR_RPM_LED", 46, "System Controller", "Rotor RPM warning button LED Brightness (yellow)")
 Ka_50:defineToggleSwitch("SC_ODS_MODE", 64, 3001, 49, "System Controller", "ODS Operation Mode Switch")
 --Caution Lights Panel
 Ka_50:defineIndicatorLight("CL_LASER_WARN", 47, "Caution Lights Panel", "Under fire warning (red)")
@@ -285,9 +294,11 @@ Ka_50:defineIndicatorLight("WEAPONS_RDY_STATION_2", 389, "Weapons Control Panel"
 Ka_50:defineIndicatorLight("WEAPONS_RDY_STATION_3", 390, "Weapons Control Panel", "Weapon is ready to fire on station 3 light (green)")
 Ka_50:defineIndicatorLight("WEAPONS_RDY_STATION_4", 391, "Weapons Control Panel", "Weapon is ready to fire on station 4 light (green)")
 local indPUI800 = nil
-moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks + 1] = function()
+
+Ka_50:addExportHook(function()
 	indPUI800 = Module.parse_indication(6)
-end
+end)
+
 local function getPUI800_txt_weap_type()
 	if not indPUI800 then
 		return "  "
@@ -380,9 +391,9 @@ local function parse_EKRAN()
 	return ret
 end
 local indEKRAN = nil
-moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks + 1] = function()
+Ka_50:addExportHook(function()
 	indEKRAN = parse_EKRAN()
-end
+end)
 local function getEKRAN_memory()
 	if indEKRAN == nil or indEKRAN.txt_memory == nil then
 		return "0"
@@ -515,15 +526,15 @@ Ka_50:define8BitFloat("R800_FREQ3_ROT", 575, { 0, 1 }, "R-800 VHF-2", "Frequency
 Ka_50:define8BitFloat("R800_FREQ4_ROT", 576, { 0, 1 }, "R-800 VHF-2", "Frequency 4 rotary")
 --Targeting Mode Control Panel
 Ka_50:defineTumb("WEAPONS_AUTO_TURN_BTN", 12, 3010, 437, 0.3, { 0, 0.3 }, nil, false, "Targeting Mode Control Panel", "Automatic turn on target button")
-Ka_50:definePushButtonLed("WEAPONS_AUTO_TURN_LED", 437, "Targeting Mode Control Panel", "Automatic turn on target LED (green)")
+definePushButtonLed(Ka_50, "WEAPONS_AUTO_TURN_LED", 437, "Targeting Mode Control Panel", "Automatic turn on target LED (green)")
 Ka_50:defineTumb("WEAPONS_AIRBORNE_TARGET_BTN", 12, 3011, 438, 0.3, { 0, 0.3 }, nil, false, "Targeting Mode Control Panel", "Airborne target button")
-Ka_50:definePushButtonLed("WEAPONS_AIRBORNE_TARGET_LED", 438, "Targeting Mode Control Panel", "Airborne target LED (green)")
+definePushButtonLed(Ka_50, "WEAPONS_AIRBORNE_TARGET_LED", 438, "Targeting Mode Control Panel", "Airborne target LED (green)")
 Ka_50:defineTumb("WEAPONS_FORWARD_HEMI_TARGET_BTN", 12, 3012, 439, 0.3, { 0, 0.3 }, nil, false, "Targeting Mode Control Panel", "Head-on airborne target button")
-Ka_50:definePushButtonLed("WEAPONS_FORWARD_HEMI_TARGET_LED", 439, "Targeting Mode Control Panel", "Head-on airborne target LED (green)")
+definePushButtonLed(Ka_50, "WEAPONS_FORWARD_HEMI_TARGET_LED", 439, "Targeting Mode Control Panel", "Head-on airborne target LED (green)")
 Ka_50:defineTumb("WEAPONS_GROUND_TARGET_BTN", 12, 3013, 440, 0.3, { 0, 0.3 }, nil, false, "Targeting Mode Control Panel", "Ground moving target button")
-Ka_50:definePushButtonLed("WEAPONS_GROUND_TARGET_LED", 440, "Targeting Mode Control Panel", "Ground moving target LED (green)")
+definePushButtonLed(Ka_50, "WEAPONS_GROUND_TARGET_LED", 440, "Targeting Mode Control Panel", "Ground moving target LED (green)")
 Ka_50:defineTumb("WEAPONS_TARGET_RESET_BTN", 12, 3016, 441, 0.6, { 0, 0.6 }, nil, false, "Targeting Mode Control Panel", "Targeting mode reset button")
-Ka_50:definePushButtonLed("WEAPONS_TARGET_RESET_LED", 441, "Targeting Mode Control Panel", "Targeting mode reset LED (green)")
+definePushButtonLed(Ka_50, "WEAPONS_TARGET_RESET_LED", 441, "Targeting Mode Control Panel", "Targeting mode reset LED (green)")
 Ka_50:defineToggleSwitch("WEAPONS_TRAINING_MODE", 12, 3009, 432, "Targeting Mode Control Panel", "Training mode Switch")
 Ka_50:defineToggleSwitch("K041_POWER", 59, 3002, 433, "Targeting Mode Control Panel", "K-041 power Switch")
 Ka_50:defineToggleSwitch("HMS_POWER", 23, 3002, 434, "Targeting Mode Control Panel", "HMS/NVG power Switch")
@@ -555,9 +566,9 @@ Ka_50:defineToggleSwitch("ENG_ROTOR_BREAK", 4, 3011, 556, "Engines Cut-Off Valve
 ----Right Pane
 --PVI-800 Navigation Control Panel
 local indPVI = nil
-moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks + 1] = function()
+Ka_50:addExportHook(function()
 	indPVI = Module.parse_indication(5)
-end
+end)
 local function getPVI_line1_sign()
 	if not indPVI then
 		return " "
@@ -638,36 +649,36 @@ Ka_50:defineTumb("PVI_6", 20, 3007, 308, 0.3, { 0, 0.3 }, nil, false, "PVI-800 C
 Ka_50:defineTumb("PVI_7", 20, 3008, 309, 0.3, { 0, 0.3 }, nil, false, "PVI-800 Control Panel", "'7' button")
 Ka_50:defineTumb("PVI_8", 20, 3009, 310, 0.3, { 0, 0.3 }, nil, false, "PVI-800 Control Panel", "'8' button")
 Ka_50:defineTumb("PVI_9", 20, 3010, 311, 0.3, { 0, 0.3 }, nil, false, "PVI-800 Control Panel", "'9' button")
-Ka_50:defineTumb("PVI_WAYPOINTS_BTN", 20, 3011, 315, "PVI-800 Control Panel", "Waypoints button")
-Ka_50:definePushButtonLed("PVI_WAYPOINTS_LED", 315, "PVI-800 Control Panel", "Waypoints LED (green)")
+Ka_50:defineTumb("PVI_WAYPOINTS_BTN", 20, 3011, 315, 0.3, { 0, 0.3 }, nil, false, "PVI-800 Control Panel", "Waypoints button")
+definePushButtonLed(Ka_50, "PVI_WAYPOINTS_LED", 315, "PVI-800 Control Panel", "Waypoints LED (green)")
 Ka_50:defineTumb("PVI_INU_INFLIGHT_REALIGN_BTN", 20, 3012, 519, 0.3, { 0, 0.3 }, nil, false, "PVI-800 Control Panel", "Inflight INU Realignment button")
-Ka_50:definePushButtonLed("PVI_INU_INFLIGHT_REALIGN_LED", 519, "PVI-800 Control Panel", "Inflight INU Realignment LED (green)")
+definePushButtonLed(Ka_50, "PVI_INU_INFLIGHT_REALIGN_LED", 519, "PVI-800 Control Panel", "Inflight INU Realignment LED (green)")
 Ka_50:defineTumb("PVI_FIXPOINTS_BTN", 20, 3013, 316, 0.3, { 0, 0.3 }, nil, false, "PVI-800 Control Panel", "Fixpoints button")
-Ka_50:definePushButtonLed("PVI_FIXPOINTS_LED", 316, "PVI-800 Control Panel", "Fixpoints LED (green)")
+definePushButtonLed(Ka_50, "PVI_FIXPOINTS_LED", 316, "PVI-800 Control Panel", "Fixpoints LED (green)")
 Ka_50:defineTumb("PVI_INU_PRECISE_ALIGN_BTN", 20, 3014, 520, 0.3, { 0, 0.3 }, nil, false, "PVI-800 Control Panel", "Precise INU Alignment button")
-Ka_50:definePushButtonLed("PVI_INU_PRECISE_ALIGN_LED", 520, "PVI-800 Control Panel", "Precise INU Alignment LED (green)")
+definePushButtonLed(Ka_50, "PVI_INU_PRECISE_ALIGN_LED", 520, "PVI-800 Control Panel", "Precise INU Alignment LED (green)")
 Ka_50:defineTumb("PVI_AIRFIELDS_BTN", 20, 3015, 317, 0.3, { 0, 0.3 }, nil, false, "PVI-800 Control Panel", "Airfields button")
-Ka_50:definePushButtonLed("PVI_AIRFIELDS_LED", 317, "PVI-800 Control Panel", "Airfields LED (green)")
+definePushButtonLed(Ka_50, "PVI_AIRFIELDS_LED", 317, "PVI-800 Control Panel", "Airfields LED (green)")
 Ka_50:defineTumb("PVI_INU_NORMAL_ALIGN_BTN", 20, 3016, 521, 0.3, { 0, 0.3 }, nil, false, "PVI-800 Control Panel", "Normal INU Alignment button")
-Ka_50:definePushButtonLed("PVI_INU_NORMAL_ALIGN_LED", 521, "PVI-800 Control Panel", "Normal INU Alignment LED (green)")
+definePushButtonLed(Ka_50, "PVI_INU_NORMAL_ALIGN_LED", 521, "PVI-800 Control Panel", "Normal INU Alignment LED (green)")
 Ka_50:defineTumb("PVI_TARGETS_BTN", 20, 3017, 318, 0.3, { 0, 0.3 }, nil, false, "PVI-800 Control Panel", "Targets button")
-Ka_50:definePushButtonLed("PVI_TARGETS_LED", 318, "PVI-800 Control Panel", "Targets LED (green)")
+definePushButtonLed(Ka_50, "PVI_TARGETS_LED", 318, "PVI-800 Control Panel", "Targets LED (green)")
 Ka_50:defineTumb("PVI_ENTER_BTN", 20, 3018, 313, 0.3, { 0, 0.3 }, nil, false, "PVI-800 Control Panel", "Enter button")
-Ka_50:definePushButtonLed("PVI_ENTER_LED", 313, "PVI-800 Control Panel", "Enter LED (yellow)")
+definePushButtonLed(Ka_50, "PVI_ENTER_LED", 313, "PVI-800 Control Panel", "Enter LED (yellow)")
 Ka_50:defineTumb("PVI_RESET_BTN", 20, 3019, 314, 0.3, { 0, 0.3 }, nil, false, "PVI-800 Control Panel", "Cancel button")
-Ka_50:definePushButtonLed("PVI_RESET_LED", 314, "PVI-800 Control Panel", "Cancel LED (yellow)")
+definePushButtonLed(Ka_50, "PVI_RESET_LED", 314, "PVI-800 Control Panel", "Cancel LED (yellow)")
 Ka_50:defineTumb("PVI_INIT_PNT_BTN", 20, 3020, 522, 0.3, { 0, 0.3 }, nil, false, "PVI-800 Control Panel", "Initial Nav Pos button")
-Ka_50:definePushButtonLed("PVI_INIT_PNT_LED", 522, "PVI-800 Control Panel", "Initial Nav Pos LED (green)")
+definePushButtonLed(Ka_50, "PVI_INIT_PNT_LED", 522, "PVI-800 Control Panel", "Initial Nav Pos LED (green)")
 Ka_50:defineTumb("PVI_SELF_COOR_BTN", 20, 3021, 319, 0.3, { 0, 0.3 }, nil, false, "PVI-800 Control Panel", "Self coordinates button")
-Ka_50:definePushButtonLed("PVI_SELF_COOR_LED", 319, "PVI-800 Control Panel", "Self coordinates LED (green)")
+definePushButtonLed(Ka_50, "PVI_SELF_COOR_LED", 319, "PVI-800 Control Panel", "Self coordinates LED (green)")
 Ka_50:defineTumb("PVI_DTA_DH_BTN", 20, 3022, 320, 0.3, { 0, 0.3 }, nil, false, "PVI-800 Control Panel", "Course:Course Deviation/Time/Range to WPT button")
-Ka_50:definePushButtonLed("PVI_DTA_DH_LED", 320, "PVI-800 Control Panel", "Course:Course Deviation/Time/Range to WPT LED (green)")
+definePushButtonLed(Ka_50, "PVI_DTA_DH_LED", 320, "PVI-800 Control Panel", "Course:Course Deviation/Time/Range to WPT LED (green)")
 Ka_50:defineTumb("PVI_WIND_HDG_SPEED_BTN", 20, 3023, 321, 0.3, { 0, 0.3 }, nil, false, "PVI-800 Control Panel", "Wind Heading/Speed button")
-Ka_50:definePushButtonLed("PVI_WIND_HDG_SPEED_LED", 321, "PVI-800 Control Panel", "Wind Heading/Speed LED (green)")
+definePushButtonLed(Ka_50, "PVI_WIND_HDG_SPEED_LED", 321, "PVI-800 Control Panel", "Wind Heading/Speed LED (green)")
 Ka_50:defineTumb("PVI_THDG_TIME_RANGE_BTN", 20, 3024, 322, 0.3, { 0, 0.3 }, nil, false, "PVI-800 Control Panel", "True Heading/Time/Range to final WPT button")
-Ka_50:definePushButtonLed("PVI_THDG_TIME_RANGE_LED", 322, "PVI-800 Control Panel", "True Heading/Time/Range to final WPT LED (green)")
+definePushButtonLed(Ka_50, "PVI_THDG_TIME_RANGE_LED", 322, "PVI-800 Control Panel", "True Heading/Time/Range to final WPT LED (green)")
 Ka_50:defineTumb("PVI_BEARING_RANGE_BTN", 20, 3025, 323, 0.3, { 0, 0.3 }, nil, false, "PVI-800 Control Panel", "Bearing/Range to target button")
-Ka_50:definePushButtonLed("PVI_BEARING_RANGE_LED", 323, "PVI-800 Control Panel", "Bearing/Range to target LED (green)")
+definePushButtonLed(Ka_50, "PVI_BEARING_RANGE_LED", 323, "PVI-800 Control Panel", "Bearing/Range to target LED (green)")
 Ka_50:defineToggleSwitch("PVI_INU_FIX", 20, 3028, 325, "PVI-800 Control Panel", "INU fixtaking method Switch")
 Ka_50:defineToggleSwitch("PVI_POWER", 25, 3016, 326, "PVI-800 Control Panel", "Datalink power Switch")
 Ka_50:defineTumb("PVI_MODES", 20, 3026, 324, 0.1, { 0, 0.6 }, nil, false, "PVI-800 Control Panel", "Master mode selector")
@@ -677,15 +688,15 @@ Ka_50:defineTumb("DLNK_SELF_ID", 25, 3014, 328, 0.1, { 0, 0.3 }, nil, false, "Da
 Ka_50:defineTumb("DLNK_MASTER_MODE", 25, 3015, 329, 0.1, { 0, 0.3 }, nil, false, "Datalink Mode Panel", "Datalink master mode selector")
 --Autopilot Panel
 Ka_50:defineTumb("AP_BANK_HOLD_BTN", 33, 3001, 330, 0.3, { 0, 0.3 }, nil, false, "Autopilot Panel", "Bank hold button")
-Ka_50:definePushButtonLed("AP_BANK_HOLD_LED", 330, "Autopilot Panel", "Bank hold LED (green)")
+definePushButtonLed(Ka_50, "AP_BANK_HOLD_LED", 330, "Autopilot Panel", "Bank hold LED (green)")
 Ka_50:defineTumb("AP_HDG_HOLD_BTN", 33, 3002, 332, 0.3, { 0, 0.3 }, nil, false, "Autopilot Panel", "Heading hold button")
-Ka_50:definePushButtonLed("AP_HDG_HOLD_LED", 332, "Autopilot Panel", "Heading hold LED (green)")
+definePushButtonLed(Ka_50, "AP_HDG_HOLD_LED", 332, "Autopilot Panel", "Heading hold LED (green)")
 Ka_50:defineTumb("AP_PITCH_HOLD_BTN", 33, 3003, 331, 0.3, { 0, 0.3 }, nil, false, "Autopilot Panel", "Pitch hold button")
-Ka_50:definePushButtonLed("AP_PITCH_HOLD_LED", 331, "Autopilot Panel", "Pitch hold LED (green)")
+definePushButtonLed(Ka_50, "AP_PITCH_HOLD_LED", 331, "Autopilot Panel", "Pitch hold LED (green)")
 Ka_50:defineTumb("AP_ALT_HOLD_BTN", 33, 3004, 333, 0.3, { 0, 0.3 }, nil, false, "Autopilot Panel", "Altitude hold button")
-Ka_50:definePushButtonLed("AP_ALT_HOLD_LED", 333, "Autopilot Panel", "Altitude hold LED (green)")
+definePushButtonLed(Ka_50, "AP_ALT_HOLD_LED", 333, "Autopilot Panel", "Altitude hold LED (green)")
 Ka_50:defineTumb("AP_FD_BTN", 33, 3005, 334, 0.3, { 0, 0.3 }, nil, false, "Autopilot Panel", "Flight director button")
-Ka_50:definePushButtonLed("AP_FD_LED", 334, "Autopilot Panel", "Flight director LED (green)")
+definePushButtonLed(Ka_50, "AP_FD_LED", 334, "Autopilot Panel", "Flight director LED (green)")
 Ka_50:defineMultipositionSwitch("AP_BARO_RALT", 33, 3006, 335, 3, 0.5, "Autopilot Panel", "BARO/RALT altitude hold mode Switch")
 Ka_50:defineMultipositionSwitch("AP_DH_DT", 28, 3003, 336, 3, 0.5, "Autopilot Panel", "DH/DT Switch")
 --Magnetic Variation Panel
@@ -871,7 +882,7 @@ Ka_50:defineBitFromDrawArgument("EXT_POSITION_LIGHT_LEFT", 190, "External Aircra
 Ka_50:defineBitFromDrawArgument("EXT_POSITION_LIGHT_RIGHT", 191, "External Aircraft Model", "Right Position Light (green)")
 Ka_50:defineBitFromDrawArgument("EXT_STROBE", 193, "External Aircraft Model", "Strobe Light")
 Ka_50:defineBitFromDrawArgument("EXT_WOW_NOSE", 1, "External Aircraft Model", "Weight ON Wheels Nose Gear")
-Ka_50:defineBitFromDrawArgument("EXT_WOW_RIGHT", 4 , "External Aircraft Model", "Weight ON Wheels Right Gear")
+Ka_50:defineBitFromDrawArgument("EXT_WOW_RIGHT", 4, "External Aircraft Model", "Weight ON Wheels Right Gear")
 Ka_50:defineBitFromDrawArgument("EXT_WOW_LEFT", 6, "External Aircraft Model", "Weight ON Wheels Left Gear")
 
 Ka_50:defineIndicatorLight("PLAFOND_LAMP", 1000, "Lighting Control Panel", "Plafond Lamp (rear left) (yellow)") -------
