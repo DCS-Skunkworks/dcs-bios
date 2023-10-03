@@ -139,7 +139,7 @@ Ka_50:definePushButton("LWR_RESET", 36, 3001, 35, "LWR", "Reset Button")
 local function getUV26Display()
 	local ind = Module.parse_indication(7)
 	if ind == nil then
-		return "   "
+		return ""
 	end
 	return ind["txt_digits"]
 end
@@ -301,7 +301,7 @@ end)
 
 local function getPUI800_txt_weap_type()
 	if not indPUI800 then
-		return "  "
+		return ""
 	end
 	if indPUI800.txt_weap_type_AT ~= nil then
 		return "AT"
@@ -315,17 +315,17 @@ local function getPUI800_txt_weap_type()
 	if indPUI800.txt_weap_type_Gun_Pod ~= nil then
 		return "GP"
 	end
-	return "  "
+	return ""
 end
 local function getPUI800_txt_weap_count()
 	if not indPUI800 then
-		return "  "
+		return ""
 	end
 	return indPUI800.txt_weap_count or "  "
 end
 local function getPUI800_txt_cannon_count()
 	if not indPUI800 then
-		return "  "
+		return ""
 	end
 	return indPUI800.txt_cannon_count or "  "
 end
@@ -417,27 +417,27 @@ Ka_50:defineString("EKRAN_QUEUE", getEKRAN_queue, 1, "EKRAN", "Queue message")
 Ka_50:defineString("EKRAN_FAILURE", getEKRAN_failure, 1, "EKRAN", "Failure message")
 local function getEKRAN_txt1_line1()
 	if indEKRAN == nil or indEKRAN.txt_1 == nil then
-		return "          "
+		return ""
 	end
-	return indEKRAN.txt_1[1] or "          "
+	return indEKRAN.txt_1[1] or ""
 end
 local function getEKRAN_txt1_line2()
 	if indEKRAN == nil or indEKRAN.txt_1 == nil then
-		return "          "
+		return ""
 	end
-	return indEKRAN.txt_1[2] or "          "
+	return indEKRAN.txt_1[2] or ""
 end
 local function getEKRAN_txt1_line3()
 	if indEKRAN == nil or indEKRAN.txt_1 == nil then
-		return "          "
+		return ""
 	end
-	return indEKRAN.txt_1[3] or "          "
+	return indEKRAN.txt_1[3] or ""
 end
 local function getEKRAN_txt1_line4()
 	if indEKRAN == nil or indEKRAN.txt_1 == nil then
-		return "          "
+		return ""
 	end
-	return indEKRAN.txt_1[4] or "          "
+	return indEKRAN.txt_1[4] or ""
 end
 Ka_50:defineString("EKRAN_TXT1_LINE1", getEKRAN_txt1_line1, 10, "EKRAN", "EKRAN txt 1 line 1")
 Ka_50:defineString("EKRAN_TXT1_LINE2", getEKRAN_txt1_line2, 10, "EKRAN", "EKRAN txt 1 line 2")
@@ -445,25 +445,25 @@ Ka_50:defineString("EKRAN_TXT1_LINE3", getEKRAN_txt1_line3, 10, "EKRAN", "EKRAN 
 Ka_50:defineString("EKRAN_TXT1_LINE4", getEKRAN_txt1_line4, 10, "EKRAN", "EKRAN txt 1 line 4")
 local function getEKRAN_txt2_line1()
 	if indEKRAN == nil or indEKRAN.txt_2 == nil then
-		return "          "
+		return ""
 	end
 	return indEKRAN.txt_2[1] or "          "
 end
 local function getEKRAN_txt2_line2()
 	if indEKRAN == nil or indEKRAN.txt_2 == nil then
-		return "          "
+		return ""
 	end
 	return indEKRAN.txt_2[2] or "          "
 end
 local function getEKRAN_txt2_line3()
 	if indEKRAN == nil or indEKRAN.txt_2 == nil then
-		return "          "
+		return ""
 	end
 	return indEKRAN.txt_2[3] or "          "
 end
 local function getEKRAN_txt2_line4()
 	if indEKRAN == nil or indEKRAN.txt_2 == nil then
-		return "          "
+		return ""
 	end
 	return indEKRAN.txt_2[4] or "          "
 end
@@ -571,61 +571,61 @@ Ka_50:addExportHook(function()
 end)
 local function getPVI_line1_sign()
 	if not indPVI then
-		return " "
+		return ""
 	end
 	return indPVI.txt_VIT_sign or " "
 end
 local function getPVI_line2_sign()
 	if not indPVI then
-		return " "
+		return ""
 	end
 	return indPVI.txt_NIT_sign or " "
 end
 local function getPVI_line1_text()
 	if not indPVI then
-		return "      "
+		return ""
 	end
 	return indPVI.txt_VIT or "      "
 end
 local function getPVI_line2_text()
 	if not indPVI then
-		return "      "
+		return ""
 	end
 	return indPVI.txt_NIT or "      "
 end
 local function getPVI_line1_point()
 	if not indPVI then
-		return " "
+		return ""
 	end
 	return indPVI.txt_OIT_PPM or " "
 end
 local function getPVI_line2_point()
 	if not indPVI then
-		return " "
+		return ""
 	end
 	return indPVI.txt_OIT_NOT or " "
 end
 local function getPVI_line1_apostrophe1()
 	if not indPVI then
-		return " "
+		return ""
 	end
 	return indPVI.txt_VIT_apostrophe1 or " "
 end
 local function getPVI_line1_apostrophe2()
 	if not indPVI then
-		return " "
+		return ""
 	end
 	return indPVI.txt_VIT_apostrophe2 or " "
 end
 local function getPVI_line2_apostrophe1()
 	if not indPVI then
-		return " "
+		return ""
 	end
 	return indPVI.txt_NIT_apostrophe1 or " "
 end
 local function getPVI_line2_apostrophe2()
 	if not indPVI then
-		return " "
+		return ""
 	end
 	return indPVI.txt_NIT_apostrophe2 or " "
 end
