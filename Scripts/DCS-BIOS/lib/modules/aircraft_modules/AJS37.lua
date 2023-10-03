@@ -318,8 +318,10 @@ AJS37:definePushButton("FR22_CHANNEL_C2", 31, 3208, 370, "FR22 Radio", "Channel 
 AJS37:definePushButton("FR22_CHANNEL_DE", 31, 3209, 371, "FR22 Radio", "Channel D/E")
 AJS37:definePushButton("FR22_GROUND_COM", 31, 3011, 382, "FR22 Radio", "Ground Intercom")
 AJS37:defineTumb("FR24_MODE", 30, 3110, 386, 0.1, { 0.0, 0.5 }, nil, false, "FR22 Radio", "FR24 Mode Selector")
-AJS37:defineTumb("FR22_BASE", 30, 3230, 492, 0.05, { 0, 1 }, nil, false, "FR22 Radio", "FR22 Base Selector")
-AJS37:defineTumb("FR22_GROUP", 30, 3307, 360, 0.1, { 0, 1 }, nil, false, "FR22 Radio", "FR22 Group Selector")
+-- AJS37:defineTumb("FR22_BASE", 30, 3230, 492, 0.05, { 0, 1 }, nil, false, "FR22 Radio", "FR22 Base Selector")
+AJS37:reserveIntValue(20) -- corrected control requires more space, so reserve this space and add corrected control to the end
+-- AJS37:defineTumb("FR22_GROUP", 30, 3307, 360, 0.1, { 0, 1 }, nil, false, "FR22 Radio", "FR22 Group Selector")
+AJS37:reserveIntValue(10) -- corrected control requires more space, so reserve this space and add corrected control to the end
 AJS37:defineRotary("FR22_VOL", 21, 3112, 385, "FR22 Radio", "Radio Volume")
 
 AJS37:defineToggleSwitch("IFF_POWER", 18, 3001, 1203, "Radar", "IFF Power")
@@ -463,5 +465,100 @@ AJS37:defineFloat("CI_BRIGHT", 3001, { 0, 1 }, "Indicator Lights", "CI Light Bri
 AJS37:defineFloat("PANEL_BRIGHT", 3400, { 0, 1 }, "Indicator Lights", "Panel Light Brightness")
 AJS37:defineFloat("FLOOD_BRIGHT", 3401, { 0, 1 }, "Indicator Lights", "Flood Light Brightness")
 AJS37:defineFloat("CONSOLE_BRIGHT", 3402, { 0, 1 }, "Indicator Lights", "Console Light Brightness")
+
+local base_output_map = {
+	" -- ",
+	" 01 ",
+	" 02 ",
+	" 03 ",
+	" 04 ",
+	" 05 ",
+	"ALLM",
+	" 06 ",
+	" 07 ",
+	" 08 ",
+	" 09 ",
+	" 10 ",
+	"ALLM",
+	" 11 ",
+	" 12 ",
+	" 13 ",
+	" 14 ",
+	" 15 ",
+	"ALLM",
+	" 16 ",
+	" 17 ",
+	" 18 ",
+	" 19 ",
+	" 20 ",
+	"ALLM",
+	" 21 ",
+	" 22 ",
+	" 23 ",
+	" 24 ",
+	" 25 ",
+	"ALLM",
+	" 26 ",
+	" 27 ",
+	" 28 ",
+	" 29 ",
+	" 30 ",
+	"ALLM",
+	" 31 ",
+	" 32 ",
+	" 33 ",
+	" 34 ",
+	" 35 ",
+	"ALLM",
+	" 36 ",
+	" 37 ",
+	" 38 ",
+	" 39 ",
+	" 40 ",
+	"ALLM",
+	" 41 ",
+	" 42 ",
+	" 43 ",
+	" 44 ",
+	" 45 ",
+	"ALLM",
+	" 46 ",
+	" 47 ",
+	" 48 ",
+	" 49 ",
+	" 50 ",
+	"ALLM",
+	" 51 ",
+	" 52 ",
+	" 53 ",
+	" 54 ",
+	" 55 ",
+	"ALLM",
+	" 56 ",
+	" 57 ",
+	" 58 ",
+	" 59 ",
+	" 60 ",
+	"ALLM",
+	" 61 ",
+	" 62 ",
+	" 63 ",
+	" 64 ",
+	" 65 ",
+	"ALLM",
+	" 66 ",
+	" 67 ",
+	" 68 ",
+	" 69 ",
+	" T1 ",
+	" T2 ",
+	" -- ",
+}
+
+AJS37:defineFixedStepTumb("FR22_BASE", 30, 3230, 492, 1 / 100, { 0, 0.85 }, { -1, 1 }, base_output_map, "FR22 Radio", "FR22 Base Selector")
+
+local group_output_map = { "--", "10", "11", "12", "13", "14", "15", "20", "21", "22", "23", "24", "25", "30", "31", "32", "33", "40", "41", "42", "43", "44", "45", "50", "51", "52", "53", "54", "55", "60", "61", "62", "63", "64", "70", "71", "72", "73", "74", "80", "81", "82", "T3", "--" }
+
+AJS37:defineFixedStepTumb("FR22_GROUP", 30, 3307, 360, 1 / 100, { 0, 0.43 }, { -1, 1 }, group_output_map, "FR22 Radio", "FR22 Group Selector")
 
 return AJS37
