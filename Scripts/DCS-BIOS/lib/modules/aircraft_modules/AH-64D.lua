@@ -12,6 +12,18 @@ local TextDisplay = require("TextDisplay")
 -- remove Arg# PLT 956; CPG 957
 
 --Functions
+--- @func Takes a string and checks for nil, returns 1 or 0
+--- @param str string
+--- @return integer
+local function nil_state_to_int_flag(str)
+	if str ~= nil then
+		return 1
+	else
+		return 0
+	end
+end
+
+--- @func Parses keyboard unit data
 local function parse_ku(indicator_id)
 	local ku = AH_64D.parse_indication(indicator_id)
 	if not ku then
@@ -19,17 +31,6 @@ local function parse_ku(indicator_id)
 	end
 	return Coerce_nil_to_string(ku.Standby_text)
 end
-
-local txt_PLT_KU = ""
-local txt_CPG_KU = ""
-
-AH_64D:addExportHook(function()
-	txt_PLT_KU = parse_ku(15)
-end)
-
-AH_64D:addExportHook(function()
-	txt_CPG_KU = parse_ku(14)
-end)
 
 --MPD Left
 AH_64D:definePushButton("PLT_MPD_L_T1", 42, 3001, 20, "PLT MPD Left", "Pilot Left MPD T1 Button")
@@ -336,7 +337,7 @@ AH_64D:definePushButton("PLT_KU_ENT", 29, 3006, 261, "PLT Keyboard Unit", "Pilot
 AH_64D:definePotentiometer("PLT_KU_BRT", 29, 3050, 316, { 0, 1 }, "PLT Keyboard Unit", "Pilot Scratchpad Keyboard Brightness Knob")
 
 AH_64D:defineString("PLT_KU_DISPLAY", function()
-	return txt_PLT_KU
+	return parse_ku(15)
 end, 22, "PLT Keyboard Unit", "Pilot Keyboard Unit Display")
 
 AH_64D:definePushButton("CPG_KU_A", 30, 3007, 164, "CPG Keyboard Unit", "Gunner Keyboard Unit A Key")
@@ -391,7 +392,7 @@ AH_64D:definePushButton("CPG_KU_ENT", 30, 3006, 212, "CPG Keyboard Unit", "Gunne
 AH_64D:definePotentiometer("CPG_KU_BRT", 30, 3050, 621, { 0, 1 }, "CPG Keyboard Unit", "Gunner Scratchpad Keyboard Brightness Knob")
 
 AH_64D:defineString("CPG_KU_DISPLAY", function()
-	return txt_CPG_KU
+	return parse_ku(14)
 end, 22, "CPG Keyboard Unit", "Gunner Keyboard Unit Display")
 
 -- Enhanced Up-Front Display
@@ -830,32 +831,32 @@ AH_64D:addExportHook(function()
 		bit_line_2 = Coerce_nil_to_string(cmws["#43#"])
 
 		-- these values are all guesses
-		d_light_dim = Nil_state_to_int_flag(cmws["#45#"])
-		r_light_dim = Nil_state_to_int_flag(cmws["#44#"])
-		fwd_left_sector_dim = Nil_state_to_int_flag(cmws["#8#"])
-		aft_left_sector_dim = Nil_state_to_int_flag(cmws["#7#"])
-		aft_right_sector_dim = Nil_state_to_int_flag(cmws["#6#"])
-		fwd_right_sector_dim = Nil_state_to_int_flag(cmws["#9#"])
+		d_light_dim = nil_state_to_int_flag(cmws["#45#"])
+		r_light_dim = nil_state_to_int_flag(cmws["#44#"])
+		fwd_left_sector_dim = nil_state_to_int_flag(cmws["#8#"])
+		aft_left_sector_dim = nil_state_to_int_flag(cmws["#7#"])
+		aft_right_sector_dim = nil_state_to_int_flag(cmws["#6#"])
+		fwd_right_sector_dim = nil_state_to_int_flag(cmws["#9#"])
 	else
 		cmws_page = "MAIN"
 		flare_letter = Coerce_nil_to_string(cmws["#83#"])
 		chaff_letter = Coerce_nil_to_string(cmws["#84#"])
 		flare_count = Coerce_nil_to_string(cmws["#85#"])
 		chaff_count = Coerce_nil_to_string(cmws["#86#"])
-		d_light_bright = Nil_state_to_int_flag(cmws["#88#"])
-		d_light_dim = Nil_state_to_int_flag(cmws["#90#"])
-		r_light_bright = Nil_state_to_int_flag(cmws["#87#"])
-		r_light_dim = Nil_state_to_int_flag(cmws["#89#"])
+		d_light_bright = nil_state_to_int_flag(cmws["#88#"])
+		d_light_dim = nil_state_to_int_flag(cmws["#90#"])
+		r_light_bright = nil_state_to_int_flag(cmws["#87#"])
+		r_light_dim = nil_state_to_int_flag(cmws["#89#"])
 
-		fwd_left_sector_brt = Nil_state_to_int_flag(cmws["#8#"])
-		aft_left_sector_brt = Nil_state_to_int_flag(cmws["#7#"])
-		aft_right_sector_brt = Nil_state_to_int_flag(cmws["#6#"])
-		fwd_right_sector_brt = Nil_state_to_int_flag(cmws["#9#"])
+		fwd_left_sector_brt = nil_state_to_int_flag(cmws["#8#"])
+		aft_left_sector_brt = nil_state_to_int_flag(cmws["#7#"])
+		aft_right_sector_brt = nil_state_to_int_flag(cmws["#6#"])
+		fwd_right_sector_brt = nil_state_to_int_flag(cmws["#9#"])
 		-- these values are all guesses
-		fwd_left_sector_dim = Nil_state_to_int_flag(cmws["#49#"])
-		aft_left_sector_dim = Nil_state_to_int_flag(cmws["#48#"])
-		aft_right_sector_dim = Nil_state_to_int_flag(cmws["#47#"])
-		fwd_right_sector_dim = Nil_state_to_int_flag(cmws["#50#"])
+		fwd_left_sector_dim = nil_state_to_int_flag(cmws["#49#"])
+		aft_left_sector_dim = nil_state_to_int_flag(cmws["#48#"])
+		aft_right_sector_dim = nil_state_to_int_flag(cmws["#47#"])
+		fwd_right_sector_dim = nil_state_to_int_flag(cmws["#50#"])
 	end
 end)
 
