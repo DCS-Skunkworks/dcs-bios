@@ -325,7 +325,7 @@ local function getPUI800_txt_weap_count()
 end
 local function getPUI800_txt_cannon_count()
 	if not indPUI800 then
-		return "  "
+		return ""
 	end
 	return indPUI800.txt_cannon_count or "  "
 end
