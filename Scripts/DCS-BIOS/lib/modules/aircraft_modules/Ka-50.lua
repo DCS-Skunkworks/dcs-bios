@@ -327,7 +327,7 @@ local function getPUI800_txt_cannon_count()
 	if not indPUI800 then
 		return ""
 	end
-	return indPUI800.txt_cannon_count or "  "
+	return indPUI800.txt_cannon_count or ""
 end
 Ka_50:defineString("WEAPONS_DISPLAY_STORE_TYPE", getPUI800_txt_weap_type, 2, "Weapons Control Panel", "Display store type")
 Ka_50:defineString("WEAPONS_DISPLAY_WEAPON_REMAIN", getPUI800_txt_weap_count, 2, "Weapons Control Panel", "Display selected weapons remaining")
