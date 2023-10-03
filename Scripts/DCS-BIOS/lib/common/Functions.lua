@@ -13,11 +13,7 @@ end
 ---@param value string
 ---@return string
 function Functions.coerce_nil_to_string(value)
-	if value == nil then
-		return ""
-	else
-		return value
-	end
+	return value and value or ""
 end
 
 --Constructs a string of the specified length with the left padded by whitespace if necessary.
