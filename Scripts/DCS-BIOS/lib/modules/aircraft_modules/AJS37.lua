@@ -2,7 +2,7 @@ module("AJS37", package.seeall)
 
 local Module = require("Module")
 
---- @class A_4E_C: Module
+--- @class AJS37: Module
 local AJS37 = Module:new("AJS37", 0x4600, { "AJS37" })
 
 --overhaul by WarLord v1.0a
