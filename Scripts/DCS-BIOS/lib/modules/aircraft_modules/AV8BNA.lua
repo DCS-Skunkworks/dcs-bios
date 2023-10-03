@@ -574,7 +574,7 @@ local function getComm2Text()
 end
 AV8BNA:defineString("UFC_COMM2_DISPLAY", getComm2Text, 2, "UFC Display", "UFC Comm2 Preset Display")
 
-AV8BNA:allocateInt(14)
+AV8BNA:reserveIntValue(14)
 
 -- parse ODU
 local oduOption1Select = ""
