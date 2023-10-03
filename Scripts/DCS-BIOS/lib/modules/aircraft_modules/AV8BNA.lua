@@ -7,6 +7,13 @@ local AV8BNA = Module:new("AV8BNA", 0x7800, { "AV8BNA" })
 
 --by WarLord,Matchstick v2.3c
 
+-- Used because this is used a lot, no need for everyone to keep calling the original function
+local parse_indication_5
+
+AV8BNA:addExportHook(function()
+	parse_indication_5 = Module.parse_indication(5)
+end)
+
 ----MAIN INSTRUMENT PANEL:
 --Master Modes Panel (MSC)
 AV8BNA:definePushButton("NAV_SEL", 12, 3282, 282, "Master Modes", "NAV Master Mode Selector")
@@ -550,19 +557,19 @@ AV8BNA:defineBitFromDrawArgument("EXT_WOW_TAIL", 343, "External Aircraft Model",
 
 -- Get Displays Functions
 local function getComm1Text()
-	if Module.parse_indication(5) == nil then
-		return (" "):rep(2)
+	if parse_indication_5 == nil then
+		return ""
 	end
-	local txt = Module.parse_indication(5)["ufc_chnl_1_m"] or ""
+	local txt = parse_indication_5["ufc_chnl_1_m"] or ""
 	return (" "):rep(2 - #txt) .. txt:sub(1, 2)
 end
 AV8BNA:defineString("UFC_COMM1_DISPLAY", getComm1Text, 2, "UFC Display", "UFC Comm1 Preset Display")
 
 local function getComm2Text()
-	if Module.parse_indication(5) == nil then
-		return (" "):rep(2)
+	if parse_indication_5 == nil then
+		return ""
 	end
-	local txt = Module.parse_indication(5)["ufc_chnl_2_m"] or ""
+	local txt = parse_indication_5["ufc_chnl_2_m"] or ""
 	return (" "):rep(2 - #txt) .. txt:sub(1, 2)
 end
 AV8BNA:defineString("UFC_COMM2_DISPLAY", getComm2Text, 2, "UFC Display", "UFC Comm2 Preset Display")
@@ -587,16 +594,16 @@ AV8BNA.exportHooks[#AV8BNA.exportHooks + 1] = function()
 		return
 	end
 
-	oduOption1Select = coerce_nil_to_string(odu["ODU_Option_1_Slc"])
-	oduOption1Text = coerce_nil_to_string(odu["ODU_Option_1_TEXT"])
-	oduOption2Select = coerce_nil_to_string(odu["ODU_Option_2_Slc"])
-	oduOption2Text = coerce_nil_to_string(odu["ODU_Option_2_TEXT"])
-	oduOption3Select = coerce_nil_to_string(odu["ODU_Option_3_Slc"])
-	oduOption3Text = coerce_nil_to_string(odu["ODU_Option_3_TEXT"])
-	oduOption4Select = coerce_nil_to_string(odu["ODU_Option_4_Slc"])
-	oduOption4Text = coerce_nil_to_string(odu["ODU_Option_4_TEXT"])
-	oduOption5Select = coerce_nil_to_string(odu["ODU_Option_5_Slc"])
-	oduOption5Text = coerce_nil_to_string(odu["ODU_Option_5_TEXT"])
+	oduOption1Select = odu["ODU_Option_1_Slc"] or ""
+	oduOption1Text = odu["ODU_Option_1_TEXT"] or ""
+	oduOption2Select = odu["ODU_Option_2_Slc"] or ""
+	oduOption2Text = odu["ODU_Option_2_TEXT"] or ""
+	oduOption3Select = odu["ODU_Option_3_Slc"] or ""
+	oduOption3Text = odu["ODU_Option_3_TEXT"] or ""
+	oduOption4Select = odu["ODU_Option_4_Slc"] or ""
+	oduOption4Text = odu["ODU_Option_4_TEXT"] or ""
+	oduOption5Select = odu["ODU_Option_5_Slc"] or ""
+	oduOption5Text = odu["ODU_Option_5_TEXT"] or ""
 end
 
 AV8BNA:defineString("AV8BNA_ODU_1_SELECT", function()
@@ -631,11 +638,11 @@ AV8BNA:defineString("AV8BNA_ODU_5_TEXT", function()
 end, 4, "ODU", "ODU Option 5 Text (string)")
 
 local function getUfcText()
-	if Module.parse_indication(5) == nil then
-		return (" "):rep(12)
+	if parse_indication_5 == nil then
+		return ""
 	end
-	local leftStr = Module.parse_indication(5)["ufc_left_position"] or ""
-	local rightStr = Module.parse_indication(5)["ufc_right_position"] or ""
+	local leftStr = parse_indication_5["ufc_left_position"] or ""
+	local rightStr = parse_indication_5["ufc_right_position"] or ""
 
 	local displayStr = leftStr .. (" "):rep(12 - #leftStr - #rightStr) .. rightStr
 	return displayStr
