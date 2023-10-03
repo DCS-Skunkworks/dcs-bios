@@ -152,9 +152,9 @@ end
 CockpitPage = ""
 
 --- @func Returns a list of pages (cockpit screens)
---- @return string[]
+--- @return string
 function list_cockpit_params()
-	return { CockpitPage }
+	return CockpitPage
 end
 
 --- @func Maps value to from input_range to output_range
