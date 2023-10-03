@@ -4,7 +4,7 @@ BIOSdevMode = 1 -- 1 DevMode / 0 UserMode
 
 BIOS.dbg = {}
 
--- To log use the global Logg module
+-- To log use the global LogBIOS module
 
 
 package.path  = package.path..";.\\LuaSocket\\?.lua"
@@ -25,7 +25,7 @@ package.path = lfs.writedir() .. [[Scripts/DCS-BIOS/lib/modules/documentation/?.
 package.path = lfs.writedir() .. [[Scripts/DCS-BIOS/lib/modules/memory_map/?.lua;]] .. package.path
 
 Logger = require "Logger"
-Logg = Logger:new(lfs.writedir()..[[Logs/DCS-BIOS.log]])
+LogBIOS = Logger:new(lfs.writedir()..[[Logs/DCS-BIOS.log]])
 
 -- all requires must come after updates to package.path
 local ProtocolIO = require("ProtocolIO")

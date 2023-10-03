@@ -15,10 +15,11 @@ package.path = "./Scripts/DCS-BIOS/lib/modules/memory_map/?.lua;" .. package.pat
 
 -- global functions that haven't been refactored yet
 BIOS = {}
-Logg = {}
-lfs = require("lfs")
 
-function Logg.log(str) end -- noop
+LogBIOS = {}
+function LogBIOS.log(str) end -- noop
+
+lfs = require("lfs")
 
 require("AircraftTest") -- high-level tests for specific aircraft
 require("MemoryMapTest") -- unit tests for the memory map
