@@ -139,7 +139,7 @@ Ka_50:definePushButton("LWR_RESET", 36, 3001, 35, "LWR", "Reset Button")
 local function getUV26Display()
 	local ind = Module.parse_indication(7)
 	if ind == nil then
-		return "   "
+		return ""
 	end
 	return ind["txt_digits"]
 end
