@@ -2,11 +2,11 @@ module("Ka-50", package.seeall)
 
 local Control = require("Control")
 local ControlType = require("ControlType")
+local Functions = require("Functions")
 local IntegerOutput = require("IntegerOutput")
 local Module = require("Module")
 local PhysicalVariant = require("PhysicalVariant")
 local Suffix = require("Suffix")
-local functions = require("Functions")
 
 --- @class Ka_50 : Module
 local Ka_50 = Module:new("Ka-50", 0x1800, { "Ka-50", "Ka-50_3" })
@@ -396,13 +396,13 @@ Ka_50:addExportHook(function()
 	indEKRAN = parse_EKRAN()
 end)
 local function getEKRAN_memory()
-	return functions.nil_states_to_str_flag(indEKRAN, indEKRAN and indEKRAN.txt_memory or nil)
+	return Functions.nil_states_to_str_flag(indEKRAN, indEKRAN and indEKRAN.txt_memory or nil)
 end
 local function getEKRAN_queue()
-	return functions.nil_states_to_str_flag(indEKRAN, indEKRAN and indEKRAN.txt_queue or nil)
+	return Functions.nil_states_to_str_flag(indEKRAN, indEKRAN and indEKRAN.txt_queue or nil)
 end
 local function getEKRAN_failure()
-	return functions.nil_states_to_str_flag(indEKRAN, indEKRAN and indEKRAN.txt_failure or nil)
+	return Functions.nil_states_to_str_flag(indEKRAN, indEKRAN and indEKRAN.txt_failure or nil)
 end
 Ka_50:defineString("EKRAN_MEMORY", getEKRAN_memory, 1, "EKRAN", "Memory message")
 Ka_50:defineString("EKRAN_QUEUE", getEKRAN_queue, 1, "EKRAN", "Queue message")
