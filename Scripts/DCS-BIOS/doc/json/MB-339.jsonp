@@ -3757,10 +3757,74 @@ docdata["MB-339"] =
                                                                                    } ],
                                                             "momentary_positions": "none",
                                                                         "outputs": [ {
-                                                                                                             "address": 33286,
+                                                                                                             "address": 33280,
                                                                                                   "address_identifier": "MB_339_CB_AHR_GPS_A",
                                                                                              "address_mask_identifier": "MB_339_CB_AHR_GPS_AM",
                                                                                        "address_mask_shift_identifier": "MB_339_CB_AHR_GPS",
+                                                                                                         "description": "selector position",
+                                                                                                                "mask": 128,
+                                                                                                           "max_value": 1,
+                                                                                                            "shift_by": 7,
+                                                                                                              "suffix": "",
+                                                                                                                "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
+                                                        },
+                                         "CB_AHR_GPS2": {
+                                                                       "category": "Circuit Breakers",
+                                                                   "control_type": "selector",
+                                                                    "description": "C/B AHR/GPS",
+                                                                     "identifier": "CB_AHR_GPS2",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                                             "address": 33280,
+                                                                                                  "address_identifier": "MB_339_CB_AHR_GPS2_A",
+                                                                                             "address_mask_identifier": "MB_339_CB_AHR_GPS2_AM",
+                                                                                       "address_mask_shift_identifier": "MB_339_CB_AHR_GPS2",
+                                                                                                         "description": "selector position",
+                                                                                                                "mask": 8192,
+                                                                                                           "max_value": 1,
+                                                                                                            "shift_by": 13,
+                                                                                                              "suffix": "",
+                                                                                                                "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
+                                                        },
+                                         "CB_AHR_GPS3": {
+                                                                       "category": "Circuit Breakers",
+                                                                   "control_type": "selector",
+                                                                    "description": "C/B AHR/GPS",
+                                                                     "identifier": "CB_AHR_GPS3",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                                             "address": 33286,
+                                                                                                  "address_identifier": "MB_339_CB_AHR_GPS3_A",
+                                                                                             "address_mask_identifier": "MB_339_CB_AHR_GPS3_AM",
+                                                                                       "address_mask_shift_identifier": "MB_339_CB_AHR_GPS3",
                                                                                                          "description": "selector position",
                                                                                                                 "mask": 16384,
                                                                                                            "max_value": 1,
@@ -5165,10 +5229,42 @@ docdata["MB-339"] =
                                                                                    } ],
                                                             "momentary_positions": "none",
                                                                         "outputs": [ {
-                                                                                                             "address": 33286,
+                                                                                                             "address": 33280,
                                                                                                   "address_identifier": "MB_339_CB_SIGHT_A",
                                                                                              "address_mask_identifier": "MB_339_CB_SIGHT_AM",
                                                                                        "address_mask_shift_identifier": "MB_339_CB_SIGHT",
+                                                                                                         "description": "selector position",
+                                                                                                                "mask": 64,
+                                                                                                           "max_value": 1,
+                                                                                                            "shift_by": 6,
+                                                                                                              "suffix": "",
+                                                                                                                "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "toggle_switch"
+                                                        },
+                                           "CB_SIGHT2": {
+                                                                       "category": "Circuit Breakers",
+                                                                   "control_type": "selector",
+                                                                    "description": "C/B Sight",
+                                                                     "identifier": "CB_SIGHT2",
+                                                                         "inputs": [ {
+                                                                                       "description": "switch to previous or next state",
+                                                                                         "interface": "fixed_step"
+                                                                                   }, {
+                                                                                       "description": "set position",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 1
+                                                                                   }, {
+                                                                                          "argument": "TOGGLE",
+                                                                                       "description": "Toggle switch state",
+                                                                                         "interface": "action"
+                                                                                   } ],
+                                                            "momentary_positions": "none",
+                                                                        "outputs": [ {
+                                                                                                             "address": 33286,
+                                                                                                  "address_identifier": "MB_339_CB_SIGHT2_A",
+                                                                                             "address_mask_identifier": "MB_339_CB_SIGHT2_AM",
+                                                                                       "address_mask_shift_identifier": "MB_339_CB_SIGHT2",
                                                                                                          "description": "selector position",
                                                                                                                 "mask": 2048,
                                                                                                            "max_value": 1,

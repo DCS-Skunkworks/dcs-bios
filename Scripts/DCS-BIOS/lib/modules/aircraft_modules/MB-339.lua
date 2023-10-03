@@ -34,7 +34,7 @@ MB_339:defineToggleSwitch("CB_UTIL_PW", 1, 3921, 1131, "Circuit Breakers", "C/B 
 -- MB_339:defineToggleSwitch("CB_TACAN", 1, 3922, 1132, "Circuit Breakers", "C/B TACAN") -- duplicate
 MB_339:reserveIntValue(1)
 MB_339:defineToggleSwitch("CB_FORM_LT", 1, 3923, 1134, "Circuit Breakers", "C/B Form Lt")
-MB_339:defineToggleSwitch("CB_AHR_GPS", 1, 3924, 1135, "Circuit Breakers", "C/B AHR/GPS") -- todo: fix duplicate
+MB_339:defineToggleSwitch("CB_AHR_GPS2", 1, 3924, 1135, "Circuit Breakers", "C/B AHR/GPS") -- todo: fix duplicate
 MB_339:defineToggleSwitch("CB_ADF", 1, 3925, 1136, "Circuit Breakers", "C/B ADF")
 MB_339:defineToggleSwitch("CB_TACAN", 1, 3922, 1132, "Circuit Breakers", "C/B TACAN")
 MB_339:defineToggleSwitch("CB_STBY_ATT_FWD", 1, 3929, 1213, "Circuit Breakers", "C/B Fwd Stby Att Ind")
@@ -80,10 +80,10 @@ MB_339:defineToggleSwitch("CB_PITOT_AFT", 1, 3985, 1453, "Circuit Breakers", "C/
 MB_339:defineToggleSwitch("CB_ENG_ANTI_ICE", 1, 3986, 1454, "Circuit Breakers", "C/B Engine Anti-Ice")
 MB_339:defineToggleSwitch("CB_WHSLD_DEM", 1, 3987, 1455, "Circuit Breakers", "C/B Whsld Dem")
 MB_339:defineToggleSwitch("CB_ICE_DETR", 1, 3988, 1456, "Circuit Breakers", "C/B Ice Detr")
-MB_339:defineToggleSwitch("CB_SIGHT", 1, 3989, 1457, "Circuit Breakers", "C/B Sight") -- todo: fix duplicate
+MB_339:defineToggleSwitch("CB_SIGHT2", 1, 3989, 1457, "Circuit Breakers", "C/B Sight") -- todo: fix duplicate
 MB_339:defineToggleSwitch("CB_CDU_FWD", 1, 3990, 1511, "Circuit Breakers", "C/B Fwd Cdu")
 MB_339:defineToggleSwitch("CB_CDU_AFT", 1, 3991, 1512, "Circuit Breakers", "C/B Aft Cdu")
-MB_339:defineToggleSwitch("CB_AHR_GPS", 1, 3992, 1513, "Circuit Breakers", "C/B AHR/GPS") -- todo: fix duplicate
+MB_339:defineToggleSwitch("CB_AHR_GPS3", 1, 3992, 1513, "Circuit Breakers", "C/B AHR/GPS") -- todo: fix duplicate
 MB_339:defineToggleSwitch("CB_COMM_RDU", 1, 3995, 1522, "Circuit Breakers", "C/B COMM RDU")
 
 --Electrical
