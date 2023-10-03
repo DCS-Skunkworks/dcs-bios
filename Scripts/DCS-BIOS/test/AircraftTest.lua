@@ -27,6 +27,10 @@ function TestAircraft:testAlphajet()
 	self:validateModule(require("Alphajet"), "Alphajet", 0x6400)
 end
 
+function TestAircraft:testAV8BNA()
+	self:validateModule(require("AV8BNA"), "AV8BNA", 0x7800)
+end
+
 function TestAircraft:testBf109K4()
 	self:validateModule(require("Bf-109K-4"), "Bf-109K-4", 0x4200)
 end
