@@ -1,3 +1,4 @@
+local Functions = require("Functions")
 module("AH-64D", package.seeall)
 
 local Module = require("Module")
@@ -29,7 +30,7 @@ local function parse_ku(indicator_id)
 	if not ku then
 		return "                      " -- 22 characters
 	end
-	return Coerce_nil_to_string(ku.Standby_text)
+	return Functions.coerce_nil_to_string(ku.Standby_text)
 end
 
 --MPD Left
@@ -827,8 +828,8 @@ AH_64D:addExportHook(function()
 
 	if is_test_page then
 		cmws_page = "TEST"
-		bit_line_1 = Coerce_nil_to_string(cmws["#42#"])
-		bit_line_2 = Coerce_nil_to_string(cmws["#43#"])
+		bit_line_1 = Functions.coerce_nil_to_string(cmws["#42#"])
+		bit_line_2 = Functions.coerce_nil_to_string(cmws["#43#"])
 
 		-- these values are all guesses
 		d_light_dim = nil_state_to_int_flag(cmws["#45#"])
@@ -839,10 +840,10 @@ AH_64D:addExportHook(function()
 		fwd_right_sector_dim = nil_state_to_int_flag(cmws["#9#"])
 	else
 		cmws_page = "MAIN"
-		flare_letter = Coerce_nil_to_string(cmws["#83#"])
-		chaff_letter = Coerce_nil_to_string(cmws["#84#"])
-		flare_count = Coerce_nil_to_string(cmws["#85#"])
-		chaff_count = Coerce_nil_to_string(cmws["#86#"])
+		flare_letter = Functions.coerce_nil_to_string(cmws["#83#"])
+		chaff_letter = Functions.coerce_nil_to_string(cmws["#84#"])
+		flare_count = Functions.coerce_nil_to_string(cmws["#85#"])
+		chaff_count = Functions.coerce_nil_to_string(cmws["#86#"])
 		d_light_bright = nil_state_to_int_flag(cmws["#88#"])
 		d_light_dim = nil_state_to_int_flag(cmws["#90#"])
 		r_light_bright = nil_state_to_int_flag(cmws["#87#"])
