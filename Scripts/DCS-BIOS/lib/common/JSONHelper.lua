@@ -43,7 +43,7 @@ function JSONHelper.decode_from_file(filename)
 		file = nil
 	end
 
-	return json_table
+	return json_table or {}
 end
 
 return JSONHelper
