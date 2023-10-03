@@ -445,19 +445,19 @@ local function getEKRAN_txt2_line2()
 	if indEKRAN == nil or indEKRAN.txt_2 == nil then
 		return ""
 	end
-	return indEKRAN.txt_2[2] or "          "
+	return indEKRAN.txt_2[2] or ""
 end
 local function getEKRAN_txt2_line3()
 	if indEKRAN == nil or indEKRAN.txt_2 == nil then
 		return ""
 	end
-	return indEKRAN.txt_2[3] or "          "
+	return indEKRAN.txt_2[3] or ""
 end
 local function getEKRAN_txt2_line4()
 	if indEKRAN == nil or indEKRAN.txt_2 == nil then
 		return ""
 	end
-	return indEKRAN.txt_2[4] or "          "
+	return indEKRAN.txt_2[4] or ""
 end
 Ka_50:defineString("EKRAN_TXT2_LINE1", getEKRAN_txt2_line1, 10, "EKRAN", "EKRAN txt 2 line 1")
 Ka_50:defineString("EKRAN_TXT2_LINE2", getEKRAN_txt2_line2, 10, "EKRAN", "EKRAN txt 2 line 2")
@@ -565,61 +565,61 @@ local function getPVI_line1_sign()
 	if not indPVI then
 		return ""
 	end
-	return indPVI.txt_VIT_sign or " "
+	return indPVI.txt_VIT_sign or ""
 end
 local function getPVI_line2_sign()
 	if not indPVI then
 		return ""
 	end
-	return indPVI.txt_NIT_sign or " "
+	return indPVI.txt_NIT_sign or ""
 end
 local function getPVI_line1_text()
 	if not indPVI then
 		return ""
 	end
-	return indPVI.txt_VIT or "      "
+	return indPVI.txt_VIT or ""
 end
 local function getPVI_line2_text()
 	if not indPVI then
 		return ""
 	end
-	return indPVI.txt_NIT or "      "
+	return indPVI.txt_NIT or ""
 end
 local function getPVI_line1_point()
 	if not indPVI then
 		return ""
 	end
-	return indPVI.txt_OIT_PPM or " "
+	return indPVI.txt_OIT_PPM or ""
 end
 local function getPVI_line2_point()
 	if not indPVI then
 		return ""
 	end
-	return indPVI.txt_OIT_NOT or " "
+	return indPVI.txt_OIT_NOT or ""
 end
 local function getPVI_line1_apostrophe1()
 	if not indPVI then
 		return ""
 	end
-	return indPVI.txt_VIT_apostrophe1 or " "
+	return indPVI.txt_VIT_apostrophe1 or ""
 end
 local function getPVI_line1_apostrophe2()
 	if not indPVI then
 		return ""
 	end
-	return indPVI.txt_VIT_apostrophe2 or " "
+	return indPVI.txt_VIT_apostrophe2 or ""
 end
 local function getPVI_line2_apostrophe1()
 	if not indPVI then
 		return ""
 	end
-	return indPVI.txt_NIT_apostrophe1 or " "
+	return indPVI.txt_NIT_apostrophe1 or ""
 end
 local function getPVI_line2_apostrophe2()
 	if not indPVI then
 		return ""
 	end
-	return indPVI.txt_NIT_apostrophe2 or " "
+	return indPVI.txt_NIT_apostrophe2 or ""
 end
 Ka_50:defineString("PVI_LINE1_SIGN", getPVI_line1_sign, 1, "PVI-800 Control Panel", "Display top line sign")
 Ka_50:defineString("PVI_LINE2_SIGN", getPVI_line2_sign, 1, "PVI-800 Control Panel", "Display bottom line sign")
