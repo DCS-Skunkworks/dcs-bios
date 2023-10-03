@@ -141,7 +141,7 @@ local function getUV26Display()
 	if ind == nil then
 		return ""
 	end
-	return ind["txt_digits"]
+	return ind["txt_digits"] or ""
 end
 Ka_50:defineString("UV26_DISPLAY", getUV26Display, 3, "UV-26 Control Panel", "UV-26 display")
 Ka_50:defineIndicatorLight("UV26_L_DISPENSER", 541, "UV-26 Control Panel", "Left dispenser Light (red)")
