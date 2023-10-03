@@ -2095,31 +2095,36 @@
                  "FR22 Radio": {
                                                "FR22_BASE": {
                                                                            "category": "FR22 Radio",
-                                                                       "control_type": "selector",
+                                                                       "control_type": "discrete_dial",
                                                                         "description": "FR22 Base Selector",
                                                                          "identifier": "FR22_BASE",
                                                                              "inputs": [ {
                                                                                            "description": "switch to previous or next state",
                                                                                              "interface": "fixed_step"
-                                                                                       }, {
-                                                                                           "description": "set position",
-                                                                                             "interface": "set_state",
-                                                                                             "max_value": 20
                                                                                        } ],
                                                                 "momentary_positions": "none",
                                                                             "outputs": [ {
-                                                                                                                 "address": 18066,
+                                                                                                                 "address": 18094,
                                                                                                       "address_identifier": "AJS37_FR22_BASE_A",
                                                                                                  "address_mask_identifier": "AJS37_FR22_BASE_AM",
                                                                                            "address_mask_shift_identifier": "AJS37_FR22_BASE",
                                                                                                              "description": "selector position",
-                                                                                                                    "mask": 3968,
-                                                                                                               "max_value": 20,
-                                                                                                                "shift_by": 7,
-                                                                                                                  "suffix": "",
+                                                                                                                    "mask": 32512,
+                                                                                                               "max_value": 85,
+                                                                                                                "shift_by": 8,
+                                                                                                                  "suffix": "_INT",
                                                                                                                     "type": "integer"
+                                                                                       }, {
+                                                                                                                 "address": 18170,
+                                                                                                      "address_identifier": "AJS37_FR22_BASE_A",
+                                                                                                 "address_mask_identifier": "AJS37_FR22_BASE_AM",
+                                                                                           "address_mask_shift_identifier": "AJS37_FR22_BASE",
+                                                                                                             "description": "possible values: \" -- \" \" 01 \" \" 02 \" \" 03 \" \" 04 \" \" 05 \" \"ALLM\" \" 06 \" \" 07 \" \" 08 \" \" 09 \" \" 10 \" \"ALLM\" \" 11 \" \" 12 \" \" 13 \" \" 14 \" \" 15 \" \"ALLM\" \" 16 \" \" 17 \" \" 18 \" \" 19 \" \" 20 \" \"ALLM\" \" 21 \" \" 22 \" \" 23 \" \" 24 \" \" 25 \" \"ALLM\" \" 26 \" \" 27 \" \" 28 \" \" 29 \" \" 30 \" \"ALLM\" \" 31 \" \" 32 \" \" 33 \" \" 34 \" \" 35 \" \"ALLM\" \" 36 \" \" 37 \" \" 38 \" \" 39 \" \" 40 \" \"ALLM\" \" 41 \" \" 42 \" \" 43 \" \" 44 \" \" 45 \" \"ALLM\" \" 46 \" \" 47 \" \" 48 \" \" 49 \" \" 50 \" \"ALLM\" \" 51 \" \" 52 \" \" 53 \" \" 54 \" \" 55 \" \"ALLM\" \" 56 \" \" 57 \" \" 58 \" \" 59 \" \" 60 \" \"ALLM\" \" 61 \" \" 62 \" \" 63 \" \" 64 \" \" 65 \" \"ALLM\" \" 66 \" \" 67 \" \" 68 \" \" 69 \" \" T1 \" \" T2 \" \" -- \"",
+                                                                                                              "max_length": 4,
+                                                                                                                  "suffix": "_STR",
+                                                                                                                    "type": "string"
                                                                                        } ],
-                                                                   "physical_variant": "limited_rotary"
+                                                                   "physical_variant": "infinite_rotary"
                                                             },
                                          "FR22_CHANNEL_AG": {
                                                                         "api_variant": "momentary_last_position",
@@ -2684,31 +2689,36 @@
                                                             },
                                               "FR22_GROUP": {
                                                                            "category": "FR22 Radio",
-                                                                       "control_type": "selector",
+                                                                       "control_type": "discrete_dial",
                                                                         "description": "FR22 Group Selector",
                                                                          "identifier": "FR22_GROUP",
                                                                              "inputs": [ {
                                                                                            "description": "switch to previous or next state",
                                                                                              "interface": "fixed_step"
-                                                                                       }, {
-                                                                                           "description": "set position",
-                                                                                             "interface": "set_state",
-                                                                                             "max_value": 10
                                                                                        } ],
                                                                 "momentary_positions": "none",
                                                                             "outputs": [ {
-                                                                                                                 "address": 18066,
+                                                                                                                 "address": 18096,
                                                                                                       "address_identifier": "AJS37_FR22_GROUP_A",
                                                                                                  "address_mask_identifier": "AJS37_FR22_GROUP_AM",
                                                                                            "address_mask_shift_identifier": "AJS37_FR22_GROUP",
                                                                                                              "description": "selector position",
-                                                                                                                    "mask": 61440,
-                                                                                                               "max_value": 10,
-                                                                                                                "shift_by": 12,
-                                                                                                                  "suffix": "",
+                                                                                                                    "mask": 16128,
+                                                                                                               "max_value": 43,
+                                                                                                                "shift_by": 8,
+                                                                                                                  "suffix": "_INT",
                                                                                                                     "type": "integer"
+                                                                                       }, {
+                                                                                                                 "address": 18174,
+                                                                                                      "address_identifier": "AJS37_FR22_GROUP_A",
+                                                                                                 "address_mask_identifier": "AJS37_FR22_GROUP_AM",
+                                                                                           "address_mask_shift_identifier": "AJS37_FR22_GROUP",
+                                                                                                             "description": "possible values: \"--\" \"10\" \"11\" \"12\" \"13\" \"14\" \"15\" \"20\" \"21\" \"22\" \"23\" \"24\" \"25\" \"30\" \"31\" \"32\" \"33\" \"40\" \"41\" \"42\" \"43\" \"44\" \"45\" \"50\" \"51\" \"52\" \"53\" \"54\" \"55\" \"60\" \"61\" \"62\" \"63\" \"64\" \"70\" \"71\" \"72\" \"73\" \"74\" \"80\" \"81\" \"82\" \"T3\" \"--\"",
+                                                                                                              "max_length": 2,
+                                                                                                                  "suffix": "_STR",
+                                                                                                                    "type": "string"
                                                                                        } ],
-                                                                   "physical_variant": "limited_rotary"
+                                                                   "physical_variant": "infinite_rotary"
                                                             },
                                     "FR22_INNER_LEFT_KNOB": {
                                                                  "api_variant": "multiturn",
@@ -3160,12 +3170,15 @@
                                                                          "physical_variant": "toggle_switch"
                                                                   },
                                               "AIRSPEED_INDEXER": {
-                                                                       "api_variant": "multiturn",
                                                                           "category": "Flight Data Unit",
-                                                                      "control_type": "analog_dial",
+                                                                      "control_type": "limited_dial",
                                                                        "description": "Airspeed Indexer",
                                                                         "identifier": "AIRSPEED_INDEXER",
                                                                             "inputs": [ {
+                                                                                          "description": "set the position of the dial",
+                                                                                            "interface": "set_state",
+                                                                                            "max_value": 65535
+                                                                                      }, {
                                                                                              "description": "turn the dial left or right",
                                                                                                "interface": "variable_step",
                                                                                                "max_value": 65535,
@@ -3176,11 +3189,11 @@
                                                                                                      "address_identifier": "AJS37_AIRSPEED_INDEXER_A",
                                                                                                 "address_mask_identifier": "AJS37_AIRSPEED_INDEXER_AM",
                                                                                           "address_mask_shift_identifier": "AJS37_AIRSPEED_INDEXER",
-                                                                                                            "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                                                            "description": "position of the potentiometer",
                                                                                                                    "mask": 65535,
                                                                                                               "max_value": 65535,
                                                                                                                "shift_by": 0,
-                                                                                                                 "suffix": "_KNOB_POS",
+                                                                                                                 "suffix": "",
                                                                                                                    "type": "integer"
                                                                                       } ]
                                                                   },
