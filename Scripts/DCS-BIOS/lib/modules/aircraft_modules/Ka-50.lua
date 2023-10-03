@@ -417,7 +417,7 @@ Ka_50:defineString("EKRAN_QUEUE", getEKRAN_queue, 1, "EKRAN", "Queue message")
 Ka_50:defineString("EKRAN_FAILURE", getEKRAN_failure, 1, "EKRAN", "Failure message")
 local function getEKRAN_txt1_line1()
 	if indEKRAN == nil or indEKRAN.txt_1 == nil then
-		return "          "
+		return ""
 	end
 	return indEKRAN.txt_1[1] or "          "
 end
