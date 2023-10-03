@@ -46,11 +46,11 @@ function MemoryAllocation:setValue(value)
 	assert(value)
 	value = math.floor(value)
 	if value < 0 then
-		Logg:log(string.format("Util.lua: value %f is too small for address %d mask %d", value, self.address, self.mask))
+		LogBIOS:log(string.format("Util.lua: value %f is too small for address %d mask %d", value, self.address, self.mask))
 		return
 	end
 	if value > self.maxValue then
-		Logg:log(string.format("Util.lua: value %f is too large for address %d mask %d", value, self.address, self.mask))
+		LogBIOS:log(string.format("Util.lua: value %f is too large for address %d mask %d", value, self.address, self.mask))
 		return
 	end
 	assert(value >= 0)

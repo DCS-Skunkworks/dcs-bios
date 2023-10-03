@@ -4,7 +4,7 @@ BIOSdevMode = 1 -- 1 DevMode / 0 UserMode
 
 BIOS.dbg = {}
 
--- To log use the global Logg module
+-- To log use the global LogBIOS module
 
 
 package.path  = package.path..";.\\LuaSocket\\?.lua"
@@ -25,7 +25,7 @@ package.path = lfs.writedir() .. [[Scripts/DCS-BIOS/lib/modules/documentation/?.
 package.path = lfs.writedir() .. [[Scripts/DCS-BIOS/lib/modules/memory_map/?.lua;]] .. package.path
 
 Logger = require "Logger"
-Logg = Logger:new(lfs.writedir()..[[Logs/DCS-BIOS.log]])
+LogBIOS = Logger:new(lfs.writedir()..[[Logs/DCS-BIOS.log]])
 
 -- all requires must come after updates to package.path
 local ProtocolIO = require("ProtocolIO")
@@ -60,14 +60,18 @@ BIOS.protocol.writeNewModule(A_4E_C)
 -- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/AH-6J.lua]]) -- ID = 7, ProperName = AH-6J Littlebird
 local AH_6J = require "AH-6J"
 BIOS.protocol.writeNewModule(AH_6J)
-dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/AH-64D.lua]]) -- ID = 46, ProperName = AH-64D Apache
+--dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/AH-64D.lua]]) -- ID = 46, ProperName = AH-64D Apache
+local AH_64D = require "AH-64D"
+BIOS.protocol.writeNewModule(AH_64D)
 -- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/AJS37.lua]]) -- ID = 8, ProperName = AJS-37 Viggen
 local AJS37 = require "AJS37"
 BIOS.protocol.writeNewModule(AJS37)
 -- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/Alphajet.lua]]) -- ID = 9, ProperName = Alphajet
 local Alphajet = require "Alphajet"
 BIOS.protocol.writeNewModule(Alphajet)
-dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/AV8BNA.lua]]) -- ID = 10, ProperName = AV-8B Night Attack
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/AV8BNA.lua]]) -- ID = 10, ProperName = AV-8B Night Attack
+local AV8BNA = require "AV8BNA"
+BIOS.protocol.writeNewModule(AV8BNA)
 -- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/Bf-109K-4.lua]]) -- ID = 11, ProperName = Bf 109 K-4 Kurfurst
 local Bf_109K_4 = require "Bf-109K-4"
 BIOS.protocol.writeNewModule(Bf_109K_4)

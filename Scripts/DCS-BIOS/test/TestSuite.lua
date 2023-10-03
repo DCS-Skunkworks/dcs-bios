@@ -1,6 +1,7 @@
 package.path = "./Scripts/DCS-BIOS/test/?.lua;" .. package.path
 package.path = "./Scripts/DCS-BIOS/test/controls/?.lua;" .. package.path
 package.path = "./Scripts/DCS-BIOS/test/ext/?.lua;" .. package.path
+package.path = "./Scripts/DCS-BIOS/test/compile/?.lua;" .. package.path
 package.path = "./Scripts/DCS-BIOS/test/io/?.lua;" .. package.path
 package.path = "./Scripts/DCS-BIOS/?.lua;" .. package.path
 package.path = "./Scripts/DCS-BIOS/lib/?.lua;" .. package.path
@@ -14,9 +15,12 @@ package.path = "./Scripts/DCS-BIOS/lib/modules/memory_map/?.lua;" .. package.pat
 
 -- global functions that haven't been refactored yet
 BIOS = {}
-Logg = {}
 
-function Logg.log(str) end -- noop
+LogBIOS = {}
+function LogBIOS.log(str) end -- noop
+
+lfs = require("lfs")
+
 require("AircraftTest") -- high-level tests for specific aircraft
 require("MemoryMapTest") -- unit tests for the memory map
 require("MemoryMapEntryTest") -- unit tests for memory map entries

@@ -15,6 +15,7 @@ local SetStateInput = require("SetStateInput")
 local StringOutput = require("StringOutput")
 local Suffix = require("Suffix")
 local VariableStepInput = require("VariableStepInput")
+local json = require("JSONHelper")
 
 --- @class Module
 --- @field name string the name of the module
@@ -854,6 +855,7 @@ function Module:addressDefineIdentifier(identifier)
 end
 
 --- Parses a dcs indication from a string into a key-value table, or nil if no data is available
+--- Values are separated with "-----------------------------------------\n"
 --- @param indicator_id integer
 --- @return {[string]: string}?
 function Module.parse_indication(indicator_id)
