@@ -391,73 +391,58 @@ local function parse_EKRAN()
 	end
 	return ret
 end
-local indEKRAN = nil
+local indEKRAN = {}
 Ka_50:addExportHook(function()
-	indEKRAN = parse_EKRAN()
+	indEKRAN = parse_EKRAN() or {}
 end)
 local function getEKRAN_memory()
-	return Functions.nil_states_to_str_flag(indEKRAN, indEKRAN and indEKRAN.txt_memory or nil)
+	return Functions.nil_state_to_str_flag(indEKRAN.txt_memory or nil)
 end
 local function getEKRAN_queue()
-	return Functions.nil_states_to_str_flag(indEKRAN, indEKRAN and indEKRAN.txt_queue or nil)
+	return Functions.nil_state_to_str_flag(indEKRAN.txt_queue or nil)
 end
 local function getEKRAN_failure()
-	return Functions.nil_states_to_str_flag(indEKRAN, indEKRAN and indEKRAN.txt_failure or nil)
+	return Functions.nil_state_to_str_flag(indEKRAN.txt_failure or nil)
 end
 Ka_50:defineString("EKRAN_MEMORY", getEKRAN_memory, 1, "EKRAN", "Memory message")
 Ka_50:defineString("EKRAN_QUEUE", getEKRAN_queue, 1, "EKRAN", "Queue message")
 Ka_50:defineString("EKRAN_FAILURE", getEKRAN_failure, 1, "EKRAN", "Failure message")
+
+--- Returns an item of an array if the array exists, otherwise an empty string
+--- @param arr string[]?
+--- @param index integer
+--- @return string
+local function item_of_nullable_array(arr, index)
+	return Functions.coerce_nil_to_string(arr and arr[index])
+end
+
 local function getEKRAN_txt1_line1()
-	if indEKRAN == nil or indEKRAN.txt_1 == nil then
-		return ""
-	end
-	return indEKRAN.txt_1[1] or ""
+	return item_of_nullable_array(indEKRAN.txt_1, 1)
 end
 local function getEKRAN_txt1_line2()
-	if indEKRAN == nil or indEKRAN.txt_1 == nil then
-		return ""
-	end
-	return indEKRAN.txt_1[2] or ""
+	return item_of_nullable_array(indEKRAN.txt_1, 2)
 end
 local function getEKRAN_txt1_line3()
-	if indEKRAN == nil or indEKRAN.txt_1 == nil then
-		return ""
-	end
-	return indEKRAN.txt_1[3] or ""
+	return item_of_nullable_array(indEKRAN.txt_1, 3)
 end
 local function getEKRAN_txt1_line4()
-	if indEKRAN == nil or indEKRAN.txt_1 == nil then
-		return ""
-	end
-	return indEKRAN.txt_1[4] or ""
+	return item_of_nullable_array(indEKRAN.txt_1, 4)
 end
 Ka_50:defineString("EKRAN_TXT1_LINE1", getEKRAN_txt1_line1, 10, "EKRAN", "EKRAN txt 1 line 1")
 Ka_50:defineString("EKRAN_TXT1_LINE2", getEKRAN_txt1_line2, 10, "EKRAN", "EKRAN txt 1 line 2")
 Ka_50:defineString("EKRAN_TXT1_LINE3", getEKRAN_txt1_line3, 10, "EKRAN", "EKRAN txt 1 line 3")
 Ka_50:defineString("EKRAN_TXT1_LINE4", getEKRAN_txt1_line4, 10, "EKRAN", "EKRAN txt 1 line 4")
 local function getEKRAN_txt2_line1()
-	if indEKRAN == nil or indEKRAN.txt_2 == nil then
-		return ""
-	end
-	return indEKRAN.txt_2[1] or ""
+	return item_of_nullable_array(indEKRAN.txt_2, 1)
 end
 local function getEKRAN_txt2_line2()
-	if indEKRAN == nil or indEKRAN.txt_2 == nil then
-		return ""
-	end
-	return indEKRAN.txt_2[2] or ""
+	return item_of_nullable_array(indEKRAN.txt_2, 2)
 end
 local function getEKRAN_txt2_line3()
-	if indEKRAN == nil or indEKRAN.txt_2 == nil then
-		return ""
-	end
-	return indEKRAN.txt_2[3] or ""
+	return item_of_nullable_array(indEKRAN.txt_2, 3)
 end
 local function getEKRAN_txt2_line4()
-	if indEKRAN == nil or indEKRAN.txt_2 == nil then
-		return ""
-	end
-	return indEKRAN.txt_2[4] or ""
+	return item_of_nullable_array(indEKRAN.txt_2, 4)
 end
 Ka_50:defineString("EKRAN_TXT2_LINE1", getEKRAN_txt2_line1, 10, "EKRAN", "EKRAN txt 2 line 1")
 Ka_50:defineString("EKRAN_TXT2_LINE2", getEKRAN_txt2_line2, 10, "EKRAN", "EKRAN txt 2 line 2")
