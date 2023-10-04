@@ -4,9 +4,6 @@ BIOSdevMode = 1 -- 1 DevMode / 0 UserMode
 
 BIOS.dbg = {}
 
--- To log use the global LogBIOS module
-
-
 package.path  = package.path..";.\\LuaSocket\\?.lua"
 package.cpath = package.cpath..";.\\LuaSocket\\?.dll"
 
@@ -24,11 +21,9 @@ package.path = lfs.writedir() .. [[Scripts/DCS-BIOS/lib/modules/common_modules/?
 package.path = lfs.writedir() .. [[Scripts/DCS-BIOS/lib/modules/documentation/?.lua;]] .. package.path
 package.path = lfs.writedir() .. [[Scripts/DCS-BIOS/lib/modules/memory_map/?.lua;]] .. package.path
 
-Logger = require "Logger"
-LogBIOS = Logger:new(lfs.writedir()..[[Logs/DCS-BIOS.log]])
-
 -- all requires must come after updates to package.path
 local ProtocolIO = require("ProtocolIO")
+
 
 local json = loadfile([[Scripts/JSON.lua]]) -- try to load json from dcs
 BIOS.json = json and json() or require "JSON" -- if that fails, fall back to module that we can define

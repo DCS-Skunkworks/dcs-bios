@@ -1,5 +1,7 @@
 module("MemoryAllocation", package.seeall)
 
+local Log = require("Log")
+
 --- @class MemoryAllocation
 --- @field address integer the memory address
 --- @field maxValue integer the maximum value stored at this memory location
@@ -46,11 +48,11 @@ function MemoryAllocation:setValue(value)
 	assert(value)
 	value = math.floor(value)
 	if value < 0 then
-		LogBIOS:log(string.format("Util.lua: value %f is too small for address %d mask %d", value, self.address, self.mask))
+		Log:log(string.format("Util.lua: value %f is too small for address %d mask %d", value, self.address, self.mask))
 		return
 	end
 	if value > self.maxValue then
-		LogBIOS:log(string.format("Util.lua: value %f is too large for address %d mask %d", value, self.address, self.mask))
+		Log:log(string.format("Util.lua: value %f is too large for address %d mask %d", value, self.address, self.mask))
 		return
 	end
 	assert(value >= 0)

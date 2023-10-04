@@ -16,8 +16,8 @@ package.path = "./Scripts/DCS-BIOS/lib/modules/memory_map/?.lua;" .. package.pat
 -- global functions that haven't been refactored yet
 BIOS = {}
 
-LogBIOS = {}
-function LogBIOS.log(str) end -- noop
+Log = {}
+function Log.log(str) end -- noop
 
 lfs = require("lfs")
 
