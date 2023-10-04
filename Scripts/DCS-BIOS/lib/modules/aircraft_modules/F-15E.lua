@@ -655,7 +655,7 @@ F_15:defineToggleSwitch("F_BH_EMERG_AR", 16, 3540, 540, "Front Left Bulkhead Pan
 F_15:defineToggleSwitch("F_BH_EWWS_CVR", 17, 3518, 518, "Front Left Bulkhead Panel", "FRONT EWWS Enable Switch Cover")
 F_15:defineToggleSwitch("F_BH_EWWS", 17, 3519, 519, "Front Left Bulkhead Panel", "FRONT EWWS Enable Switch")
 F_15:define3PosTumb("F_BH_IFF_ANT", 17, 3520, 520, "Front Left Bulkhead Panel", "FRONT IFF Antenna Select Switch")
-F_15:reserveIntValue(1) -- define3PosTumb("F_BH_SEAT_ADJ", 24, 3521, 521, "Front Left Bulkhead Panel", "FRONT Seat Adjust Switch")
+F_15:reserveIntValue(2)
 F_15:defineToggleSwitch("F_BH_FLYUP_CVR", 17, 3522, 522, "Front Left Bulkhead Panel", "FRONT Flyup Enable Switch Cover")
 F_15:defineToggleSwitch("F_BH_FLYUP", 17, 3523, 523, "Front Left Bulkhead Panel", "FRONT Flyup Enable Switch")
 F_15:defineToggleSwitch("F_BH_NCTR", 17, 3524, 524, "Front Left Bulkhead Panel", "FRONT NCTR Enable Switch")
