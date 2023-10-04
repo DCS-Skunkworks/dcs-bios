@@ -38,9 +38,16 @@ function TestToggleSwitchToggleOnly:testAddToggleSwitchToggleOnly()
 	lu.assertEquals(control.physical_variant, PhysicalVariant.toggle_switch)
 	lu.assertIsNil(control.api_variant)
 
-	lu.assertEquals(#control.inputs, 1)
+	lu.assertEquals(#control.inputs, 3)
 
-	local action_input = control.inputs[1] --[[@as ActionInput]]
+	local fixed_step_input = control.inputs[1] --[[@as FixedStepInput]]
+	lu.assertEquals(fixed_step_input.interface, InputType.fixed_step)
+
+	local set_state_input = control.inputs[2] --[[@as SetStateInput]]
+	lu.assertEquals(set_state_input.interface, InputType.set_state)
+	lu.assertEquals(set_state_input.max_value, 1)
+
+	local action_input = control.inputs[3] --[[@as ActionInput]]
 	lu.assertEquals(action_input.interface, InputType.action)
 	lu.assertEquals(action_input.argument, ActionArgument.toggle)
 
@@ -83,6 +90,94 @@ function TestToggleSwitchToggleOnly:testInputToggleFromOn()
 	Input_Processor_Device.value = 1
 
 	input_processor("TOGGLE")
+
+	lu.assertEquals(#Input_Processor_Device.clickable_actions, 1)
+	local action = Input_Processor_Device.clickable_actions[1]
+	lu.assertAlmostEquals(action[command], 1)
+end
+
+function TestToggleSwitchToggleOnly:testInput1From0()
+	self.module:defineToggleSwitchToggleOnly(id, device_id, command, arg_number, category, description)
+	local input_processor = self.module.inputProcessors[id]
+
+	input_processor("1")
+
+	lu.assertEquals(#Input_Processor_Device.clickable_actions, 1)
+	local action = Input_Processor_Device.clickable_actions[1]
+	lu.assertAlmostEquals(action[command], 1)
+end
+
+function TestToggleSwitchToggleOnly:testInput1From1()
+	self.module:defineToggleSwitchToggleOnly(id, device_id, command, arg_number, category, description)
+	local input_processor = self.module.inputProcessors[id]
+
+	Input_Processor_Device.value = 1
+
+	input_processor("1")
+
+	lu.assertEquals(#Input_Processor_Device.clickable_actions, 0)
+end
+
+function TestToggleSwitchToggleOnly:testInput0From0()
+	self.module:defineToggleSwitchToggleOnly(id, device_id, command, arg_number, category, description)
+	local input_processor = self.module.inputProcessors[id]
+
+	input_processor("0")
+
+	lu.assertEquals(#Input_Processor_Device.clickable_actions, 0)
+end
+
+function TestToggleSwitchToggleOnly:testInput0From1()
+	self.module:defineToggleSwitchToggleOnly(id, device_id, command, arg_number, category, description)
+	local input_processor = self.module.inputProcessors[id]
+
+	Input_Processor_Device.value = 1
+
+	input_processor("0")
+
+	lu.assertEquals(#Input_Processor_Device.clickable_actions, 1)
+	local action = Input_Processor_Device.clickable_actions[1]
+	lu.assertAlmostEquals(action[command], 1)
+end
+
+function TestToggleSwitch:testInputIncFrom0()
+	self.module:defineToggleSwitchToggleOnly(id, device_id, command, arg_number, category, description)
+	local input_processor = self.module.inputProcessors[id]
+
+	input_processor("INC")
+
+	lu.assertEquals(#Input_Processor_Device.clickable_actions, 1)
+	local action = Input_Processor_Device.clickable_actions[1]
+	lu.assertAlmostEquals(action[command], 1)
+end
+
+function TestToggleSwitch:testInputIncFrom1()
+	self.module:defineToggleSwitchToggleOnly(id, device_id, command, arg_number, category, description)
+	local input_processor = self.module.inputProcessors[id]
+
+	Input_Processor_Device.value = 1
+
+	input_processor("INC")
+
+	lu.assertEquals(#Input_Processor_Device.clickable_actions, 0)
+end
+
+function TestToggleSwitch:testInputDecFrom0()
+	self.module:defineToggleSwitchToggleOnly(id, device_id, command, arg_number, category, description)
+	local input_processor = self.module.inputProcessors[id]
+
+	input_processor("DEC")
+
+	lu.assertEquals(#Input_Processor_Device.clickable_actions, 0)
+end
+
+function TestToggleSwitch:testInputDecFrom1()
+	self.module:defineToggleSwitchToggleOnly(id, device_id, command, arg_number, category, description)
+	local input_processor = self.module.inputProcessors[id]
+
+	Input_Processor_Device.value = 1
+
+	input_processor("DEC")
 
 	lu.assertEquals(#Input_Processor_Device.clickable_actions, 1)
 	local action = Input_Processor_Device.clickable_actions[1]

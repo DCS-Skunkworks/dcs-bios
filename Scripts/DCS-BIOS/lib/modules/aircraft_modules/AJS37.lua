@@ -126,8 +126,7 @@ AJS37:defineToggleSwitch("PARKING_BRAKE", 22, 3408, 22, "Flight Data Unit", "Par
 AJS37:defineToggleSwitchToggleOnly("HUD_GLASS_POSITION", 22, 3401, 11, "Flight Data Unit", "HUD Reflector Glass Position")
 -- AJS37:defineToggleSwitchToggleOnly("AFK_MODE_3", 22, 3402, 464, "Flight Data Unit", "AFK Mode 3") -- duplicate
 AJS37:reserveIntValue(1)
-local afk_15_deg_mode = AJS37:defineToggleSwitchToggleOnly("AFK_15_DEG_MODE", 22, 3402, 464, "Flight Data Unit", "AFK 15 Deg Mode (view output with AOA_15_L)")
-afk_15_deg_mode.outputs = {} -- nothing is actually output from the game here
+AJS37:defineToggleSwitchToggleOnly("AFK_15_DEG_MODE", 22, 3402, 464, "Flight Data Unit", "AFK 15 Deg Mode")
 AJS37:defineTumb("MASTER_MODE_SELECT", 22, 3107, 209, 0.16666667, { 0, 1 }, nil, false, "Flight Data Unit", "Master Mode Selector")
 
 --Navigation Panel
