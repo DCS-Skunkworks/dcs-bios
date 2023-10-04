@@ -1,8 +1,9 @@
 module("Ka-50", package.seeall)
 
+local Functions = require("Functions")
+local Function = Functions:new()
 local Control = require("Control")
 local ControlType = require("ControlType")
-local Functions = require("Functions")
 local IntegerOutput = require("IntegerOutput")
 local Module = require("Module")
 local PhysicalVariant = require("PhysicalVariant")
@@ -396,13 +397,13 @@ Ka_50:addExportHook(function()
 	indEKRAN = parse_EKRAN() or {}
 end)
 local function getEKRAN_memory()
-	return Functions.nil_state_to_str_flag(indEKRAN.txt_memory or nil)
+	return Function:nil_state_to_str_flag(indEKRAN.txt_memory or nil)
 end
 local function getEKRAN_queue()
-	return Functions.nil_state_to_str_flag(indEKRAN.txt_queue or nil)
+	return Function:nil_state_to_str_flag(indEKRAN.txt_queue or nil)
 end
 local function getEKRAN_failure()
-	return Functions.nil_state_to_str_flag(indEKRAN.txt_failure or nil)
+	return Function:nil_state_to_str_flag(indEKRAN.txt_failure or nil)
 end
 Ka_50:defineString("EKRAN_MEMORY", getEKRAN_memory, 1, "EKRAN", "Memory message")
 Ka_50:defineString("EKRAN_QUEUE", getEKRAN_queue, 1, "EKRAN", "Queue message")
@@ -413,7 +414,7 @@ Ka_50:defineString("EKRAN_FAILURE", getEKRAN_failure, 1, "EKRAN", "Failure messa
 --- @param index integer
 --- @return string
 local function item_of_nullable_array(arr, index)
-	return Functions.coerce_nil_to_string(arr and arr[index])
+	return Function:coerce_nil_to_string(arr and arr[index])
 end
 
 local function getEKRAN_txt1_line1()

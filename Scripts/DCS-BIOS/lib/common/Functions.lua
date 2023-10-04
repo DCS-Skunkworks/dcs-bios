@@ -1,10 +1,21 @@
 module("Functions", package.seeall)
 
+--- @class Functions
 local Functions = {}
+
+--- @func Returns new Functions
+--- @return Functions
+function Functions:new()
+	--- @type Functions
+	local o = {}
+	setmetatable(o, self)
+	self.__index = self
+	return o
+end
 
 --- @func Returns the path of the calling script
 --- @return string
-function Functions.scriptPath()
+function Functions:scriptPath()
 	local str = debug.getinfo(2, "S").source:sub(2)
 	return str:match("(.*/)")
 end
@@ -12,7 +23,7 @@ end
 --- @func Returns value if not nil or an empty string
 --- @param value string?
 --- @return string
-function Functions.coerce_nil_to_string(value)
+function Functions:coerce_nil_to_string(value)
 	return value and value or ""
 end
 
@@ -20,15 +31,15 @@ end
 --- @param str string? The base text
 --- @param len number The length the string should be
 --- @return string result A new string of length len, with whitespace padding added to the left as necessary
-function Functions.padLeft(str, len)
-	str = tostring(Functions.coerce_nil_to_string(str))
+function Functions:pad_left(str, len)
+	str = tostring(self:coerce_nil_to_string(str))
 	return string.rep(" ", len - #str) .. str
 end
 
 --- @func Takes a string and checks for nil, returns 1 or 0
 --- @param str string?
 --- @return integer
-function Functions.nil_state_to_int_flag(str)
+function Functions:nil_state_to_int_flag(str)
 	return str and 1 or 0
 end
 
@@ -36,7 +47,7 @@ end
 --- Please strongly consider using nil_state_to_int_flag instead of this function. This function exists for legacy purposes only.
 --- @param str string?
 --- @return string
-function Functions.nil_state_to_str_flag(str)
+function Functions:nil_state_to_str_flag(str)
 	return str and "1" or "0"
 end
 
