@@ -51,60 +51,6 @@ local ufc_string_length = 20
 
 -- remove Arg# Pilot 1020 / WSO 1021 / WSO INSTR 1039
 
---- Defines a light
---- @param self Module the calling module
---- @param identifier string the unique identifier for the control
---- @param arg_number integer the dcs argument number
---- @param category string the category in which the control should appear
---- @param description string additional information about the control
---- @return Control control the control which was added to the module
-local function defineIndicatorLightMulti1(self, identifier, arg_number, category, description) --red
-	local max_value = 1
-	local alloc = self:allocateInt(max_value)
-
-	self:addExportHook(function(dev0)
-		if dev0:get_argument_value(arg_number) >= 0.1 and dev0:get_argument_value(arg_number) < 0.6 then
-			alloc:setValue(1)
-		else
-			alloc:setValue(0)
-		end
-	end)
-
-	local control = Control:new(category, ControlType.led, identifier, description, {}, {
-		IntegerOutput:new(alloc, Suffix.none, "Multi Led Color 1; Light is on between 0.1 and 0.59"),
-	})
-	self:addControl(control)
-
-	return control
-end
-
---- Defines a light
---- @param self Module the calling module
---- @param identifier string the unique identifier for the control
---- @param arg_number integer the dcs argument number
---- @param category string the category in which the control should appear
---- @param description string additional information about the control
---- @return Control control the control which was added to the module
-local function defineIndicatorLightMulti2(self, identifier, arg_number, category, description) --green
-	local max_value = 1
-	local alloc = self:allocateInt(max_value)
-
-	self:addExportHook(function(dev0)
-		if dev0:get_argument_value(arg_number) >= 0.61 and dev0:get_argument_value(arg_number) <= 1 then
-			alloc:setValue(1)
-		else
-			alloc:setValue(0)
-		end
-	end)
-
-	local control = Control:new(category, ControlType.led, identifier, description, {}, {
-		IntegerOutput:new(alloc, Suffix.none, "Multi Led Color 2; Light is on between 0.61 and 1"),
-	})
-	self:addControl(control)
-
-	return control
-end
-
 ----FRONT COCKPIT
 ---MAIN INSTRUMENTS PANEL
 --UFC Panel
@@ -180,7 +126,7 @@ local function replaceCharAtIndex(str, index, character)
 end
 
 local function replaceIndexIfValue(str, charValue, index)
-	local charData = coerce_nil_to_string(charValue):gsub("°", "`")
+	local charData = Functions.coerce_nil_to_string(charValue):gsub("°", "`")
 
 	if string.len(charData) > 0 then
 		return replaceCharAtIndex(str, index, charData):gsub("`", "'")
@@ -190,9 +136,9 @@ local function replaceIndexIfValue(str, charValue, index)
 end
 
 local function combine_ufc_line(left, center, right, centerStart)
-	left = coerce_nil_to_string(left)
-	right = coerce_nil_to_string(right)
-	center = coerce_nil_to_string(center)
+	left = Functions.coerce_nil_to_string(left)
+	right = Functions.coerce_nil_to_string(right)
+	center = Functions.coerce_nil_to_string(center)
 	local leftChars, leftSpecial
 	local rightChars, rightSpecial
 	local centerChars, centerSpecial
@@ -280,7 +226,7 @@ end
 local function build_ufc_line_6(ufcData)
 	local lineChars, lineSpecial = combine_ufc_line(ufcData.UFC_SC_06, ufcData.UFC_CC_04, ufcData.UFC_SC_07, 6)
 
-	local userInput = coerce_nil_to_string(ufcData.UFC_CC_04):gsub("°", "`")
+	local userInput = Functions.coerce_nil_to_string(ufcData.UFC_CC_04):gsub("°", "`")
 	local specialOffset = string.find(userInput, "[EW]") == 1 and 1 or 0
 
 	-- Special Characters and their indexes
@@ -435,13 +381,12 @@ F_15:defineToggleSwitch("F_LG_GEAR", 21, 3324, 324, "Front Landing Gear Panel", 
 F_15:definePushButton("F_LG_GEAR_TONE", 29, 3325, 325, "Front Landing Gear Panel", "FRONT Landing Gear Warning Tone Silence Switch")
 F_15:defineToggleSwitch("F_LG_EMERG_GEAR_PULL", 21, 3337, 337, "Front Landing Gear Panel", "FRONT Emergency Landing Gear Handle PUSH/PULL")
 F_15:defineToggleSwitch("F_LG_EMERG_GEAR_ROT", 21, 3431, 431, "Front Landing Gear Panel", "FRONT Emergency Landing Gear Handle ROTATE")
-
-defineIndicatorLightMulti1(F_15, "F_LG_NOSE_R_L", 330, "Front Landing Gear Panel Lights", "FRONT Langing Gear NOSE Light (red)")
-defineIndicatorLightMulti2(F_15, "F_LG_NOSE_G_L", 330, "Front Landing Gear Panel Lights", "FRONT Langing Gear NOSE Light (green)")
-defineIndicatorLightMulti1(F_15, "F_LG_LEFT_R_L", 331, "Front Landing Gear Panel Lights", "FRONT Langing Gear LEFT Light (red)")
-defineIndicatorLightMulti2(F_15, "F_LG_LEFT_G_L", 331, "Front Landing Gear Panel Lights", "FRONT Langing Gear LEFT Light (green)")
-defineIndicatorLightMulti1(F_15, "F_LG_RIGHT_R_L", 332, "Front Landing Gear Panel Lights", "FRONT Langing Gear RIGHT Light (red)")
-defineIndicatorLightMulti2(F_15, "F_LG_RIGHT_G_L", 332, "Front Landing Gear Panel Lights", "FRONT Langing Gear RIGHT Light (green)")
+F_15:defineGatedIndicatorLight("F_LG_NOSE_R_L", 330, 0.1, 0.6, "Front Landing Gear Panel Lights", "FRONT Langing Gear NOSE Light (red)")
+F_15:defineGatedIndicatorLight("F_LG_NOSE_G_L", 330, 0.61, 1, "Front Landing Gear Panel Lights", "FRONT Langing Gear NOSE Light (green)")
+F_15:defineGatedIndicatorLight("F_LG_LEFT_R_L", 331, 0.1, 0.6, "Front Landing Gear Panel Lights", "FRONT Langing Gear LEFT Light (red)")
+F_15:defineGatedIndicatorLight("F_LG_LEFT_G_L", 331, 0.61, 1, "Front Landing Gear Panel Lights", "FRONT Langing Gear LEFT Light (green)")
+F_15:defineGatedIndicatorLight("F_LG_RIGHT_R_L", 332, 0.1, 0.6, "Front Landing Gear Panel Lights", "FRONT Langing Gear RIGHT Light (red)")
+F_15:defineGatedIndicatorLight("F_LG_RIGHT_G_L", 332, 0.61, 1, "Front Landing Gear Panel Lights", "FRONT Langing Gear RIGHT Light (green)")
 F_15:defineIndicatorLight("F_LG_HND_L", 333, "Front Landing Gear Panel Lights", "FRONT Langing Gear Handle Light (red)")
 
 --Flight Instruments
@@ -1206,107 +1151,25 @@ F_15:defineIndicatorLight("R_MC_FLARE_L", 1198, "Rear Main Caution Lights Panel"
 F_15:defineIndicatorLight("R_MC_OXY_L", 1199, "Rear Main Caution Lights Panel", "REAR OXYGEN Light (yellow)")
 
 --Externals
-F_15:defineIntegerFromGetter("EXT_SPEED_BRAKE", function()
-	return math.floor(LoGetAircraftDrawArgumentValue(182) * 65535)
-end, 65535, "External Aircraft Model", "Speed Brake")
-F_15:defineIntegerFromGetter("EXT_POSITION_LIGHT_L", function()
-	if LoGetAircraftDrawArgumentValue(190) > 0 then
-		return 1
-	else
-		return 0
-	end
-end, 1, "External Aircraft Model", "Position Light Left (red)")
-F_15:defineIntegerFromGetter("EXT_POSITION_LIGHT_R", function()
-	if LoGetAircraftDrawArgumentValue(191) > 0 then
-		return 1
-	else
-		return 0
-	end
-end, 1, "External Aircraft Model", "Position Light Right (green)")
-F_15:defineIntegerFromGetter("EXT_POSITION_LIGHT_T", function()
-	if LoGetAircraftDrawArgumentValue(191) > 0 then
-		return 1
-	else
-		return 0
-	end
-end, 1, "External Aircraft Model", "Position Light Tail (White)")
-F_15:defineIntegerFromGetter("EXT_FORMATION_LIGHT_NL", function()
-	return math.floor(LoGetAircraftDrawArgumentValue(200) * 65535)
-end, 65535, "External Aircraft Model", "Formation Light Nose Left (green)")
-F_15:defineIntegerFromGetter("EXT_FORMATION_LIGHT_NR", function()
-	return math.floor(LoGetAircraftDrawArgumentValue(201) * 65535)
-end, 65535, "External Aircraft Model", "Formation Light Nose Right (green)")
-F_15:defineIntegerFromGetter("EXT_FORMATION_LIGHT_WL", function()
-	return math.floor(LoGetAircraftDrawArgumentValue(202) * 65535)
-end, 65535, "External Aircraft Model", "Formation Light Wing Left (green)")
-F_15:defineIntegerFromGetter("EXT_FORMATION_LIGHT_WR", function()
-	return math.floor(LoGetAircraftDrawArgumentValue(203) * 65535)
-end, 65535, "External Aircraft Model", "Formation Light Wing Right (green)")
-F_15:defineIntegerFromGetter("EXT_FORMATION_LIGHT_TL", function()
-	return math.floor(LoGetAircraftDrawArgumentValue(204) * 65535)
-end, 65535, "External Aircraft Model", "Formation Light Tail Left (green)")
-F_15:defineIntegerFromGetter("EXT_FORMATION_LIGHT_TR", function()
-	return math.floor(LoGetAircraftDrawArgumentValue(205) * 65535)
-end, 65535, "External Aircraft Model", "Formation Light Tail Right (green)")
-F_15:defineIntegerFromGetter("EXT_RUDDER_LIGHT", function()
-	if LoGetAircraftDrawArgumentValue(206) > 0 then
-		return 1
-	else
-		return 0
-	end
-end, 1, "External Aircraft Model", "Rudder Lights (white)")
-F_15:defineIntegerFromGetter("EXT_STROBE", function()
-	if LoGetAircraftDrawArgumentValue(198) > 0 then
-		return 1
-	else
-		return 0
-	end
-end, 1, "External Aircraft Model", "Strobe Lights (red)")
-F_15:defineIntegerFromGetter("EXT_LAND_LIGHT_L", function()
-	if LoGetAircraftDrawArgumentValue(208) > 0 then
-		return 1
-	else
-		return 0
-	end
-end, 1, "External Aircraft Model", "Landing Light low (white)")
-F_15:defineIntegerFromGetter("EXT_LAND_LIGHT_H", function()
-	if LoGetAircraftDrawArgumentValue(209) > 0 then
-		return 1
-	else
-		return 0
-	end
-end, 1, "External Aircraft Model", "Landing Light high (white)")
-F_15:defineIntegerFromGetter("EXT_TANK_LIGHT", function()
-	if LoGetAircraftDrawArgumentValue(210) > 0 then
-		return 1
-	else
-		return 0
-	end
-end, 1, "External Aircraft Model", "Tank Light (white)")
-F_15:defineIntegerFromGetter("EXT_HOOK", function()
-	return math.floor(LoGetAircraftDrawArgumentValue(25) * 65535)
-end, 65535, "External Aircraft Model", "Hook")
-F_15:defineIntegerFromGetter("EXT_WOW_NOSE", function()
-	if LoGetAircraftDrawArgumentValue(1) > 0 then
-		return 1
-	else
-		return 0
-	end
-end, 1, "External Aircraft Model", "Weight ON Wheels Nose Gear")
-F_15:defineIntegerFromGetter("EXT_WOW_RIGHT", function()
-	if LoGetAircraftDrawArgumentValue(4) > 0 then
-		return 1
-	else
-		return 0
-	end
-end, 1, "External Aircraft Model", "Weight ON Wheels Right Gear")
-F_15:defineIntegerFromGetter("EXT_WOW_LEFT", function()
-	if LoGetAircraftDrawArgumentValue(6) > 0 then
-		return 1
-	else
-		return 0
-	end
-end, 1, "External Aircraft Model", "Weight ON Wheels Left Gear")
+F_15:defineFloatFromDrawArgument("EXT_SPEED_BRAKE", 182, "External Aircraft Model", "Speed Brake")
+F_15:defineBitFromDrawArgument("EXT_POSITION_LIGHT_L", 190, "External Aircraft Model", "Position Light Left (red)")
+F_15:defineBitFromDrawArgument("EXT_POSITION_LIGHT_R", 191, "External Aircraft Model", "Position Light Right (green)")
+F_15:defineBitFromDrawArgument("EXT_POSITION_LIGHT_T", 191, "External Aircraft Model", "Position Light Tail (White)")
+F_15:defineFloatFromDrawArgument("EXT_FORMATION_LIGHT_NL", 200, "External Aircraft Model", "Formation Light Nose Left (green)")
+F_15:defineFloatFromDrawArgument("EXT_FORMATION_LIGHT_NR", 201, "External Aircraft Model", "Formation Light Nose Right (green)")
+F_15:defineFloatFromDrawArgument("EXT_FORMATION_LIGHT_WL", 202, "External Aircraft Model", "Formation Light Wing Left (green)")
+F_15:defineFloatFromDrawArgument("EXT_FORMATION_LIGHT_WR", 203, "External Aircraft Model", "Formation Light Wing Right (green)")
+F_15:defineFloatFromDrawArgument("EXT_FORMATION_LIGHT_TL", 204, "External Aircraft Model", "Formation Light Tail Left (green)")
+F_15:defineFloatFromDrawArgument("EXT_FORMATION_LIGHT_TR", 205, "External Aircraft Model", "Formation Light Tail Right (green)")
+F_15:defineBitFromDrawArgument("EXT_RUDDER_LIGHT", 206, "External Aircraft Model", "Rudder Lights (white)")
+F_15:defineBitFromDrawArgument("EXT_STROBE", 198, "External Aircraft Model", "Strobe Lights (red)")
+F_15:defineBitFromDrawArgument("EXT_LAND_LIGHT_L", 208, "External Aircraft Model", "Landing Light low (white)")
+F_15:defineBitFromDrawArgument("EXT_LAND_LIGHT_H", 209, "External Aircraft Model", "Landing Light high (white)")
+F_15:defineBitFromDrawArgument("EXT_TANK_LIGHT", 210, "External Aircraft Model", "Tank Light (white)")
+F_15:defineFloatFromDrawArgument("EXT_HOOK", 25, "External Aircraft Model", "Hook")
+F_15:defineBitFromDrawArgument("EXT_WOW_NOSE", 1, "External Aircraft Model", "Weight ON Wheels Nose Gear")
+F_15:defineBitFromDrawArgument("EXT_WOW_RIGHT", 4, "External Aircraft Model", "Weight ON Wheels Right Gear")
+F_15:defineBitFromDrawArgument("EXT_WOW_LEFT", 6, "External Aircraft Model", "Weight ON Wheels Left Gear")
 
 --Laser Code Panel
 F_15:defineMultipositionSwitch("R_LCP_LASER_DIG_2", 44, 3071, 71, 3, 0.1, "Rear Laser Code Panel", "REAR Laser Digit 2")
