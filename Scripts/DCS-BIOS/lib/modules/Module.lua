@@ -295,7 +295,7 @@ function Module:defineToggleSwitch(identifier, device_id, command, arg_number, c
 	return control
 end
 
---- Adds a two-position toggle switch with only a toggle action, which always sends 1 as a clickable action regardless of switch state
+--- Adds a two-position toggle switch which always sends 1 as a clickable action, so long as the switch state requires a change
 --- @param identifier string the unique identifier for the control
 --- @param device_id integer the dcs device id
 --- @param command integer the dcs command
@@ -307,6 +307,8 @@ function Module:defineToggleSwitchToggleOnly(identifier, device_id, command, arg
 	local alloc = self:allocateInt(1)
 
 	local control = Control:new(category, ControlType.action, identifier, description, {
+		FixedStepInput:new("switch to previous or next state"),
+		SetStateInput:new(1, "set the switch position -- 0 = off, 1 = on"),
 		ActionInput:new(ActionArgument.toggle, "toggle switch state"),
 	}, {
 		IntegerOutput:new(alloc, Suffix.none, "selector position"),
@@ -314,8 +316,13 @@ function Module:defineToggleSwitchToggleOnly(identifier, device_id, command, arg
 
 	self:addControl(control)
 
-	self:addInputProcessor(identifier, function(state)
-		if state == "TOGGLE" then
+	self:addInputProcessor(identifier, function(toState)
+		local fromState = GetDevice(0):get_argument_value(arg_number)
+		if
+			toState == "TOGGLE" -- if we're toggling, then always flip
+			or fromState == 0 and (toState == "1" or toState == "INC") -- flip if we're going from off to on
+			or fromState == 1 and (toState == "0" or toState == "DEC") -- flip if we're going from on to off
+		then
 			GetDevice(device_id):performClickableAction(command, 1)
 		end
 	end)

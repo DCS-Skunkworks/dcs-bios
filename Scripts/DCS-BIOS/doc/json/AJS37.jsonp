@@ -3159,15 +3159,33 @@ docdata["AJS37"] =
                                                "AFK_15_DEG_MODE": {
                                                                                  "category": "Flight Data Unit",
                                                                              "control_type": "action",
-                                                                              "description": "AFK 15 Deg Mode (view output with AOA_15_L)",
+                                                                              "description": "AFK 15 Deg Mode",
                                                                                "identifier": "AFK_15_DEG_MODE",
                                                                                    "inputs": [ {
+                                                                                                 "description": "switch to previous or next state",
+                                                                                                   "interface": "fixed_step"
+                                                                                             }, {
+                                                                                                 "description": "set the switch position -- 0 = off, 1 = on",
+                                                                                                   "interface": "set_state",
+                                                                                                   "max_value": 1
+                                                                                             }, {
                                                                                                     "argument": "TOGGLE",
                                                                                                  "description": "toggle switch state",
                                                                                                    "interface": "action"
                                                                                              } ],
                                                                       "momentary_positions": "none",
-                                                                                  "outputs": [  ],
+                                                                                  "outputs": [ {
+                                                                                                                       "address": 17940,
+                                                                                                            "address_identifier": "AJS37_AFK_15_DEG_MODE_A",
+                                                                                                       "address_mask_identifier": "AJS37_AFK_15_DEG_MODE_AM",
+                                                                                                 "address_mask_shift_identifier": "AJS37_AFK_15_DEG_MODE",
+                                                                                                                   "description": "selector position",
+                                                                                                                          "mask": 8192,
+                                                                                                                     "max_value": 1,
+                                                                                                                      "shift_by": 13,
+                                                                                                                        "suffix": "",
+                                                                                                                          "type": "integer"
+                                                                                             } ],
                                                                          "physical_variant": "toggle_switch"
                                                                   },
                                               "AIRSPEED_INDEXER": {
@@ -3806,6 +3824,13 @@ docdata["AJS37"] =
                                                                               "description": "HUD Reflector Glass Position",
                                                                                "identifier": "HUD_GLASS_POSITION",
                                                                                    "inputs": [ {
+                                                                                                 "description": "switch to previous or next state",
+                                                                                                   "interface": "fixed_step"
+                                                                                             }, {
+                                                                                                 "description": "set the switch position -- 0 = off, 1 = on",
+                                                                                                   "interface": "set_state",
+                                                                                                   "max_value": 1
+                                                                                             }, {
                                                                                                     "argument": "TOGGLE",
                                                                                                  "description": "toggle switch state",
                                                                                                    "interface": "action"
