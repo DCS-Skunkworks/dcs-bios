@@ -2584,24 +2584,27 @@ docdata["AV8BNA"] =
                                             },
                               "Fuel Panel": {
                                                   "BINGO_SET": {
+                                                                    "api_variant": "multiturn",
                                                                        "category": "Fuel Panel",
-                                                                   "control_type": "fixed_step_dial",
+                                                                   "control_type": "analog_dial",
                                                                     "description": "Bingo Fuel Set Knob",
                                                                      "identifier": "BINGO_SET",
                                                                          "inputs": [ {
-                                                                                       "description": "rotate the knob left or right",
-                                                                                         "interface": "fixed_step"
+                                                                                          "description": "turn the dial left or right",
+                                                                                            "interface": "variable_step",
+                                                                                            "max_value": 65535,
+                                                                                       "suggested_step": 3200
                                                                                    } ],
                                                                         "outputs": [ {
                                                                                                              "address": 30760,
                                                                                                   "address_identifier": "AV8BNA_BINGO_SET_A",
                                                                                              "address_mask_identifier": "AV8BNA_BINGO_SET_AM",
                                                                                        "address_mask_shift_identifier": "AV8BNA_BINGO_SET",
-                                                                                                         "description": "rotation of the knob",
+                                                                                                         "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
                                                                                                                 "mask": 65535,
                                                                                                            "max_value": 65535,
                                                                                                             "shift_by": 0,
-                                                                                                              "suffix": "",
+                                                                                                              "suffix": "_KNOB_POS",
                                                                                                                 "type": "integer"
                                                                                    } ]
                                                                },
@@ -7579,12 +7582,12 @@ docdata["AV8BNA"] =
                                                              }
                                             },
                     "Master Warning Panel": {
-                                                "M_Caution": {
+                                                "M_CAUTION": {
                                                                          "api_variant": "momentary_last_position",
                                                                             "category": "Master Warning Panel",
                                                                         "control_type": "selector",
                                                                          "description": "Master Caution",
-                                                                          "identifier": "M_Caution",
+                                                                          "identifier": "M_CAUTION",
                                                                               "inputs": [ {
                                                                                             "description": "switch to previous or next state",
                                                                                               "interface": "fixed_step"
@@ -7600,9 +7603,9 @@ docdata["AV8BNA"] =
                                                                  "momentary_positions": "none",
                                                                              "outputs": [ {
                                                                                                                   "address": 30732,
-                                                                                                       "address_identifier": "AV8BNA_M_Caution_A",
-                                                                                                  "address_mask_identifier": "AV8BNA_M_Caution_AM",
-                                                                                            "address_mask_shift_identifier": "AV8BNA_M_Caution",
+                                                                                                       "address_identifier": "AV8BNA_M_CAUTION_A",
+                                                                                                  "address_mask_identifier": "AV8BNA_M_CAUTION_AM",
+                                                                                            "address_mask_shift_identifier": "AV8BNA_M_CAUTION",
                                                                                                               "description": "selector position",
                                                                                                                      "mask": 2048,
                                                                                                                 "max_value": 1,
@@ -7612,12 +7615,12 @@ docdata["AV8BNA"] =
                                                                                         } ],
                                                                     "physical_variant": "push_button"
                                                              },
-                                                "M_Warning": {
+                                                "M_WARNING": {
                                                                          "api_variant": "momentary_last_position",
                                                                             "category": "Master Warning Panel",
                                                                         "control_type": "selector",
                                                                          "description": "Master Warning",
-                                                                          "identifier": "M_Warning",
+                                                                          "identifier": "M_WARNING",
                                                                               "inputs": [ {
                                                                                             "description": "switch to previous or next state",
                                                                                               "interface": "fixed_step"
@@ -7633,9 +7636,9 @@ docdata["AV8BNA"] =
                                                                  "momentary_positions": "none",
                                                                              "outputs": [ {
                                                                                                                   "address": 30732,
-                                                                                                       "address_identifier": "AV8BNA_M_Warning_A",
-                                                                                                  "address_mask_identifier": "AV8BNA_M_Warning_AM",
-                                                                                            "address_mask_shift_identifier": "AV8BNA_M_Warning",
+                                                                                                       "address_identifier": "AV8BNA_M_WARNING_A",
+                                                                                                  "address_mask_identifier": "AV8BNA_M_WARNING_AM",
+                                                                                            "address_mask_shift_identifier": "AV8BNA_M_WARNING",
                                                                                                               "description": "selector position",
                                                                                                                      "mask": 4096,
                                                                                                                 "max_value": 1,
@@ -7872,7 +7875,7 @@ docdata["AV8BNA"] =
                                                                              "identifier": "AV8BNA_ODU_1_SELECT",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
-                                                                                                                     "address": 31078,
+                                                                                                                     "address": 31064,
                                                                                                           "address_identifier": "AV8BNA_AV8BNA_ODU_1_SELECT_A",
                                                                                                      "address_mask_identifier": "AV8BNA_AV8BNA_ODU_1_SELECT_AM",
                                                                                                "address_mask_shift_identifier": "AV8BNA_AV8BNA_ODU_1_SELECT",
@@ -7882,17 +7885,17 @@ docdata["AV8BNA"] =
                                                                                                                         "type": "string"
                                                                                            } ]
                                                                        },
-                                                  "AV8BNA_ODU_1_Text": {
+                                                  "AV8BNA_ODU_1_TEXT": {
                                                                                "category": "ODU",
                                                                            "control_type": "display",
                                                                             "description": "ODU Option 1 Text (string)",
-                                                                             "identifier": "AV8BNA_ODU_1_Text",
+                                                                             "identifier": "AV8BNA_ODU_1_TEXT",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
-                                                                                                                     "address": 31080,
-                                                                                                          "address_identifier": "AV8BNA_AV8BNA_ODU_1_Text_A",
-                                                                                                     "address_mask_identifier": "AV8BNA_AV8BNA_ODU_1_Text_AM",
-                                                                                               "address_mask_shift_identifier": "AV8BNA_AV8BNA_ODU_1_Text",
+                                                                                                                     "address": 31066,
+                                                                                                          "address_identifier": "AV8BNA_AV8BNA_ODU_1_TEXT_A",
+                                                                                                     "address_mask_identifier": "AV8BNA_AV8BNA_ODU_1_TEXT_AM",
+                                                                                               "address_mask_shift_identifier": "AV8BNA_AV8BNA_ODU_1_TEXT",
                                                                                                                  "description": "ODU Option 1 Text (string)",
                                                                                                                   "max_length": 4,
                                                                                                                       "suffix": "",
@@ -7906,7 +7909,7 @@ docdata["AV8BNA"] =
                                                                              "identifier": "AV8BNA_ODU_2_SELECT",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
-                                                                                                                     "address": 31084,
+                                                                                                                     "address": 31070,
                                                                                                           "address_identifier": "AV8BNA_AV8BNA_ODU_2_SELECT_A",
                                                                                                      "address_mask_identifier": "AV8BNA_AV8BNA_ODU_2_SELECT_AM",
                                                                                                "address_mask_shift_identifier": "AV8BNA_AV8BNA_ODU_2_SELECT",
@@ -7916,17 +7919,17 @@ docdata["AV8BNA"] =
                                                                                                                         "type": "string"
                                                                                            } ]
                                                                        },
-                                                  "AV8BNA_ODU_2_Text": {
+                                                  "AV8BNA_ODU_2_TEXT": {
                                                                                "category": "ODU",
                                                                            "control_type": "display",
                                                                             "description": "ODU Option 2 Text (string)",
-                                                                             "identifier": "AV8BNA_ODU_2_Text",
+                                                                             "identifier": "AV8BNA_ODU_2_TEXT",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
-                                                                                                                     "address": 31086,
-                                                                                                          "address_identifier": "AV8BNA_AV8BNA_ODU_2_Text_A",
-                                                                                                     "address_mask_identifier": "AV8BNA_AV8BNA_ODU_2_Text_AM",
-                                                                                               "address_mask_shift_identifier": "AV8BNA_AV8BNA_ODU_2_Text",
+                                                                                                                     "address": 31072,
+                                                                                                          "address_identifier": "AV8BNA_AV8BNA_ODU_2_TEXT_A",
+                                                                                                     "address_mask_identifier": "AV8BNA_AV8BNA_ODU_2_TEXT_AM",
+                                                                                               "address_mask_shift_identifier": "AV8BNA_AV8BNA_ODU_2_TEXT",
                                                                                                                  "description": "ODU Option 2 Text (string)",
                                                                                                                   "max_length": 4,
                                                                                                                       "suffix": "",
@@ -7940,7 +7943,7 @@ docdata["AV8BNA"] =
                                                                              "identifier": "AV8BNA_ODU_3_SELECT",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
-                                                                                                                     "address": 31090,
+                                                                                                                     "address": 31076,
                                                                                                           "address_identifier": "AV8BNA_AV8BNA_ODU_3_SELECT_A",
                                                                                                      "address_mask_identifier": "AV8BNA_AV8BNA_ODU_3_SELECT_AM",
                                                                                                "address_mask_shift_identifier": "AV8BNA_AV8BNA_ODU_3_SELECT",
@@ -7950,17 +7953,17 @@ docdata["AV8BNA"] =
                                                                                                                         "type": "string"
                                                                                            } ]
                                                                        },
-                                                  "AV8BNA_ODU_3_Text": {
+                                                  "AV8BNA_ODU_3_TEXT": {
                                                                                "category": "ODU",
                                                                            "control_type": "display",
                                                                             "description": "ODU Option 3 Text (string)",
-                                                                             "identifier": "AV8BNA_ODU_3_Text",
+                                                                             "identifier": "AV8BNA_ODU_3_TEXT",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
-                                                                                                                     "address": 31092,
-                                                                                                          "address_identifier": "AV8BNA_AV8BNA_ODU_3_Text_A",
-                                                                                                     "address_mask_identifier": "AV8BNA_AV8BNA_ODU_3_Text_AM",
-                                                                                               "address_mask_shift_identifier": "AV8BNA_AV8BNA_ODU_3_Text",
+                                                                                                                     "address": 31078,
+                                                                                                          "address_identifier": "AV8BNA_AV8BNA_ODU_3_TEXT_A",
+                                                                                                     "address_mask_identifier": "AV8BNA_AV8BNA_ODU_3_TEXT_AM",
+                                                                                               "address_mask_shift_identifier": "AV8BNA_AV8BNA_ODU_3_TEXT",
                                                                                                                  "description": "ODU Option 3 Text (string)",
                                                                                                                   "max_length": 4,
                                                                                                                       "suffix": "",
@@ -7974,7 +7977,7 @@ docdata["AV8BNA"] =
                                                                              "identifier": "AV8BNA_ODU_4_SELECT",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
-                                                                                                                     "address": 31096,
+                                                                                                                     "address": 31082,
                                                                                                           "address_identifier": "AV8BNA_AV8BNA_ODU_4_SELECT_A",
                                                                                                      "address_mask_identifier": "AV8BNA_AV8BNA_ODU_4_SELECT_AM",
                                                                                                "address_mask_shift_identifier": "AV8BNA_AV8BNA_ODU_4_SELECT",
@@ -7984,17 +7987,17 @@ docdata["AV8BNA"] =
                                                                                                                         "type": "string"
                                                                                            } ]
                                                                        },
-                                                  "AV8BNA_ODU_4_Text": {
+                                                  "AV8BNA_ODU_4_TEXT": {
                                                                                "category": "ODU",
                                                                            "control_type": "display",
                                                                             "description": "ODU Option 4 Text (string)",
-                                                                             "identifier": "AV8BNA_ODU_4_Text",
+                                                                             "identifier": "AV8BNA_ODU_4_TEXT",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
-                                                                                                                     "address": 31098,
-                                                                                                          "address_identifier": "AV8BNA_AV8BNA_ODU_4_Text_A",
-                                                                                                     "address_mask_identifier": "AV8BNA_AV8BNA_ODU_4_Text_AM",
-                                                                                               "address_mask_shift_identifier": "AV8BNA_AV8BNA_ODU_4_Text",
+                                                                                                                     "address": 31084,
+                                                                                                          "address_identifier": "AV8BNA_AV8BNA_ODU_4_TEXT_A",
+                                                                                                     "address_mask_identifier": "AV8BNA_AV8BNA_ODU_4_TEXT_AM",
+                                                                                               "address_mask_shift_identifier": "AV8BNA_AV8BNA_ODU_4_TEXT",
                                                                                                                  "description": "ODU Option 4 Text (string)",
                                                                                                                   "max_length": 4,
                                                                                                                       "suffix": "",
@@ -8008,7 +8011,7 @@ docdata["AV8BNA"] =
                                                                              "identifier": "AV8BNA_ODU_5_SELECT",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
-                                                                                                                     "address": 31102,
+                                                                                                                     "address": 31088,
                                                                                                           "address_identifier": "AV8BNA_AV8BNA_ODU_5_SELECT_A",
                                                                                                      "address_mask_identifier": "AV8BNA_AV8BNA_ODU_5_SELECT_AM",
                                                                                                "address_mask_shift_identifier": "AV8BNA_AV8BNA_ODU_5_SELECT",
@@ -8018,17 +8021,17 @@ docdata["AV8BNA"] =
                                                                                                                         "type": "string"
                                                                                            } ]
                                                                        },
-                                                  "AV8BNA_ODU_5_Text": {
+                                                  "AV8BNA_ODU_5_TEXT": {
                                                                                "category": "ODU",
                                                                            "control_type": "display",
                                                                             "description": "ODU Option 5 Text (string)",
-                                                                             "identifier": "AV8BNA_ODU_5_Text",
+                                                                             "identifier": "AV8BNA_ODU_5_TEXT",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
-                                                                                                                     "address": 31104,
-                                                                                                          "address_identifier": "AV8BNA_AV8BNA_ODU_5_Text_A",
-                                                                                                     "address_mask_identifier": "AV8BNA_AV8BNA_ODU_5_Text_AM",
-                                                                                               "address_mask_shift_identifier": "AV8BNA_AV8BNA_ODU_5_Text",
+                                                                                                                     "address": 31090,
+                                                                                                          "address_identifier": "AV8BNA_AV8BNA_ODU_5_TEXT_A",
+                                                                                                     "address_mask_identifier": "AV8BNA_AV8BNA_ODU_5_TEXT_AM",
+                                                                                               "address_mask_shift_identifier": "AV8BNA_AV8BNA_ODU_5_TEXT",
                                                                                                                  "description": "ODU Option 5 Text (string)",
                                                                                                                   "max_length": 4,
                                                                                                                       "suffix": "",
@@ -9755,7 +9758,7 @@ docdata["AV8BNA"] =
                                                                            "identifier": "UFC_SCRATCHPAD",
                                                                                "inputs": [  ],
                                                                               "outputs": [ {
-                                                                                                                   "address": 31108,
+                                                                                                                   "address": 31094,
                                                                                                         "address_identifier": "AV8BNA_UFC_SCRATCHPAD_A",
                                                                                                    "address_mask_identifier": "AV8BNA_UFC_SCRATCHPAD_AM",
                                                                                              "address_mask_shift_identifier": "AV8BNA_UFC_SCRATCHPAD",
