@@ -139,10 +139,7 @@ Ka_50:definePushButton("LWR_RESET", 36, 3001, 35, "LWR", "Reset Button")
 --UV-26 Countermeasures Control Panel
 local function getUV26Display()
 	local ind = Module.parse_indication(7)
-	if ind == nil then
-		return ""
-	end
-	return ind["txt_digits"] or ""
+	return Functions.coerce_nil_to_string(ind["txt_digits"])
 end
 Ka_50:defineString("UV26_DISPLAY", getUV26Display, 3, "UV-26 Control Panel", "UV-26 display")
 Ka_50:defineIndicatorLight("UV26_L_DISPENSER", 541, "UV-26 Control Panel", "Left dispenser Light (red)")
@@ -294,41 +291,32 @@ Ka_50:defineIndicatorLight("WEAPONS_RDY_STATION_1", 388, "Weapons Control Panel"
 Ka_50:defineIndicatorLight("WEAPONS_RDY_STATION_2", 389, "Weapons Control Panel", "Weapon is ready to fire on station 2 light (green)")
 Ka_50:defineIndicatorLight("WEAPONS_RDY_STATION_3", 390, "Weapons Control Panel", "Weapon is ready to fire on station 3 light (green)")
 Ka_50:defineIndicatorLight("WEAPONS_RDY_STATION_4", 391, "Weapons Control Panel", "Weapon is ready to fire on station 4 light (green)")
-local indPUI800 = nil
+local indPUI800 = {}
 
 Ka_50:addExportHook(function()
 	indPUI800 = Module.parse_indication(6)
 end)
 
 local function getPUI800_txt_weap_type()
-	if not indPUI800 then
-		return ""
-	end
-	if indPUI800.txt_weap_type_AT ~= nil then
+	if indPUI800.txt_weap_type_AT then
 		return "AT"
 	end
-	if indPUI800.txt_weap_type_RT ~= nil then
+	if indPUI800.txt_weap_type_RT then
 		return "RT"
 	end
-	if indPUI800.txt_weap_type_Iron_Bomb ~= nil then
+	if indPUI800.txt_weap_type_Iron_Bomb then
 		return "IB"
 	end
-	if indPUI800.txt_weap_type_Gun_Pod ~= nil then
+	if indPUI800.txt_weap_type_Gun_Pod then
 		return "GP"
 	end
 	return ""
 end
 local function getPUI800_txt_weap_count()
-	if not indPUI800 then
-		return ""
-	end
-	return indPUI800.txt_weap_count or ""
+	return Functions.coerce_nil_to_string(indPUI800.txt_weap_count)
 end
 local function getPUI800_txt_cannon_count()
-	if not indPUI800 then
-		return ""
-	end
-	return indPUI800.txt_cannon_count or ""
+	return Functions.coerce_nil_to_string(indPUI800.txt_cannon_count)
 end
 Ka_50:defineString("WEAPONS_DISPLAY_STORE_TYPE", getPUI800_txt_weap_type, 2, "Weapons Control Panel", "Display store type")
 Ka_50:defineString("WEAPONS_DISPLAY_WEAPON_REMAIN", getPUI800_txt_weap_count, 2, "Weapons Control Panel", "Display selected weapons remaining")
@@ -357,7 +345,7 @@ local function parse_EKRAN()
 	local ret = {}
 	local li = list_indication(4)
 	if li == "" then
-		return nil
+		return {}
 	end
 
 	local m = li:gmatch("([^\n]*)\n")
@@ -393,16 +381,16 @@ local function parse_EKRAN()
 end
 local indEKRAN = {}
 Ka_50:addExportHook(function()
-	indEKRAN = parse_EKRAN() or {}
+	indEKRAN = parse_EKRAN()
 end)
 local function getEKRAN_memory()
-	return Functions.nil_state_to_str_flag(indEKRAN.txt_memory or nil)
+	return Functions.nil_state_to_str_flag(indEKRAN.txt_memory)
 end
 local function getEKRAN_queue()
-	return Functions.nil_state_to_str_flag(indEKRAN.txt_queue or nil)
+	return Functions.nil_state_to_str_flag(indEKRAN.txt_queue)
 end
 local function getEKRAN_failure()
-	return Functions.nil_state_to_str_flag(indEKRAN.txt_failure or nil)
+	return Functions.nil_state_to_str_flag(indEKRAN.txt_failure)
 end
 Ka_50:defineString("EKRAN_MEMORY", getEKRAN_memory, 1, "EKRAN", "Memory message")
 Ka_50:defineString("EKRAN_QUEUE", getEKRAN_queue, 1, "EKRAN", "Queue message")
