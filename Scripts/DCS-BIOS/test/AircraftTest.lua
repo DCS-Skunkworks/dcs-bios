@@ -83,6 +83,10 @@ function TestAircraft:testI16()
 	self:validateModule(require("I-16"), "I-16", 0x4000)
 end
 
+function TestAircraft:testJF17()
+	self:validateModule(require("JF-17"), "JF-17", 0x4800)
+end
+
 function TestAircraft:testL39()
 	self:validateModule(require("L-39"), "L-39", 0x3200)
 end
@@ -93,6 +97,10 @@ end
 
 function TestAircraft:testMetadataEnd()
 	self:validateModule(require("MetadataEnd"), "MetadataEnd", 0xfffe)
+end
+
+function TestAircraft:testMB339()
+	self:validateModule(require("MB-339"), "MB-339", 0x8200)
 end
 
 function TestAircraft:testMi_24P()

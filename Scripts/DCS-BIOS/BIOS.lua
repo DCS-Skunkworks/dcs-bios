@@ -111,7 +111,9 @@ BIOS.protocol.writeNewModule(FW_190D9)
 -- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/I-16.lua]]) -- ID = 23, ProperName = I-16 
 local I_16 = require "I-16"
 BIOS.protocol.writeNewModule(I_16)
-dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/JF-17.lua]]) -- ID = 24, ProperName = JF-17 Thunder
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/JF-17.lua]]) -- ID = 24, ProperName = JF-17 Thunder
+local JF_17 = require "JF-17"
+BIOS.protocol.writeNewModule(JF_17)
 -- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/Ka-50.lua]]) -- ID = 25, ProperName = Ka-50 Black Shark/III
 local Ka_50 = require "Ka-50"
 BIOS.protocol.writeNewModule(Ka_50)
@@ -119,7 +121,9 @@ BIOS.protocol.writeNewModule(Ka_50)
 local L_39 = require "L-39"
 BIOS.protocol.writeNewModule(L_39)
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/M-2000C.lua]]) -- ID = 27, ProperName = M-2000C
-dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/MB-339.lua]]) -- ID = 28, ProperName = MB-339A/PAN
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/MB-339.lua]]) -- ID = 28, ProperName = MB-339A/PAN
+local MB_339 = require "MB-339"
+BIOS.protocol.writeNewModule(MB_339)
 -- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/Mi-24P.lua]]) -- ID = 42, ProperName = Mi-24P HIND
 local Mi_24P = require "Mi-24P"
 BIOS.protocol.writeNewModule(Mi_24P)
