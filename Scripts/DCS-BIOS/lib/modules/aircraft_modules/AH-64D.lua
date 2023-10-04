@@ -1,6 +1,8 @@
 module("AH-64D", package.seeall)
+
 local Functions = require("Functions")
 local JSONHelper = require("JSONHelper")
+
 local Module = require("Module")
 
 --- @class AH_64D: Module
@@ -13,17 +15,6 @@ local TextDisplay = require("TextDisplay")
 -- remove Arg# PLT 956; CPG 957
 
 --Functions
---- @func Takes a string and checks for nil, returns 1 or 0
---- @param str string
---- @return integer
-local function nil_state_to_int_flag(str)
-	if str ~= nil then
-		return 1
-	else
-		return 0
-	end
-end
-
 --- @func Parses keyboard unit data
 local function parse_ku(indicator_id)
 	local ku = AH_64D.parse_indication(indicator_id)
@@ -832,32 +823,32 @@ AH_64D:addExportHook(function()
 		bit_line_2 = Functions.coerce_nil_to_string(cmws["#43#"])
 
 		-- these values are all guesses
-		d_light_dim = nil_state_to_int_flag(cmws["#45#"])
-		r_light_dim = nil_state_to_int_flag(cmws["#44#"])
-		fwd_left_sector_dim = nil_state_to_int_flag(cmws["#8#"])
-		aft_left_sector_dim = nil_state_to_int_flag(cmws["#7#"])
-		aft_right_sector_dim = nil_state_to_int_flag(cmws["#6#"])
-		fwd_right_sector_dim = nil_state_to_int_flag(cmws["#9#"])
+		d_light_dim = Functions.nil_state_to_int_flag(cmws["#45#"])
+		r_light_dim = Functions.nil_state_to_int_flag(cmws["#44#"])
+		fwd_left_sector_dim = Functions.nil_state_to_int_flag(cmws["#8#"])
+		aft_left_sector_dim = Functions.nil_state_to_int_flag(cmws["#7#"])
+		aft_right_sector_dim = Functions.nil_state_to_int_flag(cmws["#6#"])
+		fwd_right_sector_dim = Functions.nil_state_to_int_flag(cmws["#9#"])
 	else
 		cmws_page = "MAIN"
 		flare_letter = Functions.coerce_nil_to_string(cmws["#83#"])
 		chaff_letter = Functions.coerce_nil_to_string(cmws["#84#"])
 		flare_count = Functions.coerce_nil_to_string(cmws["#85#"])
 		chaff_count = Functions.coerce_nil_to_string(cmws["#86#"])
-		d_light_bright = nil_state_to_int_flag(cmws["#88#"])
-		d_light_dim = nil_state_to_int_flag(cmws["#90#"])
-		r_light_bright = nil_state_to_int_flag(cmws["#87#"])
-		r_light_dim = nil_state_to_int_flag(cmws["#89#"])
+		d_light_bright = Functions.nil_state_to_int_flag(cmws["#88#"])
+		d_light_dim = Functions.nil_state_to_int_flag(cmws["#90#"])
+		r_light_bright = Functions.nil_state_to_int_flag(cmws["#87#"])
+		r_light_dim = Functions.nil_state_to_int_flag(cmws["#89#"])
 
-		fwd_left_sector_brt = nil_state_to_int_flag(cmws["#8#"])
-		aft_left_sector_brt = nil_state_to_int_flag(cmws["#7#"])
-		aft_right_sector_brt = nil_state_to_int_flag(cmws["#6#"])
-		fwd_right_sector_brt = nil_state_to_int_flag(cmws["#9#"])
+		fwd_left_sector_brt = Functions.nil_state_to_int_flag(cmws["#8#"])
+		aft_left_sector_brt = Functions.nil_state_to_int_flag(cmws["#7#"])
+		aft_right_sector_brt = Functions.nil_state_to_int_flag(cmws["#6#"])
+		fwd_right_sector_brt = Functions.nil_state_to_int_flag(cmws["#9#"])
 		-- these values are all guesses
-		fwd_left_sector_dim = nil_state_to_int_flag(cmws["#49#"])
-		aft_left_sector_dim = nil_state_to_int_flag(cmws["#48#"])
-		aft_right_sector_dim = nil_state_to_int_flag(cmws["#47#"])
-		fwd_right_sector_dim = nil_state_to_int_flag(cmws["#50#"])
+		fwd_left_sector_dim = Functions.nil_state_to_int_flag(cmws["#49#"])
+		aft_left_sector_dim = Functions.nil_state_to_int_flag(cmws["#48#"])
+		aft_right_sector_dim = Functions.nil_state_to_int_flag(cmws["#47#"])
+		fwd_right_sector_dim = Functions.nil_state_to_int_flag(cmws["#50#"])
 	end
 end)
 
