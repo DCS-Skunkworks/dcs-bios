@@ -81,9 +81,7 @@ BIOS.protocol.writeNewModule(Edge540)
 -- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/F-14.lua]]) -- ID = 16, ProperName = F-14A/B Tomcat
 local F_14 = require "F-14"
 BIOS.protocol.writeNewModule(F_14)
--- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/F-15E.lua]]) -- ID = 44, ProperName = F-15E Strike Eagle
-local F_15E = require "F-15E"
-BIOS.protocol.writeNewModule(F_15E)
+dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/F-15E.lua]]) -- ID = 44, ProperName = F-15E Strike Eagle
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/F-16C_50.lua]]) -- ID = 17, ProperName = F-16C Viper
 -- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/F-22A.lua]]) -- ID = 40, ProperName = F-22A Raptor
 local F_22A = require "F-22A"
