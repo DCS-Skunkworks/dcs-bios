@@ -1,12 +1,6 @@
 module("F-15E", package.seeall)
 
-local Control = require("Control")
-local ControlType = require("ControlType")
 local Functions = require("Functions")
-local IntegerOutput = require("IntegerOutput")
-local Module = require("Module")
-local PhysicalVariant = require("PhysicalVariant")
-local Suffix = require("Suffix")
 
 local Module = require("Module")
 
@@ -382,11 +376,11 @@ F_15:definePushButton("F_LG_GEAR_TONE", 29, 3325, 325, "Front Landing Gear Panel
 F_15:defineToggleSwitch("F_LG_EMERG_GEAR_PULL", 21, 3337, 337, "Front Landing Gear Panel", "FRONT Emergency Landing Gear Handle PUSH/PULL")
 F_15:defineToggleSwitch("F_LG_EMERG_GEAR_ROT", 21, 3431, 431, "Front Landing Gear Panel", "FRONT Emergency Landing Gear Handle ROTATE")
 F_15:defineGatedIndicatorLight("F_LG_NOSE_R_L", 330, 0.1, 0.6, "Front Landing Gear Panel Lights", "FRONT Langing Gear NOSE Light (red)")
-F_15:defineGatedIndicatorLight("F_LG_NOSE_G_L", 330, 0.6, nil, "Front Landing Gear Panel Lights", "FRONT Langing Gear NOSE Light (green)")
+F_15:defineGatedIndicatorLight("F_LG_NOSE_G_L", 330, 0.61, nil, "Front Landing Gear Panel Lights", "FRONT Langing Gear NOSE Light (green)")
 F_15:defineGatedIndicatorLight("F_LG_LEFT_R_L", 331, 0.1, 0.6, "Front Landing Gear Panel Lights", "FRONT Langing Gear LEFT Light (red)")
-F_15:defineGatedIndicatorLight("F_LG_LEFT_G_L", 331, 0.61, 1, "Front Landing Gear Panel Lights", "FRONT Langing Gear LEFT Light (green)")
+F_15:defineGatedIndicatorLight("F_LG_LEFT_G_L", 331, 0.61, nil, "Front Landing Gear Panel Lights", "FRONT Langing Gear LEFT Light (green)")
 F_15:defineGatedIndicatorLight("F_LG_RIGHT_R_L", 332, 0.1, 0.6, "Front Landing Gear Panel Lights", "FRONT Langing Gear RIGHT Light (red)")
-F_15:defineGatedIndicatorLight("F_LG_RIGHT_G_L", 332, 0.61, 1, "Front Landing Gear Panel Lights", "FRONT Langing Gear RIGHT Light (green)")
+F_15:defineGatedIndicatorLight("F_LG_RIGHT_G_L", 332, 0.61, nil, "Front Landing Gear Panel Lights", "FRONT Langing Gear RIGHT Light (green)")
 F_15:defineIndicatorLight("F_LG_HND_L", 333, "Front Landing Gear Panel Lights", "FRONT Langing Gear Handle Light (red)")
 
 --Flight Instruments
