@@ -96,7 +96,30 @@ function Module:defineVariableStepTumb(identifier, device_id, command, arg_numbe
 		GetDevice(device_id):performClickableAction(command, delta)
 	end)
 
-	local control = Control:new(category, ControlType.discrete_dial, identifier, description, { VariableStepInput:new(3200, 65535, description) }, {})
+	local control = Control:new(category, ControlType.variable_step_dial, identifier, description, { VariableStepInput:new(3200, 65535, description) }, { IntegerOutput:new(rotationAlloc, Suffix.none, "rotation of the knob (not the value being manipulated!)") })
+	self:addControl(control)
+
+	return control
+end
+
+--- @private
+--- Defines a gauge from floating-point data with limits
+--- @param identifier string the unique identifier for the control
+--- @param arg_number integer the dcs argument number
+--- @param max_value integer maximum possible value
+--- @param limits number[] a length-2 array with the lower and upper bounds of the data as used in dcs
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @return Control control the control which was added to the module
+function Module:defineFloatValue(identifier, arg_number, max_value, limits, category, description)
+	local alloc = self:allocateInt(max_value)
+	self:addExportHook(function(dev0)
+		alloc:setValue(Module.valueConvert(dev0:get_argument_value(arg_number), limits, { 0, max_value }))
+	end)
+
+	local control = Control:new(category, ControlType.analog_gauge, identifier, description, {}, {
+		IntegerOutput:new(alloc, Suffix.none, "gauge position"),
+	})
 	self:addControl(control)
 
 	return control
@@ -110,18 +133,18 @@ end
 --- @param description string additional information about the control
 --- @return Control control the control which was added to the module
 function Module:defineFloat(identifier, arg_number, limits, category, description)
-	local max_value = 65535
-	local alloc = self:allocateInt(max_value)
-	self:addExportHook(function(dev0)
-		alloc:setValue(Module.valueConvert(dev0:get_argument_value(arg_number), limits, { 0, max_value }))
-	end)
+	return self:defineFloatValue(identifier, arg_number, 65535, limits, category, description)
+end
 
-	local control = Control:new(category, ControlType.analog_gauge, identifier, description, {}, {
-		IntegerOutput:new(alloc, Suffix.none, "gauge position"),
-	})
-	self:addControl(control)
-
-	return control
+--- Adds a new Float but only but only allocates an 8-bit int. Max value is 255
+--- @param identifier string the unique identifier for the control
+--- @param argument_id integer the unique identifier for the control
+--- @param limits number[] a length-2 array with the lower and upper bounds of the data as used in dcs
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @return Control control the control which was added to the module
+function Module:define8BitFloat(identifier, argument_id, limits, category, description)
+	return self:defineFloatValue(identifier, argument_id, 255, limits, category, description)
 end
 
 --- Adds a new Float but only but only allocates an 8-bit int. Max value is 255

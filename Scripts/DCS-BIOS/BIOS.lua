@@ -114,7 +114,9 @@ BIOS.protocol.writeNewModule(I_16)
 -- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/JF-17.lua]]) -- ID = 24, ProperName = JF-17 Thunder
 local JF_17 = require "JF-17"
 BIOS.protocol.writeNewModule(JF_17)
-dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/Ka-50.lua]]) -- ID = 25, ProperName = Ka-50 Black Shark/III
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/Ka-50.lua]]) -- ID = 25, ProperName = Ka-50 Black Shark/III
+local Ka_50 = require "Ka-50"
+BIOS.protocol.writeNewModule(Ka_50)
 -- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/L-39.lua]]) -- ID = 26, ProperName = L-39 Albatros
 local L_39 = require "L-39"
 BIOS.protocol.writeNewModule(L_39)
