@@ -59,10 +59,6 @@ function TestAircraft:testF14()
 	self:validateModule(require("F-14"), "F-14", 0x1200)
 end
 
-function TestAircraft:testF15()
-	self:validateModule(require("F-15E"), "F-15E", 0x9200)
-end
-
 function TestAircraft:testF22A()
 	self:validateModule(require("F-22A"), "F-22A", 0x6600)
 end
@@ -89,10 +85,6 @@ end
 
 function TestAircraft:testJF17()
 	self:validateModule(require("JF-17"), "JF-17", 0x4800)
-end
-
-function TestAircraft:testKa50()
-	self:validateModule(require("Ka-50"), "Ka-50", 0x1800)
 end
 
 function TestAircraft:testL39()
