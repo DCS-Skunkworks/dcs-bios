@@ -1,6 +1,8 @@
 --12.08.2023
 BIOS.util = {}
 
+local Log = require("Log")
+
 function BIOS.util.log2(n)
 	return math.log(n) / math.log(2)
 end
@@ -46,11 +48,11 @@ BIOS.util.document = document
 
 function BIOS.util.addressDefineIdentifier(moduleName, identifier)
 	if moduleName == nil then
-		LogBIOS:log(string.format("Nil module name found for identifier %s", identifier))
+		Log:log(string.format("Nil module name found for identifier %s", identifier))
 		return "UNKNOWN"
 	end
 	if identifier == nil then
-		LogBIOS:log(string.format("Nil identifier found in module %s", moduleName))
+		Log:log(string.format("Nil identifier found in module %s", moduleName))
 		return "UNKNOWN"
 	end
 
@@ -143,11 +145,11 @@ function BIOS.util.MemoryAllocation:setValue(value)
 	assert(value)
 	value = math.floor(value)
 	if value < 0 then
-		LogBIOS:log(string.format("Util.lua: value %f is too small for address %d mask %d", value, self.address, self.mask))
+		Log:log(string.format("Util.lua: value %f is too small for address %d mask %d", value, self.address, self.mask))
 		return
 	end
 	if value > self.maxValue then
-		LogBIOS:log(string.format("Util.lua: value %f is too large for address %d mask %d", value, self.address, self.mask))
+		Log:log(string.format("Util.lua: value %f is too large for address %d mask %d", value, self.address, self.mask))
 		return
 	end
 	assert(value >= 0)
@@ -165,7 +167,7 @@ function BIOS.util.StringAllocation:setValue(value)
 	local i = 1
 
         if value == nil then
-			LogBIOS:log(string.format("Util.lua: item is sending a nil value"))
+			Log:log(string.format("Util.lua: item is sending a nil value"))
 			return
         end
 

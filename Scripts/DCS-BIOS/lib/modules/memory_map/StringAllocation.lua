@@ -1,5 +1,7 @@
 module("StringAllocation", package.seeall)
 
+local Log = require("Log")
+
 --- @class StringAllocation A class containing a set of memory allocations which make up a string
 --- @field address integer the memory address
 --- @field maxLength integer the maximum length of the string
@@ -28,7 +30,7 @@ function StringAllocation:setValue(value)
 	local i = 1
 
 	if value == nil then
-		LogBIOS:log(string.format("Util.lua: item is sending a nil value"))
+		Log:log(string.format("Util.lua: item is sending a nil value"))
 		return
 	end
 
