@@ -587,7 +587,7 @@ local oduOption4Select = ""
 local oduOption4Text = ""
 local oduOption5Select = ""
 local oduOption5Text = ""
-AV8BNA.exportHooks[#AV8BNA.exportHooks + 1] = function()
+AV8BNA:addExportHook(function()
 	local odu = Module.parse_indication(6)
 
 	if not odu then
@@ -604,7 +604,7 @@ AV8BNA.exportHooks[#AV8BNA.exportHooks + 1] = function()
 	oduOption4Text = odu["ODU_Option_4_TEXT"] or ""
 	oduOption5Select = odu["ODU_Option_5_Slc"] or ""
 	oduOption5Text = odu["ODU_Option_5_TEXT"] or ""
-end
+end)
 
 AV8BNA:defineString("AV8BNA_ODU_1_SELECT", function()
 	return oduOption1Select
