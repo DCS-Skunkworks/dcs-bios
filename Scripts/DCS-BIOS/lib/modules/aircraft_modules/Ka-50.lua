@@ -340,48 +340,27 @@ Ka_50:definePushButton("VOICE_MSG_REPEAT", 13, 3003, 385, "Landing Lights & Voic
 
 ----Right Forward Panel
 --EKRAN Warning System display
----This is an adaptation of parse_indication due to the EKRAN having arrays for some values. In most cases, parse_indication should be used.
-local function parse_EKRAN()
-	local ret = {}
-	local li = list_indication(4)
-	if li == "" then
-		return {}
-	end
 
-	local m = li:gmatch("([^\n]*)\n")
-	local newval = false
-	local name = nil
-	local value = {}
-
-	while true do
-		local line = m()
-		if not line then
-			if name ~= nil then
-				ret[name] = value
-			end
-			break
-		end
-		if line == "-----------------------------------------" then
-			newval = true
-			if name ~= nil then
-				ret[name] = value
-				name = nil
-				value = {}
-			end
-		else
-			if newval == true then
-				newval = false
-				name = line
-			else
-				value[#value + 1] = line
-			end
+--- Splits a string into an array by newlines
+--- @param inputstr string?
+--- @return string[]
+local function line_split(inputstr)
+	local t = {}
+	if inputstr then
+		for str in string.gmatch(inputstr, "([^\n]+)") do
+			table.insert(t, str)
 		end
 	end
-	return ret
+	return t
 end
+
 local indEKRAN = {}
+local ekran_txt_1 = {}
+local ekran_txt_2 = {}
 Ka_50:addExportHook(function()
-	indEKRAN = parse_EKRAN()
+	indEKRAN = Module.parse_indication(4)
+	ekran_txt_1 = line_split(indEKRAN.txt_1)
+	ekran_txt_2 = line_split(indEKRAN.txt_2)
 end)
 local function getEKRAN_memory()
 	return Functions.nil_state_to_str_flag(indEKRAN.txt_memory)
@@ -396,41 +375,33 @@ Ka_50:defineString("EKRAN_MEMORY", getEKRAN_memory, 1, "EKRAN", "Memory message"
 Ka_50:defineString("EKRAN_QUEUE", getEKRAN_queue, 1, "EKRAN", "Queue message")
 Ka_50:defineString("EKRAN_FAILURE", getEKRAN_failure, 1, "EKRAN", "Failure message")
 
---- Returns an item of an array if the array exists, otherwise an empty string
---- @param arr string[]?
---- @param index integer
---- @return string
-local function item_of_nullable_array(arr, index)
-	return Functions.coerce_nil_to_string(arr and arr[index])
-end
-
 local function getEKRAN_txt1_line1()
-	return item_of_nullable_array(indEKRAN.txt_1, 1)
+	return Functions.coerce_nil_to_string(ekran_txt_1[1])
 end
 local function getEKRAN_txt1_line2()
-	return item_of_nullable_array(indEKRAN.txt_1, 2)
+	return Functions.coerce_nil_to_string(ekran_txt_1[2])
 end
 local function getEKRAN_txt1_line3()
-	return item_of_nullable_array(indEKRAN.txt_1, 3)
+	return Functions.coerce_nil_to_string(ekran_txt_1[3])
 end
 local function getEKRAN_txt1_line4()
-	return item_of_nullable_array(indEKRAN.txt_1, 4)
+	return Functions.coerce_nil_to_string(ekran_txt_1[4])
 end
 Ka_50:defineString("EKRAN_TXT1_LINE1", getEKRAN_txt1_line1, 10, "EKRAN", "EKRAN txt 1 line 1")
 Ka_50:defineString("EKRAN_TXT1_LINE2", getEKRAN_txt1_line2, 10, "EKRAN", "EKRAN txt 1 line 2")
 Ka_50:defineString("EKRAN_TXT1_LINE3", getEKRAN_txt1_line3, 10, "EKRAN", "EKRAN txt 1 line 3")
 Ka_50:defineString("EKRAN_TXT1_LINE4", getEKRAN_txt1_line4, 10, "EKRAN", "EKRAN txt 1 line 4")
 local function getEKRAN_txt2_line1()
-	return item_of_nullable_array(indEKRAN.txt_2, 1)
+	return Functions.coerce_nil_to_string(ekran_txt_2[1])
 end
 local function getEKRAN_txt2_line2()
-	return item_of_nullable_array(indEKRAN.txt_2, 2)
+	return Functions.coerce_nil_to_string(ekran_txt_2[2])
 end
 local function getEKRAN_txt2_line3()
-	return item_of_nullable_array(indEKRAN.txt_2, 3)
+	return Functions.coerce_nil_to_string(ekran_txt_2[3])
 end
 local function getEKRAN_txt2_line4()
-	return item_of_nullable_array(indEKRAN.txt_2, 4)
+	return Functions.coerce_nil_to_string(ekran_txt_2[4])
 end
 Ka_50:defineString("EKRAN_TXT2_LINE1", getEKRAN_txt2_line1, 10, "EKRAN", "EKRAN txt 2 line 1")
 Ka_50:defineString("EKRAN_TXT2_LINE2", getEKRAN_txt2_line2, 10, "EKRAN", "EKRAN txt 2 line 2")

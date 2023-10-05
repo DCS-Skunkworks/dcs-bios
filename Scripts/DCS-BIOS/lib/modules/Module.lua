@@ -8,6 +8,7 @@ local ControlType = require("ControlType")
 local Documentation = require("Documentation")
 local FixedStepInput = require("FixedStepInput")
 local IntegerOutput = require("IntegerOutput")
+local Log = require("Log")
 local MemoryMap = require("MemoryMap")
 local MomentaryPositions = require("MomentaryPositions")
 local PhysicalVariant = require("PhysicalVariant")
@@ -15,7 +16,6 @@ local SetStateInput = require("SetStateInput")
 local StringOutput = require("StringOutput")
 local Suffix = require("Suffix")
 local VariableStepInput = require("VariableStepInput")
-local json = require("JSONHelper")
 
 --- @class Module
 --- @field name string the name of the module
@@ -860,23 +860,94 @@ function Module:addressDefineIdentifier(identifier)
 	return full_identifier
 end
 
+local indication_split = "-----------------------------------------"
+local children_start_block = "children are {"
+local children_end_block = "}"
+
+--- @enum ParseIndicationState
+local ParseIndicationState = {
+	none = "none",
+	child_block = "child_block",
+	item_block = "item_block",
+}
+
 --- Parses a dcs indication from a string into a key-value table, or nil if no data is available
 --- Values are separated with "-----------------------------------------\n"
 --- @param indicator_id integer
 --- @return {[string]: string}
 function Module.parse_indication(indicator_id)
 	local ret = {}
-	local li = list_indication(indicator_id)
+	local indication = list_indication(indicator_id)
+	--- @type ParseIndicationState[]
+	local state = {}
+	--- @type string?
+	local key = nil
+	--- @type string[]
+	local current_block_lines = {}
 
-	if li ~= "" then
-		local match = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
-		while true do
-			local name, value = match()
-			if not name then
-				break
-			end
-			ret[name] = value
+	---@return ParseIndicationState
+	local function current_state()
+		return #state > 0 and state[#state] or ParseIndicationState.none
+	end
+
+	local function add_block_to_result()
+		if not key then
+			return
 		end
+
+		local value = ""
+		while #current_block_lines > 0 do
+			if value ~= "" then
+				value = value .. "\n"
+			end
+			value = value .. table.remove(current_block_lines, 1)
+		end
+		ret[key] = value -- if there's nothing, then we intentionally add an empty string
+
+		key = nil
+	end
+
+	-- state machine to process indication
+	for line in string.gmatch(indication, "([^\n]+)") do
+		if line == indication_split then
+			-- start a new item block
+			if current_state() ~= ParseIndicationState.item_block then -- don't insert this if we're already in a block - state is already accurate
+				table.insert(state, ParseIndicationState.item_block)
+			else
+				-- write old item and start a new one
+				add_block_to_result()
+			end
+		elseif line == children_start_block then
+			-- start a new child block
+			if current_state() == ParseIndicationState.item_block then
+				table.remove(state)
+			end
+			table.insert(state, ParseIndicationState.child_block)
+			current_block_lines = {}
+			key = nil
+		elseif line == children_end_block and #state > 0 then
+			-- end a child block if we're in one
+			if current_state() == ParseIndicationState.item_block then
+				-- write old item and start a new one
+				add_block_to_result()
+				table.remove(state)
+			end
+			if current_state() == ParseIndicationState.child_block then
+				table.remove(state)
+			end
+		elseif line and current_state() == ParseIndicationState.item_block then
+			-- these are actual line contents we need to deal with
+			if key then
+				table.insert(current_block_lines, line)
+			else
+				key = line
+			end
+		end
+	end
+
+	if current_state() == ParseIndicationState.item_block then
+		add_block_to_result()
+		table.remove(state)
 	end
 
 	return ret
