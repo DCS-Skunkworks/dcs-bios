@@ -1204,11 +1204,7 @@ F_14:defineFloat("PLT_FUEL_LEFT_100", 6001, { 0, 1 }, "PLT Gauges", "PILOT Fuel 
 F_14:defineFloat("PLT_FUEL_LEFT_10", 6002, { 0, 1 }, "PLT Gauges", "PILOT Fuel Left 10")
 F_14:defineFloat("PLT_FUEL_LEFT_1", 6003, { 0, 1 }, "PLT Gauges", "PILOT Fuel Left 1")
 local function getPLTFuelLeft(dev0)
-	local digit1 = string.format("%.0f", dev0:get_argument_value(6000) * 10)
-	local digit2 = string.format("%.0f", dev0:get_argument_value(6001) * 10)
-	local digit3 = string.format("%.0f", dev0:get_argument_value(6002) * 10)
-	local digit4 = string.format("%.0f", dev0:get_argument_value(6003) * 10)
-	return tonumber(digit1 .. digit2 .. digit3 .. digit4)
+	return Module.build_gauge_from_arguments(dev0, { 6003, 6002, 6001, 6000 })
 end
 F_14:defineIntegerFromGetter("PLT_FUEL_LEFT_DISP", getPLTFuelLeft, 2500, "PLT Gauges", "PILOT Fuel Left Display")
 
@@ -1217,11 +1213,7 @@ F_14:defineFloat("PLT_FUEL_RIGHT_100", 6005, { 0, 1 }, "PLT Gauges", "PILOT Fuel
 F_14:defineFloat("PLT_FUEL_RIGHT_10", 6006, { 0, 1 }, "PLT Gauges", "PILOT Fuel Right 10")
 F_14:defineFloat("PLT_FUEL_RIGHT_1", 6007, { 0, 1 }, "PLT Gauges", "PILOT Fuel Right 1")
 local function getPLTFuelRight(dev0)
-	local digit1 = string.format("%.0f", dev0:get_argument_value(6004) * 10)
-	local digit2 = string.format("%.0f", dev0:get_argument_value(6005) * 10)
-	local digit3 = string.format("%.0f", dev0:get_argument_value(6006) * 10)
-	local digit4 = string.format("%.0f", dev0:get_argument_value(6007) * 10)
-	return tonumber(digit1 .. digit2 .. digit3 .. digit4)
+	return Module.build_gauge_from_arguments(dev0, { 6007, 6006, 6005, 6004 })
 end
 F_14:defineIntegerFromGetter("PLT_FUEL_RIGHT_DISP", getPLTFuelRight, 2500, "PLT Gauges", "PILOT Fuel Right Display")
 
@@ -1231,12 +1223,7 @@ F_14:defineFloat("PLT_FUEL_TOTAL_100", 6012, { 0, 1 }, "PLT Gauges", "PILOT Fuel
 F_14:defineFloat("PLT_FUEL_TOTAL_10", 6013, { 0, 1 }, "PLT Gauges", "PILOT Fuel Total 10")
 F_14:defineFloat("PLT_FUEL_TOTAL_1", 6014, { 0, 1 }, "PLT Gauges", "PILOT Fuel Total 1")
 local function getPLTFuelTotal(dev0)
-	local digit1 = string.format("%.0f", dev0:get_argument_value(6010) * 10)
-	local digit2 = string.format("%.0f", dev0:get_argument_value(6011) * 10)
-	local digit3 = string.format("%.0f", dev0:get_argument_value(6012) * 10)
-	local digit4 = string.format("%.0f", dev0:get_argument_value(6013) * 10)
-	local digit5 = string.format("%.0f", dev0:get_argument_value(6014) * 10)
-	return tonumber(digit1 .. digit2 .. digit3 .. digit4 .. digit5)
+	return Module.build_gauge_from_arguments(dev0, { 6014, 6013, 6012, 6011, 6010 })
 end
 F_14:defineIntegerFromGetter("PLT_FUEL_TOTAL_DISP", getPLTFuelTotal, 25000, "PLT Gauges", "PILOT Fuel Total Display")
 
@@ -1293,10 +1280,7 @@ F_14:defineFloat("PLT_AMMO_100", 4060, { 0, 1 }, "PLT Gauges", "PILOT Ammo 100")
 F_14:defineFloat("PLT_AMMO_10", 4061, { 0, 1 }, "PLT Gauges", "PILOT Ammo 10")
 F_14:defineFloat("PLT_AMMO_1", 4062, { 0, 1 }, "PLT Gauges", "PILOT Ammo 1")
 local function getAmmo(dev0)
-	local digit1 = string.format("%.0f", dev0:get_argument_value(4060) * 10)
-	local digit2 = string.format("%.0f", dev0:get_argument_value(4061) * 10)
-	local digit3 = string.format("%.0f", dev0:get_argument_value(4062) * 10)
-	return tonumber(digit1 .. digit2 .. digit3)
+	return Module.build_gauge_from_arguments(dev0, { 4062, 4061, 4060 })
 end
 F_14:defineIntegerFromGetter("PLT_AMMO_DISP", getAmmo, 690, "PLT Gauges", "PILOT Ammo Display")
 
@@ -1304,10 +1288,7 @@ F_14:defineFloat("PLT_GUN_LEAD_100", 2270, { 0, 1 }, "PLT Gauges", "PILOT Gun Le
 F_14:defineFloat("PLT_GUN_LEAD_10", 2271, { 0, 1 }, "PLT Gauges", "PILOT Gun Lead 10")
 F_14:defineFloat("PLT_GUN_LEAD_1", 2272, { 0, 1 }, "PLT Gauges", "PILOT Gun Lead 1")
 local function getGunLead(dev0)
-	local digit1 = string.format("%.0f", dev0:get_argument_value(2270) * 10)
-	local digit2 = string.format("%.0f", dev0:get_argument_value(2271) * 10)
-	local digit3 = string.format("%.0f", dev0:get_argument_value(2272) * 10)
-	return tonumber(digit1 .. digit2 .. digit3)
+	return Module.build_gauge_from_arguments(dev0, { 2272, 2271, 2270 })
 end
 F_14:defineIntegerFromGetter("PLT_GUN_LEAD_DISP", getGunLead, 263, "PLT Gauges", "PILOT Gun Lead Display")
 F_14:defineFloat("PLT_WEAPON_STORE_1A", 9221, { 0, 1 }, "PLT Gauges", "PILOT Weapon Store 1A")
@@ -1327,27 +1308,21 @@ F_14:defineFloat("RIO_AIRSPEED_POINTER2", 253, { 0, 1 }, "RIO Gauges", "RIO Airs
 F_14:defineFloat("RIO_CMDS_CHAFF_COUNT_10", 392, { 0, 1 }, "RIO Gauges", "RIO CMDS Chaff Counter 10")
 F_14:defineFloat("RIO_CMDS_CHAFF_COUNT_1", 393, { 0, 1 }, "RIO Gauges", "RIO CMDS Chaff Counter 1")
 local function getChaffCount(dev0)
-	local digit1 = string.format("%.0f", dev0:get_argument_value(392) * 10)
-	local digit2 = string.format("%.0f", dev0:get_argument_value(393) * 10)
-	return tonumber(digit1 .. digit2)
+	return Module.build_gauge_from_arguments(dev0, { 393, 392 })
 end
 F_14:defineIntegerFromGetter("RIO_CMDS_CHAFFCNT_DISPLAY", getChaffCount, 99, "CMDS", "RIO CMDS Chaff Counter Display")
 
 F_14:defineFloat("RIO_CMDS_FLARE_COUNT_10", 394, { 0, 1 }, "RIO Gauges", "RIO CMDS Flare Counter 10")
 F_14:defineFloat("RIO_CMDS_FLARE_COUNT_1", 395, { 0, 1 }, "RIO Gauges", "RIO CMDS Flare Counter 1")
 local function getFlareCount(dev0)
-	local digit1 = string.format("%.0f", dev0:get_argument_value(394) * 10)
-	local digit2 = string.format("%.0f", dev0:get_argument_value(395) * 10)
-	return tonumber(digit1 .. digit2)
+	return Module.build_gauge_from_arguments(dev0, { 395, 394 })
 end
 F_14:defineIntegerFromGetter("RIO_CMDS_FLARECNT_DISPLAY", getFlareCount, 99, "CMDS", "RIO CMDS Flare Counter Display")
 
 F_14:defineFloat("RIO_CMDS_JAMM_COUNT_10", 396, { 0, 1 }, "RIO Gauges", "RIO CMDS Jammer Counter 10")
 F_14:defineFloat("RIO_CMDS_JAMM_COUNT_1", 397, { 0, 1 }, "RIO Gauges", "RIO CMDS Jammer Counter 1")
 local function getJammerCount(dev0)
-	local digit1 = string.format("%.0f", dev0:get_argument_value(396) * 10)
-	local digit2 = string.format("%.0f", dev0:get_argument_value(397) * 10)
-	return tonumber(digit1 .. digit2)
+	return Module.build_gauge_from_arguments(dev0, { 397, 396 })
 end
 F_14:defineIntegerFromGetter("RIO_CMDS_JAMMCNT_DISPLAY", getJammerCount, 99, "CMDS", "RIO CMDS Jammer Counter Display")
 
@@ -1365,12 +1340,7 @@ F_14:defineFloat("RIO_FUEL_TOTAL_100", 2119, { 0, 1 }, "RIO Gauges", "RIO Fuel T
 F_14:defineFloat("RIO_FUEL_TOTAL_10", 2120, { 0, 1 }, "RIO Gauges", "RIO Fuel Total 10")
 F_14:defineFloat("RIO_FUEL_TOTAL_1", 2135, { 0, 1 }, "RIO Gauges", "RIO Fuel Total 1")
 local function getRIOFuelTotal(dev0)
-	local digit1 = string.format("%.0f", dev0:get_argument_value(2117) * 10)
-	local digit2 = string.format("%.0f", dev0:get_argument_value(2118) * 10)
-	local digit3 = string.format("%.0f", dev0:get_argument_value(2119) * 10)
-	local digit4 = string.format("%.0f", dev0:get_argument_value(2120) * 10)
-	local digit5 = string.format("%.0f", dev0:get_argument_value(2135) * 10)
-	return tonumber(digit1 .. digit2 .. digit3 .. digit4 .. digit5)
+	return Module.build_gauge_from_arguments(dev0, { 2135, 2120, 2119, 2118, 2117 })
 end
 F_14:defineIntegerFromGetter("RIO_FUEL_TOTAL_DISP", getRIOFuelTotal, 25000, "RIO Gauges", "RIO Fuel Total Display")
 
@@ -1480,12 +1450,7 @@ F_14:defineFloat("PLT_THROTTLE_POS_R", 752, { 0, 1 }, "Cockpit", "PILOT Right Th
 F_14:defineFloat("PLT_SWEEP_HANDLE_POS", 384, { 0, 1 }, "Cockpit", "PILOT Wing Sweep Handle Position")
 
 local function getPLTFuelBingo(dev0)
-	local digit1 = string.format("%.0f", dev0:get_argument_value(6020) * 10)
-	local digit2 = string.format("%.0f", dev0:get_argument_value(6021) * 10)
-	local digit3 = string.format("%.0f", dev0:get_argument_value(6022) * 10)
-	local digit4 = string.format("%.0f", dev0:get_argument_value(6023) * 10)
-	local digit5 = string.format("%.0f", dev0:get_argument_value(6024) * 10)
-	return tonumber(digit1 .. digit2 .. digit3 .. digit4 .. digit5)
+	return Module.build_gauge_from_arguments(dev0, { 6024, 6023, 6022, 6021, 6020 })
 end
 F_14:defineIntegerFromGetter("PLT_FUEL_BINGO_DISP", getPLTFuelBingo, 25000, "PLT Gauges", "PILOT Bingo Fuel Display")
 F_14:defineFloat("PLT_LIQU_OXY_NEEDLE", 951, { 0, 1 }, "PLT Gauges", "PILOT Liquid Oxygen Gauge Needle")

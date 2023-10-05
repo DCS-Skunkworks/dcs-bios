@@ -927,4 +927,19 @@ function Module.valueConvert(argument_value, input_range, output_range)
 	return output_range[1] + slope * (argument_value - input_range[1])
 end
 
+--- Returns an integer from individual arguments ordered from least to most significant digit
+--- @param dev0 CockpitDevice dcs device 0
+--- @param arguments integer[] dcs arguments
+--- @return integer
+function Module.build_gauge_from_arguments(dev0, arguments)
+	local result = 0
+
+	for index, value in ipairs(arguments) do
+		local arg_value = Module.round(dev0:get_argument_value(value) * 10) % 10 -- treat 10 as 0
+		result = result + arg_value * math.pow(10, index - 1)
+	end
+
+	return result
+end
+
 return Module
