@@ -15,7 +15,6 @@ local SetStateInput = require("SetStateInput")
 local StringOutput = require("StringOutput")
 local Suffix = require("Suffix")
 local VariableStepInput = require("VariableStepInput")
-local json = require("JSONHelper")
 
 --- @class Module
 --- @field name string the name of the module
@@ -77,27 +76,34 @@ function Module:defineGaugeValue(identifier, arg_number, output_range, category,
 	return control
 end
 
---- Defines a gauge from floating-point data with limits. This generally is not used in any new modules and is used in existing modules to provide the integer output of a gauge
+--- Adds an infitely-looping rotary, like an encoder, with a multiplier for the variable step
 --- @param identifier string the unique identifier for the control
+--- @param device_id integer the dcs device id
+--- @param command integer the dcs command
 --- @param arg_number integer the dcs argument number
---- @param max_step number the control
+--- @param step_multiplier number the amount to multiply the variable step by when applying an input
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
 --- @return Control control the control which was added to the module
-function Module:defineVariableStepTumb(identifier, device_id, command, arg_number, max_step, category, description)
-	local rotationAlloc = self:allocateInt(65535)
-	self.exportHooks[#self.exportHooks + 1] = function(dev0)
-		local value = dev0:get_argument_value(arg_number)
-		rotationAlloc:setValue(value * 65535)
-	end
-
-	self:addInputProcessor(identifier, function(state)
-		local delta = tonumber(state) / 65535 * max_step
+function Module:defineVariableStepTumb(identifier, device_id, command, arg_number, step_multiplier, category, description)
+	local max_value = 65535
+	self:addInputProcessor(identifier, function(value)
+		local delta = tonumber(value) / max_value * step_multiplier
 		GetDevice(device_id):performClickableAction(command, delta)
 	end)
 
-	local control = Control:new(category, ControlType.variable_step_dial, identifier, description, { VariableStepInput:new(3200, 65535, description) }, { IntegerOutput:new(rotationAlloc, Suffix.none, "rotation of the knob (not the value being manipulated!)") })
+	local alloc = self:allocateInt(max_value)
+
+	local control = Control:new(category, ControlType.variable_step_dial, identifier, description, {
+		VariableStepInput:new(3200, max_value, description),
+	}, {
+		IntegerOutput:new(alloc, Suffix.none, "rotation of the knob (not the value being manipulated!)"),
+	})
 	self:addControl(control)
+
+	self:addExportHook(function(dev0)
+		alloc:setValue(dev0:get_argument_value(arg_number) * max_value)
+	end)
 
 	return control
 end
