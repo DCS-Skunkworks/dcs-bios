@@ -1,7 +1,7 @@
 module("Log", package.seeall)
 
 --- @class Log
-Log = {}
+local Log = {}
 
 --- @func mock
 --- @param str string
