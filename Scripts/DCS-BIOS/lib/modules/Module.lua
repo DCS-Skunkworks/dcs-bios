@@ -8,7 +8,6 @@ local ControlType = require("ControlType")
 local Documentation = require("Documentation")
 local FixedStepInput = require("FixedStepInput")
 local IntegerOutput = require("IntegerOutput")
-local Log = require("Log")
 local MemoryMap = require("MemoryMap")
 local MomentaryPositions = require("MomentaryPositions")
 local PhysicalVariant = require("PhysicalVariant")
@@ -874,7 +873,7 @@ local ParseIndicationState = {
 --- Parses a dcs indication from a string into a key-value table, or nil if no data is available
 --- Values are separated with "-----------------------------------------\n"
 --- @param indicator_id integer
---- @return {[string]: string}
+--- @return {[string|integer]: string}
 function Module.parse_indication(indicator_id)
 	local ret = {}
 	local indication = list_indication(indicator_id)
@@ -884,6 +883,7 @@ function Module.parse_indication(indicator_id)
 	local key = nil
 	--- @type string[]
 	local current_block_lines = {}
+	local total_values = 0
 
 	---@return ParseIndicationState
 	local function current_state()
@@ -903,6 +903,8 @@ function Module.parse_indication(indicator_id)
 			value = value .. table.remove(current_block_lines, 1)
 		end
 		ret[key] = value -- if there's nothing, then we intentionally add an empty string
+		total_values = total_values + 1
+		ret[total_values] = value
 
 		key = nil
 	end
@@ -923,8 +925,7 @@ function Module.parse_indication(indicator_id)
 				table.remove(state)
 			end
 			table.insert(state, ParseIndicationState.child_block)
-			current_block_lines = {}
-			key = nil
+			add_block_to_result() -- it's unclear if these items will never have values and are only for child blocks, so we'll add it to be safe
 		elseif line == children_end_block and #state > 0 then
 			-- end a child block if we're in one
 			if current_state() == ParseIndicationState.item_block then
@@ -949,6 +950,8 @@ function Module.parse_indication(indicator_id)
 		add_block_to_result()
 		table.remove(state)
 	end
+
+	ret[0] = total_values
 
 	return ret
 end
