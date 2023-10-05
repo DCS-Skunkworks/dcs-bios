@@ -1,5 +1,7 @@
 module("JF-17", package.seeall)
 
+local Functions = require("Functions")
+
 local Module = require("Module")
 
 --- @class JF_17: Module
@@ -582,73 +584,48 @@ JF_17:defineString("UFCP_LINE_4", function()
 	return processUFCPLine(Module.parse_indication(6), 4)
 end, 8, "UFCP", "UFCP Display Line 4")
 
-local radio_line_1 = ""
-local radio_line_2 = ""
-local radio_sql_light = 0
-local radio_to_light = 0
-local radio_go_light = 0
+local radio_display = {}
 
 JF_17:addExportHook(function()
-	local radioDisplay = Module.parse_indication(7)
-	radio_line_1 = ""
-	radio_line_2 = ""
-	radio_sql_light = 0
-	radio_to_light = 0
-	radio_go_light = 0
-	if not radioDisplay then
-		return
-	end
-	if radioDisplay.radio_sql then
-		radio_sql_light = 1
-	end
-	if radioDisplay.radio_take then
-		radio_to_light = 1
-	end
-	if radioDisplay.radio_go then
-		radio_go_light = 1
-	end
-
-	-- Radio Display Line 2 uses unprintable characters to display the power symbol - replace these with something printable
-	if radioDisplay.radio_disp_l2 then
-		local charReplacements = {
-			[string.char(29)] = "_",
-			[string.char(30)] = "|",
-			[string.char(31)] = "^",
-		}
-		radio_line_2 = radioDisplay.radio_disp_l2:gsub(".", charReplacements)
-	end
-
-	if radioDisplay["#3#"] then
-		local tempString
-		if radioDisplay.radio_cursor and radioDisplay.radio_cursor:len() > 0 then
-			if radioDisplay.radio_disp_l1 and radioDisplay.radio_disp_l1:len() > 1 then
-				tempString = radioDisplay.radio_disp_l1:sub(1, radioDisplay.radio_disp_l1:len() - 1) .. radioDisplay.radio_cursor
-			else
-				tempString = radioDisplay.radio_cursor
-			end
-		else
-			tempString = radioDisplay.radio_disp_l1
-		end
-		radio_line_1 = radioDisplay["#3#"]:sub(1, radioDisplay["#3#"]:len() - tempString:len()) .. tempString
-	else
-		radio_line_1 = radioDisplay.radio_disp_l1
-	end
+	radio_display = Module.parse_indication(7)
 end)
 
 JF_17:defineIntegerFromGetter("RADIO_SQL_LIGHT", function()
-	return radio_sql_light
+	return Functions.nil_state_to_int_flag(radio_display.radio_sql)
 end, 1, "Radio", "Radio Squelch Indicator Light")
 JF_17:defineIntegerFromGetter("RADIO_TO_LIGHT", function()
-	return radio_to_light
+	return Functions.nil_state_to_int_flag(radio_display.radio_take)
 end, 1, "Radio", "Radio Take-Over Indicator Light")
 JF_17:defineIntegerFromGetter("RADIO_GO_LIGHT", function()
-	return radio_go_light
+	return Functions.nil_state_to_int_flag(radio_display.radio_go)
 end, 1, "Radio", "Radio Go Indicator Light")
 JF_17:defineString("RADIO_LINE_1", function()
-	return radio_line_1
+	if radio_display["#3#"] then
+		local tempString
+		if radio_display.radio_cursor and radio_display.radio_cursor:len() > 0 then
+			if radio_display.radio_disp_l1 and radio_display.radio_disp_l1:len() > 1 then
+				tempString = radio_display.radio_disp_l1:sub(1, radio_display.radio_disp_l1:len() - 1) .. radio_display.radio_cursor
+			else
+				tempString = radio_display.radio_cursor
+			end
+		else
+			tempString = Functions.coerce_nil_to_string(radio_display.radio_disp_l1)
+		end
+		return radio_display["#3#"]:sub(1, radio_display["#3#"]:len() - tempString:len()) .. tempString
+	end
+
+	return Functions.coerce_nil_to_string(radio_display.radio_disp_l1)
 end, 8, "Radio", "Radio Display Line 1")
+
+-- Radio Display Line 2 uses unprintable characters to display the power symbol - replace these with something printable
+local line_2_char_replacements = {
+	[string.char(29)] = "_",
+	[string.char(30)] = "|",
+	[string.char(31)] = "^",
+}
+
 JF_17:defineString("RADIO_LINE_2", function()
-	return radio_line_2
+	return Functions.coerce_nil_to_string(radio_display.radio_disp_l2 and radio_display.radio_disp_l2:gsub(".", line_2_char_replacements))
 end, 8, "Radio", "Radio Display Line 2")
 JF_17:defineIndicatorLight("GEAR_LEVER_L", 107, "Warning, Caution and IndicatorLights", "Landing Gear Lever Light (red)")
 JF_17:definePushButton("SEAT_EJECT_H", 38, 3483, 981, "Right Console", "Eject Seat Eject Handle")

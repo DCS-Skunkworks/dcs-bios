@@ -18,9 +18,6 @@ local TextDisplay = require("TextDisplay")
 --- @func Parses keyboard unit data
 local function parse_ku(indicator_id)
 	local ku = AH_64D.parse_indication(indicator_id)
-	if not ku then
-		return ""
-	end
 	return Functions.coerce_nil_to_string(ku.Standby_text)
 end
 
@@ -394,7 +391,7 @@ local LINE_LEN = 56
 local function parse_eufd(indicator_id)
 	local dcs_eufd = AH_64D.parse_indication(indicator_id)
 	-- todo: return different page based on the actual page
-	return TextDisplay.GetDisplayLines(dcs_eufd or {}, LINE_LEN, 14, eufd_indicator_data, function()
+	return TextDisplay.GetDisplayLines(dcs_eufd, LINE_LEN, 14, eufd_indicator_data, function()
 		return "MAIN"
 	end, {})
 end
@@ -794,22 +791,12 @@ AH_64D:addExportHook(function()
 	bit_line_1 = ""
 	bit_line_2 = ""
 	d_light_bright = 0
-	d_light_dim = 0
 	r_light_bright = 0
-	r_light_dim = 0
 	fwd_left_sector_brt = 0
 	aft_left_sector_brt = 0
 	aft_right_sector_brt = 0
 	fwd_right_sector_brt = 0
-	fwd_left_sector_dim = 0
-	aft_left_sector_dim = 0
-	aft_right_sector_dim = 0
-	fwd_right_sector_dim = 0
 	cmws_page = "NONE"
-
-	if cmws == nil then
-		return
-	end
 
 	-- the test page doesn't have numbers these high, and these should always be present on the main page
 	-- there doesn't seem to be a good alternative way to verify the page at the moment.
