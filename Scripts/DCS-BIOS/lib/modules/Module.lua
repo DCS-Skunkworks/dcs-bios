@@ -863,22 +863,20 @@ end
 --- Parses a dcs indication from a string into a key-value table, or nil if no data is available
 --- Values are separated with "-----------------------------------------\n"
 --- @param indicator_id integer
---- @return {[string]: string}?
+--- @return {[string]: string}
 function Module.parse_indication(indicator_id)
 	local ret = {}
 	local li = list_indication(indicator_id)
 
-	if li == "" then
-		return nil
-	end
-
-	local match = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
-	while true do
-		local name, value = match()
-		if not name then
-			break
+	if li ~= "" then
+		local match = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
+		while true do
+			local name, value = match()
+			if not name then
+				break
+			end
+			ret[name] = value
 		end
-		ret[name] = value
 	end
 
 	return ret

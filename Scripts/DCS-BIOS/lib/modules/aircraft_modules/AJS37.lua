@@ -1,5 +1,7 @@
 module("AJS37", package.seeall)
 
+local Functions = require("Functions")
+
 local Module = require("Module")
 
 --- @class AJS37: Module
@@ -342,68 +344,44 @@ AJS37:definePotentiometer("CI_FILTER", 5, 3801, 6905, { 0, 1 }, "Radar", "CI fil
 AJS37:definePushButton("MISL_SEL_BTN", 2, 3800, 400, "Test", "Missile Select Button (IR-RB FRAMSTEGN)")
 
 -- parse nav indicator
-local navIndicator1 = ""
-local navIndicator2 = ""
-local navIndicator3 = ""
-local navIndicator4 = ""
-local navIndicator5 = ""
-local navIndicator6 = ""
+local nav_data = {}
 AJS37:addExportHook(function()
-	local navData = Module.parse_indication(2)
-
-	if not navData then
-		return
-	end
-
-	navIndicator1 = navData["data1"] or ""
-	navIndicator2 = navData["data2"] or ""
-	navIndicator3 = navData["data3"] or ""
-	navIndicator4 = navData["data4"] or ""
-	navIndicator5 = navData["data5"] or ""
-	navIndicator6 = navData["data6"] or ""
+	nav_data = Module.parse_indication(2)
 end)
 
 AJS37:defineString("AJS37_NAV_INDICATOR_DATA_1", function()
-	return navIndicator1
+	return Functions.coerce_nil_to_string(nav_data["data1"])
 end, 1, "Navigation Panel", "Navigation Panel Data Digit 1")
 AJS37:defineString("AJS37_NAV_INDICATOR_DATA_2", function()
-	return navIndicator2
+	return Functions.coerce_nil_to_string(nav_data["data2"])
 end, 1, "Navigation Panel", "Navigation Panel Data Digit 2")
 AJS37:defineString("AJS37_NAV_INDICATOR_DATA_3", function()
-	return navIndicator3
+	return Functions.coerce_nil_to_string(nav_data["data3"])
 end, 1, "Navigation Panel", "Navigation Panel Data Digit 3")
 AJS37:defineString("AJS37_NAV_INDICATOR_DATA_4", function()
-	return navIndicator4
+	return Functions.coerce_nil_to_string(nav_data["data4"])
 end, 1, "Navigation Panel", "Navigation Panel Data Digit 4")
 AJS37:defineString("AJS37_NAV_INDICATOR_DATA_5", function()
-	return navIndicator5
+	return Functions.coerce_nil_to_string(nav_data["data5"])
 end, 1, "Navigation Panel", "Navigation Panel Data Digit 5")
 AJS37:defineString("AJS37_NAV_INDICATOR_DATA_6", function()
-	return navIndicator6
+	return Functions.coerce_nil_to_string(nav_data["data6"])
 end, 1, "Navigation Panel", "Navigation Panel Data Digit 6")
 
 AJS37:defineIndicatorLight("HUVUDVARNING_L", 444, "Front Panel Lights", "Master Caution Light left (red)")
 AJS37:defineIndicatorLight("HUVUDVARNING_R", 445, "Front Panel Lights", "Master Caution Light right (red)")
 
 -- parse dest indicator
-local destIndicator1 = ""
-local destIndicator2 = ""
+local dest_data = {}
 AJS37:addExportHook(function()
-	local navData = Module.parse_indication(1)
-
-	if not navData then
-		return
-	end
-
-	destIndicator1 = navData["Dest1"] or ""
-	destIndicator2 = navData["Dest2"] or ""
+	dest_data = Module.parse_indication(1)
 end)
 
 AJS37:defineString("AJS37_DEST_INDICATOR_DATA_1", function()
-	return destIndicator1
+	return Functions.coerce_nil_to_string(dest_data["Dest1"])
 end, 1, "Destination", "Destination Data Digit 1")
 AJS37:defineString("AJS37_DEST_INDICATOR_DATA_2", function()
-	return destIndicator2
+	return Functions.coerce_nil_to_string(dest_data["Dest2"])
 end, 1, "Destination", "Destination Data Digit 2")
 
 AJS37:defineIndicatorLight("ALT_WARNING_LAMP", 450, "Front Panel Lights", "Altitude Warning Lamp (red)")
