@@ -2806,6 +2806,44 @@ docdata["F-15E"] =
                                                                                                                                "type": "integer"
                                                                                                   } ]
                                                                               },
+                                                          "F_EMD_L_RPM_10_G": {
+                                                                                      "category": "Front Engine Monitor Display",
+                                                                                  "control_type": "analog_gauge",
+                                                                                   "description": "FRONT EMD Left RPM 10",
+                                                                                    "identifier": "F_EMD_L_RPM_10_G",
+                                                                                        "inputs": [  ],
+                                                                                       "outputs": [ {
+                                                                                                                            "address": 37734,
+                                                                                                                 "address_identifier": "F_15E_F_EMD_L_RPM_10_G_A",
+                                                                                                            "address_mask_identifier": "F_15E_F_EMD_L_RPM_10_G_AM",
+                                                                                                      "address_mask_shift_identifier": "F_15E_F_EMD_L_RPM_10_G",
+                                                                                                                        "description": "gauge position",
+                                                                                                                               "mask": 65535,
+                                                                                                                          "max_value": 65535,
+                                                                                                                           "shift_by": 0,
+                                                                                                                             "suffix": "",
+                                                                                                                               "type": "integer"
+                                                                                                  } ]
+                                                                              },
+                                                           "F_EMD_L_RPM_1_G": {
+                                                                                      "category": "Front Engine Monitor Display",
+                                                                                  "control_type": "analog_gauge",
+                                                                                   "description": "FRONT EMD Left RPM 1",
+                                                                                    "identifier": "F_EMD_L_RPM_1_G",
+                                                                                        "inputs": [  ],
+                                                                                       "outputs": [ {
+                                                                                                                            "address": 37732,
+                                                                                                                 "address_identifier": "F_15E_F_EMD_L_RPM_1_G_A",
+                                                                                                            "address_mask_identifier": "F_15E_F_EMD_L_RPM_1_G_AM",
+                                                                                                      "address_mask_shift_identifier": "F_15E_F_EMD_L_RPM_1_G",
+                                                                                                                        "description": "gauge position",
+                                                                                                                               "mask": 65535,
+                                                                                                                          "max_value": 65535,
+                                                                                                                           "shift_by": 0,
+                                                                                                                             "suffix": "",
+                                                                                                                               "type": "integer"
+                                                                                                  } ]
+                                                                              },
                                                        "F_EMD_L_TEMP_1000_G": {
                                                                                       "category": "Front Engine Monitor Display",
                                                                                   "control_type": "analog_gauge",
@@ -3083,6 +3121,44 @@ docdata["F-15E"] =
                                                                                                                  "address_identifier": "F_15E_F_EMD_R_RPM_100_G_A",
                                                                                                             "address_mask_identifier": "F_15E_F_EMD_R_RPM_100_G_AM",
                                                                                                       "address_mask_shift_identifier": "F_15E_F_EMD_R_RPM_100_G",
+                                                                                                                        "description": "gauge position",
+                                                                                                                               "mask": 65535,
+                                                                                                                          "max_value": 65535,
+                                                                                                                           "shift_by": 0,
+                                                                                                                             "suffix": "",
+                                                                                                                               "type": "integer"
+                                                                                                  } ]
+                                                                              },
+                                                          "F_EMD_R_RPM_10_G": {
+                                                                                      "category": "Front Engine Monitor Display",
+                                                                                  "control_type": "analog_gauge",
+                                                                                   "description": "FRONT EMD Right RPM 10",
+                                                                                    "identifier": "F_EMD_R_RPM_10_G",
+                                                                                        "inputs": [  ],
+                                                                                       "outputs": [ {
+                                                                                                                            "address": 37740,
+                                                                                                                 "address_identifier": "F_15E_F_EMD_R_RPM_10_G_A",
+                                                                                                            "address_mask_identifier": "F_15E_F_EMD_R_RPM_10_G_AM",
+                                                                                                      "address_mask_shift_identifier": "F_15E_F_EMD_R_RPM_10_G",
+                                                                                                                        "description": "gauge position",
+                                                                                                                               "mask": 65535,
+                                                                                                                          "max_value": 65535,
+                                                                                                                           "shift_by": 0,
+                                                                                                                             "suffix": "",
+                                                                                                                               "type": "integer"
+                                                                                                  } ]
+                                                                              },
+                                                           "F_EMD_R_RPM_1_G": {
+                                                                                      "category": "Front Engine Monitor Display",
+                                                                                  "control_type": "analog_gauge",
+                                                                                   "description": "FRONT EMD Right RPM 1",
+                                                                                    "identifier": "F_EMD_R_RPM_1_G",
+                                                                                        "inputs": [  ],
+                                                                                       "outputs": [ {
+                                                                                                                            "address": 37738,
+                                                                                                                 "address_identifier": "F_15E_F_EMD_R_RPM_1_G_A",
+                                                                                                            "address_mask_identifier": "F_15E_F_EMD_R_RPM_1_G_AM",
+                                                                                                      "address_mask_shift_identifier": "F_15E_F_EMD_R_RPM_1_G",
                                                                                                                         "description": "gauge position",
                                                                                                                                "mask": 65535,
                                                                                                                           "max_value": 65535,
@@ -6033,7 +6109,7 @@ docdata["F-15E"] =
                                                                                                         "address_identifier": "F_15E_F_LG_LEFT_G_L_A",
                                                                                                    "address_mask_identifier": "F_15E_F_LG_LEFT_G_L_AM",
                                                                                              "address_mask_shift_identifier": "F_15E_F_LG_LEFT_G_L",
-                                                                                                               "description": "Multi Led Color 2; Light is on between 0.61 and 1",
+                                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                                       "mask": 2048,
                                                                                                                  "max_value": 1,
                                                                                                                   "shift_by": 11,
@@ -6052,7 +6128,7 @@ docdata["F-15E"] =
                                                                                                         "address_identifier": "F_15E_F_LG_LEFT_R_L_A",
                                                                                                    "address_mask_identifier": "F_15E_F_LG_LEFT_R_L_AM",
                                                                                              "address_mask_shift_identifier": "F_15E_F_LG_LEFT_R_L",
-                                                                                                               "description": "Multi Led Color 1; Light is on between 0.1 and 0.59",
+                                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                                       "mask": 1024,
                                                                                                                  "max_value": 1,
                                                                                                                   "shift_by": 10,
@@ -6071,7 +6147,7 @@ docdata["F-15E"] =
                                                                                                         "address_identifier": "F_15E_F_LG_NOSE_G_L_A",
                                                                                                    "address_mask_identifier": "F_15E_F_LG_NOSE_G_L_AM",
                                                                                              "address_mask_shift_identifier": "F_15E_F_LG_NOSE_G_L",
-                                                                                                               "description": "Multi Led Color 2; Light is on between 0.61 and 1",
+                                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                                       "mask": 512,
                                                                                                                  "max_value": 1,
                                                                                                                   "shift_by": 9,
@@ -6090,7 +6166,7 @@ docdata["F-15E"] =
                                                                                                         "address_identifier": "F_15E_F_LG_NOSE_R_L_A",
                                                                                                    "address_mask_identifier": "F_15E_F_LG_NOSE_R_L_AM",
                                                                                              "address_mask_shift_identifier": "F_15E_F_LG_NOSE_R_L",
-                                                                                                               "description": "Multi Led Color 1; Light is on between 0.1 and 0.59",
+                                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                                       "mask": 256,
                                                                                                                  "max_value": 1,
                                                                                                                   "shift_by": 8,
@@ -6109,7 +6185,7 @@ docdata["F-15E"] =
                                                                                                         "address_identifier": "F_15E_F_LG_RIGHT_G_L_A",
                                                                                                    "address_mask_identifier": "F_15E_F_LG_RIGHT_G_L_AM",
                                                                                              "address_mask_shift_identifier": "F_15E_F_LG_RIGHT_G_L",
-                                                                                                               "description": "Multi Led Color 2; Light is on between 0.61 and 1",
+                                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                                       "mask": 8192,
                                                                                                                  "max_value": 1,
                                                                                                                   "shift_by": 13,
@@ -6128,7 +6204,7 @@ docdata["F-15E"] =
                                                                                                         "address_identifier": "F_15E_F_LG_RIGHT_R_L_A",
                                                                                                    "address_mask_identifier": "F_15E_F_LG_RIGHT_R_L_AM",
                                                                                              "address_mask_shift_identifier": "F_15E_F_LG_RIGHT_R_L",
-                                                                                                               "description": "Multi Led Color 1; Light is on between 0.1 and 0.59",
+                                                                                                               "description": "0 if light is off, 1 if light is on",
                                                                                                                       "mask": 4096,
                                                                                                                  "max_value": 1,
                                                                                                                   "shift_by": 12,
@@ -7983,34 +8059,66 @@ docdata["F-15E"] =
                                                                            }
                                                },
                                   "Front NUC": {
-                                                   "F_NUC_N_CONS_CVR": {
-                                                                                      "category": "Front NUC",
-                                                                                  "control_type": "selector",
-                                                                                   "description": "FRONT Nuclear Consent Switch",
-                                                                                    "identifier": "F_NUC_N_CONS_CVR",
-                                                                                        "inputs": [ {
-                                                                                                      "description": "switch to previous or next state",
-                                                                                                        "interface": "fixed_step"
-                                                                                                  }, {
-                                                                                                      "description": "set position",
-                                                                                                        "interface": "set_state",
-                                                                                                        "max_value": 2
-                                                                                                  } ],
-                                                                           "momentary_positions": "none",
-                                                                                       "outputs": [ {
-                                                                                                                            "address": 37804,
-                                                                                                                 "address_identifier": "F_15E_F_NUC_N_CONS_CVR_A",
-                                                                                                            "address_mask_identifier": "F_15E_F_NUC_N_CONS_CVR_AM",
-                                                                                                      "address_mask_shift_identifier": "F_15E_F_NUC_N_CONS_CVR",
-                                                                                                                        "description": "selector position",
-                                                                                                                               "mask": 24576,
-                                                                                                                          "max_value": 2,
-                                                                                                                           "shift_by": 13,
-                                                                                                                             "suffix": "",
-                                                                                                                               "type": "integer"
-                                                                                                  } ],
-                                                                              "physical_variant": "3_position_switch"
-                                                                       }
+                                                      "F_NUC_N_CONS_CVR": {
+                                                                                         "category": "Front NUC",
+                                                                                     "control_type": "selector",
+                                                                                      "description": "FRONT Nuclear Consent Switch Cover",
+                                                                                       "identifier": "F_NUC_N_CONS_CVR",
+                                                                                           "inputs": [ {
+                                                                                                         "description": "switch to previous or next state",
+                                                                                                           "interface": "fixed_step"
+                                                                                                     }, {
+                                                                                                         "description": "set position",
+                                                                                                           "interface": "set_state",
+                                                                                                           "max_value": 1
+                                                                                                     }, {
+                                                                                                            "argument": "TOGGLE",
+                                                                                                         "description": "Toggle switch state",
+                                                                                                           "interface": "action"
+                                                                                                     } ],
+                                                                              "momentary_positions": "none",
+                                                                                          "outputs": [ {
+                                                                                                                               "address": 37804,
+                                                                                                                    "address_identifier": "F_15E_F_NUC_N_CONS_CVR_A",
+                                                                                                               "address_mask_identifier": "F_15E_F_NUC_N_CONS_CVR_AM",
+                                                                                                         "address_mask_shift_identifier": "F_15E_F_NUC_N_CONS_CVR",
+                                                                                                                           "description": "selector position",
+                                                                                                                                  "mask": 4096,
+                                                                                                                             "max_value": 1,
+                                                                                                                              "shift_by": 12,
+                                                                                                                                "suffix": "",
+                                                                                                                                  "type": "integer"
+                                                                                                     } ],
+                                                                                 "physical_variant": "toggle_switch"
+                                                                          },
+                                                   "F_NUC_N_CONS_SWITCH": {
+                                                                                         "category": "Front NUC",
+                                                                                     "control_type": "selector",
+                                                                                      "description": "FRONT Nuclear Consent Switch",
+                                                                                       "identifier": "F_NUC_N_CONS_SWITCH",
+                                                                                           "inputs": [ {
+                                                                                                         "description": "switch to previous or next state",
+                                                                                                           "interface": "fixed_step"
+                                                                                                     }, {
+                                                                                                         "description": "set position",
+                                                                                                           "interface": "set_state",
+                                                                                                           "max_value": 2
+                                                                                                     } ],
+                                                                              "momentary_positions": "none",
+                                                                                          "outputs": [ {
+                                                                                                                               "address": 37804,
+                                                                                                                    "address_identifier": "F_15E_F_NUC_N_CONS_SWITCH_A",
+                                                                                                               "address_mask_identifier": "F_15E_F_NUC_N_CONS_SWITCH_AM",
+                                                                                                         "address_mask_shift_identifier": "F_15E_F_NUC_N_CONS_SWITCH",
+                                                                                                                           "description": "selector position",
+                                                                                                                                  "mask": 24576,
+                                                                                                                             "max_value": 2,
+                                                                                                                              "shift_by": 13,
+                                                                                                                                "suffix": "",
+                                                                                                                                  "type": "integer"
+                                                                                                     } ],
+                                                                                 "physical_variant": "3_position_switch"
+                                                                          }
                                                },
                  "Front Oxygen Control Panel": {
                                                        "F_OXY_MODE": {
@@ -9887,6 +9995,72 @@ docdata["F-15E"] =
                                                                                                        } ],
                                                                                    "physical_variant": "push_button"
                                                                             },
+                                                             "F_UFC_KEY_0": {
+                                                                                        "api_variant": "momentary_last_position",
+                                                                                           "category": "Front UFC",
+                                                                                       "control_type": "selector",
+                                                                                        "description": "FRONT -/0 Key",
+                                                                                         "identifier": "F_UFC_KEY_0",
+                                                                                             "inputs": [ {
+                                                                                                           "description": "switch to previous or next state",
+                                                                                                             "interface": "fixed_step"
+                                                                                                       }, {
+                                                                                                           "description": "set position",
+                                                                                                             "interface": "set_state",
+                                                                                                             "max_value": 1
+                                                                                                       }, {
+                                                                                                              "argument": "TOGGLE",
+                                                                                                           "description": "Toggle switch state",
+                                                                                                             "interface": "action"
+                                                                                                       } ],
+                                                                                "momentary_positions": "none",
+                                                                                            "outputs": [ {
+                                                                                                                                 "address": 37392,
+                                                                                                                      "address_identifier": "F_15E_F_UFC_KEY_0_A",
+                                                                                                                 "address_mask_identifier": "F_15E_F_UFC_KEY_0_AM",
+                                                                                                           "address_mask_shift_identifier": "F_15E_F_UFC_KEY_0",
+                                                                                                                             "description": "selector position",
+                                                                                                                                    "mask": 16384,
+                                                                                                                               "max_value": 1,
+                                                                                                                                "shift_by": 14,
+                                                                                                                                  "suffix": "",
+                                                                                                                                    "type": "integer"
+                                                                                                       } ],
+                                                                                   "physical_variant": "push_button"
+                                                                            },
+                                                             "F_UFC_KEY_7": {
+                                                                                        "api_variant": "momentary_last_position",
+                                                                                           "category": "Front UFC",
+                                                                                       "control_type": "selector",
+                                                                                        "description": "FRONT :/7 Key",
+                                                                                         "identifier": "F_UFC_KEY_7",
+                                                                                             "inputs": [ {
+                                                                                                           "description": "switch to previous or next state",
+                                                                                                             "interface": "fixed_step"
+                                                                                                       }, {
+                                                                                                           "description": "set position",
+                                                                                                             "interface": "set_state",
+                                                                                                             "max_value": 1
+                                                                                                       }, {
+                                                                                                              "argument": "TOGGLE",
+                                                                                                           "description": "Toggle switch state",
+                                                                                                             "interface": "action"
+                                                                                                       } ],
+                                                                                "momentary_positions": "none",
+                                                                                            "outputs": [ {
+                                                                                                                                 "address": 37392,
+                                                                                                                      "address_identifier": "F_15E_F_UFC_KEY_7_A",
+                                                                                                                 "address_mask_identifier": "F_15E_F_UFC_KEY_7_AM",
+                                                                                                           "address_mask_shift_identifier": "F_15E_F_UFC_KEY_7",
+                                                                                                                             "description": "selector position",
+                                                                                                                                    "mask": 256,
+                                                                                                                               "max_value": 1,
+                                                                                                                                "shift_by": 8,
+                                                                                                                                  "suffix": "",
+                                                                                                                                    "type": "integer"
+                                                                                                       } ],
+                                                                                   "physical_variant": "push_button"
+                                                                            },
                                                             "F_UFC_KEY_A1": {
                                                                                         "api_variant": "momentary_last_position",
                                                                                            "category": "Front UFC",
@@ -10481,72 +10655,6 @@ docdata["F-15E"] =
                                                                                                        } ],
                                                                                    "physical_variant": "push_button"
                                                                             },
-                                                            "F_UFC_KEY__0": {
-                                                                                        "api_variant": "momentary_last_position",
-                                                                                           "category": "Front UFC",
-                                                                                       "control_type": "selector",
-                                                                                        "description": "FRONT -/0 Key",
-                                                                                         "identifier": "F_UFC_KEY__0",
-                                                                                             "inputs": [ {
-                                                                                                           "description": "switch to previous or next state",
-                                                                                                             "interface": "fixed_step"
-                                                                                                       }, {
-                                                                                                           "description": "set position",
-                                                                                                             "interface": "set_state",
-                                                                                                             "max_value": 1
-                                                                                                       }, {
-                                                                                                              "argument": "TOGGLE",
-                                                                                                           "description": "Toggle switch state",
-                                                                                                             "interface": "action"
-                                                                                                       } ],
-                                                                                "momentary_positions": "none",
-                                                                                            "outputs": [ {
-                                                                                                                                 "address": 37392,
-                                                                                                                      "address_identifier": "F_15E_F_UFC_KEY_0_A",
-                                                                                                                 "address_mask_identifier": "F_15E_F_UFC_KEY_0_AM",
-                                                                                                           "address_mask_shift_identifier": "F_15E_F_UFC_KEY_0",
-                                                                                                                             "description": "selector position",
-                                                                                                                                    "mask": 16384,
-                                                                                                                               "max_value": 1,
-                                                                                                                                "shift_by": 14,
-                                                                                                                                  "suffix": "",
-                                                                                                                                    "type": "integer"
-                                                                                                       } ],
-                                                                                   "physical_variant": "push_button"
-                                                                            },
-                                                            "F_UFC_KEY__7": {
-                                                                                        "api_variant": "momentary_last_position",
-                                                                                           "category": "Front UFC",
-                                                                                       "control_type": "selector",
-                                                                                        "description": "FRONT :/7 Key",
-                                                                                         "identifier": "F_UFC_KEY__7",
-                                                                                             "inputs": [ {
-                                                                                                           "description": "switch to previous or next state",
-                                                                                                             "interface": "fixed_step"
-                                                                                                       }, {
-                                                                                                           "description": "set position",
-                                                                                                             "interface": "set_state",
-                                                                                                             "max_value": 1
-                                                                                                       }, {
-                                                                                                              "argument": "TOGGLE",
-                                                                                                           "description": "Toggle switch state",
-                                                                                                             "interface": "action"
-                                                                                                       } ],
-                                                                                "momentary_positions": "none",
-                                                                                            "outputs": [ {
-                                                                                                                                 "address": 37392,
-                                                                                                                      "address_identifier": "F_15E_F_UFC_KEY_7_A",
-                                                                                                                 "address_mask_identifier": "F_15E_F_UFC_KEY_7_AM",
-                                                                                                           "address_mask_shift_identifier": "F_15E_F_UFC_KEY_7",
-                                                                                                                             "description": "selector position",
-                                                                                                                                    "mask": 256,
-                                                                                                                               "max_value": 1,
-                                                                                                                                "shift_by": 8,
-                                                                                                                                  "suffix": "",
-                                                                                                                                    "type": "integer"
-                                                                                                       } ],
-                                                                                   "physical_variant": "push_button"
-                                                                            },
                                                         "F_UFC_LCD_BRIGHT": {
                                                                                     "category": "Front UFC",
                                                                                 "control_type": "limited_dial",
@@ -10727,204 +10835,204 @@ docdata["F-15E"] =
                                                                                                                                 "type": "string"
                                                                                                    } ]
                                                                                },
-                                                        "F_UFC_Line1_DISPLAY": {
+                                                        "F_UFC_LINE1_DISPLAY": {
                                                                                        "category": "Front UFC Display",
                                                                                    "control_type": "display",
                                                                                     "description": "Line 1",
-                                                                                     "identifier": "F_UFC_Line1_DISPLAY",
+                                                                                     "identifier": "F_UFC_LINE1_DISPLAY",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
                                                                                                                              "address": 37396,
-                                                                                                                  "address_identifier": "F_15E_F_UFC_Line1_DISPLAY_A",
-                                                                                                             "address_mask_identifier": "F_15E_F_UFC_Line1_DISPLAY_AM",
-                                                                                                       "address_mask_shift_identifier": "F_15E_F_UFC_Line1_DISPLAY",
+                                                                                                                  "address_identifier": "F_15E_F_UFC_LINE1_DISPLAY_A",
+                                                                                                             "address_mask_identifier": "F_15E_F_UFC_LINE1_DISPLAY_AM",
+                                                                                                       "address_mask_shift_identifier": "F_15E_F_UFC_LINE1_DISPLAY",
                                                                                                                          "description": "Line 1",
                                                                                                                           "max_length": 20,
                                                                                                                               "suffix": "",
                                                                                                                                 "type": "string"
                                                                                                    } ]
                                                                                },
-                                                   "F_UFC_Line1_DISPLAY_DOTS": {
+                                                   "F_UFC_LINE1_DISPLAY_DOTS": {
                                                                                        "category": "Front UFC Display",
                                                                                    "control_type": "display",
                                                                                     "description": "Line 1 (special characters)",
-                                                                                     "identifier": "F_UFC_Line1_DISPLAY_DOTS",
+                                                                                     "identifier": "F_UFC_LINE1_DISPLAY_DOTS",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
                                                                                                                              "address": 37516,
-                                                                                                                  "address_identifier": "F_15E_F_UFC_Line1_DISPLAY_DOTS_A",
-                                                                                                             "address_mask_identifier": "F_15E_F_UFC_Line1_DISPLAY_DOTS_AM",
-                                                                                                       "address_mask_shift_identifier": "F_15E_F_UFC_Line1_DISPLAY_DOTS",
+                                                                                                                  "address_identifier": "F_15E_F_UFC_LINE1_DISPLAY_DOTS_A",
+                                                                                                             "address_mask_identifier": "F_15E_F_UFC_LINE1_DISPLAY_DOTS_AM",
+                                                                                                       "address_mask_shift_identifier": "F_15E_F_UFC_LINE1_DISPLAY_DOTS",
                                                                                                                          "description": "Line 1 (special characters)",
                                                                                                                           "max_length": 20,
                                                                                                                               "suffix": "",
                                                                                                                                 "type": "string"
                                                                                                    } ]
                                                                                },
-                                                        "F_UFC_Line2_DISPLAY": {
+                                                        "F_UFC_LINE2_DISPLAY": {
                                                                                        "category": "Front UFC Display",
                                                                                    "control_type": "display",
                                                                                     "description": "Line 2",
-                                                                                     "identifier": "F_UFC_Line2_DISPLAY",
+                                                                                     "identifier": "F_UFC_LINE2_DISPLAY",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
                                                                                                                              "address": 37416,
-                                                                                                                  "address_identifier": "F_15E_F_UFC_Line2_DISPLAY_A",
-                                                                                                             "address_mask_identifier": "F_15E_F_UFC_Line2_DISPLAY_AM",
-                                                                                                       "address_mask_shift_identifier": "F_15E_F_UFC_Line2_DISPLAY",
+                                                                                                                  "address_identifier": "F_15E_F_UFC_LINE2_DISPLAY_A",
+                                                                                                             "address_mask_identifier": "F_15E_F_UFC_LINE2_DISPLAY_AM",
+                                                                                                       "address_mask_shift_identifier": "F_15E_F_UFC_LINE2_DISPLAY",
                                                                                                                          "description": "Line 2",
                                                                                                                           "max_length": 20,
                                                                                                                               "suffix": "",
                                                                                                                                 "type": "string"
                                                                                                    } ]
                                                                                },
-                                                   "F_UFC_Line2_DISPLAY_DOTS": {
+                                                   "F_UFC_LINE2_DISPLAY_DOTS": {
                                                                                        "category": "Front UFC Display",
                                                                                    "control_type": "display",
                                                                                     "description": "Line 2 (special characters)",
-                                                                                     "identifier": "F_UFC_Line2_DISPLAY_DOTS",
+                                                                                     "identifier": "F_UFC_LINE2_DISPLAY_DOTS",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
                                                                                                                              "address": 37536,
-                                                                                                                  "address_identifier": "F_15E_F_UFC_Line2_DISPLAY_DOTS_A",
-                                                                                                             "address_mask_identifier": "F_15E_F_UFC_Line2_DISPLAY_DOTS_AM",
-                                                                                                       "address_mask_shift_identifier": "F_15E_F_UFC_Line2_DISPLAY_DOTS",
+                                                                                                                  "address_identifier": "F_15E_F_UFC_LINE2_DISPLAY_DOTS_A",
+                                                                                                             "address_mask_identifier": "F_15E_F_UFC_LINE2_DISPLAY_DOTS_AM",
+                                                                                                       "address_mask_shift_identifier": "F_15E_F_UFC_LINE2_DISPLAY_DOTS",
                                                                                                                          "description": "Line 2 (special characters)",
                                                                                                                           "max_length": 20,
                                                                                                                               "suffix": "",
                                                                                                                                 "type": "string"
                                                                                                    } ]
                                                                                },
-                                                        "F_UFC_Line3_DISPLAY": {
+                                                        "F_UFC_LINE3_DISPLAY": {
                                                                                        "category": "Front UFC Display",
                                                                                    "control_type": "display",
                                                                                     "description": "Line 3",
-                                                                                     "identifier": "F_UFC_Line3_DISPLAY",
+                                                                                     "identifier": "F_UFC_LINE3_DISPLAY",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
                                                                                                                              "address": 37436,
-                                                                                                                  "address_identifier": "F_15E_F_UFC_Line3_DISPLAY_A",
-                                                                                                             "address_mask_identifier": "F_15E_F_UFC_Line3_DISPLAY_AM",
-                                                                                                       "address_mask_shift_identifier": "F_15E_F_UFC_Line3_DISPLAY",
+                                                                                                                  "address_identifier": "F_15E_F_UFC_LINE3_DISPLAY_A",
+                                                                                                             "address_mask_identifier": "F_15E_F_UFC_LINE3_DISPLAY_AM",
+                                                                                                       "address_mask_shift_identifier": "F_15E_F_UFC_LINE3_DISPLAY",
                                                                                                                          "description": "Line 3",
                                                                                                                           "max_length": 20,
                                                                                                                               "suffix": "",
                                                                                                                                 "type": "string"
                                                                                                    } ]
                                                                                },
-                                                   "F_UFC_Line3_DISPLAY_DOTS": {
+                                                   "F_UFC_LINE3_DISPLAY_DOTS": {
                                                                                        "category": "Front UFC Display",
                                                                                    "control_type": "display",
                                                                                     "description": "Line 3 (special characters)",
-                                                                                     "identifier": "F_UFC_Line3_DISPLAY_DOTS",
+                                                                                     "identifier": "F_UFC_LINE3_DISPLAY_DOTS",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
                                                                                                                              "address": 37556,
-                                                                                                                  "address_identifier": "F_15E_F_UFC_Line3_DISPLAY_DOTS_A",
-                                                                                                             "address_mask_identifier": "F_15E_F_UFC_Line3_DISPLAY_DOTS_AM",
-                                                                                                       "address_mask_shift_identifier": "F_15E_F_UFC_Line3_DISPLAY_DOTS",
+                                                                                                                  "address_identifier": "F_15E_F_UFC_LINE3_DISPLAY_DOTS_A",
+                                                                                                             "address_mask_identifier": "F_15E_F_UFC_LINE3_DISPLAY_DOTS_AM",
+                                                                                                       "address_mask_shift_identifier": "F_15E_F_UFC_LINE3_DISPLAY_DOTS",
                                                                                                                          "description": "Line 3 (special characters)",
                                                                                                                           "max_length": 20,
                                                                                                                               "suffix": "",
                                                                                                                                 "type": "string"
                                                                                                    } ]
                                                                                },
-                                                        "F_UFC_Line4_DISPLAY": {
+                                                        "F_UFC_LINE4_DISPLAY": {
                                                                                        "category": "Front UFC Display",
                                                                                    "control_type": "display",
                                                                                     "description": "Line 4",
-                                                                                     "identifier": "F_UFC_Line4_DISPLAY",
+                                                                                     "identifier": "F_UFC_LINE4_DISPLAY",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
                                                                                                                              "address": 37456,
-                                                                                                                  "address_identifier": "F_15E_F_UFC_Line4_DISPLAY_A",
-                                                                                                             "address_mask_identifier": "F_15E_F_UFC_Line4_DISPLAY_AM",
-                                                                                                       "address_mask_shift_identifier": "F_15E_F_UFC_Line4_DISPLAY",
+                                                                                                                  "address_identifier": "F_15E_F_UFC_LINE4_DISPLAY_A",
+                                                                                                             "address_mask_identifier": "F_15E_F_UFC_LINE4_DISPLAY_AM",
+                                                                                                       "address_mask_shift_identifier": "F_15E_F_UFC_LINE4_DISPLAY",
                                                                                                                          "description": "Line 4",
                                                                                                                           "max_length": 20,
                                                                                                                               "suffix": "",
                                                                                                                                 "type": "string"
                                                                                                    } ]
                                                                                },
-                                                   "F_UFC_Line4_DISPLAY_DOTS": {
+                                                   "F_UFC_LINE4_DISPLAY_DOTS": {
                                                                                        "category": "Front UFC Display",
                                                                                    "control_type": "display",
                                                                                     "description": "Line 4 (special characters)",
-                                                                                     "identifier": "F_UFC_Line4_DISPLAY_DOTS",
+                                                                                     "identifier": "F_UFC_LINE4_DISPLAY_DOTS",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
                                                                                                                              "address": 37576,
-                                                                                                                  "address_identifier": "F_15E_F_UFC_Line4_DISPLAY_DOTS_A",
-                                                                                                             "address_mask_identifier": "F_15E_F_UFC_Line4_DISPLAY_DOTS_AM",
-                                                                                                       "address_mask_shift_identifier": "F_15E_F_UFC_Line4_DISPLAY_DOTS",
+                                                                                                                  "address_identifier": "F_15E_F_UFC_LINE4_DISPLAY_DOTS_A",
+                                                                                                             "address_mask_identifier": "F_15E_F_UFC_LINE4_DISPLAY_DOTS_AM",
+                                                                                                       "address_mask_shift_identifier": "F_15E_F_UFC_LINE4_DISPLAY_DOTS",
                                                                                                                          "description": "Line 4 (special characters)",
                                                                                                                           "max_length": 20,
                                                                                                                               "suffix": "",
                                                                                                                                 "type": "string"
                                                                                                    } ]
                                                                                },
-                                                        "F_UFC_Line5_DISPLAY": {
+                                                        "F_UFC_LINE5_DISPLAY": {
                                                                                        "category": "Front UFC Display",
                                                                                    "control_type": "display",
                                                                                     "description": "Line 5",
-                                                                                     "identifier": "F_UFC_Line5_DISPLAY",
+                                                                                     "identifier": "F_UFC_LINE5_DISPLAY",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
                                                                                                                              "address": 37476,
-                                                                                                                  "address_identifier": "F_15E_F_UFC_Line5_DISPLAY_A",
-                                                                                                             "address_mask_identifier": "F_15E_F_UFC_Line5_DISPLAY_AM",
-                                                                                                       "address_mask_shift_identifier": "F_15E_F_UFC_Line5_DISPLAY",
+                                                                                                                  "address_identifier": "F_15E_F_UFC_LINE5_DISPLAY_A",
+                                                                                                             "address_mask_identifier": "F_15E_F_UFC_LINE5_DISPLAY_AM",
+                                                                                                       "address_mask_shift_identifier": "F_15E_F_UFC_LINE5_DISPLAY",
                                                                                                                          "description": "Line 5",
                                                                                                                           "max_length": 20,
                                                                                                                               "suffix": "",
                                                                                                                                 "type": "string"
                                                                                                    } ]
                                                                                },
-                                                   "F_UFC_Line5_DISPLAY_DOTS": {
+                                                   "F_UFC_LINE5_DISPLAY_DOTS": {
                                                                                        "category": "Front UFC Display",
                                                                                    "control_type": "display",
                                                                                     "description": "Line 5 (special characters)",
-                                                                                     "identifier": "F_UFC_Line5_DISPLAY_DOTS",
+                                                                                     "identifier": "F_UFC_LINE5_DISPLAY_DOTS",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
                                                                                                                              "address": 37596,
-                                                                                                                  "address_identifier": "F_15E_F_UFC_Line5_DISPLAY_DOTS_A",
-                                                                                                             "address_mask_identifier": "F_15E_F_UFC_Line5_DISPLAY_DOTS_AM",
-                                                                                                       "address_mask_shift_identifier": "F_15E_F_UFC_Line5_DISPLAY_DOTS",
+                                                                                                                  "address_identifier": "F_15E_F_UFC_LINE5_DISPLAY_DOTS_A",
+                                                                                                             "address_mask_identifier": "F_15E_F_UFC_LINE5_DISPLAY_DOTS_AM",
+                                                                                                       "address_mask_shift_identifier": "F_15E_F_UFC_LINE5_DISPLAY_DOTS",
                                                                                                                          "description": "Line 5 (special characters)",
                                                                                                                           "max_length": 20,
                                                                                                                               "suffix": "",
                                                                                                                                 "type": "string"
                                                                                                    } ]
                                                                                },
-                                                        "F_UFC_Line6_DISPLAY": {
+                                                        "F_UFC_LINE6_DISPLAY": {
                                                                                        "category": "Front UFC Display",
                                                                                    "control_type": "display",
                                                                                     "description": "Line 6",
-                                                                                     "identifier": "F_UFC_Line6_DISPLAY",
+                                                                                     "identifier": "F_UFC_LINE6_DISPLAY",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
                                                                                                                              "address": 37496,
-                                                                                                                  "address_identifier": "F_15E_F_UFC_Line6_DISPLAY_A",
-                                                                                                             "address_mask_identifier": "F_15E_F_UFC_Line6_DISPLAY_AM",
-                                                                                                       "address_mask_shift_identifier": "F_15E_F_UFC_Line6_DISPLAY",
+                                                                                                                  "address_identifier": "F_15E_F_UFC_LINE6_DISPLAY_A",
+                                                                                                             "address_mask_identifier": "F_15E_F_UFC_LINE6_DISPLAY_AM",
+                                                                                                       "address_mask_shift_identifier": "F_15E_F_UFC_LINE6_DISPLAY",
                                                                                                                          "description": "Line 6",
                                                                                                                           "max_length": 20,
                                                                                                                               "suffix": "",
                                                                                                                                 "type": "string"
                                                                                                    } ]
                                                                                },
-                                                   "F_UFC_Line6_DISPLAY_DOTS": {
+                                                   "F_UFC_LINE6_DISPLAY_DOTS": {
                                                                                        "category": "Front UFC Display",
                                                                                    "control_type": "display",
                                                                                     "description": "Line 6 (special characters)",
-                                                                                     "identifier": "F_UFC_Line6_DISPLAY_DOTS",
+                                                                                     "identifier": "F_UFC_LINE6_DISPLAY_DOTS",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
                                                                                                                              "address": 37616,
-                                                                                                                  "address_identifier": "F_15E_F_UFC_Line6_DISPLAY_DOTS_A",
-                                                                                                             "address_mask_identifier": "F_15E_F_UFC_Line6_DISPLAY_DOTS_AM",
-                                                                                                       "address_mask_shift_identifier": "F_15E_F_UFC_Line6_DISPLAY_DOTS",
+                                                                                                                  "address_identifier": "F_15E_F_UFC_LINE6_DISPLAY_DOTS_A",
+                                                                                                             "address_mask_identifier": "F_15E_F_UFC_LINE6_DISPLAY_DOTS_AM",
+                                                                                                       "address_mask_shift_identifier": "F_15E_F_UFC_LINE6_DISPLAY_DOTS",
                                                                                                                          "description": "Line 6 (special characters)",
                                                                                                                           "max_length": 20,
                                                                                                                               "suffix": "",
@@ -15329,34 +15437,66 @@ docdata["F-15E"] =
                                                                           }
                                                },
                                    "Rear NUC": {
-                                                   "R_NUC_N_CONS_CVR": {
-                                                                                      "category": "Rear NUC",
-                                                                                  "control_type": "selector",
-                                                                                   "description": "REAR Nuclear Consent Switch",
-                                                                                    "identifier": "R_NUC_N_CONS_CVR",
-                                                                                        "inputs": [ {
-                                                                                                      "description": "switch to previous or next state",
-                                                                                                        "interface": "fixed_step"
-                                                                                                  }, {
-                                                                                                      "description": "set position",
-                                                                                                        "interface": "set_state",
-                                                                                                        "max_value": 2
-                                                                                                  } ],
-                                                                           "momentary_positions": "none",
-                                                                                       "outputs": [ {
-                                                                                                                            "address": 38248,
-                                                                                                                 "address_identifier": "F_15E_R_NUC_N_CONS_CVR_A",
-                                                                                                            "address_mask_identifier": "F_15E_R_NUC_N_CONS_CVR_AM",
-                                                                                                      "address_mask_shift_identifier": "F_15E_R_NUC_N_CONS_CVR",
-                                                                                                                        "description": "selector position",
-                                                                                                                               "mask": 12288,
-                                                                                                                          "max_value": 2,
-                                                                                                                           "shift_by": 12,
-                                                                                                                             "suffix": "",
-                                                                                                                               "type": "integer"
-                                                                                                  } ],
-                                                                              "physical_variant": "3_position_switch"
-                                                                       }
+                                                      "R_NUC_N_CONS_CVR": {
+                                                                                         "category": "Rear NUC",
+                                                                                     "control_type": "selector",
+                                                                                      "description": "REAR Nuclear Consent Switch Cover",
+                                                                                       "identifier": "R_NUC_N_CONS_CVR",
+                                                                                           "inputs": [ {
+                                                                                                         "description": "switch to previous or next state",
+                                                                                                           "interface": "fixed_step"
+                                                                                                     }, {
+                                                                                                         "description": "set position",
+                                                                                                           "interface": "set_state",
+                                                                                                           "max_value": 1
+                                                                                                     }, {
+                                                                                                            "argument": "TOGGLE",
+                                                                                                         "description": "Toggle switch state",
+                                                                                                           "interface": "action"
+                                                                                                     } ],
+                                                                              "momentary_positions": "none",
+                                                                                          "outputs": [ {
+                                                                                                                               "address": 38248,
+                                                                                                                    "address_identifier": "F_15E_R_NUC_N_CONS_CVR_A",
+                                                                                                               "address_mask_identifier": "F_15E_R_NUC_N_CONS_CVR_AM",
+                                                                                                         "address_mask_shift_identifier": "F_15E_R_NUC_N_CONS_CVR",
+                                                                                                                           "description": "selector position",
+                                                                                                                                  "mask": 2048,
+                                                                                                                             "max_value": 1,
+                                                                                                                              "shift_by": 11,
+                                                                                                                                "suffix": "",
+                                                                                                                                  "type": "integer"
+                                                                                                     } ],
+                                                                                 "physical_variant": "toggle_switch"
+                                                                          },
+                                                   "R_NUC_N_CONS_SWITCH": {
+                                                                                         "category": "Rear NUC",
+                                                                                     "control_type": "selector",
+                                                                                      "description": "REAR Nuclear Consent Switch",
+                                                                                       "identifier": "R_NUC_N_CONS_SWITCH",
+                                                                                           "inputs": [ {
+                                                                                                         "description": "switch to previous or next state",
+                                                                                                           "interface": "fixed_step"
+                                                                                                     }, {
+                                                                                                         "description": "set position",
+                                                                                                           "interface": "set_state",
+                                                                                                           "max_value": 2
+                                                                                                     } ],
+                                                                              "momentary_positions": "none",
+                                                                                          "outputs": [ {
+                                                                                                                               "address": 38248,
+                                                                                                                    "address_identifier": "F_15E_R_NUC_N_CONS_SWITCH_A",
+                                                                                                               "address_mask_identifier": "F_15E_R_NUC_N_CONS_SWITCH_AM",
+                                                                                                         "address_mask_shift_identifier": "F_15E_R_NUC_N_CONS_SWITCH",
+                                                                                                                           "description": "selector position",
+                                                                                                                                  "mask": 12288,
+                                                                                                                             "max_value": 2,
+                                                                                                                              "shift_by": 12,
+                                                                                                                                "suffix": "",
+                                                                                                                                  "type": "integer"
+                                                                                                     } ],
+                                                                                 "physical_variant": "3_position_switch"
+                                                                          }
                                                },
                   "Rear Oxygen Control Panel": {
                                                        "R_OXY_MODE": {
@@ -17968,6 +18108,72 @@ docdata["F-15E"] =
                                                                                                        } ],
                                                                                    "physical_variant": "push_button"
                                                                             },
+                                                             "R_UFC_KEY_0": {
+                                                                                        "api_variant": "momentary_last_position",
+                                                                                           "category": "Rear UFC",
+                                                                                       "control_type": "selector",
+                                                                                        "description": "REAR -/0 Key",
+                                                                                         "identifier": "R_UFC_KEY_0",
+                                                                                             "inputs": [ {
+                                                                                                           "description": "switch to previous or next state",
+                                                                                                             "interface": "fixed_step"
+                                                                                                       }, {
+                                                                                                           "description": "set position",
+                                                                                                             "interface": "set_state",
+                                                                                                             "max_value": 1
+                                                                                                       }, {
+                                                                                                              "argument": "TOGGLE",
+                                                                                                           "description": "Toggle switch state",
+                                                                                                             "interface": "action"
+                                                                                                       } ],
+                                                                                "momentary_positions": "none",
+                                                                                            "outputs": [ {
+                                                                                                                                 "address": 37978,
+                                                                                                                      "address_identifier": "F_15E_R_UFC_KEY_0_A",
+                                                                                                                 "address_mask_identifier": "F_15E_R_UFC_KEY_0_AM",
+                                                                                                           "address_mask_shift_identifier": "F_15E_R_UFC_KEY_0",
+                                                                                                                             "description": "selector position",
+                                                                                                                                    "mask": 4096,
+                                                                                                                               "max_value": 1,
+                                                                                                                                "shift_by": 12,
+                                                                                                                                  "suffix": "",
+                                                                                                                                    "type": "integer"
+                                                                                                       } ],
+                                                                                   "physical_variant": "push_button"
+                                                                            },
+                                                             "R_UFC_KEY_7": {
+                                                                                        "api_variant": "momentary_last_position",
+                                                                                           "category": "Rear UFC",
+                                                                                       "control_type": "selector",
+                                                                                        "description": "REAR :/7 Key",
+                                                                                         "identifier": "R_UFC_KEY_7",
+                                                                                             "inputs": [ {
+                                                                                                           "description": "switch to previous or next state",
+                                                                                                             "interface": "fixed_step"
+                                                                                                       }, {
+                                                                                                           "description": "set position",
+                                                                                                             "interface": "set_state",
+                                                                                                             "max_value": 1
+                                                                                                       }, {
+                                                                                                              "argument": "TOGGLE",
+                                                                                                           "description": "Toggle switch state",
+                                                                                                             "interface": "action"
+                                                                                                       } ],
+                                                                                "momentary_positions": "none",
+                                                                                            "outputs": [ {
+                                                                                                                                 "address": 37978,
+                                                                                                                      "address_identifier": "F_15E_R_UFC_KEY_7_A",
+                                                                                                                 "address_mask_identifier": "F_15E_R_UFC_KEY_7_AM",
+                                                                                                           "address_mask_shift_identifier": "F_15E_R_UFC_KEY_7",
+                                                                                                                             "description": "selector position",
+                                                                                                                                    "mask": 64,
+                                                                                                                               "max_value": 1,
+                                                                                                                                "shift_by": 6,
+                                                                                                                                  "suffix": "",
+                                                                                                                                    "type": "integer"
+                                                                                                       } ],
+                                                                                   "physical_variant": "push_button"
+                                                                            },
                                                             "R_UFC_KEY_A1": {
                                                                                         "api_variant": "momentary_last_position",
                                                                                            "category": "Rear UFC",
@@ -18562,72 +18768,6 @@ docdata["F-15E"] =
                                                                                                        } ],
                                                                                    "physical_variant": "push_button"
                                                                             },
-                                                            "R_UFC_KEY__0": {
-                                                                                        "api_variant": "momentary_last_position",
-                                                                                           "category": "Rear UFC",
-                                                                                       "control_type": "selector",
-                                                                                        "description": "REAR -/0 Key",
-                                                                                         "identifier": "R_UFC_KEY__0",
-                                                                                             "inputs": [ {
-                                                                                                           "description": "switch to previous or next state",
-                                                                                                             "interface": "fixed_step"
-                                                                                                       }, {
-                                                                                                           "description": "set position",
-                                                                                                             "interface": "set_state",
-                                                                                                             "max_value": 1
-                                                                                                       }, {
-                                                                                                              "argument": "TOGGLE",
-                                                                                                           "description": "Toggle switch state",
-                                                                                                             "interface": "action"
-                                                                                                       } ],
-                                                                                "momentary_positions": "none",
-                                                                                            "outputs": [ {
-                                                                                                                                 "address": 37978,
-                                                                                                                      "address_identifier": "F_15E_R_UFC_KEY_0_A",
-                                                                                                                 "address_mask_identifier": "F_15E_R_UFC_KEY_0_AM",
-                                                                                                           "address_mask_shift_identifier": "F_15E_R_UFC_KEY_0",
-                                                                                                                             "description": "selector position",
-                                                                                                                                    "mask": 4096,
-                                                                                                                               "max_value": 1,
-                                                                                                                                "shift_by": 12,
-                                                                                                                                  "suffix": "",
-                                                                                                                                    "type": "integer"
-                                                                                                       } ],
-                                                                                   "physical_variant": "push_button"
-                                                                            },
-                                                            "R_UFC_KEY__7": {
-                                                                                        "api_variant": "momentary_last_position",
-                                                                                           "category": "Rear UFC",
-                                                                                       "control_type": "selector",
-                                                                                        "description": "REAR :/7 Key",
-                                                                                         "identifier": "R_UFC_KEY__7",
-                                                                                             "inputs": [ {
-                                                                                                           "description": "switch to previous or next state",
-                                                                                                             "interface": "fixed_step"
-                                                                                                       }, {
-                                                                                                           "description": "set position",
-                                                                                                             "interface": "set_state",
-                                                                                                             "max_value": 1
-                                                                                                       }, {
-                                                                                                              "argument": "TOGGLE",
-                                                                                                           "description": "Toggle switch state",
-                                                                                                             "interface": "action"
-                                                                                                       } ],
-                                                                                "momentary_positions": "none",
-                                                                                            "outputs": [ {
-                                                                                                                                 "address": 37978,
-                                                                                                                      "address_identifier": "F_15E_R_UFC_KEY_7_A",
-                                                                                                                 "address_mask_identifier": "F_15E_R_UFC_KEY_7_AM",
-                                                                                                           "address_mask_shift_identifier": "F_15E_R_UFC_KEY_7",
-                                                                                                                             "description": "selector position",
-                                                                                                                                    "mask": 64,
-                                                                                                                               "max_value": 1,
-                                                                                                                                "shift_by": 6,
-                                                                                                                                  "suffix": "",
-                                                                                                                                    "type": "integer"
-                                                                                                       } ],
-                                                                                   "physical_variant": "push_button"
-                                                                            },
                                                         "R_UFC_LCD_BRIGHT": {
                                                                                     "category": "Rear UFC",
                                                                                 "control_type": "limited_dial",
@@ -18808,204 +18948,204 @@ docdata["F-15E"] =
                                                                                                                                 "type": "string"
                                                                                                    } ]
                                                                                },
-                                                        "R_UFC_Line1_DISPLAY": {
+                                                        "R_UFC_LINE1_DISPLAY": {
                                                                                        "category": "Rear UFC Display",
                                                                                    "control_type": "display",
                                                                                     "description": "Line 1",
-                                                                                     "identifier": "R_UFC_Line1_DISPLAY",
+                                                                                     "identifier": "R_UFC_LINE1_DISPLAY",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
                                                                                                                              "address": 37980,
-                                                                                                                  "address_identifier": "F_15E_R_UFC_Line1_DISPLAY_A",
-                                                                                                             "address_mask_identifier": "F_15E_R_UFC_Line1_DISPLAY_AM",
-                                                                                                       "address_mask_shift_identifier": "F_15E_R_UFC_Line1_DISPLAY",
+                                                                                                                  "address_identifier": "F_15E_R_UFC_LINE1_DISPLAY_A",
+                                                                                                             "address_mask_identifier": "F_15E_R_UFC_LINE1_DISPLAY_AM",
+                                                                                                       "address_mask_shift_identifier": "F_15E_R_UFC_LINE1_DISPLAY",
                                                                                                                          "description": "Line 1",
                                                                                                                           "max_length": 20,
                                                                                                                               "suffix": "",
                                                                                                                                 "type": "string"
                                                                                                    } ]
                                                                                },
-                                                   "R_UFC_Line1_DISPLAY_DOTS": {
+                                                   "R_UFC_LINE1_DISPLAY_DOTS": {
                                                                                        "category": "Rear UFC Display",
                                                                                    "control_type": "display",
                                                                                     "description": "Line 1 (special characters)",
-                                                                                     "identifier": "R_UFC_Line1_DISPLAY_DOTS",
+                                                                                     "identifier": "R_UFC_LINE1_DISPLAY_DOTS",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
                                                                                                                              "address": 38100,
-                                                                                                                  "address_identifier": "F_15E_R_UFC_Line1_DISPLAY_DOTS_A",
-                                                                                                             "address_mask_identifier": "F_15E_R_UFC_Line1_DISPLAY_DOTS_AM",
-                                                                                                       "address_mask_shift_identifier": "F_15E_R_UFC_Line1_DISPLAY_DOTS",
+                                                                                                                  "address_identifier": "F_15E_R_UFC_LINE1_DISPLAY_DOTS_A",
+                                                                                                             "address_mask_identifier": "F_15E_R_UFC_LINE1_DISPLAY_DOTS_AM",
+                                                                                                       "address_mask_shift_identifier": "F_15E_R_UFC_LINE1_DISPLAY_DOTS",
                                                                                                                          "description": "Line 1 (special characters)",
                                                                                                                           "max_length": 20,
                                                                                                                               "suffix": "",
                                                                                                                                 "type": "string"
                                                                                                    } ]
                                                                                },
-                                                        "R_UFC_Line2_DISPLAY": {
+                                                        "R_UFC_LINE2_DISPLAY": {
                                                                                        "category": "Rear UFC Display",
                                                                                    "control_type": "display",
                                                                                     "description": "Line 2",
-                                                                                     "identifier": "R_UFC_Line2_DISPLAY",
+                                                                                     "identifier": "R_UFC_LINE2_DISPLAY",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
                                                                                                                              "address": 38000,
-                                                                                                                  "address_identifier": "F_15E_R_UFC_Line2_DISPLAY_A",
-                                                                                                             "address_mask_identifier": "F_15E_R_UFC_Line2_DISPLAY_AM",
-                                                                                                       "address_mask_shift_identifier": "F_15E_R_UFC_Line2_DISPLAY",
+                                                                                                                  "address_identifier": "F_15E_R_UFC_LINE2_DISPLAY_A",
+                                                                                                             "address_mask_identifier": "F_15E_R_UFC_LINE2_DISPLAY_AM",
+                                                                                                       "address_mask_shift_identifier": "F_15E_R_UFC_LINE2_DISPLAY",
                                                                                                                          "description": "Line 2",
                                                                                                                           "max_length": 20,
                                                                                                                               "suffix": "",
                                                                                                                                 "type": "string"
                                                                                                    } ]
                                                                                },
-                                                   "R_UFC_Line2_DISPLAY_DOTS": {
+                                                   "R_UFC_LINE2_DISPLAY_DOTS": {
                                                                                        "category": "Rear UFC Display",
                                                                                    "control_type": "display",
                                                                                     "description": "Line 2 (special characters)",
-                                                                                     "identifier": "R_UFC_Line2_DISPLAY_DOTS",
+                                                                                     "identifier": "R_UFC_LINE2_DISPLAY_DOTS",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
                                                                                                                              "address": 38120,
-                                                                                                                  "address_identifier": "F_15E_R_UFC_Line2_DISPLAY_DOTS_A",
-                                                                                                             "address_mask_identifier": "F_15E_R_UFC_Line2_DISPLAY_DOTS_AM",
-                                                                                                       "address_mask_shift_identifier": "F_15E_R_UFC_Line2_DISPLAY_DOTS",
+                                                                                                                  "address_identifier": "F_15E_R_UFC_LINE2_DISPLAY_DOTS_A",
+                                                                                                             "address_mask_identifier": "F_15E_R_UFC_LINE2_DISPLAY_DOTS_AM",
+                                                                                                       "address_mask_shift_identifier": "F_15E_R_UFC_LINE2_DISPLAY_DOTS",
                                                                                                                          "description": "Line 2 (special characters)",
                                                                                                                           "max_length": 20,
                                                                                                                               "suffix": "",
                                                                                                                                 "type": "string"
                                                                                                    } ]
                                                                                },
-                                                        "R_UFC_Line3_DISPLAY": {
+                                                        "R_UFC_LINE3_DISPLAY": {
                                                                                        "category": "Rear UFC Display",
                                                                                    "control_type": "display",
                                                                                     "description": "Line 3",
-                                                                                     "identifier": "R_UFC_Line3_DISPLAY",
+                                                                                     "identifier": "R_UFC_LINE3_DISPLAY",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
                                                                                                                              "address": 38020,
-                                                                                                                  "address_identifier": "F_15E_R_UFC_Line3_DISPLAY_A",
-                                                                                                             "address_mask_identifier": "F_15E_R_UFC_Line3_DISPLAY_AM",
-                                                                                                       "address_mask_shift_identifier": "F_15E_R_UFC_Line3_DISPLAY",
+                                                                                                                  "address_identifier": "F_15E_R_UFC_LINE3_DISPLAY_A",
+                                                                                                             "address_mask_identifier": "F_15E_R_UFC_LINE3_DISPLAY_AM",
+                                                                                                       "address_mask_shift_identifier": "F_15E_R_UFC_LINE3_DISPLAY",
                                                                                                                          "description": "Line 3",
                                                                                                                           "max_length": 20,
                                                                                                                               "suffix": "",
                                                                                                                                 "type": "string"
                                                                                                    } ]
                                                                                },
-                                                   "R_UFC_Line3_DISPLAY_DOTS": {
+                                                   "R_UFC_LINE3_DISPLAY_DOTS": {
                                                                                        "category": "Rear UFC Display",
                                                                                    "control_type": "display",
                                                                                     "description": "Line 3 (special characters)",
-                                                                                     "identifier": "R_UFC_Line3_DISPLAY_DOTS",
+                                                                                     "identifier": "R_UFC_LINE3_DISPLAY_DOTS",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
                                                                                                                              "address": 38140,
-                                                                                                                  "address_identifier": "F_15E_R_UFC_Line3_DISPLAY_DOTS_A",
-                                                                                                             "address_mask_identifier": "F_15E_R_UFC_Line3_DISPLAY_DOTS_AM",
-                                                                                                       "address_mask_shift_identifier": "F_15E_R_UFC_Line3_DISPLAY_DOTS",
+                                                                                                                  "address_identifier": "F_15E_R_UFC_LINE3_DISPLAY_DOTS_A",
+                                                                                                             "address_mask_identifier": "F_15E_R_UFC_LINE3_DISPLAY_DOTS_AM",
+                                                                                                       "address_mask_shift_identifier": "F_15E_R_UFC_LINE3_DISPLAY_DOTS",
                                                                                                                          "description": "Line 3 (special characters)",
                                                                                                                           "max_length": 20,
                                                                                                                               "suffix": "",
                                                                                                                                 "type": "string"
                                                                                                    } ]
                                                                                },
-                                                        "R_UFC_Line4_DISPLAY": {
+                                                        "R_UFC_LINE4_DISPLAY": {
                                                                                        "category": "Rear UFC Display",
                                                                                    "control_type": "display",
                                                                                     "description": "Line 4",
-                                                                                     "identifier": "R_UFC_Line4_DISPLAY",
+                                                                                     "identifier": "R_UFC_LINE4_DISPLAY",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
                                                                                                                              "address": 38040,
-                                                                                                                  "address_identifier": "F_15E_R_UFC_Line4_DISPLAY_A",
-                                                                                                             "address_mask_identifier": "F_15E_R_UFC_Line4_DISPLAY_AM",
-                                                                                                       "address_mask_shift_identifier": "F_15E_R_UFC_Line4_DISPLAY",
+                                                                                                                  "address_identifier": "F_15E_R_UFC_LINE4_DISPLAY_A",
+                                                                                                             "address_mask_identifier": "F_15E_R_UFC_LINE4_DISPLAY_AM",
+                                                                                                       "address_mask_shift_identifier": "F_15E_R_UFC_LINE4_DISPLAY",
                                                                                                                          "description": "Line 4",
                                                                                                                           "max_length": 20,
                                                                                                                               "suffix": "",
                                                                                                                                 "type": "string"
                                                                                                    } ]
                                                                                },
-                                                   "R_UFC_Line4_DISPLAY_DOTS": {
+                                                   "R_UFC_LINE4_DISPLAY_DOTS": {
                                                                                        "category": "Rear UFC Display",
                                                                                    "control_type": "display",
                                                                                     "description": "Line 4 (special characters)",
-                                                                                     "identifier": "R_UFC_Line4_DISPLAY_DOTS",
+                                                                                     "identifier": "R_UFC_LINE4_DISPLAY_DOTS",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
                                                                                                                              "address": 38160,
-                                                                                                                  "address_identifier": "F_15E_R_UFC_Line4_DISPLAY_DOTS_A",
-                                                                                                             "address_mask_identifier": "F_15E_R_UFC_Line4_DISPLAY_DOTS_AM",
-                                                                                                       "address_mask_shift_identifier": "F_15E_R_UFC_Line4_DISPLAY_DOTS",
+                                                                                                                  "address_identifier": "F_15E_R_UFC_LINE4_DISPLAY_DOTS_A",
+                                                                                                             "address_mask_identifier": "F_15E_R_UFC_LINE4_DISPLAY_DOTS_AM",
+                                                                                                       "address_mask_shift_identifier": "F_15E_R_UFC_LINE4_DISPLAY_DOTS",
                                                                                                                          "description": "Line 4 (special characters)",
                                                                                                                           "max_length": 20,
                                                                                                                               "suffix": "",
                                                                                                                                 "type": "string"
                                                                                                    } ]
                                                                                },
-                                                        "R_UFC_Line5_DISPLAY": {
+                                                        "R_UFC_LINE5_DISPLAY": {
                                                                                        "category": "Rear UFC Display",
                                                                                    "control_type": "display",
                                                                                     "description": "Line 5",
-                                                                                     "identifier": "R_UFC_Line5_DISPLAY",
+                                                                                     "identifier": "R_UFC_LINE5_DISPLAY",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
                                                                                                                              "address": 38060,
-                                                                                                                  "address_identifier": "F_15E_R_UFC_Line5_DISPLAY_A",
-                                                                                                             "address_mask_identifier": "F_15E_R_UFC_Line5_DISPLAY_AM",
-                                                                                                       "address_mask_shift_identifier": "F_15E_R_UFC_Line5_DISPLAY",
+                                                                                                                  "address_identifier": "F_15E_R_UFC_LINE5_DISPLAY_A",
+                                                                                                             "address_mask_identifier": "F_15E_R_UFC_LINE5_DISPLAY_AM",
+                                                                                                       "address_mask_shift_identifier": "F_15E_R_UFC_LINE5_DISPLAY",
                                                                                                                          "description": "Line 5",
                                                                                                                           "max_length": 20,
                                                                                                                               "suffix": "",
                                                                                                                                 "type": "string"
                                                                                                    } ]
                                                                                },
-                                                   "R_UFC_Line5_DISPLAY_DOTS": {
+                                                   "R_UFC_LINE5_DISPLAY_DOTS": {
                                                                                        "category": "Rear UFC Display",
                                                                                    "control_type": "display",
                                                                                     "description": "Line 5 (special characters)",
-                                                                                     "identifier": "R_UFC_Line5_DISPLAY_DOTS",
+                                                                                     "identifier": "R_UFC_LINE5_DISPLAY_DOTS",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
                                                                                                                              "address": 38180,
-                                                                                                                  "address_identifier": "F_15E_R_UFC_Line5_DISPLAY_DOTS_A",
-                                                                                                             "address_mask_identifier": "F_15E_R_UFC_Line5_DISPLAY_DOTS_AM",
-                                                                                                       "address_mask_shift_identifier": "F_15E_R_UFC_Line5_DISPLAY_DOTS",
+                                                                                                                  "address_identifier": "F_15E_R_UFC_LINE5_DISPLAY_DOTS_A",
+                                                                                                             "address_mask_identifier": "F_15E_R_UFC_LINE5_DISPLAY_DOTS_AM",
+                                                                                                       "address_mask_shift_identifier": "F_15E_R_UFC_LINE5_DISPLAY_DOTS",
                                                                                                                          "description": "Line 5 (special characters)",
                                                                                                                           "max_length": 20,
                                                                                                                               "suffix": "",
                                                                                                                                 "type": "string"
                                                                                                    } ]
                                                                                },
-                                                        "R_UFC_Line6_DISPLAY": {
+                                                        "R_UFC_LINE6_DISPLAY": {
                                                                                        "category": "Rear UFC Display",
                                                                                    "control_type": "display",
                                                                                     "description": "Line 6",
-                                                                                     "identifier": "R_UFC_Line6_DISPLAY",
+                                                                                     "identifier": "R_UFC_LINE6_DISPLAY",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
                                                                                                                              "address": 38080,
-                                                                                                                  "address_identifier": "F_15E_R_UFC_Line6_DISPLAY_A",
-                                                                                                             "address_mask_identifier": "F_15E_R_UFC_Line6_DISPLAY_AM",
-                                                                                                       "address_mask_shift_identifier": "F_15E_R_UFC_Line6_DISPLAY",
+                                                                                                                  "address_identifier": "F_15E_R_UFC_LINE6_DISPLAY_A",
+                                                                                                             "address_mask_identifier": "F_15E_R_UFC_LINE6_DISPLAY_AM",
+                                                                                                       "address_mask_shift_identifier": "F_15E_R_UFC_LINE6_DISPLAY",
                                                                                                                          "description": "Line 6",
                                                                                                                           "max_length": 20,
                                                                                                                               "suffix": "",
                                                                                                                                 "type": "string"
                                                                                                    } ]
                                                                                },
-                                                   "R_UFC_Line6_DISPLAY_DOTS": {
+                                                   "R_UFC_LINE6_DISPLAY_DOTS": {
                                                                                        "category": "Rear UFC Display",
                                                                                    "control_type": "display",
                                                                                     "description": "Line 6 (special characters)",
-                                                                                     "identifier": "R_UFC_Line6_DISPLAY_DOTS",
+                                                                                     "identifier": "R_UFC_LINE6_DISPLAY_DOTS",
                                                                                          "inputs": [  ],
                                                                                         "outputs": [ {
                                                                                                                              "address": 38200,
-                                                                                                                  "address_identifier": "F_15E_R_UFC_Line6_DISPLAY_DOTS_A",
-                                                                                                             "address_mask_identifier": "F_15E_R_UFC_Line6_DISPLAY_DOTS_AM",
-                                                                                                       "address_mask_shift_identifier": "F_15E_R_UFC_Line6_DISPLAY_DOTS",
+                                                                                                                  "address_identifier": "F_15E_R_UFC_LINE6_DISPLAY_DOTS_A",
+                                                                                                             "address_mask_identifier": "F_15E_R_UFC_LINE6_DISPLAY_DOTS_AM",
+                                                                                                       "address_mask_shift_identifier": "F_15E_R_UFC_LINE6_DISPLAY_DOTS",
                                                                                                                          "description": "Line 6 (special characters)",
                                                                                                                           "max_length": 20,
                                                                                                                               "suffix": "",
