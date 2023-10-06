@@ -71,6 +71,10 @@ function TestAircraft:testF86FSabre()
 	self:validateModule(require("F-86F Sabre"), "F-86F Sabre", 0x3000)
 end
 
+function TestAircraft:testFA18C()
+	self:validateModule(require("FA-18C_hornet"), "FA-18C_hornet", 0x7400)
+end
+
 function TestAircraft:testFC3()
 	self:validateModule(require("FC3"), "FC3", 0x6000)
 end
