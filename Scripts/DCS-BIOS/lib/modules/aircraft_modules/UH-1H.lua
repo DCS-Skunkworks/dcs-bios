@@ -470,23 +470,7 @@ UH_1H:defineBitFromDrawArgument("EXT_WOW_SKID", 104, "External Aircraft Model", 
 
 -- Radar Altimeter Display, Chaff and Flare counters as numeric values
 local function getRadarAltAsNumber(dev0)
-	local digit1 = string.format("%.0f", dev0:get_argument_value(468) * 10)
-	if digit1 == "10" then
-		digit1 = " "
-	end
-	local digit2 = string.format("%.0f", dev0:get_argument_value(469) * 10)
-	if digit2 == "10" then
-		digit2 = " "
-	end
-	local digit3 = string.format("%.0f", dev0:get_argument_value(470) * 10)
-	if digit3 == "10" then
-		digit3 = " "
-	end
-	local digit4 = string.format("%.0f", dev0:get_argument_value(471) * 10)
-	if digit4 == "10" then
-		digit4 = " "
-	end
-	return tonumber(digit1 .. digit2 .. digit3 .. digit4) or 0
+	return Module.build_gauge_from_arguments(dev0, { 471, 470, 469, 468 })
 end
 UH_1H:defineIntegerFromGetter("RALT_DISPLAY", getRadarAltAsNumber, 65000, "Radar Altimeter", "Radar Altitude Display (Number)")
 
@@ -496,16 +480,12 @@ UH_1H:defineFloat("RALT_DIGIT_3", 470, { 0, 1 }, "Radar Altimeter", "Radar Altim
 UH_1H:defineFloat("RALT_DIGIT_4", 471, { 0, 1 }, "Radar Altimeter", "Radar Altimeter 4.Digit")
 
 local function getFlareCountAsNumber(dev0)
-	local digit1 = string.format("%.0f", dev0:get_argument_value(460) * 10)
-	local digit2 = string.format("%.0f", dev0:get_argument_value(461) * 10)
-	return tonumber(digit1 .. digit2) or 0
+	return Module.build_gauge_from_arguments(dev0, { 461, 460 })
 end
 UH_1H:defineIntegerFromGetter("CM_FLARECNT_DISPLAY", getFlareCountAsNumber, 60, "Countermeasures", "Flare Counter Display (Number)")
 
 local function getChaffCountAsNumber(dev0)
-	local digit1 = string.format("%.0f", dev0:get_argument_value(462) * 10)
-	local digit2 = string.format("%.0f", dev0:get_argument_value(463) * 10)
-	return tonumber(digit1 .. digit2) or 0
+	return Module.build_gauge_from_arguments(dev0, { 463, 462 })
 end
 UH_1H:defineIntegerFromGetter("CM_CHAFFCNT_DISPLAY", getChaffCountAsNumber, 60, "Countermeasures", "Chaff Counter Display (Number)")
 
