@@ -4211,7 +4211,7 @@
                                      "HSI": {
                                                 "HSI_CRS_KNOB": {
                                                                         "category": "HSI",
-                                                                    "control_type": "discrete_dial",
+                                                                    "control_type": "variable_step_dial",
                                                                      "description": "HSI Course Set Knob",
                                                                       "identifier": "HSI_CRS_KNOB",
                                                                           "inputs": [ {
@@ -4220,11 +4220,22 @@
                                                                                              "max_value": 65535,
                                                                                         "suggested_step": 3200
                                                                                     } ],
-                                                                         "outputs": [  ]
+                                                                         "outputs": [ {
+                                                                                                              "address": 30414,
+                                                                                                   "address_identifier": "F_5E_3_HSI_CRS_KNOB_A",
+                                                                                              "address_mask_identifier": "F_5E_3_HSI_CRS_KNOB_AM",
+                                                                                        "address_mask_shift_identifier": "F_5E_3_HSI_CRS_KNOB",
+                                                                                                          "description": "rotation of the knob (not the value being manipulated!)",
+                                                                                                                 "mask": 65535,
+                                                                                                            "max_value": 65535,
+                                                                                                             "shift_by": 0,
+                                                                                                               "suffix": "",
+                                                                                                                 "type": "integer"
+                                                                                    } ]
                                                                 },
                                                 "HSI_HDG_KNOB": {
                                                                         "category": "HSI",
-                                                                    "control_type": "discrete_dial",
+                                                                    "control_type": "variable_step_dial",
                                                                      "description": "HSI Heading Set Knob",
                                                                       "identifier": "HSI_HDG_KNOB",
                                                                           "inputs": [ {
@@ -4233,7 +4244,18 @@
                                                                                              "max_value": 65535,
                                                                                         "suggested_step": 3200
                                                                                     } ],
-                                                                         "outputs": [  ]
+                                                                         "outputs": [ {
+                                                                                                              "address": 30412,
+                                                                                                   "address_identifier": "F_5E_3_HSI_HDG_KNOB_A",
+                                                                                              "address_mask_identifier": "F_5E_3_HSI_HDG_KNOB_AM",
+                                                                                        "address_mask_shift_identifier": "F_5E_3_HSI_HDG_KNOB",
+                                                                                                          "description": "rotation of the knob (not the value being manipulated!)",
+                                                                                                                 "mask": 65535,
+                                                                                                            "max_value": 65535,
+                                                                                                             "shift_by": 0,
+                                                                                                               "suffix": "",
+                                                                                                                 "type": "integer"
+                                                                                    } ]
                                                                 }
                                             },
                                      "IFF": {
