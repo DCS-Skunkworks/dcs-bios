@@ -242,7 +242,7 @@ MH_60R:defineToggleSwitch("CPLT_DOOR", 46, 3403, 470, "Misc", "Copilot Door OPEN
 MH_60R:defineToggleSwitch("PLT_DOOR", 46, 3404, 471, "Misc", "Pilot Door OPEN/CLOSE")
 MH_60R:defineToggleSwitch("LFT_GUN_WIN", 46, 3405, 472, "Misc", "Left Gunner Door OPEN/CLOSE")
 MH_60R:defineToggleSwitch("RGT_GUN_WIN", 46, 3406, 473, "Misc", "Right Gunner Door OPEN/CLOSE")
-MH_60R:defineToggleSwitch("LFT CRG DOOR", 46, 3407, 474, "Misc", "Left Cargo Door OPEN/CLOSE")
+MH_60R:defineToggleSwitch("LFT_CRG_DOOR", 46, 3407, 474, "Misc", "Left Cargo Door OPEN/CLOSE")
 MH_60R:defineToggleSwitch("RGT_CRG_DOOR", 46, 3408, 475, "Misc", "Right Cargo Door OPEN/CLOSE")
 
 -- M130 CM System
