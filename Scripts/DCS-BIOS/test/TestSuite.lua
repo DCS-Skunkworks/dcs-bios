@@ -22,6 +22,7 @@ require("AircraftTest") -- high-level tests for specific aircraft
 require("MemoryMapTest") -- unit tests for the memory map
 require("MemoryMapEntryTest") -- unit tests for memory map entries
 require("ModuleTest") -- unit tests for core aircraft module functionality
+require("ParseIndicationTest") -- unit tests for the parse_indication function
 require("ProtocolIOTest") -- unit tests for send/receive logic
 require("ServerTest") -- unit tests for tcp/udp server code
 

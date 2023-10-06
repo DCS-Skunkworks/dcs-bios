@@ -30,139 +30,99 @@ function F_14:defineIndicatorLightLANTBottom(identifier, arg_number, category, d
 	self:defineGatedIndicatorLight(identifier, arg_number, 0.55, 0.99, category, description)
 end
 
-local function getHUD_Mode(dev0)
-	local hud_m = "1"
-	if dev0 ~= nil then
-		if dev0:get_argument_value(1014) == 1 then --Cruise
-			hud_m = "2"
-		elseif dev0:get_argument_value(1013) == 1 then --A2A
-			hud_m = "3"
-		elseif dev0:get_argument_value(1012) == 1 then --A2G
-			hud_m = "4"
-		elseif dev0:get_argument_value(1011) == 1 then --Landing
-			hud_m = "5"
-		end
-	end
-	return hud_m
-end
+local steer_mode = "2"
 
-local function getSTEER_Mode(dev0)
-	local steer_m = "2"
-	if dev0 ~= nil then
-		if dev0:get_argument_value(1002) == 1 then --TACAN
-			steer_m = "1"
-		elseif dev0:get_argument_value(1003) == 1 then --DEST
-			steer_m = "2"
-		elseif dev0:get_argument_value(1004) == 1 then --AWL/PCD
-			steer_m = "3"
-		elseif dev0:get_argument_value(1005) == 1 then --Vector
-			steer_m = "4"
-		elseif dev0:get_argument_value(1006) == 1 then --Manual
-			steer_m = "5"
-		end
-	end
-	return steer_m
-end
+F_14:addExportHook(function(dev0)
+	steer_mode = "2"
 
-local function getAIRSOURCE_Mode(dev0)
-	local airsource_m = "5"
-	if dev0 ~= nil then
-		if dev0:get_argument_value(929) == 1 then --RAM
-			airsource_m = "1"
-		elseif dev0:get_argument_value(930) == 1 then --LEFT
-			airsource_m = "2"
-		elseif dev0:get_argument_value(931) == 1 then --RIGHT
-			airsource_m = "3"
-		elseif dev0:get_argument_value(932) == 1 then --BOTH
-			airsource_m = "4"
-		end
-	end
-	return airsource_m
-end
-
---------------------------------- Matchstick
-local function parse_indication_number_index(indicator_id)
-	-- Custom version of parse_indication function that uses numbers for the index of the output table
-	-- for use in situations where the names of values in the indication are unusable (eg random GUID)
-	-- also adds the number of rows to the table at index 0
-	-- please think carefully before copying this function. In most cases, the standard parse_indication function
-	-- is what you want to call. Util.lua
-	local t = {}
-	local li = list_indication(indicator_id)
-	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
-	local counter = 0
-	while true do
-		local name, value = m()
-		counter = counter + 1
-		if not name then
-			break
-		end
-		t[counter] = value
-	end
-	t[0] = counter
-	if t == nil then
-		return
-	end
-	return t
-end
-
-local function get_radio_remote_display(dev0, indicatorId, testButtonId) -- Data from specified device (9=Pilot UHF, 10=RIO UHF, 13=Pilot VHF/UHF)
-	local data = parse_indication_number_index(indicatorId) -- status of relevant test button (ID 15004 = Pilot UHF, 405 = RIO UHF, 15003 = Pilot VHF/UHF)
-	local testPressed = dev0:get_argument_value(testButtonId)
-	local retVal
-
-	if data and data[0] then
-		-- data[0] holds the length of the data table. 7 Indicates it is in manual frequency mode otherwise it is in preset mode.
-		-- testPressed indicates the current value of the specified radio display test button - if pressed we need to return the test value not the current manual or preset frequency.
-		-- depending on the type of data and the test button status assemble the result including separator if necessary.
-		-- 2021/11/23 - Heatblur have changed the order of items in the List Indication for the Pilot Remove Displays but not for the RIO.
-		-- So we now need two different versions of the code depending which display we are requesting.
-		if indicatorId == 10 then
-			if data[0] == 7 and testPressed == 0 then
-				retVal = data[5]:sub(1, 3) .. data[6] .. data[5]:sub(4)
-			elseif data[0] == 7 then
-				retVal = data[3]:sub(1, 3) .. data[4] .. data[3]:sub(4)
-			elseif testPressed == 0 then
-				retVal = data[5]
-			else
-				retVal = data[3]:sub(1, 3) .. data[4] .. data[3]:sub(4)
-			end
-		else
-			if data[0] == 7 and testPressed == 0 then
-				retVal = data[3]:sub(1, 3) .. data[4] .. data[3]:sub(4)
-			elseif data[0] == 7 then
-				retVal = data[5]:sub(1, 3) .. data[6] .. data[5]:sub(4)
-			elseif testPressed == 0 then
-				retVal = data[3]
-			else
-				retVal = data[4]:sub(1, 3) .. data[5] .. data[4]:sub(4)
-			end
-		end
-	end
-	if retVal == nil then
-		return
-	end
-	return retVal
-end
-
-local HSD_TACAN_RANGE = ""
-local HSD_TACAN_CRS = ""
-local HSD_MAN_CRS = ""
-local HSD_TACAN_CRSint = 0
-local HSD_MAN_CRSint = 0
-
-F_14:addExportHook(function()
-	HSDInd = parse_indication_number_index(1)
-	local steerMode = getSTEER_Mode(GetDevice(0))
-	if steerMode == "1" then
-		HSD_TACAN_RANGE = HSDInd[19]
-		HSD_TACAN_CRS = HSDInd[20]
-		HSD_TACAN_CRSint = tonumber(HSD_TACAN_CRS) or 0
-	elseif steerMode == "5" then
-		HSD_MAN_CRS = HSDInd[16]
-		HSD_MAN_CRSint = tonumber(HSD_MAN_CRS) or 0
+	if dev0:get_argument_value(1002) == 1 then --TACAN
+		steer_mode = "1"
+	elseif dev0:get_argument_value(1003) == 1 then --DEST
+		steer_mode = "2"
+	elseif dev0:get_argument_value(1004) == 1 then --AWL/PCD
+		steer_mode = "3"
+	elseif dev0:get_argument_value(1005) == 1 then --Vector
+		steer_mode = "4"
+	elseif dev0:get_argument_value(1006) == 1 then --Manual
+		steer_mode = "5"
 	end
 end)
+
+local hsd_ind = {}
+
+F_14:addExportHook(function(dev0)
+	hsd_ind = Module.parse_indication(1)
+end)
+
+--------------------------------- Matchstick
+
+--- Inserts a separator into the middle of a 6-character radio line
+--- @param line string
+--- @param separator string
+--- @return string
+local function insert_radio_separator(line, separator)
+	if not line or not separator then
+		return ""
+	end
+	return line:sub(1, 3) .. separator .. line:sub(4)
+end
+
+-- 2021/11/23 - Heatblur have changed the order of items in the List Indication for the Pilot Remote Displays but not for the RIO.
+-- So we now need two different versions of the code depending which display we are requesting.
+local function get_rio_uhf_display(dev0)
+	local data = Module.parse_indication(10) -- Data from specified device (9=Pilot UHF, 10=RIO UHF, 13=Pilot VHF/UHF)
+	local test_pressed = dev0:get_argument_value(405) == 1 -- whether test mode is enabled
+
+	if not data[0] then
+		return "0000000"
+	end
+
+	local manual_mode = data[0] == 6
+
+	if manual_mode then
+		if test_pressed then
+			return insert_radio_separator(data[3], data[4])
+		end
+
+		return insert_radio_separator(data[5], data[6])
+	end
+
+	if test_pressed then
+		return insert_radio_separator(data[3], data[4])
+	end
+
+	return insert_radio_separator(data[5], " ")
+end
+
+local function get_radio_remote_display(dev0, indicator_id, test_button_id)
+	local data = Module.parse_indication(indicator_id) -- Data from specified device (9=Pilot UHF, 10=RIO UHF, 13=Pilot VHF/UHF)
+
+	-- testPressed indicates the current value of the specified radio display test button - if pressed we need to return the test value not the current manual or preset frequency.
+	-- depending on the type of data and the test button status assemble the result including separator if necessary.
+	local test_pressed = dev0:get_argument_value(test_button_id) == 1 -- whether test mode is enabled
+
+	if not data[0] then
+		return "0000000"
+	end
+
+	-- data[0] holds the length of the data table. 6 Indicates it is in manual frequency mode otherwise it is in preset mode.
+	local manual_mode = data[0] == 6
+
+	if manual_mode then
+		if test_pressed then
+			return insert_radio_separator(data[5], data[6])
+		end
+
+		return insert_radio_separator(data[3], data[4])
+	end
+
+	if test_pressed then
+		return insert_radio_separator(data[4], data[5])
+	end
+
+	return insert_radio_separator(data[3], " ")
+end
+
 --------------------------------- Matchstick End
 
 ----------------------------------------- BIOS-Profile
@@ -1373,31 +1333,67 @@ F_14:defineFloat("RIO_RECORD_MIN_LOW", 11602, { 0, 1 }, "RIO Gauges", "RIO Recor
 F_14:defineFloat("CANOPY_POS", 403, { 0, 1 }, "Cockpit", "Canopy Position")
 
 F_14:defineString("PLT_UHF_REMOTE_DISP", function(dev0)
-	return get_radio_remote_display(dev0, 9, 15004) or "0000000"
+	return get_radio_remote_display(dev0, 9, 15004)
 end, 7, "UHF 1", "PILOT UHF ARC-159 Radio Remote Display")
 F_14:defineString("RIO_UHF_REMOTE_DISP", function(dev0)
-	return get_radio_remote_display(dev0, 10, 405) or "0000000"
+	return get_rio_uhf_display(dev0)
 end, 7, "UHF 1", "RIO UHF ARC-159 Radio Remote Display")
 F_14:defineString("PLT_VUHF_REMOTE_DISP", function(dev0)
-	return get_radio_remote_display(dev0, 13, 15003) or "0000000"
+	return get_radio_remote_display(dev0, 13, 15003)
 end, 7, "VUHF", "PILOT VHF/UHF ARC-182 Radio Remote Display")
-F_14:defineString("PLT_HUD_MODE", getHUD_Mode, 1, "Display", "PILOT HUD Mode (string)")
-F_14:defineString("PLT_STEER_MODE", getSTEER_Mode, 1, "Display", "PILOT STEER Mode (string)")
-F_14:defineString("PLT_AIR_SOURCE_MODE", getAIRSOURCE_Mode, 1, "Display", "PILOT Air Source Mode (string)")
+
+local function get_hud_mode(dev0)
+	local hud_mode = "1"
+
+	if dev0:get_argument_value(1014) == 1 then --Cruise
+		hud_mode = "2"
+	elseif dev0:get_argument_value(1013) == 1 then --A2A
+		hud_mode = "3"
+	elseif dev0:get_argument_value(1012) == 1 then --A2G
+		hud_mode = "4"
+	elseif dev0:get_argument_value(1011) == 1 then --Landing
+		hud_mode = "5"
+	end
+
+	return hud_mode
+end
+
+F_14:defineString("PLT_HUD_MODE", get_hud_mode, 1, "Display", "PILOT HUD Mode (string)")
+F_14:defineString("PLT_STEER_MODE", function()
+	return steer_mode
+end, 1, "Display", "PILOT STEER Mode (string)")
+
+local function get_airsource_mode(dev0)
+	local airsource_mode = "5"
+
+	if dev0:get_argument_value(929) == 1 then --RAM
+		airsource_mode = "1"
+	elseif dev0:get_argument_value(930) == 1 then --LEFT
+		airsource_mode = "2"
+	elseif dev0:get_argument_value(931) == 1 then --RIGHT
+		airsource_mode = "3"
+	elseif dev0:get_argument_value(932) == 1 then --BOTH
+		airsource_mode = "4"
+	end
+
+	return airsource_mode
+end
+
+F_14:defineString("PLT_AIR_SOURCE_MODE", get_airsource_mode, 1, "Display", "PILOT Air Source Mode (string)")
 F_14:defineString("HSD_TACAN_RANGE_S", function()
-	return HSD_TACAN_RANGE or "00000"
+	return steer_mode == "1" and hsd_ind[16] or "00000"
 end, 5, "HSD", "HSD TACAN Range Display (string)")
 F_14:defineString("HSD_TACAN_CRS_S", function()
-	return HSD_TACAN_CRS or "000"
+	return steer_mode == "1" and hsd_ind[17] or "000"
 end, 3, "HSD", "HSD TACAN Course Display (string)")
 F_14:defineString("HSD_MAN_CRS_S", function()
-	return HSD_MAN_CRS or "000"
+	return steer_mode == "5" and hsd_ind[14] or "000"
 end, 3, "HSD", "HSD MAN Course Display (string)")
 F_14:defineIntegerFromGetter("HSD_TACAN_CRS", function()
-	return HSD_TACAN_CRSint
+	return steer_mode == "1" and tonumber(hsd_ind[17]) or 0
 end, 360, "HSD", "HSD TACAN Course Display")
 F_14:defineIntegerFromGetter("HSD_MAN_CRS", function()
-	return HSD_MAN_CRSint
+	return steer_mode == "5" and tonumber(hsd_ind[14]) or 0
 end, 360, "HSD", "HSD MAN Course Display")
 
 F_14:defineToggleSwitch("PLT_HUDCAM", 12, 3756, 3490, "Cockpit Mechanics", "PILOT Hide Guncam")
