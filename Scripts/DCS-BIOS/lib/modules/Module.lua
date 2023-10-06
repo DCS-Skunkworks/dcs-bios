@@ -52,6 +52,135 @@ function Module:reserveIntValue(max_value)
 	self:allocateInt(max_value)
 end
 
+local function cap(value, limits, cycle)
+	if cycle then
+		if value < limits[1] then
+			return limits[2]
+		end
+		if value > limits[2] then
+			return limits[1]
+		end
+	else
+		if value <= limits[1] then
+			return limits[1]
+		end
+		if value >= limits[2] then
+			return limits[2]
+		end
+	end
+	return value
+end
+
+--- Uses SetCommand and set_argument_value instead of performClickableAction()
+--- @param identifier string the unique identifier for the control
+--- @param device_id integer the dcs device id
+--- @param command integer the dcs command
+--- @param arg_number integer the dcs argument number
+--- @param step number the amount to increase or decrease dcs data by with each step
+--- @param limits number[] a length-2 array with the lower and upper bounds of the data as used in dcs
+--- @param output_map string[]? an array of string values to output for inputs across the range of values, or nil if none
+--- @param cycle boolean | "skiplast" true if infinite rotary, false if limited rotary, skiplast functionality unclear
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @return Control control the control which was added to the module
+function Module:defineSetCommandTumb(identifier, device_id, command, arg_number, step, limits, output_map, cycle, category, description)
+	local span = limits[2] - limits[1]
+	local last_n = tonumber(string.format("%.0f", span / step))
+	last_n = last_n or 0
+
+	local value_enum = output_map
+	if not value_enum then
+		value_enum = {}
+		local n = 0
+		while n <= last_n do
+			value_enum[#value_enum + 1] = tostring(n)
+			n = n + 1
+		end
+	end
+
+	local enumAlloc = self:allocateInt(last_n)
+	local strAlloc = nil
+	if output_map then
+		local max_len = 0
+		for i = 1, #output_map, 1 do
+			if max_len < output_map[i]:len() then
+				max_len = output_map[i]:len()
+			end
+		end
+		strAlloc = self:allocateString(max_len)
+	end
+
+	self:addExportHook(function(dev0)
+		local value = dev0:get_argument_value(arg_number)
+		local n = tonumber(string.format("%.0f", (value - limits[1]) / step))
+
+		if n > last_n then
+			n = last_n
+		end
+		if n == last_n and cycle == "skiplast" then
+			n = 0
+		end
+		enumAlloc:setValue(n)
+		if strAlloc and output_map then
+			strAlloc:setValue(output_map[n + 1])
+		end
+	end)
+
+	local max_value = last_n - (cycle == "skiplast" and 1 or 0)
+
+	local control = Control:new(category, ControlType.selector, identifier, description, {
+		FixedStepInput:new("switch to previous or next state"),
+		SetStateInput:new(max_value, "set position"),
+	}, {
+		IntegerOutput:new(enumAlloc, Suffix.none, "selector position"),
+	}, nil, cycle and "infinite_rotary" or "limited_rotary")
+
+	if output_map and strAlloc then
+		control.outputs[1].suffix = "_INT"
+
+		local description = "possible values: "
+		for i = 1, #output_map, 1 do
+			description = description .. '"' .. output_map[i] .. '" '
+		end
+
+		control.outputs[2] = StringOutput:new(strAlloc, "_STR", description)
+	end
+
+	self:addInputProcessor(identifier, function(state)
+		local value = GetDevice(0):get_argument_value(arg_number)
+		local n = tonumber(string.format("%.0f", (value - limits[1]) / step))
+		local new_n = n
+		if state == "INC" then
+			new_n = cap(n + 1, { 0, last_n }, cycle)
+			if cycle == "skiplast" and new_n == last_n then
+				new_n = 0
+			end
+
+			GetDevice(device_id):SetCommand(command, limits[1] + step * new_n)
+			GetDevice(0):set_argument_value(arg_number, limits[1] + step * new_n)
+		elseif state == "DEC" then
+			new_n = cap(n - 1, { 0, last_n }, cycle)
+			if cycle == "skiplast" and new_n == last_n then
+				new_n = last_n - 1
+			end
+
+			GetDevice(device_id):SetCommand(command, limits[1] + step * new_n)
+			GetDevice(0):set_argument_value(arg_number, limits[1] + step * new_n)
+		else
+			n = tonumber(string.format("%.0f", tonumber(state)))
+			if n == nil then
+				return
+			end
+			GetDevice(device_id):SetCommand(command, limits[1] + step * cap(n, { 0, last_n }, cycle))
+			GetDevice(0):set_argument_value(arg_number, limits[1] + step * cap(n, { 0, last_n }, cycle))
+		end
+	end)
+
+	self:addControl(control)
+
+	return control
+end
+
 --- Defines a gauge from floating-point data with limits. This generally is not used in any new modules and is used in existing modules to provide the integer output of a gauge
 --- @param identifier string the unique identifier for the control
 --- @param arg_number integer the dcs argument number

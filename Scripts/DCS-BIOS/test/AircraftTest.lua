@@ -99,6 +99,10 @@ function TestAircraft:testL39()
 	self:validateModule(require("L-39"), "L-39", 0x3200)
 end
 
+function TestAircraft:testM_2000C()
+	self:validateModule(require("M-2000C"), "M-2000C", 0x7200)
+end
+
 function TestAircraft:testMetadataStart()
 	self:validateModule(require("MetadataStart"), "MetadataStart", 0x0000)
 end
