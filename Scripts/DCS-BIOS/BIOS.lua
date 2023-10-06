@@ -120,6 +120,9 @@ dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/M-2000C.lua]]) -- ID = 27, ProperN
 -- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/MB-339.lua]]) -- ID = 28, ProperName = MB-339A/PAN
 local MB_339 = require "MB-339"
 BIOS.protocol.writeNewModule(MB_339)
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/MH-60R.lua]]) -- ID = 50, ProperName = MH-60R SeaHawk
+local MH_60R = require "MH-60R"
+BIOS.protocol.writeNewModule(MH_60R)
 -- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/Mi-24P.lua]]) -- ID = 42, ProperName = Mi-24P HIND
 local Mi_24P = require "Mi-24P"
 BIOS.protocol.writeNewModule(Mi_24P)
