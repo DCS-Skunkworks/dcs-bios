@@ -181,11 +181,8 @@ end)
 
 local function getvtbRange()
 	local vtb = M_2000C.parse_indication(1)
-	if vtb["vtb-rdr-range"] == nil then
-		return ""
-	end
 
-	return vtb["vtb-rdr-range"]
+	return vtb["vtb-rdr-range"] and vtb["vtb-rdr-range"] or ""
 end
 
 --ADI
