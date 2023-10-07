@@ -21,7 +21,7 @@ local VariableStepInput = require("VariableStepInput")
 --- @field documentation Documentation TODO
 --- @field inputProcessors { [string]: fun(value: string) } functions to run on receiving data
 --- @field memoryMap MemoryMap a map of all memory allocations for sending and receiving data
---- @field exportHooks fun(value: any)[] functions to run on sending data
+--- @field exportHooks fun(dev0: CockpitDevice)[] functions to run on sending data
 --- @field aircraftList string[] list of aircraft ids to export to
 local Module = {}
 
