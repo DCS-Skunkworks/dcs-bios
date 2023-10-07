@@ -116,7 +116,7 @@ BIOS.protocol.writeNewModule(Ka_50)
 -- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/L-39.lua]]) -- ID = 26, ProperName = L-39 Albatros
 local L_39 = require "L-39"
 BIOS.protocol.writeNewModule(L_39)
---dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/M-2000C.lua]]) -- ID = 27, ProperName = M-2000C
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/M-2000C.lua]]) -- ID = 27, ProperName = M-2000C
 local M_2000C = require "M-2000C"
 BIOS.protocol.writeNewModule(M_2000C)
 -- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/MB-339.lua]]) -- ID = 28, ProperName = MB-339A/PAN
