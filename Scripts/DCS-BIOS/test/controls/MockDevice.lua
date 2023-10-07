@@ -26,6 +26,9 @@ function MockDevice:get_argument_value(device_id)
 	return self.value
 end
 
+-- noop
+function MockDevice:update_arguments() end
+
 --- @func Makes the device perform an action
 --- @param command_id integer
 --- @param argument number

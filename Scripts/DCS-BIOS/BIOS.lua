@@ -22,8 +22,12 @@ package.path = lfs.writedir() .. [[Scripts/DCS-BIOS/lib/modules/documentation/?.
 package.path = lfs.writedir() .. [[Scripts/DCS-BIOS/lib/modules/memory_map/?.lua;]] .. package.path
 
 -- all requires must come after updates to package.path
-local ProtocolIO = require("ProtocolIO")
-
+local BIOSConfig = require("BIOSConfig")
+local BIOSStateMachine = require("BIOSStateMachine")
+local ConnectionManager= require("ConnectionManager")
+local TCPServer = require("TCPServer")
+local UDPServer = require("UDPServer")
+local socket = require("socket") --[[@as Socket]]
 
 local json = loadfile([[Scripts/JSON.lua]]) -- try to load json from dcs
 BIOS.json = json and json() or require "JSON" -- if that fails, fall back to module that we can define
@@ -169,8 +173,6 @@ BIOS.protocol.writeNewModule(VNAO_T_45)
 local Yak_52 = require "Yak-52"
 BIOS.protocol.writeNewModule(Yak_52)
 ----------------------------------------------------------------------------Modules End--------------------------------------
-dofile(lfs.writedir()..[[Scripts/DCS-BIOS/BIOSConfig.lua]])
-
 --Saves aliases for each aircraft for external programs
 local function saveAliases()
 	local JSON = BIOS.json
@@ -182,6 +184,8 @@ local function saveAliases()
 	end
 end
 pcall(saveAliases)
+-- save constants for arduino devs to a header file
+pcall(BIOS.protocol.saveAddresses)
 
 -- Prev Export functions.
 local PrevExport = {}
@@ -190,12 +194,26 @@ PrevExport.LuaExportStop = LuaExportStop
 PrevExport.LuaExportBeforeNextFrame = LuaExportBeforeNextFrame
 PrevExport.LuaExportAfterNextFrame = LuaExportAfterNextFrame
 
+local connection_manager = ConnectionManager:new({})
+
+local state_machine = BIOSStateMachine:new(BIOS.dbg.aircraftNameToModules, MetadataStart, MetadataEnd, 11000, connection_manager)
+
+local function process_input_line(line)
+	state_machine:processInputLine(line)
+end
+
+for _, udp in ipairs(BIOSConfig.udp_config) do
+	connection_manager:addConnection(UDPServer:new(udp.send_address, udp.send_port, udp.receive_address, udp.receive_port, socket, process_input_line))
+end
+
+for _, tcp in ipairs(BIOSConfig.tcp_config) do
+	connection_manager:addConnection(TCPServer:new(tcp.address, tcp.port, socket, process_input_line))
+end
+
 -- Lua Export Functions
 LuaExportStart = function()
-	
-	for _, v in pairs(ProtocolIO.connections) do v:init() end
-	BIOS.protocol.init()
-	
+	state_machine:init()
+
 	-- Chain previously-included export as necessary
 	if PrevExport.LuaExportStart then
 		PrevExport.LuaExportStart()
@@ -203,11 +221,8 @@ LuaExportStart = function()
 end
 
 LuaExportStop = function()
-	
-	BIOS.protocol.shutdown()
-	ProtocolIO.flush()
-	for _, v in pairs(ProtocolIO.connections) do v:close() end
-	
+	state_machine:shutdown()
+
 	-- Chain previously-included export as necessary
 	if PrevExport.LuaExportStop then
 		PrevExport.LuaExportStop()
@@ -215,11 +230,8 @@ LuaExportStop = function()
 end
 
 function LuaExportBeforeNextFrame()
-	
-	for _, v in pairs(ProtocolIO.connections) do
-		if v.step then v:step() end
-	end
-	
+	state_machine:receive()
+
 	-- Chain previously-included export as necessary
 	if PrevExport.LuaExportBeforeNextFrame then
 		PrevExport.LuaExportBeforeNextFrame()
@@ -228,9 +240,7 @@ function LuaExportBeforeNextFrame()
 end
 
 function LuaExportAfterNextFrame()
-	
-	BIOS.protocol.step()
-	ProtocolIO.flush()
+	state_machine:step()
 
 	-- Chain previously-included export as necessary
 	if PrevExport.LuaExportAfterNextFrame then
