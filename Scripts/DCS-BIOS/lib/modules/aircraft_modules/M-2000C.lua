@@ -1,5 +1,6 @@
-local Functions = require("Functions")
 module("M-2000C", package.seeall)
+
+local Functions = require("Functions")
 
 local Module = require("Module")
 
