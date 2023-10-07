@@ -587,7 +587,7 @@ M_2000C:defineString("PCA_BR5_DISP", function()
 end, PCA_LOWER_LEN, "PCA", "O - PCA Bottom #5 Display")
 
 --PCN
-M_2000C:defineSetCommandTumb("INS_PARAM_SEL", 9, 3574, 574, 0.1, { 0, 1.1 }, nil, true, "PCN", " I - PCN - INS Parameter Selector - Rotary Variant")
+M_2000C:defineSetCommandTumb("INS_PARAM_SEL", 9, 3574, 574, 0.1, { 0, 1 }, nil, true, "PCN", " I - PCN - INS Parameter Selector - Rotary Variant")
 M_2000C:definePushButton("INS_PREP_SW", 9, 3570, 570, "PCN", "I - PCN - PREP Switch")
 M_2000C:definePushButton("INS_DEST_SW", 9, 3572, 572, "PCN", "I - PCN - DEST Switch")
 M_2000C:defineToggleSwitch("OFFSET_WP_TGT", 9, 3576, 576, "PCN", "I - PCN - Offset Waypoint/Target (BAD)")
