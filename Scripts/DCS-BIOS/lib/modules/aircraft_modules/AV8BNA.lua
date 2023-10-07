@@ -560,13 +560,13 @@ end)
 -- Get Displays Functions
 local function getComm1Text()
 	local txt = Functions.coerce_nil_to_string(indication_5["ufc_chnl_1_m"])
-	return Functions.padLeft(txt:sub(1, 2), 2)
+	return Functions.pad_left(txt:sub(1, 2), 2)
 end
 AV8BNA:defineString("UFC_COMM1_DISPLAY", getComm1Text, 2, "UFC Display", "UFC Comm1 Preset Display")
 
 local function getComm2Text()
 	local txt = Functions.coerce_nil_to_string(indication_5["ufc_chnl_2_m"])
-	return Functions.padLeft(txt:sub(1, 2), 2)
+	return Functions.pad_left(txt:sub(1, 2), 2)
 end
 AV8BNA:defineString("UFC_COMM2_DISPLAY", getComm2Text, 2, "UFC Display", "UFC Comm2 Preset Display")
 
