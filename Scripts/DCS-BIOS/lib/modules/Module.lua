@@ -52,25 +52,6 @@ function Module:reserveIntValue(max_value)
 	self:allocateInt(max_value)
 end
 
-local function cap(value, limits, cycle)
-	if cycle then
-		if value < limits[1] then
-			return limits[2]
-		end
-		if value > limits[2] then
-			return limits[1]
-		end
-	else
-		if value <= limits[1] then
-			return limits[1]
-		end
-		if value >= limits[2] then
-			return limits[2]
-		end
-	end
-	return value
-end
-
 --- Uses SetCommand and set_argument_value instead of performClickableAction()
 --- @param identifier string the unique identifier for the control
 --- @param device_id integer the dcs device id
@@ -150,8 +131,9 @@ function Module:defineSetCommandTumb(identifier, device_id, command, arg_number,
 		local value = GetDevice(0):get_argument_value(arg_number)
 		local n = tonumber(string.format("%.0f", (value - limits[1]) / step))
 		local new_n = n
+
 		if state == "INC" then
-			new_n = cap(n + 1, { 0, last_n }, cycle)
+			new_n = Module.cap(n + 1, 0, last_n, cycle)
 			if cycle == "skiplast" and new_n == last_n then
 				new_n = 0
 			end
@@ -159,7 +141,7 @@ function Module:defineSetCommandTumb(identifier, device_id, command, arg_number,
 			GetDevice(device_id):SetCommand(command, limits[1] + step * new_n)
 			GetDevice(0):set_argument_value(arg_number, limits[1] + step * new_n)
 		elseif state == "DEC" then
-			new_n = cap(n - 1, { 0, last_n }, cycle)
+			new_n = Module.cap(n - 1, 0, last_n, cycle)
 			if cycle == "skiplast" and new_n == last_n then
 				new_n = last_n - 1
 			end
@@ -171,8 +153,8 @@ function Module:defineSetCommandTumb(identifier, device_id, command, arg_number,
 			if n == nil then
 				return
 			end
-			GetDevice(device_id):SetCommand(command, limits[1] + step * cap(n, { 0, last_n }, cycle))
-			GetDevice(0):set_argument_value(arg_number, limits[1] + step * cap(n, { 0, last_n }, cycle))
+			GetDevice(device_id):SetCommand(command, limits[1] + step * Module.cap(n, 0, last_n, cycle))
+			GetDevice(0):set_argument_value(arg_number, limits[1] + step * Module.cap(n, 0, last_n, cycle))
 		end
 	end)
 
