@@ -1,3 +1,4 @@
+local Functions = require("Functions")
 module("M-2000C", package.seeall)
 
 local Module = require("Module")
@@ -8,6 +9,18 @@ local M_2000C = Module:new("M-2000C", 0x7200, { "M-2000C" })
 --v1.39 by Ergo,Matchstick,MisterKnife,WarLord,Espresso29470
 
 --remove Arg# Pilot 1000
+
+local function round(num, numDecimalPlaces, returnstring)
+	if returnstring == nil then
+		returnstring = false
+	end
+	if returnstring then
+		return string.format("%." .. (numDecimalPlaces or 0) .. "f", num)
+	else
+		return tonumber(string.format("%." .. (numDecimalPlaces or 0) .. "f", num))
+	end
+end
+
 --Get Displays Functions
 
 -- parse radios
@@ -16,9 +29,6 @@ local uhfFrequency = ""
 
 M_2000C:addExportHook(function()
 	local radios = M_2000C.parse_indication(7)
-	if not radios then
-		return
-	end
 
 	local vhf = coerce_nil_to_string(radios.text_COM_UHF1)
 	if vhf then
@@ -39,17 +49,15 @@ local FUEL_FLOW_LEN = 3
 
 M_2000C:addExportHook(function(dev0)
 	local fuel = M_2000C.parse_indication(3)
-	if not fuel then
-		return
-	end
-	fuelFlow = padLeft(fuel.txt_fuel_g, FUEL_FLOW_LEN)
-	local jauge_thous = BIOS.util.round(dev0:get_argument_value(349), 1, true)
-	local jauge_cents = BIOS.util.round(dev0:get_argument_value(350), 1, true)
-	local jauge_tens = BIOS.util.round(dev0:get_argument_value(351), 1, true)
+
+	fuelFlow = Functions.padLeft(fuel.txt_fuel_g, FUEL_FLOW_LEN)
+	local jauge_thous = round(dev0:get_argument_value(349), 1, true)
+	local jauge_cents = round(dev0:get_argument_value(350), 1, true)
+	local jauge_tens = round(dev0:get_argument_value(351), 1, true)
 	fuelJauge = string.sub(jauge_thous, 3, 3) .. string.sub(jauge_cents, 3, 3) .. string.sub(jauge_tens, 3, 3) .. "0"
-	local fuelTotal_thous = BIOS.util.round(dev0:get_argument_value(352), 1, true)
-	local fuelTotal_cents = BIOS.util.round(dev0:get_argument_value(353), 1, true)
-	local fuelTotal_tens = BIOS.util.round(dev0:get_argument_value(354), 1, true)
+	local fuelTotal_thous = round(dev0:get_argument_value(352), 1, true)
+	local fuelTotal_cents = round(dev0:get_argument_value(353), 1, true)
+	local fuelTotal_tens = round(dev0:get_argument_value(354), 1, true)
 	fuelTotal = string.sub(fuelTotal_thous, 3, 3) .. string.sub(fuelTotal_cents, 3, 3) .. string.sub(fuelTotal_tens, 3, 3) .. "0"
 end)
 
@@ -63,15 +71,12 @@ local PCA_UPPER_LEN = 3
 
 M_2000C:addExportHook(function()
 	local pcaUpper = M_2000C.parse_indication(4)
-	if not pcaUpper then
-		return
-	end
 
-	pcaUpper1 = padLeft(pcaUpper.PCA_LCD_1_0, PCA_UPPER_LEN)
-	pcaUpper2 = padLeft(pcaUpper.PCA_LCD_1_1, PCA_UPPER_LEN)
-	pcaUpper3 = padLeft(pcaUpper.PCA_LCD_1_2, PCA_UPPER_LEN)
-	pcaUpper4 = padLeft(pcaUpper.PCA_LCD_1_3, PCA_UPPER_LEN)
-	pcaUpper5 = padLeft(pcaUpper.PCA_LCD_1_4, PCA_UPPER_LEN)
+	pcaUpper1 = Functions.padLeft(pcaUpper.PCA_LCD_1_0, PCA_UPPER_LEN)
+	pcaUpper2 = Functions.padLeft(pcaUpper.PCA_LCD_1_1, PCA_UPPER_LEN)
+	pcaUpper3 = Functions.padLeft(pcaUpper.PCA_LCD_1_2, PCA_UPPER_LEN)
+	pcaUpper4 = Functions.padLeft(pcaUpper.PCA_LCD_1_3, PCA_UPPER_LEN)
+	pcaUpper5 = Functions.padLeft(pcaUpper.PCA_LCD_1_4, PCA_UPPER_LEN)
 end)
 
 -- parse PCA lower
@@ -84,15 +89,12 @@ local PCA_LOWER_LEN = 3
 
 M_2000C:addExportHook(function()
 	local pcaLower = M_2000C.parse_indication(5)
-	if not pcaLower then
-		return
-	end
 
-	pcaLower1 = padLeft(pcaLower.PCA_LCD_2_0, PCA_LOWER_LEN)
-	pcaLower2 = padLeft(pcaLower.PCA_LCD_2_1, PCA_LOWER_LEN)
-	pcaLower3 = padLeft(pcaLower.PCA_LCD_2_2, PCA_LOWER_LEN)
-	pcaLower4 = padLeft(pcaLower.PCA_LCD_2_3, PCA_LOWER_LEN)
-	pcaLower5 = padLeft(pcaLower.PCA_LCD_2_4, PCA_LOWER_LEN)
+	pcaLower1 = Functions.padLeft(pcaLower.PCA_LCD_2_0, PCA_LOWER_LEN)
+	pcaLower2 = Functions.padLeft(pcaLower.PCA_LCD_2_1, PCA_LOWER_LEN)
+	pcaLower3 = Functions.padLeft(pcaLower.PCA_LCD_2_2, PCA_LOWER_LEN)
+	pcaLower4 = Functions.padLeft(pcaLower.PCA_LCD_2_3, PCA_LOWER_LEN)
+	pcaLower5 = Functions.padLeft(pcaLower.PCA_LCD_2_4, PCA_LOWER_LEN)
 end)
 
 -- parse PPA
@@ -102,12 +104,9 @@ local PPA_LEN = 2
 
 M_2000C:addExportHook(function()
 	local ppa = M_2000C.parse_indication(6)
-	if not ppa then
-		return
-	end
 
-	ppaQuantity = padLeft(ppa.text_PPA_QTY, PPA_LEN)
-	ppaInterval = padLeft(ppa.text_PPA_INT, PPA_LEN)
+	ppaQuantity = Functions.padLeft(ppa.text_PPA_QTY, PPA_LEN)
+	ppaInterval = Functions.padLeft(ppa.text_PPA_INT, PPA_LEN)
 end)
 
 -- parse PCN upper display
@@ -121,12 +120,9 @@ local pcnLeft2Digit = ""
 -- todo: need to set blank strings when pcn is nil?
 M_2000C:addExportHook(function()
 	local pcn = M_2000C.parse_indication(9)
-	if not pcn then
-		return
-	end
 
-	pcnLeftDigits = padLeft(pcn.PCN_UL_DIGITS, 8)
-	pcnRightDigits = padLeft(pcn.PCN_UR_DIGITS, 9)
+	pcnLeftDigits = Functions.padLeft(pcn.PCN_UL_DIGITS, 8)
+	pcnRightDigits = Functions.padLeft(pcn.PCN_UR_DIGITS, 9)
 
 	local pcnRight = ""
 	if pcn.PCN_UR_E then
@@ -177,12 +173,9 @@ local pcnDest = ""
 
 M_2000C:addExportHook(function()
 	local pcn = M_2000C.parse_indication(10)
-	if not pcn then
-		return
-	end
 
-	pcnPrep = padLeft(pcn.PCN_BL_DIGITS, 2)
-	pcnDest = padLeft(pcn.PCN_BR_DIGITS, 2)
+	pcnPrep = Functions.padLeft(pcn.PCN_BL_DIGITS, 2)
+	pcnDest = Functions.padLeft(pcn.PCN_BR_DIGITS, 2)
 end)
 
 local function getvtbRange()

@@ -28,7 +28,10 @@ function MockDevice:new(value)
 	return o
 end
 
-function MockDevice:get_argument_value(device_id)
+--- @func Mock of get a value of an argument. Returns mock value
+--- @param argument_id integer
+--- @returns number
+function MockDevice:get_argument_value(argument_id)
 	return self.value
 end
 
