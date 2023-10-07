@@ -103,42 +103,6 @@ function FA_18C_hornet:defineMissionComputerSwitch(identifier, device_id, mc1_of
 	end)
 end
 
--- todo: should this be a common function in Module.lua as multiple modules use this triple-click ejection function?
---- Defines an ejection handle switch which performs a clickable action 3 times to trigger the ejection sequence in-game
---- @param identifier string the unique identifier for the control
---- @param device_id integer the dcs device id
---- @param command integer the dcs command
---- @param arg_number integer the dcs argument number
---- @param category string the category in which the control should appear
---- @param description string additional information about the control
-function FA_18C_hornet:defineEjectionHandleSwitch(identifier, device_id, command, arg_number, category, description)
-	local alloc = self:allocateInt(1)
-	self:addExportHook(function(dev0)
-		if dev0:get_argument_value(arg_number) < 0.5 then
-			alloc:setValue(0)
-		else
-			alloc:setValue(1)
-		end
-	end)
-
-	local control = Control:new(category, "toggle_switch", identifier, description, {
-		SetStateInput:new(1, "set the switch position -- 0 = off, 1 = on"),
-	}, {
-		IntegerOutput:new(alloc, "", "switch position -- 0 = off, 1 = on"),
-	})
-
-	self:addControl(control)
-
-	self:addInputProcessor(identifier, function(toState)
-		local fromState = GetDevice(0):get_argument_value(arg_number)
-		if fromState == 0 and toState == "1" then
-			GetDevice(device_id):performClickableAction(command, 1)
-			GetDevice(device_id):performClickableAction(command, 1)
-			GetDevice(device_id):performClickableAction(command, 1)
-		end
-	end)
-end
-
 local comm_channel_map = {
 	[" 1"] = 1,
 	[" 2"] = 2,
