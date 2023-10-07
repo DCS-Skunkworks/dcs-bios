@@ -337,10 +337,8 @@ FA_18C_hornet:definePotentiometer("UFC_COMM1_VOL", 25, 3030, 108, { 0, 1 }, "Up 
 FA_18C_hornet:definePotentiometer("UFC_COMM2_VOL", 25, 3031, 123, { 0, 1 }, "Up Front Controller (UFC)", "COMM 2 Volume Control Knob")
 FA_18C_hornet:definePotentiometer("UFC_BRT", 25, 3032, 109, { 0, 1 }, "Up Front Controller (UFC)", "Brightness Control Knob")
 
--- FA_18C_hornet:defineRotary("UFC_COMM1_CHANNEL_SELECT", 25, 3033, 124, "Up Front Controller (UFC)", "COMM 1 Channel Select Knob")
-FA_18C_hornet:reserveIntValue(65535) -- todo: investigate duplicate controls
--- FA_18C_hornet:defineRotary("UFC_COMM2_CHANNEL_SELECT", 25, 3034, 126, "Up Front Controller (UFC)", "COMM 2 Channel Select Knob")
-FA_18C_hornet:reserveIntValue(65535)
+FA_18C_hornet:reserveIntValue(65535) -- previous duplicate UFC_COMM1_CHANNEL_SELECT
+FA_18C_hornet:reserveIntValue(65535) -- previous duplicate UFC_COMM2_CHANNEL_SELECT
 FA_18C_hornet:defineFixedStepInput("UFC_COMM1_CHANNEL_SELECT", 25, 3033, { -0.03, 0.03 }, "Up Front Controller (UFC)", "COMM 1 Channel Select Knob")
 FA_18C_hornet:defineFixedStepInput("UFC_COMM2_CHANNEL_SELECT", 25, 3034, { -0.03, 0.03 }, "Up Front Controller (UFC)", "COMM 2 Channel Select Knob")
 
