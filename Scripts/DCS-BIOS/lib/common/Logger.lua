@@ -113,23 +113,22 @@ function Logger:log_simple(level, data)
 end
 
 --- @func Logs whether variable is nilstring or number
---- @param level string logging level
 --- @param variableName string
 --- @param variable any
-function Logger:log_is_nil(level, variableName, variable)
+function Logger:log_is_nil(variableName, variable)
 	if variable == nil then
-		self:log_simple(level, variableName .. " is nil")
+		self:log_simple(Logger.logging_level.info, variableName .. " is nil")
 		return
 	end
 
-	self:log_simple(level, variableName .. " is not nil")
+	self:log_simple(Logger.logging_level.info, variableName .. " is not nil")
 end
 
 --- @func Logs the type of the variable
---- @param level string logging level
 --- @param name string Name of variable
 --- @param variable any The variable to determine type of
-function Logger:log_type(level, name, variable)
+function Logger:log_type(name, variable)
+	local level = Logger.logging_level.info
 	if type(variable) == "table" then
 		self:log_simple(level, name .. " is of type table")
 	elseif type(variable) == "string" then
@@ -149,17 +148,23 @@ end
 -- Break ALL when max depth reached
 -- Break when data logged exceeds limit
 
+--- @private
 --- @func Logs a table (recursively if table contains tables)
 --- @param level string logging level
 --- @param tab table Table to dump/log
 --- @param max_depth integer How deep recursively to go
 function Logger:log_table(level, tab, max_depth, max_bytes_to_log)
 	self.bytes_logged = 0
-	local return_code, buffer = self:dump_table(tab, max_depth, max_bytes_to_log)
+	self.max_bytes_to_log = max_bytes_to_log
+	local return_code, buffer = self:dump_table(tab, max_depth)
 	self:log(level, buffer)
 end
 
-function Logger:dump_table(tab, max_depth, max_bytes_to_log)
+--- @private
+--- @func Dumps a table (recursively if table contains tables)
+--- @param tab table Table to dump/log
+--- @param max_depth integer How deep recursively to go
+function Logger:dump_table(tab, max_depth)
 	self.bytes_logged = 0
 	-- Inner function just to hide the depth argument
 	--- @func Recursive table dump
@@ -211,9 +216,10 @@ function Logger:dump_table(tab, max_depth, max_bytes_to_log)
 end
 
 --- @func Logs a table's indexes
---- @param level string logging level
 --- @require tab table Table to dump/log
-function Logger:log_table_indexes(level, tab)
+function Logger:log_table_indexes(tab)
+	local level = Logger.logging_level.info
+
 	if tab == nil then
 		self:log_simple(level, "Table to log was nil")
 		return
