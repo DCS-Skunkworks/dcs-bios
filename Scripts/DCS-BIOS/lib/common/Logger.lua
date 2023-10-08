@@ -1,84 +1,144 @@
 module("Logger", package.seeall)
 
+local Functions = require("Functions")
+
 --- @class Logger
 --- @field private logfile file*
---- @field private maxBytesToLog number Used by log_table
---- @field private bytesLogged number Used by log_table
+--- @field private max_bytes_to_log number Used by log_table
+--- @field private bytes_logged number Used by log_table
+--- @field logging_level table
 local Logger = {}
+
+--2023-10-08 09:20:49
+local timeformat_length = 19
+
+--ERROR
+local padd_after_level = 5
+
+--- @func returns timestamp in format 2023-10-08 09:26:58
+--- @return string
+local function getTimestamp()
+	return tostring(os.date("%Y-%m-%d %X"))
+end
 
 --- @func Returns new Logger
 --- @return Logger
 function Logger:new(logfile)
 	local o = {
 		logfile = io.open(logfile, "w"),
-		maxBytesToLog = 50000,
-		bytesLogged = 0,
+		max_bytes_to_log = 50000,
+		bytes_logged = 0,
+		logging_level = {
+			debug = "DEBUG",
+			info = "INFO",
+			warn = "WARN",
+			error = "ERROR",
+			fatal = "FATAL",
+		},
 	}
 	setmetatable(o, self)
 	self.__index = self
 	return o
 end
 
+--- TODO
+--- @private
 --- @func Tries to log the object
---- @param obj any Object
-function Logger:log(obj)
+--- @param level string logging level
+--- @param obj any
+function Logger:log(level, obj)
 	if obj == nil then
 		return
 	end
 
 	if type(obj) == "table" then
-		self:log_simple("Logging table, consider using setting maxBytesToLog and call log_table() directly.")
-		self:log_table(obj, 10)
+		self:log_simple(level, "Logging table, consider using setting max_bytes_to_log and call log_table() directly.")
+		self:log_table(level, obj, 10)
 	elseif type(obj) == "string" or type(obj) == "number" then
-		self:log_simple(obj)
+		self:log_simple(level, obj)
 	end
 end
 
+--- @func Tries to log the object with debug level
+--- @param obj any
+function Logger:log_debug(obj)
+	self:log(self.logging_level.debug, obj)
+end
+
+--- @func Tries to log the object with info level
+--- @param obj any
+function Logger:log_info(obj)
+	self:log(self.logging_level.info, obj)
+end
+
+--- @func Tries to log the object with warn level
+--- @param obj any
+function Logger:log_warn(obj)
+	self:log(self.logging_level.warn, obj)
+end
+
+--- @func Tries to log the object with error level
+--- @param obj any
+function Logger:log_error(obj)
+	self:log(self.logging_level.error, obj)
+end
+
+--- @func Tries to log the object with fatal level
+--- @param obj any
+function Logger:log_fatal(obj)
+	self:log(self.logging_level.fatal, obj)
+end
+
+--- @private
 --- @func Logs string or number
+--- @param level string logging level
 --- @param data string|number
-function Logger:log_simple(data)
+function Logger:log_simple(level, data)
 	if data == nil then
 		return
 	end
+
 	if type(data) == "table" then
-		self:log_simple("Error log_simple cannot log table")
+		self:log_simple(level, "Error log_simple cannot log table")
 		return
 	end
 
 	if type(data) == "string" or type(data) == "number" then
 		if self.logfile then
-			self.logfile:write(data .. "\n")
+			self.logfile:write(Functions.pad_right(getTimestamp(), timeformat_length + 2) .. Functions.pad_right(level, padd_after_level + 2) .. data .. "\n")
 			self.logfile:flush()
 		end
 	end
 end
 
 --- @func Logs whether variable is nilstring or number
+--- @param level string logging level
 --- @param variableName string
 --- @param variable any
-function Logger:log_is_nil(variableName, variable)
+function Logger:log_is_nil(level, variableName, variable)
 	if variable == nil then
-		self:log_simple(variableName .. " is nil")
+		self:log_simple(level, variableName .. " is nil")
 		return
 	end
 
-	self:log_simple(variableName .. " is not nil")
+	self:log_simple(level, variableName .. " is not nil")
 end
 
 --- @func Logs the type of the variable
+--- @param level string logging level
 --- @param name string Name of variable
 --- @param variable any The variable to determine type of
-function Logger:log_type(name, variable)
+function Logger:log_type(level, name, variable)
 	if type(variable) == "table" then
-		self:log_simple(name .. " is of type table")
+		self:log_simple(level, name .. " is of type table")
 	elseif type(variable) == "string" then
-		self:log_simple(name .. " is of type string")
+		self:log_simple(level, name .. " is of type string")
 	elseif type(variable) == "number" and math.floor(variable) == variable then
-		self:log_simple(name .. " is of type integer")
+		self:log_simple(level, name .. " is of type integer")
 	elseif type(variable) == "number" then
-		self:log_simple(name .. " is of type number")
+		self:log_simple(level, name .. " is of type number")
 	elseif type(variable) == "boolean" then
-		self:log_simple(name .. " is of type boolean")
+		self:log_simple(level, name .. " is of type boolean")
 	end
 end
 
@@ -89,16 +149,17 @@ end
 -- Break when data logged exceeds limit
 
 --- @func Logs a table (recursively if table contains tables)
+--- @param level string logging level
 --- @param tab table Table to dump/log
 --- @param max_depth integer How deep recursively to go
-function Logger:log_table(tab, max_depth, max_bytes_to_log)
-	self.bytesLogged = 0
+function Logger:log_table(level, tab, max_depth, max_bytes_to_log)
+	self.bytes_logged = 0
 	local return_code, buffer = self:dump_table(tab, max_depth, max_bytes_to_log)
-	self:log(buffer)
+	self:log(level, buffer)
 end
 
 function Logger:dump_table(tab, max_depth, max_bytes_to_log)
-	self.bytesLogged = 0
+	self.bytes_logged = 0
 	-- Inner function just to hide the depth argument
 	--- @func Recursive table dump
 	--- @param tablex table
@@ -111,13 +172,13 @@ function Logger:dump_table(tab, max_depth, max_bytes_to_log)
 
 		if depth > max_depth then
 			local str = "Depth reached in log_table() : " .. max_depth
-			self.bytesLogged = self.bytesLogged + string.len(str)
+			self.bytes_logged = self.bytes_logged + string.len(str)
 			return_buffer = return_buffer .. "\n" .. str
 			-- This doesn't mean the recursion should stop, just that the current excursion stops
 			return 0, return_buffer
 		end
-		if self.bytesLogged > self.maxBytesToLog then
-			return_buffer = return_buffer .. "\n" .. "Max data reached in dump_table() : " .. self.maxBytesToLog .. "   " .. self.bytesLogged
+		if self.bytes_logged > self.max_bytes_to_log then
+			return_buffer = return_buffer .. "\n" .. "Max data reached in dump_table() : " .. self.max_bytes_to_log .. "   " .. self.bytes_logged
 			return 1, return_buffer
 		end
 
@@ -128,7 +189,7 @@ function Logger:dump_table(tab, max_depth, max_bytes_to_log)
 			if v ~= nil then
 				if type(v) == "table" then
 					local str = string.rep("\t", depth) .. k .. ":"
-					self.bytesLogged = self.bytesLogged + string.len(str)
+					self.bytes_logged = self.bytes_logged + string.len(str)
 					return_buffer = return_buffer .. "\n" .. str
 					local tmp_buffer
 					return_value, tmp_buffer = log_tablex(v, depth + 1, max_depth)
@@ -137,7 +198,7 @@ function Logger:dump_table(tab, max_depth, max_bytes_to_log)
 					end
 				elseif type(v) == "string" or type(v) == "number" then
 					local str = string.rep("\t", depth) .. k .. ": " .. v
-					self.bytesLogged = self.bytesLogged + string.len(str)
+					self.bytes_logged = self.bytes_logged + string.len(str)
 					return_buffer = return_buffer .. "\n" .. str
 				end
 			end
@@ -149,22 +210,23 @@ function Logger:dump_table(tab, max_depth, max_bytes_to_log)
 end
 
 --- @func Logs a table's indexes
+--- @param level string logging level
 --- @require tab table Table to dump/log
-function Logger:log_table_indexes(tab)
+function Logger:log_table_indexes(level, tab)
 	if tab == nil then
-		self:log_simple("Table to log was nil")
+		self:log_simple(level, "Table to log was nil")
 		return
 	end
 
-	self:log_simple("Indexes :")
+	self:log_simple(level, "Indexes :")
 	for k, v in pairs(tab) do
 		if k ~= nil then
 			if type(k) == "string" or type(k) == "number" then
-				self:log_simple(k)
+				self:log_simple(level, k)
 			elseif type(k) == "table" then
-				self:log_simple("<table>")
+				self:log_simple(level, "<table>")
 			elseif type(k) == "function" then
-				self:log_simple("<function>")
+				self:log_simple(level, "<function>")
 			end
 		end
 	end

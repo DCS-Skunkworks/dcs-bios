@@ -30,7 +30,7 @@ function StringAllocation:setValue(value)
 	local i = 1
 
 	if value == nil then
-		Log:log(string.format("Util.lua: item is sending a nil value"))
+		Log:log_error(string.format("Util.lua: item is sending a nil value"))
 		return
 	end
 

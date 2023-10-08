@@ -4,7 +4,7 @@ local Functions = {}
 
 --- @func Returns the path of the calling script
 --- @return string
-function Functions.scriptPath()
+function Functions.script_path()
 	local str = debug.getinfo(2, "S").source:sub(2)
 	return str:match("(.*/)")
 end
@@ -23,6 +23,15 @@ end
 function Functions.pad_left(str, len)
 	str = tostring(Functions.coerce_nil_to_string(str))
 	return string.rep(" ", len - #str) .. str
+end
+
+--- @func Constructs a string of the specified length with the right padded by whitespace if necessary.
+--- @param str string? The base text
+--- @param len number The length the string should be
+--- @return string result A new string of length len, with whitespace padding added to the right as necessary
+function Functions.pad_right(str, len)
+	str = tostring(Functions.coerce_nil_to_string(str))
+	return str .. string.rep(" ", len - #str)
 end
 
 --- @func Takes a string and checks for nil, returns 1 or 0
