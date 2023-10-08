@@ -135,6 +135,10 @@ function TestAircraft:testMiG_21Bis()
 	self:validateModule(require("MiG-21Bis"), "MiG-21Bis", 0x2200)
 end
 
+function TestAircraft:testMosquito()
+	self:validateModule(require("Mosquito"), "Mosquito", 0x7000)
+end
+
 function TestAircraft:testNS430()
 	self:validateModule(require("NS430"), "NS430", 0x0600)
 end
