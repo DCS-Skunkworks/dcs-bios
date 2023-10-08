@@ -6,14 +6,22 @@ local Functions = require("Functions")
 --- @field private logfile file*
 --- @field private max_bytes_to_log number Used by log_table
 --- @field private bytes_logged number Used by log_table
---- @field logging_level table
 local Logger = {}
 
 --2023-10-08 09:20:49
 local timeformat_length = 19
 
 --ERROR
-local padd_after_level = 5
+local pad_after_level = 5
+
+--- @enum
+Logger.logging_level = {
+	debug = "DEBUG",
+	info = "INFO",
+	warn = "WARN",
+	error = "ERROR",
+	fatal = "FATAL",
+}
 
 --- @func returns timestamp in format 2023-10-08 09:26:58
 --- @return string
@@ -28,13 +36,6 @@ function Logger:new(logfile)
 		logfile = io.open(logfile, "w"),
 		max_bytes_to_log = 50000,
 		bytes_logged = 0,
-		logging_level = {
-			debug = "DEBUG",
-			info = "INFO",
-			warn = "WARN",
-			error = "ERROR",
-			fatal = "FATAL",
-		},
 	}
 	setmetatable(o, self)
 	self.__index = self
@@ -62,31 +63,31 @@ end
 --- @func Tries to log the object with debug level
 --- @param obj any
 function Logger:log_debug(obj)
-	self:log(self.logging_level.debug, obj)
+	self:log(Logger.logging_level.debug, obj)
 end
 
 --- @func Tries to log the object with info level
 --- @param obj any
 function Logger:log_info(obj)
-	self:log(self.logging_level.info, obj)
+	self:log(Logger.logging_level.info, obj)
 end
 
 --- @func Tries to log the object with warn level
 --- @param obj any
 function Logger:log_warn(obj)
-	self:log(self.logging_level.warn, obj)
+	self:log(Logger.logging_level.warn, obj)
 end
 
 --- @func Tries to log the object with error level
 --- @param obj any
 function Logger:log_error(obj)
-	self:log(self.logging_level.error, obj)
+	self:log(Logger.logging_level.error, obj)
 end
 
 --- @func Tries to log the object with fatal level
 --- @param obj any
 function Logger:log_fatal(obj)
-	self:log(self.logging_level.fatal, obj)
+	self:log(Logger.logging_level.fatal, obj)
 end
 
 --- @private
@@ -105,7 +106,7 @@ function Logger:log_simple(level, data)
 
 	if type(data) == "string" or type(data) == "number" then
 		if self.logfile then
-			self.logfile:write(Functions.pad_right(getTimestamp(), timeformat_length + 2) .. Functions.pad_right(level, padd_after_level + 2) .. data .. "\n")
+			self.logfile:write(Functions.pad_right(getTimestamp(), timeformat_length + 2) .. Functions.pad_right(level, pad_after_level + 2) .. data .. "\n")
 			self.logfile:flush()
 		end
 	end
