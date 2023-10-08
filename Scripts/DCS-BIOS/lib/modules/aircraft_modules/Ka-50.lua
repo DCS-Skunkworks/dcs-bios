@@ -204,7 +204,7 @@ Ka_50:define8BitFloat("HSI_GS_WARN_FLAG", 125, { 0, 1 }, "HSI", "Glideslope warn
 Ka_50:defineFloat("HSI_RANGE_CNT_100", 117, { 0, 1 }, "HSI", "Range counter 100")
 Ka_50:defineFloat("HSI_RANGE_CNT_10", 527, { 0, 1 }, "HSI", "Range counter 10")
 Ka_50:defineFloat("HSI_RANGE_CNT_1", 528, { 0, 1 }, "HSI", "Range counter 1")
-Ka_50:defineFloat("HSI_COURSE_CNT_100_10", 529, { 0, 1 }, "HSI", "Course counter 100/10")
+Ka_50:defineFloat("HSI_COURSE_CNT_100_10", 529, { -1, 1 }, "HSI", "Course counter 100/10")
 Ka_50:defineFloat("HSI_COURSE_CNT_1", 530, { 0, 1 }, "HSI", "Course counter 1")
 Ka_50:defineFloat("HSI_LONG_DEV", 127, { -1, 1 }, "HSI", "Longitudinal deviation from hover position")
 Ka_50:defineFloat("HSI_LAT_DEV", 128, { -1, 1 }, "HSI", "Lateral deviation from the assigned flight path or hover position")
