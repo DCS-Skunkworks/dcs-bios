@@ -28,7 +28,7 @@ function MockDevice:new(value)
 	return o
 end
 
---- @func Mock of get a value of an argument. Returns mock value
+--- Mock of get a value of an argument. Returns mock value
 --- @param argument_id integer
 --- @returns number
 function MockDevice:get_argument_value(argument_id)
@@ -42,14 +42,14 @@ function MockDevice:performClickableAction(command_id, argument)
 	table.insert(self.clickable_actions, { [command_id] = argument })
 end
 
---- @func Executes SetCommand on a device
+--- Executes SetCommand on a device
 --- @param command_id integer
 --- @param value number
 function MockDevice:SetCommand(command_id, value)
 	table.insert(self.set_commands, { [command_id] = value })
 end
 
---- @func Sets argument value
+--- Sets argument value
 --- @param argument_id integer
 --- @param value number
 function MockDevice:set_argument_value(argument_id, value)
