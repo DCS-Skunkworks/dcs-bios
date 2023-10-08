@@ -48,11 +48,11 @@ BIOS.util.document = document
 
 function BIOS.util.addressDefineIdentifier(moduleName, identifier)
 	if moduleName == nil then
-		Log:log(string.format("Nil module name found for identifier %s", identifier))
+		Log:log_error(string.format("Nil module name found for identifier %s", identifier))
 		return "UNKNOWN"
 	end
 	if identifier == nil then
-		Log:log(string.format("Nil identifier found in module %s", moduleName))
+		Log:log_error(string.format("Nil identifier found in module %s", moduleName))
 		return "UNKNOWN"
 	end
 
@@ -145,11 +145,11 @@ function BIOS.util.MemoryAllocation:setValue(value)
 	assert(value)
 	value = math.floor(value)
 	if value < 0 then
-		Log:log(string.format("Util.lua: value %f is too small for address %d mask %d", value, self.address, self.mask))
+		Log:log_error(string.format("Util.lua: value %f is too small for address %d mask %d", value, self.address, self.mask))
 		return
 	end
 	if value > self.maxValue then
-		Log:log(string.format("Util.lua: value %f is too large for address %d mask %d", value, self.address, self.mask))
+		Log:log_error(string.format("Util.lua: value %f is too large for address %d mask %d", value, self.address, self.mask))
 		return
 	end
 	assert(value >= 0)
