@@ -36,7 +36,7 @@ local FUEL_FLOW_LEN = 3
 M_2000C:addExportHook(function(dev0)
 	local fuel = M_2000C.parse_indication(3)
 
-	fuelFlow = Functions.padLeft(fuel.txt_fuel_g, FUEL_FLOW_LEN)
+	fuelFlow = Functions.pad_left(fuel.txt_fuel_g, FUEL_FLOW_LEN)
 	local jauge_thous = tostring(Module.round(dev0:get_argument_value(349)))
 	local jauge_cents = tostring(Module.round(dev0:get_argument_value(350)))
 	local jauge_tens = tostring(Module.round(dev0:get_argument_value(351)))
@@ -58,11 +58,11 @@ local PCA_UPPER_LEN = 3
 M_2000C:addExportHook(function()
 	local pcaUpper = M_2000C.parse_indication(4)
 
-	pcaUpper1 = Functions.padLeft(pcaUpper.PCA_LCD_1_0, PCA_UPPER_LEN)
-	pcaUpper2 = Functions.padLeft(pcaUpper.PCA_LCD_1_1, PCA_UPPER_LEN)
-	pcaUpper3 = Functions.padLeft(pcaUpper.PCA_LCD_1_2, PCA_UPPER_LEN)
-	pcaUpper4 = Functions.padLeft(pcaUpper.PCA_LCD_1_3, PCA_UPPER_LEN)
-	pcaUpper5 = Functions.padLeft(pcaUpper.PCA_LCD_1_4, PCA_UPPER_LEN)
+	pcaUpper1 = Functions.pad_left(pcaUpper.PCA_LCD_1_0, PCA_UPPER_LEN)
+	pcaUpper2 = Functions.pad_left(pcaUpper.PCA_LCD_1_1, PCA_UPPER_LEN)
+	pcaUpper3 = Functions.pad_left(pcaUpper.PCA_LCD_1_2, PCA_UPPER_LEN)
+	pcaUpper4 = Functions.pad_left(pcaUpper.PCA_LCD_1_3, PCA_UPPER_LEN)
+	pcaUpper5 = Functions.pad_left(pcaUpper.PCA_LCD_1_4, PCA_UPPER_LEN)
 end)
 
 -- parse PCA lower
@@ -76,11 +76,11 @@ local PCA_LOWER_LEN = 3
 M_2000C:addExportHook(function()
 	local pcaLower = M_2000C.parse_indication(5)
 
-	pcaLower1 = Functions.padLeft(pcaLower.PCA_LCD_2_0, PCA_LOWER_LEN)
-	pcaLower2 = Functions.padLeft(pcaLower.PCA_LCD_2_1, PCA_LOWER_LEN)
-	pcaLower3 = Functions.padLeft(pcaLower.PCA_LCD_2_2, PCA_LOWER_LEN)
-	pcaLower4 = Functions.padLeft(pcaLower.PCA_LCD_2_3, PCA_LOWER_LEN)
-	pcaLower5 = Functions.padLeft(pcaLower.PCA_LCD_2_4, PCA_LOWER_LEN)
+	pcaLower1 = Functions.pad_left(pcaLower.PCA_LCD_2_0, PCA_LOWER_LEN)
+	pcaLower2 = Functions.pad_left(pcaLower.PCA_LCD_2_1, PCA_LOWER_LEN)
+	pcaLower3 = Functions.pad_left(pcaLower.PCA_LCD_2_2, PCA_LOWER_LEN)
+	pcaLower4 = Functions.pad_left(pcaLower.PCA_LCD_2_3, PCA_LOWER_LEN)
+	pcaLower5 = Functions.pad_left(pcaLower.PCA_LCD_2_4, PCA_LOWER_LEN)
 end)
 
 -- parse PPA
@@ -91,8 +91,8 @@ local PPA_LEN = 2
 M_2000C:addExportHook(function()
 	local ppa = M_2000C.parse_indication(6)
 
-	ppaQuantity = Functions.padLeft(ppa.text_PPA_QTY, PPA_LEN)
-	ppaInterval = Functions.padLeft(ppa.text_PPA_INT, PPA_LEN)
+	ppaQuantity = Functions.pad_left(ppa.text_PPA_QTY, PPA_LEN)
+	ppaInterval = Functions.pad_left(ppa.text_PPA_INT, PPA_LEN)
 end)
 
 -- parse PCN upper display
@@ -107,8 +107,8 @@ local pcnLeft2Digit = ""
 M_2000C:addExportHook(function()
 	local pcn = M_2000C.parse_indication(9)
 
-	pcnLeftDigits = Functions.padLeft(pcn.PCN_UL_DIGITS, 8)
-	pcnRightDigits = Functions.padLeft(pcn.PCN_UR_DIGITS, 9)
+	pcnLeftDigits = Functions.pad_left(pcn.PCN_UL_DIGITS, 8)
+	pcnRightDigits = Functions.pad_left(pcn.PCN_UR_DIGITS, 9)
 
 	local pcnRight = ""
 	if pcn.PCN_UR_E then
@@ -160,8 +160,8 @@ local pcnDest = ""
 M_2000C:addExportHook(function()
 	local pcn = M_2000C.parse_indication(10)
 
-	pcnPrep = Functions.padLeft(pcn.PCN_BL_DIGITS, 2)
-	pcnDest = Functions.padLeft(pcn.PCN_BR_DIGITS, 2)
+	pcnPrep = Functions.pad_left(pcn.PCN_BL_DIGITS, 2)
+	pcnDest = Functions.pad_left(pcn.PCN_BR_DIGITS, 2)
 end)
 
 local function getvtbRange()
