@@ -28,7 +28,7 @@ local AJS37 = Module:new("AJS37", 0x4600, { "AJS37" })
 --- @param description string additional information about the control
 --- @return Control control the control which was added to the module
 function AJS37:defineMissileSelectPushButton(identifier, device_id, command, arg_number, category, description)
-	local alloc = self:allocateInt(1)
+	local alloc = self:allocateInt(1, identifier)
 
 	local control = Control:new(category, ControlType.action, identifier, description, {
 		ActionInput:new(ActionArgument.toggle, "Presses the button"),

@@ -15,7 +15,7 @@ local Mosquito = Module:new("Mosquito", 0x7000, { "MosquitoFBMkVI" })
 -- remove Arg# Pilot 500
 
 function Mosquito:define3PosMossi(msg, device_id, command, arg_number, category, description)
-	local alloc = self:allocateInt(2)
+	local alloc = self:allocateInt(2, msg)
 	self:addExportHook(function(dev0)
 		local lut = { [-1] = 0, [0] = 1, [1] = 2 }
 		alloc:setValue(lut[Module.round(dev0:get_argument_value(arg_number))])

@@ -28,7 +28,7 @@ local function definePushButtonLed(self, identifier, arg_number, category, descr
 	end
 
 	local max_value = 1
-	local alloc = self:allocateInt(max_value)
+	local alloc = self:allocateInt(max_value, identifier)
 	assert(alloc.shiftBy ~= nil)
 	self:addExportHook(function(dev0)
 		alloc:setValue(round(dev0:get_argument_value(arg_number) * 10) % 2)
