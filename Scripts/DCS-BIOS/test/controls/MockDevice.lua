@@ -26,7 +26,7 @@ function MockDevice:get_argument_value(device_id)
 	return self.value
 end
 
---- @func Makes the device perform an action
+--- Makes the device perform an action
 --- @param command_id integer
 --- @param argument number
 function MockDevice:performClickableAction(command_id, argument)
