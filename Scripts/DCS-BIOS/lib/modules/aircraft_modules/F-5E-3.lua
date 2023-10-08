@@ -285,8 +285,8 @@ F_5E_3:defineToggleSwitch("IFF4_MASTER_PULL", 22, 3020, 198, "IFF", "IFF MASTER 
 F_5E_3:defineFloat("AOA_GAUGE", 7, { 0, 1 }, "Gauges", "AOA Units")
 F_5E_3:defineFloat("MOTOR_RUN", 85, { 1, 0 }, "Gauges", "Motor Run Knob")
 F_5E_3:defineFloat("VARIOMETER", 24, { -1, 1 }, "Gauges", "Variometer")
-F_5E_3:defineFloat("SAI_PITCH", 438, { 0, 1 }, "Gauges", "SAI Pitch")
-F_5E_3:defineFloat("SAI_BANK", 439, { 0, 1 }, "Gauges", "SAI Bank")
+F_5E_3:defineFloat("SAI_PITCH", 438, { -0.666, 0.736 }, "Gauges", "SAI Pitch") -- values straight from mainpanel_init.lua with 0.001 padding
+F_5E_3:defineFloat("SAI_BANK", 439, { 1, -1 }, "Gauges", "SAI Bank")
 F_5E_3:defineFloat("SAI_OFF", 440, { 0, 1 }, "Gauges", "SAI OFF Flag")
 F_5E_3:defineFloat("SAI_ARROW", 443, { 0, 1 }, "Gauges", "SAI Knob Arrow")
 F_5E_3:defineFloat("CANOPY_POS", 181, { 0, 1 }, "Gauges", "Canopy Position")
