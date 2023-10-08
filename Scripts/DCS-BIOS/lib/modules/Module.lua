@@ -126,6 +126,7 @@ function Module:defineFloatValue(identifier, arg_number, max_value, limits, cate
 	assert_min_max(limits, "limits")
 	local alloc = self:allocateInt(max_value)
 	self:addExportHook(function(dev0)
+		--alloc:setValue(Module.valueConvert(Module.round2(dev0:get_argument_value(arg_number), 4), limits, { 0, max_value }))
 		alloc:setValue(Module.valueConvert(dev0:get_argument_value(arg_number), limits, { 0, max_value }))
 	end)
 
@@ -1009,6 +1010,14 @@ end
 --- @return integer number the rounded number
 function Module.round(num)
 	return num >= 0 and math.floor(num + 0.5) or math.ceil(num - 0.5)
+end
+
+--- rounds a number to certain decimal place
+--- @param num number the number to round
+--- @param decimal_places integer
+--- @return number
+function Module.round2(num, decimal_places)
+	return tonumber(string.format("%." .. (decimal_places or 0) .. "f", num)) or 0
 end
 
 --- @func Maps value to from input_range to output_range
