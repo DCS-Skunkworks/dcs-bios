@@ -16,6 +16,10 @@ local StringOutput = require("StringOutput")
 local Suffix = require("Suffix")
 local VariableStepInput = require("VariableStepInput")
 
+local function assert_min_max(array, name)
+	assert(#array == 2, string.format("%s may only contain a min and max value", name))
+end
+
 --- @class Module
 --- @field name string the name of the module
 --- @field documentation Documentation TODO
@@ -171,6 +175,7 @@ end
 --- @param description string additional information about the control
 --- @return Control control the control which was added to the module
 function Module:defineGaugeValue(identifier, arg_number, output_range, category, description)
+	assert_min_max(output_range, "output_range")
 	assert(output_range[1] >= 0)
 
 	local max_value = 65535
@@ -229,6 +234,7 @@ end
 --- @param description string additional information about the control
 --- @return Control control the control which was added to the module
 function Module:defineFloatValue(identifier, arg_number, max_value, limits, category, description)
+	assert_min_max(limits, "limits")
 	local alloc = self:allocateInt(max_value)
 	self:addExportHook(function(dev0)
 		alloc:setValue(Module.valueConvert(dev0:get_argument_value(arg_number), limits, { 0, max_value }))
@@ -250,6 +256,7 @@ end
 --- @param description string additional information about the control
 --- @return Control control the control which was added to the module
 function Module:defineFloat(identifier, arg_number, limits, category, description)
+	assert_min_max(limits, "limits")
 	return self:defineFloatValue(identifier, arg_number, 65535, limits, category, description)
 end
 
@@ -261,6 +268,7 @@ end
 --- @param description string additional information about the control
 --- @return Control control the control which was added to the module
 function Module:define8BitFloat(identifier, argument_id, limits, category, description)
+	assert_min_max(limits, "limits")
 	return self:defineFloatValue(identifier, argument_id, 255, limits, category, description)
 end
 
@@ -273,6 +281,7 @@ end
 --- @return Control control the control which was added to the module
 function Module:define8BitFloatFromGetter(identifier, getter, limits, category, description)
 	-- same as defineFloat, but only allocates an 8-bit int
+	assert_min_max(limits, "limits")
 	local max_value = 255
 	local alloc = self:allocateInt(max_value)
 
@@ -365,9 +374,9 @@ end
 --- @return Control control the control which was added to the module
 function Module:definePotentiometer(identifier, device_id, command, arg_number, limits, category, description)
 	local max_value = 65535
-	if limits == nil then
-		limits = { 0, 1 }
-	end
+	limits = limits or { 0, 1 }
+	assert_min_max(limits, "limits")
+
 	local intervalLength = limits[2] - limits[1]
 	self:addInputProcessor(identifier, function(value)
 		local newValue = ((GetDevice(0):get_argument_value(arg_number) - limits[1]) / intervalLength) * max_value
@@ -526,6 +535,8 @@ end
 --- @param description string additional information about the control
 --- @return Control control the control which was added to the module
 function Module:defineFixedStepTumb(identifier, device_id, command, arg_number, step, limits, rel_args, output_map, category, description)
+	assert_min_max(limits, "limits")
+	assert_min_max(rel_args, "rel_args")
 	local control = self:defineTumb(identifier, device_id, command, arg_number, step, limits, output_map, true, category, description)
 	assert(control.inputs[2].interface == "set_state") -- todo: type if necessary
 	control.inputs[2] = nil
@@ -545,6 +556,7 @@ end
 --- @param description string additional information about the control
 --- @return Control control the control which was added to the module
 function Module:defineFixedStepInput(identifier, device_id, command, rel_args, category, description)
+	assert_min_max(rel_args, "rel_args")
 	self:addFixedStepInputProcessor(identifier, device_id, command, rel_args[1], rel_args[2])
 	local control = Control:new(category, ControlType.fixed_step_dial, identifier, description, {
 		FixedStepInput:new("turn left or right"),
@@ -689,6 +701,8 @@ end
 --- @param description string additional information about the control
 --- @return Control control the control which was added to the module
 function Module:defineRadioWheel(identifier, device_id, decrement_command, increment_command, rel_args, arg_number, step, limits, output_map, category, description)
+	assert_min_max(rel_args, "rel_args")
+	assert_min_max(limits, "limits")
 	local control = self:defineTumb(identifier, device_id, decrement_command, arg_number, step, limits, output_map, "skiplast", category, description)
 	assert(control.inputs[2].interface == "set_state")
 	control.inputs[2] = nil
@@ -762,6 +776,7 @@ end
 --- @param description string additional information about the control
 --- @return Control control the control which was added to the module
 function Module:defineTumb(identifier, device_id, command, arg_number, step, limits, output_map, cycle, category, description)
+	assert_min_max(limits, "limits")
 	local span = limits[2] - limits[1]
 	local last_n = tonumber(string.format("%.0f", span / step))
 	assert(last_n)
@@ -1113,6 +1128,8 @@ end
 --- @param output_range number[] a length-2 array of the range the value should be mapped to
 --- @return number
 function Module.valueConvert(argument_value, input_range, output_range)
+	assert_min_max(input_range, "input_range")
+	assert_min_max(output_range, "output_range")
 	local slope = 1.0 * (output_range[2] - output_range[1]) / (input_range[2] - input_range[1])
 	return output_range[1] + slope * (argument_value - input_range[1])
 end

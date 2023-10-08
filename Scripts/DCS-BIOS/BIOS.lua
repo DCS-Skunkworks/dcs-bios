@@ -141,7 +141,9 @@ BIOS.protocol.writeNewModule(MiG_19P)
 -- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/MiG-21Bis.lua]]) -- ID = 32, ProperName = MiG-21bis
 local MiG_21Bis = require "MiG-21Bis"
 BIOS.protocol.writeNewModule(MiG_21Bis)
-dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/Mosquito.lua]]) -- ID = 45, ProperName = Mosquito FB Mk. VI
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/Mosquito.lua]]) -- ID = 45, ProperName = Mosquito FB Mk. VI
+local Mosquito = require "Mosquito"
+BIOS.protocol.writeNewModule(Mosquito)
 -- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/NS430.lua]]) -- ID = 33, ProperName = NS 430 GPS
 local NS430 = require "NS430"
 BIOS.protocol.writeNewModule(NS430)
