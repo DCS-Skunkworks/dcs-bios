@@ -55,7 +55,7 @@ function TestString:testStringLength1Value()
 
 	local alloc1 = self.module.memoryMap.entries[moduleAddress].allocations[1]
 
-	export_hook()
+	export_hook(MockDevice:new(0))
 	lu.assertEquals(alloc1.value, string.byte("h"))
 end
 
@@ -72,7 +72,7 @@ function TestString:testStringLength2Value()
 	local alloc1 = self.module.memoryMap.entries[moduleAddress].allocations[1]
 	local alloc2 = self.module.memoryMap.entries[moduleAddress].allocations[2]
 
-	export_hook()
+	export_hook(MockDevice:new(0))
 	lu.assertEquals(alloc1.value, string.byte("h"))
 	lu.assertEquals(alloc2.value, string.byte("i"))
 end
@@ -92,7 +92,7 @@ function TestString:testStringLength4Value()
 	local alloc3 = self.module.memoryMap.entries[moduleAddress + 2].allocations[1]
 	local alloc4 = self.module.memoryMap.entries[moduleAddress + 2].allocations[2]
 
-	export_hook()
+	export_hook(MockDevice:new(0))
 	lu.assertEquals(alloc1.value, string.byte("y"))
 	lu.assertEquals(alloc2.value, string.byte("a"))
 	lu.assertEquals(alloc3.value, string.byte("r"))
@@ -112,7 +112,7 @@ function TestString:testStringShortLengthValue()
 	local alloc1 = self.module.memoryMap.entries[moduleAddress].allocations[1]
 	local alloc2 = self.module.memoryMap.entries[moduleAddress].allocations[2]
 
-	export_hook()
+	export_hook(MockDevice:new(0))
 	lu.assertEquals(alloc1.value, string.byte("h"))
 	lu.assertEquals(alloc2.value, string.byte(" ")) -- missing length padded with spaces
 end
