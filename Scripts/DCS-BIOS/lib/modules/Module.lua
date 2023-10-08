@@ -114,17 +114,17 @@ function Module:defineSetCommandTumb(identifier, device_id, command, arg_number,
 		SetStateInput:new(max_value, "set position"),
 	}, {
 		IntegerOutput:new(enumAlloc, Suffix.none, "selector position"),
-	}, nil, cycle and "infinite_rotary" or "limited_rotary")
+	}, nil, cycle and PhysicalVariant.infinite_rotary or PhysicalVariant.limited_rotary)
 
 	if output_map and strAlloc then
-		control.outputs[1].suffix = "_INT"
+		control.outputs[1].suffix = Suffix.int
 
 		local description = "possible values: "
 		for i = 1, #output_map, 1 do
 			description = description .. '"' .. output_map[i] .. '" '
 		end
 
-		control.outputs[2] = StringOutput:new(strAlloc, "_STR", description)
+		control.outputs[2] = StringOutput:new(strAlloc, Suffix.str, description)
 	end
 
 	self:addInputProcessor(identifier, function(state)

@@ -11,17 +11,6 @@ local M_2000C = Module:new("M-2000C", 0x7200, { "M-2000C" })
 
 --remove Arg# Pilot 1000
 
-local function round(num, numDecimalPlaces, returnstring)
-	if returnstring == nil then
-		returnstring = false
-	end
-	if returnstring then
-		return string.format("%." .. (numDecimalPlaces or 0) .. "f", num)
-	else
-		return tonumber(string.format("%." .. (numDecimalPlaces or 0) .. "f", num))
-	end
-end
-
 --Get Displays Functions
 
 -- parse radios
@@ -31,15 +20,11 @@ local uhfFrequency = ""
 M_2000C:addExportHook(function()
 	local radios = M_2000C.parse_indication(7)
 
-	local vhf = coerce_nil_to_string(radios.text_COM_UHF1)
-	if vhf then
-		vhfFrequency = vhf:sub(1, 3) .. vhf:sub(5, 6)
-	end
+	local vhf = Functions.coerce_nil_to_string(radios.text_COM_UHF1)
+	vhfFrequency = vhf:sub(1, 3) .. vhf:sub(5, 6)
 
-	local uhf = coerce_nil_to_string(radios.text_COM_UHF2)
-	if uhf then
-		uhfFrequency = uhf:sub(1, 3) .. uhf:sub(5, 6)
-	end
+	local uhf = Functions.coerce_nil_to_string(radios.text_COM_UHF2)
+	uhfFrequency = uhf:sub(1, 3) .. uhf:sub(5, 6)
 end)
 
 -- parse fuel
@@ -52,13 +37,13 @@ M_2000C:addExportHook(function(dev0)
 	local fuel = M_2000C.parse_indication(3)
 
 	fuelFlow = Functions.padLeft(fuel.txt_fuel_g, FUEL_FLOW_LEN)
-	local jauge_thous = round(dev0:get_argument_value(349), 1, true)
-	local jauge_cents = round(dev0:get_argument_value(350), 1, true)
-	local jauge_tens = round(dev0:get_argument_value(351), 1, true)
+	local jauge_thous = tostring(Module.round(dev0:get_argument_value(349)))
+	local jauge_cents = tostring(Module.round(dev0:get_argument_value(350)))
+	local jauge_tens = tostring(Module.round(dev0:get_argument_value(351)))
 	fuelJauge = string.sub(jauge_thous, 3, 3) .. string.sub(jauge_cents, 3, 3) .. string.sub(jauge_tens, 3, 3) .. "0"
-	local fuelTotal_thous = round(dev0:get_argument_value(352), 1, true)
-	local fuelTotal_cents = round(dev0:get_argument_value(353), 1, true)
-	local fuelTotal_tens = round(dev0:get_argument_value(354), 1, true)
+	local fuelTotal_thous = tostring(Module.round(dev0:get_argument_value(352)))
+	local fuelTotal_cents = tostring(Module.round(dev0:get_argument_value(353)))
+	local fuelTotal_tens = tostring(Module.round(dev0:get_argument_value(354)))
 	fuelTotal = string.sub(fuelTotal_thous, 3, 3) .. string.sub(fuelTotal_cents, 3, 3) .. string.sub(fuelTotal_tens, 3, 3) .. "0"
 end)
 
@@ -182,7 +167,7 @@ end)
 local function getvtbRange()
 	local vtb = M_2000C.parse_indication(1)
 
-	return vtb["vtb-rdr-range"] and vtb["vtb-rdr-range"] or ""
+	return Functions.coerce_nil_to_string(vtb["vtb-rdr-range"])
 end
 
 --ADI
