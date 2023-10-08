@@ -115,6 +115,10 @@ function TestAircraft:testMB339()
 	self:validateModule(require("MB-339"), "MB-339", 0x8200)
 end
 
+function TestAircraft:testMH_60R()
+	self:validateModule(require("MH-60R"), "MH-60R", 0xA400)
+end
+
 function TestAircraft:testMi_24P()
 	self:validateModule(require("Mi-24P"), "Mi-24P", 0x6800)
 end

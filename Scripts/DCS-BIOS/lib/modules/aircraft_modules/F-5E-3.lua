@@ -164,16 +164,12 @@ F_5E_3:defineFloat("FL_COUNT_10", 405, { 0, 1 }, "Gauges", "Flare Drum Counter 1
 F_5E_3:defineFloat("FL_COUNT_1", 406, { 0, 1 }, "Gauges", "Flare Drum Counter 1")
 
 local function getFlareCount(dev0)
-	local digit1 = string.format("%.0f", dev0:get_argument_value(405) * 10)
-	local digit2 = string.format("%.0f", dev0:get_argument_value(406) * 10)
-	return tonumber(digit1 .. digit2)
+	return Module.build_gauge_from_arguments(dev0, { 406, 405 })
 end
 F_5E_3:defineIntegerFromGetter("CM_FLARECNT_DISPLAY", getFlareCount, 60, "CMDS", "Flare Counter Display")
 
 local function getChaffCount(dev0)
-	local digit1 = string.format("%.0f", dev0:get_argument_value(401) * 10)
-	local digit2 = string.format("%.0f", dev0:get_argument_value(402) * 10)
-	return tonumber(digit1 .. digit2)
+	return Module.build_gauge_from_arguments(dev0, { 402, 401 })
 end
 F_5E_3:defineIntegerFromGetter("CM_CHAFFCNT_DISPLAY", getChaffCount, 60, "CMDS", "Chaff Counter Display")
 

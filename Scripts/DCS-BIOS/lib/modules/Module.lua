@@ -15,14 +15,13 @@ local SetStateInput = require("SetStateInput")
 local StringOutput = require("StringOutput")
 local Suffix = require("Suffix")
 local VariableStepInput = require("VariableStepInput")
-local json = require("JSONHelper")
 
 --- @class Module
 --- @field name string the name of the module
 --- @field documentation Documentation TODO
 --- @field inputProcessors { [string]: fun(value: string) } functions to run on receiving data
 --- @field memoryMap MemoryMap a map of all memory allocations for sending and receiving data
---- @field exportHooks fun(value: any)[] functions to run on sending data
+--- @field exportHooks fun(dev0: CockpitDevice)[] functions to run on sending data
 --- @field aircraftList string[] list of aircraft ids to export to
 local Module = {}
 
@@ -77,27 +76,34 @@ function Module:defineGaugeValue(identifier, arg_number, output_range, category,
 	return control
 end
 
---- Defines a gauge from floating-point data with limits. This generally is not used in any new modules and is used in existing modules to provide the integer output of a gauge
+--- Adds an infitely-looping rotary, like an encoder, with a multiplier for the variable step
 --- @param identifier string the unique identifier for the control
+--- @param device_id integer the dcs device id
+--- @param command integer the dcs command
 --- @param arg_number integer the dcs argument number
---- @param max_step number the control
+--- @param step_multiplier number the amount to multiply the variable step by when applying an input
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
 --- @return Control control the control which was added to the module
-function Module:defineVariableStepTumb(identifier, device_id, command, arg_number, max_step, category, description)
-	local rotationAlloc = self:allocateInt(65535)
-	self.exportHooks[#self.exportHooks + 1] = function(dev0)
-		local value = dev0:get_argument_value(arg_number)
-		rotationAlloc:setValue(value * 65535)
-	end
-
-	self:addInputProcessor(identifier, function(state)
-		local delta = tonumber(state) / 65535 * max_step
+function Module:defineVariableStepTumb(identifier, device_id, command, arg_number, step_multiplier, category, description)
+	local max_value = 65535
+	self:addInputProcessor(identifier, function(value)
+		local delta = tonumber(value) / max_value * step_multiplier
 		GetDevice(device_id):performClickableAction(command, delta)
 	end)
 
-	local control = Control:new(category, ControlType.variable_step_dial, identifier, description, { VariableStepInput:new(3200, 65535, description) }, { IntegerOutput:new(rotationAlloc, Suffix.none, "rotation of the knob (not the value being manipulated!)") })
+	local alloc = self:allocateInt(max_value)
+
+	local control = Control:new(category, ControlType.variable_step_dial, identifier, description, {
+		VariableStepInput:new(3200, max_value, description),
+	}, {
+		IntegerOutput:new(alloc, Suffix.none, "rotation of the knob (not the value being manipulated!)"),
+	})
 	self:addControl(control)
+
+	self:addExportHook(function(dev0)
+		alloc:setValue(dev0:get_argument_value(arg_number) * max_value)
+	end)
 
 	return control
 end
@@ -898,24 +904,99 @@ function Module:addressDefineIdentifier(identifier)
 	return full_identifier
 end
 
+local indication_split = "-----------------------------------------"
+local children_start_block = "children are {"
+local children_end_block = "}"
+
+--- @enum ParseIndicationState
+local ParseIndicationState = {
+	none = "none",
+	child_block = "child_block",
+	item_block = "item_block",
+}
+
 --- Parses a dcs indication from a string into a key-value table, or nil if no data is available
 --- Values are separated with "-----------------------------------------\n"
 --- @param indicator_id integer
---- @return {[string]: string}
+--- @return {[string|integer]: string}
 function Module.parse_indication(indicator_id)
 	local ret = {}
-	local li = list_indication(indicator_id)
+	local indication = list_indication(indicator_id)
+	--- @type ParseIndicationState[]
+	local state = {}
+	--- @type string?
+	local key = nil
+	--- @type string[]
+	local current_block_lines = {}
+	local total_values = 0
 
-	if li ~= "" then
-		local match = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
-		while true do
-			local name, value = match()
-			if not name then
-				break
+	---@return ParseIndicationState
+	local function current_state()
+		return #state > 0 and state[#state] or ParseIndicationState.none
+	end
+
+	local function add_block_to_result()
+		if not key then
+			return
+		end
+
+		local value = ""
+		while #current_block_lines > 0 do
+			if value ~= "" then
+				value = value .. "\n"
 			end
-			ret[name] = value
+			value = value .. table.remove(current_block_lines, 1)
+		end
+		ret[key] = value -- if there's nothing, then we intentionally add an empty string
+		total_values = total_values + 1
+		ret[total_values] = value
+
+		key = nil
+	end
+
+	-- state machine to process indication
+	for line in string.gmatch(indication, "([^\n]+)") do
+		if line == indication_split then
+			-- start a new item block
+			if current_state() ~= ParseIndicationState.item_block then -- don't insert this if we're already in a block - state is already accurate
+				table.insert(state, ParseIndicationState.item_block)
+			else
+				-- write old item and start a new one
+				add_block_to_result()
+			end
+		elseif line == children_start_block then
+			-- start a new child block
+			if current_state() == ParseIndicationState.item_block then
+				table.remove(state)
+			end
+			table.insert(state, ParseIndicationState.child_block)
+			add_block_to_result() -- it's unclear if these items will never have values and are only for child blocks, so we'll add it to be safe
+		elseif line == children_end_block and #state > 0 then
+			-- end a child block if we're in one
+			if current_state() == ParseIndicationState.item_block then
+				-- write old item and start a new one
+				add_block_to_result()
+				table.remove(state)
+			end
+			if current_state() == ParseIndicationState.child_block then
+				table.remove(state)
+			end
+		elseif line and current_state() == ParseIndicationState.item_block then
+			-- these are actual line contents we need to deal with
+			if key then
+				table.insert(current_block_lines, line)
+			else
+				key = line
+			end
 		end
 	end
+
+	if current_state() == ParseIndicationState.item_block then
+		add_block_to_result()
+		table.remove(state)
+	end
+
+	ret[0] = total_values
 
 	return ret
 end
@@ -961,6 +1042,21 @@ end
 function Module.valueConvert(argument_value, input_range, output_range)
 	local slope = 1.0 * (output_range[2] - output_range[1]) / (input_range[2] - input_range[1])
 	return output_range[1] + slope * (argument_value - input_range[1])
+end
+
+--- Returns an integer from individual arguments ordered from least to most significant digit
+--- @param dev0 CockpitDevice dcs device 0
+--- @param arguments integer[] dcs arguments
+--- @return integer
+function Module.build_gauge_from_arguments(dev0, arguments)
+	local result = 0
+
+	for index, value in ipairs(arguments) do
+		local arg_value = Module.round(dev0:get_argument_value(value) * 10) % 10 -- treat 10 as 0
+		result = result + arg_value * math.pow(10, index - 1)
+	end
+
+	return result
 end
 
 return Module
