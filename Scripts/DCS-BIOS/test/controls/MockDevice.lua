@@ -3,9 +3,13 @@ module("MockDevice", package.seeall)
 --- @class MockDevice: CockpitDevice
 --- @field value number the value that should be returned on the mocked call to get_argument_value
 --- @field clickable_actions {[integer]: number}[] a cache of clickable action calls that have been made
+--- @field set_commands {[integer]: number}[] a cache of SetCommand calls that have been made
+--- @field set_arguments {[integer]: number}[] a cache of set argument calls that have been made
 MockDevice = {
 	value = 0,
 	clickable_actions = {},
+	set_commands = {},
+	set_arguments = {},
 }
 --- Constructs a new mock cockpit device
 --- @param value number the value that should be returned on the mocked call to get_argument_value
@@ -14,6 +18,8 @@ function MockDevice:new(value)
 	local o = {
 		value = value,
 		clickable_actions = {},
+		set_commands = {},
+		set_arguments = {},
 	}
 
 	setmetatable(o, self)
@@ -22,7 +28,10 @@ function MockDevice:new(value)
 	return o
 end
 
-function MockDevice:get_argument_value(device_id)
+--- @func Mock of get a value of an argument. Returns mock value
+--- @param argument_id integer
+--- @returns number
+function MockDevice:get_argument_value(argument_id)
 	return self.value
 end
 
@@ -31,6 +40,20 @@ end
 --- @param argument number
 function MockDevice:performClickableAction(command_id, argument)
 	table.insert(self.clickable_actions, { [command_id] = argument })
+end
+
+--- @func Executes SetCommand on a device
+--- @param command_id integer
+--- @param value number
+function MockDevice:SetCommand(command_id, value)
+	table.insert(self.set_commands, { [command_id] = value })
+end
+
+--- @func Sets argument value
+--- @param argument_id integer
+--- @param value number
+function MockDevice:set_argument_value(argument_id, value)
+	table.insert(self.set_arguments, { [argument_id] = value })
 end
 
 return MockDevice

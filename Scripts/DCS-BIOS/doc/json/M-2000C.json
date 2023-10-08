@@ -3814,11 +3814,14 @@
                                                                                                          "suffix": "_INT",
                                                                                                            "type": "integer"
                                                                               }, {
-                                                                                      "address": 29524,
-                                                                                  "description": "possible values: \" 1\" \" 2\" \" 3\" \" 4\" \" 5\" \" 6\" \" 7\" \" 8\" \" 9\" \"10\" \"11\" \"12\" \"13\" \"14\" \"15\" \"16\" \"17\" \"18\" \"19\" \"20\" ",
-                                                                                   "max_length": 2,
-                                                                                       "suffix": "_STR",
-                                                                                         "type": "string"
+                                                                                                        "address": 29524,
+                                                                                             "address_identifier": "M_2000C_EVF_CHAN_SEL_A",
+                                                                                        "address_mask_identifier": "M_2000C_EVF_CHAN_SEL_AM",
+                                                                                  "address_mask_shift_identifier": "M_2000C_EVF_CHAN_SEL",
+                                                                                                    "description": "possible values: \" 1\" \" 2\" \" 3\" \" 4\" \" 5\" \" 6\" \" 7\" \" 8\" \" 9\" \"10\" \"11\" \"12\" \"13\" \"14\" \"15\" \"16\" \"17\" \"18\" \"19\" \"20\"",
+                                                                                                     "max_length": 2,
+                                                                                                         "suffix": "_STR",
+                                                                                                           "type": "string"
                                                                               } ],
                                                           "physical_variant": "infinite_rotary"
                                                    },
@@ -9073,32 +9076,31 @@
                                                                "physical_variant": "push_button"
                                                         },
                                        "INS_PARAM_SEL": {
-                                                                       "category": "PCN",
-                                                                   "control_type": "selector",
-                                                                    "description": " I - PCN - INS Parameter Selector - Rotary Variant",
-                                                                     "identifier": "INS_PARAM_SEL",
-                                                                         "inputs": [ {
-                                                                                       "description": "switch to previous or next state",
-                                                                                         "interface": "fixed_step"
-                                                                                   }, {
-                                                                                       "description": "set position",
-                                                                                         "interface": "set_state",
-                                                                                         "max_value": 11
-                                                                                   } ],
-                                                            "momentary_positions": "none",
-                                                                        "outputs": [ {
-                                                                                                             "address": 29372,
-                                                                                                  "address_identifier": "M_2000C_INS_PARAM_SEL_A",
-                                                                                             "address_mask_identifier": "M_2000C_INS_PARAM_SEL_AM",
-                                                                                       "address_mask_shift_identifier": "M_2000C_INS_PARAM_SEL",
-                                                                                                         "description": "selector position",
-                                                                                                                "mask": 120,
-                                                                                                           "max_value": 11,
-                                                                                                            "shift_by": 3,
-                                                                                                              "suffix": "",
-                                                                                                                "type": "integer"
-                                                                                   } ],
-                                                               "physical_variant": "infinite_rotary"
+                                                                    "category": "PCN",
+                                                                "control_type": "selector",
+                                                                 "description": " I - PCN - INS Parameter Selector - Rotary Variant",
+                                                                  "identifier": "INS_PARAM_SEL",
+                                                                      "inputs": [ {
+                                                                                    "description": "switch to previous or next state",
+                                                                                      "interface": "fixed_step"
+                                                                                }, {
+                                                                                    "description": "set position",
+                                                                                      "interface": "set_state",
+                                                                                      "max_value": 10
+                                                                                } ],
+                                                                     "outputs": [ {
+                                                                                                          "address": 29372,
+                                                                                               "address_identifier": "M_2000C_INS_PARAM_SEL_A",
+                                                                                          "address_mask_identifier": "M_2000C_INS_PARAM_SEL_AM",
+                                                                                    "address_mask_shift_identifier": "M_2000C_INS_PARAM_SEL",
+                                                                                                      "description": "selector position",
+                                                                                                             "mask": 120,
+                                                                                                        "max_value": 10,
+                                                                                                         "shift_by": 3,
+                                                                                                           "suffix": "",
+                                                                                                             "type": "integer"
+                                                                                } ],
+                                                            "physical_variant": "infinite_rotary"
                                                         },
                                          "INS_PREP_SW": {
                                                                     "api_variant": "momentary_last_position",
@@ -10534,11 +10536,14 @@
                                                                                                                  "suffix": "_INT",
                                                                                                                    "type": "integer"
                                                                                       }, {
-                                                                                              "address": 29448,
-                                                                                          "description": "possible values: \" 1\" \" 2\" \" 3\" \" 4\" \" 5\" \" 6\" \" 7\" \" 8\" \" 9\" \"10\" \"11\" \"12\" ",
-                                                                                           "max_length": 2,
-                                                                                               "suffix": "_STR",
-                                                                                                 "type": "string"
+                                                                                                                "address": 29448,
+                                                                                                     "address_identifier": "M_2000C_RAD_CHAN_A_A",
+                                                                                                "address_mask_identifier": "M_2000C_RAD_CHAN_A_AM",
+                                                                                          "address_mask_shift_identifier": "M_2000C_RAD_CHAN_A",
+                                                                                                            "description": "possible values: \" 1\" \" 2\" \" 3\" \" 4\" \" 5\" \" 6\" \" 7\" \" 8\" \" 9\" \"10\" \"11\" \"12\"",
+                                                                                                             "max_length": 2,
+                                                                                                                 "suffix": "_STR",
+                                                                                                                   "type": "string"
                                                                                       } ],
                                                                   "physical_variant": "infinite_rotary"
                                                            },
@@ -10568,11 +10573,14 @@
                                                                                                                  "suffix": "_INT",
                                                                                                                    "type": "integer"
                                                                                       }, {
-                                                                                              "address": 29450,
-                                                                                          "description": "possible values: \" 1\" \" 2\" \" 3\" \" 4\" \" 5\" \" 6\" \" 7\" \" 8\" \" 9\" \"10\" \"11\" \"12\" ",
-                                                                                           "max_length": 2,
-                                                                                               "suffix": "_STR",
-                                                                                                 "type": "string"
+                                                                                                                "address": 29450,
+                                                                                                     "address_identifier": "M_2000C_RAD_CHAN_B_A",
+                                                                                                "address_mask_identifier": "M_2000C_RAD_CHAN_B_AM",
+                                                                                          "address_mask_shift_identifier": "M_2000C_RAD_CHAN_B",
+                                                                                                            "description": "possible values: \" 1\" \" 2\" \" 3\" \" 4\" \" 5\" \" 6\" \" 7\" \" 8\" \" 9\" \"10\" \"11\" \"12\"",
+                                                                                                             "max_length": 2,
+                                                                                                                 "suffix": "_STR",
+                                                                                                                   "type": "string"
                                                                                       } ],
                                                                   "physical_variant": "infinite_rotary"
                                                            },
@@ -12120,38 +12128,40 @@
                                                                             } ]
                                                         },
                                      "UHF_PRESET_KNOB": {
-                                                                       "category": "UHF RADIO",
-                                                                   "control_type": "selector",
-                                                                    "description": "Preset Knob UHF",
-                                                                     "identifier": "UHF_PRESET_KNOB",
-                                                                         "inputs": [ {
-                                                                                       "description": "switch to previous or next state",
-                                                                                         "interface": "fixed_step"
-                                                                                   }, {
-                                                                                       "description": "set position",
-                                                                                         "interface": "set_state",
-                                                                                         "max_value": 19
-                                                                                   } ],
-                                                            "momentary_positions": "none",
-                                                                        "outputs": [ {
-                                                                                                             "address": 29478,
-                                                                                                  "address_identifier": "M_2000C_UHF_PRESET_KNOB_A",
-                                                                                             "address_mask_identifier": "M_2000C_UHF_PRESET_KNOB_AM",
-                                                                                       "address_mask_shift_identifier": "M_2000C_UHF_PRESET_KNOB",
-                                                                                                         "description": "selector position",
-                                                                                                                "mask": 7936,
-                                                                                                           "max_value": 19,
-                                                                                                            "shift_by": 8,
-                                                                                                              "suffix": "_INT",
-                                                                                                                "type": "integer"
-                                                                                   }, {
-                                                                                           "address": 29480,
-                                                                                       "description": "possible values: \" 1\" \" 2\" \" 3\" \" 4\" \" 5\" \" 6\" \" 7\" \" 8\" \" 9\" \"10\" \"11\" \"12\" \"13\" \"14\" \"15\" \"16\" \"17\" \"18\" \"19\" \"20\" ",
-                                                                                        "max_length": 2,
-                                                                                            "suffix": "_STR",
-                                                                                              "type": "string"
-                                                                                   } ],
-                                                               "physical_variant": "infinite_rotary"
+                                                                    "category": "UHF RADIO",
+                                                                "control_type": "selector",
+                                                                 "description": "Preset Knob UHF",
+                                                                  "identifier": "UHF_PRESET_KNOB",
+                                                                      "inputs": [ {
+                                                                                    "description": "switch to previous or next state",
+                                                                                      "interface": "fixed_step"
+                                                                                }, {
+                                                                                    "description": "set position",
+                                                                                      "interface": "set_state",
+                                                                                      "max_value": 19
+                                                                                } ],
+                                                                     "outputs": [ {
+                                                                                                          "address": 29478,
+                                                                                               "address_identifier": "M_2000C_UHF_PRESET_KNOB_A",
+                                                                                          "address_mask_identifier": "M_2000C_UHF_PRESET_KNOB_AM",
+                                                                                    "address_mask_shift_identifier": "M_2000C_UHF_PRESET_KNOB",
+                                                                                                      "description": "selector position",
+                                                                                                             "mask": 7936,
+                                                                                                        "max_value": 19,
+                                                                                                         "shift_by": 8,
+                                                                                                           "suffix": "_INT",
+                                                                                                             "type": "integer"
+                                                                                }, {
+                                                                                                          "address": 29480,
+                                                                                               "address_identifier": "M_2000C_UHF_PRESET_KNOB_A",
+                                                                                          "address_mask_identifier": "M_2000C_UHF_PRESET_KNOB_AM",
+                                                                                    "address_mask_shift_identifier": "M_2000C_UHF_PRESET_KNOB",
+                                                                                                      "description": "possible values: \" 1\" \" 2\" \" 3\" \" 4\" \" 5\" \" 6\" \" 7\" \" 8\" \" 9\" \"10\" \"11\" \"12\" \"13\" \"14\" \"15\" \"16\" \"17\" \"18\" \"19\" \"20\" ",
+                                                                                                       "max_length": 2,
+                                                                                                           "suffix": "_STR",
+                                                                                                             "type": "string"
+                                                                                } ],
+                                                            "physical_variant": "infinite_rotary"
                                                         },
                                    "UHF_PWR_5W_25W_SW": {
                                                                        "category": "UHF RADIO",
@@ -12684,11 +12694,14 @@
                                                                                                           "suffix": "_INT",
                                                                                                             "type": "integer"
                                                                                }, {
-                                                                                       "address": 29470,
-                                                                                   "description": "possible values: \"001\" \"002\" \"003\" \"004\" \"005\" \"006\" \"007\" \"008\" \"009\" \"010\" \"011\" \"012\" \"013\" \"014\" \"015\" \"016\" \"017\" \"018\" \"019\" \"020\" ",
-                                                                                    "max_length": 3,
-                                                                                        "suffix": "_STR",
-                                                                                          "type": "string"
+                                                                                                         "address": 29470,
+                                                                                              "address_identifier": "M_2000C_VHF_CH_SEL_A",
+                                                                                         "address_mask_identifier": "M_2000C_VHF_CH_SEL_AM",
+                                                                                   "address_mask_shift_identifier": "M_2000C_VHF_CH_SEL",
+                                                                                                     "description": "possible values: \"001\" \"002\" \"003\" \"004\" \"005\" \"006\" \"007\" \"008\" \"009\" \"010\" \"011\" \"012\" \"013\" \"014\" \"015\" \"016\" \"017\" \"018\" \"019\" \"020\"",
+                                                                                                      "max_length": 3,
+                                                                                                          "suffix": "_STR",
+                                                                                                            "type": "string"
                                                                                } ],
                                                            "physical_variant": "infinite_rotary"
                                                     },
