@@ -1,6 +1,15 @@
 module("AJS37", package.seeall)
 
+local ActionArgument = require("ActionArgument")
+local ActionInput = require("ActionInput")
+local ApiVariant = require("ApiVariant")
+local Control = require("Control")
+local ControlType = require("ControlType")
 local Functions = require("Functions")
+local IntegerOutput = require("IntegerOutput")
+local MomentaryPositions = require("MomentaryPositions")
+local PhysicalVariant = require("PhysicalVariant")
+local Suffix = require("Suffix")
 
 local Module = require("Module")
 
@@ -9,6 +18,40 @@ local AJS37 = Module:new("AJS37", 0x4600, { "AJS37" })
 
 --overhaul by WarLord v1.0a
 --remove Arg# Pilot 3333
+
+--- Adds a new push button control with only a toggle input to push the button
+--- @param identifier string the unique identifier for the control
+--- @param device_id integer the dcs device id
+--- @param command integer the dcs command
+--- @param arg_number integer the dcs argument number
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @return Control control the control which was added to the module
+function AJS37:defineMissileSelectPushButton(identifier, device_id, command, arg_number, category, description)
+	local alloc = self:allocateInt(1)
+
+	local control = Control:new(category, ControlType.action, identifier, description, {
+		ActionInput:new(ActionArgument.toggle, "Presses the button"),
+	}, {
+		IntegerOutput:new(alloc, Suffix.none, "The position of the button"),
+	}, MomentaryPositions.last, PhysicalVariant.push_button, ApiVariant.momentary_last_position)
+
+	self:addInputProcessor(identifier, function(value)
+		if value == "TOGGLE" then
+			GetDevice(device_id):performClickableAction(command, 1)
+		end
+	end)
+
+	self:addExportHook(function(dev0)
+		local value = dev0:get_argument_value(arg_number)
+		-- the value of this button is a float between 0 and 1 depending on the position of the button
+		alloc:setValue(Module.round(Module.valueConvert(value, { -1, 1 }, { 0, 1 })))
+	end)
+
+	self:addControl(control)
+
+	return control
+end
 
 --Weapon System
 AJS37:defineToggleSwitch("TRIGGER_SAFETY_BRACKET", 2, 3300, 8, "Weapon System", "Trigger Safety Bracket")
@@ -90,7 +133,8 @@ AJS37:defineTumb("FLIGHT_RECORDER", 18, 3924, 384, 0.5, { 0, 1 }, nil, false, "E
 AJS37:definePushButton("RESTART", 18, 3401, 208, "Engine Panel", "Restart")
 AJS37:defineTumb("AFK_LEVER", 18, 3304, 13, 1.138, { 0, 1.138 }, nil, false, "Engine Panel", "AFK Lever")
 AJS37:defineToggleSwitch("DATA_CARTRIDGE", 18, 3925, 4200, "Engine Panel", "Insert/Remove Data Cartridge")
-AJS37:definePushButton("MISSILE_SELECT_BUTTON", 18, 3000, 400, "Engine Panel", "Missile Select Button")
+-- AJS37:definePushButton("MISSILE_SELECT_BUTTON", 18, 3000, 400, "Engine Panel", "Missile Select Button") -- this appears correct in the luas
+AJS37:defineMissileSelectPushButton("MISSILE_SELECT_BUTTON", 2, 3800, 400, "Engine Panel", "Missile Select Button (IR-RB FRAMSTEGN)") -- but this is the one that actually accepts input
 
 --Electric System
 AJS37:defineToggleSwitch("GENERATOR", 19, 3002, 207, "Electric System", "Generator")
@@ -341,7 +385,8 @@ AJS37:definePotentiometer("EP13_CONTR", 2, 3319, 6902, { 0, 1 }, "Weapon System"
 AJS37:definePotentiometer("CI_FILTER", 5, 3801, 6905, { 0, 1 }, "Radar", "CI filter")
 
 --found no argument
-AJS37:definePushButton("MISL_SEL_BTN", 2, 3800, 400, "Test", "Missile Select Button (IR-RB FRAMSTEGN)")
+-- AJS37:definePushButton("MISL_SEL_BTN", 2, 3800, 400, "Test", "Missile Select Button (IR-RB FRAMSTEGN)")
+AJS37:reserveIntValue(1) -- above control duplicated by "MISSILE_SELECT_BUTTON"
 
 -- parse nav indicator
 local nav_data = {}

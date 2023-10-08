@@ -63,12 +63,12 @@ Christen_Eagle_II:definePushButton("CANOPY_JETT", 15, 3090, 402, "Canopy", "Cano
 
 --Gauges
 Christen_Eagle_II:defineFloat("IAS_NEEDLE", 301, { 0, 0.959 }, "Gauges", "IAS Needle")
-Christen_Eagle_II:defineFloat("VERT_SPEED_NEEDLE", 301, { -0.944, -0.720, -0.450, -0.257, 0.000, 0.255, 0.442, 0.717, 0.945 }, "Gauges", "Vertical Speed Needle")
-Christen_Eagle_II:defineFloat("ACCEL_CURR", 304, { -1.0, -0.834, -0.572, -0.319, 0.011, 0.116, 0.328, 0.535, 0.759, 0.987 }, "Gauges", "Acceleration Current")
-Christen_Eagle_II:defineFloat("ACCEL_MAX", 305, { -1.0, -0.834, -0.572, -0.319, 0.011, 0.116, 0.328, 0.535, 0.759, 0.987 }, "Gauges", "Acceleration Max")
-Christen_Eagle_II:defineFloat("ACCEL_MIN", 306, { -1.0, -0.834, -0.572, -0.319, 0.011, 0.116, 0.328, 0.535, 0.759, 0.987 }, "Gauges", "Acceleration Min")
-Christen_Eagle_II:defineFloat("COURSE", 308, { 0.0167, 0.0, -1.00 }, "Gauges", "Course Gauge")
-Christen_Eagle_II:defineFloat("ALT_FT_100", 309, { 0.0, 0.25, 0.5, 0.75, 1.0 }, "Gauges", "ALT 100ft Gauge")
+Christen_Eagle_II:defineFloat("VERT_SPEED_NEEDLE", 301, { -0.944, 0.945 }, "Gauges", "Vertical Speed Needle")
+Christen_Eagle_II:defineFloat("ACCEL_CURR", 304, { -1.0, 0.987 }, "Gauges", "Acceleration Current")
+Christen_Eagle_II:defineFloat("ACCEL_MAX", 305, { -1.0, 0.987 }, "Gauges", "Acceleration Max")
+Christen_Eagle_II:defineFloat("ACCEL_MIN", 306, { -1.0, 0.987 }, "Gauges", "Acceleration Min")
+Christen_Eagle_II:defineFloat("COURSE", 308, { 0.0167, -1 }, "Gauges", "Course Gauge")
+Christen_Eagle_II:defineFloat("ALT_FT_100", 309, { 0, 1 }, "Gauges", "ALT 100ft Gauge")
 Christen_Eagle_II:defineFloat("ALT_FT_1000", 310, { 0, 1 }, "Gauges", "ALT 1000ft Gauge")
 Christen_Eagle_II:defineFloat("ALT_FT_10000", 312, { 0, 1 }, "Gauges", "ALT 10000ft Gauge")
 Christen_Eagle_II:defineFloat("OIL_PRESS", 314, { 0, 1 }, "Gauges", "OIL Pressure")
