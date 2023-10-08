@@ -47,7 +47,7 @@ F_5E_3:define3PosTumb("FLAPS", 2, 3005, 116, "Control Interface", "Flaps Lever, 
 F_5E_3:define3PosTumb("A_FLAPS", 2, 3006, 115, "Control Interface", "Auto Flap System Thumb Switch, UP/FIXED/AUTO")
 F_5E_3:define3PosTumb("SPEED", 2, 3007, 101, "Control Interface", "Speed Brake Switch, OUT/OFF/IN")
 F_5E_3:defineToggleSwitch("RUDDER_T", 2, 3014, 278, "Control Interface", "Rudder Pedal Adjust T-Handle, PULL/STOW")
-F_5E_3:defineFloat("TRIM_INDICATOR", 52, { 1.0, 0.0, -0.1 }, "Gauges", "Trim Position")
+F_5E_3:defineFloat("TRIM_INDICATOR", 52, { 1.0, -0.1 }, "Gauges", "Trim Position")
 F_5E_3:defineFloat("FLAP_INDICATOR", 51, { 0, 0.4 }, "Gauges", "Flap Indicator")
 F_5E_3:defineFloat("SLIPBALL", 3, { -1, 1 }, "Gauges", "Slipball")
 
@@ -72,8 +72,8 @@ F_5E_3:defineToggleSwitch("L_SHUTOFF_C", 4, 3010, 359, "Fuel", "Left Fuel Shutof
 F_5E_3:defineToggleSwitch("R_SHUTOFF_C", 4, 3011, 361, "Fuel", "Right Fuel Shutoff Switch Cover, OPEN/CLOSED")
 F_5E_3:defineFloat("FUELQUANTITY_L", 22, { 0, 1 }, "Gauges", "Fuel Quantity Left")
 F_5E_3:defineFloat("FUELQUANTITY_R", 23, { 0, 1 }, "Gauges", "Fuel Quantity Right")
-F_5E_3:defineFloat("FUELFLOW_R", 526, { 0.0, 0.67, 0.75, 0.83, 1.0 }, "Gauges", "Fuel Flow Right")
-F_5E_3:defineFloat("FUELFLOW_L", 525, { 0.0, 0.67, 0.75, 0.83, 1.0 }, "Gauges", "Fuel Flow Left")
+F_5E_3:defineFloat("FUELFLOW_R", 526, { 0.0, 1.0 }, "Gauges", "Fuel Flow Right")
+F_5E_3:defineFloat("FUELFLOW_L", 525, { 0.0, 1.0 }, "Gauges", "Fuel Flow Left")
 
 -- Engines
 F_5E_3:definePushButton("L_START", 6, 3001, 357, "Engine Interface", "Left Engine Start Button")
@@ -117,7 +117,7 @@ F_5E_3:defineToggleSwitch("DILUTER_LEVER", 8, 3002, 602, "O2 Interface", "Dilute
 F_5E_3:define3PosTumb("EMER_L", 8, 3003, 601, "O2 Interface", "Emergency Lever, EMERGENCY/NORMAL/TEST MASK")
 F_5E_3:defineFloat("O2QUANTITY", 390, { 0, 1 }, "Gauges", "O2 Quantity")
 F_5E_3:defineFloat("O2FLOWINDICATOR", 600, { 0, 1 }, "Gauges", "O2 Flow Blinker")
-F_5E_3:defineFloat("O2FLOWPRESSURE", 604, { 0.0, 0.5, 1.0 }, "Gauges", "O2 FlowPressure")
+F_5E_3:defineFloat("O2FLOWPRESSURE", 604, { 0.0, 1.0 }, "Gauges", "O2 FlowPressure")
 
 -- EC System
 F_5E_3:define3PosTumb("CABIN_P_SW", 9, 3001, 371, "EC Interface", "Cabin Press Switch, DEFOG ONLY/NORMAL/RAM DUMP")
@@ -302,7 +302,7 @@ F_5E_3:defineRotary("IAS_SET", 28, 3001, 180, "AirSpeed Indicator", "Index Setti
 F_5E_3:defineFloat("AIRSPEED", 8, { 0, 1 }, "Gauges", "Airspeed")
 F_5E_3:defineFloat("AIRSPEED_MAX", 178, { 0, 1 }, "Gauges", "Max Airspeed")
 F_5E_3:defineFloat("AIRSPEED_SET", 177, { 0, 1 }, "Gauges", "Set Airspeed")
-F_5E_3:defineFloat("MACH", 179, { 1.0, 0.929, 0.871, 0.816, 0.765, 0.727, 0.683, 0.643, 0.611, 0.582, 0.551, 0.525, 0.5, 0.4 }, "Gauges", "MachIndicator")
+F_5E_3:defineFloat("MACH", 179, { 1.0, 0.4 }, "Gauges", "MachIndicator")
 
 -- Altimeter AAU-34/A
 F_5E_3:defineToggleSwitch("ALT_ELECT", 31, 3002, 60, "Altimeter", "Altimeter Mode Control Lever, ELECT(rical)/PNEU(matic)")
