@@ -47,12 +47,13 @@ end
 
 --- Allocates space in this entry to store a value which is less than or equal to the provided max value
 --- @param max_value integer the maximum value that will be stored in this space
+--- @param debug_name string? the human-readable name to display for this allocation in logs
 --- @return MemoryAllocation allocation the new memory allocation for the provided value
-function MemoryMapEntry:allocate(max_value)
+function MemoryMapEntry:allocate(max_value, debug_name)
 	assert(self:canAllocate(max_value))
 	local bits_required = MemoryMapEntry.bitsRequiredForValue(max_value)
 	local shift_by = self.allocatedBitCounter
-	local alloc = MemoryAllocation:new(max_value, self, shift_by, bits_required)
+	local alloc = MemoryAllocation:new(max_value, self, shift_by, bits_required, debug_name)
 	self.allocatedBitCounter = self.allocatedBitCounter + bits_required
 	table.insert(self.allocations, alloc)
 	return alloc

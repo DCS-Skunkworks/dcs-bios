@@ -83,7 +83,7 @@ function Module:defineSetCommandTumb(identifier, device_id, command, arg_number,
 		end
 	end
 
-	local enumAlloc = self:allocateInt(last_n)
+	local enumAlloc = self:allocateInt(last_n, identifier)
 	local strAlloc = nil
 	if output_map then
 		local max_len = 0
@@ -92,7 +92,7 @@ function Module:defineSetCommandTumb(identifier, device_id, command, arg_number,
 				max_len = output_map[i]:len()
 			end
 		end
-		strAlloc = self:allocateString(max_len)
+		strAlloc = self:allocateString(max_len, identifier)
 	end
 
 	self:addExportHook(function(dev0)
@@ -179,7 +179,7 @@ function Module:defineGaugeValue(identifier, arg_number, output_range, category,
 	assert(output_range[1] >= 0)
 
 	local max_value = 65535
-	local alloc = self:allocateInt(max_value)
+	local alloc = self:allocateInt(max_value, identifier)
 	self:addExportHook(function(dev0)
 		alloc:setValue(Module.valueConvert(dev0:get_argument_value(arg_number), { 0, 1 }, output_range))
 	end)
@@ -208,7 +208,7 @@ function Module:defineVariableStepTumb(identifier, device_id, command, arg_numbe
 		GetDevice(device_id):performClickableAction(command, delta)
 	end)
 
-	local alloc = self:allocateInt(max_value)
+	local alloc = self:allocateInt(max_value, identifier)
 
 	local control = Control:new(category, ControlType.variable_step_dial, identifier, description, {
 		VariableStepInput:new(3200, max_value, description),
@@ -235,7 +235,7 @@ end
 --- @return Control control the control which was added to the module
 function Module:defineFloatValue(identifier, arg_number, max_value, limits, category, description)
 	assert_min_max(limits, "limits")
-	local alloc = self:allocateInt(max_value)
+	local alloc = self:allocateInt(max_value, identifier)
 	self:addExportHook(function(dev0)
 		alloc:setValue(Module.valueConvert(dev0:get_argument_value(arg_number), limits, { 0, max_value }))
 	end)
@@ -283,7 +283,7 @@ function Module:define8BitFloatFromGetter(identifier, getter, limits, category, 
 	-- same as defineFloat, but only allocates an 8-bit int
 	assert_min_max(limits, "limits")
 	local max_value = 255
-	local alloc = self:allocateInt(max_value)
+	local alloc = self:allocateInt(max_value, identifier)
 
 	self:addExportHook(function()
 		alloc:setValue(Module.valueConvert(getter(), limits, { 0, max_value }))
@@ -326,7 +326,7 @@ end
 --- @param description string additional information about the control
 --- @return Control control the control which was added to the module
 function Module:defineGatedIndicatorLight(identifier, arg_number, min, max, category, description)
-	local alloc = self:allocateInt(1)
+	local alloc = self:allocateInt(1, identifier)
 
 	local control = Control:new(category, ControlType.led, identifier, description, {}, {
 		IntegerOutput:new(alloc, Suffix.none, "0 if light is off, 1 if light is on"),
@@ -389,7 +389,7 @@ function Module:definePotentiometer(identifier, device_id, command, arg_number, 
 		GetDevice(device_id):performClickableAction(command, newValue / max_value * intervalLength + limits[1])
 	end)
 
-	local value = self:allocateInt(max_value)
+	local value = self:allocateInt(max_value, identifier)
 
 	self:addExportHook(function(dev0)
 		value:setValue(((dev0:get_argument_value(arg_number) - limits[1]) / intervalLength) * max_value)
@@ -430,7 +430,7 @@ end
 --- @param description string additional information about the control
 --- @return Control control the control which was added to the module
 function Module:defineToggleSwitchToggleOnly(identifier, device_id, command, arg_number, category, description)
-	local alloc = self:allocateInt(1)
+	local alloc = self:allocateInt(1, identifier)
 
 	local control = Control:new(category, ControlType.action, identifier, description, {
 		FixedStepInput:new("switch to previous or next state"),
@@ -491,7 +491,7 @@ function Module:defineRotary(identifier, device_id, command, arg_number, categor
 		GetDevice(device_id):performClickableAction(command, tonumber(value) / max_value)
 	end)
 
-	local value = self:allocateInt(max_value)
+	local value = self:allocateInt(max_value, identifier)
 
 	local control = Control:new(category, ControlType.analog_dial, identifier, description, {
 		VariableStepInput:new(3200, max_value, "turn the dial left or right"),
@@ -605,7 +605,7 @@ end
 --- @param description string additional information about the control
 --- @return Control control the control which was added to the module
 function Module:defineString(identifier, getter, max_length, category, description)
-	local alloc = self:allocateString(max_length)
+	local alloc = self:allocateString(max_length, identifier)
 	self:addExportHook(function(dev0)
 		local value = getter(dev0) --ammo
 		if value == nil then
@@ -636,7 +636,7 @@ end
 --- @param description string additional information about the control
 --- @return Control
 function Module:defineRockerSwitch(identifier, device_id, pos_command, pos_stop_command, neg_command, neg_stop_command, arg_number, category, description)
-	local alloc = self:allocateInt(2)
+	local alloc = self:allocateInt(2, identifier)
 	self:addExportHook(function(dev0)
 		local lut = { [-1] = 0, [0] = 1, [1] = 2 }
 		alloc:setValue(lut[Module.round(dev0:get_argument_value(arg_number))])
@@ -749,7 +749,7 @@ end
 --- @param description string additional information about the control
 --- @return Control control the control which was added to the module
 function Module:defineIntegerFromGetter(identifier, getter, maxValue, category, description)
-	local alloc = self:allocateInt(maxValue)
+	local alloc = self:allocateInt(maxValue, identifier)
 	self:addExportHook(function(dev0)
 		alloc:setValue(getter(dev0))
 	end)
@@ -795,7 +795,7 @@ function Module:defineTumb(identifier, device_id, command, arg_number, step, lim
 	--  also apparently anything with radio wheel
 	--  It's unclear if that should affect allocateInt.maxValue, so we'll leave that for the future
 	local max_value = last_n - (cycle == "skiplast" and 1 or 0)
-	local enumAlloc = self:allocateInt(max_value)
+	local enumAlloc = self:allocateInt(max_value, identifier)
 	local strAlloc = nil
 	if output_map then
 		local max_len = 0
@@ -804,7 +804,7 @@ function Module:defineTumb(identifier, device_id, command, arg_number, step, lim
 				max_len = output_map[i]:len()
 			end
 		end
-		strAlloc = self:allocateString(max_len)
+		strAlloc = self:allocateString(max_len, identifier)
 	end
 	self:addExportHook(function(dev0)
 		local value = dev0:get_argument_value(arg_number)
@@ -899,7 +899,7 @@ end
 --- @param description string additional information about the control
 --- @return Control control the control which was added to the module
 function Module:defineSpringloaded_3PosTumb(identifier, device_id, down_switch, up_switch, arg_number, category, description)
-	local alloc = self:allocateInt(2)
+	local alloc = self:allocateInt(2, identifier)
 	self:addExportHook(function(dev0)
 		local val = dev0:get_argument_value(arg_number)
 		if val == -1 then
@@ -940,16 +940,18 @@ end
 
 --- Allocates space for a string to the memory map of the module
 --- @param max_length integer the maximum length of the string
+--- @param identifier string? the identifier of the control being allocated
 --- @return StringAllocation alloc the space allocated for the string
-function Module:allocateString(max_length)
-	return self.memoryMap:allocateString(max_length)
+function Module:allocateString(max_length, identifier)
+	return self.memoryMap:allocateString(max_length, string.format("%s:%s", self.name, identifier or ""))
 end
 
 --- Allocates space for an integer to the memory map of the module
 --- @param max_value integer the maximum value of the integer
+--- @param identifier string? the identifier of the control being allocated
 --- @return MemoryAllocation alloc the space allocated for the integer
-function Module:allocateInt(max_value)
-	return self.memoryMap:allocateInt(max_value)
+function Module:allocateInt(max_value, identifier)
+	return self.memoryMap:allocateInt(max_value, string.format("%s:%s", self.name, identifier or ""))
 end
 
 --- Adds an export hook to the module

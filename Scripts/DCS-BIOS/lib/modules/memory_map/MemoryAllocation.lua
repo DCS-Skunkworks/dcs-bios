@@ -10,6 +10,7 @@ local Log = require("Log")
 --- @field mask integer TODO
 --- @field shiftBy integer TODO
 --- @field value integer? the current value
+--- @field private debug_name? string the human-readable name to display for this allocation in logs
 local MemoryAllocation = {}
 
 --- Creates a new memory allocation
@@ -17,8 +18,9 @@ local MemoryAllocation = {}
 --- @param entry MemoryMapEntry
 --- @param shift_by number
 --- @param bits_required number
+--- @param debug_name string? the human-readable name to display for this allocation in logs
 --- @return MemoryAllocation
-function MemoryAllocation:new(max_value, entry, shift_by, bits_required)
+function MemoryAllocation:new(max_value, entry, shift_by, bits_required, debug_name)
 	--- @type MemoryAllocation
 	local o = {
 		address = entry.address,
@@ -27,6 +29,7 @@ function MemoryAllocation:new(max_value, entry, shift_by, bits_required)
 		multiplier = math.pow(2, shift_by),
 		mask = (math.pow(2, bits_required) - 1) * math.pow(2, shift_by),
 		shiftBy = shift_by,
+		debug_name = debug_name,
 	}
 	setmetatable(o, self)
 	self.__index = self
@@ -48,11 +51,11 @@ function MemoryAllocation:setValue(value)
 	assert(value)
 	value = math.floor(value)
 	if value < 0 then
-		Log:log(string.format("Util.lua: value %f is too small for address %d mask %d", value, self.address, self.mask))
+		Log:log(string.format("Util.lua: value %f is too small for %s (address %d mask %d)", value, self.debug_name or "n/a", self.address, self.mask))
 		return
 	end
 	if value > self.maxValue then
-		Log:log(string.format("Util.lua: value %f is too large for address %d mask %d", value, self.address, self.mask))
+		Log:log(string.format("Util.lua: value %f is larger than max %d for %s (address %d mask %d)", value, self.maxValue, self.debug_name or "n/a", self.address, self.mask))
 		return
 	end
 	assert(value >= 0)
