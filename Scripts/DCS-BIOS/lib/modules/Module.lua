@@ -237,7 +237,6 @@ function Module:defineFloatValue(identifier, arg_number, max_value, limits, cate
 	assert_min_max(limits, "limits")
 	local alloc = self:allocateInt(max_value)
 	self:addExportHook(function(dev0)
-		--alloc:setValue(Module.valueConvert(Module.round2(dev0:get_argument_value(arg_number), 4), limits, { 0, max_value }))
 		alloc:setValue(Module.valueConvert(dev0:get_argument_value(arg_number), limits, { 0, max_value }))
 	end)
 
