@@ -1656,36 +1656,32 @@
                                                                             "physical_variant": "toggle_switch"
                                                                      },
                                                 "THROTTLE_FRICTION": {
-                                                                                    "category": "Control System",
-                                                                                "control_type": "selector",
-                                                                                 "description": "Throttle Friction Lever",
-                                                                                  "identifier": "THROTTLE_FRICTION",
-                                                                                      "inputs": [ {
-                                                                                                    "description": "switch to previous or next state",
-                                                                                                      "interface": "fixed_step"
-                                                                                                }, {
-                                                                                                    "description": "set position",
-                                                                                                      "interface": "set_state",
-                                                                                                      "max_value": 1
-                                                                                                }, {
-                                                                                                       "argument": "TOGGLE",
-                                                                                                    "description": "Toggle switch state",
-                                                                                                      "interface": "action"
-                                                                                                } ],
-                                                                         "momentary_positions": "none",
-                                                                                     "outputs": [ {
-                                                                                                                          "address": 9216,
-                                                                                                               "address_identifier": "MiG_15bis_THROTTLE_FRICTION_A",
-                                                                                                          "address_mask_identifier": "MiG_15bis_THROTTLE_FRICTION_AM",
-                                                                                                    "address_mask_shift_identifier": "MiG_15bis_THROTTLE_FRICTION",
-                                                                                                                      "description": "selector position",
-                                                                                                                             "mask": 4096,
-                                                                                                                        "max_value": 1,
-                                                                                                                         "shift_by": 12,
-                                                                                                                           "suffix": "",
-                                                                                                                             "type": "integer"
-                                                                                                } ],
-                                                                            "physical_variant": "limited_rotary"
+                                                                             "category": "Control System",
+                                                                         "control_type": "limited_dial",
+                                                                          "description": "Throttle Friction Lever",
+                                                                           "identifier": "THROTTLE_FRICTION",
+                                                                               "inputs": [ {
+                                                                                             "description": "set the position of the dial",
+                                                                                               "interface": "set_state",
+                                                                                               "max_value": 65535
+                                                                                         }, {
+                                                                                                "description": "turn the dial left or right",
+                                                                                                  "interface": "variable_step",
+                                                                                                  "max_value": 65535,
+                                                                                             "suggested_step": 3200
+                                                                                         } ],
+                                                                              "outputs": [ {
+                                                                                                                   "address": 9416,
+                                                                                                        "address_identifier": "MiG_15bis_THROTTLE_FRICTION_A",
+                                                                                                   "address_mask_identifier": "MiG_15bis_THROTTLE_FRICTION_AM",
+                                                                                             "address_mask_shift_identifier": "MiG_15bis_THROTTLE_FRICTION",
+                                                                                                               "description": "position of the potentiometer",
+                                                                                                                      "mask": 65535,
+                                                                                                                 "max_value": 65535,
+                                                                                                                  "shift_by": 0,
+                                                                                                                    "suffix": "",
+                                                                                                                      "type": "integer"
+                                                                                         } ]
                                                                      }
                                             },
                          "Electric System": {

@@ -1853,27 +1853,29 @@ docdata["Mosquito"] =
                                },
                  "Main Panel": {
                                               "AILERON_TRIM": {
-                                                                      "category": "Main Panel",
-                                                                  "control_type": "selector",
-                                                                   "description": "Aileron Trim",
-                                                                    "identifier": "AILERON_TRIM",
-                                                                        "inputs": [ {
-                                                                                      "description": "set the switch position -- 0 = left, 1 = centered, 2 = right",
-                                                                                        "interface": "set_state",
-                                                                                        "max_value": 2
-                                                                                  } ],
-                                                                       "outputs": [ {
-                                                                                                            "address": 28696,
-                                                                                                 "address_identifier": "Mosquito_AILERON_TRIM_A",
-                                                                                            "address_mask_identifier": "Mosquito_AILERON_TRIM_AM",
-                                                                                      "address_mask_shift_identifier": "Mosquito_AILERON_TRIM",
-                                                                                                        "description": "selector position -- 0 = Left, 1 = Mid ,  2 = Right",
-                                                                                                               "mask": 12288,
-                                                                                                          "max_value": 2,
-                                                                                                           "shift_by": 12,
-                                                                                                             "suffix": "",
-                                                                                                               "type": "integer"
-                                                                                  } ]
+                                                                             "category": "Main Panel",
+                                                                         "control_type": "selector",
+                                                                          "description": "Aileron Trim",
+                                                                           "identifier": "AILERON_TRIM",
+                                                                               "inputs": [ {
+                                                                                             "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
+                                                                                               "interface": "set_state",
+                                                                                               "max_value": 2
+                                                                                         } ],
+                                                                  "momentary_positions": "first_and_last",
+                                                                              "outputs": [ {
+                                                                                                                   "address": 28696,
+                                                                                                        "address_identifier": "Mosquito_AILERON_TRIM_A",
+                                                                                                   "address_mask_identifier": "Mosquito_AILERON_TRIM_AM",
+                                                                                             "address_mask_shift_identifier": "Mosquito_AILERON_TRIM",
+                                                                                                               "description": "selector position",
+                                                                                                                      "mask": 12288,
+                                                                                                                 "max_value": 2,
+                                                                                                                  "shift_by": 12,
+                                                                                                                    "suffix": "",
+                                                                                                                      "type": "integer"
+                                                                                         } ],
+                                                                     "physical_variant": "rocker_switch"
                                                               },
                                                    "ALT_SET": {
                                                                    "api_variant": "multiturn",
@@ -2683,27 +2685,29 @@ docdata["Mosquito"] =
                                                                                   } ]
                                                               },
                                                "RUDDER_TRIM": {
-                                                                      "category": "Main Panel",
-                                                                  "control_type": "selector",
-                                                                   "description": "Rudder Trim",
-                                                                    "identifier": "RUDDER_TRIM",
-                                                                        "inputs": [ {
-                                                                                      "description": "set the switch position -- 0 = left, 1 = centered, 2 = right",
-                                                                                        "interface": "set_state",
-                                                                                        "max_value": 2
-                                                                                  } ],
-                                                                       "outputs": [ {
-                                                                                                            "address": 28696,
-                                                                                                 "address_identifier": "Mosquito_RUDDER_TRIM_A",
-                                                                                            "address_mask_identifier": "Mosquito_RUDDER_TRIM_AM",
-                                                                                      "address_mask_shift_identifier": "Mosquito_RUDDER_TRIM",
-                                                                                                        "description": "selector position -- 0 = Left, 1 = Mid ,  2 = Right",
-                                                                                                               "mask": 3072,
-                                                                                                          "max_value": 2,
-                                                                                                           "shift_by": 10,
-                                                                                                             "suffix": "",
-                                                                                                               "type": "integer"
-                                                                                  } ]
+                                                                             "category": "Main Panel",
+                                                                         "control_type": "selector",
+                                                                          "description": "Rudder Trim",
+                                                                           "identifier": "RUDDER_TRIM",
+                                                                               "inputs": [ {
+                                                                                             "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
+                                                                                               "interface": "set_state",
+                                                                                               "max_value": 2
+                                                                                         } ],
+                                                                  "momentary_positions": "first_and_last",
+                                                                              "outputs": [ {
+                                                                                                                   "address": 28696,
+                                                                                                        "address_identifier": "Mosquito_RUDDER_TRIM_A",
+                                                                                                   "address_mask_identifier": "Mosquito_RUDDER_TRIM_AM",
+                                                                                             "address_mask_shift_identifier": "Mosquito_RUDDER_TRIM",
+                                                                                                               "description": "selector position",
+                                                                                                                      "mask": 3072,
+                                                                                                                 "max_value": 2,
+                                                                                                                  "shift_by": 10,
+                                                                                                                    "suffix": "",
+                                                                                                                      "type": "integer"
+                                                                                         } ],
+                                                                     "physical_variant": "rocker_switch"
                                                               },
                                             "STBD_LAND_L_SW": {
                                                                              "category": "Main Panel",
@@ -3956,27 +3960,29 @@ docdata["Mosquito"] =
                                                                           } ]
                                                       },
                                      "ELEVATOR_TRIM": {
-                                                              "category": "Port Wall",
-                                                          "control_type": "selector",
-                                                           "description": "Elevator Trim",
-                                                            "identifier": "ELEVATOR_TRIM",
-                                                                "inputs": [ {
-                                                                              "description": "set the switch position -- 0 = left, 1 = centered, 2 = right",
-                                                                                "interface": "set_state",
-                                                                                "max_value": 2
-                                                                          } ],
-                                                               "outputs": [ {
-                                                                                                    "address": 28806,
-                                                                                         "address_identifier": "Mosquito_ELEVATOR_TRIM_A",
-                                                                                    "address_mask_identifier": "Mosquito_ELEVATOR_TRIM_AM",
-                                                                              "address_mask_shift_identifier": "Mosquito_ELEVATOR_TRIM",
-                                                                                                "description": "selector position -- 0 = Left, 1 = Mid ,  2 = Right",
-                                                                                                       "mask": 96,
-                                                                                                  "max_value": 2,
-                                                                                                   "shift_by": 5,
-                                                                                                     "suffix": "",
-                                                                                                       "type": "integer"
-                                                                          } ]
+                                                                     "category": "Port Wall",
+                                                                 "control_type": "selector",
+                                                                  "description": "Elevator Trim",
+                                                                   "identifier": "ELEVATOR_TRIM",
+                                                                       "inputs": [ {
+                                                                                     "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
+                                                                                       "interface": "set_state",
+                                                                                       "max_value": 2
+                                                                                 } ],
+                                                          "momentary_positions": "first_and_last",
+                                                                      "outputs": [ {
+                                                                                                           "address": 28806,
+                                                                                                "address_identifier": "Mosquito_ELEVATOR_TRIM_A",
+                                                                                           "address_mask_identifier": "Mosquito_ELEVATOR_TRIM_AM",
+                                                                                     "address_mask_shift_identifier": "Mosquito_ELEVATOR_TRIM",
+                                                                                                       "description": "selector position",
+                                                                                                              "mask": 96,
+                                                                                                         "max_value": 2,
+                                                                                                          "shift_by": 5,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "integer"
+                                                                                 } ],
+                                                             "physical_variant": "rocker_switch"
                                                       },
                                        "EMERG_L_DIM": {
                                                               "category": "Port Wall",
@@ -4634,27 +4640,29 @@ docdata["Mosquito"] =
                                },
                       "R1155": {
                                    "R1155_AURAL_SENSE": {
-                                                                "category": "R1155",
-                                                            "control_type": "selector",
-                                                             "description": "R.1155 Aural Sense Switch",
-                                                              "identifier": "R1155_AURAL_SENSE",
-                                                                  "inputs": [ {
-                                                                                "description": "set the switch position -- 0 = left, 1 = centered, 2 = right",
-                                                                                  "interface": "set_state",
-                                                                                  "max_value": 2
-                                                                            } ],
-                                                                 "outputs": [ {
-                                                                                                      "address": 28874,
-                                                                                           "address_identifier": "Mosquito_R1155_AURAL_SENSE_A",
-                                                                                      "address_mask_identifier": "Mosquito_R1155_AURAL_SENSE_AM",
-                                                                                "address_mask_shift_identifier": "Mosquito_R1155_AURAL_SENSE",
-                                                                                                  "description": "selector position -- 0 = Left, 1 = Mid ,  2 = Right",
-                                                                                                         "mask": 6144,
-                                                                                                    "max_value": 2,
-                                                                                                     "shift_by": 11,
-                                                                                                       "suffix": "",
-                                                                                                         "type": "integer"
-                                                                            } ]
+                                                                       "category": "R1155",
+                                                                   "control_type": "selector",
+                                                                    "description": "R.1155 Aural Sense Switch",
+                                                                     "identifier": "R1155_AURAL_SENSE",
+                                                                         "inputs": [ {
+                                                                                       "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
+                                                                                         "interface": "set_state",
+                                                                                         "max_value": 2
+                                                                                   } ],
+                                                            "momentary_positions": "first_and_last",
+                                                                        "outputs": [ {
+                                                                                                             "address": 28874,
+                                                                                                  "address_identifier": "Mosquito_R1155_AURAL_SENSE_A",
+                                                                                             "address_mask_identifier": "Mosquito_R1155_AURAL_SENSE_AM",
+                                                                                       "address_mask_shift_identifier": "Mosquito_R1155_AURAL_SENSE",
+                                                                                                         "description": "selector position",
+                                                                                                                "mask": 6144,
+                                                                                                           "max_value": 2,
+                                                                                                            "shift_by": 11,
+                                                                                                              "suffix": "",
+                                                                                                                "type": "integer"
+                                                                                   } ],
+                                                               "physical_variant": "rocker_switch"
                                                         },
                                         "R1155_FILTER": {
                                                                        "category": "R1155",
@@ -5604,27 +5612,29 @@ docdata["Mosquito"] =
                                                                 "physical_variant": "push_button"
                                                          },
                                          "AERIAL_WINCH": {
-                                                                 "category": "Starboard Wall",
-                                                             "control_type": "selector",
-                                                              "description": "Aerial Winch Rotary Handle",
-                                                               "identifier": "AERIAL_WINCH",
-                                                                   "inputs": [ {
-                                                                                 "description": "set the switch position -- 0 = left, 1 = centered, 2 = right",
-                                                                                   "interface": "set_state",
-                                                                                   "max_value": 2
-                                                                             } ],
-                                                                  "outputs": [ {
-                                                                                                       "address": 28842,
-                                                                                            "address_identifier": "Mosquito_AERIAL_WINCH_A",
-                                                                                       "address_mask_identifier": "Mosquito_AERIAL_WINCH_AM",
-                                                                                 "address_mask_shift_identifier": "Mosquito_AERIAL_WINCH",
-                                                                                                   "description": "selector position -- 0 = Left, 1 = Mid ,  2 = Right",
-                                                                                                          "mask": 192,
-                                                                                                     "max_value": 2,
-                                                                                                      "shift_by": 6,
-                                                                                                        "suffix": "",
-                                                                                                          "type": "integer"
-                                                                             } ]
+                                                                        "category": "Starboard Wall",
+                                                                    "control_type": "selector",
+                                                                     "description": "Aerial Winch Rotary Handle",
+                                                                      "identifier": "AERIAL_WINCH",
+                                                                          "inputs": [ {
+                                                                                        "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
+                                                                                          "interface": "set_state",
+                                                                                          "max_value": 2
+                                                                                    } ],
+                                                             "momentary_positions": "first_and_last",
+                                                                         "outputs": [ {
+                                                                                                              "address": 28842,
+                                                                                                   "address_identifier": "Mosquito_AERIAL_WINCH_A",
+                                                                                              "address_mask_identifier": "Mosquito_AERIAL_WINCH_AM",
+                                                                                        "address_mask_shift_identifier": "Mosquito_AERIAL_WINCH",
+                                                                                                          "description": "selector position",
+                                                                                                                 "mask": 192,
+                                                                                                            "max_value": 2,
+                                                                                                             "shift_by": 6,
+                                                                                                               "suffix": "",
+                                                                                                                 "type": "integer"
+                                                                                    } ],
+                                                                "physical_variant": "rocker_switch"
                                                          },
                                            "CAM_GUN_SW": {
                                                                         "category": "Starboard Wall",

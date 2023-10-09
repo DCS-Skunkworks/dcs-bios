@@ -94,7 +94,9 @@ BIOS.protocol.writeNewModule(F_5E_3)
 -- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/F-86F Sabre.lua]]) -- ID = 19, ProperName = F-86F Sabre
 local F_86F_Sabre = require "F-86F Sabre"
 BIOS.protocol.writeNewModule(F_86F_Sabre)
-dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/FA-18C_hornet.lua]]) -- ID = 20, ProperName = F/A-18C Hornet
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/FA-18C_hornet.lua]]) -- ID = 20, ProperName = F/A-18C Hornet
+local FA_18C_hornet = require "FA-18C_hornet"
+BIOS.protocol.writeNewModule(FA_18C_hornet)
 -- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/FC3.lua]]) -- ID = 4, ProperName = Flaming Cliffs 3
 local FC3 = require "FC3"
 BIOS.protocol.writeNewModule(FC3)

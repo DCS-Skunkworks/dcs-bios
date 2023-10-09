@@ -46,13 +46,17 @@ function MemoryAllocation:setValue(value)
 	end
 	assert(self.maxValue)
 	assert(value)
+
+	-- check if value is clone enough to our min that it could be a rounding error
+	value = value < 0 and value + 0.001 >= 0 and 0 or value
+
 	value = math.floor(value)
 	if value < 0 then
-		Log:log(string.format("Util.lua: value %f is too small for address %d mask %d", value, self.address, self.mask))
+		Log:log_error(string.format("Util.lua: value %f is too small for address %d mask %d", value, self.address, self.mask))
 		return
 	end
 	if value > self.maxValue then
-		Log:log(string.format("Util.lua: value %f is too large for address %d mask %d", value, self.address, self.mask))
+		Log:log_error(string.format("Util.lua: value %f is too large for address %d mask %d", value, self.address, self.mask))
 		return
 	end
 	assert(value >= 0)

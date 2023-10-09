@@ -1084,27 +1084,36 @@
                                                     },
                       "Auxiliary Power Unit Panel": {
                                                          "APU_CONTROL_SW": {
-                                                                                   "category": "Auxiliary Power Unit Panel",
-                                                                               "control_type": "toggle_switch",
-                                                                                "description": "APU Control Switch, ON/OFF",
-                                                                                 "identifier": "APU_CONTROL_SW",
-                                                                                     "inputs": [ {
-                                                                                                   "description": "set the switch position -- 0 = off, 1 = on",
-                                                                                                     "interface": "set_state",
-                                                                                                     "max_value": 1
-                                                                                               } ],
-                                                                                    "outputs": [ {
-                                                                                                                         "address": 29890,
-                                                                                                              "address_identifier": "FA_18C_hornet_APU_CONTROL_SW_A",
-                                                                                                         "address_mask_identifier": "FA_18C_hornet_APU_CONTROL_SW_AM",
-                                                                                                   "address_mask_shift_identifier": "FA_18C_hornet_APU_CONTROL_SW",
-                                                                                                                     "description": "switch position -- 0 = off, 1 = on",
-                                                                                                                            "mask": 256,
-                                                                                                                       "max_value": 1,
-                                                                                                                        "shift_by": 8,
-                                                                                                                          "suffix": "",
-                                                                                                                            "type": "integer"
-                                                                                               } ]
+                                                                                          "category": "Auxiliary Power Unit Panel",
+                                                                                      "control_type": "action",
+                                                                                       "description": "APU Control Switch, ON/OFF",
+                                                                                        "identifier": "APU_CONTROL_SW",
+                                                                                            "inputs": [ {
+                                                                                                          "description": "switch to previous or next state",
+                                                                                                            "interface": "fixed_step"
+                                                                                                      }, {
+                                                                                                          "description": "set the switch position -- 0 = off, 1 = on",
+                                                                                                            "interface": "set_state",
+                                                                                                            "max_value": 1
+                                                                                                      }, {
+                                                                                                             "argument": "TOGGLE",
+                                                                                                          "description": "toggle switch state",
+                                                                                                            "interface": "action"
+                                                                                                      } ],
+                                                                               "momentary_positions": "none",
+                                                                                           "outputs": [ {
+                                                                                                                                "address": 29890,
+                                                                                                                     "address_identifier": "FA_18C_hornet_APU_CONTROL_SW_A",
+                                                                                                                "address_mask_identifier": "FA_18C_hornet_APU_CONTROL_SW_AM",
+                                                                                                          "address_mask_shift_identifier": "FA_18C_hornet_APU_CONTROL_SW",
+                                                                                                                            "description": "selector position",
+                                                                                                                                   "mask": 256,
+                                                                                                                              "max_value": 1,
+                                                                                                                               "shift_by": 8,
+                                                                                                                                 "suffix": "",
+                                                                                                                                   "type": "integer"
+                                                                                                      } ],
+                                                                                  "physical_variant": "toggle_switch"
                                                                            },
                                                            "APU_READY_LT": {
                                                                                    "category": "Auxiliary Power Unit Panel",
@@ -1549,7 +1558,7 @@
                                  "Comms frequency": {
                                                         "COMM1_CHANNEL_NUMERIC": {
                                                                                          "category": "Comms frequency",
-                                                                                     "control_type": "analog_gauge",
+                                                                                     "control_type": "metadata",
                                                                                       "description": "Comm 1 Channel as number",
                                                                                        "identifier": "COMM1_CHANNEL_NUMERIC",
                                                                                            "inputs": [  ],
@@ -1558,9 +1567,9 @@
                                                                                                                     "address_identifier": "FA_18C_hornet_COMM1_CHANNEL_NUMERIC_A",
                                                                                                                "address_mask_identifier": "FA_18C_hornet_COMM1_CHANNEL_NUMERIC_AM",
                                                                                                          "address_mask_shift_identifier": "FA_18C_hornet_COMM1_CHANNEL_NUMERIC",
-                                                                                                                           "description": "gauge position",
-                                                                                                                                  "mask": 65535,
-                                                                                                                             "max_value": 65535,
+                                                                                                                           "description": "Comm 1 Channel as number",
+                                                                                                                                  "mask": 31,
+                                                                                                                             "max_value": 24,
                                                                                                                               "shift_by": 0,
                                                                                                                                 "suffix": "",
                                                                                                                                   "type": "integer"
@@ -1568,7 +1577,7 @@
                                                                                  },
                                                                    "COMM1_FREQ": {
                                                                                          "category": "Comms frequency",
-                                                                                     "control_type": "frequency",
+                                                                                     "control_type": "metadata",
                                                                                       "description": "COMM1 FREQ",
                                                                                        "identifier": "COMM1_FREQ",
                                                                                            "inputs": [  ],
@@ -1577,7 +1586,7 @@
                                                                                                                     "address_identifier": "FA_18C_hornet_COMM1_FREQ_A",
                                                                                                                "address_mask_identifier": "FA_18C_hornet_COMM1_FREQ_AM",
                                                                                                          "address_mask_shift_identifier": "FA_18C_hornet_COMM1_FREQ",
-                                                                                                                           "description": "frequency",
+                                                                                                                           "description": "COMM1 FREQ",
                                                                                                                                   "mask": 65535,
                                                                                                                              "max_value": 65535,
                                                                                                                               "shift_by": 0,
@@ -1587,7 +1596,7 @@
                                                                                  },
                                                         "COMM2_CHANNEL_NUMERIC": {
                                                                                          "category": "Comms frequency",
-                                                                                     "control_type": "analog_gauge",
+                                                                                     "control_type": "metadata",
                                                                                       "description": "Comm 2 Channel as number",
                                                                                        "identifier": "COMM2_CHANNEL_NUMERIC",
                                                                                            "inputs": [  ],
@@ -1596,9 +1605,9 @@
                                                                                                                     "address_identifier": "FA_18C_hornet_COMM2_CHANNEL_NUMERIC_A",
                                                                                                                "address_mask_identifier": "FA_18C_hornet_COMM2_CHANNEL_NUMERIC_AM",
                                                                                                          "address_mask_shift_identifier": "FA_18C_hornet_COMM2_CHANNEL_NUMERIC",
-                                                                                                                           "description": "gauge position",
-                                                                                                                                  "mask": 65535,
-                                                                                                                             "max_value": 65535,
+                                                                                                                           "description": "Comm 2 Channel as number",
+                                                                                                                                  "mask": 31,
+                                                                                                                             "max_value": 24,
                                                                                                                               "shift_by": 0,
                                                                                                                                 "suffix": "",
                                                                                                                                   "type": "integer"
@@ -1606,7 +1615,7 @@
                                                                                  },
                                                                    "COMM2_FREQ": {
                                                                                          "category": "Comms frequency",
-                                                                                     "control_type": "frequency",
+                                                                                     "control_type": "metadata",
                                                                                       "description": "COMM2 FREQ",
                                                                                        "identifier": "COMM2_FREQ",
                                                                                            "inputs": [  ],
@@ -1615,7 +1624,7 @@
                                                                                                                     "address_identifier": "FA_18C_hornet_COMM2_FREQ_A",
                                                                                                                "address_mask_identifier": "FA_18C_hornet_COMM2_FREQ_AM",
                                                                                                          "address_mask_shift_identifier": "FA_18C_hornet_COMM2_FREQ",
-                                                                                                                           "description": "frequency",
+                                                                                                                           "description": "COMM2 FREQ",
                                                                                                                                   "mask": 65535,
                                                                                                                              "max_value": 65535,
                                                                                                                               "shift_by": 0,
@@ -2920,27 +2929,36 @@
                                                                                  "physical_variant": "3_position_switch"
                                                                           },
                                                          "PITOT_HEAT_SW": {
-                                                                                  "category": "Environment Control System Panel",
-                                                                              "control_type": "toggle_switch",
-                                                                               "description": "Pitot Heater Switch, ON/AUTO",
-                                                                                "identifier": "PITOT_HEAT_SW",
-                                                                                    "inputs": [ {
-                                                                                                  "description": "set the switch position -- 0 = off, 1 = on",
-                                                                                                    "interface": "set_state",
-                                                                                                    "max_value": 1
-                                                                                              } ],
-                                                                                   "outputs": [ {
-                                                                                                                        "address": 29896,
-                                                                                                             "address_identifier": "FA_18C_hornet_PITOT_HEAT_SW_A",
-                                                                                                        "address_mask_identifier": "FA_18C_hornet_PITOT_HEAT_SW_AM",
-                                                                                                  "address_mask_shift_identifier": "FA_18C_hornet_PITOT_HEAT_SW",
-                                                                                                                    "description": "switch position -- 0 = off, 1 = on",
-                                                                                                                           "mask": 256,
-                                                                                                                      "max_value": 1,
-                                                                                                                       "shift_by": 8,
-                                                                                                                         "suffix": "",
-                                                                                                                           "type": "integer"
-                                                                                              } ]
+                                                                                         "category": "Environment Control System Panel",
+                                                                                     "control_type": "action",
+                                                                                      "description": "Pitot Heater Switch, ON/AUTO",
+                                                                                       "identifier": "PITOT_HEAT_SW",
+                                                                                           "inputs": [ {
+                                                                                                         "description": "switch to previous or next state",
+                                                                                                           "interface": "fixed_step"
+                                                                                                     }, {
+                                                                                                         "description": "set the switch position -- 0 = off, 1 = on",
+                                                                                                           "interface": "set_state",
+                                                                                                           "max_value": 1
+                                                                                                     }, {
+                                                                                                            "argument": "TOGGLE",
+                                                                                                         "description": "toggle switch state",
+                                                                                                           "interface": "action"
+                                                                                                     } ],
+                                                                              "momentary_positions": "none",
+                                                                                          "outputs": [ {
+                                                                                                                               "address": 29896,
+                                                                                                                    "address_identifier": "FA_18C_hornet_PITOT_HEAT_SW_A",
+                                                                                                               "address_mask_identifier": "FA_18C_hornet_PITOT_HEAT_SW_AM",
+                                                                                                         "address_mask_shift_identifier": "FA_18C_hornet_PITOT_HEAT_SW",
+                                                                                                                           "description": "selector position",
+                                                                                                                                  "mask": 256,
+                                                                                                                             "max_value": 1,
+                                                                                                                              "shift_by": 8,
+                                                                                                                                "suffix": "",
+                                                                                                                                  "type": "integer"
+                                                                                                     } ],
+                                                                                 "physical_variant": "toggle_switch"
                                                                           },
                                                              "SUIT_TEMP": {
                                                                                   "category": "Environment Control System Panel",
@@ -3823,27 +3841,36 @@
                                                                                   "physical_variant": "3_position_switch"
                                                                            },
                                                            "FUEL_DUMP_SW": {
-                                                                                   "category": "Fuel Panel",
-                                                                               "control_type": "toggle_switch",
-                                                                                "description": "Fuel Dump Switch, ON/OFF",
-                                                                                 "identifier": "FUEL_DUMP_SW",
-                                                                                     "inputs": [ {
-                                                                                                   "description": "set the switch position -- 0 = off, 1 = on",
-                                                                                                     "interface": "set_state",
-                                                                                                     "max_value": 1
-                                                                                               } ],
-                                                                                    "outputs": [ {
-                                                                                                                         "address": 29876,
-                                                                                                              "address_identifier": "FA_18C_hornet_FUEL_DUMP_SW_A",
-                                                                                                         "address_mask_identifier": "FA_18C_hornet_FUEL_DUMP_SW_AM",
-                                                                                                   "address_mask_shift_identifier": "FA_18C_hornet_FUEL_DUMP_SW",
-                                                                                                                     "description": "switch position -- 0 = off, 1 = on",
-                                                                                                                            "mask": 256,
-                                                                                                                       "max_value": 1,
-                                                                                                                        "shift_by": 8,
-                                                                                                                          "suffix": "",
-                                                                                                                            "type": "integer"
-                                                                                               } ]
+                                                                                          "category": "Fuel Panel",
+                                                                                      "control_type": "action",
+                                                                                       "description": "Fuel Dump Switch, ON/OFF",
+                                                                                        "identifier": "FUEL_DUMP_SW",
+                                                                                            "inputs": [ {
+                                                                                                          "description": "switch to previous or next state",
+                                                                                                            "interface": "fixed_step"
+                                                                                                      }, {
+                                                                                                          "description": "set the switch position -- 0 = off, 1 = on",
+                                                                                                            "interface": "set_state",
+                                                                                                            "max_value": 1
+                                                                                                      }, {
+                                                                                                             "argument": "TOGGLE",
+                                                                                                          "description": "toggle switch state",
+                                                                                                            "interface": "action"
+                                                                                                      } ],
+                                                                               "momentary_positions": "none",
+                                                                                           "outputs": [ {
+                                                                                                                                "address": 29876,
+                                                                                                                     "address_identifier": "FA_18C_hornet_FUEL_DUMP_SW_A",
+                                                                                                                "address_mask_identifier": "FA_18C_hornet_FUEL_DUMP_SW_AM",
+                                                                                                          "address_mask_shift_identifier": "FA_18C_hornet_FUEL_DUMP_SW",
+                                                                                                                            "description": "selector position",
+                                                                                                                                   "mask": 256,
+                                                                                                                              "max_value": 1,
+                                                                                                                               "shift_by": 8,
+                                                                                                                                 "suffix": "",
+                                                                                                                                   "type": "integer"
+                                                                                                      } ],
+                                                                                  "physical_variant": "toggle_switch"
                                                                            },
                                                                "PROBE_SW": {
                                                                                           "category": "Fuel Panel",
@@ -9909,27 +9936,36 @@
                                                                                  "physical_variant": "3_position_switch"
                                                                           },
                                                         "HOOK_BYPASS_SW": {
-                                                                                  "category": "Select Jettison Button",
-                                                                              "control_type": "toggle_switch",
-                                                                               "description": "HOOK BYPASS Switch, FIELD/CARRIER",
-                                                                                "identifier": "HOOK_BYPASS_SW",
-                                                                                    "inputs": [ {
-                                                                                                  "description": "set the switch position -- 0 = off, 1 = on",
-                                                                                                    "interface": "set_state",
-                                                                                                    "max_value": 1
-                                                                                              } ],
-                                                                                   "outputs": [ {
-                                                                                                                        "address": 29824,
-                                                                                                             "address_identifier": "FA_18C_hornet_HOOK_BYPASS_SW_A",
-                                                                                                        "address_mask_identifier": "FA_18C_hornet_HOOK_BYPASS_SW_AM",
-                                                                                                  "address_mask_shift_identifier": "FA_18C_hornet_HOOK_BYPASS_SW",
-                                                                                                                    "description": "switch position -- 0 = off, 1 = on",
-                                                                                                                           "mask": 16384,
-                                                                                                                      "max_value": 1,
-                                                                                                                       "shift_by": 14,
-                                                                                                                         "suffix": "",
-                                                                                                                           "type": "integer"
-                                                                                              } ]
+                                                                                         "category": "Select Jettison Button",
+                                                                                     "control_type": "action",
+                                                                                      "description": "HOOK BYPASS Switch, FIELD/CARRIER",
+                                                                                       "identifier": "HOOK_BYPASS_SW",
+                                                                                           "inputs": [ {
+                                                                                                         "description": "switch to previous or next state",
+                                                                                                           "interface": "fixed_step"
+                                                                                                     }, {
+                                                                                                         "description": "set the switch position -- 0 = off, 1 = on",
+                                                                                                           "interface": "set_state",
+                                                                                                           "max_value": 1
+                                                                                                     }, {
+                                                                                                            "argument": "TOGGLE",
+                                                                                                         "description": "toggle switch state",
+                                                                                                           "interface": "action"
+                                                                                                     } ],
+                                                                              "momentary_positions": "none",
+                                                                                          "outputs": [ {
+                                                                                                                               "address": 29824,
+                                                                                                                    "address_identifier": "FA_18C_hornet_HOOK_BYPASS_SW_A",
+                                                                                                               "address_mask_identifier": "FA_18C_hornet_HOOK_BYPASS_SW_AM",
+                                                                                                         "address_mask_shift_identifier": "FA_18C_hornet_HOOK_BYPASS_SW",
+                                                                                                                           "description": "selector position",
+                                                                                                                                  "mask": 16384,
+                                                                                                                             "max_value": 1,
+                                                                                                                              "shift_by": 14,
+                                                                                                                                "suffix": "",
+                                                                                                                                  "type": "integer"
+                                                                                                     } ],
+                                                                                 "physical_variant": "toggle_switch"
                                                                           },
                                                          "HYD_IND_BRAKE": {
                                                                                   "category": "Select Jettison Button",
@@ -9951,27 +9987,36 @@
                                                                                               } ]
                                                                           },
                                                          "LAUNCH_BAR_SW": {
-                                                                                  "category": "Select Jettison Button",
-                                                                              "control_type": "toggle_switch",
-                                                                               "description": "Launch Bar",
-                                                                                "identifier": "LAUNCH_BAR_SW",
-                                                                                    "inputs": [ {
-                                                                                                  "description": "set the switch position -- 0 = off, 1 = on",
-                                                                                                    "interface": "set_state",
-                                                                                                    "max_value": 1
-                                                                                              } ],
-                                                                                   "outputs": [ {
-                                                                                                                        "address": 29824,
-                                                                                                             "address_identifier": "FA_18C_hornet_LAUNCH_BAR_SW_A",
-                                                                                                        "address_mask_identifier": "FA_18C_hornet_LAUNCH_BAR_SW_AM",
-                                                                                                  "address_mask_shift_identifier": "FA_18C_hornet_LAUNCH_BAR_SW",
-                                                                                                                    "description": "switch position -- 0 = off, 1 = on",
-                                                                                                                           "mask": 8192,
-                                                                                                                      "max_value": 1,
-                                                                                                                       "shift_by": 13,
-                                                                                                                         "suffix": "",
-                                                                                                                           "type": "integer"
-                                                                                              } ]
+                                                                                         "category": "Select Jettison Button",
+                                                                                     "control_type": "action",
+                                                                                      "description": "Launch Bar",
+                                                                                       "identifier": "LAUNCH_BAR_SW",
+                                                                                           "inputs": [ {
+                                                                                                         "description": "switch to previous or next state",
+                                                                                                           "interface": "fixed_step"
+                                                                                                     }, {
+                                                                                                         "description": "set the switch position -- 0 = off, 1 = on",
+                                                                                                           "interface": "set_state",
+                                                                                                           "max_value": 1
+                                                                                                     }, {
+                                                                                                            "argument": "TOGGLE",
+                                                                                                         "description": "toggle switch state",
+                                                                                                           "interface": "action"
+                                                                                                     } ],
+                                                                              "momentary_positions": "none",
+                                                                                          "outputs": [ {
+                                                                                                                               "address": 29824,
+                                                                                                                    "address_identifier": "FA_18C_hornet_LAUNCH_BAR_SW_A",
+                                                                                                               "address_mask_identifier": "FA_18C_hornet_LAUNCH_BAR_SW_AM",
+                                                                                                         "address_mask_shift_identifier": "FA_18C_hornet_LAUNCH_BAR_SW",
+                                                                                                                           "description": "selector position",
+                                                                                                                                  "mask": 8192,
+                                                                                                                             "max_value": 1,
+                                                                                                                              "shift_by": 13,
+                                                                                                                                "suffix": "",
+                                                                                                                                  "type": "integer"
+                                                                                                     } ],
+                                                                                 "physical_variant": "toggle_switch"
                                                                           },
                                                            "LDG_TAXI_SW": {
                                                                                          "category": "Select Jettison Button",
