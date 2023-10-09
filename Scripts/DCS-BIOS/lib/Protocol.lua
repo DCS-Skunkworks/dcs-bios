@@ -1,14 +1,9 @@
-local ProtocolIO = require("ProtocolIO")
-
 BIOS.protocol = {}
-BIOS.protocol.maxBytesPerSecond = BIOS.protocol.maxBytesPerSecond or 11000
-BIOS.protocol.maxBytesInTransit = BIOS.protocol.maxBytesPerSecond or 4000
 
 --- @type Module[]
 local exportModules = {}
 local aircraftNameToModuleNames = {}
 local aircraftNameToModules = {}
-local lastAcftName = ""
 
 function BIOS.protocol.setExportModuleAircrafts(acftList)
 	-- first, delete moduleName from all mappings
@@ -46,8 +41,6 @@ function BIOS.protocol.setExportModuleAircrafts(acftList)
 	BIOS.dbg.aircraftNameToModuleNames = aircraftNameToModuleNames
 	BIOS.dbg.aircraftNameToModules = aircraftNameToModules
 	BIOS.dbg.exportModules = exportModules
-
-	lastAcftName = ""
 end
 
 function BIOS.protocol.beginModule(name, baseAddress)
@@ -151,146 +144,3 @@ function BIOS.protocol.writeNewModule(mod)
 	BIOS.protocol.setExportModuleAircrafts(mod.aircraftList)
 	BIOS.protocol.endModule()
 end
-
-local metadataStartModule = nil
-local metadataEndModule = nil
-function BIOS.protocol.init()
-	-- called after all aircraft modules have been loaded
-	metadataStartModule = exportModules["MetadataStart"]
-	metadataEndModule = exportModules["MetadataEnd"]
-
-	BIOS.protocol.saveAddresses()
-end
-
-local acftModules = nil
-bytesInTransit = 0
-
-function BIOS.protocol.processInputLine(line)
-	local cmd, args = line:match("^([^ ]+) (.*)")
-	if cmd == "SYNC" and args == "E" then
-		argumentCache = {}
-	end
-	if cmd then
-		if acftModules then
-			for _, acftModule in pairs(acftModules) do
-				if acftModule.inputProcessors[cmd] then
-					acftModule.inputProcessors[cmd](args)
-				end
-			end
-		end
-	end
-end
-
-local nextLowFreqStepTime = 0
-local nextHighFreqStepTime = 0
-
-local lastFrameTime = LoGetModelTime()
-
-local updateCounter = 0
-local updateSkipCounter = 0
-function BIOS.protocol.step()
-
-	if( metadataStartModule == nil or  metadataEndModule == nil) then
-		error("Either MetadataStart or MetadataEnd was nil.", 1) -- this should never happen since init() is being called but it removes intellisense warnings
-	end
-
-	-- rate limiting
-	local curTime = LoGetModelTime()
-	bytesInTransit = bytesInTransit - ((curTime - lastFrameTime) * BIOS.protocol.maxBytesPerSecond)
-	lastFrameTime = curTime
-	if bytesInTransit < 0 then bytesInTransit = 0 end
-
-	-- determine active aircraft
-	local acftName = "NONE"
-	local selfData = LoGetSelfData()
-	if selfData then
-		acftName = selfData["Name"]
-	end
-
-	metadataStartModule:setAircraftName(acftName)
-
-  acftModules = aircraftNameToModules[acftName]
-	if lastAcftName ~= acftName then
-		if acftModules then
-			for _, acftModule in pairs(acftModules) do
-				acftModule.memoryMap:clearValues()
-			end
-		end
-		lastAcftName = acftName
-	end
-
-	-- export data 
-	if curTime >= nextLowFreqStepTime then
-		-- runs 30 times per second
-		updateCounter = (updateCounter + 1) % 256
-		metadataEndModule:setUpdateCounter(updateCounter)
-
-		-- if the last frame update has not been completely transmitted, skip a frame
-		if bytesInTransit > 0 then
-			-- TODO: increase a frame skip counter for logging purposes
-			updateSkipCounter = (updateSkipCounter + 1) % 256
-			return
-		end
-		metadataEndModule:setUpdateSkipCounter(updateSkipCounter)
-		nextLowFreqStepTime = curTime + .033
-
-		-- send frame sync sequence
-		bytesInTransit = bytesInTransit + 4
-		ProtocolIO.queue(string.char(0x55, 0x55, 0x55, 0x55))
-
-		-- export aircraft-independent data
-		for k, v in pairs(metadataStartModule.exportHooks) do v() end
-		metadataStartModule.memoryMap:autosyncStep()
-		local data = metadataStartModule.memoryMap:flushData()
-		bytesInTransit = bytesInTransit + data:len()
-		ProtocolIO.queue(data)
-
-		-- Export aircraft data
-		if acftModules then
-			for _, acftModule in pairs(acftModules) do
-				local dev0 = GetDevice(0)
-				if dev0 ~= nil and type(dev0) ~= "number" then
-					dev0:update_arguments()
-				end
-
-				for k, v in pairs(acftModule.exportHooks) do
-					v(dev0)
-				end
-
-				acftModule.memoryMap:autosyncStep()
-				acftModule.memoryMap:autosyncStep()
-				local data = acftModule.memoryMap:flushData()
-				bytesInTransit = bytesInTransit + data:len()
-				ProtocolIO.queue(data)
-			end
-		end
-
-		for k, v in pairs(metadataEndModule.exportHooks) do v() end
-		metadataEndModule.memoryMap:autosyncStep()
-		local data = metadataEndModule.memoryMap:flushData()
-		bytesInTransit = bytesInTransit + data:len()
-		ProtocolIO.queue(data)
-	end
-
-end
-
-function BIOS.protocol.shutdown()
-	-- Nullify the aircraft name and publish one last frame to identify end of mission.
-	metadataStartModule:setAircraftName("")
-
-	-- send frame sync sequence
-	ProtocolIO.queue(string.char(0x55, 0x55, 0x55, 0x55))
-
-	-- export aircraft-independent data: MetadataStart
-	for k, v in pairs(metadataStartModule.exportHooks) do v() end
-	metadataStartModule.memoryMap:autosyncStep()
-	local data = metadataStartModule.memoryMap:flushData()
-	ProtocolIO.queue(data)
-
-	-- export aircraft-independent data: MetadataEnd
-	for k, v in pairs(metadataEndModule.exportHooks) do v() end
-	metadataEndModule.memoryMap:autosyncStep()
-	local data = metadataEndModule.memoryMap:flushData()
-	ProtocolIO.queue(data)
-end
-

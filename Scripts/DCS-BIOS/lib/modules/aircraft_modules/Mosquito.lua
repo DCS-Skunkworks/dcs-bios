@@ -67,6 +67,18 @@ function Mosquito:define3PosMossi(msg, device_id, command, arg_number, category,
 	end)
 end
 
+--- Adds a 3-position rocker switch that only uses a single command
+--- @param identifier string the unique identifier for the control
+--- @param device_id integer the dcs device id
+--- @param command integer the dcs command
+--- @param arg_number integer the dcs argument number
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @return Control control the control which was added to the module
+function Mosquito:defineRockerSwitchMossi(identifier, device_id, command, arg_number, category, description)
+	return self:defineRockerSwitch(identifier, device_id, command, command, command, command, arg_number, category, description)
+end
+
 --Main Pit
 Mosquito:definePushButton("STICK_BTN_A", 5, 3005, 245, "Stick", "Stick Button A - MG Trigger")
 Mosquito:definePushButton("STICK_BTN_B1", 5, 3006, 246, "Stick", "Stick Button B1 - Cannon Trigger")
@@ -122,8 +134,8 @@ Mosquito:defineToggleSwitch("FLAPS_GATE", 17, 3006, 119, "Main Panel", "Flaps Le
 Mosquito:defineToggleSwitch("GUN_MASTER_CVR", 5, 3001, 120, "Main Panel", "Gun Firing Master Switch Cover")
 Mosquito:defineTumb("GUN_MASTER", 5, 3003, 121, 2, { -1, 1 }, nil, false, "Main Panel", "Gun Firing Master Switch")
 Mosquito:defineToggleSwitch("DE_ICE_PUMP", 23, 3001, 370, "Main Panel", "De-Ice Glycol Pump Handle")
-Mosquito:define3PosMossi("RUDDER_TRIM", 2, 3053, 111, "Main Panel", "Rudder Trim")
-Mosquito:define3PosMossi("AILERON_TRIM", 2, 3051, 280, "Main Panel", "Aileron Trim")
+Mosquito:defineRockerSwitchMossi("RUDDER_TRIM", 2, 3053, 111, "Main Panel", "Rudder Trim")
+Mosquito:defineRockerSwitchMossi("AILERON_TRIM", 2, 3051, 280, "Main Panel", "Aileron Trim")
 Mosquito:definePotentiometer("BOMB_PANEL_L_DIM", 4, 3059, 16, { 0, 1 }, "Main Panel", "Bomb Panel Flood Dimmer")
 Mosquito:defineToggleSwitch("BOMB_DOOR_L_CVR", 2, 3067, 284, "Main Panel", "Bomb Door Light Cover")
 Mosquito:defineToggleSwitch("JETT_CONT_CVR", 5, 3056, 144, "Main Panel", "Container Jettison Cover")
@@ -210,7 +222,7 @@ Mosquito:defineToggleSwitch("REP_COMPASS_SW1", 4, 3001, 1, "Port Wall", "R.I. Co
 Mosquito:defineToggleSwitch("REP_COMPASS_SW2", 4, 3002, 2, "Port Wall", "R.I. Compass De-ground Switch")
 Mosquito:defineToggleSwitch("BEAM_SW", 4, 3004, 3, "Port Wall", "Beam Approach Switch")
 Mosquito:defineToggleSwitch("SCR_PTT", 24, 3099, 4, "Port Wall", "SCR-522 PTT Button")
-Mosquito:define3PosMossi("ELEVATOR_TRIM", 2, 3016, 279, "Port Wall", "Elevator Trim")
+Mosquito:defineRockerSwitchMossi("ELEVATOR_TRIM", 2, 3016, 279, "Port Wall", "Elevator Trim")
 
 Mosquito:defineIndicatorLight("UV_L_L", 325, "Port Wall Lights", "Left UV Light (multi)")
 Mosquito:defineIndicatorLight("UV_R_L", 326, "Port Wall Lights", "Right UV Light (multi)")
@@ -274,7 +286,7 @@ Mosquito:defineToggleSwitch("OXY_H_PRESS_VALVE", 2, 3055, 293, "Starboard Wall",
 Mosquito:defineToggleSwitch("STBD_OXY_VALVE", 16, 3003, 187, "Starboard Wall", "Oxygen Regulator Starboard")
 Mosquito:definePotentiometer("CHART_L_DIM", 4, 3095, 303, { 0, 1 }, "Port Wall", "Chart Table Flood Light Dimmer")
 Mosquito:defineToggleSwitch("AERIAL_BRAKE", 31, 3001, 202, "Starboard Wall", "Aerial Winch  Brake Lever")
-Mosquito:define3PosMossi("AERIAL_WINCH", 31, 3004, 356, "Starboard Wall", "Aerial Winch Rotary Handle")
+Mosquito:defineRockerSwitchMossi("AERIAL_WINCH", 31, 3004, 356, "Starboard Wall", "Aerial Winch Rotary Handle")
 Mosquito:definePushButton("AERIAL_REEL", 31, 3005, 357, "Starboard Wall", "Aerial Winch Reel Lock")
 Mosquito:defineToggleSwitch("TRANS_TYPF_SW", 4, 3113, 307, "Starboard Wall", "Transmitter TypeF Switch")
 Mosquito:defineToggleSwitch("LT_T1154_PW", 28, 3001, 305, "Starboard Wall", "T.1154 R.1155 L.T. Power Unit Switch")
@@ -356,7 +368,7 @@ Mosquito:definePotentiometer("R1155_METER_BAL", 25, 3079, 225, { -1, 1 }, "R1155
 Mosquito:defineToggleSwitch("R1155_FILTER", 25, 3082, 226, "R1155", "R.1155 Filter Switch")
 Mosquito:definePotentiometer("R1155_METER_AMP", 25, 3084, 227, { 0, 1 }, "R1155", "R.1155 Meter Amplitude Knob")
 Mosquito:defineToggleSwitch("R1155_METER_DEF", 25, 3087, 235, "R1155", "R.1155 Meter Deflection Sensitivity Switch")
-Mosquito:define3PosMossi("R1155_AURAL_SENSE", 25, 3089, 236, "R1155", "R.1155 Aural Sense Switch")
+Mosquito:defineRockerSwitchMossi("R1155_AURAL_SENSE", 25, 3089, 236, "R1155", "R.1155 Aural Sense Switch")
 Mosquito:defineToggleSwitch("R1155_SW_SPEED", 25, 3090, 237, "R1155", "R.1155 Meter Frequency Switch")
 
 Mosquito:defineFloat("R1155_TUNER_G", 232, { 0, 1 }, "R1155 Gauges", "R.1155 Tuner Gauge")

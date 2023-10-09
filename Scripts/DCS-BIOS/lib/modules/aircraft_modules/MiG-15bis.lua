@@ -19,7 +19,7 @@ MiG_15bis:define3PosTumb("AILERON_TRIM", 3, 3001, 142, "Control System", "Ailero
 MiG_15bis:defineTumb("FLAPS_HANDLE", 3, 3003, 207, 0.5, { -1, 0.5 }, nil, false, "Control System", "Wing Flaps Handle")
 MiG_15bis:defineToggleSwitch("AIRBRAKE_SW", 3, 3005, 125, "Control System", "Airbrake Switch")
 MiG_15bis:defineToggleSwitch("HYDRO_BOOST", 3, 3006, 203, "Control System", "Hydro Booster Lever")
-MiG_15bis:defineTumb("THROTTLE_FRICTION", 3, 3008, 204, 0.5, { 0.5, 1 }, nil, false, "Control System", "Throttle Friction Lever")
+MiG_15bis:reserveIntValue(1) -- removed THROTTLE_FRICTION defined as tumb
 MiG_15bis:definePushButton("AIRBRAKE_BT", 3, 3004, 198, "Control System", "Airbrake Button")
 
 -- Electric system
@@ -81,7 +81,7 @@ MiG_15bis:defineFloat("FUEL_QUANTITY", 47, { 0.0, 1.0 }, "Fuel System", "Fuel Qu
 
 -- Oxygen System
 MiG_15bis:definePotentiometer("O2_SUPPLY", 9, 3001, 141, { 0, 1 }, "Oxygen System", "Oxygen Supply Valve")
-MiG_15bis:definePotentiometer("AIR_DILUTER", 9, 3003, 143, { -1, 0 }, "Oxygen System", "Air Diluter Valve")
+MiG_15bis:definePotentiometer("AIR_DILUTER", 9, 3003, 143, { 0, 1 }, "Oxygen System", "Air Diluter Valve")
 MiG_15bis:definePotentiometer("O2_EMERG", 9, 3002, 243, { 0, 1 }, "Oxygen System", "Oxygen Emergency Valve")
 MiG_15bis:defineFloat("O2_PRESS", 48, { 0, 1 }, "Oxygen System", "Oxygen Pressure")
 MiG_15bis:defineFloat("O2_FLOW_BLINK", 60, { 0, 1 }, "Oxygen System", "Flow Blinker")
@@ -94,7 +94,7 @@ MiG_15bis:definePotentiometer("VENTILATION", 8, 3002, 86, { -1, 0 }, "Conditioni
 -- Internal Lights System
 MiG_15bis:definePotentiometer("L_UV_LIGHT", 22, 3001, 184, { 0.23, 0.82 }, "Internal Lights System", "Left UV Light Rheostat")
 MiG_15bis:definePotentiometer("R_UV_LIGHT", 22, 3002, 185, { 0.23, 0.82 }, "Internal Lights System", "Right UV Light Rheostat")
-MiG_15bis:definePotentiometer("PANELS_LIGHT", 22, 3003, 220, { 0.23, 0.82 }, "Internal Lights System", "Panels Light Rheostat")
+MiG_15bis:definePotentiometer("PANELS_LIGHT", 22, 3003, 220, { 0.1, 0.9 }, "Internal Lights System", "Panels Light Rheostat")
 MiG_15bis:defineFloat("LAMP_LIGHT", 244, { 0, 1 }, "Internal Lights System", "Lamps Lightness") --???
 
 -- Nav Lights System
@@ -273,5 +273,7 @@ MiG_15bis:defineBitFromDrawArgument("EXT_WOW_RIGHT", 4, "External Aircraft Model
 MiG_15bis:defineBitFromDrawArgument("EXT_WOW_LEFT", 6, "External Aircraft Model", "Weight ON Wheels Left Gear")
 
 MiG_15bis:defineFloat("CANOPY_POS", 225, { 0, 1 }, "Cockpit Mech", "Canopy Position")
+
+MiG_15bis:definePotentiometer("THROTTLE_FRICTION", 3, 3008, 204, { 0, 1 }, "Control System", "Throttle Friction Lever")
 
 return MiG_15bis

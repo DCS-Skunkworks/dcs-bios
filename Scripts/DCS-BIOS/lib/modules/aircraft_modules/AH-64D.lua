@@ -15,7 +15,7 @@ local TextDisplay = require("TextDisplay")
 -- remove Arg# PLT 956; CPG 957
 
 --Functions
---- @func Parses keyboard unit data
+--- Parses keyboard unit data
 local function parse_ku(indicator_id)
 	local ku = AH_64D.parse_indication(indicator_id)
 	return Functions.coerce_nil_to_string(ku.Standby_text)
