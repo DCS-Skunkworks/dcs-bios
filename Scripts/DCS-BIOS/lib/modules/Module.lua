@@ -1131,7 +1131,7 @@ function Module.round2(num, decimal_places)
 	return tonumber(string.format("%." .. (decimal_places or 0) .. "f", num)) or 0
 end
 
---- @func Maps value to from input_range to output_range
+--- Maps value to from input_range to output_range
 --- @param argument_value number the number to map
 --- @param input_range number[] a length-2 array of the range of the input value
 --- @param output_range number[] a length-2 array of the range the value should be mapped to

@@ -6,7 +6,7 @@ module("Logger", package.seeall)
 --- @field private bytesLogged number Used by log_table
 local Logger = {}
 
---- @func Returns new Logger
+--- Returns new Logger
 --- @return Logger
 function Logger:new(logfile)
 	local o = {
@@ -19,7 +19,7 @@ function Logger:new(logfile)
 	return o
 end
 
---- @func Tries to log the object
+--- Tries to log the object
 --- @param obj any Object
 function Logger:log(obj)
 	if obj == nil then
@@ -34,7 +34,7 @@ function Logger:log(obj)
 	end
 end
 
---- @func Logs string or number
+--- Logs string or number
 --- @param data string|number
 function Logger:log_simple(data)
 	if data == nil then
@@ -53,7 +53,7 @@ function Logger:log_simple(data)
 	end
 end
 
---- @func Logs whether variable is nilstring or number
+--- Logs whether variable is nilstring or number
 --- @param variableName string
 --- @param variable any
 function Logger:log_is_nil(variableName, variable)
@@ -65,7 +65,7 @@ function Logger:log_is_nil(variableName, variable)
 	self:log_simple(variableName .. " is not nil")
 end
 
---- @func Logs the type of the variable
+--- Logs the type of the variable
 --- @param name string Name of variable
 --- @param variable any The variable to determine type of
 function Logger:log_type(name, variable)
@@ -88,7 +88,7 @@ end
 -- Break ALL when max depth reached
 -- Break when data logged exceeds limit
 
---- @func Logs a table (recursively if table contains tables)
+--- Logs a table (recursively if table contains tables)
 --- @param tab table Table to dump/log
 --- @param max_depth integer How deep recursively to go
 function Logger:log_table(tab, max_depth, max_bytes_to_log)
@@ -100,7 +100,7 @@ end
 function Logger:dump_table(tab, max_depth, max_bytes_to_log)
 	self.bytesLogged = 0
 	-- Inner function just to hide the depth argument
-	--- @func Recursive table dump
+	--- Recursive table dump
 	--- @param tablex table
 	--- @param depth number
 	--- @param max_depth number
@@ -148,7 +148,7 @@ function Logger:dump_table(tab, max_depth, max_bytes_to_log)
 	return result_code, result_buffer
 end
 
---- @func Logs a table's indexes
+--- Logs a table's indexes
 --- @require tab table Table to dump/log
 function Logger:log_table_indexes(tab)
 	if tab == nil then

@@ -7,20 +7,20 @@ module("MetadataEnd", package.seeall)
 local Module = require("Module")
 
 --- @class MetadataEnd : Module
---- @func setUpdateCounter
---- @func setUpdateSkipCounter
+--- setUpdateCounter
+--- setUpdateSkipCounter
 local MetadataEnd = Module:new("MetadataEnd", 0xfffe, {})
 
 local updateCounter = 0
 local updateSkipCounter = 0
 
---- @func Called from protocol
+--- Called from protocol
 --- @param new_counter number
 function MetadataEnd:setUpdateCounter(new_counter)
 	updateCounter = new_counter
 end
 
---- @func Called from protocol
+--- Called from protocol
 --- @param new_counter number
 function MetadataEnd:setUpdateSkipCounter(new_counter)
 	updateSkipCounter = new_counter
