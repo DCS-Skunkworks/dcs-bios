@@ -21,7 +21,7 @@ end
 --- @param len number The length the string should be
 --- @return string result A new string of length len, with whitespace padding added to the left as necessary
 function Functions.pad_left(str, len)
-	str = tostring(Functions.coerce_nil_to_string(str))
+	str = Functions.coerce_nil_to_string(str)
 	return string.rep(" ", len - #str) .. str
 end
 
@@ -30,7 +30,7 @@ end
 --- @param len number The length the string should be
 --- @return string result A new string of length len, with whitespace padding added to the right as necessary
 function Functions.pad_right(str, len)
-	str = tostring(Functions.coerce_nil_to_string(str))
+	str = Functions.coerce_nil_to_string(str)
 	return str .. string.rep(" ", len - #str)
 end
 
