@@ -6,18 +6,21 @@ local Log = require("Log")
 --- @field address integer the memory address
 --- @field maxLength integer the maximum length of the string
 --- @field characterAllocations MemoryAllocation[] the memory allocations which make up the string
+--- @field debug_name string? the human-readable name to display for this allocation in logs
 local StringAllocation = {}
 
 --- Constructs a new StringAllocation
 --- @param characterAllocations MemoryAllocation[] the memory allocations which make up the string
 --- @param max_length integer the maximum length of the string
+--- @param debug_name string? the human-readable name to display for this allocation in logs
 --- @return StringAllocation
-function StringAllocation:new(characterAllocations, max_length)
+function StringAllocation:new(characterAllocations, max_length, debug_name)
 	--- @type StringAllocation
 	local o = {
 		address = characterAllocations[1].address,
 		maxLength = max_length,
 		characterAllocations = characterAllocations,
+		debug_name = debug_name,
 	}
 	setmetatable(o, self)
 	self.__index = self
@@ -30,7 +33,7 @@ function StringAllocation:setValue(value)
 	local i = 1
 
 	if value == nil then
-		Log:log(string.format("Util.lua: item is sending a nil value"))
+		Log:log(string.format("Util.lua: string for %s is sending a nil value", self.debug_name))
 		return
 	end
 
