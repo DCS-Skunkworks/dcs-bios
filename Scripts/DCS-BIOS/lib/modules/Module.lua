@@ -1160,6 +1160,14 @@ function Module.round(num)
 	return num >= 0 and math.floor(num + 0.5) or math.ceil(num - 0.5)
 end
 
+--- rounds a number to certain decimal place
+--- @param num number the number to round
+--- @param decimal_places integer
+--- @return number
+function Module.round2(num, decimal_places)
+	return tonumber(string.format("%." .. (decimal_places or 0) .. "f", num)) or 0
+end
+
 --- Maps value to from input_range to output_range
 --- @param argument_value number the number to map
 --- @param input_range number[] a length-2 array of the range of the input value
