@@ -8,7 +8,7 @@ package.path = "./Scripts/DCS-BIOS/test/compile/?.lua;" .. package.path
 package.path = "./Scripts/DCS-BIOS/test/ext/?.lua;" .. package.path
 package.path = "./Scripts/DCS-BIOS/test/io/?.lua;" .. package.path
 
---- @func Returns the simulation time
+--- Returns the simulation time
 --- @return number
 function LoGetModelTime()
 	return 0

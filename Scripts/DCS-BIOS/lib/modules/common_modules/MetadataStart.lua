@@ -14,7 +14,7 @@ local MetadataStart = Module:new("MetadataStart", 0x0000, {})
 -- "data" will be set by the Protocol module
 local aircraft_name
 
---- @func Sets the name of the aircraft
+--- Sets the name of the aircraft
 --- @param new_aircraft_name string
 function MetadataStart:setAircraftName(new_aircraft_name)
 	aircraft_name = new_aircraft_name

@@ -15,18 +15,18 @@ function MockSocket:new()
 	return o
 end
 
---- @func Throws an acception if ret1 is falsy, using ret2 as the error message.
+--- Throws an acception if ret1 is falsy, using ret2 as the error message.
 --- @param ret1 any? the first return value to determine whether to throw an error
 --- @vararg string? remaining return values to add to the error message if necessary
 function MockSocket.try(ret1, ...) end
 
---- @func Gets the current udp socket connection
+--- Gets the current udp socket connection
 --- @return UDPSocketConnection socket_connection the udp socket connection
 function MockSocket.udp()
 	return MockUDPSocketConnection:new()
 end
 
---- @func Creates and returns a connection acceptor bound to the specified address
+--- Creates and returns a connection acceptor bound to the specified address
 --- @param address string the address to bind to
 --- @param port integer the port on the address to bind to
 --- @param backlog integer? the number of allowed connectinos to be queued

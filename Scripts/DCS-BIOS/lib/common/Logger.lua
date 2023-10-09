@@ -29,7 +29,7 @@ local function getTimestamp()
 	return tostring(os.date("%Y-%m-%d %X"))
 end
 
---- @func Returns new Logger
+--- Returns new Logger
 --- @return Logger
 function Logger:new(logfile)
 	local o = {
@@ -42,12 +42,10 @@ function Logger:new(logfile)
 	return o
 end
 
---- TODO
 --- @private
---- @func Tries to log the object
---- @param level string logging level
---- @param obj any
-function Logger:log(level, obj)
+--- Tries to log the object
+--- @param obj any Object
+function Logger:log(obj)
 	if obj == nil then
 		return
 	end
@@ -60,39 +58,38 @@ function Logger:log(level, obj)
 	end
 end
 
---- @func Tries to log the object with debug level
+--- Tries to log the object with debug level
 --- @param obj any
 function Logger:log_debug(obj)
 	self:log(Logger.logging_level.debug, obj)
 end
 
---- @func Tries to log the object with info level
+--- Tries to log the object with info level
 --- @param obj any
 function Logger:log_info(obj)
 	self:log(Logger.logging_level.info, obj)
 end
 
---- @func Tries to log the object with warn level
+--- Tries to log the object with warn level
 --- @param obj any
 function Logger:log_warn(obj)
 	self:log(Logger.logging_level.warn, obj)
 end
 
---- @func Tries to log the object with error level
+--- Tries to log the object with error level
 --- @param obj any
 function Logger:log_error(obj)
 	self:log(Logger.logging_level.error, obj)
 end
 
---- @func Tries to log the object with fatal level
+--- Tries to log the object with fatal level
 --- @param obj any
 function Logger:log_fatal(obj)
 	self:log(Logger.logging_level.fatal, obj)
 end
 
 --- @private
---- @func Logs string or number
---- @param level string logging level
+--- Logs string or number
 --- @param data string|number
 function Logger:log_simple(level, data)
 	if data == nil then
@@ -112,23 +109,23 @@ function Logger:log_simple(level, data)
 	end
 end
 
---- @func Logs whether variable is nilstring or number
+--- Logs whether variable is nilstring or number
 --- @param variableName string
 --- @param variable any
 function Logger:log_is_nil(variableName, variable)
 	if variable == nil then
-		self:log_simple(Logger.logging_level.info, variableName .. " is nil")
+		self:log_simple(Logger.logging_level.debug, variableName .. " is nil")
 		return
 	end
 
-	self:log_simple(Logger.logging_level.info, variableName .. " is not nil")
+	self:log_simple(Logger.logging_level.debug, variableName .. " is not nil")
 end
 
---- @func Logs the type of the variable
+--- Logs the type of the variable
 --- @param name string Name of variable
 --- @param variable any The variable to determine type of
 function Logger:log_type(name, variable)
-	local level = Logger.logging_level.info
+	local level = Logger.logging_level.debug
 	if type(variable) == "table" then
 		self:log_simple(level, name .. " is of type table")
 	elseif type(variable) == "string" then
@@ -149,8 +146,7 @@ end
 -- Break when data logged exceeds limit
 
 --- @private
---- @func Logs a table (recursively if table contains tables)
---- @param level string logging level
+--- Logs a table (recursively if table contains tables)
 --- @param tab table Table to dump/log
 --- @param max_depth integer How deep recursively to go
 function Logger:log_table(level, tab, max_depth, max_bytes_to_log)
@@ -167,7 +163,7 @@ end
 function Logger:dump_table(tab, max_depth)
 	self.bytes_logged = 0
 	-- Inner function just to hide the depth argument
-	--- @func Recursive table dump
+	--- Recursive table dump
 	--- @param tablex table
 	--- @param depth number
 	--- @param max_depth number
@@ -215,10 +211,10 @@ function Logger:dump_table(tab, max_depth)
 	return result_code, result_buffer
 end
 
---- @func Logs a table's indexes
+--- Logs a table's indexes
 --- @require tab table Table to dump/log
 function Logger:log_table_indexes(tab)
-	local level = Logger.logging_level.info
+	local level = Logger.logging_level.debug
 
 	if tab == nil then
 		self:log_simple(level, "Table to log was nil")
