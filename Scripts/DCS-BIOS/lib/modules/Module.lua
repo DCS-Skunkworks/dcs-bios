@@ -1122,7 +1122,7 @@ function Module.round(num)
 	return num >= 0 and math.floor(num + 0.5) or math.ceil(num - 0.5)
 end
 
---- @func Maps value to from input_range to output_range
+--- Maps value to from input_range to output_range
 --- @param argument_value number the number to map
 --- @param input_range number[] a length-2 array of the range of the input value
 --- @param output_range number[] a length-2 array of the range the value should be mapped to

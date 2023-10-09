@@ -14,14 +14,14 @@ function MockUDPSocketConnection:new()
 	return o
 end
 
---- @func Binds the UDP object to a local address
+--- Binds the UDP object to a local address
 --- @param address string the address to bind to
 --- @param port integer the port at the address to bind to
 --- @return integer? success_code
 --- @return string? error
 function MockUDPSocketConnection:setsockname(address, port) end
 
---- @func Changes the peer of the UDP object, turning it from unconnected to connected or vice-versa
+--- Changes the peer of the UDP object, turning it from unconnected to connected or vice-versa
 --- @param address string the address to connect to
 --- @param port integer the port at the address to connect to
 --- @return integer? success_code
