@@ -77,7 +77,7 @@ MiG_15bis:defineFloat("BRAKE_PRESS_R", 122, { 0, 1 }, "Gear System", "Right Brak
 
 -- Fuel System
 MiG_15bis:defineToggleSwitch("DROP_TANK_SIGNAL", 10, 3001, 82, "Fuel System", "Drop Tank Signal Switch")
-MiG_15bis:defineFloat("FUEL_QUANTITY", 47, { 0.0, 0.047, 0.136, 0.22, 0.38, 0.52, 0.631, 0.755, 0.869, 0.921, 1.0 }, "Fuel System", "Fuel Quantity")
+MiG_15bis:defineFloat("FUEL_QUANTITY", 47, { 0.0, 1.0 }, "Fuel System", "Fuel Quantity")
 
 -- Oxygen System
 MiG_15bis:definePotentiometer("O2_SUPPLY", 9, 3001, 141, { 0, 1 }, "Oxygen System", "Oxygen Supply Valve")
@@ -85,7 +85,7 @@ MiG_15bis:definePotentiometer("AIR_DILUTER", 9, 3003, 143, { -1, 0 }, "Oxygen Sy
 MiG_15bis:definePotentiometer("O2_EMERG", 9, 3002, 243, { 0, 1 }, "Oxygen System", "Oxygen Emergency Valve")
 MiG_15bis:defineFloat("O2_PRESS", 48, { 0, 1 }, "Oxygen System", "Oxygen Pressure")
 MiG_15bis:defineFloat("O2_FLOW_BLINK", 60, { 0, 1 }, "Oxygen System", "Flow Blinker")
-MiG_15bis:defineFloat("O2_FLOW_PRESS", 49, { 0.0, 0.9, 1.0 }, "Oxygen System", "Flow Pressure")
+MiG_15bis:defineFloat("O2_FLOW_PRESS", 49, { 0.0, 1.0 }, "Oxygen System", "Flow Pressure")
 
 -- Conditioning and Heating System
 MiG_15bis:definePotentiometer("COCKPIT_AIT", 8, 3001, 187, { 0, 1 }, "Conditioning and Heating System", "Cockpit Air Valve")
@@ -134,7 +134,7 @@ MiG_15bis:definePotentiometer("BARO_PRESS", 19, 3001, 30, { 0, 1 }, "VD15", "Bar
 -- PRV-46
 MiG_15bis:defineToggleSwitch("RPV46_RANGE", 16, 3004, 36, "PRV46", "PRV-46 Radar Altimeter Indicator Range Switch")
 MiG_15bis:defineToggleSwitch("RPV46_POWER", 16, 3003, 37, "PRV46", "PRV-46 Radar Altimeter Indicator Power Switch")
-MiG_15bis:defineFloat("RPV46_RALT", 35, { -1.0, 0.0, 1.0 }, "PRV46", "PRV-46 Radar Altimeter Gauge")
+MiG_15bis:defineFloat("RPV46_RALT", 35, { -1.0, 1.0 }, "PRV46", "PRV-46 Radar Altimeter Gauge")
 
 -- PDK-45
 MiG_15bis:definePotentiometer("PDK45_HEADING", 21, 3001, 34, { 0, 1 }, "PDK45", "Heading Knob")
@@ -201,7 +201,7 @@ MiG_15bis:defineFloat("ARC5_BAND", 238, { 0, 0.4 }, "ARC5", "ARC-5 Band")
 MiG_15bis:defineFloat("ARC5_TUNE_METER", 176, { 0, 1 }, "ARC5", "ARC-5 Tuning Meter")
 MiG_15bis:defineFloat("ARC5_TUNE", 175, { 0, 1 }, "ARC5", "ARC-5 Tuning")
 MiG_15bis:defineFloat("ARC5_BEARING", 38, { 0, 1 }, "ARC5", "ARC-5 Bearing")
-MiG_15bis:defineFloat("ARC5_FREQ", 239, { 0.0, 0.0695, 0.14, 0.2865, 0.43, 0.7155, 1.0 }, "ARC5", "ARC-5 Freq Scale")
+MiG_15bis:defineFloat("ARC5_FREQ", 239, { 0.0, 1.0 }, "ARC5", "ARC-5 Freq Scale")
 MiG_15bis:defineIndicatorLight("ARC5_PW_LIGHT", 183, "ARC5", "ARC-5 Power Light (green)")
 
 -- RSI-6K Radio
@@ -220,16 +220,16 @@ MiG_15bis:defineFloat("RSI6K_RECEIVE_IND", 127, { 0.036, 0.961 }, "RSI6K", "RSI-
 MiG_15bis:defineFloat("RSI6K_RECEIVE_GAUGE", 144, { 0.026, 0.957 }, "RSI6K", "RSI-6K Receiver Gauge")
 
 -- Instruments
-MiG_15bis:defineFloat("VARIOMETER", 14, { 0.0, 0.075, 0.151, 0.24, 0.352, 0.401, 0.448, 0.5, 0.553, 0.6, 0.649, 0.76, 0.848, 0.925, 1.0 }, "Gauges", "Variometer")
+MiG_15bis:defineFloat("VARIOMETER", 14, { 0.0, 1.0 }, "Gauges", "Variometer")
 MiG_15bis:defineFloat("ALT_KM", 28, { 0, 1 }, "Gauges", "Altimeter km")
 MiG_15bis:defineFloat("ALT_M", 29, { 0, 1 }, "Gauges", "Altimeter km")
-MiG_15bis:defineFloat("ALT_PRESS", 31, { -0.0535, 0.0, 1.0 }, "Gauges", "Altimeter Pressure")
+MiG_15bis:defineFloat("ALT_PRESS", 31, { -0.0535, 1.0 }, "Gauges", "Altimeter Pressure")
 MiG_15bis:defineFloat("IAS", 4, { 0, 1 }, "Gauges", "IAS")
 MiG_15bis:defineFloat("TAS", 5, { 0, 1 }, "Gauges", "TAS")
-MiG_15bis:defineFloat("MACH", 27, { 0.12, 0.215, 1.0 }, "Gauges", "Mach")
+MiG_15bis:defineFloat("MACH", 27, { 0.12, 1.0 }, "Gauges", "Mach")
 MiG_15bis:defineFloat("CANOPY_AIR_VALVE", 188, { 0, 1 }, "Gauges", "Canopy Air Valve Indication")
 MiG_15bis:defineFloat("COCKPIT_ALT", 39, { 0.008, 1.0 }, "Gauges", "Cockpit Altitude")
-MiG_15bis:defineFloat("PRESS_DIFF", 40, { 0.0, 0.243, 1.0 }, "Gauges", "Pressure Difference")
+MiG_15bis:defineFloat("PRESS_DIFF", 40, { 0.0, 1.0 }, "Gauges", "Pressure Difference")
 MiG_15bis:defineFloat("ENG_TACHO", 42, { 0, 1 }, "Gauges", "Engine Tachometer")
 MiG_15bis:defineFloat("ENG_TEMP", 41, { 0, 1 }, "Gauges", "Engine Temperature")
 MiG_15bis:defineFloat("OIL_TEMP", 45, { 0, 1 }, "Gauges", "Oil Temperature")

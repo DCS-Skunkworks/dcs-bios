@@ -1055,28 +1055,21 @@
                                     "MISSILE_SELECT_BUTTON": {
                                                                          "api_variant": "momentary_last_position",
                                                                             "category": "Engine Panel",
-                                                                        "control_type": "selector",
-                                                                         "description": "Missile Select Button",
+                                                                        "control_type": "action",
+                                                                         "description": "Missile Select Button (IR-RB FRAMSTEGN)",
                                                                           "identifier": "MISSILE_SELECT_BUTTON",
                                                                               "inputs": [ {
-                                                                                            "description": "switch to previous or next state",
-                                                                                              "interface": "fixed_step"
-                                                                                        }, {
-                                                                                            "description": "set position",
-                                                                                              "interface": "set_state",
-                                                                                              "max_value": 1
-                                                                                        }, {
                                                                                                "argument": "TOGGLE",
-                                                                                            "description": "Toggle switch state",
+                                                                                            "description": "Presses the button",
                                                                                               "interface": "action"
                                                                                         } ],
-                                                                 "momentary_positions": "none",
+                                                                 "momentary_positions": "last",
                                                                              "outputs": [ {
                                                                                                                   "address": 17934,
                                                                                                        "address_identifier": "AJS37_MISSILE_SELECT_BUTTON_A",
                                                                                                   "address_mask_identifier": "AJS37_MISSILE_SELECT_BUTTON_AM",
                                                                                             "address_mask_shift_identifier": "AJS37_MISSILE_SELECT_BUTTON",
-                                                                                                              "description": "selector position",
+                                                                                                              "description": "The position of the button",
                                                                                                                      "mask": 8192,
                                                                                                                 "max_value": 1,
                                                                                                                  "shift_by": 13,
@@ -7840,41 +7833,6 @@
                                                                                                                   "type": "integer"
                                                                                      } ]
                                                                  }
-                               },
-                       "Test": {
-                                   "MISL_SEL_BTN": {
-                                                               "api_variant": "momentary_last_position",
-                                                                  "category": "Test",
-                                                              "control_type": "selector",
-                                                               "description": "Missile Select Button (IR-RB FRAMSTEGN)",
-                                                                "identifier": "MISL_SEL_BTN",
-                                                                    "inputs": [ {
-                                                                                  "description": "switch to previous or next state",
-                                                                                    "interface": "fixed_step"
-                                                                              }, {
-                                                                                  "description": "set position",
-                                                                                    "interface": "set_state",
-                                                                                    "max_value": 1
-                                                                              }, {
-                                                                                     "argument": "TOGGLE",
-                                                                                  "description": "Toggle switch state",
-                                                                                    "interface": "action"
-                                                                              } ],
-                                                       "momentary_positions": "none",
-                                                                   "outputs": [ {
-                                                                                                        "address": 18070,
-                                                                                             "address_identifier": "AJS37_MISL_SEL_BTN_A",
-                                                                                        "address_mask_identifier": "AJS37_MISL_SEL_BTN_AM",
-                                                                                  "address_mask_shift_identifier": "AJS37_MISL_SEL_BTN",
-                                                                                                    "description": "selector position",
-                                                                                                           "mask": 128,
-                                                                                                      "max_value": 1,
-                                                                                                       "shift_by": 7,
-                                                                                                         "suffix": "",
-                                                                                                           "type": "integer"
-                                                                              } ],
-                                                          "physical_variant": "push_button"
-                                                   }
                                },
             "Thrust Reverser": {
                                    "REVERSAL": {

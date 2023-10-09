@@ -15,7 +15,7 @@ local TextDisplay = require("TextDisplay")
 -- remove Arg# PLT 956; CPG 957
 
 --Functions
---- @func Parses keyboard unit data
+--- Parses keyboard unit data
 local function parse_ku(indicator_id)
 	local ku = AH_64D.parse_indication(indicator_id)
 	return Functions.coerce_nil_to_string(ku.Standby_text)
@@ -673,11 +673,11 @@ AH_64D:defineToggleSwitch("PLT_CMWS_JETT", 80, 3009, 618, "PLT CMWS", "Pilot CMW
 --Gauges
 AH_64D:defineFloat("PLT_IAS_NEEDLE", 469, { 0, 1 }, "Cockpit Gauges", "Pilot Standby Airspeed Indicator Needle")
 AH_64D:defineFloat("PLT_FREE_AIR_TEMP", 636, { 0, 1 }, "Cockpit Gauges", "Pilot Free Air Temperature Gage")
-AH_64D:defineFloat("VIB_SHEET", 820, { 0, 1 }, "Cockpit Gauges", "Vibration Sheet")
-AH_64D:defineFloat("VIB_SUNSHADE", 821, { 0, 1 }, "Cockpit Gauges", "Vibration SunShade")
-AH_64D:defineFloat("VIB_REMOVE", 822, { 0, 1 }, "Cockpit Gauges", "Vibration Remove Before Flight")
-AH_64D:defineFloat("VIB_HOOK_TURN", 823, { 0, 1 }, "Cockpit Gauges", "Vibration Hook Turning")
-AH_64D:defineFloat("VIB_HOOK_SWING", 824, { 0, 1 }, "Cockpit Gauges", "Vibration Hook Swinging")
+AH_64D:defineFloat("VIB_SHEET", 820, { -1, 1 }, "Cockpit Gauges", "Vibration Sheet")
+AH_64D:defineFloat("VIB_SUNSHADE", 821, { -1, 1 }, "Cockpit Gauges", "Vibration SunShade")
+AH_64D:defineFloat("VIB_REMOVE", 822, { -1, 1 }, "Cockpit Gauges", "Vibration Remove Before Flight")
+AH_64D:defineFloat("VIB_HOOK_TURN", 823, { -1, 1 }, "Cockpit Gauges", "Vibration Hook Turning")
+AH_64D:defineFloat("VIB_HOOK_SWING", 824, { -1, 1 }, "Cockpit Gauges", "Vibration Hook Swinging")
 
 -- Internal Lights
 AH_64D:defineIndicatorLight("PLT_MASTER_WARNING_L", 424, "PLT Internal Lights", "Pilot Master Warning Indicator (yellow)")

@@ -6,7 +6,7 @@ local JSON = json and json() or require("JSON") -- if that fails, fall back to m
 --- @class JSONHelper
 local JSONHelper = {}
 
---- @func Encodes to JSON and writes to file
+--- Encodes to JSON and writes to file
 --- @param value any
 --- @param filename string File name including path
 function JSONHelper.encode_to_file(value, filename)
@@ -24,7 +24,7 @@ function JSONHelper.encode_to_file(value, filename)
 	end
 end
 
---- @func Encodes to JSON and writes to file
+--- Encodes to JSON and writes to file
 --- @param filename string File name including path
 --- @return table
 function JSONHelper.decode_from_file(filename)
