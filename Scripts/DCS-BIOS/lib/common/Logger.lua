@@ -23,7 +23,7 @@ Logger.logging_level = {
 	fatal = "FATAL",
 }
 
---- @func returns timestamp in format 2023-10-08 09:26:58
+--- returns timestamp in format 2023-10-08 09:26:58
 --- @return string
 local function getTimestamp()
 	return tostring(os.date("%Y-%m-%d %X"))
@@ -44,8 +44,9 @@ end
 
 --- @private
 --- Tries to log the object
+--- @param level string
 --- @param obj any Object
-function Logger:log(obj)
+function Logger:log(level, obj)
 	if obj == nil then
 		return
 	end
@@ -157,7 +158,7 @@ function Logger:log_table(level, tab, max_depth, max_bytes_to_log)
 end
 
 --- @private
---- @func Dumps a table (recursively if table contains tables)
+--- Dumps a table (recursively if table contains tables)
 --- @param tab table Table to dump/log
 --- @param max_depth integer How deep recursively to go
 function Logger:dump_table(tab, max_depth)
