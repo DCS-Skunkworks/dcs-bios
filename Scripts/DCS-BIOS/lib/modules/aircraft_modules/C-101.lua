@@ -32,7 +32,7 @@ function C_101:defineRotaryPlus(identifier, device_id, command2, command1, arg_n
 		device:performClickableAction(command2, (tonumber(value) or 0) / max_value)
 		device:performClickableAction(command1, 0)
 	end)
-	local alloc = self:allocateInt(max_value)
+	local alloc = self:allocateInt(max_value, identifier)
 
 	local control = Control:new(category, ControlType.analog_dial, identifier, description, {
 		VariableStepInput:new(3200, max_value, "turn the dial left or right"),

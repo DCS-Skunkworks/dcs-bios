@@ -60,7 +60,7 @@ local NS430 = Module:new("NS430", 0x0600, ns430_aircraft)
 -- v2.0 by Celemourn
 
 function NS430:defineDoubleCommandButton(identifier, device_id, start_command, stop_command, arg_number, category, description)
-	local alloc = self:allocateInt(1)
+	local alloc = self:allocateInt(1, identifier)
 	self:addExportHook(function(dev0)
 		alloc:setValue(dev0:get_argument_value(arg_number))
 	end)
@@ -86,7 +86,7 @@ function NS430:defineDoubleCommandButton(identifier, device_id, start_command, s
 end
 
 function NS430:defineMomentaryRockerSwitch(identifier, device_id, pos_command, pos_stop_command, neg_command, neg_stop_command, arg_number, category, description)
-	local alloc = self:allocateInt(2)
+	local alloc = self:allocateInt(2, identifier)
 	self:addExportHook(function(dev0)
 		local lut = { [-1] = 0, [0] = 1, [1] = 2 }
 		alloc:setValue(lut[Module.round(dev0:get_argument_value(arg_number))])

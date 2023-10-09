@@ -127,21 +127,23 @@ end
 
 --- Allocates space for a new integer value
 --- @param max_value integer
+--- @param debug_name string? the human-readable name to display for this allocation in logs
 --- @return MemoryAllocation allocation the newly-created memory allocation
-function MemoryMap:allocateInt(max_value)
-	return self:allocateData(max_value, false, false)
+function MemoryMap:allocateInt(max_value, debug_name)
+	return self:allocateData(max_value, false, false, debug_name)
 end
 
 --- Allocates space for a new string value
 --- @param max_length number the max length of the string
+--- @param debug_name string? the human-readable name to display for this allocation in logs
 --- @return StringAllocation
-function MemoryMap:allocateString(max_length)
+function MemoryMap:allocateString(max_length, debug_name)
 	--- @type MemoryAllocation[]
 	local character_allocations = {}
 
-	character_allocations[1] = self:allocateData(255, true, true)
+	character_allocations[1] = self:allocateData(255, true, true, debug_name)
 	for i = 2, max_length, 1 do
-		character_allocations[i] = self:allocateData(255, true, false)
+		character_allocations[i] = self:allocateData(255, true, false, debug_name)
 	end
 
 	return StringAllocation:new(character_allocations, max_length)
@@ -152,8 +154,9 @@ end
 --- @param max_value integer the maximum integer value stored in the memory allocation
 --- @param is_string_character boolean whether the space is being allocated for a string character
 --- @param first_string_character boolean whether this is the first character of a string
+--- @param debug_name string? the human-readable name to display for this allocation in logs
 --- @return MemoryAllocation
-function MemoryMap:allocateData(max_value, is_string_character, first_string_character)
+function MemoryMap:allocateData(max_value, is_string_character, first_string_character, debug_name)
 	-- allocate space for an integer value from 0 to maxValue in the memory map
 	-- returns a MemoryAllocation object that has a setValue() method
 	-- if is_string_character is true, the allocation will be in a byte-aligned
@@ -175,7 +178,7 @@ function MemoryMap:allocateData(max_value, is_string_character, first_string_cha
 			and ((not is_string_character) or entry:canAllocateStringCharacter(first_string_character)) -- string characters have special rules
 		then
 			-- found an entry that has enough space for the number of bits we want to allocate
-			return entry:allocate(max_value)
+			return entry:allocate(max_value, debug_name)
 		else
 			address = address + 2
 		end
