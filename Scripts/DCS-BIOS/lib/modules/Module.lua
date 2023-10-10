@@ -977,6 +977,33 @@ function Module:defineEjectionHandleSwitch(identifier, device_id, command, arg_n
 	return control
 end
 
+--- Adds a new string output containing the frequency of the device
+--- @param identifier string the unique identifier for the control
+--- @param device_id integer the dcs device id
+--- @param max_length integer the maximum length of the string
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @return Control control the control which was added to the module
+function Module:defineFrequencyString(identifier, device_id, max_length, category, description)
+	local alloc = self:allocateString(max_length, identifier)
+	self:addExportHook(function(dev0)
+		local value = tostring(GetDevice(device_id):get_frequency())
+		if value == nil then
+			error("function " .. identifier .. " is sending a nil value from its GetDevice(" .. device_id .. "):get_frequency()")
+		end
+
+		alloc:setValue(value)
+	end)
+
+	local control = Control:new(category, ControlType.display, identifier, description, {}, {
+		StringOutput:new(alloc, Suffix.none, description),
+	})
+
+	self:addControl(control)
+
+	return control
+end
+
 --- Defines a blank control with an input for setting the frequency of a radio device
 --- @param identifier string the unique identifier for the control
 --- @param device_id integer the dcs device id
