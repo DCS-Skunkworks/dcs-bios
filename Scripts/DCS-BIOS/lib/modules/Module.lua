@@ -8,6 +8,7 @@ local ControlType = require("ControlType")
 local Documentation = require("Documentation")
 local FixedStepInput = require("FixedStepInput")
 local IntegerOutput = require("IntegerOutput")
+local Log = require("Log")
 local MemoryMap = require("MemoryMap")
 local MomentaryPositions = require("MomentaryPositions")
 local PhysicalVariant = require("PhysicalVariant")
@@ -971,6 +972,30 @@ function Module:defineEjectionHandleSwitch(identifier, device_id, command, arg_n
 			GetDevice(device_id):performClickableAction(command, 1)
 			GetDevice(device_id):performClickableAction(command, 1)
 		end
+	end)
+
+	return control
+end
+
+--- Defines a blank control with an input for setting the frequency of a radio device
+--- @param identifier string the unique identifier for the control
+--- @param device_id integer the dcs device id
+--- @return Control
+function Module:defineSetFrequency(identifier, device_id)
+	-- todo: consider adding a new input type?
+	local control = Control:new("Set Frequency", ControlType.metadata, identifier, "Set the frequency of the radio (provide exact frequency)", {}, {})
+	self:addControl(control)
+
+	self:addInputProcessor(identifier, function(value)
+		local no_decimal_value = value:gsub("%.", "") -- remove decimals
+		local freq = tonumber(no_decimal_value) -- convert to number
+
+		if not freq then
+			Log:log_error(string.format("Module.lua: Attempted to set nil frequency for control %s (source value %s)", identifier, value))
+			return
+		end
+
+		GetDevice(device_id):set_frequency(freq * 1000)
 	end)
 
 	return control

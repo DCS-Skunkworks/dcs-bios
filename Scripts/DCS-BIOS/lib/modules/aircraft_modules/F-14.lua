@@ -391,15 +391,7 @@ F_14:defineIntegerFromGetter("PLT_UHF_DIAL4_FREQ", getARC159_Decimal_DIAL4_Frequ
 F_14:defineIntegerFromGetter("PLT_UHF_DIAL3_FREQ", getARC159_Decimal_DIAL3_Frequency, 10, "UHF 1", "PILOT Dial 3 ARC-159 Frequency")
 F_14:defineIntegerFromGetter("PLT_UHF_HIGH_FREQ", getARC159_High_Frequency, 400, "UHF 1", "PILOT High ARC-159 Frequency")
 
-F_14:addInputProcessor("SET_UHF_FREQ", function(freq)
-	freq = freq:gsub("%.", "")
-	freq = tonumber(freq)
-	if type(freq) == "nil" then
-		return
-	end
-
-	GetDevice(3):set_frequency(freq * 1000)
-end)
+F_14:defineSetFrequency("SET_UHF_FREQ", 3)
 
 -- VHF/UHF ARC-182 ("V/UHF 2")
 F_14:defineMultipositionSwitch("RIO_VUHF_FREQ_MODE", 4, 3417, 353, 6, 0.2, "VUHF", "RIO VHF/UHF ARC-182 Frequency Mode 243 MAN G PRESET READ LOAD")
@@ -452,15 +444,7 @@ F_14:defineIntegerFromGetter("RIO_VUHF_DIAL4_FREQ", getARC182_Decimal_DIAL4_Freq
 F_14:defineIntegerFromGetter("RIO_VUHF_DIAL3_FREQ", getARC182_Decimal_DIAL3_Frequency, 10, "VUHF", "RIO Dial 3 ARC-182 Frequency")
 F_14:defineIntegerFromGetter("RIO_VUHF_HIGH_FREQ", getARC182_High_Frequency, 400, "VUHF", "RIO High ARC-182 Frequency")
 
-F_14:addInputProcessor("SET_VUHF_FREQ", function(freq)
-	freq = freq:gsub("%.", "")
-	freq = tonumber(freq)
-	if type(freq) == "nil" then
-		return
-	end
-
-	GetDevice(4):set_frequency(freq * 1000)
-end)
+F_14:defineSetFrequency("SET_VUHF_FREQ", 4)
 
 -- KY-28
 F_14:defineTumb("RIO_KY28_POWER", 2, 3423, 116, 0.5, { 0, 1 }, nil, false, "KY-28", "RIO KY-28 Power Mode")
