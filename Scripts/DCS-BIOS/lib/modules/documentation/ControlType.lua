@@ -18,6 +18,7 @@ local ControlType = {
 	metadata = "metadata",
 	mission_computer_switch = "mission_computer_switch",
 	multi = "Multi",
+	radio = "radio",
 	selector = "selector",
 	toggle_switch = "toggle_switch",
 	variable_step_dial = "variable_step_dial",

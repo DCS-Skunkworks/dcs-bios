@@ -391,8 +391,6 @@ F_14:defineIntegerFromGetter("PLT_UHF_DIAL4_FREQ", getARC159_Decimal_DIAL4_Frequ
 F_14:defineIntegerFromGetter("PLT_UHF_DIAL3_FREQ", getARC159_Decimal_DIAL3_Frequency, 10, "UHF 1", "PILOT Dial 3 ARC-159 Frequency")
 F_14:defineIntegerFromGetter("PLT_UHF_HIGH_FREQ", getARC159_High_Frequency, 400, "UHF 1", "PILOT High ARC-159 Frequency")
 
-F_14:defineSetFrequency("SET_UHF_FREQ", 3)
-
 -- VHF/UHF ARC-182 ("V/UHF 2")
 F_14:defineMultipositionSwitch("RIO_VUHF_FREQ_MODE", 4, 3417, 353, 6, 0.2, "VUHF", "RIO VHF/UHF ARC-182 Frequency Mode 243 MAN G PRESET READ LOAD")
 F_14:defineMultipositionSwitch("RIO_VUHF_MODE", 4, 3413, 358, 5, 0.25, "VUHF", "RIO VHF/UHF ARC-182 MODE OFF T/R T/R&G DF TEST")
@@ -443,8 +441,6 @@ end
 F_14:defineIntegerFromGetter("RIO_VUHF_DIAL4_FREQ", getARC182_Decimal_DIAL4_Frequency, 100, "VUHF", "RIO Dial 4 ARC-182 Frequency")
 F_14:defineIntegerFromGetter("RIO_VUHF_DIAL3_FREQ", getARC182_Decimal_DIAL3_Frequency, 10, "VUHF", "RIO Dial 3 ARC-182 Frequency")
 F_14:defineIntegerFromGetter("RIO_VUHF_HIGH_FREQ", getARC182_High_Frequency, 400, "VUHF", "RIO High ARC-182 Frequency")
-
-F_14:defineSetFrequency("SET_VUHF_FREQ", 4)
 
 -- KY-28
 F_14:defineTumb("RIO_KY28_POWER", 2, 3423, 116, 0.5, { 0, 1 }, nil, false, "KY-28", "RIO KY-28 Power Mode")
@@ -1439,5 +1435,8 @@ F_14:definePotentiometer("PLT_MIRROR_TOP", 12, 3858, 258, { 0, 1 }, "Cockpit Mec
 F_14:definePotentiometer("PLT_MIRROR_L", 12, 3859, 256, { 0, 1 }, "Cockpit Mechanics", "PILOT Adjust Left Mirror")
 F_14:definePotentiometer("PLT_MIRROR_R", 12, 3860, 257, { 0, 1 }, "Cockpit Mechanics", "PILOT Adjust Right Mirror")
 F_14:definePotentiometer("RIO_MIRROR_TOP", 12, 3857, 46, { 0, 1 }, "Cockpit Mechanics", "RIO Adjust Top Mirror")
+
+F_14:defineReadWriteRadio("UHF_FREQ", 3, 7, 3, "UHF Radio")
+F_14:defineReadWriteRadio("VUHF_FREQ", 4, 7, 3, "VUHF Radio")
 
 return F_14
