@@ -1036,9 +1036,7 @@ function Module:defineRadio(identifier, device_id, max_length, decimal_places, r
 	self:addExportHook(function()
 		local frequency = tostring(Module.round(GetDevice(device_id):get_frequency() / 1000))
 		local decimal_location = frequency:len() - decimal_places
-		Log:log_info("decimal location:" .. tostring(decimal_location))
 		frequency = frequency:sub(1, decimal_location) .. "." .. frequency:sub(decimal_location + 1)
-		Log:log_info("frequency:" .. frequency)
 		alloc:setValue(frequency)
 	end)
 
