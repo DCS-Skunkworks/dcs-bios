@@ -6,12 +6,14 @@ module("MockDevice", package.seeall)
 --- @field set_commands {[integer]: number}[] a cache of SetCommand calls that have been made
 --- @field set_arguments {[integer]: number}[] a cache of set argument calls that have been made
 --- @field set_frequencies number[] a cache of set frequency calls that have been made
+--- @field current_frequency number the current frequency
 MockDevice = {
 	value = 0,
 	clickable_actions = {},
 	set_commands = {},
 	set_arguments = {},
 	set_frequencies = {},
+	current_frequency = 0,
 }
 --- Constructs a new mock cockpit device
 --- @param value number the value that should be returned on the mocked call to get_argument_value
@@ -23,6 +25,7 @@ function MockDevice:new(value)
 		set_commands = {},
 		set_arguments = {},
 		set_frequencies = {},
+		current_frequency = 0,
 	}
 
 	setmetatable(o, self)
@@ -66,6 +69,13 @@ end
 --- @param value number
 function MockDevice:set_frequency(value)
 	table.insert(self.set_frequencies, value)
+	self.current_frequency = value
+end
+
+--- Gets the device's frequency
+--- @return number frequency
+function MockDevice:get_frequency()
+	return self.current_frequency
 end
 
 return MockDevice
