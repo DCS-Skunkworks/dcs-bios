@@ -17,13 +17,14 @@ end
 
 local id = "MY_READ_WRITE_RADIO_INPUT"
 local device_id = 1
+local scale_factor = 1000
 local category = "Radio Frequencies"
 local description = "This is a read-write radio"
 
 function TestReadWriteRadio:testAddReadWriteRadio()
 	local max_length = 7
 	local decimal_places = 3
-	local control = self.module:defineReadWriteRadio(id, device_id, max_length, decimal_places, description)
+	local control = self.module:defineReadWriteRadio(id, device_id, max_length, decimal_places, scale_factor, description)
 
 	lu.assertEquals(control, self.module.documentation[category][id])
 	lu.assertEquals(control.control_type, ControlType.radio)
@@ -56,7 +57,7 @@ end
 function TestReadWriteRadio:testInputSetNoDecimal()
 	local max_length = 7
 	local decimal_places = 3
-	self.module:defineReadWriteRadio(id, device_id, max_length, decimal_places, description)
+	self.module:defineReadWriteRadio(id, device_id, max_length, decimal_places, scale_factor, description)
 	local input_processor = self.module.inputProcessors[id]
 
 	input_processor("123456")
@@ -73,7 +74,7 @@ end
 function TestReadWriteRadio:testInputSetWithDecimal()
 	local max_length = 7
 	local decimal_places = 3
-	self.module:defineReadWriteRadio(id, device_id, max_length, decimal_places, description)
+	self.module:defineReadWriteRadio(id, device_id, max_length, decimal_places, scale_factor, description)
 	local input_processor = self.module.inputProcessors[id]
 
 	input_processor("123.456")
@@ -87,10 +88,27 @@ function TestReadWriteRadio:testInputSetWithDecimal()
 	self:validate_string("123.456", max_length)
 end
 
+function TestReadWriteRadio:testInputSetWithIncompleteDecimal()
+	local max_length = 7
+	local decimal_places = 3
+	self.module:defineReadWriteRadio(id, device_id, max_length, decimal_places, scale_factor, description)
+	local input_processor = self.module.inputProcessors[id]
+
+	input_processor("123.4")
+
+	lu.assertEquals(#Input_Processor_Device.set_frequencies, 1)
+	local set_frequency = Input_Processor_Device.set_frequencies[1]
+	lu.assertAlmostEquals(set_frequency, 123400000)
+
+	local export_hook = self.module.exportHooks[1]
+	export_hook(Input_Processor_Device)
+	self:validate_string("123.400", max_length)
+end
+
 function TestReadWriteRadio:testInputSet4Digit()
 	local max_length = 5
 	local decimal_places = 2
-	self.module:defineReadWriteRadio(id, device_id, max_length, decimal_places, description)
+	self.module:defineReadWriteRadio(id, device_id, max_length, decimal_places, scale_factor, description)
 	local input_processor = self.module.inputProcessors[id]
 
 	input_processor("30.00")

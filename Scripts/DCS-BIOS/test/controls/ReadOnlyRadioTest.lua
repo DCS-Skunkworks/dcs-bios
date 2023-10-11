@@ -17,13 +17,14 @@ end
 
 local id = "MY_READ_ONLY_RADIO_INPUT"
 local device_id = 1
+local scale_factor = 1000
 local category = "Radio Frequencies"
 local description = "This is a read-only radio"
 
 function TestReadOnlyRadio:testAddReadOnlyRadio()
 	local max_length = 7
 	local decimal_places = 3
-	local control = self.module:defineReadOnlyRadio(id, device_id, max_length, decimal_places, description)
+	local control = self.module:defineReadOnlyRadio(id, device_id, max_length, decimal_places, scale_factor, description)
 
 	lu.assertEquals(control, self.module.documentation[category][id])
 	lu.assertEquals(control.control_type, ControlType.radio)
@@ -56,7 +57,7 @@ end
 function TestReadOnlyRadio:test6Digit()
 	local max_length = 7
 	local decimal_places = 3
-	self.module:defineReadOnlyRadio(id, device_id, max_length, decimal_places, description)
+	self.module:defineReadOnlyRadio(id, device_id, max_length, decimal_places, scale_factor, description)
 	lu.assertIsNil(self.module.inputProcessors[id])
 
 	Input_Processor_Device:set_frequency(123456000)
@@ -69,7 +70,7 @@ end
 function TestReadOnlyRadio:test4Digit()
 	local max_length = 5
 	local decimal_places = 2
-	self.module:defineReadOnlyRadio(id, device_id, max_length, decimal_places, description)
+	self.module:defineReadOnlyRadio(id, device_id, max_length, decimal_places, scale_factor, description)
 	lu.assertIsNil(self.module.inputProcessors[id])
 
 	Input_Processor_Device:set_frequency(3000000)

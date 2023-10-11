@@ -1436,7 +1436,7 @@ F_14:definePotentiometer("PLT_MIRROR_L", 12, 3859, 256, { 0, 1 }, "Cockpit Mecha
 F_14:definePotentiometer("PLT_MIRROR_R", 12, 3860, 257, { 0, 1 }, "Cockpit Mechanics", "PILOT Adjust Right Mirror")
 F_14:definePotentiometer("RIO_MIRROR_TOP", 12, 3857, 46, { 0, 1 }, "Cockpit Mechanics", "RIO Adjust Top Mirror")
 
-F_14:defineReadWriteRadio("UHF_FREQ", 3, 7, 3, "UHF Radio")
-F_14:defineReadWriteRadio("VUHF_FREQ", 4, 7, 3, "VUHF Radio")
+F_14:defineReadWriteRadio("UHF_FREQ", 3, 7, 3, 1000, "UHF Radio")
+F_14:defineReadWriteRadio("VUHF_FREQ", 4, 7, 3, 1000, "VUHF Radio")
 
 return F_14

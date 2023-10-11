@@ -7,6 +7,7 @@ local Control = require("Control")
 local ControlType = require("ControlType")
 local Documentation = require("Documentation")
 local FixedStepInput = require("FixedStepInput")
+local Functions = require("Functions")
 local IntegerOutput = require("IntegerOutput")
 local Log = require("Log")
 local MemoryMap = require("MemoryMap")
@@ -983,10 +984,11 @@ end
 --- @param device_id integer the dcs device id
 --- @param max_length integer the max length of the reported frequency
 --- @param decimal_places integer the number of decimal places in the reported frequency (i.e. how far from the right to place the decimal point)
+--- @param scale_factor integer the amount to multiply the frequency by when setting, or divide by when getting
 --- @param description string additional information about the control
 --- @return Control
-function Module:defineReadOnlyRadio(identifier, device_id, max_length, decimal_places, description)
-	return self:defineRadio(identifier, device_id, max_length, decimal_places, true, description)
+function Module:defineReadOnlyRadio(identifier, device_id, max_length, decimal_places, scale_factor, description)
+	return self:defineRadio(identifier, device_id, max_length, decimal_places, scale_factor, true, description)
 end
 
 --- Defines a control with an input for setting the frequency of a radio device and an output with the current radio frequency
@@ -994,10 +996,11 @@ end
 --- @param device_id integer the dcs device id
 --- @param max_length integer the max length of the reported frequency
 --- @param decimal_places integer the number of decimal places in the reported frequency (i.e. how far from the right to place the decimal point)
+--- @param scale_factor integer the amount to multiply the frequency by when setting, or divide by when getting
 --- @param description string additional information about the control
 --- @return Control
-function Module:defineReadWriteRadio(identifier, device_id, max_length, decimal_places, description)
-	return self:defineRadio(identifier, device_id, max_length, decimal_places, false, description)
+function Module:defineReadWriteRadio(identifier, device_id, max_length, decimal_places, scale_factor, description)
+	return self:defineRadio(identifier, device_id, max_length, decimal_places, scale_factor, false, description)
 end
 
 --- @private
@@ -1006,10 +1009,11 @@ end
 --- @param device_id integer the dcs device id
 --- @param max_length integer the max length of the reported frequency
 --- @param decimal_places integer the number of decimal places in the reported frequency (i.e. how far from the right to place the decimal point)
+--- @param scale_factor integer the amount to multiply the frequency by when setting, or divide by when getting
 --- @param read_only boolean whether the radio does not support set_frequency()
 --- @param description string additional information about the control
 --- @return Control
-function Module:defineRadio(identifier, device_id, max_length, decimal_places, read_only, description)
+function Module:defineRadio(identifier, device_id, max_length, decimal_places, scale_factor, read_only, description)
 	local alloc = self:allocateString(max_length, identifier)
 
 	local inputs = read_only and {} or { SetStringInput:new("The frequency to set, with or without a decimal place") }
@@ -1021,22 +1025,30 @@ function Module:defineRadio(identifier, device_id, max_length, decimal_places, r
 
 	if not read_only then
 		self:addInputProcessor(identifier, function(value)
-			local no_decimal_value = value:gsub("%.", "") -- remove decimals
-			local freq = tonumber(no_decimal_value) -- convert to number
+			local match_decimal = value:find("%.")
+			if match_decimal then
+				local decimal_padding = decimal_places - value:sub(match_decimal + 1):len()
+				if decimal_padding > 0 then
+					value = value .. string.rep("0", decimal_padding)
+				end
+				value = value:gsub("%.", "")
+			end
+
+			local freq = tonumber(value) -- convert to number
 
 			if not freq then
 				Log:log_error(string.format("Module.lua: Attempted to set nil frequency for control %s (source value %s)", identifier, value))
 				return
 			end
 
-			GetDevice(device_id):set_frequency(freq * 1000)
+			GetDevice(device_id):set_frequency(freq * scale_factor)
 		end)
 	end
 
 	self:addExportHook(function()
-		local frequency = tostring(Module.round(GetDevice(device_id):get_frequency() / 1000))
+		local frequency = tostring(Module.round(GetDevice(device_id):get_frequency() / scale_factor))
 		local decimal_location = frequency:len() - decimal_places
-		frequency = frequency:sub(1, decimal_location) .. "." .. frequency:sub(decimal_location + 1)
+		frequency = Functions.pad_left(frequency:sub(1, decimal_location) .. "." .. frequency:sub(decimal_location + 1), max_length)
 		alloc:setValue(frequency)
 	end)
 
