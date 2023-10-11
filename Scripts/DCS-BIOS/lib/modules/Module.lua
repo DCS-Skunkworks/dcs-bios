@@ -13,7 +13,7 @@ local MemoryMap = require("MemoryMap")
 local MomentaryPositions = require("MomentaryPositions")
 local PhysicalVariant = require("PhysicalVariant")
 local SetStateInput = require("SetStateInput")
-local StringInput = require("StringInput")
+local SetStringInput = require("SetStringInput")
 local StringOutput = require("StringOutput")
 local Suffix = require("Suffix")
 local VariableStepInput = require("VariableStepInput")
@@ -1012,7 +1012,7 @@ end
 function Module:defineRadio(identifier, device_id, max_length, decimal_places, read_only, description)
 	local alloc = self:allocateString(max_length, identifier)
 
-	local inputs = read_only and {} or { StringInput:new("The frequency to set, with or without a decimal place") }
+	local inputs = read_only and {} or { SetStringInput:new("The frequency to set, with or without a decimal place") }
 
 	local control = Control:new("Radio Frequencies", ControlType.radio, identifier, description, inputs, {
 		StringOutput:new(alloc, Suffix.none, "The current frequency the radio is set to"),
@@ -1034,9 +1034,11 @@ function Module:defineRadio(identifier, device_id, max_length, decimal_places, r
 	end
 
 	self:addExportHook(function()
-		local frequency = tostring(GetDevice(device_id):get_frequency() / 1000)
+		local frequency = tostring(Module.round(GetDevice(device_id):get_frequency() / 1000))
 		local decimal_location = frequency:len() - decimal_places
+		Log:log_info("decimal location:" .. tostring(decimal_location))
 		frequency = frequency:sub(1, decimal_location) .. "." .. frequency:sub(decimal_location + 1)
+		Log:log_info("frequency:" .. frequency)
 		alloc:setValue(frequency)
 	end)
 
