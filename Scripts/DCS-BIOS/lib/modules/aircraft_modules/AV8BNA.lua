@@ -619,5 +619,5 @@ end
 AV8BNA:defineString("UFC_SCRATCHPAD", getUfcText, 12, "UFC Display", "UFC Scratchpad Display")
 
 AV8BNA:defineReadWriteRadio("COMM1", 2, 7, 3, 1000, "COMM1 Radio")
-AV8BNA:defineReadWriteRadio("COMM2", 2, 7, 3, 1000, "COMM1 Radio")
+AV8BNA:defineReadWriteRadio("COMM2", 2, 7, 3, 1000, "COMM2 Radio")
 return AV8BNA
