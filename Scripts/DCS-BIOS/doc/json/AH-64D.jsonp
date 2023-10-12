@@ -17205,5 +17205,107 @@ docdata["AH-64D"] =
                                                                                                               "type": "integer"
                                                                                  } ]
                                                              }
+                                 },
+            "Radio Frequencies": {
+                                        "FM1_RADIO": {
+                                                             "category": "Radio Frequencies",
+                                                         "control_type": "radio",
+                                                          "description": "FM1 Radio",
+                                                           "identifier": "FM1_RADIO",
+                                                               "inputs": [ {
+                                                                             "description": "The frequency to set, with or without a decimal place",
+                                                                               "interface": "set_string"
+                                                                         } ],
+                                                              "outputs": [ {
+                                                                                                   "address": 34672,
+                                                                                        "address_identifier": "AH_64D_FM1_RADIO_A",
+                                                                                   "address_mask_identifier": "AH_64D_FM1_RADIO_AM",
+                                                                             "address_mask_shift_identifier": "AH_64D_FM1_RADIO",
+                                                                                               "description": "The current frequency the radio is set to",
+                                                                                                "max_length": 6,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "string"
+                                                                         } ]
+                                                     },
+                                        "FM2_RADIO": {
+                                                             "category": "Radio Frequencies",
+                                                         "control_type": "radio",
+                                                          "description": "FM2 Radio",
+                                                           "identifier": "FM2_RADIO",
+                                                               "inputs": [ {
+                                                                             "description": "The frequency to set, with or without a decimal place",
+                                                                               "interface": "set_string"
+                                                                         } ],
+                                                              "outputs": [ {
+                                                                                                   "address": 34678,
+                                                                                        "address_identifier": "AH_64D_FM2_RADIO_A",
+                                                                                   "address_mask_identifier": "AH_64D_FM2_RADIO_AM",
+                                                                             "address_mask_shift_identifier": "AH_64D_FM2_RADIO",
+                                                                                               "description": "The current frequency the radio is set to",
+                                                                                                "max_length": 6,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "string"
+                                                                         } ]
+                                                     },
+                                         "HF_RADIO": {
+                                                             "category": "Radio Frequencies",
+                                                         "control_type": "radio",
+                                                          "description": "HF Radio",
+                                                           "identifier": "HF_RADIO",
+                                                               "inputs": [ {
+                                                                             "description": "The frequency to set, with or without a decimal place",
+                                                                               "interface": "set_string"
+                                                                         } ],
+                                                              "outputs": [ {
+                                                                                                   "address": 34684,
+                                                                                        "address_identifier": "AH_64D_HF_RADIO_A",
+                                                                                   "address_mask_identifier": "AH_64D_HF_RADIO_AM",
+                                                                             "address_mask_shift_identifier": "AH_64D_HF_RADIO",
+                                                                                               "description": "The current frequency the radio is set to",
+                                                                                                "max_length": 6,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "string"
+                                                                         } ]
+                                                     },
+                                        "UHF_RADIO": {
+                                                             "category": "Radio Frequencies",
+                                                         "control_type": "radio",
+                                                          "description": "UHF Radio",
+                                                           "identifier": "UHF_RADIO",
+                                                               "inputs": [ {
+                                                                             "description": "The frequency to set, with or without a decimal place",
+                                                                               "interface": "set_string"
+                                                                         } ],
+                                                              "outputs": [ {
+                                                                                                   "address": 34656,
+                                                                                        "address_identifier": "AH_64D_UHF_RADIO_A",
+                                                                                   "address_mask_identifier": "AH_64D_UHF_RADIO_AM",
+                                                                             "address_mask_shift_identifier": "AH_64D_UHF_RADIO",
+                                                                                               "description": "The current frequency the radio is set to",
+                                                                                                "max_length": 7,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "string"
+                                                                         } ]
+                                                     },
+                                     "VHF_AM_RADIO": {
+                                                             "category": "Radio Frequencies",
+                                                         "control_type": "radio",
+                                                          "description": "VHF AM Radio",
+                                                           "identifier": "VHF_AM_RADIO",
+                                                               "inputs": [ {
+                                                                             "description": "The frequency to set, with or without a decimal place",
+                                                                               "interface": "set_string"
+                                                                         } ],
+                                                              "outputs": [ {
+                                                                                                   "address": 34664,
+                                                                                        "address_identifier": "AH_64D_VHF_AM_RADIO_A",
+                                                                                   "address_mask_identifier": "AH_64D_VHF_AM_RADIO_AM",
+                                                                             "address_mask_shift_identifier": "AH_64D_VHF_AM_RADIO",
+                                                                                               "description": "The current frequency the radio is set to",
+                                                                                                "max_length": 7,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "string"
+                                                                         } ]
+                                                     }
                                  }
 };
