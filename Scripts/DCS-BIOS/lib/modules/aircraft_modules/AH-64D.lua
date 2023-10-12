@@ -903,4 +903,10 @@ AH_64D:defineIntegerFromGetter("PLT_CMWS_FWD_RIGHT_DIM_L", function()
 	return fwd_right_sector_dim
 end, 1, "PLT CMWS", "Forward right sector lights, dim (orange)")
 
+AH_64D:defineReadWriteRadio("UHF_RADIO", 57, 7, 3, 1000, "UHF Radio")
+AH_64D:defineReadWriteRadio("VHF_AM_RADIO", 58, 7, 3, 1000, "VHF AM Radio")
+AH_64D:defineReadWriteRadio("FM1_RADIO", 59, 6, 3, 1000, "FM1 Radio")
+AH_64D:defineReadWriteRadio("FM2_RADIO", 60, 6, 3, 1000, "FM2 Radio")
+AH_64D:defineReadWriteRadio("HF_RADIO", 61, 6, 4, 100, "HF Radio")
+
 return AH_64D
