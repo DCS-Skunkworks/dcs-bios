@@ -146,7 +146,7 @@ function MemoryMap:allocateString(max_length, debug_name)
 		character_allocations[i] = self:allocateData(255, true, false, debug_name)
 	end
 
-	return StringAllocation:new(character_allocations, max_length)
+	return StringAllocation:new(character_allocations, max_length, debug_name)
 end
 
 --- @private

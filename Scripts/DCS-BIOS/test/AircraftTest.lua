@@ -3,6 +3,10 @@ local lu = require("luaunit")
 -- Unit testing starts
 TestAircraft = {} --class
 
+function TestAircraft:testA10C()
+	self:validateModule(require("A-10C"), "A-10C", 0x1000)
+end
+
 function TestAircraft:testA29B()
 	self:validateModule(require("A-29B"), "A-29B", 0x8800)
 end
