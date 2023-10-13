@@ -1836,11 +1836,14 @@ docdata["A-10C"] =
                                                                                                                           "suffix": "_INT",
                                                                                                                             "type": "integer"
                                                                                                }, {
-                                                                                                       "address": 4992,
-                                                                                                   "description": "possible values: \"00\" \"25\" \"50\" \"75\" ",
-                                                                                                    "max_length": 2,
-                                                                                                        "suffix": "_STR",
-                                                                                                          "type": "string"
+                                                                                                                         "address": 4992,
+                                                                                                              "address_identifier": "A_10C_ARC210_25KHZ_SEL_A",
+                                                                                                         "address_mask_identifier": "A_10C_ARC210_25KHZ_SEL_AM",
+                                                                                                   "address_mask_shift_identifier": "A_10C_ARC210_25KHZ_SEL",
+                                                                                                                     "description": "possible values: \"00\" \"25\" \"50\" \"75\"",
+                                                                                                                      "max_length": 2,
+                                                                                                                          "suffix": "_STR",
+                                                                                                                            "type": "string"
                                                                                                } ],
                                                                            "physical_variant": "limited_rotary"
                                                                     }
@@ -5083,7 +5086,7 @@ docdata["A-10C"] =
                                                                                                "address_identifier": "A_10C_CMSP1_A",
                                                                                           "address_mask_identifier": "A_10C_CMSP1_AM",
                                                                                     "address_mask_shift_identifier": "A_10C_CMSP1",
-                                                                                                      "description": "CMSP Display Line 1 (19 characters)",
+                                                                                                      "description": "CMSP Display Line 1",
                                                                                                        "max_length": 19,
                                                                                                            "suffix": "",
                                                                                                              "type": "string"
@@ -5100,7 +5103,7 @@ docdata["A-10C"] =
                                                                                                "address_identifier": "A_10C_CMSP2_A",
                                                                                           "address_mask_identifier": "A_10C_CMSP2_AM",
                                                                                     "address_mask_shift_identifier": "A_10C_CMSP2",
-                                                                                                      "description": "CMSP Display Line 2 (19 characters)",
+                                                                                                      "description": "CMSP Display Line 2",
                                                                                                        "max_length": 19,
                                                                                                            "suffix": "",
                                                                                                              "type": "string"
@@ -10782,7 +10785,7 @@ docdata["A-10C"] =
                                                                         "description": "Course Select Knob",
                                                                          "identifier": "HSI_CRS_KNOB",
                                                                              "inputs": [ {
-                                                                                              "description": "rotate the knob",
+                                                                                              "description": "Course Select Knob",
                                                                                                 "interface": "variable_step",
                                                                                                 "max_value": 65535,
                                                                                            "suggested_step": 3200
@@ -10863,7 +10866,7 @@ docdata["A-10C"] =
                                                                         "description": "Heading Select Knob",
                                                                          "identifier": "HSI_HDG_KNOB",
                                                                              "inputs": [ {
-                                                                                              "description": "rotate the knob",
+                                                                                              "description": "Heading Select Knob",
                                                                                                 "interface": "variable_step",
                                                                                                 "max_value": 65535,
                                                                                            "suggested_step": 3200
@@ -11152,32 +11155,31 @@ docdata["A-10C"] =
                                            },
                                     "IFF": {
                                                           "IFF_CODE": {
-                                                                                     "category": "IFF",
-                                                                                 "control_type": "selector",
-                                                                                  "description": "IFF Code: ZERO - B - A - (HOLD)",
-                                                                                   "identifier": "IFF_CODE",
-                                                                                       "inputs": [ {
-                                                                                                     "description": "switch to previous or next state",
-                                                                                                       "interface": "fixed_step"
-                                                                                                 }, {
-                                                                                                     "description": "set position",
-                                                                                                       "interface": "set_state",
-                                                                                                       "max_value": 3
-                                                                                                 } ],
-                                                                          "momentary_positions": "none",
-                                                                                      "outputs": [ {
-                                                                                                                           "address": 4378,
-                                                                                                                "address_identifier": "A_10C_IFF_CODE_A",
-                                                                                                           "address_mask_identifier": "A_10C_IFF_CODE_AM",
-                                                                                                     "address_mask_shift_identifier": "A_10C_IFF_CODE",
-                                                                                                                       "description": "selector position",
-                                                                                                                              "mask": 49152,
-                                                                                                                         "max_value": 3,
-                                                                                                                          "shift_by": 14,
-                                                                                                                            "suffix": "",
-                                                                                                                              "type": "integer"
-                                                                                                 } ],
-                                                                             "physical_variant": "limited_rotary"
+                                                                                  "category": "IFF",
+                                                                              "control_type": "selector",
+                                                                               "description": "IFF Code: ZERO - B - A - (HOLD)",
+                                                                                "identifier": "IFF_CODE",
+                                                                                    "inputs": [ {
+                                                                                                  "description": "switch to previous or next state",
+                                                                                                    "interface": "fixed_step"
+                                                                                              }, {
+                                                                                                  "description": "set position",
+                                                                                                    "interface": "set_state",
+                                                                                                    "max_value": 3
+                                                                                              } ],
+                                                                                   "outputs": [ {
+                                                                                                                        "address": 4378,
+                                                                                                             "address_identifier": "A_10C_IFF_CODE_A",
+                                                                                                        "address_mask_identifier": "A_10C_IFF_CODE_AM",
+                                                                                                  "address_mask_shift_identifier": "A_10C_IFF_CODE",
+                                                                                                                    "description": "selector position",
+                                                                                                                           "mask": 49152,
+                                                                                                                      "max_value": 3,
+                                                                                                                       "shift_by": 14,
+                                                                                                                         "suffix": "",
+                                                                                                                           "type": "integer"
+                                                                                              } ],
+                                                                          "physical_variant": "limited_rotary"
                                                                       },
                                                         "IFF_MASTER": {
                                                                                      "category": "IFF",
@@ -11765,72 +11767,76 @@ docdata["A-10C"] =
                                                                                       } ]
                                                                   },
                                                        "ILS_KHZ": {
-                                                                                 "category": "ILS Panel",
-                                                                             "control_type": "selector",
-                                                                              "description": "ILS Frequency KHz",
-                                                                               "identifier": "ILS_KHZ",
-                                                                                   "inputs": [ {
-                                                                                                 "description": "switch to previous or next state",
-                                                                                                   "interface": "fixed_step"
-                                                                                             }, {
-                                                                                                 "description": "set position",
-                                                                                                   "interface": "set_state",
-                                                                                                   "max_value": 9
-                                                                                             } ],
-                                                                      "momentary_positions": "none",
-                                                                                  "outputs": [ {
-                                                                                                                       "address": 4456,
-                                                                                                            "address_identifier": "A_10C_ILS_KHZ_A",
-                                                                                                       "address_mask_identifier": "A_10C_ILS_KHZ_AM",
-                                                                                                 "address_mask_shift_identifier": "A_10C_ILS_KHZ",
-                                                                                                                   "description": "selector position",
-                                                                                                                          "mask": 1920,
-                                                                                                                     "max_value": 9,
-                                                                                                                      "shift_by": 7,
-                                                                                                                        "suffix": "_INT",
-                                                                                                                          "type": "integer"
-                                                                                             }, {
-                                                                                                     "address": 4466,
-                                                                                                 "description": "possible values: \"10\" \"15\" \"30\" \"35\" \"50\" \"55\" \"70\" \"75\" \"90\" \"95\" ",
-                                                                                                  "max_length": 2,
-                                                                                                      "suffix": "_STR",
-                                                                                                        "type": "string"
-                                                                                             } ],
-                                                                         "physical_variant": "limited_rotary"
+                                                                              "category": "ILS Panel",
+                                                                          "control_type": "selector",
+                                                                           "description": "ILS Frequency KHz",
+                                                                            "identifier": "ILS_KHZ",
+                                                                                "inputs": [ {
+                                                                                              "description": "switch to previous or next state",
+                                                                                                "interface": "fixed_step"
+                                                                                          }, {
+                                                                                              "description": "set position",
+                                                                                                "interface": "set_state",
+                                                                                                "max_value": 9
+                                                                                          } ],
+                                                                               "outputs": [ {
+                                                                                                                    "address": 4456,
+                                                                                                         "address_identifier": "A_10C_ILS_KHZ_A",
+                                                                                                    "address_mask_identifier": "A_10C_ILS_KHZ_AM",
+                                                                                              "address_mask_shift_identifier": "A_10C_ILS_KHZ",
+                                                                                                                "description": "selector position",
+                                                                                                                       "mask": 1920,
+                                                                                                                  "max_value": 9,
+                                                                                                                   "shift_by": 7,
+                                                                                                                     "suffix": "_INT",
+                                                                                                                       "type": "integer"
+                                                                                          }, {
+                                                                                                                    "address": 4466,
+                                                                                                         "address_identifier": "A_10C_ILS_KHZ_A",
+                                                                                                    "address_mask_identifier": "A_10C_ILS_KHZ_AM",
+                                                                                              "address_mask_shift_identifier": "A_10C_ILS_KHZ",
+                                                                                                                "description": "possible values: \"10\" \"15\" \"30\" \"35\" \"50\" \"55\" \"70\" \"75\" \"90\" \"95\" ",
+                                                                                                                 "max_length": 2,
+                                                                                                                     "suffix": "_STR",
+                                                                                                                       "type": "string"
+                                                                                          } ],
+                                                                      "physical_variant": "limited_rotary"
                                                                   },
                                                        "ILS_MHZ": {
-                                                                                 "category": "ILS Panel",
-                                                                             "control_type": "selector",
-                                                                              "description": "ILS Frequency MHz",
-                                                                               "identifier": "ILS_MHZ",
-                                                                                   "inputs": [ {
-                                                                                                 "description": "switch to previous or next state",
-                                                                                                   "interface": "fixed_step"
-                                                                                             }, {
-                                                                                                 "description": "set position",
-                                                                                                   "interface": "set_state",
-                                                                                                   "max_value": 3
-                                                                                             } ],
-                                                                      "momentary_positions": "none",
-                                                                                  "outputs": [ {
-                                                                                                                       "address": 4456,
-                                                                                                            "address_identifier": "A_10C_ILS_MHZ_A",
-                                                                                                       "address_mask_identifier": "A_10C_ILS_MHZ_AM",
-                                                                                                 "address_mask_shift_identifier": "A_10C_ILS_MHZ",
-                                                                                                                   "description": "selector position",
-                                                                                                                          "mask": 96,
-                                                                                                                     "max_value": 3,
-                                                                                                                      "shift_by": 5,
-                                                                                                                        "suffix": "_INT",
-                                                                                                                          "type": "integer"
-                                                                                             }, {
-                                                                                                     "address": 4462,
-                                                                                                 "description": "possible values: \"108\" \"109\" \"110\" \"111\" ",
-                                                                                                  "max_length": 3,
-                                                                                                      "suffix": "_STR",
-                                                                                                        "type": "string"
-                                                                                             } ],
-                                                                         "physical_variant": "limited_rotary"
+                                                                              "category": "ILS Panel",
+                                                                          "control_type": "selector",
+                                                                           "description": "ILS Frequency MHz",
+                                                                            "identifier": "ILS_MHZ",
+                                                                                "inputs": [ {
+                                                                                              "description": "switch to previous or next state",
+                                                                                                "interface": "fixed_step"
+                                                                                          }, {
+                                                                                              "description": "set position",
+                                                                                                "interface": "set_state",
+                                                                                                "max_value": 3
+                                                                                          } ],
+                                                                               "outputs": [ {
+                                                                                                                    "address": 4456,
+                                                                                                         "address_identifier": "A_10C_ILS_MHZ_A",
+                                                                                                    "address_mask_identifier": "A_10C_ILS_MHZ_AM",
+                                                                                              "address_mask_shift_identifier": "A_10C_ILS_MHZ",
+                                                                                                                "description": "selector position",
+                                                                                                                       "mask": 96,
+                                                                                                                  "max_value": 3,
+                                                                                                                   "shift_by": 5,
+                                                                                                                     "suffix": "_INT",
+                                                                                                                       "type": "integer"
+                                                                                          }, {
+                                                                                                                    "address": 4462,
+                                                                                                         "address_identifier": "A_10C_ILS_MHZ_A",
+                                                                                                    "address_mask_identifier": "A_10C_ILS_MHZ_AM",
+                                                                                              "address_mask_shift_identifier": "A_10C_ILS_MHZ",
+                                                                                                                "description": "possible values: \"108\" \"109\" \"110\" \"111\" ",
+                                                                                                                 "max_length": 3,
+                                                                                                                     "suffix": "_STR",
+                                                                                                                       "type": "string"
+                                                                                          } ],
+                                                                      "physical_variant": "limited_rotary"
                                                                   },
                                                        "ILS_PWR": {
                                                                                  "category": "ILS Panel",
@@ -16799,10 +16805,6 @@ docdata["A-10C"] =
                                                                                   "inputs": [ {
                                                                                                 "description": "switch to previous or next state",
                                                                                                   "interface": "fixed_step"
-                                                                                            }, {
-                                                                                                   "argument": "TOGGLE_XY",
-                                                                                                "description": "Toggle TACAN Channel X/Y",
-                                                                                                  "interface": "action"
                                                                                             } ],
                                                                      "momentary_positions": "none",
                                                                                  "outputs": [ {
@@ -17028,11 +17030,14 @@ docdata["A-10C"] =
                                                                                                                          "suffix": "_INT",
                                                                                                                            "type": "integer"
                                                                                               }, {
-                                                                                                      "address": 4374,
-                                                                                                  "description": "possible values: \"0\" \"1\" \"2\" \"3\" \"4\" \"5\" \"6\" \"7\" \"8\" \"9\" \"0\" ",
-                                                                                                   "max_length": 1,
-                                                                                                       "suffix": "_STR",
-                                                                                                         "type": "string"
+                                                                                                                        "address": 4374,
+                                                                                                             "address_identifier": "A_10C_TISL_ALT_1000_A",
+                                                                                                        "address_mask_identifier": "A_10C_TISL_ALT_1000_AM",
+                                                                                                  "address_mask_shift_identifier": "A_10C_TISL_ALT_1000",
+                                                                                                                    "description": "possible values: \"0\" \"1\" \"2\" \"3\" \"4\" \"5\" \"6\" \"7\" \"8\" \"9\" \"0\"",
+                                                                                                                     "max_length": 1,
+                                                                                                                         "suffix": "_STR",
+                                                                                                                           "type": "string"
                                                                                               } ],
                                                                           "physical_variant": "infinite_rotary"
                                                                    },
@@ -17062,11 +17067,14 @@ docdata["A-10C"] =
                                                                                                                          "suffix": "_INT",
                                                                                                                            "type": "integer"
                                                                                               }, {
-                                                                                                      "address": 4372,
-                                                                                                  "description": "possible values: \"0\" \"1\" \"2\" \"3\" \"4\" \"5\" \"6\" \"7\" \"8\" \"9\" \"0\" ",
-                                                                                                   "max_length": 1,
-                                                                                                       "suffix": "_STR",
-                                                                                                         "type": "string"
+                                                                                                                        "address": 4372,
+                                                                                                             "address_identifier": "A_10C_TISL_ALT_10000_A",
+                                                                                                        "address_mask_identifier": "A_10C_TISL_ALT_10000_AM",
+                                                                                                  "address_mask_shift_identifier": "A_10C_TISL_ALT_10000",
+                                                                                                                    "description": "possible values: \"0\" \"1\" \"2\" \"3\" \"4\" \"5\" \"6\" \"7\" \"8\" \"9\" \"0\"",
+                                                                                                                     "max_length": 1,
+                                                                                                                         "suffix": "_STR",
+                                                                                                                           "type": "string"
                                                                                               } ],
                                                                           "physical_variant": "infinite_rotary"
                                                                    },
@@ -17176,11 +17184,14 @@ docdata["A-10C"] =
                                                                                                                          "suffix": "_INT",
                                                                                                                            "type": "integer"
                                                                                               }, {
-                                                                                                      "address": 4376,
-                                                                                                  "description": "possible values: \"0\" \"0.5\" \"1\" \"1.5\" \"2\" \"2.5\" \"3\" \"3.5\" \"4\" \"4.5\" \"5\" \"5.5\" \"6\" \"6.5\" \"7\" \"7.5\" \"8\" \"8.5\" \"9\" \"9.5\" \"0\" ",
-                                                                                                   "max_length": 3,
-                                                                                                       "suffix": "_STR",
-                                                                                                         "type": "string"
+                                                                                                                        "address": 4376,
+                                                                                                             "address_identifier": "A_10C_TISL_CODE1_A",
+                                                                                                        "address_mask_identifier": "A_10C_TISL_CODE1_AM",
+                                                                                                  "address_mask_shift_identifier": "A_10C_TISL_CODE1",
+                                                                                                                    "description": "possible values: \"0\" \"0.5\" \"1\" \"1.5\" \"2\" \"2.5\" \"3\" \"3.5\" \"4\" \"4.5\" \"5\" \"5.5\" \"6\" \"6.5\" \"7\" \"7.5\" \"8\" \"8.5\" \"9\" \"9.5\" \"0\"",
+                                                                                                                     "max_length": 3,
+                                                                                                                         "suffix": "_STR",
+                                                                                                                           "type": "string"
                                                                                               } ],
                                                                           "physical_variant": "infinite_rotary"
                                                                    },
@@ -17210,11 +17221,14 @@ docdata["A-10C"] =
                                                                                                                          "suffix": "_INT",
                                                                                                                            "type": "integer"
                                                                                               }, {
-                                                                                                      "address": 4380,
-                                                                                                  "description": "possible values: \"0\" \"0.5\" \"1\" \"1.5\" \"2\" \"2.5\" \"3\" \"3.5\" \"4\" \"4.5\" \"5\" \"5.5\" \"6\" \"6.5\" \"7\" \"7.5\" \"8\" \"8.5\" \"9\" \"9.5\" \"0\" ",
-                                                                                                   "max_length": 3,
-                                                                                                       "suffix": "_STR",
-                                                                                                         "type": "string"
+                                                                                                                        "address": 4380,
+                                                                                                             "address_identifier": "A_10C_TISL_CODE2_A",
+                                                                                                        "address_mask_identifier": "A_10C_TISL_CODE2_AM",
+                                                                                                  "address_mask_shift_identifier": "A_10C_TISL_CODE2",
+                                                                                                                    "description": "possible values: \"0\" \"0.5\" \"1\" \"1.5\" \"2\" \"2.5\" \"3\" \"3.5\" \"4\" \"4.5\" \"5\" \"5.5\" \"6\" \"6.5\" \"7\" \"7.5\" \"8\" \"8.5\" \"9\" \"9.5\" \"0\"",
+                                                                                                                     "max_length": 3,
+                                                                                                                         "suffix": "_STR",
+                                                                                                                           "type": "string"
                                                                                               } ],
                                                                           "physical_variant": "infinite_rotary"
                                                                    },
@@ -17244,11 +17258,14 @@ docdata["A-10C"] =
                                                                                                                          "suffix": "_INT",
                                                                                                                            "type": "integer"
                                                                                               }, {
-                                                                                                      "address": 4384,
-                                                                                                  "description": "possible values: \"0\" \"0.5\" \"1\" \"1.5\" \"2\" \"2.5\" \"3\" \"3.5\" \"4\" \"4.5\" \"5\" \"5.5\" \"6\" \"6.5\" \"7\" \"7.5\" \"8\" \"8.5\" \"9\" \"9.5\" \"0\" ",
-                                                                                                   "max_length": 3,
-                                                                                                       "suffix": "_STR",
-                                                                                                         "type": "string"
+                                                                                                                        "address": 4384,
+                                                                                                             "address_identifier": "A_10C_TISL_CODE3_A",
+                                                                                                        "address_mask_identifier": "A_10C_TISL_CODE3_AM",
+                                                                                                  "address_mask_shift_identifier": "A_10C_TISL_CODE3",
+                                                                                                                    "description": "possible values: \"0\" \"0.5\" \"1\" \"1.5\" \"2\" \"2.5\" \"3\" \"3.5\" \"4\" \"4.5\" \"5\" \"5.5\" \"6\" \"6.5\" \"7\" \"7.5\" \"8\" \"8.5\" \"9\" \"9.5\" \"0\"",
+                                                                                                                     "max_length": 3,
+                                                                                                                         "suffix": "_STR",
+                                                                                                                           "type": "string"
                                                                                               } ],
                                                                           "physical_variant": "infinite_rotary"
                                                                    },
@@ -17278,11 +17295,14 @@ docdata["A-10C"] =
                                                                                                                          "suffix": "_INT",
                                                                                                                            "type": "integer"
                                                                                               }, {
-                                                                                                      "address": 4388,
-                                                                                                  "description": "possible values: \"0\" \"0.5\" \"1\" \"1.5\" \"2\" \"2.5\" \"3\" \"3.5\" \"4\" \"4.5\" \"5\" \"5.5\" \"6\" \"6.5\" \"7\" \"7.5\" \"8\" \"8.5\" \"9\" \"9.5\" \"0\" ",
-                                                                                                   "max_length": 3,
-                                                                                                       "suffix": "_STR",
-                                                                                                         "type": "string"
+                                                                                                                        "address": 4388,
+                                                                                                             "address_identifier": "A_10C_TISL_CODE4_A",
+                                                                                                        "address_mask_identifier": "A_10C_TISL_CODE4_AM",
+                                                                                                  "address_mask_shift_identifier": "A_10C_TISL_CODE4",
+                                                                                                                    "description": "possible values: \"0\" \"0.5\" \"1\" \"1.5\" \"2\" \"2.5\" \"3\" \"3.5\" \"4\" \"4.5\" \"5\" \"5.5\" \"6\" \"6.5\" \"7\" \"7.5\" \"8\" \"8.5\" \"9\" \"9.5\" \"0\"",
+                                                                                                                     "max_length": 3,
+                                                                                                                         "suffix": "_STR",
+                                                                                                                           "type": "string"
                                                                                               } ],
                                                                           "physical_variant": "infinite_rotary"
                                                                    },
@@ -18735,11 +18755,14 @@ docdata["A-10C"] =
                                                                                                                           "suffix": "_INT",
                                                                                                                             "type": "integer"
                                                                                                }, {
-                                                                                                       "address": 4472,
-                                                                                                   "description": "possible values: \"2\" \"3\" \"A\" ",
-                                                                                                    "max_length": 1,
-                                                                                                        "suffix": "_STR",
-                                                                                                          "type": "string"
+                                                                                                                         "address": 4472,
+                                                                                                              "address_identifier": "A_10C_UHF_100MHZ_SEL_A",
+                                                                                                         "address_mask_identifier": "A_10C_UHF_100MHZ_SEL_AM",
+                                                                                                   "address_mask_shift_identifier": "A_10C_UHF_100MHZ_SEL",
+                                                                                                                     "description": "possible values: \"2\" \"3\" \"A\"",
+                                                                                                                      "max_length": 1,
+                                                                                                                          "suffix": "_STR",
+                                                                                                                            "type": "string"
                                                                                                } ],
                                                                            "physical_variant": "limited_rotary"
                                                                     },
@@ -18991,11 +19014,14 @@ docdata["A-10C"] =
                                                                                                                           "suffix": "_INT",
                                                                                                                             "type": "integer"
                                                                                                }, {
-                                                                                                       "address": 4474,
-                                                                                                   "description": "possible values: \"00\" \"25\" \"50\" \"75\" ",
-                                                                                                    "max_length": 2,
-                                                                                                        "suffix": "_STR",
-                                                                                                          "type": "string"
+                                                                                                                         "address": 4474,
+                                                                                                              "address_identifier": "A_10C_UHF_POINT25_SEL_A",
+                                                                                                         "address_mask_identifier": "A_10C_UHF_POINT25_SEL_AM",
+                                                                                                   "address_mask_shift_identifier": "A_10C_UHF_POINT25_SEL",
+                                                                                                                     "description": "possible values: \"00\" \"25\" \"50\" \"75\"",
+                                                                                                                      "max_length": 2,
+                                                                                                                          "suffix": "_STR",
+                                                                                                                            "type": "string"
                                                                                                } ],
                                                                            "physical_variant": "limited_rotary"
                                                                     },
@@ -19042,11 +19068,14 @@ docdata["A-10C"] =
                                                                                                                           "suffix": "_INT",
                                                                                                                             "type": "integer"
                                                                                                }, {
-                                                                                                       "address": 4470,
-                                                                                                   "description": "possible values: \" 1\" \" 2\" \" 3\" \" 4\" \" 5\" \" 6\" \" 7\" \" 8\" \" 9\" \"10\" \"11\" \"12\" \"13\" \"14\" \"15\" \"16\" \"17\" \"18\" \"19\" \"20\" ",
-                                                                                                    "max_length": 2,
-                                                                                                        "suffix": "_STR",
-                                                                                                          "type": "string"
+                                                                                                                         "address": 4470,
+                                                                                                              "address_identifier": "A_10C_UHF_PRESET_SEL_A",
+                                                                                                         "address_mask_identifier": "A_10C_UHF_PRESET_SEL_AM",
+                                                                                                   "address_mask_shift_identifier": "A_10C_UHF_PRESET_SEL",
+                                                                                                                     "description": "possible values: \" 1\" \" 2\" \" 3\" \" 4\" \" 5\" \" 6\" \" 7\" \" 8\" \" 9\" \"10\" \"11\" \"12\" \"13\" \"14\" \"15\" \"16\" \"17\" \"18\" \"19\" \"20\"",
+                                                                                                                      "max_length": 2,
+                                                                                                                          "suffix": "_STR",
+                                                                                                                            "type": "string"
                                                                                                } ],
                                                                            "physical_variant": "limited_rotary"
                                                                     },
@@ -19228,11 +19257,14 @@ docdata["A-10C"] =
                                                                                                                            "suffix": "_INT",
                                                                                                                              "type": "integer"
                                                                                                 }, {
-                                                                                                        "address": 4496,
-                                                                                                    "description": "possible values: \" 3\" \" 4\" \" 5\" \" 6\" \" 7\" \" 8\" \" 9\" \"10\" \"11\" \"12\" \"13\" \"14\" \"15\" ",
-                                                                                                     "max_length": 2,
-                                                                                                         "suffix": "_STR",
-                                                                                                           "type": "string"
+                                                                                                                          "address": 4496,
+                                                                                                               "address_identifier": "A_10C_VHFAM_FREQ1_A",
+                                                                                                          "address_mask_identifier": "A_10C_VHFAM_FREQ1_AM",
+                                                                                                    "address_mask_shift_identifier": "A_10C_VHFAM_FREQ1",
+                                                                                                                      "description": "possible values: \" 3\" \" 4\" \" 5\" \" 6\" \" 7\" \" 8\" \" 9\" \"10\" \"11\" \"12\" \"13\" \"14\" \"15\"",
+                                                                                                                       "max_length": 2,
+                                                                                                                           "suffix": "_STR",
+                                                                                                                             "type": "string"
                                                                                                 } ],
                                                                             "physical_variant": "infinite_rotary"
                                                                      },
@@ -19357,17 +19389,20 @@ docdata["A-10C"] =
                                                                                                           "address_mask_identifier": "A_10C_VHFAM_FREQ4_AM",
                                                                                                     "address_mask_shift_identifier": "A_10C_VHFAM_FREQ4",
                                                                                                                       "description": "selector position",
-                                                                                                                             "mask": 28672,
+                                                                                                                             "mask": 12288,
                                                                                                                         "max_value": 3,
                                                                                                                          "shift_by": 12,
                                                                                                                            "suffix": "_INT",
                                                                                                                              "type": "integer"
                                                                                                 }, {
-                                                                                                        "address": 4498,
-                                                                                                    "description": "possible values: \"00\" \"25\" \"50\" \"75\" ",
-                                                                                                     "max_length": 2,
-                                                                                                         "suffix": "_STR",
-                                                                                                           "type": "string"
+                                                                                                                          "address": 4498,
+                                                                                                               "address_identifier": "A_10C_VHFAM_FREQ4_A",
+                                                                                                          "address_mask_identifier": "A_10C_VHFAM_FREQ4_AM",
+                                                                                                    "address_mask_shift_identifier": "A_10C_VHFAM_FREQ4",
+                                                                                                                      "description": "possible values: \"00\" \"25\" \"50\" \"75\"",
+                                                                                                                       "max_length": 2,
+                                                                                                                           "suffix": "_STR",
+                                                                                                                             "type": "string"
                                                                                                 } ],
                                                                             "physical_variant": "infinite_rotary"
                                                                      },
@@ -19501,11 +19536,14 @@ docdata["A-10C"] =
                                                                                                                            "suffix": "_INT",
                                                                                                                              "type": "integer"
                                                                                                 }, {
-                                                                                                        "address": 4490,
-                                                                                                    "description": "possible values: \" 1\" \" 2\" \" 3\" \" 4\" \" 5\" \" 6\" \" 7\" \" 8\" \" 9\" \"10\" \"11\" \"12\" \"13\" \"14\" \"15\" \"16\" \"17\" \"18\" \"19\" \"20\" ",
-                                                                                                     "max_length": 2,
-                                                                                                         "suffix": "_STR",
-                                                                                                           "type": "string"
+                                                                                                                          "address": 4490,
+                                                                                                               "address_identifier": "A_10C_VHFAM_PRESET_A",
+                                                                                                          "address_mask_identifier": "A_10C_VHFAM_PRESET_AM",
+                                                                                                    "address_mask_shift_identifier": "A_10C_VHFAM_PRESET",
+                                                                                                                      "description": "possible values: \" 1\" \" 2\" \" 3\" \" 4\" \" 5\" \" 6\" \" 7\" \" 8\" \" 9\" \"10\" \"11\" \"12\" \"13\" \"14\" \"15\" \"16\" \"17\" \"18\" \"19\" \"20\"",
+                                                                                                                       "max_length": 2,
+                                                                                                                           "suffix": "_STR",
+                                                                                                                             "type": "string"
                                                                                                 } ],
                                                                             "physical_variant": "infinite_rotary"
                                                                      },
@@ -19606,11 +19644,14 @@ docdata["A-10C"] =
                                                                                                                            "suffix": "_INT",
                                                                                                                              "type": "integer"
                                                                                                 }, {
-                                                                                                        "address": 4506,
-                                                                                                    "description": "possible values: \" 3\" \" 4\" \" 5\" \" 6\" \" 7\" \" 8\" \" 9\" \"10\" \"11\" \"12\" \"13\" \"14\" \"15\" ",
-                                                                                                     "max_length": 2,
-                                                                                                         "suffix": "_STR",
-                                                                                                           "type": "string"
+                                                                                                                          "address": 4506,
+                                                                                                               "address_identifier": "A_10C_VHFFM_FREQ1_A",
+                                                                                                          "address_mask_identifier": "A_10C_VHFFM_FREQ1_AM",
+                                                                                                    "address_mask_shift_identifier": "A_10C_VHFFM_FREQ1",
+                                                                                                                      "description": "possible values: \" 3\" \" 4\" \" 5\" \" 6\" \" 7\" \" 8\" \" 9\" \"10\" \"11\" \"12\" \"13\" \"14\" \"15\"",
+                                                                                                                       "max_length": 2,
+                                                                                                                           "suffix": "_STR",
+                                                                                                                             "type": "string"
                                                                                                 } ],
                                                                             "physical_variant": "infinite_rotary"
                                                                      },
@@ -19735,17 +19776,20 @@ docdata["A-10C"] =
                                                                                                           "address_mask_identifier": "A_10C_VHFFM_FREQ4_AM",
                                                                                                     "address_mask_shift_identifier": "A_10C_VHFFM_FREQ4",
                                                                                                                       "description": "selector position",
-                                                                                                                             "mask": 1792,
+                                                                                                                             "mask": 768,
                                                                                                                         "max_value": 3,
                                                                                                                          "shift_by": 8,
                                                                                                                            "suffix": "_INT",
                                                                                                                              "type": "integer"
                                                                                                 }, {
-                                                                                                        "address": 4510,
-                                                                                                    "description": "possible values: \"00\" \"25\" \"50\" \"75\" ",
-                                                                                                     "max_length": 2,
-                                                                                                         "suffix": "_STR",
-                                                                                                           "type": "string"
+                                                                                                                          "address": 4510,
+                                                                                                               "address_identifier": "A_10C_VHFFM_FREQ4_A",
+                                                                                                          "address_mask_identifier": "A_10C_VHFFM_FREQ4_AM",
+                                                                                                    "address_mask_shift_identifier": "A_10C_VHFFM_FREQ4",
+                                                                                                                      "description": "possible values: \"00\" \"25\" \"50\" \"75\"",
+                                                                                                                       "max_length": 2,
+                                                                                                                           "suffix": "_STR",
+                                                                                                                             "type": "string"
                                                                                                 } ],
                                                                             "physical_variant": "infinite_rotary"
                                                                      },
@@ -19879,11 +19923,14 @@ docdata["A-10C"] =
                                                                                                                            "suffix": "_INT",
                                                                                                                              "type": "integer"
                                                                                                 }, {
-                                                                                                        "address": 4502,
-                                                                                                    "description": "possible values: \" 1\" \" 2\" \" 3\" \" 4\" \" 5\" \" 6\" \" 7\" \" 8\" \" 9\" \"10\" \"11\" \"12\" \"13\" \"14\" \"15\" \"16\" \"17\" \"18\" \"19\" \"20\" ",
-                                                                                                     "max_length": 2,
-                                                                                                         "suffix": "_STR",
-                                                                                                           "type": "string"
+                                                                                                                          "address": 4502,
+                                                                                                               "address_identifier": "A_10C_VHFFM_PRESET_A",
+                                                                                                          "address_mask_identifier": "A_10C_VHFFM_PRESET_AM",
+                                                                                                    "address_mask_shift_identifier": "A_10C_VHFFM_PRESET",
+                                                                                                                      "description": "possible values: \" 1\" \" 2\" \" 3\" \" 4\" \" 5\" \" 6\" \" 7\" \" 8\" \" 9\" \"10\" \"11\" \"12\" \"13\" \"14\" \"15\" \"16\" \"17\" \"18\" \"19\" \"20\"",
+                                                                                                                       "max_length": 2,
+                                                                                                                           "suffix": "_STR",
+                                                                                                                             "type": "string"
                                                                                                 } ],
                                                                             "physical_variant": "infinite_rotary"
                                                                      },
