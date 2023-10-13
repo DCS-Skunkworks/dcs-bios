@@ -12,8 +12,7 @@ local Suffix = require("Suffix")
 local Module = require("Module")
 
 local ns430_aircraft = {
-	"A-10C",
-	"A-10C_2",
+	"A-10A",
 	"AJS37",
 	"AV8BNA",
 	"Bf-109K-4",
@@ -22,15 +21,15 @@ local ns430_aircraft = {
 	"Christen Eagle II",
 	"F-14A-135-GR",
 	"F-14B",
-	"F-16C_50",
+	"F-15C",
+	"F-16A",
 	"F-5E-3",
 	"F-86F Sabre",
-	"FA-18C_hornet",
 	"FW-190A8",
 	"FW-190D9",
 	"I-16",
+	"J-11A",
 	"JF-17",
-	"Ka-50",
 	"L-39C",
 	"L-39ZA",
 	"M-2000C",
@@ -39,6 +38,9 @@ local ns430_aircraft = {
 	"MiG-15bis",
 	"MiG-19P",
 	"MiG-21Bis",
+	"MiG-29A",
+	"MiG-29G",
+	"MiG-29S",
 	"P-47D-30",
 	"P-47D-30bl1",
 	"P-47D-40",
@@ -50,6 +52,10 @@ local ns430_aircraft = {
 	"SA342Mistral",
 	"SpitfireLFMkIX",
 	"SpitfireLFMkIXCW",
+	"Su-25",
+	"Su-25T",
+	"Su-27",
+	"Su-33",
 	"TF-51D",
 	"UH-1H",
 	"Yak-52",
@@ -62,7 +68,7 @@ local NS430 = Module:new("NS430", 0x0600, ns430_aircraft)
 function NS430:defineDoubleCommandButton(identifier, device_id, start_command, stop_command, arg_number, category, description)
 	local alloc = self:allocateInt(1, identifier)
 	self:addExportHook(function(dev0)
-		alloc:setValue(dev0:get_argument_value(arg_number))
+		alloc:setValue(math.abs(dev0:get_argument_value(arg_number)))
 	end)
 
 	local control = Control:new(category, ControlType.selector, identifier, description, {
