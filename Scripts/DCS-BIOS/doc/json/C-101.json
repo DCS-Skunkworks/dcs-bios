@@ -14288,6 +14288,48 @@
                                                                               "physical_variant": "toggle_switch"
                                                                        }
                                             },
+                       "Radio Frequencies": {
+                                                "COMM_RADIO": {
+                                                                      "category": "Radio Frequencies",
+                                                                  "control_type": "radio",
+                                                                   "description": "COMM RADIO",
+                                                                    "identifier": "COMM_RADIO",
+                                                                        "inputs": [ {
+                                                                                      "description": "The frequency to set, with or without a decimal place",
+                                                                                        "interface": "set_string"
+                                                                                  } ],
+                                                                       "outputs": [ {
+                                                                                                            "address": 14186,
+                                                                                                 "address_identifier": "C_101_COMM_RADIO_A",
+                                                                                            "address_mask_identifier": "C_101_COMM_RADIO_AM",
+                                                                                      "address_mask_shift_identifier": "C_101_COMM_RADIO",
+                                                                                                        "description": "The current frequency the radio is set to",
+                                                                                                         "max_length": 7,
+                                                                                                             "suffix": "",
+                                                                                                               "type": "string"
+                                                                                  } ]
+                                                              },
+                                                "VUHF_RADIO": {
+                                                                      "category": "Radio Frequencies",
+                                                                  "control_type": "radio",
+                                                                   "description": "VUHF RADIO",
+                                                                    "identifier": "VUHF_RADIO",
+                                                                        "inputs": [ {
+                                                                                      "description": "The frequency to set, with or without a decimal place",
+                                                                                        "interface": "set_string"
+                                                                                  } ],
+                                                                       "outputs": [ {
+                                                                                                            "address": 14194,
+                                                                                                 "address_identifier": "C_101_VUHF_RADIO_A",
+                                                                                            "address_mask_identifier": "C_101_VUHF_RADIO_AM",
+                                                                                      "address_mask_shift_identifier": "C_101_VUHF_RADIO",
+                                                                                                        "description": "The current frequency the radio is set to",
+                                                                                                         "max_length": 7,
+                                                                                                             "suffix": "",
+                                                                                                               "type": "string"
+                                                                                  } ]
+                                                              }
+                                            },
                         "Red Panel Lights": {
                                                   "BACK_RED_FLOODLIGHT_L_CENTER": {
                                                                                           "category": "Red Panel Lights",

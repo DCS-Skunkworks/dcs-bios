@@ -843,4 +843,7 @@ C_101:defineIndicatorLight("CC_FRONT_BAT_OFF_R_L", 177, "Warning, Caution and In
 --178 ff
 C_101:definePotentiometer("FRONT_MIRROR_ADJ", 1, 3242, 10, { 0, 1 }, "Misc", "FRONT Adjust Mirror")
 
+C_101:defineReadWriteRadio("COMM_RADIO", 10, 7, 3, 1000, "COMM RADIO")
+C_101:defineReadWriteRadio("VUHF_RADIO", 11, 7, 3, 1000, "VUHF RADIO")
+
 return C_101
