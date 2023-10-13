@@ -51,7 +51,7 @@ FW_190D9:defineToggleSwitch("FT_ZF_SWITCH", 15, 3006, 84, "Radio", "FT FT / Y ZF
 FW_190D9:reserveIntValue(65535)
 FW_190D9:defineToggleSwitch("OXY_EMG_KNOB", 4, 3001, 190, "Cockpit", "Oxygen Emergency Knob")
 FW_190D9:definePushButton("FUG25_TEST", 16, 3003, 88, "Radio", "IFF Check")
-FW_190D9:definePotentiometer("HOR_CAGE", 12, 3001, 39, { 0.513, 1.0 }, "Cockpit", "Horizon Cage")
+FW_190D9:definePotentiometer("HOR_CAGE", 12, 3001, 39, { 0.5, 1.0 }, "Cockpit", "Horizon Cage")
 FW_190D9:definePotentiometer("OXY_FLOW_VALVE", 4, 3003, 110, { 0, 0.5 }, "Cockpit", "Oxygen Flow Valve")
 FW_190D9:defineTumb("MAGNETO", 2, 3004, 75, 0.3, { 0, 0.9 }, nil, false, "Cockpit", "Magneto Switch")
 FW_190D9:defineTumb("STARTER_SWITCH", 2, 3008, 105, 0.5, { 0, 1 }, nil, false, "Cockpit", "Starter Switch. Starter Power")
