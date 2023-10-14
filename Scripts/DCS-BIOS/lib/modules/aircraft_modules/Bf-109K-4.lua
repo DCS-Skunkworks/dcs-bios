@@ -242,4 +242,6 @@ Bf_109K_4:defineIndicatorLight("BOMB_3_L", 68, "Indicator", "Bomb 3 Status Light
 Bf_109K_4:defineIndicatorLight("BOMB_4_L", 69, "Indicator", "Bomb 4 Status Light (white)")
 Bf_109K_4:defineFloat("PANEL_GLOW", 79, { 0, 1 }, "Indicator", "Gauges Glow (green)")
 
+Bf_109K_4:defineReadWriteRadio("VHF_RADIO", 14, 6, 3, 1000, "VHF_RADIO")
+
 return Bf_109K_4
