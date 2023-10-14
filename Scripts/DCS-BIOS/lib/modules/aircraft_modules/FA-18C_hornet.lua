@@ -947,4 +947,7 @@ FA_18C_hornet:defineFloat("AOA_INDEXER_LOW_F", 6, { 0, 1 }, "Angle of Attack Ind
 
 FA_18C_hornet:defineToggleSwitch("KY58_FILL_SEL_PULL", 41, 3003, 0, "KY-58 Control", "KY-58 Fill Select Knob, Pull")
 
+FA_18C_hornet:defineReadWriteRadio("COMM1", 38, 7, 3, 1000, "COMM1 Radio")
+FA_18C_hornet:defineReadWriteRadio("COMM2", 39, 7, 3, 1000, "COMM2 Radio")
+
 return FA_18C_hornet
