@@ -11615,6 +11615,48 @@
                                                                            "physical_variant": "toggle_switch"
                                                                     }
                                                },
+                          "Radio Frequencies": {
+                                                   "UHF_RADIO": {
+                                                                        "category": "Radio Frequencies",
+                                                                    "control_type": "radio",
+                                                                     "description": "UHF RADIO",
+                                                                      "identifier": "UHF_RADIO",
+                                                                          "inputs": [ {
+                                                                                        "description": "The frequency to set, with or without a decimal place",
+                                                                                          "interface": "set_string"
+                                                                                    } ],
+                                                                         "outputs": [ {
+                                                                                                              "address": 38336,
+                                                                                                   "address_identifier": "F_15E_UHF_RADIO_A",
+                                                                                              "address_mask_identifier": "F_15E_UHF_RADIO_AM",
+                                                                                        "address_mask_shift_identifier": "F_15E_UHF_RADIO",
+                                                                                                          "description": "The current frequency the radio is set to",
+                                                                                                           "max_length": 7,
+                                                                                                               "suffix": "",
+                                                                                                                 "type": "string"
+                                                                                    } ]
+                                                                },
+                                                   "VHF_RADIO": {
+                                                                        "category": "Radio Frequencies",
+                                                                    "control_type": "radio",
+                                                                     "description": "VHF RADIO",
+                                                                      "identifier": "VHF_RADIO",
+                                                                          "inputs": [ {
+                                                                                        "description": "The frequency to set, with or without a decimal place",
+                                                                                          "interface": "set_string"
+                                                                                    } ],
+                                                                         "outputs": [ {
+                                                                                                              "address": 38344,
+                                                                                                   "address_identifier": "F_15E_VHF_RADIO_A",
+                                                                                              "address_mask_identifier": "F_15E_VHF_RADIO_AM",
+                                                                                        "address_mask_shift_identifier": "F_15E_VHF_RADIO",
+                                                                                                          "description": "The current frequency the radio is set to",
+                                                                                                           "max_length": 7,
+                                                                                                               "suffix": "",
+                                                                                                                 "type": "string"
+                                                                                    } ]
+                                                                }
+                                               },
                        "Rear Altimeter Gauge": {
                                                      "R_FI_ALT_10000_G": {
                                                                                  "category": "Rear Altimeter Gauge",
