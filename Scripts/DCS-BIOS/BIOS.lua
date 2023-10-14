@@ -48,7 +48,9 @@ BIOS.protocol.writeNewModule(CommonData)
 -- is used by DCSFlightpanels GUI to pick up DCS-BIOS modules
 -- ID range 1-3 is used internally in DCSFlightpanels. New modules must have an uniques ID.
 
-dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/A-10C.lua]]) -- ID = 5, ProperName = A-10C Thunderbolt/II
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/A-10C.lua]]) -- ID = 5, ProperName = A-10C Thunderbolt/II
+local A_10C = require "A-10C"
+BIOS.protocol.writeNewModule(A_10C)
 -- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/A-29B.lua]]) -- ID = 41, ProperName = A-29B Super Tucano
 local A_29B = require "A-29B"
 BIOS.protocol.writeNewModule(A_29B)

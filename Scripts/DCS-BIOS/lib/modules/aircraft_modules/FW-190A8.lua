@@ -21,7 +21,7 @@ FW_190A8:defineToggleSwitch("CANOPY_EMG_REL", 3, 3006, 115, "Cockpit", "Canopy E
 FW_190A8:defineRotary("CANOPY_HAND_CRK", 3, 3001, 114, "Cockpit", "Canopy Hand Crank")
 FW_190A8:defineToggleSwitch("THR_LOCK", 2, 3011, 200, "Cockpit", "Throttle Lock")
 FW_190A8:defineRotary("ALT_PRESS_SET", 10, 3001, 34, "Cockpit", "Altimeter Pressure Set")
-FW_190A8:definePotentiometer("HOR_CAGE", 12, 3001, 39, { 0.511, 1 }, "Cockpit", "Horizon Cage")
+FW_190A8:definePotentiometer("HOR_CAGE", 12, 3001, 39, { 0.5, 1 }, "Cockpit", "Horizon Cage")
 FW_190A8:defineRotary("TURN_BEZ", 13, 3004, 24, "Cockpit", "Turnable Bezel")
 FW_190A8:defineRotary("WND_SET", 13, 3001, 25, "Cockpit", "Wind/Set Knob")
 FW_190A8:definePushButton("START_STOP", 13, 3002, 26, "Cockpit", "Start - Stop Button")

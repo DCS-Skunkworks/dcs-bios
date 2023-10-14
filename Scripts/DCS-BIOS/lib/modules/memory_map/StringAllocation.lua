@@ -33,7 +33,9 @@ function StringAllocation:setValue(value)
 	local i = 1
 
 	if value == nil then
-		Log:log_error(string.format("StringAllocation.lua: string for %s is sending a nil value", self.debug_name))
+		local address_start = self.characterAllocations[1].address
+		local address_end = self.characterAllocations[#self.characterAllocations].address
+		Log:log_error(string.format("StringAllocation.lua: string for %s is sending a nil value (%d:%d)", self.debug_name or "n/a", address_start, address_end))
 		return
 	end
 
