@@ -8788,6 +8788,68 @@
                                                                                } ]
                                                            }
                                    },
+              "Radio Frequencies": {
+                                        "UHF_ARC51": {
+                                                             "category": "Radio Frequencies",
+                                                         "control_type": "radio",
+                                                          "description": "UHF ARC-51 Radio",
+                                                           "identifier": "UHF_ARC51",
+                                                               "inputs": [ {
+                                                                             "description": "The frequency to set, with or without a decimal place",
+                                                                               "interface": "set_string"
+                                                                         } ],
+                                                              "outputs": [ {
+                                                                                                   "address": 5454,
+                                                                                        "address_identifier": "UH_1H_UHF_ARC51_A",
+                                                                                   "address_mask_identifier": "UH_1H_UHF_ARC51_AM",
+                                                                             "address_mask_shift_identifier": "UH_1H_UHF_ARC51",
+                                                                                               "description": "The current frequency the radio is set to",
+                                                                                                "max_length": 7,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "string"
+                                                                         } ]
+                                                     },
+                                       "VHF_ARC131": {
+                                                             "category": "Radio Frequencies",
+                                                         "control_type": "radio",
+                                                          "description": "VHF ARC-131 Radio",
+                                                           "identifier": "VHF_ARC131",
+                                                               "inputs": [ {
+                                                                             "description": "The frequency to set, with or without a decimal place",
+                                                                               "interface": "set_string"
+                                                                         } ],
+                                                              "outputs": [ {
+                                                                                                   "address": 5462,
+                                                                                        "address_identifier": "UH_1H_VHF_ARC131_A",
+                                                                                   "address_mask_identifier": "UH_1H_VHF_ARC131_AM",
+                                                                             "address_mask_shift_identifier": "UH_1H_VHF_ARC131",
+                                                                                               "description": "The current frequency the radio is set to",
+                                                                                                "max_length": 5,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "string"
+                                                                         } ]
+                                                     },
+                                       "VHF_ARC134": {
+                                                             "category": "Radio Frequencies",
+                                                         "control_type": "radio",
+                                                          "description": "VHF ARC-134 Radio",
+                                                           "identifier": "VHF_ARC134",
+                                                               "inputs": [ {
+                                                                             "description": "The frequency to set, with or without a decimal place",
+                                                                               "interface": "set_string"
+                                                                         } ],
+                                                              "outputs": [ {
+                                                                                                   "address": 5446,
+                                                                                        "address_identifier": "UH_1H_VHF_ARC134_A",
+                                                                                   "address_mask_identifier": "UH_1H_VHF_ARC134_AM",
+                                                                             "address_mask_shift_identifier": "UH_1H_VHF_ARC134",
+                                                                                               "description": "The current frequency the radio is set to",
+                                                                                                "max_length": 7,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "string"
+                                                                         } ]
+                                                     }
+                                   },
                       "UHF Radio": {
                                             "UHF_10MHZ": {
                                                                  "category": "UHF Radio",

@@ -513,4 +513,8 @@ UH_1H:defineBitFromDrawArgument("EXT_LAND_LIGHT_F", 208, "External Aircraft Mode
 UH_1H:defineBitFromDrawArgument("EXT_LAND_LIGHT_M", 209, "External Aircraft Model", "Landing Light Mid (white)")
 UH_1H:defineBitFromDrawArgument("EXT_LIGHT_TAIL", 192, "External Aircraft Model", "Tail Light (white)")
 
+UH_1H:defineReadWriteRadio("VHF_ARC134", 20, 7, 3, 1000, "VHF ARC-134 Radio")
+UH_1H:defineReadWriteRadio("UHF_ARC51", 22, 7, 3, 1000, "UHF ARC-51 Radio")
+UH_1H:defineReadWriteRadio("VHF_ARC131", 23, 5, 2, 10000, "VHF ARC-131 Radio")
+
 return UH_1H
