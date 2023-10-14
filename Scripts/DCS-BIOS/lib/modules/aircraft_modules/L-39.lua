@@ -701,4 +701,6 @@ L_39:defineString("BACK_RADIO_CHN_DISPLAY_STRING", getRadioPresetChan_BACKS, 2, 
 L_39:defineFloat("FRONT_CANOPY_POS", 139, { 0, 1 }, "Gauges", "FRONT Canopy Position")
 L_39:defineFloat("BACK_CANOPY_POS", 140, { 0, 1 }, "Gauges", "BACK Door Position")
 
+L_39:defineReadWriteRadio("R832M_RADIO", 19, 7, 3, 1000, "R-832M Radio")
+
 return L_39
