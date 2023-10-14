@@ -14876,6 +14876,88 @@ docdata["MB-339"] =
                                                                    "physical_variant": "toggle_switch"
                                                             }
                                },
+          "Radio Frequencies": {
+                                   "AFT_COMM1": {
+                                                        "category": "Radio Frequencies",
+                                                    "control_type": "radio",
+                                                     "description": "Aft COMM1",
+                                                      "identifier": "AFT_COMM1",
+                                                          "inputs": [ {
+                                                                        "description": "The frequency to set, with or without a decimal place",
+                                                                          "interface": "set_string"
+                                                                    } ],
+                                                         "outputs": [ {
+                                                                                              "address": 33798,
+                                                                                   "address_identifier": "MB_339_AFT_COMM1_A",
+                                                                              "address_mask_identifier": "MB_339_AFT_COMM1_AM",
+                                                                        "address_mask_shift_identifier": "MB_339_AFT_COMM1",
+                                                                                          "description": "The current frequency the radio is set to",
+                                                                                           "max_length": 7,
+                                                                                               "suffix": "",
+                                                                                                 "type": "string"
+                                                                    } ]
+                                                },
+                                   "AFT_COMM2": {
+                                                        "category": "Radio Frequencies",
+                                                    "control_type": "radio",
+                                                     "description": "Aft COMM2",
+                                                      "identifier": "AFT_COMM2",
+                                                          "inputs": [ {
+                                                                        "description": "The frequency to set, with or without a decimal place",
+                                                                          "interface": "set_string"
+                                                                    } ],
+                                                         "outputs": [ {
+                                                                                              "address": 33806,
+                                                                                   "address_identifier": "MB_339_AFT_COMM2_A",
+                                                                              "address_mask_identifier": "MB_339_AFT_COMM2_AM",
+                                                                        "address_mask_shift_identifier": "MB_339_AFT_COMM2",
+                                                                                          "description": "The current frequency the radio is set to",
+                                                                                           "max_length": 7,
+                                                                                               "suffix": "",
+                                                                                                 "type": "string"
+                                                                    } ]
+                                                },
+                                   "FWD_COMM1": {
+                                                        "category": "Radio Frequencies",
+                                                    "control_type": "radio",
+                                                     "description": "Forward COMM1",
+                                                      "identifier": "FWD_COMM1",
+                                                          "inputs": [ {
+                                                                        "description": "The frequency to set, with or without a decimal place",
+                                                                          "interface": "set_string"
+                                                                    } ],
+                                                         "outputs": [ {
+                                                                                              "address": 33782,
+                                                                                   "address_identifier": "MB_339_FWD_COMM1_A",
+                                                                              "address_mask_identifier": "MB_339_FWD_COMM1_AM",
+                                                                        "address_mask_shift_identifier": "MB_339_FWD_COMM1",
+                                                                                          "description": "The current frequency the radio is set to",
+                                                                                           "max_length": 7,
+                                                                                               "suffix": "",
+                                                                                                 "type": "string"
+                                                                    } ]
+                                                },
+                                   "FWD_COMM2": {
+                                                        "category": "Radio Frequencies",
+                                                    "control_type": "radio",
+                                                     "description": "Forward COMM2",
+                                                      "identifier": "FWD_COMM2",
+                                                          "inputs": [ {
+                                                                        "description": "The frequency to set, with or without a decimal place",
+                                                                          "interface": "set_string"
+                                                                    } ],
+                                                         "outputs": [ {
+                                                                                              "address": 33790,
+                                                                                   "address_identifier": "MB_339_FWD_COMM2_A",
+                                                                              "address_mask_identifier": "MB_339_FWD_COMM2_AM",
+                                                                        "address_mask_shift_identifier": "MB_339_FWD_COMM2",
+                                                                                          "description": "The current frequency the radio is set to",
+                                                                                           "max_length": 7,
+                                                                                               "suffix": "",
+                                                                                                 "type": "string"
+                                                                    } ]
+                                                }
+                               },
                        "Seat": {
                                           "SEAT_ADJ": {
                                                               "category": "Seat",
