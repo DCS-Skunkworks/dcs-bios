@@ -3645,6 +3645,28 @@ docdata["Yak-52"] =
                                                                                         } ]
                                                                     }
                                             },
+                       "Radio Frequencies": {
+                                                "LANDYSH5_RADIO": {
+                                                                          "category": "Radio Frequencies",
+                                                                      "control_type": "radio",
+                                                                       "description": "LANDYSh-5 Radio",
+                                                                        "identifier": "LANDYSH5_RADIO",
+                                                                            "inputs": [ {
+                                                                                          "description": "The frequency to set, with or without a decimal place",
+                                                                                            "interface": "set_string"
+                                                                                      } ],
+                                                                           "outputs": [ {
+                                                                                                                "address": 8406,
+                                                                                                     "address_identifier": "Yak_52_LANDYSH5_RADIO_A",
+                                                                                                "address_mask_identifier": "Yak_52_LANDYSH5_RADIO_AM",
+                                                                                          "address_mask_shift_identifier": "Yak_52_LANDYSH5_RADIO",
+                                                                                                            "description": "The current frequency the radio is set to",
+                                                                                                             "max_length": 7,
+                                                                                                                 "suffix": "",
+                                                                                                                   "type": "string"
+                                                                                      } ]
+                                                                  }
+                                            },
                          "Rear Main Panel": {
                                                      "REAR_ACCEL_BTN": {
                                                                                    "api_variant": "momentary_last_position",
