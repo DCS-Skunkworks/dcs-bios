@@ -4195,6 +4195,28 @@
                                                           "physical_variant": "limited_rotary"
                                                    }
                                },
+          "Radio Frequencies": {
+                                   "VHF_RADIO": {
+                                                        "category": "Radio Frequencies",
+                                                    "control_type": "radio",
+                                                     "description": "VHF_RADIO",
+                                                      "identifier": "VHF_RADIO",
+                                                          "inputs": [ {
+                                                                        "description": "The frequency to set, with or without a decimal place",
+                                                                          "interface": "set_string"
+                                                                    } ],
+                                                         "outputs": [ {
+                                                                                              "address": 17062,
+                                                                                   "address_identifier": "Bf_109K_4_VHF_RADIO_A",
+                                                                              "address_mask_identifier": "Bf_109K_4_VHF_RADIO_AM",
+                                                                        "address_mask_shift_identifier": "Bf_109K_4_VHF_RADIO",
+                                                                                          "description": "The current frequency the radio is set to",
+                                                                                           "max_length": 6,
+                                                                                               "suffix": "",
+                                                                                                 "type": "string"
+                                                                    } ]
+                                                }
+                               },
                       "Stick": {
                                          "BOMB_RLS": {
                                                                  "api_variant": "momentary_last_position",
