@@ -26405,6 +26405,7 @@
 #define Mosquito_R1155_METER_BAL_A 0x70E4
 #define Mosquito_R1155_METER_DEF 0x70C2, 0x8000, 15
 #define Mosquito_R1155_METER_DEF_AM 0x70C2, 0x8000
+#define Mosquito_R1155_RADIO_A 0x7108
 #define Mosquito_R1155_RANGE_HIGH 0x70E0, 0xFFFF, 0
 #define Mosquito_R1155_RANGE_HIGH_A 0x70E0
 #define Mosquito_R1155_RANGE_LOW 0x70E2, 0xFFFF, 0
@@ -26582,6 +26583,7 @@
 #define Mosquito_T1154_M2_G_A 0x70DA
 #define Mosquito_T1154_M3_G 0x70DC, 0xFFFF, 0
 #define Mosquito_T1154_M3_G_A 0x70DC
+#define Mosquito_T1154_RADIO_A 0x7100
 #define Mosquito_T1154_S3 0x70C8, 0x000F, 0
 #define Mosquito_T1154_S4 0x70C8, 0x00F0, 4
 #define Mosquito_T1154_S5 0x70C8, 0x0700, 8
@@ -26627,6 +26629,7 @@
 #define Mosquito_UV_R_L_AM 0x7086, 0x0100
 #define Mosquito_VARIOMETER_100_G 0x702C, 0xFFFF, 0
 #define Mosquito_VARIOMETER_100_G_A 0x702C
+#define Mosquito_VHF_RADIO_A 0x70F8
 #define Mosquito_VOLTMETER_G 0x7070, 0xFFFF, 0
 #define Mosquito_VOLTMETER_G_A 0x7070
 #define Mosquito_WHEEL_BRK_L_G 0x706A, 0xFFFF, 0
