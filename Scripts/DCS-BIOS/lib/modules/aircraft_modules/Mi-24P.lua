@@ -1191,6 +1191,6 @@ Mi_24P:defineMultipositionSwitch("PLT_JADRO_SQUELCH_SW", 50, 3022, 421, 8, 0.125
 Mi_24P:defineReadWriteRadio("R863_RADIO", 49, 7, 3, 1000, "R-863 Radio")
 Mi_24P:defineReadWriteRadio("JADRO1I_RADIO", 50, 7, 1, 100, "JADRO-1I Radio")
 Mi_24P:defineReadWriteRadio("EUCALYPT_RADIO", 51, 7, 3, 1000, "EUCALYPT Radio")
-Mi_24P:defineReadWriteRadio("R852_RADIO", 52, 7, 3, 1000, "R-852 Radio")
+Mi_24P:defineReadOnlyRadio("R852_RADIO", 52, 7, 3, 1000, "R-852 Radio")
 
 return Mi_24P
