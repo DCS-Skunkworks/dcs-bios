@@ -850,4 +850,7 @@ Ka_50:definePotentiometer("OP_WARNLIGHTS_BRIGHTNESS", 14, 3005, 149, { 0, 1 }, "
 Ka_50:defineFloat("HMD_PRIS_ROT", 1010, { 0, 1 }, "Cockpit", "HMD Prisma Rotation")
 Ka_50:defineToggleSwitch("DOOR_HDL", 34, 3018, 1020, "Cockpit", "Door handle")
 
+Ka_50:defineReadWriteRadio("R800L1_RADIO", 48, 7, 3, 1000, "R-800L1 VHF Radio")
+Ka_50:defineReadWriteRadio("R828_RADIO", 49, 7, 3, 1000, "R-828 VHF Radio")
+
 return Ka_50
