@@ -938,4 +938,8 @@ Mi_8MT:defineIndicatorLight("LMP_UPK_CCT_ON", 860, "Lamps", "UPK CCT ON (yellow)
 Mi_8MT:defineIndicatorLight("LMP_PKT_CCT_ON", 861, "Lamps", "PKT CCT ON (yellow)")
 Mi_8MT:defineIndicatorLight("LMP_BOMB_CCT_ON", 554, "Lamps", "BOMB CCT ON (yellow)")
 
+Mi_8MT:defineReadWriteRadio("JADRO_1A_RADIO", 37, 6, 3, 100, "JADRO 1A Radio")
+Mi_8MT:defineReadWriteRadio("R863_RADIO", 38, 7, 3, 1000, "R-863 Radio")
+Mi_8MT:defineReadWriteRadio("R828_RADIO", 39, 7, 3, 1000, "R-828 Radio")
+
 return Mi_8MT

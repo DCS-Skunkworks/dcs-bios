@@ -16008,6 +16008,68 @@ docdata["Mi-8MT"] =
                                                                   "physical_variant": "limited_rotary"
                                                            }
                                     },
+               "Radio Frequencies": {
+                                        "JADRO_1A_RADIO": {
+                                                                  "category": "Radio Frequencies",
+                                                              "control_type": "radio",
+                                                               "description": "JADRO 1A Radio",
+                                                                "identifier": "JADRO_1A_RADIO",
+                                                                    "inputs": [ {
+                                                                                  "description": "The frequency to set, with or without a decimal place",
+                                                                                    "interface": "set_string"
+                                                                              } ],
+                                                                   "outputs": [ {
+                                                                                                        "address": 10274,
+                                                                                             "address_identifier": "Mi_8MT_JADRO_1A_RADIO_A",
+                                                                                        "address_mask_identifier": "Mi_8MT_JADRO_1A_RADIO_AM",
+                                                                                  "address_mask_shift_identifier": "Mi_8MT_JADRO_1A_RADIO",
+                                                                                                    "description": "The current frequency the radio is set to",
+                                                                                                     "max_length": 6,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "string"
+                                                                              } ]
+                                                          },
+                                            "R828_RADIO": {
+                                                                  "category": "Radio Frequencies",
+                                                              "control_type": "radio",
+                                                               "description": "R-828 Radio",
+                                                                "identifier": "R828_RADIO",
+                                                                    "inputs": [ {
+                                                                                  "description": "The frequency to set, with or without a decimal place",
+                                                                                    "interface": "set_string"
+                                                                              } ],
+                                                                   "outputs": [ {
+                                                                                                        "address": 10288,
+                                                                                             "address_identifier": "Mi_8MT_R828_RADIO_A",
+                                                                                        "address_mask_identifier": "Mi_8MT_R828_RADIO_AM",
+                                                                                  "address_mask_shift_identifier": "Mi_8MT_R828_RADIO",
+                                                                                                    "description": "The current frequency the radio is set to",
+                                                                                                     "max_length": 7,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "string"
+                                                                              } ]
+                                                          },
+                                            "R863_RADIO": {
+                                                                  "category": "Radio Frequencies",
+                                                              "control_type": "radio",
+                                                               "description": "R-863 Radio",
+                                                                "identifier": "R863_RADIO",
+                                                                    "inputs": [ {
+                                                                                  "description": "The frequency to set, with or without a decimal place",
+                                                                                    "interface": "set_string"
+                                                                              } ],
+                                                                   "outputs": [ {
+                                                                                                        "address": 10280,
+                                                                                             "address_identifier": "Mi_8MT_R863_RADIO_A",
+                                                                                        "address_mask_identifier": "Mi_8MT_R863_RADIO_AM",
+                                                                                  "address_mask_shift_identifier": "Mi_8MT_R863_RADIO",
+                                                                                                    "description": "The current frequency the radio is set to",
+                                                                                                     "max_length": 7,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "string"
+                                                                              } ]
+                                                          }
+                                    },
                     "Radio Volume": {
                                               "ARC9_VOL": {
                                                                   "category": "Radio Volume",
