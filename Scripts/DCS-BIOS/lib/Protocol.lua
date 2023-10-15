@@ -7,10 +7,8 @@ local aircraftNameToModules = {}
 
 function BIOS.protocol.setExportModuleAircrafts(acftList)
 	-- first, delete moduleName from all mappings
-	local newAircraftNameToModuleNames = {}
-	for acftName, moduleNames in pairs(aircraftNameToModuleNames) do
+	for _, moduleNames in pairs(aircraftNameToModuleNames) do
 		local newModuleNames = {}
-		newAircraftNameToModuleNames[acftName] = newModuleNames
 		for _, moduleName in pairs(moduleNames) do
 			if moduleName ~= moduleBeingDefined.name then
 				newModuleNames[#newModuleNames+1] = moduleName
@@ -30,7 +28,7 @@ function BIOS.protocol.setExportModuleAircrafts(acftList)
 
 	-- recompute aircraftNameToModules
 	aircraftNameToModules = {}
-	for acftName, moduleNames in pairs(aircraftNameToModuleNames) do
+	for acftName, _ in pairs(aircraftNameToModuleNames) do
 		local modules = {}
 		aircraftNameToModules[acftName] = modules
 		for _, moduleName in pairs(aircraftNameToModuleNames[acftName]) do
@@ -40,7 +38,6 @@ function BIOS.protocol.setExportModuleAircrafts(acftList)
 
 	BIOS.dbg.aircraftNameToModuleNames = aircraftNameToModuleNames
 	BIOS.dbg.aircraftNameToModules = aircraftNameToModules
-	BIOS.dbg.exportModules = exportModules
 end
 
 function BIOS.protocol.beginModule(name, baseAddress)
