@@ -675,38 +675,6 @@ A_10C:defineToggleSwitch("EFCP_SPDBK_EMER_RETR", 38, 3015, 174, "Emergency Fligh
 A_10C:defineToggleSwitch("EFCP_TRIM_OVERRIDE", 38, 3016, 175, "Emergency Flight Control Panel", "Pitch/Roll Trim Override EMER - NORM")
 A_10C:defineHatSwitch("EFCP_EMER_TRIM", 38, 3025, { 3017, 3018, 3019, 3020 }, 176, 0.1, { 0, 0.4 }, "Emergency Flight Control Panel", "Emergency Trim CENTER - NOSE DN - RWD - NOSE UP - LWD")
 
--- -- todo: 90% of defineTumb is the input processor - probably just define a custom control here
--- moduleBeingDefined.inputProcessors["EFCP_EMER_TRIM"] = function(args)
--- 	local currentState = tonumber(string.format("%1.1f", GetDevice(0):get_argument_value(176)):sub(3))
--- 	if args == "INC" then
--- 		args = tostring(currentState + 1)
--- 		if args == "5" then
--- 			args = "0"
--- 		end
--- 	elseif args == "DEC" then
--- 		args = tostring(currentState - 1)
--- 		if args == "-1" then
--- 			args = "4"
--- 		end
--- 	end
-
--- 	if args == "0" then
--- 		GetDevice(38):performClickableAction(3025, 0)
--- 	elseif args == "1" then
--- 		GetDevice(38):performClickableAction(3025, 0)
--- 		GetDevice(38):performClickableAction(3017, 0.1)
--- 	elseif args == "2" then
--- 		GetDevice(38):performClickableAction(3025, 0)
--- 		GetDevice(38):performClickableAction(3018, 0.2)
--- 	elseif args == "3" then
--- 		GetDevice(38):performClickableAction(3025, 0)
--- 		GetDevice(38):performClickableAction(3019, 0.3)
--- 	elseif args == "4" then
--- 		GetDevice(38):performClickableAction(3025, 0)
--- 		GetDevice(38):performClickableAction(3020, 0.4)
--- 	end
--- end
-
 A_10C:define3PosTumb("EFCP_AILERON_EMER_DISENGAGE", 38, 3021, 177, "Emergency Flight Control Panel", "Aileron Emergency Disengage LEFT - OFF - RIGHT")
 A_10C:define3PosTumb("EFCP_ELEVATOR_EMER_DISENGAGE", 38, 3022, 180, "Emergency Flight Control Panel", "Elevator Emergency Disengage LEFT - OFF - RIGHT")
 A_10C:defineToggleSwitch("EFCP_FLAPS_EMER_RETR", 38, 3023, 183, "Emergency Flight Control Panel", "Flaps Emergency Retract")
