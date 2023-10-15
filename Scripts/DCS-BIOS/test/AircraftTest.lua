@@ -1,4 +1,4 @@
-local lu = require("luaunit")
+local lu = require("Scripts.DCS-BIOS.test.ext.luaunit")
 
 -- Unit testing starts
 TestAircraft = {} --class

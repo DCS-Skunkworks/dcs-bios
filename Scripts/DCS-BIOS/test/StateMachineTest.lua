@@ -1,10 +1,10 @@
 local BIOSStateMachine = require("Scripts.DCS-BIOS.lib.BIOSStateMachine")
 local ConnectionManager = require("Scripts.DCS-BIOS.lib.ConnectionManager")
-local MockDevice = require("MockDevice")
-local MockServer = require("MockServer")
+local MockDevice = require("Scripts.DCS-BIOS.test.controls.MockDevice")
+local MockServer = require("Scripts.DCS-BIOS.test.io.MockServer")
 local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 
-local lu = require("luaunit")
+local lu = require("Scripts.DCS-BIOS.test.ext.luaunit")
 
 --- @class TestState
 --- @field aircraft_name string?
