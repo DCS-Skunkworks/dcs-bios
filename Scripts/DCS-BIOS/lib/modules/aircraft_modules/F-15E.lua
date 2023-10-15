@@ -1170,4 +1170,7 @@ F_15:defineMultipositionSwitch("R_LCP_LASER_DIG_2", 44, 3071, 71, 3, 0.1, "Rear 
 F_15:defineMultipositionSwitch("R_LCP_LASER_DIG_3", 44, 3072, 72, 8, 0.1, "Rear Laser Code Panel", "REAR Laser Digit 3")
 F_15:defineMultipositionSwitch("R_LCP_LASER_DIG_4", 44, 3073, 73, 8, 0.1, "Rear Laser Code Panel", "REAR Laser Digit 4")
 
+F_15:defineReadWriteRadio("UHF_RADIO", 7, 7, 3, 1000, "UHF RADIO")
+F_15:defineReadWriteRadio("VHF_RADIO", 8, 7, 3, 1000, "VHF RADIO")
+
 return F_15

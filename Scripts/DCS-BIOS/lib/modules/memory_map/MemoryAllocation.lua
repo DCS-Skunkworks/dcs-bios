@@ -50,8 +50,8 @@ function MemoryAllocation:setValue(value)
 	assert(self.maxValue)
 	assert(value)
 
-	-- check if value is clone enough to our min that it could be a rounding error
-	local clean_value = value < 0 and value + 0.001 >= 0 and 0 or value
+	-- check if value is close enough to our min that it could be a rounding error
+	local clean_value = value < 0 and value + 0.01 >= 0 and 0 or value
 
 	clean_value = math.floor(clean_value)
 	if clean_value < 0 then
