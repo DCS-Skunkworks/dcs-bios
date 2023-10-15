@@ -1,5 +1,5 @@
 local ActionArgument = require("Scripts.DCS-BIOS.lib.modules.documentation.ActionArgument")
-local ApiVariant = require("Scripts.DCS-BIOS.lib.modules.documentation.APIVariant")
+local ApiVariant = require("Scripts.DCS-BIOS.lib.modules.documentation.ApiVariant")
 local ControlType = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlType")
 local InputType = require("Scripts.DCS-BIOS.lib.modules.documentation.InputType")
 local MockDevice = require("Scripts.DCS-BIOS.test.controls.MockDevice")

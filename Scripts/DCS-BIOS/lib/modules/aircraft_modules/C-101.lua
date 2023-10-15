@@ -1,6 +1,6 @@
 module("C-101", package.seeall)
 
-local ApiVariant = require("Scripts.DCS-BIOS.lib.modules.documentation.APIVariant")
+local ApiVariant = require("Scripts.DCS-BIOS.lib.modules.documentation.ApiVariant")
 local Control = require("Scripts.DCS-BIOS.lib.modules.documentation.Control")
 local ControlType = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlType")
 local IntegerOutput = require("Scripts.DCS-BIOS.lib.modules.documentation.IntegerOutput")

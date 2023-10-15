@@ -2,7 +2,7 @@ module("Module", package.seeall)
 
 local ActionArgument = require("Scripts.DCS-BIOS.lib.modules.documentation.ActionArgument")
 local ActionInput = require("Scripts.DCS-BIOS.lib.modules.documentation.ActionInput")
-local ApiVariant = require("Scripts.DCS-BIOS.lib.modules.documentation.APIVariant")
+local ApiVariant = require("Scripts.DCS-BIOS.lib.modules.documentation.ApiVariant")
 local Control = require("Scripts.DCS-BIOS.lib.modules.documentation.Control")
 local ControlType = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlType")
 local Documentation = require("Scripts.DCS-BIOS.lib.modules.documentation.Documentation")
