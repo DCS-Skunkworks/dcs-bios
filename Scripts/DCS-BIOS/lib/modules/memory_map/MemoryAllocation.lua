@@ -50,22 +50,22 @@ function MemoryAllocation:setValue(value)
 	assert(self.maxValue)
 	assert(value)
 
-	-- check if value is clone enough to our min that it could be a rounding error
-	value = value < 0 and value + 0.01 >= 0 and 0 or value
+	-- check if value is close enough to our min that it could be a rounding error
+	local clean_value = value < 0 and value + 0.01 >= 0 and 0 or value
 
-	value = math.floor(value)
-	if value < 0 then
-		Log:log_error(string.format("MemoryAllocation.lua: value %f is too small for %s (address %d mask %d)", value, self.debug_name or "n/a", self.address, self.mask))
+	clean_value = math.floor(clean_value)
+	if clean_value < 0 then
+		Log:log_error(string.format("MemoryAllocation.lua: value %f (originally %f) is too small for %s (address %d mask %d)", clean_value, value, self.debug_name or "n/a", self.address, self.mask))
 		return
 	end
-	if value > self.maxValue then
-		Log:log_error(string.format("MemoryAllocation.lua: value %f is larger than max %d for %s (address %d mask %d)", value, self.maxValue, self.debug_name or "n/a", self.address, self.mask))
+	if clean_value > self.maxValue then
+		Log:log_error(string.format("MemoryAllocation.lua: value %f (originally %f) is larger than max %d for %s (address %d mask %d)", clean_value, value, self.maxValue, self.debug_name or "n/a", self.address, self.mask))
 		return
 	end
-	assert(value >= 0)
-	assert(value <= self.maxValue)
-	if self.value ~= value then
-		self.value = value
+	assert(clean_value >= 0)
+	assert(clean_value <= self.maxValue)
+	if self.value ~= clean_value then
+		self.value = clean_value
 		self.memoryMapEntry.dirty = true
 	end
 end
