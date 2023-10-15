@@ -51,7 +51,7 @@ function MemoryAllocation:setValue(value)
 	assert(value)
 
 	-- check if value is clone enough to our min that it could be a rounding error
-	value = value < 0 and value + 0.001 >= 0 and 0 or value
+	value = value < 0 and value + 0.01 >= 0 and 0 or value
 
 	value = math.floor(value)
 	if value < 0 then
