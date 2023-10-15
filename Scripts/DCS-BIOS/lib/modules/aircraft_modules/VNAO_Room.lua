@@ -1,6 +1,6 @@
 module("VNAO_Room", package.seeall)
 
-local Module = require("Module")
+local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 
 --- @class VNAO_Room: Module
 local VNAO_Room = Module:new("VNAO_Room", 0x0500, { "VNAO_Ready_Room" })

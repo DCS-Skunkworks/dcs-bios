@@ -1,7 +1,7 @@
 module("MockSocket", package.seeall)
 
-local MockTCPSocketConnection = require("MockTCPSocketConnection")
-local MockUDPSocketConnection = require("MockUDPSocketConnection")
+local MockTCPSocketConnection = require("Scripts.DCS-BIOS.test.io.MockTCPSocketConnection")
+local MockUDPSocketConnection = require("Scripts.DCS-BIOS.test.io.MockUDPSocketConnection")
 
 --- @class MockSocket: Socket
 --- A lua socket

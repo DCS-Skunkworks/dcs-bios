@@ -1,6 +1,6 @@
 module("Edge540", package.seeall)
 
-local Module = require("Module")
+local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 
 --- @class Edge540: Module
 local Edge540 = Module:new("Edge540", 0x5600, { "Edge540", "Extra330SR" })

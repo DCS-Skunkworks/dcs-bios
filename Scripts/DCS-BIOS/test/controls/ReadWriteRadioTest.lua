@@ -1,8 +1,8 @@
-local ControlType = require("ControlType")
-local MockDevice = require("MockDevice")
-local Module = require("Module")
+local ControlType = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlType")
+local MockDevice = require("Scripts.DCS-BIOS.test.controls.MockDevice")
+local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 
-local lu = require("luaunit")
+local lu = require("Scripts.DCS-BIOS.test.ext.luaunit")
 
 --- @class TestReadWriteRadio
 --- @field module Module

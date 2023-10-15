@@ -1,6 +1,6 @@
 module("Christen Eagle II", package.seeall)
 
-local Module = require("Module")
+local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 
 --- @class Christen_Eagle_II: Module
 local Christen_Eagle_II = Module:new("Christen Eagle II", 0x2800, { "Christen Eagle II" })

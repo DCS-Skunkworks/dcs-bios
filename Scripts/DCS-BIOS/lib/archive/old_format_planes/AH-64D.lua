@@ -19,7 +19,7 @@ local defineString = BIOS.util.defineString
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 local define3PosTumb = BIOS.util.define3PosTumb
 
-local TextDisplay = require("TextDisplay")
+local TextDisplay = require("Scripts.DCS-BIOS.lib.modules.TextDisplay")
 local getDisplayLines = TextDisplay.GetDisplayLines
 
 -- remove Arg# PLT 956; CPG 957

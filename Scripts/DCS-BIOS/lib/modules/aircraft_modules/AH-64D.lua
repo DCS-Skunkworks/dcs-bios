@@ -1,16 +1,16 @@
 module("AH-64D", package.seeall)
 
-local Functions = require("Functions")
-local JSONHelper = require("JSONHelper")
+local Functions = require("Scripts.DCS-BIOS.lib.common.Functions")
+local JSONHelper = require("Scripts.DCS-BIOS.lib.common.JSONHelper")
 
-local Module = require("Module")
+local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 
 --- @class AH_64D: Module
 local AH_64D = Module:new("AH-64D", 0x8000, { "AH-64D_BLK_II" })
 
 --v1.2d by WarLord & charliefoxtwo
 
-local TextDisplay = require("TextDisplay")
+local TextDisplay = require("Scripts.DCS-BIOS.lib.modules.TextDisplay")
 
 -- remove Arg# PLT 956; CPG 957
 

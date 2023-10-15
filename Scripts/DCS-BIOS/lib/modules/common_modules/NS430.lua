@@ -1,15 +1,15 @@
 module("NS430", package.seeall)
 
-local Control = require("Control")
-local ControlType = require("ControlType")
-local FixedStepInput = require("FixedStepInput")
-local IntegerOutput = require("IntegerOutput")
-local MomentaryPositions = require("MomentaryPositions")
-local PhysicalVariant = require("PhysicalVariant")
-local SetStateInput = require("SetStateInput")
-local Suffix = require("Suffix")
+local Control = require("Scripts.DCS-BIOS.lib.modules.documentation.Control")
+local ControlType = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlType")
+local FixedStepInput = require("Scripts.DCS-BIOS.lib.modules.documentation.FixedStepInput")
+local IntegerOutput = require("Scripts.DCS-BIOS.lib.modules.documentation.IntegerOutput")
+local MomentaryPositions = require("Scripts.DCS-BIOS.lib.modules.documentation.MomentaryPositions")
+local PhysicalVariant = require("Scripts.DCS-BIOS.lib.modules.documentation.PhysicalVariant")
+local SetStateInput = require("Scripts.DCS-BIOS.lib.modules.documentation.SetStateInput")
+local Suffix = require("Scripts.DCS-BIOS.lib.modules.documentation.Suffix")
 
-local Module = require("Module")
+local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 
 local ns430_aircraft = {
 	"A-10A",

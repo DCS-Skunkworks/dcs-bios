@@ -1,6 +1,6 @@
 module("ActionInput", package.seeall)
 
-local InputType = require("InputType")
+local InputType = require("Scripts.DCS-BIOS.lib.modules.documentation.InputType")
 
 --- @class ActionInput: Input
 --- @field argument ActionArgument

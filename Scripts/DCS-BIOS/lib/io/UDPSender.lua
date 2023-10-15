@@ -1,6 +1,6 @@
 module("UDPSender", package.seeall)
 
-local Connection = require("Connection")
+local Connection = require("Scripts.DCS-BIOS.lib.io.Connection")
 
 --- @class UDPSender: Connection
 local UDPSender = Connection:new("", -1, {})

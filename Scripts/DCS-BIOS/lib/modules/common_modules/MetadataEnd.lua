@@ -4,7 +4,7 @@
 -- be called when there is no active aircraft.
 module("MetadataEnd", package.seeall)
 
-local Module = require("Module")
+local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 
 --- @class MetadataEnd : Module
 --- setUpdateCounter

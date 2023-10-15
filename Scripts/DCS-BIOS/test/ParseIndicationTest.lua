@@ -1,5 +1,5 @@
-local Module = require("Module")
-local lu = require("luaunit")
+local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
+local lu = require("Scripts.DCS-BIOS.test.ext.luaunit")
 
 --- @class TestParseIndication
 TestParseIndication = {}

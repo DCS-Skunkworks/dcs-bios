@@ -1,8 +1,8 @@
 module("AV8BNA", package.seeall)
 
-local Functions = require("Functions")
+local Functions = require("Scripts.DCS-BIOS.lib.common.Functions")
 
-local Module = require("Module")
+local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 
 --- @class AV8BNA: Module
 local AV8BNA = Module:new("AV8BNA", 0x7800, { "AV8BNA" })

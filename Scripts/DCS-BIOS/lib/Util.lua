@@ -1,7 +1,7 @@
 --12.08.2023
 BIOS.util = {}
 
-local Log = require("Log")
+local Log = require("Scripts.DCS-BIOS.lib.common.Log")
 
 function BIOS.util.log2(n)
 	return math.log(n) / math.log(2)

@@ -1,6 +1,6 @@
 module("MemoryMapEntry", package.seeall)
 
-local MemoryAllocation = require("MemoryAllocation")
+local MemoryAllocation = require("Scripts.DCS-BIOS.lib.modules.memory_map.MemoryAllocation")
 
 --- @class MemoryMapEntry
 --- @field address number the memory address of the entry

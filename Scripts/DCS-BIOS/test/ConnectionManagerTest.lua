@@ -1,7 +1,7 @@
-local ConnectionManager = require("ConnectionManager")
-local MockServer = require("MockServer")
+local ConnectionManager = require("Scripts.DCS-BIOS.lib.ConnectionManager")
+local MockServer = require("Scripts.DCS-BIOS.test.io.MockServer")
 
-local lu = require("luaunit")
+local lu = require("Scripts.DCS-BIOS.test.ext.luaunit")
 
 --- @class TestConnectionManager
 --- @field connection_manager ConnectionManager

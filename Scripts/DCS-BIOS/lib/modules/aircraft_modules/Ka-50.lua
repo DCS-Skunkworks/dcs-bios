@@ -1,12 +1,12 @@
 module("Ka-50", package.seeall)
 
-local Control = require("Control")
-local ControlType = require("ControlType")
-local Functions = require("Functions")
-local IntegerOutput = require("IntegerOutput")
-local Module = require("Module")
-local PhysicalVariant = require("PhysicalVariant")
-local Suffix = require("Suffix")
+local Control = require("Scripts.DCS-BIOS.lib.modules.documentation.Control")
+local ControlType = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlType")
+local Functions = require("Scripts.DCS-BIOS.lib.common.Functions")
+local IntegerOutput = require("Scripts.DCS-BIOS.lib.modules.documentation.IntegerOutput")
+local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
+local PhysicalVariant = require("Scripts.DCS-BIOS.lib.modules.documentation.PhysicalVariant")
+local Suffix = require("Scripts.DCS-BIOS.lib.modules.documentation.Suffix")
 
 --- @class Ka_50 : Module
 local Ka_50 = Module:new("Ka-50", 0x1800, { "Ka-50", "Ka-50_3" })

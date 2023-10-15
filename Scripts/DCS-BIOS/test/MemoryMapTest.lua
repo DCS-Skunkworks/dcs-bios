@@ -1,6 +1,6 @@
-local MemoryMap = require("MemoryMap")
+local MemoryMap = require("Scripts.DCS-BIOS.lib.modules.memory_map.MemoryMap")
 
-local lu = require("luaunit")
+local lu = require("Scripts.DCS-BIOS.test.ext.luaunit")
 
 --- @class TestMemoryMap
 --- @field memory_map MemoryMap

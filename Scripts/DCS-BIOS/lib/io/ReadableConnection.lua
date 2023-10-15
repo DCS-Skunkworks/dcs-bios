@@ -1,6 +1,6 @@
 module("ReadableConnection", package.seeall)
 
-local Connection = require("Connection")
+local Connection = require("Scripts.DCS-BIOS.lib.io.Connection")
 
 --- @class ReadableConnection: Connection
 --- @field private rxbuf string buffer which stores received data until it can be processed

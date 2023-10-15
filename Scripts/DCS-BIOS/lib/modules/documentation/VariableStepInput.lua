@@ -1,6 +1,6 @@
 module("VariableStepInput", package.seeall)
 
-local InputType = require("InputType")
+local InputType = require("Scripts.DCS-BIOS.lib.modules.documentation.InputType")
 
 --- @class VariableStepInput: SetStateInput
 --- @field suggested_step integer

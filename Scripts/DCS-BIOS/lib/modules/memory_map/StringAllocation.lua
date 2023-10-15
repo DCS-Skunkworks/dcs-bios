@@ -1,6 +1,6 @@
 module("StringAllocation", package.seeall)
 
-local Log = require("Log")
+local Log = require("Scripts.DCS-BIOS.lib.common.Log")
 
 --- @class StringAllocation A class containing a set of memory allocations which make up a string
 --- @field address integer the memory address

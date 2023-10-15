@@ -1,7 +1,7 @@
 module("MemoryMap", package.seeall)
 
-local MemoryMapEntry = require("MemoryMapEntry")
-local StringAllocation = require("StringAllocation")
+local MemoryMapEntry = require("Scripts.DCS-BIOS.lib.modules.memory_map.MemoryMapEntry")
+local StringAllocation = require("Scripts.DCS-BIOS.lib.modules.memory_map.StringAllocation")
 
 --- @class MemoryMap
 --- @field baseAddress number the base address

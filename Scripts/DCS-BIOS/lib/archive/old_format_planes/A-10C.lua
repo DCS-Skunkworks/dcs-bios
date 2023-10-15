@@ -29,8 +29,8 @@ local define8BitFloat = BIOS.util.define8BitFloat
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 local defineRadioWheel = BIOS.util.defineRadioWheel
 
-local TextDisplay = require("TextDisplay")
-local DigitalDisplay = require("DigitalDisplay")
+local TextDisplay = require("Scripts.DCS-BIOS.lib.modules.TextDisplay")
+local DigitalDisplay = require("Scripts.DCS-BIOS.lib.modules.DigitalDisplay")
 local getDisplayLines = TextDisplay.GetDisplayLines
 local getDisplayItems = DigitalDisplay.GetDisplayItems
 

@@ -1,6 +1,6 @@
 module("MemoryAllocation", package.seeall)
 
-local Log = require("Log")
+local Log = require("Scripts.DCS-BIOS.lib.common.Log")
 
 --- @class MemoryAllocation
 --- @field address integer the memory address

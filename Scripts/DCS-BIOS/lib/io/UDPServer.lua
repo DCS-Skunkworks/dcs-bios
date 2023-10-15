@@ -1,8 +1,8 @@
 module("UDPServer", package.seeall)
 
-local Server = require("Server")
-local UDPListener = require("UDPListener")
-local UDPSender = require("UDPSender")
+local Server = require("Scripts.DCS-BIOS.lib.io.Server")
+local UDPListener = require("Scripts.DCS-BIOS.lib.io.UDPListener")
+local UDPSender = require("Scripts.DCS-BIOS.lib.io.UDPSender")
 
 --- @class UDPServer: Server
 --- @field private sender UDPSender

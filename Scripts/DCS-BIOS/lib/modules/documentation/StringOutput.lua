@@ -1,6 +1,6 @@
 module("StringOutput", package.seeall)
 
-local OutputType = require("OutputType")
+local OutputType = require("Scripts.DCS-BIOS.lib.modules.documentation.OutputType")
 
 --- @class StringOutput: Output
 --- @field max_length integer

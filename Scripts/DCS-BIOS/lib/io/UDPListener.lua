@@ -1,6 +1,6 @@
 module("UDPListener", package.seeall)
 
-local ReadableConnection = require("ReadableConnection")
+local ReadableConnection = require("Scripts.DCS-BIOS.lib.io.ReadableConnection")
 
 --- @class UDPListener: ReadableConnection
 local UDPListener = ReadableConnection:new("", -1, {}, function() end)

@@ -1,9 +1,9 @@
-local ControlType = require("ControlType")
-local InputType = require("InputType")
-local MockDevice = require("MockDevice")
-local Module = require("Module")
+local ControlType = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlType")
+local InputType = require("Scripts.DCS-BIOS.lib.modules.documentation.InputType")
+local MockDevice = require("Scripts.DCS-BIOS.test.controls.MockDevice")
+local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 
-local lu = require("luaunit")
+local lu = require("Scripts.DCS-BIOS.test.ext.luaunit")
 
 --- @class TestFixedStepInput
 --- @field module Module
