@@ -62,7 +62,7 @@ function BIOS.protocol.endModule()
 			file:write(json_string)
 			file:close()
 		end
-		local file, err = io.open(lfs.writedir()..[[Scripts/DCS-BIOS/doc/json/]]..moduleBeingDefined.name..".jsonp", "w")
+		local file, err = io.open(lfs.writedir()..[[Scripts/DCS-BIOS/doc/doc_assets/]]..moduleBeingDefined.name..".jsonp", "w")
 		if file then
 			file:write('docdata["'..moduleBeingDefined.name..'"] =\n')
 			file:write(json_string)
