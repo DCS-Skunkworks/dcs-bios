@@ -22,7 +22,6 @@ local ns430_aircraft = {
 	"F-14A-135-GR",
 	"F-14B",
 	"F-15C",
-	"F-16A",
 	"F-5E-3",
 	"F-86F Sabre",
 	"FW-190A8",
@@ -68,7 +67,7 @@ local NS430 = Module:new("NS430", 0x0600, ns430_aircraft)
 function NS430:defineDoubleCommandButton(identifier, device_id, start_command, stop_command, arg_number, category, description)
 	local alloc = self:allocateInt(1, identifier)
 	self:addExportHook(function(dev0)
-		alloc:setValue(math.abs(dev0:get_argument_value(arg_number)))
+		alloc:setValue(dev0:get_argument_value(arg_number))
 	end)
 
 	local control = Control:new(category, ControlType.selector, identifier, description, {
