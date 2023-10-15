@@ -794,4 +794,9 @@ MB_339:defineBitFromDrawArgument("EXT_WOW_NOSE", 1, "External Aircraft Model", "
 MB_339:defineBitFromDrawArgument("EXT_WOW_RIGHT", 4, "External Aircraft Model", "Weight ON Wheels Right Gear")
 MB_339:defineBitFromDrawArgument("EXT_WOW_LEFT", 6, "External Aircraft Model", "Weight ON Wheels Left Gear")
 
+MB_339:defineReadWriteRadio("FWD_COMM1", 6, 7, 3, 1000, "Forward COMM1")
+MB_339:defineReadWriteRadio("FWD_COMM2", 7, 7, 3, 1000, "Forward COMM2")
+MB_339:defineReadWriteRadio("AFT_COMM1", 9, 7, 3, 1000, "Aft COMM1")
+MB_339:defineReadWriteRadio("AFT_COMM2", 10, 7, 3, 1000, "Aft COMM2")
+
 return MB_339
