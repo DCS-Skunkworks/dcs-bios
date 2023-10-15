@@ -1,7 +1,7 @@
 module("DigitalDisplay", package.seeall)
 
 --- @class DigitalDisplay
-DigitalDisplay = {}
+local DigitalDisplay = {}
 
 ---Replaces all instances of the keys of the provided map with the values in the provided map
 ---@param s string string to replace values in
