@@ -1,7 +1,5 @@
 BIOS = {}
 
-BIOSdevMode = 1 -- 1 DevMode / 0 UserMode
-
 BIOS.dbg = {}
 
 package.path  = package.path..";.\\LuaSocket\\?.lua"
