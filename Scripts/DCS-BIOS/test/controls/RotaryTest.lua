@@ -1,10 +1,10 @@
-local ApiVariant = require("ApiVariant")
-local ControlType = require("ControlType")
-local InputType = require("InputType")
+local ApiVariant = require("Scripts.DCS-BIOS.lib.modules.documentation.APIVariant")
+local ControlType = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlType")
+local InputType = require("Scripts.DCS-BIOS.lib.modules.documentation.InputType")
 local MockDevice = require("MockDevice")
-local Module = require("Module")
-local OutputType = require("OutputType")
-local Suffix = require("Suffix")
+local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
+local OutputType = require("Scripts.DCS-BIOS.lib.modules.documentation.OutputType")
+local Suffix = require("Scripts.DCS-BIOS.lib.modules.documentation.Suffix")
 
 local lu = require("luaunit")
 

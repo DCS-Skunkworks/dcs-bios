@@ -1,6 +1,6 @@
 module("SpitfireLFMkIX", package.seeall)
 
-local Module = require("Module")
+local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 
 --- @class SpitfireLFMkIX: Module
 local SpitfireLFMkIX = Module:new("SpitfireLFMkIX", 0x5400, { "SpitfireLFMkIX", "SpitfireLFMkIXCW" })

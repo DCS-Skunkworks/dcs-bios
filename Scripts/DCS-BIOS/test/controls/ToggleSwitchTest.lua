@@ -1,11 +1,11 @@
-local ActionArgument = require("ActionArgument")
-local ControlType = require("ControlType")
-local InputType = require("InputType")
+local ActionArgument = require("Scripts.DCS-BIOS.lib.modules.documentation.ActionArgument")
+local ControlType = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlType")
+local InputType = require("Scripts.DCS-BIOS.lib.modules.documentation.InputType")
 local MockDevice = require("MockDevice")
-local Module = require("Module")
-local OutputType = require("OutputType")
-local PhysicalVariant = require("PhysicalVariant")
-local Suffix = require("Suffix")
+local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
+local OutputType = require("Scripts.DCS-BIOS.lib.modules.documentation.OutputType")
+local PhysicalVariant = require("Scripts.DCS-BIOS.lib.modules.documentation.PhysicalVariant")
+local Suffix = require("Scripts.DCS-BIOS.lib.modules.documentation.Suffix")
 
 local lu = require("luaunit")
 

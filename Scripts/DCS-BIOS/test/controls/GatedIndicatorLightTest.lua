@@ -1,8 +1,8 @@
-local ControlType = require("ControlType")
+local ControlType = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlType")
 local MockDevice = require("MockDevice")
-local Module = require("Module")
-local OutputType = require("OutputType")
-local Suffix = require("Suffix")
+local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
+local OutputType = require("Scripts.DCS-BIOS.lib.modules.documentation.OutputType")
+local Suffix = require("Scripts.DCS-BIOS.lib.modules.documentation.Suffix")
 
 local lu = require("luaunit")
 

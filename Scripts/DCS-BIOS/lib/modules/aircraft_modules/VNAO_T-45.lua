@@ -1,6 +1,6 @@
 module("VNAO_T-45", package.seeall)
 
-local Module = require("Module")
+local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 
 --- @class VNAO_T_45: Module
 local VNAO_T_45 = Module:new("VNAO_T-45", 0x9000, { "T-45" })

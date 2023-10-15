@@ -1,17 +1,17 @@
 module("AJS37", package.seeall)
 
-local ActionArgument = require("ActionArgument")
-local ActionInput = require("ActionInput")
-local ApiVariant = require("ApiVariant")
-local Control = require("Control")
-local ControlType = require("ControlType")
-local Functions = require("Functions")
-local IntegerOutput = require("IntegerOutput")
-local MomentaryPositions = require("MomentaryPositions")
-local PhysicalVariant = require("PhysicalVariant")
-local Suffix = require("Suffix")
+local ActionArgument = require("Scripts.DCS-BIOS.lib.modules.documentation.ActionArgument")
+local ActionInput = require("Scripts.DCS-BIOS.lib.modules.documentation.ActionInput")
+local ApiVariant = require("Scripts.DCS-BIOS.lib.modules.documentation.APIVariant")
+local Control = require("Scripts.DCS-BIOS.lib.modules.documentation.Control")
+local ControlType = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlType")
+local Functions = require("Scripts.DCS-BIOS.lib.common.Functions")
+local IntegerOutput = require("Scripts.DCS-BIOS.lib.modules.documentation.IntegerOutput")
+local MomentaryPositions = require("Scripts.DCS-BIOS.lib.modules.documentation.MomentaryPositions")
+local PhysicalVariant = require("Scripts.DCS-BIOS.lib.modules.documentation.PhysicalVariant")
+local Suffix = require("Scripts.DCS-BIOS.lib.modules.documentation.Suffix")
 
-local Module = require("Module")
+local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 
 --- @class AJS37: Module
 local AJS37 = Module:new("AJS37", 0x4600, { "AJS37" })

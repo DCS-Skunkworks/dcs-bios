@@ -1,6 +1,6 @@
 module("Alphajet", package.seeall)
 
-local Module = require("Module")
+local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 
 --- @class Alphajet: Module
 local Alphajet = Module:new("Alphajet", 0x6400, { "Alphajet" })

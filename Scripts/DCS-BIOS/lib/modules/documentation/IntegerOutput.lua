@@ -1,6 +1,6 @@
 module("IntegerOutput", package.seeall)
 
-local OutputType = require("OutputType")
+local OutputType = require("Scripts.DCS-BIOS.lib.modules.documentation.OutputType")
 
 --- @class IntegerOutput: Output
 --- @field mask integer

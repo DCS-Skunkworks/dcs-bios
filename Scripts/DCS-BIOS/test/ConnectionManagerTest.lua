@@ -1,4 +1,4 @@
-local ConnectionManager = require("ConnectionManager")
+local ConnectionManager = require("Scripts.DCS-BIOS.lib.ConnectionManager")
 local MockServer = require("MockServer")
 
 local lu = require("luaunit")

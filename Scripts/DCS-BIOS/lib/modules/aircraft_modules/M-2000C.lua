@@ -1,8 +1,8 @@
 module("M-2000C", package.seeall)
 
-local Functions = require("Functions")
+local Functions = require("Scripts.DCS-BIOS.lib.common.Functions")
 
-local Module = require("Module")
+local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 
 --- @class M_2000C: Module
 local M_2000C = Module:new("M-2000C", 0x7200, { "M-2000C" })

@@ -1,6 +1,6 @@
 module("MiG-15bis", package.seeall)
 
-local Module = require("Module")
+local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 
 --- @class MiG_15bis: Module
 local MiG_15bis = Module:new("MiG-15bis", 0x2400, { "MiG-15bis" })

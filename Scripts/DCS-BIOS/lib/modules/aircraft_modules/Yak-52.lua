@@ -1,6 +1,6 @@
 module("Yak-52", package.seeall)
 
-local Module = require("Module")
+local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 
 --- @class Yak_52: Module
 local Yak_52 = Module:new("Yak-52", 0x2000, { "Yak-52" })

@@ -1,5 +1,5 @@
 local MockDevice = require("MockDevice")
-local Module = require("Module")
+local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 
 local lu = require("luaunit")
 
@@ -51,7 +51,7 @@ require("IntegerFromGetterTest")
 require("Float8BitFromGetterTest")
 require("TumbTest")
 require("SpringLoadedThreePosTumbTest")
-require("VariableStepInput")
+require("Scripts.DCS-BIOS.lib.modules.documentation.VariableStepInput")
 require("Float8BitTest")
 require("EjectionHandleSwitchTest")
 require("SetCommandTumbTest")

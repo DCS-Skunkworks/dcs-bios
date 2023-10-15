@@ -1,13 +1,13 @@
 module("FA-18C_hornet", package.seeall)
 
-local Control = require("Control")
-local ControlType = require("ControlType")
-local Functions = require("Functions")
-local IntegerOutput = require("IntegerOutput")
-local SetStateInput = require("SetStateInput")
-local Suffix = require("Suffix")
+local Control = require("Scripts.DCS-BIOS.lib.modules.documentation.Control")
+local ControlType = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlType")
+local Functions = require("Scripts.DCS-BIOS.lib.common.Functions")
+local IntegerOutput = require("Scripts.DCS-BIOS.lib.modules.documentation.IntegerOutput")
+local SetStateInput = require("Scripts.DCS-BIOS.lib.modules.documentation.SetStateInput")
+local Suffix = require("Scripts.DCS-BIOS.lib.modules.documentation.Suffix")
 
-local Module = require("Module")
+local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 
 --- @class FA_18C_hornet: Module
 local FA_18C_hornet = Module:new("FA-18C_hornet", 0x7400, { "FA-18C_hornet", "EA-18G", "FA-18E", "FA-18F" }) -- FA-18C + Mods

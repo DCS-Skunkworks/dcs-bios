@@ -1,6 +1,6 @@
 module("SetStringInput", package.seeall)
 
-local InputType = require("InputType")
+local InputType = require("Scripts.DCS-BIOS.lib.modules.documentation.InputType")
 
 --- @class SetStringInput: Input
 local SetStringInput = {}

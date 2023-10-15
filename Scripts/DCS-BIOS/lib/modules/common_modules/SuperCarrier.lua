@@ -1,8 +1,8 @@
 module("SuperCarrier", package.seeall)
 
-local AircraftList = require("AircraftList")
+local AircraftList = require("Scripts.DCS-BIOS.lib.AircraftList")
 
-local Module = require("Module")
+local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 
 --- @class SuperCarrier: Module
 local SuperCarrier = Module:new("SuperCarrier", 0x0700, AircraftList.ALL_PLAYABLE_AIRCRAFT)

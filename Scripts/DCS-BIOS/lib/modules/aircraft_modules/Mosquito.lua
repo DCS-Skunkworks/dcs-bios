@@ -1,12 +1,12 @@
 module("Mosquito", package.seeall)
 
-local Control = require("Control")
-local ControlType = require("ControlType")
-local IntegerOutput = require("IntegerOutput")
-local SetStateInput = require("SetStateInput")
-local Suffix = require("Suffix")
+local Control = require("Scripts.DCS-BIOS.lib.modules.documentation.Control")
+local ControlType = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlType")
+local IntegerOutput = require("Scripts.DCS-BIOS.lib.modules.documentation.IntegerOutput")
+local SetStateInput = require("Scripts.DCS-BIOS.lib.modules.documentation.SetStateInput")
+local Suffix = require("Scripts.DCS-BIOS.lib.modules.documentation.Suffix")
 
-local Module = require("Module")
+local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 
 --- @class Mosquito: Module
 local Mosquito = Module:new("Mosquito", 0x7000, { "MosquitoFBMkVI" })

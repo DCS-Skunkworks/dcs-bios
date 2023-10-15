@@ -1,10 +1,10 @@
 local MockSocket = require("MockSocket")
-local ReadableConnection = require("ReadableConnection")
-local TCPConnection = require("TCPConnection")
-local TCPServer = require("TCPServer")
-local UDPListener = require("UDPListener")
-local UDPSender = require("UDPSender")
-local UDPServer = require("UDPServer")
+local ReadableConnection = require("Scripts.DCS-BIOS.lib.io.ReadableConnection")
+local TCPConnection = require("Scripts.DCS-BIOS.lib.io.TCPConnection")
+local TCPServer = require("Scripts.DCS-BIOS.lib.io.TCPServer")
+local UDPListener = require("Scripts.DCS-BIOS.lib.io.UDPListener")
+local UDPSender = require("Scripts.DCS-BIOS.lib.io.UDPSender")
+local UDPServer = require("Scripts.DCS-BIOS.lib.io.UDPServer")
 
 local lu = require("luaunit")
 

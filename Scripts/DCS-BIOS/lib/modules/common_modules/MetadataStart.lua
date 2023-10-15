@@ -5,7 +5,7 @@
 
 module("MetadataStart", package.seeall)
 
-local Module = require("Module")
+local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 
 --- @class MetadataStart: Module
 --- @field setAircraftName  function

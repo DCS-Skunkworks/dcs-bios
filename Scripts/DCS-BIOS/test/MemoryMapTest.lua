@@ -1,4 +1,4 @@
-local MemoryMap = require("MemoryMap")
+local MemoryMap = require("Scripts.DCS-BIOS.lib.modules.memory_map.MemoryMap")
 
 local lu = require("luaunit")
 

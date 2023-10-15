@@ -1,6 +1,6 @@
 module("Logger", package.seeall)
 
-local Functions = require("Functions")
+local Functions = require("Scripts.DCS-BIOS.lib.common.Functions")
 
 --- @class Logger
 --- @field private logfile file*

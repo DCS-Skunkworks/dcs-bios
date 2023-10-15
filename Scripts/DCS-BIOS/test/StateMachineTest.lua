@@ -1,8 +1,8 @@
-local BIOSStateMachine = require("BIOSStateMachine")
-local ConnectionManager = require("ConnectionManager")
+local BIOSStateMachine = require("Scripts.DCS-BIOS.lib.BIOSStateMachine")
+local ConnectionManager = require("Scripts.DCS-BIOS.lib.ConnectionManager")
 local MockDevice = require("MockDevice")
 local MockServer = require("MockServer")
-local Module = require("Module")
+local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 
 local lu = require("luaunit")
 

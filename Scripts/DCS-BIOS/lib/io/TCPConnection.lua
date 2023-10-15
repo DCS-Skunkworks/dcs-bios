@@ -1,6 +1,6 @@
 module("TCPConnection", package.seeall)
 
-local ReadableConnection = require("ReadableConnection")
+local ReadableConnection = require("Scripts.DCS-BIOS.lib.io.ReadableConnection")
 
 --- @class TCPConnection: ReadableConnection
 local TCPConnection = ReadableConnection:new("", -1, {}, function() end)

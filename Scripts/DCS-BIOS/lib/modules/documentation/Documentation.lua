@@ -1,6 +1,6 @@
 module("Documentation", package.seeall)
 
-local Category = require("Category")
+local Category = require("Scripts.DCS-BIOS.lib.modules.documentation.Category")
 
 --- @class Documentation: { [string]: Category }
 local Documentation = {}

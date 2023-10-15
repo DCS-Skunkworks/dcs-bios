@@ -1,8 +1,8 @@
 module("F-15E", package.seeall)
 
-local Functions = require("Functions")
+local Functions = require("Scripts.DCS-BIOS.lib.common.Functions")
 
-local Module = require("Module")
+local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 
 --- @class F_15: Module
 local F_15 = Module:new("F-15E", 0x9200, { "F-15ESE" })

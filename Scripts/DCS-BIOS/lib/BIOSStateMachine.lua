@@ -1,4 +1,3 @@
-local Log = require "Log"
 module("BIOSStateMachine", package.seeall)
 
 --- @class BIOSStateMachine

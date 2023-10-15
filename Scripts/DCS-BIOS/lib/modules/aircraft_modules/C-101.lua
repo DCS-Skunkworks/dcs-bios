@@ -1,13 +1,13 @@
 module("C-101", package.seeall)
 
-local ApiVariant = require("ApiVariant")
-local Control = require("Control")
-local ControlType = require("ControlType")
-local IntegerOutput = require("IntegerOutput")
-local Suffix = require("Suffix")
-local VariableStepInput = require("VariableStepInput")
+local ApiVariant = require("Scripts.DCS-BIOS.lib.modules.documentation.APIVariant")
+local Control = require("Scripts.DCS-BIOS.lib.modules.documentation.Control")
+local ControlType = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlType")
+local IntegerOutput = require("Scripts.DCS-BIOS.lib.modules.documentation.IntegerOutput")
+local Suffix = require("Scripts.DCS-BIOS.lib.modules.documentation.Suffix")
+local VariableStepInput = require("Scripts.DCS-BIOS.lib.modules.documentation.VariableStepInput")
 
-local Module = require("Module")
+local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 
 --- @class C_101: Module
 local C_101 = Module:new("C-101", 0x3600, { "C-101CC", "C-101EB" })

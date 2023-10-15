@@ -1,8 +1,8 @@
 module("CommonData", package.seeall)
 
-local AircraftList = require("AircraftList")
+local AircraftList = require("Scripts.DCS-BIOS.lib.AircraftList")
 
-local Module = require("Module")
+local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 
 --- @class CommonData: Module
 local CommonData = Module:new("CommonData", 0x0400, AircraftList.ALL_PLAYABLE_AIRCRAFT)

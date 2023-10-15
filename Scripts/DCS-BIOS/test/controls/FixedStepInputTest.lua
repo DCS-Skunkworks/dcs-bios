@@ -1,7 +1,7 @@
-local ControlType = require("ControlType")
-local InputType = require("InputType")
+local ControlType = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlType")
+local InputType = require("Scripts.DCS-BIOS.lib.modules.documentation.InputType")
 local MockDevice = require("MockDevice")
-local Module = require("Module")
+local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 
 local lu = require("luaunit")
 

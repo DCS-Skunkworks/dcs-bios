@@ -1,7 +1,7 @@
 module("TCPServer", package.seeall)
 
-local Server = require("Server")
-local TCPConnection = require("TCPConnection")
+local Server = require("Scripts.DCS-BIOS.lib.io.Server")
+local TCPConnection = require("Scripts.DCS-BIOS.lib.io.TCPConnection")
 
 --- @class TCPServer: Server
 --- @field private acceptor TCPSocketConnection the TCP connection acceptor
