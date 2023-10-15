@@ -167,4 +167,6 @@ SpitfireLFMkIX:defineIndicatorLight("RADIO_C_LIGHT", 122, "Radio Lights", "Radio
 SpitfireLFMkIX:defineIndicatorLight("RADIO_D_LIGHT", 123, "Radio Lights", "Radio D Light (white)")
 SpitfireLFMkIX:defineIndicatorLight("RADIO_TX_LIGHT", 124, "Radio Lights", "Radio TX Light (white)")
 
+SpitfireLFMkIX:defineReadWriteRadio("VHF_RADIO", 15, 7, 3, 1000, "VHF RADIO")
+
 return SpitfireLFMkIX

@@ -3859,6 +3859,28 @@ docdata["FW-190D9"] =
                                                           "physical_variant": "limited_rotary"
                                                    }
                                },
+          "Radio Frequencies": {
+                                   "FUG_16ZY_RADIO": {
+                                                             "category": "Radio Frequencies",
+                                                         "control_type": "radio",
+                                                          "description": "FuG 16ZY Radio",
+                                                           "identifier": "FUG_16ZY_RADIO",
+                                                               "inputs": [ {
+                                                                             "description": "The frequency to set, with or without a decimal place",
+                                                                               "interface": "set_string"
+                                                                         } ],
+                                                              "outputs": [ {
+                                                                                                   "address": 13474,
+                                                                                        "address_identifier": "FW_190D9_FUG_16ZY_RADIO_A",
+                                                                                   "address_mask_identifier": "FW_190D9_FUG_16ZY_RADIO_AM",
+                                                                             "address_mask_shift_identifier": "FW_190D9_FUG_16ZY_RADIO",
+                                                                                               "description": "The current frequency the radio is set to",
+                                                                                                "max_length": 7,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "string"
+                                                                         } ]
+                                                     }
+                               },
              "Weapon Control": {
                                       "BMB_FUSE_SEL": {
                                                                      "category": "Weapon Control",

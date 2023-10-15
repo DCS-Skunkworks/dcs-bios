@@ -185,4 +185,6 @@ FW_190D9:defineIndicatorLight("GUN_FIRE_6", 56, "Lamps", "Gun_Fire_6 (white)")
 FW_190D9:defineIndicatorLight("GUN_FIRE_7", 59, "Lamps", "Gun_Fire_7 (white)")
 FW_190D9:defineIndicatorLight("IFF_L", 87, "Lamps", "IFF Light (white)")
 
+FW_190D9:defineReadWriteRadio("FUG_16ZY_RADIO", 15, 7, 3, 1000, "FuG 16ZY Radio")
+
 return FW_190D9

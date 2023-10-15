@@ -11684,6 +11684,48 @@ docdata["Ka-50"] =
                                                                                                   } ]
                                                                               }
                                                     },
+                               "Radio Frequencies": {
+                                                        "R800L1_RADIO": {
+                                                                                "category": "Radio Frequencies",
+                                                                            "control_type": "radio",
+                                                                             "description": "R-800L1 VHF Radio",
+                                                                              "identifier": "R800L1_RADIO",
+                                                                                  "inputs": [ {
+                                                                                                "description": "The frequency to set, with or without a decimal place",
+                                                                                                  "interface": "set_string"
+                                                                                            } ],
+                                                                                 "outputs": [ {
+                                                                                                                      "address": 6560,
+                                                                                                           "address_identifier": "Ka_50_R800L1_RADIO_A",
+                                                                                                      "address_mask_identifier": "Ka_50_R800L1_RADIO_AM",
+                                                                                                "address_mask_shift_identifier": "Ka_50_R800L1_RADIO",
+                                                                                                                  "description": "The current frequency the radio is set to",
+                                                                                                                   "max_length": 7,
+                                                                                                                       "suffix": "",
+                                                                                                                         "type": "string"
+                                                                                            } ]
+                                                                        },
+                                                          "R828_RADIO": {
+                                                                                "category": "Radio Frequencies",
+                                                                            "control_type": "radio",
+                                                                             "description": "R-828 VHF Radio",
+                                                                              "identifier": "R828_RADIO",
+                                                                                  "inputs": [ {
+                                                                                                "description": "The frequency to set, with or without a decimal place",
+                                                                                                  "interface": "set_string"
+                                                                                            } ],
+                                                                                 "outputs": [ {
+                                                                                                                      "address": 6568,
+                                                                                                           "address_identifier": "Ka_50_R828_RADIO_A",
+                                                                                                      "address_mask_identifier": "Ka_50_R828_RADIO_AM",
+                                                                                                "address_mask_shift_identifier": "Ka_50_R828_RADIO",
+                                                                                                                  "description": "The current frequency the radio is set to",
+                                                                                                                   "max_length": 7,
+                                                                                                                       "suffix": "",
+                                                                                                                         "type": "string"
+                                                                                            } ]
+                                                                        }
+                                                    },
                       "Radio Intercom SPU-9 Panel": {
                                                         "RADIO_SELECTOR": {
                                                                                          "category": "Radio Intercom SPU-9 Panel",

@@ -227,4 +227,6 @@ P_51D:defineFloat("CONTR_LOCK_BRACK", 174, { 0, 1 }, "Control System", "Control 
 P_51D:defineFloat("INT_L_LIGHTS", 185, { 0, 1 }, "Light System", "Internal Lighting Left (white)")
 P_51D:defineFloat("INT_R_LIGHTS", 186, { 0, 1 }, "Light System", "Internal Lighting Right (white)")
 
+P_51D:defineReadWriteRadio("VHF_RADIO", 24, 7, 3, 1000, "VHF RADIO")
+
 return P_51D

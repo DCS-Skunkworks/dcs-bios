@@ -228,4 +228,6 @@ FW_190A8:defineBitFromDrawArgument("EXT_WOW_TAIL", 1, "External Aircraft Model",
 FW_190A8:defineBitFromDrawArgument("EXT_WOW_RIGHT", 4, "External Aircraft Model", "Weight ON Wheels Right Gear")
 FW_190A8:defineBitFromDrawArgument("EXT_WOW_LEFT", 6, "External Aircraft Model", "Weight ON Wheels Left Gear")
 
+FW_190A8:defineReadWriteRadio("FUG_16ZY_RADIO", 15, 7, 3, 1000, "FuG 16ZY RADIO")
+
 return FW_190A8

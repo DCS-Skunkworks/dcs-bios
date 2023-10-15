@@ -419,4 +419,8 @@ Mosquito:defineBitFromDrawArgument("EXT_WOW_TAIL", 1, "External Aircraft Model",
 Mosquito:defineBitFromDrawArgument("EXT_WOW_RIGHT", 4, "External Aircraft Model", "Weight ON Wheels Right Gear")
 Mosquito:defineBitFromDrawArgument("EXT_WOW_LEFT", 6, "External Aircraft Model", "Weight ON Wheels Left Gear")
 
+Mosquito:defineReadWriteRadio("VHF_RADIO", 24, 7, 3, 1000, "VHF RADIO")
+Mosquito:defineReadOnlyRadio("T1154_RADIO", 26, 7, 3, 1000, "T1154 RADIO")
+Mosquito:defineReadWriteRadio("R1155_RADIO", 27, 7, 3, 1000, "R1155 RADIO")
+
 return Mosquito

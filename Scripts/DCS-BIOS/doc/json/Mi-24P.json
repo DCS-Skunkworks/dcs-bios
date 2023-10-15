@@ -19036,6 +19036,85 @@
                                                                                           } ]
                                                                       }
                                                 },
+                           "Radio Frequencies": {
+                                                    "EUCALYPT_RADIO": {
+                                                                              "category": "Radio Frequencies",
+                                                                          "control_type": "radio",
+                                                                           "description": "EUCALYPT Radio",
+                                                                            "identifier": "EUCALYPT_RADIO",
+                                                                                "inputs": [ {
+                                                                                              "description": "The frequency to set, with or without a decimal place",
+                                                                                                "interface": "set_string"
+                                                                                          } ],
+                                                                               "outputs": [ {
+                                                                                                                    "address": 27250,
+                                                                                                         "address_identifier": "Mi_24P_EUCALYPT_RADIO_A",
+                                                                                                    "address_mask_identifier": "Mi_24P_EUCALYPT_RADIO_AM",
+                                                                                              "address_mask_shift_identifier": "Mi_24P_EUCALYPT_RADIO",
+                                                                                                                "description": "The current frequency the radio is set to",
+                                                                                                                 "max_length": 7,
+                                                                                                                     "suffix": "",
+                                                                                                                       "type": "string"
+                                                                                          } ]
+                                                                      },
+                                                     "JADRO1I_RADIO": {
+                                                                              "category": "Radio Frequencies",
+                                                                          "control_type": "radio",
+                                                                           "description": "JADRO-1I Radio",
+                                                                            "identifier": "JADRO1I_RADIO",
+                                                                                "inputs": [ {
+                                                                                              "description": "The frequency to set, with or without a decimal place",
+                                                                                                "interface": "set_string"
+                                                                                          } ],
+                                                                               "outputs": [ {
+                                                                                                                    "address": 27242,
+                                                                                                         "address_identifier": "Mi_24P_JADRO1I_RADIO_A",
+                                                                                                    "address_mask_identifier": "Mi_24P_JADRO1I_RADIO_AM",
+                                                                                              "address_mask_shift_identifier": "Mi_24P_JADRO1I_RADIO",
+                                                                                                                "description": "The current frequency the radio is set to",
+                                                                                                                 "max_length": 7,
+                                                                                                                     "suffix": "",
+                                                                                                                       "type": "string"
+                                                                                          } ]
+                                                                      },
+                                                        "R852_RADIO": {
+                                                                              "category": "Radio Frequencies",
+                                                                          "control_type": "radio",
+                                                                           "description": "R-852 Radio",
+                                                                            "identifier": "R852_RADIO",
+                                                                                "inputs": [  ],
+                                                                               "outputs": [ {
+                                                                                                                    "address": 27258,
+                                                                                                         "address_identifier": "Mi_24P_R852_RADIO_A",
+                                                                                                    "address_mask_identifier": "Mi_24P_R852_RADIO_AM",
+                                                                                              "address_mask_shift_identifier": "Mi_24P_R852_RADIO",
+                                                                                                                "description": "The current frequency the radio is set to",
+                                                                                                                 "max_length": 7,
+                                                                                                                     "suffix": "",
+                                                                                                                       "type": "string"
+                                                                                          } ]
+                                                                      },
+                                                        "R863_RADIO": {
+                                                                              "category": "Radio Frequencies",
+                                                                          "control_type": "radio",
+                                                                           "description": "R-863 Radio",
+                                                                            "identifier": "R863_RADIO",
+                                                                                "inputs": [ {
+                                                                                              "description": "The frequency to set, with or without a decimal place",
+                                                                                                "interface": "set_string"
+                                                                                          } ],
+                                                                               "outputs": [ {
+                                                                                                                    "address": 27234,
+                                                                                                         "address_identifier": "Mi_24P_R863_RADIO_A",
+                                                                                                    "address_mask_identifier": "Mi_24P_R863_RADIO_AM",
+                                                                                              "address_mask_shift_identifier": "Mi_24P_R863_RADIO",
+                                                                                                                "description": "The current frequency the radio is set to",
+                                                                                                                 "max_length": 7,
+                                                                                                                     "suffix": "",
+                                                                                                                       "type": "string"
+                                                                                          } ]
+                                                                      }
+                                                },
                               "Recorder MC 61": {
                                                      "PLT_REC_BRGHT": {
                                                                               "category": "Recorder MC 61",

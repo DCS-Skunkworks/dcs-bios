@@ -5361,6 +5361,65 @@
                                                                        } ]
                                                    }
                                },
+          "Radio Frequencies": {
+                                   "R1155_RADIO": {
+                                                          "category": "Radio Frequencies",
+                                                      "control_type": "radio",
+                                                       "description": "R1155 RADIO",
+                                                        "identifier": "R1155_RADIO",
+                                                            "inputs": [ {
+                                                                          "description": "The frequency to set, with or without a decimal place",
+                                                                            "interface": "set_string"
+                                                                      } ],
+                                                           "outputs": [ {
+                                                                                                "address": 28936,
+                                                                                     "address_identifier": "Mosquito_R1155_RADIO_A",
+                                                                                "address_mask_identifier": "Mosquito_R1155_RADIO_AM",
+                                                                          "address_mask_shift_identifier": "Mosquito_R1155_RADIO",
+                                                                                            "description": "The current frequency the radio is set to",
+                                                                                             "max_length": 7,
+                                                                                                 "suffix": "",
+                                                                                                   "type": "string"
+                                                                      } ]
+                                                  },
+                                   "T1154_RADIO": {
+                                                          "category": "Radio Frequencies",
+                                                      "control_type": "radio",
+                                                       "description": "T1154 RADIO",
+                                                        "identifier": "T1154_RADIO",
+                                                            "inputs": [  ],
+                                                           "outputs": [ {
+                                                                                                "address": 28928,
+                                                                                     "address_identifier": "Mosquito_T1154_RADIO_A",
+                                                                                "address_mask_identifier": "Mosquito_T1154_RADIO_AM",
+                                                                          "address_mask_shift_identifier": "Mosquito_T1154_RADIO",
+                                                                                            "description": "The current frequency the radio is set to",
+                                                                                             "max_length": 7,
+                                                                                                 "suffix": "",
+                                                                                                   "type": "string"
+                                                                      } ]
+                                                  },
+                                     "VHF_RADIO": {
+                                                          "category": "Radio Frequencies",
+                                                      "control_type": "radio",
+                                                       "description": "VHF RADIO",
+                                                        "identifier": "VHF_RADIO",
+                                                            "inputs": [ {
+                                                                          "description": "The frequency to set, with or without a decimal place",
+                                                                            "interface": "set_string"
+                                                                      } ],
+                                                           "outputs": [ {
+                                                                                                "address": 28920,
+                                                                                     "address_identifier": "Mosquito_VHF_RADIO_A",
+                                                                                "address_mask_identifier": "Mosquito_VHF_RADIO_AM",
+                                                                          "address_mask_shift_identifier": "Mosquito_VHF_RADIO",
+                                                                                            "description": "The current frequency the radio is set to",
+                                                                                             "max_length": 7,
+                                                                                                 "suffix": "",
+                                                                                                   "type": "string"
+                                                                      } ]
+                                                  }
+                               },
                "Radio Lights": {
                                     "RADIO_A_L": {
                                                          "category": "Radio Lights",
