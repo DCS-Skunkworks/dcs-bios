@@ -21153,6 +21153,48 @@
                                                                "physical_variant": "3_position_switch"
                                                         }
                                   },
+             "Radio Frequencies": {
+                                       "UHF_FREQ": {
+                                                           "category": "Radio Frequencies",
+                                                       "control_type": "radio",
+                                                        "description": "UHF Radio",
+                                                         "identifier": "UHF_FREQ",
+                                                             "inputs": [ {
+                                                                           "description": "The frequency to set, with or without a decimal place",
+                                                                             "interface": "set_string"
+                                                                       } ],
+                                                            "outputs": [ {
+                                                                                                 "address": 5340,
+                                                                                      "address_identifier": "F_14_UHF_FREQ_A",
+                                                                                 "address_mask_identifier": "F_14_UHF_FREQ_AM",
+                                                                           "address_mask_shift_identifier": "F_14_UHF_FREQ",
+                                                                                             "description": "The current frequency the radio is set to",
+                                                                                              "max_length": 7,
+                                                                                                  "suffix": "",
+                                                                                                    "type": "string"
+                                                                       } ]
+                                                   },
+                                      "VUHF_FREQ": {
+                                                           "category": "Radio Frequencies",
+                                                       "control_type": "radio",
+                                                        "description": "VUHF Radio",
+                                                         "identifier": "VUHF_FREQ",
+                                                             "inputs": [ {
+                                                                           "description": "The frequency to set, with or without a decimal place",
+                                                                             "interface": "set_string"
+                                                                       } ],
+                                                            "outputs": [ {
+                                                                                                 "address": 5348,
+                                                                                      "address_identifier": "F_14_VUHF_FREQ_A",
+                                                                                 "address_mask_identifier": "F_14_VUHF_FREQ_AM",
+                                                                           "address_mask_shift_identifier": "F_14_VUHF_FREQ",
+                                                                                             "description": "The current frequency the radio is set to",
+                                                                                              "max_length": 7,
+                                                                                                  "suffix": "",
+                                                                                                    "type": "string"
+                                                                       } ]
+                                                   }
+                                  },
                            "SAS": {
                                       "PLT_AFCS_PITCH": {
                                                                        "category": "SAS",
