@@ -4420,6 +4420,28 @@ docdata["P-47D"] =
                                                                                     } ]
                                                                 }
                                             },
+                       "Radio Frequencies": {
+                                                "VHF_RADIO": {
+                                                                     "category": "Radio Frequencies",
+                                                                 "control_type": "radio",
+                                                                  "description": "VHF RADIO",
+                                                                   "identifier": "VHF_RADIO",
+                                                                       "inputs": [ {
+                                                                                     "description": "The frequency to set, with or without a decimal place",
+                                                                                       "interface": "set_string"
+                                                                                 } ],
+                                                                      "outputs": [ {
+                                                                                                           "address": 21156,
+                                                                                                "address_identifier": "P_47D_VHF_RADIO_A",
+                                                                                           "address_mask_identifier": "P_47D_VHF_RADIO_AM",
+                                                                                     "address_mask_shift_identifier": "P_47D_VHF_RADIO",
+                                                                                                       "description": "The current frequency the radio is set to",
+                                                                                                        "max_length": 7,
+                                                                                                            "suffix": "",
+                                                                                                              "type": "string"
+                                                                                 } ]
+                                                             }
+                                            },
                       "Recognition Lights": {
                                                  "RLB_GREEN": {
                                                                              "category": "Recognition Lights",

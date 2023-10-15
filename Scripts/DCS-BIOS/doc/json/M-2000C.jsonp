@@ -11586,6 +11586,48 @@ docdata["M-2000C"] =
                                                                               } ]
                                                           }
                                },
+          "Radio Frequencies": {
+                                    "UHF_RADIO": {
+                                                         "category": "Radio Frequencies",
+                                                     "control_type": "radio",
+                                                      "description": "UHF Radio",
+                                                       "identifier": "UHF_RADIO",
+                                                           "inputs": [ {
+                                                                         "description": "The frequency to set, with or without a decimal place",
+                                                                           "interface": "set_string"
+                                                                     } ],
+                                                          "outputs": [ {
+                                                                                               "address": 29586,
+                                                                                    "address_identifier": "M_2000C_UHF_RADIO_A",
+                                                                               "address_mask_identifier": "M_2000C_UHF_RADIO_AM",
+                                                                         "address_mask_shift_identifier": "M_2000C_UHF_RADIO",
+                                                                                           "description": "The current frequency the radio is set to",
+                                                                                            "max_length": 7,
+                                                                                                "suffix": "",
+                                                                                                  "type": "string"
+                                                                     } ]
+                                                 },
+                                   "VUHF_RADIO": {
+                                                         "category": "Radio Frequencies",
+                                                     "control_type": "radio",
+                                                      "description": "VUHF Radio",
+                                                       "identifier": "VUHF_RADIO",
+                                                           "inputs": [ {
+                                                                         "description": "The frequency to set, with or without a decimal place",
+                                                                           "interface": "set_string"
+                                                                     } ],
+                                                          "outputs": [ {
+                                                                                               "address": 29578,
+                                                                                    "address_identifier": "M_2000C_VUHF_RADIO_A",
+                                                                               "address_mask_identifier": "M_2000C_VUHF_RADIO_AM",
+                                                                         "address_mask_shift_identifier": "M_2000C_VUHF_RADIO",
+                                                                                           "description": "The current frequency the radio is set to",
+                                                                                            "max_length": 7,
+                                                                                                "suffix": "",
+                                                                                                  "type": "string"
+                                                                     } ]
+                                                 }
+                               },
                       "SPEED": {
                                    "SPEED_KTS_NEED": {
                                                              "category": "SPEED",

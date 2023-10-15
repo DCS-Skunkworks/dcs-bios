@@ -276,4 +276,6 @@ MiG_15bis:defineFloat("CANOPY_POS", 225, { 0, 1 }, "Cockpit Mech", "Canopy Posit
 
 MiG_15bis:definePotentiometer("THROTTLE_FRICTION", 3, 3008, 204, { 0, 1 }, "Control System", "Throttle Friction Lever")
 
+MiG_15bis:defineReadWriteRadio("RSI6K_RADIO", 30, 7, 3, 100, "RSI-6K Radio Transmitter")
+
 return MiG_15bis

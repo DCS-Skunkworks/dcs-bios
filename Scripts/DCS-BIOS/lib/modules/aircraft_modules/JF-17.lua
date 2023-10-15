@@ -630,4 +630,7 @@ end, 8, "Radio", "Radio Display Line 2")
 JF_17:defineIndicatorLight("GEAR_LEVER_L", 107, "Warning, Caution and IndicatorLights", "Landing Gear Lever Light (red)")
 JF_17:definePushButton("SEAT_EJECT_H", 38, 3483, 981, "Right Console", "Eject Seat Eject Handle")
 
+JF_17:defineReadWriteRadio("COMM1", 25, 7, 3, 1000, "COMM1 Radio")
+JF_17:defineReadWriteRadio("COMM2", 26, 7, 3, 1000, "COMM2 Radio")
+
 return JF_17
