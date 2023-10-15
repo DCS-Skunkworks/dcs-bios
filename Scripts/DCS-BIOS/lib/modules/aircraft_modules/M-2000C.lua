@@ -878,4 +878,7 @@ M_2000C:defineString("FUEL_TOTAL", function()
 	return fuelTotal
 end, 4, "FUEL SYSTEM", "O - FUEL - Total Display")
 
+M_2000C:defineReadWriteRadio("VUHF_RADIO", 19, 7, 3, 1000, "VUHF Radio")
+M_2000C:defineReadWriteRadio("UHF_RADIO", 20, 7, 3, 1000, "UHF Radio")
+
 return M_2000C

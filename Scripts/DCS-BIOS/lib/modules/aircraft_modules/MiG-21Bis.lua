@@ -605,4 +605,6 @@ MiG_21Bis:defineFloat("WBRAKE_R_GAUGE", 56, { 0, 1 }, "Center Pedestal Panel", "
 --PRMG/RSBN channel displays
 --ARU manual arrow (mechanical?)
 
+MiG_21Bis:defineReadWriteRadio("VHF_RADIO", 22, 7, 3, 1000, "VHF RADIO")
+
 return MiG_21Bis

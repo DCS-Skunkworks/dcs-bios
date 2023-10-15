@@ -8080,6 +8080,48 @@ docdata["JF-17"] =
                                                                                            } ]
                                                                        }
                                             },
+                       "Radio Frequencies": {
+                                                "COMM1": {
+                                                                 "category": "Radio Frequencies",
+                                                             "control_type": "radio",
+                                                              "description": "COMM1 Radio",
+                                                               "identifier": "COMM1",
+                                                                   "inputs": [ {
+                                                                                 "description": "The frequency to set, with or without a decimal place",
+                                                                                   "interface": "set_string"
+                                                                             } ],
+                                                                  "outputs": [ {
+                                                                                                       "address": 18614,
+                                                                                            "address_identifier": "JF_17_COMM1_A",
+                                                                                       "address_mask_identifier": "JF_17_COMM1_AM",
+                                                                                 "address_mask_shift_identifier": "JF_17_COMM1",
+                                                                                                   "description": "The current frequency the radio is set to",
+                                                                                                    "max_length": 7,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "string"
+                                                                             } ]
+                                                         },
+                                                "COMM2": {
+                                                                 "category": "Radio Frequencies",
+                                                             "control_type": "radio",
+                                                              "description": "COMM2 Radio",
+                                                               "identifier": "COMM2",
+                                                                   "inputs": [ {
+                                                                                 "description": "The frequency to set, with or without a decimal place",
+                                                                                   "interface": "set_string"
+                                                                             } ],
+                                                                  "outputs": [ {
+                                                                                                       "address": 18622,
+                                                                                            "address_identifier": "JF_17_COMM2_A",
+                                                                                       "address_mask_identifier": "JF_17_COMM2_AM",
+                                                                                 "address_mask_shift_identifier": "JF_17_COMM2",
+                                                                                                   "description": "The current frequency the radio is set to",
+                                                                                                    "max_length": 7,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "string"
+                                                                             } ]
+                                                         }
+                                            },
                            "Right Console": {
                                                           "AP_DISENGAGE": {
                                                                                       "api_variant": "momentary_last_position",

@@ -250,4 +250,6 @@ P_47D:defineBitFromDrawArgument("EXT_WOW_TAIL", 1, "External Aircraft Model", "W
 P_47D:defineBitFromDrawArgument("EXT_WOW_RIGHT", 4, "External Aircraft Model", "Weight ON Wheels Right Gear")
 P_47D:defineBitFromDrawArgument("EXT_WOW_LEFT", 6, "External Aircraft Model", "Weight ON Wheels Left Gear")
 
+P_47D:defineReadWriteRadio("VHF_RADIO", 23, 7, 3, 1000, "VHF RADIO")
+
 return P_47D
