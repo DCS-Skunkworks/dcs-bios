@@ -15,9 +15,6 @@ local TCPServer = require("Scripts.DCS-BIOS.lib.io.TCPServer")
 local UDPServer = require("Scripts.DCS-BIOS.lib.io.UDPServer")
 local socket = require("socket") --[[@as Socket]]
 
-local json = loadfile([[Scripts/JSON.lua]]) -- try to load json from dcs
-BIOS.json = json and json() or require("JSON") -- if that fails, fall back to module that we can define
-
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/Util.lua]])
 dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/Protocol.lua]])
 -- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/MetadataEnd.lua]])
@@ -168,16 +165,7 @@ local Yak_52 = require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.Yak-52")
 BIOS.protocol.writeNewModule(Yak_52)
 ----------------------------------------------------------------------------Modules End--------------------------------------
 --Saves aliases for each aircraft for external programs
-local function saveAliases()
-	local JSON = BIOS.json
-	local file, err = io.open(lfs.writedir()..[[Scripts/DCS-BIOS/doc/json/AircraftAliases.json]], "w")
-	local json_string = JSON:encode_pretty(BIOS.dbg.aircraftNameToModuleNames)
-	if file then
-		file:write(json_string)
-		file:close()
-	end
-end
-pcall(saveAliases)
+pcall(BIOS.protocol.saveAliases)
 -- save constants for arduino devs to a header file
 pcall(BIOS.protocol.saveAddresses)
 
