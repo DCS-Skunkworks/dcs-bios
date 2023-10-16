@@ -1,10 +1,13 @@
 local BIOSConfig = require("Scripts.DCS-BIOS.BIOSConfig")
+local JSONHelper = require("Scripts.DCS-BIOS.lib.common.JSONHelper")
 
 BIOS.protocol = {}
 
 --- @type Module[]
 local exportModules = {}
+--- @type {[string]: string[]}
 local aircraftNameToModuleNames = {}
+--- @type {[string]: Module[]}
 local aircraftNameToModules = {}
 
 function BIOS.protocol.setExportModuleAircrafts(acftList)
@@ -38,7 +41,6 @@ function BIOS.protocol.setExportModuleAircrafts(acftList)
 		end
 	end
 
-	BIOS.dbg.aircraftNameToModuleNames = aircraftNameToModuleNames
 	BIOS.dbg.aircraftNameToModules = aircraftNameToModules
 end
 
@@ -53,25 +55,22 @@ function BIOS.protocol.beginModule(name, baseAddress)
 end
 function BIOS.protocol.endModule()
 	if BIOSConfig.dev_mode then
-	local function saveDoc()
-		local JSON = BIOS.json
-		local file, err = io.open(lfs.writedir()..[[Scripts/DCS-BIOS/doc/json/]]..moduleBeingDefined.name..".json", "w")
-		local json_string = JSON:encode_pretty(moduleBeingDefined.documentation)
-		if file then
-			file:write(json_string)
-			file:close()
+		local function saveDoc()
+			local json_file_name = lfs.writedir() .. [[Scripts/DCS-BIOS/doc/json/]] .. moduleBeingDefined.name .. ".json"
+			JSONHelper.encode_to_file(moduleBeingDefined.documentation, json_file_name)
+
+			local jsonp_file_name = lfs.writedir() .. [[Scripts/DCS-BIOS/doc/doc_assets/]] .. moduleBeingDefined.name .. ".jsonp"
+			local prefix = "docdata[\"" .. moduleBeingDefined.name .. "\"] =\n"
+			local suffix = ";\n"
+			JSONHelper.encode_to_jsonp_file(moduleBeingDefined.documentation, prefix, suffix, jsonp_file_name)
 		end
-		local file, err = io.open(lfs.writedir()..[[Scripts/DCS-BIOS/doc/doc_assets/]]..moduleBeingDefined.name..".jsonp", "w")
-		if file then
-			file:write('docdata["'..moduleBeingDefined.name..'"] =\n')
-			file:write(json_string)
-			file:write(";\n")
-			file:close()
-		end
+		pcall(saveDoc)
+		moduleBeingDefined = nil
 	end
-	pcall(saveDoc)
-	moduleBeingDefined = nil
-	end
+end
+function BIOS.protocol.saveAliases()
+	local file = lfs.writedir()..[[Scripts/DCS-BIOS/doc/json/AircraftAliases.json]]
+	JSONHelper.encode_to_file(aircraftNameToModuleNames, file)
 end
 function BIOS.protocol.saveAddresses()
 	if BIOSConfig.dev_mode then
