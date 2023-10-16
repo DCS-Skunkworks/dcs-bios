@@ -1,3 +1,5 @@
+local BIOSConfig = require("Scripts.DCS-BIOS.BIOSConfig")
+
 BIOS.protocol = {}
 
 --- @type Module[]
@@ -53,7 +55,7 @@ function BIOS.protocol.beginModule(name, baseAddress)
 	exportModules[name] = moduleBeingDefined
 end
 function BIOS.protocol.endModule()
-	if BIOSdevMode == 1 then
+	if BIOSConfig.dev_mode then
 	local function saveDoc()
 		local JSON = BIOS.json
 		local file, err = io.open(lfs.writedir()..[[Scripts/DCS-BIOS/doc/json/]]..moduleBeingDefined.name..".json", "w")
@@ -75,7 +77,7 @@ function BIOS.protocol.endModule()
 	end
 end
 function BIOS.protocol.saveAddresses()
-	if BIOSdevMode == 1 then
+	if BIOSConfig.dev_mode then
 		local addresses = {}
 
 		local function addLine(identifier, line)
