@@ -1,74 +1,77 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="author" content="[FSF]Ian & WarLord">
-		<meta name="theme-color" content="#8EEF96">
-		<link rel="icon" type="image/png" href="Images/Refpage16.png">
-		<link rel="shortcut icon" type="image/png" href="Images/Refpage16.png">
-		<link rel="stylesheet" href="css/doc.css">
-		<title>DCS-BIOS v0.7.50 - Control Reference Page</title>
-		<script src="js/jquery-3.7.1.min.js"></script>
-		<script src="js/underscore-min.js"></script>
-		<script src="js/tcp-promise-wrapper.js"></script>
-		<script src="js/globals.js"></script>
-		<script src="json/MetadataEnd.jsonp"></script>
-		<script src="json/MetadataStart.jsonp"></script>
-		<script src="json/CommonData.jsonp"></script>
-		<script src="json/A-4E-C.jsonp"></script>
-		<script src="json/A-10C.jsonp"></script>
-		<script src="json/A-29B.jsonp"></script>
-		<script src="json/AH-6J.jsonp"></script>
-		<script src="json/AH-64D.jsonp"></script>
-		<script src="json/AJS37.jsonp"> </script>
-		<script src="json/Alphajet.jsonp"></script>
-		<script src="json/AV8BNA.jsonp"></script>
-		<script src="json/Bf-109K-4.jsonp"></script>
-		<script src="json/C-101.jsonp"></script>
-		<script src="json/Christen Eagle II.jsonp"></script>
-		<script src="json/Edge540.jsonp"></script>
-		<script src="json/F-14.jsonp"></script>
-		<script src="json/F-15E.jsonp"></script>
-		<script src="json/F-16C_50.jsonp"></script>
-		<script src="json/F-22A.jsonp"></script>
-		<script src="json/F-5E-3.jsonp"></script>
-		<script src="json/F-86F Sabre.jsonp"></script>
-		<script src="json/FA-18C_hornet.jsonp"></script>
-		<script src="json/FC3.jsonp"></script>
-		<script src="json/FW-190A8.jsonp"></script>
-		<script src="json/FW-190D9.jsonp"></script>
-		<script src="json/I-16.jsonp"></script>
-		<script src="json/JF-17.jsonp"></script>
-		<script src="json/Ka-50.jsonp"></script>
-		<script src="json/L-39.jsonp"></script>
-		<script src="json/M-2000C.jsonp"></script>
-		<script src="json/MB-339.jsonp"></script>
-		<script src="json/Mi-8MT.jsonp"></script>
-		<script src="json/Mi-24P.jsonp"></script>
-		<script src="json/MirageF1.jsonp"></script>
-		<script src="json/MiG-15Bis.jsonp"></script>
-		<script src="json/MiG-19P.jsonp"></script>
-		<script src="json/MiG-21Bis.jsonp"></script>
-		<script src="json/Mosquito.jsonp"></script>
-		<script src="json/NS430.jsonp"></script>
-		<script src="json/P-47D.jsonp"> </script>
-		<script src="json/P-51D.jsonp"> </script>
-		<script src="json/SA342.jsonp"></script>
-		<script src="json/SpitfireLFMkIX.jsonp"> </script>
-		<script src="json/SuperCarrier.jsonp"> </script>
-		<script src="json/UH-1H.jsonp"></script>
-		<script src="json/VNAO_Room.jsonp"></script>
-		<script src="json/VNAO_T-45.jsonp"></script>
-		<script src="json/Yak-52.jsonp"></script>
-		<script src="js/control-reference.js"></script>
-		<script src="js/dcs-bios-connection.js"></script>
-	</head>
-	<body ng-controller="DocController">
-		<noscript>
-			<h2 style="color: red;">This page requires JavaScript to be enabled.</h2>
-		</noscript>
-		<div id="app">
 
-		</div>
-	</body>
+<head>
+	<meta charset="utf-8">
+	<meta name="author" content="[FSF]Ian & WarLord">
+	<meta name="theme-color" content="#8EEF96">
+	<link rel="icon" type="image/png" href="Images/Refpage16.png">
+	<link rel="shortcut icon" type="image/png" href="Images/Refpage16.png">
+	<link rel="stylesheet" href="css/doc.css">
+	<title>DCS-BIOS v0.7.50 - Control Reference Page</title>
+	<script src="js/jquery-3.7.1.min.js"></script>
+	<script src="js/underscore-min.js"></script>
+	<script src="js/tcp-promise-wrapper.js"></script>
+	<script src="js/globals.js"></script>
+	<script src="doc_assets/MetadataEnd.jsonp"></script>
+	<script src="doc_assets/MetadataStart.jsonp"></script>
+	<script src="doc_assets/CommonData.jsonp"></script>
+	<script src="doc_assets/A-4E-C.jsonp"></script>
+	<script src="doc_assets/A-10C.jsonp"></script>
+	<script src="doc_assets/A-29B.jsonp"></script>
+	<script src="doc_assets/AH-6J.jsonp"></script>
+	<script src="doc_assets/AH-64D.jsonp"></script>
+	<script src="doc_assets/AJS37.jsonp"> </script>
+	<script src="doc_assets/Alphajet.jsonp"></script>
+	<script src="doc_assets/AV8BNA.jsonp"></script>
+	<script src="doc_assets/Bf-109K-4.jsonp"></script>
+	<script src="doc_assets/C-101.jsonp"></script>
+	<script src="doc_assets/Christen Eagle II.jsonp"></script>
+	<script src="doc_assets/Edge540.jsonp"></script>
+	<script src="doc_assets/F-14.jsonp"></script>
+	<script src="doc_assets/F-15E.jsonp"></script>
+	<script src="doc_assets/F-16C_50.jsonp"></script>
+	<script src="doc_assets/F-22A.jsonp"></script>
+	<script src="doc_assets/F-5E-3.jsonp"></script>
+	<script src="doc_assets/F-86F Sabre.jsonp"></script>
+	<script src="doc_assets/FA-18C_hornet.jsonp"></script>
+	<script src="doc_assets/FC3.jsonp"></script>
+	<script src="doc_assets/FW-190A8.jsonp"></script>
+	<script src="doc_assets/FW-190D9.jsonp"></script>
+	<script src="doc_assets/I-16.jsonp"></script>
+	<script src="doc_assets/JF-17.jsonp"></script>
+	<script src="doc_assets/Ka-50.jsonp"></script>
+	<script src="doc_assets/L-39.jsonp"></script>
+	<script src="doc_assets/M-2000C.jsonp"></script>
+	<script src="doc_assets/MB-339.jsonp"></script>
+	<script src="doc_assets/Mi-8MT.jsonp"></script>
+	<script src="doc_assets/Mi-24P.jsonp"></script>
+	<script src="doc_assets/MirageF1.jsonp"></script>
+	<script src="doc_assets/MiG-15Bis.jsonp"></script>
+	<script src="doc_assets/MiG-19P.jsonp"></script>
+	<script src="doc_assets/MiG-21Bis.jsonp"></script>
+	<script src="doc_assets/Mosquito.jsonp"></script>
+	<script src="doc_assets/NS430.jsonp"></script>
+	<script src="doc_assets/P-47D.jsonp"> </script>
+	<script src="doc_assets/P-51D.jsonp"> </script>
+	<script src="doc_assets/SA342.jsonp"></script>
+	<script src="doc_assets/SpitfireLFMkIX.jsonp"> </script>
+	<script src="doc_assets/SuperCarrier.jsonp"> </script>
+	<script src="doc_assets/UH-1H.jsonp"></script>
+	<script src="doc_assets/VNAO_Room.jsonp"></script>
+	<script src="doc_assets/VNAO_T-45.jsonp"></script>
+	<script src="doc_assets/Yak-52.jsonp"></script>
+	<script src="js/control-reference.js"></script>
+	<script src="js/dcs-bios-connection.js"></script>
+</head>
+
+<body ng-controller="DocController">
+	<noscript>
+		<h2 style="color: red;">This page requires JavaScript to be enabled.</h2>
+	</noscript>
+	<div id="app">
+
+	</div>
+</body>
+
 </html>
