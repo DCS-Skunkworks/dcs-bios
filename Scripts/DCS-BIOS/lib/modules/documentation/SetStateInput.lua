@@ -11,6 +11,9 @@ local SetStateInput = {}
 --- @param description string
 --- @return SetStateInput
 function SetStateInput:new(maxValue, description)
+	assert(maxValue ~= nil)
+	assert(description ~= nil)
+
 	--- @type SetStateInput
 	local o = {
 		interface = InputType.set_state,

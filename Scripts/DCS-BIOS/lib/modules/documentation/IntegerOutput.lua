@@ -14,6 +14,10 @@ local IntegerOutput = {}
 --- @param description string
 --- @return IntegerOutput
 function IntegerOutput:new(allocation, suffix, description)
+	assert(allocation ~= nil)
+	assert(suffix ~= nil)
+	assert(description ~= nil)
+
 	--- @type IntegerOutput
 	local o = {
 		mask = allocation.mask,

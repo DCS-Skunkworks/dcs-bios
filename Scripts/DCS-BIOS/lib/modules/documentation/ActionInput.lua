@@ -11,6 +11,9 @@ local ActionInput = {}
 --- @param description string
 --- @return ActionInput
 function ActionInput:new(argument, description)
+	assert(argument ~= nil)
+	assert(description ~= nil)
+
 	--- @type ActionInput
 	local o = {
 		interface = InputType.action,

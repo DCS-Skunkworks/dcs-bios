@@ -12,6 +12,10 @@ local StringOutput = {}
 --- @param description string
 --- @return StringOutput
 function StringOutput:new(allocation, suffix, description)
+	assert(allocation ~= nil)
+	assert(suffix ~= nil)
+	assert(description ~= nil)
+
 	--- @type StringOutput
 	local o = {
 		max_length = allocation.maxLength,
