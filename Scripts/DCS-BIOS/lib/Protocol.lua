@@ -1,78 +1,104 @@
+module("Protocol", package.seeall)
+
 local BIOSConfig = require("Scripts.DCS-BIOS.BIOSConfig")
 local JSONHelper = require("Scripts.DCS-BIOS.lib.common.JSONHelper")
 
-BIOS.protocol = {}
+--- @class Protocol
+--- @field private aircraftNameToModuleNames { [string]: string[] }
+--- @field private exportModules { [string]: Module }
+local Protocol = {
+	aircraftNameToModuleNames = {},
+	exportModules = {},
+}
 
---- @type Module[]
-local exportModules = {}
---- @type {[string]: string[]}
-local aircraftNameToModuleNames = {}
---- @type {[string]: Module[]}
-local aircraftNameToModules = {}
+_G.BIOS.protocol = Protocol -- set global for legacy module compatibility
 
-function BIOS.protocol.setExportModuleAircrafts(acftList)
-	-- first, delete moduleName from all mappings
-	for _, moduleNames in pairs(aircraftNameToModuleNames) do
-		local newModuleNames = {}
-		for _, moduleName in pairs(moduleNames) do
-			if moduleName ~= moduleBeingDefined.name then
-				newModuleNames[#newModuleNames+1] = moduleName
-			end
-		end
-	end
-
-	-- next, add module name to all aircrafts it should be on
-	for _, acftName in pairs(acftList) do
-		if aircraftNameToModuleNames[acftName] == nil then
-			aircraftNameToModuleNames[acftName] = {moduleBeingDefined.name}
-		else
-			local moduleList = aircraftNameToModuleNames[acftName]
-			moduleList[#moduleList+1] = moduleBeingDefined.name
-		end
-	end
-
-	-- recompute aircraftNameToModules
-	aircraftNameToModules = {}
-	for acftName, _ in pairs(aircraftNameToModuleNames) do
-		local modules = {}
-		aircraftNameToModules[acftName] = modules
-		for _, moduleName in pairs(aircraftNameToModuleNames[acftName]) do
-			modules[#modules+1] = exportModules[moduleName]
-		end
-	end
-
-	BIOS.dbg.aircraftNameToModules = aircraftNameToModules
+--- @deprecated
+--- Sets the modules to export for `moduleBeingDefined`. Legacy modules only.
+--- @param acftList string[]
+function Protocol.setExportModuleAircrafts(acftList)
+	Protocol.set_export_module_aircraft(_G.moduleBeingDefined.name, acftList)
 end
 
-function BIOS.protocol.beginModule(name, baseAddress)
-	moduleBeingDefined = {}
-	moduleBeingDefined.name = name
-	moduleBeingDefined.documentation = {}
-	moduleBeingDefined.inputProcessors = {}
-	moduleBeingDefined.memoryMap = BIOS.util.MemoryMap:create { baseAddress = baseAddress }
-	moduleBeingDefined.exportHooks = {}
-	exportModules[name] = moduleBeingDefined
+--- @private
+--- @param name string the name of the module to set export aircraft for
+--- @param acftList string[]
+function Protocol.set_export_module_aircraft(name, acftList)
+	-- add module name to all aircrafts it should be on
+	for _, acftName in ipairs(acftList) do
+		if Protocol.aircraftNameToModuleNames[acftName] == nil then
+			-- initialize this entry if it's empty
+			Protocol.aircraftNameToModuleNames[acftName] = {}
+		end
+
+		table.insert(Protocol.aircraftNameToModuleNames[acftName], name)
+	end
 end
-function BIOS.protocol.endModule()
+
+--- @return { [string]: Module[] }
+function Protocol.aircraft_names_to_modules()
+	local aircraftNameToModules = {}
+
+	for acftName, _ in pairs(Protocol.aircraftNameToModuleNames) do
+		aircraftNameToModules[acftName] = {}
+		for _, moduleName in ipairs(Protocol.aircraftNameToModuleNames[acftName]) do
+			table.insert(aircraftNameToModules[acftName], Protocol.exportModules[moduleName])
+		end
+	end
+
+	return aircraftNameToModules
+end
+
+--- @deprecated
+--- Legacy function which initializes the global variable `moduleBeingDefined`. For use in legacy modules.
+---@param name string
+---@param baseAddress integer
+function Protocol.beginModule(name, baseAddress)
+	_G.moduleBeingDefined = {
+		name = name,
+		documentation = {},
+		inputProcessors = {},
+		memoryMap = BIOS.util.MemoryMap:create { baseAddress = baseAddress },
+		exportHooks = {},
+	}
+
+	Protocol.exportModules[name] = _G.moduleBeingDefined
+end
+
+--- @deprecated
+--- Writes the json for `moduleBeingDefined`. For legacy modules .
+function Protocol.endModule()
+	Protocol.write_module_json(_G.moduleBeingDefined)
+end
+
+--- @private
+--- Writes the json for a given module
+--- @param module Module the module to write
+function Protocol.write_module_json(module)
+	module = module or _G.moduleBeingDefined -- legacy behavior
+
 	if BIOSConfig.dev_mode then
 		local function saveDoc()
-			local json_file_name = lfs.writedir() .. [[Scripts/DCS-BIOS/doc/json/]] .. moduleBeingDefined.name .. ".json"
-			JSONHelper.encode_to_file(moduleBeingDefined.documentation, json_file_name)
+			local json_file_name = lfs.writedir() .. [[Scripts/DCS-BIOS/doc/json/]] .. module.name .. ".json"
+			JSONHelper.encode_to_file(module.documentation, json_file_name)
 
-			local jsonp_file_name = lfs.writedir() .. [[Scripts/DCS-BIOS/doc/doc_assets/]] .. moduleBeingDefined.name .. ".jsonp"
-			local prefix = "docdata[\"" .. moduleBeingDefined.name .. "\"] =\n"
+			local jsonp_file_name = lfs.writedir() .. [[Scripts/DCS-BIOS/doc/doc_assets/]] .. module.name .. ".jsonp"
+			local prefix = "docdata[\"" .. module.name .. "\"] =\n"
 			local suffix = ";\n"
-			JSONHelper.encode_to_jsonp_file(moduleBeingDefined.documentation, prefix, suffix, jsonp_file_name)
+			JSONHelper.encode_to_jsonp_file(module.documentation, prefix, suffix, jsonp_file_name)
 		end
 		pcall(saveDoc)
-		moduleBeingDefined = nil
 	end
 end
-function BIOS.protocol.saveAliases()
+
+--- Writes the map of aircraft names to module names to a json file for use by 3rd party applications
+function Protocol.saveAliases()
 	local file = lfs.writedir()..[[Scripts/DCS-BIOS/doc/json/AircraftAliases.json]]
-	JSONHelper.encode_to_file(aircraftNameToModuleNames, file)
+	JSONHelper.encode_to_file(Protocol.aircraftNameToModuleNames, file)
 end
-function BIOS.protocol.saveAddresses()
+
+--- Writes all addresses as constants in a C header file to by used by arduino devs
+function Protocol.saveAddresses()
 	if BIOSConfig.dev_mode then
 		local addresses = {}
 
@@ -82,8 +108,8 @@ function BIOS.protocol.saveAddresses()
 			end
 		end
 
-		for moduleName, moduleBeingDefined in pairs(exportModules) do
-			for _, category in pairs(moduleBeingDefined.documentation) do
+		for moduleName, export_module in pairs(Protocol.exportModules) do
+			for _, category in pairs(export_module.documentation) do
 				for identifier, args in pairs(category) do
 					local outputs = args.outputs or {}
 					for _, output in pairs(outputs) do
@@ -136,9 +162,13 @@ function BIOS.protocol.saveAddresses()
 		end
 	end
 end
-function BIOS.protocol.writeNewModule(mod)
-	moduleBeingDefined = mod
-	exportModules[mod.name] = mod
-	BIOS.protocol.setExportModuleAircrafts(mod.aircraftList)
-	BIOS.protocol.endModule()
+
+--- Adds a module to the set of all modules, and writes json data for the module.
+---@param mod Module
+function Protocol.writeNewModule(mod)
+	Protocol.exportModules[mod.name] = mod
+	Protocol.set_export_module_aircraft(mod.name, mod.aircraftList)
+	Protocol.write_module_json(mod)
 end
+
+return Protocol
