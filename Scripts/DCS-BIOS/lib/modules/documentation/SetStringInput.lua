@@ -9,6 +9,8 @@ local SetStringInput = {}
 --- @param description string
 --- @return SetStringInput
 function SetStringInput:new(description)
+	assert(description ~= nil)
+
 	--- @type SetStringInput
 	local o = {
 		interface = InputType.set_string,

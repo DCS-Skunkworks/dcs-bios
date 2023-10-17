@@ -9,6 +9,8 @@ local FixedStepInput = {}
 --- @param description string
 --- @return FixedStepInput
 function FixedStepInput:new(description)
+	assert(description ~= nil)
+
 	--- @type FixedStepInput
 	local o = {
 		interface = InputType.fixed_step,
