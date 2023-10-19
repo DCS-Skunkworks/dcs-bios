@@ -112,28 +112,31 @@ function Protocol.saveAddresses()
 			for _, category in pairs(export_module.documentation) do
 				for identifier, args in pairs(category) do
 					local outputs = args.outputs or {}
-					for _, output in pairs(outputs) do
-						local address_identifier = (output.address_mask_shift_identifier or BIOS.util.addressDefineIdentifier(moduleName, identifier)) .. "_A"
-						local address_mask_identifier = (output.address_mask_shift_identifier or BIOS.util.addressDefineIdentifier(moduleName, identifier)) .. "_AM"
-						local address_mask_shiftby_identifier = output.address_mask_shift_identifier or BIOS.util.addressDefineIdentifier(moduleName, identifier)
+					for _, output in ipairs(outputs) do
+						-- we redefine here for a few legacy plane controls using BIOS.util.defineTumb
+						local address_identifier = output.address_identifier or (BIOS.util.addressDefineIdentifier(moduleName, identifier) .. "_A")
+						local address_mask_identifier = output.address_mask_identifier
+						local address_mask_shiftby_identifier = output.address_mask_shift_identifier
 						local address = output.address and string.format("0x%04X", output.address) or ""
-						local mask = output.mask and string.format("0x%04X", output.mask) or ""
-						local shift_by = output.shift_by and tostring(output.shift_by) or ""
 
 						local address_line = "#define " .. address_identifier .. " " .. address
-						local address_mask_line = "#define " .. address_mask_identifier .. " " .. address .. ", " .. mask
-						local address_mask_shiftby_line = "#define " .. address_mask_shiftby_identifier .. " " .. address .. ", " .. mask .. ", " .. shift_by
 
 						-- #define lines based on type
-						if output.type == "integer" then
+						if address_mask_shiftby_identifier and output.type == "integer" then
+							--- @cast output IntegerOutput
+							local shift_by = tostring(output.shift_by)
+							local mask = string.format("0x%04X", output.mask)
+
+							local address_mask_shiftby_line = "#define " .. address_mask_shiftby_identifier .. " " .. address .. ", " .. mask .. ", " .. shift_by
 							addLine(address_mask_shiftby_identifier, address_mask_shiftby_line)
-							if output.max_value == 1 then
+
+							if address_mask_identifier and output.max_value == 1 then
+								local address_mask_line = "#define " .. address_mask_identifier .. " " .. address .. ", " .. mask
 								addLine(address_mask_identifier, address_mask_line)
-							elseif output.max_value == 65535 then
+							elseif address_identifier and output.max_value == 65535 then
 								addLine(address_identifier, address_line)
 							end
-						end
-						if output.type == "string" then
+						elseif address_identifier and output.type == "string" then
 							addLine(address_identifier, address_line)
 						end
 					end
