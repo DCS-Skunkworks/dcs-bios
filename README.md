@@ -143,7 +143,7 @@ DCS-BIOS is released under a slightly modified Simple Public License 2.0 (think 
 
 The copy of `socat` that comes with DCS-BIOS is licensed under the GPLv2 (see `/Programs/socat/COPYING`).
 
-== Support
+## Support
 
 * Here you find our [DCS-Skunkworks Discord Server](https://discord.gg/5svGwKX)
 * Here you find the [DCSFlightpanels Software](https://github.com/DCS-Skunkworks/DCSFlightpanels)
