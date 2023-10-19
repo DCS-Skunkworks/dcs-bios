@@ -1,4 +1,4 @@
-![Static Badge](https://img.shields.io/badge/license-SimPL--2.0-green)
+[![Static Badge](https://img.shields.io/badge/license-SimPL--2.0-green)](https://github.com/DCS-Skunkworks/dcs-bios/blob/master/LICENCE)
 [![GitHub release](https://img.shields.io/github/release/DCS-Skunkworks/dcs-bios.svg)](https://github.com/DCS-Skunkworks/dcs-bios/releases)
 [![Discord](https://img.shields.io/discord/533342958712258572)](https://discord.gg/5svGwKX)
 
