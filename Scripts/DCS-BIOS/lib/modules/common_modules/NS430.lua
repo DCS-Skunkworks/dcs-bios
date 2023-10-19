@@ -72,18 +72,15 @@ function NS430:defineDoubleCommandButton(identifier, device_id, start_command, s
 
 	local control = Control:new(category, ControlType.selector, identifier, description, {
 		FixedStepInput:new("switch to previous or next state"),
-		SetStateInput:new(1, "set position"),
-	}, {
-		IntegerOutput:new(alloc, Suffix.none, "selector position"),
-	}, MomentaryPositions.first_and_last, PhysicalVariant.push_button)
+	}, {}, MomentaryPositions.first_and_last, PhysicalVariant.push_button)
 	self:addControl(control)
 
 	self:addInputProcessor(identifier, function(toState)
 		local dev = GetDevice(device_id)
-		if toState == "1" then
+		if toState == "INC" then
 			dev:performClickableAction(start_command, 1)
 		end
-		if toState == "0" then
+		if toState == "DEC" then
 			dev:performClickableAction(stop_command, 1)
 			dev:performClickableAction(stop_command, 0)
 		end
@@ -135,7 +132,9 @@ function NS430:defineMomentaryRockerSwitch(identifier, device_id, pos_command, p
 	end)
 end
 
-NS430:defineDoubleCommandButton("NS430_PWR_VOL_PUSH_SQ_POW", 257, 3001, 3030, 1, "NS430", "PWR-VOL PUSH-SQ COM Power")
+NS430:defineDoubleCommandButton("NS430_PWR_VOL_SQ_PUSH", 257, 3001, 3001, 1, "NS430", "PWR-VOL PUSH-SQ")
+NS430:defineDoubleCommandButton("NS430_PWR_VOL_SQ_POWER", 257, 3002, 3002, 1, "NS430", "PWR-VOL Power ON OFF")
+
 NS430:defineDoubleCommandButton("NS430_VOL_PUSH_ID_PUSH", 257, 3004, 3031, 3, "NS430", "VOL_PUSH-ID VLOC Push")
 NS430:defineDoubleCommandButton("NS430_SMALL_LEFT_BTN_PUSH", 257, 3009, 3032, 5, "NS430", "SMALL_LEFT_BTN Push")
 NS430:defineDoubleCommandButton("NS430_COM_FLIP_FLOP", 257, 3012, 3033, 7, "NS430", "COM flip-flop")
