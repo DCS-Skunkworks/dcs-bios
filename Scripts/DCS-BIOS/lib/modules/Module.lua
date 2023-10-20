@@ -30,7 +30,6 @@ end
 --- @field memoryMap MemoryMap a map of all memory allocations for sending and receiving data
 --- @field exportHooks fun(dev0: CockpitDevice)[] functions to run on sending data
 --- @field aircraftList string[] list of aircraft ids to export to
---- @field controlValueTable {[string]:number} holds values for controls where it is not possible to get value using DCS API (e.g. NS 430)
 local Module = {}
 
 --- Constructs a new module
@@ -46,7 +45,6 @@ function Module:new(name, baseAddress, acftList)
 		memoryMap = MemoryMap:new(baseAddress),
 		exportHooks = {},
 		aircraftList = acftList,
-		controlValueTable = {},
 	}
 
 	setmetatable(o, self)
