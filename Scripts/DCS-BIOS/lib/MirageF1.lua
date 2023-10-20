@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("MirageF1", 0x8600)
-BIOS.protocol.setExportModuleAircrafts({"Mirage-F1CE", "Mirage-F1EE"})
---by WarLord v1.6
+BIOS.protocol.setExportModuleAircrafts({"Mirage-F1BE", "Mirage-F1CE", "Mirage-F1EE"})
+--by WarLord v1.7a
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document
@@ -29,12 +29,12 @@ definePushButton("P_ALT_PTT", 1, 3100, 405, "Misc", "COMMON Pilot Alternative PT
 
 --Flight Control System controls
 definePushButton("P_FCS_TEST_RES", 1, 3007, 368, "COMMON Flight Control System", "Pilot Flight Control Test Restart Button")
-defineToggleSwitch("P_FCS_TEST_CV", 1, 3008, 369, "COMMON Flight Control System", "Pilot Flight Control Test Switch Guard")
+defineToggleSwitch("P_FCS_TEST_CVR", 1, 3008, 369, "COMMON Flight Control System", "Pilot Flight Control Test Switch Guard")
 defineToggleSwitch("P_FCS_TEST", 1, 3009, 370, "COMMON Flight Control System", "Pilot Flight Control Test Switch")
 definePushButton("P_FCS_SERVO_RES", 1, 3012, 89, "COMMON Flight Control System", "Pilot Servo Reset Button")
-defineToggleSwitch("P_FCS_STICK_UNCOUPLE_CV", 1, 3014, 95, "COMMON Flight Control System", "Pilot Stick Uncouple Switch Guard")
+defineToggleSwitch("P_FCS_STICK_UNCOUPLE_CVR", 1, 3014, 95, "COMMON Flight Control System", "Pilot Stick Uncouple Switch Guard")
 defineToggleSwitch("P_FCS_STICK_UNCOUPLE", 1, 3013, 97, "COMMON Flight Control System", "Pilot Stick Uncouple Switch")
-defineToggleSwitch("P_FCS_ARTHUR_SEL_CV", 1, 3015, 94, "COMMON Flight Control System", "Pilot ARTHUR Selector Switch Guard")
+defineToggleSwitch("P_FCS_ARTHUR_SEL_CVR", 1, 3015, 94, "COMMON Flight Control System", "Pilot ARTHUR Selector Switch Guard")
 defineMultipositionSwitch("P_FCS_ARTHUR_SEL", 1, 3016, 96, 3, 0.5, "COMMON Flight Control System", "Pilot ARTHUR Selector Switch")
 defineMultipositionSwitch("P_FCS_YAW_ANTISLIP", 1, 3017, 90, 3, 0.5, "COMMON Flight Control System", "Pilot Yaw/Anti-Slip Switch")
 defineToggleSwitch("P_FCS_PITCH_SW", 1, 3018, 91, "COMMON Flight Control System", "Pilot Pitch Switch")
@@ -70,12 +70,12 @@ defineFloat("P_FCS_CABIN_PRESS_G", 726, {0, 1}, "COMMON Flight Control System Ga
 definePushButton("P_EFC_THL_CUT_IDLE", 1, 3037, 239, "COMMON Engine-Fuel Control", "Pilot Throttle Cut/Idle Switch")
 defineSpringloaded_2PosTumb("P_EFC_ENG_RELIGHT", 1, 3038, 3039, 240, "COMMON Engine-Fuel Control", "Pilot In-flight Relight Control")
 define3PosTumb("P_EFC_ING_VENT_SEL", 1, 3040, 376, "COMMON Engine-Fuel Control", "Pilot Ignition/Ventilation Selector Switch")
-defineToggleSwitch("P_EFC_START_CV", 1, 3041, 374, "COMMON Engine-Fuel Control", "Pilot Start Button Cover")
+defineToggleSwitch("P_EFC_START_CVR", 1, 3041, 374, "COMMON Engine-Fuel Control", "Pilot Start Button Cover")
 definePushButton("P_EFC_START", 1, 3042, 375, "COMMON Engine-Fuel Control", "Pilot Start Button")
-defineToggleSwitch("P_EFC_LP_MAIN_CV", 1, 3043, 380, "COMMON Engine-Fuel Control", "Pilot LP Main Cock Switch Guard")
+defineToggleSwitch("P_EFC_LP_MAIN_CVR", 1, 3043, 380, "COMMON Engine-Fuel Control", "Pilot LP Main Cock Switch Guard")
 defineToggleSwitch("P_EFC_LP_MAIN", 1, 3044, 381, "COMMON Engine-Fuel Control", "Pilot LP Main Cock Switch")
 defineToggleSwitch("P_EFC_JPT_EMERG", 1, 3047, 396, "COMMON Engine-Fuel Control", "Pilot JPT Emergency Regulation Switch")
-defineToggleSwitch("P_EFC_AB_MAIN_CV", 1, 3048, 397, "COMMON Engine-Fuel Control", "Pilot A/B Main Cock Switch Guard")
+defineToggleSwitch("P_EFC_AB_MAIN_CVR", 1, 3048, 397, "COMMON Engine-Fuel Control", "Pilot A/B Main Cock Switch Guard")
 defineToggleSwitch("P_EFC_AB_MAIN", 1, 3049, 398, "COMMON Engine-Fuel Control", "Pilot A/B Main Cock Switch")
 defineToggleSwitch("P_EFC_PUMP_START", 1, 3050, 377, "COMMON Engine-Fuel Control", "Pilot Starting Pump Switch")
 defineToggleSwitch("P_EFC_PUMP_LP_R", 1, 3051, 378, "COMMON Engine-Fuel Control", "Pilot R/H LP Pump Switch")
@@ -87,9 +87,9 @@ defineToggleSwitch("P_EFC_FEEDER_SEL", 1, 3062, 1144, "COMMON Engine-Fuel Contro
 definePushButton("P_EFC_FUEL_G_TEST", 1, 3063, 1145, "COMMON Engine-Fuel Control", "Pilot Fuel Gauge Test Button")
 
 --Jettison Panel
-defineToggleSwitch("P_JETT_EMERG_CV", 1, 3064, 966, "COMMON Jettison Panel", "Pilot Emergency Jettison Button Guard")
+defineToggleSwitch("P_JETT_EMERG_CVR", 1, 3064, 966, "COMMON Jettison Panel", "Pilot Emergency Jettison Button Guard")
 definePushButton("P_JETT_EMERG", 1, 3065, 967, "COMMON Jettison Panel", "Pilot Emergency Jettison Button")
-defineToggleSwitch("P_JETT_SEL_CV", 1, 3066, 968, "COMMON Jettison Panel", "Pilot Selective Jettison Button Guard")
+defineToggleSwitch("P_JETT_SEL_CVR", 1, 3066, 968, "COMMON Jettison Panel", "Pilot Selective Jettison Button Guard")
 definePushButton("P_JETT_SEL", 1, 3067, 969, "COMMON Jettison Panel", "Pilot Selective Jettison Button")
 define3PosTumb("P_JETT_SEL_SW", 1, 3068, 970, "COMMON Jettison Panel", "Pilot Jettison Selector Switch")
 
@@ -174,7 +174,7 @@ defineIndicatorLight("P_VUHF_TEST_L", 271, "COMMON V/UHF Control Unit Lights", "
 --Engine Emergency Regulation
 definePushButton("P_EER_REG_L_BTN", 1, 3152, 354, "COMMON Engine Emergency Regulation", "Pilot Emergency Regulation Light Knob (Push)")
 definePotentiometer("P_EER_REG_L_KNB", 1, 3153, 355, {0, 1}, "COMMON Engine Emergency Regulation", "Pilot Emergency Regulation Light Knob (Turn)")
-defineToggleSwitch("P_EER_SW_CV", 1, 3154, 357, "COMMON Engine Emergency Regulation", "Pilot Emergency Regulation Switch Guard")
+defineToggleSwitch("P_EER_SW_CVR", 1, 3154, 357, "COMMON Engine Emergency Regulation", "Pilot Emergency Regulation Switch Guard")
 defineToggleSwitch("P_EER_SW", 1, 3155, 358, "COMMON Engine Emergency Regulation", "Pilot Emergency Regulation Switch")
 defineSpringloaded_3PosTumb("P_EER_CONTROL", 1, 3157, 3156, 359, "COMMON Engine Emergency Regulation", "Pilot Emergency Regulation Control Lever")
 defineToggleSwitch("P_EER_BRAKE_CHUTE", 1, 3160, 54, "COMMON Engine Emergency Regulation", "Pilot Brake Chute Control")
@@ -198,10 +198,10 @@ defineToggleSwitch("P_U_SAFE_LVR", 1, 3175, 85, "COMMON Undercarriage NWS Brake"
 defineToggleSwitch("P_U_CONTROL_LVR", 1, 3176, 86, "COMMON Undercarriage NWS Brake", "Pilot U/C Control Lever")
 definePushButton("P_U_ANTI_RETRAC_OVER", 1, 3177, 87, "COMMON Undercarriage NWS Brake", "Pilot Anti-Retraction Override Button")
 defineToggleSwitch("P_U_PARK_EMERG_BRAKE", 1, 3178, 84, "COMMON Undercarriage NWS Brake", "Pilot Emergency/Parking Brake Handle")
-defineToggleSwitch("P_U_ANTI_SKID_CV", 1, 3179, 402, "COMMON Undercarriage NWS Brake", "Pilot Anti-Skid (SPAD) Switch Guard")
+defineToggleSwitch("P_U_ANTI_SKID_CVR", 1, 3179, 402, "COMMON Undercarriage NWS Brake", "Pilot Anti-Skid (SPAD) Switch Guard")
 defineToggleSwitch("P_U_ANTI_SKID", 1, 3180, 403, "COMMON Undercarriage NWS Brake", "Pilot Anti-Skid (SPAD) Switch")
 defineSpringloaded_2PosTumb("P_U_NWS_SENSI", 1, 3181, 3182, 756, "COMMON Undercarriage NWS Brake", "Pilot Nose Wheel Steering High Sensitivity Button")
-defineToggleSwitch("P_U_NWS_STEER_CV", 1, 3183, 757, "COMMON Undercarriage NWS Brake", "Pilot Nose Wheel Steering Switch Guard")
+defineToggleSwitch("P_U_NWS_STEER_CVR", 1, 3183, 757, "COMMON Undercarriage NWS Brake", "Pilot Nose Wheel Steering Switch Guard")
 defineToggleSwitch("P_U_NWS_STEER", 1, 3184, 758, "COMMON Undercarriage NWS Brake", "Pilot Nose Wheel Steering Switch")
 defineMultipositionSwitch("P_U_EMERG_UC", 1, 3185, 107, 3, 0.5, "COMMON Undercarriage NWS Brake", "Pilot Emergency U/C Handle")
 
@@ -212,7 +212,7 @@ defineToggleSwitch("P_HSC_EL_PUMP", 1, 3187, 475, "COMMON Hydraulic System Contr
 defineFloat("P_HSC_L_PRESS_G", 721, {0, 1}, "COMMON Clock Gauges", "Pilot Left Hydraulic Pressure Gauge")
 defineFloat("P_HSC_R_PRESS_G", 722, {0, 1}, "COMMON Clock Gauges", "Pilot Right Hydraulic Pressure Gauge")
 
--- Clock
+--Clock
 definePushButton("P_CLOCK_SET_KNB", 1, 3192, 232, "COMMON Clock", "Pilot Chronometer Starting Control and Clock Setting Knob")
 defineRotary("P_CLOCK_WIND_KNB", 1, 3193, 67, "COMMON Clock", "Pilot Chronometer Starting Control and Clock Winding Knob")
 defineToggleSwitch("P_CLOCK_WIND_LVR", 1, 3195, 231, "COMMON Clock", "Pilot Clock Winding/Setting Lever")
@@ -416,7 +416,7 @@ defineToggleSwitch("P_AC_M_VALVE", 1, 3328, 525, "COMMON Air Conditioning System
 definePotentiometer("P_AC_TEMP", 1, 3329, 527, {0, 1}, "COMMON Air Conditioning System", "Pilot Temperature Control Rheostat")
 defineToggleSwitch("P_AC_AUTO_MAN", 1, 3331, 529, "COMMON Air Conditioning System", "Pilot Auto/Manual Selector Switch")
 defineSpringloaded_3PosTumb("P_AC_HOT_COLD", 1, 3333, 3332, 530, "COMMON Air Conditioning System", "Pilot Hot/Cold Selector Switch")
-defineToggleSwitch("P_AC_RAM_AIR_CV", 1, 3334, 410, "COMMON Air Conditioning System", "Pilot Ram Air Switch Guard")
+defineToggleSwitch("P_AC_RAM_AIR_CVR", 1, 3334, 410, "COMMON Air Conditioning System", "Pilot Ram Air Switch Guard")
 defineToggleSwitch("P_AC_RAM_AIR", 1, 3335, 411, "COMMON Air Conditioning System", "Pilot Ram Air Switch")
 defineToggleSwitch("P_AC_DEMIST", 1, 3336, 412, "COMMON Air Conditioning System", "Pilot Demist Switch")
 
@@ -571,11 +571,11 @@ defineToggleSwitch("P_CE_ARM_BOMBFUS", 1, 3517, 618, "CE/BE/EE Armament Control"
 defineToggleSwitch("P_CE_ARM_MISL_NORM_ALT", 1, 3518, 601, "CE/BE/EE Armament Control", "CE/BE/EE Pilot R 530 Missile Normal/Altitude Difference Selector Switch")
 defineToggleSwitch("P_CE_ARM_NORM_JAM", 1, 3519, 603, "CE/BE/EE Armament Control", "CE/BE/EE Pilot Normal/Jammer Pursuit Switch")
 definePushButton("P_CE_ARM_L_TEST", 1, 3520, 602, "CE/BE/EE Armament Control", "CE/BE/EE Pilot Armament Panel Lights Test")
-defineToggleSwitch("P_CE_ARM_MATRA_JETT_CV", 1, 3487, 962, "CE/BE Armament Control", "CE/BE Pilot MATRA 550 or Sidewinder Jettison Button Guard")
+defineToggleSwitch("P_CE_ARM_MATRA_JETT_CVR", 1, 3487, 962, "CE/BE Armament Control", "CE/BE Pilot MATRA 550 or Sidewinder Jettison Button Guard")
 definePushButton("P_CE_ARM_MATRA_JETT", 1, 3488, 963, "CE/BE Armament Control", "CE/BE Pilot MATRA 550 or Sidewinder Jettison Button")
-defineToggleSwitch("P_CE_ARM_MASTER_CV", 1, 3128, 432, "CE/BE/EE Armament Control", "CE/BE/EE Pilot Armament Master Switch Guard")
+defineToggleSwitch("P_CE_ARM_MASTER_CVR", 1, 3128, 432, "CE/BE/EE Armament Control", "CE/BE/EE Pilot Armament Master Switch Guard")
 defineMultipositionSwitch("P_CE_ARM_MASTER", 1, 3129, 433, 3, 0.5, "CE/BE/EE Armament Control", "CE/BE/EE Pilot Armament Master Switch")
-definePushButton("P_CE_ARM_R_DESELECT", 1, 3397, 361, "CE/BE/EE Armament Control", "CE/BE/EE Pilot (C + M or SW) R Deselection Switch")
+definePushButton("P_CE_ARM_R_DESELECT", 1, 3397, 361, "CE/BE/EE Armament Control", "CE/BE/EE Pilot (C + M or SW) R Deselection Button")
 define3PosTumb("P_CE_ARM_TELE_ZONE_SCAN", 1, 3398, 360, "CE/BE/EE Armament Control", "CE/BE/EE Pilot Telemeter/Zone Scanning Switch")
 
 defineIndicatorLight("P_CE_ARM_EXTG_L", 605, "CE/BE/EE Armament Control Lights", "Pilot EXT G Light (white)")
@@ -797,16 +797,272 @@ defineToggleSwitch("P_BARAX_EM_RDY", 1, 3683, 1264, "EE BARAX", "Pilot BARAX Emi
 defineToggleSwitch("P_CANOPY_MIRRORS2", 1, 3181, 2, "COMMON Canopy", "Pilot Mirrors 2")
 defineToggleSwitch("P_CANOPY_OPEN2", 1, 3183, 1, "COMMON Canopy", "Pilot Canopy Open/Close 2")
 
-definePotentiometer("P_CANOPY_R_MIRRORS_ADJ", 1, 3166, 2, {0, 1}, "COMMON Canopy", "Pilot Hide Right Mirrors")
-definePotentiometer("P_CANOPY_L_MIRRORS_ADJ", 1, 3168, 2, {0, 1}, "COMMON Canopy", "Pilot Hide Left Mirrors")
+definePotentiometer("P_CANOPY_R_MIRRORS_ADJ", 1, 3166, 2, {0, 1}, "COMMON Canopy", "Pilot Adjust Right Mirrors")
+definePotentiometer("P_CANOPY_L_MIRRORS_ADJ", 1, 3168, 2, {0, 1}, "COMMON Canopy", "Pilot Adjust Left Mirrors")
 
 --AN/ALE-40 Programmer
-defineToggleSwitch("P_CHAFF_BURST", 1, 3900, 1401, "COMMON ALE-40", "Pilot Chaff Burst Interval Reduction Switch")
-defineMultipositionSwitch("P_CHAFF_BURST_INT_SEL", 1, 3901, 1402, 4, 0.1, "COMMON ALE-40", "Pilot Chaff Burst Interval Selector")
-defineMultipositionSwitch("P_CHAFF_BURST_CNT_SEL", 1, 3902, 1403, 6, 0.1, "COMMON ALE-40", "Pilot Chaff Burst Count Selector")
-defineMultipositionSwitch("P_CHAFF_SALVO_INT_SEL", 1, 3903, 1404, 7, 0.1, "COMMON ALE-40", "Pilot Chaff Salvo Interval Selector")
-defineMultipositionSwitch("P_CHAFF_SALVO_CNT_SEL", 1, 3904, 1405, 5, 0.1, "COMMON ALE-40", "Pilot Chaff Salvo Count Selector")
-defineMultipositionSwitch("P_FLARE_BURST_INT_SEL", 1, 3905, 1406, 5, 0.1, "COMMON ALE-40", "Pilot Chaff Burst Interval Selector")
-defineMultipositionSwitch("P_FLARE_BURST_CNT_SEL", 1, 3906, 1407, 5, 0.1, "COMMON ALE-40", "Pilot Chaff Burst Count Selector")
+defineToggleSwitch("P_CHAFF_BURST", 1, 3563, 1401, "COMMON ALE-40", "Pilot Chaff Burst Interval Reduction Switch")
+defineMultipositionSwitch("P_CHAFF_BURST_INT_SEL", 1, 3565, 1402, 4, 0.1, "COMMON ALE-40", "Pilot Chaff Burst Interval Selector")
+defineMultipositionSwitch("P_CHAFF_BURST_CNT_SEL", 1, 3564, 1403, 6, 0.1, "COMMON ALE-40", "Pilot Chaff Burst Count Selector")
+defineMultipositionSwitch("P_CHAFF_SALVO_INT_SEL", 1, 3567, 1404, 7, 0.1, "COMMON ALE-40", "Pilot Chaff Salvo Interval Selector")
+defineMultipositionSwitch("P_CHAFF_SALVO_CNT_SEL", 1, 3566, 1405, 5, 0.1, "COMMON ALE-40", "Pilot Chaff Salvo Count Selector")
+defineMultipositionSwitch("P_FLARE_BURST_INT_SEL", 1, 3569, 1406, 5, 0.1, "COMMON ALE-40", "Pilot Chaff Burst Interval Selector")
+defineMultipositionSwitch("P_FLARE_BURST_CNT_SEL", 1, 3568, 1407, 5, 0.1, "COMMON ALE-40", "Pilot Chaff Burst Count Selector")
+
+----F1BE
+--Commutation Panel
+definePushButton("P_BE_TCN_PRIO", 1, 3796, 434, "BE Commutation FRONT", "BE Pilot TACAN Priority")
+definePushButton("P_BE_RAD_PRIO", 1, 3797, 436, "BE Commutation FRONT", "BE Pilot RADAR Priority")
+definePushButton("P_BE_UHF_PRIO", 1, 3798, 438, "BE Commutation FRONT", "BE Pilot V/UHF Priority")
+definePushButton("P_BE_ILS_PRIO", 1, 3799, 440, "BE Commutation FRONT", "BE Pilot V/ILS Priority")
+definePushButton("P_BE_COMMU_TEST", 1, 3800, 442, "BE Commutation FRONT", "BE Pilot Commutation Panel Test")
+
+defineToggleSwitch("BE_STICK_HIDE", 1, 3570, 51, "BE Cockpit", "BE Show/Hide Flight Stick")
+
+--Flight Control System controls
+defineToggleSwitch("C_BE_STICK_UNCOUPLE", 1, 3575, 105, "BE Flight Control System REAR", "BE Copilot Stick Uncouple Switch")
+defineToggleSwitch("C_BE_STICK_UNCOUPLE_CVR", 1, 3576, 104, "BE Flight Control System REAR", "BE Copilot Stick Uncouple Switch Cover")
+defineSpringloaded_3PosTumb("C_BE_RUDDER_TRIM", 1, 3578, 3577, 420, "BE Flight Control System REAR", "BE Copilot Rudder Trim Control")
+
+--Autopilot controls
+definePotentiometer("C_BE_AP_INT", 1, 3580, 1011, {0, 1}, "BE Autopilot REAR", "BE Copilot Autopilot Intensity Control")
+definePushButton("C_BE_AP_TEST", 1, 3581, 1170, "BE Autopilot REAR", "BE Copilot Autopilot Control and Indicator Unit Test")
+
+-- Engine and fuel controls
+definePushButton("C_BE_THROTTLE_CUT", 1, 3583, 246, "BE Engine Controls REAR", "BE Copilot Throttle Cut/Idle Switch")
+defineSpringloaded_3PosTumb("C_BE_INFLG_RELIGHT", 1, 3584, 3585, 247, "BE Engine Controls REAR", "BE Copilot In-flight Relight Control")
+defineToggleSwitch("C_BE_MAIN_COCK_LP_CVR", 1, 3586, 415, "BE Engine Controls REAR", "BE Copilot LP Main Cock Switch Guard")
+defineToggleSwitch("C_BE_MAIN_COCK_LP", 1, 3587, 416, "BE Engine Controls REAR", "BE Copilot LP Main Cock Switch")
+defineToggleSwitch("C_BE_MAIN_COCK_AB_CVR", 1, 3588, 413, "BE Engine Controls REAR", "BE Copilot A/B Main Cock Switch Guard")
+defineToggleSwitch("C_BE_MAIN_COCK_AB", 1, 3589, 414, "BE Engine Controls REAR", "BE Copilot A/B Main Cock Switch")
+
+-- Jettisoning panel
+defineToggleSwitch("C_BE_EMERG_JETT_CVR", 1, 3590, 971, "BE Jettisoning Panel REAR", "BE Copilot Emergency Jettison Button Guard")
+defineToggleSwitch("C_BE_EMERG_JETT", 1, 3591, 972, "BE Jettisoning Panel REAR", "BE Copilot Emergency Jettison Button")
+
+--Fuel transfer, refuelling and indication
+defineRotary("C_BE_FS_QUANT_RES", 1, 3592, 1175, "BE Fuel System REAR", "BE Copilot Fuel Quantity Reset Thumbwheel")
+definePushButton("C_BE_FS_TRANS_IND_TEST", 1, 3593, 1188, "BE Fuel System REAR", "BE Copilot Fuel Transfer Indicator Test")
+
+--Radar control stick
+definePushButton("C_BE_RCS_ALT_DIFF", 1, 3598, 269, "BE Radar Control Stick REAR", "BE Copilot Radar Control Stick Elevation/Altitude Difference Button")
+defineMultipositionSwitch("C_BE_RCS_SCALE_SEL", 1, 3599, 268, 4, 1/3, "BE Radar Control Stick REAR", "BE Copilot Radar Control Stick Scale Selection")
+defineMultipositionSwitch("C_BE_RCS_SCAN_SEL", 1, 3600, 267, 3, 0.5, "BE Radar Control Stick REAR", "BE Copilot Radar Control Stick Scan Selection")
+
+--High-lift devices
+defineMultipositionSwitch("C_BE_HLD_FLAP_SLAT", 1, 3603, 249, 3, 0.5, "BE High-Lift Devices REAR", "BE Copilot Slat/Flap Lever")
+defineToggleSwitch("C_BE_AIRBRAKE_PRIO_CVR", 1, 3841, 423, "BE High-Lift Devices REAR", "BE Copilot High Lift Devices Priority Switch Guard")
+define3PosTumb("C_BE_AIRBRAKE_PRIO", 1, 3842, 424, "BE High-Lift Devices REAR", "BE Copilot High Lift Devices Priority Switch")
+defineToggleSwitch("C_BE_AIRBRAKE_PRIO_CVR", 1, 3843, 421, "BE High-Lift Devices REAR", "BE Copilot Airbrake Priority Switch Guard")
+defineToggleSwitch("C_BE_AIRBRAKE_PRIO", 1, 3844, 422, "BE High-Lift Devices REAR", "BE Copilot Airbrake Priority Switch")
+defineSpringloaded_3PosTumb("C_BE_STBY_OXY_CUT_CVR", 1, 3913, 3912, 156, "BE High-Lift Devices REAR", "BE Copilot Standby Horizon and Oxygen warning cut-off switches cover")
+
+--Radio selector unit 
+definePushButton("P_BE_RADIO_MKR_TP_BTN", 1, 3120, 316, "BE Radio Selector Unit FRONT", "BE Pilot Radio MRK/BF/TP Knob (Push)")
+definePotentiometer("P_BE_RADIO_MKR_TP_KNB", 1, 3121, 317, {0, 1}, "BE Radio Selector Unit FRONT", "BE Pilot Radio MRK/BF/TP Knob (Turn)")
+definePushButton("P_BE_RADIO_TB_APP_BTN", 1, 3123, 319, "BE Radio Selector Unit FRONT", "BE Pilot Radio TB/APP Knob (Push)")
+definePotentiometer("P_BE_RADIO_TB_APP_KNB", 1, 3124, 320, {0, 1}, "BE Radio Selector Unit FRONT", "BE Pilot Radio TB/APP Knob (Turn)")
+
+definePotentiometer("C_BE_RADIO_MISS", 1, 3605, 322, {0, 1}, "BE Radio Selector Unit REAR", "BE Copilot Radio Selector MISS Potentiometer")
+definePotentiometer("C_BE_RADIO_TAC", 1, 3606, 323, {0, 1}, "BE Radio Selector Unit REAR", "BE Copilot Radio Selector TAC Potentiometer")
+definePotentiometer("C_BE_RADIO_VOR", 1, 3607, 324, {0, 1}, "BE Radio Selector Unit REAR", "BE Copilot Radio Selector VOR Potentiometer")
+defineToggleSwitch("C_BE_RADIO_AMPLI", 1, 3609, 326, "BE Radio Selector Unit REAR", "BE Copilot Radio AMPLI 2-1 Selector Switch")
+definePushButton("C_BE_RADIO_U_V_BTN", 1, 3610, 327, "BE Radio Selector Unit REAR", "BE Copilot Radio U+V Knob (Push)")
+definePotentiometer("C_BE_RADIO_U_V_KNB", 1, 3115, 311, {0, 1}, "BE Radio Selector Unit REAR", "BE Copilot Radio U+V Knob (Turn)")
+definePushButton("C_BE_RADIO_U_BTN", 1, 3611, 329, "BE Radio Selector Unit REAR", "BE Copilot Radio U Knob (Push)")
+definePotentiometer("C_BE_RADIO_U_KNB", 1, 3612, 330, {0, 1}, "BE Radio Selector Unit REAR", "BE Copilot Radio U Knob (Turn)")
+definePushButton("C_BE_RADIO_MKR_TP_BTN", 1, 3613, 332, "BE Radio Selector Unit REAR", "BE Copilot Radio MRK/BF/TP Knob (Push)")
+definePotentiometer("C_BE_RADIO_MKR_TP_KNB", 1, 3614, 333, {0, 1}, "BE Radio Selector Unit REAR", "BE Copilot Radio MRK/BF/TP Knob (Turn)")
+definePushButton("C_BE_RADIO_TB_APP_BTN", 1, 3615, 335, "BE Radio Selector Unit REAR", "BE Copilot Radio TB/APP Knob (Push)")
+definePotentiometer("C_BE_RADIO_TB_APP_KNB", 1, 3616, 336, {0, 1}, "BE Radio Selector Unit REAR", "BE Copilot Radio TB/APP Knob (Turn)")
+
+--V/UHF radio control unit (TRT - TRAP 136)
+define3PosTumb("C_BE_VUHF_TEST", 1, 3621, 290, "BE V/UHF Control Unit REAR", "BE Copilot V/UHF Test Selector Switch")
+defineToggleSwitch("C_BE_VUHF_SIL", 1, 3622, 291, "BE V/UHF Control Unit REAR", "BE Copilot V/UHF SIL Switch")
+defineSetCommandTumb("C_BE_VUHF_FREQ_100", 1, 3623, 292, 0.1, {0, 0.3}, {"1", "2", "3"}, false, "BE V/UHF Control Unit REAR", "BE Copilot V/UHF Frequency Thumbwheel 100")
+defineSetCommandTumb("C_BE_VUHF_FREQ_10", 1, 3624, 293, 0.1, {0, 1}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"}, false, "BE V/UHF Control Unit REAR", "BE Copilot V/UHF Frequency Thumbwheel 10")
+defineSetCommandTumb("C_BE_VUHF_FREQ_1", 1, 3625, 294, 0.1, {0, 1}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"}, false, "BE V/UHF Control Unit REAR", "BE Copilot V/UHF Frequency Thumbwheel 1")
+defineSetCommandTumb("C_BE_VUHF_FREQ_01", 1, 3626, 295, 0.1, {0, 1}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"}, false, "BE V/UHF Control Unit REAR", "BE Copilot V/UHF Frequency Thumbwheel 0.1")
+defineSetCommandTumb("C_BE_VUHF_FREQ_0025", 1, 3627, 296, 0.333, {0, 1}, {"00", "25", "50", "75"}, false, "BE V/UHF Control Unit REAR", "BE Copilot V/UHF Frequency Thumbwheel 0.025")
+defineSetCommandTumb("C_BE_VUHF_FUNC_SEL", 1, 3628, 298, 0.2, {0, 0.8}, nil, true, "BE V/UHF Control Unit REAR", "BE Copilot V/UHF Function Selector")
+defineToggleSwitch("C_BE_VUHF_25_5_SW", 1, 3629, 299, "BE V/UHF Control Unit REAR", "BE Copilot V/UHF 25W - 5W Switch")
+defineMultipositionSwitch("C_BE_VUHF_FREQ_SEL", 1, 3630, 300, 3, 0.5, "BE V/UHF Control Unit REAR", "BE Copilot V/UHF Frequency Selector Switch")
+defineRadioWheel("C_BE_VUHF_CHAN", 1, 3631, 3631, {-0.05, 0.05}, 303, 0.05, {0, 1}, {" 6", " 7", " 8", " 9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", " 1", " 2", " 3", " 4", " 5"}, "BE V/UHF Control Unit REAR", "BE Copilot V/UHF Channel Selector")
+
+--Engine emergency regulation
+definePushButton("C_BE_EER_REG_L_BTN", 1, 3637, 364, "BE Engine Emergency Regulation REAR", "BE Copilot Emergency Regulation Light Knob (Push)")
+definePotentiometer("C_BE_EER_REG_L_KNB", 1, 3638, 365, {0, 1}, "BE Engine Emergency Regulation REAR", "BE Copilot Emergency Regulation Light Knob (Turn)")
+defineSpringloaded_3PosTumb("C_BE_EER_CONTROL", 1, 3640, 3639, 367, "BE Engine Emergency Regulation REAR", "BE Copilot Emergency Regulation Control Lever")
+defineToggleSwitch("C_BE_EER_SW_CVR", 1, 3849, 363, "BE Engine Emergency Regulation REAR", "BE Copilot Emergency Regulation Switch Guard")
+defineToggleSwitch("C_BE_EER_SW", 1, 3850, 362, "BE Engine Emergency Regulation REAR", "BE Copilot Emergency Regulation Switch")
+defineToggleSwitch("C_BE_EER_BRAKE_CHUTE", 1, 3645, 59, "BE Engine Emergency Regulation REAR", "BE Copilot Brake Chute Control")
+
+--Canopy controls
+defineToggleSwitch("C_BE_CANOPY_LOCK", 1, 3646, 60, "BE Canopy REAR", "BE Copilot Canopy Lock Control")
+definePushButton("C_BE_CANOPY_EMBRITTLE", 1, 3647, 61, "BE Canopy REAR", "BE Copilot Canopy Embrittle Control")
+defineToggleSwitch("C_BE_CANOPY_HINGE", 1, 3648, 8, "BE Canopy REAR", "BE Copilot Canopy Hinged Handle")
+defineToggleSwitch("C_BE_CANOPY_R_MIRRORS", 1, 3651, 7, "BE Canopy REAR", "BE Copilot Hide Right Mirrors")
+defineToggleSwitch("C_BE_CANOPY_L_MIRRORS", 1, 3649, 5, "BE Canopy REAR", "BE Copilot Hide Left Mirrors")
+definePotentiometer("C_BE_CANOPY_R_MIRRORS_ADJ", 1, 3652, 7, {0, 1}, "BE Canopy REAR", "BE Copilot Adjust Right Mirrors")
+definePotentiometer("C_BE_CANOPY_L_MIRRORS_ADJ", 1, 3650, 5, {0, 1}, "BE Canopy REAR", "BE Copilot Adjust Left Mirrors")
+defineToggleSwitch("C_BE_CANOPY_R_OPEN", 1, 3653, 6, "BE Canopy REAR", "BE Copilot Right Canopy Open/Close")
+defineToggleSwitch("C_BE_CANOPY_L_OPEN", 1, 3654, 6, "BE Canopy REAR", "BE Copilot Left Canopy Open/Close")
+
+--Undercarriage, nose wheel steering, brake and anti-skid
+defineToggleSwitch("C_BE_U_CONTROL_LVR", 1, 3656, 102, "BE Undercarriage NWS Brake REAR", "BE Copilot U/C Control Lever")
+definePushButton("C_BE_U_ANTI_RETRAC_OVER", 1, 3657, 103, "BE Undercarriage NWS Brake REAR", "BE Copilot Anti-Retraction Override Button")
+defineToggleSwitch("C_BE_U_PARK_EMERG_BRAKE", 1, 3658, 100, "BE Undercarriage NWS Brake REAR", "BE Copilot Emergency/Parking Brake Handle")
+defineToggleSwitch("C_BE_U_ANTI_SKID_CVR", 1, 3659, 430, "BE Undercarriage NWS Brake REAR", "BE Copilot Anti-Skid (SPAD) Switch Guard")
+defineToggleSwitch("C_BE_U_ANTI_SKID", 1, 3660, 431, "BE Undercarriage NWS Brake REAR", "BE Copilot Anti-Skid (SPAD) Switch")
+defineSpringloaded_2PosTumb("C_BE_U_NWS_SENSI", 1, 3661, 3662, 759, "BE Undercarriage NWS Brake REAR", "BE Copilot Nose Wheel Steering High Sensitivity Button")
+defineToggleSwitch("C_BE_U_NWS_STEER_CVR", 1, 3663, 417, "BE Undercarriage NWS Brake REAR", "BE Copilot Nose Wheel Steering Switch Guard")
+defineToggleSwitch("C_BE_U_NWS_STEER", 1, 3664, 418, "BE Undercarriage NWS Brake REAR", "BE Copilot Nose Wheel Steering Switch")
+
+--Hydraulic System Controls
+defineToggleSwitch("C_BE_HSC_PRESS_SEL", 1, 3665, 106, "BE Hydraulic System Controls REAR", "BE Copilot Hydraulic Pressure Selector Switch")
+
+--Clock
+definePushButton("C_BE_CLOCK_SET_KNB", 1, 3668, 1370, "BE Clock REAR", "BE Copilot Chronometer Starting Control and Clock Setting Knob")
+defineRotary("C_BE_CLOCK_WIND_KNB", 1, 3669, 74, "BE Clock REAR", "BE Copilot Chronometer Starting Control and Clock Winding Knob")
+defineToggleSwitch("C_BE_CLOCK_WIND_LVR", 1, 3670, 1369, "BE Clock REAR", "BE Copilot Clock Winding/Setting Lever")
+
+--Incidence indicator
+definePotentiometer("C_BE_IL_INCIDENCE_BRT_KNB", 1, 3671, 205, {0, 1}, "BE Lighting Control Unit REAR", "BE Copilot Incidence Indicator Lighting")
+
+--Air data instrument controls
+definePotentiometer("C_BE_ADI_SPEED_KNB", 1, 3672, 1271, {0, 1}, "BE Air Data Instrument Controls REAR", "BE Copilot Mach/Airspeed Indicator Reference Airspeed Knob")
+defineRotary("C_BE_ADI_ALT_BARO_SLAVE", 1, 3673, 1064, "BE Air Data Instrument Controls REAR", "BE Copilot Slaved Altimeter Barometric Pressure Setting Knob")
+defineRotary("C_BE_ADI_ALT_BARO_STBY", 1, 3674, 1080, "BE Air Data Instrument Controls REAR", "BE Copilot Standby Altimeter Barometric Pressure Setting Knob")
+
+--Heading and vertical reference system and standby horizon controls
+defineToggleSwitch("C_BE_FRS_STBY_HORIZON", 1, 3679, 158, "BE Flight Ref System REAR", "BE Copilot Standby Horizon Switch")
+definePotentiometer("C_BE_FRS_SPHER_IND_DN", 1, 3680, 1126, {0, 1}, "BE Flight Ref System REAR", "BE Copilot Spherical Indicator Day/Night Selector Switch")
+definePushButton("C_BE_FRS_SPHER_IND_MB_BTN", 1, 3681, 202, "BE Flight Ref System REAR", "BE Copilot Spherical Indicator Pole Setting and Marker Beacon Light Test (Push)")
+definePotentiometer("C_BE_FRS_SPHER_IND_MB_KNB", 1, 3682, 1127, {0, 1}, "BE Flight Ref System REAR", "BE Copilot Spherical Indicator Pole Setting and Marker Beacon Light Test (Turn)")
+defineSpringloaded_3PosTumb("C_BE_FRS_STBY_HORIZON_UNCAGE_BTN", 1, 3683, 3684, 1139, "BE Flight Ref System REAR", "BE Copilot Standby Horizon Uncage and Aircraft Model Control (Push)")
+definePotentiometer("C_BE_FRS_STBY_HORIZON_UNCAGE_KNB", 1, 3685, 1140, {0, 1}, "BE Flight Ref System REAR", "BE Copilot Standby Horizon Uncage and Aircraft Model Control (Turn)")
+
+--Warning Light Switches
+definePushButton("C_BE_WL_M_FAIL", 1, 3690, 924, "BE Warning Switches REAR", "BE Copilot Master Failure Warning Light Button")
+definePushButton("C_BE_WL_C_FLAP_BTN", 1, 3691, 959, "BE Warning Switches REAR", "BE Copilot Combat Flaps Light Button (Push)")
+definePotentiometer("C_BE_WL_C_FLAP_KNB", 1, 3691, 960, {0, 1}, "BE Warning Switches REAR", "BE Copilot Combat Flaps Light Knob (Turn)")
+definePushButton("C_BE_WL_UC_BTN", 1, 3692, 930, "BE Warning Switches REAR", "BE Copilot U/C Light Button")
+definePushButton("C_BE_WL_NWS_BTN", 1, 3693, 953, "BE Warning Switches REAR", "BE Copilot Nose Wheel Steering Light Button (Push)")
+definePotentiometer("C_BE_WL_NWS_KNB", 1, 3693, 954, {0, 1}, "BE Warning Switches REAR", "BE Copilot Nose Wheel Steering Light Knob (Turn)")
+definePushButton("C_BE_WL_AIR_B_BTN", 1, 3694, 947, "BE Warning Switches REAR", "BE Copilot Airbrake Light Button (Push)")
+definePotentiometer("C_BE_WL_AIR_B_KNB", 1, 3694, 948, {0, 1}, "BE Warning Switches REAR", "BE Copilot Airbrake Light Knob (Turn)")
+definePushButton("C_BE_WL_LIMIT_WARN", 1, 3695, 934, "BE Warning Switches REAR", "BE Copilot Limit Warning Light Button")
+definePushButton("C_BE_WL_AB_FIRE_WARN", 1, 3696, 938, "BE Warning Switches REAR", "Pilot Fire Warning Light (ENG/AB) + Horn Button")
+definePushButton("C_BE_WL_AB_INJ", 1, 3697, 1037, "BE Warning Switches REAR", "BE Copilot A/B INJ Light Button")
+definePushButton("C_BE_WL_AB_ON", 1, 3698, 1039, "BE Warning Switches REAR", "BE Copilot A/B ON Light Button")
+definePushButton("C_BE_WL_AB_SRL", 1, 3699, 1041, "BE Warning Switches REAR", "BE Copilot A/B SRL Light Button")
+definePushButton("C_BE_WL_CONFIG_TEST", 1, 3700, 1095, "BE Warning Switches REAR", "BE Copilot Configuration Indicator Test Button")
+definePushButton("C_BE_WL_FAIL_T_TEST", 1, 3701, 159, "BE Warning Switches REAR", "BE Copilot Failure Warning Panel T Test Button")
+definePushButton("C_BE_WL_FAIL_O2_TEST", 1, 3702, 160, "BE Warning Switches REAR", "BE Copilot Failure Warning Panel O2 Test Button")
+defineToggleSwitch("C_BE_WL_WARN_HORN", 1, 3703, 428, "BE Warning Switches REAR", "BE Copilot Warning Horn Switch")
+defineToggleSwitch("C_BE_WL_WARN_HORN_CVR", 1, 3854, 427, "BE Warning Switches REAR", "BE Copilot Warning Horn Switch Guard")
+definePushButton("C_BE_WL_CAN_HOT_BTN", 1, 3704, 153, "BE Warning Switches REAR", "BE Copilot Cannons too Hot Light Button (Push)")
+definePotentiometer("C_BE_WL_CAN_HOT_KNB", 1, 3704, 154, {0, 1}, "BE Warning Switches REAR", "BE Copilot Cannons too Hot Light Knob (Turn)")
+definePushButton("C_BE_WL_BIP", 1, 3705, 1094, "BE Warning Switches REAR", "BE Copilot BIP Button")
+definePushButton("C_BE_WL_R_LIGHT_BTN", 1, 3859, 1397, "BE Warning Switches REAR", "BE Copilot (C + M or SW) R Light Button (Push)")
+definePotentiometer("C_BE_WL_R_LIGHT_KNB", 1, 3859, 630, {0, 1}, "BE Warning Switches REAR", "BE Copilot (C + M or SW) R Light Knob (Turn)")
+
+--Cabin lighting
+defineToggleSwitch("C_BE_CL_MISC_L_SW", 1, 3710, 1371, "BE Cabin Lighting REAR", "BE Copilot Miscellaneous Instrument Lighting Switch")
+definePotentiometer("C_BE_CL_MAP_BRT_KNB", 1, 3711, 73, {0, 1}, "BE Cabin Lighting REAR", "BE Copilot Map Lighting")
+definePotentiometer("C_BE_CL_MISC_BRT_KNB", 1, 3712, 75, {0, 1}, "BE Cabin Lighting REAR", "BE Copilot Miscellaneous Instrument Integral Lighting")
+
+--Lighting control unit
+defineToggleSwitch("C_BE_IL_D_N_SEL", 1, 3713, 389, "BE Lighting Control Unit REAR", "BE Copilot Day/Night Selector Switch")
+definePotentiometer("C_BE_IL_LIGHT_BRT_KNB", 1, 3714, 390, {0, 1}, "BE Lighting Control Unit REAR", "BE Copilot Light and Panel Lighting")
+definePotentiometer("C_BE_IL_UV_BRT_KNB", 1, 3715, 391, {0, 1}, "BE Lighting Control Unit REAR", "BE Copilot Ultraviolet Lighting")
+definePotentiometer("C_BE_IL_INST_BRT_FLOOD_KNB", 1, 3716, 392, {0, 1}, "BE Lighting Control Unit REAR", "BE Copilot Dual Instrument Panel Lighting (Flood)")
+definePotentiometer("C_BE_IL_INST_BRT_INTEG_KNB", 1, 3717, 393, {0, 1}, "BE Lighting Control Unit REAR", "BE Copilot Dual Instrument Panel Lighting (Integral)")
+definePotentiometer("C_BE_IL_CON_BRT_FLOOD_KNB", 1, 3718, 394, {0, 1}, "BE Lighting Control Unit REAR", "BE Copilot Dual Console and Pedestal Lighting (Flood)")
+definePotentiometer("C_BE_IL_CON_BRT_INTEG_KNB", 1, 3719, 395, {0, 1}, "BE Lighting Control Unit REAR", "BE Copilot Dual Console and Pedestal Lighting (Integral)")
+
+--TACAN
+definePushButton("C_BE_TCN_TEST", 1, 3735, 489, "BE TACAN REAR", "BE Copilot TACAN Test Button")
+defineToggleSwitch("C_BE_TCN_XY_MODE", 1, 3725, 494, "BE TACAN Control Box REAR", "BE Copilot TACAN X/Y Mode Selector")
+defineTumb("C_BE_TCN_FREQ_10100", 1, 3726, 495, 1/13, {0, 0.997}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "0"}, false, "BE TACAN Control Box REAR", "BE Copilot TACAN Frequency Selector 10/100")
+defineMultipositionSwitch("C_BE_TCN_MODE", 1, 3727, 496, 4, 0.3333, "BE TACAN Control Box REAR", "BE Copilot TACAN Mode Selector")
+defineRadioWheel("C_BE_TCN_FREQ_1", 1, 3729, 497, {-0.1, 0.1}, 488, 0.1, {0, 1}, {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"}, "BE TACAN Control Box REAR", "BE Copilot TACAN Frequency Selector 1")
+
+--VOR/ILS control box
+defineToggleSwitch("C_BE_VOR_PW_SW", 1, 3730, 512, "BE VOR ILS Control Box REAR", "BE Copilot VOR-ILS Control Unit ON/OFF")
+defineRadioWheel("C_BE_VOR_FREQ_MHZ", 1, 3731, 3731, {-0.1, 0.1}, 513, 0.1, {0, 1}, nil, "BE VOR ILS Control Box REAR", "BE Copilot VOR/ILS MHz Frequency Selector")
+defineSpringloaded_3PosTumb("C_BE_VOR_TEST", 1, 3733, 3732, 514, "BE VOR ILS Control Box REAR", "BE Copilot VOR/ILS Test Selector")
+defineRadioWheel("C_BE_VOR_FREQ_KHZ", 1, 3734, 3734, {-0.1, 0.1}, 515, 0.1, {0, 1}, nil, "BE VOR ILS Control Box REAR", "BE Copilot VOR/ILS kHz Frequency Selector")
+
+--Navigation indicator
+defineToggleSwitch("C_BE_NAV_ADD_TARGET", 1, 3910, 1222, "BE Navigation Indicator REAR", "BE Copilot Navigation Additional Target Selector Switch")
+defineRotary("C_BE_NAV_BRG_DIST", 1, 3911, 1223, "BE Navigation Indicator REAR", "BE Copilot Navigation Bearing/Distance Selector Knob")
+
+--Oxygen system
+definePushButton("C_BE_OXY_TEST", 1, 3740, 521, "BE Oxygen System REAR", "BE Copilot Oxygen Test (T Button)")
+defineMultipositionSwitch("C_BE_OXY_N100_EMG", 1, 3741, 1409, 3, 0.5, "BE Oxygen System REAR", "BE Copilot N-100%-EMG Mode Selector Switch")
+definePushButton("C_BE_OXY_OVERPRESS", 1, 3742, 1410, "BE Oxygen System REAR", "BE Copilot Oxygen Overpressure Button")
+definePushButton("C_BE_OXY_G_CON_CVR", 1, 3743, 1412, "BE Oxygen System REAR", "BE Copilot Anti-G Connection Cover")
+definePushButton("C_BE_OXY_G_TEST", 1, 3744, 1413, "BE Oxygen System REAR", "BE Copilot Anti-G Test Button")
+defineToggleSwitch("C_BE_OXY_G_VALVE", 1, 3745, 1414, "BE Oxygen System REAR", "BE Copilot Anti-G Valve Cock")
+defineToggleSwitch("C_BE_OXY_WARN_CUT", 1, 3858, 157, "BE Oxygen System REAR", "BE Copilot Oxygen Warning Cut-OFF")
+
+--Air conditioning system
+defineToggleSwitch("C_BE_AC_M_VALVE_CVR", 1, 3851, 535, "BE Air Conditioning System REAR", "BE Copilot Master Valve Control Switch Guard")
+defineToggleSwitch("C_BE_AC_M_VALVE", 1, 3746, 536, "BE Air Conditioning System REAR", "BE Copilot Master Valve Control Switch")
+defineToggleSwitch("C_BE_AC_AUTO_MAN_CVR", 1, 3852, 532, "BE Air Conditioning System REAR", "BE Copilot Auto/Manual Selector Switch Guard")
+defineToggleSwitch("C_BE_AC_AUTO_MAN", 1, 3747, 533, "BE Air Conditioning System REAR", "BE Copilot Auto/Manual Selector Switch")
+defineSpringloaded_3PosTumb("C_BE_AC_HOT_COLD", 1, 3749, 3748, 531, "BE Air Conditioning System REAR", "BE Copilot Hot/Cold Selector Switch")
+defineToggleSwitch("C_BE_AC_DEMIST_CVR", 1, 3853, 425, "BE Air Conditioning System REAR", "BE Copilot Demist Switch Guard")
+defineToggleSwitch("C_BE_AC_DEMIST", 1, 3750, 426, "BE Air Conditioning System REAR", "BE Copilot Demist Switch")
+
+--Ejection seat
+defineSpringloaded_3PosTumb("C_BE_ES_SEAT_HEIGHT", 1, 3756, 3755, 17, "BE Ejection Seat REAR", "BE Copilot Seat Height Adjustment Control")
+definePushButton("C_BE_ES_FIRE_HND", 1, 3759, 20, "BE Ejection Seat REAR", "BE Copilot Firing Handle")
+definePotentiometer("C_BE_ES_SAFE_PIN", 1, 3794, 1317, {0, 1}, "BE Ejection Seat REAR", "BE Copilot Ejection Handle Safety Pin")
+
+--Accelerometer Reset Button and Rheostat
+definePushButton("C_BE_ACCEL_RESET_BTN", 1, 3762, 1400, "BE Accelerometer REAR", "BE Copilot Accelerometer Reset Button (Push)")
+definePotentiometer("C_BE_ACCEL_BRT_KNB", 1, 3763, 1399, {0, 1}, "BE Accelerometer REAR", "BE Copilot Accelerometer Rheostat Knob (Turn)")
+
+--Armament Control
+defineToggleSwitch("C_BE_ARM_MATRA_JETT_CVR", 1, 3775, 964, "BE Armament Control REAR", "BE Copilot MATRA 550 or Sidewinder Jettison Button Guard")
+definePushButton("C_BE_ARM_MATRA_JETT", 1, 3776, 965, "BE Armament Control REAR", "BE Copilot MATRA 550 or Sidewinder Jettison Button")
+definePushButton("C_BE_ARM_L_TEST", 1, 3777, 631, "BE Armament Control REAR", "BE Copilot Armament Panel Lights Test")
+definePushButton("C_BE_ARM_R_DESELECT", 1, 3635, 419, "BE Armament Control REAR", "BE Copilot (C + M or SW) R Deselection Button")
+
+--Radar
+definePushButton("C_BE_RADAR_TEST", 1, 3769, 868, "BE Radar REAR", "BE Copilot Radar Test Button")
+definePotentiometer("C_BE_RADAR_SCOPE_INTENT", 1, 3770, 869, {0, 1}, "BE Radar REAR", "BE Copilot Radar Scope Intensity Adjustment")
+defineMultipositionSwitch("C_BE_RADAR_FUNC", 1, 3771, 870, 8, 1/7, "BE Radar REAR", "BE Copilot Radar Function Selection")
+definePotentiometer("C_BE_RADAR_STORAGE_ADJ", 1, 34772, 871, {0, 1}, "BE Radar REAR", "BE Copilot Radar Storage Adjustment")
+definePushButton("C_BE_RADAR_SCOPE_DEL", 1, 3773, 872, "BE Radar REAR", "BE Copilot Radar Scope Erasing")
+definePotentiometer("C_BE_RADAR_POLAROID", 1, 3774, 841, {0, 1}, "BE Radar REAR", "BE Copilot Radar Polaroid Screen Adjustment")
+definePushButton("C_BE_RADAR_EMERG_TRANS", 1, 3781, 429, "BE Radar REAR", "BE Copilot Radar Emergency Transmission Button")
+definePotentiometer("C_BE_RADAR_IND_L_BRT", 1, 3785, 637, {0, 1}, "BE Radar REAR", "BE Copilot Radar Indicator Lights Brightness")
+definePotentiometer("C_BE_RADAR_STROBE_BRT", 1, 3786, 638, {0, 1}, "BE Radar REAR", "BE Copilot Radar Strobe Brightness")
+definePotentiometer("C_BE_RADAR_DIST_M_BRT", 1, 3787, 639, {0, 1}, "BE Radar REAR", "BE Copilot Radar Distance Markers Brightness")
+definePotentiometer("C_BE_RADAR_VEL_M_BRT", 1, 3788, 640, {0, 1}, "BE Radar REAR", "BE Copilot Radar Horizon and Radial Velocity Marker Brightness")
+definePotentiometer("C_BE_RADAR_HORIZON_POS", 1, 3789, 641, {0, 1}, "BE Radar REAR", "BE Copilot Radar Horizon Symbol Vertical Position")
+
+--Commutation Panel
+definePushButton("C_BE_TCN_PRIO", 1, 3801, 443, "BE Commutation REAR", "BE Copilot TACAN Priority")
+definePushButton("C_BE_RAD_PRIO", 1, 3802, 445, "BE Commutation REAR", "BE Copilot RADAR Priority")
+definePushButton("C_BE_UHF_PRIO", 1, 3803, 447, "BE Commutation REAR", "BE Copilot V/UHF Priority")
+definePushButton("C_BE_ILS_PRIO", 1, 3804, 449, "BE Commutation REAR", "BE Copilot V/ILS Priority")
+definePushButton("C_BE_COMMU_TEST", 1, 3805, 451, "BE Commutation REAR", "BE Copilot Commutation Panel Test")
+
+--Sight repeater
+defineToggleSwitch("C_BE_SIGHT_REP_PW", 1, 3807, 783, "BE Sight System REAR", "BE Copilot Sight Repeater ON-OFF Switch")
+defineToggleSwitch("C_BE_SIGHT_REP_COLOR", 1, 3808, 781, "BE Sight System REAR", "BE Copilot Sight Repeater Color Filter Switch")
+defineToggleSwitch("C_BE_SIGHT_REP_DENSE", 1, 3809, 782, "BE Sight System REAR", "BE Copilot Sight Repeater Density Filter Switch")
+definePotentiometer("C_BE_SIGHT_REP_BRIGHT", 1, 3810, 779, {0, 1}, "BE Sight System REAR", "BE Copilot Sight Repeater Brightness Adjustment Knob")
+definePotentiometer("C_BE_SIGHT_REP_CONTRAST", 1, 3812, 780, {0, 1}, "BE Sight System REAR", "BE Copilot Sight Repeater Contrast Adjustment Knob")
+
+--Recording Camera
+defineToggleSwitch("C_BE_REC_CAM_BRIGHT", 1, 3819, 1420, "BE Recording Camera REAR", "BE Copilot Recording Camera DAY/NIGHT Brightness Switch")
+definePushButton("C_BE_TIMER_TEST", 1, 3820, 1421, "BE Recording Camera REAR", "BE Copilot Countdown Timer and Camera Operation Test Button")
+defineSetCommandTumb("C_BE_REC_CAM_RETARD", 1, 3821, 778, 0.25, {0, 1}, nil, false, "BE V/UHF Control Unit REAR", "BE Copilot Recording Camera Retard Knob")
+definePushButton("C_BE_REC_CAM_JETT", 1, 3822, 1422, "BE Recording Camera REAR", "BE Copilot Recording Camera Eject Button")
 
 BIOS.protocol.endModule()

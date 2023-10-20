@@ -1,6 +1,6 @@
 BIOS.protocol.beginModule("SA342", 0x5800)
 BIOS.protocol.setExportModuleAircrafts({"SA342M", "SA342Minigun", "SA342Mistral", "SA342L"})
---overhaul by WarLord 2.0a
+--overhaul by WarLord 2.0c
 local documentation = moduleBeingDefined.documentation
 
 local document = BIOS.util.document
@@ -537,7 +537,7 @@ defineIndicatorLight("IFF_TEST_L", 252, "Indicator Lights", "IFF Test Lamp (gree
 
 --ATHOS
 defineToggleSwitch("ATHOS", 41, 3011, 172, "ATHOS", "Deploy/Stow Periscope")
-defineToggleSwitch("PCB_ZOOM", 36, 3351, 590, "ATHOS", "PCB Zoom Toggle")
+defineToggleSwitch("PCB_ZOOM", 41, 3008, 590, "ATHOS", "PCB Zoom Toggle")
 defineMultipositionSwitch("PCB_RETICLE", 36, 3352, 591, 4, 0.33, "ATHOS", "PCB Reticle Selector")
 defineToggleSwitch("PCB_STABI", 36, 3353, 592, "ATHOS", "PCB Stabilization ON/OFF")
 defineToggleSwitch("PCB_WIPER", 36, 3354, 593, "ATHOS", "PCB Wipers ON/OFF")
