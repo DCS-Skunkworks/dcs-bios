@@ -1,7 +1,6 @@
 BIOS.protocol.beginModule("F-16C_50", 0x4400)
 BIOS.protocol.setExportModuleAircrafts({"F-16C_50", "F-16D_50_NS", "F-16D_50", "F-16D_52_NS", "F-16D_52", "F-16D_Barak_30", "F-16D_Barak_40", "F-16I"})
--- V1.15d by WarLord ft. BuzzKillington, afewyards
--- DED Display by Matchstick, AMVI_Ares & RafaPolit
+-- V1.15f by WarLord ft. BuzzKillington, afewyards; DED Display by Matchstick, AMVI_Ares & RafaPolit
 local inputProcessors = moduleBeingDefined.inputProcessors
 local documentation = moduleBeingDefined.documentation
 
@@ -2016,5 +2015,7 @@ end, 1, "External Aircraft Model", "Weight ON Wheels Right Gear")
 defineIntegerFromGetter("EXT_WOW_LEFT", function()
 	if LoGetAircraftDrawArgumentValue(6) > 0 then return 1 else return 0 end
 end, 1, "External Aircraft Model", "Weight ON Wheels Left Gear")
+
+defineFloat("CANOPY_LOCK", 607, {0, 1}, "Cockpit Mechanics", "Canopy Lock Position")
 
 BIOS.protocol.endModule()
