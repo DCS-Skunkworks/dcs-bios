@@ -1091,9 +1091,18 @@ function Module:addControl(control)
 	-- todo: move this further down?
 	if control.outputs then
 		for _, output in ipairs(control.outputs) do
-			output.address_identifier = self:addressDefineIdentifier(control.identifier) .. "_A"
-			output.address_mask_identifier = self:addressDefineIdentifier(control.identifier) .. "_AM"
-			output.address_mask_shift_identifier = self:addressDefineIdentifier(control.identifier)
+			if output.type == "integer" then -- DcsBios::IntegerBuffer
+				--- @cast output IntegerOutput
+				output.address_mask_shift_identifier = self:addressDefineIdentifier(control.identifier)
+				if output.max_value == 1 then -- DcsBios::LED
+					output.address_mask_identifier = self:addressDefineIdentifier(control.identifier) .. "_AM"
+				elseif output.max_value == 65535 then -- DcsBios::ServoOutput
+					output.address_identifier = self:addressDefineIdentifier(control.identifier) .. "_A"
+				end
+			elseif output.type == "string" then -- DcsBios::StringBuffe
+				--- @cast output StringOutput
+				output.address_identifier = self:addressDefineIdentifier(control.identifier) .. "_A"
+			end
 		end
 	end
 

@@ -9,7 +9,6 @@
                                            "outputs": [ {
                                                                                 "address": 1076,
                                                                      "address_identifier": "CommonData_ALT_MSL_FT_A",
-                                                                "address_mask_identifier": "CommonData_ALT_MSL_FT_AM",
                                                           "address_mask_shift_identifier": "CommonData_ALT_MSL_FT",
                                                                             "description": "Altitude MSL (ft)",
                                                                                    "mask": 65535,
@@ -29,8 +28,6 @@
                                               "inputs": [  ],
                                              "outputs": [ {
                                                                                   "address": 1078,
-                                                                       "address_identifier": "CommonData_HDG_DEG_A",
-                                                                  "address_mask_identifier": "CommonData_HDG_DEG_AM",
                                                             "address_mask_shift_identifier": "CommonData_HDG_DEG",
                                                                               "description": "Heading (Degrees)",
                                                                                      "mask": 511,
@@ -48,8 +45,6 @@
                                               "inputs": [  ],
                                              "outputs": [ {
                                                                                   "address": 1078,
-                                                                       "address_identifier": "CommonData_HDG_DEG_FRAC_A",
-                                                                  "address_mask_identifier": "CommonData_HDG_DEG_FRAC_AM",
                                                             "address_mask_shift_identifier": "CommonData_HDG_DEG_FRAC",
                                                                               "description": "Heading (Fractional Degrees, divide by 127)",
                                                                                      "mask": 65024,
@@ -68,14 +63,12 @@
                                        "identifier": "DCS_BIOS",
                                            "inputs": [  ],
                                           "outputs": [ {
-                                                                               "address": 1024,
-                                                                    "address_identifier": "CommonData_DCS_BIOS_A",
-                                                               "address_mask_identifier": "CommonData_DCS_BIOS_AM",
-                                                         "address_mask_shift_identifier": "CommonData_DCS_BIOS",
-                                                                           "description": "DCS Bios Version",
-                                                                            "max_length": 6,
-                                                                                "suffix": "",
-                                                                                  "type": "string"
+                                                                    "address": 1024,
+                                                         "address_identifier": "CommonData_DCS_BIOS_A",
+                                                                "description": "DCS Bios Version",
+                                                                 "max_length": 6,
+                                                                     "suffix": "",
+                                                                       "type": "string"
                                                      } ]
                                  },
                     "PILOTNAME": {
@@ -85,14 +78,12 @@
                                        "identifier": "PILOTNAME",
                                            "inputs": [  ],
                                           "outputs": [ {
-                                                                               "address": 1030,
-                                                                    "address_identifier": "CommonData_PILOTNAME_A",
-                                                               "address_mask_identifier": "CommonData_PILOTNAME_AM",
-                                                         "address_mask_shift_identifier": "CommonData_PILOTNAME",
-                                                                           "description": "Pilot Name",
-                                                                            "max_length": 24,
-                                                                                "suffix": "",
-                                                                                  "type": "string"
+                                                                    "address": 1030,
+                                                         "address_identifier": "CommonData_PILOTNAME_A",
+                                                                "description": "Pilot Name",
+                                                                 "max_length": 24,
+                                                                     "suffix": "",
+                                                                       "type": "string"
                                                      } ]
                                  }
                 },
@@ -105,8 +96,6 @@
                                               "inputs": [  ],
                                              "outputs": [ {
                                                                                   "address": 1054,
-                                                                       "address_identifier": "CommonData_LAT_DEG_A",
-                                                                  "address_mask_identifier": "CommonData_LAT_DEG_AM",
                                                             "address_mask_shift_identifier": "CommonData_LAT_DEG",
                                                                               "description": "Latitude Degrees",
                                                                                      "mask": 32512,
@@ -124,8 +113,6 @@
                                               "inputs": [  ],
                                              "outputs": [ {
                                                                                   "address": 1056,
-                                                                       "address_identifier": "CommonData_LAT_SEC_A",
-                                                                  "address_mask_identifier": "CommonData_LAT_SEC_AM",
                                                             "address_mask_shift_identifier": "CommonData_LAT_SEC",
                                                                               "description": "Latitude Seconds",
                                                                                      "mask": 63,
@@ -144,7 +131,6 @@
                                              "outputs": [ {
                                                                                   "address": 1058,
                                                                        "address_identifier": "CommonData_LAT_SEC_FRAC_A",
-                                                                  "address_mask_identifier": "CommonData_LAT_SEC_FRAC_AM",
                                                             "address_mask_shift_identifier": "CommonData_LAT_SEC_FRAC",
                                                                               "description": "Latitude Fractional Seconds (divide by 65535)",
                                                                                      "mask": 65535,
@@ -161,14 +147,12 @@
                                           "identifier": "LAT_Z_DIR",
                                               "inputs": [  ],
                                              "outputs": [ {
-                                                                                  "address": 1054,
-                                                                       "address_identifier": "CommonData_LAT_Z_DIR_A",
-                                                                  "address_mask_identifier": "CommonData_LAT_Z_DIR_AM",
-                                                            "address_mask_shift_identifier": "CommonData_LAT_Z_DIR",
-                                                                              "description": "Latitude Direction",
-                                                                               "max_length": 1,
-                                                                                   "suffix": "",
-                                                                                     "type": "string"
+                                                                       "address": 1054,
+                                                            "address_identifier": "CommonData_LAT_Z_DIR_A",
+                                                                   "description": "Latitude Direction",
+                                                                    "max_length": 1,
+                                                                        "suffix": "",
+                                                                          "type": "string"
                                                         } ]
                                     },
                          "LON_DEG": {
@@ -179,8 +163,6 @@
                                               "inputs": [  ],
                                              "outputs": [ {
                                                                                   "address": 1056,
-                                                                       "address_identifier": "CommonData_LON_DEG_A",
-                                                                  "address_mask_identifier": "CommonData_LON_DEG_AM",
                                                             "address_mask_shift_identifier": "CommonData_LON_DEG",
                                                                               "description": "Longitude Degrees",
                                                                                      "mask": 16320,
@@ -198,8 +180,6 @@
                                               "inputs": [  ],
                                              "outputs": [ {
                                                                                   "address": 1072,
-                                                                       "address_identifier": "CommonData_LON_SEC_A",
-                                                                  "address_mask_identifier": "CommonData_LON_SEC_AM",
                                                             "address_mask_shift_identifier": "CommonData_LON_SEC",
                                                                               "description": "Longitude Seconds",
                                                                                      "mask": 16128,
@@ -218,7 +198,6 @@
                                              "outputs": [ {
                                                                                   "address": 1074,
                                                                        "address_identifier": "CommonData_LON_SEC_FRAC_A",
-                                                                  "address_mask_identifier": "CommonData_LON_SEC_FRAC_AM",
                                                             "address_mask_shift_identifier": "CommonData_LON_SEC_FRAC",
                                                                               "description": "Longitude Fractional Seconds (divide by 65535)",
                                                                                      "mask": 65535,
@@ -235,14 +214,12 @@
                                           "identifier": "LON_Z_DIR",
                                               "inputs": [  ],
                                              "outputs": [ {
-                                                                                  "address": 1072,
-                                                                       "address_identifier": "CommonData_LON_Z_DIR_A",
-                                                                  "address_mask_identifier": "CommonData_LON_Z_DIR_AM",
-                                                            "address_mask_shift_identifier": "CommonData_LON_Z_DIR",
-                                                                              "description": "Longitude Direction",
-                                                                               "max_length": 1,
-                                                                                   "suffix": "",
-                                                                                     "type": "string"
+                                                                       "address": 1072,
+                                                            "address_identifier": "CommonData_LON_Z_DIR_A",
+                                                                   "description": "Longitude Direction",
+                                                                    "max_length": 1,
+                                                                        "suffix": "",
+                                                                          "type": "string"
                                                         } ]
                                     }
                 },
@@ -254,14 +231,12 @@
                                         "identifier": "G_LOAD",
                                             "inputs": [  ],
                                            "outputs": [ {
-                                                                                "address": 1102,
-                                                                     "address_identifier": "CommonData_G_LOAD_A",
-                                                                "address_mask_identifier": "CommonData_G_LOAD_AM",
-                                                          "address_mask_shift_identifier": "CommonData_G_LOAD",
-                                                                            "description": "G Load",
-                                                                             "max_length": 4,
-                                                                                 "suffix": "",
-                                                                                   "type": "string"
+                                                                     "address": 1102,
+                                                          "address_identifier": "CommonData_G_LOAD_A",
+                                                                 "description": "G Load",
+                                                                  "max_length": 4,
+                                                                      "suffix": "",
+                                                                        "type": "string"
                                                       } ]
                                   },
                         "IAS_EU": {
@@ -271,14 +246,12 @@
                                         "identifier": "IAS_EU",
                                             "inputs": [  ],
                                            "outputs": [ {
-                                                                                "address": 1060,
-                                                                     "address_identifier": "CommonData_IAS_EU_A",
-                                                                "address_mask_identifier": "CommonData_IAS_EU_AM",
-                                                          "address_mask_shift_identifier": "CommonData_IAS_EU",
-                                                                            "description": "Indicated Airspeed KM H",
-                                                                             "max_length": 4,
-                                                                                 "suffix": "",
-                                                                                   "type": "string"
+                                                                     "address": 1060,
+                                                          "address_identifier": "CommonData_IAS_EU_A",
+                                                                 "description": "Indicated Airspeed KM H",
+                                                                  "max_length": 4,
+                                                                      "suffix": "",
+                                                                        "type": "string"
                                                       } ]
                                   },
                     "IAS_EU_INT": {
@@ -290,7 +263,6 @@
                                            "outputs": [ {
                                                                                 "address": 1068,
                                                                      "address_identifier": "CommonData_IAS_EU_INT_A",
-                                                                "address_mask_identifier": "CommonData_IAS_EU_INT_AM",
                                                           "address_mask_shift_identifier": "CommonData_IAS_EU_INT",
                                                                             "description": "Indicated Airspeed KM H (Int)",
                                                                                    "mask": 65535,
@@ -307,14 +279,12 @@
                                         "identifier": "IAS_US",
                                             "inputs": [  ],
                                            "outputs": [ {
-                                                                                "address": 1064,
-                                                                     "address_identifier": "CommonData_IAS_US_A",
-                                                                "address_mask_identifier": "CommonData_IAS_US_AM",
-                                                          "address_mask_shift_identifier": "CommonData_IAS_US",
-                                                                            "description": "Indicated Airspeed KNT",
-                                                                             "max_length": 4,
-                                                                                 "suffix": "",
-                                                                                   "type": "string"
+                                                                     "address": 1064,
+                                                          "address_identifier": "CommonData_IAS_US_A",
+                                                                 "description": "Indicated Airspeed KNT",
+                                                                  "max_length": 4,
+                                                                      "suffix": "",
+                                                                        "type": "string"
                                                       } ]
                                   },
                     "IAS_US_INT": {
@@ -326,7 +296,6 @@
                                            "outputs": [ {
                                                                                 "address": 1070,
                                                                      "address_identifier": "CommonData_IAS_US_INT_A",
-                                                                "address_mask_identifier": "CommonData_IAS_US_INT_AM",
                                                           "address_mask_shift_identifier": "CommonData_IAS_US_INT",
                                                                             "description": "Indicated Airspeed KNT (Int)",
                                                                                    "mask": 65535,
@@ -345,14 +314,12 @@
                                              "identifier": "MISS_TIME",
                                                  "inputs": [  ],
                                                 "outputs": [ {
-                                                                                     "address": 1080,
-                                                                          "address_identifier": "CommonData_MISS_TIME_A",
-                                                                     "address_mask_identifier": "CommonData_MISS_TIME_AM",
-                                                               "address_mask_shift_identifier": "CommonData_MISS_TIME",
-                                                                                 "description": "Mission Start Time",
-                                                                                  "max_length": 8,
-                                                                                      "suffix": "",
-                                                                                        "type": "string"
+                                                                          "address": 1080,
+                                                               "address_identifier": "CommonData_MISS_TIME_A",
+                                                                      "description": "Mission Start Time",
+                                                                       "max_length": 8,
+                                                                           "suffix": "",
+                                                                             "type": "string"
                                                            } ]
                                        },
                            "MOD_TIME": {
@@ -362,14 +329,12 @@
                                              "identifier": "MOD_TIME",
                                                  "inputs": [  ],
                                                 "outputs": [ {
-                                                                                     "address": 1088,
-                                                                          "address_identifier": "CommonData_MOD_TIME_A",
-                                                                     "address_mask_identifier": "CommonData_MOD_TIME_AM",
-                                                               "address_mask_shift_identifier": "CommonData_MOD_TIME",
-                                                                                 "description": "Model Time in sec",
-                                                                                  "max_length": 6,
-                                                                                      "suffix": "",
-                                                                                        "type": "string"
+                                                                          "address": 1088,
+                                                               "address_identifier": "CommonData_MOD_TIME_A",
+                                                                      "description": "Model Time in sec",
+                                                                       "max_length": 6,
+                                                                           "suffix": "",
+                                                                             "type": "string"
                                                            } ]
                                        },
                     "TIME_MODEL_HIGH": {
@@ -381,7 +346,6 @@
                                                 "outputs": [ {
                                                                                      "address": 1098,
                                                                           "address_identifier": "CommonData_TIME_MODEL_HIGH_A",
-                                                                     "address_mask_identifier": "CommonData_TIME_MODEL_HIGH_AM",
                                                                "address_mask_shift_identifier": "CommonData_TIME_MODEL_HIGH",
                                                                                  "description": "Model time high bits in hundredth of a second",
                                                                                         "mask": 65535,
@@ -400,7 +364,6 @@
                                                 "outputs": [ {
                                                                                      "address": 1100,
                                                                           "address_identifier": "CommonData_TIME_MODEL_LOW_A",
-                                                                     "address_mask_identifier": "CommonData_TIME_MODEL_LOW_AM",
                                                                "address_mask_shift_identifier": "CommonData_TIME_MODEL_LOW",
                                                                                  "description": "Model time low bits in hundredth of a second",
                                                                                         "mask": 65535,
@@ -419,7 +382,6 @@
                                                 "outputs": [ {
                                                                                      "address": 1094,
                                                                           "address_identifier": "CommonData_TIME_START_HIGH_A",
-                                                                     "address_mask_identifier": "CommonData_TIME_START_HIGH_AM",
                                                                "address_mask_shift_identifier": "CommonData_TIME_START_HIGH",
                                                                                  "description": "Start time high bits in seconds",
                                                                                         "mask": 65535,
@@ -438,7 +400,6 @@
                                                 "outputs": [ {
                                                                                      "address": 1096,
                                                                           "address_identifier": "CommonData_TIME_START_LOW_A",
-                                                                     "address_mask_identifier": "CommonData_TIME_START_LOW_AM",
                                                                "address_mask_shift_identifier": "CommonData_TIME_START_LOW",
                                                                                  "description": "Start time low bits in seconds",
                                                                                         "mask": 65535,
