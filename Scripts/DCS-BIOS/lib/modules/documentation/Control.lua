@@ -23,7 +23,6 @@ local Control = {}
 --- @param apiVariant ApiVariant? TODO
 --- @return Control
 function Control:new(category, controlType, identifier, description, inputs, outputs, momentaryPositions, physicalVariant, apiVariant)
-	--error(category)
 	assert(category ~= nil)
 	assert(controlType ~= nil)
 	assert(identifier ~= nil)
