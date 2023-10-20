@@ -1,6 +1,6 @@
 module("P-51D", package.seeall)
 
-local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
+local Module = require("Module")
 
 --- @class P-51D : Module
 local P_51D = Module:new("P-51D", 0x5000, { "P-51D", "TF-51D", "P-51D-30-NA" })
@@ -40,7 +40,7 @@ P_51D:definePotentiometer("LOCK_THROTTLE", 5, 3012, 48, { 0, 1 }, "Engine System
 P_51D:definePotentiometer("LOCK_PROPELLER_MIXTURE", 5, 3014, 49, { 0, 1 }, "Engine System", "Lock Propeller & Mixture")
 P_51D:definePushButton("MICROPHONE_ON", 6, 3001, 44, "Cockpit Mechanical", "Microphone On")
 P_51D:defineToggleSwitch("ARM_REST", 6, 3009, 200, "Cockpit Mechanical", "Arm rest")
-P_51D:definePotentiometer("CANOPY_HAND_CRANK", 6, 3002, 147, { -6, 6 }, "Cockpit Mechanical", "Canopy Hand Crank")
+P_51D:definePotentiometer("CANOPY_HAND_CRANK", 6, 3002, 148, { -6, 6 }, "Cockpit Mechanical", "Canopy Hand Crank")
 P_51D:defineToggleSwitch("CANOPY_EMERGENCY_RELEASE_HANDLE", 6, 3003, 149, "Cockpit Mechanical", "Canopy Emergency Release Handle")
 P_51D:defineToggleSwitch("OXYGEN_AUTO_MIX", 7, 3003, 131, "Oxygen System", "Auto-Mix On-Off")
 P_51D:defineToggleSwitch("OXYGEN_BYPASS", 7, 3001, 130, "Oxygen System", "Oxygen Emergency By-pass")
