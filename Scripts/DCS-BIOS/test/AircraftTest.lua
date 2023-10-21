@@ -167,6 +167,10 @@ function TestAircraft:testP51D()
 	self:validateModule(require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.P-51D"), "P-51D", 0x5000)
 end
 
+function TestAircraft:testSA342()
+	self:validateModule(require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.SA342"), "SA342", 0x5800)
+end
+
 function TestAircraft:testSpitfireLFMkIX()
 	self:validateModule(require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.SpitfireLFMkIX"), "SpitfireLFMkIX", 0x5400)
 end

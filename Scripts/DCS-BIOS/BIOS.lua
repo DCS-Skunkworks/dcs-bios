@@ -144,7 +144,9 @@ Protocol.writeNewModule(P_47D)
 -- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/P-51D.lua]]) -- ID = 35, ProperName = TF/P-51D Mustang
 local P_51D = require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.P-51D")
 Protocol.writeNewModule(P_51D)
-dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/SA342.lua]]) -- ID = 36, ProperName = SA342 Gazelle
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/SA342.lua]]) -- ID = 36, ProperName = SA342 Gazelle
+local SA342 = require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.SA342")
+Protocol.writeNewModule(SA342)
 -- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/SpitfireLFMkIX.lua]]) -- ID = 37, ProperName = Spitfire LF Mk. IX
 local SpitfireLFMkIX = require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.SpitfireLFMkIX")
 Protocol.writeNewModule(SpitfireLFMkIX)
