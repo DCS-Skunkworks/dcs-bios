@@ -53,7 +53,7 @@ function Logger:log(level, obj)
 
 	if type(obj) == "table" then
 		self:log_simple(level, "Logging table, consider using setting max_bytes_to_log and call log_table() directly.")
-		self:log_table(level, obj, 10)
+		self:log_table(level, obj, 40)
 	elseif type(obj) == "string" or type(obj) == "number" then
 		self:log_simple(level, obj)
 	end
@@ -146,7 +146,6 @@ end
 -- Break ALL when max depth reached
 -- Break when data logged exceeds limit
 
---- @private
 --- Logs a table (recursively if table contains tables)
 --- @param tab table Table to dump/log
 --- @param max_depth integer How deep recursively to go
@@ -234,6 +233,45 @@ function Logger:log_table_indexes(tab)
 			end
 		end
 	end
+end
+
+--- Logs an array
+--- @require array array to log
+function Logger:log_array(array)
+	local level = Logger.logging_level.debug
+
+	if array == nil then
+		self:log_simple(level, "Array to log was nil")
+		return
+	end
+
+	local padLength = 20
+	local output = ""
+	self:log_simple(level, "Array :")
+	for k, v in pairs(array) do
+		if k ~= nil then
+			if type(k) == "string" or type(k) == "number" then
+				output = output .. k .. " : "
+			elseif type(k) == "table" then
+				output = output .. "<table> : "
+			elseif type(k) == "function" then
+				output = output .. "<function> : "
+			end
+
+			if v ~= nil then
+				if type(v) == "string" or type(v) == "number" then
+					output = output .. v .. "\n"
+				elseif type(v) == "table" then
+					output = output .. "<table>" .. "\n"
+				elseif type(v) == "function" then
+					output = output .. "<function>" .. "\n"
+				end
+			else
+				output = output .. "\n"
+			end
+		end
+	end
+	self:log_simple(level, "\n" .. output .. "\n")
 end
 
 return Logger
