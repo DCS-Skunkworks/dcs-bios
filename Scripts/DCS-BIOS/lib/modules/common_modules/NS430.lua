@@ -73,6 +73,9 @@ function NS430:defineDoubleCommandButton(identifier, ns430_device_id, device_id,
 
 	self:addExportHook(function(dev0)
 		local dev = GetDevice(ns430_device_id)
+		if not dev then
+			return -- if the ns430 is not owned, dev is nil
+		end
 		alloc:setValue(dev:get_argument_value(arg_number))
 	end)
 
@@ -99,6 +102,9 @@ function NS430:defineMomentaryRockerSwitch(identifier, ns430_device_id, device_i
 
 	self:addExportHook(function(dev0)
 		local dev = GetDevice(ns430_device_id)
+		if not dev then
+			return
+		end
 		alloc:setValue(dev:get_argument_value(arg_number) + 1)
 	end)
 
@@ -112,6 +118,9 @@ function NS430:defineMomentaryRockerSwitch(identifier, ns430_device_id, device_i
 
 	self:addInputProcessor(identifier, function(value)
 		local dev1 = GetDevice(ns430_device_id)
+		if not dev1 then
+			return
+		end
 		local toState = dev1:get_argument_value(arg_number)
 
 		if value == "INC" then
@@ -155,6 +164,9 @@ function NS430:definePotentiometer2(identifier, ns430_device_id, device_id, comm
 	local intervalLength = limits[2] - limits[1]
 	self:addInputProcessor(identifier, function(value)
 		local dev = GetDevice(ns430_device_id)
+		if not dev then
+			return
+		end
 		local newValue = ((dev:get_argument_value(arg_number) - limits[1]) / intervalLength) * max_value
 		if value:match("-[0-9]+") or value:match("%+[0-9]+") then
 			newValue = Module.cap(newValue + tonumber(value), 0, max_value)
@@ -169,6 +181,9 @@ function NS430:definePotentiometer2(identifier, ns430_device_id, device_id, comm
 
 	self:addExportHook(function(dev0)
 		local dev = GetDevice(ns430_device_id)
+		if not dev then
+			return
+		end
 		value:setValue(((dev:get_argument_value(arg_number) - limits[1]) / intervalLength) * max_value)
 	end)
 
@@ -209,6 +224,9 @@ function NS430:defineRotary2(identifier, ns430_device_id, device_id, command, ar
 
 	self:addExportHook(function(dev0)
 		local dev = GetDevice(ns430_device_id)
+		if not dev then
+			return
+		end
 		value:setValue(dev:get_argument_value(arg_number) * max_value)
 	end)
 
