@@ -1941,6 +1941,25 @@ docdata["F-16C_50"] =
                                                                                                   } ],
                                                                               "physical_variant": "toggle_switch"
                                                                        },
+                                                        "CANOPY_LOCK": {
+                                                                               "category": "Cockpit Mechanics",
+                                                                           "control_type": "analog_gauge",
+                                                                            "description": "Canopy Lock Position",
+                                                                             "identifier": "CANOPY_LOCK",
+                                                                                 "inputs": [  ],
+                                                                                "outputs": [ {
+                                                                                                                     "address": 17862,
+                                                                                                          "address_identifier": "F_16C_50_CANOPY_LOCK_A",
+                                                                                                     "address_mask_identifier": "F_16C_50_CANOPY_LOCK_AM",
+                                                                                               "address_mask_shift_identifier": "F_16C_50_CANOPY_LOCK",
+                                                                                                                 "description": "gauge position",
+                                                                                                                        "mask": 65535,
+                                                                                                                   "max_value": 65535,
+                                                                                                                    "shift_by": 0,
+                                                                                                                      "suffix": "",
+                                                                                                                        "type": "integer"
+                                                                                           } ]
+                                                                       },
                                                          "CANOPY_POS": {
                                                                                "category": "Cockpit Mechanics",
                                                                            "control_type": "analog_gauge",
