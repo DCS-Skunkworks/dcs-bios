@@ -362,17 +362,17 @@ SA342:defineFloat("AM_RADIO_FREQ_TENTHS", 138, { 0, 1 }, "Raw Gauge Values", "AM
 SA342:defineFloat("AM_RADIO_FREQ_HUNDREDTHS", 139, { 0, 1 }, "Raw Gauge Values", "AM Radio Frequency Hundredths")
 
 --Actual Gauge Values
-local function getHDG()
-	local returnValue = (GetDevice(0):get_argument_value(26)) * 360
+local function getHDG(dev0)
+	local returnValue = (dev0:get_argument_value(26)) * 360
 	return returnValue
 end
 SA342:defineIntegerFromGetter("HEADING_VALUE", getHDG, 65000, "Gauge Values", "Heading Value")
 
-local function getNADIR()
-	local a = (GetDevice(0):get_argument_value(26)) * 360
+local function getNADIR(dev0)
+	local a = (dev0:get_argument_value(26)) * 360
 	local b = 0
 	local c = 0
-	local d = (GetDevice(0):get_argument_value(102))
+	local d = (dev0:get_argument_value(102))
 	if d < 0 then
 		b = 360 - (d * -360)
 	else
@@ -387,11 +387,11 @@ local function getNADIR()
 end
 SA342:defineIntegerFromGetter("NADIR_HEADING_VALUE", getNADIR, 65000, "Gauge Values", "NADIR Heading Value")
 
-local function getADFHDG()
+local function getADFHDG(dev0)
 	local e = 0
 	local f = 0
-	local g = (GetDevice(0):get_argument_value(26)) * 360
-	local h = (GetDevice(0):get_argument_value(103))
+	local g = (dev0:get_argument_value(26)) * 360
+	local h = (dev0:get_argument_value(103))
 	if h < 0 then
 		e = 360 - (h * -360)
 	else
@@ -406,69 +406,69 @@ local function getADFHDG()
 end
 SA342:defineIntegerFromGetter("ADF_HEADING_VALUE", getADFHDG, 65000, "Gauge Values", "ADF Heading Value")
 
-local function getADFDIST()
-	local cent = (GetDevice(0):get_argument_value(110)) * 1000
-	local dix = (GetDevice(0):get_argument_value(111)) * 100
-	local unit = (GetDevice(0):get_argument_value(112)) * 10
+local function getADFDIST(dev0)
+	local cent = (dev0:get_argument_value(110)) * 1000
+	local dix = (dev0:get_argument_value(111)) * 100
+	local unit = (dev0:get_argument_value(112)) * 10
 	local dist = cent + dix + unit
 	return dist
 end
 SA342:defineIntegerFromGetter("ADF_DISTANCE_VALUE", getADFDIST, 65000, "Gauge Values", "ADF Distance Value")
 
-local function getBAROALT()
-	local returnValue = ((GetDevice(0):get_argument_value(87)) * 10053) - 41.048
+local function getBAROALT(dev0)
+	local returnValue = ((dev0:get_argument_value(87)) * 10053) - 41.048
 	return returnValue
 end
 SA342:defineIntegerFromGetter("BARO_ALT_VALUE", getBAROALT, 65000, "Gauge Values", "Barometric Altimeter Value")
 
-local function getBAROPRESS()
-	local baromille = (GetDevice(0):get_argument_value(95)) * 10000
-	local barocent = (GetDevice(0):get_argument_value(92)) * 1000
-	local barodix = (GetDevice(0):get_argument_value(90)) * 100
-	local barounit = (GetDevice(0):get_argument_value(88)) * 10
+local function getBAROPRESS(dev0)
+	local baromille = (dev0:get_argument_value(95)) * 10000
+	local barocent = (dev0:get_argument_value(92)) * 1000
+	local barodix = (dev0:get_argument_value(90)) * 100
+	local barounit = (dev0:get_argument_value(88)) * 10
 	local baro = baromille + barocent + barodix + barounit
 	return baro
 end
 SA342:defineIntegerFromGetter("BARO_PRESS_VALUE", getBAROPRESS, 65000, "Gauge Values", "Barometric Pressure Value")
 
-local function getRADALT()
-	local returnValue = (-2775.9 * (GetDevice(0):get_argument_value(94)) ^ 5) + (8414.8 * (GetDevice(0):get_argument_value(94)) ^ 4) - (5860 * (GetDevice(0):get_argument_value(94)) ^ 3) + (1495.4 * (GetDevice(0):get_argument_value(94)) ^ 2) + (153.05 * (GetDevice(0):get_argument_value(94))) + 1.4913
+local function getRADALT(dev0)
+	local returnValue = (-2775.9 * (dev0:get_argument_value(94)) ^ 5) + (8414.8 * (dev0:get_argument_value(94)) ^ 4) - (5860 * (dev0:get_argument_value(94)) ^ 3) + (1495.4 * (dev0:get_argument_value(94)) ^ 2) + (153.05 * (dev0:get_argument_value(94))) + 1.4913
 	return returnValue
 end
 SA342:defineIntegerFromGetter("RADAR_ALT_VALUE", getRADALT, 65000, "Gauge Values", "Radar Altimeter Value")
 
-local function getTORQUE()
-	local returnValue = (-66.873 * (GetDevice(0):get_argument_value(16)) ^ 3) + (103.7 * (GetDevice(0):get_argument_value(16)) ^ 2) + (91.562 * (GetDevice(0):get_argument_value(16))) - 8.5301
+local function getTORQUE(dev0)
+	local returnValue = (-66.873 * (dev0:get_argument_value(16)) ^ 3) + (103.7 * (dev0:get_argument_value(16)) ^ 2) + (91.562 * (dev0:get_argument_value(16))) - 8.5301
 	return returnValue
 end
 SA342:defineIntegerFromGetter("TORQUE_VALUE", getTORQUE, 65000, "Gauge Values", "Torque Value")
 
-local function getFUEL()
-	local returnValue = (-8880.7 * (GetDevice(0):get_argument_value(137)) ^ 6)
-		+ (27939 * (GetDevice(0):get_argument_value(137)) ^ 5)
-		- (32540 * (GetDevice(0):get_argument_value(137)) ^ 4)
-		+ (17294 * (GetDevice(0):get_argument_value(137)) ^ 3)
-		- (3852.5 * (GetDevice(0):get_argument_value(137)) ^ 2)
-		+ (654.65 * (GetDevice(0):get_argument_value(137)))
+local function getFUEL(dev0)
+	local returnValue = (-8880.7 * (dev0:get_argument_value(137)) ^ 6)
+		+ (27939 * (dev0:get_argument_value(137)) ^ 5)
+		- (32540 * (dev0:get_argument_value(137)) ^ 4)
+		+ (17294 * (dev0:get_argument_value(137)) ^ 3)
+		- (3852.5 * (dev0:get_argument_value(137)) ^ 2)
+		+ (654.65 * (dev0:get_argument_value(137)))
 		- 39.142
 	return returnValue
 end
 SA342:defineIntegerFromGetter("FUEL_LEVEL_VALUE", getFUEL, 65000, "Gauge Values", "Fuel Level Value")
 
-local function getIAS()
-	local returnValue = (-605.35 * (GetDevice(0):get_argument_value(51)) ^ 4) + (1206.9 * (GetDevice(0):get_argument_value(51)) ^ 3) - (586.3 * (GetDevice(0):get_argument_value(51)) ^ 2) + (379.6 * (GetDevice(0):get_argument_value(51))) + 26.91
+local function getIAS(dev0)
+	local returnValue = (-605.35 * (dev0:get_argument_value(51)) ^ 4) + (1206.9 * (dev0:get_argument_value(51)) ^ 3) - (586.3 * (dev0:get_argument_value(51)) ^ 2) + (379.6 * (dev0:get_argument_value(51))) + 26.91
 	return returnValue
 end
 SA342:defineIntegerFromGetter("IAS_VALUE", getIAS, 65000, "Gauge Values", "Airspeed IAS Value")
 
-local function getTURBRPM()
-	local returnValue = (35495 * (GetDevice(0):get_argument_value(135)) ^ 4) - (81489 * (GetDevice(0):get_argument_value(135)) ^ 3) + (62975 * (GetDevice(0):get_argument_value(135)) ^ 2) + (43447 * (GetDevice(0):get_argument_value(135))) - 4572.9
+local function getTURBRPM(dev0)
+	local returnValue = (35495 * (dev0:get_argument_value(135)) ^ 4) - (81489 * (dev0:get_argument_value(135)) ^ 3) + (62975 * (dev0:get_argument_value(135)) ^ 2) + (43447 * (dev0:get_argument_value(135))) - 4572.9
 	return returnValue
 end
 SA342:defineIntegerFromGetter("TURBINE_RPM_VALUE", getTURBRPM, 65000, "Gauge Values", "Turbine RPM Value")
 
-local function getROTRPM()
-	local returnValue = (234.39 * (GetDevice(0):get_argument_value(52)) ^ 4) - (524.36 * (GetDevice(0):get_argument_value(52)) ^ 3) + (413.16 * (GetDevice(0):get_argument_value(52)) ^ 2) + (428.23 * (GetDevice(0):get_argument_value(52))) - 44.168
+local function getROTRPM(dev0)
+	local returnValue = (234.39 * (dev0:get_argument_value(52)) ^ 4) - (524.36 * (dev0:get_argument_value(52)) ^ 3) + (413.16 * (dev0:get_argument_value(52)) ^ 2) + (428.23 * (dev0:get_argument_value(52))) - 44.168
 	return returnValue
 end
 SA342:defineIntegerFromGetter("ROTOR_RPM_VALUE", getROTRPM, 65000, "Gauge Values", "Rotor RPM Value")
