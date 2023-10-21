@@ -120,7 +120,9 @@ Protocol.writeNewModule(Mi_24P)
 -- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/Mi-8MT.lua]]) -- ID = 29, ProperName = Mi-8MT
 local Mi_8MT = require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.Mi-8MT")
 Protocol.writeNewModule(Mi_8MT)
-dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/MirageF1.lua]]) -- ID = 13, ProperName = Mirage F1
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/MirageF1.lua]]) -- ID = 13, ProperName = Mirage F1
+local MirageF1 = require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.MirageF1")
+Protocol.writeNewModule(MirageF1)
 -- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/MiG-15bis.lua]]) -- ID = 30, ProperName = MiG-15bis
 local MiG_15bis = require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.MiG-15bis")
 Protocol.writeNewModule(MiG_15bis)

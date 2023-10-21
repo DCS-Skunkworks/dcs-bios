@@ -25041,6 +25041,9 @@
 #define MirageF1_C_BE_FS_TRANS_IND_TEST 0x87B4, 0x0100, 8
 #define MirageF1_C_BE_FS_TRANS_IND_TEST_AM 0x87B4, 0x0100
 #define MirageF1_C_BE_HLD_FLAP_SLAT 0x87B4, 0xC000, 14
+#define MirageF1_C_BE_HLD_PRIO 0x87B8, 0x0006, 1
+#define MirageF1_C_BE_HLD_PRIO_CVR 0x87B8, 0x0001, 0
+#define MirageF1_C_BE_HLD_PRIO_CVR_AM 0x87B8, 0x0001
 #define MirageF1_C_BE_HSC_PRESS_SEL 0x87E0, 0x0002, 1
 #define MirageF1_C_BE_HSC_PRESS_SEL_AM 0x87E0, 0x0002
 #define MirageF1_C_BE_ILS_PRIO 0x881C, 0x2000, 13
@@ -25331,8 +25334,8 @@
 #define MirageF1_P_ADI_ALT_SL_L_DRUM_1_G_A 0x866E
 #define MirageF1_P_ADI_ALT_SL_NEEDLE_G 0x865C, 0xFFFF, 0
 #define MirageF1_P_ADI_ALT_SL_NEEDLE_G_A 0x865C
-#define MirageF1_P_ADI_ALT_SL_T_DRUM_0_1_G 0x8666, 0xFFFF, 0
-#define MirageF1_P_ADI_ALT_SL_T_DRUM_0_1_G_A 0x8666
+#define MirageF1_P_ADI_ALT_SL_T_DRUM_01_G 0x8666, 0xFFFF, 0
+#define MirageF1_P_ADI_ALT_SL_T_DRUM_01_G_A 0x8666
 #define MirageF1_P_ADI_ALT_SL_T_DRUM_100_G 0x8660, 0xFFFF, 0
 #define MirageF1_P_ADI_ALT_SL_T_DRUM_100_G_A 0x8660
 #define MirageF1_P_ADI_ALT_SL_T_DRUM_10_G 0x8662, 0xFFFF, 0
@@ -25535,12 +25538,12 @@
 #define MirageF1_P_CE_IFF_FUNC_SEL 0x8790, 0x0030, 4
 #define MirageF1_P_CE_IFF_L 0x8790, 0x4000, 14
 #define MirageF1_P_CE_IFF_L_AM 0x8790, 0x4000
-#define MirageF1_P_CE_IFF_M1_1 0x8788, 0x3C00, 10
-#define MirageF1_P_CE_IFF_M1_10 0x8788, 0x03C0, 6
-#define MirageF1_P_CE_IFF_M3A_1 0x878E, 0xF000, 12
-#define MirageF1_P_CE_IFF_M3A_10 0x878E, 0x0F00, 8
-#define MirageF1_P_CE_IFF_M3A_100 0x878E, 0x00F0, 4
-#define MirageF1_P_CE_IFF_M3A_1000 0x878E, 0x000F, 0
+#define MirageF1_P_CE_IFF_M1_1 0x8788, 0x1C00, 10
+#define MirageF1_P_CE_IFF_M1_10 0x8788, 0x01C0, 6
+#define MirageF1_P_CE_IFF_M3A_1 0x878E, 0x7000, 12
+#define MirageF1_P_CE_IFF_M3A_10 0x878E, 0x0700, 8
+#define MirageF1_P_CE_IFF_M3A_100 0x878E, 0x0070, 4
+#define MirageF1_P_CE_IFF_M3A_1000 0x878E, 0x0007, 0
 #define MirageF1_P_CE_IFF_M4_SEL 0x8790, 0x0006, 1
 #define MirageF1_P_CE_IFF_MODE4 0x8790, 0x0040, 6
 #define MirageF1_P_CE_IFF_MODE4_AM 0x8790, 0x0040
