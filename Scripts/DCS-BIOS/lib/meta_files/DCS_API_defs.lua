@@ -49,7 +49,7 @@ end
 
 --- Gets a device based on the device ID as specified in devices.lua
 --- @param device_id integer
---- @return CockpitDevice
+--- @return CockpitDevice?
 function GetDevice(device_id) end
 
 --- Gets the draw value for a certain animation
