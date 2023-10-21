@@ -114,13 +114,12 @@ function NS430:defineMomentaryRockerSwitch(identifier, ns430_device_id, device_i
 		local dev1 = GetDevice(ns430_device_id)
 		local toState = dev1:get_argument_value(arg_number)
 
-		Log:log_debug("1" .. toState)
 		if value == "INC" then
 			toState = toState + 1
 		elseif value == "DEC" then
 			toState = toState - 1
 		end
-		Log:log_debug("2" .. toState)
+
 		if toState > max_value or toState < min_value then
 			return
 		end
