@@ -71,7 +71,9 @@ Protocol.writeNewModule(F_14)
 -- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/F-15E.lua]]) -- ID = 44, ProperName = F-15E Strike Eagle
 local F_15E = require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.F-15E")
 Protocol.writeNewModule(F_15E)
-dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/F-16C_50.lua]]) -- ID = 17, ProperName = F-16C Viper
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/F-16C_50.lua]]) -- ID = 17, ProperName = F-16C Viper
+local F_16C_50 = require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.F-16C_50")
+Protocol.writeNewModule(F_16C_50)
 -- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/F-22A.lua]]) -- ID = 40, ProperName = F-22A Raptor
 local F_22A = require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.F-22A")
 Protocol.writeNewModule(F_22A)

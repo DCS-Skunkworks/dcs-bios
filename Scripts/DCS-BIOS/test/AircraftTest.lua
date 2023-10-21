@@ -67,6 +67,10 @@ function TestAircraft:testF15()
 	self:validateModule(require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.F-15E"), "F-15E", 0x9200)
 end
 
+function TestAircraft:testF16()
+	self:validateModule(require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.F-16C_50"), "F-16C_50", 0x4400)
+end
+
 function TestAircraft:testF22A()
 	self:validateModule(require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.F-22A"), "F-22A", 0x6600)
 end
