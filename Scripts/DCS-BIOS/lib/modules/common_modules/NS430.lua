@@ -1,13 +1,16 @@
 module("NS430", package.seeall)
 
+local ApiVariant = require("Scripts.DCS-BIOS.lib.modules.documentation.ApiVariant")
 local Control = require("Scripts.DCS-BIOS.lib.modules.documentation.Control")
 local ControlType = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlType")
 local FixedStepInput = require("Scripts.DCS-BIOS.lib.modules.documentation.FixedStepInput")
 local IntegerOutput = require("Scripts.DCS-BIOS.lib.modules.documentation.IntegerOutput")
+local Log = require("Scripts.DCS-BIOS.lib.common.Log")
 local MomentaryPositions = require("Scripts.DCS-BIOS.lib.modules.documentation.MomentaryPositions")
 local PhysicalVariant = require("Scripts.DCS-BIOS.lib.modules.documentation.PhysicalVariant")
 local SetStateInput = require("Scripts.DCS-BIOS.lib.modules.documentation.SetStateInput")
 local Suffix = require("Scripts.DCS-BIOS.lib.modules.documentation.Suffix")
+local VariableStepInput = require("Scripts.DCS-BIOS.lib.modules.documentation.VariableStepInput")
 
 local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 
@@ -63,38 +66,40 @@ local ns430_aircraft = {
 local NS430 = Module:new("NS430", 0x0600, ns430_aircraft)
 
 -- v2.0 by Celemourn
+-- v3.0 ArturDCS
 
-function NS430:defineDoubleCommandButton(identifier, device_id, start_command, stop_command, arg_number, category, description)
+function NS430:defineDoubleCommandButton(identifier, ns430_device_id, device_id, start_command, stop_command, arg_number, category, description)
 	local alloc = self:allocateInt(1, identifier)
+
 	self:addExportHook(function(dev0)
-		alloc:setValue(dev0:get_argument_value(arg_number))
+		local dev = GetDevice(ns430_device_id)
+		alloc:setValue(dev:get_argument_value(arg_number))
 	end)
 
 	local control = Control:new(category, ControlType.selector, identifier, description, {
 		FixedStepInput:new("switch to previous or next state"),
-		SetStateInput:new(1, "set position"),
-	}, {
-		IntegerOutput:new(alloc, Suffix.none, "selector position"),
-	}, MomentaryPositions.first_and_last, PhysicalVariant.push_button)
+	}, { IntegerOutput:new(alloc, Suffix.none, "selector position") }, MomentaryPositions.first_and_last, PhysicalVariant.push_button, "multiturn")
 	self:addControl(control)
 
 	self:addInputProcessor(identifier, function(toState)
 		local dev = GetDevice(device_id)
-		if toState == "1" then
+		if toState == "INC" then
 			dev:performClickableAction(start_command, 1)
 		end
-		if toState == "0" then
-			dev:performClickableAction(stop_command, 1)
+		if toState == "DEC" then
 			dev:performClickableAction(stop_command, 0)
 		end
 	end)
 end
 
-function NS430:defineMomentaryRockerSwitch(identifier, device_id, pos_command, pos_stop_command, neg_command, neg_stop_command, arg_number, category, description)
+function NS430:defineMomentaryRockerSwitch(identifier, ns430_device_id, device_id, action_left_command, ui_left_command, action_right_command, ui_right_command, arg_number, category, description)
 	local alloc = self:allocateInt(2, identifier)
+	local min_value = -1
+	local max_value = 1
+
 	self:addExportHook(function(dev0)
-		local lut = { [-1] = 0, [0] = 1, [1] = 2 }
-		alloc:setValue(lut[Module.round(dev0:get_argument_value(arg_number))])
+		local dev = GetDevice(ns430_device_id)
+		alloc:setValue(dev:get_argument_value(arg_number) + 1)
 	end)
 
 	local control = Control:new(category, ControlType.selector, identifier, description, {
@@ -105,61 +110,142 @@ function NS430:defineMomentaryRockerSwitch(identifier, device_id, pos_command, p
 	}, MomentaryPositions.first_and_last, PhysicalVariant.rocker_switch)
 	self:addControl(control)
 
-	self:addInputProcessor(identifier, function(toState)
-		if toState == "0" then
-			toState = -1
-		elseif toState == "1" then
-			toState = 0
-		elseif toState == "2" then
-			toState = 1
-		else
+	self:addInputProcessor(identifier, function(value)
+		local dev1 = GetDevice(ns430_device_id)
+		local toState = dev1:get_argument_value(arg_number)
+
+		Log:log_debug("1" .. toState)
+		if value == "INC" then
+			toState = toState + 1
+		elseif value == "DEC" then
+			toState = toState - 1
+		end
+		Log:log_debug("2" .. toState)
+		if toState > max_value or toState < min_value then
 			return
 		end
+
 		local dev = GetDevice(device_id)
 		if toState == 0 then
-			dev:performClickableAction(pos_stop_command, 1)
-			dev:performClickableAction(pos_stop_command, 0)
-			dev:performClickableAction(neg_stop_command, 1)
-			dev:performClickableAction(neg_stop_command, 0)
+			dev:performClickableAction(ui_left_command, 0)
 		end
 		if toState == 1 then
-			dev:performClickableAction(neg_stop_command, 1)
-			dev:performClickableAction(neg_stop_command, 0)
-			dev:performClickableAction(pos_command, 1)
+			dev:performClickableAction(action_left_command, arg_number)
+			dev:performClickableAction(ui_left_command, 1)
 		end
 		if toState == -1 then
-			dev:performClickableAction(pos_stop_command, 1)
-			dev:performClickableAction(pos_stop_command, 0)
-			dev:performClickableAction(neg_command, -1)
+			dev:performClickableAction(action_right_command, arg_number)
+			dev:performClickableAction(ui_right_command, -1)
 		end
 	end)
 end
 
-NS430:defineDoubleCommandButton("NS430_PWR_VOL_PUSH_SQ_POW", 257, 3001, 3030, 1, "NS430", "PWR-VOL PUSH-SQ COM Power")
-NS430:defineDoubleCommandButton("NS430_VOL_PUSH_ID_PUSH", 257, 3004, 3031, 3, "NS430", "VOL_PUSH-ID VLOC Push")
-NS430:defineDoubleCommandButton("NS430_SMALL_LEFT_BTN_PUSH", 257, 3009, 3032, 5, "NS430", "SMALL_LEFT_BTN Push")
-NS430:defineDoubleCommandButton("NS430_COM_FLIP_FLOP", 257, 3012, 3033, 7, "NS430", "COM flip-flop")
-NS430:defineDoubleCommandButton("NS430_VLOC_FLIP_FLOP", 257, 3013, 3034, 8, "NS430", "VLOC flip-flop")
-NS430:defineDoubleCommandButton("NS430_CDI", 257, 3014, 3035, 9, "NS430", "CDI")
-NS430:defineDoubleCommandButton("NS430_OBS", 257, 3015, 3036, 10, "NS430", "OBS")
-NS430:defineDoubleCommandButton("NS430_OBS1", 257, 3015, 3036, 10, "NS430", "OBS1")
-NS430:defineDoubleCommandButton("NS430_MSG", 257, 3016, 3037, 11, "NS430", "MSG")
-NS430:defineDoubleCommandButton("NS430_FPL", 257, 3017, 3038, 12, "NS430", "FPL")
-NS430:defineDoubleCommandButton("NS430_PROC", 257, 3018, 3039, 13, "NS430", "PROC")
-NS430:defineDoubleCommandButton("NS430_DIRECT_TO", 257, 3021, 3042, 15, "NS430", "DIRECT-TO")
-NS430:defineDoubleCommandButton("NS430_MENU", 257, 3022, 3043, 16, "NS430", "MENU")
-NS430:defineDoubleCommandButton("NS430_CLR", 257, 3023, 3044, 17, "NS430", "CLR")
-NS430:defineDoubleCommandButton("NS430_ENT", 257, 3024, 3045, 18, "NS430", "ENT")
-NS430:defineDoubleCommandButton("NS430_SMALL_RIGHT_BTN_PUSH", 257, 3027, 3046, 20, "NS430", "SMALL_RIGHT_BTN Push")
+--- Adds a new rotary potentiometer with values between 0 and 65535
+--- @param identifier string the unique identifier for the control
+--- @param device_id integer the dcs device id
+--- @param command integer the dcs command
+--- @param arg_number integer the dcs argument number
+--- @param limits number[]? a length-2 array with the lower and upper bounds of the data as used in dcs
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @return Control control the control which was added to the module
+function NS430:definePotentiometer2(identifier, ns430_device_id, device_id, command, arg_number, limits, category, description)
+	local max_value = 65535
+	limits = limits or { 0, 1 }
 
-NS430:definePotentiometer("NS430_PWR_VOL_PUSH_SQ_VOL", 257, 3002, 0, { 0, 1 }, "NS430", "PWR-VOL_PUSH-SQ COM Volume")
-NS430:definePotentiometer("NS430_VOL_PUSH_ID_VOL", 257, 3005, 2, { 0, 1 }, "NS430", "VOL_PUSH-ID VLOC Volume")
-NS430:defineRotary("NS430_BIG_LEFT_BTN", 257, 3007, 4, "NS430", "BIG_LEFT_BTN")
-NS430:defineRotary("NS430_SMALL_LEFT_BTN_ROT", 257, 3010, 6, "NS430", "SMALL_LEFT_BTN rotate")
-NS430:defineRotary("NS430_BIG_RIGHT_BTN", 257, 3025, 19, "NS430", "BIG_RIGHT_BTN")
-NS430:defineRotary("NS430_SMALL_RIGHT_BTN_ROT", 257, 3028, 21, "NS430", "SMALL_RIGHT_BTN rotate")
+	local intervalLength = limits[2] - limits[1]
+	self:addInputProcessor(identifier, function(value)
+		local dev = GetDevice(ns430_device_id)
+		local newValue = ((dev:get_argument_value(arg_number) - limits[1]) / intervalLength) * max_value
+		if value:match("-[0-9]+") or value:match("%+[0-9]+") then
+			newValue = Module.cap(newValue + tonumber(value), 0, max_value)
+		elseif value:match("[0-9]+") then
+			newValue = Module.cap(tonumber(value) or 0, 0, max_value)
+		end
 
-NS430:defineMomentaryRockerSwitch("NS430_RNG_RKR", 257, 3020, 3041, 3019, 3040, 14, "NS430", "RNG Rocker") -- todo: can this just use defineRockerSwitch? Does this need to be custom?
+		GetDevice(device_id):performClickableAction(command, newValue / max_value * intervalLength + limits[1])
+	end)
+
+	local value = self:allocateInt(max_value, identifier)
+
+	self:addExportHook(function(dev0)
+		local dev = GetDevice(ns430_device_id)
+		value:setValue(((dev:get_argument_value(arg_number) - limits[1]) / intervalLength) * max_value)
+	end)
+
+	local control = Control:new(category, ControlType.limited_dial, identifier, description, {
+		SetStateInput:new(max_value, "set the position of the dial"),
+		VariableStepInput:new(3200, max_value, "turn the dial left or right"),
+	}, {
+		IntegerOutput:new(value, Suffix.none, "position of the potentiometer"),
+	}, MomentaryPositions.none, PhysicalVariant.limited_rotary)
+	self:addControl(control)
+
+	return control
+end
+
+--- Adds an infitely-looping rotary, like an encoder
+--- @param identifier string the unique identifier for the control
+--- @param device_id integer the dcs device id
+--- @param command integer the dcs command
+--- @param arg_number integer the dcs argument number
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @return Control control the control which was added to the module
+function NS430:defineRotary2(identifier, ns430_device_id, device_id, command, arg_number, category, description)
+	local max_value = 65535
+
+	self:addInputProcessor(identifier, function(value)
+		GetDevice(device_id):performClickableAction(command, tonumber(value) / max_value)
+	end)
+
+	local value = self:allocateInt(max_value, identifier)
+
+	local control = Control:new(category, ControlType.analog_dial, identifier, description, {
+		VariableStepInput:new(3200, max_value, "turn the dial left or right"),
+	}, {
+		IntegerOutput:new(value, Suffix.knob_pos, "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)"),
+	}, nil, PhysicalVariant.infinite_rotary, ApiVariant.multiturn)
+	self:addControl(control)
+
+	self:addExportHook(function(dev0)
+		local dev = GetDevice(ns430_device_id)
+		value:setValue(dev:get_argument_value(arg_number) * max_value)
+	end)
+
+	return control
+end
+
+NS430:defineDoubleCommandButton("NS430_LEFT_COM_PWR_VOL_PUSH", 256, 257, 3001, 3030, 1, "NS430", "COM Power/Volume Push")
+NS430:definePotentiometer2("NS430_LEFT_COM_PWR_VOL_ROTATE", 256, 257, 3002, 0, { 0, 1 }, "NS430", "COM Power/Volume Rotate")
+
+NS430:defineDoubleCommandButton("NS430_LEFT_VLOC_VOL_PUSH", 256, 257, 3004, 3031, 3, "NS430", "VOR/Localizer receiver Volume Push")
+NS430:definePotentiometer2("NS430_LEFT_VLOC_VOLUME", 256, 257, 3005, 2, { 0, 1 }, "NS430", "VOR/Localizer receiver Volume Rotate")
+
+NS430:defineDoubleCommandButton("NS430_LEFT_SMALL_BTN_PUSH", 256, 257, 3009, 3032, 5, "NS430", "Small Left Button Push")
+NS430:defineRotary2("NS430_LEFT_SMALL_BTN_ROT", 256, 257, 3010, 6, "NS430", "Small Left Button Rotate")
+NS430:defineRotary2("NS430_LEFT_BIG_BTN_ROTATE", 256, 257, 3007, 4, "NS430", "Big Left Button Rotate")
+
+NS430:defineDoubleCommandButton("NS430_LEFT_COM_FLIP_FLOP", 256, 257, 3012, 3012, 7, "NS430", "COM flip-flop")
+NS430:defineDoubleCommandButton("NS430_LEFT_VLOC_FLIP_FLOP", 256, 257, 3013, 3013, 8, "NS430", "VOR/Localizer flip-flop")
+
+NS430:defineDoubleCommandButton("NS430_BTM_CDI", 256, 257, 3014, 3014, 9, "NS430", "[CDI] Course Deviation Indicator")
+NS430:defineDoubleCommandButton("NS430_BTM_OBS", 256, 257, 3015, 3015, 10, "NS430", "[OBS] Activate Suspend Mode")
+NS430:defineDoubleCommandButton("NS430_BTM_MSG", 256, 257, 3016, 3016, 11, "NS430", "[MSG] Message Button")
+NS430:defineDoubleCommandButton("NS430_BTM_FPL", 256, 257, 3017, 3017, 12, "NS430", "[FPL] Create / Edit Flight plans")
+NS430:defineDoubleCommandButton("NS430_BTM_PROC", 256, 257, 3018, 3018, 13, "NS430", "[PROC] Select Airport Procedure")
+
+NS430:defineMomentaryRockerSwitch("NS430_RIGHT_RNG_ROCKER", 256, 257, 3020, 3041, 3019, 3040, 14, "NS430", "Range / Zoom Rocker Switch")
+
+NS430:defineDoubleCommandButton("NS430_RIGHT_DIRECT_TO", 256, 257, 3021, 3042, 15, "NS430", "DIRECT-TO Button")
+NS430:defineDoubleCommandButton("NS430_RIGHT_MENU", 256, 257, 3022, 3043, 16, "NS430", "MENU Button")
+
+NS430:defineDoubleCommandButton("NS430_RIGHT_CLR", 256, 257, 3023, 3044, 17, "NS430", "CLR Button")
+NS430:defineDoubleCommandButton("NS430_RIGHT_ENT", 256, 257, 3024, 3045, 18, "NS430", "ENT Button")
+
+NS430:defineDoubleCommandButton("NS430_RIGHT_SMALL_BTN_PUSH", 256, 257, 3027, 3046, 20, "NS430", "Small Right Button Push")
+NS430:defineRotary2("NS430_RIGHT_SMALL_BTN_ROT", 256, 257, 3028, 21, "NS430", "Small Right Button Rotate")
+NS430:defineRotary2("NS430_RIGHT_BIG_BTN_ROTATE", 256, 257, 3025, 19, "NS430", "Big Right Button Rotate")
 
 NS430:defineIndicatorLight("GLOW", 70, "NS430", "Glow (green)")
 
