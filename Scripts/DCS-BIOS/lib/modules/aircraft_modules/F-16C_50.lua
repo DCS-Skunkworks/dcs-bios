@@ -1728,6 +1728,7 @@ local function buildDEDLine(line)
 	-- Get Layout Information for line being built
 	local DEDLayoutLine = DEDLayout[line]
 	-- Get Exported DED Objects
+	--local DED_fields = BIOS.util.parse_indication(6) or {}
 	local DED_fields = Module.parse_indication(6) or {}
 	if once == false then
 		once = true
@@ -2008,5 +2009,8 @@ F_16C_50:defineBitFromDrawArgument("EXT_WOW_RIGHT", 4, "External Aircraft Model"
 F_16C_50:defineBitFromDrawArgument("EXT_WOW_LEFT", 6, "External Aircraft Model", "Weight ON Wheels Left Gear")
 
 F_16C_50:defineFloat("CANOPY_LOCK", 607, { 0, 1 }, "Cockpit Mechanics", "Canopy Lock Position")
+
+F_16C_50:defineReadWriteRadio("UHF_RADIO", 36, 7, 3, 1000, "UHF RADIO")
+F_16C_50:defineReadWriteRadio("VHF_RADIO", 38, 7, 3, 1000, "VHF RADIO")
 
 return F_16C_50
