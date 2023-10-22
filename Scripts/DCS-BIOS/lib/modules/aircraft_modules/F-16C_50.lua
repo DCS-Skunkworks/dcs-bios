@@ -1837,7 +1837,9 @@ local function buildDEDLine(line)
 			label = k
 		end
 		--Get layout data associated with current key
-		layout = DEDLayoutLine[label:gsub("_inv", "", 1):gsub("_lhs", "_both", 1)]
+		if type(label) == "string" then
+			layout = DEDLayoutLine[label:gsub("_inv", "", 1):gsub("_lhs", "_both", 1)]
+		end
 		if layout ~= nil then
 			--If layout value 6 is present then use this value to override the value returned from DCS
 			if layout[6] ~= nil then
