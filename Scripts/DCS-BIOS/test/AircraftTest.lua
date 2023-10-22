@@ -151,6 +151,10 @@ function TestAircraft:testMiG_21Bis()
 	self:validateModule(require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.MiG-21Bis"), "MiG-21Bis", 0x2200)
 end
 
+function TestAircraft:testMirageF1()
+	self:validateModule(require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.MirageF1"), "MirageF1", 0x8600)
+end
+
 function TestAircraft:testMosquito()
 	self:validateModule(require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.Mosquito"), "Mosquito", 0x7000)
 end
