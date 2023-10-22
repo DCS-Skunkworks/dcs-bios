@@ -26472,6 +26472,8 @@
 #define MirageF1_P_WL_UC_BTN_L_AM 0x86B4, 0x0200
 #define MirageF1_P_WL_WARN_HORN 0x86B4, 0x0004, 2
 #define MirageF1_P_WL_WARN_HORN_AM 0x86B4, 0x0004
+#define MirageF1_UHF_RADIO_A 0x883C
+#define MirageF1_VUHF_RADIO_A 0x8834
 #define Mosquito_AERIAL_BRAKE 0x70AA, 0x0020, 5
 #define Mosquito_AERIAL_BRAKE_AM 0x70AA, 0x0020
 #define Mosquito_AERIAL_REEL 0x70AA, 0x0100, 8

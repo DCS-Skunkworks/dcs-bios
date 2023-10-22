@@ -21146,5 +21146,43 @@
                                                                                                } ],
                                                                            "physical_variant": "push_button"
                                                                     }
+                                                   },
+                              "Radio Frequencies": {
+                                                        "UHF_RADIO": {
+                                                                             "category": "Radio Frequencies",
+                                                                         "control_type": "radio",
+                                                                          "description": "UHF Radio",
+                                                                           "identifier": "UHF_RADIO",
+                                                                               "inputs": [ {
+                                                                                             "description": "The frequency to set, with or without a decimal place",
+                                                                                               "interface": "set_string"
+                                                                                         } ],
+                                                                              "outputs": [ {
+                                                                                                        "address": 34876,
+                                                                                             "address_identifier": "MirageF1_UHF_RADIO_A",
+                                                                                                    "description": "The current frequency the radio is set to",
+                                                                                                     "max_length": 7,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "string"
+                                                                                         } ]
+                                                                     },
+                                                       "VUHF_RADIO": {
+                                                                             "category": "Radio Frequencies",
+                                                                         "control_type": "radio",
+                                                                          "description": "V/UHF Radio",
+                                                                           "identifier": "VUHF_RADIO",
+                                                                               "inputs": [ {
+                                                                                             "description": "The frequency to set, with or without a decimal place",
+                                                                                               "interface": "set_string"
+                                                                                         } ],
+                                                                              "outputs": [ {
+                                                                                                        "address": 34868,
+                                                                                             "address_identifier": "MirageF1_VUHF_RADIO_A",
+                                                                                                    "description": "The current frequency the radio is set to",
+                                                                                                     "max_length": 7,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "string"
+                                                                                         } ]
+                                                                     }
                                                    }
 }

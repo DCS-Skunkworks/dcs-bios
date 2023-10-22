@@ -1071,4 +1071,7 @@ MirageF1:definePushButton("C_BE_TIMER_TEST", 1, 3820, 1421, "BE Recording Camera
 MirageF1:defineSetCommandTumb("C_BE_REC_CAM_RETARD", 1, 3821, 778, 0.25, { 0, 1 }, nil, false, "BE V/UHF Control Unit REAR", "BE Copilot Recording Camera Retard Knob")
 MirageF1:definePushButton("C_BE_REC_CAM_JETT", 1, 3822, 1422, "BE Recording Camera REAR", "BE Copilot Recording Camera Eject Button")
 
+MirageF1:defineReadWriteRadio("VUHF_RADIO", 6, 7, 3, 1000, "V/UHF Radio")
+MirageF1:defineReadWriteRadio("UHF_RADIO", 7, 7, 3, 1000, "UHF Radio")
+
 return MirageF1
