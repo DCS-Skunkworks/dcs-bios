@@ -662,6 +662,8 @@ DEDLayout_l1["STEERPOINT IncDecSymbol"] = { 16, 1 }
 DEDLayout_l1["STEERPOINT SEQUENCE"] = { 18, 4 }
 DEDLayout_l1["STEERPOINT NUMBER Asteriscs_both"] = { 11, 1, 15, "", "I" }
 DEDLayout_l1["STEERPOINT SEQUENCE Asteriscs_both"] = { 17, 1, 22, "", "I" }
+-- STPT MGRS
+DEDLayout_l1["STEERPOINT UTM LABEL"] = {2,3}
 --TIME
 DEDLayout_l1["TIME_label"] = { 9, 4 }
 --BINGO
@@ -707,8 +709,8 @@ DEDLayout_l1["Master_mode_label"] = { 4, 4 }
 DEDLayout_l1["Master_mode"] = { 10, 3, 0, "_inv", "I" }
 DEDLayout_l1["Master_mode_ast_both"] = { 9, 1, 13, "", "I" }
 -- DLNK
-DEDLayout_l1["LINK16 lbl"] = { 7, 6 }
-DEDLayout_l1["LINK16 STN lbl"] = { 5, 11 }
+DEDLayout_l1["LINK16 lbl"] = {9,4}
+DEDLayout_l1["LINK16 STN lbl"] = {7,10}
 DEDLayout_l1["NET STATUS lbl"] = { 5, 10 }
 DEDLayout_l1["AG DL lbl"] = { 7, 6 }
 DEDLayout_l1["NET STATUS lbl"] = { 5, 10 }
