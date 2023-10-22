@@ -1730,7 +1730,6 @@ local function buildDEDLine(line)
 	-- Get Exported DED Objects
 	local DED_fields = Module.parse_indication(6) or {}
 	if once == false then
-		Log:log_array(DED_fields)
 		once = true
 	end
 
