@@ -11,6 +11,9 @@ local Logger = {}
 --2023-10-08 09:20:49
 local timeformat_length = 19
 
+local default_log_size_limit = 50000000
+local default_max_depth = 100
+
 --ERROR
 local pad_after_level = 5
 
@@ -34,7 +37,7 @@ end
 function Logger:new(logfile)
 	local o = {
 		logfile = io.open(logfile, "w"),
-		max_bytes_to_log = 50000,
+		max_bytes_to_log = default_log_size_limit,
 		bytes_logged = 0,
 	}
 	setmetatable(o, self)
@@ -52,8 +55,8 @@ function Logger:log(level, obj)
 	end
 
 	if type(obj) == "table" then
-		self:log_simple(level, "Logging table, consider using setting max_bytes_to_log and call log_table() directly.")
-		self:log_table(level, obj, 10)
+		self:log_simple(level, "Logging table, consider using setting max_bytes_to_log default=(" .. default_log_size_limit .. "), max_depth default=(" .. default_max_depth .. ") and call log_table() directly.")
+		self:log_table(level, obj, 40)
 	elseif type(obj) == "string" or type(obj) == "number" then
 		self:log_simple(level, obj)
 	end
@@ -140,21 +143,15 @@ function Logger:log_type(name, variable)
 	end
 end
 
--- Careful, this can cause GB logfile in no time
--- Future improvements :
--- Skip data in start x bytes
--- Break ALL when max depth reached
--- Break when data logged exceeds limit
-
---- @private
 --- Logs a table (recursively if table contains tables)
 --- @param tab table Table to dump/log
 --- @param max_depth integer How deep recursively to go
 function Logger:log_table(level, tab, max_depth, max_bytes_to_log)
 	self.bytes_logged = 0
-	self.max_bytes_to_log = max_bytes_to_log
+	self.max_bytes_to_log = max_bytes_to_log or default_log_size_limit
+	max_depth = max_depth or default_max_depth
 	local return_code, buffer = self:dump_table(tab, max_depth)
-	self:log(level, buffer)
+	self:log_simple(level, "\n" .. buffer .. "\n")
 end
 
 --- @private
@@ -222,18 +219,59 @@ function Logger:log_table_indexes(tab)
 		return
 	end
 
-	self:log_simple(level, "Indexes :")
+	local output = "Indexes :\n"
+
 	for k, v in pairs(tab) do
 		if k ~= nil then
 			if type(k) == "string" or type(k) == "number" then
-				self:log_simple(level, k)
+				output = output .. k .. "\n"
 			elseif type(k) == "table" then
-				self:log_simple(level, "<table>")
+				output = output .. "<table>" .. "\n"
 			elseif type(k) == "function" then
-				self:log_simple(level, "<function>")
+				output = output .. "<function>" .. "\n"
 			end
 		end
 	end
+
+	self:log_simple(level, "\n" .. output .. "\n")
+end
+
+--- Logs an array
+--- @require array to log
+function Logger:log_array(array)
+	local level = Logger.logging_level.debug
+
+	if array == nil then
+		self:log_simple(level, "Array to log was nil")
+		return
+	end
+
+	local padLength = 20
+	local output = "Array :\n"
+	for k, v in pairs(array) do
+		if k ~= nil then
+			if type(k) == "string" or type(k) == "number" then
+				output = output .. k .. " : "
+			elseif type(k) == "table" then
+				output = output .. "<table> : "
+			elseif type(k) == "function" then
+				output = output .. "<function> : "
+			end
+
+			if v ~= nil then
+				if type(v) == "string" or type(v) == "number" then
+					output = output .. v .. "\n"
+				elseif type(v) == "table" then
+					output = output .. "<table>" .. "\n"
+				elseif type(v) == "function" then
+					output = output .. "<function>" .. "\n"
+				end
+			else
+				output = output .. "\n"
+			end
+		end
+	end
+	self:log_simple(level, "\n" .. output .. "\n")
 end
 
 return Logger
