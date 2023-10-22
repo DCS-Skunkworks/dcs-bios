@@ -1695,7 +1695,7 @@ local function mergeString(original_string, new_data, location)
 	return before .. table.concat(merged) .. after
 end
 
-function IntToByteString(intval)
+local function IntToByteString(intval)
 	assert(intval >= 0)
 	assert(intval <= 0xFFFFFFFF) --- (2^32 -1) ::4294967295
 	-- convert value (a float from 0.0 to 1.0) to a 16-bit signed integer from 0 to 65535
@@ -1710,7 +1710,7 @@ function IntToByteString(intval)
 	return string.char(retBytes[1], retBytes[2], retBytes[3], retBytes[4])
 end
 
-OR, XOR, AND = 1, 3, 4
+local OR, XOR, AND = 1, 3, 4
 
 local function bitoper(a, b, oper)
 	local r, m, s = 0, 2 ^ 31, 0
