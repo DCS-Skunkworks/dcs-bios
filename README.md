@@ -19,11 +19,10 @@ Fully compatible for pit builders and Arduino users.
 - Release/Prerelease are mostly for the stable version of DCS.
 - DCS Beta Users should use the ```DCS-BIOS Openbeta``` nightly release. Starting a mission will generate the json files.
 - Arduino Users should download the ```Source code(zip)``` on the Release page to get all needed files
-- DCSFlightpanels users download the ```DCS-BIOS_0.7.XXX.zip```
 
 [Problems/Info see our Wiki](https://github.com/DCS-Skunkworks/dcs-bios/wiki)
 
-[Quick Setup Guide](https://github.com/DCS-Skunkworks/dcs-bios/blob/master/Scripts/DCS-BIOS/doc/DCS-BIOS-FLIGHTPANELS_Install%20Guide.pdf)
+[Quick Setup Guide](https://github.com/DCS-Skunkworks/dcs-bios/blob/master/Scripts/DCS-BIOS/doc/DCS-BIOS-FLIGHT_Install%20Guide.pdf)
 
 ## For Panel Builders
 
@@ -92,9 +91,6 @@ Currently, DCS-BIOS supports the following aircraft modules:
 
   Always use the latest version of the Mods!
 
-  For DCSFlightpanels:
-  FC3 are only supported with Keyemulator. But some Exports can made as Strings (FC3.lua) and CommonData
-
 If you want to add support for another module, please get in touch.(see below)
 
 ## For Hardware Developers
@@ -146,8 +142,6 @@ The copy of `socat` that comes with DCS-BIOS is licensed under the GPLv2 (see `/
 ## Support
 
 * Here you find our [DCS-Skunkworks Discord Server](https://discord.gg/5svGwKX)
-* Here you find the [DCSFlightpanels Software](https://github.com/DCS-Skunkworks/DCSFlightpanels)
-* Here you find the [DCSFlightpanels-Profiles](https://github.com/DCS-Skunkworks/DCS-Flightpanels-Profiles)
 * Here you find the [arduino-library](https://github.com/DCS-Skunkworks/dcs-bios-arduino-library)
 * Here you find the [arduino-Examples](https://github.com/DCS-Skunkworks/dcs-bios-arduino_examples)
 
