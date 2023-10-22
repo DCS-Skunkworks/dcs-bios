@@ -1734,9 +1734,6 @@ local function buildDEDLine(line)
 		once = true
 	end
 
-	local layout
-	local label
-	local value
 	local inverse = 0
 	-- Base Output String
 	local dataLine = "                             "
@@ -1767,6 +1764,7 @@ local function buildDEDLine(line)
 
 	--Loop through Exported DED Objects
 	for k, v in pairs(DED_fields) do
+		local label = k
 		-- Handle Duplicate Key Names on COM2 Guard page items
 		if guard ~= nil then
 			label = guard .. " " .. k
@@ -1833,19 +1831,17 @@ local function buildDEDLine(line)
 		-- Handle Duplicate Key Names on HTS
 		elseif hts ~= nil and line == 1 and v == "HTS MAN" then
 			label = hts .. " " .. k
-		else
-			label = k
 		end
+		local layout = nil
 		--Get layout data associated with current key
 		if type(label) == "string" then
 			layout = DEDLayoutLine[label:gsub("_inv", "", 1):gsub("_lhs", "_both", 1)]
 		end
 		if layout ~= nil then
 			--If layout value 6 is present then use this value to override the value returned from DCS
+			local value = v
 			if layout[6] ~= nil then
 				value = layout[6]
-			else
-				value = v
 			end
 
 			-- Compute inverse fields by position -- Frk
