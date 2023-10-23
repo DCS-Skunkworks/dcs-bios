@@ -7,7 +7,6 @@
 package.path = "./Scripts/DCS-BIOS/test/compile/?.lua;" .. package.path
 package.path = "./Scripts/DCS-BIOS/test/ext/?.lua;" .. package.path
 
-
 lfs = require("Scripts.DCS-BIOS.test.compile.lfs")
 
 -- Include these that will mock the DCS APIs and the socket.
