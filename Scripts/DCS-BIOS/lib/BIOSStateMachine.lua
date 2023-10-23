@@ -35,7 +35,7 @@ function BIOSStateMachine:new(modules_by_name, metadata_start, metadata_end, max
 		update_counter = 0,
 		update_skip_counter = 0,
 		next_step_time = 0,
-		last_frame_time = LoGetModelTime(),
+		last_frame_time = 0,
 	}
 	setmetatable(o, self)
 	self.__index = self
