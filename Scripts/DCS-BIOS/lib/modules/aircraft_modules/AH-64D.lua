@@ -1,7 +1,8 @@
 module("AH-64D", package.seeall)
 
+local AH_64D_EUFD = require("Scripts.DCS-BIOS.lib.modules.displays.AH_64D_EUFD")
 local Functions = require("Scripts.DCS-BIOS.lib.common.Functions")
-local JSONHelper = require("Scripts.DCS-BIOS.lib.common.JSONHelper")
+local TextDisplay = require("Scripts.DCS-BIOS.lib.modules.TextDisplay")
 
 local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 
@@ -9,8 +10,6 @@ local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 local AH_64D = Module:new("AH-64D", 0x8000, { "AH-64D_BLK_II" })
 
 --v1.2d by WarLord & charliefoxtwo
-
-local TextDisplay = require("Scripts.DCS-BIOS.lib.modules.TextDisplay")
 
 -- remove Arg# PLT 956; CPG 957
 
@@ -385,7 +384,7 @@ AH_64D:defineString("CPG_KU_DISPLAY", function()
 end, 22, "CPG Keyboard Unit", "Gunner Keyboard Unit Display")
 
 -- Enhanced Up-Front Display
-local eufd_indicator_data = JSONHelper.decode_from_file(lfs.writedir() .. [[Scripts/DCS-BIOS/src/json/AH-64D_EUFD.json]])
+local eufd_indicator_data = AH_64D_EUFD
 local LINE_LEN = 56
 
 local function parse_eufd(indicator_id)

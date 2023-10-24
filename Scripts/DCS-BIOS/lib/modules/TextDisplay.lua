@@ -1,5 +1,14 @@
 module("TextDisplay", package.seeall)
 
+--- @class TextDisplayItem
+--- @field pages string[]
+--- @field id string
+--- @field static_text boolean
+--- @field x integer
+--- @field y integer
+--- @field index integer?
+--- @field alignment string?
+
 --- @class TextDisplay
 local TextDisplay = {}
 
@@ -22,7 +31,7 @@ end
 ---@param dcsDisplay table The DCS display to parse
 ---@param width number The character width of the screen
 ---@param height number The lines of text the screen supports
----@param displayIndicatorData table The data from the json file containing information about the display
+---@param displayIndicatorData { [string]: TextDisplayItem[] } The data from the lua file containing information about the display
 ---@param getDisplayPage function Gets the current display page
 ---@param replaceSymbolMap table Map of symbols to replace from -> to
 ---@param parentMap table? map of pages to their parent pages
