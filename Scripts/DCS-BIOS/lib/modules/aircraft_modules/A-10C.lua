@@ -1,12 +1,11 @@
 module("A_10C", package.seeall)
 
+local A_10C_CDU = require("Scripts.DCS-BIOS.lib.modules.displays.A_10C_CDU")
 local Control = require("Scripts.DCS-BIOS.lib.modules.documentation.Control")
 local ControlType = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlType")
-local DigitalDisplay = require("Scripts.DCS-BIOS.lib.modules.DigitalDisplay")
 local FixedStepInput = require("Scripts.DCS-BIOS.lib.modules.documentation.FixedStepInput")
 local Functions = require("Scripts.DCS-BIOS.lib.common.Functions")
 local IntegerOutput = require("Scripts.DCS-BIOS.lib.modules.documentation.IntegerOutput")
-local JSONHelper = require("Scripts.DCS-BIOS.lib.common.JSONHelper")
 local MomentaryPositions = require("Scripts.DCS-BIOS.lib.modules.documentation.MomentaryPositions")
 local PhysicalVariant = require("Scripts.DCS-BIOS.lib.modules.documentation.PhysicalVariant")
 local SetStateInput = require("Scripts.DCS-BIOS.lib.modules.documentation.SetStateInput")
@@ -998,7 +997,7 @@ A_10C:defineToggleSwitch("ANT_EGIHQTOD", 54, 3017, 708, "Antenna Panel", "EGI HQ
 
 A_10C:definePotentiometer("RWR_BRT", 29, 3001, 16, { 0.15, 0.85 }, "RWR", "Display Brightness")
 
-local cdu_indicator_data = JSONHelper.decode_from_file(lfs.writedir() .. [[Scripts/DCS-BIOS/src/json/A-10C_CDU.json]])
+local cdu_indicator_data = A_10C_CDU
 
 local cdu_lines = {}
 
@@ -1077,29 +1076,79 @@ A_10C:defineString("CDU_LINE9", function()
 	return cdu_lines[10]
 end, CDU_LINE_LEN, "CDU Display", "CDU Line 10")
 
-local arcItems = {}
-local arc_210_data = JSONHelper.decode_from_file(lfs.writedir() .. [[Scripts/DCS-BIOS/src/json/A-10C_ARC-210.json]])
-
-local arc_210_freq = ""
+local arc_210_data = {}
 
 A_10C:addExportHook(function()
-	local arc = Module.parse_indication(18)
-
-	arc_210_freq = (arc["freq_label_mhz"] or "   ") .. "." .. (arc["freq_label_khz"] or "   ")
-	-- todo: figure out how to get the active page (doesn't seem to be exported like CDU page...)
-	arcItems = DigitalDisplay.GetDisplayItems(arc, arc_210_data, function()
-		return nil
-	end, {})
+	arc_210_data = Module.parse_indication(18)
 end)
 
--- todo: this isn't sustainable - every time we add something, this will ruin all the IDs after it.
-for _, items in pairs(arc_210_data) do
-	for _, v in ipairs(items) do
-		A_10C:defineString(v.biosId, function()
-			return arcItems[v.biosId] or ""
-		end, v.maxLength, "ARC-210 Display", v.description)
-	end
-end
+-- these ARC-210 strings are brought over from a legacy method of providing data for the device
+A_10C:defineString("ARC210_EXIT_SEND", function()
+	return Functions.coerce_nil_to_string(arc_210_data["EXIT/SEND"])
+end, 9, "ARC-210 Display", "EXIT/SEND")
+A_10C:defineString("ARC210_XMIT_RECV", function()
+	return Functions.coerce_nil_to_string(arc_210_data["xmit_recv_label"])
+end, 4, "ARC-210 Display", "Transmit/Receive (XMIT/RECV)")
+A_10C:defineString("ARC210_COMSEC_SUBMODE", function()
+	return Functions.coerce_nil_to_string(arc_210_data["comsec_submode"])
+end, 5, "ARC-210 Display", "COMSEC submode (PT/CT/CT-TD)")
+A_10C:defineString("ARC210_ACTIVE_ECCM_CHANNEL", function()
+	return Functions.coerce_nil_to_string(arc_210_data["active_eccm_channel_index"])
+end, 2, "ARC-210 Display", "Active ECCM Channel")
+A_10C:defineString("ARC210_SG_TIME", function()
+	return Functions.coerce_nil_to_string(arc_210_data["SG_time"])
+end, 5, "ARC-210 Display", "SG Time")
+A_10C:defineString("ARC210_PREV", function()
+	return Functions.coerce_nil_to_string(arc_210_data["PREV"])
+end, 4, "ARC-210 Display", "Previous label")
+A_10C:defineString("ARC210_COMSEC_MENU_MODE", function()
+	return Functions.coerce_nil_to_string(arc_210_data["ky_label"])
+end, 30, "ARC-210 Display", "COMSEC menu mode (LOS/DAMA)")
+A_10C:defineString("ARC210_COMSEC_MODE", function()
+	return Functions.coerce_nil_to_string(arc_210_data["comsec_mode"])
+end, 11, "ARC-210 Display", "COMSEC mode")
+A_10C:defineString("ARC210_MORE", function()
+	return Functions.coerce_nil_to_string(arc_210_data["MORE"])
+end, 4, "ARC-210 Display", "More")
+A_10C:defineString("ARC210_LOAD_TIME", function()
+	return Functions.coerce_nil_to_string(arc_210_data["LOAD\nTIME"])
+end, 9, "ARC-210 Display", "Load Time")
+A_10C:defineString("ARC210_KY_SUBMODE", function()
+	return Functions.coerce_nil_to_string(arc_210_data["ky_submode_label"])
+end, 1, "ARC-210 Display", "KY Submode")
+A_10C:defineString("ARC210_EXIT_RECV", function()
+	return Functions.coerce_nil_to_string(arc_210_data["EXIT/RECV"])
+end, 9, "ARC-210 Display", "EXIT/RECV")
+A_10C:defineString("ARC210_PREV_MANUAL_FREQ", function()
+	return Functions.coerce_nil_to_string(arc_210_data["prev_manual_freq"])
+end, 7, "ARC-210 Display", "Previous manual frequency")
+A_10C:defineString("ARC210_FREQ_DOT_MARK", function()
+	return Functions.coerce_nil_to_string(arc_210_data["dot_mark"])
+end, 1, "ARC-210 Display", "Main frequency separator (.)")
+A_10C:defineString("ARC210_MODULATION", function()
+	return Functions.coerce_nil_to_string(arc_210_data["modulation_label"])
+end, 2, "ARC-210 Display", "Modulation (AM/FM)")
+A_10C:defineString("ARC210_SELECTED_RT", function()
+	return Functions.coerce_nil_to_string(arc_210_data["txt_RT"])
+end, 3, "ARC-210 Display", "Selected RT")
+A_10C:defineString("ARC210_FREQ_KHZ", function()
+	return Functions.coerce_nil_to_string(arc_210_data["freq_label_khz"])
+end, 3, "ARC-210 Display", "Main frequency (kHz)")
+A_10C:defineString("ARC210_EXIT_LOAD", function()
+	return Functions.coerce_nil_to_string(arc_210_data["EXIT/LOAD"])
+end, 9, "ARC-210 Display", "EXIT/LOAD")
+A_10C:defineString("ARC210_FREQ_MHZ", function()
+	return Functions.coerce_nil_to_string(arc_210_data["freq_label_mhz"])
+end, 3, "ARC-210 Display", "Main frequency (MHz)")
+A_10C:defineString("ARC210_ACTIVE_CHANNEL", function()
+	return Functions.coerce_nil_to_string(arc_210_data["active_channel"])
+end, 2, "ARC-210 Display", "Active Channel")
+A_10C:defineString("ARC210_VERIFY_WOD_ACTIVE_CHANNEL", function()
+	return Functions.coerce_nil_to_string(arc_210_data["active_channel"])
+end, 2, "ARC-210 Display", "Active Channel (WOD Page)")
+A_10C:defineString("ARC210_TR_PRSET_ACTIVE_CHANNEL", function()
+	return Functions.coerce_nil_to_string(arc_210_data["active_channel"])
+end, 2, "ARC-210 Display", "Active Channel (TR_PRSET Page)")
 
 local function getCmscMws()
 	return Functions.coerce_nil_to_string(cmscData.txt_MWS)
@@ -1270,7 +1319,7 @@ A_10C:definePushButton("ARC210_BRIGHT_DEC", 55, 3009, 559, "ARC-210", "ARC-210 B
 
 A_10C:defineIndicatorLight("ARC210_PRESENT", 998, "ARC-210", "ARC-210 Present")
 A_10C:defineString("ARC210_FREQUENCY", function()
-	return arc_210_freq
+	return Functions.pad_left(arc_210_data["freq_label_mhz"], 3) .. "." .. Functions.pad_right(arc_210_data["freq_label_khz"], 3)
 end, 7, "ARC-210 Display", "ARC-210 Frequency (String)")
 
 A_10C:defineBitFromDrawArgument("EXT_BOTTOM_LIGHT", 201, "External Aircraft Model", "Middle Bottom Light (white)")

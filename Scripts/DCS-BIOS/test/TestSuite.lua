@@ -1,5 +1,3 @@
-package.path = "./Scripts/DCS-BIOS/test/ext/?.lua;" .. package.path -- used for JSON.lua dependency
-
 lfs = require("Scripts.DCS-BIOS.test.compile.lfs")
 
 require("Scripts.DCS-BIOS.test.AircraftTest") -- high-level tests for specific aircraft

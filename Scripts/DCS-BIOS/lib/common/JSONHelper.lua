@@ -46,6 +46,7 @@ function JSONHelper.encode_to_jsonp_file(value, prefix, suffix, filename)
 	end
 end
 
+--- @deprecated
 --- Encodes to JSON and writes to file
 --- @param filename string File name including path
 --- @return table
