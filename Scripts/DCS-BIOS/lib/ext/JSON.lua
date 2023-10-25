@@ -1,3 +1,5 @@
+module("JSON", package.seeall)
+
 -- -*- coding: utf-8 -*-
 --
 -- Copyright 2010-2012 Jeffrey Friedl
