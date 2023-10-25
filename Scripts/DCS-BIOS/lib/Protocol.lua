@@ -11,7 +11,7 @@ local Protocol = {
 	exportModules = {},
 }
 
-_G.BIOS.protocol = Protocol -- set global for legacy module compatibility
+-- _G.BIOS.protocol = Protocol -- set global for legacy module compatibility
 
 --- @deprecated
 --- Sets the modules to export for `moduleBeingDefined`. Legacy modules only.
@@ -58,7 +58,7 @@ function Protocol.beginModule(name, baseAddress)
 		name = name,
 		documentation = {},
 		inputProcessors = {},
-		memoryMap = BIOS.util.MemoryMap:create { baseAddress = baseAddress },
+		memoryMap = BIOS.util.MemoryMap:create({ baseAddress = baseAddress }),
 		exportHooks = {},
 	}
 
@@ -83,7 +83,7 @@ function Protocol.write_module_json(module)
 			JSONHelper.encode_to_file(module.documentation, json_file_name)
 
 			local jsonp_file_name = lfs.writedir() .. [[Scripts/DCS-BIOS/doc/doc_assets/]] .. module.name .. ".jsonp"
-			local prefix = "docdata[\"" .. module.name .. "\"] =\n"
+			local prefix = 'docdata["' .. module.name .. '"] =\n'
 			local suffix = ";\n"
 			JSONHelper.encode_to_jsonp_file(module.documentation, prefix, suffix, jsonp_file_name)
 		end
@@ -93,7 +93,7 @@ end
 
 --- Writes the map of aircraft names to module names to a json file for use by 3rd party applications
 function Protocol.saveAliases()
-	local file = lfs.writedir()..[[Scripts/DCS-BIOS/doc/json/AircraftAliases.json]]
+	local file = lfs.writedir() .. [[Scripts/DCS-BIOS/doc/json/AircraftAliases.json]]
 	JSONHelper.encode_to_file(Protocol.aircraftNameToModuleNames, file)
 end
 
@@ -152,7 +152,7 @@ function Protocol.saveAddresses()
 		table.sort(sortedIdentifiers)
 
 		-- Write the header file
-		local address_header_file, err = io.open(lfs.writedir()..[[Scripts/DCS-BIOS/doc/Addresses.h]], "w")
+		local address_header_file, err = io.open(lfs.writedir() .. [[Scripts/DCS-BIOS/doc/Addresses.h]], "w")
 		if err then
 			print("Error opening file:", err) -- Print error if unable to open file
 			return
