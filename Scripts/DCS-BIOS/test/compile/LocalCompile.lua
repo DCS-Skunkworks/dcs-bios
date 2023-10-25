@@ -5,7 +5,6 @@
 -- Execute => lua LocalCompile-lua or run it via VS Code task
 
 package.path = "./Scripts/DCS-BIOS/test/compile/?.lua;" .. package.path
-package.path = "./Scripts/DCS-BIOS/test/ext/?.lua;" .. package.path
 
 lfs = require("Scripts.DCS-BIOS.test.compile.lfs")
 

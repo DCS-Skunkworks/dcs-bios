@@ -1,7 +1,6 @@
 module("JSONHelper", package.seeall)
 
-local json = loadfile([[Scripts/JSON.lua]]) -- try to load json from dcs
-local JSON = json and json() or require("JSON") -- if that fails, fall back to module that we can define
+local JSON = require("Scripts.DCS-BIOS.lib.ext.JSON")
 
 --- @class JSONHelper
 local JSONHelper = {}
