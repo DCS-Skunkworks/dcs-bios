@@ -4,8 +4,7 @@ module("ConnectionManager", package.seeall)
 --- @field connections Server[] the connections to send messages to
 --- @field private msg_buf string[] the buffer of messages to send
 --- @field private MAX_PAYLOAD_SIZE integer the maximum payload that can be accepted and sent
-local ConnectionManager = {
-}
+local ConnectionManager = {}
 
 --- Constructs a new connection handler
 --- @param connections Server[] the connections to send messages to
@@ -15,7 +14,7 @@ function ConnectionManager:new(connections)
 	local o = {
 		connections = connections,
 		msg_buf = {},
-		MAX_PAYLOAD_SIZE = 2048
+		MAX_PAYLOAD_SIZE = 2048,
 	}
 	setmetatable(o, self)
 	self.__index = self
@@ -31,7 +30,7 @@ end
 --- Queues a message to be sent to any connections
 ---@param msg string the message to send
 function ConnectionManager:queue(msg)
-	if (msg:len() > self.MAX_PAYLOAD_SIZE) then
+	if msg:len() > self.MAX_PAYLOAD_SIZE then
 		error("Message exceeded max buffer size! " + msg)
 	end
 
@@ -61,7 +60,9 @@ end
 --- @param packet string
 function ConnectionManager:send_packet(packet)
 	for _, conn in ipairs(self.connections) do
-		if conn.send then conn:send(packet) end
+		if conn.send then
+			conn:send(packet)
+		end
 	end
 end
 

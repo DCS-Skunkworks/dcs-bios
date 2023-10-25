@@ -7,7 +7,7 @@ module("AircraftList", package.seeall)
 local AircraftList = {
 	ALL_PLAYABLE_AIRCRAFT = {},
 	CLICKABLE_COCKPIT_AIRCRAFT = {},
-	FLAMING_CLIFFS_AIRCRAFT = {}
+	FLAMING_CLIFFS_AIRCRAFT = {},
 }
 
 --- Adds an aircraft to the list of all aircraft
@@ -126,7 +126,7 @@ add("FA_18D", false)
 add("FA-18E", true)
 add("FA-18F", true)
 add("FlankerEx", false)
-add("Flyer1", false)--1903 Wright Flyer
+add("Flyer1", false) --1903 Wright Flyer
 add("J-20A", false)
 add("MH-60R", true)
 add("MB-339PAN", false)

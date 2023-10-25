@@ -60,7 +60,7 @@ end
 --- @param dev0 CockpitDevice
 function BIOSStateMachine:queue_module_data(module, dev0)
 	for _, hook in ipairs(module.exportHooks) do
-		 hook(dev0)
+		hook(dev0)
 	end
 	-- legacy behavior - for some reason, we seem to typically call this twice. Is this because modules are getting too big?
 	module.memoryMap:autosyncStep()
@@ -91,7 +91,9 @@ function BIOSStateMachine:step()
 	local curTime = LoGetModelTime()
 	self.bytes_in_transit = self.bytes_in_transit - ((curTime - self.last_frame_time) * self.max_bytes_per_second)
 	self.last_frame_time = curTime
-	if self.bytes_in_transit < 0 then self.bytes_in_transit = 0 end
+	if self.bytes_in_transit < 0 then
+		self.bytes_in_transit = 0
+	end
 
 	-- determine active aircraft
 	local self_data = LoGetSelfData()
@@ -107,7 +109,7 @@ function BIOSStateMachine:step()
 		self.active_aircraft_name = current_aircraft_name
 	end
 
-	-- export data 
+	-- export data
 	if curTime < self.next_step_time then
 		return -- runs 30 times per second
 	end
@@ -122,7 +124,7 @@ function BIOSStateMachine:step()
 		return
 	end
 	self.metadata_end:setUpdateSkipCounter(self.update_skip_counter)
-	self.next_step_time = curTime + .033
+	self.next_step_time = curTime + 0.033
 
 	-- send frame sync sequence
 	self.bytes_in_transit = self.bytes_in_transit + 4
@@ -168,6 +170,5 @@ function BIOSStateMachine:shutdown()
 		connection:close()
 	end
 end
-
 
 return BIOSStateMachine

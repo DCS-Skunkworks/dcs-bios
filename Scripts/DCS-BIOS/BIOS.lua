@@ -1,20 +1,18 @@
-BIOS = {}
-
-package.path  = package.path..";.\\LuaSocket\\?.lua"
-package.cpath = package.cpath..";.\\LuaSocket\\?.dll"
+package.path = package.path .. ";.\\LuaSocket\\?.lua"
+package.cpath = package.cpath .. ";.\\LuaSocket\\?.dll"
 
 package.path = lfs.writedir() .. "?.lua;" .. package.path
 
 -- all requires must come after updates to package.path
 local BIOSConfig = require("Scripts.DCS-BIOS.BIOSConfig")
 local BIOSStateMachine = require("Scripts.DCS-BIOS.lib.BIOSStateMachine")
-local ConnectionManager= require("Scripts.DCS-BIOS.lib.ConnectionManager")
+local ConnectionManager = require("Scripts.DCS-BIOS.lib.ConnectionManager")
 local Protocol = require("Scripts.DCS-BIOS.lib.Protocol")
 local TCPServer = require("Scripts.DCS-BIOS.lib.io.TCPServer")
 local UDPServer = require("Scripts.DCS-BIOS.lib.io.UDPServer")
 local socket = require("socket") --[[@as Socket]]
 
-dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/Util.lua]])
+-- dofile(lfs.writedir() .. [[Scripts/DCS-BIOS/lib/Util.lua]])
 -- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/MetadataEnd.lua]])
 local MetadataEnd = require("Scripts.DCS-BIOS.lib.modules.common_modules.MetadataEnd")
 Protocol.writeNewModule(MetadataEnd)
@@ -95,7 +93,7 @@ Protocol.writeNewModule(FW_190A8)
 -- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/FW-190D9.lua]]) -- ID = 22, ProperName = Fw 190 D-9 Dora
 local FW_190D9 = require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.FW-190D9")
 Protocol.writeNewModule(FW_190D9)
--- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/I-16.lua]]) -- ID = 23, ProperName = I-16 
+-- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/I-16.lua]]) -- ID = 23, ProperName = I-16
 local I_16 = require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.I-16")
 Protocol.writeNewModule(I_16)
 -- dofile(lfs.writedir()..[[Scripts/DCS-BIOS/lib/archive/old_format_planes/JF-17.lua]]) -- ID = 24, ProperName = JF-17 Thunder
@@ -222,7 +220,6 @@ function LuaExportBeforeNextFrame()
 	if PrevExport.LuaExportBeforeNextFrame then
 		PrevExport.LuaExportBeforeNextFrame()
 	end
-	
 end
 
 function LuaExportAfterNextFrame()
