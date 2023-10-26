@@ -171,7 +171,7 @@ function Logger:dump_table(tab, max_depth)
 		local return_buffer = ""
 
 		if depth > max_depth then
-			local str = "Depth reached in log_table() : " .. max_depth
+			local str = string.rep("\t", max_depth) .. "Depth reached in log_table() : " .. max_depth
 			self.bytes_logged = self.bytes_logged + string.len(str)
 			return_buffer = return_buffer .. "\n" .. str
 			-- This doesn't mean the recursion should stop, just that the current excursion stops
