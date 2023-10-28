@@ -22,7 +22,7 @@ Fully compatible for pit builders and Arduino users.
 
 [Problems/Info see our Wiki](https://github.com/DCS-Skunkworks/dcs-bios/wiki)
 
-[Quick Setup Guide](https://github.com/DCS-Skunkworks/dcs-bios/blob/master/Scripts/DCS-BIOS/doc/DCS-BIOS-FLIGHT_Install%20Guide.pdf)
+[Quick Setup Guide](https://github.com/DCS-Skunkworks/dcs-bios/blob/master/Scripts/DCS-BIOS/doc/DCS-BIOS-FLIGHTPANELS_Install%20Guide.pdf)
 
 ## For Panel Builders
 
