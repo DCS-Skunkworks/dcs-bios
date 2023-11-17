@@ -599,12 +599,12 @@ F_15:definePushButton("F_TQ_R_FINGER", 15, 3698, 698, "Front Throttle Quadrant",
 F_15:definePotentiometer("F_VOL_CAUTION", 59, 3501, 502, { 0, 1 }, "Front Volume", "FRONT Caution Volume")
 F_15:definePotentiometer("F_VOL_LAUNCH", 59, 3502, 503, { 0, 1 }, "Front Volume", "FRONT Launch Volume")
 F_15:definePotentiometer("F_VOL_ICS", 13, 3503, 504, { 0, 1 }, "Front Volume", "FRONT ICS Volume")
-F_15:definePotentiometer("F_VOL_WPN", 47, 3504, 505, { 0, 1 }, "Front Volume", "FRONT WPN Volume")
+F_15:definePotentiometer("F_VOL_WPN", 13, 3504, 505, { 0, 1 }, "Front Volume", "FRONT WPN Volume")
 F_15:definePotentiometer("F_VOL_ILS", 11, 3505, 506, { 0, 1 }, "Front Volume", "FRONT ILS Volume")
 F_15:definePotentiometer("F_VOL_TCN", 10, 3506, 507, { 0, 1 }, "Front Volume", "FRONT TACAN Volume")
 
 --MICS
-F_15:define3PosTumb("F_MIC_CRYPT", 13, 3508, 508, "Front MICS", "FRONT MICS Crypto Switch")
+F_15:define3PosTumb("F_MIC_CRYPT", 68, 3508, 508, "Front MICS", "FRONT MICS Crypto Switch")
 F_15:defineMultipositionSwitch("F_MIC_SW", 13, 3509, 509, 3, 0.5, "Front MICS", "FRONT MIC Switch")
 F_15:definePushButton("F_MIC_VW_SILENT", 29, 3510, 510, "Front MICS", "FRONT MICS VW/Tone Silence Switch")
 --F_15:definePushButton("F_DMT_BTN", X, 3XXX, 59, "Front MICS", "FRONT DMT Button")
@@ -613,12 +613,12 @@ F_15:definePushButton("F_MIC_VW_SILENT", 29, 3510, 510, "Front MICS", "FRONT MIC
 F_15:defineToggleSwitch("F_R_UHF_ANT", 17, 3511, 511, "Front Radio", "FRONT Radio UHF Antenna Switch")
 F_15:defineToggleSwitch("F_R_VHF_ANT", 17, 3512, 512, "Front Radio", "FRONT Radio VHF Antenna Switch")
 F_15:defineToggleSwitch("F_R_TONE", 17, 3513, 513, "Front Radio", "FRONT Radio Tone Switch")
-F_15:defineToggleSwitch("F_R_CYP_TXT", 17, 3514, 514, "Front Radio", "FRONT Radio Cypher Text Switch")
+F_15:defineToggleSwitch("F_R_CYP_TXT", 68, 3514, 514, "Front Radio", "FRONT Radio Cypher Text Switch")
 
 --IFF
-F_15:define3PosTumb("F_IFF_MODE", 17, 3515, 515, "Front IFF", "FRONT IFF Mode Switch")
-F_15:defineMultipositionSwitch("F_IFF_REPLY", 17, 3516, 516, 3, 0.5, "Front IFF", "FRONT IFF Reply Switch")
-F_15:define3PosTumb("F_IFF_MASTER", 17, 3517, 517, "Front IFF", "FRONT IFF Master Switch")
+F_15:define3PosTumb("F_IFF_MODE", 68, 3515, 515, "Front IFF", "FRONT IFF Mode Switch")
+F_15:defineMultipositionSwitch("F_IFF_REPLY", 68, 3516, 516, 3, 0.5, "Front IFF", "FRONT IFF Reply Switch")
+F_15:define3PosTumb("F_IFF_MASTER", 68, 3517, 517, "Front IFF", "FRONT IFF Master Switch")
 
 F_15:defineIndicatorLight("F_IFF_REPLY_L", 541, "Front IFF Lights", "FRONT IFF REPLY Light (white)")
 
@@ -654,7 +654,7 @@ F_15:defineToggleSwitch("F_BH_EMERG_AR_CVR", 16, 3539, 539, "Front Left Bulkhead
 F_15:defineToggleSwitch("F_BH_EMERG_AR", 16, 3540, 540, "Front Left Bulkhead Panel", "FRONT Emergency A/R Switch")
 F_15:defineToggleSwitch("F_BH_EWWS_CVR", 17, 3518, 518, "Front Left Bulkhead Panel", "FRONT EWWS Enable Switch Cover")
 F_15:defineToggleSwitch("F_BH_EWWS", 17, 3519, 519, "Front Left Bulkhead Panel", "FRONT EWWS Enable Switch")
-F_15:define3PosTumb("F_BH_IFF_ANT", 17, 3520, 520, "Front Left Bulkhead Panel", "FRONT IFF Antenna Select Switch")
+F_15:define3PosTumb("F_BH_IFF_ANT", 68, 3520, 520, "Front Left Bulkhead Panel", "FRONT IFF Antenna Select Switch")
 F_15:reserveIntValue(2)
 F_15:defineToggleSwitch("F_BH_FLYUP_CVR", 65, 3522, 522, "Front Left Bulkhead Panel", "FRONT Flyup Enable Switch Cover")
 F_15:defineToggleSwitch("F_BH_FLYUP", 65, 3523, 523, "Front Left Bulkhead Panel", "FRONT Flyup Enable Switch")
@@ -1009,8 +1009,8 @@ F_15:defineMultipositionSwitch("R_EW_ICS_OP_MODE", 61, 3933, 1419, 3, 0.5, "Rear
 --VOL
 F_15:definePotentiometer("R_VOL_CAUTION", 59, 3601, 1420, { 0, 1 }, "Rear Volume", "REAR Caution Volume")
 F_15:definePotentiometer("R_VOL_LAUNCH", 59, 3602, 1421, { 0, 1 }, "Rear Volume", "REAR Launch Volume")
-F_15:definePotentiometer("R_VOL_ICS", 61, 3603, 1422, { 0, 1 }, "Rear Volume", "REAR ICS Volume")
-F_15:definePotentiometer("R_VOL_WPN", 47, 3604, 1423, { 0, 1 }, "Rear Volume", "REAR WPN Volume")
+F_15:definePotentiometer("R_VOL_ICS", 13, 3603, 1422, { 0, 1 }, "Rear Volume", "REAR ICS Volume")
+F_15:definePotentiometer("R_VOL_WPN", 13, 3604, 1423, { 0, 1 }, "Rear Volume", "REAR WPN Volume")
 F_15:definePotentiometer("R_VOL_ILS", 11, 3605, 1424, { 0, 1 }, "Rear Volume", "REAR ILS Volume")
 F_15:definePotentiometer("R_VOL_TCN", 10, 3606, 1425, { 0, 1 }, "Rear Volume", "REAR TACAN Volume")
 
