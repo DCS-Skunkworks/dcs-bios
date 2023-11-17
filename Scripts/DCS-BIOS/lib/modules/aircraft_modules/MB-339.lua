@@ -799,4 +799,8 @@ MB_339:defineReadWriteRadio("FWD_COMM2", 7, 7, 3, 1000, "Forward COMM2")
 MB_339:defineReadWriteRadio("AFT_COMM1", 9, 7, 3, 1000, "Aft COMM1")
 MB_339:defineReadWriteRadio("AFT_COMM2", 10, 7, 3, 1000, "Aft COMM2")
 
+-- GunsightRepeater
+MB_339:define3PosTumb("GUN_REP_PWR", 1, 3311, 409, "Gunsight Repeater", "Gunsight Repeater Power")
+MB_339:definePotentiometer("GUN_REP_BRIGHT", 1, 3312, 408, { 0, 1 }, "Gunsight Repeater", "Gunsight Repeater Brightness")
+
 return MB_339
