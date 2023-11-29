@@ -658,7 +658,7 @@ F_15:define3PosTumb("F_BH_IFF_ANT", 68, 3520, 520, "Front Left Bulkhead Panel", 
 F_15:reserveIntValue(2)
 F_15:defineToggleSwitch("F_BH_FLYUP_CVR", 65, 3522, 522, "Front Left Bulkhead Panel", "FRONT Flyup Enable Switch Cover")
 F_15:defineToggleSwitch("F_BH_FLYUP", 65, 3523, 523, "Front Left Bulkhead Panel", "FRONT Flyup Enable Switch")
-F_15:defineToggleSwitch("F_BH_NCTR", 17, 3524, 524, "Front Left Bulkhead Panel", "FRONT NCTR Enable Switch")
+F_15:defineToggleSwitch("F_BH_NCTR", 3, 3524, 524, "Front Left Bulkhead Panel", "FRONT NCTR AUTO EID Enable Switch")
 F_15:define3PosTumb("F_BH_SEAT_ADJ", 24, 3521, 521, "Front Left Bulkhead Panel", "FRONT Seat Adjust Switch")
 F_15:defineToggleSwitch("F_BH_VMAX_CVR", 15, 3525, 525, "Front Left Bulkhead Panel", "FRONT VMAX Switch Cover")
 F_15:defineToggleSwitch("F_BH_VMAX", 15, 3526, 526, "Front Left Bulkhead Panel", "FRONT VMAX Switch")

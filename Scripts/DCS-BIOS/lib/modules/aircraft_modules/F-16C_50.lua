@@ -597,8 +597,8 @@ F_16C_50:defineFloat("IFF_CODE_DRUM_DIGIT_4", 552, { 0, 1 }, "IFF", "IFF Code Di
 --Clock
 F_16C_50:defineFloat("CLOCK_CURRTIME_H", 621, { 0, 1 }, "Clock", "Current Time Hours")
 F_16C_50:defineFloat("CLOCK_CURRTIME_MS", 622, { 0, 1 }, "Clock", "Current Time Minutes")
-F_16C_50:defineFloat("CLOCK_ELAPSED_TIME_M", 623, { 0, 1 }, "Clock", "Elapsed Time Minutes")
-F_16C_50:defineFloat("CLOCK_ELAPSED_TIME_SEC", 624, { 0, 1 }, "Clock", "Elapsed Time Seconds")
+F_16C_50:defineFloat("CLOCK_ELAPSED_TIME_M", 624, { 0, 1 }, "Clock", "Elapsed Time Minutes")
+F_16C_50:defineFloat("CLOCK_ELAPSED_TIME_SEC", 623, { 0, 1 }, "Clock", "Elapsed Time Seconds")
 
 ---------------------------- DED Display by Matchstick
 ---------------------------- Layout Info
