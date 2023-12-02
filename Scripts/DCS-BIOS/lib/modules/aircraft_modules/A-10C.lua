@@ -46,31 +46,42 @@ function A_10C:defineCMSPSwitch(identifier, device_id, down_command, up_command,
 		elseif toState == "2" then
 			toState = 1
 		else
+			error(string.format("unrecognized toState %d", toState))
+		end
+
+		local fromState = GetDevice(0):get_argument_value(arg_number)
+		local dev = GetDevice(device_id)
+
+		if not dev then
+			error(string.format("unable to get device %d for control %s", device_id, identifier))
 			return
 		end
-		local fromState = string.format("%.1f", GetDevice(0):get_argument_value(arg_number))
-		local fslut = { ["0.0"] = -1, ["0.1"] = 0, ["0.2"] = 1 }
-		local fromStateMapped = fslut[fromState]
-		local dev = GetDevice(device_id)
-		if fromStateMapped == 0 and toState == 1 then
-			dev:performClickableAction(up_command, 0.2)
+
+		if fromState == toState then
+			return -- noop
 		end
-		if fromStateMapped == 1 and toState == 0 then
-			dev:performClickableAction(up_command, 0.1)
-		end
-		if fromStateMapped == 0 and toState == -1 then
-			dev:performClickableAction(down_command, 0.0)
-		end
-		if fromStateMapped == -1 and toState == 0 then
-			dev:performClickableAction(down_command, 0.1)
-		end
-		if fromStateMapped == -1 and toState == 1 then
-			dev:performClickableAction(down_command, 0.1)
-			dev:performClickableAction(up_command, 0.2)
-		end
-		if fromStateMapped == 1 and toState == -1 then
-			dev:performClickableAction(up_command, 0.1)
-			dev:performClickableAction(down_command, 0.0)
+
+		if fromState == -1 then
+			-- for some reason, dev:performClickableAction(down_command, 0) doesn't seem to do anything
+			dev:performClickableAction(down_command, 1)
+			if toState == 1 then
+				-- todo: this doesn't seem to work fully - it will go to 0, but not to 1
+				dev:performClickableAction(up_command, 1)
+			end
+		elseif fromState == 0 then
+			if toState == -1 then
+				dev:performClickableAction(down_command, -1)
+			elseif toState == 1 then
+				dev:performClickableAction(up_command, 1)
+			end
+		elseif fromState == 1 then
+			dev:performClickableAction(up_command, 0)
+
+			if toState == -1 then
+				dev:performClickableAction(down_command, -1)
+			end
+		else
+			error(string.format("unrecognized fromState %d", fromState))
 		end
 	end)
 end
