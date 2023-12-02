@@ -26,8 +26,8 @@ end
 function A_10C:defineCMSPSwitch(identifier, device_id, down_command, up_command, arg_number, category, description)
 	local alloc = self:allocateInt(2, identifier)
 	self:addExportHook(function(dev0)
-		local lut = { ["0.0"] = 0, ["0.1"] = 1, ["0.2"] = 2 }
-		alloc:setValue(lut[string.format("%.1f", dev0:get_argument_value(arg_number))] or 0)
+		local arg_value = dev0:get_argument_value(arg_number) -- range is -1 to 1
+		alloc:setValue(arg_value + 1)
 	end)
 
 	local control = Control:new(category, ControlType.selector, identifier, description, {
