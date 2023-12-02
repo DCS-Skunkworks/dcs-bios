@@ -659,7 +659,7 @@ AH_64D:defineFloat("PLT_CANOPY_POS", 795, { 0, 1 }, "Cockpit Gauges", "Pilot Can
 AH_64D:defineFloat("CPG_CANOPY_POS", 798, { 0, 1 }, "Cockpit Gauges", "Gunner Canopy Position")
 
 --CMWS
-AH_64D:defineSpringloaded_3PosTumb("PLT_CMWS_PW", 80, 3001, 3002, 610, 1, { -1, 0 }, nil, false, "PLT CMWS", "Pilot CMWS PWR Switch, OFF/ON/TEST")
+AH_64D:reserveIntValue(1) -- PLT_CMWS_PW updated from a 2-position to 3-position switch
 AH_64D:definePushButton("PLT_CMWS_PW_TEST", 80, 3002, 610, "PLT CMWS", "Pilot CMWS PWR Switch, TEST")
 AH_64D:definePotentiometer("PLT_CMWS_VOL", 80, 3003, 611, { 0, 1 }, "PLT CMWS", "Pilot CMWS Audio Volume Knob")
 AH_64D:definePotentiometer("PLT_CMWS_LAMP", 80, 3004, 612, { 0, 1 }, "PLT CMWS", "Pilot CMWS Lamp Knob")
@@ -909,5 +909,6 @@ AH_64D:defineReadWriteRadio("FM2_RADIO", 60, 6, 3, 1000, "FM2 Radio")
 AH_64D:defineReadWriteRadio("HF_RADIO", 61, 6, 4, 100, "HF Radio")
 AH_64D:defineToggleSwitch("PLT_WIPER_P_SW", 9, 3023, 357, "PLT Cockpit", "Pilot Wiper Control Switch, PARK")
 AH_64D:defineToggleSwitch("CPG_WIPER_P_SW", 9, 3024, 395, "CPG Cockpit", "Gunner Wiper Control Switch, PARK")
+AH_64D:defineSpringloaded_3PosTumb("PLT_CMWS_PW", 80, 3001, 3002, 610, "PLT CMWS", "Pilot CMWS PWR Switch, OFF/ON/TEST")
 
 return AH_64D
