@@ -1,3 +1,4 @@
+local JSON = require("Scripts.DCS-BIOS.lib.ext.JSON")
 local lu = require("Scripts.DCS-BIOS.test.ext.luaunit")
 
 -- Unit testing starts
@@ -206,6 +207,7 @@ end
 function TestAircraft:validateModule(module, expected_name, expected_address)
 	lu.assertEquals(module.name, expected_name)
 	lu.assertEquals(module.memoryMap.baseAddress, expected_address)
+	JSON:encode(module.documentation) -- verify json generation works
 	self:validateControlNames(module.name, module.documentation)
 end
 

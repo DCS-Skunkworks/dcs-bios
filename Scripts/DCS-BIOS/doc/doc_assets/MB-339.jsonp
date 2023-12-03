@@ -10620,6 +10620,61 @@ docdata["MB-339"] =
                                                                        } ]
                                                    }
                                },
+          "Gunsight Repeater": {
+                                   "GUN_REP_BRIGHT": {
+                                                             "category": "Gunsight Repeater",
+                                                         "control_type": "limited_dial",
+                                                          "description": "Gunsight Repeater Brightness",
+                                                           "identifier": "GUN_REP_BRIGHT",
+                                                               "inputs": [ {
+                                                                             "description": "set the position of the dial",
+                                                                               "interface": "set_state",
+                                                                               "max_value": 65535
+                                                                         }, {
+                                                                                "description": "turn the dial left or right",
+                                                                                  "interface": "variable_step",
+                                                                                  "max_value": 65535,
+                                                                             "suggested_step": 3200
+                                                                         } ],
+                                                              "outputs": [ {
+                                                                                                   "address": 33814,
+                                                                                        "address_identifier": "MB_339_GUN_REP_BRIGHT_A",
+                                                                             "address_mask_shift_identifier": "MB_339_GUN_REP_BRIGHT",
+                                                                                               "description": "position of the potentiometer",
+                                                                                                      "mask": 65535,
+                                                                                                 "max_value": 65535,
+                                                                                                  "shift_by": 0,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "integer"
+                                                                         } ]
+                                                     },
+                                      "GUN_REP_PWR": {
+                                                                    "category": "Gunsight Repeater",
+                                                                "control_type": "selector",
+                                                                 "description": "Gunsight Repeater Power",
+                                                                  "identifier": "GUN_REP_PWR",
+                                                                      "inputs": [ {
+                                                                                    "description": "switch to previous or next state",
+                                                                                      "interface": "fixed_step"
+                                                                                }, {
+                                                                                    "description": "set position",
+                                                                                      "interface": "set_state",
+                                                                                      "max_value": 2
+                                                                                } ],
+                                                         "momentary_positions": "none",
+                                                                     "outputs": [ {
+                                                                                                          "address": 33776,
+                                                                                    "address_mask_shift_identifier": "MB_339_GUN_REP_PWR",
+                                                                                                      "description": "selector position",
+                                                                                                             "mask": 49152,
+                                                                                                        "max_value": 2,
+                                                                                                         "shift_by": 14,
+                                                                                                           "suffix": "",
+                                                                                                             "type": "integer"
+                                                                                } ],
+                                                            "physical_variant": "3_position_switch"
+                                                     }
+                               },
                     "HSI AFT": {
                                     "AFT_HSI_CRS": {
                                                         "api_variant": "multiturn",
