@@ -665,6 +665,10 @@ function Module:defineRockerSwitch(identifier, device_id, pos_command, pos_stop_
 		end
 		local fromState = GetDevice(0):get_argument_value(arg_number)
 		local dev = GetDevice(device_id)
+		if dev == nil then
+			return
+		end
+
 		if fromState == 0 and toState == 1 then
 			dev:performClickableAction(pos_command, 1)
 		end
@@ -924,6 +928,9 @@ function Module:defineSpringloaded_3PosTumb(identifier, device_id, down_switch, 
 
 	self:addInputProcessor(identifier, function(toState)
 		local dev = GetDevice(device_id)
+		if dev == nil then
+			return
+		end
 		if toState == "0" then --downSwitch
 			dev:performClickableAction(down_switch, 0)
 			dev:performClickableAction(up_switch, 0)

@@ -176,6 +176,10 @@ function LoGetSideDeviation() end
 --- @return number
 function LoGetSlipBallPosition() end
 
+--- Returns angular velocity
+--- @return table
+function LoGetAngularVelocity() end
+
 --- @class EngineSide
 --- @diagnostic disable-next-line: duplicate-doc-field
 --- @field right number
