@@ -665,27 +665,29 @@ function Module:defineRockerSwitch(identifier, device_id, pos_command, pos_stop_
 		end
 		local fromState = GetDevice(0):get_argument_value(arg_number)
 		local dev = GetDevice(device_id)
-		if dev ~= nil then
-			if fromState == 0 and toState == 1 then
-				dev:performClickableAction(pos_command, 1)
-			end
-			if fromState == 1 and toState == 0 then
-				dev:performClickableAction(pos_stop_command, 0)
-			end
-			if fromState == 0 and toState == -1 then
-				dev:performClickableAction(neg_command, -1)
-			end
-			if fromState == -1 and toState == 0 then
-				dev:performClickableAction(neg_stop_command, 0)
-			end
-			if fromState == -1 and toState == 1 then
-				dev:performClickableAction(neg_stop_command, 0)
-				dev:performClickableAction(pos_command, 1)
-			end
-			if fromState == 1 and toState == -1 then
-				dev:performClickableAction(pos_stop_command, 0)
-				dev:performClickableAction(neg_command, -1)
-			end
+		if dev == nil then
+			return
+		end
+
+		if fromState == 0 and toState == 1 then
+			dev:performClickableAction(pos_command, 1)
+		end
+		if fromState == 1 and toState == 0 then
+			dev:performClickableAction(pos_stop_command, 0)
+		end
+		if fromState == 0 and toState == -1 then
+			dev:performClickableAction(neg_command, -1)
+		end
+		if fromState == -1 and toState == 0 then
+			dev:performClickableAction(neg_stop_command, 0)
+		end
+		if fromState == -1 and toState == 1 then
+			dev:performClickableAction(neg_stop_command, 0)
+			dev:performClickableAction(pos_command, 1)
+		end
+		if fromState == 1 and toState == -1 then
+			dev:performClickableAction(pos_stop_command, 0)
+			dev:performClickableAction(neg_command, -1)
 		end
 	end)
 
@@ -926,19 +928,20 @@ function Module:defineSpringloaded_3PosTumb(identifier, device_id, down_switch, 
 
 	self:addInputProcessor(identifier, function(toState)
 		local dev = GetDevice(device_id)
-		if dev ~= nil then
-			if toState == "0" then --downSwitch
-				dev:performClickableAction(down_switch, 0)
-				dev:performClickableAction(up_switch, 0)
-				dev:performClickableAction(down_switch, -1)
-			elseif toState == "1" then --Stop
-				dev:performClickableAction(down_switch, 0)
-				dev:performClickableAction(up_switch, 0)
-			elseif toState == "2" then --upSwitch
-				dev:performClickableAction(down_switch, 0)
-				dev:performClickableAction(up_switch, 0)
-				dev:performClickableAction(up_switch, 1)
-			end
+		if dev == nil then
+			return
+		end
+		if toState == "0" then --downSwitch
+			dev:performClickableAction(down_switch, 0)
+			dev:performClickableAction(up_switch, 0)
+			dev:performClickableAction(down_switch, -1)
+		elseif toState == "1" then --Stop
+			dev:performClickableAction(down_switch, 0)
+			dev:performClickableAction(up_switch, 0)
+		elseif toState == "2" then --upSwitch
+			dev:performClickableAction(down_switch, 0)
+			dev:performClickableAction(up_switch, 0)
+			dev:performClickableAction(up_switch, 1)
 		end
 	end)
 
