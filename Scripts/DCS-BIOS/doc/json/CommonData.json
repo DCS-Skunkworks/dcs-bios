@@ -224,87 +224,132 @@
                                     }
                 },
        "Speed": {
-                        "G_LOAD": {
-                                          "category": "Speed",
-                                      "control_type": "display",
-                                       "description": "G Load",
-                                        "identifier": "G_LOAD",
-                                            "inputs": [  ],
-                                           "outputs": [ {
-                                                                     "address": 1102,
-                                                          "address_identifier": "CommonData_G_LOAD_A",
-                                                                 "description": "G Load",
-                                                                  "max_length": 4,
-                                                                      "suffix": "",
-                                                                        "type": "string"
-                                                      } ]
-                                  },
-                        "IAS_EU": {
-                                          "category": "Speed",
-                                      "control_type": "display",
-                                       "description": "Indicated Airspeed KM H",
-                                        "identifier": "IAS_EU",
-                                            "inputs": [  ],
-                                           "outputs": [ {
-                                                                     "address": 1060,
-                                                          "address_identifier": "CommonData_IAS_EU_A",
-                                                                 "description": "Indicated Airspeed KM H",
-                                                                  "max_length": 4,
-                                                                      "suffix": "",
-                                                                        "type": "string"
-                                                      } ]
-                                  },
-                    "IAS_EU_INT": {
-                                          "category": "Speed",
-                                      "control_type": "metadata",
-                                       "description": "Indicated Airspeed KM H (Int)",
-                                        "identifier": "IAS_EU_INT",
-                                            "inputs": [  ],
-                                           "outputs": [ {
-                                                                                "address": 1068,
-                                                                     "address_identifier": "CommonData_IAS_EU_INT_A",
-                                                          "address_mask_shift_identifier": "CommonData_IAS_EU_INT",
-                                                                            "description": "Indicated Airspeed KM H (Int)",
-                                                                                   "mask": 65535,
-                                                                              "max_value": 65535,
-                                                                               "shift_by": 0,
-                                                                                 "suffix": "",
-                                                                                   "type": "integer"
-                                                      } ]
-                                  },
-                        "IAS_US": {
-                                          "category": "Speed",
-                                      "control_type": "display",
-                                       "description": "Indicated Airspeed KNT",
-                                        "identifier": "IAS_US",
-                                            "inputs": [  ],
-                                           "outputs": [ {
-                                                                     "address": 1064,
-                                                          "address_identifier": "CommonData_IAS_US_A",
-                                                                 "description": "Indicated Airspeed KNT",
-                                                                  "max_length": 4,
-                                                                      "suffix": "",
-                                                                        "type": "string"
-                                                      } ]
-                                  },
-                    "IAS_US_INT": {
-                                          "category": "Speed",
-                                      "control_type": "metadata",
-                                       "description": "Indicated Airspeed KNT (Int)",
-                                        "identifier": "IAS_US_INT",
-                                            "inputs": [  ],
-                                           "outputs": [ {
-                                                                                "address": 1070,
-                                                                     "address_identifier": "CommonData_IAS_US_INT_A",
-                                                          "address_mask_shift_identifier": "CommonData_IAS_US_INT",
-                                                                            "description": "Indicated Airspeed KNT (Int)",
-                                                                                   "mask": 65535,
-                                                                              "max_value": 65535,
-                                                                               "shift_by": 0,
-                                                                                 "suffix": "",
-                                                                                   "type": "integer"
-                                                      } ]
-                                  }
+                    "ANGULAR_VELOCITY_X": {
+                                                  "category": "Speed",
+                                              "control_type": "display",
+                                               "description": "Angular X Velocity",
+                                                "identifier": "ANGULAR_VELOCITY_X",
+                                                    "inputs": [  ],
+                                                   "outputs": [ {
+                                                                             "address": 1106,
+                                                                  "address_identifier": "CommonData_ANGULAR_VELOCITY_X_A",
+                                                                         "description": "Angular X Velocity",
+                                                                          "max_length": 6,
+                                                                              "suffix": "",
+                                                                                "type": "string"
+                                                              } ]
+                                          },
+                    "ANGULAR_VELOCITY_Y": {
+                                                  "category": "Speed",
+                                              "control_type": "display",
+                                               "description": "Angular Y Velocity",
+                                                "identifier": "ANGULAR_VELOCITY_Y",
+                                                    "inputs": [  ],
+                                                   "outputs": [ {
+                                                                             "address": 1112,
+                                                                  "address_identifier": "CommonData_ANGULAR_VELOCITY_Y_A",
+                                                                         "description": "Angular Y Velocity",
+                                                                          "max_length": 6,
+                                                                              "suffix": "",
+                                                                                "type": "string"
+                                                              } ]
+                                          },
+                    "ANGULAR_VELOCITY_Z": {
+                                                  "category": "Speed",
+                                              "control_type": "display",
+                                               "description": "Angular Z Velocity",
+                                                "identifier": "ANGULAR_VELOCITY_Z",
+                                                    "inputs": [  ],
+                                                   "outputs": [ {
+                                                                             "address": 1118,
+                                                                  "address_identifier": "CommonData_ANGULAR_VELOCITY_Z_A",
+                                                                         "description": "Angular Z Velocity",
+                                                                          "max_length": 6,
+                                                                              "suffix": "",
+                                                                                "type": "string"
+                                                              } ]
+                                          },
+                                "G_LOAD": {
+                                                  "category": "Speed",
+                                              "control_type": "display",
+                                               "description": "G Load",
+                                                "identifier": "G_LOAD",
+                                                    "inputs": [  ],
+                                                   "outputs": [ {
+                                                                             "address": 1102,
+                                                                  "address_identifier": "CommonData_G_LOAD_A",
+                                                                         "description": "G Load",
+                                                                          "max_length": 4,
+                                                                              "suffix": "",
+                                                                                "type": "string"
+                                                              } ]
+                                          },
+                                "IAS_EU": {
+                                                  "category": "Speed",
+                                              "control_type": "display",
+                                               "description": "Indicated Airspeed KM H",
+                                                "identifier": "IAS_EU",
+                                                    "inputs": [  ],
+                                                   "outputs": [ {
+                                                                             "address": 1060,
+                                                                  "address_identifier": "CommonData_IAS_EU_A",
+                                                                         "description": "Indicated Airspeed KM H",
+                                                                          "max_length": 4,
+                                                                              "suffix": "",
+                                                                                "type": "string"
+                                                              } ]
+                                          },
+                            "IAS_EU_INT": {
+                                                  "category": "Speed",
+                                              "control_type": "metadata",
+                                               "description": "Indicated Airspeed KM H (Int)",
+                                                "identifier": "IAS_EU_INT",
+                                                    "inputs": [  ],
+                                                   "outputs": [ {
+                                                                                        "address": 1068,
+                                                                             "address_identifier": "CommonData_IAS_EU_INT_A",
+                                                                  "address_mask_shift_identifier": "CommonData_IAS_EU_INT",
+                                                                                    "description": "Indicated Airspeed KM H (Int)",
+                                                                                           "mask": 65535,
+                                                                                      "max_value": 65535,
+                                                                                       "shift_by": 0,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                              } ]
+                                          },
+                                "IAS_US": {
+                                                  "category": "Speed",
+                                              "control_type": "display",
+                                               "description": "Indicated Airspeed KNT",
+                                                "identifier": "IAS_US",
+                                                    "inputs": [  ],
+                                                   "outputs": [ {
+                                                                             "address": 1064,
+                                                                  "address_identifier": "CommonData_IAS_US_A",
+                                                                         "description": "Indicated Airspeed KNT",
+                                                                          "max_length": 4,
+                                                                              "suffix": "",
+                                                                                "type": "string"
+                                                              } ]
+                                          },
+                            "IAS_US_INT": {
+                                                  "category": "Speed",
+                                              "control_type": "metadata",
+                                               "description": "Indicated Airspeed KNT (Int)",
+                                                "identifier": "IAS_US_INT",
+                                                    "inputs": [  ],
+                                                   "outputs": [ {
+                                                                                        "address": 1070,
+                                                                             "address_identifier": "CommonData_IAS_US_INT_A",
+                                                                  "address_mask_shift_identifier": "CommonData_IAS_US_INT",
+                                                                                    "description": "Indicated Airspeed KNT (Int)",
+                                                                                           "mask": 65535,
+                                                                                      "max_value": 65535,
+                                                                                       "shift_by": 0,
+                                                                                         "suffix": "",
+                                                                                           "type": "integer"
+                                                              } ]
+                                          }
                 },
         "Time": {
                           "MISS_TIME": {
