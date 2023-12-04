@@ -1,5 +1,7 @@
 module("BIOSStateMachine", package.seeall)
 
+local Log = require("Scripts.DCS-BIOS.lib.common.Log")
+
 --- @class BIOSStateMachine
 --- @field private modules_by_name {[string]: Module[]} a map of module names to the modules to send data for
 --- @field private metadata_start MetadataStart the MetadataStart module
@@ -49,7 +51,12 @@ function BIOSStateMachine:processInputLine(line)
 		for _, module in ipairs(self.active_modules) do
 			local processor = module.inputProcessors[cmd]
 			if processor then
-				processor(args)
+				local success, err = pcall(processor, args)
+
+				if not success then
+					Log:log_error(string.format("error processing input for %s", cmd))
+					Log:log_error(err)
+				end
 			end
 		end
 	end
