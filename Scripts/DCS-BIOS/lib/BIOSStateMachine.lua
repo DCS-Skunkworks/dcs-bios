@@ -57,11 +57,12 @@ end
 
 --- @private
 --- @param module Module
---- @param dev0 CockpitDevice
+--- @param dev0 CockpitDevice?
 function BIOSStateMachine:queue_module_data(module, dev0)
 	for _, hook in ipairs(module.exportHooks) do
 		hook(dev0)
 	end
+
 	-- legacy behavior - for some reason, we seem to typically call this twice. Is this because modules are getting too big?
 	module.memoryMap:autosyncStep()
 	module.memoryMap:autosyncStep()
