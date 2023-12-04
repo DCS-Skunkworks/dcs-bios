@@ -20,6 +20,11 @@ local hdgDegFrac = 0
 local latDir = "N"
 local lonDir = "E"
 
+local angular_velocity_x = "0"
+local angular_velocity_y = "0"
+local angular_velocity_z = "0"
+local angular_max_length = 6
+
 local function updatePosition()
 	if not LoIsOwnshipExportAllowed() then
 		return
@@ -239,5 +244,32 @@ local function getGLoad()
 end
 
 CommonData:defineString("G_LOAD", getGLoad, 4, "Speed", "G Load")
+
+CommonData:addExportHook(function()
+	if not LoIsOwnshipExportAllowed() then
+		return
+	end -- skip this data if ownship export is disabled
+
+	local angular_velocity = LoGetAngularVelocity()
+	if angular_velocity == nil then
+		return
+	end
+
+	angular_velocity_x = tostring(angular_velocity.x)
+	angular_velocity_y = tostring(angular_velocity.y)
+	angular_velocity_z = tostring(angular_velocity.z)
+end)
+
+CommonData:defineString("ANGULAR_VELOCITY_X", function()
+	return angular_velocity_x
+end, angular_max_length, "Speed", "Angular X Velocity")
+
+CommonData:defineString("ANGULAR_VELOCITY_Y", function()
+	return angular_velocity_y
+end, angular_max_length, "Speed", "Angular Y Velocity")
+
+CommonData:defineString("ANGULAR_VELOCITY_Z", function()
+	return angular_velocity_z
+end, angular_max_length, "Speed", "Angular Z Velocity")
 
 return CommonData
