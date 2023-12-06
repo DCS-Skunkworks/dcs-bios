@@ -264,6 +264,4 @@ NS430:defineDoubleCommandButton("NS430_RIGHT_SMALL_BTN_PUSH", 256, 257, 3027, 30
 NS430:defineRotary2("NS430_RIGHT_SMALL_BTN_ROT", 256, 257, 3028, 21, "NS430", "Small Right Button Rotate")
 NS430:defineRotary2("NS430_RIGHT_BIG_BTN_ROTATE", 256, 257, 3025, 19, "NS430", "Big Right Button Rotate")
 
-NS430:defineIndicatorLight("GLOW", 70, "NS430", "Glow (green)")
-
 return NS430
