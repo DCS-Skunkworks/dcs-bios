@@ -24,6 +24,10 @@ Fully compatible for pit builders and Arduino users.
 
 [Quick Setup Guide](https://github.com/DCS-Skunkworks/dcs-bios/blob/master/Scripts/DCS-BIOS/doc/DCS-BIOS-FLIGHTPANELS_Install%20Guide.pdf)
 
+## For Users
+
+[What do I download?](https://github.com/DCS-Skunkworks/dcs-bios/wiki/What-do-I-download%3F)
+
 ## For Panel Builders
 
 You don't need to be a programmer or electrical engineer.
