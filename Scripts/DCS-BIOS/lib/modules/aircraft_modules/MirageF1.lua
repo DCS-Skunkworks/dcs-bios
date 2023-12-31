@@ -42,6 +42,11 @@ function MirageF1:defineSpringloaded_2PosTumb(identifier, device_id, down_switch
 
 	self:addInputProcessor(identifier, function(toState)
 		local dev = GetDevice(device_id)
+
+		if dev == nil then
+			return
+		end
+
 		if toState == "0" then
 			dev:performClickableAction(down_switch, 0)
 			dev:performClickableAction(up_switch, 0)

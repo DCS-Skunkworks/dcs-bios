@@ -40,6 +40,11 @@ function Mosquito:define3PosMossi(msg, device_id, command, arg_number, category,
 		end
 		local fromState = GetDevice(0):get_argument_value(arg_number)
 		local dev = GetDevice(device_id)
+
+		if dev == nil then
+			return
+		end
+
 		if fromState == 0 and toState == 1 then
 			dev:performClickableAction(command, 0)
 			dev:performClickableAction(command, 1)

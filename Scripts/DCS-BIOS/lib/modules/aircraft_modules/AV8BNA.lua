@@ -62,6 +62,11 @@ AV8BNA:defineRotary("UFC_COM2_SEL", 23, 3301, 301, "UHF Radio", "UFC Comm 2 Chan
 
 local function getARC210_COMM1_String_Frequency()
 	local arc_210_comm1 = GetDevice(2)
+
+	if arc_210_comm1 == nil then
+		return "000.00"
+	end
+
 	local freq = tostring(arc_210_comm1:get_frequency())
 	if string.len(freq) == 8 then
 		return freq:sub(1, 2) .. "." .. freq:sub(3, 5)
@@ -73,6 +78,11 @@ AV8BNA:defineString("COMM1_STRING_FREQ", getARC210_COMM1_String_Frequency, 7, "U
 
 local function getARC210_COMM2_String_Frequency()
 	local arc_210_comm2 = GetDevice(3)
+
+	if arc_210_comm2 == nil then
+		return "000.00"
+	end
+
 	local freq = tostring(arc_210_comm2:get_frequency())
 	if string.len(freq) == 8 then
 		return freq:sub(1, 2) .. "." .. freq:sub(3, 5)
