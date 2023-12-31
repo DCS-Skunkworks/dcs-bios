@@ -32,11 +32,12 @@ end
 ---@param width number The character width of the screen
 ---@param height number The lines of text the screen supports
 ---@param displayIndicatorData { [string]: TextDisplayItem[] } The data from the lua file containing information about the display
----@param getDisplayPage function Gets the current display page
+---@param displayPage string The current display page
 ---@param replaceSymbolMap table Map of symbols to replace from -> to
 ---@param parentMap table? map of pages to their parent pages
+---@param force_page_match boolean whether the page name must match in order to display an item, even if only one page is possible
 ---@return table displayLines The lines of the display
-function TextDisplay.GetDisplayLines(dcsDisplay, width, height, displayIndicatorData, getDisplayPage, replaceSymbolMap, parentMap)
+function TextDisplay.GetDisplayLines(dcsDisplay, width, height, displayIndicatorData, displayPage, replaceSymbolMap, parentMap, force_page_match)
 	local emptyLine = string.rep(" ", width)
 
 	local displayLines = {}
@@ -47,7 +48,6 @@ function TextDisplay.GetDisplayLines(dcsDisplay, width, height, displayIndicator
 		return displayLines
 	end
 
-	local displayPage = getDisplayPage()
 	parentMap = parentMap or {}
 	local parentPage = parentMap[displayPage]
 
@@ -58,7 +58,7 @@ function TextDisplay.GetDisplayLines(dcsDisplay, width, height, displayIndicator
 				v = replaceSymbols(v, replaceSymbolMap)
 			end
 			local render_instructions = nil
-			if #candidates == 1 then
+			if #candidates == 1 and not force_page_match then
 				render_instructions = candidates[1]
 			else
 				for _, ri in pairs(candidates) do

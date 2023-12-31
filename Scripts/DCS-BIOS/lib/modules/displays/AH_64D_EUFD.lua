@@ -256,14 +256,6 @@ local AH_64D_EUFD = {
 		{
 			pages = {
 				"MAIN",
-			},
-			id = "Symbols_6",
-			static_text = true,
-			x = 38,
-			y = 1,
-		},
-		{
-			pages = {
 				"PRESET",
 			},
 			id = "Symbols_6",
@@ -276,14 +268,6 @@ local AH_64D_EUFD = {
 		{
 			pages = {
 				"MAIN",
-			},
-			id = "Symbols_7",
-			static_text = true,
-			x = 38,
-			y = 2,
-		},
-		{
-			pages = {
 				"PRESET",
 			},
 			id = "Symbols_7",
@@ -300,17 +284,18 @@ local AH_64D_EUFD = {
 			id = "Symbols_8",
 			static_text = true,
 			x = 38,
-			y = 3,
-		},
-		{
-			pages = {
-				"PRESET",
-			},
-			id = "Symbols_8",
-			static_text = true,
-			x = 38,
 			y = 1,
 		},
+		-- this is intentionally disabled - this creates a line along the top border that is impossible for any segment display to render
+		-- {
+		-- 	pages = {
+		-- 		"PRESET",
+		-- 	},
+		-- 	id = "Symbols_8",
+		-- 	static_text = true,
+		-- 	x = 38,
+		-- 	y = 1,
+		-- },
 	},
 	Symbols_9 = {
 		{
@@ -320,7 +305,7 @@ local AH_64D_EUFD = {
 			id = "Symbols_9",
 			static_text = true,
 			x = 38,
-			y = 4,
+			y = 2,
 		},
 		{
 			pages = {
@@ -329,7 +314,7 @@ local AH_64D_EUFD = {
 			id = "Symbols_9",
 			static_text = true,
 			x = 38,
-			y = 2,
+			y = 1,
 		},
 	},
 	Symbols_10 = {
@@ -340,7 +325,7 @@ local AH_64D_EUFD = {
 			id = "Symbols_10",
 			static_text = true,
 			x = 38,
-			y = 5,
+			y = 3,
 		},
 		{
 			pages = {
@@ -349,7 +334,7 @@ local AH_64D_EUFD = {
 			id = "Symbols_10",
 			static_text = true,
 			x = 38,
-			y = 3,
+			y = 2,
 		},
 	},
 	Arrows_3 = {
@@ -1669,15 +1654,33 @@ local AH_64D_EUFD = {
 	Symbols_11 = {
 		{
 			pages = {
-				"PRESET",
+				"MAIN",
 			},
 			id = "Symbols_11",
 			static_text = true,
 			x = 38,
 			y = 4,
 		},
+		{
+			pages = {
+				"PRESET",
+			},
+			id = "Symbols_11",
+			static_text = true,
+			x = 38,
+			y = 3,
+		},
 	},
 	Symbols_12 = {
+		{
+			pages = {
+				"MAIN",
+			},
+			id = "Symbols_12",
+			static_text = true,
+			x = 38,
+			y = 5,
+		},
 		{
 			pages = {
 				"PRESET",
@@ -1685,10 +1688,19 @@ local AH_64D_EUFD = {
 			id = "Symbols_12",
 			static_text = true,
 			x = 38,
-			y = 5,
+			y = 4,
 		},
 	},
 	Symbols_13 = {
+		{
+			pages = {
+				"MAIN",
+			},
+			id = "Symbols_13",
+			static_text = true,
+			x = 38,
+			y = 6,
+		},
 		{
 			pages = {
 				"PRESET",
@@ -1696,10 +1708,19 @@ local AH_64D_EUFD = {
 			id = "Symbols_13",
 			static_text = true,
 			x = 38,
-			y = 6,
+			y = 5,
 		},
 	},
 	Symbols_14 = {
+		{
+			pages = {
+				"MAIN",
+			},
+			id = "Symbols_14",
+			static_text = true,
+			x = 38,
+			y = 7,
+		},
 		{
 			pages = {
 				"PRESET",
@@ -1707,7 +1728,7 @@ local AH_64D_EUFD = {
 			id = "Symbols_14",
 			static_text = true,
 			x = 38,
-			y = 7,
+			y = 6,
 		},
 	},
 	Symbols_15 = {
@@ -1718,7 +1739,7 @@ local AH_64D_EUFD = {
 			id = "Symbols_15",
 			static_text = true,
 			x = 38,
-			y = 8,
+			y = 7,
 		},
 	},
 	Symbols_16 = {
@@ -1729,7 +1750,7 @@ local AH_64D_EUFD = {
 			id = "Symbols_16",
 			static_text = true,
 			x = 38,
-			y = 9,
+			y = 8,
 		},
 	},
 	Symbols_17 = {
@@ -1740,7 +1761,7 @@ local AH_64D_EUFD = {
 			id = "Symbols_17",
 			static_text = true,
 			x = 38,
-			y = 10,
+			y = 9,
 		},
 	},
 	Symbols_18 = {
@@ -1751,7 +1772,7 @@ local AH_64D_EUFD = {
 			id = "Symbols_18",
 			static_text = true,
 			x = 38,
-			y = 11,
+			y = 10,
 		},
 	},
 	Symbols_19 = {
@@ -1761,8 +1782,140 @@ local AH_64D_EUFD = {
 			},
 			id = "Symbols_19",
 			static_text = true,
+			x = 38,
+			y = 11,
+		},
+	},
+	Symbols_20 = {
+		{
+			pages = {
+				"PRESET",
+			},
+			id = "Symbols_20",
+			static_text = true,
 			x = 39,
 			y = 12,
+		},
+	},
+	Symbols_21 = {
+		{
+			pages = {
+				"PRESET",
+			},
+			id = "Symbols_21",
+			static_text = true,
+			x = 56,
+			y = 1,
+		},
+	},
+	Symbols_22 = {
+		{
+			pages = {
+				"PRESET",
+			},
+			id = "Symbols_22",
+			static_text = true,
+			x = 56,
+			y = 2,
+		},
+	},
+	Symbols_23 = {
+		{
+			pages = {
+				"PRESET",
+			},
+			id = "Symbols_23",
+			static_text = true,
+			x = 56,
+			y = 3,
+		},
+	},
+	Symbols_24 = {
+		{
+			pages = {
+				"PRESET",
+			},
+			id = "Symbols_24",
+			static_text = true,
+			x = 56,
+			y = 4,
+		},
+	},
+	Symbols_25 = {
+		{
+			pages = {
+				"PRESET",
+			},
+			id = "Symbols_25",
+			static_text = true,
+			x = 56,
+			y = 5,
+		},
+	},
+	Symbols_26 = {
+		{
+			pages = {
+				"PRESET",
+			},
+			id = "Symbols_26",
+			static_text = true,
+			x = 56,
+			y = 6,
+		},
+	},
+	Symbols_27 = {
+		{
+			pages = {
+				"PRESET",
+			},
+			id = "Symbols_27",
+			static_text = true,
+			x = 56,
+			y = 7,
+		},
+	},
+	Symbols_28 = {
+		{
+			pages = {
+				"PRESET",
+			},
+			id = "Symbols_28",
+			static_text = true,
+			x = 56,
+			y = 8,
+		},
+	},
+	Symbols_29 = {
+		{
+			pages = {
+				"PRESET",
+			},
+			id = "Symbols_29",
+			static_text = true,
+			x = 56,
+			y = 9,
+		},
+	},
+	Symbols_30 = {
+		{
+			pages = {
+				"PRESET",
+			},
+			id = "Symbols_30",
+			static_text = true,
+			x = 56,
+			y = 10,
+		},
+	},
+	Symbols_31 = {
+		{
+			pages = {
+				"PRESET",
+			},
+			id = "Symbols_31",
+			static_text = true,
+			x = 56,
+			y = 11,
 		},
 	},
 	Test_1 = {
