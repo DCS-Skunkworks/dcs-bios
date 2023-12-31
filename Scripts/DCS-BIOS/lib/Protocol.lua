@@ -114,12 +114,12 @@ function Protocol.saveAddresses()
 					local outputs = args.outputs or {}
 					for _, output in ipairs(outputs) do
 						-- we redefine here for a few legacy plane controls using BIOS.util.defineTumb
-						local address_identifier = output.address_identifier or (BIOS.util.addressDefineIdentifier(moduleName, identifier) .. "_A")
+						local address_identifier = output.address_identifier and output.address_identifier
 						local address_mask_identifier = output.address_mask_identifier
 						local address_mask_shiftby_identifier = output.address_mask_shift_identifier
 						local address = output.address and string.format("0x%04X", output.address) or ""
 
-						local address_line = "#define " .. address_identifier .. " " .. address
+						local address_line = address_identifier and ("#define " .. address_identifier .. " " .. address)
 
 						-- #define lines based on type
 						if address_mask_shiftby_identifier and output.type == "integer" then
