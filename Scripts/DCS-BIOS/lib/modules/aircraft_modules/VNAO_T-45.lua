@@ -15,6 +15,11 @@ local VNAO_T_45 = Module:new("VNAO_T-45", 0x9000, { "T-45" })
 --- @return string
 local function getRadioFrequencyString(dev0, device_id, mode_selector_arg, comm_switch_arg)
 	local radio1Device = GetDevice(device_id)
+
+	if radio1Device == nil then
+		return "------"
+	end
+
 	local modeSelector = dev0:get_argument_value(mode_selector_arg)
 	local commSwitch = dev0:get_argument_value(comm_switch_arg)
 	local mainFreq = 0
@@ -47,6 +52,11 @@ local function getRadioFrequencySegment(device_id, len_8_range, len_9_range)
 	--225000288
 	-- 65000056
 	local arc_182 = GetDevice(device_id)
+
+	if arc_182 == nil then
+		return 0
+	end
+
 	local freq = tostring(arc_182:get_frequency())
 	if freq == "nan" then
 		return 0

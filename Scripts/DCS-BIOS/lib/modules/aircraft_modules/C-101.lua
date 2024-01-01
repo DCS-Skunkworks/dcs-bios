@@ -28,6 +28,11 @@ function C_101:defineRotaryPlus(identifier, device_id, command2, command1, arg_n
 	local max_value = 65535
 	self:addInputProcessor(identifier, function(value)
 		local device = GetDevice(device_id)
+
+		if device == nil then
+			return
+		end
+
 		device:performClickableAction(command1, 1)
 		device:performClickableAction(command2, (tonumber(value) or 0) / max_value)
 		device:performClickableAction(command1, 0)

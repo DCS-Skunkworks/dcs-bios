@@ -108,6 +108,11 @@ function A_10C:define3Pos2CommandSwitchA10(identifier, device_id, downSwitch, up
 
 	self:addInputProcessor(identifier, function(toState)
 		local dev = GetDevice(device_id)
+
+		if dev == nil then
+			return
+		end
+
 		if toState == "0" then --downSwitch
 			dev:performClickableAction(downSwitch, 0)
 			dev:performClickableAction(upSwitch, 0)
@@ -139,6 +144,11 @@ function A_10C:defineElectricallyHeldSwitch(identifier, device_id, pos_command, 
 
 	self:addInputProcessor(identifier, function(action)
 		local dev = GetDevice(device_id)
+
+		if dev == nil then
+			return
+		end
+
 		if action == "PUSH" then
 			dev:performClickableAction(pos_command, 1)
 		elseif action == "RELEASE" then
@@ -195,6 +205,11 @@ function A_10C:defineHatSwitch(identifier, device_id, center_command, directiona
 		end
 
 		local dev = GetDevice(device_id)
+
+		if dev == nil then
+			return
+		end
+
 		if new_state == 0 then
 			dev:performClickableAction(center_command, 0)
 		else
@@ -1053,7 +1068,8 @@ A_10C:addExportHook(function()
 	end
 	cdu_indicator_data["Cursor"][1].x = cursor_pos
 
-	cdu_lines = TextDisplay.GetDisplayLines(cdu, CDU_LINE_LEN, 10, cdu_indicator_data, get_cdu_page_name, cdu_replace_map, cdu_parent_map)
+	local display_page = get_cdu_page_name()
+	cdu_lines = TextDisplay.GetDisplayLines(cdu, CDU_LINE_LEN, 10, cdu_indicator_data, display_page, cdu_replace_map, cdu_parent_map, false)
 end)
 
 A_10C:defineString("CDU_LINE0", function()

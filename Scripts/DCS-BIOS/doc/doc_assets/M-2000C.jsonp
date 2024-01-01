@@ -2259,6 +2259,17 @@ docdata["M-2000C"] =
                                                                                                      "type": "integer"
                                                                         } ]
                                                     },
+                                      "CLOCK_RING": {
+                                                            "category": "CLOCK",
+                                                        "control_type": "fixed_step_dial",
+                                                         "description": "Clock Ring (only decrease)",
+                                                          "identifier": "CLOCK_RING",
+                                                              "inputs": [ {
+                                                                            "description": "turn left or right",
+                                                                              "interface": "fixed_step"
+                                                                        } ],
+                                                             "outputs": [  ]
+                                                    },
                                        "COC_CLOCK": {
                                                                    "category": "CLOCK",
                                                                "control_type": "selector",
