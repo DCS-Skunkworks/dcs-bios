@@ -101,7 +101,7 @@ SA342:definePotentiometer("FORMATION_INTENSITY", 14, 3012, 230, { 0, 1 }, "Navli
 --PE
 SA342:defineToggleSwitch("LASING_BUTTON_COVER", 36, 3301, 255, "PE", "Lasing Button Cover")
 SA342:definePushButton("LASING_BUTTON", 36, 3302, 256, "PE", "Lasing Button")
-SA342:defineToggleSwitch("MISSILE_LAUNCH_COVER", 36, 3303, 257, "PE", "Missile Launch Cover")
+SA342:defineToggleSwitchToggleOnly("MISSILE_LAUNCH_COVER", 36, 3303, 257, "PE", "Missile Launch Cover")
 SA342:definePushButton("MISSILE_LAUNCH", 36, 3304, 258, "PE", "Missile Launch")
 SA342:definePushButton("INVERSED_SYMBOLOGY", 36, 3305, 259, "PE", "Inversed Symbology")
 SA342:definePushButton("INVERSED_IMAGE", 36, 3306, 260, "PE", "Inversed Image")
@@ -117,7 +117,7 @@ SA342:definePushButton("TOGGLE_VDO_VTH", 36, 3282, 364, "PE", "Toggle VDO/VTH")
 SA342:defineTumb("CAMERA_ZOOM_IN", 36, 3284, 365, 1, { -1, 0 }, nil, false, "PE", "Camera Zoom In")
 SA342:defineToggleSwitch("CAMERA_ZOOM_OUT", 36, 3283, 365, "PE", "Camera Zoom Out")
 SA342:defineTumb("CTH_POWER", 36, 3285, 366, 0.5, { 0, 1 }, nil, false, "PE", "CTH Power")
-SA342:defineToggleSwitch("LASER_POWER", 36, 3286, 367, "PE", "Laser Power")
+SA342:defineToggleSwitch("VCB_POWER", 36, 3286, 367, "PE", "VCB Power Selector")
 SA342:defineTumb("CAMERA_MODE", 36, 3287, 370, 0.25, { 0, 1 }, nil, false, "PE", "Camera Mode")
 
 --Torque
@@ -552,5 +552,7 @@ SA342:definePushButton("TABLET_ZOOM_DEC", 44, 3007, 0, "Tablet", "Tablet Zoom De
 SA342:defineReadWriteRadio("AM_RADIO", 5, 7, 3, 1000, "AM Radio")
 SA342:defineReadWriteRadio("FM_RADIO", 27, 7, 3, 1000, "FM Radio")
 SA342:defineReadWriteRadio("UHF_RADIO", 30, 7, 3, 1000, "UHF Radio")
+
+SA342:defineToggleSwitch("LASER_POWER", 36, 3286, 367, "PE", "Deprecated - use VCB_POWER instead")
 
 return SA342

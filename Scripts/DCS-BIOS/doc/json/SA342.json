@@ -6089,7 +6089,7 @@
                                                   "LASER_POWER": {
                                                                                 "category": "PE",
                                                                             "control_type": "selector",
-                                                                             "description": "Laser Power",
+                                                                             "description": "Deprecated - use VCB_POWER instead",
                                                                               "identifier": "LASER_POWER",
                                                                                   "inputs": [ {
                                                                                                 "description": "switch to previous or next state",
@@ -6105,13 +6105,13 @@
                                                                                             } ],
                                                                      "momentary_positions": "none",
                                                                                  "outputs": [ {
-                                                                                                                      "address": 22574,
+                                                                                                                      "address": 22816,
                                                                                                       "address_mask_identifier": "SA342_LASER_POWER_AM",
                                                                                                 "address_mask_shift_identifier": "SA342_LASER_POWER",
                                                                                                                   "description": "selector position",
-                                                                                                                         "mask": 4,
+                                                                                                                         "mask": 1024,
                                                                                                                     "max_value": 1,
-                                                                                                                     "shift_by": 2,
+                                                                                                                     "shift_by": 10,
                                                                                                                        "suffix": "",
                                                                                                                          "type": "integer"
                                                                                             } ],
@@ -6214,19 +6214,19 @@
                                                                  },
                                          "MISSILE_LAUNCH_COVER": {
                                                                                 "category": "PE",
-                                                                            "control_type": "selector",
+                                                                            "control_type": "action",
                                                                              "description": "Missile Launch Cover",
                                                                               "identifier": "MISSILE_LAUNCH_COVER",
                                                                                   "inputs": [ {
                                                                                                 "description": "switch to previous or next state",
                                                                                                   "interface": "fixed_step"
                                                                                             }, {
-                                                                                                "description": "set position",
+                                                                                                "description": "set the switch position -- 0 = off, 1 = on",
                                                                                                   "interface": "set_state",
                                                                                                   "max_value": 1
                                                                                             }, {
                                                                                                    "argument": "TOGGLE",
-                                                                                                "description": "Toggle switch state",
+                                                                                                "description": "toggle switch state",
                                                                                                   "interface": "action"
                                                                                             } ],
                                                                      "momentary_positions": "none",
@@ -6305,6 +6305,37 @@
                                                                                                                          "type": "integer"
                                                                                             } ],
                                                                         "physical_variant": "push_button"
+                                                                 },
+                                                    "VCB_POWER": {
+                                                                                "category": "PE",
+                                                                            "control_type": "selector",
+                                                                             "description": "VCB Power Selector",
+                                                                              "identifier": "VCB_POWER",
+                                                                                  "inputs": [ {
+                                                                                                "description": "switch to previous or next state",
+                                                                                                  "interface": "fixed_step"
+                                                                                            }, {
+                                                                                                "description": "set position",
+                                                                                                  "interface": "set_state",
+                                                                                                  "max_value": 1
+                                                                                            }, {
+                                                                                                   "argument": "TOGGLE",
+                                                                                                "description": "Toggle switch state",
+                                                                                                  "interface": "action"
+                                                                                            } ],
+                                                                     "momentary_positions": "none",
+                                                                                 "outputs": [ {
+                                                                                                                      "address": 22574,
+                                                                                                      "address_mask_identifier": "SA342_VCB_POWER_AM",
+                                                                                                "address_mask_shift_identifier": "SA342_VCB_POWER",
+                                                                                                                  "description": "selector position",
+                                                                                                                         "mask": 4,
+                                                                                                                    "max_value": 1,
+                                                                                                                     "shift_by": 2,
+                                                                                                                       "suffix": "",
+                                                                                                                         "type": "integer"
+                                                                                            } ],
+                                                                        "physical_variant": "toggle_switch"
                                                                  }
                                },
                         "RWR": {
