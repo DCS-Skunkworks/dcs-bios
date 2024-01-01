@@ -502,6 +502,7 @@ Mi_24P:define3PosTumb("OP_BURST_LENGTH", 6, 3026, 770, "Weapon Systems", "OPERAT
 Mi_24P:defineToggleSwitch("OP_CAN_RATE", 6, 3037, 772, "Weapon Systems", "OPERATOR Cannon Fire Rate SLOW/FAST")
 Mi_24P:defineToggleSwitch("OP_MISSL_PW", 6, 3028, 773, "Weapon Systems", "OPERATOR Missiles Power")
 Mi_24P:definePushButton("OP_JETT_TEST", 6, 3031, 768, "Weapon Systems", "OPERATOR Release Check PU")
+Mi_24P:reserveIntValue(2)
 Mi_24P:definePushButton("OP_CAN_RELOAD", 6, 3039, 769, "Weapon Systems", "OPERATOR Reload Cannon")
 Mi_24P:defineToggleSwitch("OP_SCHO_PW", 6, 3030, 955, "Weapon Systems", "OPERATOR SCHO Power")
 Mi_24P:definePushButton("OP_SCHO_L_CHECK", 6, 3035, 956, "Weapon Systems", "OPERATOR SCHO Lamps Check")
