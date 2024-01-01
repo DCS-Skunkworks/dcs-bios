@@ -1068,7 +1068,8 @@ A_10C:addExportHook(function()
 	end
 	cdu_indicator_data["Cursor"][1].x = cursor_pos
 
-	cdu_lines = TextDisplay.GetDisplayLines(cdu, CDU_LINE_LEN, 10, cdu_indicator_data, get_cdu_page_name, cdu_replace_map, cdu_parent_map)
+	local display_page = get_cdu_page_name()
+	cdu_lines = TextDisplay.GetDisplayLines(cdu, CDU_LINE_LEN, 10, cdu_indicator_data, display_page, cdu_replace_map, cdu_parent_map, false)
 end)
 
 A_10C:defineString("CDU_LINE0", function()

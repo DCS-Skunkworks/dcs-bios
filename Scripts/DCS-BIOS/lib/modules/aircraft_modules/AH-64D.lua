@@ -389,10 +389,11 @@ local LINE_LEN = 56
 
 local function parse_eufd(indicator_id)
 	local dcs_eufd = AH_64D.parse_indication(indicator_id)
-	-- todo: return different page based on the actual page
-	return TextDisplay.GetDisplayLines(dcs_eufd, LINE_LEN, 14, eufd_indicator_data, function()
-		return "MAIN"
-	end, {})
+
+	-- the module doesn't seem to give us any obvious way to identify the page we're on, but this should suffice
+	local display_page = dcs_eufd["Preset_NAME"] and "PRESET" or "MAIN"
+
+	return TextDisplay.GetDisplayLines(dcs_eufd, LINE_LEN, 14, eufd_indicator_data, display_page, {}, nil, true)
 end
 
 local plt_EUFD = {}
