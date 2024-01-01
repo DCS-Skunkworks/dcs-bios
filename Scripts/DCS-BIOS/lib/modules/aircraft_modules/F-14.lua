@@ -367,6 +367,11 @@ local function getArc159RadioFrequencySegment(device_id, range)
 	--225000288
 	-- 65000056
 	local arc_159 = GetDevice(device_id)
+
+	if arc_159 == nil then
+		return 0
+	end
+
 	local freq = tostring(arc_159:get_frequency())
 	if freq == "nan" then
 		return 0
@@ -414,6 +419,11 @@ local function getArc182RadioFrequencySegment(device_id, len_8_range, len_9_rang
 	--225000288
 	-- 65000056
 	local arc_182 = GetDevice(device_id)
+
+	if arc_182 == nil then
+		return 0
+	end
+
 	local freq = tostring(arc_182:get_frequency())
 	if freq == "nan" then
 		return 0

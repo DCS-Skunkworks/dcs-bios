@@ -48,6 +48,11 @@ function FA_18C_hornet:defineEmergencyParkingBrake(identifier, device_id, emerge
 
 	self:addInputProcessor(identifier, function(toState)
 		local dev = GetDevice(device_id)
+
+		if dev == nil then
+			return
+		end
+
 		dev:performClickableAction(emergency_command, 0)
 		dev:performClickableAction(park_command, 0)
 		if toState == "0" then --Emerg
@@ -93,6 +98,11 @@ function FA_18C_hornet:defineMissionComputerSwitch(identifier, device_id, mc1_of
 	-- todo: this seems to only partially work - attempting to set state from 2 to 0 results in the switch being in position 1 (same from 0 to 2)
 	self:addInputProcessor(identifier, function(toState)
 		local dev = GetDevice(device_id)
+
+		if dev == nil then
+			return
+		end
+
 		dev:performClickableAction(mc1_off_command, 0)
 		dev:performClickableAction(mc2_off_command, 0)
 		if toState == "0" then
