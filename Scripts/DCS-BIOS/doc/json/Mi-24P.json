@@ -22728,32 +22728,6 @@
                                                                                                       } ],
                                                                                   "physical_variant": "push_button"
                                                                            },
-                                                       "OP_DISTR_CONTROL": {
-                                                                                          "category": "Weapon Systems",
-                                                                                      "control_type": "selector",
-                                                                                       "description": "OPERATOR CHECK1-WORK-CHECK2",
-                                                                                        "identifier": "OP_DISTR_CONTROL",
-                                                                                            "inputs": [ {
-                                                                                                          "description": "switch to previous or next state",
-                                                                                                            "interface": "fixed_step"
-                                                                                                      }, {
-                                                                                                          "description": "set position",
-                                                                                                            "interface": "set_state",
-                                                                                                            "max_value": 2
-                                                                                                      } ],
-                                                                               "momentary_positions": "none",
-                                                                                           "outputs": [ {
-                                                                                                                                "address": 26918,
-                                                                                                          "address_mask_shift_identifier": "Mi_24P_OP_DISTR_CONTROL",
-                                                                                                                            "description": "selector position",
-                                                                                                                                   "mask": 48,
-                                                                                                                              "max_value": 2,
-                                                                                                                               "shift_by": 4,
-                                                                                                                                 "suffix": "",
-                                                                                                                                   "type": "integer"
-                                                                                                      } ],
-                                                                                  "physical_variant": "3_position_switch"
-                                                                           },
                                                           "OP_EMERG_JETT": {
                                                                                        "api_variant": "momentary_last_position",
                                                                                           "category": "Weapon Systems",
