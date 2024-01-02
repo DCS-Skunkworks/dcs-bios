@@ -1004,37 +1004,6 @@
                                                                                     } ],
                                                                 "physical_variant": "toggle_switch"
                                                          },
-                                       "CPG_WIPER_P_SW": {
-                                                                        "category": "CPG Cockpit",
-                                                                    "control_type": "selector",
-                                                                     "description": "Gunner Wiper Control Switch, PARK",
-                                                                      "identifier": "CPG_WIPER_P_SW",
-                                                                          "inputs": [ {
-                                                                                        "description": "switch to previous or next state",
-                                                                                          "interface": "fixed_step"
-                                                                                    }, {
-                                                                                        "description": "set position",
-                                                                                          "interface": "set_state",
-                                                                                          "max_value": 1
-                                                                                    }, {
-                                                                                           "argument": "TOGGLE",
-                                                                                        "description": "Toggle switch state",
-                                                                                          "interface": "action"
-                                                                                    } ],
-                                                             "momentary_positions": "none",
-                                                                         "outputs": [ {
-                                                                                                              "address": 34636,
-                                                                                              "address_mask_identifier": "AH_64D_CPG_WIPER_P_SW_AM",
-                                                                                        "address_mask_shift_identifier": "AH_64D_CPG_WIPER_P_SW",
-                                                                                                          "description": "selector position",
-                                                                                                                 "mask": 8192,
-                                                                                                            "max_value": 1,
-                                                                                                             "shift_by": 13,
-                                                                                                               "suffix": "",
-                                                                                                                 "type": "integer"
-                                                                                    } ],
-                                                                "physical_variant": "toggle_switch"
-                                                         },
                                          "CPG_WIPER_SW": {
                                                                         "category": "CPG Cockpit",
                                                                     "control_type": "selector",
@@ -1046,7 +1015,7 @@
                                                                                     }, {
                                                                                         "description": "set position",
                                                                                           "interface": "set_state",
-                                                                                          "max_value": 2
+                                                                                          "max_value": 3
                                                                                     } ],
                                                              "momentary_positions": "none",
                                                                          "outputs": [ {
@@ -1054,7 +1023,7 @@
                                                                                         "address_mask_shift_identifier": "AH_64D_CPG_WIPER_SW",
                                                                                                           "description": "selector position",
                                                                                                                  "mask": 49152,
-                                                                                                            "max_value": 2,
+                                                                                                            "max_value": 3,
                                                                                                              "shift_by": 14,
                                                                                                                "suffix": "",
                                                                                                                  "type": "integer"
@@ -10190,37 +10159,6 @@
                                                                                      } ],
                                                                  "physical_variant": "toggle_switch"
                                                           },
-                                        "PLT_WIPER_P_SW": {
-                                                                         "category": "PLT Cockpit",
-                                                                     "control_type": "selector",
-                                                                      "description": "Pilot Wiper Control Switch, PARK",
-                                                                       "identifier": "PLT_WIPER_P_SW",
-                                                                           "inputs": [ {
-                                                                                         "description": "switch to previous or next state",
-                                                                                           "interface": "fixed_step"
-                                                                                     }, {
-                                                                                         "description": "set position",
-                                                                                           "interface": "set_state",
-                                                                                           "max_value": 1
-                                                                                     }, {
-                                                                                            "argument": "TOGGLE",
-                                                                                         "description": "Toggle switch state",
-                                                                                           "interface": "action"
-                                                                                     } ],
-                                                              "momentary_positions": "none",
-                                                                          "outputs": [ {
-                                                                                                               "address": 34636,
-                                                                                               "address_mask_identifier": "AH_64D_PLT_WIPER_P_SW_AM",
-                                                                                         "address_mask_shift_identifier": "AH_64D_PLT_WIPER_P_SW",
-                                                                                                           "description": "selector position",
-                                                                                                                  "mask": 4096,
-                                                                                                             "max_value": 1,
-                                                                                                              "shift_by": 12,
-                                                                                                                "suffix": "",
-                                                                                                                  "type": "integer"
-                                                                                     } ],
-                                                                 "physical_variant": "toggle_switch"
-                                                          },
                                           "PLT_WIPER_SW": {
                                                                          "category": "PLT Cockpit",
                                                                      "control_type": "selector",
@@ -10232,7 +10170,7 @@
                                                                                      }, {
                                                                                          "description": "set position",
                                                                                            "interface": "set_state",
-                                                                                           "max_value": 2
+                                                                                           "max_value": 3
                                                                                      } ],
                                                               "momentary_positions": "none",
                                                                           "outputs": [ {
@@ -10240,7 +10178,7 @@
                                                                                          "address_mask_shift_identifier": "AH_64D_PLT_WIPER_SW",
                                                                                                            "description": "selector position",
                                                                                                                   "mask": 96,
-                                                                                                             "max_value": 2,
+                                                                                                             "max_value": 3,
                                                                                                               "shift_by": 5,
                                                                                                                 "suffix": "",
                                                                                                                   "type": "integer"
