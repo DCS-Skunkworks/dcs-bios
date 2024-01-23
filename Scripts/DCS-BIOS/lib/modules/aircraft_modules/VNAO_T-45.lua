@@ -435,4 +435,6 @@ VNAO_T_45:defineBitFromDrawArgument("EXT_WOW_NOSE", 1, "External Aircraft Model"
 VNAO_T_45:defineBitFromDrawArgument("EXT_WOW_RIGHT", 4, "External Aircraft Model", "Weight ON Wheels Right Gear")
 VNAO_T_45:defineBitFromDrawArgument("EXT_WOW_LEFT", 6, "External Aircraft Model", "Weight ON Wheels Left Gear")
 
+VNAO_T_45:defineToggleSwitch("REAR_HOOK_BYPASS", 0, 3506, 181, "Rear Gear System", "REAR Tail Hook Bypass")
+
 return VNAO_T_45

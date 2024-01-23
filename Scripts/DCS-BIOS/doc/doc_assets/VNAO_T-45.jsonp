@@ -4657,6 +4657,37 @@ docdata["VNAO_T-45"] =
                                                                                                   } ],
                                                                               "physical_variant": "toggle_switch"
                                                                        },
+                                                   "REAR_HOOK_BYPASS": {
+                                                                                      "category": "Rear Gear System",
+                                                                                  "control_type": "selector",
+                                                                                   "description": "REAR Tail Hook Bypass",
+                                                                                    "identifier": "REAR_HOOK_BYPASS",
+                                                                                        "inputs": [ {
+                                                                                                      "description": "switch to previous or next state",
+                                                                                                        "interface": "fixed_step"
+                                                                                                  }, {
+                                                                                                      "description": "set position",
+                                                                                                        "interface": "set_state",
+                                                                                                        "max_value": 1
+                                                                                                  }, {
+                                                                                                         "argument": "TOGGLE",
+                                                                                                      "description": "Toggle switch state",
+                                                                                                        "interface": "action"
+                                                                                                  } ],
+                                                                           "momentary_positions": "none",
+                                                                                       "outputs": [ {
+                                                                                                                            "address": 36938,
+                                                                                                            "address_mask_identifier": "VNAO_T_45_REAR_HOOK_BYPASS_AM",
+                                                                                                      "address_mask_shift_identifier": "VNAO_T_45_REAR_HOOK_BYPASS",
+                                                                                                                        "description": "selector position",
+                                                                                                                               "mask": 2048,
+                                                                                                                          "max_value": 1,
+                                                                                                                           "shift_by": 11,
+                                                                                                                             "suffix": "",
+                                                                                                                               "type": "integer"
+                                                                                                  } ],
+                                                                              "physical_variant": "toggle_switch"
+                                                                       },
                                                       "REAR_HOOK_LVR": {
                                                                                       "category": "Rear Gear System",
                                                                                   "control_type": "selector",
