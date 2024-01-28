@@ -388,7 +388,7 @@ AJS37:definePotentiometer("CI_FILTER", 5, 3801, 6905, { 0, 1 }, "Radar", "CI fil
 -- AJS37:definePushButton("MISL_SEL_BTN", 2, 3800, 400, "Test", "Missile Select Button (IR-RB FRAMSTEGN)")
 AJS37:reserveIntValue(1) -- above control duplicated by "MISSILE_SELECT_BUTTON"
 
--- parse nav indicator
+-- parse nav  indicator
 local nav_data = {}
 AJS37:addExportHook(function()
 	nav_data = Module.parse_indication(2)
