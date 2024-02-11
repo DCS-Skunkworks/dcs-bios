@@ -8,19 +8,19 @@ assignees: ''
 ---
 
 **DCS-BIOS version**
-Version currently used. If you are using the originial DCS-BIOS (HUB) we won't be able to help you.
+Version currently used. If you are using the originial ```DCS-BIOS (HUB)``` we won't be able to help you.
 
 **DCS-BIOS Control**
-When referring to these use the identifier. Eg. "FLAPS_SWITCH".
+When referring to these use the identifier. Eg. ```FLAPS_SWITCH```.
 
 **Describe the bug**
 A clear and concise description of what the bug is.
 
 **To Reproduce**
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
+Steps to reproduce the behavior example:
+1. Start A-10C mission
+2. Send ```FLAPS_SWITCH INC``` to dcs-bios
+3. Nothing happens
 4. See error
 
 **Expected behavior**
