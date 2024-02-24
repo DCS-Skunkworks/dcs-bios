@@ -61,7 +61,7 @@ end
 ----Common
 MirageF1:defineToggleSwitch("P_STICK_HIDE", 1, 3001, 34, "COMMON Misc", "Pilot Show/Hide Flight Stick")
 MirageF1:defineSpringloaded_3PosTumb("P_INCIDENCE_TEST", 1, 3006, 3005, 98, "COMMON Misc", "Pilot Incidence Test Switch")
-MirageF1:definePushButton("P_ALT_PTT", 1, 3100, 405, "Misc", "COMMON Pilot Alternative PTT")
+MirageF1:definePushButton("P_ALT_PTT", 1, 3099, 405, "Misc", "COMMON Pilot Alternative PTT")
 
 --Flight Control System controls
 MirageF1:definePushButton("P_FCS_TEST_RES", 1, 3007, 368, "COMMON Flight Control System", "Pilot Flight Control Test Restart Button")
@@ -704,7 +704,8 @@ MirageF1:defineFloat("P_CE_RADAR_BACK_L", 1331, { 0, 1 }, "CE/BE/EE Radar Lights
 
 --IFF
 -- todo: these radio wheels will all have fucked allocations
-MirageF1:defineRadioWheel("P_CE_IFF_M1_10", 1, 3438, 3438, { -0.125, 0.125 }, 732, 0.125, { 0, 1 }, nil, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Mode 1 Coding Tens Selector")
+--JDA orig =>  MirageF1:defineRadioWheel("P_CE_IFF_M1_10", 1, 3438, 3438, { -0.125, 0.125 }, 732, 0.125, { 0, 1 }, nil, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Mode 1 Coding Tens Selector")
+MirageF1:defineRadioWheel("P_CE_IFF_M1_10", 1, 3457, 3457, { -0.125, 0.125 }, 1428, 0.125, { 0, 1 }, nil, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Mode 1 Coding Tens Selector")
 MirageF1:reserveIntValue(1)
 MirageF1:defineRadioWheel("P_CE_IFF_M1_1", 1, 3440, 3440, { -0.125, 0.125 }, 733, 0.125, { 0, 1 }, nil, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Mode 1 Coding Units Selector")
 MirageF1:reserveIntValue(1)
@@ -775,6 +776,7 @@ MirageF1:definePotentiometer("P_EE_ALR300_BRIGHT", 1, 3675, 1017, { 0, 1 }, "EE 
 MirageF1:definePushButton("P_EE_ALR300_TEST", 1, 3677, 1018, "EE ALR-300", "EE Pilot ALR-300 Test")
 
 MirageF1:definePushButton("P_EFC_MV_THL_CUT_IDLE", 1, 3035, 234, "COMMON Engine-Fuel Control", "Pilot Move Throttle Cut/Idle")
+--JDA 24-Feb-2024 Works differently with unified release (orig above) => MirageF1:definePushButton("P_EFC_MV_THL_CUT_IDLE", 1, 3037, 239, "COMMON Engine-Fuel Control", "Pilot Move Throttle Cut/Idle")
 
 --Inertial Navigation System (INS)
 MirageF1:defineMultipositionSwitch("P_EE_INS_PARA_SEL", 1, 3690, 665, 6, 0.1, "EE INS", "EE Pilot Parameters Selector")
@@ -1077,6 +1079,6 @@ MirageF1:defineSetCommandTumb("C_BE_REC_CAM_RETARD", 1, 3821, 778, 0.25, { 0, 1 
 MirageF1:definePushButton("C_BE_REC_CAM_JETT", 1, 3822, 1422, "BE Recording Camera REAR", "BE Copilot Recording Camera Eject Button")
 
 MirageF1:defineReadWriteRadio("VUHF_RADIO", 6, 7, 3, 1000, "V/UHF Radio")
-MirageF1:defineReadWriteRadio("UHF_RADIO", 7, 7, 3, 1000, "UHF Radio")
+MirageF1:defineReadWriteRadio("UHF_RADIO", 8, 7, 3, 1000, "UHF Radio")
 
 return MirageF1
