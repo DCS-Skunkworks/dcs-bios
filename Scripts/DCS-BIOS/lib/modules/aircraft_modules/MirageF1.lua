@@ -704,24 +704,36 @@ MirageF1:defineFloat("P_CE_RADAR_BACK_L", 1331, { 0, 1 }, "CE/BE/EE Radar Lights
 
 --IFF
 -- todo: these radio wheels will all have fucked allocations
---JDA orig =>  MirageF1:defineRadioWheel("P_CE_IFF_M1_10", 1, 3438, 3438, { -0.125, 0.125 }, 732, 0.125, { 0, 1 }, nil, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Mode 1 Coding Tens Selector")
-MirageF1:defineRadioWheel("P_CE_IFF_M1_10", 1, 3457, 3457, { -0.125, 0.125 }, 1428, 0.125, { 0, 1 }, nil, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Mode 1 Coding Tens Selector")
+
+-- Works in EE
+MirageF1:defineRadioWheel("P_CE_IFF_M1_10", 1, 3436, 3436, { -0.125, 0.125 }, 732, 0.125, { 0, 1 }, nil, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Mode 1 Coding Tens Selector")
 MirageF1:reserveIntValue(1)
-MirageF1:defineRadioWheel("P_CE_IFF_M1_1", 1, 3440, 3440, { -0.125, 0.125 }, 733, 0.125, { 0, 1 }, nil, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Mode 1 Coding Units Selector")
+-- Works in EE
+MirageF1:defineRadioWheel("P_CE_IFF_M1_1", 1, 3437, 3437, { -0.125, 0.125 }, 733, 0.125, { 0, 0.5 }, nil, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Mode 1 Coding Units Selector")
 MirageF1:reserveIntValue(1)
-MirageF1:defineRadioWheel("P_CE_IFF_M3A_1000", 1, 3442, 3442, { -0.125, 0.125 }, 734, 0.125, { 0, 1 }, nil, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Mode 3A Coding Thousands Selector")
-MirageF1:defineSpringloaded_3PosTumb("P_CE_IFF_POS_IDENT", 1, 3451, 3450, 744, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Position Identification Selector")
+-- Works in EE
+MirageF1:defineRadioWheel("P_CE_IFF_M3A_1000", 1, 3438, 3438, { -0.125, 0.125 }, 734, 0.125, { 0, 1 }, nil, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Mode 3A Coding Thousands Selector")
+-- Works in EE
+MirageF1:defineRadioWheel("P_CE_IFF_M3A_100", 1, 3439, 3439, { -0.125, 0.125 }, 735, 0.125, { 0, 1 }, nil, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Mode 3A Coding Hundreds Selector")
 MirageF1:reserveIntValue(1)
-MirageF1:defineRadioWheel("P_CE_IFF_M3A_100", 1, 3444, 3444, { -0.125, 0.125 }, 735, 0.125, { 0, 1 }, nil, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Mode 3A Coding Hundreds Selector")
+-- Works in EE
+MirageF1:defineRadioWheel("P_CE_IFF_M3A_10", 1, 3440, 3440, { -0.125, 0.125 }, 736, 0.125, { 0, 1 }, nil, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Mode 3A Coding Tens Selector")
 MirageF1:reserveIntValue(1)
-MirageF1:defineRadioWheel("P_CE_IFF_M3A_10", 1, 3528, 3528, { -0.125, 0.125 }, 736, 0.125, { 0, 1 }, nil, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Mode 3A Coding Tens Selector")
+-- Works in EE
+MirageF1:defineRadioWheel("P_CE_IFF_M3A_1", 1, 3441, 3441, { -0.125, 0.125 }, 737, 0.125, { 0, 1 }, nil, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Mode 3A Coding Units Selector")
 MirageF1:reserveIntValue(1)
-MirageF1:defineRadioWheel("P_CE_IFF_M3A_1", 1, 3446, 3446, { -0.125, 0.125 }, 737, 0.125, { 0, 1 }, nil, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Mode 3A Coding Units Selector")
+-- Works in EE
+MirageF1:defineSpringloaded_3PosTumb("P_CE_IFF_POS_IDENT", 1, 3442, 3443, 744, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Position Identification Selector")
 MirageF1:reserveIntValue(1)
-MirageF1:definePushButton("P_CE_IFF_TEST", 1, 3452, 738, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Test Button")
-MirageF1:defineMultipositionSwitch("P_CE_IFF_M4_SEL", 1, 3453, 743, 4, 0.3333, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Mode 4 Selector Switch")
-MirageF1:definePushButton("P_CE_IFF_MONITOR_BTN", 1, 3455, 740, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Monitoring Light Button (Push)")
-MirageF1:definePotentiometer("P_CE_IFF_MONITOR_KNB", 1, 3456, 741, { 0, 1 }, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Monitoring Light Knob (Turn)")
+-- Works in EE
+MirageF1:definePushButton("P_CE_IFF_TEST", 1, 3444, 738, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Test Button")
+-- Works in EE
+MirageF1:defineMultipositionSwitch("P_CE_IFF_M4_SEL", 1, 3445, 743, 4, 0.3333, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Mode 4 Selector Switch")
+-- Works in EE
+MirageF1:definePushButton("P_CE_IFF_MONITOR_BTN", 1, 3446, 740, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Monitoring Light Button (Push)")
+-- Works in EE
+MirageF1:definePotentiometer("P_CE_IFF_MONITOR_KNB", 1, 3447, 741, { 0, 1 }, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Monitoring Light Knob (Turn)")
+
 MirageF1:defineMultipositionSwitch("P_CE_IFF_FUNC_SEL", 1, 3458, 739, 4, 0.3333, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Function Selector Switch")
 MirageF1:defineToggleSwitch("P_CE_IFF_MODE4", 1, 3460, 745, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Mode 4 Switch")
 MirageF1:definePushButton("P_CE_IFF_FAULT_BTN", 1, 3461, 746, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Fault Light Button (Push)")
