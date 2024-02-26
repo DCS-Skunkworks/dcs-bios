@@ -708,6 +708,7 @@ MirageF1:defineRadioWheel("P_CE_IFF_M1_10", 1, 3436, 3436, { -0.125, 0.125 }, 73
 MirageF1:reserveIntValue(1)
 MirageF1:defineRadioWheel("P_CE_IFF_M1_1", 1, 3437, 3437, { -0.125, 0.125 }, 733, 0.125, { 0, 0.5 }, nil, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Mode 1 Coding Units Selector")
 MirageF1:reserveIntValue(1)
+MirageF1:reserveIntValue(1)
 MirageF1:defineRadioWheel("P_CE_IFF_M3A_1000", 1, 3438, 3438, { -0.125, 0.125 }, 734, 0.125, { 0, 1 }, nil, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Mode 3A Coding Thousands Selector")
 MirageF1:defineSpringloaded_3PosTumb("P_CE_IFF_POS_IDENT", 1, 3442, 3443, 744, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Position Identification Selector")
 MirageF1:reserveIntValue(1)
