@@ -713,6 +713,8 @@ MirageF1:defineRadioWheel("P_CE_IFF_M1_1", 1, 3437, 3437, { -0.125, 0.125 }, 733
 MirageF1:reserveIntValue(1)
 -- Works in EE
 MirageF1:defineRadioWheel("P_CE_IFF_M3A_1000", 1, 3438, 3438, { -0.125, 0.125 }, 734, 0.125, { 0, 1 }, nil, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Mode 3A Coding Thousands Selector")
+MirageF1:defineSpringloaded_3PosTumb("P_CE_IFF_POS_IDENT", 1, 3442, 3443, 744, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Position Identification Selector")
+MirageF1:reserveIntValue(1)
 -- Works in EE
 MirageF1:defineRadioWheel("P_CE_IFF_M3A_100", 1, 3439, 3439, { -0.125, 0.125 }, 735, 0.125, { 0, 1 }, nil, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Mode 3A Coding Hundreds Selector")
 MirageF1:reserveIntValue(1)
@@ -721,9 +723,6 @@ MirageF1:defineRadioWheel("P_CE_IFF_M3A_10", 1, 3440, 3440, { -0.125, 0.125 }, 7
 MirageF1:reserveIntValue(1)
 -- Works in EE
 MirageF1:defineRadioWheel("P_CE_IFF_M3A_1", 1, 3441, 3441, { -0.125, 0.125 }, 737, 0.125, { 0, 1 }, nil, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Mode 3A Coding Units Selector")
-MirageF1:reserveIntValue(1)
--- Works in EE
-MirageF1:defineSpringloaded_3PosTumb("P_CE_IFF_POS_IDENT", 1, 3442, 3443, 744, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Position Identification Selector")
 MirageF1:reserveIntValue(1)
 -- Works in EE
 MirageF1:definePushButton("P_CE_IFF_TEST", 1, 3444, 738, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Test Button")
