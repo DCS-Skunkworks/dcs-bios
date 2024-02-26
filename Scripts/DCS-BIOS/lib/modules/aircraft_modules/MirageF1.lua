@@ -704,45 +704,34 @@ MirageF1:defineFloat("P_CE_RADAR_BACK_L", 1331, { 0, 1 }, "CE/BE/EE Radar Lights
 
 --IFF
 -- todo: these radio wheels will all have fucked allocations
-
--- Works in EE
 MirageF1:defineRadioWheel("P_CE_IFF_M1_10", 1, 3436, 3436, { -0.125, 0.125 }, 732, 0.125, { 0, 1 }, nil, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Mode 1 Coding Tens Selector")
 MirageF1:reserveIntValue(1)
--- Works in EE
 MirageF1:defineRadioWheel("P_CE_IFF_M1_1", 1, 3437, 3437, { -0.125, 0.125 }, 733, 0.125, { 0, 0.5 }, nil, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Mode 1 Coding Units Selector")
 MirageF1:reserveIntValue(1)
--- Works in EE
 MirageF1:defineRadioWheel("P_CE_IFF_M3A_1000", 1, 3438, 3438, { -0.125, 0.125 }, 734, 0.125, { 0, 1 }, nil, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Mode 3A Coding Thousands Selector")
 MirageF1:defineSpringloaded_3PosTumb("P_CE_IFF_POS_IDENT", 1, 3442, 3443, 744, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Position Identification Selector")
 MirageF1:reserveIntValue(1)
--- Works in EE
 MirageF1:defineRadioWheel("P_CE_IFF_M3A_100", 1, 3439, 3439, { -0.125, 0.125 }, 735, 0.125, { 0, 1 }, nil, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Mode 3A Coding Hundreds Selector")
 MirageF1:reserveIntValue(1)
--- Works in EE
 MirageF1:defineRadioWheel("P_CE_IFF_M3A_10", 1, 3440, 3440, { -0.125, 0.125 }, 736, 0.125, { 0, 1 }, nil, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Mode 3A Coding Tens Selector")
 MirageF1:reserveIntValue(1)
--- Works in EE
 MirageF1:defineRadioWheel("P_CE_IFF_M3A_1", 1, 3441, 3441, { -0.125, 0.125 }, 737, 0.125, { 0, 1 }, nil, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Mode 3A Coding Units Selector")
 MirageF1:reserveIntValue(1)
--- Works in EE
 MirageF1:definePushButton("P_CE_IFF_TEST", 1, 3444, 738, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Test Button")
--- Works in EE
 MirageF1:defineMultipositionSwitch("P_CE_IFF_M4_SEL", 1, 3445, 743, 4, 0.3333, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Mode 4 Selector Switch")
--- Works in EE
 MirageF1:definePushButton("P_CE_IFF_MONITOR_BTN", 1, 3446, 740, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Monitoring Light Button (Push)")
--- Works in EE
 MirageF1:definePotentiometer("P_CE_IFF_MONITOR_KNB", 1, 3447, 741, { 0, 1 }, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Monitoring Light Knob (Turn)")
+MirageF1:defineMultipositionSwitch("P_CE_IFF_FUNC_SEL", 1, 3448, 739, 4, 0.3333, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Function Selector Switch")
+MirageF1:defineToggleSwitch("P_CE_IFF_MODE4", 1, 3449, 745, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Mode 4 Switch")
+MirageF1:definePushButton("P_CE_IFF_FAULT_BTN", 1, 3450, 746, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Fault Light Button (Push)")
+MirageF1:definePotentiometer("P_CE_IFF_FAULT_KNB", 1, 3451, 747, { 0, 1 }, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Fault Light Knob (Turn)")
+MirageF1:define3PosTumb("P_CE_IFF_AUDIO_L_SW", 1, 3452, 749, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF AUDIO-LIGHT Switch")
+MirageF1:defineToggleSwitch("P_CE_IFF_MODE_M1", 1, 3453, 750, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF M-1 Mode Switch")
+MirageF1:defineToggleSwitch("P_CE_IFF_MODE_M2", 1, 3454, 751, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF M-2 Mode Switch")
+MirageF1:defineToggleSwitch("P_CE_IFF_MODE_M3", 1, 3455, 752, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF M-3 Mode Switch")
+MirageF1:defineToggleSwitch("P_CE_IFF_MODE_MC", 1, 3456, 753, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF M-C Mode Switch")
 
-MirageF1:defineMultipositionSwitch("P_CE_IFF_FUNC_SEL", 1, 3458, 739, 4, 0.3333, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Function Selector Switch")
-MirageF1:defineToggleSwitch("P_CE_IFF_MODE4", 1, 3460, 745, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Mode 4 Switch")
-MirageF1:definePushButton("P_CE_IFF_FAULT_BTN", 1, 3461, 746, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Fault Light Button (Push)")
-MirageF1:definePotentiometer("P_CE_IFF_FAULT_KNB", 1, 3462, 747, { 0, 1 }, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF Fault Light Knob (Turn)")
-MirageF1:define3PosTumb("P_CE_IFF_AUDIO_L_SW", 1, 3464, 749, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF AUDIO-LIGHT Switch")
-MirageF1:defineToggleSwitch("P_CE_IFF_MODE_M1", 1, 3465, 750, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF M-1 Mode Switch")
-MirageF1:defineToggleSwitch("P_CE_IFF_MODE_M2", 1, 3466, 751, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF M-2 Mode Switch")
-MirageF1:defineToggleSwitch("P_CE_IFF_MODE_M3", 1, 3467, 752, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF M-3 Mode Switch")
-MirageF1:defineToggleSwitch("P_CE_IFF_MODE_M4", 1, 3468, 753, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF M-4 Mode Switch")
-
+-- JDA 26-Feb-2024, green light not working in EE cockpit nor in dcs-bios
 MirageF1:defineIndicatorLight("P_CE_IFF_L", 742, "CE/BE/EE IFF Lights", "CE/BE/EE Pilot IFF Light (green)")
 MirageF1:defineIndicatorLight("P_CE_IFF_FAULT_L", 748, "CE/BE/EE IFF Lights", "CE/BE/EE Pilot IFF Fault Light (red)")
 
