@@ -731,7 +731,7 @@ MirageF1:defineToggleSwitch("P_CE_IFF_MODE_M2", 1, 3454, 751, "CE/BE/EE IFF", "C
 MirageF1:defineToggleSwitch("P_CE_IFF_MODE_M3", 1, 3455, 752, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF M-3 Mode Switch")
 MirageF1:defineToggleSwitch("P_CE_IFF_MODE_MC", 1, 3456, 753, "CE/BE/EE IFF", "CE/BE/EE Pilot IFF M-C Mode Switch")
 
--- JDA 26-Feb-2024, green light not working in EE cockpit nor in dcs-bios
+-- JDA 26-Feb-2024, green light not working in cockpit nor in dcs-bios
 MirageF1:defineIndicatorLight("P_CE_IFF_L", 742, "CE/BE/EE IFF Lights", "CE/BE/EE Pilot IFF Light (green)")
 MirageF1:defineIndicatorLight("P_CE_IFF_FAULT_L", 748, "CE/BE/EE IFF Lights", "CE/BE/EE Pilot IFF Fault Light (red)")
 
