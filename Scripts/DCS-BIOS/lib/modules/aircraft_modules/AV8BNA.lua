@@ -299,8 +299,8 @@ AV8BNA:defineToggleSwitch("ACNIP_RADIO_SEL", 8, 3626, 626, "ACNIP", "ACNIP Radio
 AV8BNA:defineToggleSwitch("KY58_CODE_CLEAR", 8, 3627, 627, "ACNIP", "KY-58 Codes Clear Switch")
 AV8BNA:define3PosTumb("KY58_CODE_LOAD", 8, 3628, 628, "ACNIP", "KY-58 Remote Codes Load Switch  RV1/OPR/RV2")
 --ICS
-AV8BNA:definePotentiometer("ICS_AUX_VOL", 4, 3629, 629, { 0, 1 }, "ICS", "ICS Aux Volume Knob")
-AV8BNA:definePotentiometer("ICS_GND_VOL", 4, 3630, 630, { 0, 1 }, "ICS", "ICS Ground Volume Knob")
+AV8BNA:definePotentiometer("ICS_AUX_VOL", 4, 3630, 630, { 0, 1 }, "ICS", "ICS Aux Volume Knob")
+AV8BNA:definePotentiometer("ICS_GND_VOL", 4, 3629, 629, { 0, 1 }, "ICS", "ICS Ground Volume Knob")
 AV8BNA:defineMultipositionSwitch("ICS_MIC_MODE", 4, 3631, 631, 3, 0.5, "ICS", "ICS Mic Operational Mode Switch  COLD/HOT/TEL")
 --IFF
 AV8BNA:defineToggleSwitch("IFF_OPER_MODE", 8, 3632, 632, "IFF", "IFF Operational Mode Switch")
