@@ -78,7 +78,7 @@ F_16C_50:defineSpringloaded_3PosTumb("ANTI_SKID_SW", 7, 3004, 3003, 357, "Gear S
 --ECS
 F_16C_50:definePotentiometer("TEMP_KNB", 13, 3002, 692, { -0.3, 0.3 }, "ECS", "TEMP Knob")
 F_16C_50:defineTumb("AIR_SOURCE_KNB", 13, 3001, 693, 0.1, { 0, 0.4 }, nil, true, "ECS", "AIR SOURCE Knob, OFF/NORM/DUMP/RAM")
-F_16C_50:defineTumb("DEFOG_LEVER", 13, 3003, 602, 0.05, { 0, 1 }, nil, true, "ECS", "DEFOG Lever")
+F_16C_50:defineTumb("DEFOG_LEVER", 13, 3003, 602, 0.05, { 0, 1 }, nil, false, "ECS", "DEFOG Lever")
 
 --EPU
 F_16C_50:defineToggleSwitch("EPU_SW_COVER_ON", 6, 3001, 527, "EPU", "EPU Switch Cover for ON, OPEN/CLOSE")
