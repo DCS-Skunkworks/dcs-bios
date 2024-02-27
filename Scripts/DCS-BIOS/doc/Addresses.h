@@ -25544,7 +25544,7 @@
 #define MirageF1_P_CE_IFF_FUNC_SEL 0x8790, 0x0030, 4
 #define MirageF1_P_CE_IFF_L 0x8790, 0x4000, 14
 #define MirageF1_P_CE_IFF_L_AM 0x8790, 0x4000
-#define MirageF1_P_CE_IFF_M1_1 0x8788, 0x1C00, 10
+#define MirageF1_P_CE_IFF_M1_1 0x8788, 0x0C00, 10
 #define MirageF1_P_CE_IFF_M1_10 0x8788, 0x01C0, 6
 #define MirageF1_P_CE_IFF_M3A_1 0x878E, 0x7000, 12
 #define MirageF1_P_CE_IFF_M3A_10 0x878E, 0x0700, 8
@@ -25559,8 +25559,8 @@
 #define MirageF1_P_CE_IFF_MODE_M2_AM 0x8790, 0x0800
 #define MirageF1_P_CE_IFF_MODE_M3 0x8790, 0x1000, 12
 #define MirageF1_P_CE_IFF_MODE_M3_AM 0x8790, 0x1000
-#define MirageF1_P_CE_IFF_MODE_M4 0x8790, 0x2000, 13
-#define MirageF1_P_CE_IFF_MODE_M4_AM 0x8790, 0x2000
+#define MirageF1_P_CE_IFF_MODE_MC 0x8790, 0x2000, 13
+#define MirageF1_P_CE_IFF_MODE_MC_AM 0x8790, 0x2000
 #define MirageF1_P_CE_IFF_MONITOR_BTN 0x8790, 0x0008, 3
 #define MirageF1_P_CE_IFF_MONITOR_BTN_AM 0x8790, 0x0008
 #define MirageF1_P_CE_IFF_MONITOR_KNB 0x8792, 0xFFFF, 0
