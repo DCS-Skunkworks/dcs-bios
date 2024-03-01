@@ -5,7 +5,6 @@ local ControlType = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlT
 local Functions = require("Scripts.DCS-BIOS.lib.common.Functions")
 local IntegerOutput = require("Scripts.DCS-BIOS.lib.modules.documentation.IntegerOutput")
 local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
-local PhysicalVariant = require("Scripts.DCS-BIOS.lib.modules.documentation.PhysicalVariant")
 local Suffix = require("Scripts.DCS-BIOS.lib.modules.documentation.Suffix")
 
 --- @class Ka_50 : Module
