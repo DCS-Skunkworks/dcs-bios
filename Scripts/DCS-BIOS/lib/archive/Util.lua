@@ -394,14 +394,12 @@ end
 function BIOS.util.definePushButton(msg, device_id, command, arg_number, category, description)
 	BIOS.util.defineTumb(msg, device_id, command, arg_number, 1, {0, 1}, nil, false, category, description)
 	local docentry = moduleBeingDefined.documentation[category][msg]
-	docentry.physical_variant = "push_button"
 	docentry.api_variant = "momentary_last_position"
 end
 
 function BIOS.util.define3PosTumb(msg, device_id, command, arg_number, category, description)
 	BIOS.util.defineTumb(msg, device_id, command, arg_number, 1, {-1, 1}, nil, false, category, description)
 	local docentry = moduleBeingDefined.documentation[category][msg]
-	docentry.physical_variant = "3_position_switch"
 end
 
 function BIOS.util.definePotentiometer(msg, device_id, command, arg_number, limits, category, description)
@@ -571,7 +569,6 @@ function BIOS.util.defineSetCommandTumb(msg, device_id, command, arg_number, ste
 		category = category,
 		description = description,
 		control_type = "selector",
-		momentary_positions = "none",
 		inputs = {
 			{ interface = "fixed_step", description = "switch to previous or next state" },
 			{ interface = "set_state", max_value = max_value, description = "set position" },
@@ -588,11 +585,7 @@ function BIOS.util.defineSetCommandTumb(msg, device_id, command, arg_number, ste
 		}
 	}
 	local docentry = moduleBeingDefined.documentation[category][msg]
-	if cycle then
-		docentry.physical_variant = "infinite_rotary"
-	else
-		docentry.physical_variant = "limited_rotary"
-	end
+
 	if output_map then
 		docentry.outputs[1].suffix = "_INT"
 		docentry.outputs[2] = {
@@ -674,7 +667,6 @@ function BIOS.util.defineTumb(msg, device_id, command, arg_number, step, limits,
 		category = category,
 		description = description,
 		control_type = "selector",
-		momentary_positions = "none",
 		inputs = {
 			{ interface = "fixed_step", description = "switch to previous or next state" },
 			{ interface = "set_state", max_value = max_value, description = "set position" },
@@ -691,11 +683,7 @@ function BIOS.util.defineTumb(msg, device_id, command, arg_number, step, limits,
 		}
 	}
 	local docentry = moduleBeingDefined.documentation[category][msg]
-	if cycle then
-		docentry.physical_variant = "infinite_rotary"
-	else
-		docentry.physical_variant = "limited_rotary"
-	end
+
 	if last_n == 1 then
 		docentry.inputs[#docentry.inputs+1] = { interface = "action", argument = "TOGGLE", description = "Toggle switch state" }
 	end
@@ -741,7 +729,6 @@ end
 function BIOS.util.defineToggleSwitch(msg, device_id, command, arg_number, category, description)
 	BIOS.util.defineTumb(msg, device_id, command, arg_number, 1, {0, 1}, nil, false, category, description)
 	local docentry = moduleBeingDefined.documentation[category][msg]
-	docentry.physical_variant = "toggle_switch"
 end
 
 function BIOS.util.defineToggleSwitchToggleOnly(msg, device_id, command, arg_number, category, description)
@@ -913,8 +900,6 @@ function BIOS.util.defineRockerSwitch(msg, device_id, pos_command, pos_stop_comm
 		category = category,
 		description = description,
 		control_type = "selector",
-		momentary_positions = "first_and_last",
-		physical_variant = "rocker_switch",
 		inputs = {
 			{ interface = "set_state", max_value = 2, description = "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up" },
 		},
@@ -959,7 +944,6 @@ end
 function BIOS.util.defineMultipositionSwitch(msg, device_id, device_command, arg_number, num_positions, increment, category, description)
 	BIOS.util.defineTumb(msg, device_id, device_command, arg_number, increment, {0, increment*(num_positions-1)}, nil, false, category, description)
 	local docentry = moduleBeingDefined.documentation[category][msg]
-	docentry.physical_variant = "toggle_switch"
 end
 
 function BIOS.util.encodeInt(intval)
@@ -1128,7 +1112,6 @@ function BIOS.util.defineDoubleCommandButton(msg, device_id, start_command, stop
 		category = category,
 		description = description,
 		control_type = "selector",
-		momentary_positions = "first_and_last",
 		inputs = {
 			{ interface = "fixed_step", description = "switch to previous or next state" },
 			{ interface = "set_state", max_value = 1, description = "set position" },
@@ -1143,7 +1126,6 @@ function BIOS.util.defineDoubleCommandButton(msg, device_id, start_command, stop
 			  description = "selector position"
 			}
 		},
-		physical_variant = "push_button",
 	}
 	moduleBeingDefined.inputProcessors[msg] = function(toState)
 		local dev = GetDevice(device_id)
@@ -1168,8 +1150,6 @@ function BIOS.util.defineMomentaryRockerSwitch(msg, device_id, pos_command, pos_
 		category = category,
 		description = description,
 		control_type = "selector",
-		momentary_positions = "first_and_last",
-		physical_variant = "rocker_switch",
 		inputs = {
 			{ interface = "fixed_step", description = "switch to previous or next state" },
 			{ interface = "set_state", max_value = 2, description = "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up" },
