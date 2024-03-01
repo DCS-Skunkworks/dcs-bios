@@ -7,8 +7,6 @@ local Control = require("Scripts.DCS-BIOS.lib.modules.documentation.Control")
 local ControlType = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlType")
 local Functions = require("Scripts.DCS-BIOS.lib.common.Functions")
 local IntegerOutput = require("Scripts.DCS-BIOS.lib.modules.documentation.IntegerOutput")
-local MomentaryPositions = require("Scripts.DCS-BIOS.lib.modules.documentation.MomentaryPositions")
-local PhysicalVariant = require("Scripts.DCS-BIOS.lib.modules.documentation.PhysicalVariant")
 local Suffix = require("Scripts.DCS-BIOS.lib.modules.documentation.Suffix")
 
 local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
@@ -34,7 +32,7 @@ function AJS37:defineMissileSelectPushButton(identifier, device_id, command, arg
 		ActionInput:new(ActionArgument.toggle, "Presses the button"),
 	}, {
 		IntegerOutput:new(alloc, Suffix.none, "The position of the button"),
-	}, MomentaryPositions.last, PhysicalVariant.push_button, ApiVariant.momentary_last_position)
+	})
 
 	self:addInputProcessor(identifier, function(value)
 		if value == "TOGGLE" then
