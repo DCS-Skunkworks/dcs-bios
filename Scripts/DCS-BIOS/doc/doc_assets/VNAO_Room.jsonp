@@ -580,35 +580,33 @@ docdata["VNAO_Room"] =
                },
     "Systems": {
                        "LIGHTS": {
-                                                "category": "Systems",
-                                            "control_type": "selector",
-                                             "description": "Light Switch",
-                                              "identifier": "LIGHTS",
-                                                  "inputs": [ {
-                                                                "description": "switch to previous or next state",
-                                                                  "interface": "fixed_step"
-                                                            }, {
-                                                                "description": "set position",
-                                                                  "interface": "set_state",
-                                                                  "max_value": 1
-                                                            }, {
-                                                                   "argument": "TOGGLE",
-                                                                "description": "Toggle switch state",
-                                                                  "interface": "action"
-                                                            } ],
-                                     "momentary_positions": "none",
-                                                 "outputs": [ {
-                                                                                      "address": 1280,
-                                                                      "address_mask_identifier": "VNAO_Room_LIGHTS_AM",
-                                                                "address_mask_shift_identifier": "VNAO_Room_LIGHTS",
-                                                                                  "description": "selector position",
-                                                                                         "mask": 4,
-                                                                                    "max_value": 1,
-                                                                                     "shift_by": 2,
-                                                                                       "suffix": "",
-                                                                                         "type": "integer"
-                                                            } ],
-                                        "physical_variant": "toggle_switch"
+                                         "category": "Systems",
+                                     "control_type": "selector",
+                                      "description": "Light Switch",
+                                       "identifier": "LIGHTS",
+                                           "inputs": [ {
+                                                         "description": "switch to previous or next state",
+                                                           "interface": "fixed_step"
+                                                     }, {
+                                                         "description": "set position",
+                                                           "interface": "set_state",
+                                                           "max_value": 1
+                                                     }, {
+                                                            "argument": "TOGGLE",
+                                                         "description": "Toggle switch state",
+                                                           "interface": "action"
+                                                     } ],
+                                          "outputs": [ {
+                                                                               "address": 1280,
+                                                               "address_mask_identifier": "VNAO_Room_LIGHTS_AM",
+                                                         "address_mask_shift_identifier": "VNAO_Room_LIGHTS",
+                                                                           "description": "selector position",
+                                                                                  "mask": 4,
+                                                                             "max_value": 1,
+                                                                              "shift_by": 2,
+                                                                                "suffix": "",
+                                                                                  "type": "integer"
+                                                     } ]
                                  },
                     "LIGHT_DIM": {
                                          "category": "Systems",
@@ -638,68 +636,64 @@ docdata["VNAO_Room"] =
                                                      } ]
                                  },
                    "SLIDE_NEXT": {
-                                             "api_variant": "momentary_last_position",
-                                                "category": "Systems",
-                                            "control_type": "selector",
-                                             "description": "Next Slide",
-                                              "identifier": "SLIDE_NEXT",
-                                                  "inputs": [ {
-                                                                "description": "switch to previous or next state",
-                                                                  "interface": "fixed_step"
-                                                            }, {
-                                                                "description": "set position",
-                                                                  "interface": "set_state",
-                                                                  "max_value": 1
-                                                            }, {
-                                                                   "argument": "TOGGLE",
-                                                                "description": "Toggle switch state",
-                                                                  "interface": "action"
-                                                            } ],
-                                     "momentary_positions": "none",
-                                                 "outputs": [ {
-                                                                                      "address": 1280,
-                                                                      "address_mask_identifier": "VNAO_Room_SLIDE_NEXT_AM",
-                                                                "address_mask_shift_identifier": "VNAO_Room_SLIDE_NEXT",
-                                                                                  "description": "selector position",
-                                                                                         "mask": 2,
-                                                                                    "max_value": 1,
-                                                                                     "shift_by": 1,
-                                                                                       "suffix": "",
-                                                                                         "type": "integer"
-                                                            } ],
-                                        "physical_variant": "push_button"
+                                      "api_variant": "momentary_last_position",
+                                         "category": "Systems",
+                                     "control_type": "selector",
+                                      "description": "Next Slide",
+                                       "identifier": "SLIDE_NEXT",
+                                           "inputs": [ {
+                                                         "description": "switch to previous or next state",
+                                                           "interface": "fixed_step"
+                                                     }, {
+                                                         "description": "set position",
+                                                           "interface": "set_state",
+                                                           "max_value": 1
+                                                     }, {
+                                                            "argument": "TOGGLE",
+                                                         "description": "Toggle switch state",
+                                                           "interface": "action"
+                                                     } ],
+                                          "outputs": [ {
+                                                                               "address": 1280,
+                                                               "address_mask_identifier": "VNAO_Room_SLIDE_NEXT_AM",
+                                                         "address_mask_shift_identifier": "VNAO_Room_SLIDE_NEXT",
+                                                                           "description": "selector position",
+                                                                                  "mask": 2,
+                                                                             "max_value": 1,
+                                                                              "shift_by": 1,
+                                                                                "suffix": "",
+                                                                                  "type": "integer"
+                                                     } ]
                                  },
                    "SLIDE_PREV": {
-                                             "api_variant": "momentary_last_position",
-                                                "category": "Systems",
-                                            "control_type": "selector",
-                                             "description": "Previous Slide",
-                                              "identifier": "SLIDE_PREV",
-                                                  "inputs": [ {
-                                                                "description": "switch to previous or next state",
-                                                                  "interface": "fixed_step"
-                                                            }, {
-                                                                "description": "set position",
-                                                                  "interface": "set_state",
-                                                                  "max_value": 1
-                                                            }, {
-                                                                   "argument": "TOGGLE",
-                                                                "description": "Toggle switch state",
-                                                                  "interface": "action"
-                                                            } ],
-                                     "momentary_positions": "none",
-                                                 "outputs": [ {
-                                                                                      "address": 1280,
-                                                                      "address_mask_identifier": "VNAO_Room_SLIDE_PREV_AM",
-                                                                "address_mask_shift_identifier": "VNAO_Room_SLIDE_PREV",
-                                                                                  "description": "selector position",
-                                                                                         "mask": 1,
-                                                                                    "max_value": 1,
-                                                                                     "shift_by": 0,
-                                                                                       "suffix": "",
-                                                                                         "type": "integer"
-                                                            } ],
-                                        "physical_variant": "push_button"
+                                      "api_variant": "momentary_last_position",
+                                         "category": "Systems",
+                                     "control_type": "selector",
+                                      "description": "Previous Slide",
+                                       "identifier": "SLIDE_PREV",
+                                           "inputs": [ {
+                                                         "description": "switch to previous or next state",
+                                                           "interface": "fixed_step"
+                                                     }, {
+                                                         "description": "set position",
+                                                           "interface": "set_state",
+                                                           "max_value": 1
+                                                     }, {
+                                                            "argument": "TOGGLE",
+                                                         "description": "Toggle switch state",
+                                                           "interface": "action"
+                                                     } ],
+                                          "outputs": [ {
+                                                                               "address": 1280,
+                                                               "address_mask_identifier": "VNAO_Room_SLIDE_PREV_AM",
+                                                         "address_mask_shift_identifier": "VNAO_Room_SLIDE_PREV",
+                                                                           "description": "selector position",
+                                                                                  "mask": 1,
+                                                                             "max_value": 1,
+                                                                              "shift_by": 0,
+                                                                                "suffix": "",
+                                                                                  "type": "integer"
+                                                     } ]
                                  }
                }
 };

@@ -7,8 +7,6 @@ module("Control", package.seeall)
 --- @field description string
 --- @field inputs Input[] any inputs the control supports
 --- @field outputs Output[] any outputs the control supports
---- @field momentary_positions MomentaryPositions? TODO
---- @field physical_variant PhysicalVariant? TODO
 --- @field api_variant ApiVariant? TODO
 local Control = {}
 
@@ -18,11 +16,9 @@ local Control = {}
 --- @param identifier string the identifier of the control
 --- @param inputs Input[] any inputs the control supports
 --- @param outputs Output[] any outputs the control supports
---- @param momentaryPositions MomentaryPositions? TODO
---- @param physicalVariant PhysicalVariant? TODO
 --- @param apiVariant ApiVariant? TODO
 --- @return Control
-function Control:new(category, controlType, identifier, description, inputs, outputs, momentaryPositions, physicalVariant, apiVariant)
+function Control:new(category, controlType, identifier, description, inputs, outputs, apiVariant)
 	assert(category ~= nil)
 	assert(controlType ~= nil)
 	assert(identifier ~= nil)
@@ -38,8 +34,6 @@ function Control:new(category, controlType, identifier, description, inputs, out
 		description = description,
 		inputs = inputs,
 		outputs = outputs,
-		momentary_positions = momentaryPositions,
-		physical_variant = physicalVariant,
 		api_variant = apiVariant,
 	}
 

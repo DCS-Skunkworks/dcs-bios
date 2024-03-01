@@ -43,7 +43,7 @@ function C_101:defineRotaryPlus(identifier, device_id, command2, command1, arg_n
 		VariableStepInput:new(3200, max_value, "turn the dial left or right"),
 	}, {
 		IntegerOutput:new(alloc, Suffix.knob_pos, "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)"),
-	}, nil, nil, ApiVariant.multiturn)
+	}, ApiVariant.multiturn)
 
 	self:addControl(control)
 

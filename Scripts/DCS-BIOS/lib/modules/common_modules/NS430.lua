@@ -6,8 +6,6 @@ local ControlType = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlT
 local FixedStepInput = require("Scripts.DCS-BIOS.lib.modules.documentation.FixedStepInput")
 local IntegerOutput = require("Scripts.DCS-BIOS.lib.modules.documentation.IntegerOutput")
 local Log = require("Scripts.DCS-BIOS.lib.common.Log")
-local MomentaryPositions = require("Scripts.DCS-BIOS.lib.modules.documentation.MomentaryPositions")
-local PhysicalVariant = require("Scripts.DCS-BIOS.lib.modules.documentation.PhysicalVariant")
 local SetStateInput = require("Scripts.DCS-BIOS.lib.modules.documentation.SetStateInput")
 local Suffix = require("Scripts.DCS-BIOS.lib.modules.documentation.Suffix")
 local VariableStepInput = require("Scripts.DCS-BIOS.lib.modules.documentation.VariableStepInput")
@@ -81,7 +79,7 @@ function NS430:defineDoubleCommandButton(identifier, ns430_device_id, device_id,
 
 	local control = Control:new(category, ControlType.selector, identifier, description, {
 		FixedStepInput:new("switch to previous or next state"),
-	}, { IntegerOutput:new(alloc, Suffix.none, "selector position") }, MomentaryPositions.first_and_last, PhysicalVariant.push_button, "multiturn")
+	}, { IntegerOutput:new(alloc, Suffix.none, "selector position") }, "multiturn")
 	self:addControl(control)
 
 	self:addInputProcessor(identifier, function(toState)
@@ -113,7 +111,7 @@ function NS430:defineMomentaryRockerSwitch(identifier, ns430_device_id, device_i
 		SetStateInput:new(2, "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up"),
 	}, {
 		IntegerOutput:new(alloc, Suffix.none, "button position"),
-	}, MomentaryPositions.first_and_last, PhysicalVariant.rocker_switch)
+	})
 	self:addControl(control)
 
 	self:addInputProcessor(identifier, function(value)
@@ -192,7 +190,7 @@ function NS430:definePotentiometer2(identifier, ns430_device_id, device_id, comm
 		VariableStepInput:new(3200, max_value, "turn the dial left or right"),
 	}, {
 		IntegerOutput:new(value, Suffix.none, "position of the potentiometer"),
-	}, MomentaryPositions.none, PhysicalVariant.limited_rotary)
+	})
 	self:addControl(control)
 
 	return control
@@ -219,7 +217,7 @@ function NS430:defineRotary2(identifier, ns430_device_id, device_id, command, ar
 		VariableStepInput:new(3200, max_value, "turn the dial left or right"),
 	}, {
 		IntegerOutput:new(value, Suffix.knob_pos, "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)"),
-	}, nil, PhysicalVariant.infinite_rotary, ApiVariant.multiturn)
+	}, ApiVariant.multiturn)
 	self:addControl(control)
 
 	self:addExportHook(function(dev0)
