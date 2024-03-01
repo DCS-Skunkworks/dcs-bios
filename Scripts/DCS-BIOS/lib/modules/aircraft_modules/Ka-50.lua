@@ -36,7 +36,7 @@ local function definePushButtonLed(self, identifier, arg_number, category, descr
 
 	local control = Control:new(category, ControlType.led, identifier, description, {}, {
 		IntegerOutput:new(alloc, Suffix.none, "0 if light is off, 1 if light is on"),
-	}, nil, PhysicalVariant.button_light)
+	}, nil)
 	self:addControl(control)
 
 	return control
