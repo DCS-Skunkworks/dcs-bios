@@ -495,7 +495,7 @@ function Module:defineRotary(identifier, device_id, command, arg_number, categor
 		VariableStepInput:new(3200, max_value, "turn the dial left or right"),
 	}, {
 		IntegerOutput:new(value, Suffix.knob_pos, "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)"),
-	}, nil, nil, ApiVariant.multiturn)
+	}, ApiVariant.multiturn)
 	self:addControl(control)
 
 	self:addExportHook(function(dev0)

@@ -217,7 +217,7 @@ function NS430:defineRotary2(identifier, ns430_device_id, device_id, command, ar
 		VariableStepInput:new(3200, max_value, "turn the dial left or right"),
 	}, {
 		IntegerOutput:new(value, Suffix.knob_pos, "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)"),
-	}, nil, ApiVariant.multiturn)
+	}, ApiVariant.multiturn)
 	self:addControl(control)
 
 	self:addExportHook(function(dev0)
