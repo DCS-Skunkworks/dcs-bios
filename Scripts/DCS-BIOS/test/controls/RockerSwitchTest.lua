@@ -2,9 +2,7 @@ local ControlType = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlT
 local InputType = require("Scripts.DCS-BIOS.lib.modules.documentation.InputType")
 local MockDevice = require("Scripts.DCS-BIOS.test.controls.MockDevice")
 local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
-local MomentaryPositions = require("Scripts.DCS-BIOS.lib.modules.documentation.MomentaryPositions")
 local OutputType = require("Scripts.DCS-BIOS.lib.modules.documentation.OutputType")
-local PhysicalVariant = require("Scripts.DCS-BIOS.lib.modules.documentation.PhysicalVariant")
 local Suffix = require("Scripts.DCS-BIOS.lib.modules.documentation.Suffix")
 
 local lu = require("Scripts.DCS-BIOS.test.ext.luaunit")
