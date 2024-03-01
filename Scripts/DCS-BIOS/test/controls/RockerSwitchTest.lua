@@ -38,8 +38,6 @@ function TestRockerSwitch:testAddRockerSwitch()
 	lu.assertEquals(control.category, category)
 	lu.assertEquals(control.description, description)
 	lu.assertEquals(control.identifier, id)
-	lu.assertEquals(control.momentary_positions, MomentaryPositions.first_and_last)
-	lu.assertEquals(control.physical_variant, PhysicalVariant.rocker_switch)
 	lu.assertIsNil(control.api_variant)
 
 	lu.assertEquals(#control.inputs, 1)

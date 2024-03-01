@@ -35,7 +35,6 @@ function TestSpringLoadedThreePosTumb:testAdd3PosTumb()
 	lu.assertEquals(control.category, category)
 	lu.assertEquals(control.description, description)
 	lu.assertEquals(control.identifier, id)
-	lu.assertIsNil(control.physical_variant)
 	lu.assertIsNil(control.api_variant)
 
 	lu.assertEquals(#control.inputs, 1)

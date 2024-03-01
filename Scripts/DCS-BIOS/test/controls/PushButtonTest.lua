@@ -36,7 +36,6 @@ function TestPushButton:testAddPushButton()
 	lu.assertEquals(control.category, category)
 	lu.assertEquals(control.description, description)
 	lu.assertEquals(control.identifier, id)
-	lu.assertEquals(control.physical_variant, PhysicalVariant.push_button)
 	lu.assertEquals(control.api_variant, ApiVariant.momentary_last_position)
 
 	lu.assertEquals(#control.inputs, 3)

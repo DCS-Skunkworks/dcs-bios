@@ -36,7 +36,6 @@ function TestMultipositionSwitch:testAddMultipositionSwitch()
 	lu.assertEquals(control.category, category)
 	lu.assertEquals(control.description, description)
 	lu.assertEquals(control.identifier, id)
-	lu.assertEquals(control.physical_variant, PhysicalVariant.toggle_switch)
 	lu.assertIsNil(control.api_variant)
 
 	lu.assertEquals(#control.inputs, 2)

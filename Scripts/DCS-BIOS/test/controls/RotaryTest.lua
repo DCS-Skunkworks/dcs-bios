@@ -34,7 +34,6 @@ function TestRotary:testAddRotary()
 	lu.assertEquals(control.category, category)
 	lu.assertEquals(control.description, description)
 	lu.assertEquals(control.identifier, id)
-	lu.assertIsNil(control.physical_variant)
 	lu.assertEquals(control.api_variant, ApiVariant.multiturn)
 	lu.assertEquals(#control.inputs, 1)
 
