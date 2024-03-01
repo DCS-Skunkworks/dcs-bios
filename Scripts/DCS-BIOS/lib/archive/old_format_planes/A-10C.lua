@@ -475,6 +475,8 @@ local function defineCMSPSwitch(msg, device_id, down_command, up_command, arg_nu
 		category = category,
 		description = description,
 		control_type = "selector",
+		momentary_positions = "last",
+		physical_variant = "toggle_switch",
 		inputs = {
 			{ interface = "set_state", max_value = 2, description = "set the switch position -- 0 = down, 1 = centered, 2 = held up" },
 		},

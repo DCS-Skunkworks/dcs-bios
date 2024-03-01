@@ -25,6 +25,7 @@ local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
 local function defineLedPushButton(msg, device_id, device_command, arg_number, category, description)
 	BIOS.util.defineTumb(msg, device_id, device_command, arg_number, 0.3, {0, 0.3}, nil, false, category, description)
 	local docentry = moduleBeingDefined.documentation[category][msg]
+	docentry.physical_variant = "push_button"
 	docentry.api_variant = "momentary_last_position"
 end
 
@@ -55,6 +56,7 @@ local function definePushButtonLed(msg, arg_number, category, description)
 			  description = "0 if light is off, 1 if light is on"
 			}
 		},
+		physical_variant = "button_light",
 	}
 end
 
