@@ -3,7 +3,6 @@ local InputType = require("Scripts.DCS-BIOS.lib.modules.documentation.InputType"
 local MockDevice = require("Scripts.DCS-BIOS.test.controls.MockDevice")
 local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 local OutputType = require("Scripts.DCS-BIOS.lib.modules.documentation.OutputType")
-local PhysicalVariant = require("Scripts.DCS-BIOS.lib.modules.documentation.PhysicalVariant")
 local Suffix = require("Scripts.DCS-BIOS.lib.modules.documentation.Suffix")
 
 local lu = require("Scripts.DCS-BIOS.test.ext.luaunit")
@@ -39,7 +38,6 @@ function TestSetCommandTumb:testAddTumbNoCycle()
 	lu.assertEquals(control.category, category)
 	lu.assertEquals(control.description, description)
 	lu.assertEquals(control.identifier, id)
-	lu.assertEquals(control.physical_variant, PhysicalVariant.limited_rotary)
 	lu.assertIsNil(control.api_variant)
 
 	lu.assertEquals(#control.inputs, 2)
@@ -76,7 +74,6 @@ function TestSetCommandTumb:testAddTumbCycle()
 	lu.assertEquals(control.category, category)
 	lu.assertEquals(control.description, description)
 	lu.assertEquals(control.identifier, id)
-	lu.assertEquals(control.physical_variant, PhysicalVariant.infinite_rotary)
 	lu.assertIsNil(control.api_variant)
 
 	lu.assertEquals(#control.inputs, 2)

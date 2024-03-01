@@ -109,125 +109,117 @@ docdata["AH-6J"] =
                                },
             "Electric System": {
                                    "GEN_SWITCH": {
-                                                                "category": "Electric System",
-                                                            "control_type": "selector",
-                                                             "description": "Generator Switch, ON/OFF",
-                                                              "identifier": "GEN_SWITCH",
-                                                                  "inputs": [ {
-                                                                                "description": "switch to previous or next state",
-                                                                                  "interface": "fixed_step"
-                                                                            }, {
-                                                                                "description": "set position",
-                                                                                  "interface": "set_state",
-                                                                                  "max_value": 1
-                                                                            }, {
-                                                                                   "argument": "TOGGLE",
-                                                                                "description": "Toggle switch state",
-                                                                                  "interface": "action"
-                                                                            } ],
-                                                     "momentary_positions": "none",
-                                                                 "outputs": [ {
-                                                                                                      "address": 25088,
-                                                                                      "address_mask_identifier": "AH_6J_GEN_SWITCH_AM",
-                                                                                "address_mask_shift_identifier": "AH_6J_GEN_SWITCH",
-                                                                                                  "description": "selector position",
-                                                                                                         "mask": 4,
-                                                                                                    "max_value": 1,
-                                                                                                     "shift_by": 2,
-                                                                                                       "suffix": "",
-                                                                                                         "type": "integer"
-                                                                            } ],
-                                                        "physical_variant": "toggle_switch"
+                                                         "category": "Electric System",
+                                                     "control_type": "selector",
+                                                      "description": "Generator Switch, ON/OFF",
+                                                       "identifier": "GEN_SWITCH",
+                                                           "inputs": [ {
+                                                                         "description": "switch to previous or next state",
+                                                                           "interface": "fixed_step"
+                                                                     }, {
+                                                                         "description": "set position",
+                                                                           "interface": "set_state",
+                                                                           "max_value": 1
+                                                                     }, {
+                                                                            "argument": "TOGGLE",
+                                                                         "description": "Toggle switch state",
+                                                                           "interface": "action"
+                                                                     } ],
+                                                          "outputs": [ {
+                                                                                               "address": 25088,
+                                                                               "address_mask_identifier": "AH_6J_GEN_SWITCH_AM",
+                                                                         "address_mask_shift_identifier": "AH_6J_GEN_SWITCH",
+                                                                                           "description": "selector position",
+                                                                                                  "mask": 4,
+                                                                                             "max_value": 1,
+                                                                                              "shift_by": 2,
+                                                                                                "suffix": "",
+                                                                                                  "type": "integer"
+                                                                     } ]
                                                  },
                                    "INV_SWITCH": {
-                                                                "category": "Electric System",
-                                                            "control_type": "selector",
-                                                             "description": "Inverter Switch, ON/OFF",
-                                                              "identifier": "INV_SWITCH",
-                                                                  "inputs": [ {
-                                                                                "description": "switch to previous or next state",
-                                                                                  "interface": "fixed_step"
-                                                                            }, {
-                                                                                "description": "set position",
-                                                                                  "interface": "set_state",
-                                                                                  "max_value": 1
-                                                                            }, {
-                                                                                   "argument": "TOGGLE",
-                                                                                "description": "Toggle switch state",
-                                                                                  "interface": "action"
-                                                                            } ],
-                                                     "momentary_positions": "none",
-                                                                 "outputs": [ {
-                                                                                                      "address": 25088,
-                                                                                      "address_mask_identifier": "AH_6J_INV_SWITCH_AM",
-                                                                                "address_mask_shift_identifier": "AH_6J_INV_SWITCH",
-                                                                                                  "description": "selector position",
-                                                                                                         "mask": 8,
-                                                                                                    "max_value": 1,
-                                                                                                     "shift_by": 3,
-                                                                                                       "suffix": "",
-                                                                                                         "type": "integer"
-                                                                            } ],
-                                                        "physical_variant": "toggle_switch"
+                                                         "category": "Electric System",
+                                                     "control_type": "selector",
+                                                      "description": "Inverter Switch, ON/OFF",
+                                                       "identifier": "INV_SWITCH",
+                                                           "inputs": [ {
+                                                                         "description": "switch to previous or next state",
+                                                                           "interface": "fixed_step"
+                                                                     }, {
+                                                                         "description": "set position",
+                                                                           "interface": "set_state",
+                                                                           "max_value": 1
+                                                                     }, {
+                                                                            "argument": "TOGGLE",
+                                                                         "description": "Toggle switch state",
+                                                                           "interface": "action"
+                                                                     } ],
+                                                          "outputs": [ {
+                                                                                               "address": 25088,
+                                                                               "address_mask_identifier": "AH_6J_INV_SWITCH_AM",
+                                                                         "address_mask_shift_identifier": "AH_6J_INV_SWITCH",
+                                                                                           "description": "selector position",
+                                                                                                  "mask": 8,
+                                                                                             "max_value": 1,
+                                                                                              "shift_by": 3,
+                                                                                                "suffix": "",
+                                                                                                  "type": "integer"
+                                                                     } ]
                                                  },
                                     "PW_SEL_SW": {
-                                                                "category": "Electric System",
-                                                            "control_type": "selector",
-                                                             "description": "Power Selector Switch, BATT/OFF/EXT",
-                                                              "identifier": "PW_SEL_SW",
-                                                                  "inputs": [ {
-                                                                                "description": "switch to previous or next state",
-                                                                                  "interface": "fixed_step"
-                                                                            }, {
-                                                                                "description": "set position",
-                                                                                  "interface": "set_state",
-                                                                                  "max_value": 2
-                                                                            } ],
-                                                     "momentary_positions": "none",
-                                                                 "outputs": [ {
-                                                                                                      "address": 25088,
-                                                                                "address_mask_shift_identifier": "AH_6J_PW_SEL_SW",
-                                                                                                  "description": "selector position",
-                                                                                                         "mask": 3,
-                                                                                                    "max_value": 2,
-                                                                                                     "shift_by": 0,
-                                                                                                       "suffix": "",
-                                                                                                         "type": "integer"
-                                                                            } ],
-                                                        "physical_variant": "3_position_switch"
+                                                         "category": "Electric System",
+                                                     "control_type": "selector",
+                                                      "description": "Power Selector Switch, BATT/OFF/EXT",
+                                                       "identifier": "PW_SEL_SW",
+                                                           "inputs": [ {
+                                                                         "description": "switch to previous or next state",
+                                                                           "interface": "fixed_step"
+                                                                     }, {
+                                                                         "description": "set position",
+                                                                           "interface": "set_state",
+                                                                           "max_value": 2
+                                                                     } ],
+                                                          "outputs": [ {
+                                                                                               "address": 25088,
+                                                                         "address_mask_shift_identifier": "AH_6J_PW_SEL_SW",
+                                                                                           "description": "selector position",
+                                                                                                  "mask": 3,
+                                                                                             "max_value": 2,
+                                                                                              "shift_by": 0,
+                                                                                                "suffix": "",
+                                                                                                  "type": "integer"
+                                                                     } ]
                                                  }
                                },
                     "Engines": {
                                    "THROTTLE_CUTOFF": {
-                                                                     "category": "Engines",
-                                                                 "control_type": "selector",
-                                                                  "description": "Throttle Cutoff",
-                                                                   "identifier": "THROTTLE_CUTOFF",
-                                                                       "inputs": [ {
-                                                                                     "description": "switch to previous or next state",
-                                                                                       "interface": "fixed_step"
-                                                                                 }, {
-                                                                                     "description": "set position",
-                                                                                       "interface": "set_state",
-                                                                                       "max_value": 1
-                                                                                 }, {
-                                                                                        "argument": "TOGGLE",
-                                                                                     "description": "Toggle switch state",
-                                                                                       "interface": "action"
-                                                                                 } ],
-                                                          "momentary_positions": "none",
-                                                                      "outputs": [ {
-                                                                                                           "address": 25088,
-                                                                                           "address_mask_identifier": "AH_6J_THROTTLE_CUTOFF_AM",
-                                                                                     "address_mask_shift_identifier": "AH_6J_THROTTLE_CUTOFF",
-                                                                                                       "description": "selector position",
-                                                                                                              "mask": 16,
-                                                                                                         "max_value": 1,
-                                                                                                          "shift_by": 4,
-                                                                                                            "suffix": "",
-                                                                                                              "type": "integer"
-                                                                                 } ],
-                                                             "physical_variant": "toggle_switch"
+                                                              "category": "Engines",
+                                                          "control_type": "selector",
+                                                           "description": "Throttle Cutoff",
+                                                            "identifier": "THROTTLE_CUTOFF",
+                                                                "inputs": [ {
+                                                                              "description": "switch to previous or next state",
+                                                                                "interface": "fixed_step"
+                                                                          }, {
+                                                                              "description": "set position",
+                                                                                "interface": "set_state",
+                                                                                "max_value": 1
+                                                                          }, {
+                                                                                 "argument": "TOGGLE",
+                                                                              "description": "Toggle switch state",
+                                                                                "interface": "action"
+                                                                          } ],
+                                                               "outputs": [ {
+                                                                                                    "address": 25088,
+                                                                                    "address_mask_identifier": "AH_6J_THROTTLE_CUTOFF_AM",
+                                                                              "address_mask_shift_identifier": "AH_6J_THROTTLE_CUTOFF",
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 16,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 4,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                          } ]
                                                       }
                                },
     "External Aircraft Model": {
@@ -288,66 +280,62 @@ docdata["AH-6J"] =
                                },
             "External Lights": {
                                    "LAND_L_SW": {
-                                                               "category": "External Lights",
-                                                           "control_type": "selector",
-                                                            "description": "Landing Light Switch, ON/OFF",
-                                                             "identifier": "LAND_L_SW",
-                                                                 "inputs": [ {
-                                                                               "description": "switch to previous or next state",
-                                                                                 "interface": "fixed_step"
-                                                                           }, {
-                                                                               "description": "set position",
-                                                                                 "interface": "set_state",
-                                                                                 "max_value": 1
-                                                                           }, {
-                                                                                  "argument": "TOGGLE",
-                                                                               "description": "Toggle switch state",
-                                                                                 "interface": "action"
-                                                                           } ],
-                                                    "momentary_positions": "none",
-                                                                "outputs": [ {
-                                                                                                     "address": 25088,
-                                                                                     "address_mask_identifier": "AH_6J_LAND_L_SW_AM",
-                                                                               "address_mask_shift_identifier": "AH_6J_LAND_L_SW",
-                                                                                                 "description": "selector position",
-                                                                                                        "mask": 32768,
-                                                                                                   "max_value": 1,
-                                                                                                    "shift_by": 15,
-                                                                                                      "suffix": "",
-                                                                                                        "type": "integer"
-                                                                           } ],
-                                                       "physical_variant": "toggle_switch"
+                                                        "category": "External Lights",
+                                                    "control_type": "selector",
+                                                     "description": "Landing Light Switch, ON/OFF",
+                                                      "identifier": "LAND_L_SW",
+                                                          "inputs": [ {
+                                                                        "description": "switch to previous or next state",
+                                                                          "interface": "fixed_step"
+                                                                    }, {
+                                                                        "description": "set position",
+                                                                          "interface": "set_state",
+                                                                          "max_value": 1
+                                                                    }, {
+                                                                           "argument": "TOGGLE",
+                                                                        "description": "Toggle switch state",
+                                                                          "interface": "action"
+                                                                    } ],
+                                                         "outputs": [ {
+                                                                                              "address": 25088,
+                                                                              "address_mask_identifier": "AH_6J_LAND_L_SW_AM",
+                                                                        "address_mask_shift_identifier": "AH_6J_LAND_L_SW",
+                                                                                          "description": "selector position",
+                                                                                                 "mask": 32768,
+                                                                                            "max_value": 1,
+                                                                                             "shift_by": 15,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
+                                                                    } ]
                                                 },
                                     "POS_L_SW": {
-                                                               "category": "External Lights",
-                                                           "control_type": "selector",
-                                                            "description": "Position Light Switch",
-                                                             "identifier": "POS_L_SW",
-                                                                 "inputs": [ {
-                                                                               "description": "switch to previous or next state",
-                                                                                 "interface": "fixed_step"
-                                                                           }, {
-                                                                               "description": "set position",
-                                                                                 "interface": "set_state",
-                                                                                 "max_value": 1
-                                                                           }, {
-                                                                                  "argument": "TOGGLE",
-                                                                               "description": "Toggle switch state",
-                                                                                 "interface": "action"
-                                                                           } ],
-                                                    "momentary_positions": "none",
-                                                                "outputs": [ {
-                                                                                                     "address": 25088,
-                                                                                     "address_mask_identifier": "AH_6J_POS_L_SW_AM",
-                                                                               "address_mask_shift_identifier": "AH_6J_POS_L_SW",
-                                                                                                 "description": "selector position",
-                                                                                                        "mask": 16384,
-                                                                                                   "max_value": 1,
-                                                                                                    "shift_by": 14,
-                                                                                                      "suffix": "",
-                                                                                                        "type": "integer"
-                                                                           } ],
-                                                       "physical_variant": "toggle_switch"
+                                                        "category": "External Lights",
+                                                    "control_type": "selector",
+                                                     "description": "Position Light Switch",
+                                                      "identifier": "POS_L_SW",
+                                                          "inputs": [ {
+                                                                        "description": "switch to previous or next state",
+                                                                          "interface": "fixed_step"
+                                                                    }, {
+                                                                        "description": "set position",
+                                                                          "interface": "set_state",
+                                                                          "max_value": 1
+                                                                    }, {
+                                                                           "argument": "TOGGLE",
+                                                                        "description": "Toggle switch state",
+                                                                          "interface": "action"
+                                                                    } ],
+                                                         "outputs": [ {
+                                                                                              "address": 25088,
+                                                                              "address_mask_identifier": "AH_6J_POS_L_SW_AM",
+                                                                        "address_mask_shift_identifier": "AH_6J_POS_L_SW",
+                                                                                          "description": "selector position",
+                                                                                                 "mask": 16384,
+                                                                                            "max_value": 1,
+                                                                                             "shift_by": 14,
+                                                                                               "suffix": "",
+                                                                                                 "type": "integer"
+                                                                    } ]
                                                 }
                                },
                      "Gauges": {
@@ -723,213 +711,199 @@ docdata["AH-6J"] =
                                                                           } ]
                                                       },
                                          "RWR_PW_SW": {
-                                                                     "category": "RWR",
-                                                                 "control_type": "selector",
-                                                                  "description": "RWR Power Switch, OFF/ON",
-                                                                   "identifier": "RWR_PW_SW",
-                                                                       "inputs": [ {
-                                                                                     "description": "switch to previous or next state",
-                                                                                       "interface": "fixed_step"
-                                                                                 }, {
-                                                                                     "description": "set position",
-                                                                                       "interface": "set_state",
-                                                                                       "max_value": 1
-                                                                                 }, {
-                                                                                        "argument": "TOGGLE",
-                                                                                     "description": "Toggle switch state",
-                                                                                       "interface": "action"
-                                                                                 } ],
-                                                          "momentary_positions": "none",
-                                                                      "outputs": [ {
-                                                                                                           "address": 25088,
-                                                                                           "address_mask_identifier": "AH_6J_RWR_PW_SW_AM",
-                                                                                     "address_mask_shift_identifier": "AH_6J_RWR_PW_SW",
-                                                                                                       "description": "selector position",
-                                                                                                              "mask": 8192,
-                                                                                                         "max_value": 1,
-                                                                                                          "shift_by": 13,
-                                                                                                            "suffix": "",
-                                                                                                              "type": "integer"
-                                                                                 } ],
-                                                             "physical_variant": "toggle_switch"
+                                                              "category": "RWR",
+                                                          "control_type": "selector",
+                                                           "description": "RWR Power Switch, OFF/ON",
+                                                            "identifier": "RWR_PW_SW",
+                                                                "inputs": [ {
+                                                                              "description": "switch to previous or next state",
+                                                                                "interface": "fixed_step"
+                                                                          }, {
+                                                                              "description": "set position",
+                                                                                "interface": "set_state",
+                                                                                "max_value": 1
+                                                                          }, {
+                                                                                 "argument": "TOGGLE",
+                                                                              "description": "Toggle switch state",
+                                                                                "interface": "action"
+                                                                          } ],
+                                                               "outputs": [ {
+                                                                                                    "address": 25088,
+                                                                                    "address_mask_identifier": "AH_6J_RWR_PW_SW_AM",
+                                                                              "address_mask_shift_identifier": "AH_6J_RWR_PW_SW",
+                                                                                                "description": "selector position",
+                                                                                                       "mask": 8192,
+                                                                                                  "max_value": 1,
+                                                                                                   "shift_by": 13,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "integer"
+                                                                          } ]
                                                       }
                                },
               "Weapons Panel": {
                                       "GUN_STATION_SEL": {
-                                                                        "category": "Weapons Panel",
-                                                                    "control_type": "selector",
-                                                                     "description": "Gun Station Selector, OFF/LEFT/BOTH/RIGHT",
-                                                                      "identifier": "GUN_STATION_SEL",
-                                                                          "inputs": [ {
-                                                                                        "description": "switch to previous or next state",
-                                                                                          "interface": "fixed_step"
-                                                                                    }, {
-                                                                                        "description": "set position",
-                                                                                          "interface": "set_state",
-                                                                                          "max_value": 3
-                                                                                    } ],
-                                                             "momentary_positions": "none",
-                                                                         "outputs": [ {
-                                                                                                              "address": 25088,
-                                                                                        "address_mask_shift_identifier": "AH_6J_GUN_STATION_SEL",
-                                                                                                          "description": "selector position",
-                                                                                                                 "mask": 6144,
-                                                                                                            "max_value": 3,
-                                                                                                             "shift_by": 11,
-                                                                                                               "suffix": "",
-                                                                                                                 "type": "integer"
-                                                                                    } ],
-                                                                "physical_variant": "toggle_switch"
+                                                                 "category": "Weapons Panel",
+                                                             "control_type": "selector",
+                                                              "description": "Gun Station Selector, OFF/LEFT/BOTH/RIGHT",
+                                                               "identifier": "GUN_STATION_SEL",
+                                                                   "inputs": [ {
+                                                                                 "description": "switch to previous or next state",
+                                                                                   "interface": "fixed_step"
+                                                                             }, {
+                                                                                 "description": "set position",
+                                                                                   "interface": "set_state",
+                                                                                   "max_value": 3
+                                                                             } ],
+                                                                  "outputs": [ {
+                                                                                                       "address": 25088,
+                                                                                 "address_mask_shift_identifier": "AH_6J_GUN_STATION_SEL",
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 6144,
+                                                                                                     "max_value": 3,
+                                                                                                      "shift_by": 11,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                             } ]
                                                          },
                                         "MASTER_ARM_SW": {
-                                                                        "category": "Weapons Panel",
-                                                                    "control_type": "selector",
-                                                                     "description": "Master Arm Switch, ARM/SAFE",
-                                                                      "identifier": "MASTER_ARM_SW",
-                                                                          "inputs": [ {
-                                                                                        "description": "switch to previous or next state",
-                                                                                          "interface": "fixed_step"
-                                                                                    }, {
-                                                                                        "description": "set position",
-                                                                                          "interface": "set_state",
-                                                                                          "max_value": 1
-                                                                                    }, {
-                                                                                           "argument": "TOGGLE",
-                                                                                        "description": "Toggle switch state",
-                                                                                          "interface": "action"
-                                                                                    } ],
-                                                             "momentary_positions": "none",
-                                                                         "outputs": [ {
-                                                                                                              "address": 25088,
-                                                                                              "address_mask_identifier": "AH_6J_MASTER_ARM_SW_AM",
-                                                                                        "address_mask_shift_identifier": "AH_6J_MASTER_ARM_SW",
-                                                                                                          "description": "selector position",
-                                                                                                                 "mask": 32,
-                                                                                                            "max_value": 1,
-                                                                                                             "shift_by": 5,
-                                                                                                               "suffix": "",
-                                                                                                                 "type": "integer"
-                                                                                    } ],
-                                                                "physical_variant": "toggle_switch"
+                                                                 "category": "Weapons Panel",
+                                                             "control_type": "selector",
+                                                              "description": "Master Arm Switch, ARM/SAFE",
+                                                               "identifier": "MASTER_ARM_SW",
+                                                                   "inputs": [ {
+                                                                                 "description": "switch to previous or next state",
+                                                                                   "interface": "fixed_step"
+                                                                             }, {
+                                                                                 "description": "set position",
+                                                                                   "interface": "set_state",
+                                                                                   "max_value": 1
+                                                                             }, {
+                                                                                    "argument": "TOGGLE",
+                                                                                 "description": "Toggle switch state",
+                                                                                   "interface": "action"
+                                                                             } ],
+                                                                  "outputs": [ {
+                                                                                                       "address": 25088,
+                                                                                       "address_mask_identifier": "AH_6J_MASTER_ARM_SW_AM",
+                                                                                 "address_mask_shift_identifier": "AH_6J_MASTER_ARM_SW",
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 32,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 5,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                             } ]
                                                          },
                                      "PYLON_JETT_COVER": {
-                                                                        "category": "Weapons Panel",
-                                                                    "control_type": "selector",
-                                                                     "description": "Pylon Jettison Switch Cover",
-                                                                      "identifier": "PYLON_JETT_COVER",
-                                                                          "inputs": [ {
-                                                                                        "description": "switch to previous or next state",
-                                                                                          "interface": "fixed_step"
-                                                                                    }, {
-                                                                                        "description": "set position",
-                                                                                          "interface": "set_state",
-                                                                                          "max_value": 1
-                                                                                    }, {
-                                                                                           "argument": "TOGGLE",
-                                                                                        "description": "Toggle switch state",
-                                                                                          "interface": "action"
-                                                                                    } ],
-                                                             "momentary_positions": "none",
-                                                                         "outputs": [ {
-                                                                                                              "address": 25088,
-                                                                                              "address_mask_identifier": "AH_6J_PYLON_JETT_COVER_AM",
-                                                                                        "address_mask_shift_identifier": "AH_6J_PYLON_JETT_COVER",
-                                                                                                          "description": "selector position",
-                                                                                                                 "mask": 256,
-                                                                                                            "max_value": 1,
-                                                                                                             "shift_by": 8,
-                                                                                                               "suffix": "",
-                                                                                                                 "type": "integer"
-                                                                                    } ],
-                                                                "physical_variant": "toggle_switch"
+                                                                 "category": "Weapons Panel",
+                                                             "control_type": "selector",
+                                                              "description": "Pylon Jettison Switch Cover",
+                                                               "identifier": "PYLON_JETT_COVER",
+                                                                   "inputs": [ {
+                                                                                 "description": "switch to previous or next state",
+                                                                                   "interface": "fixed_step"
+                                                                             }, {
+                                                                                 "description": "set position",
+                                                                                   "interface": "set_state",
+                                                                                   "max_value": 1
+                                                                             }, {
+                                                                                    "argument": "TOGGLE",
+                                                                                 "description": "Toggle switch state",
+                                                                                   "interface": "action"
+                                                                             } ],
+                                                                  "outputs": [ {
+                                                                                                       "address": 25088,
+                                                                                       "address_mask_identifier": "AH_6J_PYLON_JETT_COVER_AM",
+                                                                                 "address_mask_shift_identifier": "AH_6J_PYLON_JETT_COVER",
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 256,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 8,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                             } ]
                                                          },
                                         "PYLON_JETT_SW": {
-                                                                        "category": "Weapons Panel",
-                                                                    "control_type": "selector",
-                                                                     "description": "Pylon Jettison Switch, SAFE/JETTISON",
-                                                                      "identifier": "PYLON_JETT_SW",
-                                                                          "inputs": [ {
-                                                                                        "description": "switch to previous or next state",
-                                                                                          "interface": "fixed_step"
-                                                                                    }, {
-                                                                                        "description": "set position",
-                                                                                          "interface": "set_state",
-                                                                                          "max_value": 1
-                                                                                    }, {
-                                                                                           "argument": "TOGGLE",
-                                                                                        "description": "Toggle switch state",
-                                                                                          "interface": "action"
-                                                                                    } ],
-                                                             "momentary_positions": "none",
-                                                                         "outputs": [ {
-                                                                                                              "address": 25088,
-                                                                                              "address_mask_identifier": "AH_6J_PYLON_JETT_SW_AM",
-                                                                                        "address_mask_shift_identifier": "AH_6J_PYLON_JETT_SW",
-                                                                                                          "description": "selector position",
-                                                                                                                 "mask": 128,
-                                                                                                            "max_value": 1,
-                                                                                                             "shift_by": 7,
-                                                                                                               "suffix": "",
-                                                                                                                 "type": "integer"
-                                                                                    } ],
-                                                                "physical_variant": "toggle_switch"
+                                                                 "category": "Weapons Panel",
+                                                             "control_type": "selector",
+                                                              "description": "Pylon Jettison Switch, SAFE/JETTISON",
+                                                               "identifier": "PYLON_JETT_SW",
+                                                                   "inputs": [ {
+                                                                                 "description": "switch to previous or next state",
+                                                                                   "interface": "fixed_step"
+                                                                             }, {
+                                                                                 "description": "set position",
+                                                                                   "interface": "set_state",
+                                                                                   "max_value": 1
+                                                                             }, {
+                                                                                    "argument": "TOGGLE",
+                                                                                 "description": "Toggle switch state",
+                                                                                   "interface": "action"
+                                                                             } ],
+                                                                  "outputs": [ {
+                                                                                                       "address": 25088,
+                                                                                       "address_mask_identifier": "AH_6J_PYLON_JETT_SW_AM",
+                                                                                 "address_mask_shift_identifier": "AH_6J_PYLON_JETT_SW",
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 128,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 7,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                             } ]
                                                          },
                                        "ROCKET_MODE_SW": {
-                                                                        "category": "Weapons Panel",
-                                                                    "control_type": "selector",
-                                                                     "description": "Rocket Single/Ripple Mode Switch, SINGLE/RIPPLE",
-                                                                      "identifier": "ROCKET_MODE_SW",
-                                                                          "inputs": [ {
-                                                                                        "description": "switch to previous or next state",
-                                                                                          "interface": "fixed_step"
-                                                                                    }, {
-                                                                                        "description": "set position",
-                                                                                          "interface": "set_state",
-                                                                                          "max_value": 1
-                                                                                    }, {
-                                                                                           "argument": "TOGGLE",
-                                                                                        "description": "Toggle switch state",
-                                                                                          "interface": "action"
-                                                                                    } ],
-                                                             "momentary_positions": "none",
-                                                                         "outputs": [ {
-                                                                                                              "address": 25088,
-                                                                                              "address_mask_identifier": "AH_6J_ROCKET_MODE_SW_AM",
-                                                                                        "address_mask_shift_identifier": "AH_6J_ROCKET_MODE_SW",
-                                                                                                          "description": "selector position",
-                                                                                                                 "mask": 64,
-                                                                                                            "max_value": 1,
-                                                                                                             "shift_by": 6,
-                                                                                                               "suffix": "",
-                                                                                                                 "type": "integer"
-                                                                                    } ],
-                                                                "physical_variant": "toggle_switch"
+                                                                 "category": "Weapons Panel",
+                                                             "control_type": "selector",
+                                                              "description": "Rocket Single/Ripple Mode Switch, SINGLE/RIPPLE",
+                                                               "identifier": "ROCKET_MODE_SW",
+                                                                   "inputs": [ {
+                                                                                 "description": "switch to previous or next state",
+                                                                                   "interface": "fixed_step"
+                                                                             }, {
+                                                                                 "description": "set position",
+                                                                                   "interface": "set_state",
+                                                                                   "max_value": 1
+                                                                             }, {
+                                                                                    "argument": "TOGGLE",
+                                                                                 "description": "Toggle switch state",
+                                                                                   "interface": "action"
+                                                                             } ],
+                                                                  "outputs": [ {
+                                                                                                       "address": 25088,
+                                                                                       "address_mask_identifier": "AH_6J_ROCKET_MODE_SW_AM",
+                                                                                 "address_mask_shift_identifier": "AH_6J_ROCKET_MODE_SW",
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 64,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 6,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                             } ]
                                                          },
                                    "ROCKET_STATION_SEL": {
-                                                                        "category": "Weapons Panel",
-                                                                    "control_type": "selector",
-                                                                     "description": "Rocket Station Selector, OFF/LEFT/BOTH/RIGHT",
-                                                                      "identifier": "ROCKET_STATION_SEL",
-                                                                          "inputs": [ {
-                                                                                        "description": "switch to previous or next state",
-                                                                                          "interface": "fixed_step"
-                                                                                    }, {
-                                                                                        "description": "set position",
-                                                                                          "interface": "set_state",
-                                                                                          "max_value": 3
-                                                                                    } ],
-                                                             "momentary_positions": "none",
-                                                                         "outputs": [ {
-                                                                                                              "address": 25088,
-                                                                                        "address_mask_shift_identifier": "AH_6J_ROCKET_STATION_SEL",
-                                                                                                          "description": "selector position",
-                                                                                                                 "mask": 1536,
-                                                                                                            "max_value": 3,
-                                                                                                             "shift_by": 9,
-                                                                                                               "suffix": "",
-                                                                                                                 "type": "integer"
-                                                                                    } ],
-                                                                "physical_variant": "toggle_switch"
+                                                                 "category": "Weapons Panel",
+                                                             "control_type": "selector",
+                                                              "description": "Rocket Station Selector, OFF/LEFT/BOTH/RIGHT",
+                                                               "identifier": "ROCKET_STATION_SEL",
+                                                                   "inputs": [ {
+                                                                                 "description": "switch to previous or next state",
+                                                                                   "interface": "fixed_step"
+                                                                             }, {
+                                                                                 "description": "set position",
+                                                                                   "interface": "set_state",
+                                                                                   "max_value": 3
+                                                                             } ],
+                                                                  "outputs": [ {
+                                                                                                       "address": 25088,
+                                                                                 "address_mask_shift_identifier": "AH_6J_ROCKET_STATION_SEL",
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 1536,
+                                                                                                     "max_value": 3,
+                                                                                                      "shift_by": 9,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                             } ]
                                                          }
                                }
 };

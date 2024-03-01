@@ -1,548 +1,508 @@
 {
     "NS430": {
                                  "NS430_BTM_CDI": {
-                                                              "api_variant": "multiturn",
-                                                                 "category": "NS430",
-                                                             "control_type": "selector",
-                                                              "description": "[CDI] Course Deviation Indicator",
-                                                               "identifier": "NS430_BTM_CDI",
-                                                                   "inputs": [ {
-                                                                                 "description": "switch to previous or next state",
-                                                                                   "interface": "fixed_step"
-                                                                             } ],
-                                                      "momentary_positions": "first_and_last",
-                                                                  "outputs": [ {
-                                                                                                       "address": 1536,
-                                                                                       "address_mask_identifier": "NS430_NS430_BTM_CDI_AM",
-                                                                                 "address_mask_shift_identifier": "NS430_NS430_BTM_CDI",
-                                                                                                   "description": "selector position",
-                                                                                                          "mask": 32,
-                                                                                                     "max_value": 1,
-                                                                                                      "shift_by": 5,
-                                                                                                        "suffix": "",
-                                                                                                          "type": "integer"
-                                                                             } ],
-                                                         "physical_variant": "push_button"
+                                                       "api_variant": "multiturn",
+                                                          "category": "NS430",
+                                                      "control_type": "selector",
+                                                       "description": "[CDI] Course Deviation Indicator",
+                                                        "identifier": "NS430_BTM_CDI",
+                                                            "inputs": [ {
+                                                                          "description": "switch to previous or next state",
+                                                                            "interface": "fixed_step"
+                                                                      } ],
+                                                           "outputs": [ {
+                                                                                                "address": 1536,
+                                                                                "address_mask_identifier": "NS430_NS430_BTM_CDI_AM",
+                                                                          "address_mask_shift_identifier": "NS430_NS430_BTM_CDI",
+                                                                                            "description": "selector position",
+                                                                                                   "mask": 32,
+                                                                                              "max_value": 1,
+                                                                                               "shift_by": 5,
+                                                                                                 "suffix": "",
+                                                                                                   "type": "integer"
+                                                                      } ]
                                                   },
                                  "NS430_BTM_FPL": {
-                                                              "api_variant": "multiturn",
-                                                                 "category": "NS430",
-                                                             "control_type": "selector",
-                                                              "description": "[FPL] Create / Edit Flight plans",
-                                                               "identifier": "NS430_BTM_FPL",
-                                                                   "inputs": [ {
-                                                                                 "description": "switch to previous or next state",
-                                                                                   "interface": "fixed_step"
-                                                                             } ],
-                                                      "momentary_positions": "first_and_last",
-                                                                  "outputs": [ {
-                                                                                                       "address": 1536,
-                                                                                       "address_mask_identifier": "NS430_NS430_BTM_FPL_AM",
-                                                                                 "address_mask_shift_identifier": "NS430_NS430_BTM_FPL",
-                                                                                                   "description": "selector position",
-                                                                                                          "mask": 256,
-                                                                                                     "max_value": 1,
-                                                                                                      "shift_by": 8,
-                                                                                                        "suffix": "",
-                                                                                                          "type": "integer"
-                                                                             } ],
-                                                         "physical_variant": "push_button"
+                                                       "api_variant": "multiturn",
+                                                          "category": "NS430",
+                                                      "control_type": "selector",
+                                                       "description": "[FPL] Create / Edit Flight plans",
+                                                        "identifier": "NS430_BTM_FPL",
+                                                            "inputs": [ {
+                                                                          "description": "switch to previous or next state",
+                                                                            "interface": "fixed_step"
+                                                                      } ],
+                                                           "outputs": [ {
+                                                                                                "address": 1536,
+                                                                                "address_mask_identifier": "NS430_NS430_BTM_FPL_AM",
+                                                                          "address_mask_shift_identifier": "NS430_NS430_BTM_FPL",
+                                                                                            "description": "selector position",
+                                                                                                   "mask": 256,
+                                                                                              "max_value": 1,
+                                                                                               "shift_by": 8,
+                                                                                                 "suffix": "",
+                                                                                                   "type": "integer"
+                                                                      } ]
                                                   },
                                  "NS430_BTM_MSG": {
-                                                              "api_variant": "multiturn",
-                                                                 "category": "NS430",
-                                                             "control_type": "selector",
-                                                              "description": "[MSG] Message Button",
-                                                               "identifier": "NS430_BTM_MSG",
-                                                                   "inputs": [ {
-                                                                                 "description": "switch to previous or next state",
-                                                                                   "interface": "fixed_step"
-                                                                             } ],
-                                                      "momentary_positions": "first_and_last",
-                                                                  "outputs": [ {
-                                                                                                       "address": 1536,
-                                                                                       "address_mask_identifier": "NS430_NS430_BTM_MSG_AM",
-                                                                                 "address_mask_shift_identifier": "NS430_NS430_BTM_MSG",
-                                                                                                   "description": "selector position",
-                                                                                                          "mask": 128,
-                                                                                                     "max_value": 1,
-                                                                                                      "shift_by": 7,
-                                                                                                        "suffix": "",
-                                                                                                          "type": "integer"
-                                                                             } ],
-                                                         "physical_variant": "push_button"
+                                                       "api_variant": "multiturn",
+                                                          "category": "NS430",
+                                                      "control_type": "selector",
+                                                       "description": "[MSG] Message Button",
+                                                        "identifier": "NS430_BTM_MSG",
+                                                            "inputs": [ {
+                                                                          "description": "switch to previous or next state",
+                                                                            "interface": "fixed_step"
+                                                                      } ],
+                                                           "outputs": [ {
+                                                                                                "address": 1536,
+                                                                                "address_mask_identifier": "NS430_NS430_BTM_MSG_AM",
+                                                                          "address_mask_shift_identifier": "NS430_NS430_BTM_MSG",
+                                                                                            "description": "selector position",
+                                                                                                   "mask": 128,
+                                                                                              "max_value": 1,
+                                                                                               "shift_by": 7,
+                                                                                                 "suffix": "",
+                                                                                                   "type": "integer"
+                                                                      } ]
                                                   },
                                  "NS430_BTM_OBS": {
-                                                              "api_variant": "multiturn",
-                                                                 "category": "NS430",
-                                                             "control_type": "selector",
-                                                              "description": "[OBS] Activate Suspend Mode",
-                                                               "identifier": "NS430_BTM_OBS",
-                                                                   "inputs": [ {
-                                                                                 "description": "switch to previous or next state",
-                                                                                   "interface": "fixed_step"
-                                                                             } ],
-                                                      "momentary_positions": "first_and_last",
-                                                                  "outputs": [ {
-                                                                                                       "address": 1536,
-                                                                                       "address_mask_identifier": "NS430_NS430_BTM_OBS_AM",
-                                                                                 "address_mask_shift_identifier": "NS430_NS430_BTM_OBS",
-                                                                                                   "description": "selector position",
-                                                                                                          "mask": 64,
-                                                                                                     "max_value": 1,
-                                                                                                      "shift_by": 6,
-                                                                                                        "suffix": "",
-                                                                                                          "type": "integer"
-                                                                             } ],
-                                                         "physical_variant": "push_button"
+                                                       "api_variant": "multiturn",
+                                                          "category": "NS430",
+                                                      "control_type": "selector",
+                                                       "description": "[OBS] Activate Suspend Mode",
+                                                        "identifier": "NS430_BTM_OBS",
+                                                            "inputs": [ {
+                                                                          "description": "switch to previous or next state",
+                                                                            "interface": "fixed_step"
+                                                                      } ],
+                                                           "outputs": [ {
+                                                                                                "address": 1536,
+                                                                                "address_mask_identifier": "NS430_NS430_BTM_OBS_AM",
+                                                                          "address_mask_shift_identifier": "NS430_NS430_BTM_OBS",
+                                                                                            "description": "selector position",
+                                                                                                   "mask": 64,
+                                                                                              "max_value": 1,
+                                                                                               "shift_by": 6,
+                                                                                                 "suffix": "",
+                                                                                                   "type": "integer"
+                                                                      } ]
                                                   },
                                 "NS430_BTM_PROC": {
-                                                              "api_variant": "multiturn",
-                                                                 "category": "NS430",
-                                                             "control_type": "selector",
-                                                              "description": "[PROC] Select Airport Procedure",
-                                                               "identifier": "NS430_BTM_PROC",
-                                                                   "inputs": [ {
-                                                                                 "description": "switch to previous or next state",
-                                                                                   "interface": "fixed_step"
-                                                                             } ],
-                                                      "momentary_positions": "first_and_last",
-                                                                  "outputs": [ {
-                                                                                                       "address": 1536,
-                                                                                       "address_mask_identifier": "NS430_NS430_BTM_PROC_AM",
-                                                                                 "address_mask_shift_identifier": "NS430_NS430_BTM_PROC",
-                                                                                                   "description": "selector position",
-                                                                                                          "mask": 512,
-                                                                                                     "max_value": 1,
-                                                                                                      "shift_by": 9,
-                                                                                                        "suffix": "",
-                                                                                                          "type": "integer"
-                                                                             } ],
-                                                         "physical_variant": "push_button"
+                                                       "api_variant": "multiturn",
+                                                          "category": "NS430",
+                                                      "control_type": "selector",
+                                                       "description": "[PROC] Select Airport Procedure",
+                                                        "identifier": "NS430_BTM_PROC",
+                                                            "inputs": [ {
+                                                                          "description": "switch to previous or next state",
+                                                                            "interface": "fixed_step"
+                                                                      } ],
+                                                           "outputs": [ {
+                                                                                                "address": 1536,
+                                                                                "address_mask_identifier": "NS430_NS430_BTM_PROC_AM",
+                                                                          "address_mask_shift_identifier": "NS430_NS430_BTM_PROC",
+                                                                                            "description": "selector position",
+                                                                                                   "mask": 512,
+                                                                                              "max_value": 1,
+                                                                                               "shift_by": 9,
+                                                                                                 "suffix": "",
+                                                                                                   "type": "integer"
+                                                                      } ]
                                                   },
                      "NS430_LEFT_BIG_BTN_ROTATE": {
-                                                           "api_variant": "multiturn",
-                                                              "category": "NS430",
-                                                          "control_type": "analog_dial",
-                                                           "description": "Big Left Button Rotate",
-                                                            "identifier": "NS430_LEFT_BIG_BTN_ROTATE",
-                                                                "inputs": [ {
-                                                                                 "description": "turn the dial left or right",
-                                                                                   "interface": "variable_step",
-                                                                                   "max_value": 65535,
-                                                                              "suggested_step": 3200
-                                                                          } ],
-                                                               "outputs": [ {
-                                                                                                    "address": 1544,
-                                                                                         "address_identifier": "NS430_NS430_LEFT_BIG_BTN_ROTATE_A",
-                                                                              "address_mask_shift_identifier": "NS430_NS430_LEFT_BIG_BTN_ROTATE",
-                                                                                                "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
-                                                                                                       "mask": 65535,
-                                                                                                  "max_value": 65535,
-                                                                                                   "shift_by": 0,
-                                                                                                     "suffix": "_KNOB_POS",
-                                                                                                       "type": "integer"
-                                                                          } ],
-                                                      "physical_variant": "infinite_rotary"
+                                                       "api_variant": "multiturn",
+                                                          "category": "NS430",
+                                                      "control_type": "analog_dial",
+                                                       "description": "Big Left Button Rotate",
+                                                        "identifier": "NS430_LEFT_BIG_BTN_ROTATE",
+                                                            "inputs": [ {
+                                                                             "description": "turn the dial left or right",
+                                                                               "interface": "variable_step",
+                                                                               "max_value": 65535,
+                                                                          "suggested_step": 3200
+                                                                      } ],
+                                                           "outputs": [ {
+                                                                                                "address": 1544,
+                                                                                     "address_identifier": "NS430_NS430_LEFT_BIG_BTN_ROTATE_A",
+                                                                          "address_mask_shift_identifier": "NS430_NS430_LEFT_BIG_BTN_ROTATE",
+                                                                                            "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                                                   "mask": 65535,
+                                                                                              "max_value": 65535,
+                                                                                               "shift_by": 0,
+                                                                                                 "suffix": "_KNOB_POS",
+                                                                                                   "type": "integer"
+                                                                      } ]
                                                   },
                       "NS430_LEFT_COM_FLIP_FLOP": {
-                                                              "api_variant": "multiturn",
-                                                                 "category": "NS430",
-                                                             "control_type": "selector",
-                                                              "description": "COM flip-flop",
-                                                               "identifier": "NS430_LEFT_COM_FLIP_FLOP",
-                                                                   "inputs": [ {
-                                                                                 "description": "switch to previous or next state",
-                                                                                   "interface": "fixed_step"
-                                                                             } ],
-                                                      "momentary_positions": "first_and_last",
-                                                                  "outputs": [ {
-                                                                                                       "address": 1536,
-                                                                                       "address_mask_identifier": "NS430_NS430_LEFT_COM_FLIP_FLOP_AM",
-                                                                                 "address_mask_shift_identifier": "NS430_NS430_LEFT_COM_FLIP_FLOP",
-                                                                                                   "description": "selector position",
-                                                                                                          "mask": 8,
-                                                                                                     "max_value": 1,
-                                                                                                      "shift_by": 3,
-                                                                                                        "suffix": "",
-                                                                                                          "type": "integer"
-                                                                             } ],
-                                                         "physical_variant": "push_button"
+                                                       "api_variant": "multiturn",
+                                                          "category": "NS430",
+                                                      "control_type": "selector",
+                                                       "description": "COM flip-flop",
+                                                        "identifier": "NS430_LEFT_COM_FLIP_FLOP",
+                                                            "inputs": [ {
+                                                                          "description": "switch to previous or next state",
+                                                                            "interface": "fixed_step"
+                                                                      } ],
+                                                           "outputs": [ {
+                                                                                                "address": 1536,
+                                                                                "address_mask_identifier": "NS430_NS430_LEFT_COM_FLIP_FLOP_AM",
+                                                                          "address_mask_shift_identifier": "NS430_NS430_LEFT_COM_FLIP_FLOP",
+                                                                                            "description": "selector position",
+                                                                                                   "mask": 8,
+                                                                                              "max_value": 1,
+                                                                                               "shift_by": 3,
+                                                                                                 "suffix": "",
+                                                                                                   "type": "integer"
+                                                                      } ]
                                                   },
                    "NS430_LEFT_COM_PWR_VOL_PUSH": {
-                                                              "api_variant": "multiturn",
-                                                                 "category": "NS430",
-                                                             "control_type": "selector",
-                                                              "description": "COM Power/Volume Push",
-                                                               "identifier": "NS430_LEFT_COM_PWR_VOL_PUSH",
-                                                                   "inputs": [ {
-                                                                                 "description": "switch to previous or next state",
-                                                                                   "interface": "fixed_step"
-                                                                             } ],
-                                                      "momentary_positions": "first_and_last",
-                                                                  "outputs": [ {
-                                                                                                       "address": 1536,
-                                                                                       "address_mask_identifier": "NS430_NS430_LEFT_COM_PWR_VOL_PUSH_AM",
-                                                                                 "address_mask_shift_identifier": "NS430_NS430_LEFT_COM_PWR_VOL_PUSH",
-                                                                                                   "description": "selector position",
-                                                                                                          "mask": 1,
-                                                                                                     "max_value": 1,
-                                                                                                      "shift_by": 0,
-                                                                                                        "suffix": "",
-                                                                                                          "type": "integer"
-                                                                             } ],
-                                                         "physical_variant": "push_button"
+                                                       "api_variant": "multiturn",
+                                                          "category": "NS430",
+                                                      "control_type": "selector",
+                                                       "description": "COM Power/Volume Push",
+                                                        "identifier": "NS430_LEFT_COM_PWR_VOL_PUSH",
+                                                            "inputs": [ {
+                                                                          "description": "switch to previous or next state",
+                                                                            "interface": "fixed_step"
+                                                                      } ],
+                                                           "outputs": [ {
+                                                                                                "address": 1536,
+                                                                                "address_mask_identifier": "NS430_NS430_LEFT_COM_PWR_VOL_PUSH_AM",
+                                                                          "address_mask_shift_identifier": "NS430_NS430_LEFT_COM_PWR_VOL_PUSH",
+                                                                                            "description": "selector position",
+                                                                                                   "mask": 1,
+                                                                                              "max_value": 1,
+                                                                                               "shift_by": 0,
+                                                                                                 "suffix": "",
+                                                                                                   "type": "integer"
+                                                                      } ]
                                                   },
                  "NS430_LEFT_COM_PWR_VOL_ROTATE": {
-                                                                 "category": "NS430",
-                                                             "control_type": "limited_dial",
-                                                              "description": "COM Power/Volume Rotate",
-                                                               "identifier": "NS430_LEFT_COM_PWR_VOL_ROTATE",
-                                                                   "inputs": [ {
-                                                                                 "description": "set the position of the dial",
-                                                                                   "interface": "set_state",
-                                                                                   "max_value": 65535
-                                                                             }, {
-                                                                                    "description": "turn the dial left or right",
-                                                                                      "interface": "variable_step",
-                                                                                      "max_value": 65535,
-                                                                                 "suggested_step": 3200
-                                                                             } ],
-                                                      "momentary_positions": "none",
-                                                                  "outputs": [ {
-                                                                                                       "address": 1538,
-                                                                                            "address_identifier": "NS430_NS430_LEFT_COM_PWR_VOL_ROTATE_A",
-                                                                                 "address_mask_shift_identifier": "NS430_NS430_LEFT_COM_PWR_VOL_ROTATE",
-                                                                                                   "description": "position of the potentiometer",
-                                                                                                          "mask": 65535,
-                                                                                                     "max_value": 65535,
-                                                                                                      "shift_by": 0,
-                                                                                                        "suffix": "",
-                                                                                                          "type": "integer"
-                                                                             } ],
-                                                         "physical_variant": "limited_rotary"
+                                                          "category": "NS430",
+                                                      "control_type": "limited_dial",
+                                                       "description": "COM Power/Volume Rotate",
+                                                        "identifier": "NS430_LEFT_COM_PWR_VOL_ROTATE",
+                                                            "inputs": [ {
+                                                                          "description": "set the position of the dial",
+                                                                            "interface": "set_state",
+                                                                            "max_value": 65535
+                                                                      }, {
+                                                                             "description": "turn the dial left or right",
+                                                                               "interface": "variable_step",
+                                                                               "max_value": 65535,
+                                                                          "suggested_step": 3200
+                                                                      } ],
+                                                           "outputs": [ {
+                                                                                                "address": 1538,
+                                                                                     "address_identifier": "NS430_NS430_LEFT_COM_PWR_VOL_ROTATE_A",
+                                                                          "address_mask_shift_identifier": "NS430_NS430_LEFT_COM_PWR_VOL_ROTATE",
+                                                                                            "description": "position of the potentiometer",
+                                                                                                   "mask": 65535,
+                                                                                              "max_value": 65535,
+                                                                                               "shift_by": 0,
+                                                                                                 "suffix": "",
+                                                                                                   "type": "integer"
+                                                                      } ]
                                                   },
                      "NS430_LEFT_SMALL_BTN_PUSH": {
-                                                              "api_variant": "multiturn",
-                                                                 "category": "NS430",
-                                                             "control_type": "selector",
-                                                              "description": "Small Left Button Push",
-                                                               "identifier": "NS430_LEFT_SMALL_BTN_PUSH",
-                                                                   "inputs": [ {
-                                                                                 "description": "switch to previous or next state",
-                                                                                   "interface": "fixed_step"
-                                                                             } ],
-                                                      "momentary_positions": "first_and_last",
-                                                                  "outputs": [ {
-                                                                                                       "address": 1536,
-                                                                                       "address_mask_identifier": "NS430_NS430_LEFT_SMALL_BTN_PUSH_AM",
-                                                                                 "address_mask_shift_identifier": "NS430_NS430_LEFT_SMALL_BTN_PUSH",
-                                                                                                   "description": "selector position",
-                                                                                                          "mask": 4,
-                                                                                                     "max_value": 1,
-                                                                                                      "shift_by": 2,
-                                                                                                        "suffix": "",
-                                                                                                          "type": "integer"
-                                                                             } ],
-                                                         "physical_variant": "push_button"
+                                                       "api_variant": "multiturn",
+                                                          "category": "NS430",
+                                                      "control_type": "selector",
+                                                       "description": "Small Left Button Push",
+                                                        "identifier": "NS430_LEFT_SMALL_BTN_PUSH",
+                                                            "inputs": [ {
+                                                                          "description": "switch to previous or next state",
+                                                                            "interface": "fixed_step"
+                                                                      } ],
+                                                           "outputs": [ {
+                                                                                                "address": 1536,
+                                                                                "address_mask_identifier": "NS430_NS430_LEFT_SMALL_BTN_PUSH_AM",
+                                                                          "address_mask_shift_identifier": "NS430_NS430_LEFT_SMALL_BTN_PUSH",
+                                                                                            "description": "selector position",
+                                                                                                   "mask": 4,
+                                                                                              "max_value": 1,
+                                                                                               "shift_by": 2,
+                                                                                                 "suffix": "",
+                                                                                                   "type": "integer"
+                                                                      } ]
                                                   },
                       "NS430_LEFT_SMALL_BTN_ROT": {
-                                                           "api_variant": "multiturn",
-                                                              "category": "NS430",
-                                                          "control_type": "analog_dial",
-                                                           "description": "Small Left Button Rotate",
-                                                            "identifier": "NS430_LEFT_SMALL_BTN_ROT",
-                                                                "inputs": [ {
-                                                                                 "description": "turn the dial left or right",
-                                                                                   "interface": "variable_step",
-                                                                                   "max_value": 65535,
-                                                                              "suggested_step": 3200
-                                                                          } ],
-                                                               "outputs": [ {
-                                                                                                    "address": 1542,
-                                                                                         "address_identifier": "NS430_NS430_LEFT_SMALL_BTN_ROT_A",
-                                                                              "address_mask_shift_identifier": "NS430_NS430_LEFT_SMALL_BTN_ROT",
-                                                                                                "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
-                                                                                                       "mask": 65535,
-                                                                                                  "max_value": 65535,
-                                                                                                   "shift_by": 0,
-                                                                                                     "suffix": "_KNOB_POS",
-                                                                                                       "type": "integer"
-                                                                          } ],
-                                                      "physical_variant": "infinite_rotary"
+                                                       "api_variant": "multiturn",
+                                                          "category": "NS430",
+                                                      "control_type": "analog_dial",
+                                                       "description": "Small Left Button Rotate",
+                                                        "identifier": "NS430_LEFT_SMALL_BTN_ROT",
+                                                            "inputs": [ {
+                                                                             "description": "turn the dial left or right",
+                                                                               "interface": "variable_step",
+                                                                               "max_value": 65535,
+                                                                          "suggested_step": 3200
+                                                                      } ],
+                                                           "outputs": [ {
+                                                                                                "address": 1542,
+                                                                                     "address_identifier": "NS430_NS430_LEFT_SMALL_BTN_ROT_A",
+                                                                          "address_mask_shift_identifier": "NS430_NS430_LEFT_SMALL_BTN_ROT",
+                                                                                            "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                                                   "mask": 65535,
+                                                                                              "max_value": 65535,
+                                                                                               "shift_by": 0,
+                                                                                                 "suffix": "_KNOB_POS",
+                                                                                                   "type": "integer"
+                                                                      } ]
                                                   },
                      "NS430_LEFT_VLOC_FLIP_FLOP": {
-                                                              "api_variant": "multiturn",
-                                                                 "category": "NS430",
-                                                             "control_type": "selector",
-                                                              "description": "VOR/Localizer flip-flop",
-                                                               "identifier": "NS430_LEFT_VLOC_FLIP_FLOP",
-                                                                   "inputs": [ {
-                                                                                 "description": "switch to previous or next state",
-                                                                                   "interface": "fixed_step"
-                                                                             } ],
-                                                      "momentary_positions": "first_and_last",
-                                                                  "outputs": [ {
-                                                                                                       "address": 1536,
-                                                                                       "address_mask_identifier": "NS430_NS430_LEFT_VLOC_FLIP_FLOP_AM",
-                                                                                 "address_mask_shift_identifier": "NS430_NS430_LEFT_VLOC_FLIP_FLOP",
-                                                                                                   "description": "selector position",
-                                                                                                          "mask": 16,
-                                                                                                     "max_value": 1,
-                                                                                                      "shift_by": 4,
-                                                                                                        "suffix": "",
-                                                                                                          "type": "integer"
-                                                                             } ],
-                                                         "physical_variant": "push_button"
+                                                       "api_variant": "multiturn",
+                                                          "category": "NS430",
+                                                      "control_type": "selector",
+                                                       "description": "VOR/Localizer flip-flop",
+                                                        "identifier": "NS430_LEFT_VLOC_FLIP_FLOP",
+                                                            "inputs": [ {
+                                                                          "description": "switch to previous or next state",
+                                                                            "interface": "fixed_step"
+                                                                      } ],
+                                                           "outputs": [ {
+                                                                                                "address": 1536,
+                                                                                "address_mask_identifier": "NS430_NS430_LEFT_VLOC_FLIP_FLOP_AM",
+                                                                          "address_mask_shift_identifier": "NS430_NS430_LEFT_VLOC_FLIP_FLOP",
+                                                                                            "description": "selector position",
+                                                                                                   "mask": 16,
+                                                                                              "max_value": 1,
+                                                                                               "shift_by": 4,
+                                                                                                 "suffix": "",
+                                                                                                   "type": "integer"
+                                                                      } ]
                                                   },
                         "NS430_LEFT_VLOC_VOLUME": {
-                                                                 "category": "NS430",
-                                                             "control_type": "limited_dial",
-                                                              "description": "VOR/Localizer receiver Volume Rotate",
-                                                               "identifier": "NS430_LEFT_VLOC_VOLUME",
-                                                                   "inputs": [ {
-                                                                                 "description": "set the position of the dial",
-                                                                                   "interface": "set_state",
-                                                                                   "max_value": 65535
-                                                                             }, {
-                                                                                    "description": "turn the dial left or right",
-                                                                                      "interface": "variable_step",
-                                                                                      "max_value": 65535,
-                                                                                 "suggested_step": 3200
-                                                                             } ],
-                                                      "momentary_positions": "none",
-                                                                  "outputs": [ {
-                                                                                                       "address": 1540,
-                                                                                            "address_identifier": "NS430_NS430_LEFT_VLOC_VOLUME_A",
-                                                                                 "address_mask_shift_identifier": "NS430_NS430_LEFT_VLOC_VOLUME",
-                                                                                                   "description": "position of the potentiometer",
-                                                                                                          "mask": 65535,
-                                                                                                     "max_value": 65535,
-                                                                                                      "shift_by": 0,
-                                                                                                        "suffix": "",
-                                                                                                          "type": "integer"
-                                                                             } ],
-                                                         "physical_variant": "limited_rotary"
+                                                          "category": "NS430",
+                                                      "control_type": "limited_dial",
+                                                       "description": "VOR/Localizer receiver Volume Rotate",
+                                                        "identifier": "NS430_LEFT_VLOC_VOLUME",
+                                                            "inputs": [ {
+                                                                          "description": "set the position of the dial",
+                                                                            "interface": "set_state",
+                                                                            "max_value": 65535
+                                                                      }, {
+                                                                             "description": "turn the dial left or right",
+                                                                               "interface": "variable_step",
+                                                                               "max_value": 65535,
+                                                                          "suggested_step": 3200
+                                                                      } ],
+                                                           "outputs": [ {
+                                                                                                "address": 1540,
+                                                                                     "address_identifier": "NS430_NS430_LEFT_VLOC_VOLUME_A",
+                                                                          "address_mask_shift_identifier": "NS430_NS430_LEFT_VLOC_VOLUME",
+                                                                                            "description": "position of the potentiometer",
+                                                                                                   "mask": 65535,
+                                                                                              "max_value": 65535,
+                                                                                               "shift_by": 0,
+                                                                                                 "suffix": "",
+                                                                                                   "type": "integer"
+                                                                      } ]
                                                   },
                       "NS430_LEFT_VLOC_VOL_PUSH": {
-                                                              "api_variant": "multiturn",
-                                                                 "category": "NS430",
-                                                             "control_type": "selector",
-                                                              "description": "VOR/Localizer receiver Volume Push",
-                                                               "identifier": "NS430_LEFT_VLOC_VOL_PUSH",
-                                                                   "inputs": [ {
-                                                                                 "description": "switch to previous or next state",
-                                                                                   "interface": "fixed_step"
-                                                                             } ],
-                                                      "momentary_positions": "first_and_last",
-                                                                  "outputs": [ {
-                                                                                                       "address": 1536,
-                                                                                       "address_mask_identifier": "NS430_NS430_LEFT_VLOC_VOL_PUSH_AM",
-                                                                                 "address_mask_shift_identifier": "NS430_NS430_LEFT_VLOC_VOL_PUSH",
-                                                                                                   "description": "selector position",
-                                                                                                          "mask": 2,
-                                                                                                     "max_value": 1,
-                                                                                                      "shift_by": 1,
-                                                                                                        "suffix": "",
-                                                                                                          "type": "integer"
-                                                                             } ],
-                                                         "physical_variant": "push_button"
+                                                       "api_variant": "multiturn",
+                                                          "category": "NS430",
+                                                      "control_type": "selector",
+                                                       "description": "VOR/Localizer receiver Volume Push",
+                                                        "identifier": "NS430_LEFT_VLOC_VOL_PUSH",
+                                                            "inputs": [ {
+                                                                          "description": "switch to previous or next state",
+                                                                            "interface": "fixed_step"
+                                                                      } ],
+                                                           "outputs": [ {
+                                                                                                "address": 1536,
+                                                                                "address_mask_identifier": "NS430_NS430_LEFT_VLOC_VOL_PUSH_AM",
+                                                                          "address_mask_shift_identifier": "NS430_NS430_LEFT_VLOC_VOL_PUSH",
+                                                                                            "description": "selector position",
+                                                                                                   "mask": 2,
+                                                                                              "max_value": 1,
+                                                                                               "shift_by": 1,
+                                                                                                 "suffix": "",
+                                                                                                   "type": "integer"
+                                                                      } ]
                                                   },
                     "NS430_RIGHT_BIG_BTN_ROTATE": {
-                                                           "api_variant": "multiturn",
-                                                              "category": "NS430",
-                                                          "control_type": "analog_dial",
-                                                           "description": "Big Right Button Rotate",
-                                                            "identifier": "NS430_RIGHT_BIG_BTN_ROTATE",
-                                                                "inputs": [ {
-                                                                                 "description": "turn the dial left or right",
-                                                                                   "interface": "variable_step",
-                                                                                   "max_value": 65535,
-                                                                              "suggested_step": 3200
-                                                                          } ],
-                                                               "outputs": [ {
-                                                                                                    "address": 1550,
-                                                                                         "address_identifier": "NS430_NS430_RIGHT_BIG_BTN_ROTATE_A",
-                                                                              "address_mask_shift_identifier": "NS430_NS430_RIGHT_BIG_BTN_ROTATE",
-                                                                                                "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
-                                                                                                       "mask": 65535,
-                                                                                                  "max_value": 65535,
-                                                                                                   "shift_by": 0,
-                                                                                                     "suffix": "_KNOB_POS",
-                                                                                                       "type": "integer"
-                                                                          } ],
-                                                      "physical_variant": "infinite_rotary"
+                                                       "api_variant": "multiturn",
+                                                          "category": "NS430",
+                                                      "control_type": "analog_dial",
+                                                       "description": "Big Right Button Rotate",
+                                                        "identifier": "NS430_RIGHT_BIG_BTN_ROTATE",
+                                                            "inputs": [ {
+                                                                             "description": "turn the dial left or right",
+                                                                               "interface": "variable_step",
+                                                                               "max_value": 65535,
+                                                                          "suggested_step": 3200
+                                                                      } ],
+                                                           "outputs": [ {
+                                                                                                "address": 1550,
+                                                                                     "address_identifier": "NS430_NS430_RIGHT_BIG_BTN_ROTATE_A",
+                                                                          "address_mask_shift_identifier": "NS430_NS430_RIGHT_BIG_BTN_ROTATE",
+                                                                                            "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                                                   "mask": 65535,
+                                                                                              "max_value": 65535,
+                                                                                               "shift_by": 0,
+                                                                                                 "suffix": "_KNOB_POS",
+                                                                                                   "type": "integer"
+                                                                      } ]
                                                   },
                                "NS430_RIGHT_CLR": {
-                                                              "api_variant": "multiturn",
-                                                                 "category": "NS430",
-                                                             "control_type": "selector",
-                                                              "description": "CLR Button",
-                                                               "identifier": "NS430_RIGHT_CLR",
-                                                                   "inputs": [ {
-                                                                                 "description": "switch to previous or next state",
-                                                                                   "interface": "fixed_step"
-                                                                             } ],
-                                                      "momentary_positions": "first_and_last",
-                                                                  "outputs": [ {
-                                                                                                       "address": 1536,
-                                                                                       "address_mask_identifier": "NS430_NS430_RIGHT_CLR_AM",
-                                                                                 "address_mask_shift_identifier": "NS430_NS430_RIGHT_CLR",
-                                                                                                   "description": "selector position",
-                                                                                                          "mask": 16384,
-                                                                                                     "max_value": 1,
-                                                                                                      "shift_by": 14,
-                                                                                                        "suffix": "",
-                                                                                                          "type": "integer"
-                                                                             } ],
-                                                         "physical_variant": "push_button"
+                                                       "api_variant": "multiturn",
+                                                          "category": "NS430",
+                                                      "control_type": "selector",
+                                                       "description": "CLR Button",
+                                                        "identifier": "NS430_RIGHT_CLR",
+                                                            "inputs": [ {
+                                                                          "description": "switch to previous or next state",
+                                                                            "interface": "fixed_step"
+                                                                      } ],
+                                                           "outputs": [ {
+                                                                                                "address": 1536,
+                                                                                "address_mask_identifier": "NS430_NS430_RIGHT_CLR_AM",
+                                                                          "address_mask_shift_identifier": "NS430_NS430_RIGHT_CLR",
+                                                                                            "description": "selector position",
+                                                                                                   "mask": 16384,
+                                                                                              "max_value": 1,
+                                                                                               "shift_by": 14,
+                                                                                                 "suffix": "",
+                                                                                                   "type": "integer"
+                                                                      } ]
                                                   },
                          "NS430_RIGHT_DIRECT_TO": {
-                                                              "api_variant": "multiturn",
-                                                                 "category": "NS430",
-                                                             "control_type": "selector",
-                                                              "description": "DIRECT-TO Button",
-                                                               "identifier": "NS430_RIGHT_DIRECT_TO",
-                                                                   "inputs": [ {
-                                                                                 "description": "switch to previous or next state",
-                                                                                   "interface": "fixed_step"
-                                                                             } ],
-                                                      "momentary_positions": "first_and_last",
-                                                                  "outputs": [ {
-                                                                                                       "address": 1536,
-                                                                                       "address_mask_identifier": "NS430_NS430_RIGHT_DIRECT_TO_AM",
-                                                                                 "address_mask_shift_identifier": "NS430_NS430_RIGHT_DIRECT_TO",
-                                                                                                   "description": "selector position",
-                                                                                                          "mask": 4096,
-                                                                                                     "max_value": 1,
-                                                                                                      "shift_by": 12,
-                                                                                                        "suffix": "",
-                                                                                                          "type": "integer"
-                                                                             } ],
-                                                         "physical_variant": "push_button"
+                                                       "api_variant": "multiturn",
+                                                          "category": "NS430",
+                                                      "control_type": "selector",
+                                                       "description": "DIRECT-TO Button",
+                                                        "identifier": "NS430_RIGHT_DIRECT_TO",
+                                                            "inputs": [ {
+                                                                          "description": "switch to previous or next state",
+                                                                            "interface": "fixed_step"
+                                                                      } ],
+                                                           "outputs": [ {
+                                                                                                "address": 1536,
+                                                                                "address_mask_identifier": "NS430_NS430_RIGHT_DIRECT_TO_AM",
+                                                                          "address_mask_shift_identifier": "NS430_NS430_RIGHT_DIRECT_TO",
+                                                                                            "description": "selector position",
+                                                                                                   "mask": 4096,
+                                                                                              "max_value": 1,
+                                                                                               "shift_by": 12,
+                                                                                                 "suffix": "",
+                                                                                                   "type": "integer"
+                                                                      } ]
                                                   },
                                "NS430_RIGHT_ENT": {
-                                                              "api_variant": "multiturn",
-                                                                 "category": "NS430",
-                                                             "control_type": "selector",
-                                                              "description": "ENT Button",
-                                                               "identifier": "NS430_RIGHT_ENT",
-                                                                   "inputs": [ {
-                                                                                 "description": "switch to previous or next state",
-                                                                                   "interface": "fixed_step"
-                                                                             } ],
-                                                      "momentary_positions": "first_and_last",
-                                                                  "outputs": [ {
-                                                                                                       "address": 1536,
-                                                                                       "address_mask_identifier": "NS430_NS430_RIGHT_ENT_AM",
-                                                                                 "address_mask_shift_identifier": "NS430_NS430_RIGHT_ENT",
-                                                                                                   "description": "selector position",
-                                                                                                          "mask": 32768,
-                                                                                                     "max_value": 1,
-                                                                                                      "shift_by": 15,
-                                                                                                        "suffix": "",
-                                                                                                          "type": "integer"
-                                                                             } ],
-                                                         "physical_variant": "push_button"
+                                                       "api_variant": "multiturn",
+                                                          "category": "NS430",
+                                                      "control_type": "selector",
+                                                       "description": "ENT Button",
+                                                        "identifier": "NS430_RIGHT_ENT",
+                                                            "inputs": [ {
+                                                                          "description": "switch to previous or next state",
+                                                                            "interface": "fixed_step"
+                                                                      } ],
+                                                           "outputs": [ {
+                                                                                                "address": 1536,
+                                                                                "address_mask_identifier": "NS430_NS430_RIGHT_ENT_AM",
+                                                                          "address_mask_shift_identifier": "NS430_NS430_RIGHT_ENT",
+                                                                                            "description": "selector position",
+                                                                                                   "mask": 32768,
+                                                                                              "max_value": 1,
+                                                                                               "shift_by": 15,
+                                                                                                 "suffix": "",
+                                                                                                   "type": "integer"
+                                                                      } ]
                                                   },
                               "NS430_RIGHT_MENU": {
-                                                              "api_variant": "multiturn",
-                                                                 "category": "NS430",
-                                                             "control_type": "selector",
-                                                              "description": "MENU Button",
-                                                               "identifier": "NS430_RIGHT_MENU",
-                                                                   "inputs": [ {
-                                                                                 "description": "switch to previous or next state",
-                                                                                   "interface": "fixed_step"
-                                                                             } ],
-                                                      "momentary_positions": "first_and_last",
-                                                                  "outputs": [ {
-                                                                                                       "address": 1536,
-                                                                                       "address_mask_identifier": "NS430_NS430_RIGHT_MENU_AM",
-                                                                                 "address_mask_shift_identifier": "NS430_NS430_RIGHT_MENU",
-                                                                                                   "description": "selector position",
-                                                                                                          "mask": 8192,
-                                                                                                     "max_value": 1,
-                                                                                                      "shift_by": 13,
-                                                                                                        "suffix": "",
-                                                                                                          "type": "integer"
-                                                                             } ],
-                                                         "physical_variant": "push_button"
+                                                       "api_variant": "multiturn",
+                                                          "category": "NS430",
+                                                      "control_type": "selector",
+                                                       "description": "MENU Button",
+                                                        "identifier": "NS430_RIGHT_MENU",
+                                                            "inputs": [ {
+                                                                          "description": "switch to previous or next state",
+                                                                            "interface": "fixed_step"
+                                                                      } ],
+                                                           "outputs": [ {
+                                                                                                "address": 1536,
+                                                                                "address_mask_identifier": "NS430_NS430_RIGHT_MENU_AM",
+                                                                          "address_mask_shift_identifier": "NS430_NS430_RIGHT_MENU",
+                                                                                            "description": "selector position",
+                                                                                                   "mask": 8192,
+                                                                                              "max_value": 1,
+                                                                                               "shift_by": 13,
+                                                                                                 "suffix": "",
+                                                                                                   "type": "integer"
+                                                                      } ]
                                                   },
                         "NS430_RIGHT_RNG_ROCKER": {
-                                                                 "category": "NS430",
-                                                             "control_type": "selector",
-                                                              "description": "Range / Zoom Rocker Switch",
-                                                               "identifier": "NS430_RIGHT_RNG_ROCKER",
-                                                                   "inputs": [ {
-                                                                                 "description": "switch to previous or next state",
-                                                                                   "interface": "fixed_step"
-                                                                             }, {
-                                                                                 "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
-                                                                                   "interface": "set_state",
-                                                                                   "max_value": 2
-                                                                             } ],
-                                                      "momentary_positions": "first_and_last",
-                                                                  "outputs": [ {
-                                                                                                       "address": 1536,
-                                                                                 "address_mask_shift_identifier": "NS430_NS430_RIGHT_RNG_ROCKER",
-                                                                                                   "description": "button position",
-                                                                                                          "mask": 3072,
-                                                                                                     "max_value": 2,
-                                                                                                      "shift_by": 10,
-                                                                                                        "suffix": "",
-                                                                                                          "type": "integer"
-                                                                             } ],
-                                                         "physical_variant": "rocker_switch"
+                                                          "category": "NS430",
+                                                      "control_type": "selector",
+                                                       "description": "Range / Zoom Rocker Switch",
+                                                        "identifier": "NS430_RIGHT_RNG_ROCKER",
+                                                            "inputs": [ {
+                                                                          "description": "switch to previous or next state",
+                                                                            "interface": "fixed_step"
+                                                                      }, {
+                                                                          "description": "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up",
+                                                                            "interface": "set_state",
+                                                                            "max_value": 2
+                                                                      } ],
+                                                           "outputs": [ {
+                                                                                                "address": 1536,
+                                                                          "address_mask_shift_identifier": "NS430_NS430_RIGHT_RNG_ROCKER",
+                                                                                            "description": "button position",
+                                                                                                   "mask": 3072,
+                                                                                              "max_value": 2,
+                                                                                               "shift_by": 10,
+                                                                                                 "suffix": "",
+                                                                                                   "type": "integer"
+                                                                      } ]
                                                   },
                     "NS430_RIGHT_SMALL_BTN_PUSH": {
-                                                              "api_variant": "multiturn",
-                                                                 "category": "NS430",
-                                                             "control_type": "selector",
-                                                              "description": "Small Right Button Push",
-                                                               "identifier": "NS430_RIGHT_SMALL_BTN_PUSH",
-                                                                   "inputs": [ {
-                                                                                 "description": "switch to previous or next state",
-                                                                                   "interface": "fixed_step"
-                                                                             } ],
-                                                      "momentary_positions": "first_and_last",
-                                                                  "outputs": [ {
-                                                                                                       "address": 1546,
-                                                                                       "address_mask_identifier": "NS430_NS430_RIGHT_SMALL_BTN_PUSH_AM",
-                                                                                 "address_mask_shift_identifier": "NS430_NS430_RIGHT_SMALL_BTN_PUSH",
-                                                                                                   "description": "selector position",
-                                                                                                          "mask": 1,
-                                                                                                     "max_value": 1,
-                                                                                                      "shift_by": 0,
-                                                                                                        "suffix": "",
-                                                                                                          "type": "integer"
-                                                                             } ],
-                                                         "physical_variant": "push_button"
+                                                       "api_variant": "multiturn",
+                                                          "category": "NS430",
+                                                      "control_type": "selector",
+                                                       "description": "Small Right Button Push",
+                                                        "identifier": "NS430_RIGHT_SMALL_BTN_PUSH",
+                                                            "inputs": [ {
+                                                                          "description": "switch to previous or next state",
+                                                                            "interface": "fixed_step"
+                                                                      } ],
+                                                           "outputs": [ {
+                                                                                                "address": 1546,
+                                                                                "address_mask_identifier": "NS430_NS430_RIGHT_SMALL_BTN_PUSH_AM",
+                                                                          "address_mask_shift_identifier": "NS430_NS430_RIGHT_SMALL_BTN_PUSH",
+                                                                                            "description": "selector position",
+                                                                                                   "mask": 1,
+                                                                                              "max_value": 1,
+                                                                                               "shift_by": 0,
+                                                                                                 "suffix": "",
+                                                                                                   "type": "integer"
+                                                                      } ]
                                                   },
                      "NS430_RIGHT_SMALL_BTN_ROT": {
-                                                           "api_variant": "multiturn",
-                                                              "category": "NS430",
-                                                          "control_type": "analog_dial",
-                                                           "description": "Small Right Button Rotate",
-                                                            "identifier": "NS430_RIGHT_SMALL_BTN_ROT",
-                                                                "inputs": [ {
-                                                                                 "description": "turn the dial left or right",
-                                                                                   "interface": "variable_step",
-                                                                                   "max_value": 65535,
-                                                                              "suggested_step": 3200
-                                                                          } ],
-                                                               "outputs": [ {
-                                                                                                    "address": 1548,
-                                                                                         "address_identifier": "NS430_NS430_RIGHT_SMALL_BTN_ROT_A",
-                                                                              "address_mask_shift_identifier": "NS430_NS430_RIGHT_SMALL_BTN_ROT",
-                                                                                                "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
-                                                                                                       "mask": 65535,
-                                                                                                  "max_value": 65535,
-                                                                                                   "shift_by": 0,
-                                                                                                     "suffix": "_KNOB_POS",
-                                                                                                       "type": "integer"
-                                                                          } ],
-                                                      "physical_variant": "infinite_rotary"
+                                                       "api_variant": "multiturn",
+                                                          "category": "NS430",
+                                                      "control_type": "analog_dial",
+                                                       "description": "Small Right Button Rotate",
+                                                        "identifier": "NS430_RIGHT_SMALL_BTN_ROT",
+                                                            "inputs": [ {
+                                                                             "description": "turn the dial left or right",
+                                                                               "interface": "variable_step",
+                                                                               "max_value": 65535,
+                                                                          "suggested_step": 3200
+                                                                      } ],
+                                                           "outputs": [ {
+                                                                                                "address": 1548,
+                                                                                     "address_identifier": "NS430_NS430_RIGHT_SMALL_BTN_ROT_A",
+                                                                          "address_mask_shift_identifier": "NS430_NS430_RIGHT_SMALL_BTN_ROT",
+                                                                                            "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                                                   "mask": 65535,
+                                                                                              "max_value": 65535,
+                                                                                               "shift_by": 0,
+                                                                                                 "suffix": "_KNOB_POS",
+                                                                                                   "type": "integer"
+                                                                      } ]
                                                   }
              }
 }

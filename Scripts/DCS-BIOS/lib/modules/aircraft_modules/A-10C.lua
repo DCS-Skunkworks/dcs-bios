@@ -6,8 +6,6 @@ local ControlType = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlT
 local FixedStepInput = require("Scripts.DCS-BIOS.lib.modules.documentation.FixedStepInput")
 local Functions = require("Scripts.DCS-BIOS.lib.common.Functions")
 local IntegerOutput = require("Scripts.DCS-BIOS.lib.modules.documentation.IntegerOutput")
-local MomentaryPositions = require("Scripts.DCS-BIOS.lib.modules.documentation.MomentaryPositions")
-local PhysicalVariant = require("Scripts.DCS-BIOS.lib.modules.documentation.PhysicalVariant")
 local SetStateInput = require("Scripts.DCS-BIOS.lib.modules.documentation.SetStateInput")
 local Suffix = require("Scripts.DCS-BIOS.lib.modules.documentation.Suffix")
 local TextDisplay = require("Scripts.DCS-BIOS.lib.modules.TextDisplay")
@@ -34,7 +32,7 @@ function A_10C:defineCMSPSwitch(identifier, device_id, down_command, up_command,
 		SetStateInput:new(2, "set the switch position -- 0 = down, 1 = centered, 2 = held up"),
 	}, {
 		IntegerOutput:new(alloc, Suffix.none, "switch position: 0 - down, 1 - center, 2 - up"),
-	}, MomentaryPositions.last, PhysicalVariant.toggle_switch)
+	})
 
 	self:addControl(control)
 
@@ -189,7 +187,7 @@ function A_10C:defineHatSwitch(identifier, device_id, center_command, directiona
 		SetStateInput:new(max_value, "set position"),
 	}, {
 		IntegerOutput:new(alloc, Suffix.none, "selector position"),
-	}, MomentaryPositions.none, PhysicalVariant.limited_rotary)
+	})
 
 	self:addControl(control)
 

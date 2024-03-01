@@ -2,228 +2,214 @@ docdata["Christen Eagle II"] =
 {
                      "Canopy": {
                                     "CANOPY_CLOSE_FRONT": {
-                                                                      "api_variant": "momentary_last_position",
-                                                                         "category": "Canopy",
-                                                                     "control_type": "selector",
-                                                                      "description": "Canopy Lever Close (Front)",
-                                                                       "identifier": "CANOPY_CLOSE_FRONT",
-                                                                           "inputs": [ {
-                                                                                         "description": "switch to previous or next state",
-                                                                                           "interface": "fixed_step"
-                                                                                     }, {
-                                                                                         "description": "set position",
-                                                                                           "interface": "set_state",
-                                                                                           "max_value": 1
-                                                                                     }, {
-                                                                                            "argument": "TOGGLE",
-                                                                                         "description": "Toggle switch state",
-                                                                                           "interface": "action"
-                                                                                     } ],
-                                                              "momentary_positions": "none",
-                                                                          "outputs": [ {
-                                                                                                               "address": 10258,
-                                                                                               "address_mask_identifier": "Christen_Eagle_II_CANOPY_CLOSE_FRONT_AM",
-                                                                                         "address_mask_shift_identifier": "Christen_Eagle_II_CANOPY_CLOSE_FRONT",
-                                                                                                           "description": "selector position",
-                                                                                                                  "mask": 512,
-                                                                                                             "max_value": 1,
-                                                                                                              "shift_by": 9,
-                                                                                                                "suffix": "",
-                                                                                                                  "type": "integer"
-                                                                                     } ],
-                                                                 "physical_variant": "push_button"
+                                                               "api_variant": "momentary_last_position",
+                                                                  "category": "Canopy",
+                                                              "control_type": "selector",
+                                                               "description": "Canopy Lever Close (Front)",
+                                                                "identifier": "CANOPY_CLOSE_FRONT",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 1
+                                                                              }, {
+                                                                                     "argument": "TOGGLE",
+                                                                                  "description": "Toggle switch state",
+                                                                                    "interface": "action"
+                                                                              } ],
+                                                                   "outputs": [ {
+                                                                                                        "address": 10258,
+                                                                                        "address_mask_identifier": "Christen_Eagle_II_CANOPY_CLOSE_FRONT_AM",
+                                                                                  "address_mask_shift_identifier": "Christen_Eagle_II_CANOPY_CLOSE_FRONT",
+                                                                                                    "description": "selector position",
+                                                                                                           "mask": 512,
+                                                                                                      "max_value": 1,
+                                                                                                       "shift_by": 9,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                              } ]
                                                           },
                                      "CANOPY_CLOSE_REAR": {
-                                                                      "api_variant": "momentary_last_position",
-                                                                         "category": "Canopy",
-                                                                     "control_type": "selector",
-                                                                      "description": "Canopy Lever Close (Rear)",
-                                                                       "identifier": "CANOPY_CLOSE_REAR",
-                                                                           "inputs": [ {
-                                                                                         "description": "switch to previous or next state",
-                                                                                           "interface": "fixed_step"
-                                                                                     }, {
-                                                                                         "description": "set position",
-                                                                                           "interface": "set_state",
-                                                                                           "max_value": 1
-                                                                                     }, {
-                                                                                            "argument": "TOGGLE",
-                                                                                         "description": "Toggle switch state",
-                                                                                           "interface": "action"
-                                                                                     } ],
-                                                              "momentary_positions": "none",
-                                                                          "outputs": [ {
-                                                                                                               "address": 10258,
-                                                                                               "address_mask_identifier": "Christen_Eagle_II_CANOPY_CLOSE_REAR_AM",
-                                                                                         "address_mask_shift_identifier": "Christen_Eagle_II_CANOPY_CLOSE_REAR",
-                                                                                                           "description": "selector position",
-                                                                                                                  "mask": 128,
-                                                                                                             "max_value": 1,
-                                                                                                              "shift_by": 7,
-                                                                                                                "suffix": "",
-                                                                                                                  "type": "integer"
-                                                                                     } ],
-                                                                 "physical_variant": "push_button"
+                                                               "api_variant": "momentary_last_position",
+                                                                  "category": "Canopy",
+                                                              "control_type": "selector",
+                                                               "description": "Canopy Lever Close (Rear)",
+                                                                "identifier": "CANOPY_CLOSE_REAR",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 1
+                                                                              }, {
+                                                                                     "argument": "TOGGLE",
+                                                                                  "description": "Toggle switch state",
+                                                                                    "interface": "action"
+                                                                              } ],
+                                                                   "outputs": [ {
+                                                                                                        "address": 10258,
+                                                                                        "address_mask_identifier": "Christen_Eagle_II_CANOPY_CLOSE_REAR_AM",
+                                                                                  "address_mask_shift_identifier": "Christen_Eagle_II_CANOPY_CLOSE_REAR",
+                                                                                                    "description": "selector position",
+                                                                                                           "mask": 128,
+                                                                                                      "max_value": 1,
+                                                                                                       "shift_by": 7,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                              } ]
                                                           },
                                            "CANOPY_JETT": {
-                                                                      "api_variant": "momentary_last_position",
-                                                                         "category": "Canopy",
-                                                                     "control_type": "selector",
-                                                                      "description": "Canopy Jettison (Rear)",
-                                                                       "identifier": "CANOPY_JETT",
-                                                                           "inputs": [ {
-                                                                                         "description": "switch to previous or next state",
-                                                                                           "interface": "fixed_step"
-                                                                                     }, {
-                                                                                         "description": "set position",
-                                                                                           "interface": "set_state",
-                                                                                           "max_value": 1
-                                                                                     }, {
-                                                                                            "argument": "TOGGLE",
-                                                                                         "description": "Toggle switch state",
-                                                                                           "interface": "action"
-                                                                                     } ],
-                                                              "momentary_positions": "none",
-                                                                          "outputs": [ {
-                                                                                                               "address": 10258,
-                                                                                               "address_mask_identifier": "Christen_Eagle_II_CANOPY_JETT_AM",
-                                                                                         "address_mask_shift_identifier": "Christen_Eagle_II_CANOPY_JETT",
-                                                                                                           "description": "selector position",
-                                                                                                                  "mask": 16384,
-                                                                                                             "max_value": 1,
-                                                                                                              "shift_by": 14,
-                                                                                                                "suffix": "",
-                                                                                                                  "type": "integer"
-                                                                                     } ],
-                                                                 "physical_variant": "push_button"
+                                                               "api_variant": "momentary_last_position",
+                                                                  "category": "Canopy",
+                                                              "control_type": "selector",
+                                                               "description": "Canopy Jettison (Rear)",
+                                                                "identifier": "CANOPY_JETT",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 1
+                                                                              }, {
+                                                                                     "argument": "TOGGLE",
+                                                                                  "description": "Toggle switch state",
+                                                                                    "interface": "action"
+                                                                              } ],
+                                                                   "outputs": [ {
+                                                                                                        "address": 10258,
+                                                                                        "address_mask_identifier": "Christen_Eagle_II_CANOPY_JETT_AM",
+                                                                                  "address_mask_shift_identifier": "Christen_Eagle_II_CANOPY_JETT",
+                                                                                                    "description": "selector position",
+                                                                                                           "mask": 16384,
+                                                                                                      "max_value": 1,
+                                                                                                       "shift_by": 14,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                              } ]
                                                           },
                                      "CANOPY_LOCK_FRONT": {
-                                                                      "api_variant": "momentary_last_position",
-                                                                         "category": "Canopy",
-                                                                     "control_type": "selector",
-                                                                      "description": "Canopy Lock (Front)",
-                                                                       "identifier": "CANOPY_LOCK_FRONT",
-                                                                           "inputs": [ {
-                                                                                         "description": "switch to previous or next state",
-                                                                                           "interface": "fixed_step"
-                                                                                     }, {
-                                                                                         "description": "set position",
-                                                                                           "interface": "set_state",
-                                                                                           "max_value": 1
-                                                                                     }, {
-                                                                                            "argument": "TOGGLE",
-                                                                                         "description": "Toggle switch state",
-                                                                                           "interface": "action"
-                                                                                     } ],
-                                                              "momentary_positions": "none",
-                                                                          "outputs": [ {
-                                                                                                               "address": 10258,
-                                                                                               "address_mask_identifier": "Christen_Eagle_II_CANOPY_LOCK_FRONT_AM",
-                                                                                         "address_mask_shift_identifier": "Christen_Eagle_II_CANOPY_LOCK_FRONT",
-                                                                                                           "description": "selector position",
-                                                                                                                  "mask": 4096,
-                                                                                                             "max_value": 1,
-                                                                                                              "shift_by": 12,
-                                                                                                                "suffix": "",
-                                                                                                                  "type": "integer"
-                                                                                     } ],
-                                                                 "physical_variant": "push_button"
+                                                               "api_variant": "momentary_last_position",
+                                                                  "category": "Canopy",
+                                                              "control_type": "selector",
+                                                               "description": "Canopy Lock (Front)",
+                                                                "identifier": "CANOPY_LOCK_FRONT",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 1
+                                                                              }, {
+                                                                                     "argument": "TOGGLE",
+                                                                                  "description": "Toggle switch state",
+                                                                                    "interface": "action"
+                                                                              } ],
+                                                                   "outputs": [ {
+                                                                                                        "address": 10258,
+                                                                                        "address_mask_identifier": "Christen_Eagle_II_CANOPY_LOCK_FRONT_AM",
+                                                                                  "address_mask_shift_identifier": "Christen_Eagle_II_CANOPY_LOCK_FRONT",
+                                                                                                    "description": "selector position",
+                                                                                                           "mask": 4096,
+                                                                                                      "max_value": 1,
+                                                                                                       "shift_by": 12,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                              } ]
                                                           },
                                       "CANOPY_LOCK_REAR": {
-                                                                      "api_variant": "momentary_last_position",
-                                                                         "category": "Canopy",
-                                                                     "control_type": "selector",
-                                                                      "description": "Canopy Lock (Rear)",
-                                                                       "identifier": "CANOPY_LOCK_REAR",
-                                                                           "inputs": [ {
-                                                                                         "description": "switch to previous or next state",
-                                                                                           "interface": "fixed_step"
-                                                                                     }, {
-                                                                                         "description": "set position",
-                                                                                           "interface": "set_state",
-                                                                                           "max_value": 1
-                                                                                     }, {
-                                                                                            "argument": "TOGGLE",
-                                                                                         "description": "Toggle switch state",
-                                                                                           "interface": "action"
-                                                                                     } ],
-                                                              "momentary_positions": "none",
-                                                                          "outputs": [ {
-                                                                                                               "address": 10258,
-                                                                                               "address_mask_identifier": "Christen_Eagle_II_CANOPY_LOCK_REAR_AM",
-                                                                                         "address_mask_shift_identifier": "Christen_Eagle_II_CANOPY_LOCK_REAR",
-                                                                                                           "description": "selector position",
-                                                                                                                  "mask": 1024,
-                                                                                                             "max_value": 1,
-                                                                                                              "shift_by": 10,
-                                                                                                                "suffix": "",
-                                                                                                                  "type": "integer"
-                                                                                     } ],
-                                                                 "physical_variant": "push_button"
+                                                               "api_variant": "momentary_last_position",
+                                                                  "category": "Canopy",
+                                                              "control_type": "selector",
+                                                               "description": "Canopy Lock (Rear)",
+                                                                "identifier": "CANOPY_LOCK_REAR",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 1
+                                                                              }, {
+                                                                                     "argument": "TOGGLE",
+                                                                                  "description": "Toggle switch state",
+                                                                                    "interface": "action"
+                                                                              } ],
+                                                                   "outputs": [ {
+                                                                                                        "address": 10258,
+                                                                                        "address_mask_identifier": "Christen_Eagle_II_CANOPY_LOCK_REAR_AM",
+                                                                                  "address_mask_shift_identifier": "Christen_Eagle_II_CANOPY_LOCK_REAR",
+                                                                                                    "description": "selector position",
+                                                                                                           "mask": 1024,
+                                                                                                      "max_value": 1,
+                                                                                                       "shift_by": 10,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                              } ]
                                                           },
                                      "CANOPY_OPEN_FRONT": {
-                                                                      "api_variant": "momentary_last_position",
-                                                                         "category": "Canopy",
-                                                                     "control_type": "selector",
-                                                                      "description": "Canopy Lever Open (Front)",
-                                                                       "identifier": "CANOPY_OPEN_FRONT",
-                                                                           "inputs": [ {
-                                                                                         "description": "switch to previous or next state",
-                                                                                           "interface": "fixed_step"
-                                                                                     }, {
-                                                                                         "description": "set position",
-                                                                                           "interface": "set_state",
-                                                                                           "max_value": 1
-                                                                                     }, {
-                                                                                            "argument": "TOGGLE",
-                                                                                         "description": "Toggle switch state",
-                                                                                           "interface": "action"
-                                                                                     } ],
-                                                              "momentary_positions": "none",
-                                                                          "outputs": [ {
-                                                                                                               "address": 10258,
-                                                                                               "address_mask_identifier": "Christen_Eagle_II_CANOPY_OPEN_FRONT_AM",
-                                                                                         "address_mask_shift_identifier": "Christen_Eagle_II_CANOPY_OPEN_FRONT",
-                                                                                                           "description": "selector position",
-                                                                                                                  "mask": 256,
-                                                                                                             "max_value": 1,
-                                                                                                              "shift_by": 8,
-                                                                                                                "suffix": "",
-                                                                                                                  "type": "integer"
-                                                                                     } ],
-                                                                 "physical_variant": "push_button"
+                                                               "api_variant": "momentary_last_position",
+                                                                  "category": "Canopy",
+                                                              "control_type": "selector",
+                                                               "description": "Canopy Lever Open (Front)",
+                                                                "identifier": "CANOPY_OPEN_FRONT",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 1
+                                                                              }, {
+                                                                                     "argument": "TOGGLE",
+                                                                                  "description": "Toggle switch state",
+                                                                                    "interface": "action"
+                                                                              } ],
+                                                                   "outputs": [ {
+                                                                                                        "address": 10258,
+                                                                                        "address_mask_identifier": "Christen_Eagle_II_CANOPY_OPEN_FRONT_AM",
+                                                                                  "address_mask_shift_identifier": "Christen_Eagle_II_CANOPY_OPEN_FRONT",
+                                                                                                    "description": "selector position",
+                                                                                                           "mask": 256,
+                                                                                                      "max_value": 1,
+                                                                                                       "shift_by": 8,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                              } ]
                                                           },
                                       "CANOPY_OPEN_REAR": {
-                                                                      "api_variant": "momentary_last_position",
-                                                                         "category": "Canopy",
-                                                                     "control_type": "selector",
-                                                                      "description": "Canopy Lever Open (Rear)",
-                                                                       "identifier": "CANOPY_OPEN_REAR",
-                                                                           "inputs": [ {
-                                                                                         "description": "switch to previous or next state",
-                                                                                           "interface": "fixed_step"
-                                                                                     }, {
-                                                                                         "description": "set position",
-                                                                                           "interface": "set_state",
-                                                                                           "max_value": 1
-                                                                                     }, {
-                                                                                            "argument": "TOGGLE",
-                                                                                         "description": "Toggle switch state",
-                                                                                           "interface": "action"
-                                                                                     } ],
-                                                              "momentary_positions": "none",
-                                                                          "outputs": [ {
-                                                                                                               "address": 10258,
-                                                                                               "address_mask_identifier": "Christen_Eagle_II_CANOPY_OPEN_REAR_AM",
-                                                                                         "address_mask_shift_identifier": "Christen_Eagle_II_CANOPY_OPEN_REAR",
-                                                                                                           "description": "selector position",
-                                                                                                                  "mask": 64,
-                                                                                                             "max_value": 1,
-                                                                                                              "shift_by": 6,
-                                                                                                                "suffix": "",
-                                                                                                                  "type": "integer"
-                                                                                     } ],
-                                                                 "physical_variant": "push_button"
+                                                               "api_variant": "momentary_last_position",
+                                                                  "category": "Canopy",
+                                                              "control_type": "selector",
+                                                               "description": "Canopy Lever Open (Rear)",
+                                                                "identifier": "CANOPY_OPEN_REAR",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 1
+                                                                              }, {
+                                                                                     "argument": "TOGGLE",
+                                                                                  "description": "Toggle switch state",
+                                                                                    "interface": "action"
+                                                                              } ],
+                                                                   "outputs": [ {
+                                                                                                        "address": 10258,
+                                                                                        "address_mask_identifier": "Christen_Eagle_II_CANOPY_OPEN_REAR_AM",
+                                                                                  "address_mask_shift_identifier": "Christen_Eagle_II_CANOPY_OPEN_REAR",
+                                                                                                    "description": "selector position",
+                                                                                                           "mask": 64,
+                                                                                                      "max_value": 1,
+                                                                                                       "shift_by": 6,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                              } ]
                                                           },
                                             "CANOPY_POS": {
                                                                   "category": "Canopy",
@@ -244,285 +230,267 @@ docdata["Christen Eagle II"] =
                                                                               } ]
                                                           },
                                    "CANOPY_UNLOCK_FRONT": {
-                                                                      "api_variant": "momentary_last_position",
-                                                                         "category": "Canopy",
-                                                                     "control_type": "selector",
-                                                                      "description": "Canopy Unlock (Front)",
-                                                                       "identifier": "CANOPY_UNLOCK_FRONT",
-                                                                           "inputs": [ {
-                                                                                         "description": "switch to previous or next state",
-                                                                                           "interface": "fixed_step"
-                                                                                     }, {
-                                                                                         "description": "set position",
-                                                                                           "interface": "set_state",
-                                                                                           "max_value": 1
-                                                                                     }, {
-                                                                                            "argument": "TOGGLE",
-                                                                                         "description": "Toggle switch state",
-                                                                                           "interface": "action"
-                                                                                     } ],
-                                                              "momentary_positions": "none",
-                                                                          "outputs": [ {
-                                                                                                               "address": 10258,
-                                                                                               "address_mask_identifier": "Christen_Eagle_II_CANOPY_UNLOCK_FRONT_AM",
-                                                                                         "address_mask_shift_identifier": "Christen_Eagle_II_CANOPY_UNLOCK_FRONT",
-                                                                                                           "description": "selector position",
-                                                                                                                  "mask": 8192,
-                                                                                                             "max_value": 1,
-                                                                                                              "shift_by": 13,
-                                                                                                                "suffix": "",
-                                                                                                                  "type": "integer"
-                                                                                     } ],
-                                                                 "physical_variant": "push_button"
+                                                               "api_variant": "momentary_last_position",
+                                                                  "category": "Canopy",
+                                                              "control_type": "selector",
+                                                               "description": "Canopy Unlock (Front)",
+                                                                "identifier": "CANOPY_UNLOCK_FRONT",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 1
+                                                                              }, {
+                                                                                     "argument": "TOGGLE",
+                                                                                  "description": "Toggle switch state",
+                                                                                    "interface": "action"
+                                                                              } ],
+                                                                   "outputs": [ {
+                                                                                                        "address": 10258,
+                                                                                        "address_mask_identifier": "Christen_Eagle_II_CANOPY_UNLOCK_FRONT_AM",
+                                                                                  "address_mask_shift_identifier": "Christen_Eagle_II_CANOPY_UNLOCK_FRONT",
+                                                                                                    "description": "selector position",
+                                                                                                           "mask": 8192,
+                                                                                                      "max_value": 1,
+                                                                                                       "shift_by": 13,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                              } ]
                                                           },
                                     "CANOPY_UNLOCK_REAR": {
-                                                                      "api_variant": "momentary_last_position",
-                                                                         "category": "Canopy",
-                                                                     "control_type": "selector",
-                                                                      "description": "Canopy Unlock (Rear)",
-                                                                       "identifier": "CANOPY_UNLOCK_REAR",
-                                                                           "inputs": [ {
-                                                                                         "description": "switch to previous or next state",
-                                                                                           "interface": "fixed_step"
-                                                                                     }, {
-                                                                                         "description": "set position",
-                                                                                           "interface": "set_state",
-                                                                                           "max_value": 1
-                                                                                     }, {
-                                                                                            "argument": "TOGGLE",
-                                                                                         "description": "Toggle switch state",
-                                                                                           "interface": "action"
-                                                                                     } ],
-                                                              "momentary_positions": "none",
-                                                                          "outputs": [ {
-                                                                                                               "address": 10258,
-                                                                                               "address_mask_identifier": "Christen_Eagle_II_CANOPY_UNLOCK_REAR_AM",
-                                                                                         "address_mask_shift_identifier": "Christen_Eagle_II_CANOPY_UNLOCK_REAR",
-                                                                                                           "description": "selector position",
-                                                                                                                  "mask": 2048,
-                                                                                                             "max_value": 1,
-                                                                                                              "shift_by": 11,
-                                                                                                                "suffix": "",
-                                                                                                                  "type": "integer"
-                                                                                     } ],
-                                                                 "physical_variant": "push_button"
+                                                               "api_variant": "momentary_last_position",
+                                                                  "category": "Canopy",
+                                                              "control_type": "selector",
+                                                               "description": "Canopy Unlock (Rear)",
+                                                                "identifier": "CANOPY_UNLOCK_REAR",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 1
+                                                                              }, {
+                                                                                     "argument": "TOGGLE",
+                                                                                  "description": "Toggle switch state",
+                                                                                    "interface": "action"
+                                                                              } ],
+                                                                   "outputs": [ {
+                                                                                                        "address": 10258,
+                                                                                        "address_mask_identifier": "Christen_Eagle_II_CANOPY_UNLOCK_REAR_AM",
+                                                                                  "address_mask_shift_identifier": "Christen_Eagle_II_CANOPY_UNLOCK_REAR",
+                                                                                                    "description": "selector position",
+                                                                                                           "mask": 2048,
+                                                                                                      "max_value": 1,
+                                                                                                       "shift_by": 11,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                              } ]
                                                           }
                                },
                    "Electric": {
                                    "ALTERNATOR": {
-                                                                "category": "Electric",
-                                                            "control_type": "selector",
-                                                             "description": "Alternator Switch",
-                                                              "identifier": "ALTERNATOR",
-                                                                  "inputs": [ {
-                                                                                "description": "switch to previous or next state",
-                                                                                  "interface": "fixed_step"
-                                                                            }, {
-                                                                                "description": "set position",
-                                                                                  "interface": "set_state",
-                                                                                  "max_value": 1
-                                                                            }, {
-                                                                                   "argument": "TOGGLE",
-                                                                                "description": "Toggle switch state",
-                                                                                  "interface": "action"
-                                                                            } ],
-                                                     "momentary_positions": "none",
-                                                                 "outputs": [ {
-                                                                                                      "address": 10240,
-                                                                                      "address_mask_identifier": "Christen_Eagle_II_ALTERNATOR_AM",
-                                                                                "address_mask_shift_identifier": "Christen_Eagle_II_ALTERNATOR",
-                                                                                                  "description": "selector position",
-                                                                                                         "mask": 8192,
-                                                                                                    "max_value": 1,
-                                                                                                     "shift_by": 13,
-                                                                                                       "suffix": "",
-                                                                                                         "type": "integer"
-                                                                            } ],
-                                                        "physical_variant": "toggle_switch"
+                                                         "category": "Electric",
+                                                     "control_type": "selector",
+                                                      "description": "Alternator Switch",
+                                                       "identifier": "ALTERNATOR",
+                                                           "inputs": [ {
+                                                                         "description": "switch to previous or next state",
+                                                                           "interface": "fixed_step"
+                                                                     }, {
+                                                                         "description": "set position",
+                                                                           "interface": "set_state",
+                                                                           "max_value": 1
+                                                                     }, {
+                                                                            "argument": "TOGGLE",
+                                                                         "description": "Toggle switch state",
+                                                                           "interface": "action"
+                                                                     } ],
+                                                          "outputs": [ {
+                                                                                               "address": 10240,
+                                                                               "address_mask_identifier": "Christen_Eagle_II_ALTERNATOR_AM",
+                                                                         "address_mask_shift_identifier": "Christen_Eagle_II_ALTERNATOR",
+                                                                                           "description": "selector position",
+                                                                                                  "mask": 8192,
+                                                                                             "max_value": 1,
+                                                                                              "shift_by": 13,
+                                                                                                "suffix": "",
+                                                                                                  "type": "integer"
+                                                                     } ]
                                                  },
                                    "ALTER_FUSE": {
-                                                                "category": "Electric",
-                                                            "control_type": "selector",
-                                                             "description": "Alternator Fuse",
-                                                              "identifier": "ALTER_FUSE",
-                                                                  "inputs": [ {
-                                                                                "description": "switch to previous or next state",
-                                                                                  "interface": "fixed_step"
-                                                                            }, {
-                                                                                "description": "set position",
-                                                                                  "interface": "set_state",
-                                                                                  "max_value": 1
-                                                                            }, {
-                                                                                   "argument": "TOGGLE",
-                                                                                "description": "Toggle switch state",
-                                                                                  "interface": "action"
-                                                                            } ],
-                                                     "momentary_positions": "none",
-                                                                 "outputs": [ {
-                                                                                                      "address": 10240,
-                                                                                      "address_mask_identifier": "Christen_Eagle_II_ALTER_FUSE_AM",
-                                                                                "address_mask_shift_identifier": "Christen_Eagle_II_ALTER_FUSE",
-                                                                                                  "description": "selector position",
-                                                                                                         "mask": 16384,
-                                                                                                    "max_value": 1,
-                                                                                                     "shift_by": 14,
-                                                                                                       "suffix": "",
-                                                                                                         "type": "integer"
-                                                                            } ],
-                                                        "physical_variant": "toggle_switch"
+                                                         "category": "Electric",
+                                                     "control_type": "selector",
+                                                      "description": "Alternator Fuse",
+                                                       "identifier": "ALTER_FUSE",
+                                                           "inputs": [ {
+                                                                         "description": "switch to previous or next state",
+                                                                           "interface": "fixed_step"
+                                                                     }, {
+                                                                         "description": "set position",
+                                                                           "interface": "set_state",
+                                                                           "max_value": 1
+                                                                     }, {
+                                                                            "argument": "TOGGLE",
+                                                                         "description": "Toggle switch state",
+                                                                           "interface": "action"
+                                                                     } ],
+                                                          "outputs": [ {
+                                                                                               "address": 10240,
+                                                                               "address_mask_identifier": "Christen_Eagle_II_ALTER_FUSE_AM",
+                                                                         "address_mask_shift_identifier": "Christen_Eagle_II_ALTER_FUSE",
+                                                                                           "description": "selector position",
+                                                                                                  "mask": 16384,
+                                                                                             "max_value": 1,
+                                                                                              "shift_by": 14,
+                                                                                                "suffix": "",
+                                                                                                  "type": "integer"
+                                                                     } ]
                                                  },
                                       "BATTERY": {
-                                                                "category": "Electric",
-                                                            "control_type": "selector",
-                                                             "description": "Battery Switch",
-                                                              "identifier": "BATTERY",
-                                                                  "inputs": [ {
-                                                                                "description": "switch to previous or next state",
-                                                                                  "interface": "fixed_step"
-                                                                            }, {
-                                                                                "description": "set position",
-                                                                                  "interface": "set_state",
-                                                                                  "max_value": 1
-                                                                            }, {
-                                                                                   "argument": "TOGGLE",
-                                                                                "description": "Toggle switch state",
-                                                                                  "interface": "action"
-                                                                            } ],
-                                                     "momentary_positions": "none",
-                                                                 "outputs": [ {
-                                                                                                      "address": 10240,
-                                                                                      "address_mask_identifier": "Christen_Eagle_II_BATTERY_AM",
-                                                                                "address_mask_shift_identifier": "Christen_Eagle_II_BATTERY",
-                                                                                                  "description": "selector position",
-                                                                                                         "mask": 4096,
-                                                                                                    "max_value": 1,
-                                                                                                     "shift_by": 12,
-                                                                                                       "suffix": "",
-                                                                                                         "type": "integer"
-                                                                            } ],
-                                                        "physical_variant": "toggle_switch"
+                                                         "category": "Electric",
+                                                     "control_type": "selector",
+                                                      "description": "Battery Switch",
+                                                       "identifier": "BATTERY",
+                                                           "inputs": [ {
+                                                                         "description": "switch to previous or next state",
+                                                                           "interface": "fixed_step"
+                                                                     }, {
+                                                                         "description": "set position",
+                                                                           "interface": "set_state",
+                                                                           "max_value": 1
+                                                                     }, {
+                                                                            "argument": "TOGGLE",
+                                                                         "description": "Toggle switch state",
+                                                                           "interface": "action"
+                                                                     } ],
+                                                          "outputs": [ {
+                                                                                               "address": 10240,
+                                                                               "address_mask_identifier": "Christen_Eagle_II_BATTERY_AM",
+                                                                         "address_mask_shift_identifier": "Christen_Eagle_II_BATTERY",
+                                                                                           "description": "selector position",
+                                                                                                  "mask": 4096,
+                                                                                             "max_value": 1,
+                                                                                              "shift_by": 12,
+                                                                                                "suffix": "",
+                                                                                                  "type": "integer"
+                                                                     } ]
                                                  },
                                     "V_A_METER": {
-                                                             "api_variant": "momentary_last_position",
-                                                                "category": "Electric",
-                                                            "control_type": "selector",
-                                                             "description": "Volt/Ampere Meter mode (Voltage / Amperage)",
-                                                              "identifier": "V_A_METER",
-                                                                  "inputs": [ {
-                                                                                "description": "switch to previous or next state",
-                                                                                  "interface": "fixed_step"
-                                                                            }, {
-                                                                                "description": "set position",
-                                                                                  "interface": "set_state",
-                                                                                  "max_value": 1
-                                                                            }, {
-                                                                                   "argument": "TOGGLE",
-                                                                                "description": "Toggle switch state",
-                                                                                  "interface": "action"
-                                                                            } ],
-                                                     "momentary_positions": "none",
-                                                                 "outputs": [ {
-                                                                                                      "address": 10240,
-                                                                                      "address_mask_identifier": "Christen_Eagle_II_V_A_METER_AM",
-                                                                                "address_mask_shift_identifier": "Christen_Eagle_II_V_A_METER",
-                                                                                                  "description": "selector position",
-                                                                                                         "mask": 32768,
-                                                                                                    "max_value": 1,
-                                                                                                     "shift_by": 15,
-                                                                                                       "suffix": "",
-                                                                                                         "type": "integer"
-                                                                            } ],
-                                                        "physical_variant": "push_button"
+                                                      "api_variant": "momentary_last_position",
+                                                         "category": "Electric",
+                                                     "control_type": "selector",
+                                                      "description": "Volt/Ampere Meter mode (Voltage / Amperage)",
+                                                       "identifier": "V_A_METER",
+                                                           "inputs": [ {
+                                                                         "description": "switch to previous or next state",
+                                                                           "interface": "fixed_step"
+                                                                     }, {
+                                                                         "description": "set position",
+                                                                           "interface": "set_state",
+                                                                           "max_value": 1
+                                                                     }, {
+                                                                            "argument": "TOGGLE",
+                                                                         "description": "Toggle switch state",
+                                                                           "interface": "action"
+                                                                     } ],
+                                                          "outputs": [ {
+                                                                                               "address": 10240,
+                                                                               "address_mask_identifier": "Christen_Eagle_II_V_A_METER_AM",
+                                                                         "address_mask_shift_identifier": "Christen_Eagle_II_V_A_METER",
+                                                                                           "description": "selector position",
+                                                                                                  "mask": 32768,
+                                                                                             "max_value": 1,
+                                                                                              "shift_by": 15,
+                                                                                                "suffix": "",
+                                                                                                  "type": "integer"
+                                                                     } ]
                                                  }
                                },
                      "Engine": {
                                     "FUEL_PUMP": {
-                                                                "category": "Engine",
-                                                            "control_type": "selector",
-                                                             "description": "Fuel Pump",
-                                                              "identifier": "FUEL_PUMP",
-                                                                  "inputs": [ {
-                                                                                "description": "switch to previous or next state",
-                                                                                  "interface": "fixed_step"
-                                                                            }, {
-                                                                                "description": "set position",
-                                                                                  "interface": "set_state",
-                                                                                  "max_value": 1
-                                                                            }, {
-                                                                                   "argument": "TOGGLE",
-                                                                                "description": "Toggle switch state",
-                                                                                  "interface": "action"
-                                                                            } ],
-                                                     "momentary_positions": "none",
-                                                                 "outputs": [ {
-                                                                                                      "address": 10240,
-                                                                                      "address_mask_identifier": "Christen_Eagle_II_FUEL_PUMP_AM",
-                                                                                "address_mask_shift_identifier": "Christen_Eagle_II_FUEL_PUMP",
-                                                                                                  "description": "selector position",
-                                                                                                         "mask": 2048,
-                                                                                                    "max_value": 1,
-                                                                                                     "shift_by": 11,
-                                                                                                       "suffix": "",
-                                                                                                         "type": "integer"
-                                                                            } ],
-                                                        "physical_variant": "toggle_switch"
+                                                         "category": "Engine",
+                                                     "control_type": "selector",
+                                                      "description": "Fuel Pump",
+                                                       "identifier": "FUEL_PUMP",
+                                                           "inputs": [ {
+                                                                         "description": "switch to previous or next state",
+                                                                           "interface": "fixed_step"
+                                                                     }, {
+                                                                         "description": "set position",
+                                                                           "interface": "set_state",
+                                                                           "max_value": 1
+                                                                     }, {
+                                                                            "argument": "TOGGLE",
+                                                                         "description": "Toggle switch state",
+                                                                           "interface": "action"
+                                                                     } ],
+                                                          "outputs": [ {
+                                                                                               "address": 10240,
+                                                                               "address_mask_identifier": "Christen_Eagle_II_FUEL_PUMP_AM",
+                                                                         "address_mask_shift_identifier": "Christen_Eagle_II_FUEL_PUMP",
+                                                                                           "description": "selector position",
+                                                                                                  "mask": 2048,
+                                                                                             "max_value": 1,
+                                                                                              "shift_by": 11,
+                                                                                                "suffix": "",
+                                                                                                  "type": "integer"
+                                                                     } ]
                                                  },
                                      "FUEL_VAL": {
-                                                                "category": "Engine",
-                                                            "control_type": "selector",
-                                                             "description": "Fuel Valve",
-                                                              "identifier": "FUEL_VAL",
-                                                                  "inputs": [ {
-                                                                                "description": "switch to previous or next state",
-                                                                                  "interface": "fixed_step"
-                                                                            }, {
-                                                                                "description": "set position",
-                                                                                  "interface": "set_state",
-                                                                                  "max_value": 1
-                                                                            }, {
-                                                                                   "argument": "TOGGLE",
-                                                                                "description": "Toggle switch state",
-                                                                                  "interface": "action"
-                                                                            } ],
-                                                     "momentary_positions": "none",
-                                                                 "outputs": [ {
-                                                                                                      "address": 10240,
-                                                                                      "address_mask_identifier": "Christen_Eagle_II_FUEL_VAL_AM",
-                                                                                "address_mask_shift_identifier": "Christen_Eagle_II_FUEL_VAL",
-                                                                                                  "description": "selector position",
-                                                                                                         "mask": 1024,
-                                                                                                    "max_value": 1,
-                                                                                                     "shift_by": 10,
-                                                                                                       "suffix": "",
-                                                                                                         "type": "integer"
-                                                                            } ],
-                                                        "physical_variant": "toggle_switch"
+                                                         "category": "Engine",
+                                                     "control_type": "selector",
+                                                      "description": "Fuel Valve",
+                                                       "identifier": "FUEL_VAL",
+                                                           "inputs": [ {
+                                                                         "description": "switch to previous or next state",
+                                                                           "interface": "fixed_step"
+                                                                     }, {
+                                                                         "description": "set position",
+                                                                           "interface": "set_state",
+                                                                           "max_value": 1
+                                                                     }, {
+                                                                            "argument": "TOGGLE",
+                                                                         "description": "Toggle switch state",
+                                                                           "interface": "action"
+                                                                     } ],
+                                                          "outputs": [ {
+                                                                                               "address": 10240,
+                                                                               "address_mask_identifier": "Christen_Eagle_II_FUEL_VAL_AM",
+                                                                         "address_mask_shift_identifier": "Christen_Eagle_II_FUEL_VAL",
+                                                                                           "description": "selector position",
+                                                                                                  "mask": 1024,
+                                                                                             "max_value": 1,
+                                                                                              "shift_by": 10,
+                                                                                                "suffix": "",
+                                                                                                  "type": "integer"
+                                                                     } ]
                                                  },
                                       "MAGNETS": {
-                                                                "category": "Engine",
-                                                            "control_type": "selector",
-                                                             "description": "Magnets, OFF/RIGHT/LEFT/BOTH/START",
-                                                              "identifier": "MAGNETS",
-                                                                  "inputs": [ {
-                                                                                "description": "switch to previous or next state",
-                                                                                  "interface": "fixed_step"
-                                                                            }, {
-                                                                                "description": "set position",
-                                                                                  "interface": "set_state",
-                                                                                  "max_value": 4
-                                                                            } ],
-                                                     "momentary_positions": "none",
-                                                                 "outputs": [ {
-                                                                                                      "address": 10240,
-                                                                                "address_mask_shift_identifier": "Christen_Eagle_II_MAGNETS",
-                                                                                                  "description": "selector position",
-                                                                                                         "mask": 896,
-                                                                                                    "max_value": 4,
-                                                                                                     "shift_by": 7,
-                                                                                                       "suffix": "",
-                                                                                                         "type": "integer"
-                                                                            } ],
-                                                        "physical_variant": "limited_rotary"
+                                                         "category": "Engine",
+                                                     "control_type": "selector",
+                                                      "description": "Magnets, OFF/RIGHT/LEFT/BOTH/START",
+                                                       "identifier": "MAGNETS",
+                                                           "inputs": [ {
+                                                                         "description": "switch to previous or next state",
+                                                                           "interface": "fixed_step"
+                                                                     }, {
+                                                                         "description": "set position",
+                                                                           "interface": "set_state",
+                                                                           "max_value": 4
+                                                                     } ],
+                                                          "outputs": [ {
+                                                                                               "address": 10240,
+                                                                         "address_mask_shift_identifier": "Christen_Eagle_II_MAGNETS",
+                                                                                           "description": "selector position",
+                                                                                                  "mask": 896,
+                                                                                             "max_value": 4,
+                                                                                              "shift_by": 7,
+                                                                                                "suffix": "",
+                                                                                                  "type": "integer"
+                                                                     } ]
                                                  },
                                       "MIXTURE": {
                                                       "api_variant": "multiturn",
@@ -667,68 +635,64 @@ docdata["Christen Eagle II"] =
                                },
                  "Fuel Gauge": {
                                    "FUEL_IND_FRONT": {
-                                                                 "api_variant": "momentary_last_position",
-                                                                    "category": "Fuel Gauge",
-                                                                "control_type": "selector",
-                                                                 "description": "Fuel Indicator mode (F / U",
-                                                                  "identifier": "FUEL_IND_FRONT",
-                                                                      "inputs": [ {
-                                                                                    "description": "switch to previous or next state",
-                                                                                      "interface": "fixed_step"
-                                                                                }, {
-                                                                                    "description": "set position",
-                                                                                      "interface": "set_state",
-                                                                                      "max_value": 1
-                                                                                }, {
-                                                                                       "argument": "TOGGLE",
-                                                                                    "description": "Toggle switch state",
-                                                                                      "interface": "action"
-                                                                                } ],
-                                                         "momentary_positions": "none",
-                                                                     "outputs": [ {
-                                                                                                          "address": 10258,
-                                                                                          "address_mask_identifier": "Christen_Eagle_II_FUEL_IND_FRONT_AM",
-                                                                                    "address_mask_shift_identifier": "Christen_Eagle_II_FUEL_IND_FRONT",
-                                                                                                      "description": "selector position",
-                                                                                                             "mask": 16,
-                                                                                                        "max_value": 1,
-                                                                                                         "shift_by": 4,
-                                                                                                           "suffix": "",
-                                                                                                             "type": "integer"
-                                                                                } ],
-                                                            "physical_variant": "push_button"
+                                                          "api_variant": "momentary_last_position",
+                                                             "category": "Fuel Gauge",
+                                                         "control_type": "selector",
+                                                          "description": "Fuel Indicator mode (F / U",
+                                                           "identifier": "FUEL_IND_FRONT",
+                                                               "inputs": [ {
+                                                                             "description": "switch to previous or next state",
+                                                                               "interface": "fixed_step"
+                                                                         }, {
+                                                                             "description": "set position",
+                                                                               "interface": "set_state",
+                                                                               "max_value": 1
+                                                                         }, {
+                                                                                "argument": "TOGGLE",
+                                                                             "description": "Toggle switch state",
+                                                                               "interface": "action"
+                                                                         } ],
+                                                              "outputs": [ {
+                                                                                                   "address": 10258,
+                                                                                   "address_mask_identifier": "Christen_Eagle_II_FUEL_IND_FRONT_AM",
+                                                                             "address_mask_shift_identifier": "Christen_Eagle_II_FUEL_IND_FRONT",
+                                                                                               "description": "selector position",
+                                                                                                      "mask": 16,
+                                                                                                 "max_value": 1,
+                                                                                                  "shift_by": 4,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "integer"
+                                                                         } ]
                                                      },
                                     "FUEL_IND_REAR": {
-                                                                 "api_variant": "momentary_last_position",
-                                                                    "category": "Fuel Gauge",
-                                                                "control_type": "selector",
-                                                                 "description": "Fuel Indicator mode Rear cockpit (F / U",
-                                                                  "identifier": "FUEL_IND_REAR",
-                                                                      "inputs": [ {
-                                                                                    "description": "switch to previous or next state",
-                                                                                      "interface": "fixed_step"
-                                                                                }, {
-                                                                                    "description": "set position",
-                                                                                      "interface": "set_state",
-                                                                                      "max_value": 1
-                                                                                }, {
-                                                                                       "argument": "TOGGLE",
-                                                                                    "description": "Toggle switch state",
-                                                                                      "interface": "action"
-                                                                                } ],
-                                                         "momentary_positions": "none",
-                                                                     "outputs": [ {
-                                                                                                          "address": 10258,
-                                                                                          "address_mask_identifier": "Christen_Eagle_II_FUEL_IND_REAR_AM",
-                                                                                    "address_mask_shift_identifier": "Christen_Eagle_II_FUEL_IND_REAR",
-                                                                                                      "description": "selector position",
-                                                                                                             "mask": 32,
-                                                                                                        "max_value": 1,
-                                                                                                         "shift_by": 5,
-                                                                                                           "suffix": "",
-                                                                                                             "type": "integer"
-                                                                                } ],
-                                                            "physical_variant": "push_button"
+                                                          "api_variant": "momentary_last_position",
+                                                             "category": "Fuel Gauge",
+                                                         "control_type": "selector",
+                                                          "description": "Fuel Indicator mode Rear cockpit (F / U",
+                                                           "identifier": "FUEL_IND_REAR",
+                                                               "inputs": [ {
+                                                                             "description": "switch to previous or next state",
+                                                                               "interface": "fixed_step"
+                                                                         }, {
+                                                                             "description": "set position",
+                                                                               "interface": "set_state",
+                                                                               "max_value": 1
+                                                                         }, {
+                                                                                "argument": "TOGGLE",
+                                                                             "description": "Toggle switch state",
+                                                                               "interface": "action"
+                                                                         } ],
+                                                              "outputs": [ {
+                                                                                                   "address": 10258,
+                                                                                   "address_mask_identifier": "Christen_Eagle_II_FUEL_IND_REAR_AM",
+                                                                             "address_mask_shift_identifier": "Christen_Eagle_II_FUEL_IND_REAR",
+                                                                                               "description": "selector position",
+                                                                                                      "mask": 32,
+                                                                                                 "max_value": 1,
+                                                                                                  "shift_by": 5,
+                                                                                                    "suffix": "",
+                                                                                                      "type": "integer"
+                                                                         } ]
                                                      }
                                },
                      "Gauges": {
@@ -1041,36 +1005,34 @@ docdata["Christen Eagle II"] =
                                },
                     "General": {
                                      "ACCEL_RESET": {
-                                                                "api_variant": "momentary_last_position",
-                                                                   "category": "General",
-                                                               "control_type": "selector",
-                                                                "description": "Accelerometer Reset Button",
-                                                                 "identifier": "ACCEL_RESET",
-                                                                     "inputs": [ {
-                                                                                   "description": "switch to previous or next state",
-                                                                                     "interface": "fixed_step"
-                                                                               }, {
-                                                                                   "description": "set position",
-                                                                                     "interface": "set_state",
-                                                                                     "max_value": 1
-                                                                               }, {
-                                                                                      "argument": "TOGGLE",
-                                                                                   "description": "Toggle switch state",
-                                                                                     "interface": "action"
-                                                                               } ],
-                                                        "momentary_positions": "none",
-                                                                    "outputs": [ {
-                                                                                                         "address": 10240,
-                                                                                         "address_mask_identifier": "Christen_Eagle_II_ACCEL_RESET_AM",
-                                                                                   "address_mask_shift_identifier": "Christen_Eagle_II_ACCEL_RESET",
-                                                                                                     "description": "selector position",
-                                                                                                            "mask": 1,
-                                                                                                       "max_value": 1,
-                                                                                                        "shift_by": 0,
-                                                                                                          "suffix": "",
-                                                                                                            "type": "integer"
-                                                                               } ],
-                                                           "physical_variant": "push_button"
+                                                         "api_variant": "momentary_last_position",
+                                                            "category": "General",
+                                                        "control_type": "selector",
+                                                         "description": "Accelerometer Reset Button",
+                                                          "identifier": "ACCEL_RESET",
+                                                              "inputs": [ {
+                                                                            "description": "switch to previous or next state",
+                                                                              "interface": "fixed_step"
+                                                                        }, {
+                                                                            "description": "set position",
+                                                                              "interface": "set_state",
+                                                                              "max_value": 1
+                                                                        }, {
+                                                                               "argument": "TOGGLE",
+                                                                            "description": "Toggle switch state",
+                                                                              "interface": "action"
+                                                                        } ],
+                                                             "outputs": [ {
+                                                                                                  "address": 10240,
+                                                                                  "address_mask_identifier": "Christen_Eagle_II_ACCEL_RESET_AM",
+                                                                            "address_mask_shift_identifier": "Christen_Eagle_II_ACCEL_RESET",
+                                                                                              "description": "selector position",
+                                                                                                     "mask": 1,
+                                                                                                "max_value": 1,
+                                                                                                 "shift_by": 0,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                        } ]
                                                     },
                                    "AIRCOND_LEVER": {
                                                             "category": "General",
@@ -1100,35 +1062,33 @@ docdata["Christen Eagle II"] =
                                                                         } ]
                                                     },
                                         "SMOKE_SW": {
-                                                                   "category": "General",
-                                                               "control_type": "selector",
-                                                                "description": "Smoke Switch",
-                                                                 "identifier": "SMOKE_SW",
-                                                                     "inputs": [ {
-                                                                                   "description": "switch to previous or next state",
-                                                                                     "interface": "fixed_step"
-                                                                               }, {
-                                                                                   "description": "set position",
-                                                                                     "interface": "set_state",
-                                                                                     "max_value": 1
-                                                                               }, {
-                                                                                      "argument": "TOGGLE",
-                                                                                   "description": "Toggle switch state",
-                                                                                     "interface": "action"
-                                                                               } ],
-                                                        "momentary_positions": "none",
-                                                                    "outputs": [ {
-                                                                                                         "address": 10240,
-                                                                                         "address_mask_identifier": "Christen_Eagle_II_SMOKE_SW_AM",
-                                                                                   "address_mask_shift_identifier": "Christen_Eagle_II_SMOKE_SW",
-                                                                                                     "description": "selector position",
-                                                                                                            "mask": 2,
-                                                                                                       "max_value": 1,
-                                                                                                        "shift_by": 1,
-                                                                                                          "suffix": "",
-                                                                                                            "type": "integer"
-                                                                               } ],
-                                                           "physical_variant": "toggle_switch"
+                                                            "category": "General",
+                                                        "control_type": "selector",
+                                                         "description": "Smoke Switch",
+                                                          "identifier": "SMOKE_SW",
+                                                              "inputs": [ {
+                                                                            "description": "switch to previous or next state",
+                                                                              "interface": "fixed_step"
+                                                                        }, {
+                                                                            "description": "set position",
+                                                                              "interface": "set_state",
+                                                                              "max_value": 1
+                                                                        }, {
+                                                                               "argument": "TOGGLE",
+                                                                            "description": "Toggle switch state",
+                                                                              "interface": "action"
+                                                                        } ],
+                                                             "outputs": [ {
+                                                                                                  "address": 10240,
+                                                                                  "address_mask_identifier": "Christen_Eagle_II_SMOKE_SW_AM",
+                                                                            "address_mask_shift_identifier": "Christen_Eagle_II_SMOKE_SW",
+                                                                                              "description": "selector position",
+                                                                                                     "mask": 2,
+                                                                                                "max_value": 1,
+                                                                                                 "shift_by": 1,
+                                                                                                   "suffix": "",
+                                                                                                     "type": "integer"
+                                                                        } ]
                                                     },
                                       "TRIM_LEVER": {
                                                             "category": "General",
@@ -1216,194 +1176,182 @@ docdata["Christen Eagle II"] =
                                                                              } ]
                                                          },
                                    "COCKPIT_LIGHTS_RED": {
-                                                                        "category": "Lights",
-                                                                    "control_type": "selector",
-                                                                     "description": "Red Cockpit Lights",
-                                                                      "identifier": "COCKPIT_LIGHTS_RED",
-                                                                          "inputs": [ {
-                                                                                        "description": "switch to previous or next state",
-                                                                                          "interface": "fixed_step"
-                                                                                    }, {
-                                                                                        "description": "set position",
-                                                                                          "interface": "set_state",
-                                                                                          "max_value": 1
-                                                                                    }, {
-                                                                                           "argument": "TOGGLE",
-                                                                                        "description": "Toggle switch state",
-                                                                                          "interface": "action"
-                                                                                    } ],
-                                                             "momentary_positions": "none",
-                                                                         "outputs": [ {
-                                                                                                              "address": 10258,
-                                                                                              "address_mask_identifier": "Christen_Eagle_II_COCKPIT_LIGHTS_RED_AM",
-                                                                                        "address_mask_shift_identifier": "Christen_Eagle_II_COCKPIT_LIGHTS_RED",
-                                                                                                          "description": "selector position",
-                                                                                                                 "mask": 4,
-                                                                                                            "max_value": 1,
-                                                                                                             "shift_by": 2,
-                                                                                                               "suffix": "",
-                                                                                                                 "type": "integer"
-                                                                                    } ],
-                                                                "physical_variant": "toggle_switch"
+                                                                 "category": "Lights",
+                                                             "control_type": "selector",
+                                                              "description": "Red Cockpit Lights",
+                                                               "identifier": "COCKPIT_LIGHTS_RED",
+                                                                   "inputs": [ {
+                                                                                 "description": "switch to previous or next state",
+                                                                                   "interface": "fixed_step"
+                                                                             }, {
+                                                                                 "description": "set position",
+                                                                                   "interface": "set_state",
+                                                                                   "max_value": 1
+                                                                             }, {
+                                                                                    "argument": "TOGGLE",
+                                                                                 "description": "Toggle switch state",
+                                                                                   "interface": "action"
+                                                                             } ],
+                                                                  "outputs": [ {
+                                                                                                       "address": 10258,
+                                                                                       "address_mask_identifier": "Christen_Eagle_II_COCKPIT_LIGHTS_RED_AM",
+                                                                                 "address_mask_shift_identifier": "Christen_Eagle_II_COCKPIT_LIGHTS_RED",
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 4,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 2,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                             } ]
                                                          },
                                    "COCKPIT_LIGHTS_YEL": {
-                                                                        "category": "Lights",
-                                                                    "control_type": "selector",
-                                                                     "description": "Yellow Cockpit Lights",
-                                                                      "identifier": "COCKPIT_LIGHTS_YEL",
-                                                                          "inputs": [ {
-                                                                                        "description": "switch to previous or next state",
-                                                                                          "interface": "fixed_step"
-                                                                                    }, {
-                                                                                        "description": "set position",
-                                                                                          "interface": "set_state",
-                                                                                          "max_value": 1
-                                                                                    }, {
-                                                                                           "argument": "TOGGLE",
-                                                                                        "description": "Toggle switch state",
-                                                                                          "interface": "action"
-                                                                                    } ],
-                                                             "momentary_positions": "none",
-                                                                         "outputs": [ {
-                                                                                                              "address": 10258,
-                                                                                              "address_mask_identifier": "Christen_Eagle_II_COCKPIT_LIGHTS_YEL_AM",
-                                                                                        "address_mask_shift_identifier": "Christen_Eagle_II_COCKPIT_LIGHTS_YEL",
-                                                                                                          "description": "selector position",
-                                                                                                                 "mask": 8,
-                                                                                                            "max_value": 1,
-                                                                                                             "shift_by": 3,
-                                                                                                               "suffix": "",
-                                                                                                                 "type": "integer"
-                                                                                    } ],
-                                                                "physical_variant": "toggle_switch"
+                                                                 "category": "Lights",
+                                                             "control_type": "selector",
+                                                              "description": "Yellow Cockpit Lights",
+                                                               "identifier": "COCKPIT_LIGHTS_YEL",
+                                                                   "inputs": [ {
+                                                                                 "description": "switch to previous or next state",
+                                                                                   "interface": "fixed_step"
+                                                                             }, {
+                                                                                 "description": "set position",
+                                                                                   "interface": "set_state",
+                                                                                   "max_value": 1
+                                                                             }, {
+                                                                                    "argument": "TOGGLE",
+                                                                                 "description": "Toggle switch state",
+                                                                                   "interface": "action"
+                                                                             } ],
+                                                                  "outputs": [ {
+                                                                                                       "address": 10258,
+                                                                                       "address_mask_identifier": "Christen_Eagle_II_COCKPIT_LIGHTS_YEL_AM",
+                                                                                 "address_mask_shift_identifier": "Christen_Eagle_II_COCKPIT_LIGHTS_YEL",
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 8,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 3,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                             } ]
                                                          },
                                           "LAND_LIGHTS": {
-                                                                        "category": "Lights",
-                                                                    "control_type": "selector",
-                                                                     "description": "Landing Lights",
-                                                                      "identifier": "LAND_LIGHTS",
-                                                                          "inputs": [ {
-                                                                                        "description": "switch to previous or next state",
-                                                                                          "interface": "fixed_step"
-                                                                                    }, {
-                                                                                        "description": "set position",
-                                                                                          "interface": "set_state",
-                                                                                          "max_value": 1
-                                                                                    }, {
-                                                                                           "argument": "TOGGLE",
-                                                                                        "description": "Toggle switch state",
-                                                                                          "interface": "action"
-                                                                                    } ],
-                                                             "momentary_positions": "none",
-                                                                         "outputs": [ {
-                                                                                                              "address": 10258,
-                                                                                              "address_mask_identifier": "Christen_Eagle_II_LAND_LIGHTS_AM",
-                                                                                        "address_mask_shift_identifier": "Christen_Eagle_II_LAND_LIGHTS",
-                                                                                                          "description": "selector position",
-                                                                                                                 "mask": 2,
-                                                                                                            "max_value": 1,
-                                                                                                             "shift_by": 1,
-                                                                                                               "suffix": "",
-                                                                                                                 "type": "integer"
-                                                                                    } ],
-                                                                "physical_variant": "toggle_switch"
+                                                                 "category": "Lights",
+                                                             "control_type": "selector",
+                                                              "description": "Landing Lights",
+                                                               "identifier": "LAND_LIGHTS",
+                                                                   "inputs": [ {
+                                                                                 "description": "switch to previous or next state",
+                                                                                   "interface": "fixed_step"
+                                                                             }, {
+                                                                                 "description": "set position",
+                                                                                   "interface": "set_state",
+                                                                                   "max_value": 1
+                                                                             }, {
+                                                                                    "argument": "TOGGLE",
+                                                                                 "description": "Toggle switch state",
+                                                                                   "interface": "action"
+                                                                             } ],
+                                                                  "outputs": [ {
+                                                                                                       "address": 10258,
+                                                                                       "address_mask_identifier": "Christen_Eagle_II_LAND_LIGHTS_AM",
+                                                                                 "address_mask_shift_identifier": "Christen_Eagle_II_LAND_LIGHTS",
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 2,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 1,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                             } ]
                                                          },
                                            "NAV_LIGHTS": {
-                                                                        "category": "Lights",
-                                                                    "control_type": "selector",
-                                                                     "description": "Nav Lights",
-                                                                      "identifier": "NAV_LIGHTS",
-                                                                          "inputs": [ {
-                                                                                        "description": "switch to previous or next state",
-                                                                                          "interface": "fixed_step"
-                                                                                    }, {
-                                                                                        "description": "set position",
-                                                                                          "interface": "set_state",
-                                                                                          "max_value": 1
-                                                                                    }, {
-                                                                                           "argument": "TOGGLE",
-                                                                                        "description": "Toggle switch state",
-                                                                                          "interface": "action"
-                                                                                    } ],
-                                                             "momentary_positions": "none",
-                                                                         "outputs": [ {
-                                                                                                              "address": 10258,
-                                                                                              "address_mask_identifier": "Christen_Eagle_II_NAV_LIGHTS_AM",
-                                                                                        "address_mask_shift_identifier": "Christen_Eagle_II_NAV_LIGHTS",
-                                                                                                          "description": "selector position",
-                                                                                                                 "mask": 1,
-                                                                                                            "max_value": 1,
-                                                                                                             "shift_by": 0,
-                                                                                                               "suffix": "",
-                                                                                                                 "type": "integer"
-                                                                                    } ],
-                                                                "physical_variant": "toggle_switch"
+                                                                 "category": "Lights",
+                                                             "control_type": "selector",
+                                                              "description": "Nav Lights",
+                                                               "identifier": "NAV_LIGHTS",
+                                                                   "inputs": [ {
+                                                                                 "description": "switch to previous or next state",
+                                                                                   "interface": "fixed_step"
+                                                                             }, {
+                                                                                 "description": "set position",
+                                                                                   "interface": "set_state",
+                                                                                   "max_value": 1
+                                                                             }, {
+                                                                                    "argument": "TOGGLE",
+                                                                                 "description": "Toggle switch state",
+                                                                                   "interface": "action"
+                                                                             } ],
+                                                                  "outputs": [ {
+                                                                                                       "address": 10258,
+                                                                                       "address_mask_identifier": "Christen_Eagle_II_NAV_LIGHTS_AM",
+                                                                                 "address_mask_shift_identifier": "Christen_Eagle_II_NAV_LIGHTS",
+                                                                                                   "description": "selector position",
+                                                                                                          "mask": 1,
+                                                                                                     "max_value": 1,
+                                                                                                      "shift_by": 0,
+                                                                                                        "suffix": "",
+                                                                                                          "type": "integer"
+                                                                             } ]
                                                          }
                                },
                       "Radio": {
                                           "RADIO_CHAN": {
-                                                                    "api_variant": "momentary_last_position",
-                                                                       "category": "Radio",
-                                                                   "control_type": "selector",
-                                                                    "description": "Radio Channel",
-                                                                     "identifier": "RADIO_CHAN",
-                                                                         "inputs": [ {
-                                                                                       "description": "switch to previous or next state",
-                                                                                         "interface": "fixed_step"
-                                                                                   }, {
-                                                                                       "description": "set position",
-                                                                                         "interface": "set_state",
-                                                                                         "max_value": 1
-                                                                                   }, {
-                                                                                          "argument": "TOGGLE",
-                                                                                       "description": "Toggle switch state",
-                                                                                         "interface": "action"
-                                                                                   } ],
-                                                            "momentary_positions": "none",
-                                                                        "outputs": [ {
-                                                                                                             "address": 10240,
-                                                                                             "address_mask_identifier": "Christen_Eagle_II_RADIO_CHAN_AM",
-                                                                                       "address_mask_shift_identifier": "Christen_Eagle_II_RADIO_CHAN",
-                                                                                                         "description": "selector position",
-                                                                                                                "mask": 16,
-                                                                                                           "max_value": 1,
-                                                                                                            "shift_by": 4,
-                                                                                                              "suffix": "",
-                                                                                                                "type": "integer"
-                                                                                   } ],
-                                                               "physical_variant": "push_button"
+                                                             "api_variant": "momentary_last_position",
+                                                                "category": "Radio",
+                                                            "control_type": "selector",
+                                                             "description": "Radio Channel",
+                                                              "identifier": "RADIO_CHAN",
+                                                                  "inputs": [ {
+                                                                                "description": "switch to previous or next state",
+                                                                                  "interface": "fixed_step"
+                                                                            }, {
+                                                                                "description": "set position",
+                                                                                  "interface": "set_state",
+                                                                                  "max_value": 1
+                                                                            }, {
+                                                                                   "argument": "TOGGLE",
+                                                                                "description": "Toggle switch state",
+                                                                                  "interface": "action"
+                                                                            } ],
+                                                                 "outputs": [ {
+                                                                                                      "address": 10240,
+                                                                                      "address_mask_identifier": "Christen_Eagle_II_RADIO_CHAN_AM",
+                                                                                "address_mask_shift_identifier": "Christen_Eagle_II_RADIO_CHAN",
+                                                                                                  "description": "selector position",
+                                                                                                         "mask": 16,
+                                                                                                    "max_value": 1,
+                                                                                                     "shift_by": 4,
+                                                                                                       "suffix": "",
+                                                                                                         "type": "integer"
+                                                                            } ]
                                                         },
                                    "RADIO_FREQU_25KHZ": {
-                                                                    "api_variant": "momentary_last_position",
-                                                                       "category": "Radio",
-                                                                   "control_type": "selector",
-                                                                    "description": "Radio Frequency 25KHz (Pull)",
-                                                                     "identifier": "RADIO_FREQU_25KHZ",
-                                                                         "inputs": [ {
-                                                                                       "description": "switch to previous or next state",
-                                                                                         "interface": "fixed_step"
-                                                                                   }, {
-                                                                                       "description": "set position",
-                                                                                         "interface": "set_state",
-                                                                                         "max_value": 1
-                                                                                   }, {
-                                                                                          "argument": "TOGGLE",
-                                                                                       "description": "Toggle switch state",
-                                                                                         "interface": "action"
-                                                                                   } ],
-                                                            "momentary_positions": "none",
-                                                                        "outputs": [ {
-                                                                                                             "address": 10240,
-                                                                                             "address_mask_identifier": "Christen_Eagle_II_RADIO_FREQU_25KHZ_AM",
-                                                                                       "address_mask_shift_identifier": "Christen_Eagle_II_RADIO_FREQU_25KHZ",
-                                                                                                         "description": "selector position",
-                                                                                                                "mask": 32,
-                                                                                                           "max_value": 1,
-                                                                                                            "shift_by": 5,
-                                                                                                              "suffix": "",
-                                                                                                                "type": "integer"
-                                                                                   } ],
-                                                               "physical_variant": "push_button"
+                                                             "api_variant": "momentary_last_position",
+                                                                "category": "Radio",
+                                                            "control_type": "selector",
+                                                             "description": "Radio Frequency 25KHz (Pull)",
+                                                              "identifier": "RADIO_FREQU_25KHZ",
+                                                                  "inputs": [ {
+                                                                                "description": "switch to previous or next state",
+                                                                                  "interface": "fixed_step"
+                                                                            }, {
+                                                                                "description": "set position",
+                                                                                  "interface": "set_state",
+                                                                                  "max_value": 1
+                                                                            }, {
+                                                                                   "argument": "TOGGLE",
+                                                                                "description": "Toggle switch state",
+                                                                                  "interface": "action"
+                                                                            } ],
+                                                                 "outputs": [ {
+                                                                                                      "address": 10240,
+                                                                                      "address_mask_identifier": "Christen_Eagle_II_RADIO_FREQU_25KHZ_AM",
+                                                                                "address_mask_shift_identifier": "Christen_Eagle_II_RADIO_FREQU_25KHZ",
+                                                                                                  "description": "selector position",
+                                                                                                         "mask": 32,
+                                                                                                    "max_value": 1,
+                                                                                                     "shift_by": 5,
+                                                                                                       "suffix": "",
+                                                                                                         "type": "integer"
+                                                                            } ]
                                                         },
                                    "RADIO_FREQU_50KHZ": {
                                                              "api_variant": "multiturn",
@@ -1454,99 +1402,93 @@ docdata["Christen Eagle II"] =
                                                                             } ]
                                                         },
                                    "RADIO_FREQU_TRANS": {
-                                                                    "api_variant": "momentary_last_position",
-                                                                       "category": "Radio",
-                                                                   "control_type": "selector",
-                                                                    "description": "Radio Frequency Transfer",
-                                                                     "identifier": "RADIO_FREQU_TRANS",
-                                                                         "inputs": [ {
-                                                                                       "description": "switch to previous or next state",
-                                                                                         "interface": "fixed_step"
-                                                                                   }, {
-                                                                                       "description": "set position",
-                                                                                         "interface": "set_state",
-                                                                                         "max_value": 1
-                                                                                   }, {
-                                                                                          "argument": "TOGGLE",
-                                                                                       "description": "Toggle switch state",
-                                                                                         "interface": "action"
-                                                                                   } ],
-                                                            "momentary_positions": "none",
-                                                                        "outputs": [ {
-                                                                                                             "address": 10240,
-                                                                                             "address_mask_identifier": "Christen_Eagle_II_RADIO_FREQU_TRANS_AM",
-                                                                                       "address_mask_shift_identifier": "Christen_Eagle_II_RADIO_FREQU_TRANS",
-                                                                                                         "description": "selector position",
-                                                                                                                "mask": 8,
-                                                                                                           "max_value": 1,
-                                                                                                            "shift_by": 3,
-                                                                                                              "suffix": "",
-                                                                                                                "type": "integer"
-                                                                                   } ],
-                                                               "physical_variant": "push_button"
+                                                             "api_variant": "momentary_last_position",
+                                                                "category": "Radio",
+                                                            "control_type": "selector",
+                                                             "description": "Radio Frequency Transfer",
+                                                              "identifier": "RADIO_FREQU_TRANS",
+                                                                  "inputs": [ {
+                                                                                "description": "switch to previous or next state",
+                                                                                  "interface": "fixed_step"
+                                                                            }, {
+                                                                                "description": "set position",
+                                                                                  "interface": "set_state",
+                                                                                  "max_value": 1
+                                                                            }, {
+                                                                                   "argument": "TOGGLE",
+                                                                                "description": "Toggle switch state",
+                                                                                  "interface": "action"
+                                                                            } ],
+                                                                 "outputs": [ {
+                                                                                                      "address": 10240,
+                                                                                      "address_mask_identifier": "Christen_Eagle_II_RADIO_FREQU_TRANS_AM",
+                                                                                "address_mask_shift_identifier": "Christen_Eagle_II_RADIO_FREQU_TRANS",
+                                                                                                  "description": "selector position",
+                                                                                                         "mask": 8,
+                                                                                                    "max_value": 1,
+                                                                                                     "shift_by": 3,
+                                                                                                       "suffix": "",
+                                                                                                         "type": "integer"
+                                                                            } ]
                                                         },
                                            "RADIO_PWR": {
-                                                                       "category": "Radio",
-                                                                   "control_type": "selector",
-                                                                    "description": "Radio ON-OFF",
-                                                                     "identifier": "RADIO_PWR",
-                                                                         "inputs": [ {
-                                                                                       "description": "switch to previous or next state",
-                                                                                         "interface": "fixed_step"
-                                                                                   }, {
-                                                                                       "description": "set position",
-                                                                                         "interface": "set_state",
-                                                                                         "max_value": 1
-                                                                                   }, {
-                                                                                          "argument": "TOGGLE",
-                                                                                       "description": "Toggle switch state",
-                                                                                         "interface": "action"
-                                                                                   } ],
-                                                            "momentary_positions": "none",
-                                                                        "outputs": [ {
-                                                                                                             "address": 10240,
-                                                                                             "address_mask_identifier": "Christen_Eagle_II_RADIO_PWR_AM",
-                                                                                       "address_mask_shift_identifier": "Christen_Eagle_II_RADIO_PWR",
-                                                                                                         "description": "selector position",
-                                                                                                                "mask": 4,
-                                                                                                           "max_value": 1,
-                                                                                                            "shift_by": 2,
-                                                                                                              "suffix": "",
-                                                                                                                "type": "integer"
-                                                                                   } ],
-                                                               "physical_variant": "toggle_switch"
+                                                                "category": "Radio",
+                                                            "control_type": "selector",
+                                                             "description": "Radio ON-OFF",
+                                                              "identifier": "RADIO_PWR",
+                                                                  "inputs": [ {
+                                                                                "description": "switch to previous or next state",
+                                                                                  "interface": "fixed_step"
+                                                                            }, {
+                                                                                "description": "set position",
+                                                                                  "interface": "set_state",
+                                                                                  "max_value": 1
+                                                                            }, {
+                                                                                   "argument": "TOGGLE",
+                                                                                "description": "Toggle switch state",
+                                                                                  "interface": "action"
+                                                                            } ],
+                                                                 "outputs": [ {
+                                                                                                      "address": 10240,
+                                                                                      "address_mask_identifier": "Christen_Eagle_II_RADIO_PWR_AM",
+                                                                                "address_mask_shift_identifier": "Christen_Eagle_II_RADIO_PWR",
+                                                                                                  "description": "selector position",
+                                                                                                         "mask": 4,
+                                                                                                    "max_value": 1,
+                                                                                                     "shift_by": 2,
+                                                                                                       "suffix": "",
+                                                                                                         "type": "integer"
+                                                                            } ]
                                                         },
                                           "RADIO_TEST": {
-                                                                    "api_variant": "momentary_last_position",
-                                                                       "category": "Radio",
-                                                                   "control_type": "selector",
-                                                                    "description": "Radio Test (Pull)",
-                                                                     "identifier": "RADIO_TEST",
-                                                                         "inputs": [ {
-                                                                                       "description": "switch to previous or next state",
-                                                                                         "interface": "fixed_step"
-                                                                                   }, {
-                                                                                       "description": "set position",
-                                                                                         "interface": "set_state",
-                                                                                         "max_value": 1
-                                                                                   }, {
-                                                                                          "argument": "TOGGLE",
-                                                                                       "description": "Toggle switch state",
-                                                                                         "interface": "action"
-                                                                                   } ],
-                                                            "momentary_positions": "none",
-                                                                        "outputs": [ {
-                                                                                                             "address": 10240,
-                                                                                             "address_mask_identifier": "Christen_Eagle_II_RADIO_TEST_AM",
-                                                                                       "address_mask_shift_identifier": "Christen_Eagle_II_RADIO_TEST",
-                                                                                                         "description": "selector position",
-                                                                                                                "mask": 64,
-                                                                                                           "max_value": 1,
-                                                                                                            "shift_by": 6,
-                                                                                                              "suffix": "",
-                                                                                                                "type": "integer"
-                                                                                   } ],
-                                                               "physical_variant": "push_button"
+                                                             "api_variant": "momentary_last_position",
+                                                                "category": "Radio",
+                                                            "control_type": "selector",
+                                                             "description": "Radio Test (Pull)",
+                                                              "identifier": "RADIO_TEST",
+                                                                  "inputs": [ {
+                                                                                "description": "switch to previous or next state",
+                                                                                  "interface": "fixed_step"
+                                                                            }, {
+                                                                                "description": "set position",
+                                                                                  "interface": "set_state",
+                                                                                  "max_value": 1
+                                                                            }, {
+                                                                                   "argument": "TOGGLE",
+                                                                                "description": "Toggle switch state",
+                                                                                  "interface": "action"
+                                                                            } ],
+                                                                 "outputs": [ {
+                                                                                                      "address": 10240,
+                                                                                      "address_mask_identifier": "Christen_Eagle_II_RADIO_TEST_AM",
+                                                                                "address_mask_shift_identifier": "Christen_Eagle_II_RADIO_TEST",
+                                                                                                  "description": "selector position",
+                                                                                                         "mask": 64,
+                                                                                                    "max_value": 1,
+                                                                                                     "shift_by": 6,
+                                                                                                       "suffix": "",
+                                                                                                         "type": "integer"
+                                                                            } ]
                                                         },
                                            "RADIO_VOL": {
                                                                 "category": "Radio",
