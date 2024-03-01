@@ -16,7 +16,7 @@ jobs:
     name: Run unit tests
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up lua
         uses: leafo/gh-actions-lua@v10
@@ -41,7 +41,7 @@ jobs:
     name: Release zip file
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Archive Release
         uses: thedoctor0/zip-release@0.7.1
