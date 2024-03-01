@@ -11,8 +11,6 @@ local Functions = require("Scripts.DCS-BIOS.lib.common.Functions")
 local IntegerOutput = require("Scripts.DCS-BIOS.lib.modules.documentation.IntegerOutput")
 local Log = require("Scripts.DCS-BIOS.lib.common.Log")
 local MemoryMap = require("Scripts.DCS-BIOS.lib.modules.memory_map.MemoryMap")
-local MomentaryPositions = require("Scripts.DCS-BIOS.lib.modules.documentation.MomentaryPositions")
-local PhysicalVariant = require("Scripts.DCS-BIOS.lib.modules.documentation.PhysicalVariant")
 local SetStateInput = require("Scripts.DCS-BIOS.lib.modules.documentation.SetStateInput")
 local SetStringInput = require("Scripts.DCS-BIOS.lib.modules.documentation.SetStringInput")
 local StringOutput = require("Scripts.DCS-BIOS.lib.modules.documentation.StringOutput")
@@ -121,7 +119,7 @@ function Module:defineSetCommandTumb(identifier, device_id, command, arg_number,
 		SetStateInput:new(max_value, "set position"),
 	}, {
 		IntegerOutput:new(enumAlloc, Suffix.none, "selector position"),
-	}, nil, cycle and PhysicalVariant.infinite_rotary or PhysicalVariant.limited_rotary)
+	}, nil)
 
 	if output_map and strAlloc then
 		control.outputs[1].suffix = Suffix.int
@@ -360,7 +358,6 @@ end
 --- @return Control control the control which was added to the module
 function Module:definePushButton(identifier, device_id, command, arg_number, category, description)
 	local control = self:defineTumb(identifier, device_id, command, arg_number, 1, { 0, 1 }, nil, false, category, description)
-	control.physical_variant = PhysicalVariant.push_button
 	control.api_variant = ApiVariant.momentary_last_position
 
 	return control
@@ -419,7 +416,6 @@ end
 --- @return Control control the control which was added to the module
 function Module:defineToggleSwitch(identifier, device_id, command, arg_number, category, description)
 	local control = self:defineTumb(identifier, device_id, command, arg_number, 1, { 0, 1 }, nil, false, category, description)
-	control.physical_variant = PhysicalVariant.toggle_switch
 
 	return control
 end
@@ -441,7 +437,7 @@ function Module:defineToggleSwitchToggleOnly(identifier, device_id, command, arg
 		ActionInput:new(ActionArgument.toggle, "toggle switch state"),
 	}, {
 		IntegerOutput:new(alloc, Suffix.none, "selector position"),
-	}, MomentaryPositions.none, PhysicalVariant.toggle_switch)
+	})
 
 	self:addControl(control)
 
@@ -475,7 +471,6 @@ end
 --- @return Control control the control which was added to the module
 function Module:defineMultipositionSwitch(identifier, device_id, command, arg_number, num_positions, increment, category, description)
 	local control = self:defineTumb(identifier, device_id, command, arg_number, increment, { 0, increment * (num_positions - 1) }, nil, false, category, description)
-	control.physical_variant = PhysicalVariant.toggle_switch
 
 	return control
 end
@@ -520,7 +515,6 @@ end
 --- @return Control control the control which was added to the module
 function Module:define3PosTumb(identifier, device_id, command, arg_number, category, description)
 	local control = self:defineTumb(identifier, device_id, command, arg_number, 1, { -1, 1 }, nil, false, category, description)
-	control.physical_variant = PhysicalVariant.three_position_switch
 
 	return control
 end
@@ -649,7 +643,7 @@ function Module:defineRockerSwitch(identifier, device_id, pos_command, pos_stop_
 		SetStateInput:new(2, "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up"),
 	}, {
 		IntegerOutput:new(alloc, Suffix.none, "selector position"),
-	}, MomentaryPositions.first_and_last, PhysicalVariant.rocker_switch)
+	})
 
 	self:addControl(control)
 
@@ -853,9 +847,7 @@ function Module:defineTumb(identifier, device_id, command, arg_number, step, lim
 		table.insert(outputs, StringOutput:new(strAlloc, Suffix.str, output_description))
 	end
 
-	local variant = cycle and PhysicalVariant.infinite_rotary or PhysicalVariant.limited_rotary
-
-	local control = Control:new(category, ControlType.selector, identifier, description, inputs, outputs, MomentaryPositions.none, variant)
+	local control = Control:new(category, ControlType.selector, identifier, description, inputs, outputs)
 
 	self:addControl(control)
 
