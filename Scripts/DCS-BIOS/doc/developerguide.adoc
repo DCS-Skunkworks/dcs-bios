@@ -20,7 +20,7 @@ It is part of the "Administratively Scoped IPv4 Multicast Space", which is to mu
 
 If you cannot or do not want to deal with multicast UDP, you can also make DCS-BIOS send a copy of the export data stream to a unicast address by editing `BIOSConfig.lua`.
 
-You can also use the `socat` or `DCSBIOSBridge`  utility to connect a serial port (and just about anything else that can be read or written) to the DCS-BIOS import and export streams.
+You can also use the `socat` or `DCSBIOSBridge` (https://github.com/DCS-Skunkworks/DCSBIOSBridge)  utility to connect a serial port (and just about anything else that can be read or written) to the DCS-BIOS import and export streams.
 For an example, take a look at the batch files that come with DCS-BIOS.
 
 Another way is to open a TCP connection to port 7778.
@@ -134,7 +134,7 @@ Protocol.lua:: Writes modules to memory and JSON.
 
 Module.lua:: This is the main class which all aircraft modules inherits from. Contains all functions needed for creating input and export functions for a control.
 
-lib/modules/air_craft/A-10C.lua, lib/modules/air_craft/UH-1H.lua, etc:: Each aircraft module has its own file where all of its controls are defined.
+lib/modules/air_craft/A-10C.lua, lib/modules/aircraft/UH-1H.lua, etc:: Each aircraft module has its own file where all of its controls are defined.
 
 
 == Adding a New Aircraft Module
@@ -143,7 +143,7 @@ This section describes how to add support for another aircraft module.
 
 === Export Modules in DCS-BIOS
 
-DCS-BIOS consists of several export modules (they are what you select in the "module" drop-down field in `Bort` or `BIOSBuddy`. Each export module is assigned to one or multiple aircraft and several export modules can be active at the same time.
+DCS-BIOS consists of several export modules (they are what you select in the "module" drop-down field in `Bort` (https://github.com/DCS-Skunkworks/Bort) or `BIOSBuddy` (https://github.com/DCS-Skunkworks/BIOSBuddy). Each export module is assigned to one or multiple aircraft and several export modules can be active at the same time.
 
 The `MetadataStart` and `MetadataEnd` modules are special: they are always active, even if there is no active aircraft (e.g. in spectator mode in a multiplayer game). The `CommonData` module is always active when any of the aircraft in `AircraftList.lua` is active. It exports generic information like altitude, position and heading.
 
