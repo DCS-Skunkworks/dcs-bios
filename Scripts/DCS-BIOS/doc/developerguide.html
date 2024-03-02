@@ -512,7 +512,7 @@ It is part of the "Administratively Scoped IPv4 Multicast Space", which is to mu
 <p>If you cannot or do not want to deal with multicast UDP, you can also make DCS-BIOS send a copy of the export data stream to a unicast address by editing <code>BIOSConfig.lua</code>.</p>
 </div>
 <div class="paragraph">
-<p>You can also use the <code>socat</code> or <code>DCSBIOSBridge</code> (<a href="https://github.com/DCS-Skunkworks/DCSBIOSBridge" class="bare">github.com/DCS-Skunkworks/DCSBIOSBridge</a>)  utility to connect a serial port (and just about anything else that can be read or written) to the DCS-BIOS import and export streams.
+<p>You can also use the <code>socat</code> or <a href="https://github.com/DCS-Skunkworks/DCSBIOSBridge"><code>DCSBIOSBridge</code></a>  utility to connect a serial port (and just about anything else that can be read or written) to the DCS-BIOS import and export streams.
 For an example, take a look at the batch files that come with DCS-BIOS.</p>
 </div>
 <div class="paragraph">
@@ -712,7 +712,7 @@ That file loads all other DCS-BIOS code.</p>
 <div class="sect2">
 <h3 id="_export_modules_in_dcs_bios">Export Modules in DCS-BIOS</h3>
 <div class="paragraph">
-<p>DCS-BIOS consists of several export modules (they are what you select in the "module" drop-down field in <code>Bort</code> (<a href="https://github.com/DCS-Skunkworks/Bort" class="bare">github.com/DCS-Skunkworks/Bort</a>) or <code>BIOSBuddy</code> (<a href="https://github.com/DCS-Skunkworks/BIOSBuddy" class="bare">github.com/DCS-Skunkworks/BIOSBuddy</a>). Each export module is assigned to one or multiple aircraft and several export modules can be active at the same time.</p>
+<p>DCS-BIOS consists of several export modules (they are what you select in the "module" drop-down field in <a href="https://github.com/DCS-Skunkworks/Bort"><code>Bort</code></a> or <a href="https://github.com/DCS-Skunkworks/BIOSBuddy"><code>BIOSBuddy</code></a>. Each export module is assigned to one or multiple aircraft and several export modules can be active at the same time.</p>
 </div>
 <div class="paragraph">
 <p>The <code>MetadataStart</code> and <code>MetadataEnd</code> modules are special: they are always active, even if there is no active aircraft (e.g. in spectator mode in a multiplayer game). The <code>CommonData</code> module is always active when any of the aircraft in <code>AircraftList.lua</code> is active. It exports generic information like altitude, position and heading.</p>
@@ -735,7 +735,7 @@ That file loads all other DCS-BIOS code.</p>
 To do this, open the <code>Bort</code> or <code>BIOSBuddy</code> while in your aircraft and look at the <code>_ACFT_NAME</code> value in the <code>MetadataStart</code> module.</p>
 </div>
 <div class="paragraph">
-<p>Please visit the developer wiki (<a href="https://github.com/DCS-Skunkworks/dcs-bios/wiki/Developer-Guide" class="bare">github.com/DCS-Skunkworks/dcs-bios/wiki/Developer-Guide</a>) for further instructions.</p>
+<p>Please visit the <a href="https://github.com/DCS-Skunkworks/dcs-bios/wiki/Developer-Guide">developer wiki</a> for further instructions.</p>
 </div>
 </div>
 </div>
@@ -767,7 +767,7 @@ Add this in the beginning of the file if it is not there already:</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-03-02 17:07:31 +0200
+Last updated 2024-03-02 18:18:33 +0200
 </div>
 </div>
 </body>
