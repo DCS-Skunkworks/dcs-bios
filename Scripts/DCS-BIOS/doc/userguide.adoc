@@ -448,7 +448,7 @@ void loop() {
 <2> This line adds the DCS-BIOS Arduino Library to your sketch.
 <3> This line tells the DCS-BIOS Arduino Library to use the built-in LED on your Arduino board, which is connected to pin 13, as a master caution light. (For some Arduinos the built-in LED may be 13, 15 or 17 - check your Arduino model documentation for the correct pin)
 <4> This line tells the DCS-BIOS Arduino Library that there is a switch connected to pin 10 that should be mapped to the master caution reset button.
-Refer to the control reference documentation for more examples.
+Use your <<reference_tool>> to get more examples.
 <5> In your `setup()` function, you have to call `DcsBios::setup()` to initialize the DCS-BIOS Arduino Library.
 <6> In your `loop()` function, you have to call `DcsBios::loop()`. This causes the DCS-BIOS Arduino library to notify DCS if any inputs (push buttons, switches, etc.) have changed, and to update any outputs (LEDs, servo motors, displays, etc.) with the latest data from DCS.
 
@@ -825,14 +825,14 @@ DcsBios::IntegerBuffer(unsigned int address, unsigned int mask, unsigned int shi
 The IntegerBuffer class is used to handle integer outputs in a generic way. You have to supply your own code to do something useful with the data.
 
 .Constructor Parameters
-address:: The address of the integer output (found in the control reference)
-mask:: The mask of the integer output (found in the control reference)
-shift:: The number of bits to shift left (found in the control reference)
+address:: The address of the integer output (found in the <<reference_tool>>)
+mask:: The mask of the integer output (found in the <<reference_tool>>)
+shift:: The number of bits to shift left (found in the <<reference_tool>>)
 callback:: A function which accepts an argument of type `unsigned int`.
 This function will be called whenever the integer output has changed.
 It will be passed the new value as an argument.
 
-.Reference Documentation Code Example
+.<<reference_tool>> Code Example
 [source,c++]
 ----
 void onAlt10000ftCntChange(unsigned int newValue) {
