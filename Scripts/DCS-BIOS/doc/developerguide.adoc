@@ -5,6 +5,16 @@
 :toclevels: 2
 :imagesdir: images
 
+== DCS-BIOS Reference Tool [[reference_tool]]
+
+There are 3 DCS-BIOS reference tool alternatives for getting the information needed:
+
+* Install https://github.com/DCS-Skunkworks/Bort[`Bort`]
+* Install https://github.com/DCS-Skunkworks/BIOSBuddy[`BIOSBuddy`]
+* Go to your `saved Games folder/Scripts/DCS-BIOS/doc` and double-click on the file `control-reference.html`. Your web browser will automatically open and display all sorts of colorful headings and code. If you see a red warning instead, you need to enable JavaScript in your web browser and reload the page.
+
+The DCS-BIOS reference tools lists every single supported `DCS module` and all `DCS-BIOS controls` belonging to the module, every single panel found in that aircraft, and every single corresponding switch, push button and rotary knob or whatever associated with that panel and the corresponding code that you will use to create your sketch.
+
 == Connecting to DCS-BIOS
 
 Controls in the cockpit can be manipulated by sending newline-terminated plain text commands to UDP port 7778.
