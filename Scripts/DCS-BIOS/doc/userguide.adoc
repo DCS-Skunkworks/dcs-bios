@@ -10,6 +10,16 @@ This manual will explain how you can use DCS-BIOS to connect the clickable cockp
 
 NOTE: If you want to add a new aircraft module or use your own software with DCS-BIOS, please refer to the Developer Guide.
 
+== DCS-BIOS Reference Tool [[reference_tool]]
+
+There are 3 DCS-BIOS reference tool alternatives for getting the information needed:
+
+* Install https://github.com/DCS-Skunkworks/Bort[`Bort`]
+* Install https://github.com/DCS-Skunkworks/BIOSBuddy[`BIOSBuddy`]
+* Go to your `saved Games folder/Scripts/DCS-BIOS/doc` and double-click on the file `control-reference.html`. Your web browser will automatically open and display all sorts of colorful headings and code. If you see a red warning instead, you need to enable JavaScript in your web browser and reload the page.
+
+The DCS-BIOS reference tools lists every single supported `DCS module` and all `DCS-BIOS controls` belonging to the module, every single panel found in that aircraft, and every single corresponding switch, push button and rotary knob or whatever associated with that panel and the corresponding code that you will use to create your sketch.
+
 == Introduction
 
 So you want to build a panel for your DCS: World aircraft.
@@ -103,7 +113,7 @@ We will assume you have access to the following:
 * A 220ohm 1/4 watt resistor
 * 24 gauge wire or jumper wires
 
-=== Our Step by Step Instructions:
+=== Step by Step Instructions:
 ==== Step 1: Setting up DCS-BIOS
 
 1.1 Download the latest release of DCS-BIOS from https://github.com/dcs-bios/dcs-bios/releases[GitHub] and extract the ZIP file somewhere on your hard drive
@@ -225,37 +235,30 @@ NOTE: Take special care not to alter any of the existing code that comes with th
 
 * Click `File -> Examples -> DcsBios -> IRQSerial` to open the template program that comes with the DCS-BIOS Arduino library.
 
-To develop a sketch for your panel, you are going to copy pieces of example code from a reference document that we have provided.
+To develop a sketch for your panel, you are going to copy pieces of example code from a reference source.
 
-* Go to your saved Games folder/Scripts/DCS-BIOS/doc and double-click on the file `control-reference.html`
-Your web browser will automatically open and display all sorts of colorful headings and code.
-If you see a red warning instead, you need to enable JavaScript in your web browser and reload the page.
 
-This web page is the reference document we are referring to.
-It lists every single DCS module that DCS-BIOS supports, every single panel found in that aircraft, and every single corresponding switch, push button and rotary knob or whatever associated with that panel and the corresponding code that you will use to create your sketch.
-
-Along the top of the web page, there are "filters" in the form of drop down menus that can be used to display precisely what you are looking for.
-Select the desired aircraft module in the "Module" list.
-You have the choice of what aircraft you would like to work with, the type of information you would like displayed (basic or advanced) and every single panel on the aircraft you chose to work with.
-Stay away from the advanced tab until you know what you are doing.
+Using your <<reference_tool>>:
 
 * Select "A-10C" in the "Module" dropdown menu and "UFC" as "Category Filter".
 
 The first entry should be the one for the Master Caution Light.
 
-* left click in the box with the yellow background to highlight the example code.
-Then copy the selected text to your clipboard by pressing `Ctrl+C`.
-Now move to the Arduino IDE and paste this line in the space just below where it says "paste your code below here".
+* In `Bort` make sure `Show arduino scaffold code` is checked.
 
-* Now go back to the control reference web page.
-Scroll down a bit until you come to the `UFC_MASTER_CAUTION / Master Caution Reset` entry.
+* In `BIOSBuddy` click `API`.
+
+* Select `DcsBios::LED masterCaution(A_10C_MASTER_CAUTION_AM, PIN);` and press `CTRL+C`
+
+* Now move to the Arduino IDE and paste this line in the space just below where it says "paste your code below here".
+
+* Now go back to your reference tool again, find the `UFC_MASTER_CAUTION / Master Caution Reset` entry.
 
 * As before, left click in the box with the yellow background and then copy it to your clipboard.
-Move to the Arduino IDE and paste this line in the space below the last one.
 
-Did you notice the red highlighting in the control reference document?
-It highlights the word "PIN" or "PIN_A, PIN_B" etc.
-These are temporary placeholders that you will be changing.
+* Move to the Arduino IDE and paste this line in the space below the last one.
+
+Did you notice the keywords referencing pins? These are temporary placeholders that you will be changing. `PIN` `PIN_A` `PIN_B`
 
 * Lets start with the switch that you are using to reset the Master Caution.
 You attached it to Pin 10 on the Arduino board.
@@ -280,6 +283,25 @@ The line of code for the LED Master Caution warning should change as follows:
 DcsBios::LED masterCaution(0x1012, 0x0800, PIN);
 DcsBios::LED masterCaution(0x1012, 0x0800, 13);
 ----
+
+* Using address, mask and shift value macros
+In the code above you can see that there is a `address` (0x1012), `mask` (0x0800).
+These values can sometimes change which leads to the sketch not working anymore.
+You will find macros for all DCS-BIOS controls in `Addresses.h`. This file is auto-generated when DCS-BIOS starts.
+If you reference these macros instead you will have it easier when for some reason these values changes. 
+You will still need to upload the sketch with the changed `Addresses.h` but you won't have to modify your sketches.
+With macros the above code will look like this:
+[source,c++]
+----
+DcsBios::LED masterCaution(A_10C_UFC_MASTER_CAUTION_AM, 13);
+----
+
+Look carefully which macro to use.
+
+* Makro without special ending contains `address`, `mask`, `shift`
+* `_A` contains only `address`
+* `_AM` contains `address` and `mask`
+
 When you have completed these changes, the beginning of your sketch should look like this:
 [source,c++]
 ----
@@ -330,6 +352,9 @@ When it disappears the upload is complete.
 
 ==== Step 6: Test your new panel
 
+To connect DCS-BIOS with your serial ports you can either install https://github.com/DCS-Skunkworks/DCSBIOSBridge[DCSBIOSBridge] 
+or follow the instructions below.
+
 DCS-BIOS comes with a script that connects a serial port to DCS.
 This  serial port is the means by which your PC and your Arduino Board communicate.
 To initiate this connection you need specify the COM Port to use.
@@ -360,7 +385,7 @@ WARNING: If you make a copy of the script, you need to place it in the same fold
 ==== Summary
 You can make any panel you like using this template file.
 
-* Add the lines of code from the `control-reference.html` documentation to your sketch for the switches and/or LED's you wish to use.
+* Add the lines of code from any of the <<reference_tool>> to your sketch for the switches and/or LED's you wish to use.
 
 * Upload that sketch to your Arduino board.
 
@@ -387,7 +412,7 @@ With DCS-BIOS, it's straight forward.
 
 == A Closer Look at The DCS-BIOS Arduino Library
 
-This tutorial will show you how to read the DCS-BIOS control-reference documentation to create a sketch for any panel in the cockpit.
+This tutorial will show you how to read the DCS-BIOS references tools to create a sketch for any panel in the cockpit.
 
 It will cover all of the different control types that are supported by the Arduino library.
 The information provided at this point may require some level of knowledge with Arduino programming.
@@ -423,13 +448,13 @@ void loop() {
 <2> This line adds the DCS-BIOS Arduino Library to your sketch.
 <3> This line tells the DCS-BIOS Arduino Library to use the built-in LED on your Arduino board, which is connected to pin 13, as a master caution light. (For some Arduinos the built-in LED may be 13, 15 or 17 - check your Arduino model documentation for the correct pin)
 <4> This line tells the DCS-BIOS Arduino Library that there is a switch connected to pin 10 that should be mapped to the master caution reset button.
-Refer to the control reference documentation for more examples.
+Use your <<reference_tool>> to get more examples.
 <5> In your `setup()` function, you have to call `DcsBios::setup()` to initialize the DCS-BIOS Arduino Library.
 <6> In your `loop()` function, you have to call `DcsBios::loop()`. This causes the DCS-BIOS Arduino library to notify DCS if any inputs (push buttons, switches, etc.) have changed, and to update any outputs (LEDs, servo motors, displays, etc.) with the latest data from DCS.
 
 
 
-=== Using the Control-Reference Documentation
+=== Using the <<reference_tool>>s
 Recall the following part from the MasterCaution example:
 [source,c++]
 ----
@@ -442,21 +467,13 @@ Unless you are doing something more advanced such as using something other than 
 Even without knowing much about DCS-BIOS, you might have guessed that this says there is a push button connected to pin 10 that should operate the master caution button and that the LED on pin 13 should light up then the master caution button does.
 
 But how do you know what to put here for other controls?
-You will have to consult the "Control-Reference" documentation.
-
-==== Locating the Reference Documentation
-
-The Control-Reference documentation is included in the `doc/` subdirectory in the DCS-BIOS download.
-Simply double-click `Control-Reference.html` to open it in your web browser.
-
-NOTE: If all you see is a big red warning, you need to enable JavaScript and reload the page.
+You will have to consult the reference tools you chose.
 
 ==== Finding the Control You Are Looking For
 
 First, select the module.
-Second, select the type of view.
-Choose Simple if it is not already displayed as the default.
-Finally, the "Category Filter" dropdown box will provide you with a complete listing of all the panels and you can select the panel you are looking for.
+Second, select category.
+
 ==== Supported Controls
 DCS-BIOS refers to switches, rotary encoders, potentiometers, push buttons etc. as "CONTROLS".
 The following are all of the supported Controls available in DCS-BIOS:
@@ -808,14 +825,14 @@ DcsBios::IntegerBuffer(unsigned int address, unsigned int mask, unsigned int shi
 The IntegerBuffer class is used to handle integer outputs in a generic way. You have to supply your own code to do something useful with the data.
 
 .Constructor Parameters
-address:: The address of the integer output (found in the control reference)
-mask:: The mask of the integer output (found in the control reference)
-shift:: The number of bits to shift left (found in the control reference)
+address:: The address of the integer output (found in the <<reference_tool>>)
+mask:: The mask of the integer output (found in the <<reference_tool>>)
+shift:: The number of bits to shift left (found in the <<reference_tool>>)
 callback:: A function which accepts an argument of type `unsigned int`.
 This function will be called whenever the integer output has changed.
 It will be passed the new value as an argument.
 
-.Reference Documentation Code Example
+.<<reference_tool>> Code Example
 [source,c++]
 ----
 void onAlt10000ftCntChange(unsigned int newValue) {
