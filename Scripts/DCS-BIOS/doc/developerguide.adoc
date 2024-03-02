@@ -20,7 +20,7 @@ It is part of the "Administratively Scoped IPv4 Multicast Space", which is to mu
 
 If you cannot or do not want to deal with multicast UDP, you can also make DCS-BIOS send a copy of the export data stream to a unicast address by editing `BIOSConfig.lua`.
 
-You can also use the `socat` or `DCSBIOSBridge` (https://github.com/DCS-Skunkworks/DCSBIOSBridge)  utility to connect a serial port (and just about anything else that can be read or written) to the DCS-BIOS import and export streams.
+You can also use the `socat` or https://github.com/DCS-Skunkworks/DCSBIOSBridge[`DCSBIOSBridge`]  utility to connect a serial port (and just about anything else that can be read or written) to the DCS-BIOS import and export streams.
 For an example, take a look at the batch files that come with DCS-BIOS.
 
 Another way is to open a TCP connection to port 7778.
@@ -143,7 +143,7 @@ This section describes how to add support for another aircraft module.
 
 === Export Modules in DCS-BIOS
 
-DCS-BIOS consists of several export modules (they are what you select in the "module" drop-down field in `Bort` (https://github.com/DCS-Skunkworks/Bort) or `BIOSBuddy` (https://github.com/DCS-Skunkworks/BIOSBuddy). Each export module is assigned to one or multiple aircraft and several export modules can be active at the same time.
+DCS-BIOS consists of several export modules (they are what you select in the "module" drop-down field in https://github.com/DCS-Skunkworks/Bort[`Bort`] or https://github.com/DCS-Skunkworks/BIOSBuddy[`BIOSBuddy`]. Each export module is assigned to one or multiple aircraft and several export modules can be active at the same time.
 
 The `MetadataStart` and `MetadataEnd` modules are special: they are always active, even if there is no active aircraft (e.g. in spectator mode in a multiplayer game). The `CommonData` module is always active when any of the aircraft in `AircraftList.lua` is active. It exports generic information like altitude, position and heading.
 
@@ -155,7 +155,7 @@ The `MetadataStart` and `MetadataEnd` modules are special: they are always activ
 If this a new aircraft that doesn't exist in `dcs-bios` then find out the exact name of your aircraft in DCS: World.
 To do this, open the `Bort` or `BIOSBuddy` while in your aircraft and look at the `_ACFT_NAME` value in the `MetadataStart` module.
 
-Please visit the developer wiki (https://github.com/DCS-Skunkworks/dcs-bios/wiki/Developer-Guide) for further instructions.
+Please visit the https://github.com/DCS-Skunkworks/dcs-bios/wiki/Developer-Guide[developer wiki] for further instructions.
 
 
 == Tips
