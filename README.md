@@ -10,19 +10,15 @@ It provides a stable, documented interface for external hardware and software to
 This version is a fork of [DCS-BIOS](https://github.com/dcs-bios/dcs-bios) created and programmed by [jboecker](https://github.com/jboecker).
 While the original repo has gone stale this is continously updated.
 
-This fork is similar to the original DCS-BIOS before it was updated to the BIOS-HUB version.
+DCS-Skunkworks' DCS-BIOS is similar to the original DCS-BIOS before it was updated to the BIOS-HUB version.
 Fully compatible for pit builders and Arduino users.
 
-  If want to support us, You find info at the bottom of this page.
-  With that money, we buy the planes to integrade them in this DCS-BIOS fork.
 
 - Release/Prerelease are mostly for the stable version of DCS.
 - DCS Beta Users should use the ```DCS-BIOS Openbeta``` nightly release. Starting a mission will generate the json files.
 - Arduino Users should download the ```Source code(zip)``` on the Release page to get all needed files
 
-[Problems/Info see our Wiki](https://github.com/DCS-Skunkworks/dcs-bios/wiki)
-
-[Quick Setup Guide](https://github.com/DCS-Skunkworks/dcs-bios/blob/master/Scripts/DCS-BIOS/doc/DCS-BIOS-FLIGHTPANELS_Install%20Guide.pdf)
+[Remember to look at our wiki for troubleshooting](https://github.com/DCS-Skunkworks/dcs-bios/wiki)
 
 ## For Users
 
@@ -31,12 +27,12 @@ Fully compatible for pit builders and Arduino users.
 ## For Panel Builders
 
 You don't need to be a programmer or electrical engineer.
-The [DCS-BIOS User Guide](https://github.com/DCS-Skunkworks/dcs-bios/blob/master/Scripts/DCS-BIOS/doc/userguide.adoc) will show you step by step how to connect your panel to DCS using DCS-BIOS and the beginner-friendly [Arduino microcontroller platform](http://arduino.cc).
+The release includes a ```DCS-BIOS User Guide``` that shows you step by step on how to connect your panel to DCS using DCS-BIOS and the beginner-friendly [Arduino microcontroller platform](http://arduino.cc).
 You don't have to write any program code yourself.
 
 ## For Software Developers
 
-The [developer guide](https://github.com/DCS-Skunkworks/dcs-bios/blob/master/Scripts/DCS-BIOS/doc/developerguide.adoc) explains how to connect to and interpret the DCS-BIOS export data stream and how to send commands to DCS-BIOS to operate controls inside the cockpit.
+Included in the release is the ```Developer Guide``` that explains how to connect to and interpret the DCS-BIOS export data stream and how to send commands to DCS-BIOS to operate controls inside the cockpit.
 
 ## Is My Aircraft Supported?
 
@@ -112,14 +108,20 @@ If you are working a lot with hardware, it may come in handy to log and replay d
 If you want to add a FC3 based mod (eg. VSN_Mod Planes) for commondata support, you must follow
 these instructions:
 
-Add at the bottom in \DCS-BIOS\lib\AircraftList.lua the entry :
+Add at the bottom in ```\DCS-BIOS\lib\AircraftList.lua``` the entry :
 
 ```a("PlaneName", false)```
 
-To get the correct plane name, open the [control-reference](https://github.com/DCS-Skunkworks/dcs-bios/wiki/DCS-BIOS-Control-Reference-Page) page (```MetadataStart```) while you fly that plane.
+To get the correct plane name, open the DCS-BIOS Reference Tool (```MetadataStart```) while you fly that plane and look what value ```_ACFT_NAME``` has.
 
-## socat
+## Connect DCS-BIOS stream to your serial ports
 
+You can use either ```socat``` or ```DCSBIOSBridge```.
+
+### DCSBIOSBridge
+[Download here](https://github.com/DCS-Skunkworks/DCSBIOSBridge/releases)
+
+### socat
 There are 2 socat versions, 32 and 64 bit. Choose that version that fits best for you.
 The files in the zip File must be unzipped direct in the socat folder.
 
@@ -137,16 +139,17 @@ If you want to contribute code or documentation, please send a pull request on G
 
 ### License
 
-The [orginal DCS-BIOS](https://github.com/dcs-bios/dcs-bios) was programmed by [FSF]Ian. This is a fork of his older repository.
+The [original DCS-BIOS](https://github.com/dcs-bios/dcs-bios) was created by [FSF]Ian.
 
-DCS-BIOS is released under a slightly modified Simple Public License 2.0 (think "a version of the GPL readable by mere mortals"). Please see the file ```LICENSE```.
+DCS-BIOS is released under a slightly modified ```Simple Public License 2.0``` (think "a version of the GPL readable by mere mortals"). Please see the file ```LICENSE```.
 
-The copy of `socat` that comes with DCS-BIOS is licensed under the GPLv2 (see `/Programs/socat/COPYING`).
+The copy of `socat` that comes with DCS-BIOS is licensed under the ```GPLv2``` (see `/Programs/socat/COPYING`).
 
 ## Support
 
-* Here you find our [DCS-Skunkworks Discord Server](https://discord.gg/5svGwKX)
-* Here you find the [arduino-library](https://github.com/DCS-Skunkworks/dcs-bios-arduino-library)
-* Here you find the [arduino-Examples](https://github.com/DCS-Skunkworks/dcs-bios-arduino_examples)
-
-* [If you want to support us.](https://www.paypal.me/FPDCSBIOS)
+* [DCS-Skunkworks Discord Server](https://discord.gg/5svGwKX)
+* [Arduino Library](https://github.com/DCS-Skunkworks/dcs-bios-arduino-library)
+* [Arduino Examples](https://github.com/DCS-Skunkworks/dcs-bios-arduino_examples)
+* [Bort DCS-BIOS Reference Tool](https://github.com/DCS-Skunkworks/bort)
+* [BIOSBuddy DCS-BIOS Reference Tool](https://github.com/DCS-Skunkworks/biosbuddy)
+* [DCS-BIOS Bridge](https://github.com/DCS-Skunkworks/dcsbiosbridge)
