@@ -139,7 +139,7 @@ dofile(lfs.writedir()..[[Scripts\DCS-BIOS\BIOS.lua]])
 WARNING: You should never use any word processing software to edit text files.
 Word processing software saves formatting information in the file which will render it unusable.
 
-Note: If you use the Raygun Software from Buddyfox (A-10C UFC), his entry must stand above the DCS-BIOS entry in the Export.lua !!!
+Note: If you use the Raygun Software from Buddyfox (A-10C UFC), this entry must be *before* the DCS-BIOS entry in the Export.lua !
 
 
 ==== Step 2: Connecting your LED and Push Button Switch
@@ -289,7 +289,7 @@ In the code above you can see that there is a `address` (0x1012), `mask` (0x0800
 These values can sometimes change which leads to the sketch not working anymore.
 You will find macros for all DCS-BIOS controls in `Addresses.h`. This file is auto-generated when DCS-BIOS starts.
 If you reference these macros instead you will have it easier when for some reason these values changes. 
-You will still need to upload the sketch with the changed `Addresses.h` but you won't have to modify your sketches.
+You will still need to re-upload the sketch with the changed `Addresses.h` but you won't have to modify your sketches.
 With macros the above code will look like this:
 [source,c++]
 ----
