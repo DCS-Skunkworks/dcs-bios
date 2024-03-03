@@ -10,7 +10,7 @@ It provides a stable, documented interface for external hardware and software to
 This version is a fork of [DCS-BIOS](https://github.com/dcs-bios/dcs-bios) created and programmed by [jboecker](https://github.com/jboecker).
 While the original repo has gone stale this is continously updated.
 
-This DCS-Skunkworks' DCS-BIOS is similar to the original DCS-BIOS before it was updated to the BIOS-HUB version.
+DCS-Skunkworks' DCS-BIOS is similar to the original DCS-BIOS before it was updated to the BIOS-HUB version.
 Fully compatible for pit builders and Arduino users.
 
 
