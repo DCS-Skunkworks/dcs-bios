@@ -515,7 +515,7 @@ If you want to add a new aircraft module or use your own software with DCS-BIOS,
 <h2 id="reference_tool">DCS-BIOS Reference Tool</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>There are 3 DCS-BIOS reference tool alternatives for getting the information needed:</p>
+<p>There are 3 DCS-BIOS Reference Tool alternatives for getting the information needed:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -929,7 +929,7 @@ Take special care not to alter any of the existing code that comes with this tem
 <p>Now go back to your reference tool again, find the <code>UFC_MASTER_CAUTION / Master Caution Reset</code> entry.</p>
 </li>
 <li>
-<p>As before, left click in the box with the yellow background and then copy it to your clipboard.</p>
+<p>As before, select the code snippet copy it to your clipboard.</p>
 </li>
 <li>
 <p>Move to the Arduino IDE and paste this line in the space below the last one.</p>
@@ -999,7 +999,7 @@ With macros the above code will look like this:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Makro without special ending contains <code>address</code>, <code>mask</code>, <code>shift</code></p>
+<p>Macro without special ending contains <code>address</code>, <code>mask</code>, <code>shift</code></p>
 </li>
 <li>
 <p><code>_A</code> contains only <code>address</code></p>
@@ -1303,7 +1303,7 @@ DcsBios::LED masterCaution(0x1012, 0x0800, 13);</code></pre>
 </div>
 <div class="paragraph">
 <p>But how do you know what to put here for other controls?
-You will have to consult the reference tools you chose.</p>
+You will find this information from the DCS-BIOS Reference Tool you want to use.</p>
 </div>
 <div class="sect3">
 <h4 id="_finding_the_control_you_are_looking_for">Finding the Control You Are Looking For</h4>
@@ -1366,7 +1366,7 @@ The following are all of the supported Controls available in DCS-BIOS:</p>
 <p>The first notation between the brackets <code>"AHCP_CICU"</code> is a placeholder for a piece of data that gets sent to DCS when a change occurs to a pin on the Arduino board.</p>
 </li>
 <li>
-<p>The second notation <code>PIN</code> is also a placeholder however, you have to replace it with the pin number that your control is attached to.  In the Control-Reference document, placeholder that require you to assign a specific pin number to are always highlighted in"RED"
+<p>The second notation <code>PIN</code> is also a placeholder however, you have to replace it with the pin number that your control is attached to.
 There also a few knobs/switches in your cockpit represented with two separate controls.
 For example, the volume controls on the A-10C intercom panel have one DCS-BIOS control for the volume and a separate control for the mute function.</p>
 </li>
@@ -1410,7 +1410,7 @@ The range of acceptable values is 0 to the maximum value of the control&#8217;s 
 </table>
 </div>
 <div class="paragraph">
-<p>The reference documentation will offer example code for a <code>DcsBios::SwitchMultiPos</code> and (where appropriate) a <code>DcsBios::Switch2Pos</code> or <code>DcsBios::Switch3Pos</code>.</p>
+<p>The DCS-BIOS Reference Tool will offer example code for a <code>DcsBios::SwitchMultiPos</code> and (where appropriate) a <code>DcsBios::Switch2Pos</code> or <code>DcsBios::Switch3Pos</code>.</p>
 </div>
 </dd>
 <dt class="hdlist1">fixed_step</dt>
@@ -1418,21 +1418,21 @@ The range of acceptable values is 0 to the maximum value of the control&#8217;s 
 <p>If a control supports the <em>fixed_step</em> interface, you can increase its position with an <code>INC</code> argument and decrease its position with a <code>DEC</code> argument.
 An example would be a rotary encoder used to change the frequency of a VHF radio.</p>
 <div class="paragraph">
-<p>The reference documentation will offer example code for a <code>DcsBios::RotaryEncoder</code>.</p>
+<p>The DCS-BIOS Reference Tool will offer example code for a <code>DcsBios::RotaryEncoder</code>.</p>
 </div>
 </dd>
 <dt class="hdlist1">action</dt>
 <dd>
 <p>This represents an action such as toggling a toggle switch or changing the X/Y digit of the TACAN channel.</p>
 <div class="paragraph">
-<p>The reference documentation will offer example code for a <code>DcsBios::ActionButton</code>.</p>
+<p>The DCS-BIOS Reference Tool will offer example code for a <code>DcsBios::ActionButton</code>.</p>
 </div>
 </dd>
 <dt class="hdlist1">variable_step</dt>
 <dd>
 <p>If a control supports the <em>variable_step</em> interface, you can increase or decrease its position by a certain amount by sending <code>+NUMBER</code> or <code>-NUMBER</code> as an argument, where <code>NUMBER</code> is an integer.</p>
 <div class="paragraph">
-<p>The reference documentation will offer example code for a <code>DcsBios::RotaryEncoder</code>.
+<p>The DCS-BIOS Reference Tool will offer example code for a <code>DcsBios::RotaryEncoder</code>.
 The default step size is 3200.
 You will need to experiment to get the right sensitivity.</p>
 </div>
@@ -1456,7 +1456,7 @@ An <em>output</em> represents a piece of information that is exported from DCS, 
 <p>Most outputs are integers.
 Each integer output has an associated maximum value and a minimum value of 0.</p>
 <div class="paragraph">
-<p>The reference documentation will offer code examples for <code>DcsBios::LED</code> and <code>DcsBios::ServoOutput</code> where appropriate.</p>
+<p>The DCS-BIOS Reference Tool will offer code examples for <code>DcsBios::LED</code> and <code>DcsBios::ServoOutput</code> where appropriate.</p>
 </div>
 <div class="paragraph">
 <p>The first code snippet for integer outputs is meant to be inserted into the <code>onDcsBiosWrite</code> function if the DCS-BIOS Arduino library cannot do what you want.
@@ -1478,7 +1478,7 @@ To learn about the meaning of the <em>address</em>, <em>mask</em> and <em>shift<
 <dt class="hdlist1">String outputs</dt>
 <dd>
 <p>Some values (such as radio frequencies) are exported as character strings.
-The reference documentation will provide a code example that uses a <code>DcsBios::StringBuffer</code> to execute a piece of code whenever the value changes.</p>
+The DCS-BIOS Reference Tool will provide a code example that uses a <code>DcsBios::StringBuffer</code> to execute a piece of code whenever the value changes.</p>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -1499,15 +1499,12 @@ For most common combinations of display type and connection method, you can find
 <div class="sect3">
 <h4 id="_copy_and_paste_example_code">Copy and Paste Example Code</h4>
 <div class="paragraph">
-<p>To use the example code from the reference documentation in your Arduino sketch, you first have to choose which code example to copy.
+<p>To use the example code from the DCS-BIOS Reference Tool in your Arduino sketch, you first have to choose which code example to copy.
 That depends on what type of control you want to connect.</p>
 </div>
 <div class="paragraph">
 <p>For example, you might want to use a rotary switch for the TACAN mode dial in the A-10C and use the <code>DcsBios::SwitchMultiPos</code> code snippet.
 For the same control, you could also choose to use a rotary encoder.</p>
-</div>
-<div class="paragraph">
-<p>If the "Simple" view mode, the reference documentation displays only the "most appropriate" code example for each control.</p>
 </div>
 <div class="paragraph">
 <p>After choosing a code example, copy it to your Arduino sketch (refer back to the MasterCaution example to see where to copy it) and replace all the parts in red with your own values (usually the pin numbers that this control is connected to).</p>
@@ -1550,7 +1547,7 @@ For the same control, you could also choose to use a rotary encoder.</p>
 <p>Connect the toggle switch or push button between the Arduino pin and ground.</p>
 </div>
 <div class="listingblock">
-<div class="title">Reference Documentation Code Examples</div>
+<div class="title">DCS-BIOS Reference Tool Code Examples</div>
 <div class="content">
 <pre class="highlight"><code class="language-c++" data-lang="c++">DcsBios::Switch2Pos ahcpCicu("AHCP_CICU", PIN);</code></pre>
 </div>
@@ -1601,7 +1598,7 @@ For the same control, you could also choose to use a rotary encoder.</p>
 </div>
 </div>
 <div class="listingblock">
-<div class="title">Reference Documentation Code Examples</div>
+<div class="title">DCS-BIOS Reference Tool Code Examples</div>
 <div class="content">
 <pre class="highlight"><code class="language-c++" data-lang="c++">DcsBios::Switch3Pos aapSteer("AAP_STEER", PIN_A, PIN_B);</code></pre>
 </div>
@@ -1640,7 +1637,7 @@ The first pin number corresponds to state 0 of the input, the second to state 1,
 <p>Connect the rotary switch so that it connects the Arduino pin for the currently selected position to ground.</p>
 </div>
 <div class="listingblock">
-<div class="title">Reference Documentation Code Examples</div>
+<div class="title">DCS-BIOS Reference Tool Code Examples</div>
 <div class="content">
 <pre class="highlight"><code class="language-c++" data-lang="c++">const byte aapSteerptPins[3] = {PIN_0, PIN_1, PIN_2};
 DcsBios::SwitchMultiPos aapSteerpt("AAP_STEERPT", aapSteerptPins, 3);</code></pre>
@@ -1693,7 +1690,7 @@ Connect the middle pin to the Arduino.</p>
 <p>To reverse the direction, swap +5V and GND.</p>
 </div>
 <div class="listingblock">
-<div class="title">Reference Documentation Code Example</div>
+<div class="title">DCS-BIOS Reference Tool Code Example</div>
 <div class="content">
 <pre class="highlight"><code class="language-c++" data-lang="c++">DcsBios::Potentiometer cmscBrt("CMSC_BRT", PIN);</code></pre>
 </div>
@@ -1748,7 +1745,7 @@ Connect the left pin and right pins to any two of the Arduino pins 2 through 12,
 <p>To reverse the direction, either swap decArg and incArg or swap pinA and pinB.</p>
 </div>
 <div class="listingblock">
-<div class="title">Reference Documentation Code Example</div>
+<div class="title">DCS-BIOS Reference Tool Code Example</div>
 <div class="content">
 <pre class="highlight"><code class="language-c++" data-lang="c++">DcsBios::RotaryEncoder tacan1("TACAN_1", "DEC", "INC", PIN_A, PIN_B);</code></pre>
 </div>
@@ -1789,7 +1786,7 @@ Connect the left pin and right pins to any two of the Arduino pins 2 through 12,
 <p>The button on pin 10 toggles the CICU switch</p>
 </div>
 <div class="listingblock">
-<div class="title">Reference Documentation Code Example</div>
+<div class="title">DCS-BIOS Reference Tool Code Example</div>
 <div class="content">
 <pre class="highlight"><code class="language-c++" data-lang="c++">DcsBios::ActionButton ahcpCicuToggle("AHCP_CICU", "TOGGLE", PIN);</code></pre>
 </div>
@@ -1835,7 +1832,7 @@ Connect the left pin and right pins to any two of the Arduino pins 2 through 12,
 <div class="title">Figure 1. Circuit</div>
 </div>
 <div class="listingblock">
-<div class="title">Reference Documentation Code Example</div>
+<div class="title">DCS-BIOS Reference Tool Code Example</div>
 <div class="content">
 <pre class="highlight"><code class="language-c++" data-lang="c++">DcsBios::LED tacanTest(0x10da, 0x0400, PIN);</code></pre>
 </div>
@@ -1901,7 +1898,7 @@ The orange or yellow wire is the signal and must be plugged into one of the PWM 
 You will have to choose these values so that the minimum and maximum positions are at the beginning and end of your gauge&#8217;s scale.</p>
 </div>
 <div class="listingblock">
-<div class="title">Reference Documentation Code Example</div>
+<div class="title">DCS-BIOS Reference Tool Code Example</div>
 <div class="content">
 <pre class="highlight"><code class="language-c++" data-lang="c++">DcsBios::ServoOutput vvi(0x106e, PIN, 544, 2400);</code></pre>
 </div>
@@ -1992,7 +1989,7 @@ It will be passed the new value as an argument.</p>
 </dl>
 </div>
 <div class="listingblock">
-<div class="title">Reference Documentation Code Example</div>
+<div class="title">DCS-BIOS Reference Tool Code Example</div>
 <div class="content">
 <pre class="highlight"><code class="language-c++" data-lang="c++">void onUhfFrequencyChange(char* newValue) {
     /* your code here */
@@ -2045,7 +2042,7 @@ For example, if you have no monitor above the primary one, you could place the v
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-03-03 10:04:31 +0200
+Last updated 2024-03-03 13:12:42 +0200
 </div>
 </div>
 </body>
