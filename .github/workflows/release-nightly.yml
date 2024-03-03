@@ -1,13 +1,10 @@
-name: Release latest openbeta
+name: Release DCS-BIOS nightly build
 
 on:
   schedule:
     # * is a special character in YAML so you have to quote this string
     # Release at 22.00, Github does not guarantee exact time
     - cron:  '0 22 * * *'
-
-env:
-  RELEASE_FILE_NAME: 'DCS-BIOS_openbeta.zip'
 
 jobs:
   test:
@@ -40,14 +37,22 @@ jobs:
 
     name: Release zip file
     steps:
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%F')"
+        
+      - name: Set release filename
+        id: filename
+        run: echo "::set-output name=zip::DCS-BIOS_nightly_${{ steps.date.outputs.date }}.zip"
+
       - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Archive Release
-        uses: thedoctor0/zip-release@0.7.1
+        uses: thedoctor0/zip-release@0.7.6
         with:
           type: zip
-          filename: 'DCS-BIOS_openbeta.zip'
+          filename: '${{ steps.filename.outputs.zip }}'
           directory: './Scripts'
           exclusions: '/*test/*'
 
@@ -60,14 +65,14 @@ jobs:
           message: Nightly build of master branch
 
       - name: Upload Release
-        uses: ncipollo/release-action@v1.12.0
+        uses: ncipollo/release-action@v1
         with:
           allowUpdates: true
           artifactErrorsFailBuild: true
-          artifacts: './Scripts/DCS-BIOS_openbeta.zip'
+          artifacts: './Scripts/${{ steps.filename.outputs.zip }}'
           commit: master
           makeLatest: true
-          name: DCS-BIOS Openbeta
+          name: 'DCS-BIOS Nightly ${{ steps.date.outputs.date }}'
           prerelease: true
           removeArtifacts: true
           tag: latest
