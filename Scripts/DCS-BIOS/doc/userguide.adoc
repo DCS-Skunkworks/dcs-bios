@@ -12,7 +12,7 @@ NOTE: If you want to add a new aircraft module or use your own software with DCS
 
 == DCS-BIOS Reference Tool [[reference_tool]]
 
-There are 3 DCS-BIOS reference tool alternatives for getting the information needed:
+There are 3 DCS-BIOS Reference Tool alternatives for getting the information needed:
 
 * Install https://github.com/DCS-Skunkworks/Bort[`Bort`]
 * Install https://github.com/DCS-Skunkworks/BIOSBuddy[`BIOSBuddy`]
@@ -116,7 +116,7 @@ We will assume you have access to the following:
 === Step by Step Instructions:
 ==== Step 1: Setting up DCS-BIOS
 
-1.1 Download the latest release of DCS-BIOS from https://github.com/dcs-bios/dcs-bios/releases[GitHub] and extract the ZIP file somewhere on your hard drive
+1.1 Download the latest release of DCS-BIOS from https://github.com/dcs-skunkworks/dcs-bios/releases[GitHub] and extract the ZIP file somewhere on your hard drive
 
 1.2 Open a new Explorer window (for example by opening "My Computer"), paste the following into the address bar and press return:
 ----
@@ -139,7 +139,7 @@ dofile(lfs.writedir()..[[Scripts\DCS-BIOS\BIOS.lua]])
 WARNING: You should never use any word processing software to edit text files.
 Word processing software saves formatting information in the file which will render it unusable.
 
-Note: If you use the Raygun Software from Buddyfox (A-10C UFC), his entry must stand above the DCS-BIOS entry in the Export.lua !!!
+Note: If you use the Raygun Software from Buddyfox (A-10C UFC), this entry must be *before* the DCS-BIOS entry in the Export.lua !
 
 
 ==== Step 2: Connecting your LED and Push Button Switch
@@ -198,7 +198,7 @@ We have produced such a library for using DCS-BIOS and it is called the DCS-BIOS
 As with all libraries, it was developed to make your life easier when it comes to writing a sketch.
 However, libraries need to be installed and this next step will guide you through that process.
 
-* Download the https://github.com/dcs-bios/dcs-bios-arduino-library/releases[DCS-BIOS Arduino library] from GitHub.
+* Download the https://github.com/dcs-skunkworks/dcs-bios-arduino-library/releases[DCS-BIOS Arduino library] from GitHub.
 DO NOT extract it.
 It also doesn't matter where you download the file to as long as YOU know where it is as you will need to point to its location in the next step.
 
@@ -254,7 +254,7 @@ The first entry should be the one for the Master Caution Light.
 
 * Now go back to your reference tool again, find the `UFC_MASTER_CAUTION / Master Caution Reset` entry.
 
-* As before, left click in the box with the yellow background and then copy it to your clipboard.
+* As before, select the code snippet copy it to your clipboard.
 
 * Move to the Arduino IDE and paste this line in the space below the last one.
 
@@ -289,7 +289,7 @@ In the code above you can see that there is a `address` (0x1012), `mask` (0x0800
 These values can sometimes change which leads to the sketch not working anymore.
 You will find macros for all DCS-BIOS controls in `Addresses.h`. This file is auto-generated when DCS-BIOS starts.
 If you reference these macros instead you will have it easier when for some reason these values changes. 
-You will still need to upload the sketch with the changed `Addresses.h` but you won't have to modify your sketches.
+You will still need to re-upload the sketch with the changed `Addresses.h` but you won't have to modify your sketches.
 With macros the above code will look like this:
 [source,c++]
 ----
@@ -298,7 +298,7 @@ DcsBios::LED masterCaution(A_10C_UFC_MASTER_CAUTION_AM, 13);
 
 Look carefully which macro to use.
 
-* Makro without special ending contains `address`, `mask`, `shift`
+* Macro without special ending contains `address`, `mask`, `shift`
 * `_A` contains only `address`
 * `_AM` contains `address` and `mask`
 
@@ -467,7 +467,7 @@ Unless you are doing something more advanced such as using something other than 
 Even without knowing much about DCS-BIOS, you might have guessed that this says there is a push button connected to pin 10 that should operate the master caution button and that the LED on pin 13 should light up then the master caution button does.
 
 But how do you know what to put here for other controls?
-You will have to consult the reference tools you chose.
+You will find this information from the DCS-BIOS Reference Tool you want to use.
 
 ==== Finding the Control You Are Looking For
 
@@ -503,7 +503,7 @@ Each control is identified by a unique identifier and is associated with a categ
 
 * The first notation between the brackets `"AHCP_CICU"` is a placeholder for a piece of data that gets sent to DCS when a change occurs to a pin on the Arduino board.
 
-* The second notation `PIN` is also a placeholder however, you have to replace it with the pin number that your control is attached to.  In the Control-Reference document, placeholder that require you to assign a specific pin number to are always highlighted in"RED"
+* The second notation `PIN` is also a placeholder however, you have to replace it with the pin number that your control is attached to.
 There also a few knobs/switches in your cockpit represented with two separate controls.
 For example, the volume controls on the A-10C intercom panel have one DCS-BIOS control for the volume and a separate control for the mute function.
 
@@ -519,20 +519,20 @@ For example, you can set the TACAN mode dial in the A-10C to the `A A REC` posit
 +
 NOTE: The range of acceptable values is 0 to the maximum value of the control's first output.
 +
-The reference documentation will offer example code for a `DcsBios::SwitchMultiPos` and (where appropriate) a `DcsBios::Switch2Pos` or `DcsBios::Switch3Pos`.
+The DCS-BIOS Reference Tool will offer example code for a `DcsBios::SwitchMultiPos` and (where appropriate) a `DcsBios::Switch2Pos` or `DcsBios::Switch3Pos`.
 
 fixed_step:: If a control supports the _fixed_step_ interface, you can increase its position with an `INC` argument and decrease its position with a `DEC` argument.
 An example would be a rotary encoder used to change the frequency of a VHF radio.
 +
-The reference documentation will offer example code for a `DcsBios::RotaryEncoder`.
+The DCS-BIOS Reference Tool will offer example code for a `DcsBios::RotaryEncoder`.
 
 action:: This represents an action such as toggling a toggle switch or changing the X/Y digit of the TACAN channel.
 +
-The reference documentation will offer example code for a `DcsBios::ActionButton`.
+The DCS-BIOS Reference Tool will offer example code for a `DcsBios::ActionButton`.
 
 variable_step:: If a control supports the _variable_step_ interface, you can increase or decrease its position by a certain amount by sending `+NUMBER` or `-NUMBER` as an argument, where `NUMBER` is an integer.
 +
-The reference documentation will offer example code for a `DcsBios::RotaryEncoder`.
+The DCS-BIOS Reference Tool will offer example code for a `DcsBios::RotaryEncoder`.
 The default step size is 3200.
 You will need to experiment to get the right sensitivity.
 
@@ -547,7 +547,7 @@ Outputs come in two types:
 Integer outputs:: Most outputs are integers.
 Each integer output has an associated maximum value and a minimum value of 0.
 +
-The reference documentation will offer code examples for `DcsBios::LED` and `DcsBios::ServoOutput` where appropriate.
+The DCS-BIOS Reference Tool will offer code examples for `DcsBios::LED` and `DcsBios::ServoOutput` where appropriate.
 +
 The first code snippet for integer outputs is meant to be inserted into the `onDcsBiosWrite` function if the DCS-BIOS Arduino library cannot do what you want.
 It shows you how to extract the value using the _address_, _mask_ and _shift_ value of the output.
@@ -555,7 +555,7 @@ It shows you how to extract the value using the _address_, _mask_ and _shift_ va
 NOTE: To learn about the meaning of the _address_, _mask_ and _shift_ value of an output, please refer to the developer guide.
 
 String outputs:: Some values (such as radio frequencies) are exported as character strings.
-The reference documentation will provide a code example that uses a `DcsBios::StringBuffer` to execute a piece of code whenever the value changes.
+The DCS-BIOS Reference Tool will provide a code example that uses a `DcsBios::StringBuffer` to execute a piece of code whenever the value changes.
 +
 NOTE: Because there are many different types of displays (7-segment, character, graphical) and different ways to connect them to a microcontroller (direct, I2C, SPI), the DcsBios library does not include code to handle them.
 For most common combinations of display type and connection method, you can find other Arduino libraries online that allow you to talk to them.
@@ -563,13 +563,11 @@ For most common combinations of display type and connection method, you can find
 
 ==== Copy and Paste Example Code
 
-To use the example code from the reference documentation in your Arduino sketch, you first have to choose which code example to copy.
+To use the example code from the DCS-BIOS Reference Tool in your Arduino sketch, you first have to choose which code example to copy.
 That depends on what type of control you want to connect.
 
 For example, you might want to use a rotary switch for the TACAN mode dial in the A-10C and use the `DcsBios::SwitchMultiPos` code snippet.
 For the same control, you could also choose to use a rotary encoder.
-
-If the "Simple" view mode, the reference documentation displays only the "most appropriate" code example for each control.
 
 After choosing a code example, copy it to your Arduino sketch (refer back to the MasterCaution example to see where to copy it) and replace all the parts in red with your own values (usually the pin numbers that this control is connected to).
 
@@ -596,7 +594,7 @@ pin:: The number of the Arduino pin the button or switch is connected to
 .Circuit
 Connect the toggle switch or push button between the Arduino pin and ground.
 
-.Reference Documentation Code Examples
+.DCS-BIOS Reference Tool Code Examples
 [source,c++]
 ----
 DcsBios::Switch2Pos ahcpCicu("AHCP_CICU", PIN);
@@ -628,7 +626,7 @@ The Switch3Pos class defaults to the center position, so (if your switch even ha
 
 image::toggle.jpg[500, 500]
 
-.Reference Documentation Code Examples
+.DCS-BIOS Reference Tool Code Examples
 [source,c++]
 ----
 DcsBios::Switch3Pos aapSteer("AAP_STEER", PIN_A, PIN_B);
@@ -652,7 +650,7 @@ numberOfPins:: The length of the array passed in the `pins` parameter.
 .Circuit
 Connect the rotary switch so that it connects the Arduino pin for the currently selected position to ground.
 
-.Reference Documentation Code Examples
+.DCS-BIOS Reference Tool Code Examples
 [source,c++]
 ----
 const byte aapSteerptPins[3] = {PIN_0, PIN_1, PIN_2};
@@ -689,7 +687,7 @@ image::DCS-BIOSpotentiometer.png[500, 500]
 
 To reverse the direction, swap +5V and GND.
 
-.Reference Documentation Code Example
+.DCS-BIOS Reference Tool Code Example
 [source,c++]
 ----
 DcsBios::Potentiometer cmscBrt("CMSC_BRT", PIN);
@@ -719,7 +717,7 @@ image::DCSBIOSrotaryencoder.png[500, 500]
 
 To reverse the direction, either swap decArg and incArg or swap pinA and pinB.
 
-.Reference Documentation Code Example
+.DCS-BIOS Reference Tool Code Example
 [source,c++]
 ----
 DcsBios::RotaryEncoder tacan1("TACAN_1", "DEC", "INC", PIN_A, PIN_B);
@@ -739,7 +737,7 @@ image::uno2.jpg[500, 500]
 
 The button on pin 10 toggles the CICU switch
 
-.Reference Documentation Code Example
+.DCS-BIOS Reference Tool Code Example
 [source,c++]
 ----
 DcsBios::ActionButton ahcpCicuToggle("AHCP_CICU", "TOGGLE", PIN);
@@ -770,7 +768,7 @@ pin:: The number of the Arduino pin that the LED (and current-limiting resistor)
 
 image::LED.png[500, 500]
 
-.Reference Documentation Code Example
+.DCS-BIOS Reference Tool Code Example
 [source,c++]
 ----
 DcsBios::LED tacanTest(0x10da, 0x0400, PIN);
@@ -805,7 +803,7 @@ maxPulseWidth:: The pulse width (in microseconds) that corresponds to the highes
 A DCS-BIOS output value of 0 will be mapped to `minPulseWidth`, the maximum output value of 65535 will be mapped to `maxPulseWidth`.
 You will have to choose these values so that the minimum and maximum positions are at the beginning and end of your gauge's scale.
 
-.Reference Documentation Code Example
+.DCS-BIOS Reference Tool Code Example
 [source,c++]
 ----
 DcsBios::ServoOutput vvi(0x106e, PIN, 544, 2400);
@@ -858,7 +856,7 @@ callback:: A function which accepts an argument of type `char*`.
 This function will be called whenever the string output has changed.
 It will be passed the new value as an argument.
 
-.Reference Documentation Code Example
+.DCS-BIOS Reference Tool Code Example
 [source,c++]
 ----
 void onUhfFrequencyChange(char* newValue) {
