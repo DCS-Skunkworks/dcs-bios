@@ -185,7 +185,7 @@ AH_64D:definePotentiometer("CPG_INTL_FLOOD_L_KNB", 11, 3014, 366, { 0, 1 }, "CPG
 
 -- Standby Attitude Indicator
 AH_64D:definePushButton("PLT_SAI_CAGE", 13, 3001, 620, "PLT SAI", "Pilot SAI Cage Knob, (LMB) Pull to cage")
-AH_64D:defineRotary("PLT_SAI_PITCH_TRIM", 13, 3002, 619, "PLT SAI", "Pilot SAI Cage Knob, (MW) Adjust aircraft reference symbol")
+AH_64D:defineRotary("PLT_SAI_PITCH_TRIM", 13, 3004, 619, "PLT SAI", "Pilot SAI Cage Knob, (MW) Adjust aircraft reference symbol")
 
 AH_64D:defineFloat("PLT_SAI_PITCH", 622, { -0.95, 0.95 }, "PLT SAI Gauges", "Pilot SAI Pitch")
 AH_64D:defineFloat("PLT_SAI_BANK", 623, { 1, -1 }, "PLT SAI Gauges", "Pilot SAI Bank")
