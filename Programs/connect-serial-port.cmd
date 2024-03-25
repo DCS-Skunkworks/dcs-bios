@@ -4,7 +4,7 @@ echo.
 echo.
 REM Specify the COM port number to connect to in the following line.
 REM If set to the default value of ASK, the script will ask you to type it in each time.
-set COMPORT=ASK
+set COMPORT=7
 
 REM Set PROTOCOL to "TCP" if UDP does not work for you. When using TCP,
 REM you have to start the script after you have started the mission and the simulation
