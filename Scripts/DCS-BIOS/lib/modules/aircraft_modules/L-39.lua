@@ -297,6 +297,7 @@ L_39:defineIndicatorLight("BACK_KPP1273K_ARRETIR_L", 366, "Warning, Caution and 
 L_39:defineIndicatorLight("FRONT_SARPP_LAMP", 299, "Warning, Caution and IndicatorLights", "FRONT SARPP Indicator Lamp (green)")
 L_39:defineIndicatorLight("FRONT_RKL41_BACK_LIGHT", 563, "Warning, Caution and IndicatorLights", "FRONT RKL-41 Back Panel Light")
 L_39:defineIndicatorLight("BACK_RKL41_BACK_LIGHT", 566, "Warning, Caution and IndicatorLights", "BACK RKL-41 Back Panel Light")
+
 L_39:defineIndicatorLight("FRONT_LOWER_ARMAMENT_LIGHT_1", 618, "Warning, Caution and IndicatorLights", "Front Lower Armament Light 1 (green)")
 L_39:defineIndicatorLight("FRONT_LOWER_ARMAMENT_LIGHT_2", 619, "Warning, Caution and IndicatorLights", "Front Lower Armament Light 2 (green)")
 L_39:defineIndicatorLight("FRONT_LOWER_ARMAMENT_LIGHT_3", 620, "Warning, Caution and IndicatorLights", "Front Lower Armament Light 3 (green)")
@@ -305,6 +306,7 @@ L_39:defineIndicatorLight("FRONT_LOWER_ARMAMENT_LIGHT_5", 622, "Warning, Caution
 L_39:defineIndicatorLight("FRONT_LOWER_ARMAMENT_LIGHT_6", 623, "Warning, Caution and IndicatorLights", "Front Lower Armament Light 6 (green)")
 L_39:defineIndicatorLight("FRONT_LOWER_ARMAMENT_LIGHT_7", 624, "Warning, Caution and IndicatorLights", "Front Lower Armament Light 7 (green)")
 L_39:defineIndicatorLight("FRONT_LOWER_ARMAMENT_LIGHT_8", 625, "Warning, Caution and IndicatorLights", "Front Lower Armament Light 8 (green)")
+
 L_39:defineIndicatorLight("REAR_LOWER_ARMAMENT_LIGHT_1", 718, "Warning, Caution and IndicatorLights", "Rear Lower Armament Light 1 (green)")
 L_39:defineIndicatorLight("REAR_LOWER_ARMAMENT_LIGHT_2", 719, "Warning, Caution and IndicatorLights", "Rear Lower Armament Light 2 (green)")
 L_39:defineIndicatorLight("REAR_LOWER_ARMAMENT_LIGHT_3", 720, "Warning, Caution and IndicatorLights", "Rear Lower Armament Light 3 (green)")
