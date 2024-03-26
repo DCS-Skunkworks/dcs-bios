@@ -298,7 +298,7 @@ L_39:defineIndicatorLight("FRONT_SARPP_LAMP", 299, "Warning, Caution and Indicat
 L_39:defineIndicatorLight("FRONT_RKL41_BACK_LIGHT", 563, "Warning, Caution and IndicatorLights", "FRONT RKL-41 Back Panel Light")
 L_39:defineIndicatorLight("BACK_RKL41_BACK_LIGHT", 566, "Warning, Caution and IndicatorLights", "BACK RKL-41 Back Panel Light")
 
-L_39:defineIndicatorLight("FRONT_EXTERNAL_STORES_LIGHT_1", 618, "Warning, Caution and IndicatorLights", "Front External Stores Lamp 1 (green)")
+L_39:defineIndicatorLight("FRONT_EXTERNAL_STORES_LAMP_1", 618, "Warning, Caution and IndicatorLights", "Front External Stores Lamp 1 (green)")
 L_39:defineIndicatorLight("FRONT_EXTERNAL_STORES_LAMP_2", 619, "Warning, Caution and IndicatorLights", "Front External Stores Lamp 2 (green)")
 L_39:defineIndicatorLight("FRONT_EXTERNAL_STORES_LAMP_3", 620, "Warning, Caution and IndicatorLights", "Front External Stores Lamp 3 (green)")
 L_39:defineIndicatorLight("FRONT_EXTERNAL_STORES_LAMP_4", 621, "Warning, Caution and IndicatorLights", "Front External Stores Lamp 4 (green)")
