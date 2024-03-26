@@ -305,6 +305,14 @@ L_39:defineIndicatorLight("FRONT_LOWER_ARMAMENT_LIGHT_5", 622, "Warning, Caution
 L_39:defineIndicatorLight("FRONT_LOWER_ARMAMENT_LIGHT_6", 623, "Warning, Caution and IndicatorLights", "Front Lower Armament Light 6 (green)")
 L_39:defineIndicatorLight("FRONT_LOWER_ARMAMENT_LIGHT_7", 624, "Warning, Caution and IndicatorLights", "Front Lower Armament Light 7 (green)")
 L_39:defineIndicatorLight("FRONT_LOWER_ARMAMENT_LIGHT_8", 625, "Warning, Caution and IndicatorLights", "Front Lower Armament Light 8 (green)")
+L_39:defineIndicatorLight("REAR_LOWER_ARMAMENT_LIGHT_1", 718, "Warning, Caution and IndicatorLights", "Rear Lower Armament Light 1 (green)")
+L_39:defineIndicatorLight("REAR_LOWER_ARMAMENT_LIGHT_2", 719, "Warning, Caution and IndicatorLights", "Rear Lower Armament Light 2 (green)")
+L_39:defineIndicatorLight("REAR_LOWER_ARMAMENT_LIGHT_3", 720, "Warning, Caution and IndicatorLights", "Rear Lower Armament Light 3 (green)")
+L_39:defineIndicatorLight("REAR_LOWER_ARMAMENT_LIGHT_4", 721, "Warning, Caution and IndicatorLights", "Rear Lower Armament Light 4 (green)")
+L_39:defineIndicatorLight("REAR_LOWER_ARMAMENT_LIGHT_5", 722, "Warning, Caution and IndicatorLights", "Rear Lower Armament Light 5 (green)")
+L_39:defineIndicatorLight("REAR_LOWER_ARMAMENT_LIGHT_6", 723, "Warning, Caution and IndicatorLights", "Rear Lower Armament Light 6 (green)")
+L_39:defineIndicatorLight("REAR_LOWER_ARMAMENT_LIGHT_7", 724, "Warning, Caution and IndicatorLights", "Rear Lower Armament Light 7 (green)")
+L_39:defineIndicatorLight("REAR_LOWER_ARMAMENT_LIGHT_8", 725, "Warning, Caution and IndicatorLights", "Rear Lower Armament Light 8 (green)")
 
 
 
