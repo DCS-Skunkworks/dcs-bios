@@ -11597,6 +11597,24 @@ docdata["L-39"] =
                                                                                                                                   "type": "integer"
                                                                                                      } ]
                                                                                  },
+                                                 "FRONT_EXTERNAL_STORES_LAMP_1": {
+                                                                                         "category": "Warning, Caution and IndicatorLights",
+                                                                                     "control_type": "led",
+                                                                                      "description": "Front External Stores Lamp 1 (green)",
+                                                                                       "identifier": "FRONT_EXTERNAL_STORES_LAMP_1",
+                                                                                           "inputs": [  ],
+                                                                                          "outputs": [ {
+                                                                                                                               "address": 13110,
+                                                                                                               "address_mask_identifier": "L_39_FRONT_EXTERNAL_STORES_LAMP_1_AM",
+                                                                                                         "address_mask_shift_identifier": "L_39_FRONT_EXTERNAL_STORES_LAMP_1",
+                                                                                                                           "description": "0 if light is off, 1 if light is on",
+                                                                                                                                  "mask": 4096,
+                                                                                                                             "max_value": 1,
+                                                                                                                              "shift_by": 12,
+                                                                                                                                "suffix": "",
+                                                                                                                                  "type": "integer"
+                                                                                                     } ]
+                                                                                 },
                                                  "FRONT_EXTERNAL_STORES_LAMP_2": {
                                                                                          "category": "Warning, Caution and IndicatorLights",
                                                                                      "control_type": "led",
@@ -11719,24 +11737,6 @@ docdata["L-39"] =
                                                                                                                                   "mask": 8,
                                                                                                                              "max_value": 1,
                                                                                                                               "shift_by": 3,
-                                                                                                                                "suffix": "",
-                                                                                                                                  "type": "integer"
-                                                                                                     } ]
-                                                                                 },
-                                                "FRONT_EXTERNAL_STORES_LIGHT_1": {
-                                                                                         "category": "Warning, Caution and IndicatorLights",
-                                                                                     "control_type": "led",
-                                                                                      "description": "Front External Stores Lamp 1 (green)",
-                                                                                       "identifier": "FRONT_EXTERNAL_STORES_LIGHT_1",
-                                                                                           "inputs": [  ],
-                                                                                          "outputs": [ {
-                                                                                                                               "address": 13110,
-                                                                                                               "address_mask_identifier": "L_39_FRONT_EXTERNAL_STORES_LIGHT_1_AM",
-                                                                                                         "address_mask_shift_identifier": "L_39_FRONT_EXTERNAL_STORES_LIGHT_1",
-                                                                                                                           "description": "0 if light is off, 1 if light is on",
-                                                                                                                                  "mask": 4096,
-                                                                                                                             "max_value": 1,
-                                                                                                                              "shift_by": 12,
                                                                                                                                 "suffix": "",
                                                                                                                                   "type": "integer"
                                                                                                      } ]
