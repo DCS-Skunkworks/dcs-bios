@@ -298,6 +298,28 @@ L_39:defineIndicatorLight("FRONT_SARPP_LAMP", 299, "Warning, Caution and Indicat
 L_39:defineIndicatorLight("FRONT_RKL41_BACK_LIGHT", 563, "Warning, Caution and IndicatorLights", "FRONT RKL-41 Back Panel Light")
 L_39:defineIndicatorLight("BACK_RKL41_BACK_LIGHT", 566, "Warning, Caution and IndicatorLights", "BACK RKL-41 Back Panel Light")
 
+L_39:defineIndicatorLight("STORE_LEFT", 618, "Warning, Caution and IndicatorLights", "Front Left Stores Lamp (green)")
+L_39:defineIndicatorLight("STORE_LEFT_INBOARD", 619, "Warning, Caution and IndicatorLights", "Front Left Inboard Stores Lamp (green)")
+L_39:defineIndicatorLight("STORE_RIGHT_INBOARD", 620, "Warning, Caution and IndicatorLights", "Front Right Inboard Stores Lamp (green)")
+L_39:defineIndicatorLight("STORE_RIGHT", 621, "Warning, Caution and IndicatorLights", "Front Right Stores Lamp (green)")
+L_39:defineIndicatorLight("PAYLOAD_INDICATOR_LEFT", 622, "Warning, Caution and IndicatorLights", "Front Left Payload Indicator Lamp (green)")
+L_39:defineIndicatorLight("PAYLOAD_INDICATOR_LEFT_INBOARD", 623, "Warning, Caution and IndicatorLights", "Front Left Inboard Payload Indicator Lamp (green)")
+L_39:defineIndicatorLight("PAYLOAD_INDICATOR_RIGHT_INBOARD", 624, "Warning, Caution and IndicatorLights", "Front Right Inboard Payload Indicator Lamp (green)")
+L_39:defineIndicatorLight("PAYLOAD_INDICATOR_RIGHT", 625, "Warning, Caution and IndicatorLights", "Front Right Payload Indicator Lamp (green)")
+
+L_39:defineIndicatorLight("STORE_LEFT_AFT", 718, "Warning, Caution and IndicatorLights", "Rear Left Stores Lamp (green)")
+L_39:defineIndicatorLight("STORE_LEFT_INBOARD_AFT", 719, "Warning, Caution and IndicatorLights", "Rear Left Inboard Stores Lamp (green)")
+L_39:defineIndicatorLight("STORE_RIGHT_INBOARD_AFT", 720, "Warning, Caution and IndicatorLights", "Rear Right Inboard Stores Lamp (green)")
+L_39:defineIndicatorLight("STORE_RIGHT_AFT", 721, "Warning, Caution and IndicatorLights", "Rear Right Stores Lamp (green)")
+L_39:defineIndicatorLight("PAYLOAD_INDICATOR_LEFT_AFT", 722, "Warning, Caution and IndicatorLights", "Rear Left Payload Indicator Lamp (green)")
+L_39:defineIndicatorLight("PAYLOAD_INDICATOR_LEFT_INBOARD_AFT", 723, "Warning, Caution and IndicatorLights", "Rear Left Inboard Payload Indicator Lamp (green)")
+L_39:defineIndicatorLight("PAYLOAD_INDICATOR_RIGHT_INBOARD_AFT", 724, "Warning, Caution and IndicatorLights", "Rear Right Inboard Payload Indicator Lamp (green)")
+L_39:defineIndicatorLight("PAYLOAD_INDICATOR_RIGHT_AFT", 725, "Warning, Caution and IndicatorLights", "Rear Right Payload Indicator Lamp (green)")
+
+L_39:defineIndicatorLight("PUS_0_BOMBS", 266, "Warning, Caution and IndicatorLights", "Bomb PUS 0 Lamp (green)")
+L_39:defineIndicatorLight("PUS_0", 608, "Warning, Caution and IndicatorLights", "PUS 0 Lamp (green)")
+L_39:defineIndicatorLight("PUS_0_INNER", 609, "Warning, Caution and IndicatorLights", "Inner PUS 0 Lamp (green)")
+
 ------------------------------------ L-39 Clickable Controls --------------------------------------------------------------------
 -- ASP-3NMU Gunsight
 L_39:defineToggleSwitch("FRONT_GUNSIDE_MODE", 1, 3003, 101, "Gunsight", "FRONT ASP-3NMU Gunsight Mode, GYRO/FIXED")
