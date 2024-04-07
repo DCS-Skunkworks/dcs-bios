@@ -72,7 +72,7 @@ end
 CommonData:addExportHook(updatePosition)
 
 local function getVersion()
-	return "0.7.50"
+	return "0.8.0"
 end
 CommonData:defineString("DCS_BIOS", getVersion, 6, "Metadata", "DCS Bios Version")
 
