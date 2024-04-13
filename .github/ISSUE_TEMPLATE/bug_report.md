@@ -15,6 +15,7 @@ When referring to these use the identifier. Eg. ```FLAPS_SWITCH```.
 
 **Describe the bug**
 A clear and concise description of what the bug is.
+<!-- Please understand that we don't know how all aircrafts in DCS work. Include enough information. -->
 
 **To Reproduce**
 Steps to reproduce the behavior example:
