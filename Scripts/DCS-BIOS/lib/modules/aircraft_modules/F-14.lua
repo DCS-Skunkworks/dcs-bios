@@ -879,7 +879,7 @@ F_14:defineIndicatorLight("PLT_VDI_LIGHT_REDUCESPD", 15072, "PLT Indicator Light
 F_14:defineIndicatorLight("PLT_VDI_LIGHT_ALTLOW", 15073, "PLT Indicator Lights", "PILOT VDI ALT LOW Light (red)")
 F_14:defineIndicatorLight("PLT_HOOK_LIGHT", 15090, "PLT Indicator Lights", "PILOT Hook Light (red)")
 F_14:defineIndicatorLight("PLT_RADAR_ALT_LIGHT", 19107, "PLT Indicator Lights", "PILOT Radar Altimeter Warning Light (red)")
-F_14:defineIndicatorLight("PLT_RADAR_ALT_TEST_LIGHT", 19108, "PLT Indicator Lights", "PILOT Radar Altimeter Test Light (red)")
+F_14:defineIndicatorLight("PLT_RADAR_ALT_TEST_LIGHT", 681, "PLT Indicator Lights", "PILOT Radar Altimeter Test Light (green)")
 F_14:defineIndicatorLight("PLT_SLATS_IND_LIGHT", 8310, "Gauges as Light", "PILOT Slats Indicator as Light")
 F_14:defineIndicatorLight("PLT_FLAPS_IND_LIGHT", 8311, "Gauges as Light", "PILOT Flaps Indicator as Light")
 F_14:defineIndicatorLight("PLT_SPDBRK_IND_LIGHT", 8307, "Gauges as Light", "PILOT Speedbrake Indicator as Light")
