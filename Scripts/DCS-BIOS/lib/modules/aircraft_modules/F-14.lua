@@ -1449,4 +1449,46 @@ F_14:definePotentiometer("RIO_MIRROR_TOP", 12, 3857, 46, { 0, 1 }, "Cockpit Mech
 F_14:defineReadWriteRadio("UHF_FREQ", 3, 7, 3, 1000, "UHF Radio")
 F_14:defineReadWriteRadio("VUHF_FREQ", 4, 7, 3, 1000, "VUHF Radio")
 
+--- @type number[]
+local airframe_values = {}
+
+F_14:addExportHook(function()
+	local dev6 = GetDevice(6)
+
+	if not dev6 then
+		airframe_values = {}
+		return
+	end
+
+	-- this method does exist on this device and is the only way to get data from the device
+	---@diagnostic disable-next-line: undefined-field
+	airframe_values = dev6:get_values()
+end)
+
+F_14:defineIntegerFromGetter("BUFFET", function()
+	return Module.valueConvert(airframe_values[1], { 0, 1 }, { 0, 65535 })
+end, 65535, "Airframe", "How much the aircraft is shaking")
+F_14:defineIntegerFromGetter("AFTERBURNER_LEFT", function()
+	return Module.valueConvert(airframe_values[2], { 0, 1 }, { 0, 65535 })
+end, 65535, "Airframe", "Left afterburner position")
+F_14:defineIntegerFromGetter("AFTERBURNER_RIGHT", function()
+	return Module.valueConvert(airframe_values[3], { 0, 1 }, { 0, 65535 })
+end, 65535, "Airframe", "Right afterburner position")
+F_14:reserveIntValue(65535) -- todo: rolling speed (determine limits)
+F_14:defineIntegerFromGetter("CATAPULTING", function()
+	return airframe_values[5]
+end, 1, "Airframe", "Whether the aircraft is catapulting")
+F_14:reserveIntValue(65535) -- todo: pitch acceleration (determine limits)
+F_14:reserveIntValue(65535) -- todo: roll acceleration (determine limits)
+F_14:reserveIntValue(65535) -- todo: yaw acceleration (determine limits)
+F_14:defineIntegerFromGetter("IS_F14A", function()
+	return airframe_values[9]
+end, 1, "Airframe", "Whether the aircraft is the A-model")
+F_14:defineIntegerFromGetter("AFTERBURNER_ZONE_LEFT", function()
+	return airframe_values[10]
+end, 65535, "Airframe", "Left afterburner zone")
+F_14:defineIntegerFromGetter("AFTERBURNER_ZONE_RIGHT", function()
+	return airframe_values[11]
+end, 5, "Airframe", "Right afterburner zone")
+
 return F_14

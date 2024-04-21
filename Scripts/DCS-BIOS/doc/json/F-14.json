@@ -275,6 +275,133 @@
                                                                             } ]
                                                         }
                                   },
+                      "Airframe": {
+                                            "AFTERBURNER_LEFT": {
+                                                                        "category": "Airframe",
+                                                                    "control_type": "metadata",
+                                                                     "description": "Left afterburner position",
+                                                                      "identifier": "AFTERBURNER_LEFT",
+                                                                          "inputs": [  ],
+                                                                         "outputs": [ {
+                                                                                                              "address": 5358,
+                                                                                                   "address_identifier": "F_14_AFTERBURNER_LEFT_A",
+                                                                                        "address_mask_shift_identifier": "F_14_AFTERBURNER_LEFT",
+                                                                                                          "description": "Left afterburner position",
+                                                                                                                 "mask": 65535,
+                                                                                                            "max_value": 65535,
+                                                                                                             "shift_by": 0,
+                                                                                                               "suffix": "",
+                                                                                                                 "type": "integer"
+                                                                                    } ]
+                                                                },
+                                           "AFTERBURNER_RIGHT": {
+                                                                        "category": "Airframe",
+                                                                    "control_type": "metadata",
+                                                                     "description": "Right afterburner position",
+                                                                      "identifier": "AFTERBURNER_RIGHT",
+                                                                          "inputs": [  ],
+                                                                         "outputs": [ {
+                                                                                                              "address": 5360,
+                                                                                                   "address_identifier": "F_14_AFTERBURNER_RIGHT_A",
+                                                                                        "address_mask_shift_identifier": "F_14_AFTERBURNER_RIGHT",
+                                                                                                          "description": "Right afterburner position",
+                                                                                                                 "mask": 65535,
+                                                                                                            "max_value": 65535,
+                                                                                                             "shift_by": 0,
+                                                                                                               "suffix": "",
+                                                                                                                 "type": "integer"
+                                                                                    } ]
+                                                                },
+                                       "AFTERBURNER_ZONE_LEFT": {
+                                                                        "category": "Airframe",
+                                                                    "control_type": "metadata",
+                                                                     "description": "Left afterburner zone",
+                                                                      "identifier": "AFTERBURNER_ZONE_LEFT",
+                                                                          "inputs": [  ],
+                                                                         "outputs": [ {
+                                                                                                              "address": 5370,
+                                                                                                   "address_identifier": "F_14_AFTERBURNER_ZONE_LEFT_A",
+                                                                                        "address_mask_shift_identifier": "F_14_AFTERBURNER_ZONE_LEFT",
+                                                                                                          "description": "Left afterburner zone",
+                                                                                                                 "mask": 65535,
+                                                                                                            "max_value": 65535,
+                                                                                                             "shift_by": 0,
+                                                                                                               "suffix": "",
+                                                                                                                 "type": "integer"
+                                                                                    } ]
+                                                                },
+                                      "AFTERBURNER_ZONE_RIGHT": {
+                                                                        "category": "Airframe",
+                                                                    "control_type": "metadata",
+                                                                     "description": "Right afterburner zone",
+                                                                      "identifier": "AFTERBURNER_ZONE_RIGHT",
+                                                                          "inputs": [  ],
+                                                                         "outputs": [ {
+                                                                                                              "address": 5248,
+                                                                                        "address_mask_shift_identifier": "F_14_AFTERBURNER_ZONE_RIGHT",
+                                                                                                          "description": "Right afterburner zone",
+                                                                                                                 "mask": 3584,
+                                                                                                            "max_value": 5,
+                                                                                                             "shift_by": 9,
+                                                                                                               "suffix": "",
+                                                                                                                 "type": "integer"
+                                                                                    } ]
+                                                                },
+                                                      "BUFFET": {
+                                                                        "category": "Airframe",
+                                                                    "control_type": "metadata",
+                                                                     "description": "How much the aircraft is shaking",
+                                                                      "identifier": "BUFFET",
+                                                                          "inputs": [  ],
+                                                                         "outputs": [ {
+                                                                                                              "address": 5356,
+                                                                                                   "address_identifier": "F_14_BUFFET_A",
+                                                                                        "address_mask_shift_identifier": "F_14_BUFFET",
+                                                                                                          "description": "How much the aircraft is shaking",
+                                                                                                                 "mask": 65535,
+                                                                                                            "max_value": 65535,
+                                                                                                             "shift_by": 0,
+                                                                                                               "suffix": "",
+                                                                                                                 "type": "integer"
+                                                                                    } ]
+                                                                },
+                                                 "CATAPULTING": {
+                                                                        "category": "Airframe",
+                                                                    "control_type": "metadata",
+                                                                     "description": "Whether the aircraft is catapulting",
+                                                                      "identifier": "CATAPULTING",
+                                                                          "inputs": [  ],
+                                                                         "outputs": [ {
+                                                                                                              "address": 5240,
+                                                                                              "address_mask_identifier": "F_14_CATAPULTING_AM",
+                                                                                        "address_mask_shift_identifier": "F_14_CATAPULTING",
+                                                                                                          "description": "Whether the aircraft is catapulting",
+                                                                                                                 "mask": 32768,
+                                                                                                            "max_value": 1,
+                                                                                                             "shift_by": 15,
+                                                                                                               "suffix": "",
+                                                                                                                 "type": "integer"
+                                                                                    } ]
+                                                                },
+                                                     "IS_F14A": {
+                                                                        "category": "Airframe",
+                                                                    "control_type": "metadata",
+                                                                     "description": "Whether the aircraft is the A-model",
+                                                                      "identifier": "IS_F14A",
+                                                                          "inputs": [  ],
+                                                                         "outputs": [ {
+                                                                                                              "address": 5248,
+                                                                                              "address_mask_identifier": "F_14_IS_F14A_AM",
+                                                                                        "address_mask_shift_identifier": "F_14_IS_F14A",
+                                                                                                          "description": "Whether the aircraft is the A-model",
+                                                                                                                 "mask": 256,
+                                                                                                            "max_value": 1,
+                                                                                                             "shift_by": 8,
+                                                                                                               "suffix": "",
+                                                                                                                 "type": "integer"
+                                                                                    } ]
+                                                                }
+                                  },
             "Airspeed Indicator": {
                                            "PLT_AIRSPD_KNOB": {
                                                                    "api_variant": "multiturn",
