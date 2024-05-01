@@ -644,7 +644,10 @@ DEDLayout_l1["TIM IncDec Symbol"] = { 23, 1 }
 DEDLayout_l1["IFF label"] = { 8, 3 }
 DEDLayout_l1["IFF Status"] = { 12, 4 }
 --List
-DEDLayout_l1["LIST Label"] = { 10, 4 }
+DEDLayout_l1["LIST LIST Label"] = { 10, 4 }
+DEDLayout_l1["LIST Selected Steerpoint"] = { 20, 3 }
+DEDLayout_l1["LIST WPT IncDecSymbol"] = { 23, 1}
+
 --T-ILS
 DEDLayout_l1["TCN Label"] = { 1, 3 }
 DEDLayout_l1["TCN Mode"] = { 5, 3 }
@@ -653,7 +656,7 @@ DEDLayout_l1["ILS Label"] = { 13, 3 }
 DEDLayout_l1["ILS Mode"] = { 18, 3 }
 --ALOW
 DEDLayout_l1["ALOW ALOW label"] = { 10, 4 }
-DEDLayout_l1["ALOW Selected Steerpoint"] = { 19, 2 }
+DEDLayout_l1["ALOW Selected Steerpoint"] = { 20, 3 }
 DEDLayout_l1["ALOW WPT IncDecSymbol"] = { 23, 1 }
 --STPT
 DEDLayout_l1["STEERPOINT LABEL"] = { 6, 4 }
@@ -697,32 +700,44 @@ DEDLayout_l1["INFLT ALGN INS_INFLT_ALGN_lbl"] = { 8, 10 }
 DEDLayout_l1["CMDS_Prog_label"] = { 15, 4 }
 DEDLayout_l1["CMDS_Selected_Program"] = { 21, 2 }
 DEDLayout_l1["CMDS_Prog_IncDecSymbol"] = { 23, 1 }
-DEDLayout_l1["BINGO CMDS_BINGO_label"] = { 5, 11 }
-DEDLayout_l1["BINGO Selected Steerpoint"] = { 19, 2 }
-DEDLayout_l1["BINGO WPT IncDecSymbol"] = { 23, 1 }
+DEDLayout_l1["CMDS  BINGO CMDS_BINGO_label"] = { 5, 11 }
+DEDLayout_l1["CMDS  BINGO Selected Steerpoint"] = { 20, 3 }
+DEDLayout_l1["CMDS  BINGO WPT IncDecSymbol"] = { 23, 1 }
 DEDLayout_l1["CMDS_CHAFF_label"] = { 2, 9 }
 DEDLayout_l1["CMDS_FLARE_label"] = { 2, 9 }
 DEDLayout_l1["CMDS_OTHER1_label"] = { 2, 10 }
 DEDLayout_l1["CMDS_OTHER2_label"] = { 2, 10 }
 --Mode
-DEDLayout_l1["Master_mode_label"] = { 4, 4 }
-DEDLayout_l1["Master_mode"] = { 10, 3, 0, "_inv", "I" }
-DEDLayout_l1["Master_mode_ast_both"] = { 9, 1, 13, "", "I" }
+DEDLayout_l1["MODE Master_mode_label"] = { 4, 4 }
+DEDLayout_l1["MODE Master_mode"] = { 10, 3, 0, "_inv", "I" }
+DEDLayout_l1["MODE Master_mode_ast_both"] = { 9, 1, 13, "", "I" }
+DEDLayout_l1["MODE Selected Steerpoint"] = { 20, 3 }
+DEDLayout_l1["MODE WPT IncDecSymbol"] = { 23, 1}
 -- DLNK
-DEDLayout_l1["LINK16 lbl"] = { 9, 4 }
-DEDLayout_l1["LINK16 STN lbl"] = { 7, 10 }
-DEDLayout_l1["NET STATUS lbl"] = { 5, 10 }
+DEDLayout_l1["TNDL LINK16 lbl"] = { 9, 4 }
+DEDLayout_l1["TNDL Selected Steerpoint"] = { 20, 3 }
+DEDLayout_l1["TNDL WPT IncDecSymbol"] = { 23, 1}
+DEDLayout_l1["NET STATUS NET STATUS lbl"] = { 5, 10 }
+DEDLayout_l1["NET STATUS Selected Steerpoint"] = { 20, 3 }
+DEDLayout_l1["NET STATUS WPT IncDecSymbol"] = { 23, 1}
+DEDLayout_l1["TNDL   STN LINK16 STN lbl"] = { 7, 10 }
+DEDLayout_l1["TNDL   STN Selected Steerpoint"] = { 20, 3 }
+DEDLayout_l1["TNDL   STN WPT IncDecSymbol"] = { 23, 1}
 DEDLayout_l1["AG DL lbl"] = { 7, 6 }
-DEDLayout_l1["NET STATUS lbl"] = { 5, 10 }
 DEDLayout_l1["INTRAFLIGHT INTRAFLIGHT lbl"] = { 7, 11 }
 --Misc
-DEDLayout_l1["MISC Label"] = { 10, 4 }
+DEDLayout_l1["MISC MISC Label"] = { 10, 4 }
+DEDLayout_l1["MISC Selected Steerpoint"] = { 20, 3 }
+DEDLayout_l1["MISC WPT IncDecSymbol"] = { 23, 1}
 --MAGV
 DEDLayout_l1["MAGV lbl"] = { 7, 4 }
 DEDLayout_l1["MAGV Mode"] = { 13, 4 }
 DEDLayout_l1["Asterisks_on_MAGV_Mode_both"] = { 12, 1, 17, "", "I" }
 --LASER
-DEDLayout_l1["LASR LABEL"] = { 11, 4 }
+DEDLayout_l1["LASR LASR LABEL"] = { 11, 4 }
+DEDLayout_l1["LASR Selected Steerpoint"] = { 20, 3 }
+DEDLayout_l1["LASR WPT IncDecSymbol"] = { 23, 1}
+
 --INTG
 DEDLayout_l1["INTG INTG label"] = { 13, 4 }
 DEDLayout_l1["INTG INTG Mode"] = { 8, 4 }
@@ -741,10 +756,10 @@ DEDLayout_l1["VIP to TGT Label Asteriscs_both"] = { 5, 1, 16, "", "I" }
 DEDLayout_l1["Target to VRP Label"] = { 6, 10, 0, "_inv", "I" }
 DEDLayout_l1["Target to VRP Label Asteriscs_both"] = { 5, 1, 16, "", "I" }
 --HMCS
-DEDLayout_l1["HMCS DISPLAY HMCS_DISPLAY_TOPIC"] = { 7, 12 }
+DEDLayout_l1["HMCS DISPLAY HMCS_DISPLAY_label"] = { 7, 12 }
 DEDLayout_l1["HMCS DISPLAY INS_SelectedSteerpoint"] = { 20, 2 }
 DEDLayout_l1["HMCS DISPLAY INS_STPT_IncDecSymbol"] = { 23, 1 }
-DEDLayout_l1["HMCS ALIGN HMCS_ALIGN_TOPIC"] = { 6, 10 }
+DEDLayout_l1["HMCS ALIGN HMCS_ALIGN_label"] = { 6, 10 }
 DEDLayout_l1["HMCS ALIGN INS_SelectedSteerpoint"] = { 20, 2 }
 DEDLayout_l1["HMCS ALIGN INS_STPT_IncDecSymbol"] = { 23, 1 }
 --BULL
@@ -962,7 +977,7 @@ DEDLayout_l2["GRID_SYMBOL"] = { 14, 1, 0, "_inv", "I" }
 DEDLayout_l2["Asterisks_GRID_DIGIT_both"] = { 11, 1, 15, "", "I" }
 DEDLayout_l2["Asterisks_GRID_SYMBOL_both"] = { 11, 1, 15, "", "I" }
 DEDLayout_l2["UTM_DEST_CNVRT"] = { 18, 5, 0, "_inv", "I" }
-DEDLayout_l2["Asterisks_CNVRT_both"] = { 17, 1, 24, "", "I" }
+DEDLayout_l2["Asterisks_CNVRT_both"] = { 17, 1, 23, "", "I" }
 --CRUS TOS
 DEDLayout_l2["TOS_SYSTEM_TIME_label"] = { 7, 4 }
 DEDLayout_l2["TOS_SYSTEM_TIME_value"] = { 13, 8 }
@@ -1743,13 +1758,13 @@ local function buildDEDLine(line)
 	local mode = DED_fields["Mode label"]
 	local event = DED_fields["Event Occured"]
 	local alow = DED_fields["ALOW label"]
-	local bingo = DED_fields["CMDS_BINGO_lbl"]
+	local bingo = DED_fields["CMDS_BINGO_label"]
 	local inflt_algn = DED_fields["INS_INFLT_ALGN_lbl"]
 	local intraflight = DED_fields["INTRAFLIGHT lbl"]
 	local dlnk_A_G = DED_fields["A-G DL lbl"]
 	local nav_status = DED_fields["NAV Status lbl"]
-	local hmcs_display = DED_fields["HMCS_DISPLAY_TOPIC"]
-	local hmcs_align = DED_fields["HMCS_ALIGN_TOPIC"]
+	local hmcs_display = DED_fields["HMCS_DISPLAY_label"]
+	local hmcs_align = DED_fields["HMCS_ALIGN_label"]
 	local utm_dest = DED_fields["UTM_DEST"]
 	local dest_dir = DED_fields["DEST_DIR"]
 	local dest_oa1 = DED_fields["DEST_OA1"]
@@ -1761,6 +1776,13 @@ local function buildDEDLine(line)
 	local acal = DED_fields["ACAL_SENSORS"]
 	local harm = DED_fields["HARM"]
 	local hts = DED_fields["HTS"]
+	local modality = DED_fields["Master_mode_label"]
+	local netStatus = DED_fields["NET STATUS lbl"]
+	local link16stn = DED_fields["LINK16 STN lbl"]
+	local link16 = DED_fields["LINK16 lbl"]
+	local misc = DED_fields["MISC Label"]
+	local list = DED_fields["LIST Label"]
+	local lasr = DED_fields["LASR LABEL"]
 
 	--Loop through Exported DED Objects
 	for k, v in pairs(DED_fields) do
@@ -1831,6 +1853,27 @@ local function buildDEDLine(line)
 		-- Handle Duplicate Key Names on HTS
 		elseif hts ~= nil and line == 1 and v == "HTS MAN" then
 			label = hts .. " " .. k
+		-- Handle Duplicate Key Names on MODE in LIST page
+		elseif modality	~= nil then
+			label = modality .. " " .. k
+		-- Handle Duplicate Key Names on NET STATUS
+		elseif netStatus ~= nil and line == 1 then
+			label = netStatus .. " " .. k
+		-- Handle Duplicate Key Names on LINK16 STN lbl
+		elseif link16stn ~= nil and line == 1 then
+			label = link16stn .. " " .. k
+		-- Handle Duplicate Key Names on LINK16 lbl
+		elseif link16 ~= nil and line == 1 then
+			label = link16 .. " " .. k
+		-- Handle Duplicate Key Names on MISC Label
+		elseif misc ~= nil and line == 1 then
+			label = misc .. " " .. k
+		-- Handle Duplicate Key Names on LIST Label
+		elseif list ~= nil and line == 1 then
+			label = list .. " " .. k
+		-- Handle Duplicate Key Names on LASR LABEL
+		elseif lasr ~= nil and line == 1 then
+			label = lasr .. " " .. k
 		end
 		local layout = nil
 		--Get layout data associated with current key
