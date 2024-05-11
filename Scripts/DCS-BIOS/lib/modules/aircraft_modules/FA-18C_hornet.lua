@@ -144,9 +144,13 @@ local function processUfcTwoDigitDisplay(s)
 	s = Functions.coerce_nil_to_string(s)
 	if s == "_" then
 		s = "--"
+	elseif s == "d" then -- receiving(?), show triangle symbol
+		s = "<>"
+	else
+		s = s:gsub("^`", "1")
+		s = s:gsub("^~", "2")
 	end
-	s = s:gsub("^`", "1")
-	s = s:gsub("^~", "2")
+
 	return Functions.pad_left(s, 2)
 end
 
@@ -157,10 +161,19 @@ FA_18C_hornet:addExportHook(function()
 	ufc = Module.parse_indication(6) or {}
 end)
 
+local comm_channel_cache = {}
+
 local function get_comm_channel(channel)
 	local display_value = channel == 1 and ufc.UFC_Comm1Display or ufc.UFC_Comm2Display
 
-	return comm_channel_map[display_value] or 0
+	if display_value == "d" then -- receiving(?), comm channel hasn't changed
+		return comm_channel_cache[channel] or 0
+	end
+
+	local value = comm_channel_map[display_value] or 0
+	comm_channel_cache[channel] = value
+
+	return value
 end
 
 -- radio freqs: by Capt Zeen
