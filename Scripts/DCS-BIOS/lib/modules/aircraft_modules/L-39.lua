@@ -218,9 +218,9 @@ L_39:defineIndicatorLight("BACK_AIRBRAKE_LAMP", 436, "Warning, Caution and Indic
 L_39:defineIndicatorLight("FRONT_FLAPS_UP_LAMP", 278, "Warning, Caution and IndicatorLights", "Front Flaps 0° Lamp (green)")
 L_39:defineIndicatorLight("FRONT_FLAPS_TO_LAMP", 279, "Warning, Caution and IndicatorLights", "Front Flaps 25° Lamp (green)")
 L_39:defineIndicatorLight("FRONT_FLAPS_DN_LAMP", 280, "Warning, Caution and IndicatorLights", "Front Flaps 44° Lamp (green)")
-L_39:defineIndicatorLight("BACK_FLAPS_UP_LAMP", 462, "Warning, Caution and IndicatorLights", "Front Flaps 0° Lamp (green)")
-L_39:defineIndicatorLight("BACK_FLAPS_TO_LAMP", 463, "Warning, Caution and IndicatorLights", "Front Flaps 25° Lamp (green)")
-L_39:defineIndicatorLight("BACK_FLAPS_DN_LAMP", 464, "Warning, Caution and IndicatorLights", "Front Flaps 44° Lamp (green)")
+L_39:defineIndicatorLight("BACK_FLAPS_UP_LAMP", 462, "Warning, Caution and IndicatorLights", "Back Flaps 0° Lamp (green)")
+L_39:defineIndicatorLight("BACK_FLAPS_TO_LAMP", 463, "Warning, Caution and IndicatorLights", "Back Flaps 25° Lamp (green)")
+L_39:defineIndicatorLight("BACK_FLAPS_DN_LAMP", 464, "Warning, Caution and IndicatorLights", "Back Flaps 44° Lamp (green)")
 
 L_39:defineIndicatorLight("FRONT_RKL41_FAR_NDB_SEL_LAMP", 561, "Warning, Caution and IndicatorLights", "Front RKL-41 Far NDB Selector Lamp (white)")
 L_39:defineIndicatorLight("FRONT_RKL41_NEAR_NDB_SEL_LAMP", 570, "Warning, Caution and IndicatorLights", "Front RKL-41 Near NDB Selector Lamp (white)")
