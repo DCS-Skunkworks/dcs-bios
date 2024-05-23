@@ -1,4 +1,509 @@
 {
+        "PLT IFF Panel": {
+                                "PLT_IFF_AUDIO_LIGHT_SW": {
+                                                                  "category": "PLT IFF Panel",
+                                                              "control_type": "selector",
+                                                               "description": "Select Mode 4 Indication",
+                                                                "identifier": "PLT_IFF_AUDIO_LIGHT_SW",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 2
+                                                                              } ],
+                                                                   "outputs": [ {
+                                                                                                        "address": 10752,
+                                                                                  "address_mask_shift_identifier": "F_4E_PLT_IFF_AUDIO_LIGHT_SW",
+                                                                                                    "description": "selector position",
+                                                                                                           "mask": 384,
+                                                                                                      "max_value": 2,
+                                                                                                       "shift_by": 7,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                              } ]
+                                                          },
+                                          "PLT_IFF_CODE": {
+                                                                  "category": "PLT IFF Panel",
+                                                              "control_type": "selector",
+                                                               "description": "Select Mode 4 Function",
+                                                                "identifier": "PLT_IFF_CODE",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 3
+                                                                              } ],
+                                                                   "outputs": [ {
+                                                                                                        "address": 10752,
+                                                                                  "address_mask_shift_identifier": "F_4E_PLT_IFF_CODE",
+                                                                                                    "description": "selector position",
+                                                                                                           "mask": 3,
+                                                                                                      "max_value": 3,
+                                                                                                       "shift_by": 0,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                              } ]
+                                                          },
+                                         "PLT_IFF_IDENT": {
+                                                                  "category": "PLT IFF Panel",
+                                                              "control_type": "selector",
+                                                               "description": "Set Position Identification",
+                                                                "identifier": "PLT_IFF_IDENT",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 2
+                                                                              } ],
+                                                                   "outputs": [ {
+                                                                                                        "address": 10760,
+                                                                                  "address_mask_shift_identifier": "F_4E_PLT_IFF_IDENT",
+                                                                                                    "description": "selector position",
+                                                                                                           "mask": 192,
+                                                                                                      "max_value": 2,
+                                                                                                       "shift_by": 6,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                              } ]
+                                                          },
+                                            "PLT_IFF_M1": {
+                                                                  "category": "PLT IFF Panel",
+                                                              "control_type": "selector",
+                                                               "description": "Mode 1",
+                                                                "identifier": "PLT_IFF_M1",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 2
+                                                                              } ],
+                                                                   "outputs": [ {
+                                                                                                        "address": 10752,
+                                                                                  "address_mask_shift_identifier": "F_4E_PLT_IFF_M1",
+                                                                                                    "description": "selector position",
+                                                                                                           "mask": 1536,
+                                                                                                      "max_value": 2,
+                                                                                                       "shift_by": 9,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                              } ]
+                                                          },
+                                  "PLT_IFF_M1_CODE_ONES": {
+                                                                  "category": "PLT IFF Panel",
+                                                              "control_type": "selector",
+                                                               "description": "M1 Code (ones)",
+                                                                "identifier": "PLT_IFF_M1_CODE_ONES",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 3
+                                                                              } ],
+                                                                   "outputs": [ {
+                                                                                                        "address": 10758,
+                                                                                  "address_mask_shift_identifier": "F_4E_PLT_IFF_M1_CODE_ONES",
+                                                                                                    "description": "selector position",
+                                                                                                           "mask": 384,
+                                                                                                      "max_value": 3,
+                                                                                                       "shift_by": 7,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                              } ]
+                                                          },
+                                  "PLT_IFF_M1_CODE_TENS": {
+                                                                  "category": "PLT IFF Panel",
+                                                              "control_type": "selector",
+                                                               "description": "M1 Code (tens)",
+                                                                "identifier": "PLT_IFF_M1_CODE_TENS",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 7
+                                                                              } ],
+                                                                   "outputs": [ {
+                                                                                                        "address": 10758,
+                                                                                  "address_mask_shift_identifier": "F_4E_PLT_IFF_M1_CODE_TENS",
+                                                                                                    "description": "selector position",
+                                                                                                           "mask": 112,
+                                                                                                      "max_value": 7,
+                                                                                                       "shift_by": 4,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                              } ]
+                                                          },
+                                            "PLT_IFF_M2": {
+                                                                  "category": "PLT IFF Panel",
+                                                              "control_type": "selector",
+                                                               "description": "Mode 2",
+                                                                "identifier": "PLT_IFF_M2",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 2
+                                                                              } ],
+                                                                   "outputs": [ {
+                                                                                                        "address": 10752,
+                                                                                  "address_mask_shift_identifier": "F_4E_PLT_IFF_M2",
+                                                                                                    "description": "selector position",
+                                                                                                           "mask": 6144,
+                                                                                                      "max_value": 2,
+                                                                                                       "shift_by": 11,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                              } ]
+                                                          },
+                                            "PLT_IFF_M3": {
+                                                                  "category": "PLT IFF Panel",
+                                                              "control_type": "selector",
+                                                               "description": "Mode 3A",
+                                                                "identifier": "PLT_IFF_M3",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 2
+                                                                              } ],
+                                                                   "outputs": [ {
+                                                                                                        "address": 10752,
+                                                                                  "address_mask_shift_identifier": "F_4E_PLT_IFF_M3",
+                                                                                                    "description": "selector position",
+                                                                                                           "mask": 24576,
+                                                                                                      "max_value": 2,
+                                                                                                       "shift_by": 13,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                              } ]
+                                                          },
+                              "PLT_IFF_M3_CODE_HUNDREDS": {
+                                                                  "category": "PLT IFF Panel",
+                                                              "control_type": "selector",
+                                                               "description": "M3 Code (hundreds)",
+                                                                "identifier": "PLT_IFF_M3_CODE_HUNDREDS",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 7
+                                                                              } ],
+                                                                   "outputs": [ {
+                                                                                                        "address": 10758,
+                                                                                  "address_mask_shift_identifier": "F_4E_PLT_IFF_M3_CODE_HUNDREDS",
+                                                                                                    "description": "selector position",
+                                                                                                           "mask": 28672,
+                                                                                                      "max_value": 7,
+                                                                                                       "shift_by": 12,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                              } ]
+                                                          },
+                                  "PLT_IFF_M3_CODE_ONES": {
+                                                                  "category": "PLT IFF Panel",
+                                                              "control_type": "selector",
+                                                               "description": "M3 Code (ones)",
+                                                                "identifier": "PLT_IFF_M3_CODE_ONES",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 7
+                                                                              } ],
+                                                                   "outputs": [ {
+                                                                                                        "address": 10760,
+                                                                                  "address_mask_shift_identifier": "F_4E_PLT_IFF_M3_CODE_ONES",
+                                                                                                    "description": "selector position",
+                                                                                                           "mask": 56,
+                                                                                                      "max_value": 7,
+                                                                                                       "shift_by": 3,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                              } ]
+                                                          },
+                                  "PLT_IFF_M3_CODE_TENS": {
+                                                                  "category": "PLT IFF Panel",
+                                                              "control_type": "selector",
+                                                               "description": "M3 Code (tens)",
+                                                                "identifier": "PLT_IFF_M3_CODE_TENS",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 7
+                                                                              } ],
+                                                                   "outputs": [ {
+                                                                                                        "address": 10760,
+                                                                                  "address_mask_shift_identifier": "F_4E_PLT_IFF_M3_CODE_TENS",
+                                                                                                    "description": "selector position",
+                                                                                                           "mask": 7,
+                                                                                                      "max_value": 7,
+                                                                                                       "shift_by": 0,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                              } ]
+                                                          },
+                             "PLT_IFF_M3_CODE_THOUSANDS": {
+                                                                  "category": "PLT IFF Panel",
+                                                              "control_type": "selector",
+                                                               "description": "M3 Code (thousands)",
+                                                                "identifier": "PLT_IFF_M3_CODE_THOUSANDS",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 7
+                                                                              } ],
+                                                                   "outputs": [ {
+                                                                                                        "address": 10758,
+                                                                                  "address_mask_shift_identifier": "F_4E_PLT_IFF_M3_CODE_THOUSANDS",
+                                                                                                    "description": "selector position",
+                                                                                                           "mask": 3584,
+                                                                                                      "max_value": 7,
+                                                                                                       "shift_by": 9,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                              } ]
+                                                          },
+                                            "PLT_IFF_M4": {
+                                                                  "category": "PLT IFF Panel",
+                                                              "control_type": "selector",
+                                                               "description": "Mode 4",
+                                                                "identifier": "PLT_IFF_M4",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 1
+                                                                              }, {
+                                                                                     "argument": "TOGGLE",
+                                                                                  "description": "Toggle switch state",
+                                                                                    "interface": "action"
+                                                                              } ],
+                                                                   "outputs": [ {
+                                                                                                        "address": 10752,
+                                                                                        "address_mask_identifier": "F_4E_PLT_IFF_M4_AM",
+                                                                                  "address_mask_shift_identifier": "F_4E_PLT_IFF_M4",
+                                                                                                    "description": "selector position",
+                                                                                                           "mask": 32768,
+                                                                                                      "max_value": 1,
+                                                                                                       "shift_by": 15,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                              } ]
+                                                          },
+                                        "PLT_IFF_MASTER": {
+                                                                  "category": "PLT IFF Panel",
+                                                              "control_type": "selector",
+                                                               "description": "Select Master Mode",
+                                                                "identifier": "PLT_IFF_MASTER",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 4
+                                                                              } ],
+                                                                   "outputs": [ {
+                                                                                                        "address": 10752,
+                                                                                  "address_mask_shift_identifier": "F_4E_PLT_IFF_MASTER",
+                                                                                                    "description": "selector position",
+                                                                                                           "mask": 112,
+                                                                                                      "max_value": 4,
+                                                                                                       "shift_by": 4,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                              } ]
+                                                          },
+                                            "PLT_IFF_MC": {
+                                                                  "category": "PLT IFF Panel",
+                                                              "control_type": "selector",
+                                                               "description": "Mode C",
+                                                                "identifier": "PLT_IFF_MC",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 2
+                                                                              } ],
+                                                                   "outputs": [ {
+                                                                                                        "address": 10758,
+                                                                                  "address_mask_shift_identifier": "F_4E_PLT_IFF_MC",
+                                                                                                    "description": "selector position",
+                                                                                                           "mask": 3,
+                                                                                                      "max_value": 2,
+                                                                                                       "shift_by": 0,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                              } ]
+                                                          },
+                                           "PLT_IFF_RAD": {
+                                                                  "category": "PLT IFF Panel",
+                                                              "control_type": "selector",
+                                                               "description": "Monitor Radiation",
+                                                                "identifier": "PLT_IFF_RAD",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 2
+                                                                              } ],
+                                                                   "outputs": [ {
+                                                                                                        "address": 10758,
+                                                                                  "address_mask_shift_identifier": "F_4E_PLT_IFF_RAD",
+                                                                                                    "description": "selector position",
+                                                                                                           "mask": 12,
+                                                                                                      "max_value": 2,
+                                                                                                       "shift_by": 2,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                              } ]
+                                                          },
+                             "PLT_IFF_REPLY_TEST_BUTTON": {
+                                                               "api_variant": "momentary_last_position",
+                                                                  "category": "PLT IFF Panel",
+                                                              "control_type": "selector",
+                                                               "description": "IFF Reply Lamp (push to test)",
+                                                                "identifier": "PLT_IFF_REPLY_TEST_BUTTON",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 1
+                                                                              }, {
+                                                                                     "argument": "TOGGLE",
+                                                                                  "description": "Toggle switch state",
+                                                                                    "interface": "action"
+                                                                              } ],
+                                                                   "outputs": [ {
+                                                                                                        "address": 10752,
+                                                                                        "address_mask_identifier": "F_4E_PLT_IFF_REPLY_TEST_BUTTON_AM",
+                                                                                  "address_mask_shift_identifier": "F_4E_PLT_IFF_REPLY_TEST_BUTTON",
+                                                                                                    "description": "selector position",
+                                                                                                           "mask": 4,
+                                                                                                      "max_value": 1,
+                                                                                                       "shift_by": 2,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                              } ]
+                                                          },
+                                "PLT_IFF_REPLY_TEST_DIM": {
+                                                                  "category": "PLT IFF Panel",
+                                                              "control_type": "limited_dial",
+                                                               "description": "IFF Reply Lamp (rotate to dim)",
+                                                                "identifier": "PLT_IFF_REPLY_TEST_DIM",
+                                                                    "inputs": [ {
+                                                                                  "description": "set the position of the dial",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 65535
+                                                                              }, {
+                                                                                     "description": "turn the dial left or right",
+                                                                                       "interface": "variable_step",
+                                                                                       "max_value": 65535,
+                                                                                  "suggested_step": 3200
+                                                                              } ],
+                                                                   "outputs": [ {
+                                                                                                        "address": 10754,
+                                                                                             "address_identifier": "F_4E_PLT_IFF_REPLY_TEST_DIM_A",
+                                                                                  "address_mask_shift_identifier": "F_4E_PLT_IFF_REPLY_TEST_DIM",
+                                                                                                    "description": "position of the potentiometer",
+                                                                                                           "mask": 65535,
+                                                                                                      "max_value": 65535,
+                                                                                                       "shift_by": 0,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                              } ]
+                                                          },
+                                   "PLT_IFF_TEST_BUTTON": {
+                                                               "api_variant": "momentary_last_position",
+                                                                  "category": "PLT IFF Panel",
+                                                              "control_type": "selector",
+                                                               "description": "IFF Test Lamp (push to test)",
+                                                                "identifier": "PLT_IFF_TEST_BUTTON",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 1
+                                                                              }, {
+                                                                                     "argument": "TOGGLE",
+                                                                                  "description": "Toggle switch state",
+                                                                                    "interface": "action"
+                                                                              } ],
+                                                                   "outputs": [ {
+                                                                                                        "address": 10752,
+                                                                                        "address_mask_identifier": "F_4E_PLT_IFF_TEST_BUTTON_AM",
+                                                                                  "address_mask_shift_identifier": "F_4E_PLT_IFF_TEST_BUTTON",
+                                                                                                    "description": "selector position",
+                                                                                                           "mask": 8,
+                                                                                                      "max_value": 1,
+                                                                                                       "shift_by": 3,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                              } ]
+                                                          },
+                                      "PLT_IFF_TEST_DIM": {
+                                                                  "category": "PLT IFF Panel",
+                                                              "control_type": "limited_dial",
+                                                               "description": "IFF Reply Lamp (rotate to dim)",
+                                                                "identifier": "PLT_IFF_TEST_DIM",
+                                                                    "inputs": [ {
+                                                                                  "description": "set the position of the dial",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 65535
+                                                                              }, {
+                                                                                     "description": "turn the dial left or right",
+                                                                                       "interface": "variable_step",
+                                                                                       "max_value": 65535,
+                                                                                  "suggested_step": 3200
+                                                                              } ],
+                                                                   "outputs": [ {
+                                                                                                        "address": 10756,
+                                                                                             "address_identifier": "F_4E_PLT_IFF_TEST_DIM_A",
+                                                                                  "address_mask_shift_identifier": "F_4E_PLT_IFF_TEST_DIM",
+                                                                                                    "description": "position of the potentiometer",
+                                                                                                           "mask": 65535,
+                                                                                                      "max_value": 65535,
+                                                                                                       "shift_by": 0,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                              } ]
+                                                          }
+                         },
     "PLT Weapons Panel": {
                              "PLT_MASTER_ARM_SW": {
                                                           "category": "PLT Weapons Panel",
@@ -18,13 +523,13 @@
                                                                             "interface": "action"
                                                                       } ],
                                                            "outputs": [ {
-                                                                                                "address": 10752,
+                                                                                                "address": 10758,
                                                                                 "address_mask_identifier": "F_4E_PLT_MASTER_ARM_SW_AM",
                                                                           "address_mask_shift_identifier": "F_4E_PLT_MASTER_ARM_SW",
                                                                                             "description": "selector position",
-                                                                                                   "mask": 1,
+                                                                                                   "mask": 32768,
                                                                                               "max_value": 1,
-                                                                                               "shift_by": 0,
+                                                                                               "shift_by": 15,
                                                                                                  "suffix": "",
                                                                                                    "type": "integer"
                                                                       } ]
