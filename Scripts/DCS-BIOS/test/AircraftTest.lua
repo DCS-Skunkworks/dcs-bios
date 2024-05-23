@@ -56,6 +56,10 @@ function TestAircraft:Edge540()
 	self:validateModule(require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.Edge540"), "Edge540", 0x5600)
 end
 
+function TestAircraft:testF_4E()
+	self:validateModule(require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.F-4E"), "F-4E", 0x2A00)
+end
+
 function TestAircraft:testF_5E_3()
 	self:validateModule(require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.F-5E-3"), "F-5E-3", 0x7600)
 end

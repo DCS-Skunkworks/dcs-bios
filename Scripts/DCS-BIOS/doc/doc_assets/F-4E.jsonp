@@ -1,0 +1,34 @@
+docdata["F-4E"] =
+{
+    "PLT Weapons Panel": {
+                             "PLT_MASTER_ARM_SW": {
+                                                          "category": "PLT Weapons Panel",
+                                                      "control_type": "selector",
+                                                       "description": "PILOT Master Arm switch",
+                                                        "identifier": "PLT_MASTER_ARM_SW",
+                                                            "inputs": [ {
+                                                                          "description": "switch to previous or next state",
+                                                                            "interface": "fixed_step"
+                                                                      }, {
+                                                                          "description": "set position",
+                                                                            "interface": "set_state",
+                                                                            "max_value": 1
+                                                                      }, {
+                                                                             "argument": "TOGGLE",
+                                                                          "description": "Toggle switch state",
+                                                                            "interface": "action"
+                                                                      } ],
+                                                           "outputs": [ {
+                                                                                                "address": 10752,
+                                                                                "address_mask_identifier": "F_4E_PLT_MASTER_ARM_SW_AM",
+                                                                          "address_mask_shift_identifier": "F_4E_PLT_MASTER_ARM_SW",
+                                                                                            "description": "selector position",
+                                                                                                   "mask": 1,
+                                                                                              "max_value": 1,
+                                                                                               "shift_by": 0,
+                                                                                                 "suffix": "",
+                                                                                                   "type": "integer"
+                                                                      } ]
+                                                  }
+                         }
+};
