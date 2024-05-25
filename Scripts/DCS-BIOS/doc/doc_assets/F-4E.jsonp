@@ -1,5 +1,205 @@
 docdata["F-4E"] =
 {
+              "Exterior Lights": {
+                                               "EXT_LIGHT_AAR": {
+                                                                        "category": "Exterior Lights",
+                                                                    "control_type": "metadata",
+                                                                     "description": "AAR Receptacle Light (White)",
+                                                                      "identifier": "EXT_LIGHT_AAR",
+                                                                          "inputs": [  ],
+                                                                         "outputs": [ {
+                                                                                                              "address": 10876,
+                                                                                                   "address_identifier": "F_4E_EXT_LIGHT_AAR_A",
+                                                                                        "address_mask_shift_identifier": "F_4E_EXT_LIGHT_AAR",
+                                                                                                          "description": "AAR Receptacle Light (White)",
+                                                                                                                 "mask": 65535,
+                                                                                                            "max_value": 65535,
+                                                                                                             "shift_by": 0,
+                                                                                                               "suffix": "",
+                                                                                                                 "type": "integer"
+                                                                                    } ]
+                                                                },
+                                            "EXT_LIGHT_BEACON": {
+                                                                        "category": "Exterior Lights",
+                                                                    "control_type": "metadata",
+                                                                     "description": "Beacon Light (Red)",
+                                                                      "identifier": "EXT_LIGHT_BEACON",
+                                                                          "inputs": [  ],
+                                                                         "outputs": [ {
+                                                                                                              "address": 10856,
+                                                                                                   "address_identifier": "F_4E_EXT_LIGHT_BEACON_A",
+                                                                                        "address_mask_shift_identifier": "F_4E_EXT_LIGHT_BEACON",
+                                                                                                          "description": "Beacon Light (Red)",
+                                                                                                                 "mask": 65535,
+                                                                                                            "max_value": 65535,
+                                                                                                             "shift_by": 0,
+                                                                                                               "suffix": "",
+                                                                                                                 "type": "integer"
+                                                                                    } ]
+                                                                },
+                                      "EXT_LIGHT_BEACON_FLASH": {
+                                                                        "category": "Exterior Lights",
+                                                                    "control_type": "metadata",
+                                                                     "description": "Flashing Beacon Light (Red)",
+                                                                      "identifier": "EXT_LIGHT_BEACON_FLASH",
+                                                                          "inputs": [  ],
+                                                                         "outputs": [ {
+                                                                                                              "address": 10864,
+                                                                                                   "address_identifier": "F_4E_EXT_LIGHT_BEACON_FLASH_A",
+                                                                                        "address_mask_shift_identifier": "F_4E_EXT_LIGHT_BEACON_FLASH",
+                                                                                                          "description": "Flashing Beacon Light (Red)",
+                                                                                                                 "mask": 65535,
+                                                                                                            "max_value": 65535,
+                                                                                                             "shift_by": 0,
+                                                                                                               "suffix": "",
+                                                                                                                 "type": "integer"
+                                                                                    } ]
+                                                                },
+                                             "EXT_LIGHT_BELLY": {
+                                                                        "category": "Exterior Lights",
+                                                                    "control_type": "metadata",
+                                                                     "description": "Belly Lights L/R (White)",
+                                                                      "identifier": "EXT_LIGHT_BELLY",
+                                                                          "inputs": [  ],
+                                                                         "outputs": [ {
+                                                                                                              "address": 10872,
+                                                                                                   "address_identifier": "F_4E_EXT_LIGHT_BELLY_A",
+                                                                                        "address_mask_shift_identifier": "F_4E_EXT_LIGHT_BELLY",
+                                                                                                          "description": "Belly Lights L/R (White)",
+                                                                                                                 "mask": 65535,
+                                                                                                            "max_value": 65535,
+                                                                                                             "shift_by": 0,
+                                                                                                               "suffix": "",
+                                                                                                                 "type": "integer"
+                                                                                    } ]
+                                                                },
+                                         "EXT_LIGHT_FORMATION": {
+                                                                        "category": "Exterior Lights",
+                                                                    "control_type": "metadata",
+                                                                     "description": "Formation Lights (Green)",
+                                                                      "identifier": "EXT_LIGHT_FORMATION",
+                                                                          "inputs": [  ],
+                                                                         "outputs": [ {
+                                                                                                              "address": 10866,
+                                                                                                   "address_identifier": "F_4E_EXT_LIGHT_FORMATION_A",
+                                                                                        "address_mask_shift_identifier": "F_4E_EXT_LIGHT_FORMATION",
+                                                                                                          "description": "Formation Lights (Green)",
+                                                                                                                 "mask": 65535,
+                                                                                                            "max_value": 65535,
+                                                                                                             "shift_by": 0,
+                                                                                                               "suffix": "",
+                                                                                                                 "type": "integer"
+                                                                                    } ]
+                                                                },
+                                      "EXT_LIGHT_FUSELAGE_TOP": {
+                                                                        "category": "Exterior Lights",
+                                                                    "control_type": "metadata",
+                                                                     "description": "Fuselage Top Light (White)",
+                                                                      "identifier": "EXT_LIGHT_FUSELAGE_TOP",
+                                                                          "inputs": [  ],
+                                                                         "outputs": [ {
+                                                                                                              "address": 10874,
+                                                                                                   "address_identifier": "F_4E_EXT_LIGHT_FUSELAGE_TOP_A",
+                                                                                        "address_mask_shift_identifier": "F_4E_EXT_LIGHT_FUSELAGE_TOP",
+                                                                                                          "description": "Fuselage Top Light (White)",
+                                                                                                                 "mask": 65535,
+                                                                                                            "max_value": 65535,
+                                                                                                             "shift_by": 0,
+                                                                                                               "suffix": "",
+                                                                                                                 "type": "integer"
+                                                                                    } ]
+                                                                },
+                                           "EXT_LIGHT_LANDING": {
+                                                                        "category": "Exterior Lights",
+                                                                    "control_type": "metadata",
+                                                                     "description": "Landing Light (White)",
+                                                                      "identifier": "EXT_LIGHT_LANDING",
+                                                                          "inputs": [  ],
+                                                                         "outputs": [ {
+                                                                                                              "address": 10868,
+                                                                                                   "address_identifier": "F_4E_EXT_LIGHT_LANDING_A",
+                                                                                        "address_mask_shift_identifier": "F_4E_EXT_LIGHT_LANDING",
+                                                                                                          "description": "Landing Light (White)",
+                                                                                                                 "mask": 65535,
+                                                                                                            "max_value": 65535,
+                                                                                                             "shift_by": 0,
+                                                                                                               "suffix": "",
+                                                                                                                 "type": "integer"
+                                                                                    } ]
+                                                                },
+                                     "EXT_LIGHT_POSITION_TAIL": {
+                                                                        "category": "Exterior Lights",
+                                                                    "control_type": "metadata",
+                                                                     "description": "Tail Position Light (White)",
+                                                                      "identifier": "EXT_LIGHT_POSITION_TAIL",
+                                                                          "inputs": [  ],
+                                                                         "outputs": [ {
+                                                                                                              "address": 10860,
+                                                                                                   "address_identifier": "F_4E_EXT_LIGHT_POSITION_TAIL_A",
+                                                                                        "address_mask_shift_identifier": "F_4E_EXT_LIGHT_POSITION_TAIL",
+                                                                                                          "description": "Tail Position Light (White)",
+                                                                                                                 "mask": 65535,
+                                                                                                            "max_value": 65535,
+                                                                                                             "shift_by": 0,
+                                                                                                               "suffix": "",
+                                                                                                                 "type": "integer"
+                                                                                    } ]
+                                                                },
+                                     "EXT_LIGHT_POSITION_WING": {
+                                                                        "category": "Exterior Lights",
+                                                                    "control_type": "metadata",
+                                                                     "description": "Wing Position Lights (Red/Green)",
+                                                                      "identifier": "EXT_LIGHT_POSITION_WING",
+                                                                          "inputs": [  ],
+                                                                         "outputs": [ {
+                                                                                                              "address": 10858,
+                                                                                                   "address_identifier": "F_4E_EXT_LIGHT_POSITION_WING_A",
+                                                                                        "address_mask_shift_identifier": "F_4E_EXT_LIGHT_POSITION_WING",
+                                                                                                          "description": "Wing Position Lights (Red/Green)",
+                                                                                                                 "mask": 65535,
+                                                                                                            "max_value": 65535,
+                                                                                                             "shift_by": 0,
+                                                                                                               "suffix": "",
+                                                                                                                 "type": "integer"
+                                                                                    } ]
+                                                                },
+                                              "EXT_LIGHT_TAXI": {
+                                                                        "category": "Exterior Lights",
+                                                                    "control_type": "metadata",
+                                                                     "description": "Taxi Light (White)",
+                                                                      "identifier": "EXT_LIGHT_TAXI",
+                                                                          "inputs": [  ],
+                                                                         "outputs": [ {
+                                                                                                              "address": 10870,
+                                                                                                   "address_identifier": "F_4E_EXT_LIGHT_TAXI_A",
+                                                                                        "address_mask_shift_identifier": "F_4E_EXT_LIGHT_TAXI",
+                                                                                                          "description": "Taxi Light (White)",
+                                                                                                                 "mask": 65535,
+                                                                                                            "max_value": 65535,
+                                                                                                             "shift_by": 0,
+                                                                                                               "suffix": "",
+                                                                                                                 "type": "integer"
+                                                                                    } ]
+                                                                },
+                                      "EXT_LIGHT_WING_JOIN_UP": {
+                                                                        "category": "Exterior Lights",
+                                                                    "control_type": "metadata",
+                                                                     "description": "Wing Join-Up Lights (Red/Green)",
+                                                                      "identifier": "EXT_LIGHT_WING_JOIN_UP",
+                                                                          "inputs": [  ],
+                                                                         "outputs": [ {
+                                                                                                              "address": 10862,
+                                                                                                   "address_identifier": "F_4E_EXT_LIGHT_WING_JOIN_UP_A",
+                                                                                        "address_mask_shift_identifier": "F_4E_EXT_LIGHT_WING_JOIN_UP",
+                                                                                                          "description": "Wing Join-Up Lights (Red/Green)",
+                                                                                                                 "mask": 65535,
+                                                                                                            "max_value": 65535,
+                                                                                                             "shift_by": 0,
+                                                                                                               "suffix": "",
+                                                                                                                 "type": "integer"
+                                                                                    } ]
+                                                                }
+                                 },
                   "PLT ARC-164": {
                                            "PLT_ARC_164_ANTENNA_SELECTION": {
                                                                                     "category": "PLT ARC-164",
@@ -809,6 +1009,104 @@ docdata["F-4E"] =
                                                                                                                      "type": "integer"
                                                                                         } ]
                                                                     }
+                                 },
+    "PLT Exterior Lights Panel": {
+                                           "PLT_EXT_LIGHT_ANTI_COLL": {
+                                                                              "category": "PLT Exterior Lights Panel",
+                                                                          "control_type": "selector",
+                                                                           "description": "Set Fuselage & Anti-Collision Light Brightness",
+                                                                            "identifier": "PLT_EXT_LIGHT_ANTI_COLL",
+                                                                                "inputs": [ {
+                                                                                              "description": "switch to previous or next state",
+                                                                                                "interface": "fixed_step"
+                                                                                          }, {
+                                                                                              "description": "set position",
+                                                                                                "interface": "set_state",
+                                                                                                "max_value": 2
+                                                                                          } ],
+                                                                               "outputs": [ {
+                                                                                                                    "address": 10850,
+                                                                                              "address_mask_shift_identifier": "F_4E_PLT_EXT_LIGHT_ANTI_COLL",
+                                                                                                                "description": "selector position",
+                                                                                                                       "mask": 24576,
+                                                                                                                  "max_value": 2,
+                                                                                                                   "shift_by": 13,
+                                                                                                                     "suffix": "",
+                                                                                                                       "type": "integer"
+                                                                                          } ]
+                                                                      },
+                                          "PLT_EXT_LIGHT_FLASH_MODE": {
+                                                                              "category": "PLT Exterior Lights Panel",
+                                                                          "control_type": "selector",
+                                                                           "description": "Set Flasher Mode (only Tail/Anti-Col/Fus)",
+                                                                            "identifier": "PLT_EXT_LIGHT_FLASH_MODE",
+                                                                                "inputs": [ {
+                                                                                              "description": "switch to previous or next state",
+                                                                                                "interface": "fixed_step"
+                                                                                          }, {
+                                                                                              "description": "set position",
+                                                                                                "interface": "set_state",
+                                                                                                "max_value": 2
+                                                                                          } ],
+                                                                               "outputs": [ {
+                                                                                                                    "address": 10854,
+                                                                                              "address_mask_shift_identifier": "F_4E_PLT_EXT_LIGHT_FLASH_MODE",
+                                                                                                                "description": "selector position",
+                                                                                                                       "mask": 3,
+                                                                                                                  "max_value": 2,
+                                                                                                                   "shift_by": 0,
+                                                                                                                     "suffix": "",
+                                                                                                                       "type": "integer"
+                                                                                          } ]
+                                                                      },
+                                     "PLT_EXT_LIGHT_TAIL_BRIGHTNESS": {
+                                                                              "category": "PLT Exterior Lights Panel",
+                                                                          "control_type": "selector",
+                                                                           "description": "Set Tail-Position Light Brightness",
+                                                                            "identifier": "PLT_EXT_LIGHT_TAIL_BRIGHTNESS",
+                                                                                "inputs": [ {
+                                                                                              "description": "switch to previous or next state",
+                                                                                                "interface": "fixed_step"
+                                                                                          }, {
+                                                                                              "description": "set position",
+                                                                                                "interface": "set_state",
+                                                                                                "max_value": 2
+                                                                                          } ],
+                                                                               "outputs": [ {
+                                                                                                                    "address": 10854,
+                                                                                              "address_mask_shift_identifier": "F_4E_PLT_EXT_LIGHT_TAIL_BRIGHTNESS",
+                                                                                                                "description": "selector position",
+                                                                                                                       "mask": 12,
+                                                                                                                  "max_value": 2,
+                                                                                                                   "shift_by": 2,
+                                                                                                                     "suffix": "",
+                                                                                                                       "type": "integer"
+                                                                                          } ]
+                                                                      },
+                                     "PLT_EXT_LIGHT_WING_BRIGHTNESS": {
+                                                                              "category": "PLT Exterior Lights Panel",
+                                                                          "control_type": "selector",
+                                                                           "description": "Set Wing-Position & Join-Up Light Brightness",
+                                                                            "identifier": "PLT_EXT_LIGHT_WING_BRIGHTNESS",
+                                                                                "inputs": [ {
+                                                                                              "description": "switch to previous or next state",
+                                                                                                "interface": "fixed_step"
+                                                                                          }, {
+                                                                                              "description": "set position",
+                                                                                                "interface": "set_state",
+                                                                                                "max_value": 2
+                                                                                          } ],
+                                                                               "outputs": [ {
+                                                                                                                    "address": 10854,
+                                                                                              "address_mask_shift_identifier": "F_4E_PLT_EXT_LIGHT_WING_BRIGHTNESS",
+                                                                                                                "description": "selector position",
+                                                                                                                       "mask": 48,
+                                                                                                                  "max_value": 2,
+                                                                                                                   "shift_by": 4,
+                                                                                                                     "suffix": "",
+                                                                                                                       "type": "integer"
+                                                                                          } ]
+                                                                      }
                                  },
                "PLT Fuel Panel": {
                                                 "PLT_FUEL_AIR_REFUEL": {
@@ -1642,6 +1940,32 @@ docdata["F-4E"] =
                                                                                       } ]
                                                                   }
                                  },
+            "PLT Left Subpanel": {
+                                     "PLT_EXT_LIGHT_TAXI_LAND": {
+                                                                        "category": "PLT Left Subpanel",
+                                                                    "control_type": "selector",
+                                                                     "description": "Taxi/Landing Light",
+                                                                      "identifier": "PLT_EXT_LIGHT_TAXI_LAND",
+                                                                          "inputs": [ {
+                                                                                        "description": "switch to previous or next state",
+                                                                                          "interface": "fixed_step"
+                                                                                    }, {
+                                                                                        "description": "set position",
+                                                                                          "interface": "set_state",
+                                                                                          "max_value": 2
+                                                                                    } ],
+                                                                         "outputs": [ {
+                                                                                                              "address": 10854,
+                                                                                        "address_mask_shift_identifier": "F_4E_PLT_EXT_LIGHT_TAXI_LAND",
+                                                                                                          "description": "selector position",
+                                                                                                                 "mask": 192,
+                                                                                                            "max_value": 2,
+                                                                                                             "shift_by": 6,
+                                                                                                               "suffix": "",
+                                                                                                                 "type": "integer"
+                                                                                    } ]
+                                                                }
+                                 },
             "PLT Oxygen System": {
                                          "PLT_O2_FLOW": {
                                                                 "category": "PLT Oxygen System",
@@ -1807,10 +2131,10 @@ docdata["F-4E"] =
                                                                             } ]
                                                         }
                                  },
-              "PLT Right Panel": {
+            "PLT Right Console": {
                                      "PLT_COCKPIT_PRESSURE_EMERGENCY_RELEASE": {
                                                                                     "api_variant": "momentary_last_position",
-                                                                                       "category": "PLT Right Panel",
+                                                                                       "category": "PLT Right Console",
                                                                                    "control_type": "selector",
                                                                                     "description": "Emergency Release Cockpit Pressure",
                                                                                      "identifier": "PLT_COCKPIT_PRESSURE_EMERGENCY_RELEASE",
@@ -1827,17 +2151,67 @@ docdata["F-4E"] =
                                                                                                          "interface": "action"
                                                                                                    } ],
                                                                                         "outputs": [ {
-                                                                                                                             "address": 10850,
+                                                                                                                             "address": 10854,
                                                                                                              "address_mask_identifier": "F_4E_PLT_COCKPIT_PRESSURE_EMERGENCY_RELEASE_AM",
                                                                                                        "address_mask_shift_identifier": "F_4E_PLT_COCKPIT_PRESSURE_EMERGENCY_RELEASE",
                                                                                                                          "description": "selector position",
-                                                                                                                                "mask": 16384,
+                                                                                                                                "mask": 256,
                                                                                                                            "max_value": 1,
-                                                                                                                            "shift_by": 14,
+                                                                                                                            "shift_by": 8,
                                                                                                                               "suffix": "",
                                                                                                                                 "type": "integer"
                                                                                                    } ]
                                                                                }
+                                 },
+               "PLT Right Wall": {
+                                     "PLT_EXT_LIGHT_FORMATION_BRIGHTNESS": {
+                                                                                   "category": "PLT Right Wall",
+                                                                               "control_type": "limited_dial",
+                                                                                "description": "Change Formation Lights Brightness",
+                                                                                 "identifier": "PLT_EXT_LIGHT_FORMATION_BRIGHTNESS",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "set the position of the dial",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 65535
+                                                                                               }, {
+                                                                                                      "description": "turn the dial left or right",
+                                                                                                        "interface": "variable_step",
+                                                                                                        "max_value": 65535,
+                                                                                                   "suggested_step": 3200
+                                                                                               } ],
+                                                                                    "outputs": [ {
+                                                                                                                         "address": 10878,
+                                                                                                              "address_identifier": "F_4E_PLT_EXT_LIGHT_FORMATION_BRIGHTNESS_A",
+                                                                                                   "address_mask_shift_identifier": "F_4E_PLT_EXT_LIGHT_FORMATION_BRIGHTNESS",
+                                                                                                                     "description": "position of the potentiometer",
+                                                                                                                            "mask": 65535,
+                                                                                                                       "max_value": 65535,
+                                                                                                                        "shift_by": 0,
+                                                                                                                          "suffix": "",
+                                                                                                                            "type": "integer"
+                                                                                               } ]
+                                                                           },
+                                           "PLT_EXT_LIGHT_FORMATION_MODE": {
+                                                                                   "category": "PLT Right Wall",
+                                                                               "control_type": "3Pos_2Command_Switch_OpenClose",
+                                                                                "description": "Set Formation Lights Mode",
+                                                                                 "identifier": "PLT_EXT_LIGHT_FORMATION_MODE",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "set the switch position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 2
+                                                                                               } ],
+                                                                                    "outputs": [ {
+                                                                                                                         "address": 10854,
+                                                                                                   "address_mask_shift_identifier": "F_4E_PLT_EXT_LIGHT_FORMATION_MODE",
+                                                                                                                     "description": "switch position -- 0 = Down, 1 = Mid,  2 = Up",
+                                                                                                                            "mask": 1536,
+                                                                                                                       "max_value": 2,
+                                                                                                                        "shift_by": 9,
+                                                                                                                          "suffix": "",
+                                                                                                                            "type": "integer"
+                                                                                               } ]
+                                                                           }
                                  },
                  "PLT Throttle": {
                                      "PLT_THROTTLE_CM_DISPENSE": {
@@ -1863,9 +2237,9 @@ docdata["F-4E"] =
                                                                                                "address_mask_identifier": "F_4E_PLT_THROTTLE_CM_DISPENSE_AM",
                                                                                          "address_mask_shift_identifier": "F_4E_PLT_THROTTLE_CM_DISPENSE",
                                                                                                            "description": "selector position",
-                                                                                                                  "mask": 8192,
+                                                                                                                  "mask": 32768,
                                                                                                              "max_value": 1,
-                                                                                                              "shift_by": 13,
+                                                                                                              "shift_by": 15,
                                                                                                                 "suffix": "",
                                                                                                                   "type": "integer"
                                                                                      } ]

@@ -898,14 +898,35 @@ end
 --- @param description string additional information about the control
 --- @return Control control the control which was added to the module
 function Module:defineSpringloaded_3PosTumb(identifier, device_id, down_switch, up_switch, arg_number, category, description)
+	return self:defineSpringloaded_3PosTumbWithRange(identifier, device_id, down_switch, up_switch, arg_number, { -1, 1 }, category, description)
+end
+
+--- Adds a 3-position switch with a spring-loaded return
+--- @param identifier string the unique identifier for the control
+--- @param device_id integer the dcs device id
+--- @param down_switch integer the dcs command to move the switch down
+--- @param up_switch integer the dcs command to move the switch up
+--- @param arg_number integer the dcs argument number
+--- @param range number[] a length-2 array with the lower and upper bounds of the data as used in dcs
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @return Control control the control which was added to the module
+function Module:defineSpringloaded_3PosTumbWithRange(identifier, device_id, down_switch, up_switch, arg_number, range, category, description)
+	assert_min_max(range, "range")
+
 	local alloc = self:allocateInt(2, identifier)
+
+	local lower = range[1]
+	local upper = range[2]
+	local mid = (lower + upper) / 2
+
 	self:addExportHook(function(dev0)
 		local val = dev0:get_argument_value(arg_number)
-		if val == -1 then
+		if math.abs(val - lower) < 0.01 then
 			alloc:setValue(0)
-		elseif val == 0 then
+		elseif math.abs(val - mid) < 0.01 then
 			alloc:setValue(1)
-		elseif val == 1 then
+		elseif math.abs(val - upper) < 0.01 then
 			alloc:setValue(2)
 		end
 	end)
@@ -913,7 +934,7 @@ function Module:defineSpringloaded_3PosTumb(identifier, device_id, down_switch, 
 	local control = Control:new(category, ControlType.three_pos_two_command_switch_open_close, identifier, description, {
 		SetStateInput:new(2, "set the switch position"),
 	}, {
-		IntegerOutput:new(alloc, Suffix.none, "switch position -- 0 = Down, 1 = Mid,  2 = Up"),
+		IntegerOutput:new(alloc, Suffix.none, string.format("switch position -- 0 = Down, 1 = Mid,  2 = Up")),
 	})
 
 	self:addControl(control)
@@ -924,16 +945,16 @@ function Module:defineSpringloaded_3PosTumb(identifier, device_id, down_switch, 
 			return
 		end
 		if toState == "0" then --downSwitch
-			dev:performClickableAction(down_switch, 0)
-			dev:performClickableAction(up_switch, 0)
-			dev:performClickableAction(down_switch, -1)
+			dev:performClickableAction(down_switch, mid)
+			dev:performClickableAction(up_switch, mid)
+			dev:performClickableAction(down_switch, lower)
 		elseif toState == "1" then --Stop
-			dev:performClickableAction(down_switch, 0)
-			dev:performClickableAction(up_switch, 0)
+			dev:performClickableAction(down_switch, mid)
+			dev:performClickableAction(up_switch, mid)
 		elseif toState == "2" then --upSwitch
-			dev:performClickableAction(down_switch, 0)
-			dev:performClickableAction(up_switch, 0)
-			dev:performClickableAction(up_switch, 1)
+			dev:performClickableAction(down_switch, mid)
+			dev:performClickableAction(up_switch, mid)
+			dev:performClickableAction(up_switch, upper)
 		end
 	end)
 

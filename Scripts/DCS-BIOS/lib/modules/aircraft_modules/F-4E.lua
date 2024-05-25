@@ -14,9 +14,19 @@ local F_4E = Module:new("F-4E", 0x2A00, { "F-4E-45MC" })
 --- @param count integer the number of discrete steps the control has
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
---- @return Control control the control which was added to the module
 function F_4E:defineMultipositionRollerLimited(identifier, device_id, command, arg_number, count, category, description)
 	self:defineTumb(identifier, device_id, command, arg_number, 1 / (count - 1), { 0, 1 }, nil, false, category, description)
+end
+
+--- Adds a 3-position toggle switch with dcs data values between 0 and 1
+--- @param identifier string the unique identifier for the control
+--- @param device_id integer the dcs device id
+--- @param command integer the dcs command
+--- @param arg_number integer the dcs argument number
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+function F_4E:define3PosTumb0To1(identifier, device_id, command, arg_number, category, description)
+	self:defineMultipositionSwitch(identifier, device_id, command, arg_number, 3, 0.5, category, description)
 end
 
 -- ICS
@@ -500,6 +510,29 @@ F_4E:reserveIntValue(2) -- Mode 4 Alarm/Override, not yet implemented
 -- Exterior Lights
 local EXTERIOR_LIGHTS_DEVICE_ID = 69
 
+-- Pilot Exterior Lights panel
+local PILOT_EXTERIOR_LIGHTS_PANEL = "PLT Exterior Lights Panel"
+
+F_4E:define3PosTumb0To1("PLT_EXT_LIGHT_ANTI_COLL", EXTERIOR_LIGHTS_DEVICE_ID, 3004, 1355, PILOT_EXTERIOR_LIGHTS_PANEL, "Set Fuselage & Anti-Collision Light Brightness")
+F_4E:define3PosTumb0To1("PLT_EXT_LIGHT_FLASH_MODE", EXTERIOR_LIGHTS_DEVICE_ID, 3005, 1356, PILOT_EXTERIOR_LIGHTS_PANEL, "Set Flasher Mode (only Tail/Anti-Col/Fus)")
+F_4E:define3PosTumb0To1("PLT_EXT_LIGHT_TAIL_BRIGHTNESS", EXTERIOR_LIGHTS_DEVICE_ID, 3006, 1357, PILOT_EXTERIOR_LIGHTS_PANEL, "Set Tail-Position Light Brightness")
+F_4E:define3PosTumb0To1("PLT_EXT_LIGHT_WING_BRIGHTNESS", EXTERIOR_LIGHTS_DEVICE_ID, 3007, 1358, PILOT_EXTERIOR_LIGHTS_PANEL, "Set Wing-Position & Join-Up Light Brightness")
+
+-- Exterior Lights
+local EXTERIOR_LIGHTS = "Exterior Lights"
+
+F_4E:defineFloatFromDrawArgument("EXT_LIGHT_BEACON", 83, EXTERIOR_LIGHTS, "Beacon Light (Red)")
+F_4E:defineFloatFromDrawArgument("EXT_LIGHT_POSITION_WING", 190, EXTERIOR_LIGHTS, "Wing Position Lights (Red/Green)")
+F_4E:defineFloatFromDrawArgument("EXT_LIGHT_POSITION_TAIL", 193, EXTERIOR_LIGHTS, "Tail Position Light (White)")
+F_4E:defineFloatFromDrawArgument("EXT_LIGHT_WING_JOIN_UP", 191, EXTERIOR_LIGHTS, "Wing Join-Up Lights (Red/Green)")
+F_4E:defineFloatFromDrawArgument("EXT_LIGHT_BEACON_FLASH", 192, EXTERIOR_LIGHTS, "Flashing Beacon Light (Red)")
+F_4E:defineFloatFromDrawArgument("EXT_LIGHT_FORMATION", 88, EXTERIOR_LIGHTS, "Formation Lights (Green)")
+F_4E:defineFloatFromDrawArgument("EXT_LIGHT_LANDING", 51, EXTERIOR_LIGHTS, "Landing Light (White)")
+F_4E:defineFloatFromDrawArgument("EXT_LIGHT_TAXI", 208, EXTERIOR_LIGHTS, "Taxi Light (White)")
+F_4E:defineFloatFromDrawArgument("EXT_LIGHT_BELLY", 196, EXTERIOR_LIGHTS, "Belly Lights L/R (White)")
+F_4E:defineFloatFromDrawArgument("EXT_LIGHT_FUSELAGE_TOP", 209, EXTERIOR_LIGHTS, "Fuselage Top Light (White)")
+F_4E:defineFloatFromDrawArgument("EXT_LIGHT_AAR", 210, EXTERIOR_LIGHTS, "AAR Receptacle Light (White)")
+
 -- VOR/ILS
 local VOR_ILS_DEVICE_ID = 70
 
@@ -538,9 +571,20 @@ local PILOT_THROTTLE = "PLT Throttle"
 
 F_4E:definePushButton("PLT_THROTTLE_CM_DISPENSE", COUNTERMEASURES_DEVICE_ID, 3012, 1436, PILOT_THROTTLE, "Dispense Countermeasures")
 
--- Pilot Right Panel
-local PILOT_RIGHT_PANEL = "PLT Right Panel"
+-- Pilot Left Subpanel
+local PILOT_LEFT_SUB_PANEL = "PLT Left Subpanel"
 
-F_4E:definePushButton("PLT_COCKPIT_PRESSURE_EMERGENCY_RELEASE", OXYGEN_SYSTEM_DEVICE_ID, 3012, 2879, PILOT_RIGHT_PANEL, "Emergency Release Cockpit Pressure")
+F_4E:define3PosTumb0To1("PLT_EXT_LIGHT_TAXI_LAND", EXTERIOR_LIGHTS_DEVICE_ID, 3001, 1416, PILOT_LEFT_SUB_PANEL, "Taxi/Landing Light")
+
+-- Pilot Right Console
+local PILOT_RIGHT_CONSOLE = "PLT Right Console"
+
+F_4E:definePushButton("PLT_COCKPIT_PRESSURE_EMERGENCY_RELEASE", OXYGEN_SYSTEM_DEVICE_ID, 3012, 2879, PILOT_RIGHT_CONSOLE, "Emergency Release Cockpit Pressure")
+
+-- Pilot Right Wall
+local PILOT_RIGHT_WALL = "PLT Right Wall"
+
+F_4E:defineSpringloaded_3PosTumbWithRange("PLT_EXT_LIGHT_FORMATION_MODE", EXTERIOR_LIGHTS_DEVICE_ID, 3003, 3003, 1367, { 0, 1 }, PILOT_RIGHT_WALL, "Set Formation Lights Mode")
+F_4E:definePotentiometer("PLT_EXT_LIGHT_FORMATION_BRIGHTNESS", EXTERIOR_LIGHTS_DEVICE_ID, 3002, 1368, { 0, 1 }, PILOT_RIGHT_WALL, "Change Formation Lights Brightness")
 
 return F_4E
