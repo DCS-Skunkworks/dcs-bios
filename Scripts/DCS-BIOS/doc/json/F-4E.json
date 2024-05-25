@@ -1,4 +1,575 @@
 {
+        "PLT IFF Panel": {
+                                "PLT_IFF_AUDIO_LIGHT_SW": {
+                                                                  "category": "PLT IFF Panel",
+                                                              "control_type": "selector",
+                                                               "description": "Select Mode 4 Indication",
+                                                                "identifier": "PLT_IFF_AUDIO_LIGHT_SW",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 2
+                                                                              } ],
+                                                                   "outputs": [ {
+                                                                                                        "address": 10752,
+                                                                                  "address_mask_shift_identifier": "F_4E_PLT_IFF_AUDIO_LIGHT_SW",
+                                                                                                    "description": "selector position",
+                                                                                                           "mask": 1536,
+                                                                                                      "max_value": 2,
+                                                                                                       "shift_by": 9,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                              } ]
+                                                          },
+                                          "PLT_IFF_CODE": {
+                                                                  "category": "PLT IFF Panel",
+                                                              "control_type": "selector",
+                                                               "description": "Select Mode 4 Function",
+                                                                "identifier": "PLT_IFF_CODE",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 3
+                                                                              } ],
+                                                                   "outputs": [ {
+                                                                                                        "address": 10752,
+                                                                                  "address_mask_shift_identifier": "F_4E_PLT_IFF_CODE",
+                                                                                                    "description": "selector position",
+                                                                                                           "mask": 3,
+                                                                                                      "max_value": 3,
+                                                                                                       "shift_by": 0,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                              } ]
+                                                          },
+                                         "PLT_IFF_IDENT": {
+                                                                  "category": "PLT IFF Panel",
+                                                              "control_type": "selector",
+                                                               "description": "Set Position Identification",
+                                                                "identifier": "PLT_IFF_IDENT",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 2
+                                                                              } ],
+                                                                   "outputs": [ {
+                                                                                                        "address": 10758,
+                                                                                  "address_mask_shift_identifier": "F_4E_PLT_IFF_IDENT",
+                                                                                                    "description": "selector position",
+                                                                                                           "mask": 49152,
+                                                                                                      "max_value": 2,
+                                                                                                       "shift_by": 14,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                              } ]
+                                                          },
+                                            "PLT_IFF_M1": {
+                                                                  "category": "PLT IFF Panel",
+                                                              "control_type": "selector",
+                                                               "description": "Mode 1",
+                                                                "identifier": "PLT_IFF_M1",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 2
+                                                                              } ],
+                                                                   "outputs": [ {
+                                                                                                        "address": 10752,
+                                                                                  "address_mask_shift_identifier": "F_4E_PLT_IFF_M1",
+                                                                                                    "description": "selector position",
+                                                                                                           "mask": 6144,
+                                                                                                      "max_value": 2,
+                                                                                                       "shift_by": 11,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                              } ]
+                                                          },
+                                       "PLT_IFF_M1_CODE": {
+                                                                  "category": "PLT IFF Panel",
+                                                              "control_type": "display",
+                                                               "description": "M1 Code",
+                                                                "identifier": "PLT_IFF_M1_CODE",
+                                                                    "inputs": [  ],
+                                                                   "outputs": [ {
+                                                                                             "address": 10762,
+                                                                                  "address_identifier": "F_4E_PLT_IFF_M1_CODE_A",
+                                                                                         "description": "M1 Code",
+                                                                                          "max_length": 2,
+                                                                                              "suffix": "",
+                                                                                                "type": "string"
+                                                                              } ]
+                                                          },
+                                  "PLT_IFF_M1_CODE_ONES": {
+                                                                  "category": "PLT IFF Panel",
+                                                              "control_type": "selector",
+                                                               "description": "M1 Code (ones)",
+                                                                "identifier": "PLT_IFF_M1_CODE_ONES",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 3
+                                                                              } ],
+                                                                   "outputs": [ {
+                                                                                                        "address": 10758,
+                                                                                  "address_mask_shift_identifier": "F_4E_PLT_IFF_M1_CODE_ONES",
+                                                                                                    "description": "selector position",
+                                                                                                           "mask": 1536,
+                                                                                                      "max_value": 3,
+                                                                                                       "shift_by": 9,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                              } ]
+                                                          },
+                                  "PLT_IFF_M1_CODE_TENS": {
+                                                                  "category": "PLT IFF Panel",
+                                                              "control_type": "selector",
+                                                               "description": "M1 Code (tens)",
+                                                                "identifier": "PLT_IFF_M1_CODE_TENS",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 7
+                                                                              } ],
+                                                                   "outputs": [ {
+                                                                                                        "address": 10758,
+                                                                                  "address_mask_shift_identifier": "F_4E_PLT_IFF_M1_CODE_TENS",
+                                                                                                    "description": "selector position",
+                                                                                                           "mask": 448,
+                                                                                                      "max_value": 7,
+                                                                                                       "shift_by": 6,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                              } ]
+                                                          },
+                                            "PLT_IFF_M2": {
+                                                                  "category": "PLT IFF Panel",
+                                                              "control_type": "selector",
+                                                               "description": "Mode 2",
+                                                                "identifier": "PLT_IFF_M2",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 2
+                                                                              } ],
+                                                                   "outputs": [ {
+                                                                                                        "address": 10752,
+                                                                                  "address_mask_shift_identifier": "F_4E_PLT_IFF_M2",
+                                                                                                    "description": "selector position",
+                                                                                                           "mask": 24576,
+                                                                                                      "max_value": 2,
+                                                                                                       "shift_by": 13,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                              } ]
+                                                          },
+                                            "PLT_IFF_M3": {
+                                                                  "category": "PLT IFF Panel",
+                                                              "control_type": "selector",
+                                                               "description": "Mode 3A",
+                                                                "identifier": "PLT_IFF_M3",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 2
+                                                                              } ],
+                                                                   "outputs": [ {
+                                                                                                        "address": 10758,
+                                                                                  "address_mask_shift_identifier": "F_4E_PLT_IFF_M3",
+                                                                                                    "description": "selector position",
+                                                                                                           "mask": 3,
+                                                                                                      "max_value": 2,
+                                                                                                       "shift_by": 0,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                              } ]
+                                                          },
+                                       "PLT_IFF_M3_CODE": {
+                                                                  "category": "PLT IFF Panel",
+                                                              "control_type": "display",
+                                                               "description": "M3 Code",
+                                                                "identifier": "PLT_IFF_M3_CODE",
+                                                                    "inputs": [  ],
+                                                                   "outputs": [ {
+                                                                                             "address": 10764,
+                                                                                  "address_identifier": "F_4E_PLT_IFF_M3_CODE_A",
+                                                                                         "description": "M3 Code",
+                                                                                          "max_length": 4,
+                                                                                              "suffix": "",
+                                                                                                "type": "string"
+                                                                              } ]
+                                                          },
+                              "PLT_IFF_M3_CODE_HUNDREDS": {
+                                                                  "category": "PLT IFF Panel",
+                                                              "control_type": "selector",
+                                                               "description": "M3 Code (hundreds)",
+                                                                "identifier": "PLT_IFF_M3_CODE_HUNDREDS",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 7
+                                                                              } ],
+                                                                   "outputs": [ {
+                                                                                                        "address": 10760,
+                                                                                  "address_mask_shift_identifier": "F_4E_PLT_IFF_M3_CODE_HUNDREDS",
+                                                                                                    "description": "selector position",
+                                                                                                           "mask": 7,
+                                                                                                      "max_value": 7,
+                                                                                                       "shift_by": 0,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                              } ]
+                                                          },
+                                  "PLT_IFF_M3_CODE_ONES": {
+                                                                  "category": "PLT IFF Panel",
+                                                              "control_type": "selector",
+                                                               "description": "M3 Code (ones)",
+                                                                "identifier": "PLT_IFF_M3_CODE_ONES",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 7
+                                                                              } ],
+                                                                   "outputs": [ {
+                                                                                                        "address": 10760,
+                                                                                  "address_mask_shift_identifier": "F_4E_PLT_IFF_M3_CODE_ONES",
+                                                                                                    "description": "selector position",
+                                                                                                           "mask": 448,
+                                                                                                      "max_value": 7,
+                                                                                                       "shift_by": 6,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                              } ]
+                                                          },
+                                  "PLT_IFF_M3_CODE_TENS": {
+                                                                  "category": "PLT IFF Panel",
+                                                              "control_type": "selector",
+                                                               "description": "M3 Code (tens)",
+                                                                "identifier": "PLT_IFF_M3_CODE_TENS",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 7
+                                                                              } ],
+                                                                   "outputs": [ {
+                                                                                                        "address": 10760,
+                                                                                  "address_mask_shift_identifier": "F_4E_PLT_IFF_M3_CODE_TENS",
+                                                                                                    "description": "selector position",
+                                                                                                           "mask": 56,
+                                                                                                      "max_value": 7,
+                                                                                                       "shift_by": 3,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                              } ]
+                                                          },
+                             "PLT_IFF_M3_CODE_THOUSANDS": {
+                                                                  "category": "PLT IFF Panel",
+                                                              "control_type": "selector",
+                                                               "description": "M3 Code (thousands)",
+                                                                "identifier": "PLT_IFF_M3_CODE_THOUSANDS",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 7
+                                                                              } ],
+                                                                   "outputs": [ {
+                                                                                                        "address": 10758,
+                                                                                  "address_mask_shift_identifier": "F_4E_PLT_IFF_M3_CODE_THOUSANDS",
+                                                                                                    "description": "selector position",
+                                                                                                           "mask": 14336,
+                                                                                                      "max_value": 7,
+                                                                                                       "shift_by": 11,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                              } ]
+                                                          },
+                                            "PLT_IFF_M4": {
+                                                                  "category": "PLT IFF Panel",
+                                                              "control_type": "selector",
+                                                               "description": "Mode 4",
+                                                                "identifier": "PLT_IFF_M4",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 1
+                                                                              }, {
+                                                                                     "argument": "TOGGLE",
+                                                                                  "description": "Toggle switch state",
+                                                                                    "interface": "action"
+                                                                              } ],
+                                                                   "outputs": [ {
+                                                                                                        "address": 10752,
+                                                                                        "address_mask_identifier": "F_4E_PLT_IFF_M4_AM",
+                                                                                  "address_mask_shift_identifier": "F_4E_PLT_IFF_M4",
+                                                                                                    "description": "selector position",
+                                                                                                           "mask": 32768,
+                                                                                                      "max_value": 1,
+                                                                                                       "shift_by": 15,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                              } ]
+                                                          },
+                                        "PLT_IFF_MASTER": {
+                                                                  "category": "PLT IFF Panel",
+                                                              "control_type": "selector",
+                                                               "description": "Select Master Mode",
+                                                                "identifier": "PLT_IFF_MASTER",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 4
+                                                                              } ],
+                                                                   "outputs": [ {
+                                                                                                        "address": 10752,
+                                                                                  "address_mask_shift_identifier": "F_4E_PLT_IFF_MASTER",
+                                                                                                    "description": "selector position",
+                                                                                                           "mask": 448,
+                                                                                                      "max_value": 4,
+                                                                                                       "shift_by": 6,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                              } ]
+                                                          },
+                                            "PLT_IFF_MC": {
+                                                                  "category": "PLT IFF Panel",
+                                                              "control_type": "selector",
+                                                               "description": "Mode C",
+                                                                "identifier": "PLT_IFF_MC",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 2
+                                                                              } ],
+                                                                   "outputs": [ {
+                                                                                                        "address": 10758,
+                                                                                  "address_mask_shift_identifier": "F_4E_PLT_IFF_MC",
+                                                                                                    "description": "selector position",
+                                                                                                           "mask": 12,
+                                                                                                      "max_value": 2,
+                                                                                                       "shift_by": 2,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                              } ]
+                                                          },
+                                           "PLT_IFF_RAD": {
+                                                                  "category": "PLT IFF Panel",
+                                                              "control_type": "selector",
+                                                               "description": "Monitor Radiation",
+                                                                "identifier": "PLT_IFF_RAD",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 2
+                                                                              } ],
+                                                                   "outputs": [ {
+                                                                                                        "address": 10758,
+                                                                                  "address_mask_shift_identifier": "F_4E_PLT_IFF_RAD",
+                                                                                                    "description": "selector position",
+                                                                                                           "mask": 48,
+                                                                                                      "max_value": 2,
+                                                                                                       "shift_by": 4,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                              } ]
+                                                          },
+                             "PLT_IFF_REPLY_TEST_BUTTON": {
+                                                               "api_variant": "momentary_last_position",
+                                                                  "category": "PLT IFF Panel",
+                                                              "control_type": "selector",
+                                                               "description": "IFF Reply Lamp (push to test)",
+                                                                "identifier": "PLT_IFF_REPLY_TEST_BUTTON",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 1
+                                                                              }, {
+                                                                                     "argument": "TOGGLE",
+                                                                                  "description": "Toggle switch state",
+                                                                                    "interface": "action"
+                                                                              } ],
+                                                                   "outputs": [ {
+                                                                                                        "address": 10752,
+                                                                                        "address_mask_identifier": "F_4E_PLT_IFF_REPLY_TEST_BUTTON_AM",
+                                                                                  "address_mask_shift_identifier": "F_4E_PLT_IFF_REPLY_TEST_BUTTON",
+                                                                                                    "description": "selector position",
+                                                                                                           "mask": 4,
+                                                                                                      "max_value": 1,
+                                                                                                       "shift_by": 2,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                              } ]
+                                                          },
+                                "PLT_IFF_REPLY_TEST_DIM": {
+                                                                  "category": "PLT IFF Panel",
+                                                              "control_type": "limited_dial",
+                                                               "description": "IFF Reply Lamp (rotate to dim)",
+                                                                "identifier": "PLT_IFF_REPLY_TEST_DIM",
+                                                                    "inputs": [ {
+                                                                                  "description": "set the position of the dial",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 65535
+                                                                              }, {
+                                                                                     "description": "turn the dial left or right",
+                                                                                       "interface": "variable_step",
+                                                                                       "max_value": 65535,
+                                                                                  "suggested_step": 3200
+                                                                              } ],
+                                                                   "outputs": [ {
+                                                                                                        "address": 10754,
+                                                                                             "address_identifier": "F_4E_PLT_IFF_REPLY_TEST_DIM_A",
+                                                                                  "address_mask_shift_identifier": "F_4E_PLT_IFF_REPLY_TEST_DIM",
+                                                                                                    "description": "position of the potentiometer",
+                                                                                                           "mask": 65535,
+                                                                                                      "max_value": 65535,
+                                                                                                       "shift_by": 0,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                              } ]
+                                                          },
+                              "PLT_IFF_REPLY_TEST_LIGHT": {
+                                                                  "category": "PLT IFF Panel",
+                                                              "control_type": "led",
+                                                               "description": "IFF Reply Test Light (Blue)",
+                                                                "identifier": "PLT_IFF_REPLY_TEST_LIGHT",
+                                                                    "inputs": [  ],
+                                                                   "outputs": [ {
+                                                                                                        "address": 10752,
+                                                                                        "address_mask_identifier": "F_4E_PLT_IFF_REPLY_TEST_LIGHT_AM",
+                                                                                  "address_mask_shift_identifier": "F_4E_PLT_IFF_REPLY_TEST_LIGHT",
+                                                                                                    "description": "0 if light is off, 1 if light is on",
+                                                                                                           "mask": 8,
+                                                                                                      "max_value": 1,
+                                                                                                       "shift_by": 3,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                              } ]
+                                                          },
+                                   "PLT_IFF_TEST_BUTTON": {
+                                                               "api_variant": "momentary_last_position",
+                                                                  "category": "PLT IFF Panel",
+                                                              "control_type": "selector",
+                                                               "description": "IFF Test Lamp (push to test)",
+                                                                "identifier": "PLT_IFF_TEST_BUTTON",
+                                                                    "inputs": [ {
+                                                                                  "description": "switch to previous or next state",
+                                                                                    "interface": "fixed_step"
+                                                                              }, {
+                                                                                  "description": "set position",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 1
+                                                                              }, {
+                                                                                     "argument": "TOGGLE",
+                                                                                  "description": "Toggle switch state",
+                                                                                    "interface": "action"
+                                                                              } ],
+                                                                   "outputs": [ {
+                                                                                                        "address": 10752,
+                                                                                        "address_mask_identifier": "F_4E_PLT_IFF_TEST_BUTTON_AM",
+                                                                                  "address_mask_shift_identifier": "F_4E_PLT_IFF_TEST_BUTTON",
+                                                                                                    "description": "selector position",
+                                                                                                           "mask": 16,
+                                                                                                      "max_value": 1,
+                                                                                                       "shift_by": 4,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                              } ]
+                                                          },
+                                      "PLT_IFF_TEST_DIM": {
+                                                                  "category": "PLT IFF Panel",
+                                                              "control_type": "limited_dial",
+                                                               "description": "IFF Test Lamp (rotate to dim)",
+                                                                "identifier": "PLT_IFF_TEST_DIM",
+                                                                    "inputs": [ {
+                                                                                  "description": "set the position of the dial",
+                                                                                    "interface": "set_state",
+                                                                                    "max_value": 65535
+                                                                              }, {
+                                                                                     "description": "turn the dial left or right",
+                                                                                       "interface": "variable_step",
+                                                                                       "max_value": 65535,
+                                                                                  "suggested_step": 3200
+                                                                              } ],
+                                                                   "outputs": [ {
+                                                                                                        "address": 10756,
+                                                                                             "address_identifier": "F_4E_PLT_IFF_TEST_DIM_A",
+                                                                                  "address_mask_shift_identifier": "F_4E_PLT_IFF_TEST_DIM",
+                                                                                                    "description": "position of the potentiometer",
+                                                                                                           "mask": 65535,
+                                                                                                      "max_value": 65535,
+                                                                                                       "shift_by": 0,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                              } ]
+                                                          },
+                                    "PLT_IFF_TEST_LIGHT": {
+                                                                  "category": "PLT IFF Panel",
+                                                              "control_type": "led",
+                                                               "description": "IFF Test Light (Blue)",
+                                                                "identifier": "PLT_IFF_TEST_LIGHT",
+                                                                    "inputs": [  ],
+                                                                   "outputs": [ {
+                                                                                                        "address": 10752,
+                                                                                        "address_mask_identifier": "F_4E_PLT_IFF_TEST_LIGHT_AM",
+                                                                                  "address_mask_shift_identifier": "F_4E_PLT_IFF_TEST_LIGHT",
+                                                                                                    "description": "0 if light is off, 1 if light is on",
+                                                                                                           "mask": 32,
+                                                                                                      "max_value": 1,
+                                                                                                       "shift_by": 5,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                              } ]
+                                                          }
+                         },
     "PLT Weapons Panel": {
                              "PLT_MASTER_ARM_SW": {
                                                           "category": "PLT Weapons Panel",
@@ -18,16 +589,665 @@
                                                                             "interface": "action"
                                                                       } ],
                                                            "outputs": [ {
-                                                                                                "address": 10752,
+                                                                                                "address": 10760,
                                                                                 "address_mask_identifier": "F_4E_PLT_MASTER_ARM_SW_AM",
                                                                           "address_mask_shift_identifier": "F_4E_PLT_MASTER_ARM_SW",
                                                                                             "description": "selector position",
-                                                                                                   "mask": 1,
+                                                                                                   "mask": 512,
                                                                                               "max_value": 1,
-                                                                                               "shift_by": 0,
+                                                                                               "shift_by": 9,
                                                                                                  "suffix": "",
                                                                                                    "type": "integer"
                                                                       } ]
                                                   }
+                         },
+        "WSO IFF Panel": {
+                                                 "WSO_IFF_CHALLENGE_DIM": {
+                                                                                  "category": "WSO IFF Panel",
+                                                                              "control_type": "limited_dial",
+                                                                               "description": "Challenge Light (rotate to dim)",
+                                                                                "identifier": "WSO_IFF_CHALLENGE_DIM",
+                                                                                    "inputs": [ {
+                                                                                                  "description": "set the position of the dial",
+                                                                                                    "interface": "set_state",
+                                                                                                    "max_value": 65535
+                                                                                              }, {
+                                                                                                     "description": "turn the dial left or right",
+                                                                                                       "interface": "variable_step",
+                                                                                                       "max_value": 65535,
+                                                                                                  "suggested_step": 3200
+                                                                                              } ],
+                                                                                   "outputs": [ {
+                                                                                                                        "address": 10778,
+                                                                                                             "address_identifier": "F_4E_WSO_IFF_CHALLENGE_DIM_A",
+                                                                                                  "address_mask_shift_identifier": "F_4E_WSO_IFF_CHALLENGE_DIM",
+                                                                                                                    "description": "position of the potentiometer",
+                                                                                                                           "mask": 65535,
+                                                                                                                      "max_value": 65535,
+                                                                                                                       "shift_by": 0,
+                                                                                                                         "suffix": "",
+                                                                                                                           "type": "integer"
+                                                                                              } ]
+                                                                          },
+                                               "WSO_IFF_CHALLENGE_LIGHT": {
+                                                                                  "category": "WSO IFF Panel",
+                                                                              "control_type": "led",
+                                                                               "description": "IFF Challenge Light (Blue)",
+                                                                                "identifier": "WSO_IFF_CHALLENGE_LIGHT",
+                                                                                    "inputs": [  ],
+                                                                                   "outputs": [ {
+                                                                                                                        "address": 10776,
+                                                                                                        "address_mask_identifier": "F_4E_WSO_IFF_CHALLENGE_LIGHT_AM",
+                                                                                                  "address_mask_shift_identifier": "F_4E_WSO_IFF_CHALLENGE_LIGHT",
+                                                                                                                    "description": "0 if light is off, 1 if light is on",
+                                                                                                                           "mask": 8192,
+                                                                                                                      "max_value": 1,
+                                                                                                                       "shift_by": 13,
+                                                                                                                         "suffix": "",
+                                                                                                                           "type": "integer"
+                                                                                              } ]
+                                                                          },
+                                         "WSO_IFF_CHALLENGE_TEST_BUTTON": {
+                                                                               "api_variant": "momentary_last_position",
+                                                                                  "category": "WSO IFF Panel",
+                                                                              "control_type": "selector",
+                                                                               "description": "Challenge Light (push to test)",
+                                                                                "identifier": "WSO_IFF_CHALLENGE_TEST_BUTTON",
+                                                                                    "inputs": [ {
+                                                                                                  "description": "switch to previous or next state",
+                                                                                                    "interface": "fixed_step"
+                                                                                              }, {
+                                                                                                  "description": "set position",
+                                                                                                    "interface": "set_state",
+                                                                                                    "max_value": 1
+                                                                                              }, {
+                                                                                                     "argument": "TOGGLE",
+                                                                                                  "description": "Toggle switch state",
+                                                                                                    "interface": "action"
+                                                                                              } ],
+                                                                                   "outputs": [ {
+                                                                                                                        "address": 10776,
+                                                                                                        "address_mask_identifier": "F_4E_WSO_IFF_CHALLENGE_TEST_BUTTON_AM",
+                                                                                                  "address_mask_shift_identifier": "F_4E_WSO_IFF_CHALLENGE_TEST_BUTTON",
+                                                                                                                    "description": "selector position",
+                                                                                                                           "mask": 4096,
+                                                                                                                      "max_value": 1,
+                                                                                                                       "shift_by": 12,
+                                                                                                                         "suffix": "",
+                                                                                                                           "type": "integer"
+                                                                                              } ]
+                                                                          },
+                                                          "WSO_IFF_CODE": {
+                                                                                  "category": "WSO IFF Panel",
+                                                                              "control_type": "display",
+                                                                               "description": "IFF Code",
+                                                                                "identifier": "WSO_IFF_CODE",
+                                                                                    "inputs": [  ],
+                                                                                   "outputs": [ {
+                                                                                                             "address": 10770,
+                                                                                                  "address_identifier": "F_4E_WSO_IFF_CODE_A",
+                                                                                                         "description": "IFF Code",
+                                                                                                          "max_length": 4,
+                                                                                                              "suffix": "",
+                                                                                                                "type": "string"
+                                                                                              } ]
+                                                                          },
+                                                 "WSO_IFF_CODE_HUNDREDS": {
+                                                                                  "category": "WSO IFF Panel",
+                                                                              "control_type": "metadata",
+                                                                               "description": "IFF Code (hundreds)",
+                                                                                "identifier": "WSO_IFF_CODE_HUNDREDS",
+                                                                                    "inputs": [  ],
+                                                                                   "outputs": [ {
+                                                                                                                        "address": 10768,
+                                                                                                  "address_mask_shift_identifier": "F_4E_WSO_IFF_CODE_HUNDREDS",
+                                                                                                                    "description": "IFF Code (hundreds)",
+                                                                                                                           "mask": 240,
+                                                                                                                      "max_value": 8,
+                                                                                                                       "shift_by": 4,
+                                                                                                                         "suffix": "",
+                                                                                                                           "type": "integer"
+                                                                                              } ]
+                                                                          },
+                                             "WSO_IFF_CODE_INC_HUNDREDS": {
+                                                                               "api_variant": "momentary_last_position",
+                                                                                  "category": "WSO IFF Panel",
+                                                                              "control_type": "selector",
+                                                                               "description": "Increase IFF Code (hundreds)",
+                                                                                "identifier": "WSO_IFF_CODE_INC_HUNDREDS",
+                                                                                    "inputs": [ {
+                                                                                                  "description": "switch to previous or next state",
+                                                                                                    "interface": "fixed_step"
+                                                                                              }, {
+                                                                                                  "description": "set position",
+                                                                                                    "interface": "set_state",
+                                                                                                    "max_value": 1
+                                                                                              }, {
+                                                                                                     "argument": "TOGGLE",
+                                                                                                  "description": "Toggle switch state",
+                                                                                                    "interface": "action"
+                                                                                              } ],
+                                                                                   "outputs": [ {
+                                                                                                                        "address": 10768,
+                                                                                                        "address_mask_identifier": "F_4E_WSO_IFF_CODE_INC_HUNDREDS_AM",
+                                                                                                  "address_mask_shift_identifier": "F_4E_WSO_IFF_CODE_INC_HUNDREDS",
+                                                                                                                    "description": "selector position",
+                                                                                                                           "mask": 4096,
+                                                                                                                      "max_value": 1,
+                                                                                                                       "shift_by": 12,
+                                                                                                                         "suffix": "",
+                                                                                                                           "type": "integer"
+                                                                                              } ]
+                                                                          },
+                                                 "WSO_IFF_CODE_INC_ONES": {
+                                                                               "api_variant": "momentary_last_position",
+                                                                                  "category": "WSO IFF Panel",
+                                                                              "control_type": "selector",
+                                                                               "description": "Increase IFF Code (ones)",
+                                                                                "identifier": "WSO_IFF_CODE_INC_ONES",
+                                                                                    "inputs": [ {
+                                                                                                  "description": "switch to previous or next state",
+                                                                                                    "interface": "fixed_step"
+                                                                                              }, {
+                                                                                                  "description": "set position",
+                                                                                                    "interface": "set_state",
+                                                                                                    "max_value": 1
+                                                                                              }, {
+                                                                                                     "argument": "TOGGLE",
+                                                                                                  "description": "Toggle switch state",
+                                                                                                    "interface": "action"
+                                                                                              } ],
+                                                                                   "outputs": [ {
+                                                                                                                        "address": 10768,
+                                                                                                        "address_mask_identifier": "F_4E_WSO_IFF_CODE_INC_ONES_AM",
+                                                                                                  "address_mask_shift_identifier": "F_4E_WSO_IFF_CODE_INC_ONES",
+                                                                                                                    "description": "selector position",
+                                                                                                                           "mask": 16384,
+                                                                                                                      "max_value": 1,
+                                                                                                                       "shift_by": 14,
+                                                                                                                         "suffix": "",
+                                                                                                                           "type": "integer"
+                                                                                              } ]
+                                                                          },
+                                                 "WSO_IFF_CODE_INC_TENS": {
+                                                                               "api_variant": "momentary_last_position",
+                                                                                  "category": "WSO IFF Panel",
+                                                                              "control_type": "selector",
+                                                                               "description": "Increase IFF Code (tens)",
+                                                                                "identifier": "WSO_IFF_CODE_INC_TENS",
+                                                                                    "inputs": [ {
+                                                                                                  "description": "switch to previous or next state",
+                                                                                                    "interface": "fixed_step"
+                                                                                              }, {
+                                                                                                  "description": "set position",
+                                                                                                    "interface": "set_state",
+                                                                                                    "max_value": 1
+                                                                                              }, {
+                                                                                                     "argument": "TOGGLE",
+                                                                                                  "description": "Toggle switch state",
+                                                                                                    "interface": "action"
+                                                                                              } ],
+                                                                                   "outputs": [ {
+                                                                                                                        "address": 10768,
+                                                                                                        "address_mask_identifier": "F_4E_WSO_IFF_CODE_INC_TENS_AM",
+                                                                                                  "address_mask_shift_identifier": "F_4E_WSO_IFF_CODE_INC_TENS",
+                                                                                                                    "description": "selector position",
+                                                                                                                           "mask": 8192,
+                                                                                                                      "max_value": 1,
+                                                                                                                       "shift_by": 13,
+                                                                                                                         "suffix": "",
+                                                                                                                           "type": "integer"
+                                                                                              } ]
+                                                                          },
+                                            "WSO_IFF_CODE_INC_THOUSANDS": {
+                                                                               "api_variant": "momentary_last_position",
+                                                                                  "category": "WSO IFF Panel",
+                                                                              "control_type": "selector",
+                                                                               "description": "Increase IFF Code (thousands)",
+                                                                                "identifier": "WSO_IFF_CODE_INC_THOUSANDS",
+                                                                                    "inputs": [ {
+                                                                                                  "description": "switch to previous or next state",
+                                                                                                    "interface": "fixed_step"
+                                                                                              }, {
+                                                                                                  "description": "set position",
+                                                                                                    "interface": "set_state",
+                                                                                                    "max_value": 1
+                                                                                              }, {
+                                                                                                     "argument": "TOGGLE",
+                                                                                                  "description": "Toggle switch state",
+                                                                                                    "interface": "action"
+                                                                                              } ],
+                                                                                   "outputs": [ {
+                                                                                                                        "address": 10760,
+                                                                                                        "address_mask_identifier": "F_4E_WSO_IFF_CODE_INC_THOUSANDS_AM",
+                                                                                                  "address_mask_shift_identifier": "F_4E_WSO_IFF_CODE_INC_THOUSANDS",
+                                                                                                                    "description": "selector position",
+                                                                                                                           "mask": 32768,
+                                                                                                                      "max_value": 1,
+                                                                                                                       "shift_by": 15,
+                                                                                                                         "suffix": "",
+                                                                                                                           "type": "integer"
+                                                                                              } ]
+                                                                          },
+                                                     "WSO_IFF_CODE_ONES": {
+                                                                                  "category": "WSO IFF Panel",
+                                                                              "control_type": "metadata",
+                                                                               "description": "IFF Code (ones)",
+                                                                                "identifier": "WSO_IFF_CODE_ONES",
+                                                                                    "inputs": [  ],
+                                                                                   "outputs": [ {
+                                                                                                                        "address": 10760,
+                                                                                                  "address_mask_shift_identifier": "F_4E_WSO_IFF_CODE_ONES",
+                                                                                                                    "description": "IFF Code (ones)",
+                                                                                                                           "mask": 15360,
+                                                                                                                      "max_value": 8,
+                                                                                                                       "shift_by": 10,
+                                                                                                                         "suffix": "",
+                                                                                                                           "type": "integer"
+                                                                                              } ]
+                                                                          },
+                                                     "WSO_IFF_CODE_TENS": {
+                                                                                  "category": "WSO IFF Panel",
+                                                                              "control_type": "metadata",
+                                                                               "description": "IFF Code (tens)",
+                                                                                "identifier": "WSO_IFF_CODE_TENS",
+                                                                                    "inputs": [  ],
+                                                                                   "outputs": [ {
+                                                                                                                        "address": 10768,
+                                                                                                  "address_mask_shift_identifier": "F_4E_WSO_IFF_CODE_TENS",
+                                                                                                                    "description": "IFF Code (tens)",
+                                                                                                                           "mask": 15,
+                                                                                                                      "max_value": 8,
+                                                                                                                       "shift_by": 0,
+                                                                                                                         "suffix": "",
+                                                                                                                           "type": "integer"
+                                                                                              } ]
+                                                                          },
+                                                "WSO_IFF_CODE_THOUSANDS": {
+                                                                                  "category": "WSO IFF Panel",
+                                                                              "control_type": "metadata",
+                                                                               "description": "IFF Code (thousands)",
+                                                                                "identifier": "WSO_IFF_CODE_THOUSANDS",
+                                                                                    "inputs": [  ],
+                                                                                   "outputs": [ {
+                                                                                                                        "address": 10768,
+                                                                                                  "address_mask_shift_identifier": "F_4E_WSO_IFF_CODE_THOUSANDS",
+                                                                                                                    "description": "IFF Code (thousands)",
+                                                                                                                           "mask": 3840,
+                                                                                                                      "max_value": 8,
+                                                                                                                       "shift_by": 8,
+                                                                                                                         "suffix": "",
+                                                                                                                           "type": "integer"
+                                                                                              } ]
+                                                                          },
+                                     "WSO_IFF_COMBAT_TREE_CHALLENGE_DIM": {
+                                                                                  "category": "WSO IFF Panel",
+                                                                              "control_type": "limited_dial",
+                                                                               "description": "Combat-Tree Challenge Light (rotate to dim) (not simulated)",
+                                                                                "identifier": "WSO_IFF_COMBAT_TREE_CHALLENGE_DIM",
+                                                                                    "inputs": [ {
+                                                                                                  "description": "set the position of the dial",
+                                                                                                    "interface": "set_state",
+                                                                                                    "max_value": 65535
+                                                                                              }, {
+                                                                                                     "description": "turn the dial left or right",
+                                                                                                       "interface": "variable_step",
+                                                                                                       "max_value": 65535,
+                                                                                                  "suggested_step": 3200
+                                                                                              } ],
+                                                                                   "outputs": [ {
+                                                                                                                        "address": 10782,
+                                                                                                             "address_identifier": "F_4E_WSO_IFF_COMBAT_TREE_CHALLENGE_DIM_A",
+                                                                                                  "address_mask_shift_identifier": "F_4E_WSO_IFF_COMBAT_TREE_CHALLENGE_DIM",
+                                                                                                                    "description": "position of the potentiometer",
+                                                                                                                           "mask": 65535,
+                                                                                                                      "max_value": 65535,
+                                                                                                                       "shift_by": 0,
+                                                                                                                         "suffix": "",
+                                                                                                                           "type": "integer"
+                                                                                              } ]
+                                                                          },
+                             "WSO_IFF_COMBAT_TREE_CHALLENGE_TEST_BUTTON": {
+                                                                               "api_variant": "momentary_last_position",
+                                                                                  "category": "WSO IFF Panel",
+                                                                              "control_type": "selector",
+                                                                               "description": "Combat-Tree Challenge Light (push to test) (not simulated)",
+                                                                                "identifier": "WSO_IFF_COMBAT_TREE_CHALLENGE_TEST_BUTTON",
+                                                                                    "inputs": [ {
+                                                                                                  "description": "switch to previous or next state",
+                                                                                                    "interface": "fixed_step"
+                                                                                              }, {
+                                                                                                  "description": "set position",
+                                                                                                    "interface": "set_state",
+                                                                                                    "max_value": 1
+                                                                                              }, {
+                                                                                                     "argument": "TOGGLE",
+                                                                                                  "description": "Toggle switch state",
+                                                                                                    "interface": "action"
+                                                                                              } ],
+                                                                                   "outputs": [ {
+                                                                                                                        "address": 10780,
+                                                                                                        "address_mask_identifier": "F_4E_WSO_IFF_COMBAT_TREE_CHALLENGE_TEST_BUTTON_AM",
+                                                                                                  "address_mask_shift_identifier": "F_4E_WSO_IFF_COMBAT_TREE_CHALLENGE_TEST_BUTTON",
+                                                                                                                    "description": "selector position",
+                                                                                                                           "mask": 2,
+                                                                                                                      "max_value": 1,
+                                                                                                                       "shift_by": 1,
+                                                                                                                         "suffix": "",
+                                                                                                                           "type": "integer"
+                                                                                              } ]
+                                                                          },
+                              "WSO_IFF_COMBAT_TREE_CHALLENGE_TEST_LIGHT": {
+                                                                                  "category": "WSO IFF Panel",
+                                                                              "control_type": "led",
+                                                                               "description": "Combat-Tree Challenge Light (Blue)",
+                                                                                "identifier": "WSO_IFF_COMBAT_TREE_CHALLENGE_TEST_LIGHT",
+                                                                                    "inputs": [  ],
+                                                                                   "outputs": [ {
+                                                                                                                        "address": 10780,
+                                                                                                        "address_mask_identifier": "F_4E_WSO_IFF_COMBAT_TREE_CHALLENGE_TEST_LIGHT_AM",
+                                                                                                  "address_mask_shift_identifier": "F_4E_WSO_IFF_COMBAT_TREE_CHALLENGE_TEST_LIGHT",
+                                                                                                                    "description": "0 if light is off, 1 if light is on",
+                                                                                                                           "mask": 4,
+                                                                                                                      "max_value": 1,
+                                                                                                                       "shift_by": 2,
+                                                                                                                         "suffix": "",
+                                                                                                                           "type": "integer"
+                                                                                              } ]
+                                                                          },
+                                            "WSO_IFF_COMBAT_TREE_MODE_2": {
+                                                                                  "category": "WSO IFF Panel",
+                                                                              "control_type": "selector",
+                                                                               "description": "Set Combat-Tree Type 2 Mode",
+                                                                                "identifier": "WSO_IFF_COMBAT_TREE_MODE_2",
+                                                                                    "inputs": [ {
+                                                                                                  "description": "switch to previous or next state",
+                                                                                                    "interface": "fixed_step"
+                                                                                              }, {
+                                                                                                  "description": "set position",
+                                                                                                    "interface": "set_state",
+                                                                                                    "max_value": 2
+                                                                                              } ],
+                                                                                   "outputs": [ {
+                                                                                                                        "address": 10780,
+                                                                                                  "address_mask_shift_identifier": "F_4E_WSO_IFF_COMBAT_TREE_MODE_2",
+                                                                                                                    "description": "selector position",
+                                                                                                                           "mask": 48,
+                                                                                                                      "max_value": 2,
+                                                                                                                       "shift_by": 4,
+                                                                                                                         "suffix": "",
+                                                                                                                           "type": "integer"
+                                                                                              } ]
+                                                                          },
+                                            "WSO_IFF_COMBAT_TREE_MODE_3": {
+                                                                                  "category": "WSO IFF Panel",
+                                                                              "control_type": "selector",
+                                                                               "description": "Set Combat-Tree Type 3 Mode",
+                                                                                "identifier": "WSO_IFF_COMBAT_TREE_MODE_3",
+                                                                                    "inputs": [ {
+                                                                                                  "description": "switch to previous or next state",
+                                                                                                    "interface": "fixed_step"
+                                                                                              }, {
+                                                                                                  "description": "set position",
+                                                                                                    "interface": "set_state",
+                                                                                                    "max_value": 2
+                                                                                              } ],
+                                                                                   "outputs": [ {
+                                                                                                                        "address": 10780,
+                                                                                                  "address_mask_shift_identifier": "F_4E_WSO_IFF_COMBAT_TREE_MODE_3",
+                                                                                                                    "description": "selector position",
+                                                                                                                           "mask": 192,
+                                                                                                                      "max_value": 2,
+                                                                                                                       "shift_by": 6,
+                                                                                                                         "suffix": "",
+                                                                                                                           "type": "integer"
+                                                                                              } ]
+                                                                          },
+                                              "WSO_IFF_COMBAT_TREE_TEST": {
+                                                                               "api_variant": "momentary_last_position",
+                                                                                  "category": "WSO IFF Panel",
+                                                                              "control_type": "selector",
+                                                                               "description": "Test Combat-Tree",
+                                                                                "identifier": "WSO_IFF_COMBAT_TREE_TEST",
+                                                                                    "inputs": [ {
+                                                                                                  "description": "switch to previous or next state",
+                                                                                                    "interface": "fixed_step"
+                                                                                              }, {
+                                                                                                  "description": "set position",
+                                                                                                    "interface": "set_state",
+                                                                                                    "max_value": 1
+                                                                                              }, {
+                                                                                                     "argument": "TOGGLE",
+                                                                                                  "description": "Toggle switch state",
+                                                                                                    "interface": "action"
+                                                                                              } ],
+                                                                                   "outputs": [ {
+                                                                                                                        "address": 10780,
+                                                                                                        "address_mask_identifier": "F_4E_WSO_IFF_COMBAT_TREE_TEST_AM",
+                                                                                                  "address_mask_shift_identifier": "F_4E_WSO_IFF_COMBAT_TREE_TEST",
+                                                                                                                    "description": "selector position",
+                                                                                                                           "mask": 8,
+                                                                                                                      "max_value": 1,
+                                                                                                                       "shift_by": 3,
+                                                                                                                         "suffix": "",
+                                                                                                                           "type": "integer"
+                                                                                              } ]
+                                                                          },
+                                                          "WSO_IFF_MODE": {
+                                                                                  "category": "WSO IFF Panel",
+                                                                              "control_type": "display",
+                                                                               "description": "IFF Mode",
+                                                                                "identifier": "WSO_IFF_MODE",
+                                                                                    "inputs": [  ],
+                                                                                   "outputs": [ {
+                                                                                                             "address": 10774,
+                                                                                                  "address_identifier": "F_4E_WSO_IFF_MODE_A",
+                                                                                                         "description": "IFF Mode",
+                                                                                                          "max_length": 3,
+                                                                                                              "suffix": "",
+                                                                                                                "type": "string"
+                                                                                              } ]
+                                                                          },
+                                                      "WSO_IFF_MODE_DEC": {
+                                                                               "api_variant": "momentary_last_position",
+                                                                                  "category": "WSO IFF Panel",
+                                                                              "control_type": "selector",
+                                                                               "description": "Decrease IFF Mode",
+                                                                                "identifier": "WSO_IFF_MODE_DEC",
+                                                                                    "inputs": [ {
+                                                                                                  "description": "switch to previous or next state",
+                                                                                                    "interface": "fixed_step"
+                                                                                              }, {
+                                                                                                  "description": "set position",
+                                                                                                    "interface": "set_state",
+                                                                                                    "max_value": 1
+                                                                                              }, {
+                                                                                                     "argument": "TOGGLE",
+                                                                                                  "description": "Toggle switch state",
+                                                                                                    "interface": "action"
+                                                                                              } ],
+                                                                                   "outputs": [ {
+                                                                                                                        "address": 10768,
+                                                                                                        "address_mask_identifier": "F_4E_WSO_IFF_MODE_DEC_AM",
+                                                                                                  "address_mask_shift_identifier": "F_4E_WSO_IFF_MODE_DEC",
+                                                                                                                    "description": "selector position",
+                                                                                                                           "mask": 32768,
+                                                                                                                      "max_value": 1,
+                                                                                                                       "shift_by": 15,
+                                                                                                                         "suffix": "",
+                                                                                                                           "type": "integer"
+                                                                                              } ]
+                                                                          },
+                                             "WSO_IFF_MODE_DEC_HUNDREDS": {
+                                                                               "api_variant": "momentary_last_position",
+                                                                                  "category": "WSO IFF Panel",
+                                                                              "control_type": "selector",
+                                                                               "description": "Decrease IFF Code (hundreds)",
+                                                                                "identifier": "WSO_IFF_MODE_DEC_HUNDREDS",
+                                                                                    "inputs": [ {
+                                                                                                  "description": "switch to previous or next state",
+                                                                                                    "interface": "fixed_step"
+                                                                                              }, {
+                                                                                                  "description": "set position",
+                                                                                                    "interface": "set_state",
+                                                                                                    "max_value": 1
+                                                                                              }, {
+                                                                                                     "argument": "TOGGLE",
+                                                                                                  "description": "Toggle switch state",
+                                                                                                    "interface": "action"
+                                                                                              } ],
+                                                                                   "outputs": [ {
+                                                                                                                        "address": 10776,
+                                                                                                        "address_mask_identifier": "F_4E_WSO_IFF_MODE_DEC_HUNDREDS_AM",
+                                                                                                  "address_mask_shift_identifier": "F_4E_WSO_IFF_MODE_DEC_HUNDREDS",
+                                                                                                                    "description": "selector position",
+                                                                                                                           "mask": 512,
+                                                                                                                      "max_value": 1,
+                                                                                                                       "shift_by": 9,
+                                                                                                                         "suffix": "",
+                                                                                                                           "type": "integer"
+                                                                                              } ]
+                                                                          },
+                                                 "WSO_IFF_MODE_DEC_ONES": {
+                                                                               "api_variant": "momentary_last_position",
+                                                                                  "category": "WSO IFF Panel",
+                                                                              "control_type": "selector",
+                                                                               "description": "Decrease IFF Code (ones)",
+                                                                                "identifier": "WSO_IFF_MODE_DEC_ONES",
+                                                                                    "inputs": [ {
+                                                                                                  "description": "switch to previous or next state",
+                                                                                                    "interface": "fixed_step"
+                                                                                              }, {
+                                                                                                  "description": "set position",
+                                                                                                    "interface": "set_state",
+                                                                                                    "max_value": 1
+                                                                                              }, {
+                                                                                                     "argument": "TOGGLE",
+                                                                                                  "description": "Toggle switch state",
+                                                                                                    "interface": "action"
+                                                                                              } ],
+                                                                                   "outputs": [ {
+                                                                                                                        "address": 10776,
+                                                                                                        "address_mask_identifier": "F_4E_WSO_IFF_MODE_DEC_ONES_AM",
+                                                                                                  "address_mask_shift_identifier": "F_4E_WSO_IFF_MODE_DEC_ONES",
+                                                                                                                    "description": "selector position",
+                                                                                                                           "mask": 2048,
+                                                                                                                      "max_value": 1,
+                                                                                                                       "shift_by": 11,
+                                                                                                                         "suffix": "",
+                                                                                                                           "type": "integer"
+                                                                                              } ]
+                                                                          },
+                                                 "WSO_IFF_MODE_DEC_TENS": {
+                                                                               "api_variant": "momentary_last_position",
+                                                                                  "category": "WSO IFF Panel",
+                                                                              "control_type": "selector",
+                                                                               "description": "Decrease IFF Code (tens)",
+                                                                                "identifier": "WSO_IFF_MODE_DEC_TENS",
+                                                                                    "inputs": [ {
+                                                                                                  "description": "switch to previous or next state",
+                                                                                                    "interface": "fixed_step"
+                                                                                              }, {
+                                                                                                  "description": "set position",
+                                                                                                    "interface": "set_state",
+                                                                                                    "max_value": 1
+                                                                                              }, {
+                                                                                                     "argument": "TOGGLE",
+                                                                                                  "description": "Toggle switch state",
+                                                                                                    "interface": "action"
+                                                                                              } ],
+                                                                                   "outputs": [ {
+                                                                                                                        "address": 10776,
+                                                                                                        "address_mask_identifier": "F_4E_WSO_IFF_MODE_DEC_TENS_AM",
+                                                                                                  "address_mask_shift_identifier": "F_4E_WSO_IFF_MODE_DEC_TENS",
+                                                                                                                    "description": "selector position",
+                                                                                                                           "mask": 1024,
+                                                                                                                      "max_value": 1,
+                                                                                                                       "shift_by": 10,
+                                                                                                                         "suffix": "",
+                                                                                                                           "type": "integer"
+                                                                                              } ]
+                                                                          },
+                                            "WSO_IFF_MODE_DEC_THOUSANDS": {
+                                                                               "api_variant": "momentary_last_position",
+                                                                                  "category": "WSO IFF Panel",
+                                                                              "control_type": "selector",
+                                                                               "description": "Decrease IFF Code (thousands)",
+                                                                                "identifier": "WSO_IFF_MODE_DEC_THOUSANDS",
+                                                                                    "inputs": [ {
+                                                                                                  "description": "switch to previous or next state",
+                                                                                                    "interface": "fixed_step"
+                                                                                              }, {
+                                                                                                  "description": "set position",
+                                                                                                    "interface": "set_state",
+                                                                                                    "max_value": 1
+                                                                                              }, {
+                                                                                                     "argument": "TOGGLE",
+                                                                                                  "description": "Toggle switch state",
+                                                                                                    "interface": "action"
+                                                                                              } ],
+                                                                                   "outputs": [ {
+                                                                                                                        "address": 10776,
+                                                                                                        "address_mask_identifier": "F_4E_WSO_IFF_MODE_DEC_THOUSANDS_AM",
+                                                                                                  "address_mask_shift_identifier": "F_4E_WSO_IFF_MODE_DEC_THOUSANDS",
+                                                                                                                    "description": "selector position",
+                                                                                                                           "mask": 256,
+                                                                                                                      "max_value": 1,
+                                                                                                                       "shift_by": 8,
+                                                                                                                         "suffix": "",
+                                                                                                                           "type": "integer"
+                                                                                              } ]
+                                                                          },
+                                                      "WSO_IFF_MODE_INC": {
+                                                                               "api_variant": "momentary_last_position",
+                                                                                  "category": "WSO IFF Panel",
+                                                                              "control_type": "selector",
+                                                                               "description": "Increase IFF Mode",
+                                                                                "identifier": "WSO_IFF_MODE_INC",
+                                                                                    "inputs": [ {
+                                                                                                  "description": "switch to previous or next state",
+                                                                                                    "interface": "fixed_step"
+                                                                                              }, {
+                                                                                                  "description": "set position",
+                                                                                                    "interface": "set_state",
+                                                                                                    "max_value": 1
+                                                                                              }, {
+                                                                                                     "argument": "TOGGLE",
+                                                                                                  "description": "Toggle switch state",
+                                                                                                    "interface": "action"
+                                                                                              } ],
+                                                                                   "outputs": [ {
+                                                                                                                        "address": 10760,
+                                                                                                        "address_mask_identifier": "F_4E_WSO_IFF_MODE_INC_AM",
+                                                                                                  "address_mask_shift_identifier": "F_4E_WSO_IFF_MODE_INC",
+                                                                                                                    "description": "selector position",
+                                                                                                                           "mask": 16384,
+                                                                                                                      "max_value": 1,
+                                                                                                                       "shift_by": 14,
+                                                                                                                         "suffix": "",
+                                                                                                                           "type": "integer"
+                                                                                              } ]
+                                                                          },
+                                                "WSO_IFF_TEST_CHALLENGE": {
+                                                                                  "category": "WSO IFF Panel",
+                                                                              "control_type": "3Pos_2Command_Switch_OpenClose",
+                                                                               "description": "Test/Challenge Code Switch",
+                                                                                "identifier": "WSO_IFF_TEST_CHALLENGE",
+                                                                                    "inputs": [ {
+                                                                                                  "description": "set the switch position",
+                                                                                                    "interface": "set_state",
+                                                                                                    "max_value": 2
+                                                                                              } ],
+                                                                                   "outputs": [ {
+                                                                                                                        "address": 10776,
+                                                                                                  "address_mask_shift_identifier": "F_4E_WSO_IFF_TEST_CHALLENGE",
+                                                                                                                    "description": "switch position -- 0 = Down, 1 = Mid,  2 = Up",
+                                                                                                                           "mask": 49152,
+                                                                                                                      "max_value": 2,
+                                                                                                                       "shift_by": 14,
+                                                                                                                         "suffix": "",
+                                                                                                                           "type": "integer"
+                                                                                              } ]
+                                                                          }
                          }
 }
