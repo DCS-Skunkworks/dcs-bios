@@ -285,6 +285,23 @@ end, 3, WSO_COUNTERMEASURES_PANEL, "Flare Counter")
 -- cockpit
 local COCKPIT_DEVICE_ID = 7
 
+-- Pilot Cockpit
+local PILOT_COCKPIT = "PLT Cockpit"
+
+-- presently, toggling one mirror toggles all mirrors in both cockpits
+F_4E:defineToggleSwitch("PLT_COCKPIT_MIRROR_TOP", COCKPIT_DEVICE_ID, 3019, 3061, PILOT_COCKPIT, "Toggle Mirrors C")
+F_4E:defineToggleSwitch("PLT_COCKPIT_MIRROR_LEFT", COCKPIT_DEVICE_ID, 3020, 3062, PILOT_COCKPIT, "Toggle Mirrors L")
+F_4E:defineToggleSwitch("PLT_COCKPIT_MIRROR_RIGHT", COCKPIT_DEVICE_ID, 3021, 3063, PILOT_COCKPIT, "Toggle Mirrors R")
+F_4E:defineToggleSwitch("PLT_COCKPIT_HELMET", COCKPIT_DEVICE_ID, 3028, 1900, PILOT_COCKPIT, "Put On / Take Off Helmet")
+
+-- WSO Cockpit
+local WSO_COCKPIT = "WSO Cockpit"
+
+-- 2024-05-25 mirrors intentionally use same arg_number as pilot - this is the way it is in the module lua
+F_4E:defineToggleSwitch("WSO_COCKPIT_MIRROR_LEFT", COCKPIT_DEVICE_ID, 3034, 3062, WSO_COCKPIT, "Toggle WSO Mirror Left")
+F_4E:defineToggleSwitch("WSO_COCKPIT_MIRROR_RIGHT", COCKPIT_DEVICE_ID, 3035, 3063, WSO_COCKPIT, "Toggle WSO Mirror Right")
+F_4E:defineToggleSwitch("WSO_COCKPIT_HELMET", COCKPIT_DEVICE_ID, 3031, 1903, WSO_COCKPIT, "Put On / Take Off Helmet")
+
 -- AFCS
 local AFCS_DEVICE_ID = 9
 
