@@ -280,6 +280,28 @@ local CONTROL_SURFACES_DEVICE_ID = 25
 -- Oxygen System
 local OXYGEN_SYSTEM_DEVICE_ID = 26
 
+local PILOT_O2_SYSTEM = "PLT Oxygen System"
+
+F_4E:definePushButton("PLT_O2_TEST", OXYGEN_SYSTEM_DEVICE_ID, 3001, 232, PILOT_O2_SYSTEM, "Test Oxygen Gauge")
+F_4E:defineSpringloaded_3PosTumb("PLT_O2_MODE", OXYGEN_SYSTEM_DEVICE_ID, 3002, 3002, 235, PILOT_O2_SYSTEM, "Select Oxygen Mode")
+F_4E:defineToggleSwitch("PLT_O2_MIXTURE", OXYGEN_SYSTEM_DEVICE_ID, 3004, 236, PILOT_O2_SYSTEM, "Select Oxygen Mixture")
+F_4E:defineToggleSwitch("PLT_O2_SUPPLY", OXYGEN_SYSTEM_DEVICE_ID, 3006, 237, PILOT_O2_SYSTEM, "Oxygen Supply")
+
+F_4E:defineFloat("PLT_O2_FLOW", 234, { 0, 1 }, PILOT_O2_SYSTEM, "Oxygen Flow Indicator (White)")
+F_4E:defineFloat("PLT_O2_PRESSURE", 233, { 0, 1 }, PILOT_O2_SYSTEM, "Oxygen Supply Pressure Gauge")
+F_4E:defineFloat("PLT_O2_LITERS", 231, { 0, 1 }, PILOT_O2_SYSTEM, "Oxygen Supply Liters Gauge")
+
+local WSO_O2_SYSTEM = "WSO Oxygen System"
+
+F_4E:reserveIntValue(65535) -- Lamp Cap, not yet implemented
+
+F_4E:defineSpringloaded_3PosTumb("WSO_O2_MODE", OXYGEN_SYSTEM_DEVICE_ID, 3003, 3003, 242, WSO_O2_SYSTEM, "Select Oxygen Mode")
+F_4E:defineToggleSwitch("WSO_O2_MIXTURE", OXYGEN_SYSTEM_DEVICE_ID, 3005, 243, WSO_O2_SYSTEM, "Select Oxygen Mixture")
+F_4E:defineToggleSwitch("WSO_O2_SUPPLY", OXYGEN_SYSTEM_DEVICE_ID, 3007, 244, WSO_O2_SYSTEM, "Oxygen Supply")
+
+F_4E:defineFloat("WSO_O2_FLOW", 241, { 0, 1 }, WSO_O2_SYSTEM, "Oxygen Flow Indicator (White)")
+F_4E:defineFloat("WSO_O2_PRESSURE", 245, { 0, 1 }, WSO_O2_SYSTEM, "Oxygen Supply Pressure Gauge")
+
 -- Weapons
 local WEAPONS_DEVICE_ID = 27
 
@@ -515,5 +537,10 @@ local ECM_DEVICE_ID = 91
 local PILOT_THROTTLE = "PLT Throttle"
 
 F_4E:definePushButton("PLT_THROTTLE_CM_DISPENSE", COUNTERMEASURES_DEVICE_ID, 3012, 1436, PILOT_THROTTLE, "Dispense Countermeasures")
+
+-- Pilot Right Panel
+local PILOT_RIGHT_PANEL = "PLT Right Panel"
+
+F_4E:definePushButton("PLT_COCKPIT_PRESSURE_EMERGENCY_RELEASE", OXYGEN_SYSTEM_DEVICE_ID, 3012, 2879, PILOT_RIGHT_PANEL, "Emergency Release Cockpit Pressure")
 
 return F_4E
