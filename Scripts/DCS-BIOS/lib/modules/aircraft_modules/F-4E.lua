@@ -32,6 +32,46 @@ end
 -- ICS
 local ICS_DEVICE_ID = 2
 
+-- Pilot KY-28
+local PILOT_KY_28 = "PLT KY-28"
+
+F_4E:definePushButton("PLT_KY_28_P_MODE_TEST", ICS_DEVICE_ID, 3029, 2791, PILOT_KY_28, "KY-28 P Mode Light (push to test)")
+F_4E:definePotentiometer("PLT_KY_28_P_MODE_DIM", ICS_DEVICE_ID, 3030, 2790, { 0, 1 }, PILOT_KY_28, "KY-28 P Mode Light (rotate to dim)")
+F_4E:defineIndicatorLight("PLT_KY_28_P_MODE", 2554, PILOT_KY_28, "KY-28 P Mode Light")
+
+F_4E:definePushButton("PLT_KY_28_C_MODE_TEST", ICS_DEVICE_ID, 3033, 2793, PILOT_KY_28, "KY-28 C Mode Light (push to test)")
+F_4E:definePotentiometer("PLT_KY_28_C_MODE_DIM", ICS_DEVICE_ID, 3034, 2792, { 0, 1 }, PILOT_KY_28, "KY-28 C Mode Light (rotate to dim)")
+F_4E:defineIndicatorLight("PLT_KY_28_C_MODE", 2555, PILOT_KY_28, "KY-28 C Mode Light")
+
+-- WSO KY-28
+local WSO_KY_28 = "WSO KY-28"
+
+F_4E:definePushButton("WSO_KY_28_P_MODE_TEST", ICS_DEVICE_ID, 3037, 2622, WSO_KY_28, "KY-28 P Mode Light (push to test)")
+F_4E:definePotentiometer("WSO_KY_28_P_MODE_DIM", ICS_DEVICE_ID, 3038, 2807, { 0, 1 }, WSO_KY_28, "KY-28 P Mode Light (rotate to dim)")
+F_4E:defineIndicatorLight("WSO_KY_28_P_MODE", 2675, WSO_KY_28, "KY-28 P Mode Light")
+
+F_4E:definePushButton("WSO_KY_28_C_MODE_TEST", ICS_DEVICE_ID, 3041, 2623, WSO_KY_28, "KY-28 C Mode Light (push to test)")
+F_4E:definePotentiometer("WSO_KY_28_C_MODE_DIM", ICS_DEVICE_ID, 3042, 2808, { 0, 1 }, WSO_KY_28, "KY-28 C Mode Light (rotate to dim)")
+F_4E:defineIndicatorLight("WSO_KY_28_C_MODE", 2676, WSO_KY_28, "KY-28 C Mode Light")
+
+F_4E:definePushButton("WSO_KY_28_ERASE", ICS_DEVICE_ID, 3045, 2647, WSO_KY_28, "Erase KY-28 Data")
+F_4E:defineToggleSwitch("WSO_KY_28_BAND", ICS_DEVICE_ID, 3047, 2648, WSO_KY_28, "Select KY-28 Mode")
+F_4E:defineMultipositionSwitch("WSO_KY_28_MODE", ICS_DEVICE_ID, 3050, 2649, 3, 0.5, WSO_KY_28, "Select KY-28 Power Mode")
+
+-- Pilot ICS
+local PILOT_ICS_PANEL = "PLT ICS Panel"
+
+F_4E:definePotentiometer("PLT_ICS_INTERCOM_VOL", ICS_DEVICE_ID, 3003, 76, { 0, 1 }, PILOT_ICS_PANEL, "Change Intercom Volume")
+F_4E:defineMultipositionSwitch("PLT_ICS_AMPLIFIER", ICS_DEVICE_ID, 3004, 1409, 3, 0.5, PILOT_ICS_PANEL, "Select Amplifier")
+F_4E:defineSpringloaded_3PosTumb("PLT_ICS_MODE", ICS_DEVICE_ID, 3005, 3005, 1378, PILOT_ICS_PANEL, "Set Mode")
+
+-- WSO ICS
+local WSO_ICS_PANEL = "WSO ICS Panel"
+
+F_4E:definePotentiometer("WSO_ICS_INTERCOM_VOL", ICS_DEVICE_ID, 3006, 2666, { 0, 1 }, WSO_ICS_PANEL, "Change Intercom Volume")
+F_4E:defineMultipositionSwitch("WSO_ICS_AMPLIFIER", ICS_DEVICE_ID, 3007, 2667, 3, 0.5, WSO_ICS_PANEL, "Select Amplifier")
+F_4E:defineSpringloaded_3PosTumb("WSO_ICS_MODE", ICS_DEVICE_ID, 3008, 3008, 2668, WSO_ICS_PANEL, "Set Mode")
+
 -- ARC-164
 local ARC_164_DEVICE_ID = 3
 
@@ -569,7 +609,13 @@ local ECM_DEVICE_ID = 91
 -- Pilot Throttle
 local PILOT_THROTTLE = "PLT Throttle"
 
+F_4E:defineSpringloaded_3PosTumb("PLT_THROTTLE_MIC", ICS_DEVICE_ID, 3001, 3001, 2609, PILOT_THROTTLE, "Mic Switch")
 F_4E:definePushButton("PLT_THROTTLE_CM_DISPENSE", COUNTERMEASURES_DEVICE_ID, 3012, 1436, PILOT_THROTTLE, "Dispense Countermeasures")
+
+-- WSO Throttle
+local WSO_THROTTLE = "WSO Throttle"
+
+F_4E:defineSpringloaded_3PosTumb("WSO_THROTTLE_MIC", ICS_DEVICE_ID, 3002, 3002, 2671, WSO_THROTTLE, "Mic Switch")
 
 -- Pilot Left Subpanel
 local PILOT_LEFT_SUB_PANEL = "PLT Left Subpanel"
