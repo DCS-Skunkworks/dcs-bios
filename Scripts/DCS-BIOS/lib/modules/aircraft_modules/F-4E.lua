@@ -25,6 +25,82 @@ local ICS_DEVICE_ID = 2
 -- ARC-164
 local ARC_164_DEVICE_ID = 3
 
+local function arc_164_argument_display(dev0, arg_number, max_value)
+	return Module.round(dev0:get_argument_value(arg_number) * max_value)
+end
+
+local function arc_164_freq(dev0, arg_hundreds, arg_tens, arg_ones, arg_tenths, arg_hundredths)
+	local hundreds = arc_164_argument_display(dev0, arg_hundreds, 4)
+	local hundreds_str = tostring(hundreds)
+	if hundreds == 0 then
+		hundreds_str = "T"
+	elseif hundreds == 1 then
+		hundreds_str = "2"
+	elseif hundreds == 2 then
+		hundreds_str = "3"
+	elseif hundreds == 4 then
+		hundreds_str = "A"
+	end
+
+	return string.format("%s%d%d.%d%02d", hundreds_str, arc_164_argument_display(dev0, arg_tens, 9), arc_164_argument_display(dev0, arg_ones, 9), arc_164_argument_display(dev0, arg_tenths, 9), arc_164_argument_display(dev0, arg_hundredths, 3) * 25)
+end
+
+local PILOT_ARC_164 = "PLT ARC-164"
+
+F_4E:defineToggleSwitch("PLT_ARC_164_ANTENNA_SELECTION", ARC_164_DEVICE_ID, 3001, 118, PILOT_ARC_164, "Select Communication Antenna")
+
+F_4E:definePushButton("PLT_ARC_164_TOGGLE_COMM_COMMAND", ARC_164_DEVICE_ID, 3002, 119, PILOT_ARC_164, "Toggle Radio Command")
+F_4E:definePotentiometer("PLT_ARC_164_COMM_COMMAND_BRIGHTNESS", ARC_164_DEVICE_ID, 3054, 2768, { 0, 1 }, PILOT_ARC_164, "Change Radio Command Light Brightness")
+F_4E:defineIndicatorLight("PLT_ARC_164_COMM_COMMAND_LIGHT", 169, PILOT_ARC_164, "Radio Command Lamp (Green)")
+F_4E:definePotentiometer("PLT_ARC_164_VOLUME", ARC_164_DEVICE_ID, 3003, 121, { 0, 1 }, PILOT_ARC_164, "Change UHF Volume")
+F_4E:defineToggleSwitch("PLT_ARC_164_SQUELCH", ARC_164_DEVICE_ID, 3024, 1374, PILOT_ARC_164, "UHF Squelch Switch")
+
+F_4E:defineMultipositionRollerLimited("PLT_ARC_164_FREQ_HUNDREDS", ARC_164_DEVICE_ID, 3025, 1375, 4, PILOT_ARC_164, "Set Frequency (hundreds)")
+F_4E:defineMultipositionRollerLimited("PLT_ARC_164_FREQ_TENS", ARC_164_DEVICE_ID, 3009, 134, 10, PILOT_ARC_164, "Set Frequency (tens)")
+F_4E:defineMultipositionRollerLimited("PLT_ARC_164_FREQ_ONES", ARC_164_DEVICE_ID, 3008, 133, 10, PILOT_ARC_164, "Set Frequency (ones)")
+F_4E:defineMultipositionRollerLimited("PLT_ARC_164_FREQ_TENTHS", ARC_164_DEVICE_ID, 3007, 132, 10, PILOT_ARC_164, "Set Frequency (decimal ones)")
+F_4E:defineMultipositionRollerLimited("PLT_ARC_164_FREQ_HUNDREDTHS", ARC_164_DEVICE_ID, 3006, 131, 4, PILOT_ARC_164, "Set Frequency (decimal hundreds)")
+
+F_4E:defineString("PLT_ARC_164_FREQ", function(dev0)
+	return arc_164_freq(dev0, 1375, 134, 133, 132, 131)
+end, 7, PILOT_ARC_164, "ARC-164 Frequency")
+
+F_4E:defineMultipositionRollerLimited("PLT_ARC_164_COMM_CHANNEL", ARC_164_DEVICE_ID, 3005, 123, 18, PILOT_ARC_164, "Set Comm Channel")
+F_4E:defineMultipositionRollerLimited("PLT_ARC_164_AUX_CHANNEL", ARC_164_DEVICE_ID, 3011, 136, 20, PILOT_ARC_164, "Set AUX Channel")
+
+F_4E:definePushButton("PLT_ARC_164_LOAD_COMM_CHANNEL", ARC_164_DEVICE_ID, 3010, 135, PILOT_ARC_164, "Load Selected Comm Channel")
+F_4E:defineToggleSwitch("PLT_ARC_164_FREQ_MODE", ARC_164_DEVICE_ID, 3026, 1376, PILOT_ARC_164, "Select Frequency Mode")
+F_4E:definePushButton("PLT_ARC_164_TONE", ARC_164_DEVICE_ID, 3027, 1377, PILOT_ARC_164, "Tone Button")
+F_4E:defineMultipositionRollerLimited("PLT_ARC_164_MODE", ARC_164_DEVICE_ID, 3004, 122, 6, PILOT_ARC_164, "Select Radio Mode")
+F_4E:definePotentiometer("PLT_ARC_164_AUX_VOLUME", ARC_164_DEVICE_ID, 3012, 139, { 0, 1 }, PILOT_ARC_164, "Change AUX Volume")
+
+local WSO_ARC_164 = "WSO ARC-164"
+
+F_4E:definePushButton("WSO_ARC_164_TOGGLE_COMMAND", ARC_164_DEVICE_ID, 3013, 144, WSO_ARC_164, "Toggle Radio Command")
+F_4E:definePotentiometer("WSO_ARC_164_COMMAND_BRIGHTNESS", ARC_164_DEVICE_ID, 3055, 2772, { 0, 1 }, WSO_ARC_164, "Change Radio Command Light Brightness")
+F_4E:defineIndicatorLight("WSO_ARC_164_COMM_COMMAND_LIGHT", 172, WSO_ARC_164, "Radio Command Lamp (Green)")
+F_4E:definePotentiometer("WSO_ARC_164_VOLUME", ARC_164_DEVICE_ID, 3014, 146, { 0, 1 }, WSO_ARC_164, "Change UHF Volume")
+F_4E:defineToggleSwitch("WSO_ARC_164_SQUELCH", ARC_164_DEVICE_ID, 3028, 2524, WSO_ARC_164, "UHF Squelch Switch")
+
+F_4E:defineMultipositionRollerLimited("WSO_ARC_164_FREQ_HUNDREDS", ARC_164_DEVICE_ID, 3029, 2030, 4, WSO_ARC_164, "Set Frequency (hundreds)")
+F_4E:defineMultipositionRollerLimited("WSO_ARC_164_FREQ_TENS", ARC_164_DEVICE_ID, 3020, 159, 10, WSO_ARC_164, "Set Frequency (tens)")
+F_4E:defineMultipositionRollerLimited("WSO_ARC_164_FREQ_ONES", ARC_164_DEVICE_ID, 3019, 158, 10, WSO_ARC_164, "Set Frequency (ones)")
+F_4E:defineMultipositionRollerLimited("WSO_ARC_164_FREQ_TENTHS", ARC_164_DEVICE_ID, 3018, 157, 10, WSO_ARC_164, "Set Frequency (decimal ones)")
+F_4E:defineMultipositionRollerLimited("WSO_ARC_164_FREQ_HUNDREDTHS", ARC_164_DEVICE_ID, 3017, 156, 4, WSO_ARC_164, "Set Frequency (decimal hundreds)")
+
+F_4E:defineString("WSO_ARC_164_FREQ", function(dev0)
+	return arc_164_freq(dev0, 2030, 159, 158, 157, 156)
+end, 7, WSO_ARC_164, "ARC-164 Frequency")
+
+F_4E:defineMultipositionRollerLimited("WSO_ARC_164_COMM_CHANNEL", ARC_164_DEVICE_ID, 3016, 148, 18, WSO_ARC_164, "Set Comm Channel")
+F_4E:defineMultipositionRollerLimited("WSO_ARC_164_AUX_CHANNEL", ARC_164_DEVICE_ID, 3022, 161, 20, WSO_ARC_164, "Set AUX Channel")
+
+F_4E:definePushButton("WSO_ARC_164_LOAD_COMM_CHANNEL", ARC_164_DEVICE_ID, 3021, 160, WSO_ARC_164, "Load Selected Comm Channel")
+F_4E:defineToggleSwitch("WSO_ARC_164_FREQ_MODE", ARC_164_DEVICE_ID, 3030, 147, WSO_ARC_164, "Select Frequency Mode")
+F_4E:definePushButton("WSO_ARC_164_TONE", ARC_164_DEVICE_ID, 3031, 2523, WSO_ARC_164, "Tone Button")
+F_4E:defineMultipositionRollerLimited("WSO_ARC_164_MODE", ARC_164_DEVICE_ID, 3015, 2031, 6, WSO_ARC_164, "Select Radio Mode")
+F_4E:definePotentiometer("WSO_ARC_164_AUX_VOLUME", ARC_164_DEVICE_ID, 3023, 164, { 0, 1 }, WSO_ARC_164, "Change AUX Volume")
+
 -- IFF
 local IFF_DEVICE_ID = 4
 
