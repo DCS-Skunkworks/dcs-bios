@@ -70,6 +70,92 @@ F_4E:define3PosTumb("PLT_IFF_IDENT", IFF_DEVICE_ID, 3060, 1330, PILOT_IFF_PANEL,
 -- Countermeasures
 local COUNTERMEASURES_DEVICE_ID = 5
 
+-- pilot countermeasures panel
+local PILOT_COUNTERMEASURES_PANEL = "PLT Countermeasures Panel"
+
+F_4E:defineMultipositionRollerLimited("PLT_CM_CHAFF_BURST_COUNT", COUNTERMEASURES_DEVICE_ID, 3014, 1500, 6, PILOT_COUNTERMEASURES_PANEL, "Select Chaff Burst Count")
+F_4E:defineMultipositionRollerLimited("PLT_CM_CHAFF_BURST_INTERVAL", COUNTERMEASURES_DEVICE_ID, 3015, 1501, 4, PILOT_COUNTERMEASURES_PANEL, "Select Chaff Burst Interval")
+F_4E:defineMultipositionRollerLimited("PLT_CM_CHAFF_SALVO_COUNT", COUNTERMEASURES_DEVICE_ID, 3016, 1502, 5, PILOT_COUNTERMEASURES_PANEL, "Select Chaff Salvo Count")
+F_4E:defineMultipositionRollerLimited("PLT_CM_CHAFF_SALVO_INTERVAL", COUNTERMEASURES_DEVICE_ID, 3017, 1503, 7, PILOT_COUNTERMEASURES_PANEL, "Select Chaff Salvo Interval")
+F_4E:defineMultipositionRollerLimited("PLT_CM_FLARE_BURST_COUNT", COUNTERMEASURES_DEVICE_ID, 3018, 1504, 5, PILOT_COUNTERMEASURES_PANEL, "Select Flare Burst Count")
+F_4E:defineMultipositionRollerLimited("PLT_CM_FLARE_BURST_INTERVAL", COUNTERMEASURES_DEVICE_ID, 3019, 1505, 5, PILOT_COUNTERMEASURES_PANEL, "Select Flare Burst Interval")
+F_4E:definePushButton("PLT_CM_ON_TEST_BUTTON", COUNTERMEASURES_DEVICE_ID, 3002, 1437, PILOT_COUNTERMEASURES_PANEL, "CMS Indicator (push to test)")
+F_4E:definePotentiometer("PLT_CM_ON_DIM", COUNTERMEASURES_DEVICE_ID, 3003, 1438, { 0, 1 }, PILOT_COUNTERMEASURES_PANEL, "CMS Indicator (rotate to dim)")
+F_4E:defineIndicatorLight("PLT_CM_ON_LIGHT", 1414, PILOT_COUNTERMEASURES_PANEL, "ALE-40 On Lamp (Green)")
+F_4E:definePushButton("PLT_CM_FLARE_TEST_BUTTON", COUNTERMEASURES_DEVICE_ID, 3004, 1439, PILOT_COUNTERMEASURES_PANEL, "Flare Indicator (push to test)")
+F_4E:definePotentiometer("PLT_CM_FLARE_DIM", COUNTERMEASURES_DEVICE_ID, 3005, 1440, { 0, 1 }, PILOT_COUNTERMEASURES_PANEL, "Flare Indicator (rotate to dim)")
+F_4E:defineIndicatorLight("PLT_CM_FLARE_LIGHT", 1415, PILOT_COUNTERMEASURES_PANEL, "ALE-40 Flares Lamp (Red)")
+F_4E:defineToggleSwitch("PLT_CM_FLARE_NORMAL", COUNTERMEASURES_DEVICE_ID, 3001, 1417, PILOT_COUNTERMEASURES_PANEL, "Select Dispense Program")
+
+-- wso countermeasures panel
+local WSO_COUNTERMEASURES_PANEL = "WSO Countermeasures Panel"
+
+F_4E:definePushButton("WSO_CM_DISPENSE", COUNTERMEASURES_DEVICE_ID, 3013, 1447, WSO_COUNTERMEASURES_PANEL, "Dispense Countermeasures")
+F_4E:defineToggleSwitch("WSO_CM_RIPPLE_COVER", COUNTERMEASURES_DEVICE_ID, 3010, 1446, WSO_COUNTERMEASURES_PANEL, "Ripple Switch Cover")
+F_4E:defineToggleSwitch("WSO_CM_RIPPLE", COUNTERMEASURES_DEVICE_ID, 3011, 1445, WSO_COUNTERMEASURES_PANEL, "Toggle Ripple Release")
+F_4E:definePushButton("WSO_CM_CHAFF_TEST_BUTTON", COUNTERMEASURES_DEVICE_ID, 3006, 1450, WSO_COUNTERMEASURES_PANEL, "Chaff Indicator (push to test)")
+F_4E:definePotentiometer("WSO_CM_CHAFF_DIM", COUNTERMEASURES_DEVICE_ID, 3007, 1448, { 0, 1 }, WSO_COUNTERMEASURES_PANEL, "Chaff Indicator (rotate to dim)")
+F_4E:defineIndicatorLight("WSO_CM_CHAFF_LIGHT", 1441, WSO_COUNTERMEASURES_PANEL, "Chaff Lamp (Green)")
+F_4E:defineMultipositionRollerLimited("WSO_CM_CHAFF_MODE", COUNTERMEASURES_DEVICE_ID, 3020, 1444, 4, WSO_COUNTERMEASURES_PANEL, "Select Chaff Mode")
+F_4E:definePushButton("WSO_CM_FLARE_TEST_BUTTON", COUNTERMEASURES_DEVICE_ID, 3008, 1451, WSO_COUNTERMEASURES_PANEL, "Flare Indicator (push to test)")
+F_4E:definePotentiometer("WSO_CM_FLARE_DIM", COUNTERMEASURES_DEVICE_ID, 3009, 1449, { 0, 1 }, WSO_COUNTERMEASURES_PANEL, "Flare Indicator (rotate to dim)")
+F_4E:defineIndicatorLight("WSO_CM_FLARE_LIGHT", 1442, WSO_COUNTERMEASURES_PANEL, "Flare Lamp (Red)")
+F_4E:defineMultipositionRollerLimited("WSO_CM_FLARE_MODE", COUNTERMEASURES_DEVICE_ID, 3021, 1443, 3, WSO_COUNTERMEASURES_PANEL, "Select Flare Mode")
+
+local function wso_cm_display(dev0, arg_number)
+	return Module.round(dev0:get_argument_value(arg_number) * 10) % 10
+end
+
+local wso_cm_chaff_hundreds = 0
+local wso_cm_chaff_tens = 0
+local wso_cm_chaff_ones = 0
+local wso_cm_chaff = ""
+
+F_4E:addExportHook(function(dev0)
+	wso_cm_chaff_hundreds = Module.round(wso_cm_display(dev0, 1390))
+	wso_cm_chaff_tens = Module.round(wso_cm_display(dev0, 1391))
+	wso_cm_chaff_ones = Module.round(wso_cm_display(dev0, 1392))
+	wso_cm_chaff = string.format("%d%d%d", wso_cm_chaff_hundreds, wso_cm_chaff_tens, wso_cm_chaff_ones)
+end)
+
+local wso_cm_flare_hundreds = 0
+local wso_cm_flare_tens = 0
+local wso_cm_flare_ones = 0
+local wso_cm_flare = ""
+
+F_4E:addExportHook(function(dev0)
+	wso_cm_flare_hundreds = Module.round(wso_cm_display(dev0, 1393))
+	wso_cm_flare_tens = Module.round(wso_cm_display(dev0, 1394))
+	wso_cm_flare_ones = Module.round(wso_cm_display(dev0, 1395))
+	wso_cm_flare = string.format("%d%d%d", wso_cm_flare_hundreds, wso_cm_flare_tens, wso_cm_flare_ones)
+end)
+
+F_4E:defineIntegerFromGetter("WSO_CM_CHAFF_HUNDREDS", function()
+	return wso_cm_chaff_hundreds
+end, 9, WSO_COUNTERMEASURES_PANEL, "Chaff Counter (hundreds)")
+F_4E:defineIntegerFromGetter("WSO_CM_CHAFF_TENS", function()
+	return wso_cm_chaff_tens
+end, 9, WSO_COUNTERMEASURES_PANEL, "Chaff Counter (tens)")
+F_4E:defineIntegerFromGetter("WSO_CM_CHAFF_ONES", function()
+	return wso_cm_chaff_ones
+end, 9, WSO_COUNTERMEASURES_PANEL, "Chaff Counter (ones)")
+F_4E:defineString("WSO_CM_CHAFF", function()
+	return wso_cm_chaff
+end, 3, WSO_COUNTERMEASURES_PANEL, "Chaff Counter")
+
+F_4E:defineIntegerFromGetter("WSO_CM_FLARE_HUNDREDS", function()
+	return wso_cm_flare_hundreds
+end, 9, WSO_COUNTERMEASURES_PANEL, "Flare Counter (hundreds)")
+F_4E:defineIntegerFromGetter("WSO_CM_FLARE_TENS", function()
+	return wso_cm_flare_tens
+end, 9, WSO_COUNTERMEASURES_PANEL, "Flare Counter (tens)")
+F_4E:defineIntegerFromGetter("WSO_CM_FLARE_ONES", function()
+	return wso_cm_flare_ones
+end, 9, WSO_COUNTERMEASURES_PANEL, "Flare Counter (ones)")
+F_4E:defineString("WSO_CM_FLARE", function()
+	return wso_cm_flare
+end, 3, WSO_COUNTERMEASURES_PANEL, "Flare Counter")
+
 -- cockpit
 local COCKPIT_DEVICE_ID = 7
 
@@ -348,5 +434,10 @@ local SEAT_DEVICE_ID = 85
 
 -- ECM
 local ECM_DEVICE_ID = 91
+
+-- Pilot Throttle
+local PILOT_THROTTLE = "PLT Throttle"
+
+F_4E:definePushButton("PLT_THROTTLE_CM_DISPENSE", COUNTERMEASURES_DEVICE_ID, 3012, 1436, PILOT_THROTTLE, "Dispense Countermeasures")
 
 return F_4E
