@@ -97,53 +97,6 @@ docdata["F-4E"] =
                                                                                                                      "type": "integer"
                                                                                         } ]
                                                                     },
-                                             "PLT_CM_FLARES_LIGHT": {
-                                                                            "category": "PLT Countermeasures Panel",
-                                                                        "control_type": "led",
-                                                                         "description": "ALE-40 Flares Lamp (Red)",
-                                                                          "identifier": "PLT_CM_FLARES_LIGHT",
-                                                                              "inputs": [  ],
-                                                                             "outputs": [ {
-                                                                                                                  "address": 10768,
-                                                                                                  "address_mask_identifier": "F_4E_PLT_CM_FLARES_LIGHT_AM",
-                                                                                            "address_mask_shift_identifier": "F_4E_PLT_CM_FLARES_LIGHT",
-                                                                                                              "description": "0 if light is off, 1 if light is on",
-                                                                                                                     "mask": 8192,
-                                                                                                                "max_value": 1,
-                                                                                                                 "shift_by": 13,
-                                                                                                                   "suffix": "",
-                                                                                                                     "type": "integer"
-                                                                                        } ]
-                                                                    },
-                                            "PLT_CM_FLARES_NORMAL": {
-                                                                            "category": "PLT Countermeasures Panel",
-                                                                        "control_type": "selector",
-                                                                         "description": "Select Dispense Program",
-                                                                          "identifier": "PLT_CM_FLARES_NORMAL",
-                                                                              "inputs": [ {
-                                                                                            "description": "switch to previous or next state",
-                                                                                              "interface": "fixed_step"
-                                                                                        }, {
-                                                                                            "description": "set position",
-                                                                                              "interface": "set_state",
-                                                                                              "max_value": 1
-                                                                                        }, {
-                                                                                               "argument": "TOGGLE",
-                                                                                            "description": "Toggle switch state",
-                                                                                              "interface": "action"
-                                                                                        } ],
-                                                                             "outputs": [ {
-                                                                                                                  "address": 10768,
-                                                                                                  "address_mask_identifier": "F_4E_PLT_CM_FLARES_NORMAL_AM",
-                                                                                            "address_mask_shift_identifier": "F_4E_PLT_CM_FLARES_NORMAL",
-                                                                                                              "description": "selector position",
-                                                                                                                     "mask": 16384,
-                                                                                                                "max_value": 1,
-                                                                                                                 "shift_by": 14,
-                                                                                                                   "suffix": "",
-                                                                                                                     "type": "integer"
-                                                                                        } ]
-                                                                    },
                                         "PLT_CM_FLARE_BURST_COUNT": {
                                                                             "category": "PLT Countermeasures Panel",
                                                                         "control_type": "selector",
@@ -192,6 +145,80 @@ docdata["F-4E"] =
                                                                                                                      "type": "integer"
                                                                                         } ]
                                                                     },
+                                                "PLT_CM_FLARE_DIM": {
+                                                                            "category": "PLT Countermeasures Panel",
+                                                                        "control_type": "limited_dial",
+                                                                         "description": "Flare Indicator (rotate to dim)",
+                                                                          "identifier": "PLT_CM_FLARE_DIM",
+                                                                              "inputs": [ {
+                                                                                            "description": "set the position of the dial",
+                                                                                              "interface": "set_state",
+                                                                                              "max_value": 65535
+                                                                                        }, {
+                                                                                               "description": "turn the dial left or right",
+                                                                                                 "interface": "variable_step",
+                                                                                                 "max_value": 65535,
+                                                                                            "suggested_step": 3200
+                                                                                        } ],
+                                                                             "outputs": [ {
+                                                                                                                  "address": 10772,
+                                                                                                       "address_identifier": "F_4E_PLT_CM_FLARE_DIM_A",
+                                                                                            "address_mask_shift_identifier": "F_4E_PLT_CM_FLARE_DIM",
+                                                                                                              "description": "position of the potentiometer",
+                                                                                                                     "mask": 65535,
+                                                                                                                "max_value": 65535,
+                                                                                                                 "shift_by": 0,
+                                                                                                                   "suffix": "",
+                                                                                                                     "type": "integer"
+                                                                                        } ]
+                                                                    },
+                                              "PLT_CM_FLARE_LIGHT": {
+                                                                            "category": "PLT Countermeasures Panel",
+                                                                        "control_type": "led",
+                                                                         "description": "ALE-40 Flares Lamp (Red)",
+                                                                          "identifier": "PLT_CM_FLARE_LIGHT",
+                                                                              "inputs": [  ],
+                                                                             "outputs": [ {
+                                                                                                                  "address": 10768,
+                                                                                                  "address_mask_identifier": "F_4E_PLT_CM_FLARE_LIGHT_AM",
+                                                                                            "address_mask_shift_identifier": "F_4E_PLT_CM_FLARE_LIGHT",
+                                                                                                              "description": "0 if light is off, 1 if light is on",
+                                                                                                                     "mask": 8192,
+                                                                                                                "max_value": 1,
+                                                                                                                 "shift_by": 13,
+                                                                                                                   "suffix": "",
+                                                                                                                     "type": "integer"
+                                                                                        } ]
+                                                                    },
+                                             "PLT_CM_FLARE_NORMAL": {
+                                                                            "category": "PLT Countermeasures Panel",
+                                                                        "control_type": "selector",
+                                                                         "description": "Select Dispense Program",
+                                                                          "identifier": "PLT_CM_FLARE_NORMAL",
+                                                                              "inputs": [ {
+                                                                                            "description": "switch to previous or next state",
+                                                                                              "interface": "fixed_step"
+                                                                                        }, {
+                                                                                            "description": "set position",
+                                                                                              "interface": "set_state",
+                                                                                              "max_value": 1
+                                                                                        }, {
+                                                                                               "argument": "TOGGLE",
+                                                                                            "description": "Toggle switch state",
+                                                                                              "interface": "action"
+                                                                                        } ],
+                                                                             "outputs": [ {
+                                                                                                                  "address": 10768,
+                                                                                                  "address_mask_identifier": "F_4E_PLT_CM_FLARE_NORMAL_AM",
+                                                                                            "address_mask_shift_identifier": "F_4E_PLT_CM_FLARE_NORMAL",
+                                                                                                              "description": "selector position",
+                                                                                                                     "mask": 16384,
+                                                                                                                "max_value": 1,
+                                                                                                                 "shift_by": 14,
+                                                                                                                   "suffix": "",
+                                                                                                                     "type": "integer"
+                                                                                        } ]
+                                                                    },
                                         "PLT_CM_FLARE_TEST_BUTTON": {
                                                                          "api_variant": "momentary_last_position",
                                                                             "category": "PLT Countermeasures Panel",
@@ -222,11 +249,11 @@ docdata["F-4E"] =
                                                                                                                      "type": "integer"
                                                                                         } ]
                                                                     },
-                                           "PLT_CM_FLARE_TEST_DIM": {
+                                                   "PLT_CM_ON_DIM": {
                                                                             "category": "PLT Countermeasures Panel",
                                                                         "control_type": "limited_dial",
-                                                                         "description": "Flare Indicator (rotate to dim)",
-                                                                          "identifier": "PLT_CM_FLARE_TEST_DIM",
+                                                                         "description": "CMS Indicator (rotate to dim)",
+                                                                          "identifier": "PLT_CM_ON_DIM",
                                                                               "inputs": [ {
                                                                                             "description": "set the position of the dial",
                                                                                               "interface": "set_state",
@@ -238,9 +265,9 @@ docdata["F-4E"] =
                                                                                             "suggested_step": 3200
                                                                                         } ],
                                                                              "outputs": [ {
-                                                                                                                  "address": 10772,
-                                                                                                       "address_identifier": "F_4E_PLT_CM_FLARE_TEST_DIM_A",
-                                                                                            "address_mask_shift_identifier": "F_4E_PLT_CM_FLARE_TEST_DIM",
+                                                                                                                  "address": 10770,
+                                                                                                       "address_identifier": "F_4E_PLT_CM_ON_DIM_A",
+                                                                                            "address_mask_shift_identifier": "F_4E_PLT_CM_ON_DIM",
                                                                                                               "description": "position of the potentiometer",
                                                                                                                      "mask": 65535,
                                                                                                                 "max_value": 65535,
@@ -296,33 +323,6 @@ docdata["F-4E"] =
                                                                                                                    "suffix": "",
                                                                                                                      "type": "integer"
                                                                                         } ]
-                                                                    },
-                                              "PLT_CM_ON_TEST_DIM": {
-                                                                            "category": "PLT Countermeasures Panel",
-                                                                        "control_type": "limited_dial",
-                                                                         "description": "CMS Indicator (rotate to dim)",
-                                                                          "identifier": "PLT_CM_ON_TEST_DIM",
-                                                                              "inputs": [ {
-                                                                                            "description": "set the position of the dial",
-                                                                                              "interface": "set_state",
-                                                                                              "max_value": 65535
-                                                                                        }, {
-                                                                                               "description": "turn the dial left or right",
-                                                                                                 "interface": "variable_step",
-                                                                                                 "max_value": 65535,
-                                                                                            "suggested_step": 3200
-                                                                                        } ],
-                                                                             "outputs": [ {
-                                                                                                                  "address": 10770,
-                                                                                                       "address_identifier": "F_4E_PLT_CM_ON_TEST_DIM_A",
-                                                                                            "address_mask_shift_identifier": "F_4E_PLT_CM_ON_TEST_DIM",
-                                                                                                              "description": "position of the potentiometer",
-                                                                                                                     "mask": 65535,
-                                                                                                                "max_value": 65535,
-                                                                                                                 "shift_by": 0,
-                                                                                                                   "suffix": "",
-                                                                                                                     "type": "integer"
-                                                                                        } ]
                                                                     }
                                  },
                "PLT Fuel Panel": {
@@ -344,13 +344,13 @@ docdata["F-4E"] =
                                                                                                  "interface": "action"
                                                                                            } ],
                                                                                 "outputs": [ {
-                                                                                                                     "address": 10774,
+                                                                                                                     "address": 10784,
                                                                                                      "address_mask_identifier": "F_4E_PLT_FUEL_AIR_REFUEL_AM",
                                                                                                "address_mask_shift_identifier": "F_4E_PLT_FUEL_AIR_REFUEL",
                                                                                                                  "description": "selector position",
-                                                                                                                        "mask": 8,
+                                                                                                                        "mask": 16384,
                                                                                                                    "max_value": 1,
-                                                                                                                    "shift_by": 3,
+                                                                                                                    "shift_by": 14,
                                                                                                                       "suffix": "",
                                                                                                                         "type": "integer"
                                                                                            } ]
@@ -374,13 +374,13 @@ docdata["F-4E"] =
                                                                                                  "interface": "action"
                                                                                            } ],
                                                                                 "outputs": [ {
-                                                                                                                     "address": 10774,
+                                                                                                                     "address": 10788,
                                                                                                      "address_mask_identifier": "F_4E_PLT_FUEL_BOOST_PUMP_L_CHECK_AM",
                                                                                                "address_mask_shift_identifier": "F_4E_PLT_FUEL_BOOST_PUMP_L_CHECK",
                                                                                                                  "description": "selector position",
-                                                                                                                        "mask": 128,
+                                                                                                                        "mask": 1024,
                                                                                                                    "max_value": 1,
-                                                                                                                    "shift_by": 7,
+                                                                                                                    "shift_by": 10,
                                                                                                                       "suffix": "",
                                                                                                                         "type": "integer"
                                                                                            } ]
@@ -404,13 +404,13 @@ docdata["F-4E"] =
                                                                                                  "interface": "action"
                                                                                            } ],
                                                                                 "outputs": [ {
-                                                                                                                     "address": 10774,
+                                                                                                                     "address": 10788,
                                                                                                      "address_mask_identifier": "F_4E_PLT_FUEL_BOOST_PUMP_R_CHECK_AM",
                                                                                                "address_mask_shift_identifier": "F_4E_PLT_FUEL_BOOST_PUMP_R_CHECK",
                                                                                                                  "description": "selector position",
-                                                                                                                        "mask": 256,
+                                                                                                                        "mask": 2048,
                                                                                                                    "max_value": 1,
-                                                                                                                    "shift_by": 8,
+                                                                                                                    "shift_by": 11,
                                                                                                                       "suffix": "",
                                                                                                                         "type": "integer"
                                                                                            } ]
@@ -429,12 +429,12 @@ docdata["F-4E"] =
                                                                                                  "max_value": 2
                                                                                            } ],
                                                                                 "outputs": [ {
-                                                                                                                     "address": 10774,
+                                                                                                                     "address": 10788,
                                                                                                "address_mask_shift_identifier": "F_4E_PLT_FUEL_EXTERNAL_TANKS_FEED",
                                                                                                                  "description": "selector position",
-                                                                                                                        "mask": 96,
+                                                                                                                        "mask": 768,
                                                                                                                    "max_value": 2,
-                                                                                                                    "shift_by": 5,
+                                                                                                                    "shift_by": 8,
                                                                                                                       "suffix": "",
                                                                                                                         "type": "integer"
                                                                                            } ]
@@ -458,13 +458,13 @@ docdata["F-4E"] =
                                                                                                  "interface": "action"
                                                                                            } ],
                                                                                 "outputs": [ {
-                                                                                                                     "address": 10774,
+                                                                                                                     "address": 10788,
                                                                                                      "address_mask_identifier": "F_4E_PLT_FUEL_FEED_TANK_CHECK_AM",
                                                                                                "address_mask_shift_identifier": "F_4E_PLT_FUEL_FEED_TANK_CHECK",
                                                                                                                  "description": "selector position",
-                                                                                                                        "mask": 512,
+                                                                                                                        "mask": 4096,
                                                                                                                    "max_value": 1,
-                                                                                                                    "shift_by": 9,
+                                                                                                                    "shift_by": 12,
                                                                                                                       "suffix": "",
                                                                                                                         "type": "integer"
                                                                                            } ]
@@ -487,13 +487,13 @@ docdata["F-4E"] =
                                                                                                  "interface": "action"
                                                                                            } ],
                                                                                 "outputs": [ {
-                                                                                                                     "address": 10774,
+                                                                                                                     "address": 10784,
                                                                                                      "address_mask_identifier": "F_4E_PLT_FUEL_REFUEL_SELECTOR_AM",
                                                                                                "address_mask_shift_identifier": "F_4E_PLT_FUEL_REFUEL_SELECTOR",
                                                                                                                  "description": "selector position",
-                                                                                                                        "mask": 4,
+                                                                                                                        "mask": 8192,
                                                                                                                    "max_value": 1,
-                                                                                                                    "shift_by": 2,
+                                                                                                                    "shift_by": 13,
                                                                                                                       "suffix": "",
                                                                                                                         "type": "integer"
                                                                                            } ]
@@ -516,13 +516,13 @@ docdata["F-4E"] =
                                                                                                  "interface": "action"
                                                                                            } ],
                                                                                 "outputs": [ {
-                                                                                                                     "address": 10774,
+                                                                                                                     "address": 10784,
                                                                                                      "address_mask_identifier": "F_4E_PLT_FUEL_REFUEL_SELECTOR_COVER_AM",
                                                                                                "address_mask_shift_identifier": "F_4E_PLT_FUEL_REFUEL_SELECTOR_COVER",
                                                                                                                  "description": "selector position",
-                                                                                                                        "mask": 2,
+                                                                                                                        "mask": 4096,
                                                                                                                    "max_value": 1,
-                                                                                                                    "shift_by": 1,
+                                                                                                                    "shift_by": 12,
                                                                                                                       "suffix": "",
                                                                                                                         "type": "integer"
                                                                                            } ]
@@ -545,13 +545,13 @@ docdata["F-4E"] =
                                                                                                  "interface": "action"
                                                                                            } ],
                                                                                 "outputs": [ {
-                                                                                                                     "address": 10774,
+                                                                                                                     "address": 10784,
                                                                                                      "address_mask_identifier": "F_4E_PLT_FUEL_WING_FUEL_DUMP_AM",
                                                                                                "address_mask_shift_identifier": "F_4E_PLT_FUEL_WING_FUEL_DUMP",
                                                                                                                  "description": "selector position",
-                                                                                                                        "mask": 16,
+                                                                                                                        "mask": 32768,
                                                                                                                    "max_value": 1,
-                                                                                                                    "shift_by": 4,
+                                                                                                                    "shift_by": 15,
                                                                                                                       "suffix": "",
                                                                                                                         "type": "integer"
                                                                                            } ]
@@ -578,9 +578,9 @@ docdata["F-4E"] =
                                                                                                      "address_mask_identifier": "F_4E_PLT_FUEL_WING_INTERNAL_FEED_AM",
                                                                                                "address_mask_shift_identifier": "F_4E_PLT_FUEL_WING_INTERNAL_FEED",
                                                                                                                  "description": "selector position",
-                                                                                                                        "mask": 1,
+                                                                                                                        "mask": 32768,
                                                                                                                    "max_value": 1,
-                                                                                                                    "shift_by": 0,
+                                                                                                                    "shift_by": 15,
                                                                                                                       "suffix": "",
                                                                                                                         "type": "integer"
                                                                                            } ]
@@ -1157,6 +1157,38 @@ docdata["F-4E"] =
                                                                                       } ]
                                                                   }
                                  },
+                 "PLT Throttle": {
+                                     "PLT_THROTTLE_CM_DISPENSE": {
+                                                                      "api_variant": "momentary_last_position",
+                                                                         "category": "PLT Throttle",
+                                                                     "control_type": "selector",
+                                                                      "description": "Dispense Countermeasures",
+                                                                       "identifier": "PLT_THROTTLE_CM_DISPENSE",
+                                                                           "inputs": [ {
+                                                                                         "description": "switch to previous or next state",
+                                                                                           "interface": "fixed_step"
+                                                                                     }, {
+                                                                                         "description": "set position",
+                                                                                           "interface": "set_state",
+                                                                                           "max_value": 1
+                                                                                     }, {
+                                                                                            "argument": "TOGGLE",
+                                                                                         "description": "Toggle switch state",
+                                                                                           "interface": "action"
+                                                                                     } ],
+                                                                          "outputs": [ {
+                                                                                                               "address": 10802,
+                                                                                               "address_mask_identifier": "F_4E_PLT_THROTTLE_CM_DISPENSE_AM",
+                                                                                         "address_mask_shift_identifier": "F_4E_PLT_THROTTLE_CM_DISPENSE",
+                                                                                                           "description": "selector position",
+                                                                                                                  "mask": 8192,
+                                                                                                             "max_value": 1,
+                                                                                                              "shift_by": 13,
+                                                                                                                "suffix": "",
+                                                                                                                  "type": "integer"
+                                                                                     } ]
+                                                                 }
+                                 },
             "PLT Weapons Panel": {
                                      "PLT_MASTER_ARM_SW": {
                                                                   "category": "PLT Weapons Panel",
@@ -1176,17 +1208,437 @@ docdata["F-4E"] =
                                                                                     "interface": "action"
                                                                               } ],
                                                                    "outputs": [ {
-                                                                                                        "address": 10768,
+                                                                                                        "address": 10774,
                                                                                         "address_mask_identifier": "F_4E_PLT_MASTER_ARM_SW_AM",
                                                                                   "address_mask_shift_identifier": "F_4E_PLT_MASTER_ARM_SW",
                                                                                                     "description": "selector position",
-                                                                                                           "mask": 32768,
+                                                                                                           "mask": 16384,
                                                                                                       "max_value": 1,
-                                                                                                       "shift_by": 15,
+                                                                                                       "shift_by": 14,
                                                                                                          "suffix": "",
                                                                                                            "type": "integer"
                                                                               } ]
                                                           }
+                                 },
+    "WSO Countermeasures Panel": {
+                                                 "WSO_CM_CHAFF": {
+                                                                         "category": "WSO Countermeasures Panel",
+                                                                     "control_type": "display",
+                                                                      "description": "Chaff Counter",
+                                                                       "identifier": "WSO_CM_CHAFF",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                                    "address": 10782,
+                                                                                         "address_identifier": "F_4E_WSO_CM_CHAFF_A",
+                                                                                                "description": "Chaff Counter",
+                                                                                                 "max_length": 3,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "string"
+                                                                                     } ]
+                                                                 },
+                                             "WSO_CM_CHAFF_DIM": {
+                                                                         "category": "WSO Countermeasures Panel",
+                                                                     "control_type": "limited_dial",
+                                                                      "description": "Chaff Indicator (rotate to dim)",
+                                                                       "identifier": "WSO_CM_CHAFF_DIM",
+                                                                           "inputs": [ {
+                                                                                         "description": "set the position of the dial",
+                                                                                           "interface": "set_state",
+                                                                                           "max_value": 65535
+                                                                                     }, {
+                                                                                            "description": "turn the dial left or right",
+                                                                                              "interface": "variable_step",
+                                                                                              "max_value": 65535,
+                                                                                         "suggested_step": 3200
+                                                                                     } ],
+                                                                          "outputs": [ {
+                                                                                                               "address": 10776,
+                                                                                                    "address_identifier": "F_4E_WSO_CM_CHAFF_DIM_A",
+                                                                                         "address_mask_shift_identifier": "F_4E_WSO_CM_CHAFF_DIM",
+                                                                                                           "description": "position of the potentiometer",
+                                                                                                                  "mask": 65535,
+                                                                                                             "max_value": 65535,
+                                                                                                              "shift_by": 0,
+                                                                                                                "suffix": "",
+                                                                                                                  "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                        "WSO_CM_CHAFF_HUNDREDS": {
+                                                                         "category": "WSO Countermeasures Panel",
+                                                                     "control_type": "metadata",
+                                                                      "description": "Chaff Counter (hundreds)",
+                                                                       "identifier": "WSO_CM_CHAFF_HUNDREDS",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                                               "address": 10774,
+                                                                                         "address_mask_shift_identifier": "F_4E_WSO_CM_CHAFF_HUNDREDS",
+                                                                                                           "description": "Chaff Counter (hundreds)",
+                                                                                                                  "mask": 15360,
+                                                                                                             "max_value": 9,
+                                                                                                              "shift_by": 10,
+                                                                                                                "suffix": "",
+                                                                                                                  "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                           "WSO_CM_CHAFF_LIGHT": {
+                                                                         "category": "WSO Countermeasures Panel",
+                                                                     "control_type": "led",
+                                                                      "description": "Chaff Lamp (Green)",
+                                                                       "identifier": "WSO_CM_CHAFF_LIGHT",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                                               "address": 10774,
+                                                                                               "address_mask_identifier": "F_4E_WSO_CM_CHAFF_LIGHT_AM",
+                                                                                         "address_mask_shift_identifier": "F_4E_WSO_CM_CHAFF_LIGHT",
+                                                                                                           "description": "0 if light is off, 1 if light is on",
+                                                                                                                  "mask": 8,
+                                                                                                             "max_value": 1,
+                                                                                                              "shift_by": 3,
+                                                                                                                "suffix": "",
+                                                                                                                  "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                            "WSO_CM_CHAFF_MODE": {
+                                                                         "category": "WSO Countermeasures Panel",
+                                                                     "control_type": "selector",
+                                                                      "description": "Select Chaff Mode",
+                                                                       "identifier": "WSO_CM_CHAFF_MODE",
+                                                                           "inputs": [ {
+                                                                                         "description": "switch to previous or next state",
+                                                                                           "interface": "fixed_step"
+                                                                                     }, {
+                                                                                         "description": "set position",
+                                                                                           "interface": "set_state",
+                                                                                           "max_value": 3
+                                                                                     } ],
+                                                                          "outputs": [ {
+                                                                                                               "address": 10774,
+                                                                                         "address_mask_shift_identifier": "F_4E_WSO_CM_CHAFF_MODE",
+                                                                                                           "description": "selector position",
+                                                                                                                  "mask": 48,
+                                                                                                             "max_value": 3,
+                                                                                                              "shift_by": 4,
+                                                                                                                "suffix": "",
+                                                                                                                  "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                            "WSO_CM_CHAFF_ONES": {
+                                                                         "category": "WSO Countermeasures Panel",
+                                                                     "control_type": "metadata",
+                                                                      "description": "Chaff Counter (ones)",
+                                                                       "identifier": "WSO_CM_CHAFF_ONES",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                                               "address": 10780,
+                                                                                         "address_mask_shift_identifier": "F_4E_WSO_CM_CHAFF_ONES",
+                                                                                                           "description": "Chaff Counter (ones)",
+                                                                                                                  "mask": 240,
+                                                                                                             "max_value": 9,
+                                                                                                              "shift_by": 4,
+                                                                                                                "suffix": "",
+                                                                                                                  "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                            "WSO_CM_CHAFF_TENS": {
+                                                                         "category": "WSO Countermeasures Panel",
+                                                                     "control_type": "metadata",
+                                                                      "description": "Chaff Counter (tens)",
+                                                                       "identifier": "WSO_CM_CHAFF_TENS",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                                               "address": 10780,
+                                                                                         "address_mask_shift_identifier": "F_4E_WSO_CM_CHAFF_TENS",
+                                                                                                           "description": "Chaff Counter (tens)",
+                                                                                                                  "mask": 15,
+                                                                                                             "max_value": 9,
+                                                                                                              "shift_by": 0,
+                                                                                                                "suffix": "",
+                                                                                                                  "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                     "WSO_CM_CHAFF_TEST_BUTTON": {
+                                                                      "api_variant": "momentary_last_position",
+                                                                         "category": "WSO Countermeasures Panel",
+                                                                     "control_type": "selector",
+                                                                      "description": "Chaff Indicator (push to test)",
+                                                                       "identifier": "WSO_CM_CHAFF_TEST_BUTTON",
+                                                                           "inputs": [ {
+                                                                                         "description": "switch to previous or next state",
+                                                                                           "interface": "fixed_step"
+                                                                                     }, {
+                                                                                         "description": "set position",
+                                                                                           "interface": "set_state",
+                                                                                           "max_value": 1
+                                                                                     }, {
+                                                                                            "argument": "TOGGLE",
+                                                                                         "description": "Toggle switch state",
+                                                                                           "interface": "action"
+                                                                                     } ],
+                                                                          "outputs": [ {
+                                                                                                               "address": 10774,
+                                                                                               "address_mask_identifier": "F_4E_WSO_CM_CHAFF_TEST_BUTTON_AM",
+                                                                                         "address_mask_shift_identifier": "F_4E_WSO_CM_CHAFF_TEST_BUTTON",
+                                                                                                           "description": "selector position",
+                                                                                                                  "mask": 4,
+                                                                                                             "max_value": 1,
+                                                                                                              "shift_by": 2,
+                                                                                                                "suffix": "",
+                                                                                                                  "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                              "WSO_CM_DISPENSE": {
+                                                                      "api_variant": "momentary_last_position",
+                                                                         "category": "WSO Countermeasures Panel",
+                                                                     "control_type": "selector",
+                                                                      "description": "Dispense Countermeasures",
+                                                                       "identifier": "WSO_CM_DISPENSE",
+                                                                           "inputs": [ {
+                                                                                         "description": "switch to previous or next state",
+                                                                                           "interface": "fixed_step"
+                                                                                     }, {
+                                                                                         "description": "set position",
+                                                                                           "interface": "set_state",
+                                                                                           "max_value": 1
+                                                                                     }, {
+                                                                                            "argument": "TOGGLE",
+                                                                                         "description": "Toggle switch state",
+                                                                                           "interface": "action"
+                                                                                     } ],
+                                                                          "outputs": [ {
+                                                                                                               "address": 10768,
+                                                                                               "address_mask_identifier": "F_4E_WSO_CM_DISPENSE_AM",
+                                                                                         "address_mask_shift_identifier": "F_4E_WSO_CM_DISPENSE",
+                                                                                                           "description": "selector position",
+                                                                                                                  "mask": 32768,
+                                                                                                             "max_value": 1,
+                                                                                                              "shift_by": 15,
+                                                                                                                "suffix": "",
+                                                                                                                  "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                                 "WSO_CM_FLARE": {
+                                                                         "category": "WSO Countermeasures Panel",
+                                                                     "control_type": "display",
+                                                                      "description": "Flare Counter",
+                                                                       "identifier": "WSO_CM_FLARE",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                                    "address": 10786,
+                                                                                         "address_identifier": "F_4E_WSO_CM_FLARE_A",
+                                                                                                "description": "Flare Counter",
+                                                                                                 "max_length": 3,
+                                                                                                     "suffix": "",
+                                                                                                       "type": "string"
+                                                                                     } ]
+                                                                 },
+                                             "WSO_CM_FLARE_DIM": {
+                                                                         "category": "WSO Countermeasures Panel",
+                                                                     "control_type": "limited_dial",
+                                                                      "description": "Flare Indicator (rotate to dim)",
+                                                                       "identifier": "WSO_CM_FLARE_DIM",
+                                                                           "inputs": [ {
+                                                                                         "description": "set the position of the dial",
+                                                                                           "interface": "set_state",
+                                                                                           "max_value": 65535
+                                                                                     }, {
+                                                                                            "description": "turn the dial left or right",
+                                                                                              "interface": "variable_step",
+                                                                                              "max_value": 65535,
+                                                                                         "suggested_step": 3200
+                                                                                     } ],
+                                                                          "outputs": [ {
+                                                                                                               "address": 10778,
+                                                                                                    "address_identifier": "F_4E_WSO_CM_FLARE_DIM_A",
+                                                                                         "address_mask_shift_identifier": "F_4E_WSO_CM_FLARE_DIM",
+                                                                                                           "description": "position of the potentiometer",
+                                                                                                                  "mask": 65535,
+                                                                                                             "max_value": 65535,
+                                                                                                              "shift_by": 0,
+                                                                                                                "suffix": "",
+                                                                                                                  "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                        "WSO_CM_FLARE_HUNDREDS": {
+                                                                         "category": "WSO Countermeasures Panel",
+                                                                     "control_type": "metadata",
+                                                                      "description": "Flare Counter (hundreds)",
+                                                                       "identifier": "WSO_CM_FLARE_HUNDREDS",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                                               "address": 10780,
+                                                                                         "address_mask_shift_identifier": "F_4E_WSO_CM_FLARE_HUNDREDS",
+                                                                                                           "description": "Flare Counter (hundreds)",
+                                                                                                                  "mask": 3840,
+                                                                                                             "max_value": 9,
+                                                                                                              "shift_by": 8,
+                                                                                                                "suffix": "",
+                                                                                                                  "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                           "WSO_CM_FLARE_LIGHT": {
+                                                                         "category": "WSO Countermeasures Panel",
+                                                                     "control_type": "led",
+                                                                      "description": "Flare Lamp (Red)",
+                                                                       "identifier": "WSO_CM_FLARE_LIGHT",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                                               "address": 10774,
+                                                                                               "address_mask_identifier": "F_4E_WSO_CM_FLARE_LIGHT_AM",
+                                                                                         "address_mask_shift_identifier": "F_4E_WSO_CM_FLARE_LIGHT",
+                                                                                                           "description": "0 if light is off, 1 if light is on",
+                                                                                                                  "mask": 128,
+                                                                                                             "max_value": 1,
+                                                                                                              "shift_by": 7,
+                                                                                                                "suffix": "",
+                                                                                                                  "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                            "WSO_CM_FLARE_MODE": {
+                                                                         "category": "WSO Countermeasures Panel",
+                                                                     "control_type": "selector",
+                                                                      "description": "Select Flare Mode",
+                                                                       "identifier": "WSO_CM_FLARE_MODE",
+                                                                           "inputs": [ {
+                                                                                         "description": "switch to previous or next state",
+                                                                                           "interface": "fixed_step"
+                                                                                     }, {
+                                                                                         "description": "set position",
+                                                                                           "interface": "set_state",
+                                                                                           "max_value": 2
+                                                                                     } ],
+                                                                          "outputs": [ {
+                                                                                                               "address": 10774,
+                                                                                         "address_mask_shift_identifier": "F_4E_WSO_CM_FLARE_MODE",
+                                                                                                           "description": "selector position",
+                                                                                                                  "mask": 768,
+                                                                                                             "max_value": 2,
+                                                                                                              "shift_by": 8,
+                                                                                                                "suffix": "",
+                                                                                                                  "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                            "WSO_CM_FLARE_ONES": {
+                                                                         "category": "WSO Countermeasures Panel",
+                                                                     "control_type": "metadata",
+                                                                      "description": "Flare Counter (ones)",
+                                                                       "identifier": "WSO_CM_FLARE_ONES",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                                               "address": 10784,
+                                                                                         "address_mask_shift_identifier": "F_4E_WSO_CM_FLARE_ONES",
+                                                                                                           "description": "Flare Counter (ones)",
+                                                                                                                  "mask": 3840,
+                                                                                                             "max_value": 9,
+                                                                                                              "shift_by": 8,
+                                                                                                                "suffix": "",
+                                                                                                                  "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                            "WSO_CM_FLARE_TENS": {
+                                                                         "category": "WSO Countermeasures Panel",
+                                                                     "control_type": "metadata",
+                                                                      "description": "Flare Counter (tens)",
+                                                                       "identifier": "WSO_CM_FLARE_TENS",
+                                                                           "inputs": [  ],
+                                                                          "outputs": [ {
+                                                                                                               "address": 10780,
+                                                                                         "address_mask_shift_identifier": "F_4E_WSO_CM_FLARE_TENS",
+                                                                                                           "description": "Flare Counter (tens)",
+                                                                                                                  "mask": 61440,
+                                                                                                             "max_value": 9,
+                                                                                                              "shift_by": 12,
+                                                                                                                "suffix": "",
+                                                                                                                  "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                     "WSO_CM_FLARE_TEST_BUTTON": {
+                                                                      "api_variant": "momentary_last_position",
+                                                                         "category": "WSO Countermeasures Panel",
+                                                                     "control_type": "selector",
+                                                                      "description": "Flare Indicator (push to test)",
+                                                                       "identifier": "WSO_CM_FLARE_TEST_BUTTON",
+                                                                           "inputs": [ {
+                                                                                         "description": "switch to previous or next state",
+                                                                                           "interface": "fixed_step"
+                                                                                     }, {
+                                                                                         "description": "set position",
+                                                                                           "interface": "set_state",
+                                                                                           "max_value": 1
+                                                                                     }, {
+                                                                                            "argument": "TOGGLE",
+                                                                                         "description": "Toggle switch state",
+                                                                                           "interface": "action"
+                                                                                     } ],
+                                                                          "outputs": [ {
+                                                                                                               "address": 10774,
+                                                                                               "address_mask_identifier": "F_4E_WSO_CM_FLARE_TEST_BUTTON_AM",
+                                                                                         "address_mask_shift_identifier": "F_4E_WSO_CM_FLARE_TEST_BUTTON",
+                                                                                                           "description": "selector position",
+                                                                                                                  "mask": 64,
+                                                                                                             "max_value": 1,
+                                                                                                              "shift_by": 6,
+                                                                                                                "suffix": "",
+                                                                                                                  "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                                "WSO_CM_RIPPLE": {
+                                                                         "category": "WSO Countermeasures Panel",
+                                                                     "control_type": "selector",
+                                                                      "description": "Toggle Ripple Release",
+                                                                       "identifier": "WSO_CM_RIPPLE",
+                                                                           "inputs": [ {
+                                                                                         "description": "switch to previous or next state",
+                                                                                           "interface": "fixed_step"
+                                                                                     }, {
+                                                                                         "description": "set position",
+                                                                                           "interface": "set_state",
+                                                                                           "max_value": 1
+                                                                                     }, {
+                                                                                            "argument": "TOGGLE",
+                                                                                         "description": "Toggle switch state",
+                                                                                           "interface": "action"
+                                                                                     } ],
+                                                                          "outputs": [ {
+                                                                                                               "address": 10774,
+                                                                                               "address_mask_identifier": "F_4E_WSO_CM_RIPPLE_AM",
+                                                                                         "address_mask_shift_identifier": "F_4E_WSO_CM_RIPPLE",
+                                                                                                           "description": "selector position",
+                                                                                                                  "mask": 2,
+                                                                                                             "max_value": 1,
+                                                                                                              "shift_by": 1,
+                                                                                                                "suffix": "",
+                                                                                                                  "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                          "WSO_CM_RIPPLE_COVER": {
+                                                                         "category": "WSO Countermeasures Panel",
+                                                                     "control_type": "selector",
+                                                                      "description": "Ripple Switch Cover",
+                                                                       "identifier": "WSO_CM_RIPPLE_COVER",
+                                                                           "inputs": [ {
+                                                                                         "description": "switch to previous or next state",
+                                                                                           "interface": "fixed_step"
+                                                                                     }, {
+                                                                                         "description": "set position",
+                                                                                           "interface": "set_state",
+                                                                                           "max_value": 1
+                                                                                     }, {
+                                                                                            "argument": "TOGGLE",
+                                                                                         "description": "Toggle switch state",
+                                                                                           "interface": "action"
+                                                                                     } ],
+                                                                          "outputs": [ {
+                                                                                                               "address": 10774,
+                                                                                               "address_mask_identifier": "F_4E_WSO_CM_RIPPLE_COVER_AM",
+                                                                                         "address_mask_shift_identifier": "F_4E_WSO_CM_RIPPLE_COVER",
+                                                                                                           "description": "selector position",
+                                                                                                                  "mask": 1,
+                                                                                                             "max_value": 1,
+                                                                                                              "shift_by": 0,
+                                                                                                                "suffix": "",
+                                                                                                                  "type": "integer"
+                                                                                     } ]
+                                                                 }
                                  },
                 "WSO IFF Panel": {
                                                          "WSO_IFF_CHALLENGE_DIM": {
@@ -1205,7 +1657,7 @@ docdata["F-4E"] =
                                                                                                           "suggested_step": 3200
                                                                                                       } ],
                                                                                            "outputs": [ {
-                                                                                                                                "address": 10786,
+                                                                                                                                "address": 10800,
                                                                                                                      "address_identifier": "F_4E_WSO_IFF_CHALLENGE_DIM_A",
                                                                                                           "address_mask_shift_identifier": "F_4E_WSO_IFF_CHALLENGE_DIM",
                                                                                                                             "description": "position of the potentiometer",
@@ -1223,13 +1675,13 @@ docdata["F-4E"] =
                                                                                         "identifier": "WSO_IFF_CHALLENGE_LIGHT",
                                                                                             "inputs": [  ],
                                                                                            "outputs": [ {
-                                                                                                                                "address": 10784,
+                                                                                                                                "address": 10802,
                                                                                                                 "address_mask_identifier": "F_4E_WSO_IFF_CHALLENGE_LIGHT_AM",
                                                                                                           "address_mask_shift_identifier": "F_4E_WSO_IFF_CHALLENGE_LIGHT",
                                                                                                                             "description": "0 if light is off, 1 if light is on",
-                                                                                                                                   "mask": 8192,
+                                                                                                                                   "mask": 1,
                                                                                                                               "max_value": 1,
-                                                                                                                               "shift_by": 13,
+                                                                                                                               "shift_by": 0,
                                                                                                                                  "suffix": "",
                                                                                                                                    "type": "integer"
                                                                                                       } ]
@@ -1253,13 +1705,13 @@ docdata["F-4E"] =
                                                                                                             "interface": "action"
                                                                                                       } ],
                                                                                            "outputs": [ {
-                                                                                                                                "address": 10784,
+                                                                                                                                "address": 10798,
                                                                                                                 "address_mask_identifier": "F_4E_WSO_IFF_CHALLENGE_TEST_BUTTON_AM",
                                                                                                           "address_mask_shift_identifier": "F_4E_WSO_IFF_CHALLENGE_TEST_BUTTON",
                                                                                                                             "description": "selector position",
-                                                                                                                                   "mask": 4096,
+                                                                                                                                   "mask": 32768,
                                                                                                                               "max_value": 1,
-                                                                                                                               "shift_by": 12,
+                                                                                                                               "shift_by": 15,
                                                                                                                                  "suffix": "",
                                                                                                                                    "type": "integer"
                                                                                                       } ]
@@ -1271,7 +1723,7 @@ docdata["F-4E"] =
                                                                                         "identifier": "WSO_IFF_CODE",
                                                                                             "inputs": [  ],
                                                                                            "outputs": [ {
-                                                                                                                     "address": 10778,
+                                                                                                                     "address": 10792,
                                                                                                           "address_identifier": "F_4E_WSO_IFF_CODE_A",
                                                                                                                  "description": "IFF Code",
                                                                                                                   "max_length": 4,
@@ -1286,12 +1738,12 @@ docdata["F-4E"] =
                                                                                         "identifier": "WSO_IFF_CODE_HUNDREDS",
                                                                                             "inputs": [  ],
                                                                                            "outputs": [ {
-                                                                                                                                "address": 10776,
+                                                                                                                                "address": 10790,
                                                                                                           "address_mask_shift_identifier": "F_4E_WSO_IFF_CODE_HUNDREDS",
                                                                                                                             "description": "IFF Code (hundreds)",
-                                                                                                                                   "mask": 240,
+                                                                                                                                   "mask": 3840,
                                                                                                                               "max_value": 8,
-                                                                                                                               "shift_by": 4,
+                                                                                                                               "shift_by": 8,
                                                                                                                                  "suffix": "",
                                                                                                                                    "type": "integer"
                                                                                                       } ]
@@ -1315,13 +1767,13 @@ docdata["F-4E"] =
                                                                                                             "interface": "action"
                                                                                                       } ],
                                                                                            "outputs": [ {
-                                                                                                                                "address": 10776,
+                                                                                                                                "address": 10788,
                                                                                                                 "address_mask_identifier": "F_4E_WSO_IFF_CODE_INC_HUNDREDS_AM",
                                                                                                           "address_mask_shift_identifier": "F_4E_WSO_IFF_CODE_INC_HUNDREDS",
                                                                                                                             "description": "selector position",
-                                                                                                                                   "mask": 4096,
+                                                                                                                                   "mask": 32768,
                                                                                                                               "max_value": 1,
-                                                                                                                               "shift_by": 12,
+                                                                                                                               "shift_by": 15,
                                                                                                                                  "suffix": "",
                                                                                                                                    "type": "integer"
                                                                                                       } ]
@@ -1345,13 +1797,13 @@ docdata["F-4E"] =
                                                                                                             "interface": "action"
                                                                                                       } ],
                                                                                            "outputs": [ {
-                                                                                                                                "address": 10776,
+                                                                                                                                "address": 10798,
                                                                                                                 "address_mask_identifier": "F_4E_WSO_IFF_CODE_INC_ONES_AM",
                                                                                                           "address_mask_shift_identifier": "F_4E_WSO_IFF_CODE_INC_ONES",
                                                                                                                             "description": "selector position",
-                                                                                                                                   "mask": 16384,
+                                                                                                                                   "mask": 512,
                                                                                                                               "max_value": 1,
-                                                                                                                               "shift_by": 14,
+                                                                                                                               "shift_by": 9,
                                                                                                                                  "suffix": "",
                                                                                                                                    "type": "integer"
                                                                                                       } ]
@@ -1375,13 +1827,13 @@ docdata["F-4E"] =
                                                                                                             "interface": "action"
                                                                                                       } ],
                                                                                            "outputs": [ {
-                                                                                                                                "address": 10776,
+                                                                                                                                "address": 10798,
                                                                                                                 "address_mask_identifier": "F_4E_WSO_IFF_CODE_INC_TENS_AM",
                                                                                                           "address_mask_shift_identifier": "F_4E_WSO_IFF_CODE_INC_TENS",
                                                                                                                             "description": "selector position",
-                                                                                                                                   "mask": 8192,
+                                                                                                                                   "mask": 256,
                                                                                                                               "max_value": 1,
-                                                                                                                               "shift_by": 13,
+                                                                                                                               "shift_by": 8,
                                                                                                                                  "suffix": "",
                                                                                                                                    "type": "integer"
                                                                                                       } ]
@@ -1405,13 +1857,13 @@ docdata["F-4E"] =
                                                                                                             "interface": "action"
                                                                                                       } ],
                                                                                            "outputs": [ {
-                                                                                                                                "address": 10774,
+                                                                                                                                "address": 10788,
                                                                                                                 "address_mask_identifier": "F_4E_WSO_IFF_CODE_INC_THOUSANDS_AM",
                                                                                                           "address_mask_shift_identifier": "F_4E_WSO_IFF_CODE_INC_THOUSANDS",
                                                                                                                             "description": "selector position",
-                                                                                                                                   "mask": 32768,
+                                                                                                                                   "mask": 16384,
                                                                                                                               "max_value": 1,
-                                                                                                                               "shift_by": 15,
+                                                                                                                               "shift_by": 14,
                                                                                                                                  "suffix": "",
                                                                                                                                    "type": "integer"
                                                                                                       } ]
@@ -1423,12 +1875,12 @@ docdata["F-4E"] =
                                                                                         "identifier": "WSO_IFF_CODE_ONES",
                                                                                             "inputs": [  ],
                                                                                            "outputs": [ {
-                                                                                                                                "address": 10774,
+                                                                                                                                "address": 10790,
                                                                                                           "address_mask_shift_identifier": "F_4E_WSO_IFF_CODE_ONES",
                                                                                                                             "description": "IFF Code (ones)",
-                                                                                                                                   "mask": 15360,
+                                                                                                                                   "mask": 15,
                                                                                                                               "max_value": 8,
-                                                                                                                               "shift_by": 10,
+                                                                                                                               "shift_by": 0,
                                                                                                                                  "suffix": "",
                                                                                                                                    "type": "integer"
                                                                                                       } ]
@@ -1440,12 +1892,12 @@ docdata["F-4E"] =
                                                                                         "identifier": "WSO_IFF_CODE_TENS",
                                                                                             "inputs": [  ],
                                                                                            "outputs": [ {
-                                                                                                                                "address": 10776,
+                                                                                                                                "address": 10790,
                                                                                                           "address_mask_shift_identifier": "F_4E_WSO_IFF_CODE_TENS",
                                                                                                                             "description": "IFF Code (tens)",
-                                                                                                                                   "mask": 15,
+                                                                                                                                   "mask": 240,
                                                                                                                               "max_value": 8,
-                                                                                                                               "shift_by": 0,
+                                                                                                                               "shift_by": 4,
                                                                                                                                  "suffix": "",
                                                                                                                                    "type": "integer"
                                                                                                       } ]
@@ -1457,12 +1909,12 @@ docdata["F-4E"] =
                                                                                         "identifier": "WSO_IFF_CODE_THOUSANDS",
                                                                                             "inputs": [  ],
                                                                                            "outputs": [ {
-                                                                                                                                "address": 10776,
+                                                                                                                                "address": 10790,
                                                                                                           "address_mask_shift_identifier": "F_4E_WSO_IFF_CODE_THOUSANDS",
                                                                                                                             "description": "IFF Code (thousands)",
-                                                                                                                                   "mask": 3840,
+                                                                                                                                   "mask": 61440,
                                                                                                                               "max_value": 8,
-                                                                                                                               "shift_by": 8,
+                                                                                                                               "shift_by": 12,
                                                                                                                                  "suffix": "",
                                                                                                                                    "type": "integer"
                                                                                                       } ]
@@ -1483,7 +1935,7 @@ docdata["F-4E"] =
                                                                                                           "suggested_step": 3200
                                                                                                       } ],
                                                                                            "outputs": [ {
-                                                                                                                                "address": 10790,
+                                                                                                                                "address": 10804,
                                                                                                                      "address_identifier": "F_4E_WSO_IFF_COMBAT_TREE_CHALLENGE_DIM_A",
                                                                                                           "address_mask_shift_identifier": "F_4E_WSO_IFF_COMBAT_TREE_CHALLENGE_DIM",
                                                                                                                             "description": "position of the potentiometer",
@@ -1513,13 +1965,13 @@ docdata["F-4E"] =
                                                                                                             "interface": "action"
                                                                                                       } ],
                                                                                            "outputs": [ {
-                                                                                                                                "address": 10788,
+                                                                                                                                "address": 10802,
                                                                                                                 "address_mask_identifier": "F_4E_WSO_IFF_COMBAT_TREE_CHALLENGE_TEST_BUTTON_AM",
                                                                                                           "address_mask_shift_identifier": "F_4E_WSO_IFF_COMBAT_TREE_CHALLENGE_TEST_BUTTON",
                                                                                                                             "description": "selector position",
-                                                                                                                                   "mask": 2,
+                                                                                                                                   "mask": 16,
                                                                                                                               "max_value": 1,
-                                                                                                                               "shift_by": 1,
+                                                                                                                               "shift_by": 4,
                                                                                                                                  "suffix": "",
                                                                                                                                    "type": "integer"
                                                                                                       } ]
@@ -1531,13 +1983,13 @@ docdata["F-4E"] =
                                                                                         "identifier": "WSO_IFF_COMBAT_TREE_CHALLENGE_TEST_LIGHT",
                                                                                             "inputs": [  ],
                                                                                            "outputs": [ {
-                                                                                                                                "address": 10788,
+                                                                                                                                "address": 10802,
                                                                                                                 "address_mask_identifier": "F_4E_WSO_IFF_COMBAT_TREE_CHALLENGE_TEST_LIGHT_AM",
                                                                                                           "address_mask_shift_identifier": "F_4E_WSO_IFF_COMBAT_TREE_CHALLENGE_TEST_LIGHT",
                                                                                                                             "description": "0 if light is off, 1 if light is on",
-                                                                                                                                   "mask": 4,
+                                                                                                                                   "mask": 32,
                                                                                                                               "max_value": 1,
-                                                                                                                               "shift_by": 2,
+                                                                                                                               "shift_by": 5,
                                                                                                                                  "suffix": "",
                                                                                                                                    "type": "integer"
                                                                                                       } ]
@@ -1556,12 +2008,12 @@ docdata["F-4E"] =
                                                                                                             "max_value": 2
                                                                                                       } ],
                                                                                            "outputs": [ {
-                                                                                                                                "address": 10788,
+                                                                                                                                "address": 10802,
                                                                                                           "address_mask_shift_identifier": "F_4E_WSO_IFF_COMBAT_TREE_MODE_2",
                                                                                                                             "description": "selector position",
-                                                                                                                                   "mask": 48,
+                                                                                                                                   "mask": 384,
                                                                                                                               "max_value": 2,
-                                                                                                                               "shift_by": 4,
+                                                                                                                               "shift_by": 7,
                                                                                                                                  "suffix": "",
                                                                                                                                    "type": "integer"
                                                                                                       } ]
@@ -1580,12 +2032,12 @@ docdata["F-4E"] =
                                                                                                             "max_value": 2
                                                                                                       } ],
                                                                                            "outputs": [ {
-                                                                                                                                "address": 10788,
+                                                                                                                                "address": 10802,
                                                                                                           "address_mask_shift_identifier": "F_4E_WSO_IFF_COMBAT_TREE_MODE_3",
                                                                                                                             "description": "selector position",
-                                                                                                                                   "mask": 192,
+                                                                                                                                   "mask": 1536,
                                                                                                                               "max_value": 2,
-                                                                                                                               "shift_by": 6,
+                                                                                                                               "shift_by": 9,
                                                                                                                                  "suffix": "",
                                                                                                                                    "type": "integer"
                                                                                                       } ]
@@ -1609,13 +2061,13 @@ docdata["F-4E"] =
                                                                                                             "interface": "action"
                                                                                                       } ],
                                                                                            "outputs": [ {
-                                                                                                                                "address": 10788,
+                                                                                                                                "address": 10802,
                                                                                                                 "address_mask_identifier": "F_4E_WSO_IFF_COMBAT_TREE_TEST_AM",
                                                                                                           "address_mask_shift_identifier": "F_4E_WSO_IFF_COMBAT_TREE_TEST",
                                                                                                                             "description": "selector position",
-                                                                                                                                   "mask": 8,
+                                                                                                                                   "mask": 64,
                                                                                                                               "max_value": 1,
-                                                                                                                               "shift_by": 3,
+                                                                                                                               "shift_by": 6,
                                                                                                                                  "suffix": "",
                                                                                                                                    "type": "integer"
                                                                                                       } ]
@@ -1627,7 +2079,7 @@ docdata["F-4E"] =
                                                                                         "identifier": "WSO_IFF_MODE",
                                                                                             "inputs": [  ],
                                                                                            "outputs": [ {
-                                                                                                                     "address": 10782,
+                                                                                                                     "address": 10796,
                                                                                                           "address_identifier": "F_4E_WSO_IFF_MODE_A",
                                                                                                                  "description": "IFF Mode",
                                                                                                                   "max_length": 3,
@@ -1654,13 +2106,13 @@ docdata["F-4E"] =
                                                                                                             "interface": "action"
                                                                                                       } ],
                                                                                            "outputs": [ {
-                                                                                                                                "address": 10776,
+                                                                                                                                "address": 10798,
                                                                                                                 "address_mask_identifier": "F_4E_WSO_IFF_MODE_DEC_AM",
                                                                                                           "address_mask_shift_identifier": "F_4E_WSO_IFF_MODE_DEC",
                                                                                                                             "description": "selector position",
-                                                                                                                                   "mask": 32768,
+                                                                                                                                   "mask": 1024,
                                                                                                                               "max_value": 1,
-                                                                                                                               "shift_by": 15,
+                                                                                                                               "shift_by": 10,
                                                                                                                                  "suffix": "",
                                                                                                                                    "type": "integer"
                                                                                                       } ]
@@ -1684,13 +2136,13 @@ docdata["F-4E"] =
                                                                                                             "interface": "action"
                                                                                                       } ],
                                                                                            "outputs": [ {
-                                                                                                                                "address": 10784,
+                                                                                                                                "address": 10798,
                                                                                                                 "address_mask_identifier": "F_4E_WSO_IFF_MODE_DEC_HUNDREDS_AM",
                                                                                                           "address_mask_shift_identifier": "F_4E_WSO_IFF_MODE_DEC_HUNDREDS",
                                                                                                                             "description": "selector position",
-                                                                                                                                   "mask": 512,
+                                                                                                                                   "mask": 4096,
                                                                                                                               "max_value": 1,
-                                                                                                                               "shift_by": 9,
+                                                                                                                               "shift_by": 12,
                                                                                                                                  "suffix": "",
                                                                                                                                    "type": "integer"
                                                                                                       } ]
@@ -1714,13 +2166,13 @@ docdata["F-4E"] =
                                                                                                             "interface": "action"
                                                                                                       } ],
                                                                                            "outputs": [ {
-                                                                                                                                "address": 10784,
+                                                                                                                                "address": 10798,
                                                                                                                 "address_mask_identifier": "F_4E_WSO_IFF_MODE_DEC_ONES_AM",
                                                                                                           "address_mask_shift_identifier": "F_4E_WSO_IFF_MODE_DEC_ONES",
                                                                                                                             "description": "selector position",
-                                                                                                                                   "mask": 2048,
+                                                                                                                                   "mask": 16384,
                                                                                                                               "max_value": 1,
-                                                                                                                               "shift_by": 11,
+                                                                                                                               "shift_by": 14,
                                                                                                                                  "suffix": "",
                                                                                                                                    "type": "integer"
                                                                                                       } ]
@@ -1744,13 +2196,13 @@ docdata["F-4E"] =
                                                                                                             "interface": "action"
                                                                                                       } ],
                                                                                            "outputs": [ {
-                                                                                                                                "address": 10784,
+                                                                                                                                "address": 10798,
                                                                                                                 "address_mask_identifier": "F_4E_WSO_IFF_MODE_DEC_TENS_AM",
                                                                                                           "address_mask_shift_identifier": "F_4E_WSO_IFF_MODE_DEC_TENS",
                                                                                                                             "description": "selector position",
-                                                                                                                                   "mask": 1024,
+                                                                                                                                   "mask": 8192,
                                                                                                                               "max_value": 1,
-                                                                                                                               "shift_by": 10,
+                                                                                                                               "shift_by": 13,
                                                                                                                                  "suffix": "",
                                                                                                                                    "type": "integer"
                                                                                                       } ]
@@ -1774,13 +2226,13 @@ docdata["F-4E"] =
                                                                                                             "interface": "action"
                                                                                                       } ],
                                                                                            "outputs": [ {
-                                                                                                                                "address": 10784,
+                                                                                                                                "address": 10798,
                                                                                                                 "address_mask_identifier": "F_4E_WSO_IFF_MODE_DEC_THOUSANDS_AM",
                                                                                                           "address_mask_shift_identifier": "F_4E_WSO_IFF_MODE_DEC_THOUSANDS",
                                                                                                                             "description": "selector position",
-                                                                                                                                   "mask": 256,
+                                                                                                                                   "mask": 2048,
                                                                                                                               "max_value": 1,
-                                                                                                                               "shift_by": 8,
+                                                                                                                               "shift_by": 11,
                                                                                                                                  "suffix": "",
                                                                                                                                    "type": "integer"
                                                                                                       } ]
@@ -1804,13 +2256,13 @@ docdata["F-4E"] =
                                                                                                             "interface": "action"
                                                                                                       } ],
                                                                                            "outputs": [ {
-                                                                                                                                "address": 10774,
+                                                                                                                                "address": 10788,
                                                                                                                 "address_mask_identifier": "F_4E_WSO_IFF_MODE_INC_AM",
                                                                                                           "address_mask_shift_identifier": "F_4E_WSO_IFF_MODE_INC",
                                                                                                                             "description": "selector position",
-                                                                                                                                   "mask": 16384,
+                                                                                                                                   "mask": 8192,
                                                                                                                               "max_value": 1,
-                                                                                                                               "shift_by": 14,
+                                                                                                                               "shift_by": 13,
                                                                                                                                  "suffix": "",
                                                                                                                                    "type": "integer"
                                                                                                       } ]
@@ -1826,12 +2278,12 @@ docdata["F-4E"] =
                                                                                                             "max_value": 2
                                                                                                       } ],
                                                                                            "outputs": [ {
-                                                                                                                                "address": 10784,
+                                                                                                                                "address": 10802,
                                                                                                           "address_mask_shift_identifier": "F_4E_WSO_IFF_TEST_CHALLENGE",
                                                                                                                             "description": "switch position -- 0 = Down, 1 = Mid,  2 = Up",
-                                                                                                                                   "mask": 49152,
+                                                                                                                                   "mask": 6,
                                                                                                                               "max_value": 2,
-                                                                                                                               "shift_by": 14,
+                                                                                                                               "shift_by": 1,
                                                                                                                                  "suffix": "",
                                                                                                                                    "type": "integer"
                                                                                                       } ]
