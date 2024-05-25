@@ -305,6 +305,15 @@ F_4E:defineToggleSwitch("WSO_COCKPIT_HELMET", COCKPIT_DEVICE_ID, 3031, 1903, WSO
 -- AFCS
 local AFCS_DEVICE_ID = 9
 
+-- Pilot AFCS Panel
+local PILOT_AFCS_PANEL = "PLT AFCS Panel"
+
+F_4E:defineToggleSwitch("PLT_AFCS_STAB_AUG_YAW", AFCS_DEVICE_ID, 3010, 1506, PILOT_AFCS_PANEL, "STAB AUG Yaw")
+F_4E:defineToggleSwitch("PLT_AFCS_STAB_AUG_ROLL", AFCS_DEVICE_ID, 3012, 1507, PILOT_AFCS_PANEL, "STAB AUG Roll")
+F_4E:defineToggleSwitch("PLT_AFCS_STAB_AUG_PITCH", AFCS_DEVICE_ID, 3014, 1508, PILOT_AFCS_PANEL, "STAB AUG Pitch")
+F_4E:defineToggleSwitch("PLT_AFCS_AUTOPILOT", AFCS_DEVICE_ID, 3016, 1509, PILOT_AFCS_PANEL, "AFCS Autopilot")
+F_4E:defineToggleSwitch("PLT_AFCS_ALT_HOLD", AFCS_DEVICE_ID, 3018, 1510, PILOT_AFCS_PANEL, "Altitude Hold")
+
 -- Magnetic Compass
 local MAGNETIC_COMPASS_DEVICE_ID = 10
 
@@ -622,6 +631,16 @@ local SEAT_DEVICE_ID = 85
 
 -- ECM
 local ECM_DEVICE_ID = 91
+
+-- Pilot Stick
+local PILOT_STICK = "PLT Stick"
+
+F_4E:definePushButton("PLT_AFCS_EMERGENCY_RELEASE", AFCS_DEVICE_ID, 3020, 2782, PILOT_STICK, "Emergency Quick Release")
+
+-- WSO Stick
+local WSO_STICK = "WSO Stick"
+
+F_4E:definePushButton("WSO_AFCS_EMERGENCY_RELEASE", AFCS_DEVICE_ID, 3021, 2788, WSO_STICK, "Emergency Quick Release")
 
 -- Pilot Throttle
 local PILOT_THROTTLE = "PLT Throttle"
