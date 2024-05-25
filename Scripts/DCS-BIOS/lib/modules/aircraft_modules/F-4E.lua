@@ -46,13 +46,25 @@ F_4E:define3PosTumb("PLT_IFF_M3", IFF_DEVICE_ID, 3021, 1325, PILOT_IFF_PANEL, "M
 F_4E:define3PosTumb("PLT_IFF_MC", IFF_DEVICE_ID, 3025, 1326, PILOT_IFF_PANEL, "Mode C")
 F_4E:define3PosTumb("PLT_IFF_RAD", IFF_DEVICE_ID, 3029, 1329, PILOT_IFF_PANEL, "Monitor Radiation")
 F_4E:defineToggleSwitch("PLT_IFF_M4", IFF_DEVICE_ID, 3033, 1327, PILOT_IFF_PANEL, "Mode 4")
--- todo: string output?
 F_4E:defineMultipositionRollerLimited("PLT_IFF_M1_CODE_TENS", IFF_DEVICE_ID, 3036, 1331, 8, PILOT_IFF_PANEL, "M1 Code (tens)")
 F_4E:defineMultipositionRollerLimited("PLT_IFF_M1_CODE_ONES", IFF_DEVICE_ID, 3040, 1332, 4, PILOT_IFF_PANEL, "M1 Code (ones)")
 F_4E:defineMultipositionRollerLimited("PLT_IFF_M3_CODE_THOUSANDS", IFF_DEVICE_ID, 3044, 1333, 8, PILOT_IFF_PANEL, "M3 Code (thousands)")
 F_4E:defineMultipositionRollerLimited("PLT_IFF_M3_CODE_HUNDREDS", IFF_DEVICE_ID, 3048, 1334, 8, PILOT_IFF_PANEL, "M3 Code (hundreds)")
 F_4E:defineMultipositionRollerLimited("PLT_IFF_M3_CODE_TENS", IFF_DEVICE_ID, 3052, 1335, 8, PILOT_IFF_PANEL, "M3 Code (tens)")
 F_4E:defineMultipositionRollerLimited("PLT_IFF_M3_CODE_ONES", IFF_DEVICE_ID, 3056, 1336, 8, PILOT_IFF_PANEL, "M3 Code (ones)")
+
+local function plt_iff_argument_display(dev0, arg_number, max_value)
+	return Module.round(dev0:get_argument_value(arg_number) * max_value)
+end
+
+F_4E:defineString("PLT_IFF_M1_CODE", function(dev0)
+	return string.format("%d%d", plt_iff_argument_display(dev0, 1331, 7), plt_iff_argument_display(dev0, 1332, 3))
+end, 2, PILOT_IFF_PANEL, "M1 Code")
+
+F_4E:defineString("PLT_IFF_M3_CODE", function(dev0)
+	return string.format("%d%d%d%d", plt_iff_argument_display(dev0, 1333, 7), plt_iff_argument_display(dev0, 1334, 7), plt_iff_argument_display(dev0, 1335, 7), plt_iff_argument_display(dev0, 1336, 7))
+end, 4, PILOT_IFF_PANEL, "M3 Code")
+
 F_4E:define3PosTumb("PLT_IFF_IDENT", IFF_DEVICE_ID, 3060, 1330, PILOT_IFF_PANEL, "Set Position Identification")
 
 -- Countermeasures
@@ -201,23 +213,23 @@ local IFF_INTERROGATOR_DEVICE_ID = 68
 -- wso iff panel
 local WSO_IFF_PANEL = "WSO IFF Panel"
 
-local iff_ones = ""
-local iff_tens = ""
-local iff_hundreds = ""
-local iff_thousands = ""
+local iff_ones = 0
+local iff_tens = 0
+local iff_hundreds = 0
+local iff_thousands = 0
 local iff_code = ""
 
-local function iff_argument_display(dev0, arg_number)
-	return tostring(Module.round(dev0:get_argument_value(arg_number) * 8) % 8)
+local function wso_iff_argument_display(dev0, arg_number)
+	return Module.round(dev0:get_argument_value(arg_number) * 8) % 8
 end
 
 -- WSO IFF display
 F_4E:addExportHook(function(dev0)
-	iff_ones = iff_argument_display(dev0, 2000)
-	iff_tens = iff_argument_display(dev0, 2001)
-	iff_hundreds = iff_argument_display(dev0, 2002)
-	iff_thousands = iff_argument_display(dev0, 2003)
-	iff_code = string.format("%s%s%s%s", iff_thousands, iff_hundreds, iff_tens, iff_ones)
+	iff_ones = wso_iff_argument_display(dev0, 2000)
+	iff_tens = wso_iff_argument_display(dev0, 2001)
+	iff_hundreds = wso_iff_argument_display(dev0, 2002)
+	iff_thousands = wso_iff_argument_display(dev0, 2003)
+	iff_code = string.format("%d%d%d%d", iff_thousands, iff_hundreds, iff_tens, iff_ones)
 end)
 
 --- @param dev0 CockpitDevice
@@ -239,18 +251,18 @@ local function get_iff_mode(dev0)
 	return ""
 end
 
-F_4E:defineString("WSO_IFF_CODE_ONES", function()
+F_4E:defineIntegerFromGetter("WSO_IFF_CODE_ONES", function()
 	return iff_ones
-end, 1, WSO_IFF_PANEL, "IFF Code (ones)")
-F_4E:defineString("WSO_IFF_CODE_TENS", function()
+end, 8, WSO_IFF_PANEL, "IFF Code (ones)")
+F_4E:defineIntegerFromGetter("WSO_IFF_CODE_TENS", function()
 	return iff_tens
-end, 1, WSO_IFF_PANEL, "IFF Code (tens)")
-F_4E:defineString("WSO_IFF_CODE_HUNDREDS", function()
+end, 8, WSO_IFF_PANEL, "IFF Code (tens)")
+F_4E:defineIntegerFromGetter("WSO_IFF_CODE_HUNDREDS", function()
 	return iff_hundreds
-end, 1, WSO_IFF_PANEL, "IFF Code (hundreds)")
-F_4E:defineString("WSO_IFF_CODE_THOUSANDS", function()
+end, 8, WSO_IFF_PANEL, "IFF Code (hundreds)")
+F_4E:defineIntegerFromGetter("WSO_IFF_CODE_THOUSANDS", function()
 	return iff_thousands
-end, 1, WSO_IFF_PANEL, "IFF Code (thousands)")
+end, 8, WSO_IFF_PANEL, "IFF Code (thousands)")
 F_4E:defineString("WSO_IFF_CODE", function()
 	return iff_code
 end, 4, WSO_IFF_PANEL, "IFF Code")
@@ -268,7 +280,7 @@ F_4E:definePushButton("WSO_IFF_MODE_DEC_HUNDREDS", IFF_INTERROGATOR_DEVICE_ID, 3
 F_4E:definePushButton("WSO_IFF_MODE_DEC_TENS", IFF_INTERROGATOR_DEVICE_ID, 3009, 2632, WSO_IFF_PANEL, "Decrease IFF Code (tens)")
 F_4E:definePushButton("WSO_IFF_MODE_DEC_ONES", IFF_INTERROGATOR_DEVICE_ID, 3010, 2630, WSO_IFF_PANEL, "Decrease IFF Code (ones)")
 
--- todo: output good, input bad. commands seem correct, unclear what is wrong
+-- todo: output good, input bad (button + potentiometer). commands seem correct, unclear what is wrong
 F_4E:definePushButton("WSO_IFF_CHALLENGE_TEST_BUTTON", IFF_DEVICE_ID, 3015, 2646, WSO_IFF_PANEL, "Challenge Light (push to test)")
 F_4E:definePotentiometer("WSO_IFF_CHALLENGE_DIM", IFF_DEVICE_ID, 3016, 2811, { 0, 1 }, WSO_IFF_PANEL, "Challenge Light (rotate to dim)")
 F_4E:defineIndicatorLight("WSO_IFF_CHALLENGE_LIGHT", 2695, WSO_IFF_PANEL, "IFF Challenge Light (Blue)")
@@ -277,7 +289,7 @@ F_4E:defineSpringloaded_3PosTumb("WSO_IFF_TEST_CHALLENGE", IFF_INTERROGATOR_DEVI
 
 F_4E:reserveIntValue(1) -- Anti-Jam, not yet implemented
 
--- todo: output good, input bad. commands seem correct, unclear what is wrong
+-- todo: output good, input bad (button + potentiometer). commands seem correct, unclear what is wrong
 F_4E:definePushButton("WSO_IFF_COMBAT_TREE_CHALLENGE_TEST_BUTTON", IFF_DEVICE_ID, 3018, 2640, WSO_IFF_PANEL, "Combat-Tree Challenge Light (push to test) (not simulated)")
 F_4E:definePotentiometer("WSO_IFF_COMBAT_TREE_CHALLENGE_DIM", IFF_DEVICE_ID, 3019, 2812, { 0, 1 }, WSO_IFF_PANEL, "Combat-Tree Challenge Light (rotate to dim) (not simulated)")
 F_4E:defineIndicatorLight("WSO_IFF_COMBAT_TREE_CHALLENGE_TEST_LIGHT", 2696, WSO_IFF_PANEL, "Combat-Tree Challenge Light (Blue)")

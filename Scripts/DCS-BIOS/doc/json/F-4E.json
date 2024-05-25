@@ -96,6 +96,21 @@
                                                                                                            "type": "integer"
                                                                               } ]
                                                           },
+                                       "PLT_IFF_M1_CODE": {
+                                                                  "category": "PLT IFF Panel",
+                                                              "control_type": "display",
+                                                               "description": "M1 Code",
+                                                                "identifier": "PLT_IFF_M1_CODE",
+                                                                    "inputs": [  ],
+                                                                   "outputs": [ {
+                                                                                             "address": 10762,
+                                                                                  "address_identifier": "F_4E_PLT_IFF_M1_CODE_A",
+                                                                                         "description": "M1 Code",
+                                                                                          "max_length": 2,
+                                                                                              "suffix": "",
+                                                                                                "type": "string"
+                                                                              } ]
+                                                          },
                                   "PLT_IFF_M1_CODE_ONES": {
                                                                   "category": "PLT IFF Panel",
                                                               "control_type": "selector",
@@ -190,6 +205,21 @@
                                                                                                        "shift_by": 0,
                                                                                                          "suffix": "",
                                                                                                            "type": "integer"
+                                                                              } ]
+                                                          },
+                                       "PLT_IFF_M3_CODE": {
+                                                                  "category": "PLT IFF Panel",
+                                                              "control_type": "display",
+                                                               "description": "M3 Code",
+                                                                "identifier": "PLT_IFF_M3_CODE",
+                                                                    "inputs": [  ],
+                                                                   "outputs": [ {
+                                                                                             "address": 10764,
+                                                                                  "address_identifier": "F_4E_PLT_IFF_M3_CODE_A",
+                                                                                         "description": "M3 Code",
+                                                                                          "max_length": 4,
+                                                                                              "suffix": "",
+                                                                                                "type": "string"
                                                                               } ]
                                                           },
                               "PLT_IFF_M3_CODE_HUNDREDS": {
@@ -606,7 +636,7 @@
                                                                                 "identifier": "WSO_IFF_CHALLENGE_LIGHT",
                                                                                     "inputs": [  ],
                                                                                    "outputs": [ {
-                                                                                                                        "address": 10762,
+                                                                                                                        "address": 10776,
                                                                                                         "address_mask_identifier": "F_4E_WSO_IFF_CHALLENGE_LIGHT_AM",
                                                                                                   "address_mask_shift_identifier": "F_4E_WSO_IFF_CHALLENGE_LIGHT",
                                                                                                                     "description": "0 if light is off, 1 if light is on",
@@ -636,7 +666,7 @@
                                                                                                     "interface": "action"
                                                                                               } ],
                                                                                    "outputs": [ {
-                                                                                                                        "address": 10762,
+                                                                                                                        "address": 10776,
                                                                                                         "address_mask_identifier": "F_4E_WSO_IFF_CHALLENGE_TEST_BUTTON_AM",
                                                                                                   "address_mask_shift_identifier": "F_4E_WSO_IFF_CHALLENGE_TEST_BUTTON",
                                                                                                                     "description": "selector position",
@@ -664,17 +694,19 @@
                                                                           },
                                                  "WSO_IFF_CODE_HUNDREDS": {
                                                                                   "category": "WSO IFF Panel",
-                                                                              "control_type": "display",
+                                                                              "control_type": "metadata",
                                                                                "description": "IFF Code (hundreds)",
                                                                                 "identifier": "WSO_IFF_CODE_HUNDREDS",
                                                                                     "inputs": [  ],
                                                                                    "outputs": [ {
-                                                                                                             "address": 10766,
-                                                                                                  "address_identifier": "F_4E_WSO_IFF_CODE_HUNDREDS_A",
-                                                                                                         "description": "IFF Code (hundreds)",
-                                                                                                          "max_length": 1,
-                                                                                                              "suffix": "",
-                                                                                                                "type": "string"
+                                                                                                                        "address": 10768,
+                                                                                                  "address_mask_shift_identifier": "F_4E_WSO_IFF_CODE_HUNDREDS",
+                                                                                                                    "description": "IFF Code (hundreds)",
+                                                                                                                           "mask": 240,
+                                                                                                                      "max_value": 8,
+                                                                                                                       "shift_by": 4,
+                                                                                                                         "suffix": "",
+                                                                                                                           "type": "integer"
                                                                                               } ]
                                                                           },
                                              "WSO_IFF_CODE_INC_HUNDREDS": {
@@ -696,7 +728,7 @@
                                                                                                     "interface": "action"
                                                                                               } ],
                                                                                    "outputs": [ {
-                                                                                                                        "address": 10760,
+                                                                                                                        "address": 10768,
                                                                                                         "address_mask_identifier": "F_4E_WSO_IFF_CODE_INC_HUNDREDS_AM",
                                                                                                   "address_mask_shift_identifier": "F_4E_WSO_IFF_CODE_INC_HUNDREDS",
                                                                                                                     "description": "selector position",
@@ -726,7 +758,7 @@
                                                                                                     "interface": "action"
                                                                                               } ],
                                                                                    "outputs": [ {
-                                                                                                                        "address": 10760,
+                                                                                                                        "address": 10768,
                                                                                                         "address_mask_identifier": "F_4E_WSO_IFF_CODE_INC_ONES_AM",
                                                                                                   "address_mask_shift_identifier": "F_4E_WSO_IFF_CODE_INC_ONES",
                                                                                                                     "description": "selector position",
@@ -756,7 +788,7 @@
                                                                                                     "interface": "action"
                                                                                               } ],
                                                                                    "outputs": [ {
-                                                                                                                        "address": 10760,
+                                                                                                                        "address": 10768,
                                                                                                         "address_mask_identifier": "F_4E_WSO_IFF_CODE_INC_TENS_AM",
                                                                                                   "address_mask_shift_identifier": "F_4E_WSO_IFF_CODE_INC_TENS",
                                                                                                                     "description": "selector position",
@@ -790,56 +822,62 @@
                                                                                                         "address_mask_identifier": "F_4E_WSO_IFF_CODE_INC_THOUSANDS_AM",
                                                                                                   "address_mask_shift_identifier": "F_4E_WSO_IFF_CODE_INC_THOUSANDS",
                                                                                                                     "description": "selector position",
-                                                                                                                           "mask": 2048,
+                                                                                                                           "mask": 32768,
                                                                                                                       "max_value": 1,
-                                                                                                                       "shift_by": 11,
+                                                                                                                       "shift_by": 15,
                                                                                                                          "suffix": "",
                                                                                                                            "type": "integer"
                                                                                               } ]
                                                                           },
                                                      "WSO_IFF_CODE_ONES": {
                                                                                   "category": "WSO IFF Panel",
-                                                                              "control_type": "display",
+                                                                              "control_type": "metadata",
                                                                                "description": "IFF Code (ones)",
                                                                                 "identifier": "WSO_IFF_CODE_ONES",
                                                                                     "inputs": [  ],
                                                                                    "outputs": [ {
-                                                                                                             "address": 10762,
-                                                                                                  "address_identifier": "F_4E_WSO_IFF_CODE_ONES_A",
-                                                                                                         "description": "IFF Code (ones)",
-                                                                                                          "max_length": 1,
-                                                                                                              "suffix": "",
-                                                                                                                "type": "string"
+                                                                                                                        "address": 10760,
+                                                                                                  "address_mask_shift_identifier": "F_4E_WSO_IFF_CODE_ONES",
+                                                                                                                    "description": "IFF Code (ones)",
+                                                                                                                           "mask": 15360,
+                                                                                                                      "max_value": 8,
+                                                                                                                       "shift_by": 10,
+                                                                                                                         "suffix": "",
+                                                                                                                           "type": "integer"
                                                                                               } ]
                                                                           },
                                                      "WSO_IFF_CODE_TENS": {
                                                                                   "category": "WSO IFF Panel",
-                                                                              "control_type": "display",
+                                                                              "control_type": "metadata",
                                                                                "description": "IFF Code (tens)",
                                                                                 "identifier": "WSO_IFF_CODE_TENS",
                                                                                     "inputs": [  ],
                                                                                    "outputs": [ {
-                                                                                                             "address": 10764,
-                                                                                                  "address_identifier": "F_4E_WSO_IFF_CODE_TENS_A",
-                                                                                                         "description": "IFF Code (tens)",
-                                                                                                          "max_length": 1,
-                                                                                                              "suffix": "",
-                                                                                                                "type": "string"
+                                                                                                                        "address": 10768,
+                                                                                                  "address_mask_shift_identifier": "F_4E_WSO_IFF_CODE_TENS",
+                                                                                                                    "description": "IFF Code (tens)",
+                                                                                                                           "mask": 15,
+                                                                                                                      "max_value": 8,
+                                                                                                                       "shift_by": 0,
+                                                                                                                         "suffix": "",
+                                                                                                                           "type": "integer"
                                                                                               } ]
                                                                           },
                                                 "WSO_IFF_CODE_THOUSANDS": {
                                                                                   "category": "WSO IFF Panel",
-                                                                              "control_type": "display",
+                                                                              "control_type": "metadata",
                                                                                "description": "IFF Code (thousands)",
                                                                                 "identifier": "WSO_IFF_CODE_THOUSANDS",
                                                                                     "inputs": [  ],
                                                                                    "outputs": [ {
-                                                                                                             "address": 10768,
-                                                                                                  "address_identifier": "F_4E_WSO_IFF_CODE_THOUSANDS_A",
-                                                                                                         "description": "IFF Code (thousands)",
-                                                                                                          "max_length": 1,
-                                                                                                              "suffix": "",
-                                                                                                                "type": "string"
+                                                                                                                        "address": 10768,
+                                                                                                  "address_mask_shift_identifier": "F_4E_WSO_IFF_CODE_THOUSANDS",
+                                                                                                                    "description": "IFF Code (thousands)",
+                                                                                                                           "mask": 3840,
+                                                                                                                      "max_value": 8,
+                                                                                                                       "shift_by": 8,
+                                                                                                                         "suffix": "",
+                                                                                                                           "type": "integer"
                                                                                               } ]
                                                                           },
                                      "WSO_IFF_COMBAT_TREE_CHALLENGE_DIM": {
@@ -858,7 +896,7 @@
                                                                                                   "suggested_step": 3200
                                                                                               } ],
                                                                                    "outputs": [ {
-                                                                                                                        "address": 10780,
+                                                                                                                        "address": 10782,
                                                                                                              "address_identifier": "F_4E_WSO_IFF_COMBAT_TREE_CHALLENGE_DIM_A",
                                                                                                   "address_mask_shift_identifier": "F_4E_WSO_IFF_COMBAT_TREE_CHALLENGE_DIM",
                                                                                                                     "description": "position of the potentiometer",
@@ -888,13 +926,13 @@
                                                                                                     "interface": "action"
                                                                                               } ],
                                                                                    "outputs": [ {
-                                                                                                                        "address": 10764,
+                                                                                                                        "address": 10780,
                                                                                                         "address_mask_identifier": "F_4E_WSO_IFF_COMBAT_TREE_CHALLENGE_TEST_BUTTON_AM",
                                                                                                   "address_mask_shift_identifier": "F_4E_WSO_IFF_COMBAT_TREE_CHALLENGE_TEST_BUTTON",
                                                                                                                     "description": "selector position",
-                                                                                                                           "mask": 512,
+                                                                                                                           "mask": 2,
                                                                                                                       "max_value": 1,
-                                                                                                                       "shift_by": 9,
+                                                                                                                       "shift_by": 1,
                                                                                                                          "suffix": "",
                                                                                                                            "type": "integer"
                                                                                               } ]
@@ -906,13 +944,13 @@
                                                                                 "identifier": "WSO_IFF_COMBAT_TREE_CHALLENGE_TEST_LIGHT",
                                                                                     "inputs": [  ],
                                                                                    "outputs": [ {
-                                                                                                                        "address": 10764,
+                                                                                                                        "address": 10780,
                                                                                                         "address_mask_identifier": "F_4E_WSO_IFF_COMBAT_TREE_CHALLENGE_TEST_LIGHT_AM",
                                                                                                   "address_mask_shift_identifier": "F_4E_WSO_IFF_COMBAT_TREE_CHALLENGE_TEST_LIGHT",
                                                                                                                     "description": "0 if light is off, 1 if light is on",
-                                                                                                                           "mask": 1024,
+                                                                                                                           "mask": 4,
                                                                                                                       "max_value": 1,
-                                                                                                                       "shift_by": 10,
+                                                                                                                       "shift_by": 2,
                                                                                                                          "suffix": "",
                                                                                                                            "type": "integer"
                                                                                               } ]
@@ -931,12 +969,12 @@
                                                                                                     "max_value": 2
                                                                                               } ],
                                                                                    "outputs": [ {
-                                                                                                                        "address": 10764,
+                                                                                                                        "address": 10780,
                                                                                                   "address_mask_shift_identifier": "F_4E_WSO_IFF_COMBAT_TREE_MODE_2",
                                                                                                                     "description": "selector position",
-                                                                                                                           "mask": 12288,
+                                                                                                                           "mask": 48,
                                                                                                                       "max_value": 2,
-                                                                                                                       "shift_by": 12,
+                                                                                                                       "shift_by": 4,
                                                                                                                          "suffix": "",
                                                                                                                            "type": "integer"
                                                                                               } ]
@@ -955,12 +993,12 @@
                                                                                                     "max_value": 2
                                                                                               } ],
                                                                                    "outputs": [ {
-                                                                                                                        "address": 10764,
+                                                                                                                        "address": 10780,
                                                                                                   "address_mask_shift_identifier": "F_4E_WSO_IFF_COMBAT_TREE_MODE_3",
                                                                                                                     "description": "selector position",
-                                                                                                                           "mask": 49152,
+                                                                                                                           "mask": 192,
                                                                                                                       "max_value": 2,
-                                                                                                                       "shift_by": 14,
+                                                                                                                       "shift_by": 6,
                                                                                                                          "suffix": "",
                                                                                                                            "type": "integer"
                                                                                               } ]
@@ -984,13 +1022,13 @@
                                                                                                     "interface": "action"
                                                                                               } ],
                                                                                    "outputs": [ {
-                                                                                                                        "address": 10764,
+                                                                                                                        "address": 10780,
                                                                                                         "address_mask_identifier": "F_4E_WSO_IFF_COMBAT_TREE_TEST_AM",
                                                                                                   "address_mask_shift_identifier": "F_4E_WSO_IFF_COMBAT_TREE_TEST",
                                                                                                                     "description": "selector position",
-                                                                                                                           "mask": 2048,
+                                                                                                                           "mask": 8,
                                                                                                                       "max_value": 1,
-                                                                                                                       "shift_by": 11,
+                                                                                                                       "shift_by": 3,
                                                                                                                          "suffix": "",
                                                                                                                            "type": "integer"
                                                                                               } ]
@@ -1029,7 +1067,7 @@
                                                                                                     "interface": "action"
                                                                                               } ],
                                                                                    "outputs": [ {
-                                                                                                                        "address": 10760,
+                                                                                                                        "address": 10768,
                                                                                                         "address_mask_identifier": "F_4E_WSO_IFF_MODE_DEC_AM",
                                                                                                   "address_mask_shift_identifier": "F_4E_WSO_IFF_MODE_DEC",
                                                                                                                     "description": "selector position",
@@ -1059,7 +1097,7 @@
                                                                                                     "interface": "action"
                                                                                               } ],
                                                                                    "outputs": [ {
-                                                                                                                        "address": 10762,
+                                                                                                                        "address": 10776,
                                                                                                         "address_mask_identifier": "F_4E_WSO_IFF_MODE_DEC_HUNDREDS_AM",
                                                                                                   "address_mask_shift_identifier": "F_4E_WSO_IFF_MODE_DEC_HUNDREDS",
                                                                                                                     "description": "selector position",
@@ -1089,7 +1127,7 @@
                                                                                                     "interface": "action"
                                                                                               } ],
                                                                                    "outputs": [ {
-                                                                                                                        "address": 10762,
+                                                                                                                        "address": 10776,
                                                                                                         "address_mask_identifier": "F_4E_WSO_IFF_MODE_DEC_ONES_AM",
                                                                                                   "address_mask_shift_identifier": "F_4E_WSO_IFF_MODE_DEC_ONES",
                                                                                                                     "description": "selector position",
@@ -1119,7 +1157,7 @@
                                                                                                     "interface": "action"
                                                                                               } ],
                                                                                    "outputs": [ {
-                                                                                                                        "address": 10762,
+                                                                                                                        "address": 10776,
                                                                                                         "address_mask_identifier": "F_4E_WSO_IFF_MODE_DEC_TENS_AM",
                                                                                                   "address_mask_shift_identifier": "F_4E_WSO_IFF_MODE_DEC_TENS",
                                                                                                                     "description": "selector position",
@@ -1149,7 +1187,7 @@
                                                                                                     "interface": "action"
                                                                                               } ],
                                                                                    "outputs": [ {
-                                                                                                                        "address": 10762,
+                                                                                                                        "address": 10776,
                                                                                                         "address_mask_identifier": "F_4E_WSO_IFF_MODE_DEC_THOUSANDS_AM",
                                                                                                   "address_mask_shift_identifier": "F_4E_WSO_IFF_MODE_DEC_THOUSANDS",
                                                                                                                     "description": "selector position",
@@ -1183,9 +1221,9 @@
                                                                                                         "address_mask_identifier": "F_4E_WSO_IFF_MODE_INC_AM",
                                                                                                   "address_mask_shift_identifier": "F_4E_WSO_IFF_MODE_INC",
                                                                                                                     "description": "selector position",
-                                                                                                                           "mask": 1024,
+                                                                                                                           "mask": 16384,
                                                                                                                       "max_value": 1,
-                                                                                                                       "shift_by": 10,
+                                                                                                                       "shift_by": 14,
                                                                                                                          "suffix": "",
                                                                                                                            "type": "integer"
                                                                                               } ]
@@ -1201,7 +1239,7 @@
                                                                                                     "max_value": 2
                                                                                               } ],
                                                                                    "outputs": [ {
-                                                                                                                        "address": 10762,
+                                                                                                                        "address": 10776,
                                                                                                   "address_mask_shift_identifier": "F_4E_WSO_IFF_TEST_CHALLENGE",
                                                                                                                     "description": "switch position -- 0 = Down, 1 = Mid,  2 = Up",
                                                                                                                            "mask": 49152,
