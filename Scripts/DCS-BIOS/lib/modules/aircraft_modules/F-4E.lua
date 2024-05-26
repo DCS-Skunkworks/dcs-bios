@@ -366,6 +366,37 @@ F_4E:defineFloatFromArg("PLT_RADAR_ALT_OFF_FLAG", 75, PILOT_RADAR_ALTIMETER, "Ra
 -- AOA System
 local AOA_DEVICE_ID = 13
 
+-- Pilot AoA Indicator
+local PILOT_AOA_INDICATOR = "PLT AoA Indicator"
+
+F_4E:definePotentiometer("PLT_AOA_AURAL_TONE", AOA_DEVICE_ID, 3001, 635, { 0, 1 }, PILOT_AOA_INDICATOR, "Aural Tone Volume")
+F_4E:definePotentiometer("PLT_AOA_STALL_VOLUME", AOA_DEVICE_ID, 3005, 1372, { 0, 1 }, PILOT_AOA_INDICATOR, "AoA Stall Warning Volume")
+
+F_4E:defineFloatFromArg("PLT_AOA_GAUGE_NEEDLE", 70, PILOT_AOA_INDICATOR, "AoA Gauge Needle")
+F_4E:defineFloatFromArg("PLT_AOA_GAUGE_OFF_FLAG", 71, PILOT_AOA_INDICATOR, "AoA Gauge Off Flag")
+
+F_4E:defineFloatFromArg("PLT_AOA_INDEXER_BRIGHTNESS", 2874, PILOT_AOA_INDICATOR, "AoA Indexer Brightness")
+F_4E:defineIndicatorLight("PLT_AOA_INDEXER_LEFT_LOW", 77, PILOT_AOA_INDICATOR, "AoA Indexer Low Lamp (Left) (Red)")
+F_4E:defineIndicatorLight("PLT_AOA_INDEXER_LEFT_MID", 78, PILOT_AOA_INDICATOR, "AoA Indexer Mid Lamp (Left) (Red)")
+F_4E:defineIndicatorLight("PLT_AOA_INDEXER_LEFT_TOP", 79, PILOT_AOA_INDICATOR, "AoA Indexer Upper Lamp (Left) (Red)")
+F_4E:defineIndicatorLight("PLT_AOA_INDEXER_RIGHT_LOW", 375, PILOT_AOA_INDICATOR, "AoA Indexer Low Lamp (Right) (Red)")
+F_4E:defineIndicatorLight("PLT_AOA_INDEXER_RIGHT_MID", 376, PILOT_AOA_INDICATOR, "AoA Indexer Mid Lamp (Right) (Red)")
+F_4E:defineIndicatorLight("PLT_AOA_INDEXER_RIGHT_TOP", 377, PILOT_AOA_INDICATOR, "AoA Indexer Upper Lamp (Right) (Red)")
+
+-- WSO AoA Indicator
+local WSO_AOA_INDICATOR = "WSO AoA Indicator"
+
+F_4E:definePotentiometer("WSO_AOA_AURAL_TONE", AOA_DEVICE_ID, 3006, 2822, { 0, 1 }, WSO_AOA_INDICATOR, "Aural Tone Volume")
+F_4E:definePotentiometer("WSO_AOA_STALL_VOLUME", AOA_DEVICE_ID, 3003, 636, { 0, 1 }, WSO_AOA_INDICATOR, "AoA Stall Warning Volume")
+
+F_4E:defineFloatFromArg("WSO_AOA_INDEXER_BRIGHTNESS", 2875, WSO_AOA_INDICATOR, "AoA Indexer Brightness")
+F_4E:defineIndicatorLight("WSO_AOA_INDEXER_LEFT_LOW", 637, WSO_AOA_INDICATOR, "AoA Indexer Low Lamp (Left) (Red)")
+F_4E:defineIndicatorLight("WSO_AOA_INDEXER_LEFT_MID", 638, WSO_AOA_INDICATOR, "AoA Indexer Mid Lamp (Left) (Red)")
+F_4E:defineIndicatorLight("WSO_AOA_INDEXER_LEFT_TOP", 639, WSO_AOA_INDICATOR, "AoA Indexer Upper Lamp (Left) (Red)")
+F_4E:defineIndicatorLight("WSO_AOA_INDEXER_RIGHT_LOW", 378, WSO_AOA_INDICATOR, "AoA Indexer Low Lamp (Right) (Red)")
+F_4E:defineIndicatorLight("WSO_AOA_INDEXER_RIGHT_MID", 379, WSO_AOA_INDICATOR, "AoA Indexer Mid Lamp (Right) (Red)")
+F_4E:defineIndicatorLight("WSO_AOA_INDEXER_RIGHT_TOP", 380, WSO_AOA_INDICATOR, "AoA Indexer Upper Lamp (Right) (Red)")
+
 -- INS (AN-ASN-63)
 local INS_DEVICE_ID = 14
 
