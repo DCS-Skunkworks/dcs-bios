@@ -29,6 +29,15 @@ function F_4E:define3PosTumb0To1(identifier, device_id, command, arg_number, cat
 	self:defineMultipositionSwitch(identifier, device_id, command, arg_number, 3, 0.5, category, description)
 end
 
+--- Defines a 0-65535 output from a 0-1 input
+--- @param identifier string the unique identifier for the control
+--- @param arg_number integer the dcs argument number
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+function F_4E:defineFloatFromArg(identifier, arg_number, category, description)
+	self:defineFloat(identifier, arg_number, { 0, 1 }, category, description)
+end
+
 -- ICS
 local ICS_DEVICE_ID = 2
 
@@ -314,11 +323,32 @@ F_4E:defineToggleSwitch("PLT_AFCS_STAB_AUG_PITCH", AFCS_DEVICE_ID, 3014, 1508, P
 F_4E:defineToggleSwitch("PLT_AFCS_AUTOPILOT", AFCS_DEVICE_ID, 3016, 1509, PILOT_AFCS_PANEL, "AFCS Autopilot")
 F_4E:defineToggleSwitch("PLT_AFCS_ALT_HOLD", AFCS_DEVICE_ID, 3018, 1510, PILOT_AFCS_PANEL, "Altitude Hold")
 
--- Magnetic Compass
-local MAGNETIC_COMPASS_DEVICE_ID = 10
-
 -- Clock
 local CLOCK_DEVICE_ID = 11
+
+-- Pilot Clock
+local PILOT_CLOCK = "PLT Clock"
+
+F_4E:definePushButton("PLT_CLOCK_STOPWATCH", CLOCK_DEVICE_ID, 3003, 808, PILOT_CLOCK, "Start/Stop/Reset Stopwatch")
+F_4E:definePushButton("PLT_CLOCK_SET_TIME_PULL", CLOCK_DEVICE_ID, 3001, 812, PILOT_CLOCK, "Set Time (pull)")
+F_4E:defineRotary("PLT_CLOCK_SET_TIME_ROTATE", CLOCK_DEVICE_ID, 3002, 809, PILOT_CLOCK, "Set Time (rotate)")
+
+F_4E:defineFloatFromArg("PLT_CLOCK_HOUR_HAND", 800, PILOT_CLOCK, "Clock Hour Hand")
+F_4E:defineFloatFromArg("PLT_CLOCK_MINUTE_HAND", 801, PILOT_CLOCK, "Clock Minute Hand")
+F_4E:defineFloatFromArg("PLT_CLOCK_STOPWATCH_MINUTE_HAND", 803, PILOT_CLOCK, "Stopwatch Minute Hand")
+F_4E:defineFloatFromArg("PLT_CLOCK_STOPWATCH_SECOND_HAND", 802, PILOT_CLOCK, "Stopwatch Second Hand")
+
+-- WSO Clock
+local WSO_CLOCK = "WSO Clock"
+
+F_4E:definePushButton("WSO_CLOCK_STOPWATCH", CLOCK_DEVICE_ID, 3006, 810, WSO_CLOCK, "Start/Stop/Reset Stopwatch")
+F_4E:definePushButton("WSO_CLOCK_SET_TIME_PULL", CLOCK_DEVICE_ID, 3004, 813, WSO_CLOCK, "Set Time (pull)")
+F_4E:defineRotary("WSO_CLOCK_SET_TIME_ROTATE", CLOCK_DEVICE_ID, 3005, 811, WSO_CLOCK, "Set Time (rotate)")
+
+F_4E:defineFloatFromArg("WSO_CLOCK_HOUR_HAND", 804, WSO_CLOCK, "Clock Hour Hand")
+F_4E:defineFloatFromArg("WSO_CLOCK_MINUTE_HAND", 805, WSO_CLOCK, "Clock Minute Hand")
+F_4E:defineFloatFromArg("WSO_CLOCK_STOPWATCH_MINUTE_HAND", 807, WSO_CLOCK, "Stopwatch Minute Hand")
+F_4E:defineFloatFromArg("WSO_CLOCK_STOPWATCH_SECOND_HAND", 806, WSO_CLOCK, "Stopwatch Second Hand")
 
 -- Radar Altimeter
 local RADAR_ALTIMETER_DEVICE_ID = 12
