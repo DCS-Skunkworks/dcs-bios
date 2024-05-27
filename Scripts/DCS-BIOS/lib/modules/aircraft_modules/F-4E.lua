@@ -533,10 +533,22 @@ F_4E:defineString("WSO_NAV_TARGET_LONGITUDE_VALUE", function(dev0)
 end, 6, WSO_NAVIGATION_PANEL, "Target Position Longitude")
 
 -- Pneumatic Gauge
-local PNEUMATIC_GAUGE_DEVICE_ID = 17
+-- local PNEUMATIC_GAUGE_DEVICE_ID = 17
+
+-- Pilot Pneumatic Gauge
+local PILOT_PNEUMATIC_GAUGE = "PLT Pneumatic Gauge"
+
+F_4E:defineFloatFromArg("PLT_PNEUMATIC_GAUGE", 86, PILOT_PNEUMATIC_GAUGE, "Pneumatic Pressure Gauge")
 
 -- Hydraulic Gauge
-local HYDRAULIC_GAUGE_DEVICE_ID = 18
+-- local HYDRAULIC_GAUGE_DEVICE_ID = 18
+
+-- Pilot Hydraulic Gauges
+local PILOT_HYDRAULIC_GAUGES = "PLT Hydraulic Gauges"
+
+F_4E:defineFloatFromArg("PLT_HYDRAULIC_PC1", 212, PILOT_HYDRAULIC_GAUGES, "PC1 Hydraulic Pressure Gauge")
+F_4E:defineFloatFromArg("PLT_HYDRAULIC_PC2", 210, PILOT_HYDRAULIC_GAUGES, "PC2 Hydraulic Pressure Gauge")
+F_4E:defineFloatFromArg("PLT_HYDRAULIC_UTILITY", 211, PILOT_HYDRAULIC_GAUGES, "Utility Hydraulic Pressure Gauge")
 
 -- Landing Gear
 local LANDING_GEAR_DEVICE_ID = 20
