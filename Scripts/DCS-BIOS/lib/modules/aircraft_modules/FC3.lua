@@ -356,7 +356,8 @@ end)
 FC3:addExportHook(function()
 	--[[G Load]]
 	local plane = GetPlaneName()
-	gload = LoGetAccelerationUnits().y or 0
+	local acceleration_units = LoGetAccelerationUnits()
+	gload = acceleration_units and acceleration_units.y or 0
 	gload_bar = BarGLoad(gload) or 0
 
 	-- G LOAD

@@ -248,8 +248,8 @@ function LoCoordinatesToGeoCoordinates(x, z) end
 --- @field z number
 AccelerationUnit = {}
 
---- Returns G Load
---- @return AccelerationUnit
+--- Returns G Load. May be null when the user has the Game Master slot selected.
+--- @return AccelerationUnit?
 function LoGetAccelerationUnits() end
 
 --- Returns ADI pitch, band, yaw
