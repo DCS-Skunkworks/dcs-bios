@@ -6,6 +6,8 @@ local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 --- @class F_4E: Module
 local F_4E = Module:new("F-4E", 0x2A00, { "F-4E-45MC" })
 
+-- helper control definitions
+
 --- Default limited multiposition tumb for F-4E
 --- @param identifier string the unique identifier for the control
 --- @param device_id integer the dcs device id
@@ -36,6 +38,24 @@ end
 --- @param description string additional information about the control
 function F_4E:defineFloatFromArg(identifier, arg_number, category, description)
 	self:defineFloat(identifier, arg_number, { 0, 1 }, category, description)
+end
+
+-- helper functions
+
+--- Returns an integer value for a drum-based numeric indicator
+--- @param dev0 CockpitDevice
+--- @param arg_number integer the dcs argument number from which to fetch the data
+--- @param invert boolean? whether the input should be inverted - default false
+--- @param max_value integer? the exclusive upper bound of the output - default 10
+--- @return integer value the integer displayed on the drum
+local function drum_value(dev0, arg_number, invert, max_value)
+	max_value = max_value or 10
+	invert = invert or false
+	local val = Module.round(dev0:get_argument_value(arg_number) * max_value)
+	if invert then
+		val = max_value - val
+	end
+	return val % max_value
 end
 
 -- ICS
@@ -237,19 +257,15 @@ F_4E:definePotentiometer("WSO_CM_FLARE_DIM", COUNTERMEASURES_DEVICE_ID, 3009, 14
 F_4E:defineIndicatorLight("WSO_CM_FLARE_LIGHT", 1442, WSO_COUNTERMEASURES_PANEL, "Flare Lamp (Red)")
 F_4E:defineMultipositionRollerLimited("WSO_CM_FLARE_MODE", COUNTERMEASURES_DEVICE_ID, 3021, 1443, 3, WSO_COUNTERMEASURES_PANEL, "Select Flare Mode")
 
-local function wso_cm_display(dev0, arg_number)
-	return Module.round(dev0:get_argument_value(arg_number) * 10) % 10
-end
-
 local wso_cm_chaff_hundreds = 0
 local wso_cm_chaff_tens = 0
 local wso_cm_chaff_ones = 0
 local wso_cm_chaff = ""
 
 F_4E:addExportHook(function(dev0)
-	wso_cm_chaff_hundreds = Module.round(wso_cm_display(dev0, 1390))
-	wso_cm_chaff_tens = Module.round(wso_cm_display(dev0, 1391))
-	wso_cm_chaff_ones = Module.round(wso_cm_display(dev0, 1392))
+	wso_cm_chaff_hundreds = Module.round(drum_value(dev0, 1390))
+	wso_cm_chaff_tens = Module.round(drum_value(dev0, 1391))
+	wso_cm_chaff_ones = Module.round(drum_value(dev0, 1392))
 	wso_cm_chaff = string.format("%d%d%d", wso_cm_chaff_hundreds, wso_cm_chaff_tens, wso_cm_chaff_ones)
 end)
 
@@ -259,9 +275,9 @@ local wso_cm_flare_ones = 0
 local wso_cm_flare = ""
 
 F_4E:addExportHook(function(dev0)
-	wso_cm_flare_hundreds = Module.round(wso_cm_display(dev0, 1393))
-	wso_cm_flare_tens = Module.round(wso_cm_display(dev0, 1394))
-	wso_cm_flare_ones = Module.round(wso_cm_display(dev0, 1395))
+	wso_cm_flare_hundreds = Module.round(drum_value(dev0, 1393))
+	wso_cm_flare_tens = Module.round(drum_value(dev0, 1394))
+	wso_cm_flare_ones = Module.round(drum_value(dev0, 1395))
 	wso_cm_flare = string.format("%d%d%d", wso_cm_flare_hundreds, wso_cm_flare_tens, wso_cm_flare_ones)
 end)
 
@@ -412,6 +428,109 @@ F_4E:defineIndicatorLight("WSO_INS_HEAT", 1000, WSO_INS_PANEL, "WSO INS Heat Lam
 
 -- Navigation (AN-ASN-46A)
 local NAVIGATION_DEVICE_ID = 16
+
+local WSO_NAVIGATION_PANEL = "WSO Navigation Panel"
+
+F_4E:defineSpringloaded_3PosTumbWithRange("WSO_NAV_POSITION_UPDATE_MODE", NAVIGATION_DEVICE_ID, 3002, 3002, 940, { 0, 1 }, WSO_NAVIGATION_PANEL, "Set Position Update Mode")
+F_4E:definePushButton("WSO_NAV_MAG_VAR_PUSH", NAVIGATION_DEVICE_ID, 3012, 946, WSO_NAVIGATION_PANEL, "Set Magnetic Variation (push to enable turning)")
+F_4E:defineRotary("WSO_NAV_MAG_VAR_TURN", NAVIGATION_DEVICE_ID, 3007, 909, WSO_NAVIGATION_PANEL, "Set Magnetic Variation (must be pushed)")
+F_4E:definePotentiometer("WSO_NAV_WIND_DIRECTION", NAVIGATION_DEVICE_ID, 3005, 905, { 0, 1 }, WSO_NAVIGATION_PANEL, "Set Wind Direction (degrees)")
+F_4E:definePotentiometer("WSO_NAV_WIND_STRENGTH", NAVIGATION_DEVICE_ID, 3006, 901, { 0, 1 }, WSO_NAVIGATION_PANEL, "Set Wind Strength (knots)")
+F_4E:defineMultipositionRollerLimited("WSO_NAV_MODE", NAVIGATION_DEVICE_ID, 3001, 900, 5, WSO_NAVIGATION_PANEL, "Select Navigation Computer Mode")
+F_4E:definePushButton("WSO_NAV_LATITUDE_PUSH", NAVIGATION_DEVICE_ID, 3010, 947, WSO_NAVIGATION_PANEL, "Set Position (N/S Lat) (push to enable turning)")
+F_4E:defineRotary("WSO_NAV_LATITUE_TURN", NAVIGATION_DEVICE_ID, 3003, 914, WSO_NAVIGATION_PANEL, "Set Position (N/S Lat) (must be pushed)")
+F_4E:definePushButton("WSO_NAV_LONGITUDE_PUSH", NAVIGATION_DEVICE_ID, 3011, 948, WSO_NAVIGATION_PANEL, "Set Position (E/W Long) (push to enable turning)")
+F_4E:defineRotary("WSO_NAV_LONGITUDE_TURN", NAVIGATION_DEVICE_ID, 3004, 920, WSO_NAVIGATION_PANEL, "Set Position (E/W Long) (must be pushed)")
+F_4E:defineRotary("WSO_NAV_TARGET_LATITUDE", NAVIGATION_DEVICE_ID, 3008, 927, WSO_NAVIGATION_PANEL, "Set Target Position (N/S Lat)")
+F_4E:defineRotary("WSO_NAV_TARGET_LONGITUDE", NAVIGATION_DEVICE_ID, 3009, 933, WSO_NAVIGATION_PANEL, "Set Target Position (E/W Long)")
+
+F_4E:defineIndicatorLight("WSO_NAV_TEST_CAP_OFF", 942, WSO_NAVIGATION_PANEL, "Test Cap Off Lamp")
+F_4E:defineIndicatorLight("WSO_NAV_LATITUDE_SYNC", 943, WSO_NAVIGATION_PANEL, "Latitude Sync Lamp (Blue)")
+F_4E:defineIndicatorLight("WSO_NAV_LONGITUDE_SYNC", 944, WSO_NAVIGATION_PANEL, "Longitude Sync Lamp (Blue)")
+F_4E:defineIndicatorLight("WSO_NAV_AIR_DATA_MODE", 945, WSO_NAVIGATION_PANEL, "Air Data Mode Lamp (Yellow)")
+
+F_4E:defineFloat("WSO_NAV_VAR_SYNC_METER", 941, { -1, 1 }, WSO_NAVIGATION_PANEL, "Position/Navigation Sync Meter")
+
+F_4E:defineString("WSO_NAV_MAG_VAR_VALUE", function(dev0)
+	local west = dev0:get_argument_value(910) > 0.5
+
+	local ones = drum_value(dev0, 911, west)
+	local tens = drum_value(dev0, 912, west)
+	local hundreds = drum_value(dev0, 913, west)
+
+	if west then
+		return string.format("%d%d%dWEST", hundreds, tens, ones)
+	end
+
+	return string.format("EAST%d%d%d", hundreds, tens, ones)
+end, 7, WSO_NAVIGATION_PANEL, "Magnetic Variation")
+
+-- wind
+
+F_4E:defineString("WSO_NAV_WIND_DIRECTION_VALUE", function(dev0)
+	local ones = drum_value(dev0, 906)
+	local tens = drum_value(dev0, 907)
+	local hundreds = drum_value(dev0, 908)
+	return string.format("%d%d%d", hundreds, tens, ones)
+end, 3, WSO_NAVIGATION_PANEL, "Wind Direction")
+
+F_4E:defineString("WSO_NAV_WIND_STRENGTH_VALUE", function(dev0)
+	local ones = drum_value(dev0, 902)
+	local tens = drum_value(dev0, 903)
+	local hundreds = drum_value(dev0, 904)
+	return string.format("%d%d%d", hundreds, tens, ones)
+end, 3, WSO_NAVIGATION_PANEL, "Wind Strength")
+
+-- lat/longs
+
+local function latitude_value(dev0, flag_arg, minutes_tens_arg, minutes_ones_arg, seconds_tens_arg, seconds_ones_arg)
+	local south = dev0:get_argument_value(flag_arg) > 0.5
+
+	local minutes_tens = drum_value(dev0, minutes_tens_arg, south)
+	local minutes_ones = drum_value(dev0, minutes_ones_arg, south)
+	local seconds_tens = drum_value(dev0, seconds_tens_arg, south, 6)
+	local seconds_ones = drum_value(dev0, seconds_ones_arg, south)
+
+	if south then
+		return string.format("%d%d%d%d SOUTH", minutes_tens, minutes_ones, seconds_tens, seconds_ones)
+	end
+
+	return string.format("NORTH %d%d%d%d", minutes_tens, minutes_ones, seconds_tens, seconds_ones)
+end
+
+local function longitude_value(dev0, flag_arg, minutes_hundreds_arg, minutes_tens_arg, minutes_ones_arg, seconds_tens_arg, seconds_ones_arg)
+	local west = dev0:get_argument_value(flag_arg) > 0.5
+
+	local minutes_hundreds_val = dev0:get_argument_value(minutes_hundreds_arg) < 0.5 and 0 or 1
+	if west then
+		minutes_hundreds_val = 1 - minutes_hundreds_val
+	end
+	minutes_hundreds_val = drum_value(dev0, minutes_hundreds_arg, west)
+	local minutes_hundreds = minutes_hundreds_val == 0 and " " or tostring(minutes_hundreds_val)
+	local minutes_tens_val = drum_value(dev0, minutes_tens_arg, west)
+	local minutes_tens = minutes_tens_val == 0 and " " or tostring(minutes_tens_val)
+	local minutes_ones = drum_value(dev0, minutes_ones_arg, west)
+	local seconds_tens = drum_value(dev0, seconds_tens_arg, west, 6)
+	local seconds_ones = drum_value(dev0, seconds_ones_arg, west)
+
+	return string.format("%s%s%d%d%d%s", minutes_hundreds, minutes_tens, minutes_ones, seconds_tens, seconds_ones, west and "W" or "E")
+end
+
+F_4E:defineString("WSO_NAV_LATITUDE_VALUE", function(dev0)
+	return latitude_value(dev0, 919, 918, 917, 916, 915)
+end, 10, WSO_NAVIGATION_PANEL, "Position Latitude")
+
+F_4E:defineString("WSO_NAV_LONGITUDE_VALUE", function(dev0)
+	return longitude_value(dev0, 921, 926, 925, 924, 923, 922)
+end, 6, WSO_NAVIGATION_PANEL, "Position Longitude")
+
+F_4E:defineString("WSO_NAV_TARGET_LATITUDE_VALUE", function(dev0)
+	return latitude_value(dev0, 932, 931, 930, 929, 928)
+end, 10, WSO_NAVIGATION_PANEL, "Target Position Latitude")
+
+F_4E:defineString("WSO_NAV_TARGET_LONGITUDE_VALUE", function(dev0)
+	return longitude_value(dev0, 934, 939, 938, 937, 936, 935)
+end, 6, WSO_NAVIGATION_PANEL, "Target Position Longitude")
 
 -- Pneumatic Gauge
 local PNEUMATIC_GAUGE_DEVICE_ID = 17
@@ -573,16 +692,12 @@ local iff_hundreds = 0
 local iff_thousands = 0
 local iff_code = ""
 
-local function wso_iff_argument_display(dev0, arg_number)
-	return Module.round(dev0:get_argument_value(arg_number) * 8) % 8
-end
-
 -- WSO IFF display
 F_4E:addExportHook(function(dev0)
-	iff_ones = wso_iff_argument_display(dev0, 2000)
-	iff_tens = wso_iff_argument_display(dev0, 2001)
-	iff_hundreds = wso_iff_argument_display(dev0, 2002)
-	iff_thousands = wso_iff_argument_display(dev0, 2003)
+	iff_ones = drum_value(dev0, 2000, false, 8)
+	iff_tens = drum_value(dev0, 2001, false, 8)
+	iff_hundreds = drum_value(dev0, 2002, false, 8)
+	iff_thousands = drum_value(dev0, 2003, false, 8)
 	iff_code = string.format("%d%d%d%d", iff_thousands, iff_hundreds, iff_tens, iff_ones)
 end)
 
