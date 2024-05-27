@@ -553,6 +553,54 @@ F_4E:defineFloatFromArg("PLT_HYDRAULIC_UTILITY", 211, PILOT_HYDRAULIC_GAUGES, "U
 -- Landing Gear
 local LANDING_GEAR_DEVICE_ID = 20
 
+-- Pilot Landing Gear Controls
+local PILOT_LANDING_GEAR = "PLT Landing Gear Controls"
+
+F_4E:defineToggleSwitch("PLT_GEAR_LEVER", LANDING_GEAR_DEVICE_ID, 3001, 5, PILOT_LANDING_GEAR, "Landing Gear Lever")
+F_4E:defineToggleSwitch("PLT_GEAR_LEVER_EMERGENCY", LANDING_GEAR_DEVICE_ID, 3013, 3045, PILOT_LANDING_GEAR, "Landing Gear Lever (Pull Out for Emergency)")
+F_4E:defineIndicatorLight("PLT_GEAR_LEVER_LIGHT", 66, PILOT_LANDING_GEAR, "Landing Gear Lever Light (Red)")
+F_4E:defineIndicatorLight("PLT_GEAR_WHEELS_LIGHT", 65, PILOT_LANDING_GEAR, "WHEELS Lamp (Red)")
+F_4E:defineToggleSwitch("PLT_GEAR_ANTI_SKID", LANDING_GEAR_DEVICE_ID, 3002, 63, PILOT_LANDING_GEAR, "Anti-Skid Toggle")
+F_4E:defineIndicatorLight("PLT_GEAR_ANTI_SKID_INOP", 64, PILOT_LANDING_GEAR, "Anti-Skid Inoperative Lamp (Yellow)")
+F_4E:definePotentiometer("PLT_GEAR_BRAKES_EMERGENCY", LANDING_GEAR_DEVICE_ID, 3004, 343, { 0, 1 }, PILOT_LANDING_GEAR, "Emergency Wheel Brake (Pull)")
+F_4E:defineToggleSwitch("PLT_GEAR_DRAG_CHUTE", LANDING_GEAR_DEVICE_ID, 3009, 2767, PILOT_LANDING_GEAR, "Drag-Parachute (Pull to Deploy)")
+F_4E:defineToggleSwitch("PLT_GEAR_DRAG_CHUTE_RELEASE", LANDING_GEAR_DEVICE_ID, 3010, 1516, PILOT_LANDING_GEAR, "Release Drag-Parachute (only while deployed)")
+F_4E:defineToggleSwitch("PLT_GEAR_ARRESTING_HOOK", LANDING_GEAR_DEVICE_ID, 3021, 974, PILOT_LANDING_GEAR, "Arresting Hook Handle")
+
+local function gear_indicator_value(dev0, arg_number)
+	return Module.round(dev0:get_argument_value(arg_number) / 0.5)
+end
+
+F_4E:defineIntegerFromGetter("PLT_GEAR_INDICATOR_LEFT", function(dev0)
+	return gear_indicator_value(dev0, 52)
+end, 2, PILOT_LANDING_GEAR, "Landing Gear Up/Down Indicator (Left)")
+
+F_4E:defineIntegerFromGetter("PLT_GEAR_INDICATOR_NOSE", function(dev0)
+	return gear_indicator_value(dev0, 51)
+end, 2, PILOT_LANDING_GEAR, "Landing Gear Up/Down Indicator (Nose)")
+
+F_4E:defineIntegerFromGetter("PLT_GEAR_INDICATOR_RIGHT", function(dev0)
+	return gear_indicator_value(dev0, 50)
+end, 2, PILOT_LANDING_GEAR, "Landing Gear Up/Down Indicator (Right)")
+
+-- WSO Landing Gear Controls
+local WSO_LANDING_GEAR = "WSO Landing Gear Controls"
+
+F_4E:definePotentiometer("WSO_GEAR_HANDLE_EMERGENCY", LANDING_GEAR_DEVICE_ID, 3008, 983, { 0, 1 }, WSO_LANDING_GEAR, "Emergency Gear Handle (Pull to Release)")
+F_4E:definePotentiometer("WSO_GEAR_BRAKES_EMERGENCY", LANDING_GEAR_DEVICE_ID, 3005, 344, { 0, 1 }, WSO_LANDING_GEAR, "Emergency Wheel Brake (Pull)")
+
+F_4E:defineIntegerFromGetter("WSO_GEAR_INDICATOR_LEFT", function(dev0)
+	return gear_indicator_value(dev0, 984)
+end, 2, WSO_LANDING_GEAR, "Landing Gear Up/Down Indicator (Left)")
+
+F_4E:defineIntegerFromGetter("WSO_GEAR_INDICATOR_NOSE", function(dev0)
+	return gear_indicator_value(dev0, 986)
+end, 2, WSO_LANDING_GEAR, "Landing Gear Up/Down Indicator (Nose)")
+
+F_4E:defineIntegerFromGetter("WSO_GEAR_INDICATOR_RIGHT", function(dev0)
+	return gear_indicator_value(dev0, 988)
+end, 2, WSO_LANDING_GEAR, "Landing Gear Up/Down Indicator (Right)")
+
 -- Indicators
 local INDICATORS_DEVICE_ID = 22
 
@@ -843,11 +891,13 @@ local ECM_DEVICE_ID = 91
 -- Pilot Stick
 local PILOT_STICK = "PLT Stick"
 
+F_4E:definePushButton("PLT_GEAR_NWS", LANDING_GEAR_DEVICE_ID, 3006, 2781, PILOT_STICK, "Nosegear Steering Button")
 F_4E:definePushButton("PLT_AFCS_EMERGENCY_RELEASE", AFCS_DEVICE_ID, 3020, 2782, PILOT_STICK, "Emergency Quick Release")
 
 -- WSO Stick
 local WSO_STICK = "WSO Stick"
 
+F_4E:definePushButton("WSO_GEAR_NWS", LANDING_GEAR_DEVICE_ID, 3007, 2787, WSO_STICK, "Nosegear Steering Button")
 F_4E:definePushButton("WSO_AFCS_EMERGENCY_RELEASE", AFCS_DEVICE_ID, 3021, 2788, WSO_STICK, "Emergency Quick Release")
 
 -- Pilot Throttle
