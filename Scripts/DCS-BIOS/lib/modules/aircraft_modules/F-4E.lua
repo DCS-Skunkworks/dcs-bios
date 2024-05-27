@@ -604,6 +604,66 @@ end, 2, WSO_LANDING_GEAR, "Landing Gear Up/Down Indicator (Right)")
 -- Indicators
 local INDICATORS_DEVICE_ID = 22
 
+-- Pilot Warning Indicators
+local PILOT_WARNING_INDICATORS = "PLT Warning Indicators"
+
+F_4E:defineSpringloaded_3PosTumb("PLT_WCA_WARN_LIGHT_TEST", INDICATORS_DEVICE_ID, 3002, 3002, 1354, PILOT_WARNING_INDICATORS, "Test Warning Lights/Standby Compass Light")
+F_4E:definePushButton("PLT_WCA_MASTER_CAUTION_RESET", INDICATORS_DEVICE_ID, 3001, 221, PILOT_WARNING_INDICATORS, "Reset Master Caution")
+
+F_4E:defineIndicatorLight("PLT_WCA_MASTER_CAUTION", 218, PILOT_WARNING_INDICATORS, "Master Caution Lamp (Yellow)")
+
+F_4E:defineIndicatorLight("PLT_WCA_FIRE_L", 2547, PILOT_WARNING_INDICATORS, "Engine Fire Left Lamp (Red)")
+F_4E:defineIndicatorLight("PLT_WCA_FIRE_R", 2548, PILOT_WARNING_INDICATORS, "Engine Fire Right Lamp (Red)")
+F_4E:defineIndicatorLight("PLT_WCA_OVERHEAT_L", 2549, PILOT_WARNING_INDICATORS, "Engine Overheat Left Lamp (Red)")
+F_4E:defineIndicatorLight("PLT_WCA_OVERHEAT_R", 2550, PILOT_WARNING_INDICATORS, "Engine Overheat Right Lamp (Red)")
+
+F_4E:defineIndicatorLight("PLT_WCA_BUS_TIE_OPEN", 199, PILOT_WARNING_INDICATORS, "Bus Tie Open Lamp (Red)")
+F_4E:defineIndicatorLight("PLT_WCA_GEN_OUT_L", 2551, PILOT_WARNING_INDICATORS, "Left Generator Out Lamp (Red)")
+F_4E:defineIndicatorLight("PLT_WCA_GEN_OUT_R", 2552, PILOT_WARNING_INDICATORS, "Right Generator Out Lamp (Red)")
+
+F_4E:defineIndicatorLight("PLT_WCA_ALT_ENCODER_OUT", 115, PILOT_WARNING_INDICATORS, "Alt Encoder Out Lamp (Yellow)")
+F_4E:defineIndicatorLight("PLT_WCA_IFF", 2568, PILOT_WARNING_INDICATORS, "IFF Lamp (Red)")
+F_4E:defineIndicatorLight("PLT_WCA_DC_BUS", 2577, PILOT_WARNING_INDICATORS, "DC Bus Lamp (Yellow)")
+F_4E:defineIndicatorLight("PLT_WCA_CANOPY_UNLOCKED", 208, PILOT_WARNING_INDICATORS, "Canopy Unlocked Lamp (Red)")
+F_4E:defineIndicatorLight("PLT_WCA_HOOK_DOWN", 2578, PILOT_WARNING_INDICATORS, "Hook Down Lamp (Red)")
+F_4E:defineIndicatorLight("PLT_WCA_AUTOPILOT_PITCH_DISENGAGE", 2569, PILOT_WARNING_INDICATORS, "Autopilot Pitch Trim Lamp (Yellow)")
+F_4E:defineIndicatorLight("PLT_WCA_AUTOPILOT_DISENGAGE", 2579, PILOT_WARNING_INDICATORS, "Autopilot Disengage Lamp (Yellow)")
+F_4E:defineIndicatorLight("PLT_WCA_EXT_FUEL_L", 2570, PILOT_WARNING_INDICATORS, "Left Ext Fuel Lamp (Green)")
+F_4E:defineIndicatorLight("PLT_WCA_EXT_FUEL_C", 2580, PILOT_WARNING_INDICATORS, "Center Ext Fuel Lamp (Green)")
+F_4E:defineIndicatorLight("PLT_WCA_EXT_FUEL_R", 2587, PILOT_WARNING_INDICATORS, "Right Ext Fuel Lamp (Green)")
+F_4E:defineIndicatorLight("PLT_WCA_FUEL_LOW", 2571, PILOT_WARNING_INDICATORS, "Fuel Level Low Lamp (Red)")
+F_4E:defineIndicatorLight("PLT_WCA_FUEL_FILTER_CHECK", 2581, PILOT_WARNING_INDICATORS, "Check Fuel Filters Lamp (Yellow)")
+F_4E:defineIndicatorLight("PLT_WCA_RADAR_ON_COOL_OFF", 2588, PILOT_WARNING_INDICATORS, "Radar On Cool Off Lamp (Yellow)")
+F_4E:defineIndicatorLight("PLT_WCA_FIRE_SYS", 2591, PILOT_WARNING_INDICATORS, "Fire Sys Lamp (Yellow)")
+F_4E:defineIndicatorLight("PLT_WCA_ANTI_ICE_L", 2572, PILOT_WARNING_INDICATORS, "L Anti-Ice On Lamp (Yellow)")
+F_4E:defineIndicatorLight("PLT_WCA_ANTI_ICE_R", 2582, PILOT_WARNING_INDICATORS, "R Anti-Ice On Lamp (Yellow)")
+F_4E:defineIndicatorLight("PLT_WCA_STATIC_CORR", 114, PILOT_WARNING_INDICATORS, "Static Corr Off Lamp (Yellow)")
+F_4E:defineIndicatorLight("PLT_WCA_AUX_AIR_L", 2573, PILOT_WARNING_INDICATORS, "L Aux Air Door Lamp (Yellow)")
+F_4E:defineIndicatorLight("PLT_WCA_AUX_AIR_R", 2583, PILOT_WARNING_INDICATORS, "R Aux Air Door Lamp (Yellow)")
+F_4E:defineIndicatorLight("PLT_WCA_SPEEDBRAKE_OUT", 2589, PILOT_WARNING_INDICATORS, "Speedbrake Out Lamp (Yellow)")
+F_4E:defineIndicatorLight("PLT_WCA_WINDSHIELD_TEMP", 2574, PILOT_WARNING_INDICATORS, "Windshield Temp High Lamp (Yellow)")
+F_4E:defineIndicatorLight("PLT_WCA_DUCT_TEMP", 2584, PILOT_WARNING_INDICATORS, "Duct Temp High Lamp (Yellow)")
+F_4E:defineIndicatorLight("PLT_WCA_HYD_GAUGES", 220, PILOT_WARNING_INDICATORS, "Check Hyd Gauges Lamp (Yellow)")
+F_4E:defineIndicatorLight("PLT_WCA_SLATS_IN", 2575, PILOT_WARNING_INDICATORS, "Slats In Lamp (Yellow)")
+F_4E:defineIndicatorLight("PLT_WCA_PITCH_AUG_OFF", 2585, PILOT_WARNING_INDICATORS, "Pitch Aug Off Lamp (Yellow)")
+F_4E:defineIndicatorLight("PLT_WCA_CABIN_TURB_OVERSPEED", 2590, PILOT_WARNING_INDICATORS, "Cabin Turb Overspeed Lamp (Yellow)")
+F_4E:defineIndicatorLight("PLT_WCA_INS_OUT", 2576, PILOT_WARNING_INDICATORS, "Inertial Nav Sys Out Lamp (Yellow)")
+F_4E:defineIndicatorLight("PLT_WCA_TANK_7_FULL", 2586, PILOT_WARNING_INDICATORS, "Tank 7 Full Lamp (Green)")
+F_4E:defineIndicatorLight("PLT_WCA_OXYGEN_LOW", 238, PILOT_WARNING_INDICATORS, "Oxygen Low Lamp (Yellow)")
+
+F_4E:defineIndicatorLight("PLT_WCA_SPARE", 2883, PILOT_WARNING_INDICATORS, "Spare Warning Lamps (Yellow)")
+
+-- WSO Warning Indicators
+local WSO_WARNING_INDICATORS = "WSO Warning Indicators"
+
+F_4E:definePushButton("WSO_WCA_WARN_LIGHT_TEST", INDICATORS_DEVICE_ID, 3004, 2513, WSO_WARNING_INDICATORS, "Test Warning Lights")
+
+F_4E:defineIndicatorLight("WSO_WCA_MASTER_CAUTION", 219, WSO_WARNING_INDICATORS, "Master Caution Lamp (Yellow)")
+
+F_4E:defineIndicatorLight("WSO_WCA_CANOPY_UNLOCKED", 209, WSO_WARNING_INDICATORS, "Canopy Unlocked Lamp (Red)")
+F_4E:defineIndicatorLight("WSO_WCA_INS_OUT", 2688, WSO_WARNING_INDICATORS, "Inertial Nav Sys Out Lamp (Yellow)")
+F_4E:defineIndicatorLight("WSO_WCA_RADAR_CNI_COOL_OFF", 2689, WSO_WARNING_INDICATORS, "Radar CNI Cool Off Lamp (Yellow)")
+
 -- Canopy
 local CANOPY_DEVICE_ID = 23
 
