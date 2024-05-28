@@ -667,6 +667,22 @@ F_4E:defineIndicatorLight("WSO_WCA_RADAR_CNI_COOL_OFF", 2689, WSO_WARNING_INDICA
 -- Canopy
 local CANOPY_DEVICE_ID = 23
 
+-- Pilot Canopy
+local PILOT_CANOPY = "PLT Canopy"
+
+F_4E:defineToggleSwitch("PLT_CANOPY_CONTROL", CANOPY_DEVICE_ID, 3001, 200, PILOT_CANOPY, "Canopy Control (Open/Close)")
+F_4E:defineToggleSwitch("PLT_CANOPY_MANUAL_UNLOCK", CANOPY_DEVICE_ID, 3002, 204, PILOT_CANOPY, "Manual Canopy Unlock")
+F_4E:defineToggleSwitch("PLT_CANOPY_EMERGENCY_RELEASE", CANOPY_DEVICE_ID, 3003, 202, PILOT_CANOPY, "Canopy Emergency Release")
+F_4E:defineFloatFromArg("PLT_CANOPY", 87, PILOT_CANOPY, "Canopy Opened/Closed")
+
+-- WSO Canopy
+local WSO_CANOPY = "WSO Canopy"
+
+F_4E:defineToggleSwitch("WSO_CANOPY_CONTROL", CANOPY_DEVICE_ID, 3004, 201, WSO_CANOPY, "Canopy Control (Open/Close)")
+F_4E:defineToggleSwitch("WSO_CANOPY_MANUAL_UNLOCK", CANOPY_DEVICE_ID, 3005, 205, WSO_CANOPY, "Manual Canopy Unlock")
+F_4E:defineToggleSwitch("WSO_CANOPY_EMERGENCY_RELEASE", CANOPY_DEVICE_ID, 3006, 203, WSO_CANOPY, "Canopy Emergency Release")
+F_4E:defineFloatFromArg("WSO_CANOPY", 88, WSO_CANOPY, "Canopy Opened/Closed")
+
 -- Engine
 local ENGINE_DEVICE_ID = 24
 
