@@ -1050,6 +1050,385 @@ docdata["F-4E"] =
                                                                                        } ]
                                                                    }
                                  },
+                 "PLT CB Panel": {
+                                                                "ARI_CIRCUIT_BREAKER": {
+                                                                                               "category": "PLT CB Panel",
+                                                                                           "control_type": "selector",
+                                                                                            "description": "Aileron-Rudder Interconnect (ARI) CB",
+                                                                                             "identifier": "ARI_CIRCUIT_BREAKER",
+                                                                                                 "inputs": [ {
+                                                                                                               "description": "switch to previous or next state",
+                                                                                                                 "interface": "fixed_step"
+                                                                                                           }, {
+                                                                                                               "description": "set position",
+                                                                                                                 "interface": "set_state",
+                                                                                                                 "max_value": 1
+                                                                                                           }, {
+                                                                                                                  "argument": "TOGGLE",
+                                                                                                               "description": "Toggle switch state",
+                                                                                                                 "interface": "action"
+                                                                                                           } ],
+                                                                                                "outputs": [ {
+                                                                                                                                     "address": 11010,
+                                                                                                                     "address_mask_identifier": "F_4E_ARI_CIRCUIT_BREAKER_AM",
+                                                                                                               "address_mask_shift_identifier": "F_4E_ARI_CIRCUIT_BREAKER",
+                                                                                                                                 "description": "selector position",
+                                                                                                                                        "mask": 2048,
+                                                                                                                                   "max_value": 1,
+                                                                                                                                    "shift_by": 11,
+                                                                                                                                      "suffix": "",
+                                                                                                                                        "type": "integer"
+                                                                                                           } ]
+                                                                                       },
+                                                       "PILOT_FLOODLIGHT_INSTRUMENTS": {
+                                                                                               "category": "PLT CB Panel",
+                                                                                           "control_type": "selector",
+                                                                                            "description": "Pilot Instruments Lights CB",
+                                                                                             "identifier": "PILOT_FLOODLIGHT_INSTRUMENTS",
+                                                                                                 "inputs": [ {
+                                                                                                               "description": "switch to previous or next state",
+                                                                                                                 "interface": "fixed_step"
+                                                                                                           }, {
+                                                                                                               "description": "set position",
+                                                                                                                 "interface": "set_state",
+                                                                                                                 "max_value": 1
+                                                                                                           }, {
+                                                                                                                  "argument": "TOGGLE",
+                                                                                                               "description": "Toggle switch state",
+                                                                                                                 "interface": "action"
+                                                                                                           } ],
+                                                                                                "outputs": [ {
+                                                                                                                                     "address": 11034,
+                                                                                                                     "address_mask_identifier": "F_4E_PILOT_FLOODLIGHT_INSTRUMENTS_AM",
+                                                                                                               "address_mask_shift_identifier": "F_4E_PILOT_FLOODLIGHT_INSTRUMENTS",
+                                                                                                                                 "description": "selector position",
+                                                                                                                                        "mask": 4,
+                                                                                                                                   "max_value": 1,
+                                                                                                                                    "shift_by": 2,
+                                                                                                                                      "suffix": "",
+                                                                                                                                        "type": "integer"
+                                                                                                           } ]
+                                                                                       },
+                                          "PILOT_INDICATOR_WARNING_LIGHTS_BRIGHTNESS": {
+                                                                                               "category": "PLT CB Panel",
+                                                                                           "control_type": "selector",
+                                                                                            "description": "Pilot Warning Lights CB",
+                                                                                             "identifier": "PILOT_INDICATOR_WARNING_LIGHTS_BRIGHTNESS",
+                                                                                                 "inputs": [ {
+                                                                                                               "description": "switch to previous or next state",
+                                                                                                                 "interface": "fixed_step"
+                                                                                                           }, {
+                                                                                                               "description": "set position",
+                                                                                                                 "interface": "set_state",
+                                                                                                                 "max_value": 1
+                                                                                                           }, {
+                                                                                                                  "argument": "TOGGLE",
+                                                                                                               "description": "Toggle switch state",
+                                                                                                                 "interface": "action"
+                                                                                                           } ],
+                                                                                                "outputs": [ {
+                                                                                                                                     "address": 11034,
+                                                                                                                     "address_mask_identifier": "F_4E_PILOT_INDICATOR_WARNING_LIGHTS_BRIGHTNESS_AM",
+                                                                                                               "address_mask_shift_identifier": "F_4E_PILOT_INDICATOR_WARNING_LIGHTS_BRIGHTNESS",
+                                                                                                                                 "description": "selector position",
+                                                                                                                                        "mask": 8,
+                                                                                                                                   "max_value": 1,
+                                                                                                                                    "shift_by": 3,
+                                                                                                                                      "suffix": "",
+                                                                                                                                        "type": "integer"
+                                                                                                           } ]
+                                                                                       },
+                                                "PILOT_LEFT_WALL_SAI_CIRCUIT_BREAKER": {
+                                                                                               "category": "PLT CB Panel",
+                                                                                           "control_type": "selector",
+                                                                                            "description": "Standby Attitude Indicator CB",
+                                                                                             "identifier": "PILOT_LEFT_WALL_SAI_CIRCUIT_BREAKER",
+                                                                                                 "inputs": [ {
+                                                                                                               "description": "switch to previous or next state",
+                                                                                                                 "interface": "fixed_step"
+                                                                                                           }, {
+                                                                                                               "description": "set position",
+                                                                                                                 "interface": "set_state",
+                                                                                                                 "max_value": 1
+                                                                                                           }, {
+                                                                                                                  "argument": "TOGGLE",
+                                                                                                               "description": "Toggle switch state",
+                                                                                                                 "interface": "action"
+                                                                                                           } ],
+                                                                                                "outputs": [ {
+                                                                                                                                     "address": 11010,
+                                                                                                                     "address_mask_identifier": "F_4E_PILOT_LEFT_WALL_SAI_CIRCUIT_BREAKER_AM",
+                                                                                                               "address_mask_shift_identifier": "F_4E_PILOT_LEFT_WALL_SAI_CIRCUIT_BREAKER",
+                                                                                                                                 "description": "selector position",
+                                                                                                                                        "mask": 1024,
+                                                                                                                                   "max_value": 1,
+                                                                                                                                    "shift_by": 10,
+                                                                                                                                      "suffix": "",
+                                                                                                                                        "type": "integer"
+                                                                                                           } ]
+                                                                                       },
+                                     "PILOT_RIGHT_WALL_AIL_FEEL_TRIM_CIRCUIT_BREAKER": {
+                                                                                               "category": "PLT CB Panel",
+                                                                                           "control_type": "selector",
+                                                                                            "description": "AIL Feel-Trim CB",
+                                                                                             "identifier": "PILOT_RIGHT_WALL_AIL_FEEL_TRIM_CIRCUIT_BREAKER",
+                                                                                                 "inputs": [ {
+                                                                                                               "description": "switch to previous or next state",
+                                                                                                                 "interface": "fixed_step"
+                                                                                                           }, {
+                                                                                                               "description": "set position",
+                                                                                                                 "interface": "set_state",
+                                                                                                                 "max_value": 1
+                                                                                                           }, {
+                                                                                                                  "argument": "TOGGLE",
+                                                                                                               "description": "Toggle switch state",
+                                                                                                                 "interface": "action"
+                                                                                                           } ],
+                                                                                                "outputs": [ {
+                                                                                                                                     "address": 11010,
+                                                                                                                     "address_mask_identifier": "F_4E_PILOT_RIGHT_WALL_AIL_FEEL_TRIM_CIRCUIT_BREAKER_AM",
+                                                                                                               "address_mask_shift_identifier": "F_4E_PILOT_RIGHT_WALL_AIL_FEEL_TRIM_CIRCUIT_BREAKER",
+                                                                                                                                 "description": "selector position",
+                                                                                                                                        "mask": 4096,
+                                                                                                                                   "max_value": 1,
+                                                                                                                                    "shift_by": 12,
+                                                                                                                                      "suffix": "",
+                                                                                                                                        "type": "integer"
+                                                                                                           } ]
+                                                                                       },
+                                         "PILOT_RIGHT_WALL_FEEL_TRIM_CIRCUIT_BREAKER": {
+                                                                                               "category": "PLT CB Panel",
+                                                                                           "control_type": "selector",
+                                                                                            "description": "STAB Feel-Trim CB",
+                                                                                             "identifier": "PILOT_RIGHT_WALL_FEEL_TRIM_CIRCUIT_BREAKER",
+                                                                                                 "inputs": [ {
+                                                                                                               "description": "switch to previous or next state",
+                                                                                                                 "interface": "fixed_step"
+                                                                                                           }, {
+                                                                                                               "description": "set position",
+                                                                                                                 "interface": "set_state",
+                                                                                                                 "max_value": 1
+                                                                                                           }, {
+                                                                                                                  "argument": "TOGGLE",
+                                                                                                               "description": "Toggle switch state",
+                                                                                                                 "interface": "action"
+                                                                                                           } ],
+                                                                                                "outputs": [ {
+                                                                                                                                     "address": 11010,
+                                                                                                                     "address_mask_identifier": "F_4E_PILOT_RIGHT_WALL_FEEL_TRIM_CIRCUIT_BREAKER_AM",
+                                                                                                               "address_mask_shift_identifier": "F_4E_PILOT_RIGHT_WALL_FEEL_TRIM_CIRCUIT_BREAKER",
+                                                                                                                                 "description": "selector position",
+                                                                                                                                        "mask": 8192,
+                                                                                                                                   "max_value": 1,
+                                                                                                                                    "shift_by": 13,
+                                                                                                                                      "suffix": "",
+                                                                                                                                        "type": "integer"
+                                                                                                           } ]
+                                                                                       },
+                                             "PILOT_RIGHT_WALL_FLAPS_CIRCUIT_BREAKER": {
+                                                                                               "category": "PLT CB Panel",
+                                                                                           "control_type": "selector",
+                                                                                            "description": "Flaps CB",
+                                                                                             "identifier": "PILOT_RIGHT_WALL_FLAPS_CIRCUIT_BREAKER",
+                                                                                                 "inputs": [ {
+                                                                                                               "description": "switch to previous or next state",
+                                                                                                                 "interface": "fixed_step"
+                                                                                                           }, {
+                                                                                                               "description": "set position",
+                                                                                                                 "interface": "set_state",
+                                                                                                                 "max_value": 1
+                                                                                                           }, {
+                                                                                                                  "argument": "TOGGLE",
+                                                                                                               "description": "Toggle switch state",
+                                                                                                                 "interface": "action"
+                                                                                                           } ],
+                                                                                                "outputs": [ {
+                                                                                                                                     "address": 11010,
+                                                                                                                     "address_mask_identifier": "F_4E_PILOT_RIGHT_WALL_FLAPS_CIRCUIT_BREAKER_AM",
+                                                                                                               "address_mask_shift_identifier": "F_4E_PILOT_RIGHT_WALL_FLAPS_CIRCUIT_BREAKER",
+                                                                                                                                 "description": "selector position",
+                                                                                                                                        "mask": 32768,
+                                                                                                                                   "max_value": 1,
+                                                                                                                                    "shift_by": 15,
+                                                                                                                                      "suffix": "",
+                                                                                                                                        "type": "integer"
+                                                                                                           } ]
+                                                                                       },
+                                      "PILOT_RIGHT_WALL_LANDING_GEAR_CIRCUIT_BREAKER": {
+                                                                                               "category": "PLT CB Panel",
+                                                                                           "control_type": "selector",
+                                                                                            "description": "Landing Gear CB",
+                                                                                             "identifier": "PILOT_RIGHT_WALL_LANDING_GEAR_CIRCUIT_BREAKER",
+                                                                                                 "inputs": [ {
+                                                                                                               "description": "switch to previous or next state",
+                                                                                                                 "interface": "fixed_step"
+                                                                                                           }, {
+                                                                                                               "description": "set position",
+                                                                                                                 "interface": "set_state",
+                                                                                                                 "max_value": 1
+                                                                                                           }, {
+                                                                                                                  "argument": "TOGGLE",
+                                                                                                               "description": "Toggle switch state",
+                                                                                                                 "interface": "action"
+                                                                                                           } ],
+                                                                                                "outputs": [ {
+                                                                                                                                     "address": 11034,
+                                                                                                                     "address_mask_identifier": "F_4E_PILOT_RIGHT_WALL_LANDING_GEAR_CIRCUIT_BREAKER_AM",
+                                                                                                               "address_mask_shift_identifier": "F_4E_PILOT_RIGHT_WALL_LANDING_GEAR_CIRCUIT_BREAKER",
+                                                                                                                                 "description": "selector position",
+                                                                                                                                        "mask": 16,
+                                                                                                                                   "max_value": 1,
+                                                                                                                                    "shift_by": 4,
+                                                                                                                                      "suffix": "",
+                                                                                                                                        "type": "integer"
+                                                                                                           } ]
+                                                                                       },
+                                          "PILOT_RIGHT_WALL_RUD_TRIM_CIRCUIT_BREAKER": {
+                                                                                               "category": "PLT CB Panel",
+                                                                                           "control_type": "selector",
+                                                                                            "description": "Rudder Trim CB",
+                                                                                             "identifier": "PILOT_RIGHT_WALL_RUD_TRIM_CIRCUIT_BREAKER",
+                                                                                                 "inputs": [ {
+                                                                                                               "description": "switch to previous or next state",
+                                                                                                                 "interface": "fixed_step"
+                                                                                                           }, {
+                                                                                                               "description": "set position",
+                                                                                                                 "interface": "set_state",
+                                                                                                                 "max_value": 1
+                                                                                                           }, {
+                                                                                                                  "argument": "TOGGLE",
+                                                                                                               "description": "Toggle switch state",
+                                                                                                                 "interface": "action"
+                                                                                                           } ],
+                                                                                                "outputs": [ {
+                                                                                                                                     "address": 11034,
+                                                                                                                     "address_mask_identifier": "F_4E_PILOT_RIGHT_WALL_RUD_TRIM_CIRCUIT_BREAKER_AM",
+                                                                                                               "address_mask_shift_identifier": "F_4E_PILOT_RIGHT_WALL_RUD_TRIM_CIRCUIT_BREAKER",
+                                                                                                                                 "description": "selector position",
+                                                                                                                                        "mask": 2,
+                                                                                                                                   "max_value": 1,
+                                                                                                                                    "shift_by": 1,
+                                                                                                                                      "suffix": "",
+                                                                                                                                        "type": "integer"
+                                                                                                           } ]
+                                                                                       },
+                                       "PILOT_RIGHT_WALL_SPEED_BRAKE_CIRCUIT_BREAKER": {
+                                                                                               "category": "PLT CB Panel",
+                                                                                           "control_type": "selector",
+                                                                                            "description": "Speed Brake CB",
+                                                                                             "identifier": "PILOT_RIGHT_WALL_SPEED_BRAKE_CIRCUIT_BREAKER",
+                                                                                                 "inputs": [ {
+                                                                                                               "description": "switch to previous or next state",
+                                                                                                                 "interface": "fixed_step"
+                                                                                                           }, {
+                                                                                                               "description": "set position",
+                                                                                                                 "interface": "set_state",
+                                                                                                                 "max_value": 1
+                                                                                                           }, {
+                                                                                                                  "argument": "TOGGLE",
+                                                                                                               "description": "Toggle switch state",
+                                                                                                                 "interface": "action"
+                                                                                                           } ],
+                                                                                                "outputs": [ {
+                                                                                                                                     "address": 11010,
+                                                                                                                     "address_mask_identifier": "F_4E_PILOT_RIGHT_WALL_SPEED_BRAKE_CIRCUIT_BREAKER_AM",
+                                                                                                               "address_mask_shift_identifier": "F_4E_PILOT_RIGHT_WALL_SPEED_BRAKE_CIRCUIT_BREAKER",
+                                                                                                                                 "description": "selector position",
+                                                                                                                                        "mask": 16384,
+                                                                                                                                   "max_value": 1,
+                                                                                                                                    "shift_by": 14,
+                                                                                                                                      "suffix": "",
+                                                                                                                                        "type": "integer"
+                                                                                                           } ]
+                                                                                       },
+                                         "PILOT_RIGHT_WALL_TRIM_CONT_CIRCUIT_BREAKER": {
+                                                                                               "category": "PLT CB Panel",
+                                                                                           "control_type": "selector",
+                                                                                            "description": "Trim Controls CB",
+                                                                                             "identifier": "PILOT_RIGHT_WALL_TRIM_CONT_CIRCUIT_BREAKER",
+                                                                                                 "inputs": [ {
+                                                                                                               "description": "switch to previous or next state",
+                                                                                                                 "interface": "fixed_step"
+                                                                                                           }, {
+                                                                                                               "description": "set position",
+                                                                                                                 "interface": "set_state",
+                                                                                                                 "max_value": 1
+                                                                                                           }, {
+                                                                                                                  "argument": "TOGGLE",
+                                                                                                               "description": "Toggle switch state",
+                                                                                                                 "interface": "action"
+                                                                                                           } ],
+                                                                                                "outputs": [ {
+                                                                                                                                     "address": 11034,
+                                                                                                                     "address_mask_identifier": "F_4E_PILOT_RIGHT_WALL_TRIM_CONT_CIRCUIT_BREAKER_AM",
+                                                                                                               "address_mask_shift_identifier": "F_4E_PILOT_RIGHT_WALL_TRIM_CONT_CIRCUIT_BREAKER",
+                                                                                                                                 "description": "selector position",
+                                                                                                                                        "mask": 1,
+                                                                                                                                   "max_value": 1,
+                                                                                                                                    "shift_by": 0,
+                                                                                                                                      "suffix": "",
+                                                                                                                                        "type": "integer"
+                                                                                                           } ]
+                                                                                       },
+                                                         "WSO_FLOODLIGHT_INSTRUMENTS": {
+                                                                                               "category": "PLT CB Panel",
+                                                                                           "control_type": "selector",
+                                                                                            "description": "WSO Instruments Lights CB",
+                                                                                             "identifier": "WSO_FLOODLIGHT_INSTRUMENTS",
+                                                                                                 "inputs": [ {
+                                                                                                               "description": "switch to previous or next state",
+                                                                                                                 "interface": "fixed_step"
+                                                                                                           }, {
+                                                                                                               "description": "set position",
+                                                                                                                 "interface": "set_state",
+                                                                                                                 "max_value": 1
+                                                                                                           }, {
+                                                                                                                  "argument": "TOGGLE",
+                                                                                                               "description": "Toggle switch state",
+                                                                                                                 "interface": "action"
+                                                                                                           } ],
+                                                                                                "outputs": [ {
+                                                                                                                                     "address": 11034,
+                                                                                                                     "address_mask_identifier": "F_4E_WSO_FLOODLIGHT_INSTRUMENTS_AM",
+                                                                                                               "address_mask_shift_identifier": "F_4E_WSO_FLOODLIGHT_INSTRUMENTS",
+                                                                                                                                 "description": "selector position",
+                                                                                                                                        "mask": 32,
+                                                                                                                                   "max_value": 1,
+                                                                                                                                    "shift_by": 5,
+                                                                                                                                      "suffix": "",
+                                                                                                                                        "type": "integer"
+                                                                                                           } ]
+                                                                                       },
+                                            "WSO_INDICATOR_WARNING_LIGHTS_BRIGHTNESS": {
+                                                                                               "category": "PLT CB Panel",
+                                                                                           "control_type": "selector",
+                                                                                            "description": "WSO Warning Lights CB",
+                                                                                             "identifier": "WSO_INDICATOR_WARNING_LIGHTS_BRIGHTNESS",
+                                                                                                 "inputs": [ {
+                                                                                                               "description": "switch to previous or next state",
+                                                                                                                 "interface": "fixed_step"
+                                                                                                           }, {
+                                                                                                               "description": "set position",
+                                                                                                                 "interface": "set_state",
+                                                                                                                 "max_value": 1
+                                                                                                           }, {
+                                                                                                                  "argument": "TOGGLE",
+                                                                                                               "description": "Toggle switch state",
+                                                                                                                 "interface": "action"
+                                                                                                           } ],
+                                                                                                "outputs": [ {
+                                                                                                                                     "address": 11034,
+                                                                                                                     "address_mask_identifier": "F_4E_WSO_INDICATOR_WARNING_LIGHTS_BRIGHTNESS_AM",
+                                                                                                               "address_mask_shift_identifier": "F_4E_WSO_INDICATOR_WARNING_LIGHTS_BRIGHTNESS",
+                                                                                                                                 "description": "selector position",
+                                                                                                                                        "mask": 64,
+                                                                                                                                   "max_value": 1,
+                                                                                                                                    "shift_by": 6,
+                                                                                                                                      "suffix": "",
+                                                                                                                                        "type": "integer"
+                                                                                                           } ]
+                                                                                       }
+                                 },
                    "PLT Canopy": {
                                                        "PLT_CANOPY": {
                                                                              "category": "PLT Canopy",
@@ -3293,12 +3672,12 @@ docdata["F-4E"] =
                                                                                           "max_value": 2
                                                                                     } ],
                                                                          "outputs": [ {
-                                                                                                              "address": 11034,
+                                                                                                              "address": 11036,
                                                                                         "address_mask_shift_identifier": "F_4E_PLT_EXT_LIGHT_TAXI_LAND",
                                                                                                           "description": "selector position",
-                                                                                                                 "mask": 24,
+                                                                                                                 "mask": 3,
                                                                                                             "max_value": 2,
-                                                                                                             "shift_by": 3,
+                                                                                                             "shift_by": 0,
                                                                                                                "suffix": "",
                                                                                                                  "type": "integer"
                                                                                     } ]
@@ -3640,13 +4019,13 @@ docdata["F-4E"] =
                                                                                                          "interface": "action"
                                                                                                    } ],
                                                                                         "outputs": [ {
-                                                                                                                             "address": 11034,
+                                                                                                                             "address": 11036,
                                                                                                              "address_mask_identifier": "F_4E_PLT_COCKPIT_PRESSURE_EMERGENCY_RELEASE_AM",
                                                                                                        "address_mask_shift_identifier": "F_4E_PLT_COCKPIT_PRESSURE_EMERGENCY_RELEASE",
                                                                                                                          "description": "selector position",
-                                                                                                                                "mask": 32,
+                                                                                                                                "mask": 4,
                                                                                                                            "max_value": 1,
-                                                                                                                            "shift_by": 5,
+                                                                                                                            "shift_by": 2,
                                                                                                                               "suffix": "",
                                                                                                                                 "type": "integer"
                                                                                                    } ]
@@ -3669,7 +4048,7 @@ docdata["F-4E"] =
                                                                                                    "suggested_step": 3200
                                                                                                } ],
                                                                                     "outputs": [ {
-                                                                                                                         "address": 11036,
+                                                                                                                         "address": 11038,
                                                                                                               "address_identifier": "F_4E_PLT_EXT_LIGHT_FORMATION_BRIGHTNESS_A",
                                                                                                    "address_mask_shift_identifier": "F_4E_PLT_EXT_LIGHT_FORMATION_BRIGHTNESS",
                                                                                                                      "description": "position of the potentiometer",
@@ -3691,12 +4070,12 @@ docdata["F-4E"] =
                                                                                                      "max_value": 2
                                                                                                } ],
                                                                                     "outputs": [ {
-                                                                                                                         "address": 11034,
+                                                                                                                         "address": 11036,
                                                                                                    "address_mask_shift_identifier": "F_4E_PLT_EXT_LIGHT_FORMATION_MODE",
                                                                                                                      "description": "switch position -- 0 = Down, 1 = Mid,  2 = Up",
-                                                                                                                            "mask": 192,
+                                                                                                                            "mask": 24,
                                                                                                                        "max_value": 2,
-                                                                                                                        "shift_by": 6,
+                                                                                                                        "shift_by": 3,
                                                                                                                           "suffix": "",
                                                                                                                             "type": "integer"
                                                                                                } ]
@@ -3722,13 +4101,13 @@ docdata["F-4E"] =
                                                                                              "interface": "action"
                                                                                        } ],
                                                                             "outputs": [ {
-                                                                                                                 "address": 11010,
+                                                                                                                 "address": 11034,
                                                                                                  "address_mask_identifier": "F_4E_PLT_AFCS_EMERGENCY_RELEASE_AM",
                                                                                            "address_mask_shift_identifier": "F_4E_PLT_AFCS_EMERGENCY_RELEASE",
                                                                                                              "description": "selector position",
-                                                                                                                    "mask": 2048,
+                                                                                                                    "mask": 256,
                                                                                                                "max_value": 1,
-                                                                                                                "shift_by": 11,
+                                                                                                                "shift_by": 8,
                                                                                                                   "suffix": "",
                                                                                                                     "type": "integer"
                                                                                        } ]
@@ -3752,13 +4131,13 @@ docdata["F-4E"] =
                                                                                              "interface": "action"
                                                                                        } ],
                                                                             "outputs": [ {
-                                                                                                                 "address": 11010,
+                                                                                                                 "address": 11034,
                                                                                                  "address_mask_identifier": "F_4E_PLT_GEAR_NWS_AM",
                                                                                            "address_mask_shift_identifier": "F_4E_PLT_GEAR_NWS",
                                                                                                              "description": "selector position",
-                                                                                                                    "mask": 1024,
+                                                                                                                    "mask": 128,
                                                                                                                "max_value": 1,
-                                                                                                                "shift_by": 10,
+                                                                                                                "shift_by": 7,
                                                                                                                   "suffix": "",
                                                                                                                     "type": "integer"
                                                                                        } ]
@@ -3788,9 +4167,9 @@ docdata["F-4E"] =
                                                                                                "address_mask_identifier": "F_4E_PLT_THROTTLE_CM_DISPENSE_AM",
                                                                                          "address_mask_shift_identifier": "F_4E_PLT_THROTTLE_CM_DISPENSE",
                                                                                                            "description": "selector position",
-                                                                                                                  "mask": 1,
+                                                                                                                  "mask": 8192,
                                                                                                              "max_value": 1,
-                                                                                                              "shift_by": 0,
+                                                                                                              "shift_by": 13,
                                                                                                                 "suffix": "",
                                                                                                                   "type": "integer"
                                                                                      } ]
@@ -3806,12 +4185,12 @@ docdata["F-4E"] =
                                                                                            "max_value": 2
                                                                                      } ],
                                                                           "outputs": [ {
-                                                                                                               "address": 11010,
+                                                                                                               "address": 11034,
                                                                                          "address_mask_shift_identifier": "F_4E_PLT_THROTTLE_MIC",
                                                                                                            "description": "switch position -- 0 = Down, 1 = Mid,  2 = Up",
-                                                                                                                  "mask": 49152,
+                                                                                                                  "mask": 6144,
                                                                                                              "max_value": 2,
-                                                                                                              "shift_by": 14,
+                                                                                                              "shift_by": 11,
                                                                                                                 "suffix": "",
                                                                                                                   "type": "integer"
                                                                                      } ]
@@ -7879,13 +8258,13 @@ docdata["F-4E"] =
                                                                                              "interface": "action"
                                                                                        } ],
                                                                             "outputs": [ {
-                                                                                                                 "address": 11010,
+                                                                                                                 "address": 11034,
                                                                                                  "address_mask_identifier": "F_4E_WSO_AFCS_EMERGENCY_RELEASE_AM",
                                                                                            "address_mask_shift_identifier": "F_4E_WSO_AFCS_EMERGENCY_RELEASE",
                                                                                                              "description": "selector position",
-                                                                                                                    "mask": 8192,
+                                                                                                                    "mask": 1024,
                                                                                                                "max_value": 1,
-                                                                                                                "shift_by": 13,
+                                                                                                                "shift_by": 10,
                                                                                                                   "suffix": "",
                                                                                                                     "type": "integer"
                                                                                        } ]
@@ -7909,13 +8288,13 @@ docdata["F-4E"] =
                                                                                              "interface": "action"
                                                                                        } ],
                                                                             "outputs": [ {
-                                                                                                                 "address": 11010,
+                                                                                                                 "address": 11034,
                                                                                                  "address_mask_identifier": "F_4E_WSO_GEAR_NWS_AM",
                                                                                            "address_mask_shift_identifier": "F_4E_WSO_GEAR_NWS",
                                                                                                              "description": "selector position",
-                                                                                                                    "mask": 4096,
+                                                                                                                    "mask": 512,
                                                                                                                "max_value": 1,
-                                                                                                                "shift_by": 12,
+                                                                                                                "shift_by": 9,
                                                                                                                   "suffix": "",
                                                                                                                     "type": "integer"
                                                                                        } ]
@@ -7936,9 +8315,9 @@ docdata["F-4E"] =
                                                                                                        "address": 11034,
                                                                                  "address_mask_shift_identifier": "F_4E_WSO_THROTTLE_MIC",
                                                                                                    "description": "switch position -- 0 = Down, 1 = Mid,  2 = Up",
-                                                                                                          "mask": 6,
+                                                                                                          "mask": 49152,
                                                                                                      "max_value": 2,
-                                                                                                      "shift_by": 1,
+                                                                                                      "shift_by": 14,
                                                                                                         "suffix": "",
                                                                                                           "type": "integer"
                                                                              } ]
