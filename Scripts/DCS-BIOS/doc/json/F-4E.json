@@ -7,7 +7,7 @@
                                                                       "identifier": "EXT_LIGHT_AAR",
                                                                           "inputs": [  ],
                                                                          "outputs": [ {
-                                                                                                              "address": 11082,
+                                                                                                              "address": 11092,
                                                                                                    "address_identifier": "F_4E_EXT_LIGHT_AAR_A",
                                                                                         "address_mask_shift_identifier": "F_4E_EXT_LIGHT_AAR",
                                                                                                           "description": "AAR Receptacle Light (White)",
@@ -25,7 +25,7 @@
                                                                       "identifier": "EXT_LIGHT_BEACON",
                                                                           "inputs": [  ],
                                                                          "outputs": [ {
-                                                                                                              "address": 11062,
+                                                                                                              "address": 11072,
                                                                                                    "address_identifier": "F_4E_EXT_LIGHT_BEACON_A",
                                                                                         "address_mask_shift_identifier": "F_4E_EXT_LIGHT_BEACON",
                                                                                                           "description": "Beacon Light (Red)",
@@ -43,7 +43,7 @@
                                                                       "identifier": "EXT_LIGHT_BEACON_FLASH",
                                                                           "inputs": [  ],
                                                                          "outputs": [ {
-                                                                                                              "address": 11070,
+                                                                                                              "address": 11080,
                                                                                                    "address_identifier": "F_4E_EXT_LIGHT_BEACON_FLASH_A",
                                                                                         "address_mask_shift_identifier": "F_4E_EXT_LIGHT_BEACON_FLASH",
                                                                                                           "description": "Flashing Beacon Light (Red)",
@@ -61,7 +61,7 @@
                                                                       "identifier": "EXT_LIGHT_BELLY",
                                                                           "inputs": [  ],
                                                                          "outputs": [ {
-                                                                                                              "address": 11078,
+                                                                                                              "address": 11088,
                                                                                                    "address_identifier": "F_4E_EXT_LIGHT_BELLY_A",
                                                                                         "address_mask_shift_identifier": "F_4E_EXT_LIGHT_BELLY",
                                                                                                           "description": "Belly Lights L/R (White)",
@@ -79,7 +79,7 @@
                                                                       "identifier": "EXT_LIGHT_FORMATION",
                                                                           "inputs": [  ],
                                                                          "outputs": [ {
-                                                                                                              "address": 11072,
+                                                                                                              "address": 11082,
                                                                                                    "address_identifier": "F_4E_EXT_LIGHT_FORMATION_A",
                                                                                         "address_mask_shift_identifier": "F_4E_EXT_LIGHT_FORMATION",
                                                                                                           "description": "Formation Lights (Green)",
@@ -97,7 +97,7 @@
                                                                       "identifier": "EXT_LIGHT_FUSELAGE_TOP",
                                                                           "inputs": [  ],
                                                                          "outputs": [ {
-                                                                                                              "address": 11080,
+                                                                                                              "address": 11090,
                                                                                                    "address_identifier": "F_4E_EXT_LIGHT_FUSELAGE_TOP_A",
                                                                                         "address_mask_shift_identifier": "F_4E_EXT_LIGHT_FUSELAGE_TOP",
                                                                                                           "description": "Fuselage Top Light (White)",
@@ -115,7 +115,7 @@
                                                                       "identifier": "EXT_LIGHT_LANDING",
                                                                           "inputs": [  ],
                                                                          "outputs": [ {
-                                                                                                              "address": 11074,
+                                                                                                              "address": 11084,
                                                                                                    "address_identifier": "F_4E_EXT_LIGHT_LANDING_A",
                                                                                         "address_mask_shift_identifier": "F_4E_EXT_LIGHT_LANDING",
                                                                                                           "description": "Landing Light (White)",
@@ -133,7 +133,7 @@
                                                                       "identifier": "EXT_LIGHT_POSITION_TAIL",
                                                                           "inputs": [  ],
                                                                          "outputs": [ {
-                                                                                                              "address": 11066,
+                                                                                                              "address": 11076,
                                                                                                    "address_identifier": "F_4E_EXT_LIGHT_POSITION_TAIL_A",
                                                                                         "address_mask_shift_identifier": "F_4E_EXT_LIGHT_POSITION_TAIL",
                                                                                                           "description": "Tail Position Light (White)",
@@ -151,7 +151,7 @@
                                                                       "identifier": "EXT_LIGHT_POSITION_WING",
                                                                           "inputs": [  ],
                                                                          "outputs": [ {
-                                                                                                              "address": 11064,
+                                                                                                              "address": 11074,
                                                                                                    "address_identifier": "F_4E_EXT_LIGHT_POSITION_WING_A",
                                                                                         "address_mask_shift_identifier": "F_4E_EXT_LIGHT_POSITION_WING",
                                                                                                           "description": "Wing Position Lights (Red/Green)",
@@ -169,7 +169,7 @@
                                                                       "identifier": "EXT_LIGHT_TAXI",
                                                                           "inputs": [  ],
                                                                          "outputs": [ {
-                                                                                                              "address": 11076,
+                                                                                                              "address": 11086,
                                                                                                    "address_identifier": "F_4E_EXT_LIGHT_TAXI_A",
                                                                                         "address_mask_shift_identifier": "F_4E_EXT_LIGHT_TAXI",
                                                                                                           "description": "Taxi Light (White)",
@@ -187,7 +187,7 @@
                                                                       "identifier": "EXT_LIGHT_WING_JOIN_UP",
                                                                           "inputs": [  ],
                                                                          "outputs": [ {
-                                                                                                              "address": 11068,
+                                                                                                              "address": 11078,
                                                                                                    "address_identifier": "F_4E_EXT_LIGHT_WING_JOIN_UP_A",
                                                                                         "address_mask_shift_identifier": "F_4E_EXT_LIGHT_WING_JOIN_UP",
                                                                                                           "description": "Wing Join-Up Lights (Red/Green)",
@@ -1432,6 +1432,162 @@
                                                                                      } ]
                                                                  }
                                  },
+         "PLT Control Surfaces": {
+                                               "PLT_CONTROLS_FLAPS_SLATS": {
+                                                                                   "category": "PLT Control Surfaces",
+                                                                               "control_type": "selector",
+                                                                                "description": "Flaps/Slats",
+                                                                                 "identifier": "PLT_CONTROLS_FLAPS_SLATS",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 2
+                                                                                               } ],
+                                                                                    "outputs": [ {
+                                                                                                                         "address": 10980,
+                                                                                                   "address_mask_shift_identifier": "F_4E_PLT_CONTROLS_FLAPS_SLATS",
+                                                                                                                     "description": "selector position",
+                                                                                                                            "mask": 24,
+                                                                                                                       "max_value": 2,
+                                                                                                                        "shift_by": 3,
+                                                                                                                          "suffix": "",
+                                                                                                                            "type": "integer"
+                                                                                               } ]
+                                                                           },
+                                     "PLT_CONTROLS_FLAPS_SLATS_EMERGENCY": {
+                                                                                   "category": "PLT Control Surfaces",
+                                                                               "control_type": "limited_dial",
+                                                                                "description": "Flaps/Slats Emergency",
+                                                                                 "identifier": "PLT_CONTROLS_FLAPS_SLATS_EMERGENCY",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "set the position of the dial",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 65535
+                                                                                               }, {
+                                                                                                      "description": "turn the dial left or right",
+                                                                                                        "interface": "variable_step",
+                                                                                                        "max_value": 65535,
+                                                                                                   "suggested_step": 3200
+                                                                                               } ],
+                                                                                    "outputs": [ {
+                                                                                                                         "address": 11018,
+                                                                                                              "address_identifier": "F_4E_PLT_CONTROLS_FLAPS_SLATS_EMERGENCY_A",
+                                                                                                   "address_mask_shift_identifier": "F_4E_PLT_CONTROLS_FLAPS_SLATS_EMERGENCY",
+                                                                                                                     "description": "position of the potentiometer",
+                                                                                                                            "mask": 65535,
+                                                                                                                       "max_value": 65535,
+                                                                                                                        "shift_by": 0,
+                                                                                                                          "suffix": "",
+                                                                                                                            "type": "integer"
+                                                                                               } ]
+                                                                           },
+                                              "PLT_CONTROLS_PEDAL_ADJUST": {
+                                                                                "api_variant": "multiturn",
+                                                                                   "category": "PLT Control Surfaces",
+                                                                               "control_type": "analog_dial",
+                                                                                "description": "Adjust Pedal Position",
+                                                                                 "identifier": "PLT_CONTROLS_PEDAL_ADJUST",
+                                                                                     "inputs": [ {
+                                                                                                      "description": "turn the dial left or right",
+                                                                                                        "interface": "variable_step",
+                                                                                                        "max_value": 65535,
+                                                                                                   "suggested_step": 3200
+                                                                                               } ],
+                                                                                    "outputs": [ {
+                                                                                                                         "address": 11020,
+                                                                                                              "address_identifier": "F_4E_PLT_CONTROLS_PEDAL_ADJUST_A",
+                                                                                                   "address_mask_shift_identifier": "F_4E_PLT_CONTROLS_PEDAL_ADJUST",
+                                                                                                                     "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                                                                            "mask": 65535,
+                                                                                                                       "max_value": 65535,
+                                                                                                                        "shift_by": 0,
+                                                                                                                          "suffix": "_KNOB_POS",
+                                                                                                                            "type": "integer"
+                                                                                               } ]
+                                                                           },
+                                               "PLT_CONTROLS_RUDDER_TRIM": {
+                                                                                   "category": "PLT Control Surfaces",
+                                                                               "control_type": "3Pos_2Command_Switch_OpenClose",
+                                                                                "description": "Rudder Trim",
+                                                                                 "identifier": "PLT_CONTROLS_RUDDER_TRIM",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "set the switch position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 2
+                                                                                               } ],
+                                                                                    "outputs": [ {
+                                                                                                                         "address": 10980,
+                                                                                                   "address_mask_shift_identifier": "F_4E_PLT_CONTROLS_RUDDER_TRIM",
+                                                                                                                     "description": "switch position -- 0 = Down, 1 = Mid,  2 = Up",
+                                                                                                                            "mask": 96,
+                                                                                                                       "max_value": 2,
+                                                                                                                        "shift_by": 5,
+                                                                                                                          "suffix": "",
+                                                                                                                            "type": "integer"
+                                                                                               } ]
+                                                                           },
+                                            "PLT_CONTROLS_SLATS_OVERRIDE": {
+                                                                                   "category": "PLT Control Surfaces",
+                                                                               "control_type": "selector",
+                                                                                "description": "Slats Override Switch",
+                                                                                 "identifier": "PLT_CONTROLS_SLATS_OVERRIDE",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
+                                                                                               } ],
+                                                                                    "outputs": [ {
+                                                                                                                         "address": 10980,
+                                                                                                         "address_mask_identifier": "F_4E_PLT_CONTROLS_SLATS_OVERRIDE_AM",
+                                                                                                   "address_mask_shift_identifier": "F_4E_PLT_CONTROLS_SLATS_OVERRIDE",
+                                                                                                                     "description": "selector position",
+                                                                                                                            "mask": 256,
+                                                                                                                       "max_value": 1,
+                                                                                                                        "shift_by": 8,
+                                                                                                                          "suffix": "",
+                                                                                                                            "type": "integer"
+                                                                                               } ]
+                                                                           },
+                                      "PLT_CONTROLS_SLATS_OVERRIDE_COVER": {
+                                                                                   "category": "PLT Control Surfaces",
+                                                                               "control_type": "selector",
+                                                                                "description": "Slats Override Switch Cover",
+                                                                                 "identifier": "PLT_CONTROLS_SLATS_OVERRIDE_COVER",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "switch to previous or next state",
+                                                                                                     "interface": "fixed_step"
+                                                                                               }, {
+                                                                                                   "description": "set position",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 1
+                                                                                               }, {
+                                                                                                      "argument": "TOGGLE",
+                                                                                                   "description": "Toggle switch state",
+                                                                                                     "interface": "action"
+                                                                                               } ],
+                                                                                    "outputs": [ {
+                                                                                                                         "address": 10980,
+                                                                                                         "address_mask_identifier": "F_4E_PLT_CONTROLS_SLATS_OVERRIDE_COVER_AM",
+                                                                                                   "address_mask_shift_identifier": "F_4E_PLT_CONTROLS_SLATS_OVERRIDE_COVER",
+                                                                                                                     "description": "selector position",
+                                                                                                                            "mask": 128,
+                                                                                                                       "max_value": 1,
+                                                                                                                        "shift_by": 7,
+                                                                                                                          "suffix": "",
+                                                                                                                            "type": "integer"
+                                                                                               } ]
+                                                                           }
+                                 },
     "PLT Countermeasures Panel": {
                                         "PLT_CM_CHAFF_BURST_COUNT": {
                                                                             "category": "PLT Countermeasures Panel",
@@ -2099,12 +2255,12 @@
                                                                                                 "max_value": 2
                                                                                           } ],
                                                                                "outputs": [ {
-                                                                                                                    "address": 11060,
+                                                                                                                    "address": 11066,
                                                                                               "address_mask_shift_identifier": "F_4E_PLT_EXT_LIGHT_ANTI_COLL",
                                                                                                                 "description": "selector position",
-                                                                                                                       "mask": 384,
+                                                                                                                       "mask": 24576,
                                                                                                                   "max_value": 2,
-                                                                                                                   "shift_by": 7,
+                                                                                                                   "shift_by": 13,
                                                                                                                      "suffix": "",
                                                                                                                        "type": "integer"
                                                                                           } ]
@@ -2123,12 +2279,12 @@
                                                                                                 "max_value": 2
                                                                                           } ],
                                                                                "outputs": [ {
-                                                                                                                    "address": 11060,
+                                                                                                                    "address": 11070,
                                                                                               "address_mask_shift_identifier": "F_4E_PLT_EXT_LIGHT_FLASH_MODE",
                                                                                                                 "description": "selector position",
-                                                                                                                       "mask": 1536,
+                                                                                                                       "mask": 3,
                                                                                                                   "max_value": 2,
-                                                                                                                   "shift_by": 9,
+                                                                                                                   "shift_by": 0,
                                                                                                                      "suffix": "",
                                                                                                                        "type": "integer"
                                                                                           } ]
@@ -2147,12 +2303,12 @@
                                                                                                 "max_value": 2
                                                                                           } ],
                                                                                "outputs": [ {
-                                                                                                                    "address": 11060,
+                                                                                                                    "address": 11070,
                                                                                               "address_mask_shift_identifier": "F_4E_PLT_EXT_LIGHT_TAIL_BRIGHTNESS",
                                                                                                                 "description": "selector position",
-                                                                                                                       "mask": 6144,
+                                                                                                                       "mask": 12,
                                                                                                                   "max_value": 2,
-                                                                                                                   "shift_by": 11,
+                                                                                                                   "shift_by": 2,
                                                                                                                      "suffix": "",
                                                                                                                        "type": "integer"
                                                                                           } ]
@@ -2171,12 +2327,12 @@
                                                                                                 "max_value": 2
                                                                                           } ],
                                                                                "outputs": [ {
-                                                                                                                    "address": 11060,
+                                                                                                                    "address": 11070,
                                                                                               "address_mask_shift_identifier": "F_4E_PLT_EXT_LIGHT_WING_BRIGHTNESS",
                                                                                                                 "description": "selector position",
-                                                                                                                       "mask": 24576,
+                                                                                                                       "mask": 48,
                                                                                                                   "max_value": 2,
-                                                                                                                   "shift_by": 13,
+                                                                                                                   "shift_by": 4,
                                                                                                                      "suffix": "",
                                                                                                                        "type": "integer"
                                                                                           } ]
@@ -2201,13 +2357,13 @@
                                                                                                  "interface": "action"
                                                                                            } ],
                                                                                 "outputs": [ {
-                                                                                                                     "address": 11030,
+                                                                                                                     "address": 11034,
                                                                                                      "address_mask_identifier": "F_4E_PLT_FUEL_AIR_REFUEL_AM",
                                                                                                "address_mask_shift_identifier": "F_4E_PLT_FUEL_AIR_REFUEL",
                                                                                                                  "description": "selector position",
-                                                                                                                        "mask": 1,
+                                                                                                                        "mask": 64,
                                                                                                                    "max_value": 1,
-                                                                                                                    "shift_by": 0,
+                                                                                                                    "shift_by": 6,
                                                                                                                       "suffix": "",
                                                                                                                         "type": "integer"
                                                                                            } ]
@@ -2219,7 +2375,7 @@
                                                                              "identifier": "PLT_FUEL_BOOST_PUMP_L",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
-                                                                                                                     "address": 11038,
+                                                                                                                     "address": 11046,
                                                                                                           "address_identifier": "F_4E_PLT_FUEL_BOOST_PUMP_L_A",
                                                                                                "address_mask_shift_identifier": "F_4E_PLT_FUEL_BOOST_PUMP_L",
                                                                                                                  "description": "gauge position",
@@ -2249,13 +2405,13 @@
                                                                                                  "interface": "action"
                                                                                            } ],
                                                                                 "outputs": [ {
-                                                                                                                     "address": 11030,
+                                                                                                                     "address": 11034,
                                                                                                      "address_mask_identifier": "F_4E_PLT_FUEL_BOOST_PUMP_L_CHECK_AM",
                                                                                                "address_mask_shift_identifier": "F_4E_PLT_FUEL_BOOST_PUMP_L_CHECK",
                                                                                                                  "description": "selector position",
-                                                                                                                        "mask": 16,
+                                                                                                                        "mask": 1024,
                                                                                                                    "max_value": 1,
-                                                                                                                    "shift_by": 4,
+                                                                                                                    "shift_by": 10,
                                                                                                                       "suffix": "",
                                                                                                                         "type": "integer"
                                                                                            } ]
@@ -2267,7 +2423,7 @@
                                                                              "identifier": "PLT_FUEL_BOOST_PUMP_R",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
-                                                                                                                     "address": 11040,
+                                                                                                                     "address": 11048,
                                                                                                           "address_identifier": "F_4E_PLT_FUEL_BOOST_PUMP_R_A",
                                                                                                "address_mask_shift_identifier": "F_4E_PLT_FUEL_BOOST_PUMP_R",
                                                                                                                  "description": "gauge position",
@@ -2297,13 +2453,13 @@
                                                                                                  "interface": "action"
                                                                                            } ],
                                                                                 "outputs": [ {
-                                                                                                                     "address": 11030,
+                                                                                                                     "address": 11034,
                                                                                                      "address_mask_identifier": "F_4E_PLT_FUEL_BOOST_PUMP_R_CHECK_AM",
                                                                                                "address_mask_shift_identifier": "F_4E_PLT_FUEL_BOOST_PUMP_R_CHECK",
                                                                                                                  "description": "selector position",
-                                                                                                                        "mask": 32,
+                                                                                                                        "mask": 2048,
                                                                                                                    "max_value": 1,
-                                                                                                                    "shift_by": 5,
+                                                                                                                    "shift_by": 11,
                                                                                                                       "suffix": "",
                                                                                                                         "type": "integer"
                                                                                            } ]
@@ -2322,12 +2478,12 @@
                                                                                                  "max_value": 2
                                                                                            } ],
                                                                                 "outputs": [ {
-                                                                                                                     "address": 11030,
+                                                                                                                     "address": 11034,
                                                                                                "address_mask_shift_identifier": "F_4E_PLT_FUEL_EXTERNAL_TANKS_FEED",
                                                                                                                  "description": "selector position",
-                                                                                                                        "mask": 12,
+                                                                                                                        "mask": 768,
                                                                                                                    "max_value": 2,
-                                                                                                                    "shift_by": 2,
+                                                                                                                    "shift_by": 8,
                                                                                                                       "suffix": "",
                                                                                                                         "type": "integer"
                                                                                            } ]
@@ -2351,13 +2507,13 @@
                                                                                                  "interface": "action"
                                                                                            } ],
                                                                                 "outputs": [ {
-                                                                                                                     "address": 11030,
+                                                                                                                     "address": 11034,
                                                                                                      "address_mask_identifier": "F_4E_PLT_FUEL_FEED_TANK_CHECK_AM",
                                                                                                "address_mask_shift_identifier": "F_4E_PLT_FUEL_FEED_TANK_CHECK",
                                                                                                                  "description": "selector position",
-                                                                                                                        "mask": 64,
+                                                                                                                        "mask": 4096,
                                                                                                                    "max_value": 1,
-                                                                                                                    "shift_by": 6,
+                                                                                                                    "shift_by": 12,
                                                                                                                       "suffix": "",
                                                                                                                         "type": "integer"
                                                                                            } ]
@@ -2369,7 +2525,7 @@
                                                                              "identifier": "PLT_FUEL_FLOW_L",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
-                                                                                                                     "address": 11042,
+                                                                                                                     "address": 11050,
                                                                                                           "address_identifier": "F_4E_PLT_FUEL_FLOW_L_A",
                                                                                                "address_mask_shift_identifier": "F_4E_PLT_FUEL_FLOW_L",
                                                                                                                  "description": "gauge position",
@@ -2387,7 +2543,7 @@
                                                                              "identifier": "PLT_FUEL_FLOW_R",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
-                                                                                                                     "address": 11044,
+                                                                                                                     "address": 11052,
                                                                                                           "address_identifier": "F_4E_PLT_FUEL_FLOW_R_A",
                                                                                                "address_mask_shift_identifier": "F_4E_PLT_FUEL_FLOW_R",
                                                                                                                  "description": "gauge position",
@@ -2405,7 +2561,7 @@
                                                                              "identifier": "PLT_FUEL_GAUGE_TAPE",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
-                                                                                                                     "address": 11032,
+                                                                                                                     "address": 11040,
                                                                                                           "address_identifier": "F_4E_PLT_FUEL_GAUGE_TAPE_A",
                                                                                                "address_mask_shift_identifier": "F_4E_PLT_FUEL_GAUGE_TAPE",
                                                                                                                  "description": "gauge position",
@@ -2423,7 +2579,7 @@
                                                                              "identifier": "PLT_FUEL_GAUGE_VALUE",
                                                                                  "inputs": [  ],
                                                                                 "outputs": [ {
-                                                                                                          "address": 11034,
+                                                                                                          "address": 11042,
                                                                                                "address_identifier": "F_4E_PLT_FUEL_GAUGE_VALUE_A",
                                                                                                       "description": "Pilot Fuel Gauge Total Internal Fuel (x10)",
                                                                                                        "max_length": 4,
@@ -2449,13 +2605,13 @@
                                                                                                  "interface": "action"
                                                                                            } ],
                                                                                 "outputs": [ {
-                                                                                                                     "address": 10980,
+                                                                                                                     "address": 11034,
                                                                                                      "address_mask_identifier": "F_4E_PLT_FUEL_REFUEL_SELECTOR_AM",
                                                                                                "address_mask_shift_identifier": "F_4E_PLT_FUEL_REFUEL_SELECTOR",
                                                                                                                  "description": "selector position",
-                                                                                                                        "mask": 32768,
+                                                                                                                        "mask": 32,
                                                                                                                    "max_value": 1,
-                                                                                                                    "shift_by": 15,
+                                                                                                                    "shift_by": 5,
                                                                                                                       "suffix": "",
                                                                                                                         "type": "integer"
                                                                                            } ]
@@ -2478,13 +2634,13 @@
                                                                                                  "interface": "action"
                                                                                            } ],
                                                                                 "outputs": [ {
-                                                                                                                     "address": 10980,
+                                                                                                                     "address": 11034,
                                                                                                      "address_mask_identifier": "F_4E_PLT_FUEL_REFUEL_SELECTOR_COVER_AM",
                                                                                                "address_mask_shift_identifier": "F_4E_PLT_FUEL_REFUEL_SELECTOR_COVER",
                                                                                                                  "description": "selector position",
-                                                                                                                        "mask": 16384,
+                                                                                                                        "mask": 16,
                                                                                                                    "max_value": 1,
-                                                                                                                    "shift_by": 14,
+                                                                                                                    "shift_by": 4,
                                                                                                                       "suffix": "",
                                                                                                                         "type": "integer"
                                                                                            } ]
@@ -2507,13 +2663,13 @@
                                                                                                  "interface": "action"
                                                                                            } ],
                                                                                 "outputs": [ {
-                                                                                                                     "address": 11030,
+                                                                                                                     "address": 11034,
                                                                                                      "address_mask_identifier": "F_4E_PLT_FUEL_WING_FUEL_DUMP_AM",
                                                                                                "address_mask_shift_identifier": "F_4E_PLT_FUEL_WING_FUEL_DUMP",
                                                                                                                  "description": "selector position",
-                                                                                                                        "mask": 2,
+                                                                                                                        "mask": 128,
                                                                                                                    "max_value": 1,
-                                                                                                                    "shift_by": 1,
+                                                                                                                    "shift_by": 7,
                                                                                                                       "suffix": "",
                                                                                                                         "type": "integer"
                                                                                            } ]
@@ -2536,13 +2692,13 @@
                                                                                                  "interface": "action"
                                                                                            } ],
                                                                                 "outputs": [ {
-                                                                                                                     "address": 10980,
+                                                                                                                     "address": 11034,
                                                                                                      "address_mask_identifier": "F_4E_PLT_FUEL_WING_INTERNAL_FEED_AM",
                                                                                                "address_mask_shift_identifier": "F_4E_PLT_FUEL_WING_INTERNAL_FEED",
                                                                                                                  "description": "selector position",
-                                                                                                                        "mask": 8192,
+                                                                                                                        "mask": 8,
                                                                                                                    "max_value": 1,
-                                                                                                                    "shift_by": 13,
+                                                                                                                    "shift_by": 3,
                                                                                                                       "suffix": "",
                                                                                                                         "type": "integer"
                                                                                            } ]
@@ -3724,12 +3880,12 @@
                                                                                           "max_value": 2
                                                                                     } ],
                                                                          "outputs": [ {
-                                                                                                              "address": 11084,
+                                                                                                              "address": 11094,
                                                                                         "address_mask_shift_identifier": "F_4E_PLT_EXT_LIGHT_TAXI_LAND",
                                                                                                           "description": "selector position",
-                                                                                                                 "mask": 12288,
+                                                                                                                 "mask": 192,
                                                                                                             "max_value": 2,
-                                                                                                             "shift_by": 12,
+                                                                                                             "shift_by": 6,
                                                                                                                "suffix": "",
                                                                                                                  "type": "integer"
                                                                                     } ]
@@ -3743,7 +3899,7 @@
                                                               "identifier": "PLT_O2_FLOW",
                                                                   "inputs": [  ],
                                                                  "outputs": [ {
-                                                                                                      "address": 11018,
+                                                                                                      "address": 11026,
                                                                                            "address_identifier": "F_4E_PLT_O2_FLOW_A",
                                                                                 "address_mask_shift_identifier": "F_4E_PLT_O2_FLOW",
                                                                                                   "description": "gauge position",
@@ -3761,7 +3917,7 @@
                                                               "identifier": "PLT_O2_LITERS",
                                                                   "inputs": [  ],
                                                                  "outputs": [ {
-                                                                                                      "address": 11022,
+                                                                                                      "address": 11030,
                                                                                            "address_identifier": "F_4E_PLT_O2_LITERS_A",
                                                                                 "address_mask_shift_identifier": "F_4E_PLT_O2_LITERS",
                                                                                                   "description": "gauge position",
@@ -3794,9 +3950,9 @@
                                                                                       "address_mask_identifier": "F_4E_PLT_O2_MIXTURE_AM",
                                                                                 "address_mask_shift_identifier": "F_4E_PLT_O2_MIXTURE",
                                                                                                   "description": "selector position",
-                                                                                                         "mask": 64,
+                                                                                                         "mask": 4096,
                                                                                                     "max_value": 1,
-                                                                                                     "shift_by": 6,
+                                                                                                     "shift_by": 12,
                                                                                                        "suffix": "",
                                                                                                          "type": "integer"
                                                                             } ]
@@ -3815,9 +3971,9 @@
                                                                                                       "address": 10980,
                                                                                 "address_mask_shift_identifier": "F_4E_PLT_O2_MODE",
                                                                                                   "description": "switch position -- 0 = Down, 1 = Mid,  2 = Up",
-                                                                                                         "mask": 48,
+                                                                                                         "mask": 3072,
                                                                                                     "max_value": 2,
-                                                                                                     "shift_by": 4,
+                                                                                                     "shift_by": 10,
                                                                                                        "suffix": "",
                                                                                                          "type": "integer"
                                                                             } ]
@@ -3829,7 +3985,7 @@
                                                               "identifier": "PLT_O2_PRESSURE",
                                                                   "inputs": [  ],
                                                                  "outputs": [ {
-                                                                                                      "address": 11020,
+                                                                                                      "address": 11028,
                                                                                            "address_identifier": "F_4E_PLT_O2_PRESSURE_A",
                                                                                 "address_mask_shift_identifier": "F_4E_PLT_O2_PRESSURE",
                                                                                                   "description": "gauge position",
@@ -3862,9 +4018,9 @@
                                                                                       "address_mask_identifier": "F_4E_PLT_O2_SUPPLY_AM",
                                                                                 "address_mask_shift_identifier": "F_4E_PLT_O2_SUPPLY",
                                                                                                   "description": "selector position",
-                                                                                                         "mask": 128,
+                                                                                                         "mask": 8192,
                                                                                                     "max_value": 1,
-                                                                                                     "shift_by": 7,
+                                                                                                     "shift_by": 13,
                                                                                                        "suffix": "",
                                                                                                          "type": "integer"
                                                                             } ]
@@ -3892,9 +4048,9 @@
                                                                                       "address_mask_identifier": "F_4E_PLT_O2_TEST_AM",
                                                                                 "address_mask_shift_identifier": "F_4E_PLT_O2_TEST",
                                                                                                   "description": "selector position",
-                                                                                                         "mask": 8,
+                                                                                                         "mask": 512,
                                                                                                     "max_value": 1,
-                                                                                                     "shift_by": 3,
+                                                                                                     "shift_by": 9,
                                                                                                        "suffix": "",
                                                                                                          "type": "integer"
                                                                             } ]
@@ -4071,13 +4227,13 @@
                                                                                                          "interface": "action"
                                                                                                    } ],
                                                                                         "outputs": [ {
-                                                                                                                             "address": 11084,
+                                                                                                                             "address": 11094,
                                                                                                              "address_mask_identifier": "F_4E_PLT_COCKPIT_PRESSURE_EMERGENCY_RELEASE_AM",
                                                                                                        "address_mask_shift_identifier": "F_4E_PLT_COCKPIT_PRESSURE_EMERGENCY_RELEASE",
                                                                                                                          "description": "selector position",
-                                                                                                                                "mask": 16384,
+                                                                                                                                "mask": 256,
                                                                                                                            "max_value": 1,
-                                                                                                                            "shift_by": 14,
+                                                                                                                            "shift_by": 8,
                                                                                                                               "suffix": "",
                                                                                                                                 "type": "integer"
                                                                                                    } ]
@@ -4100,7 +4256,7 @@
                                                                                                    "suggested_step": 3200
                                                                                                } ],
                                                                                     "outputs": [ {
-                                                                                                                         "address": 11088,
+                                                                                                                         "address": 11096,
                                                                                                               "address_identifier": "F_4E_PLT_EXT_LIGHT_FORMATION_BRIGHTNESS_A",
                                                                                                    "address_mask_shift_identifier": "F_4E_PLT_EXT_LIGHT_FORMATION_BRIGHTNESS",
                                                                                                                      "description": "position of the potentiometer",
@@ -4122,12 +4278,12 @@
                                                                                                      "max_value": 2
                                                                                                } ],
                                                                                     "outputs": [ {
-                                                                                                                         "address": 11086,
+                                                                                                                         "address": 11094,
                                                                                                    "address_mask_shift_identifier": "F_4E_PLT_EXT_LIGHT_FORMATION_MODE",
                                                                                                                      "description": "switch position -- 0 = Down, 1 = Mid,  2 = Up",
-                                                                                                                            "mask": 3,
+                                                                                                                            "mask": 1536,
                                                                                                                        "max_value": 2,
-                                                                                                                        "shift_by": 0,
+                                                                                                                        "shift_by": 9,
                                                                                                                           "suffix": "",
                                                                                                                             "type": "integer"
                                                                                                } ]
@@ -4153,13 +4309,13 @@
                                                                                              "interface": "action"
                                                                                        } ],
                                                                             "outputs": [ {
-                                                                                                                 "address": 11084,
+                                                                                                                 "address": 11070,
                                                                                                  "address_mask_identifier": "F_4E_PLT_AFCS_EMERGENCY_RELEASE_AM",
                                                                                            "address_mask_shift_identifier": "F_4E_PLT_AFCS_EMERGENCY_RELEASE",
                                                                                                              "description": "selector position",
-                                                                                                                    "mask": 1,
+                                                                                                                    "mask": 64,
                                                                                                                "max_value": 1,
-                                                                                                                "shift_by": 0,
+                                                                                                                "shift_by": 6,
                                                                                                                   "suffix": "",
                                                                                                                     "type": "integer"
                                                                                        } ]
@@ -4183,7 +4339,7 @@
                                                                                              "interface": "action"
                                                                                        } ],
                                                                             "outputs": [ {
-                                                                                                                 "address": 11060,
+                                                                                                                 "address": 11066,
                                                                                                  "address_mask_identifier": "F_4E_PLT_GEAR_NWS_AM",
                                                                                            "address_mask_shift_identifier": "F_4E_PLT_GEAR_NWS",
                                                                                                              "description": "selector position",
@@ -4215,13 +4371,13 @@
                                                                                            "interface": "action"
                                                                                      } ],
                                                                           "outputs": [ {
-                                                                                                               "address": 11084,
+                                                                                                               "address": 11070,
                                                                                                "address_mask_identifier": "F_4E_PLT_THROTTLE_CM_DISPENSE_AM",
                                                                                          "address_mask_shift_identifier": "F_4E_PLT_THROTTLE_CM_DISPENSE",
                                                                                                            "description": "selector position",
-                                                                                                                  "mask": 128,
+                                                                                                                  "mask": 32768,
                                                                                                              "max_value": 1,
-                                                                                                              "shift_by": 7,
+                                                                                                              "shift_by": 15,
                                                                                                                 "suffix": "",
                                                                                                                   "type": "integer"
                                                                                      } ]
@@ -4245,13 +4401,13 @@
                                                                                            "interface": "action"
                                                                                      } ],
                                                                           "outputs": [ {
-                                                                                                               "address": 11084,
+                                                                                                               "address": 11094,
                                                                                                "address_mask_identifier": "F_4E_PLT_THROTTLE_DETENT_L_AM",
                                                                                          "address_mask_shift_identifier": "F_4E_PLT_THROTTLE_DETENT_L",
                                                                                                            "description": "selector position",
-                                                                                                                  "mask": 256,
+                                                                                                                  "mask": 1,
                                                                                                              "max_value": 1,
-                                                                                                              "shift_by": 8,
+                                                                                                              "shift_by": 0,
                                                                                                                 "suffix": "",
                                                                                                                   "type": "integer"
                                                                                      } ]
@@ -4275,13 +4431,13 @@
                                                                                            "interface": "action"
                                                                                      } ],
                                                                           "outputs": [ {
-                                                                                                               "address": 11084,
+                                                                                                               "address": 11094,
                                                                                                "address_mask_identifier": "F_4E_PLT_THROTTLE_DETENT_R_AM",
                                                                                          "address_mask_shift_identifier": "F_4E_PLT_THROTTLE_DETENT_R",
                                                                                                            "description": "selector position",
-                                                                                                                  "mask": 512,
+                                                                                                                  "mask": 2,
                                                                                                              "max_value": 1,
-                                                                                                              "shift_by": 9,
+                                                                                                              "shift_by": 1,
                                                                                                                 "suffix": "",
                                                                                                                   "type": "integer"
                                                                                      } ]
@@ -4305,13 +4461,13 @@
                                                                                            "interface": "action"
                                                                                      } ],
                                                                           "outputs": [ {
-                                                                                                               "address": 11084,
+                                                                                                               "address": 11070,
                                                                                                "address_mask_identifier": "F_4E_PLT_THROTTLE_IGNITION_L_AM",
                                                                                          "address_mask_shift_identifier": "F_4E_PLT_THROTTLE_IGNITION_L",
                                                                                                            "description": "selector position",
-                                                                                                                  "mask": 8,
+                                                                                                                  "mask": 512,
                                                                                                              "max_value": 1,
-                                                                                                              "shift_by": 3,
+                                                                                                              "shift_by": 9,
                                                                                                                 "suffix": "",
                                                                                                                   "type": "integer"
                                                                                      } ]
@@ -4335,13 +4491,13 @@
                                                                                            "interface": "action"
                                                                                      } ],
                                                                           "outputs": [ {
-                                                                                                               "address": 11084,
+                                                                                                               "address": 11070,
                                                                                                "address_mask_identifier": "F_4E_PLT_THROTTLE_IGNITION_R_AM",
                                                                                          "address_mask_shift_identifier": "F_4E_PLT_THROTTLE_IGNITION_R",
                                                                                                            "description": "selector position",
-                                                                                                                  "mask": 16,
+                                                                                                                  "mask": 1024,
                                                                                                              "max_value": 1,
-                                                                                                              "shift_by": 4,
+                                                                                                              "shift_by": 10,
                                                                                                                 "suffix": "",
                                                                                                                   "type": "integer"
                                                                                      } ]
@@ -4357,12 +4513,33 @@
                                                                                            "max_value": 2
                                                                                      } ],
                                                                           "outputs": [ {
-                                                                                                               "address": 11084,
+                                                                                                               "address": 11070,
                                                                                          "address_mask_shift_identifier": "F_4E_PLT_THROTTLE_MIC",
                                                                                                            "description": "switch position -- 0 = Down, 1 = Mid,  2 = Up",
-                                                                                                                  "mask": 96,
+                                                                                                                  "mask": 24576,
                                                                                                              "max_value": 2,
-                                                                                                              "shift_by": 5,
+                                                                                                              "shift_by": 13,
+                                                                                                                "suffix": "",
+                                                                                                                  "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                     "PLT_THROTTLE_SPEED_BRAKE": {
+                                                                         "category": "PLT Throttle",
+                                                                     "control_type": "3Pos_2Command_Switch_OpenClose",
+                                                                      "description": "Speed Brake",
+                                                                       "identifier": "PLT_THROTTLE_SPEED_BRAKE",
+                                                                           "inputs": [ {
+                                                                                         "description": "set the switch position",
+                                                                                           "interface": "set_state",
+                                                                                           "max_value": 2
+                                                                                     } ],
+                                                                          "outputs": [ {
+                                                                                                               "address": 11070,
+                                                                                         "address_mask_shift_identifier": "F_4E_PLT_THROTTLE_SPEED_BRAKE",
+                                                                                                           "description": "switch position -- 0 = Down, 1 = Mid,  2 = Up",
+                                                                                                                  "mask": 6144,
+                                                                                                             "max_value": 2,
+                                                                                                              "shift_by": 11,
                                                                                                                 "suffix": "",
                                                                                                                   "type": "integer"
                                                                                      } ]
@@ -5124,13 +5301,13 @@
                                                                                     "interface": "action"
                                                                               } ],
                                                                    "outputs": [ {
-                                                                                                        "address": 10980,
+                                                                                                        "address": 11034,
                                                                                         "address_mask_identifier": "F_4E_PLT_MASTER_ARM_SW_AM",
                                                                                   "address_mask_shift_identifier": "F_4E_PLT_MASTER_ARM_SW",
                                                                                                     "description": "selector position",
-                                                                                                           "mask": 4096,
+                                                                                                           "mask": 4,
                                                                                                       "max_value": 1,
-                                                                                                       "shift_by": 12,
+                                                                                                       "shift_by": 2,
                                                                                                          "suffix": "",
                                                                                                            "type": "integer"
                                                                               } ]
@@ -6128,6 +6305,59 @@
                                                                                      } ]
                                                                  }
                                  },
+         "WSO Control Surfaces": {
+                                     "WSO_CONTROLS_FLAPS_SLATS_EMERGENCY": {
+                                                                                   "category": "WSO Control Surfaces",
+                                                                               "control_type": "limited_dial",
+                                                                                "description": "Flaps/Slats Emergency",
+                                                                                 "identifier": "WSO_CONTROLS_FLAPS_SLATS_EMERGENCY",
+                                                                                     "inputs": [ {
+                                                                                                   "description": "set the position of the dial",
+                                                                                                     "interface": "set_state",
+                                                                                                     "max_value": 65535
+                                                                                               }, {
+                                                                                                      "description": "turn the dial left or right",
+                                                                                                        "interface": "variable_step",
+                                                                                                        "max_value": 65535,
+                                                                                                   "suggested_step": 3200
+                                                                                               } ],
+                                                                                    "outputs": [ {
+                                                                                                                         "address": 11022,
+                                                                                                              "address_identifier": "F_4E_WSO_CONTROLS_FLAPS_SLATS_EMERGENCY_A",
+                                                                                                   "address_mask_shift_identifier": "F_4E_WSO_CONTROLS_FLAPS_SLATS_EMERGENCY",
+                                                                                                                     "description": "position of the potentiometer",
+                                                                                                                            "mask": 65535,
+                                                                                                                       "max_value": 65535,
+                                                                                                                        "shift_by": 0,
+                                                                                                                          "suffix": "",
+                                                                                                                            "type": "integer"
+                                                                                               } ]
+                                                                           },
+                                              "WSO_CONTROLS_PEDAL_ADJUST": {
+                                                                                "api_variant": "multiturn",
+                                                                                   "category": "WSO Control Surfaces",
+                                                                               "control_type": "analog_dial",
+                                                                                "description": "Adjust Pedal Position",
+                                                                                 "identifier": "WSO_CONTROLS_PEDAL_ADJUST",
+                                                                                     "inputs": [ {
+                                                                                                      "description": "turn the dial left or right",
+                                                                                                        "interface": "variable_step",
+                                                                                                        "max_value": 65535,
+                                                                                                   "suggested_step": 3200
+                                                                                               } ],
+                                                                                    "outputs": [ {
+                                                                                                                         "address": 11024,
+                                                                                                              "address_identifier": "F_4E_WSO_CONTROLS_PEDAL_ADJUST_A",
+                                                                                                   "address_mask_shift_identifier": "F_4E_WSO_CONTROLS_PEDAL_ADJUST",
+                                                                                                                     "description": "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)",
+                                                                                                                            "mask": 65535,
+                                                                                                                       "max_value": 65535,
+                                                                                                                        "shift_by": 0,
+                                                                                                                          "suffix": "_KNOB_POS",
+                                                                                                                            "type": "integer"
+                                                                                               } ]
+                                                                           }
+                                 },
     "WSO Countermeasures Panel": {
                                                  "WSO_CM_CHAFF": {
                                                                          "category": "WSO Countermeasures Panel",
@@ -6713,7 +6943,7 @@
                                                                                                           "suggested_step": 3200
                                                                                                       } ],
                                                                                            "outputs": [ {
-                                                                                                                                "address": 11056,
+                                                                                                                                "address": 11064,
                                                                                                                      "address_identifier": "F_4E_WSO_IFF_CHALLENGE_DIM_A",
                                                                                                           "address_mask_shift_identifier": "F_4E_WSO_IFF_CHALLENGE_DIM",
                                                                                                                             "description": "position of the potentiometer",
@@ -6731,13 +6961,13 @@
                                                                                         "identifier": "WSO_IFF_CHALLENGE_LIGHT",
                                                                                             "inputs": [  ],
                                                                                            "outputs": [ {
-                                                                                                                                "address": 11054,
+                                                                                                                                "address": 11066,
                                                                                                                 "address_mask_identifier": "F_4E_WSO_IFF_CHALLENGE_LIGHT_AM",
                                                                                                           "address_mask_shift_identifier": "F_4E_WSO_IFF_CHALLENGE_LIGHT",
                                                                                                                             "description": "0 if light is off, 1 if light is on",
-                                                                                                                                   "mask": 1024,
+                                                                                                                                   "mask": 1,
                                                                                                                               "max_value": 1,
-                                                                                                                               "shift_by": 10,
+                                                                                                                               "shift_by": 0,
                                                                                                                                  "suffix": "",
                                                                                                                                    "type": "integer"
                                                                                                       } ]
@@ -6761,13 +6991,13 @@
                                                                                                             "interface": "action"
                                                                                                       } ],
                                                                                            "outputs": [ {
-                                                                                                                                "address": 11054,
+                                                                                                                                "address": 11062,
                                                                                                                 "address_mask_identifier": "F_4E_WSO_IFF_CHALLENGE_TEST_BUTTON_AM",
                                                                                                           "address_mask_shift_identifier": "F_4E_WSO_IFF_CHALLENGE_TEST_BUTTON",
                                                                                                                             "description": "selector position",
-                                                                                                                                   "mask": 512,
+                                                                                                                                   "mask": 32768,
                                                                                                                               "max_value": 1,
-                                                                                                                               "shift_by": 9,
+                                                                                                                               "shift_by": 15,
                                                                                                                                  "suffix": "",
                                                                                                                                    "type": "integer"
                                                                                                       } ]
@@ -6779,7 +7009,7 @@
                                                                                         "identifier": "WSO_IFF_CODE",
                                                                                             "inputs": [  ],
                                                                                            "outputs": [ {
-                                                                                                                     "address": 11048,
+                                                                                                                     "address": 11056,
                                                                                                           "address_identifier": "F_4E_WSO_IFF_CODE_A",
                                                                                                                  "description": "IFF Code",
                                                                                                                   "max_length": 4,
@@ -6794,12 +7024,12 @@
                                                                                         "identifier": "WSO_IFF_CODE_HUNDREDS",
                                                                                             "inputs": [  ],
                                                                                            "outputs": [ {
-                                                                                                                                "address": 11046,
+                                                                                                                                "address": 11054,
                                                                                                           "address_mask_shift_identifier": "F_4E_WSO_IFF_CODE_HUNDREDS",
                                                                                                                             "description": "IFF Code (hundreds)",
-                                                                                                                                   "mask": 15,
+                                                                                                                                   "mask": 3840,
                                                                                                                               "max_value": 8,
-                                                                                                                               "shift_by": 0,
+                                                                                                                               "shift_by": 8,
                                                                                                                                  "suffix": "",
                                                                                                                                    "type": "integer"
                                                                                                       } ]
@@ -6823,13 +7053,13 @@
                                                                                                             "interface": "action"
                                                                                                       } ],
                                                                                            "outputs": [ {
-                                                                                                                                "address": 11046,
+                                                                                                                                "address": 11034,
                                                                                                                 "address_mask_identifier": "F_4E_WSO_IFF_CODE_INC_HUNDREDS_AM",
                                                                                                           "address_mask_shift_identifier": "F_4E_WSO_IFF_CODE_INC_HUNDREDS",
                                                                                                                             "description": "selector position",
-                                                                                                                                   "mask": 512,
+                                                                                                                                   "mask": 32768,
                                                                                                                               "max_value": 1,
-                                                                                                                               "shift_by": 9,
+                                                                                                                               "shift_by": 15,
                                                                                                                                  "suffix": "",
                                                                                                                                    "type": "integer"
                                                                                                       } ]
@@ -6853,13 +7083,13 @@
                                                                                                             "interface": "action"
                                                                                                       } ],
                                                                                            "outputs": [ {
-                                                                                                                                "address": 11046,
+                                                                                                                                "address": 11062,
                                                                                                                 "address_mask_identifier": "F_4E_WSO_IFF_CODE_INC_ONES_AM",
                                                                                                           "address_mask_shift_identifier": "F_4E_WSO_IFF_CODE_INC_ONES",
                                                                                                                             "description": "selector position",
-                                                                                                                                   "mask": 2048,
+                                                                                                                                   "mask": 512,
                                                                                                                               "max_value": 1,
-                                                                                                                               "shift_by": 11,
+                                                                                                                               "shift_by": 9,
                                                                                                                                  "suffix": "",
                                                                                                                                    "type": "integer"
                                                                                                       } ]
@@ -6883,13 +7113,13 @@
                                                                                                             "interface": "action"
                                                                                                       } ],
                                                                                            "outputs": [ {
-                                                                                                                                "address": 11046,
+                                                                                                                                "address": 11062,
                                                                                                                 "address_mask_identifier": "F_4E_WSO_IFF_CODE_INC_TENS_AM",
                                                                                                           "address_mask_shift_identifier": "F_4E_WSO_IFF_CODE_INC_TENS",
                                                                                                                             "description": "selector position",
-                                                                                                                                   "mask": 1024,
+                                                                                                                                   "mask": 256,
                                                                                                                               "max_value": 1,
-                                                                                                                               "shift_by": 10,
+                                                                                                                               "shift_by": 8,
                                                                                                                                  "suffix": "",
                                                                                                                                    "type": "integer"
                                                                                                       } ]
@@ -6913,13 +7143,13 @@
                                                                                                             "interface": "action"
                                                                                                       } ],
                                                                                            "outputs": [ {
-                                                                                                                                "address": 11046,
+                                                                                                                                "address": 11034,
                                                                                                                 "address_mask_identifier": "F_4E_WSO_IFF_CODE_INC_THOUSANDS_AM",
                                                                                                           "address_mask_shift_identifier": "F_4E_WSO_IFF_CODE_INC_THOUSANDS",
                                                                                                                             "description": "selector position",
-                                                                                                                                   "mask": 256,
+                                                                                                                                   "mask": 16384,
                                                                                                                               "max_value": 1,
-                                                                                                                               "shift_by": 8,
+                                                                                                                               "shift_by": 14,
                                                                                                                                  "suffix": "",
                                                                                                                                    "type": "integer"
                                                                                                       } ]
@@ -6931,12 +7161,12 @@
                                                                                         "identifier": "WSO_IFF_CODE_ONES",
                                                                                             "inputs": [  ],
                                                                                            "outputs": [ {
-                                                                                                                                "address": 11030,
+                                                                                                                                "address": 11054,
                                                                                                           "address_mask_shift_identifier": "F_4E_WSO_IFF_CODE_ONES",
                                                                                                                             "description": "IFF Code (ones)",
-                                                                                                                                   "mask": 1920,
+                                                                                                                                   "mask": 15,
                                                                                                                               "max_value": 8,
-                                                                                                                               "shift_by": 7,
+                                                                                                                               "shift_by": 0,
                                                                                                                                  "suffix": "",
                                                                                                                                    "type": "integer"
                                                                                                       } ]
@@ -6948,12 +7178,12 @@
                                                                                         "identifier": "WSO_IFF_CODE_TENS",
                                                                                             "inputs": [  ],
                                                                                            "outputs": [ {
-                                                                                                                                "address": 11030,
+                                                                                                                                "address": 11054,
                                                                                                           "address_mask_shift_identifier": "F_4E_WSO_IFF_CODE_TENS",
                                                                                                                             "description": "IFF Code (tens)",
-                                                                                                                                   "mask": 30720,
+                                                                                                                                   "mask": 240,
                                                                                                                               "max_value": 8,
-                                                                                                                               "shift_by": 11,
+                                                                                                                               "shift_by": 4,
                                                                                                                                  "suffix": "",
                                                                                                                                    "type": "integer"
                                                                                                       } ]
@@ -6965,12 +7195,12 @@
                                                                                         "identifier": "WSO_IFF_CODE_THOUSANDS",
                                                                                             "inputs": [  ],
                                                                                            "outputs": [ {
-                                                                                                                                "address": 11046,
+                                                                                                                                "address": 11054,
                                                                                                           "address_mask_shift_identifier": "F_4E_WSO_IFF_CODE_THOUSANDS",
                                                                                                                             "description": "IFF Code (thousands)",
-                                                                                                                                   "mask": 240,
+                                                                                                                                   "mask": 61440,
                                                                                                                               "max_value": 8,
-                                                                                                                               "shift_by": 4,
+                                                                                                                               "shift_by": 12,
                                                                                                                                  "suffix": "",
                                                                                                                                    "type": "integer"
                                                                                                       } ]
@@ -6991,7 +7221,7 @@
                                                                                                           "suggested_step": 3200
                                                                                                       } ],
                                                                                            "outputs": [ {
-                                                                                                                                "address": 11058,
+                                                                                                                                "address": 11068,
                                                                                                                      "address_identifier": "F_4E_WSO_IFF_COMBAT_TREE_CHALLENGE_DIM_A",
                                                                                                           "address_mask_shift_identifier": "F_4E_WSO_IFF_COMBAT_TREE_CHALLENGE_DIM",
                                                                                                                             "description": "position of the potentiometer",
@@ -7021,13 +7251,13 @@
                                                                                                             "interface": "action"
                                                                                                       } ],
                                                                                            "outputs": [ {
-                                                                                                                                "address": 11054,
+                                                                                                                                "address": 11066,
                                                                                                                 "address_mask_identifier": "F_4E_WSO_IFF_COMBAT_TREE_CHALLENGE_TEST_BUTTON_AM",
                                                                                                           "address_mask_shift_identifier": "F_4E_WSO_IFF_COMBAT_TREE_CHALLENGE_TEST_BUTTON",
                                                                                                                             "description": "selector position",
-                                                                                                                                   "mask": 16384,
+                                                                                                                                   "mask": 16,
                                                                                                                               "max_value": 1,
-                                                                                                                               "shift_by": 14,
+                                                                                                                               "shift_by": 4,
                                                                                                                                  "suffix": "",
                                                                                                                                    "type": "integer"
                                                                                                       } ]
@@ -7039,13 +7269,13 @@
                                                                                         "identifier": "WSO_IFF_COMBAT_TREE_CHALLENGE_TEST_LIGHT",
                                                                                             "inputs": [  ],
                                                                                            "outputs": [ {
-                                                                                                                                "address": 11054,
+                                                                                                                                "address": 11066,
                                                                                                                 "address_mask_identifier": "F_4E_WSO_IFF_COMBAT_TREE_CHALLENGE_TEST_LIGHT_AM",
                                                                                                           "address_mask_shift_identifier": "F_4E_WSO_IFF_COMBAT_TREE_CHALLENGE_TEST_LIGHT",
                                                                                                                             "description": "0 if light is off, 1 if light is on",
-                                                                                                                                   "mask": 32768,
+                                                                                                                                   "mask": 32,
                                                                                                                               "max_value": 1,
-                                                                                                                               "shift_by": 15,
+                                                                                                                               "shift_by": 5,
                                                                                                                                  "suffix": "",
                                                                                                                                    "type": "integer"
                                                                                                       } ]
@@ -7064,12 +7294,12 @@
                                                                                                             "max_value": 2
                                                                                                       } ],
                                                                                            "outputs": [ {
-                                                                                                                                "address": 11060,
+                                                                                                                                "address": 11066,
                                                                                                           "address_mask_shift_identifier": "F_4E_WSO_IFF_COMBAT_TREE_MODE_2",
                                                                                                                             "description": "selector position",
-                                                                                                                                   "mask": 6,
+                                                                                                                                   "mask": 384,
                                                                                                                               "max_value": 2,
-                                                                                                                               "shift_by": 1,
+                                                                                                                               "shift_by": 7,
                                                                                                                                  "suffix": "",
                                                                                                                                    "type": "integer"
                                                                                                       } ]
@@ -7088,12 +7318,12 @@
                                                                                                             "max_value": 2
                                                                                                       } ],
                                                                                            "outputs": [ {
-                                                                                                                                "address": 11060,
+                                                                                                                                "address": 11066,
                                                                                                           "address_mask_shift_identifier": "F_4E_WSO_IFF_COMBAT_TREE_MODE_3",
                                                                                                                             "description": "selector position",
-                                                                                                                                   "mask": 24,
+                                                                                                                                   "mask": 1536,
                                                                                                                               "max_value": 2,
-                                                                                                                               "shift_by": 3,
+                                                                                                                               "shift_by": 9,
                                                                                                                                  "suffix": "",
                                                                                                                                    "type": "integer"
                                                                                                       } ]
@@ -7117,13 +7347,13 @@
                                                                                                             "interface": "action"
                                                                                                       } ],
                                                                                            "outputs": [ {
-                                                                                                                                "address": 11060,
+                                                                                                                                "address": 11066,
                                                                                                                 "address_mask_identifier": "F_4E_WSO_IFF_COMBAT_TREE_TEST_AM",
                                                                                                           "address_mask_shift_identifier": "F_4E_WSO_IFF_COMBAT_TREE_TEST",
                                                                                                                             "description": "selector position",
-                                                                                                                                   "mask": 1,
+                                                                                                                                   "mask": 64,
                                                                                                                               "max_value": 1,
-                                                                                                                               "shift_by": 0,
+                                                                                                                               "shift_by": 6,
                                                                                                                                  "suffix": "",
                                                                                                                                    "type": "integer"
                                                                                                       } ]
@@ -7135,7 +7365,7 @@
                                                                                         "identifier": "WSO_IFF_MODE",
                                                                                             "inputs": [  ],
                                                                                            "outputs": [ {
-                                                                                                                     "address": 11052,
+                                                                                                                     "address": 11060,
                                                                                                           "address_identifier": "F_4E_WSO_IFF_MODE_A",
                                                                                                                  "description": "IFF Mode",
                                                                                                                   "max_length": 3,
@@ -7162,13 +7392,13 @@
                                                                                                             "interface": "action"
                                                                                                       } ],
                                                                                            "outputs": [ {
-                                                                                                                                "address": 11046,
+                                                                                                                                "address": 11062,
                                                                                                                 "address_mask_identifier": "F_4E_WSO_IFF_MODE_DEC_AM",
                                                                                                           "address_mask_shift_identifier": "F_4E_WSO_IFF_MODE_DEC",
                                                                                                                             "description": "selector position",
-                                                                                                                                   "mask": 4096,
+                                                                                                                                   "mask": 1024,
                                                                                                                               "max_value": 1,
-                                                                                                                               "shift_by": 12,
+                                                                                                                               "shift_by": 10,
                                                                                                                                  "suffix": "",
                                                                                                                                    "type": "integer"
                                                                                                       } ]
@@ -7192,13 +7422,13 @@
                                                                                                             "interface": "action"
                                                                                                       } ],
                                                                                            "outputs": [ {
-                                                                                                                                "address": 11046,
+                                                                                                                                "address": 11062,
                                                                                                                 "address_mask_identifier": "F_4E_WSO_IFF_MODE_DEC_HUNDREDS_AM",
                                                                                                           "address_mask_shift_identifier": "F_4E_WSO_IFF_MODE_DEC_HUNDREDS",
                                                                                                                             "description": "selector position",
-                                                                                                                                   "mask": 16384,
+                                                                                                                                   "mask": 4096,
                                                                                                                               "max_value": 1,
-                                                                                                                               "shift_by": 14,
+                                                                                                                               "shift_by": 12,
                                                                                                                                  "suffix": "",
                                                                                                                                    "type": "integer"
                                                                                                       } ]
@@ -7222,13 +7452,13 @@
                                                                                                             "interface": "action"
                                                                                                       } ],
                                                                                            "outputs": [ {
-                                                                                                                                "address": 11054,
+                                                                                                                                "address": 11062,
                                                                                                                 "address_mask_identifier": "F_4E_WSO_IFF_MODE_DEC_ONES_AM",
                                                                                                           "address_mask_shift_identifier": "F_4E_WSO_IFF_MODE_DEC_ONES",
                                                                                                                             "description": "selector position",
-                                                                                                                                   "mask": 256,
+                                                                                                                                   "mask": 16384,
                                                                                                                               "max_value": 1,
-                                                                                                                               "shift_by": 8,
+                                                                                                                               "shift_by": 14,
                                                                                                                                  "suffix": "",
                                                                                                                                    "type": "integer"
                                                                                                       } ]
@@ -7252,13 +7482,13 @@
                                                                                                             "interface": "action"
                                                                                                       } ],
                                                                                            "outputs": [ {
-                                                                                                                                "address": 11046,
+                                                                                                                                "address": 11062,
                                                                                                                 "address_mask_identifier": "F_4E_WSO_IFF_MODE_DEC_TENS_AM",
                                                                                                           "address_mask_shift_identifier": "F_4E_WSO_IFF_MODE_DEC_TENS",
                                                                                                                             "description": "selector position",
-                                                                                                                                   "mask": 32768,
+                                                                                                                                   "mask": 8192,
                                                                                                                               "max_value": 1,
-                                                                                                                               "shift_by": 15,
+                                                                                                                               "shift_by": 13,
                                                                                                                                  "suffix": "",
                                                                                                                                    "type": "integer"
                                                                                                       } ]
@@ -7282,13 +7512,13 @@
                                                                                                             "interface": "action"
                                                                                                       } ],
                                                                                            "outputs": [ {
-                                                                                                                                "address": 11046,
+                                                                                                                                "address": 11062,
                                                                                                                 "address_mask_identifier": "F_4E_WSO_IFF_MODE_DEC_THOUSANDS_AM",
                                                                                                           "address_mask_shift_identifier": "F_4E_WSO_IFF_MODE_DEC_THOUSANDS",
                                                                                                                             "description": "selector position",
-                                                                                                                                   "mask": 8192,
+                                                                                                                                   "mask": 2048,
                                                                                                                               "max_value": 1,
-                                                                                                                               "shift_by": 13,
+                                                                                                                               "shift_by": 11,
                                                                                                                                  "suffix": "",
                                                                                                                                    "type": "integer"
                                                                                                       } ]
@@ -7312,13 +7542,13 @@
                                                                                                             "interface": "action"
                                                                                                       } ],
                                                                                            "outputs": [ {
-                                                                                                                                "address": 11030,
+                                                                                                                                "address": 11034,
                                                                                                                 "address_mask_identifier": "F_4E_WSO_IFF_MODE_INC_AM",
                                                                                                           "address_mask_shift_identifier": "F_4E_WSO_IFF_MODE_INC",
                                                                                                                             "description": "selector position",
-                                                                                                                                   "mask": 32768,
+                                                                                                                                   "mask": 8192,
                                                                                                                               "max_value": 1,
-                                                                                                                               "shift_by": 15,
+                                                                                                                               "shift_by": 13,
                                                                                                                                  "suffix": "",
                                                                                                                                    "type": "integer"
                                                                                                       } ]
@@ -7334,12 +7564,12 @@
                                                                                                             "max_value": 2
                                                                                                       } ],
                                                                                            "outputs": [ {
-                                                                                                                                "address": 11054,
+                                                                                                                                "address": 11066,
                                                                                                           "address_mask_shift_identifier": "F_4E_WSO_IFF_TEST_CHALLENGE",
                                                                                                                             "description": "switch position -- 0 = Down, 1 = Mid,  2 = Up",
-                                                                                                                                   "mask": 6144,
+                                                                                                                                   "mask": 6,
                                                                                                                               "max_value": 2,
-                                                                                                                               "shift_by": 11,
+                                                                                                                               "shift_by": 1,
                                                                                                                                  "suffix": "",
                                                                                                                                    "type": "integer"
                                                                                                       } ]
@@ -8375,7 +8605,7 @@
                                                               "identifier": "WSO_O2_FLOW",
                                                                   "inputs": [  ],
                                                                  "outputs": [ {
-                                                                                                      "address": 11026,
+                                                                                                      "address": 11036,
                                                                                            "address_identifier": "F_4E_WSO_O2_FLOW_A",
                                                                                 "address_mask_shift_identifier": "F_4E_WSO_O2_FLOW",
                                                                                                   "description": "gauge position",
@@ -8404,13 +8634,13 @@
                                                                                   "interface": "action"
                                                                             } ],
                                                                  "outputs": [ {
-                                                                                                      "address": 10980,
+                                                                                                      "address": 11034,
                                                                                       "address_mask_identifier": "F_4E_WSO_O2_MIXTURE_AM",
                                                                                 "address_mask_shift_identifier": "F_4E_WSO_O2_MIXTURE",
                                                                                                   "description": "selector position",
-                                                                                                         "mask": 1024,
+                                                                                                         "mask": 1,
                                                                                                     "max_value": 1,
-                                                                                                     "shift_by": 10,
+                                                                                                     "shift_by": 0,
                                                                                                        "suffix": "",
                                                                                                          "type": "integer"
                                                                             } ]
@@ -8429,9 +8659,9 @@
                                                                                                       "address": 10980,
                                                                                 "address_mask_shift_identifier": "F_4E_WSO_O2_MODE",
                                                                                                   "description": "switch position -- 0 = Down, 1 = Mid,  2 = Up",
-                                                                                                         "mask": 768,
+                                                                                                         "mask": 49152,
                                                                                                     "max_value": 2,
-                                                                                                     "shift_by": 8,
+                                                                                                     "shift_by": 14,
                                                                                                        "suffix": "",
                                                                                                          "type": "integer"
                                                                             } ]
@@ -8443,7 +8673,7 @@
                                                               "identifier": "WSO_O2_PRESSURE",
                                                                   "inputs": [  ],
                                                                  "outputs": [ {
-                                                                                                      "address": 11028,
+                                                                                                      "address": 11038,
                                                                                            "address_identifier": "F_4E_WSO_O2_PRESSURE_A",
                                                                                 "address_mask_shift_identifier": "F_4E_WSO_O2_PRESSURE",
                                                                                                   "description": "gauge position",
@@ -8472,13 +8702,13 @@
                                                                                   "interface": "action"
                                                                             } ],
                                                                  "outputs": [ {
-                                                                                                      "address": 10980,
+                                                                                                      "address": 11034,
                                                                                       "address_mask_identifier": "F_4E_WSO_O2_SUPPLY_AM",
                                                                                 "address_mask_shift_identifier": "F_4E_WSO_O2_SUPPLY",
                                                                                                   "description": "selector position",
-                                                                                                         "mask": 2048,
+                                                                                                         "mask": 2,
                                                                                                     "max_value": 1,
-                                                                                                     "shift_by": 11,
+                                                                                                     "shift_by": 1,
                                                                                                        "suffix": "",
                                                                                                          "type": "integer"
                                                                             } ]
@@ -8504,13 +8734,13 @@
                                                                                              "interface": "action"
                                                                                        } ],
                                                                             "outputs": [ {
-                                                                                                                 "address": 11084,
+                                                                                                                 "address": 11070,
                                                                                                  "address_mask_identifier": "F_4E_WSO_AFCS_EMERGENCY_RELEASE_AM",
                                                                                            "address_mask_shift_identifier": "F_4E_WSO_AFCS_EMERGENCY_RELEASE",
                                                                                                              "description": "selector position",
-                                                                                                                    "mask": 4,
+                                                                                                                    "mask": 256,
                                                                                                                "max_value": 1,
-                                                                                                                "shift_by": 2,
+                                                                                                                "shift_by": 8,
                                                                                                                   "suffix": "",
                                                                                                                     "type": "integer"
                                                                                        } ]
@@ -8534,40 +8764,61 @@
                                                                                              "interface": "action"
                                                                                        } ],
                                                                             "outputs": [ {
-                                                                                                                 "address": 11084,
+                                                                                                                 "address": 11070,
                                                                                                  "address_mask_identifier": "F_4E_WSO_GEAR_NWS_AM",
                                                                                            "address_mask_shift_identifier": "F_4E_WSO_GEAR_NWS",
                                                                                                              "description": "selector position",
-                                                                                                                    "mask": 2,
+                                                                                                                    "mask": 128,
                                                                                                                "max_value": 1,
-                                                                                                                "shift_by": 1,
+                                                                                                                "shift_by": 7,
                                                                                                                   "suffix": "",
                                                                                                                     "type": "integer"
                                                                                        } ]
                                                                    }
                                  },
                  "WSO Throttle": {
-                                     "WSO_THROTTLE_MIC": {
-                                                                 "category": "WSO Throttle",
-                                                             "control_type": "3Pos_2Command_Switch_OpenClose",
-                                                              "description": "Mic Switch",
-                                                               "identifier": "WSO_THROTTLE_MIC",
-                                                                   "inputs": [ {
-                                                                                 "description": "set the switch position",
-                                                                                   "interface": "set_state",
-                                                                                   "max_value": 2
-                                                                             } ],
-                                                                  "outputs": [ {
-                                                                                                       "address": 11084,
-                                                                                 "address_mask_shift_identifier": "F_4E_WSO_THROTTLE_MIC",
-                                                                                                   "description": "switch position -- 0 = Down, 1 = Mid,  2 = Up",
-                                                                                                          "mask": 3072,
-                                                                                                     "max_value": 2,
-                                                                                                      "shift_by": 10,
-                                                                                                        "suffix": "",
-                                                                                                          "type": "integer"
-                                                                             } ]
-                                                         }
+                                             "WSO_THROTTLE_MIC": {
+                                                                         "category": "WSO Throttle",
+                                                                     "control_type": "3Pos_2Command_Switch_OpenClose",
+                                                                      "description": "Mic Switch",
+                                                                       "identifier": "WSO_THROTTLE_MIC",
+                                                                           "inputs": [ {
+                                                                                         "description": "set the switch position",
+                                                                                           "interface": "set_state",
+                                                                                           "max_value": 2
+                                                                                     } ],
+                                                                          "outputs": [ {
+                                                                                                               "address": 11094,
+                                                                                         "address_mask_shift_identifier": "F_4E_WSO_THROTTLE_MIC",
+                                                                                                           "description": "switch position -- 0 = Down, 1 = Mid,  2 = Up",
+                                                                                                                  "mask": 48,
+                                                                                                             "max_value": 2,
+                                                                                                              "shift_by": 4,
+                                                                                                                "suffix": "",
+                                                                                                                  "type": "integer"
+                                                                                     } ]
+                                                                 },
+                                     "WSO_THROTTLE_SPEED_BRAKE": {
+                                                                         "category": "WSO Throttle",
+                                                                     "control_type": "3Pos_2Command_Switch_OpenClose",
+                                                                      "description": "Speed Brake",
+                                                                       "identifier": "WSO_THROTTLE_SPEED_BRAKE",
+                                                                           "inputs": [ {
+                                                                                         "description": "set the switch position",
+                                                                                           "interface": "set_state",
+                                                                                           "max_value": 2
+                                                                                     } ],
+                                                                          "outputs": [ {
+                                                                                                               "address": 11094,
+                                                                                         "address_mask_shift_identifier": "F_4E_WSO_THROTTLE_SPEED_BRAKE",
+                                                                                                           "description": "switch position -- 0 = Down, 1 = Mid,  2 = Up",
+                                                                                                                  "mask": 12,
+                                                                                                             "max_value": 2,
+                                                                                                              "shift_by": 2,
+                                                                                                                "suffix": "",
+                                                                                                                  "type": "integer"
+                                                                                     } ]
+                                                                 }
                                  },
        "WSO Warning Indicators": {
                                         "WSO_WCA_CANOPY_UNLOCKED": {
