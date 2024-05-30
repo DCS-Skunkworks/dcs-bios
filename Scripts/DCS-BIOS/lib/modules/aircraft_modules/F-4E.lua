@@ -70,6 +70,21 @@ local function drum_value(dev0, arg_number, invert, max_value)
 	return val % max_value
 end
 
+--- Returns the string value of a regular drum
+--- @param dev0 CockpitDevice
+--- @param ... integer the dcs argument numbers for each drum wheel, left to right
+--- @return string value
+local function drum_set(dev0, ...)
+	local drum_arg_numbers = { ... }
+	local vals = {}
+
+	for i, arg_number in ipairs(drum_arg_numbers) do
+		vals[i] = drum_value(dev0, arg_number)
+	end
+
+	return string.format(string.rep("%d", #vals), unpack(vals))
+end
+
 -- ICS
 local ICS_DEVICE_ID = 2
 
@@ -480,17 +495,11 @@ end, 7, WSO_NAVIGATION_PANEL, "Magnetic Variation")
 -- wind
 
 F_4E:defineString("WSO_NAV_WIND_DIRECTION_VALUE", function(dev0)
-	local ones = drum_value(dev0, 906)
-	local tens = drum_value(dev0, 907)
-	local hundreds = drum_value(dev0, 908)
-	return string.format("%d%d%d", hundreds, tens, ones)
+	return drum_set(dev0, 908, 907, 906)
 end, 3, WSO_NAVIGATION_PANEL, "Wind Direction")
 
 F_4E:defineString("WSO_NAV_WIND_STRENGTH_VALUE", function(dev0)
-	local ones = drum_value(dev0, 902)
-	local tens = drum_value(dev0, 903)
-	local hundreds = drum_value(dev0, 904)
-	return string.format("%d%d%d", hundreds, tens, ones)
+	return drum_set(dev0, 904, 903, 902)
 end, 3, WSO_NAVIGATION_PANEL, "Wind Strength")
 
 -- lat/longs
@@ -785,6 +794,45 @@ F_4E:defineFloat("WSO_O2_PRESSURE", 245, { 0, 1 }, WSO_O2_SYSTEM, "Oxygen Supply
 
 -- Weapons
 local WEAPONS_DEVICE_ID = 27
+
+-- WSO WRCS
+local WSO_WRCS = "WSO WRCS"
+
+F_4E:definePotentiometer("WSO_WRCS_DRAG_COEFFICIENT", WEAPONS_DEVICE_ID, 3024, 331, { 0, 1 }, WSO_WRCS, "Set Drag Coefficient")
+F_4E:definePotentiometer("WSO_WRCS_ALT_RANGE", WEAPONS_DEVICE_ID, 3025, 330, { 0, 1 }, WSO_WRCS, "Set Target Altitude/Range (x100 ft)")
+F_4E:definePotentiometer("WSO_WRCS_RELEASE_RANGE", WEAPONS_DEVICE_ID, 3029, 323, { 0, 1 }, WSO_WRCS, "Set Release Range (x10 ft)")
+F_4E:definePotentiometer("WSO_WRCS_EW_DISTANCE", WEAPONS_DEVICE_ID, 3026, 321, { 0, 1 }, WSO_WRCS, "Set Target E/W Distance (x100 ft)")
+F_4E:definePotentiometer("WSO_WRCS_NS_DISTANCE", WEAPONS_DEVICE_ID, 3027, 320, { 0, 1 }, WSO_WRCS, "Set Target N/S Distance (x100 ft)")
+F_4E:definePotentiometer("WSO_WRCS_RELEASE_ADVANCE", WEAPONS_DEVICE_ID, 3028, 322, { 0, 1 }, WSO_WRCS, "Set Release Advance (ms)")
+F_4E:defineTumb("WSO_WRCS_BIT_MODE", WEAPONS_DEVICE_ID, 3030, 332, 1 / 5, { 0, 1 }, nil, true, WSO_WRCS, "Select BIT Mode") -- doesn't seem to be properly implemented in-game yet
+F_4E:defineToggleSwitch("WSO_WRCS_TARGET_FIND_MODE", WEAPONS_DEVICE_ID, 3040, 1017, WSO_WRCS, "Target Find Mode")
+F_4E:defineToggleSwitch("WSO_WRCS_RANGE_MULTIPLIER", WEAPONS_DEVICE_ID, 3041, 1018, WSO_WRCS, "WRCS Range x100 Multiplier")
+
+F_4E:defineString("WSO_WRCS_NS_DISTANCE_VALUE", function(dev0)
+	local south = dev0:get_argument_value(345) < 0.5
+	return string.format("%s%s", south and "S" or "N", drum_set(dev0, 308, 309, 310))
+end, 4, WSO_WRCS, "N/S Distance (x100 ft)")
+
+F_4E:defineString("WSO_WRCS_EW_DISTANCE_VALUE", function(dev0)
+	local west = dev0:get_argument_value(346) < 0.5
+	return string.format("%s%s", west and "W" or "E", drum_set(dev0, 311, 312, 313))
+end, 4, WSO_WRCS, "E/W Distance (x100 ft)")
+
+F_4E:defineString("WSO_WRCS_ALT_RANGE_VALUE", function(dev0)
+	return drum_set(dev0, 324, 325, 326)
+end, 3, WSO_WRCS, "Altitude/Range (x100 ft)")
+
+F_4E:defineString("WSO_WRCS_DRAG_COEFFICIENT_VALUE", function(dev0)
+	return drum_set(dev0, 327, 328, 329)
+end, 3, WSO_WRCS, "Drag Coefficient")
+
+F_4E:defineString("WSO_WRCS_RELEASE_ADVANCE_VALUE", function(dev0)
+	return drum_set(dev0, 314, 315, 316)
+end, 3, WSO_WRCS, "Release Advance (ms)")
+
+F_4E:defineString("WSO_WRCS_RELEASE_RANGE_VALUE", function(dev0)
+	return drum_set(dev0, 317, 318, 319)
+end, 3, WSO_WRCS, "Release Range (x10 ft)")
 
 -- pilot weapons panel
 local PILOT_WEAPONS_PANEL = "PLT Weapons Panel"
