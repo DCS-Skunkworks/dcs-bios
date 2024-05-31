@@ -52,6 +52,17 @@ function F_4E:defineFloatFromArg(identifier, arg_number, category, description)
 	self:defineFloat(identifier, arg_number, { 0, 1 }, category, description)
 end
 
+--- Defines a 0-max_value output from a 0-1 input
+--- @param identifier string the unique identifier for the control
+--- @param arg_number integer the dcs argument number
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+function F_4E:defineIntegerFromArg(identifier, arg_number, max_value, category, description)
+	self:defineIntegerFromGetter(identifier, function(dev0)
+		return Module.round(dev0:get_argument_value(arg_number) * max_value)
+	end, max_value, category, description)
+end
+
 -- helper functions
 
 --- Returns an integer value for a drum-based numeric indicator
@@ -588,21 +599,9 @@ F_4E:defineToggleSwitch("PLT_GEAR_DRAG_CHUTE", LANDING_GEAR_DEVICE_ID, 3009, 276
 F_4E:defineToggleSwitch("PLT_GEAR_DRAG_CHUTE_RELEASE", LANDING_GEAR_DEVICE_ID, 3010, 1516, PILOT_LANDING_GEAR, "Release Drag-Parachute (only while deployed)")
 F_4E:defineToggleSwitch("PLT_GEAR_ARRESTING_HOOK", LANDING_GEAR_DEVICE_ID, 3021, 974, PILOT_LANDING_GEAR, "Arresting Hook Handle")
 
-local function gear_indicator_value(dev0, arg_number)
-	return Module.round(dev0:get_argument_value(arg_number) / 0.5)
-end
-
-F_4E:defineIntegerFromGetter("PLT_GEAR_INDICATOR_LEFT", function(dev0)
-	return gear_indicator_value(dev0, 52)
-end, 2, PILOT_LANDING_GEAR, "Landing Gear Up/Down Indicator (Left)")
-
-F_4E:defineIntegerFromGetter("PLT_GEAR_INDICATOR_NOSE", function(dev0)
-	return gear_indicator_value(dev0, 51)
-end, 2, PILOT_LANDING_GEAR, "Landing Gear Up/Down Indicator (Nose)")
-
-F_4E:defineIntegerFromGetter("PLT_GEAR_INDICATOR_RIGHT", function(dev0)
-	return gear_indicator_value(dev0, 50)
-end, 2, PILOT_LANDING_GEAR, "Landing Gear Up/Down Indicator (Right)")
+F_4E:defineIntegerFromArg("PLT_GEAR_INDICATOR_LEFT", 52, 2, PILOT_LANDING_GEAR, "Landing Gear Up/Down Indicator (Left)")
+F_4E:defineIntegerFromArg("PLT_GEAR_INDICATOR_NOSE", 51, 2, PILOT_LANDING_GEAR, "Landing Gear Up/Down Indicator (Nose)")
+F_4E:defineIntegerFromArg("PLT_GEAR_INDICATOR_RIGHT", 50, 2, PILOT_LANDING_GEAR, "Landing Gear Up/Down Indicator (Right)")
 
 -- WSO Landing Gear Controls
 local WSO_LANDING_GEAR = "WSO Landing Gear Controls"
@@ -610,17 +609,9 @@ local WSO_LANDING_GEAR = "WSO Landing Gear Controls"
 F_4E:definePotentiometer("WSO_GEAR_HANDLE_EMERGENCY", LANDING_GEAR_DEVICE_ID, 3008, 983, { 0, 1 }, WSO_LANDING_GEAR, "Emergency Gear Handle (Pull to Release)")
 F_4E:definePotentiometer("WSO_GEAR_BRAKES_EMERGENCY", LANDING_GEAR_DEVICE_ID, 3005, 344, { 0, 1 }, WSO_LANDING_GEAR, "Emergency Wheel Brake (Pull)")
 
-F_4E:defineIntegerFromGetter("WSO_GEAR_INDICATOR_LEFT", function(dev0)
-	return gear_indicator_value(dev0, 984)
-end, 2, WSO_LANDING_GEAR, "Landing Gear Up/Down Indicator (Left)")
-
-F_4E:defineIntegerFromGetter("WSO_GEAR_INDICATOR_NOSE", function(dev0)
-	return gear_indicator_value(dev0, 986)
-end, 2, WSO_LANDING_GEAR, "Landing Gear Up/Down Indicator (Nose)")
-
-F_4E:defineIntegerFromGetter("WSO_GEAR_INDICATOR_RIGHT", function(dev0)
-	return gear_indicator_value(dev0, 988)
-end, 2, WSO_LANDING_GEAR, "Landing Gear Up/Down Indicator (Right)")
+F_4E:defineIntegerFromArg("WSO_GEAR_INDICATOR_LEFT", 984, 2, WSO_LANDING_GEAR, "Landing Gear Up/Down Indicator (Left)")
+F_4E:defineIntegerFromArg("WSO_GEAR_INDICATOR_NOSE", 986, 2, WSO_LANDING_GEAR, "Landing Gear Up/Down Indicator (Nose)")
+F_4E:defineIntegerFromArg("WSO_GEAR_INDICATOR_RIGHT", 988, 2, WSO_LANDING_GEAR, "Landing Gear Up/Down Indicator (Right)")
 
 -- Indicators
 local INDICATORS_DEVICE_ID = 22
@@ -761,11 +752,17 @@ F_4E:defineToggleSwitch("PLT_CONTROLS_SLATS_OVERRIDE_COVER", CONTROL_SURFACES_DE
 F_4E:defineToggleSwitch("PLT_CONTROLS_SLATS_OVERRIDE", CONTROL_SURFACES_DEVICE_ID, 3010, 2519, PILOT_CONTROL_SURFACES, "Slats Override Switch")
 F_4E:defineRotary("PLT_CONTROLS_PEDAL_ADJUST", CONTROL_SURFACES_DEVICE_ID, 3017, 2595, PILOT_CONTROL_SURFACES, "Adjust Pedal Position")
 
+F_4E:defineIntegerFromArg("PLT_CONTROLS_FLAPS_INDICATOR", 226, 1, PILOT_CONTROL_SURFACES, "Flaps Indicator")
+F_4E:defineIntegerFromArg("PLT_CONTROLS_SLATS_INDICATOR", 225, 2, PILOT_CONTROL_SURFACES, "Slats Indicator")
+
 -- WSO Control Surfaces
 local WSO_CONTROL_SURFACES = "WSO Control Surfaces"
 
 F_4E:definePotentiometer("WSO_CONTROLS_FLAPS_SLATS_EMERGENCY", CONTROL_SURFACES_DEVICE_ID, 3004, 224, { 0, 1 }, WSO_CONTROL_SURFACES, "Flaps/Slats Emergency")
 F_4E:defineRotary("WSO_CONTROLS_PEDAL_ADJUST", CONTROL_SURFACES_DEVICE_ID, 3018, 2813, WSO_CONTROL_SURFACES, "Adjust Pedal Position")
+
+F_4E:defineIntegerFromArg("WSO_CONTROLS_FLAPS_INDICATOR", 228, 1, WSO_CONTROL_SURFACES, "Flaps Indicator")
+F_4E:defineIntegerFromArg("WSO_CONTROLS_SLATS_INDICATOR", 227, 2, WSO_CONTROL_SURFACES, "Slats Indicator")
 
 -- Oxygen System
 local OXYGEN_SYSTEM_DEVICE_ID = 26
