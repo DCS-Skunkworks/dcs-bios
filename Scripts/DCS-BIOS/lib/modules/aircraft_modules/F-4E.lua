@@ -831,6 +831,18 @@ F_4E:defineString("WSO_WRCS_RELEASE_RANGE_VALUE", function(dev0)
 	return drum_set(dev0, 317, 318, 319)
 end, 3, WSO_WRCS, "Release Range (x10 ft)")
 
+-- WSO Cursor Control Panel
+local WSO_CURSOR_CONTROL_PANEL = "WSO Cursor Control Panel"
+
+F_4E:definePushButton("WSO_CURSOR_CONTROL_FREEZE", WEAPONS_DEVICE_ID, 3044, 1021, WSO_CURSOR_CONTROL_PANEL, "Freeze Target Data")
+F_4E:definePushButton("WSO_CURSOR_CONTROL_INSERT", WEAPONS_DEVICE_ID, 3045, 1023, WSO_CURSOR_CONTROL_PANEL, "Insert Target Data")
+F_4E:definePushButton("WSO_CURSOR_CONTROL_RESET", WEAPONS_DEVICE_ID, 3046, 1025, WSO_CURSOR_CONTROL_PANEL, "Reset Target Data")
+F_4E:defineSpringloaded_3PosTumbWithRange("WSO_CURSOR_CONTROL_ALONG_TRACK", WEAPONS_DEVICE_ID, 3042, 3042, 1019, { 0.3, -0.3 }, WSO_CURSOR_CONTROL_PANEL, "Move Cursor (Along Track)")
+F_4E:defineSpringloaded_3PosTumbWithRange("WSO_CURSOR_CONTROL_CROSS_TRACK", WEAPONS_DEVICE_ID, 3043, 3043, 1020, { -0.3, 0.3 }, WSO_CURSOR_CONTROL_PANEL, "Move Cursor (Cross Track)")
+
+F_4E:defineIndicatorLight("WSO_CURSOR_CONTROL_FREEZE_LIGHT", 1022, WSO_CURSOR_CONTROL_PANEL, "Freeze Target Light")
+F_4E:defineIndicatorLight("WSO_CURSOR_CONTROL_INSERT_LIGHT", 1024, WSO_CURSOR_CONTROL_PANEL, "Insert Target Light")
+
 -- pilot weapons panel
 local PILOT_WEAPONS_PANEL = "PLT Weapons Panel"
 
