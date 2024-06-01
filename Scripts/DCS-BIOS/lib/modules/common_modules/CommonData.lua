@@ -273,7 +273,9 @@ CommonData:defineString("ANGULAR_VELOCITY_Z", function()
 end, angular_max_length, "Speed", "Angular Z Velocity")
 
 CommonData:defineIntegerFromGetter("HDG_DEG_MAG", function(dev0)
-	return LoGetMagneticYaw() * 180 / math.pi
+	-- LoGetMagneticYaw returns radians, so convert to degrees
+	-- then add 1 to convert 0-359 into 1-360
+	return 1 + LoGetMagneticYaw() * 180 / math.pi
 end, 360, "Heading", "Magnetic Heading")
 
 return CommonData
