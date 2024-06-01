@@ -6894,6 +6894,7 @@
 #define CommonData_G_LOAD_A 0x044E
 #define CommonData_HDG_DEG 0x0436, 0x01FF, 0
 #define CommonData_HDG_DEG_FRAC 0x0436, 0xFE00, 9
+#define CommonData_HDG_DEG_MAG 0x0464, 0x01FF, 0
 #define CommonData_IAS_EU_A 0x0424
 #define CommonData_IAS_EU_INT 0x042C, 0xFFFF, 0
 #define CommonData_IAS_EU_INT_A 0x042C
