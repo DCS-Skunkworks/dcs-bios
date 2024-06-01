@@ -273,7 +273,12 @@ CommonData:defineString("ANGULAR_VELOCITY_Z", function()
 end, angular_max_length, "Speed", "Angular Z Velocity")
 
 CommonData:defineIntegerFromGetter("HDG_DEG_MAG", function(dev0)
-	return LoGetMagneticYaw() * 180 / math.pi
-end, 360, "Heading", "Magnetic Heading")
+	local magnetic_heading_rad = LoGetMagneticYaw()
+	local heading = Module.round(magnetic_heading_rad * 180 / math.pi) % 360
+	if heading < 0 then -- you'd think this would always be positive, but sometimes radians is negative!
+		heading = heading + 360
+	end
+	return heading
+end, 359, "Heading", "Magnetic Heading")
 
 return CommonData
