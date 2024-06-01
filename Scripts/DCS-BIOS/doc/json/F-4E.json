@@ -1050,325 +1050,325 @@
                                                                    }
                                  },
                  "PLT CB Panel": {
-                                                           "PLT_CB_AIL_FEEL_TRIM": {
-                                                                                           "category": "PLT CB Panel",
-                                                                                       "control_type": "selector",
-                                                                                        "description": "AIL Feel-Trim CB",
-                                                                                         "identifier": "PLT_CB_AIL_FEEL_TRIM",
-                                                                                             "inputs": [ {
-                                                                                                           "description": "switch to previous or next state",
-                                                                                                             "interface": "fixed_step"
-                                                                                                       }, {
-                                                                                                           "description": "set position",
-                                                                                                             "interface": "set_state",
-                                                                                                             "max_value": 1
-                                                                                                       }, {
-                                                                                                              "argument": "TOGGLE",
-                                                                                                           "description": "Toggle switch state",
-                                                                                                             "interface": "action"
-                                                                                                       } ],
-                                                                                            "outputs": [ {
-                                                                                                                                 "address": 11104,
-                                                                                                                 "address_mask_identifier": "F_4E_PLT_CB_AIL_FEEL_TRIM_AM",
-                                                                                                           "address_mask_shift_identifier": "F_4E_PLT_CB_AIL_FEEL_TRIM",
-                                                                                                                             "description": "selector position",
-                                                                                                                                    "mask": 2048,
-                                                                                                                               "max_value": 1,
-                                                                                                                                "shift_by": 11,
-                                                                                                                                  "suffix": "",
-                                                                                                                                    "type": "integer"
-                                                                                                       } ]
-                                                                                   },
-                                                                     "PLT_CB_ARI": {
-                                                                                           "category": "PLT CB Panel",
-                                                                                       "control_type": "selector",
-                                                                                        "description": "Aileron-Rudder Interconnect (ARI) CB",
-                                                                                         "identifier": "PLT_CB_ARI",
-                                                                                             "inputs": [ {
-                                                                                                           "description": "switch to previous or next state",
-                                                                                                             "interface": "fixed_step"
-                                                                                                       }, {
-                                                                                                           "description": "set position",
-                                                                                                             "interface": "set_state",
-                                                                                                             "max_value": 1
-                                                                                                       }, {
-                                                                                                              "argument": "TOGGLE",
-                                                                                                           "description": "Toggle switch state",
-                                                                                                             "interface": "action"
-                                                                                                       } ],
-                                                                                            "outputs": [ {
-                                                                                                                                 "address": 11098,
-                                                                                                                 "address_mask_identifier": "F_4E_PLT_CB_ARI_AM",
-                                                                                                           "address_mask_shift_identifier": "F_4E_PLT_CB_ARI",
-                                                                                                                             "description": "selector position",
-                                                                                                                                    "mask": 32768,
-                                                                                                                               "max_value": 1,
-                                                                                                                                "shift_by": 15,
-                                                                                                                                  "suffix": "",
-                                                                                                                                    "type": "integer"
-                                                                                                       } ]
-                                                                                   },
-                                                            "PLT_CB_FEEL_TRIM_RW": {
-                                                                                           "category": "PLT CB Panel",
-                                                                                       "control_type": "selector",
-                                                                                        "description": "STAB Feel-Trim CB",
-                                                                                         "identifier": "PLT_CB_FEEL_TRIM_RW",
-                                                                                             "inputs": [ {
-                                                                                                           "description": "switch to previous or next state",
-                                                                                                             "interface": "fixed_step"
-                                                                                                       }, {
-                                                                                                           "description": "set position",
-                                                                                                             "interface": "set_state",
-                                                                                                             "max_value": 1
-                                                                                                       }, {
-                                                                                                              "argument": "TOGGLE",
-                                                                                                           "description": "Toggle switch state",
-                                                                                                             "interface": "action"
-                                                                                                       } ],
-                                                                                            "outputs": [ {
-                                                                                                                                 "address": 11104,
-                                                                                                                 "address_mask_identifier": "F_4E_PLT_CB_FEEL_TRIM_RW_AM",
-                                                                                                           "address_mask_shift_identifier": "F_4E_PLT_CB_FEEL_TRIM_RW",
-                                                                                                                             "description": "selector position",
-                                                                                                                                    "mask": 4096,
-                                                                                                                               "max_value": 1,
-                                                                                                                                "shift_by": 12,
-                                                                                                                                  "suffix": "",
-                                                                                                                                    "type": "integer"
-                                                                                                       } ]
-                                                                                   },
-                                                  "PLT_CB_FLOODLIGHT_INSTRUMENTS": {
-                                                                                           "category": "PLT CB Panel",
-                                                                                       "control_type": "selector",
-                                                                                        "description": "Pilot Instruments Lights CB",
-                                                                                         "identifier": "PLT_CB_FLOODLIGHT_INSTRUMENTS",
-                                                                                             "inputs": [ {
-                                                                                                           "description": "switch to previous or next state",
-                                                                                                             "interface": "fixed_step"
-                                                                                                       }, {
-                                                                                                           "description": "set position",
-                                                                                                             "interface": "set_state",
-                                                                                                             "max_value": 1
-                                                                                                       }, {
-                                                                                                              "argument": "TOGGLE",
-                                                                                                           "description": "Toggle switch state",
-                                                                                                             "interface": "action"
-                                                                                                       } ],
-                                                                                            "outputs": [ {
-                                                                                                                                 "address": 11128,
-                                                                                                                 "address_mask_identifier": "F_4E_PLT_CB_FLOODLIGHT_INSTRUMENTS_AM",
-                                                                                                           "address_mask_shift_identifier": "F_4E_PLT_CB_FLOODLIGHT_INSTRUMENTS",
-                                                                                                                             "description": "selector position",
-                                                                                                                                    "mask": 2,
-                                                                                                                               "max_value": 1,
-                                                                                                                                "shift_by": 1,
-                                                                                                                                  "suffix": "",
-                                                                                                                                    "type": "integer"
-                                                                                                       } ]
-                                                                                   },
-                                     "PLT_CB_INDICATOR_WARNING_LIGHTS_BRIGHTNESS": {
-                                                                                           "category": "PLT CB Panel",
-                                                                                       "control_type": "selector",
-                                                                                        "description": "Pilot Warning Lights CB",
-                                                                                         "identifier": "PLT_CB_INDICATOR_WARNING_LIGHTS_BRIGHTNESS",
-                                                                                             "inputs": [ {
-                                                                                                           "description": "switch to previous or next state",
-                                                                                                             "interface": "fixed_step"
-                                                                                                       }, {
-                                                                                                           "description": "set position",
-                                                                                                             "interface": "set_state",
-                                                                                                             "max_value": 1
-                                                                                                       }, {
-                                                                                                              "argument": "TOGGLE",
-                                                                                                           "description": "Toggle switch state",
-                                                                                                             "interface": "action"
-                                                                                                       } ],
-                                                                                            "outputs": [ {
-                                                                                                                                 "address": 11128,
-                                                                                                                 "address_mask_identifier": "F_4E_PLT_CB_INDICATOR_WARNING_LIGHTS_BRIGHTNESS_AM",
-                                                                                                           "address_mask_shift_identifier": "F_4E_PLT_CB_INDICATOR_WARNING_LIGHTS_BRIGHTNESS",
-                                                                                                                             "description": "selector position",
-                                                                                                                                    "mask": 4,
-                                                                                                                               "max_value": 1,
-                                                                                                                                "shift_by": 2,
-                                                                                                                                  "suffix": "",
-                                                                                                                                    "type": "integer"
-                                                                                                       } ]
-                                                                                   },
-                                                         "PLT_CB_LANDING_GEAR_RW": {
-                                                                                           "category": "PLT CB Panel",
-                                                                                       "control_type": "selector",
-                                                                                        "description": "Landing Gear CB",
-                                                                                         "identifier": "PLT_CB_LANDING_GEAR_RW",
-                                                                                             "inputs": [ {
-                                                                                                           "description": "switch to previous or next state",
-                                                                                                             "interface": "fixed_step"
-                                                                                                       }, {
-                                                                                                           "description": "set position",
-                                                                                                             "interface": "set_state",
-                                                                                                             "max_value": 1
-                                                                                                       }, {
-                                                                                                              "argument": "TOGGLE",
-                                                                                                           "description": "Toggle switch state",
-                                                                                                             "interface": "action"
-                                                                                                       } ],
-                                                                                            "outputs": [ {
-                                                                                                                                 "address": 11128,
-                                                                                                                 "address_mask_identifier": "F_4E_PLT_CB_LANDING_GEAR_RW_AM",
-                                                                                                           "address_mask_shift_identifier": "F_4E_PLT_CB_LANDING_GEAR_RW",
-                                                                                                                             "description": "selector position",
-                                                                                                                                    "mask": 8,
-                                                                                                                               "max_value": 1,
-                                                                                                                                "shift_by": 3,
-                                                                                                                                  "suffix": "",
-                                                                                                                                    "type": "integer"
-                                                                                                       } ]
-                                                                                   },
-                                                             "PLT_CB_RUD_TRIM_RW": {
-                                                                                           "category": "PLT CB Panel",
-                                                                                       "control_type": "selector",
-                                                                                        "description": "Rudder Trim CB",
-                                                                                         "identifier": "PLT_CB_RUD_TRIM_RW",
-                                                                                             "inputs": [ {
-                                                                                                           "description": "switch to previous or next state",
-                                                                                                             "interface": "fixed_step"
-                                                                                                       }, {
-                                                                                                           "description": "set position",
-                                                                                                             "interface": "set_state",
-                                                                                                             "max_value": 1
-                                                                                                       }, {
-                                                                                                              "argument": "TOGGLE",
-                                                                                                           "description": "Toggle switch state",
-                                                                                                             "interface": "action"
-                                                                                                       } ],
-                                                                                            "outputs": [ {
-                                                                                                                                 "address": 11128,
-                                                                                                                 "address_mask_identifier": "F_4E_PLT_CB_RUD_TRIM_RW_AM",
-                                                                                                           "address_mask_shift_identifier": "F_4E_PLT_CB_RUD_TRIM_RW",
-                                                                                                                             "description": "selector position",
-                                                                                                                                    "mask": 1,
-                                                                                                                               "max_value": 1,
-                                                                                                                                "shift_by": 0,
-                                                                                                                                  "suffix": "",
-                                                                                                                                    "type": "integer"
-                                                                                                       } ]
-                                                                                   },
-                                                                  "PLT_CB_SAI_LW": {
-                                                                                           "category": "PLT CB Panel",
-                                                                                       "control_type": "selector",
-                                                                                        "description": "Standby Attitude Indicator CB",
-                                                                                         "identifier": "PLT_CB_SAI_LW",
-                                                                                             "inputs": [ {
-                                                                                                           "description": "switch to previous or next state",
-                                                                                                             "interface": "fixed_step"
-                                                                                                       }, {
-                                                                                                           "description": "set position",
-                                                                                                             "interface": "set_state",
-                                                                                                             "max_value": 1
-                                                                                                       }, {
-                                                                                                              "argument": "TOGGLE",
-                                                                                                           "description": "Toggle switch state",
-                                                                                                             "interface": "action"
-                                                                                                       } ],
-                                                                                            "outputs": [ {
-                                                                                                                                 "address": 11104,
-                                                                                                                 "address_mask_identifier": "F_4E_PLT_CB_SAI_LW_AM",
-                                                                                                           "address_mask_shift_identifier": "F_4E_PLT_CB_SAI_LW",
-                                                                                                                             "description": "selector position",
-                                                                                                                                    "mask": 1024,
-                                                                                                                               "max_value": 1,
-                                                                                                                                "shift_by": 10,
-                                                                                                                                  "suffix": "",
-                                                                                                                                    "type": "integer"
-                                                                                                       } ]
-                                                                                   },
-                                                          "PLT_CB_SPEED_BRAKE_RW": {
-                                                                                           "category": "PLT CB Panel",
-                                                                                       "control_type": "selector",
-                                                                                        "description": "Speed Brake CB",
-                                                                                         "identifier": "PLT_CB_SPEED_BRAKE_RW",
-                                                                                             "inputs": [ {
-                                                                                                           "description": "switch to previous or next state",
-                                                                                                             "interface": "fixed_step"
-                                                                                                       }, {
-                                                                                                           "description": "set position",
-                                                                                                             "interface": "set_state",
-                                                                                                             "max_value": 1
-                                                                                                       }, {
-                                                                                                              "argument": "TOGGLE",
-                                                                                                           "description": "Toggle switch state",
-                                                                                                             "interface": "action"
-                                                                                                       } ],
-                                                                                            "outputs": [ {
-                                                                                                                                 "address": 11104,
-                                                                                                                 "address_mask_identifier": "F_4E_PLT_CB_SPEED_BRAKE_RW_AM",
-                                                                                                           "address_mask_shift_identifier": "F_4E_PLT_CB_SPEED_BRAKE_RW",
-                                                                                                                             "description": "selector position",
-                                                                                                                                    "mask": 8192,
-                                                                                                                               "max_value": 1,
-                                                                                                                                "shift_by": 13,
-                                                                                                                                  "suffix": "",
-                                                                                                                                    "type": "integer"
-                                                                                                       } ]
-                                                                                   },
-                                                            "PLT_CB_TRIM_CONT_RW": {
-                                                                                           "category": "PLT CB Panel",
-                                                                                       "control_type": "selector",
-                                                                                        "description": "Trim Controls CB",
-                                                                                         "identifier": "PLT_CB_TRIM_CONT_RW",
-                                                                                             "inputs": [ {
-                                                                                                           "description": "switch to previous or next state",
-                                                                                                             "interface": "fixed_step"
-                                                                                                       }, {
-                                                                                                           "description": "set position",
-                                                                                                             "interface": "set_state",
-                                                                                                             "max_value": 1
-                                                                                                       }, {
-                                                                                                              "argument": "TOGGLE",
-                                                                                                           "description": "Toggle switch state",
-                                                                                                             "interface": "action"
-                                                                                                       } ],
-                                                                                            "outputs": [ {
-                                                                                                                                 "address": 11104,
-                                                                                                                 "address_mask_identifier": "F_4E_PLT_CB_TRIM_CONT_RW_AM",
-                                                                                                           "address_mask_shift_identifier": "F_4E_PLT_CB_TRIM_CONT_RW",
-                                                                                                                             "description": "selector position",
-                                                                                                                                    "mask": 32768,
-                                                                                                                               "max_value": 1,
-                                                                                                                                "shift_by": 15,
-                                                                                                                                  "suffix": "",
-                                                                                                                                    "type": "integer"
-                                                                                                       } ]
-                                                                                   },
-                                                                 "PT_CB_FLAPS_RW": {
-                                                                                           "category": "PLT CB Panel",
-                                                                                       "control_type": "selector",
-                                                                                        "description": "Flaps CB",
-                                                                                         "identifier": "PT_CB_FLAPS_RW",
-                                                                                             "inputs": [ {
-                                                                                                           "description": "switch to previous or next state",
-                                                                                                             "interface": "fixed_step"
-                                                                                                       }, {
-                                                                                                           "description": "set position",
-                                                                                                             "interface": "set_state",
-                                                                                                             "max_value": 1
-                                                                                                       }, {
-                                                                                                              "argument": "TOGGLE",
-                                                                                                           "description": "Toggle switch state",
-                                                                                                             "interface": "action"
-                                                                                                       } ],
-                                                                                            "outputs": [ {
-                                                                                                                                 "address": 11104,
-                                                                                                                 "address_mask_identifier": "F_4E_PT_CB_FLAPS_RW_AM",
-                                                                                                           "address_mask_shift_identifier": "F_4E_PT_CB_FLAPS_RW",
-                                                                                                                             "description": "selector position",
-                                                                                                                                    "mask": 16384,
-                                                                                                                               "max_value": 1,
-                                                                                                                                "shift_by": 14,
-                                                                                                                                  "suffix": "",
-                                                                                                                                    "type": "integer"
-                                                                                                       } ]
-                                                                                   }
+                                      "PLT_CB_AIL_FEEL_TRIM": {
+                                                                      "category": "PLT CB Panel",
+                                                                  "control_type": "selector",
+                                                                   "description": "AIL Feel-Trim CB",
+                                                                    "identifier": "PLT_CB_AIL_FEEL_TRIM",
+                                                                        "inputs": [ {
+                                                                                      "description": "switch to previous or next state",
+                                                                                        "interface": "fixed_step"
+                                                                                  }, {
+                                                                                      "description": "set position",
+                                                                                        "interface": "set_state",
+                                                                                        "max_value": 1
+                                                                                  }, {
+                                                                                         "argument": "TOGGLE",
+                                                                                      "description": "Toggle switch state",
+                                                                                        "interface": "action"
+                                                                                  } ],
+                                                                       "outputs": [ {
+                                                                                                            "address": 11104,
+                                                                                            "address_mask_identifier": "F_4E_PLT_CB_AIL_FEEL_TRIM_AM",
+                                                                                      "address_mask_shift_identifier": "F_4E_PLT_CB_AIL_FEEL_TRIM",
+                                                                                                        "description": "selector position",
+                                                                                                               "mask": 2048,
+                                                                                                          "max_value": 1,
+                                                                                                           "shift_by": 11,
+                                                                                                             "suffix": "",
+                                                                                                               "type": "integer"
+                                                                                  } ]
+                                                              },
+                                                "PLT_CB_ARI": {
+                                                                      "category": "PLT CB Panel",
+                                                                  "control_type": "selector",
+                                                                   "description": "Aileron-Rudder Interconnect (ARI) CB",
+                                                                    "identifier": "PLT_CB_ARI",
+                                                                        "inputs": [ {
+                                                                                      "description": "switch to previous or next state",
+                                                                                        "interface": "fixed_step"
+                                                                                  }, {
+                                                                                      "description": "set position",
+                                                                                        "interface": "set_state",
+                                                                                        "max_value": 1
+                                                                                  }, {
+                                                                                         "argument": "TOGGLE",
+                                                                                      "description": "Toggle switch state",
+                                                                                        "interface": "action"
+                                                                                  } ],
+                                                                       "outputs": [ {
+                                                                                                            "address": 11098,
+                                                                                            "address_mask_identifier": "F_4E_PLT_CB_ARI_AM",
+                                                                                      "address_mask_shift_identifier": "F_4E_PLT_CB_ARI",
+                                                                                                        "description": "selector position",
+                                                                                                               "mask": 32768,
+                                                                                                          "max_value": 1,
+                                                                                                           "shift_by": 15,
+                                                                                                             "suffix": "",
+                                                                                                               "type": "integer"
+                                                                                  } ]
+                                                              },
+                                          "PLT_CB_FEEL_TRIM": {
+                                                                      "category": "PLT CB Panel",
+                                                                  "control_type": "selector",
+                                                                   "description": "STAB Feel-Trim CB",
+                                                                    "identifier": "PLT_CB_FEEL_TRIM",
+                                                                        "inputs": [ {
+                                                                                      "description": "switch to previous or next state",
+                                                                                        "interface": "fixed_step"
+                                                                                  }, {
+                                                                                      "description": "set position",
+                                                                                        "interface": "set_state",
+                                                                                        "max_value": 1
+                                                                                  }, {
+                                                                                         "argument": "TOGGLE",
+                                                                                      "description": "Toggle switch state",
+                                                                                        "interface": "action"
+                                                                                  } ],
+                                                                       "outputs": [ {
+                                                                                                            "address": 11104,
+                                                                                            "address_mask_identifier": "F_4E_PLT_CB_FEEL_TRIM_AM",
+                                                                                      "address_mask_shift_identifier": "F_4E_PLT_CB_FEEL_TRIM",
+                                                                                                        "description": "selector position",
+                                                                                                               "mask": 4096,
+                                                                                                          "max_value": 1,
+                                                                                                           "shift_by": 12,
+                                                                                                             "suffix": "",
+                                                                                                               "type": "integer"
+                                                                                  } ]
+                                                              },
+                                        "PLT_CB_FLOODLIGHTS": {
+                                                                      "category": "PLT CB Panel",
+                                                                  "control_type": "selector",
+                                                                   "description": "Pilot Instruments Lights CB",
+                                                                    "identifier": "PLT_CB_FLOODLIGHTS",
+                                                                        "inputs": [ {
+                                                                                      "description": "switch to previous or next state",
+                                                                                        "interface": "fixed_step"
+                                                                                  }, {
+                                                                                      "description": "set position",
+                                                                                        "interface": "set_state",
+                                                                                        "max_value": 1
+                                                                                  }, {
+                                                                                         "argument": "TOGGLE",
+                                                                                      "description": "Toggle switch state",
+                                                                                        "interface": "action"
+                                                                                  } ],
+                                                                       "outputs": [ {
+                                                                                                            "address": 11128,
+                                                                                            "address_mask_identifier": "F_4E_PLT_CB_FLOODLIGHTS_AM",
+                                                                                      "address_mask_shift_identifier": "F_4E_PLT_CB_FLOODLIGHTS",
+                                                                                                        "description": "selector position",
+                                                                                                               "mask": 2,
+                                                                                                          "max_value": 1,
+                                                                                                           "shift_by": 1,
+                                                                                                             "suffix": "",
+                                                                                                               "type": "integer"
+                                                                                  } ]
+                                                              },
+                                       "PLT_CB_LANDING_GEAR": {
+                                                                      "category": "PLT CB Panel",
+                                                                  "control_type": "selector",
+                                                                   "description": "Landing Gear CB",
+                                                                    "identifier": "PLT_CB_LANDING_GEAR",
+                                                                        "inputs": [ {
+                                                                                      "description": "switch to previous or next state",
+                                                                                        "interface": "fixed_step"
+                                                                                  }, {
+                                                                                      "description": "set position",
+                                                                                        "interface": "set_state",
+                                                                                        "max_value": 1
+                                                                                  }, {
+                                                                                         "argument": "TOGGLE",
+                                                                                      "description": "Toggle switch state",
+                                                                                        "interface": "action"
+                                                                                  } ],
+                                                                       "outputs": [ {
+                                                                                                            "address": 11128,
+                                                                                            "address_mask_identifier": "F_4E_PLT_CB_LANDING_GEAR_AM",
+                                                                                      "address_mask_shift_identifier": "F_4E_PLT_CB_LANDING_GEAR",
+                                                                                                        "description": "selector position",
+                                                                                                               "mask": 8,
+                                                                                                          "max_value": 1,
+                                                                                                           "shift_by": 3,
+                                                                                                             "suffix": "",
+                                                                                                               "type": "integer"
+                                                                                  } ]
+                                                              },
+                                           "PLT_CB_RUD_TRIM": {
+                                                                      "category": "PLT CB Panel",
+                                                                  "control_type": "selector",
+                                                                   "description": "Rudder Trim CB",
+                                                                    "identifier": "PLT_CB_RUD_TRIM",
+                                                                        "inputs": [ {
+                                                                                      "description": "switch to previous or next state",
+                                                                                        "interface": "fixed_step"
+                                                                                  }, {
+                                                                                      "description": "set position",
+                                                                                        "interface": "set_state",
+                                                                                        "max_value": 1
+                                                                                  }, {
+                                                                                         "argument": "TOGGLE",
+                                                                                      "description": "Toggle switch state",
+                                                                                        "interface": "action"
+                                                                                  } ],
+                                                                       "outputs": [ {
+                                                                                                            "address": 11128,
+                                                                                            "address_mask_identifier": "F_4E_PLT_CB_RUD_TRIM_AM",
+                                                                                      "address_mask_shift_identifier": "F_4E_PLT_CB_RUD_TRIM",
+                                                                                                        "description": "selector position",
+                                                                                                               "mask": 1,
+                                                                                                          "max_value": 1,
+                                                                                                           "shift_by": 0,
+                                                                                                             "suffix": "",
+                                                                                                               "type": "integer"
+                                                                                  } ]
+                                                              },
+                                             "PLT_CB_SAI_LW": {
+                                                                      "category": "PLT CB Panel",
+                                                                  "control_type": "selector",
+                                                                   "description": "Standby Attitude Indicator CB",
+                                                                    "identifier": "PLT_CB_SAI_LW",
+                                                                        "inputs": [ {
+                                                                                      "description": "switch to previous or next state",
+                                                                                        "interface": "fixed_step"
+                                                                                  }, {
+                                                                                      "description": "set position",
+                                                                                        "interface": "set_state",
+                                                                                        "max_value": 1
+                                                                                  }, {
+                                                                                         "argument": "TOGGLE",
+                                                                                      "description": "Toggle switch state",
+                                                                                        "interface": "action"
+                                                                                  } ],
+                                                                       "outputs": [ {
+                                                                                                            "address": 11104,
+                                                                                            "address_mask_identifier": "F_4E_PLT_CB_SAI_LW_AM",
+                                                                                      "address_mask_shift_identifier": "F_4E_PLT_CB_SAI_LW",
+                                                                                                        "description": "selector position",
+                                                                                                               "mask": 1024,
+                                                                                                          "max_value": 1,
+                                                                                                           "shift_by": 10,
+                                                                                                             "suffix": "",
+                                                                                                               "type": "integer"
+                                                                                  } ]
+                                                              },
+                                        "PLT_CB_SPEED_BRAKE": {
+                                                                      "category": "PLT CB Panel",
+                                                                  "control_type": "selector",
+                                                                   "description": "Speed Brake CB",
+                                                                    "identifier": "PLT_CB_SPEED_BRAKE",
+                                                                        "inputs": [ {
+                                                                                      "description": "switch to previous or next state",
+                                                                                        "interface": "fixed_step"
+                                                                                  }, {
+                                                                                      "description": "set position",
+                                                                                        "interface": "set_state",
+                                                                                        "max_value": 1
+                                                                                  }, {
+                                                                                         "argument": "TOGGLE",
+                                                                                      "description": "Toggle switch state",
+                                                                                        "interface": "action"
+                                                                                  } ],
+                                                                       "outputs": [ {
+                                                                                                            "address": 11104,
+                                                                                            "address_mask_identifier": "F_4E_PLT_CB_SPEED_BRAKE_AM",
+                                                                                      "address_mask_shift_identifier": "F_4E_PLT_CB_SPEED_BRAKE",
+                                                                                                        "description": "selector position",
+                                                                                                               "mask": 8192,
+                                                                                                          "max_value": 1,
+                                                                                                           "shift_by": 13,
+                                                                                                             "suffix": "",
+                                                                                                               "type": "integer"
+                                                                                  } ]
+                                                              },
+                                               "PLT_CB_TRIM": {
+                                                                      "category": "PLT CB Panel",
+                                                                  "control_type": "selector",
+                                                                   "description": "Trim Controls CB",
+                                                                    "identifier": "PLT_CB_TRIM",
+                                                                        "inputs": [ {
+                                                                                      "description": "switch to previous or next state",
+                                                                                        "interface": "fixed_step"
+                                                                                  }, {
+                                                                                      "description": "set position",
+                                                                                        "interface": "set_state",
+                                                                                        "max_value": 1
+                                                                                  }, {
+                                                                                         "argument": "TOGGLE",
+                                                                                      "description": "Toggle switch state",
+                                                                                        "interface": "action"
+                                                                                  } ],
+                                                                       "outputs": [ {
+                                                                                                            "address": 11104,
+                                                                                            "address_mask_identifier": "F_4E_PLT_CB_TRIM_AM",
+                                                                                      "address_mask_shift_identifier": "F_4E_PLT_CB_TRIM",
+                                                                                                        "description": "selector position",
+                                                                                                               "mask": 32768,
+                                                                                                          "max_value": 1,
+                                                                                                           "shift_by": 15,
+                                                                                                             "suffix": "",
+                                                                                                               "type": "integer"
+                                                                                  } ]
+                                                              },
+                                     "PLT_CB_WARNING_LIGHTS": {
+                                                                      "category": "PLT CB Panel",
+                                                                  "control_type": "selector",
+                                                                   "description": "Pilot Warning Lights CB",
+                                                                    "identifier": "PLT_CB_WARNING_LIGHTS",
+                                                                        "inputs": [ {
+                                                                                      "description": "switch to previous or next state",
+                                                                                        "interface": "fixed_step"
+                                                                                  }, {
+                                                                                      "description": "set position",
+                                                                                        "interface": "set_state",
+                                                                                        "max_value": 1
+                                                                                  }, {
+                                                                                         "argument": "TOGGLE",
+                                                                                      "description": "Toggle switch state",
+                                                                                        "interface": "action"
+                                                                                  } ],
+                                                                       "outputs": [ {
+                                                                                                            "address": 11128,
+                                                                                            "address_mask_identifier": "F_4E_PLT_CB_WARNING_LIGHTS_AM",
+                                                                                      "address_mask_shift_identifier": "F_4E_PLT_CB_WARNING_LIGHTS",
+                                                                                                        "description": "selector position",
+                                                                                                               "mask": 4,
+                                                                                                          "max_value": 1,
+                                                                                                           "shift_by": 2,
+                                                                                                             "suffix": "",
+                                                                                                               "type": "integer"
+                                                                                  } ]
+                                                              },
+                                               "PT_CB_FLAPS": {
+                                                                      "category": "PLT CB Panel",
+                                                                  "control_type": "selector",
+                                                                   "description": "Flaps CB",
+                                                                    "identifier": "PT_CB_FLAPS",
+                                                                        "inputs": [ {
+                                                                                      "description": "switch to previous or next state",
+                                                                                        "interface": "fixed_step"
+                                                                                  }, {
+                                                                                      "description": "set position",
+                                                                                        "interface": "set_state",
+                                                                                        "max_value": 1
+                                                                                  }, {
+                                                                                         "argument": "TOGGLE",
+                                                                                      "description": "Toggle switch state",
+                                                                                        "interface": "action"
+                                                                                  } ],
+                                                                       "outputs": [ {
+                                                                                                            "address": 11104,
+                                                                                            "address_mask_identifier": "F_4E_PT_CB_FLAPS_AM",
+                                                                                      "address_mask_shift_identifier": "F_4E_PT_CB_FLAPS",
+                                                                                                        "description": "selector position",
+                                                                                                               "mask": 16384,
+                                                                                                          "max_value": 1,
+                                                                                                           "shift_by": 14,
+                                                                                                             "suffix": "",
+                                                                                                               "type": "integer"
+                                                                                  } ]
+                                                              }
                                  },
                    "PLT Canopy": {
                                                        "PLT_CANOPY": {
@@ -6308,64 +6308,64 @@
                                                                    }
                                  },
                  "WSO CB Panel": {
-                                                  "WSO_FLOODLIGHT_INSTRUMENTS": {
-                                                                                        "category": "WSO CB Panel",
-                                                                                    "control_type": "selector",
-                                                                                     "description": "WSO Instruments Lights CB",
-                                                                                      "identifier": "WSO_FLOODLIGHT_INSTRUMENTS",
-                                                                                          "inputs": [ {
-                                                                                                        "description": "switch to previous or next state",
-                                                                                                          "interface": "fixed_step"
-                                                                                                    }, {
-                                                                                                        "description": "set position",
-                                                                                                          "interface": "set_state",
-                                                                                                          "max_value": 1
-                                                                                                    }, {
-                                                                                                           "argument": "TOGGLE",
-                                                                                                        "description": "Toggle switch state",
-                                                                                                          "interface": "action"
-                                                                                                    } ],
-                                                                                         "outputs": [ {
-                                                                                                                              "address": 11128,
-                                                                                                              "address_mask_identifier": "F_4E_WSO_FLOODLIGHT_INSTRUMENTS_AM",
-                                                                                                        "address_mask_shift_identifier": "F_4E_WSO_FLOODLIGHT_INSTRUMENTS",
-                                                                                                                          "description": "selector position",
-                                                                                                                                 "mask": 16,
-                                                                                                                            "max_value": 1,
-                                                                                                                             "shift_by": 4,
-                                                                                                                               "suffix": "",
-                                                                                                                                 "type": "integer"
-                                                                                                    } ]
-                                                                                },
-                                     "WSO_INDICATOR_WARNING_LIGHTS_BRIGHTNESS": {
-                                                                                        "category": "WSO CB Panel",
-                                                                                    "control_type": "selector",
-                                                                                     "description": "WSO Warning Lights CB",
-                                                                                      "identifier": "WSO_INDICATOR_WARNING_LIGHTS_BRIGHTNESS",
-                                                                                          "inputs": [ {
-                                                                                                        "description": "switch to previous or next state",
-                                                                                                          "interface": "fixed_step"
-                                                                                                    }, {
-                                                                                                        "description": "set position",
-                                                                                                          "interface": "set_state",
-                                                                                                          "max_value": 1
-                                                                                                    }, {
-                                                                                                           "argument": "TOGGLE",
-                                                                                                        "description": "Toggle switch state",
-                                                                                                          "interface": "action"
-                                                                                                    } ],
-                                                                                         "outputs": [ {
-                                                                                                                              "address": 11128,
-                                                                                                              "address_mask_identifier": "F_4E_WSO_INDICATOR_WARNING_LIGHTS_BRIGHTNESS_AM",
-                                                                                                        "address_mask_shift_identifier": "F_4E_WSO_INDICATOR_WARNING_LIGHTS_BRIGHTNESS",
-                                                                                                                          "description": "selector position",
-                                                                                                                                 "mask": 32,
-                                                                                                                            "max_value": 1,
-                                                                                                                             "shift_by": 5,
-                                                                                                                               "suffix": "",
-                                                                                                                                 "type": "integer"
-                                                                                                    } ]
-                                                                                }
+                                        "WSO_CB_FLOODLIGHTS": {
+                                                                      "category": "WSO CB Panel",
+                                                                  "control_type": "selector",
+                                                                   "description": "WSO Instruments Lights CB",
+                                                                    "identifier": "WSO_CB_FLOODLIGHTS",
+                                                                        "inputs": [ {
+                                                                                      "description": "switch to previous or next state",
+                                                                                        "interface": "fixed_step"
+                                                                                  }, {
+                                                                                      "description": "set position",
+                                                                                        "interface": "set_state",
+                                                                                        "max_value": 1
+                                                                                  }, {
+                                                                                         "argument": "TOGGLE",
+                                                                                      "description": "Toggle switch state",
+                                                                                        "interface": "action"
+                                                                                  } ],
+                                                                       "outputs": [ {
+                                                                                                            "address": 11128,
+                                                                                            "address_mask_identifier": "F_4E_WSO_CB_FLOODLIGHTS_AM",
+                                                                                      "address_mask_shift_identifier": "F_4E_WSO_CB_FLOODLIGHTS",
+                                                                                                        "description": "selector position",
+                                                                                                               "mask": 16,
+                                                                                                          "max_value": 1,
+                                                                                                           "shift_by": 4,
+                                                                                                             "suffix": "",
+                                                                                                               "type": "integer"
+                                                                                  } ]
+                                                              },
+                                     "WSO_CB_WARNING_LIGHTS": {
+                                                                      "category": "WSO CB Panel",
+                                                                  "control_type": "selector",
+                                                                   "description": "WSO Warning Lights CB",
+                                                                    "identifier": "WSO_CB_WARNING_LIGHTS",
+                                                                        "inputs": [ {
+                                                                                      "description": "switch to previous or next state",
+                                                                                        "interface": "fixed_step"
+                                                                                  }, {
+                                                                                      "description": "set position",
+                                                                                        "interface": "set_state",
+                                                                                        "max_value": 1
+                                                                                  }, {
+                                                                                         "argument": "TOGGLE",
+                                                                                      "description": "Toggle switch state",
+                                                                                        "interface": "action"
+                                                                                  } ],
+                                                                       "outputs": [ {
+                                                                                                            "address": 11128,
+                                                                                            "address_mask_identifier": "F_4E_WSO_CB_WARNING_LIGHTS_AM",
+                                                                                      "address_mask_shift_identifier": "F_4E_WSO_CB_WARNING_LIGHTS",
+                                                                                                        "description": "selector position",
+                                                                                                               "mask": 32,
+                                                                                                          "max_value": 1,
+                                                                                                           "shift_by": 5,
+                                                                                                             "suffix": "",
+                                                                                                               "type": "integer"
+                                                                                  } ]
+                                                              }
                                  },
                    "WSO Canopy": {
                                                        "WSO_CANOPY": {
