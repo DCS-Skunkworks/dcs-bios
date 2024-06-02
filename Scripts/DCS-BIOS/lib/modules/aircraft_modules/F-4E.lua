@@ -844,9 +844,98 @@ F_4E:defineIndicatorLight("WSO_CURSOR_CONTROL_FREEZE_LIGHT", 1022, WSO_CURSOR_CO
 F_4E:defineIndicatorLight("WSO_CURSOR_CONTROL_INSERT_LIGHT", 1024, WSO_CURSOR_CONTROL_PANEL, "Insert Target Light")
 
 -- pilot weapons panel
-local PILOT_WEAPONS_PANEL = "PLT Weapons Panel"
+local PILOT_WEAPONS = "PLT Weapons"
 
-F_4E:defineToggleSwitch("PLT_MASTER_ARM_SW", WEAPONS_DEVICE_ID, 3003, 247, PILOT_WEAPONS_PANEL, "PILOT Master Arm switch")
+F_4E:defineTumb("PLT_WPN_FUZE_ARM", WEAPONS_DEVICE_ID, 3047, 1221, 1 / 4, { 0, 0.75 }, nil, true, PILOT_WEAPONS, "Arm Fuze")
+
+F_4E:definePushButton("PLT_WPN_GUN_ARM", WEAPONS_DEVICE_ID, 3004, 249, PILOT_WEAPONS, "Arm/Disarm Gun")
+F_4E:definePotentiometer("PLT_WPN_PANEL_DIM", WEAPONS_DEVICE_ID, 3037, 980, { 0, 1 }, PILOT_WEAPONS, "Change Panel Button Brightness")
+F_4E:definePushButton("PLT_WPN_LO_ARM", WEAPONS_DEVICE_ID, 3005, 250, PILOT_WEAPONS, "Arm/Disarm Left-Outer Station")
+F_4E:definePushButton("PLT_WPN_LI_ARM", WEAPONS_DEVICE_ID, 3006, 251, PILOT_WEAPONS, "Arm/Disarm Left-Inner Station")
+F_4E:definePushButton("PLT_WPN_CENTER_ARM", WEAPONS_DEVICE_ID, 3007, 252, PILOT_WEAPONS, "Arm/Disarm Center Station")
+F_4E:definePushButton("PLT_WPN_RI_ARM", WEAPONS_DEVICE_ID, 3008, 253, PILOT_WEAPONS, "Arm/Disarm Right-Inner Station")
+F_4E:definePushButton("PLT_WPN_RO_ARM", WEAPONS_DEVICE_ID, 3009, 254, PILOT_WEAPONS, "Arm/Disarm Right-Outer Station")
+
+F_4E:defineToggleSwitch("PLT_WPN_MASTER_ARM", WEAPONS_DEVICE_ID, 3003, 247, PILOT_WEAPONS, "PILOT Master Arm switch")
+
+F_4E:defineMultipositionSwitch0To1("PLT_WPN_DELIVERY_MODE", WEAPONS_DEVICE_ID, 3010, 272, 13, PILOT_WEAPONS, "Select Delivery Mode")
+F_4E:reserveIntValue(1) -- jettison nuclear weapon, not simulated
+
+F_4E:defineTumb("PLT_WPN_WEAPON_SELECT", WEAPONS_DEVICE_ID, 3011, 273, 1 / 7, { 0, 1 }, nil, true, PILOT_WEAPONS, "Select Weapon")
+
+F_4E:define3PosTumb("PLT_WPN_RADAR_MISSILE_CW", WEAPONS_DEVICE_ID, 3031, 347, PILOT_WEAPONS, "Seelct Radar-Missile CW")
+F_4E:defineToggleSwitch("PLT_WPN_INTERLOCK", WEAPONS_DEVICE_ID, 3032, 348, PILOT_WEAPONS, "Select Interlock Position")
+
+F_4E:definePotentiometer("PLT_WPN_BOMB_INTERVAL", WEAPONS_DEVICE_ID, 3022, 307, { 0, 1 }, PILOT_WEAPONS, "Select Interval (s)")
+F_4E:defineToggleSwitch("PLT_WPN_BOMB_INTERVAL_MULTIPLIER", WEAPONS_DEVICE_ID, 3023, 306, PILOT_WEAPONS, "Select Interval Multiplier (x10)")
+F_4E:defineTumb("PLT_WPN_BOMB_QUANTITY", WEAPONS_DEVICE_ID, 3021, 305, 1 / 11, { 0, 1 }, nil, true, PILOT_WEAPONS, "Select Quantity")
+
+F_4E:defineTumb("PLT_WEAPON_JETTISON_SELECT", WEAPONS_DEVICE_ID, 3048, 1254, 1 / 8, { 0, 0.875 }, nil, true, PILOT_WEAPONS, "Select Stations to Jettison")
+F_4E:definePushButton("PLT_WPN_JETTISON_PUSH", WEAPONS_DEVICE_ID, 3049, 1253, PILOT_WEAPONS, "Jettison Selection")
+
+F_4E:defineToggleSwitch("PLT_WPN_GROUND_SAFETY_OVERRIDE", WEAPONS_DEVICE_ID, 3137, 281, PILOT_WEAPONS, "Override Ground Safety")
+
+F_4E:definePushButton("PLT_WPN_STORES_EMERGENCY_RELEASE", WEAPONS_DEVICE_ID, 3036, 965, PILOT_WEAPONS, "Emergency Release External Stores")
+
+F_4E:definePushButton("PLT_WPN_LABS_PULL_UP_TEST", WEAPONS_DEVICE_ID, 3072, 368, PILOT_WEAPONS, "LABS Pull-Up Light (push to test)")
+F_4E:definePotentiometer("PLT_WPN_LABS_PULL_UP_DIM", WEAPONS_DEVICE_ID, 3073, 2794, { 0, 1 }, PILOT_WEAPONS, "LABS Pull-Up Light (rotate to dim)")
+F_4E:defineIndicatorLight("PLT_WPN_LABS_PULL_UP", 367, PILOT_WEAPONS, "LABS Pull-up Lamp (Red)")
+
+F_4E:defineToggleSwitch("PLT_WPN_GUN_RATE", WEAPONS_DEVICE_ID, 3012, 278, PILOT_WEAPONS, "Set Gun Rate")
+F_4E:defineRotary("PLT_WPN_GUN_ROUNDS", WEAPONS_DEVICE_ID, 3050, 1412, PILOT_WEAPONS, "Set Gun Rounds")
+
+F_4E:reserveIntValue(1) -- gun pod clear mode switch, not implemented
+F_4E:defineSpringloaded_3PosTumbWithRange("PLT_WPN_MISSILE_REJECT", WEAPONS_DEVICE_ID, 3134, 3134, 2596, { 1, 0 }, PILOT_WEAPONS, "Missile Reject/Norm/Direction Finding Reject")
+F_4E:reserveIntValue(1) -- change shrike band, not implemented
+
+-- station select/arm lights (green depressed + yellow arm)
+F_4E:defineIndicatorLight("PLT_WPN_GUN_SELECTED", 255, PILOT_WEAPONS, "Gun Selected Lamp (Green)")
+F_4E:defineIndicatorLight("PLT_WPN_LO_SELECTED", 256, PILOT_WEAPONS, "Left Outboard Pylon Selected Lamp (Green)")
+F_4E:defineIndicatorLight("PLT_WPN_LI_SELECTED", 257, PILOT_WEAPONS, "Left Inboard Pylon Selected Lamp (Green)")
+F_4E:defineIndicatorLight("PLT_WPN_CENTER_SELECTED", 258, PILOT_WEAPONS, "Center Pylon Selected Lamp (Green)")
+F_4E:defineIndicatorLight("PLT_WPN_RI_SELECTED", 259, PILOT_WEAPONS, "Right Inboard Pylon Selected Lamp (Green)")
+F_4E:defineIndicatorLight("PLT_WPN_RO_SELECTED", 260, PILOT_WEAPONS, "Right Outboard Pylon Selected Lamp (Green)")
+
+F_4E:defineIndicatorLight("PLT_WPN_GUN_ARMED", 261, PILOT_WEAPONS, "Gun Arm Lamp (Yellow)")
+F_4E:defineIndicatorLight("PLT_WPN_LI_ARMED", 262, PILOT_WEAPONS, "Left Outboard Pylon Arm Lamp (Yellow)")
+F_4E:defineIndicatorLight("PLT_WPN_LO_ARMED", 263, PILOT_WEAPONS, "Left Inboard Pylon Arm Lamp (Yellow)")
+F_4E:defineIndicatorLight("PLT_WPN_CENTER_ARMED", 264, PILOT_WEAPONS, "Center Pylon Selected Arm Lamp (Yellow)")
+F_4E:defineIndicatorLight("PLT_WPN_RI_ARMED", 265, PILOT_WEAPONS, "Right Inboard Pylon Arm Lamp (Yellow)")
+F_4E:defineIndicatorLight("PLT_WPN_RO_ARMED", 266, PILOT_WEAPONS, "Right Outboard Pylon Arm Lamp (Yellow)")
+
+-- heads-up weapon lights
+F_4E:defineIndicatorLight("PLT_WPN_HU_ARM", 248, PILOT_WEAPONS, "Heads-up Arm Lamp (Yellow)")
+F_4E:defineIndicatorLight("PLT_WPN_HU_GUN", 274, PILOT_WEAPONS, "Heads-up Gun Lamp (Blue)")
+F_4E:defineIndicatorLight("PLT_WPN_HU_RADAR", 279, PILOT_WEAPONS, "Heads-up Radar Lamp (Blue)")
+F_4E:defineIndicatorLight("PLT_WPN_HU_HEAT", 280, PILOT_WEAPONS, "Heads-up Heat Lamp (Blue)")
+
+-- heat/radar missile indicators
+F_4E:defineIndicatorLight("PLT_WPN_HEAT_LO", 284, PILOT_WEAPONS, "Outer Left Heat Lamp (Blue)")
+F_4E:defineIndicatorLight("PLT_WPN_HEAT_LI", 285, PILOT_WEAPONS, "Inner Left Heat Lamp (Blue)")
+F_4E:defineIndicatorLight("PLT_WPN_HEAT_RI", 286, PILOT_WEAPONS, "Inner Right Heat Lamp (Blue)")
+F_4E:defineIndicatorLight("PLT_WPN_HEAT_RO", 287, PILOT_WEAPONS, "Outer Right Heat Lamp (Blue)")
+
+F_4E:defineIndicatorLight("PLT_WPN_RADAR_TL", 288, PILOT_WEAPONS, "Top Left Radar Lamp (Blue)")
+F_4E:defineIndicatorLight("PLT_WPN_RADAR_BL", 289, PILOT_WEAPONS, "Bottom Left Radar Lamp (Blue)")
+F_4E:defineIndicatorLight("PLT_WPN_RADAR_TR", 290, PILOT_WEAPONS, "Top Right Radar Lamp (Blue)")
+F_4E:defineIndicatorLight("PLT_WPN_RADAR_BR", 291, PILOT_WEAPONS, "Bottom Right Radar Lamp (Blue)")
+
+-- centerline tank aboard light
+F_4E:defineIndicatorLight("PLT_WPN_CL_TANK_ABOARD", 349, PILOT_WEAPONS, "Centerline Tank Aboard Lamp (Blue)")
+
+-- canopy rail shoot lights (green), shoot lights by aoa indexer (red)
+F_4E:defineIndicatorLight("PLT_WPN_SHOOT_CANOPY_L", 2593, PILOT_WEAPONS, "Left Canopy Rail Shoot Lamp (Green)")
+F_4E:defineIndicatorLight("PLT_WPN_SHOOT_CANOPY_C", 374, PILOT_WEAPONS, "Center Canopy Rail Shoot Lamp (Green)")
+F_4E:defineIndicatorLight("PLT_WPN_SHOOT_CANOPY_R", 2594, PILOT_WEAPONS, "Right Canopy Rail Shoot Lamp (Green)")
+
+F_4E:defineIndicatorLight("PLT_WPN_SHOOT_HU_L", 2530, PILOT_WEAPONS, "Left Heads-up Shoot Lamp (Red)")
+F_4E:defineIndicatorLight("PLT_WPN_SHOOT_HU_R", 2531, PILOT_WEAPONS, "Right Heads-up Shoot Lamp (Red)")
+
+-- WSO Weapons
+local WSO_WEAPONS = "WSO Weapons"
+
+F_4E:defineIndicatorLight("WSO_WPN_SHOOT_HU", 2677, WSO_WEAPONS, "Heads-up Shoot Lamp (Green)")
+F_4E:defineToggleSwitch("WSO_WPN_LABS_TONE", WEAPONS_DEVICE_ID, 3078, 350, WSO_WEAPONS, "LABS Pull-Up Tone")
 
 -- Turn/Slip Indicators
 local TURN_SLIP_DEVICE_ID = 29
@@ -1112,14 +1201,15 @@ local ECM_DEVICE_ID = 91
 -- Pilot Stick
 local PILOT_STICK = "PLT Stick"
 
-F_4E:definePushButton("PLT_GEAR_NWS", LANDING_GEAR_DEVICE_ID, 3006, 2781, PILOT_STICK, "Nosegear Steering Button")
-F_4E:definePushButton("PLT_AFCS_EMERGENCY_RELEASE", AFCS_DEVICE_ID, 3020, 2782, PILOT_STICK, "Emergency Quick Release")
+F_4E:definePushButton("PLT_STICK_AIR_REFUEL_RELEASE", WEAPONS_DEVICE_ID, 3020, 2780, PILOT_STICK, "Air Refuel Release Button")
+F_4E:definePushButton("PLT_STICK_NWS", LANDING_GEAR_DEVICE_ID, 3006, 2781, PILOT_STICK, "Nosegear Steering Button")
+F_4E:definePushButton("PLT_STICK_AFCS_EMERGENCY_RELEASE", AFCS_DEVICE_ID, 3020, 2782, PILOT_STICK, "Emergency Quick Release")
 
 -- WSO Stick
 local WSO_STICK = "WSO Stick"
 
-F_4E:definePushButton("WSO_GEAR_NWS", LANDING_GEAR_DEVICE_ID, 3007, 2787, WSO_STICK, "Nosegear Steering Button")
-F_4E:definePushButton("WSO_AFCS_EMERGENCY_RELEASE", AFCS_DEVICE_ID, 3021, 2788, WSO_STICK, "Emergency Quick Release")
+F_4E:definePushButton("WSO_STICK_NWS", LANDING_GEAR_DEVICE_ID, 3007, 2787, WSO_STICK, "Nosegear Steering Button")
+F_4E:definePushButton("WSO_STICK_AFCS_EMERGENCY_RELEASE", AFCS_DEVICE_ID, 3021, 2788, WSO_STICK, "Emergency Quick Release")
 
 -- Pilot Throttle
 local PILOT_THROTTLE = "PLT Throttle"
@@ -1128,6 +1218,7 @@ F_4E:definePushButton("PLT_THROTTLE_IGNITION_L", ENGINE_DEVICE_ID, 3004, 295, PI
 F_4E:definePushButton("PLT_THROTTLE_IGNITION_R", ENGINE_DEVICE_ID, 3005, 296, PILOT_THROTTLE, "Ignite Right Engine")
 F_4E:defineSpringloaded_3PosTumb("PLT_THROTTLE_SPEED_BRAKE", CONTROL_SURFACES_DEVICE_ID, 3001, 3001, 2610, PILOT_THROTTLE, "Speed Brake")
 F_4E:defineSpringloaded_3PosTumb("PLT_THROTTLE_MIC", ICS_DEVICE_ID, 3001, 3001, 2609, PILOT_THROTTLE, "Mic Switch")
+F_4E:definePushButton("PLT_THROTTLE_WPN_CAGE", WEAPONS_DEVICE_ID, 3018, 1435, PILOT_THROTTLE, "Cage Mode")
 F_4E:definePushButton("PLT_THROTTLE_CM_DISPENSE", COUNTERMEASURES_DEVICE_ID, 3012, 1436, PILOT_THROTTLE, "Dispense Countermeasures")
 F_4E:definePushButton("PLT_THROTTLE_DETENT_L", ENGINE_DEVICE_ID, 3006, 2607, PILOT_THROTTLE, "Left Idle Detent")
 F_4E:definePushButton("PLT_THROTTLE_DETENT_R", ENGINE_DEVICE_ID, 3007, 2608, PILOT_THROTTLE, "Right Idle Detent")
