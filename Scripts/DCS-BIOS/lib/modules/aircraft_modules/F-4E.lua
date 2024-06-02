@@ -897,8 +897,8 @@ F_4E:defineIndicatorLight("PLT_WPN_RI_SELECTED", 259, PILOT_WEAPONS, "Right Inbo
 F_4E:defineIndicatorLight("PLT_WPN_RO_SELECTED", 260, PILOT_WEAPONS, "Right Outboard Pylon Selected Lamp (Green)")
 
 F_4E:defineIndicatorLight("PLT_WPN_GUN_ARMED", 261, PILOT_WEAPONS, "Gun Arm Lamp (Yellow)")
-F_4E:defineIndicatorLight("PLT_WPN_LI_ARMED", 262, PILOT_WEAPONS, "Left Outboard Pylon Arm Lamp (Yellow)")
-F_4E:defineIndicatorLight("PLT_WPN_LO_ARMED", 263, PILOT_WEAPONS, "Left Inboard Pylon Arm Lamp (Yellow)")
+F_4E:defineIndicatorLight("PLT_WPN_LO_ARMED", 262, PILOT_WEAPONS, "Left Outboard Pylon Arm Lamp (Yellow)")
+F_4E:defineIndicatorLight("PLT_WPN_LI_ARMED", 263, PILOT_WEAPONS, "Left Inboard Pylon Arm Lamp (Yellow)")
 F_4E:defineIndicatorLight("PLT_WPN_CENTER_ARMED", 264, PILOT_WEAPONS, "Center Pylon Selected Arm Lamp (Yellow)")
 F_4E:defineIndicatorLight("PLT_WPN_RI_ARMED", 265, PILOT_WEAPONS, "Right Inboard Pylon Arm Lamp (Yellow)")
 F_4E:defineIndicatorLight("PLT_WPN_RO_ARMED", 266, PILOT_WEAPONS, "Right Outboard Pylon Arm Lamp (Yellow)")
