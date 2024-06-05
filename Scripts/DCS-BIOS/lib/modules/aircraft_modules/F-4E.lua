@@ -937,8 +937,20 @@ local WSO_WEAPONS = "WSO Weapons"
 F_4E:defineIndicatorLight("WSO_WPN_SHOOT_HU", 2677, WSO_WEAPONS, "Heads-up Shoot Lamp (Green)")
 F_4E:defineToggleSwitch("WSO_WPN_LABS_TONE", WEAPONS_DEVICE_ID, 3078, 350, WSO_WEAPONS, "LABS Pull-Up Tone")
 
--- Turn/Slip Indicators
+-- Turn Coordinators
 local TURN_SLIP_DEVICE_ID = 29
+
+-- Pilot Turn Coordinator
+local PLT_TURN_COORDINATOR = "PLT Turn Coordinator"
+
+F_4E:defineFloat("PLT_TURN_BALL", 420, { -1, 1 }, PLT_TURN_COORDINATOR, "Slip Ball")
+F_4E:defineFloat("PLT_TURN_INDICATOR", 421, { -1, 1 }, PLT_TURN_COORDINATOR, "Turn Coordinator rotation")
+
+-- WSO Turn Coordinator
+local WSO_TURN_COORDINATOR = "WSO Turn Coordinator"
+
+F_4E:defineFloat("WSO_TURN_BALL", 610, { -1, 1 }, WSO_TURN_COORDINATOR, "Slip Ball")
+F_4E:defineFloat("WSO_TURN_INDICATOR", 611, { -1, 1 }, WSO_TURN_COORDINATOR, "Turn Coordinator rotation")
 
 -- HUD (AN-ASG-26)
 local HUD_DEVICE_ID = 31
