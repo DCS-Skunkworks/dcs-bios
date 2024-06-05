@@ -884,6 +884,10 @@ F_4E:defineIndicatorLight("PLT_WPN_LABS_PULL_UP", 367, PILOT_WEAPONS, "LABS Pull
 F_4E:defineToggleSwitch("PLT_WPN_GUN_RATE", WEAPONS_DEVICE_ID, 3012, 278, PILOT_WEAPONS, "Set Gun Rate")
 F_4E:defineRotary("PLT_WPN_GUN_ROUNDS", WEAPONS_DEVICE_ID, 3050, 1412, PILOT_WEAPONS, "Set Gun Rounds")
 
+F_4E:defineString("PLT_WPN_GUN_ROUNDS_COUNT", function(dev0)
+	return drum_set(dev0, 275, 276, 277)
+end, 3, PILOT_WEAPONS, "Gun Rounds")
+
 F_4E:reserveIntValue(1) -- gun pod clear mode switch, not implemented
 F_4E:defineSpringloaded_3PosTumbWithRange("PLT_WPN_MISSILE_REJECT", WEAPONS_DEVICE_ID, 3134, 3134, 2596, { 1, 0 }, PILOT_WEAPONS, "Missile Reject/Norm/Direction Finding Reject")
 F_4E:reserveIntValue(1) -- change shrike band, not implemented
