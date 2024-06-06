@@ -6,6 +6,8 @@ local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 --- @class F_4E: Module
 local F_4E = Module:new("F-4E", 0x2A00, { "F-4E-45MC" })
 
+-- helper control definitions
+
 --- Default limited multiposition tumb for F-4E
 --- @param identifier string the unique identifier for the control
 --- @param device_id integer the dcs device id
@@ -18,6 +20,18 @@ function F_4E:defineMultipositionRollerLimited(identifier, device_id, command, a
 	self:defineTumb(identifier, device_id, command, arg_number, 1 / (count - 1), { 0, 1 }, nil, false, category, description)
 end
 
+--- Adds an n-position toggle switch with dcs data values between 0 and 1
+--- @param identifier string the unique identifier for the control
+--- @param device_id integer the dcs device id
+--- @param command integer the dcs command
+--- @param arg_number integer the dcs argument number
+--- @param positions integer the number of switch positions
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+function F_4E:defineMultipositionSwitch0To1(identifier, device_id, command, arg_number, positions, category, description)
+	self:defineMultipositionSwitch(identifier, device_id, command, arg_number, positions, 1 / (positions - 1), category, description)
+end
+
 --- Adds a 3-position toggle switch with dcs data values between 0 and 1
 --- @param identifier string the unique identifier for the control
 --- @param device_id integer the dcs device id
@@ -26,7 +40,7 @@ end
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
 function F_4E:define3PosTumb0To1(identifier, device_id, command, arg_number, category, description)
-	self:defineMultipositionSwitch(identifier, device_id, command, arg_number, 3, 0.5, category, description)
+	self:defineMultipositionSwitch0To1(identifier, device_id, command, arg_number, 3, category, description)
 end
 
 --- Defines a 0-65535 output from a 0-1 input
@@ -36,6 +50,50 @@ end
 --- @param description string additional information about the control
 function F_4E:defineFloatFromArg(identifier, arg_number, category, description)
 	self:defineFloat(identifier, arg_number, { 0, 1 }, category, description)
+end
+
+--- Defines a 0-max_value output from a 0-1 input
+--- @param identifier string the unique identifier for the control
+--- @param arg_number integer the dcs argument number
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+function F_4E:defineIntegerFromArg(identifier, arg_number, max_value, category, description)
+	self:defineIntegerFromGetter(identifier, function(dev0)
+		return Module.round(dev0:get_argument_value(arg_number) * max_value)
+	end, max_value, category, description)
+end
+
+-- helper functions
+
+--- Returns an integer value for a drum-based numeric indicator
+--- @param dev0 CockpitDevice
+--- @param arg_number integer the dcs argument number from which to fetch the data
+--- @param invert boolean? whether the input should be inverted - default false
+--- @param max_value integer? the exclusive upper bound of the output - default 10
+--- @return integer value the integer displayed on the drum
+local function drum_value(dev0, arg_number, invert, max_value)
+	max_value = max_value or 10
+	invert = invert or false
+	local val = Module.round(dev0:get_argument_value(arg_number) * max_value)
+	if invert then
+		val = max_value - val
+	end
+	return val % max_value
+end
+
+--- Returns the string value of a regular drum
+--- @param dev0 CockpitDevice
+--- @param ... integer the dcs argument numbers for each drum wheel, left to right
+--- @return string value
+local function drum_set(dev0, ...)
+	local drum_arg_numbers = { ... }
+	local vals = {}
+
+	for i, arg_number in ipairs(drum_arg_numbers) do
+		vals[i] = drum_value(dev0, arg_number)
+	end
+
+	return string.format(string.rep("%d", #vals), unpack(vals))
 end
 
 -- ICS
@@ -65,20 +123,20 @@ F_4E:defineIndicatorLight("WSO_KY_28_C_MODE", 2676, WSO_KY_28, "KY-28 C Mode Lig
 
 F_4E:definePushButton("WSO_KY_28_ERASE", ICS_DEVICE_ID, 3045, 2647, WSO_KY_28, "Erase KY-28 Data")
 F_4E:defineToggleSwitch("WSO_KY_28_BAND", ICS_DEVICE_ID, 3047, 2648, WSO_KY_28, "Select KY-28 Mode")
-F_4E:defineMultipositionSwitch("WSO_KY_28_MODE", ICS_DEVICE_ID, 3050, 2649, 3, 0.5, WSO_KY_28, "Select KY-28 Power Mode")
+F_4E:define3PosTumb0To1("WSO_KY_28_MODE", ICS_DEVICE_ID, 3050, 2649, WSO_KY_28, "Select KY-28 Power Mode")
 
 -- Pilot ICS
 local PILOT_ICS_PANEL = "PLT ICS Panel"
 
 F_4E:definePotentiometer("PLT_ICS_INTERCOM_VOL", ICS_DEVICE_ID, 3003, 76, { 0, 1 }, PILOT_ICS_PANEL, "Change Intercom Volume")
-F_4E:defineMultipositionSwitch("PLT_ICS_AMPLIFIER", ICS_DEVICE_ID, 3004, 1409, 3, 0.5, PILOT_ICS_PANEL, "Select Amplifier")
+F_4E:define3PosTumb0To1("PLT_ICS_AMPLIFIER", ICS_DEVICE_ID, 3004, 1409, PILOT_ICS_PANEL, "Select Amplifier")
 F_4E:defineSpringloaded_3PosTumb("PLT_ICS_MODE", ICS_DEVICE_ID, 3005, 3005, 1378, PILOT_ICS_PANEL, "Set Mode")
 
 -- WSO ICS
 local WSO_ICS_PANEL = "WSO ICS Panel"
 
 F_4E:definePotentiometer("WSO_ICS_INTERCOM_VOL", ICS_DEVICE_ID, 3006, 2666, { 0, 1 }, WSO_ICS_PANEL, "Change Intercom Volume")
-F_4E:defineMultipositionSwitch("WSO_ICS_AMPLIFIER", ICS_DEVICE_ID, 3007, 2667, 3, 0.5, WSO_ICS_PANEL, "Select Amplifier")
+F_4E:define3PosTumb0To1("WSO_ICS_AMPLIFIER", ICS_DEVICE_ID, 3007, 2667, WSO_ICS_PANEL, "Select Amplifier")
 F_4E:defineSpringloaded_3PosTumb("WSO_ICS_MODE", ICS_DEVICE_ID, 3008, 3008, 2668, WSO_ICS_PANEL, "Set Mode")
 
 -- ARC-164
@@ -166,14 +224,14 @@ local IFF_DEVICE_ID = 4
 -- pilot iff panel
 local PILOT_IFF_PANEL = "PLT IFF Panel"
 
-F_4E:defineMultipositionSwitch("PLT_IFF_CODE", IFF_DEVICE_ID, 3001, 1322, 4, 1 / 3, PILOT_IFF_PANEL, "Select Mode 4 Function")
+F_4E:defineMultipositionSwitch0To1("PLT_IFF_CODE", IFF_DEVICE_ID, 3001, 1322, 4, PILOT_IFF_PANEL, "Select Mode 4 Function")
 F_4E:definePushButton("PLT_IFF_REPLY_TEST_BUTTON", IFF_DEVICE_ID, 3064, 2843, PILOT_IFF_PANEL, "IFF Reply Lamp (push to test)")
 F_4E:definePotentiometer("PLT_IFF_REPLY_TEST_DIM", IFF_DEVICE_ID, 3065, 2842, { 0, 1 }, PILOT_IFF_PANEL, "IFF Reply Lamp (rotate to dim)")
 F_4E:defineIndicatorLight("PLT_IFF_REPLY_TEST_LIGHT", 2557, PILOT_IFF_PANEL, "IFF Reply Test Light (Blue)")
 F_4E:definePushButton("PLT_IFF_TEST_BUTTON", IFF_DEVICE_ID, 3066, 2845, PILOT_IFF_PANEL, "IFF Test Lamp (push to test)")
 F_4E:definePotentiometer("PLT_IFF_TEST_DIM", IFF_DEVICE_ID, 3067, 2844, { 0, 1 }, PILOT_IFF_PANEL, "IFF Test Lamp (rotate to dim)")
 F_4E:defineIndicatorLight("PLT_IFF_TEST_LIGHT", 2556, PILOT_IFF_PANEL, "IFF Test Light (Blue)")
-F_4E:defineMultipositionSwitch("PLT_IFF_MASTER", IFF_DEVICE_ID, 3005, 1521, 5, 1 / 4, PILOT_IFF_PANEL, "Select Master Mode")
+F_4E:defineMultipositionSwitch0To1("PLT_IFF_MASTER", IFF_DEVICE_ID, 3005, 1521, 5, PILOT_IFF_PANEL, "Select Master Mode")
 F_4E:define3PosTumb("PLT_IFF_AUDIO_LIGHT_SW", IFF_DEVICE_ID, 3009, 1328, PILOT_IFF_PANEL, "Select Mode 4 Indication")
 F_4E:define3PosTumb("PLT_IFF_M1", IFF_DEVICE_ID, 3013, 1323, PILOT_IFF_PANEL, "Mode 1")
 F_4E:define3PosTumb("PLT_IFF_M2", IFF_DEVICE_ID, 3017, 1324, PILOT_IFF_PANEL, "Mode 2")
@@ -237,19 +295,15 @@ F_4E:definePotentiometer("WSO_CM_FLARE_DIM", COUNTERMEASURES_DEVICE_ID, 3009, 14
 F_4E:defineIndicatorLight("WSO_CM_FLARE_LIGHT", 1442, WSO_COUNTERMEASURES_PANEL, "Flare Lamp (Red)")
 F_4E:defineMultipositionRollerLimited("WSO_CM_FLARE_MODE", COUNTERMEASURES_DEVICE_ID, 3021, 1443, 3, WSO_COUNTERMEASURES_PANEL, "Select Flare Mode")
 
-local function wso_cm_display(dev0, arg_number)
-	return Module.round(dev0:get_argument_value(arg_number) * 10) % 10
-end
-
 local wso_cm_chaff_hundreds = 0
 local wso_cm_chaff_tens = 0
 local wso_cm_chaff_ones = 0
 local wso_cm_chaff = ""
 
 F_4E:addExportHook(function(dev0)
-	wso_cm_chaff_hundreds = Module.round(wso_cm_display(dev0, 1390))
-	wso_cm_chaff_tens = Module.round(wso_cm_display(dev0, 1391))
-	wso_cm_chaff_ones = Module.round(wso_cm_display(dev0, 1392))
+	wso_cm_chaff_hundreds = Module.round(drum_value(dev0, 1390))
+	wso_cm_chaff_tens = Module.round(drum_value(dev0, 1391))
+	wso_cm_chaff_ones = Module.round(drum_value(dev0, 1392))
 	wso_cm_chaff = string.format("%d%d%d", wso_cm_chaff_hundreds, wso_cm_chaff_tens, wso_cm_chaff_ones)
 end)
 
@@ -259,9 +313,9 @@ local wso_cm_flare_ones = 0
 local wso_cm_flare = ""
 
 F_4E:addExportHook(function(dev0)
-	wso_cm_flare_hundreds = Module.round(wso_cm_display(dev0, 1393))
-	wso_cm_flare_tens = Module.round(wso_cm_display(dev0, 1394))
-	wso_cm_flare_ones = Module.round(wso_cm_display(dev0, 1395))
+	wso_cm_flare_hundreds = Module.round(drum_value(dev0, 1393))
+	wso_cm_flare_tens = Module.round(drum_value(dev0, 1394))
+	wso_cm_flare_ones = Module.round(drum_value(dev0, 1395))
 	wso_cm_flare = string.format("%d%d%d", wso_cm_flare_hundreds, wso_cm_flare_tens, wso_cm_flare_ones)
 end)
 
@@ -413,26 +467,302 @@ F_4E:defineIndicatorLight("WSO_INS_HEAT", 1000, WSO_INS_PANEL, "WSO INS Heat Lam
 -- Navigation (AN-ASN-46A)
 local NAVIGATION_DEVICE_ID = 16
 
+local WSO_NAVIGATION_PANEL = "WSO Navigation Panel"
+
+F_4E:defineSpringloaded_3PosTumbWithRange("WSO_NAV_POSITION_UPDATE_MODE", NAVIGATION_DEVICE_ID, 3002, 3002, 940, { 0, 1 }, WSO_NAVIGATION_PANEL, "Set Position Update Mode")
+F_4E:definePushButton("WSO_NAV_MAG_VAR_PUSH", NAVIGATION_DEVICE_ID, 3012, 946, WSO_NAVIGATION_PANEL, "Set Magnetic Variation (push to enable turning)")
+F_4E:defineRotary("WSO_NAV_MAG_VAR_TURN", NAVIGATION_DEVICE_ID, 3007, 909, WSO_NAVIGATION_PANEL, "Set Magnetic Variation (must be pushed)")
+F_4E:definePotentiometer("WSO_NAV_WIND_DIRECTION", NAVIGATION_DEVICE_ID, 3005, 905, { 0, 1 }, WSO_NAVIGATION_PANEL, "Set Wind Direction (degrees)")
+F_4E:definePotentiometer("WSO_NAV_WIND_STRENGTH", NAVIGATION_DEVICE_ID, 3006, 901, { 0, 1 }, WSO_NAVIGATION_PANEL, "Set Wind Strength (knots)")
+F_4E:defineMultipositionRollerLimited("WSO_NAV_MODE", NAVIGATION_DEVICE_ID, 3001, 900, 5, WSO_NAVIGATION_PANEL, "Select Navigation Computer Mode")
+F_4E:definePushButton("WSO_NAV_LATITUDE_PUSH", NAVIGATION_DEVICE_ID, 3010, 947, WSO_NAVIGATION_PANEL, "Set Position (N/S Lat) (push to enable turning)")
+F_4E:defineRotary("WSO_NAV_LATITUE_TURN", NAVIGATION_DEVICE_ID, 3003, 914, WSO_NAVIGATION_PANEL, "Set Position (N/S Lat) (must be pushed)")
+F_4E:definePushButton("WSO_NAV_LONGITUDE_PUSH", NAVIGATION_DEVICE_ID, 3011, 948, WSO_NAVIGATION_PANEL, "Set Position (E/W Long) (push to enable turning)")
+F_4E:defineRotary("WSO_NAV_LONGITUDE_TURN", NAVIGATION_DEVICE_ID, 3004, 920, WSO_NAVIGATION_PANEL, "Set Position (E/W Long) (must be pushed)")
+F_4E:defineRotary("WSO_NAV_TARGET_LATITUDE", NAVIGATION_DEVICE_ID, 3008, 927, WSO_NAVIGATION_PANEL, "Set Target Position (N/S Lat)")
+F_4E:defineRotary("WSO_NAV_TARGET_LONGITUDE", NAVIGATION_DEVICE_ID, 3009, 933, WSO_NAVIGATION_PANEL, "Set Target Position (E/W Long)")
+
+F_4E:defineIndicatorLight("WSO_NAV_TEST_CAP_OFF", 942, WSO_NAVIGATION_PANEL, "Test Cap Off Lamp")
+F_4E:defineIndicatorLight("WSO_NAV_LATITUDE_SYNC", 943, WSO_NAVIGATION_PANEL, "Latitude Sync Lamp (Blue)")
+F_4E:defineIndicatorLight("WSO_NAV_LONGITUDE_SYNC", 944, WSO_NAVIGATION_PANEL, "Longitude Sync Lamp (Blue)")
+F_4E:defineIndicatorLight("WSO_NAV_AIR_DATA_MODE", 945, WSO_NAVIGATION_PANEL, "Air Data Mode Lamp (Yellow)")
+
+F_4E:defineFloat("WSO_NAV_VAR_SYNC_METER", 941, { -1, 1 }, WSO_NAVIGATION_PANEL, "Position/Navigation Sync Meter")
+
+F_4E:defineString("WSO_NAV_MAG_VAR_VALUE", function(dev0)
+	local west = dev0:get_argument_value(910) > 0.5
+
+	local ones = drum_value(dev0, 911, west)
+	local tens = drum_value(dev0, 912, west)
+	local hundreds = drum_value(dev0, 913, west)
+
+	if west then
+		return string.format("%d%d%dWEST", hundreds, tens, ones)
+	end
+
+	return string.format("EAST%d%d%d", hundreds, tens, ones)
+end, 7, WSO_NAVIGATION_PANEL, "Magnetic Variation")
+
+-- wind
+
+F_4E:defineString("WSO_NAV_WIND_DIRECTION_VALUE", function(dev0)
+	return drum_set(dev0, 908, 907, 906)
+end, 3, WSO_NAVIGATION_PANEL, "Wind Direction")
+
+F_4E:defineString("WSO_NAV_WIND_STRENGTH_VALUE", function(dev0)
+	return drum_set(dev0, 904, 903, 902)
+end, 3, WSO_NAVIGATION_PANEL, "Wind Strength")
+
+-- lat/longs
+
+local function latitude_value(dev0, flag_arg, minutes_tens_arg, minutes_ones_arg, seconds_tens_arg, seconds_ones_arg)
+	local south = dev0:get_argument_value(flag_arg) > 0.5
+
+	local minutes_tens = drum_value(dev0, minutes_tens_arg, south)
+	local minutes_ones = drum_value(dev0, minutes_ones_arg, south)
+	local seconds_tens = drum_value(dev0, seconds_tens_arg, south, 6)
+	local seconds_ones = drum_value(dev0, seconds_ones_arg, south)
+
+	if south then
+		return string.format("%d%d%d%d SOUTH", minutes_tens, minutes_ones, seconds_tens, seconds_ones)
+	end
+
+	return string.format("NORTH %d%d%d%d", minutes_tens, minutes_ones, seconds_tens, seconds_ones)
+end
+
+local function longitude_value(dev0, flag_arg, minutes_hundreds_arg, minutes_tens_arg, minutes_ones_arg, seconds_tens_arg, seconds_ones_arg)
+	local west = dev0:get_argument_value(flag_arg) > 0.5
+
+	local minutes_hundreds_val = dev0:get_argument_value(minutes_hundreds_arg) < 0.5 and 0 or 1
+	if west then
+		minutes_hundreds_val = 1 - minutes_hundreds_val
+	end
+	minutes_hundreds_val = drum_value(dev0, minutes_hundreds_arg, west)
+	local minutes_hundreds = minutes_hundreds_val == 0 and " " or tostring(minutes_hundreds_val)
+	local minutes_tens_val = drum_value(dev0, minutes_tens_arg, west)
+	local minutes_tens = minutes_tens_val == 0 and " " or tostring(minutes_tens_val)
+	local minutes_ones = drum_value(dev0, minutes_ones_arg, west)
+	local seconds_tens = drum_value(dev0, seconds_tens_arg, west, 6)
+	local seconds_ones = drum_value(dev0, seconds_ones_arg, west)
+
+	return string.format("%s%s%d%d%d%s", minutes_hundreds, minutes_tens, minutes_ones, seconds_tens, seconds_ones, west and "W" or "E")
+end
+
+F_4E:defineString("WSO_NAV_LATITUDE_VALUE", function(dev0)
+	return latitude_value(dev0, 919, 918, 917, 916, 915)
+end, 10, WSO_NAVIGATION_PANEL, "Position Latitude")
+
+F_4E:defineString("WSO_NAV_LONGITUDE_VALUE", function(dev0)
+	return longitude_value(dev0, 921, 926, 925, 924, 923, 922)
+end, 6, WSO_NAVIGATION_PANEL, "Position Longitude")
+
+F_4E:defineString("WSO_NAV_TARGET_LATITUDE_VALUE", function(dev0)
+	return latitude_value(dev0, 932, 931, 930, 929, 928)
+end, 10, WSO_NAVIGATION_PANEL, "Target Position Latitude")
+
+F_4E:defineString("WSO_NAV_TARGET_LONGITUDE_VALUE", function(dev0)
+	return longitude_value(dev0, 934, 939, 938, 937, 936, 935)
+end, 6, WSO_NAVIGATION_PANEL, "Target Position Longitude")
+
 -- Pneumatic Gauge
-local PNEUMATIC_GAUGE_DEVICE_ID = 17
+-- local PNEUMATIC_GAUGE_DEVICE_ID = 17
+
+-- Pilot Pneumatic Gauge
+local PILOT_PNEUMATIC_GAUGE = "PLT Pneumatic Gauge"
+
+F_4E:defineFloatFromArg("PLT_PNEUMATIC_GAUGE", 86, PILOT_PNEUMATIC_GAUGE, "Pneumatic Pressure Gauge")
 
 -- Hydraulic Gauge
-local HYDRAULIC_GAUGE_DEVICE_ID = 18
+-- local HYDRAULIC_GAUGE_DEVICE_ID = 18
+
+-- Pilot Hydraulic Gauges
+local PILOT_HYDRAULIC_GAUGES = "PLT Hydraulic Gauges"
+
+F_4E:defineFloatFromArg("PLT_HYDRAULIC_PC1", 212, PILOT_HYDRAULIC_GAUGES, "PC1 Hydraulic Pressure Gauge")
+F_4E:defineFloatFromArg("PLT_HYDRAULIC_PC2", 210, PILOT_HYDRAULIC_GAUGES, "PC2 Hydraulic Pressure Gauge")
+F_4E:defineFloatFromArg("PLT_HYDRAULIC_UTILITY", 211, PILOT_HYDRAULIC_GAUGES, "Utility Hydraulic Pressure Gauge")
 
 -- Landing Gear
 local LANDING_GEAR_DEVICE_ID = 20
 
+-- Pilot Landing Gear Controls
+local PILOT_LANDING_GEAR = "PLT Landing Gear Controls"
+
+F_4E:defineToggleSwitch("PLT_GEAR_LEVER", LANDING_GEAR_DEVICE_ID, 3001, 5, PILOT_LANDING_GEAR, "Landing Gear Lever")
+F_4E:defineToggleSwitch("PLT_GEAR_LEVER_EMERGENCY", LANDING_GEAR_DEVICE_ID, 3013, 3045, PILOT_LANDING_GEAR, "Landing Gear Lever (Pull Out for Emergency)")
+F_4E:defineIndicatorLight("PLT_GEAR_LEVER_LIGHT", 66, PILOT_LANDING_GEAR, "Landing Gear Lever Light (Red)")
+F_4E:defineIndicatorLight("PLT_GEAR_WHEELS_LIGHT", 65, PILOT_LANDING_GEAR, "WHEELS Lamp (Red)")
+F_4E:defineToggleSwitch("PLT_GEAR_ANTI_SKID", LANDING_GEAR_DEVICE_ID, 3002, 63, PILOT_LANDING_GEAR, "Anti-Skid Toggle")
+F_4E:defineIndicatorLight("PLT_GEAR_ANTI_SKID_INOP", 64, PILOT_LANDING_GEAR, "Anti-Skid Inoperative Lamp (Yellow)")
+F_4E:definePotentiometer("PLT_GEAR_BRAKES_EMERGENCY", LANDING_GEAR_DEVICE_ID, 3004, 343, { 0, 1 }, PILOT_LANDING_GEAR, "Emergency Wheel Brake (Pull)")
+F_4E:defineToggleSwitch("PLT_GEAR_DRAG_CHUTE", LANDING_GEAR_DEVICE_ID, 3009, 2767, PILOT_LANDING_GEAR, "Drag-Parachute (Pull to Deploy)")
+F_4E:defineToggleSwitch("PLT_GEAR_DRAG_CHUTE_RELEASE", LANDING_GEAR_DEVICE_ID, 3010, 1516, PILOT_LANDING_GEAR, "Release Drag-Parachute (only while deployed)")
+F_4E:defineToggleSwitch("PLT_GEAR_ARRESTING_HOOK", LANDING_GEAR_DEVICE_ID, 3021, 974, PILOT_LANDING_GEAR, "Arresting Hook Handle")
+
+F_4E:defineIntegerFromArg("PLT_GEAR_INDICATOR_LEFT", 52, 2, PILOT_LANDING_GEAR, "Landing Gear Up/Down Indicator (Left)")
+F_4E:defineIntegerFromArg("PLT_GEAR_INDICATOR_NOSE", 51, 2, PILOT_LANDING_GEAR, "Landing Gear Up/Down Indicator (Nose)")
+F_4E:defineIntegerFromArg("PLT_GEAR_INDICATOR_RIGHT", 50, 2, PILOT_LANDING_GEAR, "Landing Gear Up/Down Indicator (Right)")
+
+-- WSO Landing Gear Controls
+local WSO_LANDING_GEAR = "WSO Landing Gear Controls"
+
+F_4E:definePotentiometer("WSO_GEAR_HANDLE_EMERGENCY", LANDING_GEAR_DEVICE_ID, 3008, 983, { 0, 1 }, WSO_LANDING_GEAR, "Emergency Gear Handle (Pull to Release)")
+F_4E:definePotentiometer("WSO_GEAR_BRAKES_EMERGENCY", LANDING_GEAR_DEVICE_ID, 3005, 344, { 0, 1 }, WSO_LANDING_GEAR, "Emergency Wheel Brake (Pull)")
+
+F_4E:defineIntegerFromArg("WSO_GEAR_INDICATOR_LEFT", 984, 2, WSO_LANDING_GEAR, "Landing Gear Up/Down Indicator (Left)")
+F_4E:defineIntegerFromArg("WSO_GEAR_INDICATOR_NOSE", 986, 2, WSO_LANDING_GEAR, "Landing Gear Up/Down Indicator (Nose)")
+F_4E:defineIntegerFromArg("WSO_GEAR_INDICATOR_RIGHT", 988, 2, WSO_LANDING_GEAR, "Landing Gear Up/Down Indicator (Right)")
+
 -- Indicators
 local INDICATORS_DEVICE_ID = 22
+
+-- Pilot Warning Indicators
+local PILOT_WARNING_INDICATORS = "PLT Warning Indicators"
+
+F_4E:defineSpringloaded_3PosTumb("PLT_WCA_WARN_LIGHT_TEST", INDICATORS_DEVICE_ID, 3002, 3002, 1354, PILOT_WARNING_INDICATORS, "Test Warning Lights/Standby Compass Light")
+F_4E:definePushButton("PLT_WCA_MASTER_CAUTION_RESET", INDICATORS_DEVICE_ID, 3001, 221, PILOT_WARNING_INDICATORS, "Reset Master Caution")
+
+F_4E:defineIndicatorLight("PLT_WCA_MASTER_CAUTION", 218, PILOT_WARNING_INDICATORS, "Master Caution Lamp (Yellow)")
+
+F_4E:defineIndicatorLight("PLT_WCA_FIRE_L", 2547, PILOT_WARNING_INDICATORS, "Engine Fire Left Lamp (Red)")
+F_4E:defineIndicatorLight("PLT_WCA_FIRE_R", 2548, PILOT_WARNING_INDICATORS, "Engine Fire Right Lamp (Red)")
+F_4E:defineIndicatorLight("PLT_WCA_OVERHEAT_L", 2549, PILOT_WARNING_INDICATORS, "Engine Overheat Left Lamp (Red)")
+F_4E:defineIndicatorLight("PLT_WCA_OVERHEAT_R", 2550, PILOT_WARNING_INDICATORS, "Engine Overheat Right Lamp (Red)")
+
+F_4E:defineIndicatorLight("PLT_WCA_BUS_TIE_OPEN", 199, PILOT_WARNING_INDICATORS, "Bus Tie Open Lamp (Red)")
+F_4E:defineIndicatorLight("PLT_WCA_GEN_OUT_L", 2551, PILOT_WARNING_INDICATORS, "Left Generator Out Lamp (Red)")
+F_4E:defineIndicatorLight("PLT_WCA_GEN_OUT_R", 2552, PILOT_WARNING_INDICATORS, "Right Generator Out Lamp (Red)")
+
+F_4E:defineIndicatorLight("PLT_WCA_ALT_ENCODER_OUT", 115, PILOT_WARNING_INDICATORS, "Alt Encoder Out Lamp (Yellow)")
+F_4E:defineIndicatorLight("PLT_WCA_IFF", 2568, PILOT_WARNING_INDICATORS, "IFF Lamp (Red)")
+F_4E:defineIndicatorLight("PLT_WCA_DC_BUS", 2577, PILOT_WARNING_INDICATORS, "DC Bus Lamp (Yellow)")
+F_4E:defineIndicatorLight("PLT_WCA_CANOPY_UNLOCKED", 208, PILOT_WARNING_INDICATORS, "Canopy Unlocked Lamp (Red)")
+F_4E:defineIndicatorLight("PLT_WCA_HOOK_DOWN", 2578, PILOT_WARNING_INDICATORS, "Hook Down Lamp (Red)")
+F_4E:defineIndicatorLight("PLT_WCA_AUTOPILOT_PITCH_DISENGAGE", 2569, PILOT_WARNING_INDICATORS, "Autopilot Pitch Trim Lamp (Yellow)")
+F_4E:defineIndicatorLight("PLT_WCA_AUTOPILOT_DISENGAGE", 2579, PILOT_WARNING_INDICATORS, "Autopilot Disengage Lamp (Yellow)")
+F_4E:defineIndicatorLight("PLT_WCA_EXT_FUEL_L", 2570, PILOT_WARNING_INDICATORS, "Left Ext Fuel Lamp (Green)")
+F_4E:defineIndicatorLight("PLT_WCA_EXT_FUEL_C", 2580, PILOT_WARNING_INDICATORS, "Center Ext Fuel Lamp (Green)")
+F_4E:defineIndicatorLight("PLT_WCA_EXT_FUEL_R", 2587, PILOT_WARNING_INDICATORS, "Right Ext Fuel Lamp (Green)")
+F_4E:defineIndicatorLight("PLT_WCA_FUEL_LOW", 2571, PILOT_WARNING_INDICATORS, "Fuel Level Low Lamp (Red)")
+F_4E:defineIndicatorLight("PLT_WCA_FUEL_FILTER_CHECK", 2581, PILOT_WARNING_INDICATORS, "Check Fuel Filters Lamp (Yellow)")
+F_4E:defineIndicatorLight("PLT_WCA_RADAR_ON_COOL_OFF", 2588, PILOT_WARNING_INDICATORS, "Radar On Cool Off Lamp (Yellow)")
+F_4E:defineIndicatorLight("PLT_WCA_FIRE_SYS", 2591, PILOT_WARNING_INDICATORS, "Fire Sys Lamp (Yellow)")
+F_4E:defineIndicatorLight("PLT_WCA_ANTI_ICE_L", 2572, PILOT_WARNING_INDICATORS, "L Anti-Ice On Lamp (Yellow)")
+F_4E:defineIndicatorLight("PLT_WCA_ANTI_ICE_R", 2582, PILOT_WARNING_INDICATORS, "R Anti-Ice On Lamp (Yellow)")
+F_4E:defineIndicatorLight("PLT_WCA_STATIC_CORR", 114, PILOT_WARNING_INDICATORS, "Static Corr Off Lamp (Yellow)")
+F_4E:defineIndicatorLight("PLT_WCA_AUX_AIR_L", 2573, PILOT_WARNING_INDICATORS, "L Aux Air Door Lamp (Yellow)")
+F_4E:defineIndicatorLight("PLT_WCA_AUX_AIR_R", 2583, PILOT_WARNING_INDICATORS, "R Aux Air Door Lamp (Yellow)")
+F_4E:defineIndicatorLight("PLT_WCA_SPEEDBRAKE_OUT", 2589, PILOT_WARNING_INDICATORS, "Speedbrake Out Lamp (Yellow)")
+F_4E:defineIndicatorLight("PLT_WCA_WINDSHIELD_TEMP", 2574, PILOT_WARNING_INDICATORS, "Windshield Temp High Lamp (Yellow)")
+F_4E:defineIndicatorLight("PLT_WCA_DUCT_TEMP", 2584, PILOT_WARNING_INDICATORS, "Duct Temp High Lamp (Yellow)")
+F_4E:defineIndicatorLight("PLT_WCA_HYD_GAUGES", 220, PILOT_WARNING_INDICATORS, "Check Hyd Gauges Lamp (Yellow)")
+F_4E:defineIndicatorLight("PLT_WCA_SLATS_IN", 2575, PILOT_WARNING_INDICATORS, "Slats In Lamp (Yellow)")
+F_4E:defineIndicatorLight("PLT_WCA_PITCH_AUG_OFF", 2585, PILOT_WARNING_INDICATORS, "Pitch Aug Off Lamp (Yellow)")
+F_4E:defineIndicatorLight("PLT_WCA_CABIN_TURB_OVERSPEED", 2590, PILOT_WARNING_INDICATORS, "Cabin Turb Overspeed Lamp (Yellow)")
+F_4E:defineIndicatorLight("PLT_WCA_INS_OUT", 2576, PILOT_WARNING_INDICATORS, "Inertial Nav Sys Out Lamp (Yellow)")
+F_4E:defineIndicatorLight("PLT_WCA_TANK_7_FULL", 2586, PILOT_WARNING_INDICATORS, "Tank 7 Full Lamp (Green)")
+F_4E:defineIndicatorLight("PLT_WCA_OXYGEN_LOW", 238, PILOT_WARNING_INDICATORS, "Oxygen Low Lamp (Yellow)")
+
+F_4E:defineIndicatorLight("PLT_WCA_SPARE", 2883, PILOT_WARNING_INDICATORS, "Spare Warning Lamps (Yellow)")
+
+-- WSO Warning Indicators
+local WSO_WARNING_INDICATORS = "WSO Warning Indicators"
+
+F_4E:definePushButton("WSO_WCA_WARN_LIGHT_TEST", INDICATORS_DEVICE_ID, 3004, 2513, WSO_WARNING_INDICATORS, "Test Warning Lights")
+
+F_4E:defineIndicatorLight("WSO_WCA_MASTER_CAUTION", 219, WSO_WARNING_INDICATORS, "Master Caution Lamp (Yellow)")
+
+F_4E:defineIndicatorLight("WSO_WCA_CANOPY_UNLOCKED", 209, WSO_WARNING_INDICATORS, "Canopy Unlocked Lamp (Red)")
+F_4E:defineIndicatorLight("WSO_WCA_INS_OUT", 2688, WSO_WARNING_INDICATORS, "Inertial Nav Sys Out Lamp (Yellow)")
+F_4E:defineIndicatorLight("WSO_WCA_RADAR_CNI_COOL_OFF", 2689, WSO_WARNING_INDICATORS, "Radar CNI Cool Off Lamp (Yellow)")
 
 -- Canopy
 local CANOPY_DEVICE_ID = 23
 
+-- Pilot Canopy
+local PILOT_CANOPY = "PLT Canopy"
+
+F_4E:defineToggleSwitch("PLT_CANOPY_CONTROL", CANOPY_DEVICE_ID, 3001, 200, PILOT_CANOPY, "Canopy Control (Open/Close)")
+F_4E:defineToggleSwitch("PLT_CANOPY_MANUAL_UNLOCK", CANOPY_DEVICE_ID, 3002, 204, PILOT_CANOPY, "Manual Canopy Unlock")
+F_4E:defineToggleSwitch("PLT_CANOPY_EMERGENCY_RELEASE", CANOPY_DEVICE_ID, 3003, 202, PILOT_CANOPY, "Canopy Emergency Release")
+F_4E:defineFloatFromArg("PLT_CANOPY", 87, PILOT_CANOPY, "Canopy Opened/Closed")
+
+-- WSO Canopy
+local WSO_CANOPY = "WSO Canopy"
+
+F_4E:defineToggleSwitch("WSO_CANOPY_CONTROL", CANOPY_DEVICE_ID, 3004, 201, WSO_CANOPY, "Canopy Control (Open/Close)")
+F_4E:defineToggleSwitch("WSO_CANOPY_MANUAL_UNLOCK", CANOPY_DEVICE_ID, 3005, 205, WSO_CANOPY, "Manual Canopy Unlock")
+F_4E:defineToggleSwitch("WSO_CANOPY_EMERGENCY_RELEASE", CANOPY_DEVICE_ID, 3006, 203, WSO_CANOPY, "Canopy Emergency Release")
+F_4E:defineFloatFromArg("WSO_CANOPY", 88, WSO_CANOPY, "Canopy Opened/Closed")
+
 -- Engine
 local ENGINE_DEVICE_ID = 24
 
+-- Pilot Engine Controls
+local PILOT_ENGINE_CONTROLS = "PLT Engine Controls"
+
+F_4E:defineSpringloaded_3PosTumb("PLT_ENGINE_START", ENGINE_DEVICE_ID, 3003, 3003, 294, PILOT_ENGINE_CONTROLS, "Start Engine Switch")
+F_4E:defineToggleSwitch("PLT_ENGINE_MASTER_L", ENGINE_DEVICE_ID, 3001, 292, PILOT_ENGINE_CONTROLS, "Left Engine Master Switch")
+F_4E:defineToggleSwitch("PLT_ENGINE_MASTER_R", ENGINE_DEVICE_ID, 3002, 293, PILOT_ENGINE_CONTROLS, "Right Engine Master Switch")
+F_4E:definePushButton("PLT_ENGINE_FIRE_TEST", ENGINE_DEVICE_ID, 3012, 978, PILOT_ENGINE_CONTROLS, "Test Fire System")
+
+-- tachometer
+F_4E:defineFloatFromArg("PLT_ENGINE_TACH_L_LARGE", 299, PILOT_ENGINE_CONTROLS, "Left Tachometer Large Needle")
+F_4E:defineFloatFromArg("PLT_ENGINE_TACH_L_SMALL", 2517, PILOT_ENGINE_CONTROLS, "Left Tachometer Small Needle")
+F_4E:defineFloatFromArg("PLT_ENGINE_TACH_R_LARGE", 300, PILOT_ENGINE_CONTROLS, "Right Tachometer Large Needle")
+F_4E:defineFloatFromArg("PLT_ENGINE_TACH_R_SMALL", 2518, PILOT_ENGINE_CONTROLS, "Right Tachometer Small Needle")
+
+-- exhaust temp
+F_4E:defineFloatFromArg("PLT_ENGINE_EXHAUST_L_LARGE", 301, PILOT_ENGINE_CONTROLS, "Left Exhaust Temperature Large Needle")
+F_4E:reserveIntValue(65535) -- no draw arg for small needle?
+-- F_4E:defineFloatFromArg("PLT_ENGINE_EXHAUST_L_SMALL", 0, PILOT_ENGINE_CONTROLS, "Left Exhaust Temperature Small Needle")
+F_4E:defineFloatFromArg("PLT_ENGINE_EXHAUST_L_OFF", 2727, PILOT_ENGINE_CONTROLS, "Left Exhaust Temperature Off Flag")
+F_4E:defineFloatFromArg("PLT_ENGINE_EXHAUST_R_LARGE", 302, PILOT_ENGINE_CONTROLS, "Right Exhaust Temperature Large Needle")
+F_4E:reserveIntValue(65535) -- no draw arg for small needle?
+-- F_4E:defineFloatFromArg("PLT_ENGINE_EXHAUST_R_SMALL", 0, PILOT_ENGINE_CONTROLS, "Right Exhaust Temperature Small Needle")
+F_4E:defineFloatFromArg("PLT_ENGINE_EXHAUST_R_OFF", 2728, PILOT_ENGINE_CONTROLS, "Right Exhaust Temperature Off Flag")
+
+-- nozzle position
+F_4E:defineFloatFromArg("PLT_ENGINE_NOZZLE_L", 303, PILOT_ENGINE_CONTROLS, "Left Nozzle Position Gauge")
+F_4E:defineFloatFromArg("PLT_ENGINE_NOZZLE_R", 304, PILOT_ENGINE_CONTROLS, "Right Nozzle Position Gauge")
+
+-- oil pressure
+F_4E:defineFloatFromArg("PLT_ENGINE_OIL_PRESSURE_L", 717, PILOT_ENGINE_CONTROLS, "Left Engine Oil Pressure")
+F_4E:defineFloatFromArg("PLT_ENGINE_OIL_PRESSURE_R", 718, PILOT_ENGINE_CONTROLS, "Right Engine Oil Pressure")
+
+-- WSO Engine Controls
+local WSO_ENGINE_CONTROLS = "WSO Engine Controls"
+
+-- tachometer
+F_4E:defineFloatFromArg("WSO_ENGINE_TACH_L_LARGE", 715, WSO_ENGINE_CONTROLS, "Left Tachometer Large Needle")
+F_4E:defineFloatFromArg("WSO_ENGINE_TACH_L_SMALL", 2723, WSO_ENGINE_CONTROLS, "Left Tachometer Small Needle")
+F_4E:defineFloatFromArg("WSO_ENGINE_TACH_R_LARGE", 716, WSO_ENGINE_CONTROLS, "Right Tachometer Large Needle")
+F_4E:defineFloatFromArg("WSO_ENGINE_TACH_R_SMALL", 2724, WSO_ENGINE_CONTROLS, "Right Tachometer Small Needle")
+
 -- Control Surfaces
 local CONTROL_SURFACES_DEVICE_ID = 25
+
+-- Pilot Control Surfaces
+local PILOT_CONTROL_SURFACES = "PLT Control Surfaces"
+
+F_4E:define3PosTumb("PLT_CONTROLS_FLAPS_SLATS", CONTROL_SURFACES_DEVICE_ID, 3005, 222, PILOT_CONTROL_SURFACES, "Flaps/Slats")
+F_4E:definePotentiometer("PLT_CONTROLS_FLAPS_SLATS_EMERGENCY", CONTROL_SURFACES_DEVICE_ID, 3003, 223, { 0, 1 }, PILOT_CONTROL_SURFACES, "Flaps/Slats Emergency")
+F_4E:defineSpringloaded_3PosTumb("PLT_CONTROLS_RUDDER_TRIM", CONTROL_SURFACES_DEVICE_ID, 3012, 3012, 964, PILOT_CONTROL_SURFACES, "Rudder Trim")
+F_4E:defineToggleSwitch("PLT_CONTROLS_SLATS_OVERRIDE_COVER", CONTROL_SURFACES_DEVICE_ID, 3008, 2520, PILOT_CONTROL_SURFACES, "Slats Override Switch Cover")
+F_4E:defineToggleSwitch("PLT_CONTROLS_SLATS_OVERRIDE", CONTROL_SURFACES_DEVICE_ID, 3010, 2519, PILOT_CONTROL_SURFACES, "Slats Override Switch")
+F_4E:defineRotary("PLT_CONTROLS_PEDAL_ADJUST", CONTROL_SURFACES_DEVICE_ID, 3017, 2595, PILOT_CONTROL_SURFACES, "Adjust Pedal Position")
+
+F_4E:defineIntegerFromArg("PLT_CONTROLS_FLAPS_INDICATOR", 226, 1, PILOT_CONTROL_SURFACES, "Flaps Indicator")
+F_4E:defineIntegerFromArg("PLT_CONTROLS_SLATS_INDICATOR", 225, 2, PILOT_CONTROL_SURFACES, "Slats Indicator")
+
+-- WSO Control Surfaces
+local WSO_CONTROL_SURFACES = "WSO Control Surfaces"
+
+F_4E:definePotentiometer("WSO_CONTROLS_FLAPS_SLATS_EMERGENCY", CONTROL_SURFACES_DEVICE_ID, 3004, 224, { 0, 1 }, WSO_CONTROL_SURFACES, "Flaps/Slats Emergency")
+F_4E:defineRotary("WSO_CONTROLS_PEDAL_ADJUST", CONTROL_SURFACES_DEVICE_ID, 3018, 2813, WSO_CONTROL_SURFACES, "Adjust Pedal Position")
+
+F_4E:defineIntegerFromArg("WSO_CONTROLS_FLAPS_INDICATOR", 228, 1, WSO_CONTROL_SURFACES, "Flaps Indicator")
+F_4E:defineIntegerFromArg("WSO_CONTROLS_SLATS_INDICATOR", 227, 2, WSO_CONTROL_SURFACES, "Slats Indicator")
 
 -- Oxygen System
 local OXYGEN_SYSTEM_DEVICE_ID = 26
@@ -462,16 +792,183 @@ F_4E:defineFloat("WSO_O2_PRESSURE", 245, { 0, 1 }, WSO_O2_SYSTEM, "Oxygen Supply
 -- Weapons
 local WEAPONS_DEVICE_ID = 27
 
+-- WSO WRCS
+local WSO_WRCS = "WSO WRCS"
+
+F_4E:definePotentiometer("WSO_WRCS_DRAG_COEFFICIENT", WEAPONS_DEVICE_ID, 3024, 331, { 0, 1 }, WSO_WRCS, "Set Drag Coefficient")
+F_4E:definePotentiometer("WSO_WRCS_ALT_RANGE", WEAPONS_DEVICE_ID, 3025, 330, { 0, 1 }, WSO_WRCS, "Set Target Altitude/Range (x100 ft)")
+F_4E:definePotentiometer("WSO_WRCS_RELEASE_RANGE", WEAPONS_DEVICE_ID, 3029, 323, { 0, 1 }, WSO_WRCS, "Set Release Range (x10 ft)")
+F_4E:definePotentiometer("WSO_WRCS_EW_DISTANCE", WEAPONS_DEVICE_ID, 3026, 321, { 0, 1 }, WSO_WRCS, "Set Target E/W Distance (x100 ft)")
+F_4E:definePotentiometer("WSO_WRCS_NS_DISTANCE", WEAPONS_DEVICE_ID, 3027, 320, { 0, 1 }, WSO_WRCS, "Set Target N/S Distance (x100 ft)")
+F_4E:definePotentiometer("WSO_WRCS_RELEASE_ADVANCE", WEAPONS_DEVICE_ID, 3028, 322, { 0, 1 }, WSO_WRCS, "Set Release Advance (ms)")
+F_4E:defineTumb("WSO_WRCS_BIT_MODE", WEAPONS_DEVICE_ID, 3030, 332, 1 / 5, { 0, 1 }, nil, true, WSO_WRCS, "Select BIT Mode") -- doesn't seem to be properly implemented in-game yet
+F_4E:defineToggleSwitch("WSO_WRCS_TARGET_FIND_MODE", WEAPONS_DEVICE_ID, 3040, 1017, WSO_WRCS, "Target Find Mode")
+F_4E:defineToggleSwitch("WSO_WRCS_RANGE_MULTIPLIER", WEAPONS_DEVICE_ID, 3041, 1018, WSO_WRCS, "WRCS Range x100 Multiplier")
+
+F_4E:defineString("WSO_WRCS_NS_DISTANCE_VALUE", function(dev0)
+	local south = dev0:get_argument_value(345) < 0.5
+	return string.format("%s%s", south and "S" or "N", drum_set(dev0, 308, 309, 310))
+end, 4, WSO_WRCS, "N/S Distance (x100 ft)")
+
+F_4E:defineString("WSO_WRCS_EW_DISTANCE_VALUE", function(dev0)
+	local west = dev0:get_argument_value(346) < 0.5
+	return string.format("%s%s", west and "W" or "E", drum_set(dev0, 311, 312, 313))
+end, 4, WSO_WRCS, "E/W Distance (x100 ft)")
+
+F_4E:defineString("WSO_WRCS_ALT_RANGE_VALUE", function(dev0)
+	return drum_set(dev0, 324, 325, 326)
+end, 3, WSO_WRCS, "Altitude/Range (x100 ft)")
+
+F_4E:defineString("WSO_WRCS_DRAG_COEFFICIENT_VALUE", function(dev0)
+	return drum_set(dev0, 327, 328, 329)
+end, 3, WSO_WRCS, "Drag Coefficient")
+
+F_4E:defineString("WSO_WRCS_RELEASE_ADVANCE_VALUE", function(dev0)
+	return drum_set(dev0, 314, 315, 316)
+end, 3, WSO_WRCS, "Release Advance (ms)")
+
+F_4E:defineString("WSO_WRCS_RELEASE_RANGE_VALUE", function(dev0)
+	return drum_set(dev0, 317, 318, 319)
+end, 3, WSO_WRCS, "Release Range (x10 ft)")
+
+-- WSO Cursor Control Panel
+local WSO_CURSOR_CONTROL_PANEL = "WSO Cursor Control Panel"
+
+F_4E:definePushButton("WSO_CURSOR_CONTROL_FREEZE", WEAPONS_DEVICE_ID, 3044, 1021, WSO_CURSOR_CONTROL_PANEL, "Freeze Target Data")
+F_4E:definePushButton("WSO_CURSOR_CONTROL_INSERT", WEAPONS_DEVICE_ID, 3045, 1023, WSO_CURSOR_CONTROL_PANEL, "Insert Target Data")
+F_4E:definePushButton("WSO_CURSOR_CONTROL_RESET", WEAPONS_DEVICE_ID, 3046, 1025, WSO_CURSOR_CONTROL_PANEL, "Reset Target Data")
+F_4E:defineSpringloaded_3PosTumbWithRange("WSO_CURSOR_CONTROL_ALONG_TRACK", WEAPONS_DEVICE_ID, 3042, 3042, 1019, { 0.3, -0.3 }, WSO_CURSOR_CONTROL_PANEL, "Move Cursor (Along Track)")
+F_4E:defineSpringloaded_3PosTumbWithRange("WSO_CURSOR_CONTROL_CROSS_TRACK", WEAPONS_DEVICE_ID, 3043, 3043, 1020, { -0.3, 0.3 }, WSO_CURSOR_CONTROL_PANEL, "Move Cursor (Cross Track)")
+
+F_4E:defineIndicatorLight("WSO_CURSOR_CONTROL_FREEZE_LIGHT", 1022, WSO_CURSOR_CONTROL_PANEL, "Freeze Target Light")
+F_4E:defineIndicatorLight("WSO_CURSOR_CONTROL_INSERT_LIGHT", 1024, WSO_CURSOR_CONTROL_PANEL, "Insert Target Light")
+
 -- pilot weapons panel
-local PILOT_WEAPONS_PANEL = "PLT Weapons Panel"
+local PILOT_WEAPONS = "PLT Weapons"
 
-F_4E:defineToggleSwitch("PLT_MASTER_ARM_SW", WEAPONS_DEVICE_ID, 3003, 247, PILOT_WEAPONS_PANEL, "PILOT Master Arm switch")
+F_4E:defineTumb("PLT_WPN_FUZE_ARM", WEAPONS_DEVICE_ID, 3047, 1221, 1 / 4, { 0, 0.75 }, nil, true, PILOT_WEAPONS, "Arm Fuze")
 
--- Turn/Slip Indicators
+F_4E:definePushButton("PLT_WPN_GUN_ARM", WEAPONS_DEVICE_ID, 3004, 249, PILOT_WEAPONS, "Arm/Disarm Gun")
+F_4E:definePotentiometer("PLT_WPN_PANEL_DIM", WEAPONS_DEVICE_ID, 3037, 980, { 0, 1 }, PILOT_WEAPONS, "Change Panel Button Brightness")
+F_4E:definePushButton("PLT_WPN_LO_ARM", WEAPONS_DEVICE_ID, 3005, 250, PILOT_WEAPONS, "Arm/Disarm Left-Outer Station")
+F_4E:definePushButton("PLT_WPN_LI_ARM", WEAPONS_DEVICE_ID, 3006, 251, PILOT_WEAPONS, "Arm/Disarm Left-Inner Station")
+F_4E:definePushButton("PLT_WPN_CENTER_ARM", WEAPONS_DEVICE_ID, 3007, 252, PILOT_WEAPONS, "Arm/Disarm Center Station")
+F_4E:definePushButton("PLT_WPN_RI_ARM", WEAPONS_DEVICE_ID, 3008, 253, PILOT_WEAPONS, "Arm/Disarm Right-Inner Station")
+F_4E:definePushButton("PLT_WPN_RO_ARM", WEAPONS_DEVICE_ID, 3009, 254, PILOT_WEAPONS, "Arm/Disarm Right-Outer Station")
+
+F_4E:defineToggleSwitch("PLT_WPN_MASTER_ARM", WEAPONS_DEVICE_ID, 3003, 247, PILOT_WEAPONS, "PILOT Master Arm switch")
+
+F_4E:defineMultipositionSwitch0To1("PLT_WPN_DELIVERY_MODE", WEAPONS_DEVICE_ID, 3010, 272, 13, PILOT_WEAPONS, "Select Delivery Mode")
+F_4E:reserveIntValue(1) -- jettison nuclear weapon, not simulated
+
+F_4E:defineTumb("PLT_WPN_WEAPON_SELECT", WEAPONS_DEVICE_ID, 3011, 273, 1 / 7, { 0, 1 }, nil, true, PILOT_WEAPONS, "Select Weapon")
+
+F_4E:define3PosTumb("PLT_WPN_RADAR_MISSILE_CW", WEAPONS_DEVICE_ID, 3031, 347, PILOT_WEAPONS, "Seelct Radar-Missile CW")
+F_4E:defineToggleSwitch("PLT_WPN_INTERLOCK", WEAPONS_DEVICE_ID, 3032, 348, PILOT_WEAPONS, "Select Interlock Position")
+
+F_4E:definePotentiometer("PLT_WPN_BOMB_INTERVAL", WEAPONS_DEVICE_ID, 3022, 307, { 0, 1 }, PILOT_WEAPONS, "Select Interval (s)")
+F_4E:defineToggleSwitch("PLT_WPN_BOMB_INTERVAL_MULTIPLIER", WEAPONS_DEVICE_ID, 3023, 306, PILOT_WEAPONS, "Select Interval Multiplier (x10)")
+F_4E:defineTumb("PLT_WPN_BOMB_QUANTITY", WEAPONS_DEVICE_ID, 3021, 305, 1 / 11, { 0, 1 }, nil, true, PILOT_WEAPONS, "Select Quantity")
+
+F_4E:defineTumb("PLT_WEAPON_JETTISON_SELECT", WEAPONS_DEVICE_ID, 3048, 1254, 1 / 8, { 0, 0.875 }, nil, true, PILOT_WEAPONS, "Select Stations to Jettison")
+F_4E:definePushButton("PLT_WPN_JETTISON_PUSH", WEAPONS_DEVICE_ID, 3049, 1253, PILOT_WEAPONS, "Jettison Selection")
+
+F_4E:defineToggleSwitch("PLT_WPN_GROUND_SAFETY_OVERRIDE", WEAPONS_DEVICE_ID, 3137, 281, PILOT_WEAPONS, "Override Ground Safety")
+
+F_4E:definePushButton("PLT_WPN_STORES_EMERGENCY_RELEASE", WEAPONS_DEVICE_ID, 3036, 965, PILOT_WEAPONS, "Emergency Release External Stores")
+
+F_4E:definePushButton("PLT_WPN_LABS_PULL_UP_TEST", WEAPONS_DEVICE_ID, 3072, 368, PILOT_WEAPONS, "LABS Pull-Up Light (push to test)")
+F_4E:definePotentiometer("PLT_WPN_LABS_PULL_UP_DIM", WEAPONS_DEVICE_ID, 3073, 2794, { 0, 1 }, PILOT_WEAPONS, "LABS Pull-Up Light (rotate to dim)")
+F_4E:defineIndicatorLight("PLT_WPN_LABS_PULL_UP", 367, PILOT_WEAPONS, "LABS Pull-up Lamp (Red)")
+
+F_4E:defineToggleSwitch("PLT_WPN_GUN_RATE", WEAPONS_DEVICE_ID, 3012, 278, PILOT_WEAPONS, "Set Gun Rate")
+F_4E:defineRotary("PLT_WPN_GUN_ROUNDS", WEAPONS_DEVICE_ID, 3050, 1412, PILOT_WEAPONS, "Set Gun Rounds")
+
+F_4E:defineString("PLT_WPN_GUN_ROUNDS_COUNT", function(dev0)
+	return drum_set(dev0, 275, 276, 277)
+end, 3, PILOT_WEAPONS, "Gun Rounds")
+
+F_4E:reserveIntValue(1) -- gun pod clear mode switch, not implemented
+F_4E:defineSpringloaded_3PosTumbWithRange("PLT_WPN_MISSILE_REJECT", WEAPONS_DEVICE_ID, 3134, 3134, 2596, { 1, 0 }, PILOT_WEAPONS, "Missile Reject/Norm/Direction Finding Reject")
+F_4E:reserveIntValue(1) -- change shrike band, not implemented
+
+-- station select/arm lights (green depressed + yellow arm)
+F_4E:defineIndicatorLight("PLT_WPN_GUN_SELECTED", 255, PILOT_WEAPONS, "Gun Selected Lamp (Green)")
+F_4E:defineIndicatorLight("PLT_WPN_LO_SELECTED", 256, PILOT_WEAPONS, "Left Outboard Pylon Selected Lamp (Green)")
+F_4E:defineIndicatorLight("PLT_WPN_LI_SELECTED", 257, PILOT_WEAPONS, "Left Inboard Pylon Selected Lamp (Green)")
+F_4E:defineIndicatorLight("PLT_WPN_CENTER_SELECTED", 258, PILOT_WEAPONS, "Center Pylon Selected Lamp (Green)")
+F_4E:defineIndicatorLight("PLT_WPN_RI_SELECTED", 259, PILOT_WEAPONS, "Right Inboard Pylon Selected Lamp (Green)")
+F_4E:defineIndicatorLight("PLT_WPN_RO_SELECTED", 260, PILOT_WEAPONS, "Right Outboard Pylon Selected Lamp (Green)")
+
+F_4E:defineIndicatorLight("PLT_WPN_GUN_ARMED", 261, PILOT_WEAPONS, "Gun Arm Lamp (Yellow)")
+F_4E:defineIndicatorLight("PLT_WPN_LO_ARMED", 262, PILOT_WEAPONS, "Left Outboard Pylon Arm Lamp (Yellow)")
+F_4E:defineIndicatorLight("PLT_WPN_LI_ARMED", 263, PILOT_WEAPONS, "Left Inboard Pylon Arm Lamp (Yellow)")
+F_4E:defineIndicatorLight("PLT_WPN_CENTER_ARMED", 264, PILOT_WEAPONS, "Center Pylon Selected Arm Lamp (Yellow)")
+F_4E:defineIndicatorLight("PLT_WPN_RI_ARMED", 265, PILOT_WEAPONS, "Right Inboard Pylon Arm Lamp (Yellow)")
+F_4E:defineIndicatorLight("PLT_WPN_RO_ARMED", 266, PILOT_WEAPONS, "Right Outboard Pylon Arm Lamp (Yellow)")
+
+-- heads-up weapon lights
+F_4E:defineIndicatorLight("PLT_WPN_HU_ARM", 248, PILOT_WEAPONS, "Heads-up Arm Lamp (Yellow)")
+F_4E:defineIndicatorLight("PLT_WPN_HU_GUN", 274, PILOT_WEAPONS, "Heads-up Gun Lamp (Blue)")
+F_4E:defineIndicatorLight("PLT_WPN_HU_RADAR", 279, PILOT_WEAPONS, "Heads-up Radar Lamp (Blue)")
+F_4E:defineIndicatorLight("PLT_WPN_HU_HEAT", 280, PILOT_WEAPONS, "Heads-up Heat Lamp (Blue)")
+
+-- heat/radar missile indicators
+F_4E:defineIndicatorLight("PLT_WPN_HEAT_LO", 284, PILOT_WEAPONS, "Outer Left Heat Lamp (Blue)")
+F_4E:defineIndicatorLight("PLT_WPN_HEAT_LI", 285, PILOT_WEAPONS, "Inner Left Heat Lamp (Blue)")
+F_4E:defineIndicatorLight("PLT_WPN_HEAT_RI", 286, PILOT_WEAPONS, "Inner Right Heat Lamp (Blue)")
+F_4E:defineIndicatorLight("PLT_WPN_HEAT_RO", 287, PILOT_WEAPONS, "Outer Right Heat Lamp (Blue)")
+
+F_4E:defineIndicatorLight("PLT_WPN_RADAR_TL", 288, PILOT_WEAPONS, "Top Left Radar Lamp (Blue)")
+F_4E:defineIndicatorLight("PLT_WPN_RADAR_BL", 289, PILOT_WEAPONS, "Bottom Left Radar Lamp (Blue)")
+F_4E:defineIndicatorLight("PLT_WPN_RADAR_TR", 290, PILOT_WEAPONS, "Top Right Radar Lamp (Blue)")
+F_4E:defineIndicatorLight("PLT_WPN_RADAR_BR", 291, PILOT_WEAPONS, "Bottom Right Radar Lamp (Blue)")
+
+-- centerline tank aboard light
+F_4E:defineIndicatorLight("PLT_WPN_CL_TANK_ABOARD", 349, PILOT_WEAPONS, "Centerline Tank Aboard Lamp (Blue)")
+
+-- canopy rail shoot lights (green), shoot lights by aoa indexer (red)
+F_4E:defineIndicatorLight("PLT_WPN_SHOOT_CANOPY_L", 2593, PILOT_WEAPONS, "Left Canopy Rail Shoot Lamp (Green)")
+F_4E:defineIndicatorLight("PLT_WPN_SHOOT_CANOPY_C", 374, PILOT_WEAPONS, "Center Canopy Rail Shoot Lamp (Green)")
+F_4E:defineIndicatorLight("PLT_WPN_SHOOT_CANOPY_R", 2594, PILOT_WEAPONS, "Right Canopy Rail Shoot Lamp (Green)")
+
+F_4E:defineIndicatorLight("PLT_WPN_SHOOT_HU_L", 2530, PILOT_WEAPONS, "Left Heads-up Shoot Lamp (Red)")
+F_4E:defineIndicatorLight("PLT_WPN_SHOOT_HU_R", 2531, PILOT_WEAPONS, "Right Heads-up Shoot Lamp (Red)")
+
+-- WSO Weapons
+local WSO_WEAPONS = "WSO Weapons"
+
+F_4E:defineIndicatorLight("WSO_WPN_SHOOT_HU", 2677, WSO_WEAPONS, "Heads-up Shoot Lamp (Green)")
+F_4E:defineToggleSwitch("WSO_WPN_LABS_TONE", WEAPONS_DEVICE_ID, 3078, 350, WSO_WEAPONS, "LABS Pull-Up Tone")
+
+-- Turn Coordinators
 local TURN_SLIP_DEVICE_ID = 29
+
+-- Pilot Turn Coordinator
+local PLT_TURN_COORDINATOR = "PLT Turn Coordinator"
+
+F_4E:defineFloat("PLT_TURN_BALL", 420, { -1, 1 }, PLT_TURN_COORDINATOR, "Slip Ball")
+F_4E:defineFloat("PLT_TURN_INDICATOR", 421, { -1, 1 }, PLT_TURN_COORDINATOR, "Turn Coordinator rotation")
+
+-- WSO Turn Coordinator
+local WSO_TURN_COORDINATOR = "WSO Turn Coordinator"
+
+F_4E:defineFloat("WSO_TURN_BALL", 610, { -1, 1 }, WSO_TURN_COORDINATOR, "Slip Ball")
+F_4E:defineFloat("WSO_TURN_INDICATOR", 611, { -1, 1 }, WSO_TURN_COORDINATOR, "Turn Coordinator rotation")
 
 -- HUD (AN-ASG-26)
 local HUD_DEVICE_ID = 31
+
+local PLT_HUD = "PLT HUD"
+
+F_4E:defineToggleSwitch("PLT_HUD_SHUTTER", HUD_DEVICE_ID, 3004, 282, PLT_HUD, "Toggle Collimator Shutter")
+F_4E:definePotentiometer("PLT_HUD_BRIGHTNESS", HUD_DEVICE_ID, 3003, 1201, { 0, 1 }, PLT_HUD, "Change HUD Brightness")
+F_4E:definePotentiometer("PLT_HUD_DEPRESSION", HUD_DEVICE_ID, 3002, 267, { 0, 1 }, PLT_HUD, "Change Reticle Depression (mil)")
+F_4E:defineMultipositionSwitch0To1("PLT_HUD_MODE", HUD_DEVICE_ID, 3001, 271, 7, PLT_HUD, "Select HUD Mode")
+
+F_4E:defineString("PLT_HUD_DEPRESSION_MILS", function(dev0)
+	return drum_set(dev0, 268, 269, 270)
+end, 3, PLT_HUD, "Reticle Depression (mils)")
 
 -- Accelerometer
 local ACCELEROMETER_DEVICE_ID = 35
@@ -546,6 +1043,25 @@ F_4E:definePushButton("PLT_FUEL_BOOST_PUMP_L_CHECK", FUEL_DEVICE_ID, 3021, 725, 
 F_4E:definePushButton("PLT_FUEL_BOOST_PUMP_R_CHECK", FUEL_DEVICE_ID, 3022, 726, PILOT_FUEL_PANEL, "Check Right Boost Pump")
 F_4E:definePushButton("PLT_FUEL_FEED_TANK_CHECK", FUEL_DEVICE_ID, 3013, 2789, PILOT_FUEL_PANEL, "Check Engine-Feed Tank")
 
+-- fuel totalizer
+F_4E:defineFloatFromArg("PLT_FUEL_GAUGE_TAPE", 723, PILOT_FUEL_PANEL, "Fuel Gauge Tape")
+F_4E:defineString("PLT_FUEL_GAUGE_VALUE", function(dev0)
+	local tens = drum_value(dev0, 719)
+	local hundreds = drum_value(dev0, 720)
+	local thousands = drum_value(dev0, 721)
+	local ten_thousands = drum_value(dev0, 722)
+
+	return string.format("%d%d%d%d", ten_thousands, thousands, hundreds, tens)
+end, 4, PILOT_FUEL_PANEL, "Pilot Fuel Gauge Total Internal Fuel (x10)")
+
+-- boost pump gauges
+F_4E:defineFloatFromArg("PLT_FUEL_BOOST_PUMP_L", 713, PILOT_FUEL_PANEL, "Left Fuel Boost Pump Pressure")
+F_4E:defineFloatFromArg("PLT_FUEL_BOOST_PUMP_R", 714, PILOT_FUEL_PANEL, "Right Fuel Boost Pump Pressure")
+
+-- fuel flow gauges
+F_4E:defineFloatFromArg("PLT_FUEL_FLOW_L", 297, PILOT_FUEL_PANEL, "Left Engine Fuel Flow")
+F_4E:defineFloatFromArg("PLT_FUEL_FLOW_R", 298, PILOT_FUEL_PANEL, "Right Engine Fuel Flow")
+
 -- Attitude Reference
 local ATTITUDE_REFERENCE_DEVICE_ID = 62
 
@@ -573,16 +1089,12 @@ local iff_hundreds = 0
 local iff_thousands = 0
 local iff_code = ""
 
-local function wso_iff_argument_display(dev0, arg_number)
-	return Module.round(dev0:get_argument_value(arg_number) * 8) % 8
-end
-
 -- WSO IFF display
 F_4E:addExportHook(function(dev0)
-	iff_ones = wso_iff_argument_display(dev0, 2000)
-	iff_tens = wso_iff_argument_display(dev0, 2001)
-	iff_hundreds = wso_iff_argument_display(dev0, 2002)
-	iff_thousands = wso_iff_argument_display(dev0, 2003)
+	iff_ones = drum_value(dev0, 2000, false, 8)
+	iff_tens = drum_value(dev0, 2001, false, 8)
+	iff_hundreds = drum_value(dev0, 2002, false, 8)
+	iff_thousands = drum_value(dev0, 2003, false, 8)
 	iff_code = string.format("%d%d%d%d", iff_thousands, iff_hundreds, iff_tens, iff_ones)
 end)
 
@@ -634,18 +1146,16 @@ F_4E:definePushButton("WSO_IFF_MODE_DEC_HUNDREDS", IFF_INTERROGATOR_DEVICE_ID, 3
 F_4E:definePushButton("WSO_IFF_MODE_DEC_TENS", IFF_INTERROGATOR_DEVICE_ID, 3009, 2632, WSO_IFF_PANEL, "Decrease IFF Code (tens)")
 F_4E:definePushButton("WSO_IFF_MODE_DEC_ONES", IFF_INTERROGATOR_DEVICE_ID, 3010, 2630, WSO_IFF_PANEL, "Decrease IFF Code (ones)")
 
--- todo: output good, input bad (button + potentiometer). commands seem correct, unclear what is wrong
-F_4E:definePushButton("WSO_IFF_CHALLENGE_TEST_BUTTON", IFF_DEVICE_ID, 3015, 2646, WSO_IFF_PANEL, "Challenge Light (push to test)")
-F_4E:definePotentiometer("WSO_IFF_CHALLENGE_DIM", IFF_DEVICE_ID, 3016, 2811, { 0, 1 }, WSO_IFF_PANEL, "Challenge Light (rotate to dim)")
+F_4E:definePushButton("WSO_IFF_CHALLENGE_TEST_BUTTON", IFF_INTERROGATOR_DEVICE_ID, 3015, 2646, WSO_IFF_PANEL, "Challenge Light (push to test)")
+F_4E:definePotentiometer("WSO_IFF_CHALLENGE_DIM", IFF_INTERROGATOR_DEVICE_ID, 3016, 2811, { 0, 1 }, WSO_IFF_PANEL, "Challenge Light (rotate to dim)")
 F_4E:defineIndicatorLight("WSO_IFF_CHALLENGE_LIGHT", 2695, WSO_IFF_PANEL, "IFF Challenge Light (Blue)")
 
 F_4E:defineSpringloaded_3PosTumb("WSO_IFF_TEST_CHALLENGE", IFF_INTERROGATOR_DEVICE_ID, 3013, 3013, 2645, WSO_IFF_PANEL, "Test/Challenge Code Switch")
 
 F_4E:reserveIntValue(1) -- Anti-Jam, not yet implemented
 
--- todo: output good, input bad (button + potentiometer). commands seem correct, unclear what is wrong
-F_4E:definePushButton("WSO_IFF_COMBAT_TREE_CHALLENGE_TEST_BUTTON", IFF_DEVICE_ID, 3018, 2640, WSO_IFF_PANEL, "Combat-Tree Challenge Light (push to test) (not simulated)")
-F_4E:definePotentiometer("WSO_IFF_COMBAT_TREE_CHALLENGE_DIM", IFF_DEVICE_ID, 3019, 2812, { 0, 1 }, WSO_IFF_PANEL, "Combat-Tree Challenge Light (rotate to dim) (not simulated)")
+F_4E:definePushButton("WSO_IFF_COMBAT_TREE_CHALLENGE_TEST_BUTTON", IFF_INTERROGATOR_DEVICE_ID, 3018, 2640, WSO_IFF_PANEL, "Combat-Tree Challenge Light (push to test) (not simulated)")
+F_4E:definePotentiometer("WSO_IFF_COMBAT_TREE_CHALLENGE_DIM", IFF_INTERROGATOR_DEVICE_ID, 3019, 2812, { 0, 1 }, WSO_IFF_PANEL, "Combat-Tree Challenge Light (rotate to dim) (not simulated)")
 F_4E:defineIndicatorLight("WSO_IFF_COMBAT_TREE_CHALLENGE_TEST_LIGHT", 2696, WSO_IFF_PANEL, "Combat-Tree Challenge Light (Blue)")
 
 F_4E:definePushButton("WSO_IFF_COMBAT_TREE_TEST", IFF_INTERROGATOR_DEVICE_ID, 3021, 2641, WSO_IFF_PANEL, "Test Combat-Tree")
@@ -716,22 +1226,32 @@ local ECM_DEVICE_ID = 91
 -- Pilot Stick
 local PILOT_STICK = "PLT Stick"
 
-F_4E:definePushButton("PLT_AFCS_EMERGENCY_RELEASE", AFCS_DEVICE_ID, 3020, 2782, PILOT_STICK, "Emergency Quick Release")
+F_4E:definePushButton("PLT_STICK_AIR_REFUEL_RELEASE", WEAPONS_DEVICE_ID, 3020, 2780, PILOT_STICK, "Air Refuel Release Button")
+F_4E:definePushButton("PLT_STICK_NWS", LANDING_GEAR_DEVICE_ID, 3006, 2781, PILOT_STICK, "Nosegear Steering Button")
+F_4E:definePushButton("PLT_STICK_AFCS_EMERGENCY_RELEASE", AFCS_DEVICE_ID, 3020, 2782, PILOT_STICK, "Emergency Quick Release")
 
 -- WSO Stick
 local WSO_STICK = "WSO Stick"
 
-F_4E:definePushButton("WSO_AFCS_EMERGENCY_RELEASE", AFCS_DEVICE_ID, 3021, 2788, WSO_STICK, "Emergency Quick Release")
+F_4E:definePushButton("WSO_STICK_NWS", LANDING_GEAR_DEVICE_ID, 3007, 2787, WSO_STICK, "Nosegear Steering Button")
+F_4E:definePushButton("WSO_STICK_AFCS_EMERGENCY_RELEASE", AFCS_DEVICE_ID, 3021, 2788, WSO_STICK, "Emergency Quick Release")
 
 -- Pilot Throttle
 local PILOT_THROTTLE = "PLT Throttle"
 
+F_4E:definePushButton("PLT_THROTTLE_IGNITION_L", ENGINE_DEVICE_ID, 3004, 295, PILOT_THROTTLE, "Ignite Left Engine")
+F_4E:definePushButton("PLT_THROTTLE_IGNITION_R", ENGINE_DEVICE_ID, 3005, 296, PILOT_THROTTLE, "Ignite Right Engine")
+F_4E:defineSpringloaded_3PosTumb("PLT_THROTTLE_SPEED_BRAKE", CONTROL_SURFACES_DEVICE_ID, 3001, 3001, 2610, PILOT_THROTTLE, "Speed Brake")
 F_4E:defineSpringloaded_3PosTumb("PLT_THROTTLE_MIC", ICS_DEVICE_ID, 3001, 3001, 2609, PILOT_THROTTLE, "Mic Switch")
+F_4E:definePushButton("PLT_THROTTLE_WPN_CAGE", WEAPONS_DEVICE_ID, 3018, 1435, PILOT_THROTTLE, "Cage Mode")
 F_4E:definePushButton("PLT_THROTTLE_CM_DISPENSE", COUNTERMEASURES_DEVICE_ID, 3012, 1436, PILOT_THROTTLE, "Dispense Countermeasures")
+F_4E:definePushButton("PLT_THROTTLE_DETENT_L", ENGINE_DEVICE_ID, 3006, 2607, PILOT_THROTTLE, "Left Idle Detent")
+F_4E:definePushButton("PLT_THROTTLE_DETENT_R", ENGINE_DEVICE_ID, 3007, 2608, PILOT_THROTTLE, "Right Idle Detent")
 
 -- WSO Throttle
 local WSO_THROTTLE = "WSO Throttle"
 
+F_4E:defineSpringloaded_3PosTumb("WSO_THROTTLE_SPEED_BRAKE", CONTROL_SURFACES_DEVICE_ID, 3015, 3015, 2670, WSO_THROTTLE, "Speed Brake")
 F_4E:defineSpringloaded_3PosTumb("WSO_THROTTLE_MIC", ICS_DEVICE_ID, 3002, 3002, 2671, WSO_THROTTLE, "Mic Switch")
 
 -- Pilot Left Subpanel
