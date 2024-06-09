@@ -997,6 +997,11 @@ local PITOT_STATIC_DEVICE_ID = 36
 -- CADC
 local CADC_DEVICE_ID = 38
 
+-- Pilot CADC
+local PILOT_CADC = "PLT CADC"
+
+F_4E:defineSpringloaded_3PosTumb("PLT_CADC_CORRECTION", CADC_DEVICE_ID, 3001, 3001, 113, PILOT_CADC, "CADC Corrections")
+
 -- Speed Indicator
 local SPEED_DEVICE_ID = 39
 
