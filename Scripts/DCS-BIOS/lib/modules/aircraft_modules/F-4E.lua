@@ -1002,8 +1002,30 @@ local PILOT_CADC = "PLT CADC"
 
 F_4E:defineSpringloaded_3PosTumb("PLT_CADC_CORRECTION", CADC_DEVICE_ID, 3001, 3001, 113, PILOT_CADC, "CADC Corrections")
 
--- Speed Indicator
-local SPEED_DEVICE_ID = 39
+-- Airspeed Indicator
+local ASI_DEVICE_ID = 39
+
+-- Pilot Airspeed Indicator
+local PILOT_ASI = "PLT Airspeed Indicator"
+
+F_4E:defineRotary("PLT_ASI_BUG", ASI_DEVICE_ID, 3001, 106, PILOT_ASI, "Move Bug")
+F_4E:defineToggleSwitch("PLT_ASI_BUG_UNITS", ASI_DEVICE_ID, 3002, 107, PILOT_ASI, "Toggle Speed/Mach bugs")
+
+F_4E:defineFloatFromArg("PLT_ASI_NEEDLE", 102, PILOT_ASI, "IAS Needle")
+F_4E:defineFloatFromArg("PLT_ASI_MACH_DIAL", 103, PILOT_ASI, "Mach Dial rotation")
+F_4E:defineFloatFromArg("PLT_ASI_AIRSPEED_BUG", 104, PILOT_ASI, "Airspeed Bug")
+F_4E:defineFloatFromArg("PLT_ASI_MACH_BUG", 105, PILOT_ASI, "Mach Bug")
+
+-- WSO Airspeed Indicator
+local WSO_ASI = "WSO Airspeed Indicator"
+
+F_4E:defineRotary("WSO_ASI_BUG", ASI_DEVICE_ID, 3003, 197, WSO_ASI, "Move Bug")
+F_4E:defineToggleSwitch("WSO_ASI_BUG_UNITS", ASI_DEVICE_ID, 3004, 198, WSO_ASI, "Toggle Speed/Mach bugs")
+
+F_4E:defineFloatFromArg("WSO_ASI_NEEDLE", 193, WSO_ASI, "IAS Needle")
+F_4E:defineFloatFromArg("WSO_ASI_MACH_DIAL", 194, WSO_ASI, "Mach Dial rotation")
+F_4E:defineFloatFromArg("WSO_ASI_AIRSPEED_BUG", 195, WSO_ASI, "Airspeed Bug")
+F_4E:defineFloatFromArg("WSO_ASI_MACH_BUG", 196, WSO_ASI, "Mach Bug")
 
 -- Barometric Altimeter
 local BARO_ALTIMETER_DEVICE_ID = 40
