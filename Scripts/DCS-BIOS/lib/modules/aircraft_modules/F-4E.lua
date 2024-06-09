@@ -1143,6 +1143,13 @@ F_4E:defineMultipositionRollerLimited("WSO_CNI_NAVIGATION_INPUT", CNI_DEVICE_ID,
 -- Ground Speed Indicator
 local GS_DEVICE_ID = 46
 
+-- WSO Ground Speed Indicator
+local WSO_GSI = "WSO Ground Speed Indicator"
+
+F_4E:defineString("WSO_GSI", function(dev0)
+	return drum_set(dev0, 607, 606, 605, 604)
+end, 4, WSO_GSI, "Ground Speed")
+
 -- Emergency Attitude Indicator
 local EMERGENCY_ATTITUDE_DEVICE_ID = 47
 
