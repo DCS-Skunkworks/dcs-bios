@@ -1153,6 +1153,18 @@ end, 4, WSO_GSI, "Ground Speed")
 -- Emergency Attitude Indicator
 local EMERGENCY_ATTITUDE_DEVICE_ID = 47
 
+-- Pilot Emergency Attitude Indicator
+local PILOT_SAI = "PLT Emergency Attitude Indicator"
+
+F_4E:defineToggleSwitch("PLT_SAI_CAGE", EMERGENCY_ATTITUDE_DEVICE_ID, 3002, 628, PILOT_SAI, "Cage/Uncage")
+-- todo: set state basically functions as an inc, inc/dec don't work as expected
+F_4E:definePotentiometer("PLT_SAI_TRIM", EMERGENCY_ATTITUDE_DEVICE_ID, 3001, 629, { 0, 1 }, PILOT_SAI, "Trim Emergency Attitude Indicator")
+
+F_4E:defineFloat("PLT_SAI_PITCH", 625, { -1, 1 }, PILOT_SAI, "Y-Axis Rotation (Pitch)")
+F_4E:defineFloatFromArg("PLT_SAI_ROLL", 626, PILOT_SAI, "Z-Axis Rotation (Roll)")
+F_4E:defineFloat("PLT_SAI_TRIM_BAR", 630, { -1, 1 }, PILOT_SAI, "Horizon Indicator Position")
+F_4E:defineFloatFromArg("PLT_SAI_OFF_FLAG", 627, PILOT_SAI, "Off Warning Flag")
+
 -- TACAN (AN-ARN-118)
 local TACAN_DEVICE_ID = 48
 
