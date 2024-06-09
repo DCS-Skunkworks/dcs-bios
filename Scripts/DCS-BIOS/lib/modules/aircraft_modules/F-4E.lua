@@ -1115,6 +1115,23 @@ end, 4, WSO_TAS, "True Airspeed")
 -- ADI (ARU-11-A)
 local ADI_DEVICE_ID = 44
 
+-- Pilot ADI
+local PILOT_ADI = "PLT ADI"
+
+F_4E:defineToggleSwitch("PLT_ADI_REFERENCE_SYSTEM", ADI_DEVICE_ID, 3002, 692, PILOT_ADI, "Select Reference System")
+F_4E:definePotentiometer("PLT_ADI_PITCH_ADJUST", ADI_DEVICE_ID, 3004, 612, { 0, 1 }, PILOT_ADI, "Adjust Pitch")
+
+F_4E:defineFloat("PLT_ADI_HEADING", 613, { -1, 1 }, PILOT_ADI, "X-Axis Rotation (Yaw)")
+F_4E:defineFloat("PLT_ADI_ROLL", 614, { -1, 1 }, PILOT_ADI, "Z-Axis Rotation (Roll)")
+F_4E:defineFloat("PLT_ADI_PITCH", 615, { -1, 1 }, PILOT_ADI, "Y-Axis Rotation (Pitch)")
+F_4E:defineFloat("PLT_ADI_ROLL_STEERING_BAR", 616, { -1, 1 }, PILOT_ADI, "Pitch Roll Cue Bar (Yellow)")
+F_4E:defineFloat("PLT_ADI_PITCH_STEERING_BAR", 617, { -1, 1 }, PILOT_ADI, "Pitch Steering Cue Bar (Yellow)")
+F_4E:defineFloat("PLT_ADI_BANK", 618, { -1, 1 }, PILOT_ADI, "Bank Pointers")
+F_4E:defineFloat("PLT_ADI_GLIDESLOPE", 619, { -1, 1 }, PILOT_ADI, "Glideslope Pointer")
+F_4E:defineFloatFromArg("PLT_ADI_COURSE_WARNING_FLAG", 620, PILOT_ADI, "Course Warning Flag")
+F_4E:defineFloatFromArg("PLT_ADI_GLIDESLOPE_WARNING_FLAG", 621, PILOT_ADI, "Glideslope Warning Flag")
+F_4E:defineFloatFromArg("PLT_ADI_OFF_WARNING_FLAG", 622, PILOT_ADI, "Off Warning Flag")
+
 -- CNI (AN-ASQ-19A)
 local CNI_DEVICE_ID = 45
 
