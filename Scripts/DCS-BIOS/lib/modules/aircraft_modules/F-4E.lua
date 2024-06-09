@@ -1085,6 +1085,16 @@ F_4E:defineFloatFromArg("WSO_BARO_STANDBY", 192, WSO_BARO_ALTIMETER, "Standby Fl
 -- Vertical Velocity Indicator
 local VVI_DEVICE_ID = 41
 
+-- Pilot VVI
+local PILOT_VVI = "PLT Vertical Velocity Indicator"
+
+F_4E:defineFloat("PLT_VVI_NEEDLE", 90, { -1, 1 }, PILOT_VVI, "VVI Needle")
+
+-- WSO VVI
+local WSO_VVI = "WSO Vertical Velocity Indicator"
+
+F_4E:defineFloat("WSO_VVI_NEEDLE", 181, { -1, 1 }, WSO_VVI, "VVI Needle")
+
 -- TAS Indicator
 local TAS_DEVICE_ID = 42
 
