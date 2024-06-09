@@ -413,7 +413,7 @@ local PILOT_RADAR_ALTIMETER = "PLT Radar Altimeter"
 F_4E:definePushButton("PLT_RADAR_ALT_PUSH_TEST", RADAR_ALTIMETER_DEVICE_ID, 3001, 84, PILOT_RADAR_ALTIMETER, "Move Bug (push to test)")
 F_4E:definePotentiometer("PLT_RADAR_ALT_MOVE_BUG", RADAR_ALTIMETER_DEVICE_ID, 3002, 83, { -0.2, 1 }, PILOT_RADAR_ALTIMETER, "Move Bug (rotate to 0 to turn off)")
 F_4E:defineIndicatorLight("PLT_RADAR_ALT_WARN_LIGHT", 85, PILOT_RADAR_ALTIMETER, "Radar Altimeter Low Altitude Lamp (Red)")
-F_4E:defineFloatFromArg("PLT_RADAR_ALT_NEEDLE", 73, PILOT_RADAR_ALTIMETER, "Radar Altimeter Needle")
+F_4E:defineFloat("PLT_RADAR_ALT_NEEDLE", 73, { -1, 1 }, PILOT_RADAR_ALTIMETER, "Radar Altimeter Needle")
 F_4E:defineFloatFromArg("PLT_RADAR_ALT_BUG", 74, PILOT_RADAR_ALTIMETER, "Radar Altimeter Altitude Bug")
 F_4E:defineFloatFromArg("PLT_RADAR_ALT_OFF_FLAG", 75, PILOT_RADAR_ALTIMETER, "Radar Altimeter Off Flag")
 
