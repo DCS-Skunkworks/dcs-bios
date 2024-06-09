@@ -2932,12 +2932,12 @@ docdata["F-4E"] =
                                                                                                       "max_value": 2
                                                                                                 } ],
                                                                                      "outputs": [ {
-                                                                                                                          "address": 11232,
+                                                                                                                          "address": 11236,
                                                                                                     "address_mask_shift_identifier": "F_4E_PLT_EXT_LIGHT_ANTI_COLL",
                                                                                                                       "description": "selector position",
-                                                                                                                             "mask": 24576,
+                                                                                                                             "mask": 3,
                                                                                                                         "max_value": 2,
-                                                                                                                         "shift_by": 13,
+                                                                                                                         "shift_by": 0,
                                                                                                                            "suffix": "",
                                                                                                                              "type": "integer"
                                                                                                 } ]
@@ -2959,9 +2959,9 @@ docdata["F-4E"] =
                                                                                                                           "address": 11236,
                                                                                                     "address_mask_shift_identifier": "F_4E_PLT_EXT_LIGHT_FLASH_MODE",
                                                                                                                       "description": "selector position",
-                                                                                                                             "mask": 3,
+                                                                                                                             "mask": 12,
                                                                                                                         "max_value": 2,
-                                                                                                                         "shift_by": 0,
+                                                                                                                         "shift_by": 2,
                                                                                                                            "suffix": "",
                                                                                                                              "type": "integer"
                                                                                                 } ]
@@ -2983,9 +2983,9 @@ docdata["F-4E"] =
                                                                                                                           "address": 11236,
                                                                                                     "address_mask_shift_identifier": "F_4E_PLT_EXT_LIGHT_TAIL_BRIGHTNESS",
                                                                                                                       "description": "selector position",
-                                                                                                                             "mask": 12,
+                                                                                                                             "mask": 48,
                                                                                                                         "max_value": 2,
-                                                                                                                         "shift_by": 2,
+                                                                                                                         "shift_by": 4,
                                                                                                                            "suffix": "",
                                                                                                                              "type": "integer"
                                                                                                 } ]
@@ -3007,9 +3007,9 @@ docdata["F-4E"] =
                                                                                                                           "address": 11236,
                                                                                                     "address_mask_shift_identifier": "F_4E_PLT_EXT_LIGHT_WING_BRIGHTNESS",
                                                                                                                       "description": "selector position",
-                                                                                                                             "mask": 48,
+                                                                                                                             "mask": 192,
                                                                                                                         "max_value": 2,
-                                                                                                                         "shift_by": 4,
+                                                                                                                         "shift_by": 6,
                                                                                                                            "suffix": "",
                                                                                                                              "type": "integer"
                                                                                                 } ]
@@ -3034,13 +3034,13 @@ docdata["F-4E"] =
                                                                                                        "interface": "action"
                                                                                                  } ],
                                                                                       "outputs": [ {
-                                                                                                                           "address": 11150,
+                                                                                                                           "address": 11164,
                                                                                                            "address_mask_identifier": "F_4E_PLT_FUEL_AIR_REFUEL_AM",
                                                                                                      "address_mask_shift_identifier": "F_4E_PLT_FUEL_AIR_REFUEL",
                                                                                                                        "description": "selector position",
-                                                                                                                              "mask": 16384,
+                                                                                                                              "mask": 256,
                                                                                                                          "max_value": 1,
-                                                                                                                          "shift_by": 14,
+                                                                                                                          "shift_by": 8,
                                                                                                                             "suffix": "",
                                                                                                                               "type": "integer"
                                                                                                  } ]
@@ -3086,9 +3086,9 @@ docdata["F-4E"] =
                                                                                                            "address_mask_identifier": "F_4E_PLT_FUEL_BOOST_PUMP_L_CHECK_AM",
                                                                                                      "address_mask_shift_identifier": "F_4E_PLT_FUEL_BOOST_PUMP_L_CHECK",
                                                                                                                        "description": "selector position",
-                                                                                                                              "mask": 1024,
+                                                                                                                              "mask": 4096,
                                                                                                                          "max_value": 1,
-                                                                                                                          "shift_by": 10,
+                                                                                                                          "shift_by": 12,
                                                                                                                             "suffix": "",
                                                                                                                               "type": "integer"
                                                                                                  } ]
@@ -3134,9 +3134,9 @@ docdata["F-4E"] =
                                                                                                            "address_mask_identifier": "F_4E_PLT_FUEL_BOOST_PUMP_R_CHECK_AM",
                                                                                                      "address_mask_shift_identifier": "F_4E_PLT_FUEL_BOOST_PUMP_R_CHECK",
                                                                                                                        "description": "selector position",
-                                                                                                                              "mask": 2048,
+                                                                                                                              "mask": 8192,
                                                                                                                          "max_value": 1,
-                                                                                                                          "shift_by": 11,
+                                                                                                                          "shift_by": 13,
                                                                                                                             "suffix": "",
                                                                                                                               "type": "integer"
                                                                                                  } ]
@@ -3158,9 +3158,9 @@ docdata["F-4E"] =
                                                                                                                            "address": 11164,
                                                                                                      "address_mask_shift_identifier": "F_4E_PLT_FUEL_EXTERNAL_TANKS_FEED",
                                                                                                                        "description": "selector position",
-                                                                                                                              "mask": 768,
+                                                                                                                              "mask": 3072,
                                                                                                                          "max_value": 2,
-                                                                                                                          "shift_by": 8,
+                                                                                                                          "shift_by": 10,
                                                                                                                             "suffix": "",
                                                                                                                               "type": "integer"
                                                                                                  } ]
@@ -3188,9 +3188,9 @@ docdata["F-4E"] =
                                                                                                            "address_mask_identifier": "F_4E_PLT_FUEL_FEED_TANK_CHECK_AM",
                                                                                                      "address_mask_shift_identifier": "F_4E_PLT_FUEL_FEED_TANK_CHECK",
                                                                                                                        "description": "selector position",
-                                                                                                                              "mask": 4096,
+                                                                                                                              "mask": 16384,
                                                                                                                          "max_value": 1,
-                                                                                                                          "shift_by": 12,
+                                                                                                                          "shift_by": 14,
                                                                                                                             "suffix": "",
                                                                                                                               "type": "integer"
                                                                                                  } ]
@@ -3286,9 +3286,9 @@ docdata["F-4E"] =
                                                                                                            "address_mask_identifier": "F_4E_PLT_FUEL_REFUEL_SELECTOR_AM",
                                                                                                      "address_mask_shift_identifier": "F_4E_PLT_FUEL_REFUEL_SELECTOR",
                                                                                                                        "description": "selector position",
-                                                                                                                              "mask": 8192,
+                                                                                                                              "mask": 32768,
                                                                                                                          "max_value": 1,
-                                                                                                                          "shift_by": 13,
+                                                                                                                          "shift_by": 15,
                                                                                                                             "suffix": "",
                                                                                                                               "type": "integer"
                                                                                                  } ]
@@ -3315,9 +3315,9 @@ docdata["F-4E"] =
                                                                                                            "address_mask_identifier": "F_4E_PLT_FUEL_REFUEL_SELECTOR_COVER_AM",
                                                                                                      "address_mask_shift_identifier": "F_4E_PLT_FUEL_REFUEL_SELECTOR_COVER",
                                                                                                                        "description": "selector position",
-                                                                                                                              "mask": 4096,
+                                                                                                                              "mask": 16384,
                                                                                                                          "max_value": 1,
-                                                                                                                          "shift_by": 12,
+                                                                                                                          "shift_by": 14,
                                                                                                                             "suffix": "",
                                                                                                                               "type": "integer"
                                                                                                  } ]
@@ -3340,13 +3340,13 @@ docdata["F-4E"] =
                                                                                                        "interface": "action"
                                                                                                  } ],
                                                                                       "outputs": [ {
-                                                                                                                           "address": 11150,
+                                                                                                                           "address": 11164,
                                                                                                            "address_mask_identifier": "F_4E_PLT_FUEL_WING_FUEL_DUMP_AM",
                                                                                                      "address_mask_shift_identifier": "F_4E_PLT_FUEL_WING_FUEL_DUMP",
                                                                                                                        "description": "selector position",
-                                                                                                                              "mask": 32768,
+                                                                                                                              "mask": 512,
                                                                                                                          "max_value": 1,
-                                                                                                                          "shift_by": 15,
+                                                                                                                          "shift_by": 9,
                                                                                                                             "suffix": "",
                                                                                                                               "type": "integer"
                                                                                                  } ]
@@ -4684,9 +4684,9 @@ docdata["F-4E"] =
                                                                                                                     "address": 11260,
                                                                                               "address_mask_shift_identifier": "F_4E_PLT_EXT_LIGHT_TAXI_LAND",
                                                                                                                 "description": "selector position",
-                                                                                                                       "mask": 768,
+                                                                                                                       "mask": 3072,
                                                                                                                   "max_value": 2,
-                                                                                                                   "shift_by": 8,
+                                                                                                                   "shift_by": 10,
                                                                                                                      "suffix": "",
                                                                                                                        "type": "integer"
                                                                                           } ]
@@ -5032,9 +5032,9 @@ docdata["F-4E"] =
                                                                                                                    "address_mask_identifier": "F_4E_PLT_COCKPIT_PRESSURE_EMERGENCY_RELEASE_AM",
                                                                                                              "address_mask_shift_identifier": "F_4E_PLT_COCKPIT_PRESSURE_EMERGENCY_RELEASE",
                                                                                                                                "description": "selector position",
-                                                                                                                                      "mask": 1024,
+                                                                                                                                      "mask": 4096,
                                                                                                                                  "max_value": 1,
-                                                                                                                                  "shift_by": 10,
+                                                                                                                                  "shift_by": 12,
                                                                                                                                     "suffix": "",
                                                                                                                                       "type": "integer"
                                                                                                          } ]
@@ -5061,9 +5061,9 @@ docdata["F-4E"] =
                                                                                                                    "address_mask_identifier": "F_4E_PLT_PITOT_HEAT_AM",
                                                                                                              "address_mask_shift_identifier": "F_4E_PLT_PITOT_HEAT",
                                                                                                                                "description": "selector position",
-                                                                                                                                      "mask": 2048,
+                                                                                                                                      "mask": 8192,
                                                                                                                                  "max_value": 1,
-                                                                                                                                  "shift_by": 11,
+                                                                                                                                  "shift_by": 13,
                                                                                                                                     "suffix": "",
                                                                                                                                       "type": "integer"
                                                                                                          } ]
@@ -5111,9 +5111,9 @@ docdata["F-4E"] =
                                                                                                                                "address": 11260,
                                                                                                          "address_mask_shift_identifier": "F_4E_PLT_EXT_LIGHT_FORMATION_MODE",
                                                                                                                            "description": "switch position -- 0 = Down, 1 = Mid,  2 = Up",
-                                                                                                                                  "mask": 12288,
+                                                                                                                                  "mask": 49152,
                                                                                                                              "max_value": 2,
-                                                                                                                              "shift_by": 12,
+                                                                                                                              "shift_by": 14,
                                                                                                                                 "suffix": "",
                                                                                                                                   "type": "integer"
                                                                                                      } ]
@@ -5143,9 +5143,9 @@ docdata["F-4E"] =
                                                                                                              "address_mask_identifier": "F_4E_PLT_STICK_AFCS_EMERGENCY_RELEASE_AM",
                                                                                                        "address_mask_shift_identifier": "F_4E_PLT_STICK_AFCS_EMERGENCY_RELEASE",
                                                                                                                          "description": "selector position",
-                                                                                                                                "mask": 128,
+                                                                                                                                "mask": 512,
                                                                                                                            "max_value": 1,
-                                                                                                                            "shift_by": 7,
+                                                                                                                            "shift_by": 9,
                                                                                                                               "suffix": "",
                                                                                                                                 "type": "integer"
                                                                                                    } ]
@@ -5169,7 +5169,7 @@ docdata["F-4E"] =
                                                                                                          "interface": "action"
                                                                                                    } ],
                                                                                         "outputs": [ {
-                                                                                                                             "address": 11232,
+                                                                                                                             "address": 11230,
                                                                                                              "address_mask_identifier": "F_4E_PLT_STICK_AIR_REFUEL_RELEASE_AM",
                                                                                                        "address_mask_shift_identifier": "F_4E_PLT_STICK_AIR_REFUEL_RELEASE",
                                                                                                                          "description": "selector position",
@@ -5203,9 +5203,9 @@ docdata["F-4E"] =
                                                                                                              "address_mask_identifier": "F_4E_PLT_STICK_NWS_AM",
                                                                                                        "address_mask_shift_identifier": "F_4E_PLT_STICK_NWS",
                                                                                                                          "description": "selector position",
-                                                                                                                                "mask": 64,
+                                                                                                                                "mask": 256,
                                                                                                                            "max_value": 1,
-                                                                                                                            "shift_by": 6,
+                                                                                                                            "shift_by": 8,
                                                                                                                               "suffix": "",
                                                                                                                                 "type": "integer"
                                                                                                    } ]
@@ -5252,9 +5252,9 @@ docdata["F-4E"] =
                                                                                                      "address_mask_identifier": "F_4E_PLT_THROTTLE_CM_DISPENSE_AM",
                                                                                                "address_mask_shift_identifier": "F_4E_PLT_THROTTLE_CM_DISPENSE",
                                                                                                                  "description": "selector position",
-                                                                                                                        "mask": 2,
+                                                                                                                        "mask": 8,
                                                                                                                    "max_value": 1,
-                                                                                                                    "shift_by": 1,
+                                                                                                                    "shift_by": 3,
                                                                                                                       "suffix": "",
                                                                                                                         "type": "integer"
                                                                                            } ]
@@ -5282,9 +5282,9 @@ docdata["F-4E"] =
                                                                                                      "address_mask_identifier": "F_4E_PLT_THROTTLE_DETENT_L_AM",
                                                                                                "address_mask_shift_identifier": "F_4E_PLT_THROTTLE_DETENT_L",
                                                                                                                  "description": "selector position",
-                                                                                                                        "mask": 4,
+                                                                                                                        "mask": 16,
                                                                                                                    "max_value": 1,
-                                                                                                                    "shift_by": 2,
+                                                                                                                    "shift_by": 4,
                                                                                                                       "suffix": "",
                                                                                                                         "type": "integer"
                                                                                            } ]
@@ -5312,9 +5312,9 @@ docdata["F-4E"] =
                                                                                                      "address_mask_identifier": "F_4E_PLT_THROTTLE_DETENT_R_AM",
                                                                                                "address_mask_shift_identifier": "F_4E_PLT_THROTTLE_DETENT_R",
                                                                                                                  "description": "selector position",
-                                                                                                                        "mask": 8,
+                                                                                                                        "mask": 32,
                                                                                                                    "max_value": 1,
-                                                                                                                    "shift_by": 3,
+                                                                                                                    "shift_by": 5,
                                                                                                                       "suffix": "",
                                                                                                                         "type": "integer"
                                                                                            } ]
@@ -5342,9 +5342,9 @@ docdata["F-4E"] =
                                                                                                      "address_mask_identifier": "F_4E_PLT_THROTTLE_IGNITION_L_AM",
                                                                                                "address_mask_shift_identifier": "F_4E_PLT_THROTTLE_IGNITION_L",
                                                                                                                  "description": "selector position",
-                                                                                                                        "mask": 1024,
+                                                                                                                        "mask": 4096,
                                                                                                                    "max_value": 1,
-                                                                                                                    "shift_by": 10,
+                                                                                                                    "shift_by": 12,
                                                                                                                       "suffix": "",
                                                                                                                         "type": "integer"
                                                                                            } ]
@@ -5372,9 +5372,9 @@ docdata["F-4E"] =
                                                                                                      "address_mask_identifier": "F_4E_PLT_THROTTLE_IGNITION_R_AM",
                                                                                                "address_mask_shift_identifier": "F_4E_PLT_THROTTLE_IGNITION_R",
                                                                                                                  "description": "selector position",
-                                                                                                                        "mask": 2048,
+                                                                                                                        "mask": 8192,
                                                                                                                    "max_value": 1,
-                                                                                                                    "shift_by": 11,
+                                                                                                                    "shift_by": 13,
                                                                                                                       "suffix": "",
                                                                                                                         "type": "integer"
                                                                                            } ]
@@ -5390,12 +5390,12 @@ docdata["F-4E"] =
                                                                                                  "max_value": 2
                                                                                            } ],
                                                                                 "outputs": [ {
-                                                                                                                     "address": 11236,
+                                                                                                                     "address": 11260,
                                                                                                "address_mask_shift_identifier": "F_4E_PLT_THROTTLE_MIC",
                                                                                                                  "description": "switch position -- 0 = Down, 1 = Mid,  2 = Up",
-                                                                                                                        "mask": 49152,
+                                                                                                                        "mask": 3,
                                                                                                                    "max_value": 2,
-                                                                                                                    "shift_by": 14,
+                                                                                                                    "shift_by": 0,
                                                                                                                       "suffix": "",
                                                                                                                         "type": "integer"
                                                                                            } ]
@@ -5414,9 +5414,9 @@ docdata["F-4E"] =
                                                                                                                      "address": 11236,
                                                                                                "address_mask_shift_identifier": "F_4E_PLT_THROTTLE_SPEED_BRAKE",
                                                                                                                  "description": "switch position -- 0 = Down, 1 = Mid,  2 = Up",
-                                                                                                                        "mask": 12288,
+                                                                                                                        "mask": 49152,
                                                                                                                    "max_value": 2,
-                                                                                                                    "shift_by": 12,
+                                                                                                                    "shift_by": 14,
                                                                                                                       "suffix": "",
                                                                                                                         "type": "integer"
                                                                                            } ]
@@ -5444,9 +5444,9 @@ docdata["F-4E"] =
                                                                                                      "address_mask_identifier": "F_4E_PLT_THROTTLE_WPN_CAGE_AM",
                                                                                                "address_mask_shift_identifier": "F_4E_PLT_THROTTLE_WPN_CAGE",
                                                                                                                  "description": "selector position",
-                                                                                                                        "mask": 1,
+                                                                                                                        "mask": 4,
                                                                                                                    "max_value": 1,
-                                                                                                                    "shift_by": 0,
+                                                                                                                    "shift_by": 2,
                                                                                                                       "suffix": "",
                                                                                                                         "type": "integer"
                                                                                            } ]
@@ -8525,6 +8525,32 @@ docdata["F-4E"] =
                                                                                          } ]
                                                                      }
                                        },
+                            "WSO CNI": {
+                                           "WSO_CNI_NAVIGATION_INPUT": {
+                                                                               "category": "WSO CNI",
+                                                                           "control_type": "selector",
+                                                                            "description": "Select Navigation Input",
+                                                                             "identifier": "WSO_CNI_NAVIGATION_INPUT",
+                                                                                 "inputs": [ {
+                                                                                               "description": "switch to previous or next state",
+                                                                                                 "interface": "fixed_step"
+                                                                                           }, {
+                                                                                               "description": "set position",
+                                                                                                 "interface": "set_state",
+                                                                                                 "max_value": 2
+                                                                                           } ],
+                                                                                "outputs": [ {
+                                                                                                                     "address": 11150,
+                                                                                               "address_mask_shift_identifier": "F_4E_WSO_CNI_NAVIGATION_INPUT",
+                                                                                                                 "description": "selector position",
+                                                                                                                        "mask": 12288,
+                                                                                                                   "max_value": 2,
+                                                                                                                    "shift_by": 12,
+                                                                                                                      "suffix": "",
+                                                                                                                        "type": "integer"
+                                                                                           } ]
+                                                                       }
+                                       },
                          "WSO Canopy": {
                                                              "WSO_CANOPY": {
                                                                                    "category": "WSO Canopy",
@@ -9722,7 +9748,7 @@ docdata["F-4E"] =
                                                                                                                 "suggested_step": 3200
                                                                                                             } ],
                                                                                                  "outputs": [ {
-                                                                                                                                      "address": 11230,
+                                                                                                                                      "address": 11232,
                                                                                                                            "address_identifier": "F_4E_WSO_IFF_CHALLENGE_DIM_A",
                                                                                                                 "address_mask_shift_identifier": "F_4E_WSO_IFF_CHALLENGE_DIM",
                                                                                                                                   "description": "position of the potentiometer",
@@ -9740,13 +9766,13 @@ docdata["F-4E"] =
                                                                                               "identifier": "WSO_IFF_CHALLENGE_LIGHT",
                                                                                                   "inputs": [  ],
                                                                                                  "outputs": [ {
-                                                                                                                                      "address": 11232,
+                                                                                                                                      "address": 11230,
                                                                                                                       "address_mask_identifier": "F_4E_WSO_IFF_CHALLENGE_LIGHT_AM",
                                                                                                                 "address_mask_shift_identifier": "F_4E_WSO_IFF_CHALLENGE_LIGHT",
                                                                                                                                   "description": "0 if light is off, 1 if light is on",
-                                                                                                                                         "mask": 1,
+                                                                                                                                         "mask": 4,
                                                                                                                                     "max_value": 1,
-                                                                                                                                     "shift_by": 0,
+                                                                                                                                     "shift_by": 2,
                                                                                                                                        "suffix": "",
                                                                                                                                          "type": "integer"
                                                                                                             } ]
@@ -9770,13 +9796,13 @@ docdata["F-4E"] =
                                                                                                                   "interface": "action"
                                                                                                             } ],
                                                                                                  "outputs": [ {
-                                                                                                                                      "address": 11228,
+                                                                                                                                      "address": 11230,
                                                                                                                       "address_mask_identifier": "F_4E_WSO_IFF_CHALLENGE_TEST_BUTTON_AM",
                                                                                                                 "address_mask_shift_identifier": "F_4E_WSO_IFF_CHALLENGE_TEST_BUTTON",
                                                                                                                                   "description": "selector position",
-                                                                                                                                         "mask": 32768,
+                                                                                                                                         "mask": 2,
                                                                                                                                     "max_value": 1,
-                                                                                                                                     "shift_by": 15,
+                                                                                                                                     "shift_by": 1,
                                                                                                                                        "suffix": "",
                                                                                                                                          "type": "integer"
                                                                                                             } ]
@@ -9832,13 +9858,13 @@ docdata["F-4E"] =
                                                                                                                   "interface": "action"
                                                                                                             } ],
                                                                                                  "outputs": [ {
-                                                                                                                                      "address": 11164,
+                                                                                                                                      "address": 11228,
                                                                                                                       "address_mask_identifier": "F_4E_WSO_IFF_CODE_INC_HUNDREDS_AM",
                                                                                                                 "address_mask_shift_identifier": "F_4E_WSO_IFF_CODE_INC_HUNDREDS",
                                                                                                                                   "description": "selector position",
-                                                                                                                                         "mask": 32768,
+                                                                                                                                         "mask": 512,
                                                                                                                                     "max_value": 1,
-                                                                                                                                     "shift_by": 15,
+                                                                                                                                     "shift_by": 9,
                                                                                                                                        "suffix": "",
                                                                                                                                          "type": "integer"
                                                                                                             } ]
@@ -9866,9 +9892,9 @@ docdata["F-4E"] =
                                                                                                                       "address_mask_identifier": "F_4E_WSO_IFF_CODE_INC_ONES_AM",
                                                                                                                 "address_mask_shift_identifier": "F_4E_WSO_IFF_CODE_INC_ONES",
                                                                                                                                   "description": "selector position",
-                                                                                                                                         "mask": 512,
+                                                                                                                                         "mask": 2048,
                                                                                                                                     "max_value": 1,
-                                                                                                                                     "shift_by": 9,
+                                                                                                                                     "shift_by": 11,
                                                                                                                                        "suffix": "",
                                                                                                                                          "type": "integer"
                                                                                                             } ]
@@ -9896,9 +9922,9 @@ docdata["F-4E"] =
                                                                                                                       "address_mask_identifier": "F_4E_WSO_IFF_CODE_INC_TENS_AM",
                                                                                                                 "address_mask_shift_identifier": "F_4E_WSO_IFF_CODE_INC_TENS",
                                                                                                                                   "description": "selector position",
-                                                                                                                                         "mask": 256,
+                                                                                                                                         "mask": 1024,
                                                                                                                                     "max_value": 1,
-                                                                                                                                     "shift_by": 8,
+                                                                                                                                     "shift_by": 10,
                                                                                                                                        "suffix": "",
                                                                                                                                          "type": "integer"
                                                                                                             } ]
@@ -9922,13 +9948,13 @@ docdata["F-4E"] =
                                                                                                                   "interface": "action"
                                                                                                             } ],
                                                                                                  "outputs": [ {
-                                                                                                                                      "address": 11164,
+                                                                                                                                      "address": 11228,
                                                                                                                       "address_mask_identifier": "F_4E_WSO_IFF_CODE_INC_THOUSANDS_AM",
                                                                                                                 "address_mask_shift_identifier": "F_4E_WSO_IFF_CODE_INC_THOUSANDS",
                                                                                                                                   "description": "selector position",
-                                                                                                                                         "mask": 16384,
+                                                                                                                                         "mask": 256,
                                                                                                                                     "max_value": 1,
-                                                                                                                                     "shift_by": 14,
+                                                                                                                                     "shift_by": 8,
                                                                                                                                        "suffix": "",
                                                                                                                                          "type": "integer"
                                                                                                             } ]
@@ -10030,13 +10056,13 @@ docdata["F-4E"] =
                                                                                                                   "interface": "action"
                                                                                                             } ],
                                                                                                  "outputs": [ {
-                                                                                                                                      "address": 11232,
+                                                                                                                                      "address": 11230,
                                                                                                                       "address_mask_identifier": "F_4E_WSO_IFF_COMBAT_TREE_CHALLENGE_TEST_BUTTON_AM",
                                                                                                                 "address_mask_shift_identifier": "F_4E_WSO_IFF_COMBAT_TREE_CHALLENGE_TEST_BUTTON",
                                                                                                                                   "description": "selector position",
-                                                                                                                                         "mask": 16,
+                                                                                                                                         "mask": 64,
                                                                                                                                     "max_value": 1,
-                                                                                                                                     "shift_by": 4,
+                                                                                                                                     "shift_by": 6,
                                                                                                                                        "suffix": "",
                                                                                                                                          "type": "integer"
                                                                                                             } ]
@@ -10048,13 +10074,13 @@ docdata["F-4E"] =
                                                                                               "identifier": "WSO_IFF_COMBAT_TREE_CHALLENGE_TEST_LIGHT",
                                                                                                   "inputs": [  ],
                                                                                                  "outputs": [ {
-                                                                                                                                      "address": 11232,
+                                                                                                                                      "address": 11230,
                                                                                                                       "address_mask_identifier": "F_4E_WSO_IFF_COMBAT_TREE_CHALLENGE_TEST_LIGHT_AM",
                                                                                                                 "address_mask_shift_identifier": "F_4E_WSO_IFF_COMBAT_TREE_CHALLENGE_TEST_LIGHT",
                                                                                                                                   "description": "0 if light is off, 1 if light is on",
-                                                                                                                                         "mask": 32,
+                                                                                                                                         "mask": 128,
                                                                                                                                     "max_value": 1,
-                                                                                                                                     "shift_by": 5,
+                                                                                                                                     "shift_by": 7,
                                                                                                                                        "suffix": "",
                                                                                                                                          "type": "integer"
                                                                                                             } ]
@@ -10073,12 +10099,12 @@ docdata["F-4E"] =
                                                                                                                   "max_value": 2
                                                                                                             } ],
                                                                                                  "outputs": [ {
-                                                                                                                                      "address": 11232,
+                                                                                                                                      "address": 11230,
                                                                                                                 "address_mask_shift_identifier": "F_4E_WSO_IFF_COMBAT_TREE_MODE_2",
                                                                                                                                   "description": "selector position",
-                                                                                                                                         "mask": 384,
+                                                                                                                                         "mask": 1536,
                                                                                                                                     "max_value": 2,
-                                                                                                                                     "shift_by": 7,
+                                                                                                                                     "shift_by": 9,
                                                                                                                                        "suffix": "",
                                                                                                                                          "type": "integer"
                                                                                                             } ]
@@ -10097,12 +10123,12 @@ docdata["F-4E"] =
                                                                                                                   "max_value": 2
                                                                                                             } ],
                                                                                                  "outputs": [ {
-                                                                                                                                      "address": 11232,
+                                                                                                                                      "address": 11230,
                                                                                                                 "address_mask_shift_identifier": "F_4E_WSO_IFF_COMBAT_TREE_MODE_3",
                                                                                                                                   "description": "selector position",
-                                                                                                                                         "mask": 1536,
+                                                                                                                                         "mask": 6144,
                                                                                                                                     "max_value": 2,
-                                                                                                                                     "shift_by": 9,
+                                                                                                                                     "shift_by": 11,
                                                                                                                                        "suffix": "",
                                                                                                                                          "type": "integer"
                                                                                                             } ]
@@ -10126,13 +10152,13 @@ docdata["F-4E"] =
                                                                                                                   "interface": "action"
                                                                                                             } ],
                                                                                                  "outputs": [ {
-                                                                                                                                      "address": 11232,
+                                                                                                                                      "address": 11230,
                                                                                                                       "address_mask_identifier": "F_4E_WSO_IFF_COMBAT_TREE_TEST_AM",
                                                                                                                 "address_mask_shift_identifier": "F_4E_WSO_IFF_COMBAT_TREE_TEST",
                                                                                                                                   "description": "selector position",
-                                                                                                                                         "mask": 64,
+                                                                                                                                         "mask": 256,
                                                                                                                                     "max_value": 1,
-                                                                                                                                     "shift_by": 6,
+                                                                                                                                     "shift_by": 8,
                                                                                                                                        "suffix": "",
                                                                                                                                          "type": "integer"
                                                                                                             } ]
@@ -10175,9 +10201,9 @@ docdata["F-4E"] =
                                                                                                                       "address_mask_identifier": "F_4E_WSO_IFF_MODE_DEC_AM",
                                                                                                                 "address_mask_shift_identifier": "F_4E_WSO_IFF_MODE_DEC",
                                                                                                                                   "description": "selector position",
-                                                                                                                                         "mask": 1024,
+                                                                                                                                         "mask": 4096,
                                                                                                                                     "max_value": 1,
-                                                                                                                                     "shift_by": 10,
+                                                                                                                                     "shift_by": 12,
                                                                                                                                        "suffix": "",
                                                                                                                                          "type": "integer"
                                                                                                             } ]
@@ -10205,9 +10231,9 @@ docdata["F-4E"] =
                                                                                                                       "address_mask_identifier": "F_4E_WSO_IFF_MODE_DEC_HUNDREDS_AM",
                                                                                                                 "address_mask_shift_identifier": "F_4E_WSO_IFF_MODE_DEC_HUNDREDS",
                                                                                                                                   "description": "selector position",
-                                                                                                                                         "mask": 4096,
+                                                                                                                                         "mask": 16384,
                                                                                                                                     "max_value": 1,
-                                                                                                                                     "shift_by": 12,
+                                                                                                                                     "shift_by": 14,
                                                                                                                                        "suffix": "",
                                                                                                                                          "type": "integer"
                                                                                                             } ]
@@ -10231,13 +10257,13 @@ docdata["F-4E"] =
                                                                                                                   "interface": "action"
                                                                                                             } ],
                                                                                                  "outputs": [ {
-                                                                                                                                      "address": 11228,
+                                                                                                                                      "address": 11230,
                                                                                                                       "address_mask_identifier": "F_4E_WSO_IFF_MODE_DEC_ONES_AM",
                                                                                                                 "address_mask_shift_identifier": "F_4E_WSO_IFF_MODE_DEC_ONES",
                                                                                                                                   "description": "selector position",
-                                                                                                                                         "mask": 16384,
+                                                                                                                                         "mask": 1,
                                                                                                                                     "max_value": 1,
-                                                                                                                                     "shift_by": 14,
+                                                                                                                                     "shift_by": 0,
                                                                                                                                        "suffix": "",
                                                                                                                                          "type": "integer"
                                                                                                             } ]
@@ -10265,9 +10291,9 @@ docdata["F-4E"] =
                                                                                                                       "address_mask_identifier": "F_4E_WSO_IFF_MODE_DEC_TENS_AM",
                                                                                                                 "address_mask_shift_identifier": "F_4E_WSO_IFF_MODE_DEC_TENS",
                                                                                                                                   "description": "selector position",
-                                                                                                                                         "mask": 8192,
+                                                                                                                                         "mask": 32768,
                                                                                                                                     "max_value": 1,
-                                                                                                                                     "shift_by": 13,
+                                                                                                                                     "shift_by": 15,
                                                                                                                                        "suffix": "",
                                                                                                                                          "type": "integer"
                                                                                                             } ]
@@ -10295,9 +10321,9 @@ docdata["F-4E"] =
                                                                                                                       "address_mask_identifier": "F_4E_WSO_IFF_MODE_DEC_THOUSANDS_AM",
                                                                                                                 "address_mask_shift_identifier": "F_4E_WSO_IFF_MODE_DEC_THOUSANDS",
                                                                                                                                   "description": "selector position",
-                                                                                                                                         "mask": 2048,
+                                                                                                                                         "mask": 8192,
                                                                                                                                     "max_value": 1,
-                                                                                                                                     "shift_by": 11,
+                                                                                                                                     "shift_by": 13,
                                                                                                                                        "suffix": "",
                                                                                                                                          "type": "integer"
                                                                                                             } ]
@@ -10325,9 +10351,9 @@ docdata["F-4E"] =
                                                                                                                       "address_mask_identifier": "F_4E_WSO_IFF_MODE_INC_AM",
                                                                                                                 "address_mask_shift_identifier": "F_4E_WSO_IFF_MODE_INC",
                                                                                                                                   "description": "selector position",
-                                                                                                                                         "mask": 8192,
+                                                                                                                                         "mask": 32768,
                                                                                                                                     "max_value": 1,
-                                                                                                                                     "shift_by": 13,
+                                                                                                                                     "shift_by": 15,
                                                                                                                                        "suffix": "",
                                                                                                                                          "type": "integer"
                                                                                                             } ]
@@ -10343,12 +10369,12 @@ docdata["F-4E"] =
                                                                                                                   "max_value": 2
                                                                                                             } ],
                                                                                                  "outputs": [ {
-                                                                                                                                      "address": 11232,
+                                                                                                                                      "address": 11230,
                                                                                                                 "address_mask_shift_identifier": "F_4E_WSO_IFF_TEST_CHALLENGE",
                                                                                                                                   "description": "switch position -- 0 = Down, 1 = Mid,  2 = Up",
-                                                                                                                                         "mask": 6,
+                                                                                                                                         "mask": 24,
                                                                                                                                     "max_value": 2,
-                                                                                                                                     "shift_by": 1,
+                                                                                                                                     "shift_by": 3,
                                                                                                                                        "suffix": "",
                                                                                                                                          "type": "integer"
                                                                                                             } ]
@@ -11517,9 +11543,9 @@ docdata["F-4E"] =
                                                                                                              "address_mask_identifier": "F_4E_WSO_STICK_AFCS_EMERGENCY_RELEASE_AM",
                                                                                                        "address_mask_shift_identifier": "F_4E_WSO_STICK_AFCS_EMERGENCY_RELEASE",
                                                                                                                          "description": "selector position",
-                                                                                                                                "mask": 512,
+                                                                                                                                "mask": 2048,
                                                                                                                            "max_value": 1,
-                                                                                                                            "shift_by": 9,
+                                                                                                                            "shift_by": 11,
                                                                                                                               "suffix": "",
                                                                                                                                 "type": "integer"
                                                                                                    } ]
@@ -11547,9 +11573,9 @@ docdata["F-4E"] =
                                                                                                              "address_mask_identifier": "F_4E_WSO_STICK_NWS_AM",
                                                                                                        "address_mask_shift_identifier": "F_4E_WSO_STICK_NWS",
                                                                                                                          "description": "selector position",
-                                                                                                                                "mask": 256,
+                                                                                                                                "mask": 1024,
                                                                                                                            "max_value": 1,
-                                                                                                                            "shift_by": 8,
+                                                                                                                            "shift_by": 10,
                                                                                                                               "suffix": "",
                                                                                                                                 "type": "integer"
                                                                                                    } ]
@@ -11587,9 +11613,9 @@ docdata["F-4E"] =
                                                                                                                      "address": 11260,
                                                                                                "address_mask_shift_identifier": "F_4E_WSO_THROTTLE_MIC",
                                                                                                                  "description": "switch position -- 0 = Down, 1 = Mid,  2 = Up",
-                                                                                                                        "mask": 192,
+                                                                                                                        "mask": 768,
                                                                                                                    "max_value": 2,
-                                                                                                                    "shift_by": 6,
+                                                                                                                    "shift_by": 8,
                                                                                                                       "suffix": "",
                                                                                                                         "type": "integer"
                                                                                            } ]
@@ -11608,9 +11634,9 @@ docdata["F-4E"] =
                                                                                                                      "address": 11260,
                                                                                                "address_mask_shift_identifier": "F_4E_WSO_THROTTLE_SPEED_BRAKE",
                                                                                                                  "description": "switch position -- 0 = Down, 1 = Mid,  2 = Up",
-                                                                                                                        "mask": 48,
+                                                                                                                        "mask": 192,
                                                                                                                    "max_value": 2,
-                                                                                                                    "shift_by": 4,
+                                                                                                                    "shift_by": 6,
                                                                                                                       "suffix": "",
                                                                                                                         "type": "integer"
                                                                                            } ]
