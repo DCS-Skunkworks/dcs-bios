@@ -4483,6 +4483,35 @@ docdata["F-4E"] =
                                                                                                                               "suffix": "",
                                                                                                                                 "type": "integer"
                                                                                                    } ]
+                                                                               },
+                                                             "PLT_PITOT_HEAT": {
+                                                                                       "category": "PLT Right Console",
+                                                                                   "control_type": "selector",
+                                                                                    "description": "Pitot Heat",
+                                                                                     "identifier": "PLT_PITOT_HEAT",
+                                                                                         "inputs": [ {
+                                                                                                       "description": "switch to previous or next state",
+                                                                                                         "interface": "fixed_step"
+                                                                                                   }, {
+                                                                                                       "description": "set position",
+                                                                                                         "interface": "set_state",
+                                                                                                         "max_value": 1
+                                                                                                   }, {
+                                                                                                          "argument": "TOGGLE",
+                                                                                                       "description": "Toggle switch state",
+                                                                                                         "interface": "action"
+                                                                                                   } ],
+                                                                                        "outputs": [ {
+                                                                                                                             "address": 11176,
+                                                                                                             "address_mask_identifier": "F_4E_PLT_PITOT_HEAT_AM",
+                                                                                                       "address_mask_shift_identifier": "F_4E_PLT_PITOT_HEAT",
+                                                                                                                         "description": "selector position",
+                                                                                                                                "mask": 1024,
+                                                                                                                           "max_value": 1,
+                                                                                                                            "shift_by": 10,
+                                                                                                                              "suffix": "",
+                                                                                                                                "type": "integer"
+                                                                                                   } ]
                                                                                }
                                  },
                "PLT Right Wall": {
@@ -4527,9 +4556,9 @@ docdata["F-4E"] =
                                                                                                                          "address": 11176,
                                                                                                    "address_mask_shift_identifier": "F_4E_PLT_EXT_LIGHT_FORMATION_MODE",
                                                                                                                      "description": "switch position -- 0 = Down, 1 = Mid,  2 = Up",
-                                                                                                                            "mask": 3072,
+                                                                                                                            "mask": 6144,
                                                                                                                        "max_value": 2,
-                                                                                                                        "shift_by": 10,
+                                                                                                                        "shift_by": 11,
                                                                                                                           "suffix": "",
                                                                                                                             "type": "integer"
                                                                                                } ]
