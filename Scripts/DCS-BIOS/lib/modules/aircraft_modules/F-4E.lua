@@ -1098,6 +1098,20 @@ F_4E:defineFloat("WSO_VVI_NEEDLE", 181, { -1, 1 }, WSO_VVI, "VVI Needle")
 -- TAS Indicator
 local TAS_DEVICE_ID = 42
 
+-- Pilot TAS
+local PILOT_TAS = "PLT TAS"
+
+F_4E:defineString("PLT_TAS", function(dev0)
+	return drum_set(dev0, 112, 111, 110, 109)
+end, 4, PILOT_TAS, "True Airspeed")
+
+-- WSO TAS
+local WSO_TAS = "WSO TAS"
+
+F_4E:defineString("WSO_TAS", function(dev0)
+	return drum_set(dev0, 603, 602, 601, 600)
+end, 4, WSO_TAS, "True Airspeed")
+
 -- ADI (ARU-11-A)
 local ADI_DEVICE_ID = 44
 
