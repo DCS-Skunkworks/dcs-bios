@@ -1030,6 +1030,58 @@ F_4E:defineFloatFromArg("WSO_ASI_MACH_BUG", 196, WSO_ASI, "Mach Bug")
 -- Barometric Altimeter
 local BARO_ALTIMETER_DEVICE_ID = 40
 
+-- PLT Barometric Altimeter
+local PILOT_BARO_ALTIMETER = "PLT Barometric Altimeter"
+
+F_4E:definePotentiometer("PLT_BARO_PRESSURE_KNOB", BARO_ALTIMETER_DEVICE_ID, 3001, 95, { 0, 1 }, PILOT_BARO_ALTIMETER, "Change Reference Pressure")
+F_4E:defineSpringloaded_3PosTumb("PLT_BARO_MODE", BARO_ALTIMETER_DEVICE_ID, 3002, 3002, 100, PILOT_BARO_ALTIMETER, "Change Mode (hold to reset)")
+
+F_4E:defineFloatFromArg("PLT_BARO_NEEDLE", 91, PILOT_BARO_ALTIMETER, "Altimeter Needle")
+F_4E:defineIntegerFromGetter("PLT_BARO_HUNDREDS", function(dev0)
+	return drum_value(dev0, 92)
+end, 9, PILOT_BARO_ALTIMETER, "Altitude Drum (hundreds)")
+F_4E:defineIntegerFromGetter("PLT_BARO_THOUSANDS", function(dev0)
+	return drum_value(dev0, 93)
+end, 9, PILOT_BARO_ALTIMETER, "Altitude Drum (thousands)")
+F_4E:defineIntegerFromGetter("PLT_BARO_TEN_THOUSANDS", function(dev0)
+	return drum_value(dev0, 94)
+end, 9, PILOT_BARO_ALTIMETER, "Altitude Drum (ten thousands)")
+F_4E:defineString("PLT_BARO_ALTITUDE", function(dev0)
+	return drum_set(dev0, 94, 93, 92)
+end, 3, PILOT_BARO_ALTIMETER, "Altimeter Readout (x100)")
+
+F_4E:defineString("PLT_BARO_PRESSURE", function(dev0)
+	return drum_set(dev0, 99, 98, 97, 96)
+end, 4, PILOT_BARO_ALTIMETER, "Pressure Setting")
+
+F_4E:defineFloatFromArg("PLT_BARO_STANDBY", 101, PILOT_BARO_ALTIMETER, "Standby Flag")
+
+-- WSO Barometric Altimeter
+local WSO_BARO_ALTIMETER = "WSO Barometric Altimeter"
+
+F_4E:definePotentiometer("WSO_BARO_PRESSURE_KNOB", BARO_ALTIMETER_DEVICE_ID, 3003, 186, { 0, 1 }, WSO_BARO_ALTIMETER, "Change Reference Pressure")
+F_4E:defineSpringloaded_3PosTumb("WSO_BARO_MODE", BARO_ALTIMETER_DEVICE_ID, 3004, 3004, 191, WSO_BARO_ALTIMETER, "Change Mode (hold to reset)")
+
+F_4E:defineFloatFromArg("WSO_BARO_NEEDLE", 182, WSO_BARO_ALTIMETER, "Altimeter Needle")
+F_4E:defineIntegerFromGetter("WSO_BARO_HUNDREDS", function(dev0)
+	return drum_value(dev0, 183)
+end, 9, WSO_BARO_ALTIMETER, "Altitude Drum (hundreds)")
+F_4E:defineIntegerFromGetter("WSO_BARO_THOUSANDS", function(dev0)
+	return drum_value(dev0, 184)
+end, 9, WSO_BARO_ALTIMETER, "Altitude Drum (thousands)")
+F_4E:defineIntegerFromGetter("WSO_BARO_TEN_THOUSANDS", function(dev0)
+	return drum_value(dev0, 185)
+end, 9, WSO_BARO_ALTIMETER, "Altitude Drum (ten thousands)")
+F_4E:defineString("WSO_BARO_ALTITUDE", function(dev0)
+	return drum_set(dev0, 185, 184, 183)
+end, 3, WSO_BARO_ALTIMETER, "Altimeter Readout (x100)")
+
+F_4E:defineString("WSO_BARO_PRESSURE", function(dev0)
+	return drum_set(dev0, 190, 189, 188, 187)
+end, 4, WSO_BARO_ALTIMETER, "Pressure Setting")
+
+F_4E:defineFloatFromArg("WSO_BARO_STANDBY", 192, WSO_BARO_ALTIMETER, "Standby Flag")
+
 -- Vertical Velocity Indicator
 local VVI_DEVICE_ID = 41
 
