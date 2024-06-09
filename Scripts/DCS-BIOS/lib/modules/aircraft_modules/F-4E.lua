@@ -1135,6 +1135,11 @@ F_4E:defineFloatFromArg("PLT_ADI_OFF_WARNING_FLAG", 622, PILOT_ADI, "Off Warning
 -- CNI (AN-ASQ-19A)
 local CNI_DEVICE_ID = 45
 
+-- WSO CNI
+local WSO_CNI = "WSO CNI"
+
+F_4E:defineMultipositionRollerLimited("WSO_CNI_NAVIGATION_INPUT", CNI_DEVICE_ID, 3001, 664, 3, WSO_CNI, "Select Navigation Input")
+
 -- Ground Speed Indicator
 local GS_DEVICE_ID = 46
 
