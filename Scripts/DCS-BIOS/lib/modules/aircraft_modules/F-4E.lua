@@ -973,6 +973,24 @@ end, 3, PLT_HUD, "Reticle Depression (mils)")
 -- Accelerometer
 local ACCELEROMETER_DEVICE_ID = 35
 
+-- Pilot Accelerometer
+local PILOT_ACCELEROMETER = "PLT Accelerometer"
+
+F_4E:definePushButton("PLT_ACCELEROMETER_RESET", ACCELEROMETER_DEVICE_ID, 3001, 72, PILOT_ACCELEROMETER, "Reset Accelerometer")
+
+F_4E:defineFloatFromArg("PLT_ACCELEROMETER_LOW", 68, PILOT_ACCELEROMETER, "Low-G Needle")
+F_4E:defineFloatFromArg("PLT_ACCELEROMETER_CURRENT", 67, PILOT_ACCELEROMETER, "Current-G Needle")
+F_4E:defineFloatFromArg("PLT_ACCELEROMETER_HIGH", 69, PILOT_ACCELEROMETER, "High-G Needle")
+
+-- WSO Accelerometer
+local WSO_ACCELEROMETER = "WSO Accelerometer"
+
+F_4E:definePushButton("WSO_ACCELEROMETER_RESET", ACCELEROMETER_DEVICE_ID, 3002, 180, WSO_ACCELEROMETER, "Reset Accelerometer")
+
+F_4E:defineFloatFromArg("WSO_ACCELEROMETER_LOW", 178, WSO_ACCELEROMETER, "Low-G Needle")
+F_4E:defineFloatFromArg("WSO_ACCELEROMETER_CURRENT", 177, WSO_ACCELEROMETER, "Current-G Needle")
+F_4E:defineFloatFromArg("WSO_ACCELEROMETER_HIGH", 179, WSO_ACCELEROMETER, "High-G Needle")
+
 -- Pitot/Static System
 local PITOT_STATIC_DEVICE_ID = 36
 
