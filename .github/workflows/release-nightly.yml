@@ -48,6 +48,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Set up lua
+        uses: leafo/gh-actions-lua@v10
+        with:
+          luaVersion: "5.1.5"
+
+        # recompile, so the generated files are always up-to-date
+      - name: compile
+        run: |
+          lua ./Scripts/DCS-BIOS/test/compile/LocalCompile.lua
+
       - name: Archive Release
         uses: thedoctor0/zip-release@0.7.6
         with:
