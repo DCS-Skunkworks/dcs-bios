@@ -1212,6 +1212,13 @@ end, 4, WSO_TACAN, "TACAN Channel")
 -- Flight Director Computer
 local FLIGHT_DIRECTOR_DEVICE_ID = 49
 
+-- Pilot Flight Director Computer
+local PILOT_FLIGHT_DIRECTOR = "PLT Flight Director Computer"
+
+F_4E:defineMultipositionRollerLimited("PLT_FDC_NAVIGATION_INPUT", FLIGHT_DIRECTOR_DEVICE_ID, 3001, 662, 4, PILOT_FLIGHT_DIRECTOR, "Select Navigation Input")
+F_4E:defineMultipositionRollerLimited("PLT_FDC_NAVIGATION_MODE", FLIGHT_DIRECTOR_DEVICE_ID, 3002, 663, 4, PILOT_FLIGHT_DIRECTOR, "Select Navigation Mode")
+F_4E:defineToggleSwitch("PLT_FDC_FLIGHT_DIRECTOR", FLIGHT_DIRECTOR_DEVICE_ID, 3003, 665, PILOT_FLIGHT_DIRECTOR, "Toggle Flight Director")
+
 -- HSI (AF-A24J-1)
 local HSI_DEVICE_ID = 50
 
