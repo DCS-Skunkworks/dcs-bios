@@ -1222,6 +1222,37 @@ F_4E:defineToggleSwitch("PLT_FDC_FLIGHT_DIRECTOR", FLIGHT_DIRECTOR_DEVICE_ID, 30
 -- HSI (AF-A24J-1)
 local HSI_DEVICE_ID = 50
 
+-- Pilot HSI
+local PILOT_HSI = "PLT HSI"
+
+F_4E:defineRotary("PLT_HSI_HEADING_SET", HSI_DEVICE_ID, 3002, 678, PILOT_HSI, "Set HSI Heading")
+F_4E:defineRotary("PLT_HSI_COURSE_SET", HSI_DEVICE_ID, 3001, 673, PILOT_HSI, "Set HSI Course")
+
+F_4E:defineFloatFromArg("PLT_HSI_COMPASS_ROTATION", 668, PILOT_HSI, "Compass Card Rotation")
+F_4E:defineFloatFromArg("PLT_HSI_BEARING_POINTER", 669, PILOT_HSI, "Bearing Arrow (outer ring)")
+F_4E:defineFloatFromArg("PLT_HSI_COURSE_ARROW", 670, PILOT_HSI, "Course Arrow (inner)")
+F_4E:defineFloat("PLT_HSI_COURSE_DEVIATION", 671, { -1, 1 }, PILOT_HSI, "Course Deviation Line")
+F_4E:defineFloatFromArg("PLT_HSI_HEADING_BUG", 672, PILOT_HSI, "Heading Bug (outer ring)")
+F_4E:defineFloat("PLT_HSI_TO_FROM_ARROW", 677, { -1, 1 }, PILOT_HSI, "To/From Arrow (inner)")
+
+F_4E:defineString("PLT_HSI_COURSE", function(dev0)
+	return drum_set(dev0, 676, 675, 674)
+end, 3, PILOT_HSI, "Course Heading Drum")
+
+F_4E:defineString("PLT_HSI_RANGE", function(dev0)
+	return drum_set(dev0, 682, 681, 680, 679)
+end, 4, PILOT_HSI, "Range Drum (miles)")
+
+F_4E:defineFloatFromArg("PLT_HSI_RANGE_WARNING_FLAG", 683, PILOT_HSI, "Range Warning Flag")
+F_4E:defineIndicatorLight("PLT_HSI_NAV", 684, PILOT_HSI, "NAV Lamp (Red)")
+F_4E:defineIndicatorLight("PLT_HSI_DL_L", 685, PILOT_HSI, "Left DL Lamp (Red)")
+F_4E:defineIndicatorLight("PLT_HSI_ILS", 686, PILOT_HSI, "ILS Lamp (Red)")
+F_4E:defineIndicatorLight("PLT_HSI_MAN", 687, PILOT_HSI, "MAN Lamp (Red)")
+F_4E:defineIndicatorLight("PLT_HSI_TAC", 688, PILOT_HSI, "TAC Lamp (Red)")
+F_4E:defineIndicatorLight("PLT_HSI_TGT", 689, PILOT_HSI, "TGT Lamp (Red)")
+F_4E:defineIndicatorLight("PLT_HSI_UHF", 690, PILOT_HSI, "UHF Lamp (Red)")
+F_4E:defineIndicatorLight("PLT_HSI_DL_R", 691, PILOT_HSI, "Right DL Lamp (Red)")
+
 -- Radar
 local RADAR_DEVICE_ID = 52
 
