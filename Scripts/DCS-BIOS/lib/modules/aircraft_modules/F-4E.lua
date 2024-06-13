@@ -1256,6 +1256,75 @@ F_4E:defineIndicatorLight("PLT_HSI_DL_R", 691, PILOT_HSI, "Right DL Lamp (Red)")
 -- Radar
 local RADAR_DEVICE_ID = 52
 
+-- WSO Radar
+local WSO_RADAR = "WSO Radar"
+
+F_4E:definePotentiometer("WSO_RADAR_ANTENNA_ELEVATION", RADAR_DEVICE_ID, 3011, 1014, { 0, 1 }, WSO_RADAR, "Change Radar Antenna Elevation")
+F_4E:definePushButton("WSO_RADAR_CHALLENGE", RADAR_DEVICE_ID, 3014, 2508, WSO_RADAR, "Challenge Button")
+F_4E:reserveIntValue(1) -- reserved in case Trigger becomes clickable
+
+-- WSO Radar Antenna Panel
+F_4E:defineTumb("WSO_RADAR_METER_MODE", RADAR_DEVICE_ID, 3015, 1001, 1.673 / 15, { -0.673, 1 }, nil, false, WSO_RADAR, "Select Meter Mode (Volt/Signal)")
+F_4E:defineTumb("WSO_RADAR_BIT", RADAR_DEVICE_ID, 3036, 1408, 1 / 11, { 0, 1 }, nil, true, WSO_RADAR, "Radar BIT")
+F_4E:defineToggleSwitch("WSO_RADAR_METER_DISPLAY", RADAR_DEVICE_ID, 3018, 1006, WSO_RADAR, "Set Meter Display")
+F_4E:defineToggleSwitch("WSO_RADAR_VC", RADAR_DEVICE_ID, 3017, 1005, WSO_RADAR, "Select Vc")
+F_4E:define3PosTumb("WSO_RADAR_ANTENNA_STAB", RADAR_DEVICE_ID, 3016, 1004, WSO_RADAR, "Select Antenna Stabilization Mode")
+
+-- WSO Radar Panel
+F_4E:defineMultipositionSwitch0To1("WSO_RADAR_POWER", RADAR_DEVICE_ID, 3004, 336, 5, WSO_RADAR, "Radar Power Controls")
+F_4E:define3PosTumb("WSO_RADAR_POLARIZATION", RADAR_DEVICE_ID, 3021, 1009, WSO_RADAR, "Change Polarization")
+F_4E:defineMultipositionSwitch0To1("WSO_RADAR_RANGE", RADAR_DEVICE_ID, 3005, 337, 6, WSO_RADAR, "Select Radar Range")
+
+F_4E:defineToggleSwitch("WSO_RADAR_MANEUVER", RADAR_DEVICE_ID, 3019, 1007, WSO_RADAR, "Select Maneuver")
+F_4E:defineToggleSwitch("WSO_RADAR_SCAN", RADAR_DEVICE_ID, 3003, 342, WSO_RADAR, "Select Scan Pattern")
+F_4E:defineMultipositionSwitch0To1("WSO_RADAR_TARGET_ASPECT", RADAR_DEVICE_ID, 3020, 1008, 5, WSO_RADAR, "Select Target Aspect")
+
+F_4E:definePotentiometer("WSO_RADAR_GAIN_FINE", RADAR_DEVICE_ID, 3001, 340, { 0, 1 }, WSO_RADAR, "Change radar Receiver Gain (fine)")
+F_4E:definePotentiometer("WSO_RADAR_GAIN_COARSE", RADAR_DEVICE_ID, 3002, 341, { 0, 1 }, WSO_RADAR, "Change radar Receiver Gain (coarse)")
+F_4E:define3PosTumb("WSO_RADAR_TRACK", RADAR_DEVICE_ID, 3022, 372, WSO_RADAR, "Select Track Mode")
+F_4E:defineMultipositionSwitch0To1("WSO_RADAR_DISPLAY", RADAR_DEVICE_ID, 3006, 338, 5, WSO_RADAR, "Select Display Mode")
+
+F_4E:defineTumb("WSO_RADAR_MANUAL_VC", RADAR_DEVICE_ID, 3035, 1407, 0.917 / 11, { 0, 0.917 }, nil, true, WSO_RADAR, "Select Manual Vc (Closure Velocity, kt)")
+F_4E:define3PosTumb("WSO_RADAR_PULSE", RADAR_DEVICE_ID, 3013, 371, WSO_RADAR, "Select Pulse Length")
+F_4E:defineMultipositionSwitch0To1("WSO_RADAR_MODE", RADAR_DEVICE_ID, 3007, 339, 6, WSO_RADAR, "Select Radar Mode")
+
+-- WSO DSCG
+F_4E:definePotentiometer("WSO_RADAR_GRID_BRIGHT", RADAR_DEVICE_ID, 3032, 334, { 0, 1 }, WSO_RADAR, "Change Grid Brightness")
+F_4E:definePotentiometer("WSO_RADAR_SCALE_BRIGHT", RADAR_DEVICE_ID, 3033, 2672, { 0, 1 }, WSO_RADAR, "Scale Brightness")
+F_4E:definePotentiometer("WSO_RADAR_RANGE_CUR_BRIGHT", RADAR_DEVICE_ID, 3024, 1401, { 0, 1 }, WSO_RADAR, "Change Range-Cursor Brightness")
+F_4E:definePotentiometer("WSO_RADAR_OFFSET_CUR_BRIGHT", RADAR_DEVICE_ID, 3026, 1403, { 0, 1 }, WSO_RADAR, "Change Offset-Cursor Brightness")
+F_4E:definePotentiometer("WSO_RADAR_SCREEN_CONTRAST", RADAR_DEVICE_ID, 3023, 1400, { 0, 1 }, WSO_RADAR, "Change Screen Contrast")
+F_4E:definePotentiometer("WSO_RADAR_SCREEN_BRIGHT", RADAR_DEVICE_ID, 3025, 1402, { 0, 1 }, WSO_RADAR, "Change Screen Brightness")
+F_4E:defineMultipositionSwitch0To1("WSO_RADAR_SCREEN", RADAR_DEVICE_ID, 3027, 1404, 6, WSO_RADAR, "Select Screen Mode")
+
+-- Booooooot
+F_4E:defineToggleSwitch("WSO_RADAR_BOOT", RADAR_DEVICE_ID, 3108, 3050, WSO_RADAR, "Show/Hide Radar Boot")
+
+F_4E:definePushButton("WSO_RADAR_A2A_CAGE", RADAR_DEVICE_ID, 3034, 2732, WSO_RADAR, "Air to Air Mode - Exit Cage")
+
+F_4E:defineIndicatorLight("WSO_RADAR_SKIN_TRACK", 1010, WSO_RADAR, "Skin Track Lamp (Green)")
+F_4E:defineIndicatorLight("WSO_RADAR_H", 2877, WSO_RADAR, "H Lamp (Red)")
+F_4E:defineIndicatorLight("WSO_RADAR_T", 2878, WSO_RADAR, "T Lamp (Red)")
+F_4E:defineIndicatorLight("WSO_RADAR_COOL_OFF", 2689, WSO_RADAR, "Cool Off Lamp (Blue)")
+F_4E:defineIndicatorLight("WSO_RADAR_A2A_LIGHT", 2690, WSO_RADAR, "Air to Air Button Lamp (Green)")
+
+-- Pilot Radar
+local PILOT_RADAR = "PLT Radar"
+
+F_4E:definePotentiometer("PLT_RADAR_SCALE_BRIGHT", RADAR_DEVICE_ID, 3030, 1202, { 0, 1 }, PILOT_RADAR, "Scale Brightness")
+F_4E:definePotentiometer("PLT_RADAR_SCREEN_CONTRAST", RADAR_DEVICE_ID, 3028, 1203, { 0, 1 }, PILOT_RADAR, "Change Screen Contrast")
+F_4E:definePotentiometer("PLT_RADAR_SCREEN_BRIGHT", RADAR_DEVICE_ID, 3029, 1206, { 0, 1 }, PILOT_RADAR, "Change Screen Brightness")
+F_4E:definePotentiometer("PLT_RADAR_SCREEN_INTENSITY", RADAR_DEVICE_ID, 3066, 3040, { 0, 1 }, PILOT_RADAR, "Screen Intensity")
+
+F_4E:defineToggleSwitch("PLT_RADAR_NIGHT_FILTER", RADAR_DEVICE_ID, 3068, 3039, PILOT_RADAR, "Screen Night Filter (Red)")
+
+F_4E:define3PosTumb0To1("PLT_RADAR_SCREEN_MODE", RADAR_DEVICE_ID, 3031, 2599, PILOT_RADAR, "Select DSCG Screen Mode")
+
+F_4E:defineIndicatorLight("PLT_RADAR_5", 2533, PILOT_RADAR, "5 Range Lamp (Green)")
+F_4E:defineIndicatorLight("PLT_RADAR_10", 2534, PILOT_RADAR, "10 Range Lamp (Green)")
+F_4E:defineIndicatorLight("PLT_RADAR_25", 2535, PILOT_RADAR, "25 Range Lamp (Green)")
+F_4E:defineIndicatorLight("PLT_RADAR_50", 2536, PILOT_RADAR, "50 Range Lamp (Green)")
+
 -- BDHI
 local BDHI_DEVICE_ID = 53
 
