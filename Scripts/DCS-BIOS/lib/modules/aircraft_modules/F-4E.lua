@@ -1328,6 +1328,17 @@ F_4E:defineIndicatorLight("PLT_RADAR_50", 2536, PILOT_RADAR, "50 Range Lamp (Gre
 -- BDHI
 local BDHI_DEVICE_ID = 53
 
+-- WSO BDHI
+local WSO_BDHI = "WSO BDHI"
+
+F_4E:defineFloatFromArg("WSO_BDHI_COMPASS_CARD", 949, WSO_BDHI, "Compass Card rotation")
+F_4E:defineFloatFromArg("WSO_BDHI_POINTER_1", 950, WSO_BDHI, "Pointer 1 orientation")
+F_4E:defineFloatFromArg("WSO_BDHI_POINTER_2", 951, WSO_BDHI, "Pointer 2 orientation")
+F_4E:defineString("WSO_BDHI_RANGE", function(dev0)
+	return drum_set(dev0, 2725, 954, 953, 952)
+end, 4, WSO_BDHI, "BDHI Range")
+F_4E:defineFloatFromArg("WSO_BDHI_OFF_FLAG", 2627, WSO_BDHI, "Off Flag")
+
 -- Compass System
 local COMPASS_DEVICE_ID = 54
 
