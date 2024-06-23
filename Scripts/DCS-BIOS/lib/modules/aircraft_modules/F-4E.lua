@@ -1342,6 +1342,31 @@ F_4E:defineFloatFromArg("WSO_BDHI_OFF_FLAG", 2627, WSO_BDHI, "Off Flag")
 -- Compass System
 local COMPASS_DEVICE_ID = 54
 
+-- Pilot Compass
+local PILOT_COMPASS = "PLT Compass"
+
+F_4E:definePushButton("PLT_COMPASS_SET_HEADING_PRESS", COMPASS_DEVICE_ID, 3006, 1029, PILOT_COMPASS, "Set Compass Heading (Press)")
+F_4E:definePotentiometer("PLT_COMPASS_SET_HEADING_ROTATE", COMPASS_DEVICE_ID, 3002, 956, { -1, 1 }, PILOT_COMPASS, "Set Compass Heading (Rotate)")
+F_4E:defineMultipositionSwitch0To1("PLT_COMPASS_MODE_SYNC", COMPASS_DEVICE_ID, 3001, 955, 4, PILOT_COMPASS, "Set Compass Mode (hold to sync)")
+F_4E:definePotentiometer("PLT_COMPASS_LATITUDE", COMPASS_DEVICE_ID, 3004, 958, { 0, 1 }, PILOT_COMPASS, "Set Compass Latitude")
+F_4E:defineToggleSwitch("PLT_COMPASS_HEMISPHERE", COMPASS_DEVICE_ID, 3012, 960, PILOT_COMPASS, "Change Hemisphere")
+
+F_4E:defineToggleSwitch("PLT_COMPASS_GYRO_MODE", COMPASS_DEVICE_ID, 3005, 366, PILOT_COMPASS, "Set Gyro Mode")
+
+F_4E:defineFloatFromArg("PLT_COMPASS_SYNC", 959, PILOT_COMPASS, "Compass Sync Indicator")
+
+F_4E:defineFloatFromArg("PLT_COMPASS_HEADING", 80, PILOT_COMPASS, "Compass Heading")
+F_4E:defineFloat("PLT_COMPASS_PITCH", 81, { -1, 1 }, PILOT_COMPASS, "Compass Pitch")
+F_4E:defineFloat("PLT_COMPASS_BANK", 82, { -1, 1 }, PILOT_COMPASS, "Compass Bank")
+
+-- WSO Compass
+local WSO_COMPASS = "WSO Compass"
+
+-- yes, these are the same draw args as the pilot compass
+F_4E:defineFloatFromArg("WSO_COMPASS_HEADING", 80, WSO_COMPASS, "Compass Heading")
+F_4E:defineFloat("WSO_COMPASS_PITCH", 81, { -1, 1 }, WSO_COMPASS, "Compass Pitch")
+F_4E:defineFloat("WSO_COMPASS_BANK", 82, { -1, 1 }, WSO_COMPASS, "Compass Bank")
+
 -- Electric System
 local ELECTRICS_DEVICE_ID = 55
 
