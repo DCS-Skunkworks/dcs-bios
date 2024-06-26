@@ -326,7 +326,7 @@ M_2000C:defineIndicatorLight("CLIM_C", 632, "ECS PANEL", "O - ECS - C Light (yel
 M_2000C:defineIndicatorLight("CLIM_F", 634, "ECS PANEL", "O - ECS - F Light (yellow)")
 
 --ENGINE GAUGE
-M_2000C:defineFloat("N_RPM", 369, { 0, 1 }, "ENGINE GAUGE", "O - ENG - RPM Needle")
+M_2000C:defineFloat("N_RPM", 369, { 0, 1.1 }, "ENGINE GAUGE", "O - ENG - RPM Needle") -- yes, this goes to 1.1 even though controls are only supposed to be -1 to 1
 M_2000C:defineFloat("T7_NEEDLE", 370, { 0, 1 }, "ENGINE GAUGE", "O - ENG - Tt7 Needle")
 M_2000C:defineFloat("RPM_TENS", 371, { 0, 1 }, "ENGINE GAUGE", "O - ENG - x10 RPM display")
 M_2000C:defineFloat("RPM_ONES", 372, { 0, 1 }, "ENGINE GAUGE", "O - ENG - x1 RPM display")
@@ -472,11 +472,11 @@ M_2000C:defineToggleSwitch("FBW_RESET_BTN", 17, 3423, 423, "LEFT PANEL", "I - FB
 M_2000C:defineIndicatorLightInverted("LANDING_GEAR_LEVER_LIGHT", 405, "LEFT PANEL", "O - LDG - Landing Gear Lever Light (red)")
 M_2000C:definePushButton("EMER_JETT", 6, 3409, 409, "LEFT PANEL", "I - Emergency Jettison Button")
 M_2000C:defineToggleSwitch("GUN_ARM_SW", 6, 3463, 463, "LEFT PANEL", "I - Gun Arm/Safe Switch")
-M_2000C:defineFloat("PSV_EL_G_EXT", 424, { 0, 1 }, "LEFT PANEL", "O - PSV - Left Ext Elevon Position display")
-M_2000C:defineFloat("PSV_EL_G_INT", 425, { 0, 1 }, "LEFT PANEL", "O - PSV - Left Int Elevon Position display")
-M_2000C:defineFloat("PSV_DERIVE", 426, { 0, 1 }, "LEFT PANEL", "O - PSV - Rudder Position display")
-M_2000C:defineFloat("PSV_EL_D_EXT", 427, { 0, 1 }, "LEFT PANEL", "O - PSV - Right Ext Elevon Position display")
-M_2000C:defineFloat("PSV_EL_D_INT", 428, { 0, 1 }, "LEFT PANEL", "O - PSV - Right Int Elevon Position display")
+M_2000C:defineFloat("PSV_EL_G_EXT", 424, { -1, 1 }, "LEFT PANEL", "O - PSV - Left Ext Elevon Position display")
+M_2000C:defineFloat("PSV_EL_G_INT", 425, { -1, 1 }, "LEFT PANEL", "O - PSV - Left Int Elevon Position display")
+M_2000C:defineFloat("PSV_DERIVE", 426, { -1, 1 }, "LEFT PANEL", "O - PSV - Rudder Position display")
+M_2000C:defineFloat("PSV_EL_D_EXT", 427, { -1, 1 }, "LEFT PANEL", "O - PSV - Right Ext Elevon Position display")
+M_2000C:defineFloat("PSV_EL_D_INT", 428, { -1, 1 }, "LEFT PANEL", "O - PSV - Right Int Elevon Position display")
 
 --MAIN PANEL
 M_2000C:defineIndicatorLight("LIM_IND", 185, "MAIN PANEL", "O - LIM Indicator Light (red)")
@@ -822,8 +822,8 @@ M_2000C:defineFloat("VORILS_01_DRUM", 614, { 0, 1 }, "VOR / ILS", "VOR/ILS Drum 
 M_2000C:defineFloat("VORILS_001_DRUM", 615, { 0, 1 }, "VOR / ILS", "VOR/ILS Drum 0.01")
 
 M_2000C:defineFloat("VTAC_X_Y_DRUM", 620, { 0, 1 }, "TACAN", "TACAN X/Y Drum")
-M_2000C:defineFloat("VTAC_10_DRUM", 621, { 0, 1 }, "TACAN", "TACAN 10 Drum")
-M_2000C:defineFloat("VTAC_1_DRUM", 621, { 0, 1 }, "TACAN", "TACAN 1 Drum")
+M_2000C:defineFloat("VTAC_10_DRUM", 621, { -0.3, 1 }, "TACAN", "TACAN 10 Drum")
+M_2000C:defineFloat("VTAC_1_DRUM", 622, { 0, 1 }, "TACAN", "TACAN 1 Drum")
 
 M_2000C:definePushButton("G_RESET", 1, 3348, 348, "MISCELANEOUS", "G-Meter Reset")
 M_2000C:definePotentiometer("HUD_BRIGHT_KNOB", 36, 3202, 202, { 0, 1 }, "VTH", "I - HUD - Brightness Knob")
