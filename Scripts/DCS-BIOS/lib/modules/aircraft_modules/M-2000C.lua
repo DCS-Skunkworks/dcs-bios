@@ -170,9 +170,14 @@ local function getvtbRange()
 	return Functions.coerce_nil_to_string(vtb["vtb-rdr-range"])
 end
 
+local ELECTRIC_DEVICE_ID = 18
+local CLOCK_DEVICE_ID = 43
+local ADI_DEVICE_ID = 44
+local BACKUP_ADI_DEVICE_ID = 45
+
 --ADI
-M_2000C:defineToggleSwitch("ADI_CAGE_LEV", 1, 3314, 314, "ADI", "I - ADI - Cage Lever")
-M_2000C:defineToggleSwitch("ADI_BKL_SW", 1, 3315, 315, "ADI", "I - ADI - Backlight Switch")
+M_2000C:defineToggleSwitch("ADI_CAGE_LEV", BACKUP_ADI_DEVICE_ID, 3314, 314, "ADI", "I - ADI - Cage Lever")
+M_2000C:defineToggleSwitch("ADI_BKL_SW", ADI_DEVICE_ID, 3315, 315, "ADI", "I - ADI - Backlight Switch")
 M_2000C:defineFloat("ADI_PITCH", 316, { -1, 1 }, "ADI", "O - ADI - Pitch Position")
 M_2000C:defineFloat("ADI_ROLL", 317, { -1, 1 }, "ADI", "O - ADI - Roll Position")
 M_2000C:defineFloat("ADI_COMPAS", 318, { -1, 1 }, "ADI", "O - ADI - Compass Position")
@@ -235,8 +240,8 @@ M_2000C:defineIndicatorLight("AP_G_VERT", 297, "AUTOPILOT", "O - AP - G Green Li
 M_2000C:defineIndicatorLight("AP_G_AMBRE", 298, "AUTOPILOT", "O - AP - G Amber Light (yellow)")
 
 --BACKUP ADI
-M_2000C:defineToggleSwitch("SB_ADI_CAGE_SW", 1, 3325, 325, "BACKUP ADI", "I - BKADI - UNCAGE")
-M_2000C:defineRotary("SB_ADI_ROT", 1, 3328, 328, "BACKUP ADI", "I - BKADI - Set")
+M_2000C:defineToggleSwitch("SB_ADI_CAGE_SW", BACKUP_ADI_DEVICE_ID, 3325, 325, "BACKUP ADI", "I - BKADI - UNCAGE")
+M_2000C:definePotentiometer("SB_ADI_ROT", BACKUP_ADI_DEVICE_ID, 3328, 328, { -1, 1 }, "BACKUP ADI", "I - BKADI - Set")
 M_2000C:defineFloat("SB_ADI_ROLL", 326, { -1, 1 }, "BACKUP ADI", "O - BKADI - Roll Position")
 M_2000C:defineFloat("SB_ADI_PITCH", 327, { -1, 1 }, "BACKUP ADI", "O - BKADI - Pitch Position")
 M_2000C:defineFloat("SB_ADI_FLAG", 329, { 0, 1 }, "BACKUP ADI", "O - BKADI - Flag")
@@ -283,11 +288,11 @@ M_2000C:defineIndicatorLight("CLP_DECOL", 562, "CAUTION LIGHT PANEL", "O - CLP -
 M_2000C:defineIndicatorLight("CLP_PARK", 563, "CAUTION LIGHT PANEL", "O - CLP - PARK Indicator Light (yellow)")
 
 --ELECTRIC PANEL
-M_2000C:defineToggleSwitch("MAIN_BATT_SW", 8, 3520, 520, "ELECTRIC PANEL", "I - Main Battery Switch")
-M_2000C:defineToggleSwitch("ELEC_PWR_TRANSF_SW", 8, 3521, 521, "ELECTRIC PANEL", "I - Electric Power Transfer Switch")
-M_2000C:defineToggleSwitch("ALT_1_SW", 8, 3522, 522, "ELECTRIC PANEL", "I - Alternator 1 Switch")
-M_2000C:defineToggleSwitch("ALT_2_SW", 8, 3523, 523, "ELECTRIC PANEL", "I - Alternator 2 Switch")
-M_2000C:define3PosTumb("LGT_TEST_SW", 8, 3524, 524, "ELECTRIC PANEL", "I - Lights Test Switch")
+M_2000C:defineToggleSwitch("MAIN_BATT_SW", ELECTRIC_DEVICE_ID, 3520, 520, "ELECTRIC PANEL", "I - Main Battery Switch")
+M_2000C:defineToggleSwitch("ELEC_PWR_TRANSF_SW", ELECTRIC_DEVICE_ID, 3521, 521, "ELECTRIC PANEL", "I - Electric Power Transfer Switch")
+M_2000C:defineToggleSwitch("ALT_1_SW", ELECTRIC_DEVICE_ID, 3522, 522, "ELECTRIC PANEL", "I - Alternator 1 Switch")
+M_2000C:defineToggleSwitch("ALT_2_SW", ELECTRIC_DEVICE_ID, 3523, 523, "ELECTRIC PANEL", "I - Alternator 2 Switch")
+M_2000C:define3PosTumb("LGT_TEST_SW", ELECTRIC_DEVICE_ID, 3524, 524, "ELECTRIC PANEL", "I - Lights Test Switch")
 
 --CLOCK
 M_2000C:defineToggleSwitch("COC_CLOCK", 22, 3400, 400, "CLOCK", "I - CLOCK - Cockpit Clock Position")
@@ -695,10 +700,10 @@ M_2000C:defineToggleSwitch("PITOT_HEAT_COV", 22, 3659, 659, "RIGHT CONSOLE", "I 
 M_2000C:defineToggleSwitch("PITOT_HEAT_SW", 22, 3660, 660, "RIGHT CONSOLE", "I - Pitot Heat Switch")
 M_2000C:defineToggleSwitch("PKG_BRAKE_LEV", 22, 3666, 666, "RIGHT CONSOLE", "I - Parking Brake Lever")
 M_2000C:defineToggleSwitch("EMER_COMPASS", 9, 3905, 905, "RIGHT CONSOLE", "I - Emergency Compass")
-M_2000C:defineMultipositionSwitch("INS_AUX_HD_HOR", 1, 3665, 665, 3, 0.5, "RIGHT CONSOLE", "I - Backup ADI Switch")
+M_2000C:defineMultipositionSwitch("INS_AUX_HD_HOR", BACKUP_ADI_DEVICE_ID, 3665, 665, 3, 0.5, "RIGHT CONSOLE", "I - Backup ADI Switch")
 
 --RIGHT PANEL
-M_2000C:defineToggleSwitch("QRA_SW", 8, 3654, 654, "RIGHT PANEL", "I - Alert Network (QRA)")
+M_2000C:defineToggleSwitch("QRA_SW", ELECTRIC_DEVICE_ID, 3654, 654, "RIGHT PANEL", "I - Alert Network (QRA)")
 M_2000C:defineToggleSwitch("LOX_DIL_LEV", 25, 3910, 910, "RIGHT PANEL", "I - LOX Dilution Lever")
 M_2000C:defineToggleSwitch("LOX_EMER_SUP", 25, 3912, 912, "RIGHT PANEL", "I - LOX Emergency Supply")
 M_2000C:defineFloat("OXY_NEEDLE", 518, { 0, 1 }, "RIGHT PANEL", "O - LOX - Needle")
@@ -868,9 +873,9 @@ M_2000C:defineFloat("FOLD_INFO_PAGE_3", 445, { 0, 1 }, "Cockpit", "Foldable Info
 M_2000C:defineFloat("FOLD_INFO_PAGE_4", 446, { 0, 1 }, "Cockpit", "Foldable Info Register 4")
 
 M_2000C:definePotentiometer("MIRROR_ORIENT", 40, 3009, 9, { 0, 1 }, "CANOPY", "I - Mirror Orientation")
-M_2000C:defineRotary("COC_CLOCK_ROT", 2, 3922, 922, "CLOCK", "I - CLOCK - Clock Rewind/Adjust")
-M_2000C:defineToggleSwitch("COC_CLOCK_BTN", 2, 3923, 923, "CLOCK", "I - CLOCK - Clock Start/Stop/Reset")
-M_2000C:defineToggleSwitch("COC_CLOCK_ADJ", 2, 3924, 924, "CLOCK", "I - CLOCK - Clock time adjustment knob")
+M_2000C:defineRotary("COC_CLOCK_ROT", CLOCK_DEVICE_ID, 3922, 922, "CLOCK", "I - CLOCK - Clock Rewind/Adjust")
+M_2000C:defineToggleSwitch("COC_CLOCK_BTN", CLOCK_DEVICE_ID, 3923, 923, "CLOCK", "I - CLOCK - Clock Start/Stop/Reset")
+M_2000C:defineToggleSwitch("COC_CLOCK_ADJ", CLOCK_DEVICE_ID, 3924, 924, "CLOCK", "I - CLOCK - Clock time adjustment knob")
 M_2000C:defineString("FUEL_JAUGE", function()
 	return fuelJauge
 end, 4, "FUEL SYSTEM", "O - FUEL - JAUGE Display")
@@ -881,6 +886,7 @@ end, 4, "FUEL SYSTEM", "O - FUEL - Total Display")
 M_2000C:defineReadWriteRadio("VUHF_RADIO", 19, 7, 3, 1000, "VUHF Radio")
 M_2000C:defineReadWriteRadio("UHF_RADIO", 20, 7, 3, 1000, "UHF Radio")
 
-M_2000C:defineFixedStepInput("CLOCK_RING", 2, 3925, { -0.01, 0.01 }, "CLOCK", "Clock Ring (only decrease)")
+M_2000C:defineFixedStepInput("CLOCK_RING", CLOCK_DEVICE_ID, 3925, { -0.01, 0.01 }, "CLOCK", "Clock Ring (only decrease)")
+M_2000C:definePushButton("BATT_REARM_SW", ELECTRIC_DEVICE_ID, 3995, 995, "ELECTRIC PANEL", "Battery Rearm Switch")
 
 return M_2000C
