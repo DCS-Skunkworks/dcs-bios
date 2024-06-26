@@ -170,6 +170,8 @@ local function getvtbRange()
 	return Functions.coerce_nil_to_string(vtb["vtb-rdr-range"])
 end
 
+local CLOCK_DEVICE_ID = 43
+
 --ADI
 M_2000C:defineToggleSwitch("ADI_CAGE_LEV", 1, 3314, 314, "ADI", "I - ADI - Cage Lever")
 M_2000C:defineToggleSwitch("ADI_BKL_SW", 1, 3315, 315, "ADI", "I - ADI - Backlight Switch")
@@ -868,9 +870,9 @@ M_2000C:defineFloat("FOLD_INFO_PAGE_3", 445, { 0, 1 }, "Cockpit", "Foldable Info
 M_2000C:defineFloat("FOLD_INFO_PAGE_4", 446, { 0, 1 }, "Cockpit", "Foldable Info Register 4")
 
 M_2000C:definePotentiometer("MIRROR_ORIENT", 40, 3009, 9, { 0, 1 }, "CANOPY", "I - Mirror Orientation")
-M_2000C:defineRotary("COC_CLOCK_ROT", 2, 3922, 922, "CLOCK", "I - CLOCK - Clock Rewind/Adjust")
-M_2000C:defineToggleSwitch("COC_CLOCK_BTN", 2, 3923, 923, "CLOCK", "I - CLOCK - Clock Start/Stop/Reset")
-M_2000C:defineToggleSwitch("COC_CLOCK_ADJ", 2, 3924, 924, "CLOCK", "I - CLOCK - Clock time adjustment knob")
+M_2000C:defineRotary("COC_CLOCK_ROT", CLOCK_DEVICE_ID, 3922, 922, "CLOCK", "I - CLOCK - Clock Rewind/Adjust")
+M_2000C:defineToggleSwitch("COC_CLOCK_BTN", CLOCK_DEVICE_ID, 3923, 923, "CLOCK", "I - CLOCK - Clock Start/Stop/Reset")
+M_2000C:defineToggleSwitch("COC_CLOCK_ADJ", CLOCK_DEVICE_ID, 3924, 924, "CLOCK", "I - CLOCK - Clock time adjustment knob")
 M_2000C:defineString("FUEL_JAUGE", function()
 	return fuelJauge
 end, 4, "FUEL SYSTEM", "O - FUEL - JAUGE Display")
@@ -881,6 +883,6 @@ end, 4, "FUEL SYSTEM", "O - FUEL - Total Display")
 M_2000C:defineReadWriteRadio("VUHF_RADIO", 19, 7, 3, 1000, "VUHF Radio")
 M_2000C:defineReadWriteRadio("UHF_RADIO", 20, 7, 3, 1000, "UHF Radio")
 
-M_2000C:defineFixedStepInput("CLOCK_RING", 2, 3925, { -0.01, 0.01 }, "CLOCK", "Clock Ring (only decrease)")
+M_2000C:defineFixedStepInput("CLOCK_RING", CLOCK_DEVICE_ID, 3925, { -0.01, 0.01 }, "CLOCK", "Clock Ring (only decrease)")
 
 return M_2000C
