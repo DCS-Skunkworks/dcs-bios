@@ -241,7 +241,7 @@ M_2000C:defineIndicatorLight("AP_G_AMBRE", 298, "AUTOPILOT", "O - AP - G Amber L
 
 --BACKUP ADI
 M_2000C:defineToggleSwitch("SB_ADI_CAGE_SW", BACKUP_ADI_DEVICE_ID, 3325, 325, "BACKUP ADI", "I - BKADI - UNCAGE")
-M_2000C:defineRotary("SB_ADI_ROT", BACKUP_ADI_DEVICE_ID, 3328, 328, "BACKUP ADI", "I - BKADI - Set")
+M_2000C:definePotentiometer("SB_ADI_ROT", BACKUP_ADI_DEVICE_ID, 3328, 328, { -1, 1 }, "BACKUP ADI", "I - BKADI - Set")
 M_2000C:defineFloat("SB_ADI_ROLL", 326, { -1, 1 }, "BACKUP ADI", "O - BKADI - Roll Position")
 M_2000C:defineFloat("SB_ADI_PITCH", 327, { -1, 1 }, "BACKUP ADI", "O - BKADI - Pitch Position")
 M_2000C:defineFloat("SB_ADI_FLAG", 329, { 0, 1 }, "BACKUP ADI", "O - BKADI - Flag")
