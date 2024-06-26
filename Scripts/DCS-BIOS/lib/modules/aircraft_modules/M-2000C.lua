@@ -170,6 +170,7 @@ local function getvtbRange()
 	return Functions.coerce_nil_to_string(vtb["vtb-rdr-range"])
 end
 
+local ELECTRIC_DEVICE_ID = 18
 local CLOCK_DEVICE_ID = 43
 local ADI_DEVICE_ID = 44
 local BACKUP_ADI_DEVICE_ID = 45
@@ -287,11 +288,11 @@ M_2000C:defineIndicatorLight("CLP_DECOL", 562, "CAUTION LIGHT PANEL", "O - CLP -
 M_2000C:defineIndicatorLight("CLP_PARK", 563, "CAUTION LIGHT PANEL", "O - CLP - PARK Indicator Light (yellow)")
 
 --ELECTRIC PANEL
-M_2000C:defineToggleSwitch("MAIN_BATT_SW", 8, 3520, 520, "ELECTRIC PANEL", "I - Main Battery Switch")
-M_2000C:defineToggleSwitch("ELEC_PWR_TRANSF_SW", 8, 3521, 521, "ELECTRIC PANEL", "I - Electric Power Transfer Switch")
-M_2000C:defineToggleSwitch("ALT_1_SW", 8, 3522, 522, "ELECTRIC PANEL", "I - Alternator 1 Switch")
-M_2000C:defineToggleSwitch("ALT_2_SW", 8, 3523, 523, "ELECTRIC PANEL", "I - Alternator 2 Switch")
-M_2000C:define3PosTumb("LGT_TEST_SW", 8, 3524, 524, "ELECTRIC PANEL", "I - Lights Test Switch")
+M_2000C:defineToggleSwitch("MAIN_BATT_SW", ELECTRIC_DEVICE_ID, 3520, 520, "ELECTRIC PANEL", "I - Main Battery Switch")
+M_2000C:defineToggleSwitch("ELEC_PWR_TRANSF_SW", ELECTRIC_DEVICE_ID, 3521, 521, "ELECTRIC PANEL", "I - Electric Power Transfer Switch")
+M_2000C:defineToggleSwitch("ALT_1_SW", ELECTRIC_DEVICE_ID, 3522, 522, "ELECTRIC PANEL", "I - Alternator 1 Switch")
+M_2000C:defineToggleSwitch("ALT_2_SW", ELECTRIC_DEVICE_ID, 3523, 523, "ELECTRIC PANEL", "I - Alternator 2 Switch")
+M_2000C:define3PosTumb("LGT_TEST_SW", ELECTRIC_DEVICE_ID, 3524, 524, "ELECTRIC PANEL", "I - Lights Test Switch")
 
 --CLOCK
 M_2000C:defineToggleSwitch("COC_CLOCK", 22, 3400, 400, "CLOCK", "I - CLOCK - Cockpit Clock Position")
@@ -702,7 +703,7 @@ M_2000C:defineToggleSwitch("EMER_COMPASS", 9, 3905, 905, "RIGHT CONSOLE", "I - E
 M_2000C:defineMultipositionSwitch("INS_AUX_HD_HOR", BACKUP_ADI_DEVICE_ID, 3665, 665, 3, 0.5, "RIGHT CONSOLE", "I - Backup ADI Switch")
 
 --RIGHT PANEL
-M_2000C:defineToggleSwitch("QRA_SW", 8, 3654, 654, "RIGHT PANEL", "I - Alert Network (QRA)")
+M_2000C:defineToggleSwitch("QRA_SW", ELECTRIC_DEVICE_ID, 3654, 654, "RIGHT PANEL", "I - Alert Network (QRA)")
 M_2000C:defineToggleSwitch("LOX_DIL_LEV", 25, 3910, 910, "RIGHT PANEL", "I - LOX Dilution Lever")
 M_2000C:defineToggleSwitch("LOX_EMER_SUP", 25, 3912, 912, "RIGHT PANEL", "I - LOX Emergency Supply")
 M_2000C:defineFloat("OXY_NEEDLE", 518, { 0, 1 }, "RIGHT PANEL", "O - LOX - Needle")
@@ -886,5 +887,6 @@ M_2000C:defineReadWriteRadio("VUHF_RADIO", 19, 7, 3, 1000, "VUHF Radio")
 M_2000C:defineReadWriteRadio("UHF_RADIO", 20, 7, 3, 1000, "UHF Radio")
 
 M_2000C:defineFixedStepInput("CLOCK_RING", CLOCK_DEVICE_ID, 3925, { -0.01, 0.01 }, "CLOCK", "Clock Ring (only decrease)")
+M_2000C:definePushButton("BATT_REARM_SW", ELECTRIC_DEVICE_ID, 3995, 995, "ELECTRIC PANEL", "Battery Rearm Switch")
 
 return M_2000C
