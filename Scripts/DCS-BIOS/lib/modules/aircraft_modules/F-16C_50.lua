@@ -2011,4 +2011,8 @@ F_16C_50:defineFloat("CANOPY_LOCK", 607, { 0, 1 }, "Cockpit Mechanics", "Canopy 
 F_16C_50:defineReadWriteRadio("UHF_RADIO", 36, 7, 3, 1000, "UHF RADIO")
 F_16C_50:defineReadWriteRadio("VHF_RADIO", 38, 7, 3, 1000, "VHF RADIO")
 
+F_16C_50:defineFloat("STANDBY_COMPASS_HEADING", 610, { 1, 0 }, "Standby Compass", "Standby Compass Heading")
+F_16C_50:defineFloat("STANDBY_COMPASS_PITCH", 611, { -1, 1 }, "Standby Compass", "Standby Compass Pitch")
+F_16C_50:defineFloat("STANDBY_COMPASS_ROLL", 612, { -1, 1 }, "Standby Compass", "Standby Compass Roll")
+
 return F_16C_50
