@@ -171,10 +171,12 @@ local function getvtbRange()
 end
 
 local CLOCK_DEVICE_ID = 43
+local ADI_DEVICE_ID = 44
+local BACKUP_ADI_DEVICE_ID = 45
 
 --ADI
-M_2000C:defineToggleSwitch("ADI_CAGE_LEV", 1, 3314, 314, "ADI", "I - ADI - Cage Lever")
-M_2000C:defineToggleSwitch("ADI_BKL_SW", 1, 3315, 315, "ADI", "I - ADI - Backlight Switch")
+M_2000C:defineToggleSwitch("ADI_CAGE_LEV", BACKUP_ADI_DEVICE_ID, 3314, 314, "ADI", "I - ADI - Cage Lever")
+M_2000C:defineToggleSwitch("ADI_BKL_SW", ADI_DEVICE_ID, 3315, 315, "ADI", "I - ADI - Backlight Switch")
 M_2000C:defineFloat("ADI_PITCH", 316, { -1, 1 }, "ADI", "O - ADI - Pitch Position")
 M_2000C:defineFloat("ADI_ROLL", 317, { -1, 1 }, "ADI", "O - ADI - Roll Position")
 M_2000C:defineFloat("ADI_COMPAS", 318, { -1, 1 }, "ADI", "O - ADI - Compass Position")
@@ -237,8 +239,8 @@ M_2000C:defineIndicatorLight("AP_G_VERT", 297, "AUTOPILOT", "O - AP - G Green Li
 M_2000C:defineIndicatorLight("AP_G_AMBRE", 298, "AUTOPILOT", "O - AP - G Amber Light (yellow)")
 
 --BACKUP ADI
-M_2000C:defineToggleSwitch("SB_ADI_CAGE_SW", 1, 3325, 325, "BACKUP ADI", "I - BKADI - UNCAGE")
-M_2000C:defineRotary("SB_ADI_ROT", 1, 3328, 328, "BACKUP ADI", "I - BKADI - Set")
+M_2000C:defineToggleSwitch("SB_ADI_CAGE_SW", BACKUP_ADI_DEVICE_ID, 3325, 325, "BACKUP ADI", "I - BKADI - UNCAGE")
+M_2000C:defineRotary("SB_ADI_ROT", BACKUP_ADI_DEVICE_ID, 3328, 328, "BACKUP ADI", "I - BKADI - Set")
 M_2000C:defineFloat("SB_ADI_ROLL", 326, { -1, 1 }, "BACKUP ADI", "O - BKADI - Roll Position")
 M_2000C:defineFloat("SB_ADI_PITCH", 327, { -1, 1 }, "BACKUP ADI", "O - BKADI - Pitch Position")
 M_2000C:defineFloat("SB_ADI_FLAG", 329, { 0, 1 }, "BACKUP ADI", "O - BKADI - Flag")
@@ -697,7 +699,7 @@ M_2000C:defineToggleSwitch("PITOT_HEAT_COV", 22, 3659, 659, "RIGHT CONSOLE", "I 
 M_2000C:defineToggleSwitch("PITOT_HEAT_SW", 22, 3660, 660, "RIGHT CONSOLE", "I - Pitot Heat Switch")
 M_2000C:defineToggleSwitch("PKG_BRAKE_LEV", 22, 3666, 666, "RIGHT CONSOLE", "I - Parking Brake Lever")
 M_2000C:defineToggleSwitch("EMER_COMPASS", 9, 3905, 905, "RIGHT CONSOLE", "I - Emergency Compass")
-M_2000C:defineMultipositionSwitch("INS_AUX_HD_HOR", 1, 3665, 665, 3, 0.5, "RIGHT CONSOLE", "I - Backup ADI Switch")
+M_2000C:defineMultipositionSwitch("INS_AUX_HD_HOR", BACKUP_ADI_DEVICE_ID, 3665, 665, 3, 0.5, "RIGHT CONSOLE", "I - Backup ADI Switch")
 
 --RIGHT PANEL
 M_2000C:defineToggleSwitch("QRA_SW", 8, 3654, 654, "RIGHT PANEL", "I - Alert Network (QRA)")
