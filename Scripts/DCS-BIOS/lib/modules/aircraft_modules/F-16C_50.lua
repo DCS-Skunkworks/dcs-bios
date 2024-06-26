@@ -203,7 +203,7 @@ F_16C_50:defineToggleSwitch("UHF_DOOR", 37, 3014, 734, "UHF", "UHF Access Door, 
 
 --IFF Control Panel
 F_16C_50:defineToggleSwitch("IFF_C_I_KNB", 35, 3001, 542, "IFF", "IFF C & I Knob, UFC/BACKUP")
-F_16C_50:defineMultipositionSwitch("IFF_MASTER_KNB", 35, 3002, 540, 5, 0.1, "IFF", "IFF MASTER Knob, OFF/STBY/LOW/NORM/EMER")
+F_16C_50:defineMultipositionSwitch("IFF_MASTER_KNB", 35, 3002, 539, 5, 0.1, "IFF", "IFF MASTER Knob, OFF/STBY/LOW/NORM/EMER")
 F_16C_50:define3PosTumb("IFF_M4_CODE_SW", 35, 3003, 541, "IFF", "IFF M-4 CODE Switch, HOLD/ A/B /ZERO")
 F_16C_50:define3PosTumb("IFF_M4_REPLY_SW", 35, 3004, 543, "IFF", "IFF MODE 4 REPLY Switch, OUT/A/B")
 F_16C_50:defineToggleSwitch("IFF_M4_MONITOR_SW", 35, 3005, 544, "IFF", "IFF MODE 4 MONITOR Switch, OUT/AUDIO")
