@@ -204,7 +204,7 @@ M_2000C:defineFloat("ALT_BARO_TENS", 312, { 0, 1 }, "ALTIMETER", "O - ALT - x10 
 M_2000C:defineFloat("ALT_BARO_ONES", 313, { 0, 1 }, "ALTIMETER", "O - ALT - x1 Baro Press display")
 
 --AOA
-M_2000C:defineFloat("AOA_POS", 331, { 0, 1 }, "AOA", "O - AOA - Indicator")
+M_2000C:defineFloat("AOA_POS", 331, { -0.02, 0.3187 }, "AOA", "O - AOA - Indicator") -- values tested in modelviewer
 M_2000C:defineFloat("AOA_FLAG", 332, { 0, 1 }, "AOA", "O - AOA - Flag")
 
 --AUDIO PANEL
@@ -402,10 +402,10 @@ M_2000C:defineTumb("HSI_MODE_SEL_SW", 2, 3341, 341, 0.1, { 0, 1 }, nil, false, "
 M_2000C:defineFloat("HSI_HDG", 333, { 0, 1 }, "HSI", "O - HSI - AP Heading (Green Arrow)")
 M_2000C:defineFloat("HSI_D_NEEDLE", 334, { 0, 1 }, "HSI", "O - HSI - COURSE (Double Needle)")
 M_2000C:defineFloat("HSI_NEEDLE", 335, { 0, 1 }, "HSI", "O - HSI - VAD (Simple Needle)")
-M_2000C:defineFloat("HSI_DIST_CENTS", 336, { 0, 0.99 }, "HSI", "O - HSI x100 Distance display")
-M_2000C:defineFloat("HSI_DIST_TENS", 337, { 0, 0.99 }, "HSI", "O - HSI x10 Distance display")
-M_2000C:defineFloat("HSI_DIST_ONES", 338, { 0, 0.99 }, "HSI", "O - HSI x1 Distance display")
-M_2000C:defineFloat("HSI_DIST_DEC", 339, { 0, 0.99 }, "HSI", "O - HSI x.1 Distance display")
+M_2000C:defineFloat("HSI_DIST_CENTS", 336, { 0, 1 }, "HSI", "O - HSI x100 Distance display")
+M_2000C:defineFloat("HSI_DIST_TENS", 337, { 0, 1 }, "HSI", "O - HSI x10 Distance display")
+M_2000C:defineFloat("HSI_DIST_ONES", 338, { 0, 1 }, "HSI", "O - HSI x1 Distance display")
+M_2000C:defineFloat("HSI_DIST_DEC", 339, { 0, 1 }, "HSI", "O - HSI x.1 Distance display")
 M_2000C:defineFloat("HSI_COMPAS", 342, { 0, 1 }, "HSI", "O - HSI - Compass")
 M_2000C:defineFloat("HSI_FLAG_DIST", 343, { 0, 1 }, "HSI", "O - HSI - Distance Flag")
 M_2000C:defineFloat("HSI_FLAG_G", 344, { 0, 1 }, "HSI", "O - HSI - Left Flag")
