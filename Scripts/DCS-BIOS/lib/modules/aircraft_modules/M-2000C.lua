@@ -807,7 +807,8 @@ M_2000C:defineTumb("RAD_RALT_PWR_SW", 38, 3205, 205, 0.5, { 0, 1 }, nil, false, 
 M_2000C:defineIndicatorLight("HUD_REC", 212, "VTH", "O - HUD - Recording Indicator Light (green)")
 
 --VVI
-M_2000C:defineFloat("VARIO_NEEDLE", 324, { -1, 1 }, "VVI", "O - VVI - Needle")
+-- model viewer limites are -0.6 to 0.6, however the sim value for this gauge seems to climb indefinitely
+M_2000C:defineFloat("VARIO_NEEDLE", 324, { -0.6, 0.6 }, "VVI", "O - VVI - Needle")
 
 --NVG
 M_2000C:defineToggleSwitch("NVG_HELMET_MOUNT", 31, 3002, 1, "NVG", "I - NVG - Mount/Unmount NVG on Helmet")
