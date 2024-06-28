@@ -1370,6 +1370,19 @@ F_4E:defineFloat("WSO_COMPASS_BANK", 82, { -1, 1 }, WSO_COMPASS, "Compass Bank")
 -- Electric System
 local ELECTRICS_DEVICE_ID = 55
 
+-- Pilot Electrical System
+local PILOT_ELECTRICS = "PLT Electrical System"
+
+F_4E:define3PosTumb("PLT_ELECTRICS_GENERATOR_L", ELECTRICS_DEVICE_ID, 3002, 971, PILOT_ELECTRICS, "Left Generator")
+F_4E:define3PosTumb("PLT_ELECTRICS_GENERATOR_R", ELECTRICS_DEVICE_ID, 3003, 972, PILOT_ELECTRICS, "Right Generator")
+
+-- WSO Electrical System
+local WSO_ELECTRICS = "WSO Electrical System"
+
+F_4E:defineToggleSwitch("WSO_ELECTRICS_BATTERY_BYPASS", ELECTRICS_DEVICE_ID, 3015, 1028, WSO_ELECTRICS, "Battery Bypass Switch")
+F_4E:defineToggleSwitch("WSO_ELECTRICS_AUTOPILOT_GROUND_PWR", ELECTRICS_DEVICE_ID, 3001, 1027, WSO_ELECTRICS, "Autopilot Ground Power Switch")
+F_4E:defineToggleSwitch("WSO_ELECTRICS_INSTRUMENT_GROUND_PWR", ELECTRICS_DEVICE_ID, 3004, 973, WSO_ELECTRICS, "Instrument Ground Power Switch")
+
 -- Attitude Indicator (ARU-13A)
 local ATTITUDE_INDICATOR_DEVICE_ID = 56
 
