@@ -168,6 +168,10 @@ function TestAircraft:testNS430()
 	self:validateModule(require("Scripts.DCS-BIOS.lib.modules.common_modules.NS430"), "NS430", 0x0600)
 end
 
+function TestAircraft:testOH_58D()
+	self:validateModule(require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.OH-58D"), "OH-58D", 0x8A00)
+end
+
 function TestAircraft:testP47D()
 	self:validateModule(require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.P-47D"), "P-47D", 0x5200)
 end
