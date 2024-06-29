@@ -57,6 +57,12 @@ function Module:reserveIntValue(max_value)
 	self:allocateInt(max_value)
 end
 
+--- Reserves space in the memory map for a string with the specified length
+---@param length integer the length of the string to reserve space for
+function Module:reserveStringValue(length)
+	self:allocateString(length)
+end
+
 --- Uses SetCommand and set_argument_value instead of performClickableAction()
 --- @param identifier string the unique identifier for the control
 --- @param device_id integer the dcs device id
