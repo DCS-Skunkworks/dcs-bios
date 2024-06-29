@@ -63,6 +63,18 @@ function F_4E:defineIntegerFromArg(identifier, arg_number, max_value, category, 
 	end, max_value, category, description)
 end
 
+--- Adds a 3-position switch with a spring-loaded return
+--- @param identifier string the unique identifier for the control
+--- @param device_id integer the dcs device id
+--- @param command integer the dcs command to move the switch up or down
+--- @param arg_number integer the dcs argument number
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @return Control control the control which was added to the module
+function F_4E:defineSpringloaded3PosTumb(identifier, device_id, command, arg_number, category, description)
+	self:defineSpringloaded_3PosTumb(identifier, device_id, command, command, arg_number, category, description)
+end
+
 -- helper functions
 
 --- Returns an integer value for a drum-based numeric indicator
@@ -130,14 +142,14 @@ local PILOT_ICS_PANEL = "PLT ICS Panel"
 
 F_4E:definePotentiometer("PLT_ICS_INTERCOM_VOL", ICS_DEVICE_ID, 3003, 76, { 0, 1 }, PILOT_ICS_PANEL, "Change Intercom Volume")
 F_4E:define3PosTumb0To1("PLT_ICS_AMPLIFIER", ICS_DEVICE_ID, 3004, 1409, PILOT_ICS_PANEL, "Select Amplifier")
-F_4E:defineSpringloaded_3PosTumb("PLT_ICS_MODE", ICS_DEVICE_ID, 3005, 3005, 1378, PILOT_ICS_PANEL, "Set Mode")
+F_4E:defineSpringloaded3PosTumb("PLT_ICS_MODE", ICS_DEVICE_ID, 3005, 1378, PILOT_ICS_PANEL, "Set Mode")
 
 -- WSO ICS
 local WSO_ICS_PANEL = "WSO ICS Panel"
 
 F_4E:definePotentiometer("WSO_ICS_INTERCOM_VOL", ICS_DEVICE_ID, 3006, 2666, { 0, 1 }, WSO_ICS_PANEL, "Change Intercom Volume")
 F_4E:define3PosTumb0To1("WSO_ICS_AMPLIFIER", ICS_DEVICE_ID, 3007, 2667, WSO_ICS_PANEL, "Select Amplifier")
-F_4E:defineSpringloaded_3PosTumb("WSO_ICS_MODE", ICS_DEVICE_ID, 3008, 3008, 2668, WSO_ICS_PANEL, "Set Mode")
+F_4E:defineSpringloaded3PosTumb("WSO_ICS_MODE", ICS_DEVICE_ID, 3008, 2668, WSO_ICS_PANEL, "Set Mode")
 
 -- ARC-164
 local ARC_164_DEVICE_ID = 3
@@ -619,7 +631,7 @@ local INDICATORS_DEVICE_ID = 22
 -- Pilot Warning Indicators
 local PILOT_WARNING_INDICATORS = "PLT Warning Indicators"
 
-F_4E:defineSpringloaded_3PosTumb("PLT_WCA_WARN_LIGHT_TEST", INDICATORS_DEVICE_ID, 3002, 3002, 1354, PILOT_WARNING_INDICATORS, "Test Warning Lights/Standby Compass Light")
+F_4E:defineSpringloaded3PosTumb("PLT_WCA_WARN_LIGHT_TEST", INDICATORS_DEVICE_ID, 3002, 1354, PILOT_WARNING_INDICATORS, "Test Warning Lights/Standby Compass Light")
 F_4E:definePushButton("PLT_WCA_MASTER_CAUTION_RESET", INDICATORS_DEVICE_ID, 3001, 221, PILOT_WARNING_INDICATORS, "Reset Master Caution")
 
 F_4E:defineIndicatorLight("PLT_WCA_MASTER_CAUTION", 218, PILOT_WARNING_INDICATORS, "Master Caution Lamp (Yellow)")
@@ -701,7 +713,7 @@ local ENGINE_DEVICE_ID = 24
 -- Pilot Engine Controls
 local PILOT_ENGINE_CONTROLS = "PLT Engine Controls"
 
-F_4E:defineSpringloaded_3PosTumb("PLT_ENGINE_START", ENGINE_DEVICE_ID, 3003, 3003, 294, PILOT_ENGINE_CONTROLS, "Start Engine Switch")
+F_4E:defineSpringloaded3PosTumb("PLT_ENGINE_START", ENGINE_DEVICE_ID, 3003, 294, PILOT_ENGINE_CONTROLS, "Start Engine Switch")
 F_4E:defineToggleSwitch("PLT_ENGINE_MASTER_L", ENGINE_DEVICE_ID, 3001, 292, PILOT_ENGINE_CONTROLS, "Left Engine Master Switch")
 F_4E:defineToggleSwitch("PLT_ENGINE_MASTER_R", ENGINE_DEVICE_ID, 3002, 293, PILOT_ENGINE_CONTROLS, "Right Engine Master Switch")
 F_4E:definePushButton("PLT_ENGINE_FIRE_TEST", ENGINE_DEVICE_ID, 3012, 978, PILOT_ENGINE_CONTROLS, "Test Fire System")
@@ -747,7 +759,7 @@ local PILOT_CONTROL_SURFACES = "PLT Control Surfaces"
 
 F_4E:define3PosTumb("PLT_CONTROLS_FLAPS_SLATS", CONTROL_SURFACES_DEVICE_ID, 3005, 222, PILOT_CONTROL_SURFACES, "Flaps/Slats")
 F_4E:definePotentiometer("PLT_CONTROLS_FLAPS_SLATS_EMERGENCY", CONTROL_SURFACES_DEVICE_ID, 3003, 223, { 0, 1 }, PILOT_CONTROL_SURFACES, "Flaps/Slats Emergency")
-F_4E:defineSpringloaded_3PosTumb("PLT_CONTROLS_RUDDER_TRIM", CONTROL_SURFACES_DEVICE_ID, 3012, 3012, 964, PILOT_CONTROL_SURFACES, "Rudder Trim")
+F_4E:defineSpringloaded3PosTumb("PLT_CONTROLS_RUDDER_TRIM", CONTROL_SURFACES_DEVICE_ID, 3012, 964, PILOT_CONTROL_SURFACES, "Rudder Trim")
 F_4E:defineToggleSwitch("PLT_CONTROLS_SLATS_OVERRIDE_COVER", CONTROL_SURFACES_DEVICE_ID, 3008, 2520, PILOT_CONTROL_SURFACES, "Slats Override Switch Cover")
 F_4E:defineToggleSwitch("PLT_CONTROLS_SLATS_OVERRIDE", CONTROL_SURFACES_DEVICE_ID, 3010, 2519, PILOT_CONTROL_SURFACES, "Slats Override Switch")
 F_4E:defineRotary("PLT_CONTROLS_PEDAL_ADJUST", CONTROL_SURFACES_DEVICE_ID, 3017, 2595, PILOT_CONTROL_SURFACES, "Adjust Pedal Position")
@@ -770,7 +782,7 @@ local OXYGEN_SYSTEM_DEVICE_ID = 26
 local PILOT_O2_SYSTEM = "PLT Oxygen System"
 
 F_4E:definePushButton("PLT_O2_TEST", OXYGEN_SYSTEM_DEVICE_ID, 3001, 232, PILOT_O2_SYSTEM, "Test Oxygen Gauge")
-F_4E:defineSpringloaded_3PosTumb("PLT_O2_MODE", OXYGEN_SYSTEM_DEVICE_ID, 3002, 3002, 235, PILOT_O2_SYSTEM, "Select Oxygen Mode")
+F_4E:defineSpringloaded3PosTumb("PLT_O2_MODE", OXYGEN_SYSTEM_DEVICE_ID, 3002, 235, PILOT_O2_SYSTEM, "Select Oxygen Mode")
 F_4E:defineToggleSwitch("PLT_O2_MIXTURE", OXYGEN_SYSTEM_DEVICE_ID, 3004, 236, PILOT_O2_SYSTEM, "Select Oxygen Mixture")
 F_4E:defineToggleSwitch("PLT_O2_SUPPLY", OXYGEN_SYSTEM_DEVICE_ID, 3006, 237, PILOT_O2_SYSTEM, "Oxygen Supply")
 
@@ -782,7 +794,7 @@ local WSO_O2_SYSTEM = "WSO Oxygen System"
 
 F_4E:reserveIntValue(65535) -- Lamp Cap, not yet implemented
 
-F_4E:defineSpringloaded_3PosTumb("WSO_O2_MODE", OXYGEN_SYSTEM_DEVICE_ID, 3003, 3003, 242, WSO_O2_SYSTEM, "Select Oxygen Mode")
+F_4E:defineSpringloaded3PosTumb("WSO_O2_MODE", OXYGEN_SYSTEM_DEVICE_ID, 3003, 242, WSO_O2_SYSTEM, "Select Oxygen Mode")
 F_4E:defineToggleSwitch("WSO_O2_MIXTURE", OXYGEN_SYSTEM_DEVICE_ID, 3005, 243, WSO_O2_SYSTEM, "Select Oxygen Mixture")
 F_4E:defineToggleSwitch("WSO_O2_SUPPLY", OXYGEN_SYSTEM_DEVICE_ID, 3007, 244, WSO_O2_SYSTEM, "Oxygen Supply")
 
@@ -1000,7 +1012,7 @@ local CADC_DEVICE_ID = 38
 -- Pilot CADC
 local PILOT_CADC = "PLT CADC"
 
-F_4E:defineSpringloaded_3PosTumb("PLT_CADC_CORRECTION", CADC_DEVICE_ID, 3001, 3001, 113, PILOT_CADC, "CADC Corrections")
+F_4E:defineSpringloaded3PosTumb("PLT_CADC_CORRECTION", CADC_DEVICE_ID, 3001, 113, PILOT_CADC, "CADC Corrections")
 
 -- Airspeed Indicator
 local ASI_DEVICE_ID = 39
@@ -1034,7 +1046,7 @@ local BARO_ALTIMETER_DEVICE_ID = 40
 local PILOT_BARO_ALTIMETER = "PLT Barometric Altimeter"
 
 F_4E:definePotentiometer("PLT_BARO_PRESSURE_KNOB", BARO_ALTIMETER_DEVICE_ID, 3001, 95, { 0, 1 }, PILOT_BARO_ALTIMETER, "Change Reference Pressure")
-F_4E:defineSpringloaded_3PosTumb("PLT_BARO_MODE", BARO_ALTIMETER_DEVICE_ID, 3002, 3002, 100, PILOT_BARO_ALTIMETER, "Change Mode (hold to reset)")
+F_4E:defineSpringloaded3PosTumb("PLT_BARO_MODE", BARO_ALTIMETER_DEVICE_ID, 3002, 100, PILOT_BARO_ALTIMETER, "Change Mode (hold to reset)")
 
 F_4E:defineFloatFromArg("PLT_BARO_NEEDLE", 91, PILOT_BARO_ALTIMETER, "Altimeter Needle")
 F_4E:defineIntegerFromGetter("PLT_BARO_HUNDREDS", function(dev0)
@@ -1060,7 +1072,7 @@ F_4E:defineFloatFromArg("PLT_BARO_STANDBY", 101, PILOT_BARO_ALTIMETER, "Standby 
 local WSO_BARO_ALTIMETER = "WSO Barometric Altimeter"
 
 F_4E:definePotentiometer("WSO_BARO_PRESSURE_KNOB", BARO_ALTIMETER_DEVICE_ID, 3003, 186, { 0, 1 }, WSO_BARO_ALTIMETER, "Change Reference Pressure")
-F_4E:defineSpringloaded_3PosTumb("WSO_BARO_MODE", BARO_ALTIMETER_DEVICE_ID, 3004, 3004, 191, WSO_BARO_ALTIMETER, "Change Mode (hold to reset)")
+F_4E:defineSpringloaded3PosTumb("WSO_BARO_MODE", BARO_ALTIMETER_DEVICE_ID, 3004, 191, WSO_BARO_ALTIMETER, "Change Mode (hold to reset)")
 
 F_4E:defineFloatFromArg("WSO_BARO_NEEDLE", 182, WSO_BARO_ALTIMETER, "Altimeter Needle")
 F_4E:defineIntegerFromGetter("WSO_BARO_HUNDREDS", function(dev0)
@@ -1518,7 +1530,7 @@ F_4E:definePushButton("WSO_IFF_CHALLENGE_TEST_BUTTON", IFF_INTERROGATOR_DEVICE_I
 F_4E:definePotentiometer("WSO_IFF_CHALLENGE_DIM", IFF_INTERROGATOR_DEVICE_ID, 3016, 2811, { 0, 1 }, WSO_IFF_PANEL, "Challenge Light (rotate to dim)")
 F_4E:defineIndicatorLight("WSO_IFF_CHALLENGE_LIGHT", 2695, WSO_IFF_PANEL, "IFF Challenge Light (Blue)")
 
-F_4E:defineSpringloaded_3PosTumb("WSO_IFF_TEST_CHALLENGE", IFF_INTERROGATOR_DEVICE_ID, 3013, 3013, 2645, WSO_IFF_PANEL, "Test/Challenge Code Switch")
+F_4E:defineSpringloaded3PosTumb("WSO_IFF_TEST_CHALLENGE", IFF_INTERROGATOR_DEVICE_ID, 3013, 2645, WSO_IFF_PANEL, "Test/Challenge Code Switch")
 
 F_4E:reserveIntValue(1) -- Anti-Jam, not yet implemented
 
@@ -1609,8 +1621,8 @@ local PILOT_THROTTLE = "PLT Throttle"
 
 F_4E:definePushButton("PLT_THROTTLE_IGNITION_L", ENGINE_DEVICE_ID, 3004, 295, PILOT_THROTTLE, "Ignite Left Engine")
 F_4E:definePushButton("PLT_THROTTLE_IGNITION_R", ENGINE_DEVICE_ID, 3005, 296, PILOT_THROTTLE, "Ignite Right Engine")
-F_4E:defineSpringloaded_3PosTumb("PLT_THROTTLE_SPEED_BRAKE", CONTROL_SURFACES_DEVICE_ID, 3001, 3001, 2610, PILOT_THROTTLE, "Speed Brake")
-F_4E:defineSpringloaded_3PosTumb("PLT_THROTTLE_MIC", ICS_DEVICE_ID, 3001, 3001, 2609, PILOT_THROTTLE, "Mic Switch")
+F_4E:defineSpringloaded3PosTumb("PLT_THROTTLE_SPEED_BRAKE", CONTROL_SURFACES_DEVICE_ID, 3001, 2610, PILOT_THROTTLE, "Speed Brake")
+F_4E:defineSpringloaded3PosTumb("PLT_THROTTLE_MIC", ICS_DEVICE_ID, 3001, 2609, PILOT_THROTTLE, "Mic Switch")
 F_4E:definePushButton("PLT_THROTTLE_WPN_CAGE", WEAPONS_DEVICE_ID, 3018, 1435, PILOT_THROTTLE, "Cage Mode")
 F_4E:definePushButton("PLT_THROTTLE_CM_DISPENSE", COUNTERMEASURES_DEVICE_ID, 3012, 1436, PILOT_THROTTLE, "Dispense Countermeasures")
 F_4E:definePushButton("PLT_THROTTLE_DETENT_L", ENGINE_DEVICE_ID, 3006, 2607, PILOT_THROTTLE, "Left Idle Detent")
@@ -1619,8 +1631,8 @@ F_4E:definePushButton("PLT_THROTTLE_DETENT_R", ENGINE_DEVICE_ID, 3007, 2608, PIL
 -- WSO Throttle
 local WSO_THROTTLE = "WSO Throttle"
 
-F_4E:defineSpringloaded_3PosTumb("WSO_THROTTLE_SPEED_BRAKE", CONTROL_SURFACES_DEVICE_ID, 3015, 3015, 2670, WSO_THROTTLE, "Speed Brake")
-F_4E:defineSpringloaded_3PosTumb("WSO_THROTTLE_MIC", ICS_DEVICE_ID, 3002, 3002, 2671, WSO_THROTTLE, "Mic Switch")
+F_4E:defineSpringloaded3PosTumb("WSO_THROTTLE_SPEED_BRAKE", CONTROL_SURFACES_DEVICE_ID, 3015, 2670, WSO_THROTTLE, "Speed Brake")
+F_4E:defineSpringloaded3PosTumb("WSO_THROTTLE_MIC", ICS_DEVICE_ID, 3002, 2671, WSO_THROTTLE, "Mic Switch")
 
 -- Pilot Left Subpanel
 local PILOT_LEFT_SUB_PANEL = "PLT Left Subpanel"
