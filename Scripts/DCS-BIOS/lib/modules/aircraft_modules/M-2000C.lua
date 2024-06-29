@@ -142,12 +142,15 @@ end
 
 local function build_pcn_segments(pcn, pcn_segment, display_name, length, include_decimals)
 	for i = 0, include_decimals and 7 or 6, 1 do
-		local segment_values = Functions.pad_left(pcn[string.format("%s%d", display_name, i)], length)
-		add_pcn_segment_values(pcn_segment, segment_values, i)
+		local raw_values = pcn[string.format("%s%d", display_name, i)] or ""
+		-- sometimes these strings have a random leading whitespace, who knows why
+		local segment_values = raw_values:gsub("^%s*(.*)$", "%1") -- remove any leading whitespaces, just in case
+		local padded_segment_values = Functions.pad_left(segment_values, length) -- add back leading whitespace to ensure we're adequately padded
+		padded_segment_values = i == 7 and Functions.pad_left(padded_segment_values:sub(1, #padded_segment_values - 1), length) or padded_segment_values -- and decimals behave this way for... reasons
+		add_pcn_segment_values(pcn_segment, padded_segment_values, i)
 	end
 end
 
--- todo: need to set blank strings when pcn is nil?
 M_2000C:addExportHook(function()
 	local pcn = M_2000C.parse_indication(9)
 
