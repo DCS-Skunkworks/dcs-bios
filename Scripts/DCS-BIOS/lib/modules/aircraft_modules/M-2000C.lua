@@ -151,8 +151,8 @@ end
 M_2000C:addExportHook(function()
 	local pcn = M_2000C.parse_indication(9)
 
-	build_pcn_segments(pcn, pcn_ul, "PCN_UL_SEG", 5)
-	build_pcn_segments(pcn, pcn_ur, "PCN_UR_SEG", 6)
+	build_pcn_segments(pcn, pcn_ul, "PCN_UL_SEG", 5, true)
+	build_pcn_segments(pcn, pcn_ur, "PCN_UR_SEG", 6, true)
 
 	local pcnRight = ""
 	if pcn.PCN_UR_E then
