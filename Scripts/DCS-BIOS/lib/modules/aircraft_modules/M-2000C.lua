@@ -142,7 +142,7 @@ end
 
 local function build_pcn_segments(pcn, pcn_segment, display_name, length, include_decimals)
 	for i = 0, include_decimals and 7 or 6, 1 do
-		local segment_values = pcn[string.format("%s%d", display_name, i)] or string.rep(" ", length)
+		local segment_values = Functions.pad_left(pcn[string.format("%s%d", display_name, i)], length)
 		add_pcn_segment_values(pcn_segment, segment_values, i)
 	end
 end
