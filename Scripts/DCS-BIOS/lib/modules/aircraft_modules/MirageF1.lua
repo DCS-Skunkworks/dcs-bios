@@ -802,7 +802,7 @@ MirageF1:definePushButton("P_EE_INS_CLR_BTN", 1, 3707, 664, "EE INS", "EE Pilot 
 
 MirageF1:defineSpringloaded_2PosTumb("P_EE_PIT_INOP", 1, 3715, 3716, 1272, "EE Cockpit", "EE Pilot Inoperative")
 MirageF1:definePushButton("P_WL_M_FAIL_R", 1, 3678, 922, "EE Warning Switches", "Pilot Right Master Failure Warning Light Button")
-MirageF1:definePushButton("P_WL_ENG_FIRE_WARN", 1, 3679, 936, "EE Warning Switches", "Pilot Fire Warning Light ENG Button")
+MirageF1:definePushButton("P_WL_ENG_FIRE_WARN", 1, 3267, 936, "EE Warning Switches", "Pilot Fire Warning Light ENG Button")
 
 --BARAX
 MirageF1:definePushButton("P_BARAX_L_TEST", 1, 3684, 1260, "EE BARAX", "Pilot BARAX Light Test")
