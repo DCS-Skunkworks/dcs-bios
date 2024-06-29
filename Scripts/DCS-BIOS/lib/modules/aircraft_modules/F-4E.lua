@@ -1020,7 +1020,7 @@ local HUD_DEVICE_ID = 31
 
 local PLT_HUD = "PLT HUD"
 
-F_4E:defineToggleSwitch("PLT_HUD_SHUTTER", HUD_DEVICE_ID, 3004, 282, PLT_HUD, "Toggle Collimator Shutter")
+F_4E:defineToggleSwitch("PLT_HUD_SHUTTER", HUD_DEVICE_ID, 3004, 1200, PLT_HUD, "Toggle Collimator Shutter")
 F_4E:definePotentiometer("PLT_HUD_BRIGHTNESS", HUD_DEVICE_ID, 3003, 1201, { 0, 1 }, PLT_HUD, "Change HUD Brightness")
 F_4E:definePotentiometer("PLT_HUD_DEPRESSION", HUD_DEVICE_ID, 3002, 267, { 0, 1 }, PLT_HUD, "Change Reticle Depression (mil)")
 F_4E:defineMultipositionSwitch0To1("PLT_HUD_MODE", HUD_DEVICE_ID, 3001, 271, 7, PLT_HUD, "Select HUD Mode")
