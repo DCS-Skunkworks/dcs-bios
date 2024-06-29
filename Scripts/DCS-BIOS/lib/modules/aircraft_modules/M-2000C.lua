@@ -103,12 +103,59 @@ local pcnRight2Digit = ""
 local pcnLeft1Digit = ""
 local pcnLeft2Digit = ""
 
--- todo: need to set blank strings when pcn is nil?
+-- a display output consists of a specific number of digits, and each digit has 8 segments
+local pcn_ul = {}
+local pcn_ur = {}
+
+--  2
+-- 1 3
+--  6
+-- 0 4
+-- 75
+
+local function segment_char_value(char)
+	if char > "p" then
+		return 1
+	end
+
+	if char > "h" then
+		return 2
+	end
+
+	if char >= "a" then
+		return 3
+	end
+
+	return 0
+end
+
+local function add_pcn_segment_values(pcn_segment, segment_value, segment_index)
+	for index = 1, #segment_value do
+		local value = segment_value:sub(index, index)
+		if not pcn_segment[index] then
+			pcn_segment[index] = {}
+		end
+
+		pcn_segment[index][segment_index] = segment_char_value(value)
+	end
+end
+
+local function build_pcn_segments(pcn, pcn_segment, display_name, length, include_decimals)
+	for i = 0, include_decimals and 7 or 6, 1 do
+		local raw_values = pcn[string.format("%s%d", display_name, i)] or ""
+		-- sometimes these strings have a random leading whitespace, who knows why
+		local segment_values = raw_values:gsub("^%s*(.*)$", "%1") -- remove any leading whitespaces, just in case
+		local padded_segment_values = Functions.pad_left(segment_values, length) -- add back leading whitespace to ensure we're adequately padded
+		padded_segment_values = i == 7 and Functions.pad_left(padded_segment_values:sub(1, #padded_segment_values - 1), length) or padded_segment_values -- and decimals behave this way for... reasons
+		add_pcn_segment_values(pcn_segment, padded_segment_values, i)
+	end
+end
+
 M_2000C:addExportHook(function()
 	local pcn = M_2000C.parse_indication(9)
 
-	pcnLeftDigits = Functions.pad_left(pcn.PCN_UL_DIGITS, 8)
-	pcnRightDigits = Functions.pad_left(pcn.PCN_UR_DIGITS, 9)
+	build_pcn_segments(pcn, pcn_ul, "PCN_UL_SEG", 5, true)
+	build_pcn_segments(pcn, pcn_ur, "PCN_UR_SEG", 6, true)
 
 	local pcnRight = ""
 	if pcn.PCN_UR_E then
@@ -154,14 +201,14 @@ M_2000C:addExportHook(function()
 end)
 
 -- parse PCN lower display
-local pcnPrep = ""
-local pcnDest = ""
+local pcn_bl = {}
+local pcn_br = {}
 
 M_2000C:addExportHook(function()
 	local pcn = M_2000C.parse_indication(10)
 
-	pcnPrep = Functions.pad_left(pcn.PCN_BL_DIGITS, 2)
-	pcnDest = Functions.pad_left(pcn.PCN_BR_DIGITS, 2)
+	build_pcn_segments(pcn, pcn_bl, "PCN_BL_SEG", 2, false)
+	build_pcn_segments(pcn, pcn_br, "PCN_BR_SEG", 2, false)
 end)
 
 local function getvtbRange()
@@ -595,18 +642,23 @@ M_2000C:definePushButton("INS_CLR_BTN", 9, 3594, 594, "PCN", "I - PCN - EFF Butt
 M_2000C:definePushButton("INS_ENTER_BTN", 9, 3596, 596, "PCN", "I - PCN - INS Button")
 M_2000C:definePushButton("INS_NEXT_WP_BTN", 9, 3110, 110, "PCN", "I - PCN - INS Next Waypoint Button")
 M_2000C:definePushButton("INS_PREV_WP_BTN", 9, 3111, 111, "PCN", "I - PCN - INS Previous Waypoint Button")
-M_2000C:defineString("PCN_DISP_DEST", function()
-	return pcnDest
-end, 2, "PCN", "O - PCN - DEST Display")
-M_2000C:defineString("PCN_DISP_L", function()
-	return pcnLeftDigits
-end, 8, "PCN", "O - PCN - Left Display")
-M_2000C:defineString("PCN_DISP_PREP", function()
-	return pcnPrep
-end, 2, "PCN", "O - PCN - PREP Display")
-M_2000C:defineString("PCN_DISP_R", function()
-	return pcnRightDigits
-end, 9, "PCN", "O - PCN - Right Display")
+-- these outputs have been disabled after Razbam replaced the string outputs with segment displays, some of which randomly do not work in-game
+-- M_2000C:defineString("PCN_DISP_DEST", function()
+-- 	return pcnDest
+-- end, 2, "PCN", "O - PCN - DEST Display")
+M_2000C:reserveStringValue(2)
+-- M_2000C:defineString("PCN_DISP_L", function()
+-- 	return pcnLeftDigits
+-- end, 8, "PCN", "O - PCN - Left Display")
+M_2000C:reserveStringValue(8)
+-- M_2000C:defineString("PCN_DISP_PREP", function()
+-- 	return pcnPrep
+-- end, 2, "PCN", "O - PCN - PREP Display")
+M_2000C:reserveStringValue(2)
+-- M_2000C:defineString("PCN_DISP_R", function()
+-- 	return pcnRightDigits
+-- end, 9, "PCN", "O - PCN - Right Display")
+M_2000C:reserveStringValue(9)
 M_2000C:defineString("PCN_DIS_DL", function()
 	return pcnLeft1Digit
 end, 1, "PCN", "PCN Digit Left Display")
@@ -889,5 +941,379 @@ M_2000C:defineReadWriteRadio("UHF_RADIO", 20, 7, 3, 1000, "UHF Radio")
 
 M_2000C:defineFixedStepInput("CLOCK_RING", CLOCK_DEVICE_ID, 3925, { -0.01, 0.01 }, "CLOCK", "Clock Ring (only decrease)")
 M_2000C:definePushButton("BATT_REARM_SW", ELECTRIC_DEVICE_ID, 3995, 995, "ELECTRIC PANEL", "Battery Rearm Switch")
+
+-- Apparently maintenance no longer swaps out faulty 7-segments, so now we just have to output each segment
+--  2
+-- 1 3
+--  6
+-- 0 4
+-- 75
+
+-- upper left PCN display
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_1_0", function()
+	return pcn_ul[1][0]
+end, 3, "PCN", "Left Display, Digit 1, Segment 0")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_1_1", function()
+	return pcn_ul[1][1]
+end, 3, "PCN", "Left Display, Digit 1, Segment 1")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_1_2", function()
+	return pcn_ul[1][2]
+end, 3, "PCN", "Left Display, Digit 1, Segment 2")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_1_3", function()
+	return pcn_ul[1][3]
+end, 3, "PCN", "Left Display, Digit 1, Segment 3")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_1_4", function()
+	return pcn_ul[1][4]
+end, 3, "PCN", "Left Display, Digit 1, Segment 4")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_1_5", function()
+	return pcn_ul[1][5]
+end, 3, "PCN", "Left Display, Digit 1, Segment 5")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_1_6", function()
+	return pcn_ul[1][6]
+end, 3, "PCN", "Left Display, Digit 1, Segment 6")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_1_7", function()
+	return pcn_ul[1][7]
+end, 3, "PCN", "Left Display, Digit 1, Segment 7")
+
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_2_0", function()
+	return pcn_ul[2][0]
+end, 3, "PCN", "Left Display, Digit 2, Segment 0")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_2_1", function()
+	return pcn_ul[2][1]
+end, 3, "PCN", "Left Display, Digit 2, Segment 1")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_2_2", function()
+	return pcn_ul[2][2]
+end, 3, "PCN", "Left Display, Digit 2, Segment 2")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_2_3", function()
+	return pcn_ul[2][3]
+end, 3, "PCN", "Left Display, Digit 2, Segment 3")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_2_4", function()
+	return pcn_ul[2][4]
+end, 3, "PCN", "Left Display, Digit 2, Segment 4")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_2_5", function()
+	return pcn_ul[2][5]
+end, 3, "PCN", "Left Display, Digit 2, Segment 5")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_2_6", function()
+	return pcn_ul[2][6]
+end, 3, "PCN", "Left Display, Digit 2, Segment 6")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_2_7", function()
+	return pcn_ul[2][7]
+end, 3, "PCN", "Left Display, Digit 2, Segment 7")
+
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_3_0", function()
+	return pcn_ul[3][0]
+end, 3, "PCN", "Left Display, Digit 3, Segment 0")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_3_1", function()
+	return pcn_ul[3][1]
+end, 3, "PCN", "Left Display, Digit 3, Segment 1")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_3_2", function()
+	return pcn_ul[3][2]
+end, 3, "PCN", "Left Display, Digit 3, Segment 2")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_3_3", function()
+	return pcn_ul[3][3]
+end, 3, "PCN", "Left Display, Digit 3, Segment 3")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_3_4", function()
+	return pcn_ul[3][4]
+end, 3, "PCN", "Left Display, Digit 3, Segment 4")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_3_5", function()
+	return pcn_ul[3][5]
+end, 3, "PCN", "Left Display, Digit 3, Segment 5")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_3_6", function()
+	return pcn_ul[3][6]
+end, 3, "PCN", "Left Display, Digit 3, Segment 6")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_3_7", function()
+	return pcn_ul[3][7]
+end, 3, "PCN", "Left Display, Digit 3, Segment 7")
+
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_4_0", function()
+	return pcn_ul[4][0]
+end, 3, "PCN", "Left Display, Digit 4, Segment 0")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_4_1", function()
+	return pcn_ul[4][1]
+end, 3, "PCN", "Left Display, Digit 4, Segment 1")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_4_2", function()
+	return pcn_ul[4][2]
+end, 3, "PCN", "Left Display, Digit 4, Segment 2")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_4_3", function()
+	return pcn_ul[4][3]
+end, 3, "PCN", "Left Display, Digit 4, Segment 3")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_4_4", function()
+	return pcn_ul[4][4]
+end, 3, "PCN", "Left Display, Digit 4, Segment 4")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_4_5", function()
+	return pcn_ul[4][5]
+end, 3, "PCN", "Left Display, Digit 4, Segment 5")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_4_6", function()
+	return pcn_ul[4][6]
+end, 3, "PCN", "Left Display, Digit 4, Segment 6")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_4_7", function()
+	return pcn_ul[4][7]
+end, 3, "PCN", "Left Display, Digit 4, Segment 7")
+
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_5_0", function()
+	return pcn_ul[5][0]
+end, 3, "PCN", "Left Display, Digit 5, Segment 0")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_5_1", function()
+	return pcn_ul[5][1]
+end, 3, "PCN", "Left Display, Digit 5, Segment 1")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_5_2", function()
+	return pcn_ul[5][2]
+end, 3, "PCN", "Left Display, Digit 5, Segment 2")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_5_3", function()
+	return pcn_ul[5][3]
+end, 3, "PCN", "Left Display, Digit 5, Segment 3")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_5_4", function()
+	return pcn_ul[5][4]
+end, 3, "PCN", "Left Display, Digit 5, Segment 4")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_5_5", function()
+	return pcn_ul[5][5]
+end, 3, "PCN", "Left Display, Digit 5, Segment 5")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_5_6", function()
+	return pcn_ul[5][6]
+end, 3, "PCN", "Left Display, Digit 5, Segment 6")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_5_7", function()
+	return pcn_ul[5][7]
+end, 3, "PCN", "Left Display, Digit 5, Segment 7")
+
+-- upper right PCN display
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_1_0", function()
+	return pcn_ur[1][0]
+end, 3, "PCN", "Right Display, Digit 1, Segment 0")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_1_1", function()
+	return pcn_ur[1][1]
+end, 3, "PCN", "Right Display, Digit 1, Segment 1")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_1_2", function()
+	return pcn_ur[1][2]
+end, 3, "PCN", "Right Display, Digit 1, Segment 2")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_1_3", function()
+	return pcn_ur[1][3]
+end, 3, "PCN", "Right Display, Digit 1, Segment 3")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_1_4", function()
+	return pcn_ur[1][4]
+end, 3, "PCN", "Right Display, Digit 1, Segment 4")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_1_5", function()
+	return pcn_ur[1][5]
+end, 3, "PCN", "Right Display, Digit 1, Segment 5")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_1_6", function()
+	return pcn_ur[1][6]
+end, 3, "PCN", "Right Display, Digit 1, Segment 6")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_1_7", function()
+	return pcn_ur[1][7]
+end, 3, "PCN", "Right Display, Digit 1, Segment 7")
+
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_2_0", function()
+	return pcn_ur[2][0]
+end, 3, "PCN", "Right Display, Digit 2, Segment 0")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_2_1", function()
+	return pcn_ur[2][1]
+end, 3, "PCN", "Right Display, Digit 2, Segment 1")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_2_2", function()
+	return pcn_ur[2][2]
+end, 3, "PCN", "Right Display, Digit 2, Segment 2")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_2_3", function()
+	return pcn_ur[2][3]
+end, 3, "PCN", "Right Display, Digit 2, Segment 3")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_2_4", function()
+	return pcn_ur[2][4]
+end, 3, "PCN", "Right Display, Digit 2, Segment 4")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_2_5", function()
+	return pcn_ur[2][5]
+end, 3, "PCN", "Right Display, Digit 2, Segment 5")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_2_6", function()
+	return pcn_ur[2][6]
+end, 3, "PCN", "Right Display, Digit 2, Segment 6")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_2_7", function()
+	return pcn_ur[2][7]
+end, 3, "PCN", "Right Display, Digit 2, Segment 7")
+
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_3_0", function()
+	return pcn_ur[3][0]
+end, 3, "PCN", "Right Display, Digit 3, Segment 0")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_3_1", function()
+	return pcn_ur[3][1]
+end, 3, "PCN", "Right Display, Digit 3, Segment 1")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_3_2", function()
+	return pcn_ur[3][2]
+end, 3, "PCN", "Right Display, Digit 3, Segment 2")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_3_3", function()
+	return pcn_ur[3][3]
+end, 3, "PCN", "Right Display, Digit 3, Segment 3")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_3_4", function()
+	return pcn_ur[3][4]
+end, 3, "PCN", "Right Display, Digit 3, Segment 4")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_3_5", function()
+	return pcn_ur[3][5]
+end, 3, "PCN", "Right Display, Digit 3, Segment 5")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_3_6", function()
+	return pcn_ur[3][6]
+end, 3, "PCN", "Right Display, Digit 3, Segment 6")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_3_7", function()
+	return pcn_ur[3][7]
+end, 3, "PCN", "Right Display, Digit 3, Segment 7")
+
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_4_0", function()
+	return pcn_ur[4][0]
+end, 3, "PCN", "Right Display, Digit 4, Segment 0")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_4_1", function()
+	return pcn_ur[4][1]
+end, 3, "PCN", "Right Display, Digit 4, Segment 1")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_4_2", function()
+	return pcn_ur[4][2]
+end, 3, "PCN", "Right Display, Digit 4, Segment 2")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_4_3", function()
+	return pcn_ur[4][3]
+end, 3, "PCN", "Right Display, Digit 4, Segment 3")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_4_4", function()
+	return pcn_ur[4][4]
+end, 3, "PCN", "Right Display, Digit 4, Segment 4")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_4_5", function()
+	return pcn_ur[4][5]
+end, 3, "PCN", "Right Display, Digit 4, Segment 5")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_4_6", function()
+	return pcn_ur[4][6]
+end, 3, "PCN", "Right Display, Digit 4, Segment 6")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_4_7", function()
+	return pcn_ur[4][7]
+end, 3, "PCN", "Right Display, Digit 4, Segment 7")
+
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_5_0", function()
+	return pcn_ur[5][0]
+end, 3, "PCN", "Right Display, Digit 5, Segment 0")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_5_1", function()
+	return pcn_ur[5][1]
+end, 3, "PCN", "Right Display, Digit 5, Segment 1")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_5_2", function()
+	return pcn_ur[5][2]
+end, 3, "PCN", "Right Display, Digit 5, Segment 2")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_5_3", function()
+	return pcn_ur[5][3]
+end, 3, "PCN", "Right Display, Digit 5, Segment 3")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_5_4", function()
+	return pcn_ur[5][4]
+end, 3, "PCN", "Right Display, Digit 5, Segment 4")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_5_5", function()
+	return pcn_ur[5][5]
+end, 3, "PCN", "Right Display, Digit 5, Segment 5")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_5_6", function()
+	return pcn_ur[5][6]
+end, 3, "PCN", "Right Display, Digit 5, Segment 6")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_5_7", function()
+	return pcn_ur[5][7]
+end, 3, "PCN", "Right Display, Digit 5, Segment 7")
+
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_6_0", function()
+	return pcn_ur[6][0]
+end, 3, "PCN", "Right Display, Digit 6, Segment 0")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_6_1", function()
+	return pcn_ur[6][1]
+end, 3, "PCN", "Right Display, Digit 6, Segment 1")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_6_2", function()
+	return pcn_ur[6][2]
+end, 3, "PCN", "Right Display, Digit 6, Segment 2")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_6_3", function()
+	return pcn_ur[6][3]
+end, 3, "PCN", "Right Display, Digit 6, Segment 3")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_6_4", function()
+	return pcn_ur[6][4]
+end, 3, "PCN", "Right Display, Digit 6, Segment 4")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_6_5", function()
+	return pcn_ur[6][5]
+end, 3, "PCN", "Right Display, Digit 6, Segment 5")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_6_6", function()
+	return pcn_ur[6][6]
+end, 3, "PCN", "Right Display, Digit 6, Segment 6")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_6_7", function()
+	return pcn_ur[6][7]
+end, 3, "PCN", "Right Display, Digit 6, Segment 7")
+
+-- bottom left pcn prep display
+M_2000C:defineIntegerFromGetter("PCN_DISP_PREP_1_0", function()
+	return pcn_bl[1][0]
+end, 3, "PCN", "Prep Display, Digit 1, Segment 0")
+M_2000C:defineIntegerFromGetter("PCN_DISP_PREP_1_1", function()
+	return pcn_bl[1][1]
+end, 3, "PCN", "Prep Display, Digit 1, Segment 1")
+M_2000C:defineIntegerFromGetter("PCN_DISP_PREP_1_2", function()
+	return pcn_bl[1][2]
+end, 3, "PCN", "Prep Display, Digit 1, Segment 2")
+M_2000C:defineIntegerFromGetter("PCN_DISP_PREP_1_3", function()
+	return pcn_bl[1][3]
+end, 3, "PCN", "Prep Display, Digit 1, Segment 3")
+M_2000C:defineIntegerFromGetter("PCN_DISP_PREP_1_4", function()
+	return pcn_bl[1][4]
+end, 3, "PCN", "Prep Display, Digit 1, Segment 4")
+M_2000C:defineIntegerFromGetter("PCN_DISP_PREP_1_5", function()
+	return pcn_bl[1][5]
+end, 3, "PCN", "Prep Display, Digit 1, Segment 5")
+M_2000C:defineIntegerFromGetter("PCN_DISP_PREP_1_6", function()
+	return pcn_bl[1][6]
+end, 3, "PCN", "Prep Display, Digit 1, Segment 6")
+
+M_2000C:defineIntegerFromGetter("PCN_DISP_PREP_2_0", function()
+	return pcn_bl[2][0]
+end, 3, "PCN", "Prep Display, Digit 2, Segment 0")
+M_2000C:defineIntegerFromGetter("PCN_DISP_PREP_2_1", function()
+	return pcn_bl[2][1]
+end, 3, "PCN", "Prep Display, Digit 2, Segment 1")
+M_2000C:defineIntegerFromGetter("PCN_DISP_PREP_2_2", function()
+	return pcn_bl[2][2]
+end, 3, "PCN", "Prep Display, Digit 2, Segment 2")
+M_2000C:defineIntegerFromGetter("PCN_DISP_PREP_2_3", function()
+	return pcn_bl[2][3]
+end, 3, "PCN", "Prep Display, Digit 2, Segment 3")
+M_2000C:defineIntegerFromGetter("PCN_DISP_PREP_2_4", function()
+	return pcn_bl[2][4]
+end, 3, "PCN", "Prep Display, Digit 2, Segment 4")
+M_2000C:defineIntegerFromGetter("PCN_DISP_PREP_2_5", function()
+	return pcn_bl[2][5]
+end, 3, "PCN", "Prep Display, Digit 2, Segment 5")
+M_2000C:defineIntegerFromGetter("PCN_DISP_PREP_2_6", function()
+	return pcn_bl[2][6]
+end, 3, "PCN", "Prep Display, Digit 2, Segment 6")
+
+-- bottom right pcn dest display
+M_2000C:defineIntegerFromGetter("PCN_DISP_DEST_1_0", function()
+	return pcn_br[1][0]
+end, 3, "PCN", "Dest Display, Digit 1, Segment 0")
+M_2000C:defineIntegerFromGetter("PCN_DISP_DEST_1_1", function()
+	return pcn_br[1][1]
+end, 3, "PCN", "Dest Display, Digit 1, Segment 1")
+M_2000C:defineIntegerFromGetter("PCN_DISP_DEST_1_2", function()
+	return pcn_br[1][2]
+end, 3, "PCN", "Dest Display, Digit 1, Segment 2")
+M_2000C:defineIntegerFromGetter("PCN_DISP_DEST_1_3", function()
+	return pcn_br[1][3]
+end, 3, "PCN", "Dest Display, Digit 1, Segment 3")
+M_2000C:defineIntegerFromGetter("PCN_DISP_DEST_1_4", function()
+	return pcn_br[1][4]
+end, 3, "PCN", "Dest Display, Digit 1, Segment 4")
+M_2000C:defineIntegerFromGetter("PCN_DISP_DEST_1_5", function()
+	return pcn_br[1][5]
+end, 3, "PCN", "Dest Display, Digit 1, Segment 5")
+M_2000C:defineIntegerFromGetter("PCN_DISP_DEST_1_6", function()
+	return pcn_br[1][6]
+end, 3, "PCN", "Dest Display, Digit 1, Segment 6")
+
+M_2000C:defineIntegerFromGetter("PCN_DISP_DEST_2_0", function()
+	return pcn_br[2][0]
+end, 3, "PCN", "Dest Display, Digit 2, Segment 0")
+M_2000C:defineIntegerFromGetter("PCN_DISP_DEST_2_1", function()
+	return pcn_br[2][1]
+end, 3, "PCN", "Dest Display, Digit 2, Segment 1")
+M_2000C:defineIntegerFromGetter("PCN_DISP_DEST_2_2", function()
+	return pcn_br[2][2]
+end, 3, "PCN", "Dest Display, Digit 2, Segment 2")
+M_2000C:defineIntegerFromGetter("PCN_DISP_DEST_2_3", function()
+	return pcn_br[2][3]
+end, 3, "PCN", "Dest Display, Digit 2, Segment 3")
+M_2000C:defineIntegerFromGetter("PCN_DISP_DEST_2_4", function()
+	return pcn_br[2][4]
+end, 3, "PCN", "Dest Display, Digit 2, Segment 4")
+M_2000C:defineIntegerFromGetter("PCN_DISP_DEST_2_5", function()
+	return pcn_br[2][5]
+end, 3, "PCN", "Dest Display, Digit 2, Segment 5")
+M_2000C:defineIntegerFromGetter("PCN_DISP_DEST_2_6", function()
+	return pcn_br[2][6]
+end, 3, "PCN", "Dest Display, Digit 2, Segment 6")
 
 return M_2000C
