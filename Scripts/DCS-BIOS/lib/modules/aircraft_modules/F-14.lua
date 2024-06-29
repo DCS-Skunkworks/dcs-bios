@@ -1491,4 +1491,6 @@ F_14:defineIntegerFromGetter("AFTERBURNER_ZONE_RIGHT", function()
 	return airframe_values[11]
 end, 5, "Airframe", "Right afterburner zone")
 
+F_14:definePushButton("RIO_MASTER_CAUTION_RESET", 35, 3057, 9229, "Weapons Panel", "RIO Master Caution Reset")
+
 return F_14
