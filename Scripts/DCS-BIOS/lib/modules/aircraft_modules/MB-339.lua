@@ -23,20 +23,27 @@ end
 MB_339:defineToggleSwitch("CB_IFF", 1, 3911, 1114, "Circuit Breakers", "C/B IFF")
 MB_339:defineToggleSwitch("CB_HYD_PRESS", 1, 3912, 1115, "Circuit Breakers", "C/B Hyd Press")
 MB_339:defineToggleSwitch("CB_OIL_PRESS", 1, 3913, 1116, "Circuit Breakers", "C/B Oil Press")
-MB_339:defineToggleSwitch("CB_HSI", 1, 3914, 1121, "Circuit Breakers", "C/B HSI")
+-- MB_339:defineToggleSwitch("CB_HSI", 1, 3914, 1121, "Circuit Breakers", "C/B HSI")
+MB_339:reserveIntValue(1)
 MB_339:defineToggleSwitch("CB_ADI", 1, 3915, 1122, "Circuit Breakers", "C/B ADI")
-MB_339:defineToggleSwitch("CB_FD_CMPTR", 1, 3916, 1123, "Circuit Breakers", "C/B F/D Cmptr")
-MB_339:defineToggleSwitch("CB_SIGHT", 1, 3917, 1124, "Circuit Breakers", "C/B Sight") -- todo: fix duplicate
-MB_339:defineToggleSwitch("CB_AHR_GPS", 1, 3918, 1125, "Circuit Breakers", "C/B AHR/GPS") -- todo: fix duplicate
-MB_339:defineToggleSwitch("CB_HSI_COMD", 1, 3919, 1126, "Circuit Breakers", "C/B HSI/COMD")
-MB_339:defineToggleSwitch("CB_VOR_ILS", 1, 3920, 1127, "Circuit Breakers", "C/B VOR ILS")
-MB_339:defineToggleSwitch("CB_UTIL_PW", 1, 3921, 1131, "Circuit Breakers", "C/B Util Pwr")
--- MB_339:defineToggleSwitch("CB_TACAN", 1, 3922, 1132, "Circuit Breakers", "C/B TACAN") -- duplicate
+-- MB_339:defineToggleSwitch("CB_FD_CMPTR", 1, 3916, 1123, "Circuit Breakers", "C/B F/D Cmptr")
+MB_339:reserveIntValue(1)
+MB_339:defineToggleSwitch("CB_SIGHT", 1, 3917, 1124, "Circuit Breakers", "C/B Sight")
+MB_339:defineToggleSwitch("CB_AHR_GPS", 1, 3918, 1125, "Circuit Breakers", "C/B AHR/GPS")
+-- MB_339:defineToggleSwitch("CB_HSI_COMD", 1, 3919, 1126, "Circuit Breakers", "C/B HSI/COMD")
+MB_339:reserveIntValue(1)
+-- MB_339:defineToggleSwitch("CB_VOR_ILS", 1, 3920, 1127, "Circuit Breakers", "C/B VOR ILS")
+MB_339:reserveIntValue(1)
+-- MB_339:defineToggleSwitch("CB_UTIL_PW", 1, 3921, 1131, "Circuit Breakers", "C/B Util Pwr")
+MB_339:reserveIntValue(1)
+-- MB_339:defineToggleSwitch("CB_TACAN", 1, 3922, 1132, "Circuit Breakers", "C/B TACAN")
 MB_339:reserveIntValue(1)
 MB_339:defineToggleSwitch("CB_FORM_LT", 1, 3923, 1134, "Circuit Breakers", "C/B Form Lt")
-MB_339:defineToggleSwitch("CB_AHR_GPS2", 1, 3924, 1135, "Circuit Breakers", "C/B AHR/GPS") -- todo: fix duplicate
-MB_339:defineToggleSwitch("CB_ADF", 1, 3925, 1136, "Circuit Breakers", "C/B ADF")
-MB_339:defineToggleSwitch("CB_TACAN", 1, 3922, 1132, "Circuit Breakers", "C/B TACAN")
+MB_339:defineToggleSwitch("CB_AHR_GPS2", 1, 3924, 1135, "Circuit Breakers", "C/B AHR/GPS")
+-- MB_339:defineToggleSwitch("CB_ADF", 1, 3925, 1136, "Circuit Breakers", "C/B ADF")
+MB_339:reserveIntValue(1)
+-- MB_339:defineToggleSwitch("CB_TACAN2", 1, 3926, 1132, "Circuit Breakers", "C/B TACAN")
+MB_339:reserveIntValue(1)
 MB_339:defineToggleSwitch("CB_STBY_ATT_FWD", 1, 3929, 1213, "Circuit Breakers", "C/B Fwd Stby Att Ind")
 MB_339:defineToggleSwitch("CB_STBY_ATT_AFT", 1, 3930, 1214, "Circuit Breakers", "C/B Aft Stby Att Ind")
 MB_339:defineToggleSwitch("CB_COMM2", 1, 3931, 1215, "Circuit Breakers", "C/B COMM2")
@@ -80,10 +87,10 @@ MB_339:defineToggleSwitch("CB_PITOT_AFT", 1, 3985, 1453, "Circuit Breakers", "C/
 MB_339:defineToggleSwitch("CB_ENG_ANTI_ICE", 1, 3986, 1454, "Circuit Breakers", "C/B Engine Anti-Ice")
 MB_339:defineToggleSwitch("CB_WHSLD_DEM", 1, 3987, 1455, "Circuit Breakers", "C/B Whsld Dem")
 MB_339:defineToggleSwitch("CB_ICE_DETR", 1, 3988, 1456, "Circuit Breakers", "C/B Ice Detr")
-MB_339:defineToggleSwitch("CB_SIGHT2", 1, 3989, 1457, "Circuit Breakers", "C/B Sight") -- todo: fix duplicate
+MB_339:defineToggleSwitch("CB_SIGHT2", 1, 3989, 1457, "Circuit Breakers", "C/B Sight")
 MB_339:defineToggleSwitch("CB_CDU_FWD", 1, 3990, 1511, "Circuit Breakers", "C/B Fwd Cdu")
 MB_339:defineToggleSwitch("CB_CDU_AFT", 1, 3991, 1512, "Circuit Breakers", "C/B Aft Cdu")
-MB_339:defineToggleSwitch("CB_AHR_GPS3", 1, 3992, 1513, "Circuit Breakers", "C/B AHR/GPS") -- todo: fix duplicate
+MB_339:defineToggleSwitch("CB_AHR_GPS3", 1, 3992, 1513, "Circuit Breakers", "C/B AHR/GPS")
 MB_339:defineToggleSwitch("CB_COMM_RDU", 1, 3995, 1522, "Circuit Breakers", "C/B COMM RDU")
 
 --Electrical
