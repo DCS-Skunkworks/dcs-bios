@@ -115,7 +115,7 @@ local pcn_ur = {}
 
 local function segment_char_value(char)
 	if char > "p" then
-		return 3
+		return 1
 	end
 
 	if char > "h" then
@@ -123,7 +123,7 @@ local function segment_char_value(char)
 	end
 
 	if char >= "a" then
-		return 1
+		return 3
 	end
 
 	return 0
