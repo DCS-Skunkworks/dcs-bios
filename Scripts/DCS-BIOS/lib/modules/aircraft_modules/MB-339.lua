@@ -397,8 +397,8 @@ MB_339:definePushButton("ENG_START", 1, 3180, 239, "Engine", "Engine Start")
 MB_339:defineFloat("ENG_TEMP_G", 314, { 0, 1 }, "Engine Gauges", "Engine Temperature Gauge")
 
 --Flight Controls
-MB_339:defineToggleSwitch("FW_FC_CANOPY_LOCK", 1, 3181, 182, "Flight Controls FW", "Forward Canopy LOCK/UNLOCK")
-MB_339:defineToggleSwitch("FW_FC_CANOPY_HOOK", 1, 3182, 183, "Flight Controls FW", "Forward Partial Opening Hook")
+MB_339:definePushButton("FW_FC_CANOPY_LOCK", 1, 3181, 182, "Flight Controls FW", "Forward Canopy LOCK/UNLOCK")
+MB_339:definePushButton("FW_FC_CANOPY_HOOK", 1, 3182, 183, "Flight Controls FW", "Forward Partial Opening Hook")
 MB_339:definePushButton("FW_FC_CANOPY_UNLOCK", 1, 5002, 582, "Flight Controls FW", "Forward Canopy UNLOCK")
 MB_339:defineToggleSwitch("FW_FC_CANOPY_HND", 1, 3183, 750, "Flight Controls FW", "Forward Canopy Handle")
 MB_339:defineToggleSwitch("FW_FC_LOCK", 1, 3186, 232, "Flight Controls FW", "Forward Flight Controls LOCK/UNLOCK")
@@ -406,7 +406,7 @@ MB_339:defineToggleSwitch("FW_FC_MIRRORS", 1, 3187, 400, "Flight Controls FW", "
 MB_339:defineToggleSwitch("FW_FC_AILERON_SERVO_CV", 1, 3193, 235, "Flight Controls FW", "Forward Aileron Servo Guard")
 MB_339:defineToggleSwitch("FW_FC_AILERON_SERVO", 1, 3194, 260, "Flight Controls FW", "Forward Aileron Servo Switch")
 
-MB_339:defineToggleSwitch("AFT_FC_CANOPY_LOCK", 1, 3184, 43, "Flight Controls AFT", "Aft Canopy LOCK/UNLOCK")
+MB_339:definePushButton("AFT_FC_CANOPY_LOCK", 1, 3184, 43, "Flight Controls AFT", "Aft Canopy LOCK/UNLOCK")
 MB_339:defineToggleSwitch("AFT_FC_MIRRORS", 1, 3187, 594, "Flight Controls AFT", "Aft Mirrors OPEN/CLOSE")
 MB_339:defineToggleSwitch("AFT_FC_AILERON_SERVO_CV", 1, 3195, 288, "Flight Controls AFT", "Aft Aileron Servo Guard")
 MB_339:defineToggleSwitch("AFT_FC_AILERON_SERVO", 1, 3196, 289, "Flight Controls AFT", "Aft Aileron Servo Switch")
