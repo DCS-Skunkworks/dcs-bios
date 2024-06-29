@@ -120,6 +120,13 @@ OH_58D:defineToggleSwitch("POST_CONSOLE_CB_MMS_AC", ELECTRIC_DEVICE_ID, 3091, 61
 -- Overhead console (small detachment above the pilot)
 local OVERHEAD_CONSOLE_PILOT = "Overhead Console (Pilot)"
 
+OH_58D:defineToggleSwitch("PLT_OVERHEAD_IR_BEACON", ELECTRIC_DEVICE_ID, 3034, 274, OVERHEAD_CONSOLE_PILOT, "IR Beacon Switch")
+OH_58D:definePotentiometer("PLT_OVERHEAD_FORMATION_LIGHTS", ELECTRIC_DEVICE_ID, 3029, 275, { 0, 1 }, OVERHEAD_CONSOLE_PILOT, "Formation Lights Brightness Dial")
+
+OH_58D:defineToggleSwitch("PLT_OVERHEAD_SW_CMWS", ELECTRIC_DEVICE_ID, 3033, 276, OVERHEAD_CONSOLE_PILOT, "CMWS Circuit Breaker Switch")
+OH_58D:defineToggleSwitch("PLT_OVERHEAD_CB_FUZZ_BNR", ELECTRIC_DEVICE_ID, 3031, 278, OVERHEAD_CONSOLE_PILOT, "Fuzz Burner Circuit Breaker Switch")
+OH_58D:defineToggleSwitch("PLT_OVERHEAD_SW_BATT_CHGR", ELECTRIC_DEVICE_ID, 3032, 277, OVERHEAD_CONSOLE_PILOT, "Battery Charger Circuit Breaker Switch")
+
 -- Overhead console (above crew, towards the rear)
 local OVERHEAD_CONSOLE_REAR = "Overhead Console (Rear)"
 
@@ -164,6 +171,8 @@ local SCAS_PANEL = "SCAS Control Panel"
 
 -- Multiparameter Display (MPD)
 local MPD = "MPD"
+-- indication 1
+-- list_cockpit_params() TRANSOILPRESS_Ladder_vis9:0.500000
 
 -- Air Vent Control
 local AIR_VENT_CONTROL = "Air Vent Control"
@@ -173,6 +182,7 @@ local SAI = "Standby Attitude Indicator"
 
 -- RPM Vertical Scale Instrument
 local RPM_SCALE = "RPM Vertical Scale Instrument"
+-- indication 2 (also tgt/trq)
 
 -- TGT/TRQ Indicator
 local TGT_TRQ = "TGT/TRQ Indicator"
@@ -191,6 +201,7 @@ local MPD_AUX_PANEL_COPILOT = "MPD Auxiliary Panel (Copilot)"
 
 -- Clock
 local CLOCK = "Clock"
+-- indication 7 (unclear how mode is tracked?)
 
 -- Standby Magnetic Compass
 local STANDBY_COMPASS = "Standby Magnetic Compass"
@@ -206,6 +217,7 @@ local STANDBY_AIRSPEED_INDICATOR = "Standby Airspeed Indicator"
 
 -- Remote Frequency Indicator
 local REMOTE_FREQUENCY_INDICATOR = "Remote Frequency Indicator"
+-- indication 8
 
 -- Dashboard Buttons (buttons on the dash without an associated panel)
 local DASHBOARD_BUTTONS = "Dashboard Buttons"
@@ -220,6 +232,7 @@ local MMS_CONTROL_PANEL = "MMS Control Panel"
 
 -- CMWS
 local CMWS = "CMWS"
+-- indication 10
 
 -- Floodlights
 local FLOODLIGHTS = "Floodlights"
