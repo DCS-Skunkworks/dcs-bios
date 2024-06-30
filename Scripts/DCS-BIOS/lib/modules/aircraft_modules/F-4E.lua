@@ -1449,8 +1449,30 @@ F_4E:defineIndicatorLight("PLT_FUEL_AAR_EXT_C_FULL", 2527, PILOT_FUEL_PANEL, "Ae
 F_4E:defineIndicatorLight("PLT_FUEL_AAR_EXT_R_FULL", 2528, PILOT_FUEL_PANEL, "Aerial Refueling Right Tank Full Lamp (Green)")
 F_4E:defineIndicatorLight("PLT_FUEL_AAR_DISENGAGED", 2529, PILOT_FUEL_PANEL, "Aerial Refueling Disengaged Lamp (Green)")
 
--- Attitude Reference
-local ATTITUDE_REFERENCE_DEVICE_ID = 62
+-- ARBCS
+local ARBCS_DEVICE_ID = 62
+
+-- WSO ARBCS
+local WSO_ARBCS = "WSO ARBCS"
+
+F_4E:defineToggleSwitch("WSO_ARBCS_ACTIVATE", WEAPONS_DEVICE_ID, 3039, 1016, WSO_ARBCS, "ARBCS Activate")
+F_4E:definePotentiometer("WSO_ARBCS_PULL_UP_TIMER", ARBCS_DEVICE_ID, 3001, 369, { 0, 1 }, WSO_ARBCS, "Set Bombing Pull-Up Timer (seconds)")
+F_4E:definePotentiometer("WSO_ARBCS_RELEASE_TIMER", ARBCS_DEVICE_ID, 3002, 370, { 0, 1 }, WSO_ARBCS, "Set Bombing Release Timer (seconds)")
+F_4E:definePotentiometer("WSO_ARBCS_LOW_ANGLE", ARBCS_DEVICE_ID, 3003, 351, { 0, 1 }, WSO_ARBCS, "Set LABS Low Angle")
+F_4E:definePotentiometer("WSO_ARBCS_HIGH_ANGLE", ARBCS_DEVICE_ID, 3004, 352, { 0, 1 }, WSO_ARBCS, "Set LABS High Angle")
+
+F_4E:defineString("WSO_ARBCS_LOW_ANGLE_DISPLAY", function(dev0)
+	return drum_set(dev0, 355, 354, 353)
+end, 3, WSO_ARBCS, "Low Angle Display")
+F_4E:defineString("WSO_ARBCS_HIGH_ANGLE_DISPLAY", function(dev0)
+	return drum_set(dev0, 359, 358, 357, 356)
+end, 4, WSO_ARBCS, "High Angle Display")
+F_4E:defineString("WSO_ARBCS_PULL_UP_DISPLAY", function(dev0)
+	return drum_set(dev0, 362, 361, 360)
+end, 3, WSO_ARBCS, "Pull-up Timer Display")
+F_4E:defineString("WSO_ARBCS_RELEASE_DISPLAY", function(dev0)
+	return drum_set(dev0, 365, 364, 363)
+end, 3, WSO_ARBCS, "Release Timer Display")
 
 -- Aircraft Effects
 local AIRCRAFT_EFFECTS_DEVICE_ID = 63
