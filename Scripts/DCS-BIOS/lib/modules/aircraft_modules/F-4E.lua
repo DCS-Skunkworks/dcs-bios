@@ -1486,6 +1486,42 @@ end, 3, WSO_ARBCS, "Release Timer Display")
 -- Aircraft Effects
 local AIRCRAFT_EFFECTS_DEVICE_ID = 63
 
+-- Pilot Shake Effects
+local PILOT_SHAKE_EFFECTS = "PLT Shake Effects"
+
+F_4E:defineFullRangeFloat("PLT_SHAKE_RANGE_INDICATOR", 3000, PILOT_SHAKE_EFFECTS, "Range Indicator Shake")
+F_4E:defineFullRangeFloat("PLT_SHAKE_MIRRORS", 3002, PILOT_SHAKE_EFFECTS, "Mirror Shake")
+F_4E:defineFullRangeFloat("PLT_SHAKE_GLARESHIELD_LAMP_L", 3003, PILOT_SHAKE_EFFECTS, "Glareshield Lamp Shake (Left)")
+F_4E:defineFullRangeFloat("PLT_SHAKE_GLARESHIELD_L", 3004, PILOT_SHAKE_EFFECTS, "Glareshield Shake (Left)")
+F_4E:defineFullRangeFloat("PLT_SHAKE_WEAPON_LIGHTS", 3005, PILOT_SHAKE_EFFECTS, "Weapon Light Stack Shake")
+F_4E:defineFullRangeFloat("PLT_SHAKE_LAMPS_R", 3006, PILOT_SHAKE_EFFECTS, "Lamp Shake (Right)")
+F_4E:defineFullRangeFloat("PLT_SHAKE_RWR", 3007, PILOT_SHAKE_EFFECTS, "RWR Shake")
+F_4E:defineFullRangeFloat("PLT_SHAKE_JETTISON_HANDLE", 3008, PILOT_SHAKE_EFFECTS, "Jettison Handle Shake")
+F_4E:defineFullRangeFloat("PLT_SHAKE_CANOPY_HANDLE", 3009, PILOT_SHAKE_EFFECTS, "Canopy Handle Shake")
+F_4E:defineFullRangeFloat("PLT_SHAKE_BRAKE_HANDLE", 3010, PILOT_SHAKE_EFFECTS, "Brake Handle Shake")
+F_4E:defineFullRangeFloat("PLT_SHAKE_HUD_STRING_L", 3011, PILOT_SHAKE_EFFECTS, "HUD String Shake (Left)")
+F_4E:defineFullRangeFloat("PLT_SHAKE_HUD_STRING_R", 3012, PILOT_SHAKE_EFFECTS, "HUD String Shake (Right)")
+F_4E:defineFullRangeFloat("PLT_SHAKE_HUD_LAMPS_R", 3013, PILOT_SHAKE_EFFECTS, "HUD Lamps Shake (Right)")
+F_4E:defineFullRangeFloat("PLT_SHAKE_HUD_LAMPS_L", 3014, PILOT_SHAKE_EFFECTS, "HUD Lamps Shake (Left)")
+F_4E:defineFullRangeFloat("PLT_SHAKE_GLARESHIELD_R", 3015, PILOT_SHAKE_EFFECTS, "Glareshield Shake (Right)")
+F_4E:defineFullRangeFloat("PLT_SHAKE_SHOOT_TOP", 3016, PILOT_SHAKE_EFFECTS, "Shoot Light Shake (Top)")
+F_4E:defineFullRangeFloat("PLT_SHAKE_PULL_UP", 3017, PILOT_SHAKE_EFFECTS, "Pull-up Lamp Shake")
+F_4E:defineFullRangeFloat("PLT_SHAKE_ECS_L", 3018, PILOT_SHAKE_EFFECTS, "Air Duct Shake (Left)")
+F_4E:defineFullRangeFloat("PLT_SHAKE_ECS_R", 3019, PILOT_SHAKE_EFFECTS, "Air Duct Shake (Right)")
+F_4E:defineFullRangeFloat("PLT_SHAKE_PAPER_R", 3020, PILOT_SHAKE_EFFECTS, "Paper Shake (Right)")
+F_4E:defineFullRangeFloat("PLT_SHAKE_PAPER_L", 3021, PILOT_SHAKE_EFFECTS, "Paper Shake (Left)")
+F_4E:defineFullRangeFloat("PLT_SHAKE_EJECTION_HANDLES", 3022, PILOT_SHAKE_EFFECTS, "Ejection Handles Shake")
+F_4E:defineFullRangeFloat("PLT_SHAKE_SYNC_SWITCH", 3023, PILOT_SHAKE_EFFECTS, "Reference System Sync Switch Shake")
+F_4E:defineFullRangeFloat("PLT_SHAKE_GEN_WARN_LIGHTS", 3024, PILOT_SHAKE_EFFECTS, "Generator Warning Light Stack Shake")
+F_4E:defineFullRangeFloat("PLT_SHAKE_CLOCK", 3025, PILOT_SHAKE_EFFECTS, "Clock Shake")
+F_4E:defineFullRangeFloat("PLT_SHAKE_ESCAPE_TOOL", 3028, PILOT_SHAKE_EFFECTS, "Escape Tool Shake")
+F_4E:defineFullRangeFloat("PLT_SHAKE_ESCAPE_TOOL_RING", 3029, PILOT_SHAKE_EFFECTS, "Escape Tool Ring Shake (Small)")
+F_4E:defineFullRangeFloat("PLT_SHAKE_GLARESHIELD_LR", 3030, PILOT_SHAKE_EFFECTS, "Glareshield Left/Right Shake")
+F_4E:defineFullRangeFloat("PLT_SHAKE_GLARESHIELD_UD", 3031, PILOT_SHAKE_EFFECTS, "Glareshield Up/Down Shake (Small)")
+F_4E:defineFullRangeFloat("PLT_SHAKE_GLARESHIELD_UD_2", 3032, PILOT_SHAKE_EFFECTS, "Glareshield Up/Down Shake (Large)")
+F_4E:defineFullRangeFloat("PLT_SHAKE_GLARESHIELD_TWIST", 3033, PILOT_SHAKE_EFFECTS, "Glareshield Twist Shake")
+F_4E:defineFullRangeFloat("PLT_SHAKE_ESCAPE_TOOL_RING_2", 3034, PILOT_SHAKE_EFFECTS, "Escape Tool Ring Shake (Large)")
+
 -- Target Designator System (AN-ASQ-153)
 local TARGET_DESIGNATOR_DEVICE_ID = 64
 
