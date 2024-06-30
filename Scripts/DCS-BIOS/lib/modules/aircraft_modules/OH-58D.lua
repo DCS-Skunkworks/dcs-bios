@@ -248,6 +248,24 @@ OH_58D:reserveIntValue(2) -- nav/target designate not fully working currently
 -- Collective (Pilot)
 local COLLECTIVE_PILOT = "Collective (Pilot)"
 
+OH_58D:definePushButton("PLT_COLLECTIVE_START", ELECTRIC_DEVICE_ID, 3028, 7, COLLECTIVE_PILOT, "Start Switch")
+OH_58D:definePushButton("PLT_COLLECTIVE_THROTTLE_IDLE_RELEASE", FUEL_DEVICE_ID, 3009, 9, COLLECTIVE_PILOT, "Throttle Idle Release Switch")
+OH_58D:defineSpringloaded_3PosTumb("PLT_COLLECTIVE_ENGINE_RPM_TRIM", ENGINE_DEVICE_ID, 3001, 3002, 15, COLLECTIVE_PILOT, "Engine Rpm Trim")
+OH_58D:defineSpringloaded_3PosTumb("PLT_COLLECTIVE_CHANNEL_SEL_UD", SYNC_CONTROLS_DEVICE_ID, 3070, 3069, 12, COLLECTIVE_PILOT, "Channel Select Switch Up/Down")
+OH_58D:defineSpringloaded_3PosTumb("PLT_COLLECTIVE_CHANNEL_SEL_LR", SYNC_CONTROLS_DEVICE_ID, 3071, 3072, 13, COLLECTIVE_PILOT, "Channel Select Switch Left/Right")
+OH_58D:defineSpringloaded_3PosTumb("PLT_COLLECTIVE_RADIO_SEL_13", SYNC_CONTROLS_DEVICE_ID, 3075, 3073, 14, COLLECTIVE_PILOT, "Radio Select Switch 1/3")
+OH_58D:defineSpringloaded_3PosTumb("PLT_COLLECTIVE_RADIO_SEL_24", SYNC_CONTROLS_DEVICE_ID, 3074, 3074, 16, COLLECTIVE_PILOT, "Radio Select Switch 2/4")
+OH_58D:defineSpringloaded_3PosTumb("PLT_COLLECTIVE_RADIO_SEL_5", SYNC_CONTROLS_DEVICE_ID, 3076, 3076, 17, COLLECTIVE_PILOT, "Radio Select Switch 5") -- seems like this should just be a push button, but is in game as a 3-position switch
+OH_58D:reserveIntValue(1) -- reserve an extra space in case we need to make this a push button in the future
+OH_58D:defineToggleSwitch("PLT_COLLECTIVE_EMERGENCY_JETTISON_COVER", CI_DEVICE_ID, 3010, 46, COLLECTIVE_PILOT, "Emergency Jettison Cover")
+OH_58D:definePushButton("PLT_COLLECTIVE_EMERGENCY_JETTISON", CI_DEVICE_ID, 3011, 47, COLLECTIVE_PILOT, "Emergency Jettison (Launch All)")
+OH_58D:defineToggleSwitch("PLT_COLLECTIVE_SEARCHLIGHT", ELECTRIC_DEVICE_ID, 3036, 98, COLLECTIVE_PILOT, "Searchlight Switch")
+OH_58D:defineSpringloaded_3PosTumb("PLT_COLLECTIVE_SEARCHLIGHT_UD", ELECTRIC_DEVICE_ID, 3037, 3038, 94, COLLECTIVE_PILOT, "Searchlight Control Switch Extend/Retract")
+OH_58D:defineSpringloaded_3PosTumb("PLT_COLLECTIVE_SEARCHLIGHT_LR", ELECTRIC_DEVICE_ID, 3039, 3040, 95, COLLECTIVE_PILOT, "Searchlight Control Switch Left/Right")
+OH_58D:defineSpringloaded_3PosTumb("PLT_COLLECTIVE_SCAS_ENGAGE", SCAS_DEVICE_ID, 3007, 3008, 96, COLLECTIVE_PILOT, "SCAS Heading Hold Switch Engage/Disengage")
+OH_58D:defineSpringloaded_3PosTumb("PLT_COLLECTIVE_SCAS_TRIM_LR", SCAS_DEVICE_ID, 3009, 3010, 97, COLLECTIVE_PILOT, "SCAS Heading Hold Switch Trim Left/Trim Right")
+OH_58D:definePushButton("PLT_COLLECTIVE_IZLID", SYNC_CONTROLS_DEVICE_ID, 3046, 49, COLLECTIVE_PILOT, "IZLID (Gun Laser)")
+
 -- Ignition Panel
 local IGNITION_PANEL = "Ignition Panel"
 
