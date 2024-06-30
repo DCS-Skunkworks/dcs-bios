@@ -1411,8 +1411,8 @@ F_4E:defineFloatFromArg("WSO_ATTITUDE_INDICATOR_OFF_FLAG", 534, WSO_ATTITUDE_IND
 -- Fuel
 local FUEL_DEVICE_ID = 60
 
--- pilot fuel panel
-local PILOT_FUEL_PANEL = "PLT Fuel Panel"
+-- pilot fuel system
+local PILOT_FUEL_PANEL = "PLT Fuel System"
 
 F_4E:defineToggleSwitch("PLT_FUEL_WING_INTERNAL_FEED", FUEL_DEVICE_ID, 3004, 710, PILOT_FUEL_PANEL, "Internal Wing Tanks Feed")
 F_4E:defineToggleSwitch("PLT_FUEL_REFUEL_SELECTOR_COVER", FUEL_DEVICE_ID, 3001, 705, PILOT_FUEL_PANEL, "Refuel Tank Selector Cover")
@@ -1442,6 +1442,12 @@ F_4E:defineFloatFromArg("PLT_FUEL_BOOST_PUMP_R", 714, PILOT_FUEL_PANEL, "Right F
 -- fuel flow gauges
 F_4E:defineFloatFromArg("PLT_FUEL_FLOW_L", 297, PILOT_FUEL_PANEL, "Left Engine Fuel Flow")
 F_4E:defineFloatFromArg("PLT_FUEL_FLOW_R", 298, PILOT_FUEL_PANEL, "Right Engine Fuel Flow")
+
+F_4E:defineIndicatorLight("PLT_FUEL_AAR_READY", 2525, PILOT_FUEL_PANEL, "Aerial Refueling Ready Lamp (Green)")
+F_4E:defineIndicatorLight("PLT_FUEL_AAR_EXT_L_FULL", 2526, PILOT_FUEL_PANEL, "Aerial Refueling Left Tank Full Lamp (Green)")
+F_4E:defineIndicatorLight("PLT_FUEL_AAR_EXT_C_FULL", 2527, PILOT_FUEL_PANEL, "Aerial Refueling Center Tank Full (Green)")
+F_4E:defineIndicatorLight("PLT_FUEL_AAR_EXT_R_FULL", 2528, PILOT_FUEL_PANEL, "Aerial Refueling Right Tank Full Lamp (Green)")
+F_4E:defineIndicatorLight("PLT_FUEL_AAR_DISENGAGED", 2529, PILOT_FUEL_PANEL, "Aerial Refueling Disengaged Lamp (Green)")
 
 -- Attitude Reference
 local ATTITUDE_REFERENCE_DEVICE_ID = 62
