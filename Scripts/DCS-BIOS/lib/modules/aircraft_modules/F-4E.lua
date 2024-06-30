@@ -48,8 +48,17 @@ end
 --- @param arg_number integer the dcs argument number
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
-function F_4E:defineFloatFromArg(identifier, arg_number, category, description)
+function F_4E:definePositiveFloat(identifier, arg_number, category, description)
 	self:defineFloat(identifier, arg_number, { 0, 1 }, category, description)
+end
+
+--- Defines a 0-65535 output from a -1 to 1 input
+--- @param identifier string the unique identifier for the control
+--- @param arg_number integer the dcs argument number
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+function F_4E:defineFullRangeFloat(identifier, arg_number, category, description)
+	self:defineFloat(identifier, arg_number, { -1, 1 }, category, description)
 end
 
 --- Defines a 0-max_value output from a 0-1 input
@@ -399,10 +408,10 @@ F_4E:definePushButton("PLT_CLOCK_STOPWATCH", CLOCK_DEVICE_ID, 3003, 808, PILOT_C
 F_4E:definePushButton("PLT_CLOCK_SET_TIME_PULL", CLOCK_DEVICE_ID, 3001, 812, PILOT_CLOCK, "Set Time (pull)")
 F_4E:defineRotary("PLT_CLOCK_SET_TIME_ROTATE", CLOCK_DEVICE_ID, 3002, 809, PILOT_CLOCK, "Set Time (rotate)")
 
-F_4E:defineFloatFromArg("PLT_CLOCK_HOUR_HAND", 800, PILOT_CLOCK, "Clock Hour Hand")
-F_4E:defineFloatFromArg("PLT_CLOCK_MINUTE_HAND", 801, PILOT_CLOCK, "Clock Minute Hand")
-F_4E:defineFloatFromArg("PLT_CLOCK_STOPWATCH_MINUTE_HAND", 803, PILOT_CLOCK, "Stopwatch Minute Hand")
-F_4E:defineFloatFromArg("PLT_CLOCK_STOPWATCH_SECOND_HAND", 802, PILOT_CLOCK, "Stopwatch Second Hand")
+F_4E:definePositiveFloat("PLT_CLOCK_HOUR_HAND", 800, PILOT_CLOCK, "Clock Hour Hand")
+F_4E:definePositiveFloat("PLT_CLOCK_MINUTE_HAND", 801, PILOT_CLOCK, "Clock Minute Hand")
+F_4E:definePositiveFloat("PLT_CLOCK_STOPWATCH_MINUTE_HAND", 803, PILOT_CLOCK, "Stopwatch Minute Hand")
+F_4E:definePositiveFloat("PLT_CLOCK_STOPWATCH_SECOND_HAND", 802, PILOT_CLOCK, "Stopwatch Second Hand")
 
 -- WSO Clock
 local WSO_CLOCK = "WSO Clock"
@@ -411,10 +420,10 @@ F_4E:definePushButton("WSO_CLOCK_STOPWATCH", CLOCK_DEVICE_ID, 3006, 810, WSO_CLO
 F_4E:definePushButton("WSO_CLOCK_SET_TIME_PULL", CLOCK_DEVICE_ID, 3004, 813, WSO_CLOCK, "Set Time (pull)")
 F_4E:defineRotary("WSO_CLOCK_SET_TIME_ROTATE", CLOCK_DEVICE_ID, 3005, 811, WSO_CLOCK, "Set Time (rotate)")
 
-F_4E:defineFloatFromArg("WSO_CLOCK_HOUR_HAND", 804, WSO_CLOCK, "Clock Hour Hand")
-F_4E:defineFloatFromArg("WSO_CLOCK_MINUTE_HAND", 805, WSO_CLOCK, "Clock Minute Hand")
-F_4E:defineFloatFromArg("WSO_CLOCK_STOPWATCH_MINUTE_HAND", 807, WSO_CLOCK, "Stopwatch Minute Hand")
-F_4E:defineFloatFromArg("WSO_CLOCK_STOPWATCH_SECOND_HAND", 806, WSO_CLOCK, "Stopwatch Second Hand")
+F_4E:definePositiveFloat("WSO_CLOCK_HOUR_HAND", 804, WSO_CLOCK, "Clock Hour Hand")
+F_4E:definePositiveFloat("WSO_CLOCK_MINUTE_HAND", 805, WSO_CLOCK, "Clock Minute Hand")
+F_4E:definePositiveFloat("WSO_CLOCK_STOPWATCH_MINUTE_HAND", 807, WSO_CLOCK, "Stopwatch Minute Hand")
+F_4E:definePositiveFloat("WSO_CLOCK_STOPWATCH_SECOND_HAND", 806, WSO_CLOCK, "Stopwatch Second Hand")
 
 -- Radar Altimeter
 local RADAR_ALTIMETER_DEVICE_ID = 12
@@ -425,9 +434,9 @@ local PILOT_RADAR_ALTIMETER = "PLT Radar Altimeter"
 F_4E:definePushButton("PLT_RADAR_ALT_PUSH_TEST", RADAR_ALTIMETER_DEVICE_ID, 3001, 84, PILOT_RADAR_ALTIMETER, "Move Bug (push to test)")
 F_4E:definePotentiometer("PLT_RADAR_ALT_MOVE_BUG", RADAR_ALTIMETER_DEVICE_ID, 3002, 83, { -0.2, 1 }, PILOT_RADAR_ALTIMETER, "Move Bug (rotate to 0 to turn off)")
 F_4E:defineIndicatorLight("PLT_RADAR_ALT_WARN_LIGHT", 85, PILOT_RADAR_ALTIMETER, "Radar Altimeter Low Altitude Lamp (Red)")
-F_4E:defineFloat("PLT_RADAR_ALT_NEEDLE", 73, { -1, 1 }, PILOT_RADAR_ALTIMETER, "Radar Altimeter Needle")
-F_4E:defineFloatFromArg("PLT_RADAR_ALT_BUG", 74, PILOT_RADAR_ALTIMETER, "Radar Altimeter Altitude Bug")
-F_4E:defineFloatFromArg("PLT_RADAR_ALT_OFF_FLAG", 75, PILOT_RADAR_ALTIMETER, "Radar Altimeter Off Flag")
+F_4E:defineFullRangeFloat("PLT_RADAR_ALT_NEEDLE", 73, PILOT_RADAR_ALTIMETER, "Radar Altimeter Needle")
+F_4E:definePositiveFloat("PLT_RADAR_ALT_BUG", 74, PILOT_RADAR_ALTIMETER, "Radar Altimeter Altitude Bug")
+F_4E:definePositiveFloat("PLT_RADAR_ALT_OFF_FLAG", 75, PILOT_RADAR_ALTIMETER, "Radar Altimeter Off Flag")
 
 -- AOA System
 local AOA_DEVICE_ID = 13
@@ -438,10 +447,10 @@ local PILOT_AOA_INDICATOR = "PLT AoA Indicator"
 F_4E:definePotentiometer("PLT_AOA_AURAL_TONE", AOA_DEVICE_ID, 3001, 635, { 0, 1 }, PILOT_AOA_INDICATOR, "Aural Tone Volume")
 F_4E:definePotentiometer("PLT_AOA_STALL_VOLUME", AOA_DEVICE_ID, 3005, 1372, { 0, 1 }, PILOT_AOA_INDICATOR, "AoA Stall Warning Volume")
 
-F_4E:defineFloatFromArg("PLT_AOA_GAUGE_NEEDLE", 70, PILOT_AOA_INDICATOR, "AoA Gauge Needle")
-F_4E:defineFloatFromArg("PLT_AOA_GAUGE_OFF_FLAG", 71, PILOT_AOA_INDICATOR, "AoA Gauge Off Flag")
+F_4E:definePositiveFloat("PLT_AOA_GAUGE_NEEDLE", 70, PILOT_AOA_INDICATOR, "AoA Gauge Needle")
+F_4E:definePositiveFloat("PLT_AOA_GAUGE_OFF_FLAG", 71, PILOT_AOA_INDICATOR, "AoA Gauge Off Flag")
 
-F_4E:defineFloatFromArg("PLT_AOA_INDEXER_BRIGHTNESS", 2874, PILOT_AOA_INDICATOR, "AoA Indexer Brightness")
+F_4E:definePositiveFloat("PLT_AOA_INDEXER_BRIGHTNESS", 2874, PILOT_AOA_INDICATOR, "AoA Indexer Brightness")
 F_4E:defineIndicatorLight("PLT_AOA_INDEXER_LEFT_LOW", 77, PILOT_AOA_INDICATOR, "AoA Indexer Low Lamp (Left) (Red)")
 F_4E:defineIndicatorLight("PLT_AOA_INDEXER_LEFT_MID", 78, PILOT_AOA_INDICATOR, "AoA Indexer Mid Lamp (Left) (Red)")
 F_4E:defineIndicatorLight("PLT_AOA_INDEXER_LEFT_TOP", 79, PILOT_AOA_INDICATOR, "AoA Indexer Upper Lamp (Left) (Red)")
@@ -455,7 +464,7 @@ local WSO_AOA_INDICATOR = "WSO AoA Indicator"
 F_4E:definePotentiometer("WSO_AOA_AURAL_TONE", AOA_DEVICE_ID, 3006, 2822, { 0, 1 }, WSO_AOA_INDICATOR, "Aural Tone Volume")
 F_4E:definePotentiometer("WSO_AOA_STALL_VOLUME", AOA_DEVICE_ID, 3003, 636, { 0, 1 }, WSO_AOA_INDICATOR, "AoA Stall Warning Volume")
 
-F_4E:defineFloatFromArg("WSO_AOA_INDEXER_BRIGHTNESS", 2875, WSO_AOA_INDICATOR, "AoA Indexer Brightness")
+F_4E:definePositiveFloat("WSO_AOA_INDEXER_BRIGHTNESS", 2875, WSO_AOA_INDICATOR, "AoA Indexer Brightness")
 F_4E:defineIndicatorLight("WSO_AOA_INDEXER_LEFT_LOW", 637, WSO_AOA_INDICATOR, "AoA Indexer Low Lamp (Left) (Red)")
 F_4E:defineIndicatorLight("WSO_AOA_INDEXER_LEFT_MID", 638, WSO_AOA_INDICATOR, "AoA Indexer Mid Lamp (Left) (Red)")
 F_4E:defineIndicatorLight("WSO_AOA_INDEXER_LEFT_TOP", 639, WSO_AOA_INDICATOR, "AoA Indexer Upper Lamp (Left) (Red)")
@@ -499,7 +508,7 @@ F_4E:defineIndicatorLight("WSO_NAV_LATITUDE_SYNC", 943, WSO_NAVIGATION_PANEL, "L
 F_4E:defineIndicatorLight("WSO_NAV_LONGITUDE_SYNC", 944, WSO_NAVIGATION_PANEL, "Longitude Sync Lamp (Blue)")
 F_4E:defineIndicatorLight("WSO_NAV_AIR_DATA_MODE", 945, WSO_NAVIGATION_PANEL, "Air Data Mode Lamp (Yellow)")
 
-F_4E:defineFloat("WSO_NAV_VAR_SYNC_METER", 941, { -1, 1 }, WSO_NAVIGATION_PANEL, "Position/Navigation Sync Meter")
+F_4E:defineFullRangeFloat("WSO_NAV_VAR_SYNC_METER", 941, WSO_NAVIGATION_PANEL, "Position/Navigation Sync Meter")
 
 F_4E:defineString("WSO_NAV_MAG_VAR_VALUE", function(dev0)
 	local west = dev0:get_argument_value(910) > 0.5
@@ -582,7 +591,7 @@ end, 6, WSO_NAVIGATION_PANEL, "Target Position Longitude")
 -- Pilot Pneumatic Gauge
 local PILOT_PNEUMATIC_GAUGE = "PLT Pneumatic Gauge"
 
-F_4E:defineFloatFromArg("PLT_PNEUMATIC_GAUGE", 86, PILOT_PNEUMATIC_GAUGE, "Pneumatic Pressure Gauge")
+F_4E:definePositiveFloat("PLT_PNEUMATIC_GAUGE", 86, PILOT_PNEUMATIC_GAUGE, "Pneumatic Pressure Gauge")
 
 -- Hydraulic Gauge
 -- local HYDRAULIC_GAUGE_DEVICE_ID = 18
@@ -590,9 +599,9 @@ F_4E:defineFloatFromArg("PLT_PNEUMATIC_GAUGE", 86, PILOT_PNEUMATIC_GAUGE, "Pneum
 -- Pilot Hydraulic Gauges
 local PILOT_HYDRAULIC_GAUGES = "PLT Hydraulic Gauges"
 
-F_4E:defineFloatFromArg("PLT_HYDRAULIC_PC1", 212, PILOT_HYDRAULIC_GAUGES, "PC1 Hydraulic Pressure Gauge")
-F_4E:defineFloatFromArg("PLT_HYDRAULIC_PC2", 210, PILOT_HYDRAULIC_GAUGES, "PC2 Hydraulic Pressure Gauge")
-F_4E:defineFloatFromArg("PLT_HYDRAULIC_UTILITY", 211, PILOT_HYDRAULIC_GAUGES, "Utility Hydraulic Pressure Gauge")
+F_4E:definePositiveFloat("PLT_HYDRAULIC_PC1", 212, PILOT_HYDRAULIC_GAUGES, "PC1 Hydraulic Pressure Gauge")
+F_4E:definePositiveFloat("PLT_HYDRAULIC_PC2", 210, PILOT_HYDRAULIC_GAUGES, "PC2 Hydraulic Pressure Gauge")
+F_4E:definePositiveFloat("PLT_HYDRAULIC_UTILITY", 211, PILOT_HYDRAULIC_GAUGES, "Utility Hydraulic Pressure Gauge")
 
 -- Landing Gear
 local LANDING_GEAR_DEVICE_ID = 20
@@ -697,7 +706,7 @@ local PILOT_CANOPY = "PLT Canopy"
 F_4E:defineToggleSwitch("PLT_CANOPY_CONTROL", CANOPY_DEVICE_ID, 3001, 200, PILOT_CANOPY, "Canopy Control (Open/Close)")
 F_4E:defineToggleSwitch("PLT_CANOPY_MANUAL_UNLOCK", CANOPY_DEVICE_ID, 3002, 204, PILOT_CANOPY, "Manual Canopy Unlock")
 F_4E:defineToggleSwitch("PLT_CANOPY_EMERGENCY_RELEASE", CANOPY_DEVICE_ID, 3003, 202, PILOT_CANOPY, "Canopy Emergency Release")
-F_4E:defineFloatFromArg("PLT_CANOPY", 87, PILOT_CANOPY, "Canopy Opened/Closed")
+F_4E:definePositiveFloat("PLT_CANOPY", 87, PILOT_CANOPY, "Canopy Opened/Closed")
 
 -- WSO Canopy
 local WSO_CANOPY = "WSO Canopy"
@@ -705,7 +714,7 @@ local WSO_CANOPY = "WSO Canopy"
 F_4E:defineToggleSwitch("WSO_CANOPY_CONTROL", CANOPY_DEVICE_ID, 3004, 201, WSO_CANOPY, "Canopy Control (Open/Close)")
 F_4E:defineToggleSwitch("WSO_CANOPY_MANUAL_UNLOCK", CANOPY_DEVICE_ID, 3005, 205, WSO_CANOPY, "Manual Canopy Unlock")
 F_4E:defineToggleSwitch("WSO_CANOPY_EMERGENCY_RELEASE", CANOPY_DEVICE_ID, 3006, 203, WSO_CANOPY, "Canopy Emergency Release")
-F_4E:defineFloatFromArg("WSO_CANOPY", 88, WSO_CANOPY, "Canopy Opened/Closed")
+F_4E:definePositiveFloat("WSO_CANOPY", 88, WSO_CANOPY, "Canopy Opened/Closed")
 
 -- Engine
 local ENGINE_DEVICE_ID = 24
@@ -719,37 +728,37 @@ F_4E:defineToggleSwitch("PLT_ENGINE_MASTER_R", ENGINE_DEVICE_ID, 3002, 293, PILO
 F_4E:definePushButton("PLT_ENGINE_FIRE_TEST", ENGINE_DEVICE_ID, 3012, 978, PILOT_ENGINE_CONTROLS, "Test Fire System")
 
 -- tachometer
-F_4E:defineFloatFromArg("PLT_ENGINE_TACH_L_LARGE", 299, PILOT_ENGINE_CONTROLS, "Left Tachometer Large Needle")
-F_4E:defineFloatFromArg("PLT_ENGINE_TACH_L_SMALL", 2517, PILOT_ENGINE_CONTROLS, "Left Tachometer Small Needle")
-F_4E:defineFloatFromArg("PLT_ENGINE_TACH_R_LARGE", 300, PILOT_ENGINE_CONTROLS, "Right Tachometer Large Needle")
-F_4E:defineFloatFromArg("PLT_ENGINE_TACH_R_SMALL", 2518, PILOT_ENGINE_CONTROLS, "Right Tachometer Small Needle")
+F_4E:definePositiveFloat("PLT_ENGINE_TACH_L_LARGE", 299, PILOT_ENGINE_CONTROLS, "Left Tachometer Large Needle")
+F_4E:definePositiveFloat("PLT_ENGINE_TACH_L_SMALL", 2517, PILOT_ENGINE_CONTROLS, "Left Tachometer Small Needle")
+F_4E:definePositiveFloat("PLT_ENGINE_TACH_R_LARGE", 300, PILOT_ENGINE_CONTROLS, "Right Tachometer Large Needle")
+F_4E:definePositiveFloat("PLT_ENGINE_TACH_R_SMALL", 2518, PILOT_ENGINE_CONTROLS, "Right Tachometer Small Needle")
 
 -- exhaust temp
-F_4E:defineFloatFromArg("PLT_ENGINE_EXHAUST_L_LARGE", 301, PILOT_ENGINE_CONTROLS, "Left Exhaust Temperature Large Needle")
+F_4E:definePositiveFloat("PLT_ENGINE_EXHAUST_L_LARGE", 301, PILOT_ENGINE_CONTROLS, "Left Exhaust Temperature Large Needle")
 F_4E:reserveIntValue(65535) -- no draw arg for small needle?
 -- F_4E:defineFloatFromArg("PLT_ENGINE_EXHAUST_L_SMALL", 0, PILOT_ENGINE_CONTROLS, "Left Exhaust Temperature Small Needle")
-F_4E:defineFloatFromArg("PLT_ENGINE_EXHAUST_L_OFF", 2727, PILOT_ENGINE_CONTROLS, "Left Exhaust Temperature Off Flag")
-F_4E:defineFloatFromArg("PLT_ENGINE_EXHAUST_R_LARGE", 302, PILOT_ENGINE_CONTROLS, "Right Exhaust Temperature Large Needle")
+F_4E:definePositiveFloat("PLT_ENGINE_EXHAUST_L_OFF", 2727, PILOT_ENGINE_CONTROLS, "Left Exhaust Temperature Off Flag")
+F_4E:definePositiveFloat("PLT_ENGINE_EXHAUST_R_LARGE", 302, PILOT_ENGINE_CONTROLS, "Right Exhaust Temperature Large Needle")
 F_4E:reserveIntValue(65535) -- no draw arg for small needle?
 -- F_4E:defineFloatFromArg("PLT_ENGINE_EXHAUST_R_SMALL", 0, PILOT_ENGINE_CONTROLS, "Right Exhaust Temperature Small Needle")
-F_4E:defineFloatFromArg("PLT_ENGINE_EXHAUST_R_OFF", 2728, PILOT_ENGINE_CONTROLS, "Right Exhaust Temperature Off Flag")
+F_4E:definePositiveFloat("PLT_ENGINE_EXHAUST_R_OFF", 2728, PILOT_ENGINE_CONTROLS, "Right Exhaust Temperature Off Flag")
 
 -- nozzle position
-F_4E:defineFloatFromArg("PLT_ENGINE_NOZZLE_L", 303, PILOT_ENGINE_CONTROLS, "Left Nozzle Position Gauge")
-F_4E:defineFloatFromArg("PLT_ENGINE_NOZZLE_R", 304, PILOT_ENGINE_CONTROLS, "Right Nozzle Position Gauge")
+F_4E:definePositiveFloat("PLT_ENGINE_NOZZLE_L", 303, PILOT_ENGINE_CONTROLS, "Left Nozzle Position Gauge")
+F_4E:definePositiveFloat("PLT_ENGINE_NOZZLE_R", 304, PILOT_ENGINE_CONTROLS, "Right Nozzle Position Gauge")
 
 -- oil pressure
-F_4E:defineFloatFromArg("PLT_ENGINE_OIL_PRESSURE_L", 717, PILOT_ENGINE_CONTROLS, "Left Engine Oil Pressure")
-F_4E:defineFloatFromArg("PLT_ENGINE_OIL_PRESSURE_R", 718, PILOT_ENGINE_CONTROLS, "Right Engine Oil Pressure")
+F_4E:definePositiveFloat("PLT_ENGINE_OIL_PRESSURE_L", 717, PILOT_ENGINE_CONTROLS, "Left Engine Oil Pressure")
+F_4E:definePositiveFloat("PLT_ENGINE_OIL_PRESSURE_R", 718, PILOT_ENGINE_CONTROLS, "Right Engine Oil Pressure")
 
 -- WSO Engine Controls
 local WSO_ENGINE_CONTROLS = "WSO Engine Controls"
 
 -- tachometer
-F_4E:defineFloatFromArg("WSO_ENGINE_TACH_L_LARGE", 715, WSO_ENGINE_CONTROLS, "Left Tachometer Large Needle")
-F_4E:defineFloatFromArg("WSO_ENGINE_TACH_L_SMALL", 2723, WSO_ENGINE_CONTROLS, "Left Tachometer Small Needle")
-F_4E:defineFloatFromArg("WSO_ENGINE_TACH_R_LARGE", 716, WSO_ENGINE_CONTROLS, "Right Tachometer Large Needle")
-F_4E:defineFloatFromArg("WSO_ENGINE_TACH_R_SMALL", 2724, WSO_ENGINE_CONTROLS, "Right Tachometer Small Needle")
+F_4E:definePositiveFloat("WSO_ENGINE_TACH_L_LARGE", 715, WSO_ENGINE_CONTROLS, "Left Tachometer Large Needle")
+F_4E:definePositiveFloat("WSO_ENGINE_TACH_L_SMALL", 2723, WSO_ENGINE_CONTROLS, "Left Tachometer Small Needle")
+F_4E:definePositiveFloat("WSO_ENGINE_TACH_R_LARGE", 716, WSO_ENGINE_CONTROLS, "Right Tachometer Large Needle")
+F_4E:definePositiveFloat("WSO_ENGINE_TACH_R_SMALL", 2724, WSO_ENGINE_CONTROLS, "Right Tachometer Small Needle")
 
 -- Control Surfaces
 local CONTROL_SURFACES_DEVICE_ID = 25
@@ -786,9 +795,9 @@ F_4E:defineSpringloaded3PosTumb("PLT_O2_MODE", OXYGEN_SYSTEM_DEVICE_ID, 3002, 23
 F_4E:defineToggleSwitch("PLT_O2_MIXTURE", OXYGEN_SYSTEM_DEVICE_ID, 3004, 236, PILOT_O2_SYSTEM, "Select Oxygen Mixture")
 F_4E:defineToggleSwitch("PLT_O2_SUPPLY", OXYGEN_SYSTEM_DEVICE_ID, 3006, 237, PILOT_O2_SYSTEM, "Oxygen Supply")
 
-F_4E:defineFloat("PLT_O2_FLOW", 234, { 0, 1 }, PILOT_O2_SYSTEM, "Oxygen Flow Indicator (White)")
-F_4E:defineFloat("PLT_O2_PRESSURE", 233, { 0, 1 }, PILOT_O2_SYSTEM, "Oxygen Supply Pressure Gauge")
-F_4E:defineFloat("PLT_O2_LITERS", 231, { 0, 1 }, PILOT_O2_SYSTEM, "Oxygen Supply Liters Gauge")
+F_4E:definePositiveFloat("PLT_O2_FLOW", 234, PILOT_O2_SYSTEM, "Oxygen Flow Indicator (White)")
+F_4E:definePositiveFloat("PLT_O2_PRESSURE", 233, PILOT_O2_SYSTEM, "Oxygen Supply Pressure Gauge")
+F_4E:definePositiveFloat("PLT_O2_LITERS", 231, PILOT_O2_SYSTEM, "Oxygen Supply Liters Gauge")
 
 local WSO_O2_SYSTEM = "WSO Oxygen System"
 
@@ -798,8 +807,8 @@ F_4E:defineSpringloaded3PosTumb("WSO_O2_MODE", OXYGEN_SYSTEM_DEVICE_ID, 3003, 24
 F_4E:defineToggleSwitch("WSO_O2_MIXTURE", OXYGEN_SYSTEM_DEVICE_ID, 3005, 243, WSO_O2_SYSTEM, "Select Oxygen Mixture")
 F_4E:defineToggleSwitch("WSO_O2_SUPPLY", OXYGEN_SYSTEM_DEVICE_ID, 3007, 244, WSO_O2_SYSTEM, "Oxygen Supply")
 
-F_4E:defineFloat("WSO_O2_FLOW", 241, { 0, 1 }, WSO_O2_SYSTEM, "Oxygen Flow Indicator (White)")
-F_4E:defineFloat("WSO_O2_PRESSURE", 245, { 0, 1 }, WSO_O2_SYSTEM, "Oxygen Supply Pressure Gauge")
+F_4E:definePositiveFloat("WSO_O2_FLOW", 241, WSO_O2_SYSTEM, "Oxygen Flow Indicator (White)")
+F_4E:definePositiveFloat("WSO_O2_PRESSURE", 245, WSO_O2_SYSTEM, "Oxygen Supply Pressure Gauge")
 
 -- Weapons
 local WEAPONS_DEVICE_ID = 27
@@ -959,14 +968,14 @@ local TURN_SLIP_DEVICE_ID = 29
 -- Pilot Turn Coordinator
 local PLT_TURN_COORDINATOR = "PLT Turn Coordinator"
 
-F_4E:defineFloat("PLT_TURN_BALL", 420, { -1, 1 }, PLT_TURN_COORDINATOR, "Slip Ball")
-F_4E:defineFloat("PLT_TURN_INDICATOR", 421, { -1, 1 }, PLT_TURN_COORDINATOR, "Turn Coordinator rotation")
+F_4E:defineFullRangeFloat("PLT_TURN_BALL", 420, PLT_TURN_COORDINATOR, "Slip Ball")
+F_4E:defineFullRangeFloat("PLT_TURN_INDICATOR", 421, PLT_TURN_COORDINATOR, "Turn Coordinator rotation")
 
 -- WSO Turn Coordinator
 local WSO_TURN_COORDINATOR = "WSO Turn Coordinator"
 
-F_4E:defineFloat("WSO_TURN_BALL", 610, { -1, 1 }, WSO_TURN_COORDINATOR, "Slip Ball")
-F_4E:defineFloat("WSO_TURN_INDICATOR", 611, { -1, 1 }, WSO_TURN_COORDINATOR, "Turn Coordinator rotation")
+F_4E:defineFullRangeFloat("WSO_TURN_BALL", 610, WSO_TURN_COORDINATOR, "Slip Ball")
+F_4E:defineFullRangeFloat("WSO_TURN_INDICATOR", 611, WSO_TURN_COORDINATOR, "Turn Coordinator rotation")
 
 -- HUD (AN-ASG-26)
 local HUD_DEVICE_ID = 31
@@ -990,18 +999,18 @@ local PILOT_ACCELEROMETER = "PLT Accelerometer"
 
 F_4E:definePushButton("PLT_ACCELEROMETER_RESET", ACCELEROMETER_DEVICE_ID, 3001, 72, PILOT_ACCELEROMETER, "Reset Accelerometer")
 
-F_4E:defineFloatFromArg("PLT_ACCELEROMETER_LOW", 68, PILOT_ACCELEROMETER, "Low-G Needle")
-F_4E:defineFloatFromArg("PLT_ACCELEROMETER_CURRENT", 67, PILOT_ACCELEROMETER, "Current-G Needle")
-F_4E:defineFloatFromArg("PLT_ACCELEROMETER_HIGH", 69, PILOT_ACCELEROMETER, "High-G Needle")
+F_4E:definePositiveFloat("PLT_ACCELEROMETER_LOW", 68, PILOT_ACCELEROMETER, "Low-G Needle")
+F_4E:definePositiveFloat("PLT_ACCELEROMETER_CURRENT", 67, PILOT_ACCELEROMETER, "Current-G Needle")
+F_4E:definePositiveFloat("PLT_ACCELEROMETER_HIGH", 69, PILOT_ACCELEROMETER, "High-G Needle")
 
 -- WSO Accelerometer
 local WSO_ACCELEROMETER = "WSO Accelerometer"
 
 F_4E:definePushButton("WSO_ACCELEROMETER_RESET", ACCELEROMETER_DEVICE_ID, 3002, 180, WSO_ACCELEROMETER, "Reset Accelerometer")
 
-F_4E:defineFloatFromArg("WSO_ACCELEROMETER_LOW", 178, WSO_ACCELEROMETER, "Low-G Needle")
-F_4E:defineFloatFromArg("WSO_ACCELEROMETER_CURRENT", 177, WSO_ACCELEROMETER, "Current-G Needle")
-F_4E:defineFloatFromArg("WSO_ACCELEROMETER_HIGH", 179, WSO_ACCELEROMETER, "High-G Needle")
+F_4E:definePositiveFloat("WSO_ACCELEROMETER_LOW", 178, WSO_ACCELEROMETER, "Low-G Needle")
+F_4E:definePositiveFloat("WSO_ACCELEROMETER_CURRENT", 177, WSO_ACCELEROMETER, "Current-G Needle")
+F_4E:definePositiveFloat("WSO_ACCELEROMETER_HIGH", 179, WSO_ACCELEROMETER, "High-G Needle")
 
 -- Pitot/Static System
 local PITOT_STATIC_DEVICE_ID = 36
@@ -1023,10 +1032,10 @@ local PILOT_ASI = "PLT Airspeed Indicator"
 F_4E:defineRotary("PLT_ASI_BUG", ASI_DEVICE_ID, 3001, 106, PILOT_ASI, "Move Bug")
 F_4E:defineToggleSwitch("PLT_ASI_BUG_UNITS", ASI_DEVICE_ID, 3002, 107, PILOT_ASI, "Toggle Speed/Mach bugs")
 
-F_4E:defineFloatFromArg("PLT_ASI_NEEDLE", 102, PILOT_ASI, "IAS Needle")
-F_4E:defineFloatFromArg("PLT_ASI_MACH_DIAL", 103, PILOT_ASI, "Mach Dial rotation")
-F_4E:defineFloatFromArg("PLT_ASI_AIRSPEED_BUG", 104, PILOT_ASI, "Airspeed Bug")
-F_4E:defineFloatFromArg("PLT_ASI_MACH_BUG", 105, PILOT_ASI, "Mach Bug")
+F_4E:definePositiveFloat("PLT_ASI_NEEDLE", 102, PILOT_ASI, "IAS Needle")
+F_4E:definePositiveFloat("PLT_ASI_MACH_DIAL", 103, PILOT_ASI, "Mach Dial rotation")
+F_4E:definePositiveFloat("PLT_ASI_AIRSPEED_BUG", 104, PILOT_ASI, "Airspeed Bug")
+F_4E:definePositiveFloat("PLT_ASI_MACH_BUG", 105, PILOT_ASI, "Mach Bug")
 
 -- WSO Airspeed Indicator
 local WSO_ASI = "WSO Airspeed Indicator"
@@ -1034,10 +1043,10 @@ local WSO_ASI = "WSO Airspeed Indicator"
 F_4E:defineRotary("WSO_ASI_BUG", ASI_DEVICE_ID, 3003, 197, WSO_ASI, "Move Bug")
 F_4E:defineToggleSwitch("WSO_ASI_BUG_UNITS", ASI_DEVICE_ID, 3004, 198, WSO_ASI, "Toggle Speed/Mach bugs")
 
-F_4E:defineFloatFromArg("WSO_ASI_NEEDLE", 193, WSO_ASI, "IAS Needle")
-F_4E:defineFloatFromArg("WSO_ASI_MACH_DIAL", 194, WSO_ASI, "Mach Dial rotation")
-F_4E:defineFloatFromArg("WSO_ASI_AIRSPEED_BUG", 195, WSO_ASI, "Airspeed Bug")
-F_4E:defineFloatFromArg("WSO_ASI_MACH_BUG", 196, WSO_ASI, "Mach Bug")
+F_4E:definePositiveFloat("WSO_ASI_NEEDLE", 193, WSO_ASI, "IAS Needle")
+F_4E:definePositiveFloat("WSO_ASI_MACH_DIAL", 194, WSO_ASI, "Mach Dial rotation")
+F_4E:definePositiveFloat("WSO_ASI_AIRSPEED_BUG", 195, WSO_ASI, "Airspeed Bug")
+F_4E:definePositiveFloat("WSO_ASI_MACH_BUG", 196, WSO_ASI, "Mach Bug")
 
 -- Barometric Altimeter
 local BARO_ALTIMETER_DEVICE_ID = 40
@@ -1048,7 +1057,7 @@ local PILOT_BARO_ALTIMETER = "PLT Barometric Altimeter"
 F_4E:definePotentiometer("PLT_BARO_PRESSURE_KNOB", BARO_ALTIMETER_DEVICE_ID, 3001, 95, { 0, 1 }, PILOT_BARO_ALTIMETER, "Change Reference Pressure")
 F_4E:defineSpringloaded3PosTumb("PLT_BARO_MODE", BARO_ALTIMETER_DEVICE_ID, 3002, 100, PILOT_BARO_ALTIMETER, "Change Mode (hold to reset)")
 
-F_4E:defineFloatFromArg("PLT_BARO_NEEDLE", 91, PILOT_BARO_ALTIMETER, "Altimeter Needle")
+F_4E:definePositiveFloat("PLT_BARO_NEEDLE", 91, PILOT_BARO_ALTIMETER, "Altimeter Needle")
 F_4E:defineIntegerFromGetter("PLT_BARO_HUNDREDS", function(dev0)
 	return drum_value(dev0, 92)
 end, 9, PILOT_BARO_ALTIMETER, "Altitude Drum (hundreds)")
@@ -1066,7 +1075,7 @@ F_4E:defineString("PLT_BARO_PRESSURE", function(dev0)
 	return drum_set(dev0, 99, 98, 97, 96)
 end, 4, PILOT_BARO_ALTIMETER, "Pressure Setting")
 
-F_4E:defineFloatFromArg("PLT_BARO_STANDBY", 101, PILOT_BARO_ALTIMETER, "Standby Flag")
+F_4E:definePositiveFloat("PLT_BARO_STANDBY", 101, PILOT_BARO_ALTIMETER, "Standby Flag")
 
 -- WSO Barometric Altimeter
 local WSO_BARO_ALTIMETER = "WSO Barometric Altimeter"
@@ -1074,7 +1083,7 @@ local WSO_BARO_ALTIMETER = "WSO Barometric Altimeter"
 F_4E:definePotentiometer("WSO_BARO_PRESSURE_KNOB", BARO_ALTIMETER_DEVICE_ID, 3003, 186, { 0, 1 }, WSO_BARO_ALTIMETER, "Change Reference Pressure")
 F_4E:defineSpringloaded3PosTumb("WSO_BARO_MODE", BARO_ALTIMETER_DEVICE_ID, 3004, 191, WSO_BARO_ALTIMETER, "Change Mode (hold to reset)")
 
-F_4E:defineFloatFromArg("WSO_BARO_NEEDLE", 182, WSO_BARO_ALTIMETER, "Altimeter Needle")
+F_4E:definePositiveFloat("WSO_BARO_NEEDLE", 182, WSO_BARO_ALTIMETER, "Altimeter Needle")
 F_4E:defineIntegerFromGetter("WSO_BARO_HUNDREDS", function(dev0)
 	return drum_value(dev0, 183)
 end, 9, WSO_BARO_ALTIMETER, "Altitude Drum (hundreds)")
@@ -1092,7 +1101,7 @@ F_4E:defineString("WSO_BARO_PRESSURE", function(dev0)
 	return drum_set(dev0, 190, 189, 188, 187)
 end, 4, WSO_BARO_ALTIMETER, "Pressure Setting")
 
-F_4E:defineFloatFromArg("WSO_BARO_STANDBY", 192, WSO_BARO_ALTIMETER, "Standby Flag")
+F_4E:definePositiveFloat("WSO_BARO_STANDBY", 192, WSO_BARO_ALTIMETER, "Standby Flag")
 
 -- Vertical Velocity Indicator
 local VVI_DEVICE_ID = 41
@@ -1100,12 +1109,12 @@ local VVI_DEVICE_ID = 41
 -- Pilot VVI
 local PILOT_VVI = "PLT Vertical Velocity Indicator"
 
-F_4E:defineFloat("PLT_VVI_NEEDLE", 90, { -1, 1 }, PILOT_VVI, "VVI Needle")
+F_4E:defineFullRangeFloat("PLT_VVI_NEEDLE", 90, PILOT_VVI, "VVI Needle")
 
 -- WSO VVI
 local WSO_VVI = "WSO Vertical Velocity Indicator"
 
-F_4E:defineFloat("WSO_VVI_NEEDLE", 181, { -1, 1 }, WSO_VVI, "VVI Needle")
+F_4E:defineFullRangeFloat("WSO_VVI_NEEDLE", 181, WSO_VVI, "VVI Needle")
 
 -- TAS Indicator
 local TAS_DEVICE_ID = 42
@@ -1133,16 +1142,16 @@ local PILOT_ADI = "PLT ADI"
 F_4E:defineToggleSwitch("PLT_ADI_REFERENCE_SYSTEM", ADI_DEVICE_ID, 3002, 692, PILOT_ADI, "Select Reference System")
 F_4E:definePotentiometer("PLT_ADI_PITCH_ADJUST", ADI_DEVICE_ID, 3004, 612, { 0, 1 }, PILOT_ADI, "Adjust Pitch")
 
-F_4E:defineFloat("PLT_ADI_HEADING", 613, { -1, 1 }, PILOT_ADI, "X-Axis Rotation (Yaw)")
-F_4E:defineFloat("PLT_ADI_ROLL", 614, { -1, 1 }, PILOT_ADI, "Z-Axis Rotation (Roll)")
-F_4E:defineFloat("PLT_ADI_PITCH", 615, { -1, 1 }, PILOT_ADI, "Y-Axis Rotation (Pitch)")
-F_4E:defineFloat("PLT_ADI_ROLL_STEERING_BAR", 616, { -1, 1 }, PILOT_ADI, "Pitch Roll Cue Bar (Yellow)")
-F_4E:defineFloat("PLT_ADI_PITCH_STEERING_BAR", 617, { -1, 1 }, PILOT_ADI, "Pitch Steering Cue Bar (Yellow)")
-F_4E:defineFloat("PLT_ADI_BANK", 618, { -1, 1 }, PILOT_ADI, "Bank Pointers")
-F_4E:defineFloat("PLT_ADI_GLIDESLOPE", 619, { -1, 1 }, PILOT_ADI, "Glideslope Pointer")
-F_4E:defineFloatFromArg("PLT_ADI_COURSE_WARNING_FLAG", 620, PILOT_ADI, "Course Warning Flag")
-F_4E:defineFloatFromArg("PLT_ADI_GLIDESLOPE_WARNING_FLAG", 621, PILOT_ADI, "Glideslope Warning Flag")
-F_4E:defineFloatFromArg("PLT_ADI_OFF_WARNING_FLAG", 622, PILOT_ADI, "Off Warning Flag")
+F_4E:defineFullRangeFloat("PLT_ADI_HEADING", 613, PILOT_ADI, "X-Axis Rotation (Yaw)")
+F_4E:defineFullRangeFloat("PLT_ADI_ROLL", 614, PILOT_ADI, "Z-Axis Rotation (Roll)")
+F_4E:defineFullRangeFloat("PLT_ADI_PITCH", 615, PILOT_ADI, "Y-Axis Rotation (Pitch)")
+F_4E:defineFullRangeFloat("PLT_ADI_ROLL_STEERING_BAR", 616, PILOT_ADI, "Pitch Roll Cue Bar (Yellow)")
+F_4E:defineFullRangeFloat("PLT_ADI_PITCH_STEERING_BAR", 617, PILOT_ADI, "Pitch Steering Cue Bar (Yellow)")
+F_4E:defineFullRangeFloat("PLT_ADI_BANK", 618, PILOT_ADI, "Bank Pointers")
+F_4E:defineFullRangeFloat("PLT_ADI_GLIDESLOPE", 619, PILOT_ADI, "Glideslope Pointer")
+F_4E:definePositiveFloat("PLT_ADI_COURSE_WARNING_FLAG", 620, PILOT_ADI, "Course Warning Flag")
+F_4E:definePositiveFloat("PLT_ADI_GLIDESLOPE_WARNING_FLAG", 621, PILOT_ADI, "Glideslope Warning Flag")
+F_4E:definePositiveFloat("PLT_ADI_OFF_WARNING_FLAG", 622, PILOT_ADI, "Off Warning Flag")
 
 -- CNI (AN-ASQ-19A)
 local CNI_DEVICE_ID = 45
@@ -1172,10 +1181,10 @@ F_4E:defineToggleSwitch("PLT_SAI_CAGE", EMERGENCY_ATTITUDE_DEVICE_ID, 3002, 628,
 -- todo: set state basically functions as an inc, inc/dec don't work as expected
 F_4E:definePotentiometer("PLT_SAI_TRIM", EMERGENCY_ATTITUDE_DEVICE_ID, 3001, 629, { 0, 1 }, PILOT_SAI, "Trim Emergency Attitude Indicator")
 
-F_4E:defineFloat("PLT_SAI_PITCH", 625, { -1, 1 }, PILOT_SAI, "Y-Axis Rotation (Pitch)")
-F_4E:defineFloatFromArg("PLT_SAI_ROLL", 626, PILOT_SAI, "Z-Axis Rotation (Roll)")
-F_4E:defineFloat("PLT_SAI_TRIM_BAR", 630, { -1, 1 }, PILOT_SAI, "Horizon Indicator Position")
-F_4E:defineFloatFromArg("PLT_SAI_OFF_FLAG", 627, PILOT_SAI, "Off Warning Flag")
+F_4E:defineFullRangeFloat("PLT_SAI_PITCH", 625, PILOT_SAI, "Y-Axis Rotation (Pitch)")
+F_4E:definePositiveFloat("PLT_SAI_ROLL", 626, PILOT_SAI, "Z-Axis Rotation (Roll)")
+F_4E:defineFullRangeFloat("PLT_SAI_TRIM_BAR", 630, PILOT_SAI, "Horizon Indicator Position")
+F_4E:definePositiveFloat("PLT_SAI_OFF_FLAG", 627, PILOT_SAI, "Off Warning Flag")
 
 -- TACAN (AN-ARN-118)
 local TACAN_DEVICE_ID = 48
@@ -1240,12 +1249,12 @@ local PILOT_HSI = "PLT HSI"
 F_4E:defineRotary("PLT_HSI_HEADING_SET", HSI_DEVICE_ID, 3002, 678, PILOT_HSI, "Set HSI Heading")
 F_4E:defineRotary("PLT_HSI_COURSE_SET", HSI_DEVICE_ID, 3001, 673, PILOT_HSI, "Set HSI Course")
 
-F_4E:defineFloatFromArg("PLT_HSI_COMPASS_ROTATION", 668, PILOT_HSI, "Compass Card Rotation")
-F_4E:defineFloatFromArg("PLT_HSI_BEARING_POINTER", 669, PILOT_HSI, "Bearing Arrow (outer ring)")
-F_4E:defineFloatFromArg("PLT_HSI_COURSE_ARROW", 670, PILOT_HSI, "Course Arrow (inner)")
-F_4E:defineFloat("PLT_HSI_COURSE_DEVIATION", 671, { -1, 1 }, PILOT_HSI, "Course Deviation Line")
-F_4E:defineFloatFromArg("PLT_HSI_HEADING_BUG", 672, PILOT_HSI, "Heading Bug (outer ring)")
-F_4E:defineFloat("PLT_HSI_TO_FROM_ARROW", 677, { -1, 1 }, PILOT_HSI, "To/From Arrow (inner)")
+F_4E:definePositiveFloat("PLT_HSI_COMPASS_ROTATION", 668, PILOT_HSI, "Compass Card Rotation")
+F_4E:definePositiveFloat("PLT_HSI_BEARING_POINTER", 669, PILOT_HSI, "Bearing Arrow (outer ring)")
+F_4E:definePositiveFloat("PLT_HSI_COURSE_ARROW", 670, PILOT_HSI, "Course Arrow (inner)")
+F_4E:defineFullRangeFloat("PLT_HSI_COURSE_DEVIATION", 671, PILOT_HSI, "Course Deviation Line")
+F_4E:definePositiveFloat("PLT_HSI_HEADING_BUG", 672, PILOT_HSI, "Heading Bug (outer ring)")
+F_4E:defineFullRangeFloat("PLT_HSI_TO_FROM_ARROW", 677, PILOT_HSI, "To/From Arrow (inner)")
 
 F_4E:defineString("PLT_HSI_COURSE", function(dev0)
 	return drum_set(dev0, 676, 675, 674)
@@ -1255,7 +1264,7 @@ F_4E:defineString("PLT_HSI_RANGE", function(dev0)
 	return drum_set(dev0, 682, 681, 680, 679)
 end, 4, PILOT_HSI, "Range Drum (miles)")
 
-F_4E:defineFloatFromArg("PLT_HSI_RANGE_WARNING_FLAG", 683, PILOT_HSI, "Range Warning Flag")
+F_4E:definePositiveFloat("PLT_HSI_RANGE_WARNING_FLAG", 683, PILOT_HSI, "Range Warning Flag")
 F_4E:defineIndicatorLight("PLT_HSI_NAV", 684, PILOT_HSI, "NAV Lamp (Red)")
 F_4E:defineIndicatorLight("PLT_HSI_DL_L", 685, PILOT_HSI, "Left DL Lamp (Red)")
 F_4E:defineIndicatorLight("PLT_HSI_ILS", 686, PILOT_HSI, "ILS Lamp (Red)")
@@ -1343,13 +1352,13 @@ local BDHI_DEVICE_ID = 53
 -- WSO BDHI
 local WSO_BDHI = "WSO BDHI"
 
-F_4E:defineFloatFromArg("WSO_BDHI_COMPASS_CARD", 949, WSO_BDHI, "Compass Card rotation")
-F_4E:defineFloatFromArg("WSO_BDHI_POINTER_1", 950, WSO_BDHI, "Pointer 1 orientation")
-F_4E:defineFloatFromArg("WSO_BDHI_POINTER_2", 951, WSO_BDHI, "Pointer 2 orientation")
+F_4E:definePositiveFloat("WSO_BDHI_COMPASS_CARD", 949, WSO_BDHI, "Compass Card rotation")
+F_4E:definePositiveFloat("WSO_BDHI_POINTER_1", 950, WSO_BDHI, "Pointer 1 orientation")
+F_4E:definePositiveFloat("WSO_BDHI_POINTER_2", 951, WSO_BDHI, "Pointer 2 orientation")
 F_4E:defineString("WSO_BDHI_RANGE", function(dev0)
 	return drum_set(dev0, 2725, 954, 953, 952)
 end, 4, WSO_BDHI, "BDHI Range")
-F_4E:defineFloatFromArg("WSO_BDHI_OFF_FLAG", 2627, WSO_BDHI, "Off Flag")
+F_4E:definePositiveFloat("WSO_BDHI_OFF_FLAG", 2627, WSO_BDHI, "Off Flag")
 
 -- Compass System
 local COMPASS_DEVICE_ID = 54
@@ -1365,19 +1374,19 @@ F_4E:defineToggleSwitch("PLT_COMPASS_HEMISPHERE", COMPASS_DEVICE_ID, 3012, 960, 
 
 F_4E:defineToggleSwitch("PLT_COMPASS_GYRO_MODE", COMPASS_DEVICE_ID, 3005, 366, PILOT_COMPASS, "Set Gyro Mode")
 
-F_4E:defineFloatFromArg("PLT_COMPASS_SYNC", 959, PILOT_COMPASS, "Compass Sync Indicator")
+F_4E:definePositiveFloat("PLT_COMPASS_SYNC", 959, PILOT_COMPASS, "Compass Sync Indicator")
 
-F_4E:defineFloatFromArg("PLT_COMPASS_HEADING", 80, PILOT_COMPASS, "Compass Heading")
-F_4E:defineFloat("PLT_COMPASS_PITCH", 81, { -1, 1 }, PILOT_COMPASS, "Compass Pitch")
-F_4E:defineFloat("PLT_COMPASS_BANK", 82, { -1, 1 }, PILOT_COMPASS, "Compass Bank")
+F_4E:definePositiveFloat("PLT_COMPASS_HEADING", 80, PILOT_COMPASS, "Compass Heading")
+F_4E:defineFullRangeFloat("PLT_COMPASS_PITCH", 81, PILOT_COMPASS, "Compass Pitch")
+F_4E:defineFullRangeFloat("PLT_COMPASS_BANK", 82, PILOT_COMPASS, "Compass Bank")
 
 -- WSO Compass
 local WSO_COMPASS = "WSO Compass"
 
 -- yes, these are the same draw args as the pilot compass
-F_4E:defineFloatFromArg("WSO_COMPASS_HEADING", 80, WSO_COMPASS, "Compass Heading")
-F_4E:defineFloat("WSO_COMPASS_PITCH", 81, { -1, 1 }, WSO_COMPASS, "Compass Pitch")
-F_4E:defineFloat("WSO_COMPASS_BANK", 82, { -1, 1 }, WSO_COMPASS, "Compass Bank")
+F_4E:definePositiveFloat("WSO_COMPASS_HEADING", 80, WSO_COMPASS, "Compass Heading")
+F_4E:defineFullRangeFloat("WSO_COMPASS_PITCH", 81, WSO_COMPASS, "Compass Pitch")
+F_4E:defineFullRangeFloat("WSO_COMPASS_BANK", 82, WSO_COMPASS, "Compass Bank")
 
 -- Electric System
 local ELECTRICS_DEVICE_ID = 55
@@ -1403,10 +1412,10 @@ local WSO_ATTITUDE_INDICATOR = "WSO Attitude Indicator"
 
 F_4E:definePotentiometer("WSO_ATTITUDE_INDICATOR_TRIM", ATTITUDE_INDICATOR_DEVICE_ID, 3001, 633, { 0, 1 }, WSO_ATTITUDE_INDICATOR, "Adjust Pitch")
 
-F_4E:defineFloat("WSO_ATTITUDE_INDICATOR_PITCH", 631, { -1, 1 }, WSO_ATTITUDE_INDICATOR, "Pitch")
-F_4E:defineFloat("WSO_ATTITUDE_INDICATOR_ROLL", 632, { -1, 1 }, WSO_ATTITUDE_INDICATOR, "Roll")
-F_4E:defineFloat("WSO_ATTITUDE_INDICATOR_ROLL_POINTER", 634, { -1, 1 }, WSO_ATTITUDE_INDICATOR, "Roll Pointer")
-F_4E:defineFloatFromArg("WSO_ATTITUDE_INDICATOR_OFF_FLAG", 534, WSO_ATTITUDE_INDICATOR, "Off Flag")
+F_4E:defineFullRangeFloat("WSO_ATTITUDE_INDICATOR_PITCH", 631, WSO_ATTITUDE_INDICATOR, "Pitch")
+F_4E:defineFullRangeFloat("WSO_ATTITUDE_INDICATOR_ROLL", 632, WSO_ATTITUDE_INDICATOR, "Roll")
+F_4E:defineFullRangeFloat("WSO_ATTITUDE_INDICATOR_ROLL_POINTER", 634, WSO_ATTITUDE_INDICATOR, "Roll Pointer")
+F_4E:definePositiveFloat("WSO_ATTITUDE_INDICATOR_OFF_FLAG", 534, WSO_ATTITUDE_INDICATOR, "Off Flag")
 
 -- Fuel
 local FUEL_DEVICE_ID = 60
@@ -1425,7 +1434,7 @@ F_4E:definePushButton("PLT_FUEL_BOOST_PUMP_R_CHECK", FUEL_DEVICE_ID, 3022, 726, 
 F_4E:definePushButton("PLT_FUEL_FEED_TANK_CHECK", FUEL_DEVICE_ID, 3013, 2789, PILOT_FUEL_PANEL, "Check Engine-Feed Tank")
 
 -- fuel totalizer
-F_4E:defineFloatFromArg("PLT_FUEL_GAUGE_TAPE", 723, PILOT_FUEL_PANEL, "Fuel Gauge Tape")
+F_4E:definePositiveFloat("PLT_FUEL_GAUGE_TAPE", 723, PILOT_FUEL_PANEL, "Fuel Gauge Tape")
 F_4E:defineString("PLT_FUEL_GAUGE_VALUE", function(dev0)
 	local tens = drum_value(dev0, 719)
 	local hundreds = drum_value(dev0, 720)
@@ -1436,12 +1445,12 @@ F_4E:defineString("PLT_FUEL_GAUGE_VALUE", function(dev0)
 end, 4, PILOT_FUEL_PANEL, "Pilot Fuel Gauge Total Internal Fuel (x10)")
 
 -- boost pump gauges
-F_4E:defineFloatFromArg("PLT_FUEL_BOOST_PUMP_L", 713, PILOT_FUEL_PANEL, "Left Fuel Boost Pump Pressure")
-F_4E:defineFloatFromArg("PLT_FUEL_BOOST_PUMP_R", 714, PILOT_FUEL_PANEL, "Right Fuel Boost Pump Pressure")
+F_4E:definePositiveFloat("PLT_FUEL_BOOST_PUMP_L", 713, PILOT_FUEL_PANEL, "Left Fuel Boost Pump Pressure")
+F_4E:definePositiveFloat("PLT_FUEL_BOOST_PUMP_R", 714, PILOT_FUEL_PANEL, "Right Fuel Boost Pump Pressure")
 
 -- fuel flow gauges
-F_4E:defineFloatFromArg("PLT_FUEL_FLOW_L", 297, PILOT_FUEL_PANEL, "Left Engine Fuel Flow")
-F_4E:defineFloatFromArg("PLT_FUEL_FLOW_R", 298, PILOT_FUEL_PANEL, "Right Engine Fuel Flow")
+F_4E:definePositiveFloat("PLT_FUEL_FLOW_L", 297, PILOT_FUEL_PANEL, "Left Engine Fuel Flow")
+F_4E:definePositiveFloat("PLT_FUEL_FLOW_R", 298, PILOT_FUEL_PANEL, "Right Engine Fuel Flow")
 
 F_4E:defineIndicatorLight("PLT_FUEL_AAR_READY", 2525, PILOT_FUEL_PANEL, "Aerial Refueling Ready Lamp (Green)")
 F_4E:defineIndicatorLight("PLT_FUEL_AAR_EXT_L_FULL", 2526, PILOT_FUEL_PANEL, "Aerial Refueling Left Tank Full Lamp (Green)")
