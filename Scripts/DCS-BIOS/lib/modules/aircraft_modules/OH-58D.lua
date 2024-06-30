@@ -238,6 +238,13 @@ OH_58D:defineSpringloaded_3PosTumb("PLT_CYCLIC_DISPLAY_SELECT_LR", RMFD_DEVICE_I
 -- Cyclic (Copilot)
 local CYCLIC_COPILOT = "Cyclic (Copilot)"
 
+-- OH_58D:definePushButton("CPLT_CYCLIC_AREA_TRACK", MMS_DEVICE_ID, 3022, 32, CYCLIC_COPILOT, "Area Track")
+OH_58D:reserveIntValue(1) -- area track not fully clickable
+OH_58D:definePushButton("CPLT_CYCLIC_LASER", MMS_DEVICE_ID, 3024, 35, CYCLIC_COPILOT, "Fire Laser")
+OH_58D:definePushButton("CPLT_CYCLIC_POINT_TRACK", MMS_DEVICE_ID, 3021, 48, CYCLIC_COPILOT, "Point Track")
+-- OH_58D:defineSpringloaded_3PosTumb("CPLT_CYCLIC_NAV_TARGET_DESIGNATE", MMS_DEVICE_ID, 3026, 3026, 43, CYCLIC_COPILOT, "Nav/Target Designate Switch")
+OH_58D:reserveIntValue(2) -- nav/target designate not fully working currently
+
 -- Collective (Pilot)
 local COLLECTIVE_PILOT = "Collective (Pilot)"
 
