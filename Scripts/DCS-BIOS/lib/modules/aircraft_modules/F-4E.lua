@@ -1532,7 +1532,79 @@ F_4E:defineIndicatorLight("WSO_FRONT_PANEL_WEAPON_LIGHT", 2691, WSO_FRONT_PANEL,
 F_4E:defineIndicatorLight("WSO_FRONT_PANEL_ASQ_153_LIGHT", 2692, WSO_FRONT_PANEL, "Select Video ASQ-153 Lamp (White)")
 
 -- RHAW
--- local RHAW_DEVICE_ID = 67
+local RHAW_DEVICE_ID = 67
+
+-- Pilot RWR
+local PILOT_RWR = "PLT RWR"
+
+F_4E:definePotentiometer("PLT_RWR_SCREEN_BRIGHTNESS", RHAW_DEVICE_ID, 3049, 975, { 0, 1 }, PILOT_RWR, "Screen Brightness")
+F_4E:definePotentiometer("PLT_RWR_AUDIO_VOLUME", RHAW_DEVICE_ID, 3002, 977, { 0, 1 }, PILOT_RWR, "RWR Audio Volume")
+F_4E:definePotentiometer("PLT_RWR_LIGHT_BRIGHTNESS", RHAW_DEVICE_ID, 3001, 976, { 0, 1 }, PILOT_RWR, "Light Brightness")
+F_4E:definePushButton("PLT_RWR_PRIORITY_MODE", RHAW_DEVICE_ID, 3003, 381, PILOT_RWR, "Priority/Open Mode")
+F_4E:definePushButton("PLT_RWR_SEARCH", RHAW_DEVICE_ID, 3004, 382, PILOT_RWR, "Search")
+F_4E:definePushButton("PLT_RWR_HANDOFF", RHAW_DEVICE_ID, 3005, 383, PILOT_RWR, "Handoff")
+F_4E:definePushButton("PLT_RWR_MISSILE_LAUNCH", RHAW_DEVICE_ID, 3006, 384, PILOT_RWR, "Missile Launch (no function)")
+F_4E:definePushButton("PLT_RWR_LOW_ALTITUDE_MODE", RHAW_DEVICE_ID, 3007, 385, PILOT_RWR, "Low/Altitude Mode")
+F_4E:definePushButton("PLT_RWR_TARGET_SEPARATION", RHAW_DEVICE_ID, 3008, 386, PILOT_RWR, "Target Separation")
+F_4E:definePushButton("PLT_RWR_SYSTEM_TEST", RHAW_DEVICE_ID, 3009, 387, PILOT_RWR, "System Test")
+F_4E:definePushButton("PLT_RWR_UNKNOWN", RHAW_DEVICE_ID, 3010, 388, PILOT_RWR, "Unknown")
+F_4E:definePushButton("PLT_RWR_ACTIVITY_POWER", RHAW_DEVICE_ID, 3011, 389, PILOT_RWR, "Activity Power (no function)")
+F_4E:definePushButton("PLT_RWR_SYSTEM_POWER", RHAW_DEVICE_ID, 3012, 390, PILOT_RWR, "System Power")
+
+F_4E:definePotentiometer("PLT_RWR_MISSILE_LAUNCH_VOLUME", RHAW_DEVICE_ID, 3055, 1373, { 0, 1 }, PILOT_RWR, "RWR Missile Launch Audio Volume")
+
+F_4E:defineIndicatorLight("PLT_RWR_PRIORITY_MODE_LIGHT_TOP", 2537, PILOT_RWR, "Priority Lamp (Green)")
+F_4E:defineIndicatorLight("PLT_RWR_PRIORITY_MODE_LIGHT_BOT", 2742, PILOT_RWR, "Open Lamp (Green)")
+F_4E:defineIndicatorLight("PLT_RWR_SEARCH_LIGHT_TOP", 2538, PILOT_RWR, "Search Lamp (Green)")
+F_4E:defineIndicatorLight("PLT_RWR_SEARCH_LIGHT_BOT", 2743, PILOT_RWR, "Lower Search Lamp (Green)")
+F_4E:defineIndicatorLight("PLT_RWR_HANDOFF_LIGHT_TOP", 2539, PILOT_RWR, "Handoff Lamp (Green)")
+F_4E:defineIndicatorLight("PLT_RWR_HANDOFF_LIGHT_BOT", 2744, PILOT_RWR, "H Lamp (Green)")
+F_4E:defineIndicatorLight("PLT_RWR_MISSILE_LAUNCH_LIGHT", 2540, PILOT_RWR, "Missile Launch Lamp (Red)")
+F_4E:defineIndicatorLight("PLT_RWR_LOW_ALTITUDE_MODE_LIGHT", 2541, PILOT_RWR, "Low/Altitude Mode Lamp (Green)")
+F_4E:defineIndicatorLight("PLT_RWR_TARGET_SEPARATION_LIGHT_TOP", 2542, PILOT_RWR, "Upper Target Separation Lamp (Green)")
+F_4E:defineIndicatorLight("PLT_RWR_TARGET_SEPARATION_LIGHT_BOT", 2745, PILOT_RWR, "Lower Target Separation Lamp (Green)")
+F_4E:defineIndicatorLight("PLT_RWR_SYSTEM_TEST_LIGHT", 2543, PILOT_RWR, "System Test Lamp (Green)")
+F_4E:defineIndicatorLight("PLT_RWR_UNKNOWN_LIGHT_TOP", 2544, PILOT_RWR, "U Lamp (Green)")
+F_4E:defineIndicatorLight("PLT_RWR_UNKNOWN_LIGHT_BOT", 2746, PILOT_RWR, "Unknown Lamp (Green)")
+F_4E:defineIndicatorLight("PLT_RWR_ACTIVITY_POWER_LIGHT_TOP", 2545, PILOT_RWR, "Activity Lamp (Red)")
+F_4E:defineIndicatorLight("PLT_RWR_ACTIVITY_POWER_LIGHT_BOT", 2747, PILOT_RWR, "Power Lamp (Red)")
+F_4E:defineIndicatorLight("PLT_RWR_SYSTEM_POWER_LIGHT", 2546, PILOT_RWR, "System Power Lamp (Green)")
+
+-- WSO RWR
+local WSO_RWR = "WSO RWR"
+
+F_4E:definePotentiometer("WSO_RWR_SCREEN_BRIGHTNESS", RHAW_DEVICE_ID, 3051, 2809, { 0, 1 }, WSO_RWR, "Screen Brightness")
+F_4E:definePotentiometer("WSO_RWR_AUDIO_VOLUME", RHAW_DEVICE_ID, 3025, 2624, { 0, 1 }, WSO_RWR, "RWR Audio Volume")
+F_4E:definePotentiometer("WSO_RWR_LIGHT_BRIGHTNESS", RHAW_DEVICE_ID, 3026, 2625, { 0, 1 }, WSO_RWR, "Light Brightness")
+F_4E:definePushButton("WSO_RWR_PRIORITY_MODE", RHAW_DEVICE_ID, 3013, 2824, WSO_RWR, "Priority/Open Mode")
+F_4E:definePushButton("WSO_RWR_SEARCH", RHAW_DEVICE_ID, 3014, 2825, WSO_RWR, "Search")
+F_4E:definePushButton("WSO_RWR_HANDOFF", RHAW_DEVICE_ID, 3015, 2826, WSO_RWR, "Handoff")
+F_4E:definePushButton("WSO_RWR_MISSILE_LAUNCH", RHAW_DEVICE_ID, 3016, 2827, WSO_RWR, "Missile Launch (no function)")
+F_4E:definePushButton("WSO_RWR_LOW_ALTITUDE_MODE", RHAW_DEVICE_ID, 3017, 2828, WSO_RWR, "Low/Altitude Mode")
+F_4E:definePushButton("WSO_RWR_TARGET_SEPARATION", RHAW_DEVICE_ID, 3018, 2829, WSO_RWR, "Target Separation")
+F_4E:definePushButton("WSO_RWR_SYSTEM_TEST", RHAW_DEVICE_ID, 3019, 2830, WSO_RWR, "System Test")
+F_4E:definePushButton("WSO_RWR_UNKNOWN", RHAW_DEVICE_ID, 3020, 2831, WSO_RWR, "Unknown")
+F_4E:definePushButton("WSO_RWR_ACTIVITY_POWER", RHAW_DEVICE_ID, 3021, 2832, WSO_RWR, "Activity Power (no function)")
+F_4E:definePushButton("WSO_RWR_SYSTEM_POWER", RHAW_DEVICE_ID, 3022, 2833, WSO_RWR, "System Power")
+
+F_4E:definePotentiometer("WSO_RWR_MISSILE_LAUNCH_VOLUME", RHAW_DEVICE_ID, 3056, 2810, { 0, 1 }, WSO_RWR, "RWR Missile Launch Audio Volume")
+
+F_4E:defineIndicatorLight("WSO_RWR_PRIORITY_MODE_LIGHT_TOP", 2678, WSO_RWR, "Priority Lamp (Green)")
+F_4E:defineIndicatorLight("WSO_RWR_PRIORITY_MODE_LIGHT_BOT", 2748, WSO_RWR, "Open Lamp (Green)")
+F_4E:defineIndicatorLight("WSO_RWR_SEARCH_LIGHT_TOP", 2679, WSO_RWR, "Search Lamp (Green)")
+F_4E:defineIndicatorLight("WSO_RWR_SEARCH_LIGHT_BOT", 2749, WSO_RWR, "Lower Search Lamp (Green)")
+F_4E:defineIndicatorLight("WSO_RWR_HANDOFF_LIGHT_TOP", 2680, WSO_RWR, "Handoff Lamp (Green)")
+F_4E:defineIndicatorLight("WSO_RWR_HANDOFF_LIGHT_BOT", 2750, WSO_RWR, "H Lamp (Green)")
+F_4E:defineIndicatorLight("WSO_RWR_MISSILE_LAUNCH_LIGHT", 2681, WSO_RWR, "Missile Launch Lamp (Red)")
+F_4E:defineIndicatorLight("WSO_RWR_LOW_ALTITUDE_MODE_LIGHT", 2682, WSO_RWR, "Low/Altitude Mode Lamp (Green)")
+F_4E:defineIndicatorLight("WSO_RWR_TARGET_SEPARATION_LIGHT_TOP", 2683, WSO_RWR, "Upper Target Separation Lamp (Green)")
+F_4E:defineIndicatorLight("WSO_RWR_TARGET_SEPARATION_LIGHT_BOT", 2751, WSO_RWR, "Lower Target Separation Lamp (Green)")
+F_4E:defineIndicatorLight("WSO_RWR_SYSTEM_TEST_LIGHT", 2684, WSO_RWR, "System Test Lamp (Green)")
+F_4E:defineIndicatorLight("WSO_RWR_UNKNOWN_LIGHT_TOP", 2685, WSO_RWR, "U Lamp (Green)")
+F_4E:defineIndicatorLight("WSO_RWR_UNKNOWN_LIGHT_BOT", 2752, WSO_RWR, "Unknown Lamp (Green)")
+F_4E:defineIndicatorLight("WSO_RWR_ACTIVITY_POWER_LIGHT_TOP", 2686, WSO_RWR, "Activity Lamp (Red)")
+F_4E:defineIndicatorLight("WSO_RWR_ACTIVITY_POWER_LIGHT_BOT", 2753, WSO_RWR, "Power Lamp (Red)")
+F_4E:defineIndicatorLight("WSO_RWR_SYSTEM_POWER_LIGHT", 2687, WSO_RWR, "System Power Lamp (Green)")
 
 -- IFF Interrogator (AN-APX-80A)
 local IFF_INTERROGATOR_DEVICE_ID = 68
