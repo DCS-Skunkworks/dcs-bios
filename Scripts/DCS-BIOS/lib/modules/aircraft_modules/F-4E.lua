@@ -1,6 +1,5 @@
 module("F-4E", package.seeall)
 
-local Log = require("Scripts.DCS-BIOS.lib.common.Log")
 local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 
 --- @class F_4E: Module
@@ -79,7 +78,6 @@ end
 --- @param arg_number integer the dcs argument number
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
---- @return Control control the control which was added to the module
 function F_4E:defineSpringloaded3PosTumb(identifier, device_id, command, arg_number, category, description)
 	self:defineSpringloaded_3PosTumb(identifier, device_id, command, command, arg_number, category, description)
 end
@@ -554,11 +552,7 @@ end
 local function longitude_value(dev0, flag_arg, minutes_hundreds_arg, minutes_tens_arg, minutes_ones_arg, seconds_tens_arg, seconds_ones_arg)
 	local west = dev0:get_argument_value(flag_arg) > 0.5
 
-	local minutes_hundreds_val = dev0:get_argument_value(minutes_hundreds_arg) < 0.5 and 0 or 1
-	if west then
-		minutes_hundreds_val = 1 - minutes_hundreds_val
-	end
-	minutes_hundreds_val = drum_value(dev0, minutes_hundreds_arg, west)
+	local minutes_hundreds_val = drum_value(dev0, minutes_hundreds_arg, west)
 	local minutes_hundreds = minutes_hundreds_val == 0 and " " or tostring(minutes_hundreds_val)
 	local minutes_tens_val = drum_value(dev0, minutes_tens_arg, west)
 	local minutes_tens = minutes_tens_val == 0 and " " or tostring(minutes_tens_val)
@@ -963,7 +957,7 @@ F_4E:defineIndicatorLight("WSO_WPN_SHOOT_HU", 2677, WSO_WEAPONS, "Heads-up Shoot
 F_4E:defineToggleSwitch("WSO_WPN_LABS_TONE", WEAPONS_DEVICE_ID, 3078, 350, WSO_WEAPONS, "LABS Pull-Up Tone")
 
 -- Turn Coordinators
-local TURN_SLIP_DEVICE_ID = 29
+-- local TURN_SLIP_DEVICE_ID = 29
 
 -- Pilot Turn Coordinator
 local PLT_TURN_COORDINATOR = "PLT Turn Coordinator"
@@ -1104,7 +1098,7 @@ end, 4, WSO_BARO_ALTIMETER, "Pressure Setting")
 F_4E:definePositiveFloat("WSO_BARO_STANDBY", 192, WSO_BARO_ALTIMETER, "Standby Flag")
 
 -- Vertical Velocity Indicator
-local VVI_DEVICE_ID = 41
+-- local VVI_DEVICE_ID = 41
 
 -- Pilot VVI
 local PILOT_VVI = "PLT Vertical Velocity Indicator"
@@ -1117,7 +1111,7 @@ local WSO_VVI = "WSO Vertical Velocity Indicator"
 F_4E:defineFullRangeFloat("WSO_VVI_NEEDLE", 181, WSO_VVI, "VVI Needle")
 
 -- TAS Indicator
-local TAS_DEVICE_ID = 42
+-- local TAS_DEVICE_ID = 42
 
 -- Pilot TAS
 local PILOT_TAS = "PLT TAS"
@@ -1162,7 +1156,7 @@ local WSO_CNI = "WSO CNI"
 F_4E:defineMultipositionRollerLimited("WSO_CNI_NAVIGATION_INPUT", CNI_DEVICE_ID, 3001, 664, 3, WSO_CNI, "Select Navigation Input")
 
 -- Ground Speed Indicator
-local GS_DEVICE_ID = 46
+-- local GS_DEVICE_ID = 46
 
 -- WSO Ground Speed Indicator
 local WSO_GSI = "WSO Ground Speed Indicator"
@@ -1347,7 +1341,7 @@ F_4E:defineIndicatorLight("PLT_RADAR_25", 2535, PILOT_RADAR, "25 Range Lamp (Gre
 F_4E:defineIndicatorLight("PLT_RADAR_50", 2536, PILOT_RADAR, "50 Range Lamp (Green)")
 
 -- BDHI
-local BDHI_DEVICE_ID = 53
+-- local BDHI_DEVICE_ID = 53
 
 -- WSO BDHI
 local WSO_BDHI = "WSO BDHI"
@@ -1484,7 +1478,7 @@ F_4E:defineString("WSO_ARBCS_RELEASE_DISPLAY", function(dev0)
 end, 3, WSO_ARBCS, "Release Timer Display")
 
 -- Aircraft Effects
-local AIRCRAFT_EFFECTS_DEVICE_ID = 63
+-- local AIRCRAFT_EFFECTS_DEVICE_ID = 63
 
 -- Pilot Shake Effects
 local PILOT_SHAKE_EFFECTS = "PLT Shake Effects"
@@ -1523,13 +1517,13 @@ F_4E:defineFullRangeFloat("PLT_SHAKE_GLARESHIELD_TWIST", 3033, PILOT_SHAKE_EFFEC
 F_4E:defineFullRangeFloat("PLT_SHAKE_ESCAPE_TOOL_RING_2", 3034, PILOT_SHAKE_EFFECTS, "Escape Tool Ring Shake (Large)")
 
 -- Target Designator System (AN-ASQ-153)
-local TARGET_DESIGNATOR_DEVICE_ID = 64
+-- local TARGET_DESIGNATOR_DEVICE_ID = 64
 
 -- WSO Front Panel
-local WSO_FRONT_PANEL_DEVICE_ID = 65
+-- local WSO_FRONT_PANEL_DEVICE_ID = 65
 
 -- RHAW
-local RHAW_DEVICE_ID = 67
+-- local RHAW_DEVICE_ID = 67
 
 -- IFF Interrogator (AN-APX-80A)
 local IFF_INTERROGATOR_DEVICE_ID = 68
@@ -1644,37 +1638,37 @@ F_4E:defineFloatFromDrawArgument("EXT_LIGHT_FUSELAGE_TOP", 209, EXTERIOR_LIGHTS,
 F_4E:defineFloatFromDrawArgument("EXT_LIGHT_AAR", 210, EXTERIOR_LIGHTS, "AAR Receptacle Light (White)")
 
 -- VOR/ILS
-local VOR_ILS_DEVICE_ID = 70
+-- local VOR_ILS_DEVICE_ID = 70
 
 -- Ejection Seat
-local EJECTION_SEAT_DEVICE_ID = 71
+-- local EJECTION_SEAT_DEVICE_ID = 71
 
 -- Interior Lights
-local INTERIOR_LIGHTS_DEVICE_ID = 72
+-- local INTERIOR_LIGHTS_DEVICE_ID = 72
 
 -- Airborne Video Tape Recorder
-local RECORDER_DEVICE_ID = 73
+-- local RECORDER_DEVICE_ID = 73
 
 -- Pilot Front Panel
-local PILOT_FRONT_PANEL_DEVICE_ID = 74
+-- local PILOT_FRONT_PANEL_DEVICE_ID = 74
 
 -- WSO Course Indicator
-local WSO_COURSE_INDICATOR_DEVICE_ID = 76
+-- local WSO_COURSE_INDICATOR_DEVICE_ID = 76
 
 -- Jester Wheel
-local JESTER_WHEEL_DEVICE_ID = 78
+-- local JESTER_WHEEL_DEVICE_ID = 78
 
 -- Grease Pencil
-local GREASE_PENCIL_DEVICE_ID = 82
+-- local GREASE_PENCIL_DEVICE_ID = 82
 
 -- Circuit Breakers
-local CIRCUIT_BREAKERS_DEVICE_ID = 84
+-- local CIRCUIT_BREAKERS_DEVICE_ID = 84
 
 -- Seat
-local SEAT_DEVICE_ID = 85
+-- local SEAT_DEVICE_ID = 85
 
 -- ECM
-local ECM_DEVICE_ID = 91
+-- local ECM_DEVICE_ID = 91
 
 -- Pilot Stick
 local PILOT_STICK = "PLT Stick"

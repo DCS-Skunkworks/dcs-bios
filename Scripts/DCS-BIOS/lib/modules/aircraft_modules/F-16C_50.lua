@@ -1,7 +1,6 @@
 module("F-16C_50", package.seeall)
 
 local Functions = require("Scripts.DCS-BIOS.lib.common.Functions")
-local Log = require("Scripts.DCS-BIOS.lib.common.Log")
 
 local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 
@@ -1674,7 +1673,7 @@ DEDLayout_l5["HTS_TOT"] = { 7, 10 }
 
 --DEDLayout_l5[""] = {,}
 
-DEDLayout = { DEDLayout_l1, DEDLayout_l2, DEDLayout_l3, DEDLayout_l4, DEDLayout_l5 }
+local DEDLayout = { DEDLayout_l1, DEDLayout_l2, DEDLayout_l3, DEDLayout_l4, DEDLayout_l5 }
 
 ---------------------------- DED Display Utility Functions
 local function mergeString(original_string, new_data, location)
@@ -1710,10 +1709,14 @@ local function IntToByteString(intval)
 	return string.char(retBytes[1], retBytes[2], retBytes[3], retBytes[4])
 end
 
-local OR, XOR, AND = 1, 3, 4
+local OR = 1
+-- local XOR = 3
+-- local AND = 4
 
 local function bitoper(a, b, oper)
-	local r, m, s = 0, 2 ^ 31, 0
+	local r = 0
+	local m = 2 ^ 31
+	local s
 
 	repeat
 		s, a, b = a + b + m, a % m, b % m

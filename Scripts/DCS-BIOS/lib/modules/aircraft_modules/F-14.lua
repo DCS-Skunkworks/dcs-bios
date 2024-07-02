@@ -50,7 +50,7 @@ end)
 
 local hsd_ind = {}
 
-F_14:addExportHook(function(dev0)
+F_14:addExportHook(function()
 	hsd_ind = Module.parse_indication(1)
 end)
 

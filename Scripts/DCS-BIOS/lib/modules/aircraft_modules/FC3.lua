@@ -89,8 +89,8 @@ local function BarFuel(fuel, plane)
 	return barf
 end
 
-local function BarGLoad(gload)
-	local barg = math.floor((gload / 11) * 16)
+local function BarGLoad(raw_gload)
+	local barg = math.floor((raw_gload / 11) * 16)
 
 	if barg < 0 then
 		barg = 0
@@ -278,14 +278,8 @@ FC3:addExportHook(function()
 	local plane = GetPlaneName()
 	local aoa = LoGetAngleOfAttack() or 0
 
-	--[[ US PLANES ]]
-	--
 	if plane == "A-10A" or plane == "F-15C" or plane == "MiG-29G" then
 		aoa = aoa + 10
-
-	--[[ RU PLANES ]]
-	--
-	elseif plane == "MiG-29A" or plane == "MiG-29S" or plane == "Su-25" or plane == "Su-25T" or plane == "Su-27" or plane == "Su-33" or plane == "J-11A" then
 	end
 
 	if plane == "A-10A" then
