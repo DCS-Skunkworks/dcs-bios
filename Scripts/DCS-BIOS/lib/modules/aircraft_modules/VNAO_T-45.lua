@@ -22,10 +22,9 @@ local function getRadioFrequencyString(dev0, device_id, mode_selector_arg, comm_
 
 	local modeSelector = dev0:get_argument_value(mode_selector_arg)
 	local commSwitch = dev0:get_argument_value(comm_switch_arg)
-	local mainFreq = 0
 
 	if modeSelector == 0.5 and commSwitch == 1 then
-		mainFreq = radio1Device:get_frequency()
+		local mainFreq = radio1Device:get_frequency()
 		return tostring(math.floor((mainFreq + 2500) / 5000) * 5000)
 	end
 	return "------"

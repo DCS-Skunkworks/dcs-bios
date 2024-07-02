@@ -96,8 +96,6 @@ M_2000C:addExportHook(function()
 end)
 
 -- parse PCN upper display
-local pcnLeftDigits = ""
-local pcnRightDigits = ""
 local pcnRight1Digit = ""
 local pcnRight2Digit = ""
 local pcnLeft1Digit = ""

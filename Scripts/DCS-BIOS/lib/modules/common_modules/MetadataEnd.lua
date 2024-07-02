@@ -16,13 +16,13 @@ local updateSkipCounter = 0
 
 --- Called from protocol
 --- @param new_counter number
-function MetadataEnd:setUpdateCounter(new_counter)
+function MetadataEnd.setUpdateCounter(new_counter)
 	updateCounter = new_counter
 end
 
 --- Called from protocol
 --- @param new_counter number
-function MetadataEnd:setUpdateSkipCounter(new_counter)
+function MetadataEnd.setUpdateSkipCounter(new_counter)
 	updateSkipCounter = new_counter
 end
 
