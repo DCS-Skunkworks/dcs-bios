@@ -52,7 +52,7 @@ Currently, DCS-BIOS supports the following aircraft modules:
 * **F-15E** _(contributed by WarLord,Maverick87Shaka)_
 * **F-16C** _(contributed by WarLord,cdpkobra,Matchstick,BuzzKillington)_
 * **F-22A** _(contributed by WarLord) [get the mod here](https://grinnellidesigns.com/f22)_
-* **F-4E** _WIP_
+* **F-4E** _[WIP](https://github.com/DCS-Skunkworks/dcs-bios/issues/584)_
 * **F-5E-3** _(contributed by geebeer2, extended by WarLord)_
 * **F-86F** _(contributed by ArturDCS)_
 * **F/A-18C** _(contributed by AndrewW)_
@@ -72,6 +72,7 @@ Currently, DCS-BIOS supports the following aircraft modules:
 * **Mirage F1** _(contributed by WarLord) (use Mirage F1 for All Versions)_
 * **Mosquito FB Mk.VI** _(contributed by WarLord)_
 * **NS430** _(contributed by Capt_Zeen, extended by Imp, revised by Celemourn)_
+* **OH-58D** _[WIP](https://github.com/DCS-Skunkworks/dcs-bios/issues/724)_
 * **P-47D** _(contributed by WarLord and Donators) (use P-47D for All Versions)_
 * **P-51D** _(contributed by pdmarsh)_
 * **Spitfire** _(revised by WarLord)_

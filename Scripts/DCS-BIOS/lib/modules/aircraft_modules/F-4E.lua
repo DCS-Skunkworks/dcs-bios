@@ -1520,7 +1520,16 @@ F_4E:defineFullRangeFloat("PLT_SHAKE_ESCAPE_TOOL_RING_2", 3034, PILOT_SHAKE_EFFE
 -- local TARGET_DESIGNATOR_DEVICE_ID = 64
 
 -- WSO Front Panel
--- local WSO_FRONT_PANEL_DEVICE_ID = 65
+local WSO_FRONT_PANEL_DEVICE_ID = 65
+
+-- WSO Front Panel
+local WSO_FRONT_PANEL = "WSO Front Panel"
+
+F_4E:defineToggleSwitch("WSO_FRONT_PANEL_SHOW_STICK", WSO_FRONT_PANEL_DEVICE_ID, 3002, 2841, WSO_FRONT_PANEL, "Hide/Show Stick")
+F_4E:definePushButton("WSO_FRONT_PANEL_WEAPON_ASQ_153", WSO_FRONT_PANEL_DEVICE_ID, 3001, 2760, WSO_FRONT_PANEL, "Select Video (Maverick or TGP)")
+
+F_4E:defineIndicatorLight("WSO_FRONT_PANEL_WEAPON_LIGHT", 2691, WSO_FRONT_PANEL, "Select Video Weapon Lamp (White)")
+F_4E:defineIndicatorLight("WSO_FRONT_PANEL_ASQ_153_LIGHT", 2692, WSO_FRONT_PANEL, "Select Video ASQ-153 Lamp (White)")
 
 -- RHAW
 -- local RHAW_DEVICE_ID = 67
