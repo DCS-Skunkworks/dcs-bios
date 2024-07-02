@@ -1719,7 +1719,36 @@ F_4E:defineFloatFromDrawArgument("EXT_LIGHT_FUSELAGE_TOP", 209, EXTERIOR_LIGHTS,
 F_4E:defineFloatFromDrawArgument("EXT_LIGHT_AAR", 210, EXTERIOR_LIGHTS, "AAR Receptacle Light (White)")
 
 -- VOR/ILS
--- local VOR_ILS_DEVICE_ID = 70
+local VOR_ILS_DEVICE_ID = 70
+
+-- Pilot VOR/ILS
+local PILOT_VOR_ILS = "PLT VOR/ILS"
+
+F_4E:definePushButton("PLT_VOR_ILS_TEST", VOR_ILS_DEVICE_ID, 3001, 1513, PILOT_VOR_ILS, "Test VOR/ILS System")
+F_4E:definePotentiometer("PLT_VOR_ILS_VOLUME", VOR_ILS_DEVICE_ID, 3002, 1511, { 0, 1 }, PILOT_VOR_ILS, "Change VOR/ILS Volume")
+F_4E:definePotentiometer("PLT_VOR_ILS_MARKER_VOLUME", VOR_ILS_DEVICE_ID, 3005, 1512, { 0, 1 }, PILOT_VOR_ILS, "Change Marker-Beacon Volume")
+F_4E:defineTumb("PLT_VOR_ILS_FREQUENCY_HUNDREDS", VOR_ILS_DEVICE_ID, 3003, 1514, 1 / 10, { 0, 0.9 }, nil, true, PILOT_VOR_ILS, "Set ILS Frequency (hundreds)")
+F_4E:defineTumb("PLT_VOR_ILS_FREQUENCY_DECIMALS", VOR_ILS_DEVICE_ID, 3004, 1515, 1 / 20, { 0, 0.95 }, nil, true, PILOT_VOR_ILS, "Set ILS Frequency (decimals)")
+
+F_4E:defineString("PLT_VOR_ILS_FREQUENCY", function(dev0)
+	local hundreds_frequency = drum_value(dev0, 1452) + 108 -- 108-117
+	local decimal_frequency = drum_value(dev0, 1455, false, 20) * 5 -- 00-95
+	return string.format("%03d.%02d", hundreds_frequency, decimal_frequency)
+end, 6, PILOT_VOR_ILS, "VOR/ILS Frequency")
+
+F_4E:definePushButton("PLT_VOR_ILS_MARKER_TEST", VOR_ILS_DEVICE_ID, 3010, 2798, PILOT_VOR_ILS, "Marker-Beacon Lamp (push to test)")
+F_4E:definePotentiometer("PLT_VOR_ILS_MARKER_DIM", VOR_ILS_DEVICE_ID, 3011, 2797, { 0, 1 }, PILOT_VOR_ILS, "Marker-Beacon Lamp (rotate to dim)")
+F_4E:defineIndicatorLight("PLT_VOR_ILS_MARKER_LIGHT", 693, PILOT_VOR_ILS, "Marker Beacon Lamp (Red)")
+
+-- WSO VOR/ILS
+local WSO_VOR_ILS = "WSO VOR/ILS"
+
+F_4E:definePotentiometer("WSO_VOR_ILS_VOLUME", VOR_ILS_DEVICE_ID, 3007, 2521, { 0, 1 }, WSO_VOR_ILS, "Change VOR/ILS Volume")
+F_4E:definePotentiometer("WSO_VOR_ILS_MARKER_VOLUME", VOR_ILS_DEVICE_ID, 3006, 2522, { 0, 1 }, WSO_VOR_ILS, "Change Marker-Beacon Volume")
+
+F_4E:definePushButton("WSO_VOR_ILS_MARKER_TEST", VOR_ILS_DEVICE_ID, 3008, 2620, WSO_VOR_ILS, "Marker-Beacon Lamp (push to test)")
+F_4E:definePotentiometer("WSO_VOR_ILS_MARKER_DIM", VOR_ILS_DEVICE_ID, 3009, 2806, { 0, 1 }, WSO_VOR_ILS, "Marker-Beacon Lamp (rotate to dim)")
+F_4E:defineIndicatorLight("WSO_VOR_ILS_MARKER_LIGHT", 2674, WSO_VOR_ILS, "Marker Beacon Lamp (Red)")
 
 -- Ejection Seat
 -- local EJECTION_SEAT_DEVICE_ID = 71
