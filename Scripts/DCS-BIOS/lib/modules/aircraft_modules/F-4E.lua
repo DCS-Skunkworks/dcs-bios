@@ -1751,7 +1751,22 @@ F_4E:definePotentiometer("WSO_VOR_ILS_MARKER_DIM", VOR_ILS_DEVICE_ID, 3009, 2806
 F_4E:defineIndicatorLight("WSO_VOR_ILS_MARKER_LIGHT", 2674, WSO_VOR_ILS, "Marker Beacon Lamp (Red)")
 
 -- Ejection Seat
--- local EJECTION_SEAT_DEVICE_ID = 71
+local EJECTION_SEAT_DEVICE_ID = 71
+
+-- Pilot Ejection Seat
+local PILOT_EJECTION_SEAT = "PLT Ejection Seat"
+
+F_4E:defineToggleSwitch("PLT_EJECT_SIGNAL", EJECTION_SEAT_DEVICE_ID, 3002, 2834, PILOT_EJECTION_SEAT, "Signal Ejection To WSO")
+F_4E:defineIndicatorLight("PLT_EJECT_LIGHT", 2835, PILOT_EJECTION_SEAT, "Eject Lamp (Red)")
+F_4E:definePushButton("PLT_EJECT_INSTANT", EJECTION_SEAT_DEVICE_ID, 3005, 0, PILOT_EJECTION_SEAT, "Eject (Single Press)") -- draw arg 0 - no output
+
+-- WSO Ejection Seat
+local WSO_EJECTION_SEAT = "WSO Ejection Seat"
+
+F_4E:defineToggleSwitch("WSO_EJECT_SELECTOR", EJECTION_SEAT_DEVICE_ID, 3001, 995, WSO_EJECTION_SEAT, "Ejection Command Selector (vert: WSO, horz: Both)")
+F_4E:definePushButton("WSO_EJECT_LIGHT_TEST", EJECTION_SEAT_DEVICE_ID, 3003, 2836, WSO_EJECTION_SEAT, "Eject Light (push to test)")
+F_4E:defineIndicatorLight("WSO_EJECT_LIGHT", 2837, WSO_EJECTION_SEAT, "Eject Lamp (Red)")
+F_4E:definePushButton("WSO_EJECT_INSTANT", EJECTION_SEAT_DEVICE_ID, 3007, 0, WSO_EJECTION_SEAT, "Eject (Single Press)") -- draw arg 0 - no output
 
 -- Interior Lights
 -- local INTERIOR_LIGHTS_DEVICE_ID = 72
