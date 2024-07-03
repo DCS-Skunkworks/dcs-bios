@@ -1319,7 +1319,7 @@ local RADAR_DEVICE_ID = 52
 -- WSO Radar
 local WSO_RADAR = "WSO Radar"
 
-F_4E:definePotentiometer("WSO_RADAR_ANTENNA_ELEVATION", RADAR_DEVICE_ID, 3011, 1014, { 0, 1 }, WSO_RADAR, "Change Radar Antenna Elevation")
+F_4E:defineSpringloaded3PosTumb("WSO_RADAR_ANTENNA_ELEVATION", RADAR_DEVICE_ID, 3011, 1014, WSO_RADAR, "Change Radar Antenna Elevation")
 F_4E:definePushButton("WSO_RADAR_CHALLENGE", RADAR_DEVICE_ID, 3014, 2508, WSO_RADAR, "Challenge Button")
 F_4E:reserveIntValue(1) -- reserved in case Trigger becomes clickable
 
