@@ -1357,9 +1357,6 @@ F_4E:definePotentiometer("WSO_RADAR_SCREEN_CONTRAST", RADAR_DEVICE_ID, 3023, 140
 F_4E:definePotentiometer("WSO_RADAR_SCREEN_BRIGHT", RADAR_DEVICE_ID, 3025, 1402, { 0, 1 }, WSO_RADAR, "Change Screen Brightness")
 F_4E:defineMultipositionSwitch0To1("WSO_RADAR_SCREEN", RADAR_DEVICE_ID, 3027, 1404, 6, WSO_RADAR, "Select Screen Mode")
 
--- Booooooot
-F_4E:defineToggleSwitch("WSO_RADAR_BOOT", RADAR_DEVICE_ID, 3108, 3050, WSO_RADAR, "Show/Hide Radar Boot")
-
 F_4E:definePushButton("WSO_RADAR_A2A_CAGE", RADAR_DEVICE_ID, 3034, 2732, WSO_RADAR, "Air to Air Mode - Exit Cage")
 
 F_4E:defineIndicatorLight("WSO_RADAR_SKIN_TRACK", 1010, WSO_RADAR, "Skin Track Lamp (Green)")
@@ -1647,6 +1644,7 @@ local WSO_FRONT_PANEL_DEVICE_ID = 65
 -- WSO Front Panel
 local WSO_FRONT_PANEL = "WSO Front Panel"
 
+F_4E:defineToggleSwitch("WSO_FRONT_PANEL_GLARE_SHIELD", WSO_FRONT_PANEL_DEVICE_ID, 3006, 3050, WSO_FRONT_PANEL, "Show/Hide Screen Glare Shield")
 F_4E:defineToggleSwitch("WSO_FRONT_PANEL_SHOW_STICK", WSO_FRONT_PANEL_DEVICE_ID, 3002, 2841, WSO_FRONT_PANEL, "Hide/Show Stick")
 F_4E:definePushButton("WSO_FRONT_PANEL_WEAPON_ASQ_153", WSO_FRONT_PANEL_DEVICE_ID, 3001, 2760, WSO_FRONT_PANEL, "Select Video (Maverick or TGP)")
 
