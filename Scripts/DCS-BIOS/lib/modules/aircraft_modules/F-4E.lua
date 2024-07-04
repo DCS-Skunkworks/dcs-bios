@@ -1769,7 +1769,70 @@ F_4E:defineIndicatorLight("WSO_EJECT_LIGHT", 2837, WSO_EJECTION_SEAT, "Eject Lam
 F_4E:definePushButton("WSO_EJECT_INSTANT", EJECTION_SEAT_DEVICE_ID, 3007, 0, WSO_EJECTION_SEAT, "Eject (Single Press)") -- draw arg 0 - no output
 
 -- Interior Lights
--- local INTERIOR_LIGHTS_DEVICE_ID = 72
+local INTERIOR_LIGHTS_DEVICE_ID = 72
+
+-- Pilot Interior Lights
+local PILOT_INTERIOR_LIGHTS = "PLT Interior Lights"
+
+F_4E:definePotentiometer("PLT_INT_LIGHT_INSTRUMENT_BRIGHTNESS", INTERIOR_LIGHTS_DEVICE_ID, 3001, 979, { 0, 1 }, PILOT_INTERIOR_LIGHTS, "Change Flight Instrument Brightness")
+F_4E:definePotentiometer("PLT_INT_LIGHT_AOA_INDICATOR_BRIGHTNESS", INTERIOR_LIGHTS_DEVICE_ID, 3003, 1360, { 0, 1 }, PILOT_INTERIOR_LIGHTS, "Change AoA Indicator Brightness")
+F_4E:definePotentiometer("PLT_INT_LIGHT_HSI_BRIGHTNESS", INTERIOR_LIGHTS_DEVICE_ID, 3004, 1361, { 0, 1 }, PILOT_INTERIOR_LIGHTS, "Change HSI Brightness")
+F_4E:definePotentiometer("PLT_INT_LIGHT_VVI_BRIGHTNESS", INTERIOR_LIGHTS_DEVICE_ID, 3005, 1362, { 0, 1 }, PILOT_INTERIOR_LIGHTS, "Change VVI Brightness")
+F_4E:definePotentiometer("PLT_INT_LIGHT_SPEED_BRIGHTNESS", INTERIOR_LIGHTS_DEVICE_ID, 3006, 1363, { 0, 1 }, PILOT_INTERIOR_LIGHTS, "Change Speed Indicator Brightness")
+F_4E:definePotentiometer("PLT_INT_LIGHT_ADI_BRIGHTNESS", INTERIOR_LIGHTS_DEVICE_ID, 3007, 1364, { 0, 1 }, PILOT_INTERIOR_LIGHTS, "Change ADI Brightness")
+F_4E:definePotentiometer("PLT_INT_LIGHT_ALT_BRIGHTNESS", INTERIOR_LIGHTS_DEVICE_ID, 3008, 1365, { 0, 1 }, PILOT_INTERIOR_LIGHTS, "Change Altimeter Brightness")
+
+F_4E:defineToggleSwitch("PLT_INT_LIGHT_FLOOD_WHITE_TOGGLE", INTERIOR_LIGHTS_DEVICE_ID, 3009, 1350, PILOT_INTERIOR_LIGHTS, "Toggle White Floodlight")
+F_4E:definePotentiometer("PLT_INT_LIGHT_INSTRUMENT_PANEL_BRIGHTNESS", INTERIOR_LIGHTS_DEVICE_ID, 3010, 1352, { 0, 1 }, PILOT_INTERIOR_LIGHTS, "Change Instrument Panel Light Brightness")
+F_4E:define3PosTumb0To1("PLT_INT_LIGHT_FLOOD_RED_BRIGHTNESS", INTERIOR_LIGHTS_DEVICE_ID, 3011, 1351, PILOT_INTERIOR_LIGHTS, "Set Console Floodlight (Red) Brightness")
+F_4E:definePotentiometer("PLT_INT_LIGHT_CONSOLE_BRIGHTNESS", INTERIOR_LIGHTS_DEVICE_ID, 3012, 1353, { 0, 1 }, PILOT_INTERIOR_LIGHTS, "Change Console Light Brightness")
+
+F_4E:define3PosTumb0To1("PLT_INT_LIGHT_FLOOD_INST_BRIGHTNESS", INTERIOR_LIGHTS_DEVICE_ID, 3013, 1370, PILOT_INTERIOR_LIGHTS, "Set Instrument Floodlight (Red) Brightness (also WSO)")
+
+F_4E:definePotentiometer("PLT_INT_LIGHT_SAI_BRIGHTNESS", INTERIOR_LIGHTS_DEVICE_ID, 3039, 2860, { 0, 1 }, PILOT_INTERIOR_LIGHTS, "Change Standby Attitude Indicator Brightness")
+F_4E:definePotentiometer("PLT_INT_LIGHT_AOA_INDEXER_BRIGHTNESS", INTERIOR_LIGHTS_DEVICE_ID, 3002, 1369, { 0, 1 }, PILOT_INTERIOR_LIGHTS, "Change AoA Indexer Brightness")
+
+F_4E:definePositiveFloat("PLT_INT_LIGHT_INDICATORS", 2889, PILOT_INTERIOR_LIGHTS, "All Indicator Lamp Brightness")
+F_4E:definePositiveFloat("PLT_INT_LIGHT_AOA_INDICATOR", 2868, PILOT_INTERIOR_LIGHTS, "AoA Indicator Edge Light")
+F_4E:definePositiveFloat("PLT_INT_LIGHT_HSI", 2869, PILOT_INTERIOR_LIGHTS, "HSI Edge Light")
+F_4E:definePositiveFloat("PLT_INT_LIGHT_VVI", 2870, PILOT_INTERIOR_LIGHTS, "VVI Edge Light")
+F_4E:definePositiveFloat("PLT_INT_LIGHT_SPEED", 2871, PILOT_INTERIOR_LIGHTS, "Airspeed Indicator Edge Light")
+F_4E:definePositiveFloat("PLT_INT_LIGHT_ADI", 2872, PILOT_INTERIOR_LIGHTS, "ADI Edge Light")
+F_4E:definePositiveFloat("PLT_INT_LIGHT_ALT", 2873, PILOT_INTERIOR_LIGHTS, "Altimeter Edge Light")
+F_4E:definePositiveFloat("PLT_INT_LIGHT_SAI", 2876, PILOT_INTERIOR_LIGHTS, "Emergency Attitude Indicator Edge Light")
+F_4E:definePositiveFloat("PLT_INT_LIGHT_STANDBY_COMPASS", 2881, PILOT_INTERIOR_LIGHTS, "Standby Compass Light")
+
+F_4E:defineIndicatorLight("PLT_INT_LIGHT_FLOOD_WHITE", 2708, PILOT_INTERIOR_LIGHTS, "White Floodlight On/Off")
+F_4E:definePositiveFloat("PLT_INT_LIGHT_FLOOD_RED", 2709, PILOT_INTERIOR_LIGHTS, "Red Floodlight Brightness")
+F_4E:definePositiveFloat("PLT_INT_LIGHT_INSTRUMENT_PANEL", 2710, PILOT_INTERIOR_LIGHTS, "Instrument Panel Light Brightness")
+F_4E:definePositiveFloat("PLT_INT_LIGHT_CONSOLE", 2866, PILOT_INTERIOR_LIGHTS, "Console Light Brightness")
+
+F_4E:definePositiveFloat("PLT_INT_LIGHT_WEAPON_SELECTOR", 2846, PILOT_INTERIOR_LIGHTS, "Weapon Selector Lamp Brightness")
+
+-- WSO Interior Lights
+local WSO_INTERIOR_LIGHTS = "WSO Interior Lights"
+
+F_4E:defineToggleSwitch("WSO_INT_LIGHT_FLOOD_WHITE_TOGGLE", INTERIOR_LIGHTS_DEVICE_ID, 3014, 2510, WSO_INTERIOR_LIGHTS, "Toggle White Floodlight")
+F_4E:defineToggleSwitch("WSO_INT_LIGHT_STANDBY_COMPASS_BRIGHTNESS", INTERIOR_LIGHTS_DEVICE_ID, 3015, 2511, WSO_INTERIOR_LIGHTS, "Toggle Standby Compass Light")
+F_4E:define3PosTumb0To1("WSO_INT_LIGHT_FLOOD_RED_BRIGHTNESS", INTERIOR_LIGHTS_DEVICE_ID, 3016, 2512, WSO_INTERIOR_LIGHTS, "Set Console Floodlight (Red) Brightness")
+F_4E:definePotentiometer("WSO_INT_LIGHT_AOA_INDEXER_BRIGHTNESS", INTERIOR_LIGHTS_DEVICE_ID, 3018, 2515, { 0, 1 }, WSO_INTERIOR_LIGHTS, "Change AoA Indexer Brightness")
+F_4E:definePotentiometer("WSO_INT_LIGHT_INSTRUMENT_PANEL_BRIGHTNESS", INTERIOR_LIGHTS_DEVICE_ID, 3017, 2514, { 0, 1 }, WSO_INTERIOR_LIGHTS, "Change Instrument Panel Light Brightness")
+F_4E:definePotentiometer("WSO_INT_LIGHT_CONSOLE_BRIGHTNESS", INTERIOR_LIGHTS_DEVICE_ID, 3019, 2516, { 0, 1 }, WSO_INTERIOR_LIGHTS, "Change Console Light Brightness")
+
+F_4E:definePositiveFloat("WSO_INT_LIGHT_INDICATORS", 2890, WSO_INTERIOR_LIGHTS, "All Indicator Lamp Brightness")
+-- no draw args reserved for the wso light yet - reserve the slots here just in case
+F_4E:reserveIntValue(65535)
+F_4E:reserveIntValue(65535)
+F_4E:reserveIntValue(65535)
+F_4E:reserveIntValue(65535)
+F_4E:reserveIntValue(65535)
+F_4E:reserveIntValue(65535)
+F_4E:definePositiveFloat("WSO_INT_LIGHT_STANDBY_COMPASS", 2882, WSO_INTERIOR_LIGHTS, "Standby Compass Light")
+
+F_4E:defineIndicatorLight("WSO_INT_LIGHT_FLOOD_WHITE", 2711, WSO_INTERIOR_LIGHTS, "White Floodlight On/Off")
+F_4E:definePositiveFloat("WSO_INT_LIGHT_FLOOD_RED", 2712, WSO_INTERIOR_LIGHTS, "Red Floodlight Brightness")
+F_4E:definePositiveFloat("WSO_INT_LIGHT_INSTRUMENT_PANEL", 2713, WSO_INTERIOR_LIGHTS, "Instrument Panel Light Brightness")
+F_4E:definePositiveFloat("WSO_INT_LIGHT_CONSOLE", 2867, WSO_INTERIOR_LIGHTS, "Console Light Brightness")
 
 -- Airborne Video Tape Recorder
 -- local RECORDER_DEVICE_ID = 73
