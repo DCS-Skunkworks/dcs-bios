@@ -1835,7 +1835,40 @@ F_4E:definePositiveFloat("WSO_INT_LIGHT_INSTRUMENT_PANEL", 2713, WSO_INTERIOR_LI
 F_4E:definePositiveFloat("WSO_INT_LIGHT_CONSOLE", 2867, WSO_INTERIOR_LIGHTS, "Console Light Brightness")
 
 -- Airborne Video Tape Recorder
--- local RECORDER_DEVICE_ID = 73
+local AVTR_DEVICE_ID = 73
+
+-- Pilot Airborne Video Tape Recorder
+local PILOT_AVTR = "PLT Airborne Video Tape Recorder"
+
+F_4E:definePushButton("PLT_AVTR_EJECT", AVTR_DEVICE_ID, 3006, 2884, PILOT_AVTR, "Eject AVTR Cassette (OFF mode only)")
+F_4E:definePushButton("PLT_AVTR_UNTHREAD", AVTR_DEVICE_ID, 3005, 2885, PILOT_AVTR, "Unthread AVTR Cassette")
+F_4E:definePushButton("PLT_AVTR_CLOSE_DOOR", AVTR_DEVICE_ID, 3016, 2894, PILOT_AVTR, "Close Door (Door open only)")
+F_4E:definePushButton("PLT_AVTR_CHANGE_TAPE", AVTR_DEVICE_ID, 3018, 2895, PILOT_AVTR, "Change Tape")
+F_4E:definePushButton("PLT_AVTR_RECORDER_LIGHT_TEST", AVTR_DEVICE_ID, 3002, 2796, PILOT_AVTR, "AVTR Recorder Lamp (push to test)")
+F_4E:definePotentiometer("PLT_AVTR_RECORDER_LIGHT_DIM", AVTR_DEVICE_ID, 3003, 2795, { 0, 1 }, PILOT_AVTR, "AVTR Recorder Lamp (rotate to dim)")
+F_4E:defineIndicatorLight("PLT_AVTR_RECORDER_LIGHT", 2592, PILOT_AVTR, "Pilot AVTR Recorder Lamp (Red)")
+
+F_4E:definePositiveFloat("PLT_AVTR_TAPE_POSITION", 2886, PILOT_AVTR, "Cassette Tape Position")
+F_4E:defineIntegerFromArg("PLT_AVTR_TAPE_CONTENTS", 2891, 1, PILOT_AVTR, "Selected Tape")
+F_4E:definePositiveFloat("PLT_AVTR_DOOR", 2892, PILOT_AVTR, "Door Position")
+F_4E:definePositiveFloat("PLT_AVTR_CASSETTE_DRUM", 2893, PILOT_AVTR, "Drum Rotation")
+
+F_4E:defineString("PLT_AVTR_TIME_DISPLAY", function(_)
+	return Module.parse_indication(15)["avtr_time_indicator_pilot_foreground"]
+end, 3, PILOT_AVTR, "Time Remaining Display (minutes)")
+
+-- WSO Airborne Video Tape Recorder
+local WSO_AVTR = "WSO Airborne Video Tape Recorder"
+
+F_4E:definePushButton("WSO_AVTR_RECORD_EOT", AVTR_DEVICE_ID, 3004, 2816, WSO_AVTR, "AVTR Record/End Of Tape Button (no function)")
+F_4E:define3PosTumb0To1("WSO_AVTR_MODE", AVTR_DEVICE_ID, 3001, 2628, WSO_AVTR, "Set AVTR Mode")
+
+F_4E:defineIndicatorLight("WSO_AVTR_RECORD", 2693, WSO_AVTR, "Record Lamp (Green)")
+F_4E:defineIndicatorLight("WSO_AVTR_EOT", 2694, WSO_AVTR, "End of Tape Lamp (Green)")
+
+F_4E:defineString("WSO_AVTR_TIME_DISPLAY", function(_)
+	return Module.parse_indication(14)["avtr_time_indicator_wso_foreground"]
+end, 3, WSO_AVTR, "Time Remaining Display (minutes)")
 
 -- Pilot Front Panel
 -- local PILOT_FRONT_PANEL_DEVICE_ID = 74
