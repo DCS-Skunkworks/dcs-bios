@@ -1470,6 +1470,15 @@ F_4E:defineToggleSwitch("WSO_TGT_DESIGNATOR_WRCS_OUT", TARGET_DESIGNATOR_DEVICE_
 F_4E:defineToggleSwitch("WSO_TGT_DESIGNATOR_GO_MALF", TARGET_DESIGNATOR_DEVICE_ID, 3013, 2758, WSO_TARGET_DESIGNATOR_SET_CONTROL, "(no function)")
 F_4E:defineToggleSwitch("WSO_TGT_DESIGNATOR_INS_OUT", TARGET_DESIGNATOR_DEVICE_ID, 3014, 2759, WSO_TARGET_DESIGNATOR_SET_CONTROL, "Enable/Disable INS integration")
 
+F_4E:defineIndicatorLight("WSO_TGT_DESIGNATOR_LIGHT_STOW", 2715, WSO_TARGET_DESIGNATOR_SET_CONTROL, "Target Designator Stow button lamp")
+F_4E:defineIndicatorLight("WSO_TGT_DESIGNATOR_LIGHT_LASER_READY", 2716, WSO_TARGET_DESIGNATOR_SET_CONTROL, "Target Designator Laser Ready button lamp")
+F_4E:defineIndicatorLight("WSO_TGT_DESIGNATOR_LIGHT_POWER_ON", 2717, WSO_TARGET_DESIGNATOR_SET_CONTROL, "Target Designator Power On button lamp")
+F_4E:defineIndicatorLight("WSO_TGT_DESIGNATOR_LIGHT_WRCS_OUT", 2718, WSO_TARGET_DESIGNATOR_SET_CONTROL, "Target Designator WRCS button lamp")
+F_4E:defineIndicatorLight("WSO_TGT_DESIGNATOR_LIGHT_GO", 2719, WSO_TARGET_DESIGNATOR_SET_CONTROL, "Target Designator GO button lamp")
+F_4E:defineIndicatorLight("WSO_TGT_DESIGNATOR_LIGHT_MALF", 2720, WSO_TARGET_DESIGNATOR_SET_CONTROL, "Target Designator MALF button lamp")
+F_4E:defineIndicatorLight("WSO_TGT_DESIGNATOR_LIGHT_OVHT", 2721, WSO_TARGET_DESIGNATOR_SET_CONTROL, "Target Designator Overheat button lamp")
+F_4E:defineIndicatorLight("WSO_TGT_DESIGNATOR_LIGHT_INS_OUT", 2722, WSO_TARGET_DESIGNATOR_SET_CONTROL, "Target Designator INS Out button lamp")
+
 -- Laser Coder Control
 local WSO_LASER_CODE_PANEL = "WSO Laser Code Panel"
 
@@ -1478,6 +1487,14 @@ F_4E:definePushButton("WSO_LASER_CODE_SET_THOUSANDS", TARGET_DESIGNATOR_DEVICE_I
 F_4E:definePushButton("WSO_LASER_CODE_SET_HUNDREDS", TARGET_DESIGNATOR_DEVICE_ID, 3018, 2501, WSO_LASER_CODE_PANEL, "Next Laser Code (hundreds)")
 F_4E:definePushButton("WSO_LASER_CODE_SET_TENS", TARGET_DESIGNATOR_DEVICE_ID, 3017, 2502, WSO_LASER_CODE_PANEL, "Next Laser Code (tens)")
 F_4E:definePushButton("WSO_LASER_CODE_SET_ONES", TARGET_DESIGNATOR_DEVICE_ID, 3016, 2503, WSO_LASER_CODE_PANEL, "Next Laser Code (ones)")
+F_4E:defineIndicatorLight("WSO_LIGHT_LASER_NO_GO", 2697, WSO_LASER_CODE_PANEL, "Laser No Go button lamp")
+F_4E:definePositiveFloat("WSO_LASER_CODE_ONES", 2020, WSO_LASER_CODE_PANEL, "Laser Code (ones)")
+F_4E:definePositiveFloat("WSO_LASER_CODE_TENS", 2021, WSO_LASER_CODE_PANEL, "Laser Code (tens)")
+F_4E:definePositiveFloat("WSO_LASER_CODE_HUNDREDS", 2022, WSO_LASER_CODE_PANEL, "Laser Code (hundreds)")
+F_4E:definePositiveFloat("WSO_LASER_CODE_THOUSANDS", 2023, WSO_LASER_CODE_PANEL, "Laser Code (thousands)")
+F_4E:defineString("WSO_LASER_CODE", function(dev0)
+	return drum_set(dev0, 2023, 2022, 2021, 2020)
+end, 4, WSO_LASER_CODE_PANEL, "Laser Code")
 
 -- Range Indicator
 local PLT_RANGE_INDICATOR_PANEL = "PLT Range Indicator Panel"
