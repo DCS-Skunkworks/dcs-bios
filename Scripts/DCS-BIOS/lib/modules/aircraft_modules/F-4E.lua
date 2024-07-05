@@ -1871,7 +1871,12 @@ F_4E:defineString("WSO_AVTR_TIME_DISPLAY", function(_)
 end, 3, WSO_AVTR, "Time Remaining Display (minutes)")
 
 -- Pilot Front Panel
--- local PILOT_FRONT_PANEL_DEVICE_ID = 74
+local PILOT_FRONT_PANEL_DEVICE_ID = 74
+
+-- Pilot Front Panel
+local PLT_FRONT_PANEL = "PLT Front Panel"
+
+F_4E:defineToggleSwitch("PLT_FRONT_PANEL_SHOW_STICK", PILOT_FRONT_PANEL_DEVICE_ID, 3001, 2840, PLT_FRONT_PANEL, "Hide/Show Stick")
 
 -- WSO Course Indicator
 -- local WSO_COURSE_INDICATOR_DEVICE_ID = 76
