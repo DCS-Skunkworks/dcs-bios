@@ -57,6 +57,12 @@ function Module:reserveIntValue(max_value)
 	self:allocateInt(max_value)
 end
 
+--- Reserves space in the memory map for a string with the specified length
+---@param length integer the length of the string to reserve space for
+function Module:reserveStringValue(length)
+	self:allocateString(length)
+end
+
 --- Uses SetCommand and set_argument_value instead of performClickableAction()
 --- @param identifier string the unique identifier for the control
 --- @param device_id integer the dcs device id
@@ -124,18 +130,18 @@ function Module:defineSetCommandTumb(identifier, device_id, command, arg_number,
 	if output_map and strAlloc then
 		control.outputs[1].suffix = Suffix.int
 
-		local description = "possible values: "
+		local output_description = "possible values: "
 		for i = 1, #output_map, 1 do
-			description = description .. '"' .. output_map[i] .. '" '
+			output_description = output_description .. '"' .. output_map[i] .. '" '
 		end
 
-		control.outputs[2] = StringOutput:new(strAlloc, Suffix.str, description)
+		control.outputs[2] = StringOutput:new(strAlloc, Suffix.str, output_description)
 	end
 
 	self:addInputProcessor(identifier, function(state)
 		local value = GetDevice(0):get_argument_value(arg_number)
 		local n = tonumber(string.format("%.0f", (value - limits[1]) / step))
-		local new_n = n
+		local new_n
 
 		if state == "INC" then
 			new_n = Module.cap(n + 1, 0, last_n, cycle)

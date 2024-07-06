@@ -19,7 +19,6 @@ function JSONHelper.encode_to_file(value, filename)
 	if file then
 		file:write(json_string)
 		file:close()
-		file = nil
 	end
 end
 
@@ -41,7 +40,6 @@ function JSONHelper.encode_to_jsonp_file(value, prefix, suffix, filename)
 		file:write(json_string)
 		file:write(suffix)
 		file:close()
-		file = nil
 	end
 end
 
@@ -62,7 +60,6 @@ function JSONHelper.decode_from_file(filename)
 		--- @type table
 		json_table = JSON:decode(file:read("*a"))
 		file:close()
-		file = nil
 	end
 
 	return json_table or {}

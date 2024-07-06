@@ -77,9 +77,9 @@ function Protocol.saveAddresses()
 			end
 		end
 
-		for moduleName, export_module in pairs(Protocol.exportModules) do
+		for _, export_module in pairs(Protocol.exportModules) do
 			for _, category in pairs(export_module.documentation) do
-				for identifier, args in pairs(category) do
+				for _, args in pairs(category) do
 					local outputs = args.outputs or {}
 					for _, output in ipairs(outputs) do
 						-- we redefine here for a few legacy plane controls using BIOS.util.defineTumb

@@ -5,7 +5,6 @@ local Control = require("Scripts.DCS-BIOS.lib.modules.documentation.Control")
 local ControlType = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlType")
 local FixedStepInput = require("Scripts.DCS-BIOS.lib.modules.documentation.FixedStepInput")
 local IntegerOutput = require("Scripts.DCS-BIOS.lib.modules.documentation.IntegerOutput")
-local Log = require("Scripts.DCS-BIOS.lib.common.Log")
 local SetStateInput = require("Scripts.DCS-BIOS.lib.modules.documentation.SetStateInput")
 local Suffix = require("Scripts.DCS-BIOS.lib.modules.documentation.Suffix")
 local VariableStepInput = require("Scripts.DCS-BIOS.lib.modules.documentation.VariableStepInput")
@@ -69,7 +68,7 @@ local NS430 = Module:new("NS430", 0x0600, ns430_aircraft)
 function NS430:defineDoubleCommandButton(identifier, ns430_device_id, device_id, start_command, stop_command, arg_number, category, description)
 	local alloc = self:allocateInt(1, identifier)
 
-	self:addExportHook(function(dev0)
+	self:addExportHook(function(_)
 		local dev = GetDevice(ns430_device_id)
 		if not dev then
 			return -- if the ns430 is not owned, dev is nil
@@ -84,6 +83,11 @@ function NS430:defineDoubleCommandButton(identifier, ns430_device_id, device_id,
 
 	self:addInputProcessor(identifier, function(toState)
 		local dev = GetDevice(device_id)
+
+		if dev == nil then
+			return
+		end
+
 		if toState == "INC" then
 			dev:performClickableAction(start_command, 1)
 		end
@@ -98,7 +102,7 @@ function NS430:defineMomentaryRockerSwitch(identifier, ns430_device_id, device_i
 	local min_value = -1
 	local max_value = 1
 
-	self:addExportHook(function(dev0)
+	self:addExportHook(function(_)
 		local dev = GetDevice(ns430_device_id)
 		if not dev then
 			return
@@ -132,6 +136,11 @@ function NS430:defineMomentaryRockerSwitch(identifier, ns430_device_id, device_i
 		end
 
 		local dev = GetDevice(device_id)
+
+		if dev == nil then
+			return
+		end
+
 		if toState == 0 then
 			dev:performClickableAction(ui_left_command, 0)
 		end
@@ -177,7 +186,7 @@ function NS430:definePotentiometer2(identifier, ns430_device_id, device_id, comm
 
 	local value = self:allocateInt(max_value, identifier)
 
-	self:addExportHook(function(dev0)
+	self:addExportHook(function(_)
 		local dev = GetDevice(ns430_device_id)
 		if not dev then
 			return
@@ -220,7 +229,7 @@ function NS430:defineRotary2(identifier, ns430_device_id, device_id, command, ar
 	}, ApiVariant.multiturn)
 	self:addControl(control)
 
-	self:addExportHook(function(dev0)
+	self:addExportHook(function(_)
 		local dev = GetDevice(ns430_device_id)
 		if not dev then
 			return

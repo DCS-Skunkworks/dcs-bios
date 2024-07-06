@@ -16,7 +16,7 @@ local aircraft_name
 
 --- Sets the name of the aircraft
 --- @param new_aircraft_name string
-function MetadataStart:setAircraftName(new_aircraft_name)
+function MetadataStart.setAircraftName(new_aircraft_name)
 	aircraft_name = new_aircraft_name
 end
 

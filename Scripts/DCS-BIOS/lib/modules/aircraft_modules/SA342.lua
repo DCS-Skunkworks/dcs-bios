@@ -372,8 +372,8 @@ SA342:defineIntegerFromGetter("HEADING_VALUE", getHDG, 65000, "Gauge Values", "H
 
 local function getNADIR(dev0)
 	local a = (dev0:get_argument_value(26)) * 360
-	local b = 0
-	local c = 0
+	local b
+	local c
 	local d = (dev0:get_argument_value(102))
 	if d < 0 then
 		b = 360 - (d * -360)
@@ -390,8 +390,8 @@ end
 SA342:defineIntegerFromGetter("NADIR_HEADING_VALUE", getNADIR, 65000, "Gauge Values", "NADIR Heading Value")
 
 local function getADFHDG(dev0)
-	local e = 0
-	local f = 0
+	local e
+	local f
 	local g = (dev0:get_argument_value(26)) * 360
 	local h = (dev0:get_argument_value(103))
 	if h < 0 then

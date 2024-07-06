@@ -26,7 +26,7 @@ end
 
 --- @abstract
 --- Initializes the connection
-function Connection:init()
+function Connection:init() -- luacheck: ignore 212
 	error("init must be implemented by the Connection subclass", 2)
 end
 

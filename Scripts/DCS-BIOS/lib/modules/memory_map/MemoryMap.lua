@@ -163,7 +163,7 @@ function MemoryMap:allocateData(max_value, is_string_character, first_string_cha
 	-- position at the end of the memory map. Consecutive calls with is_string_character
 	-- set will allocate consecutive bytes in the memory map.
 
-	local address = nil
+	local address
 	if is_string_character then
 		address = self.lastAddress
 	else
