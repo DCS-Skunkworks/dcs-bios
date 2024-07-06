@@ -118,3 +118,25 @@ function TestFloat:testFloatDecimalValue()
 	export_hook(MockDevice:new(0.5))
 	lu.assertEquals(alloc.value, 65535)
 end
+
+function TestFloat:testFloatSmallRangeValue()
+	local limits = { 0.822, 0.75 }
+
+	self.module:defineFloat(id, arg_number, limits, category, description)
+
+	local export_hook = self.module.exportHooks[1]
+
+	local alloc = self.module.memoryMap.entries[moduleAddress].allocations[1]
+
+	export_hook(MockDevice:new(0.82205))
+	lu.assertEquals(alloc.value, 0)
+
+	export_hook(MockDevice:new(0.74995))
+	lu.assertEquals(alloc.value, 65535)
+
+	export_hook(MockDevice:new(0.822))
+	lu.assertEquals(alloc.value, 0)
+
+	export_hook(MockDevice:new(0.75))
+	lu.assertEquals(alloc.value, 65535)
+end
