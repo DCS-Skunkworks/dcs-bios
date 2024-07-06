@@ -2,8 +2,8 @@
 
 ### Supported Versions
 
-Openbeta
+The latest release version will be kept patched against security vulnerabilities. Due to the nature of dcs-bios, past versions are not supported.
 
 ### Reporting a Vulnerability
 
-Use Github Issue to report a vulnerability.
+**Do not report security issues via GitHub**. Please contact a staff member on our [Discord](https://discord.gg/5svGwKX) if you wish to report a security vulnerability.
