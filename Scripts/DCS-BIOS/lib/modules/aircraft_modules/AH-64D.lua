@@ -563,7 +563,7 @@ AH_64D:defineSpringloaded_3PosTumb("CPG_RHG_SPARE", 51, 3080, 3079, 519, "CPG TE
 AH_64D:definePushButton("CPG_RHG_HDD_SW", 51, 3081, 505, "CPG TEDAC Right Handgrip", "Gunner HDD/HOD Select Button")
 AH_64D:definePushButton("CPG_RHG_ENTER", 51, 3082, 518, "CPG TEDAC Right Handgrip", "Gunner Cursor Enter Button")
 AH_64D:defineSpringloaded_3PosTumb("CPG_RHG_MAN_TRK_UP_DN", 51, 3084, 3083, 515, "CPG TEDAC Right Handgrip", "Gunner Sight Manual Tracker Controller, Up/Down")
-AH_64D:defineSpringloaded_3PosTumb("CPG_RHG_MAN_TRK_L_R", 51, 3086, 3085, 516, "CPG TEDAC Right Handgrip", "Gunner Sight Manual Tracker Controller, Left/Right")
+AH_64D:defineRockerSwitch("CPG_RHG_MAN_TRK_L_R", 51, 3086, 3086, 3085, 3085, 516, "CPG TEDAC Right Handgrip", "Gunner Sight Manual Tracker Controller, Left/Right") -- for some reason, needs to be different from U/D
 AH_64D:define3PosTumb("CPG_RHG_IAT_POL", 51, 3094, 507, "CPG TEDAC Right Handgrip", "Gunner Image Auto Tracker Polarity Switch, W/A/B")
 
 --Video Control Panel
