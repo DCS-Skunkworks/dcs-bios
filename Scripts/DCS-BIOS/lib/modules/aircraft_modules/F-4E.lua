@@ -1879,7 +1879,23 @@ local PLT_FRONT_PANEL = "PLT Front Panel"
 F_4E:defineToggleSwitch("PLT_FRONT_PANEL_SHOW_STICK", PILOT_FRONT_PANEL_DEVICE_ID, 3001, 2840, PLT_FRONT_PANEL, "Hide/Show Stick")
 
 -- WSO Course Indicator
--- local WSO_COURSE_INDICATOR_DEVICE_ID = 76
+local WSO_COURSE_INDICATOR_DEVICE_ID = 76
+
+-- WSO Course Indicator
+local WSO_COURSE_INDICATOR = "WSO Course Indicator"
+
+F_4E:definePotentiometer("WSO_COURSE_INDICATOR_SET", WSO_COURSE_INDICATOR_DEVICE_ID, 3001, 2612, { 0, 1 }, WSO_COURSE_INDICATOR, "Set Course")
+
+F_4E:defineFullRangeFloat("WSO_COURSE_INDICATOR_GLIDESLOPE", 2613, WSO_COURSE_INDICATOR, "Glideslope Needle")
+F_4E:definePositiveFloat("WSO_COURSE_INDICATOR_GLIDESLOPE_OFF", 2614, WSO_COURSE_INDICATOR, "Glideslope Off Flag")
+F_4E:defineFullRangeFloat("WSO_COURSE_INDICATOR_LOCALIZER", 2615, WSO_COURSE_INDICATOR, "Localizer Needle")
+F_4E:definePositiveFloat("WSO_COURSE_INDICATOR_LOCALIZER_OFF", 2616, WSO_COURSE_INDICATOR, "Localizer Off Flag")
+F_4E:definePositiveFloat("WSO_COURSE_INDICATOR_HEADING", 2621, WSO_COURSE_INDICATOR, "Heading Card Rotation")
+F_4E:defineFullRangeFloat("WSO_COURSE_INDICATOR_DEVIATION", 2726, WSO_COURSE_INDICATOR, "Course Deviation Needle")
+
+F_4E:defineString("WSO_COURSE_INDICATOR_DISTANCE", function(dev0)
+	return drum_set(dev0, 2619, 2618, 2617)
+end, 3, WSO_COURSE_INDICATOR, "Distance Drum")
 
 -- Jester Wheel
 -- local JESTER_WHEEL_DEVICE_ID = 78
