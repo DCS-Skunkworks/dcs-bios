@@ -1517,7 +1517,7 @@ F_4E:defineFullRangeFloat("PLT_SHAKE_GLARESHIELD_TWIST", 3033, PILOT_SHAKE_EFFEC
 F_4E:defineFullRangeFloat("PLT_SHAKE_ESCAPE_TOOL_RING_2", 3034, PILOT_SHAKE_EFFECTS, "Escape Tool Ring Shake (Large)")
 
 -- Target Designator System (AN-ASQ-153)
- local TARGET_DESIGNATOR_DEVICE_ID = 64
+local TARGET_DESIGNATOR_DEVICE_ID = 64
 
 -- Target Designator Set Control
 local WSO_TARGET_DESIGNATOR_SET_CONTROL = "WSO Target Designator Set Control"
