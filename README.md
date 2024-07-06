@@ -1,6 +1,6 @@
 # DCS-Skunkworks DCS-BIOS
 
-[![Static Badge](https://img.shields.io/badge/license-SimPL--2.0-green)](https://github.com/DCS-Skunkworks/dcs-bios/blob/master/LICENCE)
+[![Static Badge](https://img.shields.io/badge/license-GPLv3-green)](https://github.com/DCS-Skunkworks/dcs-bios/blob/master/LICENSE)
 [![GitHub release](https://img.shields.io/github/release/DCS-Skunkworks/dcs-bios.svg)](https://github.com/DCS-Skunkworks/dcs-bios/releases)
 [![Discord](https://img.shields.io/discord/533342958712258572)](https://discord.gg/5svGwKX)
 
@@ -141,7 +141,7 @@ If you want to contribute code or documentation, please send a pull request on G
 
 The [original DCS-BIOS](https://github.com/dcs-bios/dcs-bios) was created by [FSF]Ian.
 
-DCS-BIOS is released under a slightly modified [Simple Public License 2.0](LICENCE) (think "a version of the GPL readable by mere mortals").
+DCS-BIOS is released under the [GPL 3.0](LICENSE).
 
 The copy of `socat` that comes with DCS-BIOS is licensed under the `GPLv2` (see [Programs/socat/COPYING](Programs/socat/COPYING)).
 
