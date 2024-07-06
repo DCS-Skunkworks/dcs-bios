@@ -1292,8 +1292,25 @@ end
 function Module.valueConvert(argument_value, input_range, output_range)
 	assert_min_max(input_range, "input_range")
 	assert_min_max(output_range, "output_range")
-	local slope = 1.0 * (output_range[2] - output_range[1]) / (input_range[2] - input_range[1])
-	return output_range[1] + slope * (argument_value - input_range[1])
+
+	-- if we're close enough to our input range, snap to that value
+	-- this helps avoid out of range issues mapping from small input ranges to large output ranges
+	local epsilon = 0.000072 -- for the smallest known range in dcs {0.822, 0.75} -> 0.072, this is about 0.1%
+
+	local input_min = input_range[1]
+	local input_max = input_range[2]
+	local output_min = output_range[1]
+	local output_max = output_range[2]
+
+	if math.abs(argument_value - input_min) < epsilon then
+		return output_min
+	end
+	if math.abs(argument_value - input_max) < epsilon then
+		return output_max
+	end
+
+	local slope = 1.0 * (output_max - output_min) / (input_max - input_min)
+	return output_min + slope * (argument_value - input_min)
 end
 
 --- Returns an integer from individual arguments ordered from least to most significant digit
