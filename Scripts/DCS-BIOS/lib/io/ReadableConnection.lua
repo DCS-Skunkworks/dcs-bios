@@ -26,7 +26,7 @@ end
 --- @abstract
 --- Receives and processes data
 --- @return boolean, string? success whether the step was successful, and the error code if not
-function ReadableConnection:receive()
+function ReadableConnection:receive() -- luacheck: ignore 212
 	error("receive must be implemented by the ReadableConnection subclass", 2)
 end
 

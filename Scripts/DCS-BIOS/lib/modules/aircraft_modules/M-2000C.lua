@@ -96,19 +96,64 @@ M_2000C:addExportHook(function()
 end)
 
 -- parse PCN upper display
-local pcnLeftDigits = ""
-local pcnRightDigits = ""
 local pcnRight1Digit = ""
 local pcnRight2Digit = ""
 local pcnLeft1Digit = ""
 local pcnLeft2Digit = ""
 
--- todo: need to set blank strings when pcn is nil?
+-- a display output consists of a specific number of digits, and each digit has 8 segments
+local pcn_ul = {}
+local pcn_ur = {}
+
+--  2
+-- 1 3
+--  6
+-- 0 4
+-- 75
+
+local function segment_char_value(char)
+	if char > "p" then
+		return 1
+	end
+
+	if char > "h" then
+		return 2
+	end
+
+	if char >= "a" then
+		return 3
+	end
+
+	return 0
+end
+
+local function add_pcn_segment_values(pcn_segment, segment_value, segment_index)
+	for index = 1, #segment_value do
+		local value = segment_value:sub(index, index)
+		if not pcn_segment[index] then
+			pcn_segment[index] = {}
+		end
+
+		pcn_segment[index][segment_index] = segment_char_value(value)
+	end
+end
+
+local function build_pcn_segments(pcn, pcn_segment, display_name, length, include_decimals)
+	for i = 0, include_decimals and 7 or 6, 1 do
+		local raw_values = pcn[string.format("%s%d", display_name, i)] or ""
+		-- sometimes these strings have a random leading whitespace, who knows why
+		local segment_values = raw_values:gsub("^%s*(.*)$", "%1") -- remove any leading whitespaces, just in case
+		local padded_segment_values = Functions.pad_left(segment_values, length) -- add back leading whitespace to ensure we're adequately padded
+		padded_segment_values = i == 7 and Functions.pad_left(padded_segment_values:sub(1, #padded_segment_values - 1), length) or padded_segment_values -- and decimals behave this way for... reasons
+		add_pcn_segment_values(pcn_segment, padded_segment_values, i)
+	end
+end
+
 M_2000C:addExportHook(function()
 	local pcn = M_2000C.parse_indication(9)
 
-	pcnLeftDigits = Functions.pad_left(pcn.PCN_UL_DIGITS, 8)
-	pcnRightDigits = Functions.pad_left(pcn.PCN_UR_DIGITS, 9)
+	build_pcn_segments(pcn, pcn_ul, "PCN_UL_SEG", 5, true)
+	build_pcn_segments(pcn, pcn_ur, "PCN_UR_SEG", 6, true)
 
 	local pcnRight = ""
 	if pcn.PCN_UR_E then
@@ -154,14 +199,14 @@ M_2000C:addExportHook(function()
 end)
 
 -- parse PCN lower display
-local pcnPrep = ""
-local pcnDest = ""
+local pcn_bl = {}
+local pcn_br = {}
 
 M_2000C:addExportHook(function()
 	local pcn = M_2000C.parse_indication(10)
 
-	pcnPrep = Functions.pad_left(pcn.PCN_BL_DIGITS, 2)
-	pcnDest = Functions.pad_left(pcn.PCN_BR_DIGITS, 2)
+	build_pcn_segments(pcn, pcn_bl, "PCN_BL_SEG", 2, false)
+	build_pcn_segments(pcn, pcn_br, "PCN_BR_SEG", 2, false)
 end)
 
 local function getvtbRange()
@@ -170,9 +215,14 @@ local function getvtbRange()
 	return Functions.coerce_nil_to_string(vtb["vtb-rdr-range"])
 end
 
+local ELECTRIC_DEVICE_ID = 18
+local CLOCK_DEVICE_ID = 43
+local ADI_DEVICE_ID = 44
+local BACKUP_ADI_DEVICE_ID = 45
+
 --ADI
-M_2000C:defineToggleSwitch("ADI_CAGE_LEV", 1, 3314, 314, "ADI", "I - ADI - Cage Lever")
-M_2000C:defineToggleSwitch("ADI_BKL_SW", 1, 3315, 315, "ADI", "I - ADI - Backlight Switch")
+M_2000C:defineToggleSwitch("ADI_CAGE_LEV", BACKUP_ADI_DEVICE_ID, 3314, 314, "ADI", "I - ADI - Cage Lever")
+M_2000C:defineToggleSwitch("ADI_BKL_SW", ADI_DEVICE_ID, 3315, 315, "ADI", "I - ADI - Backlight Switch")
 M_2000C:defineFloat("ADI_PITCH", 316, { -1, 1 }, "ADI", "O - ADI - Pitch Position")
 M_2000C:defineFloat("ADI_ROLL", 317, { -1, 1 }, "ADI", "O - ADI - Roll Position")
 M_2000C:defineFloat("ADI_COMPAS", 318, { -1, 1 }, "ADI", "O - ADI - Compass Position")
@@ -199,7 +249,7 @@ M_2000C:defineFloat("ALT_BARO_TENS", 312, { 0, 1 }, "ALTIMETER", "O - ALT - x10 
 M_2000C:defineFloat("ALT_BARO_ONES", 313, { 0, 1 }, "ALTIMETER", "O - ALT - x1 Baro Press display")
 
 --AOA
-M_2000C:defineFloat("AOA_POS", 331, { 0, 1 }, "AOA", "O - AOA - Indicator")
+M_2000C:defineFloat("AOA_POS", 331, { -0.02, 0.3187 }, "AOA", "O - AOA - Indicator") -- values tested in modelviewer
 M_2000C:defineFloat("AOA_FLAG", 332, { 0, 1 }, "AOA", "O - AOA - Flag")
 
 --AUDIO PANEL
@@ -235,8 +285,8 @@ M_2000C:defineIndicatorLight("AP_G_VERT", 297, "AUTOPILOT", "O - AP - G Green Li
 M_2000C:defineIndicatorLight("AP_G_AMBRE", 298, "AUTOPILOT", "O - AP - G Amber Light (yellow)")
 
 --BACKUP ADI
-M_2000C:defineToggleSwitch("SB_ADI_CAGE_SW", 1, 3325, 325, "BACKUP ADI", "I - BKADI - UNCAGE")
-M_2000C:defineRotary("SB_ADI_ROT", 1, 3328, 328, "BACKUP ADI", "I - BKADI - Set")
+M_2000C:defineToggleSwitch("SB_ADI_CAGE_SW", BACKUP_ADI_DEVICE_ID, 3325, 325, "BACKUP ADI", "I - BKADI - UNCAGE")
+M_2000C:definePotentiometer("SB_ADI_ROT", BACKUP_ADI_DEVICE_ID, 3328, 328, { -1, 1 }, "BACKUP ADI", "I - BKADI - Set")
 M_2000C:defineFloat("SB_ADI_ROLL", 326, { -1, 1 }, "BACKUP ADI", "O - BKADI - Roll Position")
 M_2000C:defineFloat("SB_ADI_PITCH", 327, { -1, 1 }, "BACKUP ADI", "O - BKADI - Pitch Position")
 M_2000C:defineFloat("SB_ADI_FLAG", 329, { 0, 1 }, "BACKUP ADI", "O - BKADI - Flag")
@@ -283,11 +333,11 @@ M_2000C:defineIndicatorLight("CLP_DECOL", 562, "CAUTION LIGHT PANEL", "O - CLP -
 M_2000C:defineIndicatorLight("CLP_PARK", 563, "CAUTION LIGHT PANEL", "O - CLP - PARK Indicator Light (yellow)")
 
 --ELECTRIC PANEL
-M_2000C:defineToggleSwitch("MAIN_BATT_SW", 8, 3520, 520, "ELECTRIC PANEL", "I - Main Battery Switch")
-M_2000C:defineToggleSwitch("ELEC_PWR_TRANSF_SW", 8, 3521, 521, "ELECTRIC PANEL", "I - Electric Power Transfer Switch")
-M_2000C:defineToggleSwitch("ALT_1_SW", 8, 3522, 522, "ELECTRIC PANEL", "I - Alternator 1 Switch")
-M_2000C:defineToggleSwitch("ALT_2_SW", 8, 3523, 523, "ELECTRIC PANEL", "I - Alternator 2 Switch")
-M_2000C:define3PosTumb("LGT_TEST_SW", 8, 3524, 524, "ELECTRIC PANEL", "I - Lights Test Switch")
+M_2000C:defineToggleSwitch("MAIN_BATT_SW", ELECTRIC_DEVICE_ID, 3520, 520, "ELECTRIC PANEL", "I - Main Battery Switch")
+M_2000C:defineToggleSwitch("ELEC_PWR_TRANSF_SW", ELECTRIC_DEVICE_ID, 3521, 521, "ELECTRIC PANEL", "I - Electric Power Transfer Switch")
+M_2000C:defineToggleSwitch("ALT_1_SW", ELECTRIC_DEVICE_ID, 3522, 522, "ELECTRIC PANEL", "I - Alternator 1 Switch")
+M_2000C:defineToggleSwitch("ALT_2_SW", ELECTRIC_DEVICE_ID, 3523, 523, "ELECTRIC PANEL", "I - Alternator 2 Switch")
+M_2000C:define3PosTumb("LGT_TEST_SW", ELECTRIC_DEVICE_ID, 3524, 524, "ELECTRIC PANEL", "I - Lights Test Switch")
 
 --CLOCK
 M_2000C:defineToggleSwitch("COC_CLOCK", 22, 3400, 400, "CLOCK", "I - CLOCK - Cockpit Clock Position")
@@ -326,7 +376,7 @@ M_2000C:defineIndicatorLight("CLIM_C", 632, "ECS PANEL", "O - ECS - C Light (yel
 M_2000C:defineIndicatorLight("CLIM_F", 634, "ECS PANEL", "O - ECS - F Light (yellow)")
 
 --ENGINE GAUGE
-M_2000C:defineFloat("N_RPM", 369, { 0, 1 }, "ENGINE GAUGE", "O - ENG - RPM Needle")
+M_2000C:defineFloat("N_RPM", 369, { 0, 1.1 }, "ENGINE GAUGE", "O - ENG - RPM Needle") -- yes, this goes to 1.1 even though controls are only supposed to be -1 to 1
 M_2000C:defineFloat("T7_NEEDLE", 370, { 0, 1 }, "ENGINE GAUGE", "O - ENG - Tt7 Needle")
 M_2000C:defineFloat("RPM_TENS", 371, { 0, 1 }, "ENGINE GAUGE", "O - ENG - x10 RPM display")
 M_2000C:defineFloat("RPM_ONES", 372, { 0, 1 }, "ENGINE GAUGE", "O - ENG - x1 RPM display")
@@ -397,10 +447,10 @@ M_2000C:defineTumb("HSI_MODE_SEL_SW", 2, 3341, 341, 0.1, { 0, 1 }, nil, false, "
 M_2000C:defineFloat("HSI_HDG", 333, { 0, 1 }, "HSI", "O - HSI - AP Heading (Green Arrow)")
 M_2000C:defineFloat("HSI_D_NEEDLE", 334, { 0, 1 }, "HSI", "O - HSI - COURSE (Double Needle)")
 M_2000C:defineFloat("HSI_NEEDLE", 335, { 0, 1 }, "HSI", "O - HSI - VAD (Simple Needle)")
-M_2000C:defineFloat("HSI_DIST_CENTS", 336, { 0, 0.99 }, "HSI", "O - HSI x100 Distance display")
-M_2000C:defineFloat("HSI_DIST_TENS", 337, { 0, 0.99 }, "HSI", "O - HSI x10 Distance display")
-M_2000C:defineFloat("HSI_DIST_ONES", 338, { 0, 0.99 }, "HSI", "O - HSI x1 Distance display")
-M_2000C:defineFloat("HSI_DIST_DEC", 339, { 0, 0.99 }, "HSI", "O - HSI x.1 Distance display")
+M_2000C:defineFloat("HSI_DIST_CENTS", 336, { 0, 1 }, "HSI", "O - HSI x100 Distance display")
+M_2000C:defineFloat("HSI_DIST_TENS", 337, { 0, 1 }, "HSI", "O - HSI x10 Distance display")
+M_2000C:defineFloat("HSI_DIST_ONES", 338, { 0, 1 }, "HSI", "O - HSI x1 Distance display")
+M_2000C:defineFloat("HSI_DIST_DEC", 339, { 0, 1 }, "HSI", "O - HSI x.1 Distance display")
 M_2000C:defineFloat("HSI_COMPAS", 342, { 0, 1 }, "HSI", "O - HSI - Compass")
 M_2000C:defineFloat("HSI_FLAG_DIST", 343, { 0, 1 }, "HSI", "O - HSI - Distance Flag")
 M_2000C:defineFloat("HSI_FLAG_G", 344, { 0, 1 }, "HSI", "O - HSI - Left Flag")
@@ -472,11 +522,11 @@ M_2000C:defineToggleSwitch("FBW_RESET_BTN", 17, 3423, 423, "LEFT PANEL", "I - FB
 M_2000C:defineIndicatorLightInverted("LANDING_GEAR_LEVER_LIGHT", 405, "LEFT PANEL", "O - LDG - Landing Gear Lever Light (red)")
 M_2000C:definePushButton("EMER_JETT", 6, 3409, 409, "LEFT PANEL", "I - Emergency Jettison Button")
 M_2000C:defineToggleSwitch("GUN_ARM_SW", 6, 3463, 463, "LEFT PANEL", "I - Gun Arm/Safe Switch")
-M_2000C:defineFloat("PSV_EL_G_EXT", 424, { 0, 1 }, "LEFT PANEL", "O - PSV - Left Ext Elevon Position display")
-M_2000C:defineFloat("PSV_EL_G_INT", 425, { 0, 1 }, "LEFT PANEL", "O - PSV - Left Int Elevon Position display")
-M_2000C:defineFloat("PSV_DERIVE", 426, { 0, 1 }, "LEFT PANEL", "O - PSV - Rudder Position display")
-M_2000C:defineFloat("PSV_EL_D_EXT", 427, { 0, 1 }, "LEFT PANEL", "O - PSV - Right Ext Elevon Position display")
-M_2000C:defineFloat("PSV_EL_D_INT", 428, { 0, 1 }, "LEFT PANEL", "O - PSV - Right Int Elevon Position display")
+M_2000C:defineFloat("PSV_EL_G_EXT", 424, { -1, 1 }, "LEFT PANEL", "O - PSV - Left Ext Elevon Position display")
+M_2000C:defineFloat("PSV_EL_G_INT", 425, { -1, 1 }, "LEFT PANEL", "O - PSV - Left Int Elevon Position display")
+M_2000C:defineFloat("PSV_DERIVE", 426, { -1, 1 }, "LEFT PANEL", "O - PSV - Rudder Position display")
+M_2000C:defineFloat("PSV_EL_D_EXT", 427, { -1, 1 }, "LEFT PANEL", "O - PSV - Right Ext Elevon Position display")
+M_2000C:defineFloat("PSV_EL_D_INT", 428, { -1, 1 }, "LEFT PANEL", "O - PSV - Right Int Elevon Position display")
 
 --MAIN PANEL
 M_2000C:defineIndicatorLight("LIM_IND", 185, "MAIN PANEL", "O - LIM Indicator Light (red)")
@@ -590,18 +640,23 @@ M_2000C:definePushButton("INS_CLR_BTN", 9, 3594, 594, "PCN", "I - PCN - EFF Butt
 M_2000C:definePushButton("INS_ENTER_BTN", 9, 3596, 596, "PCN", "I - PCN - INS Button")
 M_2000C:definePushButton("INS_NEXT_WP_BTN", 9, 3110, 110, "PCN", "I - PCN - INS Next Waypoint Button")
 M_2000C:definePushButton("INS_PREV_WP_BTN", 9, 3111, 111, "PCN", "I - PCN - INS Previous Waypoint Button")
-M_2000C:defineString("PCN_DISP_DEST", function()
-	return pcnDest
-end, 2, "PCN", "O - PCN - DEST Display")
-M_2000C:defineString("PCN_DISP_L", function()
-	return pcnLeftDigits
-end, 8, "PCN", "O - PCN - Left Display")
-M_2000C:defineString("PCN_DISP_PREP", function()
-	return pcnPrep
-end, 2, "PCN", "O - PCN - PREP Display")
-M_2000C:defineString("PCN_DISP_R", function()
-	return pcnRightDigits
-end, 9, "PCN", "O - PCN - Right Display")
+-- these outputs have been disabled after Razbam replaced the string outputs with segment displays, some of which randomly do not work in-game
+-- M_2000C:defineString("PCN_DISP_DEST", function()
+-- 	return pcnDest
+-- end, 2, "PCN", "O - PCN - DEST Display")
+M_2000C:reserveStringValue(2)
+-- M_2000C:defineString("PCN_DISP_L", function()
+-- 	return pcnLeftDigits
+-- end, 8, "PCN", "O - PCN - Left Display")
+M_2000C:reserveStringValue(8)
+-- M_2000C:defineString("PCN_DISP_PREP", function()
+-- 	return pcnPrep
+-- end, 2, "PCN", "O - PCN - PREP Display")
+M_2000C:reserveStringValue(2)
+-- M_2000C:defineString("PCN_DISP_R", function()
+-- 	return pcnRightDigits
+-- end, 9, "PCN", "O - PCN - Right Display")
+M_2000C:reserveStringValue(9)
 M_2000C:defineString("PCN_DIS_DL", function()
 	return pcnLeft1Digit
 end, 1, "PCN", "PCN Digit Left Display")
@@ -695,10 +750,10 @@ M_2000C:defineToggleSwitch("PITOT_HEAT_COV", 22, 3659, 659, "RIGHT CONSOLE", "I 
 M_2000C:defineToggleSwitch("PITOT_HEAT_SW", 22, 3660, 660, "RIGHT CONSOLE", "I - Pitot Heat Switch")
 M_2000C:defineToggleSwitch("PKG_BRAKE_LEV", 22, 3666, 666, "RIGHT CONSOLE", "I - Parking Brake Lever")
 M_2000C:defineToggleSwitch("EMER_COMPASS", 9, 3905, 905, "RIGHT CONSOLE", "I - Emergency Compass")
-M_2000C:defineMultipositionSwitch("INS_AUX_HD_HOR", 1, 3665, 665, 3, 0.5, "RIGHT CONSOLE", "I - Backup ADI Switch")
+M_2000C:defineMultipositionSwitch("INS_AUX_HD_HOR", BACKUP_ADI_DEVICE_ID, 3665, 665, 3, 0.5, "RIGHT CONSOLE", "I - Backup ADI Switch")
 
 --RIGHT PANEL
-M_2000C:defineToggleSwitch("QRA_SW", 8, 3654, 654, "RIGHT PANEL", "I - Alert Network (QRA)")
+M_2000C:defineToggleSwitch("QRA_SW", ELECTRIC_DEVICE_ID, 3654, 654, "RIGHT PANEL", "I - Alert Network (QRA)")
 M_2000C:defineToggleSwitch("LOX_DIL_LEV", 25, 3910, 910, "RIGHT PANEL", "I - LOX Dilution Lever")
 M_2000C:defineToggleSwitch("LOX_EMER_SUP", 25, 3912, 912, "RIGHT PANEL", "I - LOX Emergency Supply")
 M_2000C:defineFloat("OXY_NEEDLE", 518, { 0, 1 }, "RIGHT PANEL", "O - LOX - Needle")
@@ -802,7 +857,8 @@ M_2000C:defineTumb("RAD_RALT_PWR_SW", 38, 3205, 205, 0.5, { 0, 1 }, nil, false, 
 M_2000C:defineIndicatorLight("HUD_REC", 212, "VTH", "O - HUD - Recording Indicator Light (green)")
 
 --VVI
-M_2000C:defineFloat("VARIO_NEEDLE", 324, { -1, 1 }, "VVI", "O - VVI - Needle")
+-- model viewer limites are -0.6 to 0.6, however the sim value for this gauge seems to climb indefinitely
+M_2000C:defineFloat("VARIO_NEEDLE", 324, { -0.6, 0.6 }, "VVI", "O - VVI - Needle")
 
 --NVG
 M_2000C:defineToggleSwitch("NVG_HELMET_MOUNT", 31, 3002, 1, "NVG", "I - NVG - Mount/Unmount NVG on Helmet")
@@ -822,8 +878,8 @@ M_2000C:defineFloat("VORILS_01_DRUM", 614, { 0, 1 }, "VOR / ILS", "VOR/ILS Drum 
 M_2000C:defineFloat("VORILS_001_DRUM", 615, { 0, 1 }, "VOR / ILS", "VOR/ILS Drum 0.01")
 
 M_2000C:defineFloat("VTAC_X_Y_DRUM", 620, { 0, 1 }, "TACAN", "TACAN X/Y Drum")
-M_2000C:defineFloat("VTAC_10_DRUM", 621, { 0, 1 }, "TACAN", "TACAN 10 Drum")
-M_2000C:defineFloat("VTAC_1_DRUM", 621, { 0, 1 }, "TACAN", "TACAN 1 Drum")
+M_2000C:defineFloat("VTAC_10_DRUM", 621, { -0.3, 1 }, "TACAN", "TACAN 10 Drum")
+M_2000C:defineFloat("VTAC_1_DRUM", 622, { 0, 1 }, "TACAN", "TACAN 1 Drum")
 
 M_2000C:definePushButton("G_RESET", 1, 3348, 348, "MISCELANEOUS", "G-Meter Reset")
 M_2000C:definePotentiometer("HUD_BRIGHT_KNOB", 36, 3202, 202, { 0, 1 }, "VTH", "I - HUD - Brightness Knob")
@@ -868,9 +924,9 @@ M_2000C:defineFloat("FOLD_INFO_PAGE_3", 445, { 0, 1 }, "Cockpit", "Foldable Info
 M_2000C:defineFloat("FOLD_INFO_PAGE_4", 446, { 0, 1 }, "Cockpit", "Foldable Info Register 4")
 
 M_2000C:definePotentiometer("MIRROR_ORIENT", 40, 3009, 9, { 0, 1 }, "CANOPY", "I - Mirror Orientation")
-M_2000C:defineRotary("COC_CLOCK_ROT", 2, 3922, 922, "CLOCK", "I - CLOCK - Clock Rewind/Adjust")
-M_2000C:defineToggleSwitch("COC_CLOCK_BTN", 2, 3923, 923, "CLOCK", "I - CLOCK - Clock Start/Stop/Reset")
-M_2000C:defineToggleSwitch("COC_CLOCK_ADJ", 2, 3924, 924, "CLOCK", "I - CLOCK - Clock time adjustment knob")
+M_2000C:defineRotary("COC_CLOCK_ROT", CLOCK_DEVICE_ID, 3922, 922, "CLOCK", "I - CLOCK - Clock Rewind/Adjust")
+M_2000C:defineToggleSwitch("COC_CLOCK_BTN", CLOCK_DEVICE_ID, 3923, 923, "CLOCK", "I - CLOCK - Clock Start/Stop/Reset")
+M_2000C:defineToggleSwitch("COC_CLOCK_ADJ", CLOCK_DEVICE_ID, 3924, 924, "CLOCK", "I - CLOCK - Clock time adjustment knob")
 M_2000C:defineString("FUEL_JAUGE", function()
 	return fuelJauge
 end, 4, "FUEL SYSTEM", "O - FUEL - JAUGE Display")
@@ -881,6 +937,381 @@ end, 4, "FUEL SYSTEM", "O - FUEL - Total Display")
 M_2000C:defineReadWriteRadio("VUHF_RADIO", 19, 7, 3, 1000, "VUHF Radio")
 M_2000C:defineReadWriteRadio("UHF_RADIO", 20, 7, 3, 1000, "UHF Radio")
 
-M_2000C:defineFixedStepInput("CLOCK_RING", 2, 3925, { -0.01, 0.01 }, "CLOCK", "Clock Ring (only decrease)")
+M_2000C:defineFixedStepInput("CLOCK_RING", CLOCK_DEVICE_ID, 3925, { -0.01, 0.01 }, "CLOCK", "Clock Ring (only decrease)")
+M_2000C:definePushButton("BATT_REARM_SW", ELECTRIC_DEVICE_ID, 3995, 995, "ELECTRIC PANEL", "Battery Rearm Switch")
+
+-- Apparently maintenance no longer swaps out faulty 7-segments, so now we just have to output each segment
+--  2
+-- 1 3
+--  6
+-- 0 4
+-- 75
+
+-- upper left PCN display
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_1_0", function()
+	return pcn_ul[1][0]
+end, 3, "PCN", "Left Display, Digit 1, Segment 0")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_1_1", function()
+	return pcn_ul[1][1]
+end, 3, "PCN", "Left Display, Digit 1, Segment 1")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_1_2", function()
+	return pcn_ul[1][2]
+end, 3, "PCN", "Left Display, Digit 1, Segment 2")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_1_3", function()
+	return pcn_ul[1][3]
+end, 3, "PCN", "Left Display, Digit 1, Segment 3")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_1_4", function()
+	return pcn_ul[1][4]
+end, 3, "PCN", "Left Display, Digit 1, Segment 4")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_1_5", function()
+	return pcn_ul[1][5]
+end, 3, "PCN", "Left Display, Digit 1, Segment 5")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_1_6", function()
+	return pcn_ul[1][6]
+end, 3, "PCN", "Left Display, Digit 1, Segment 6")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_1_7", function()
+	return pcn_ul[1][7]
+end, 3, "PCN", "Left Display, Digit 1, Segment 7")
+
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_2_0", function()
+	return pcn_ul[2][0]
+end, 3, "PCN", "Left Display, Digit 2, Segment 0")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_2_1", function()
+	return pcn_ul[2][1]
+end, 3, "PCN", "Left Display, Digit 2, Segment 1")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_2_2", function()
+	return pcn_ul[2][2]
+end, 3, "PCN", "Left Display, Digit 2, Segment 2")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_2_3", function()
+	return pcn_ul[2][3]
+end, 3, "PCN", "Left Display, Digit 2, Segment 3")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_2_4", function()
+	return pcn_ul[2][4]
+end, 3, "PCN", "Left Display, Digit 2, Segment 4")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_2_5", function()
+	return pcn_ul[2][5]
+end, 3, "PCN", "Left Display, Digit 2, Segment 5")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_2_6", function()
+	return pcn_ul[2][6]
+end, 3, "PCN", "Left Display, Digit 2, Segment 6")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_2_7", function()
+	return pcn_ul[2][7]
+end, 3, "PCN", "Left Display, Digit 2, Segment 7")
+
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_3_0", function()
+	return pcn_ul[3][0]
+end, 3, "PCN", "Left Display, Digit 3, Segment 0")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_3_1", function()
+	return pcn_ul[3][1]
+end, 3, "PCN", "Left Display, Digit 3, Segment 1")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_3_2", function()
+	return pcn_ul[3][2]
+end, 3, "PCN", "Left Display, Digit 3, Segment 2")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_3_3", function()
+	return pcn_ul[3][3]
+end, 3, "PCN", "Left Display, Digit 3, Segment 3")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_3_4", function()
+	return pcn_ul[3][4]
+end, 3, "PCN", "Left Display, Digit 3, Segment 4")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_3_5", function()
+	return pcn_ul[3][5]
+end, 3, "PCN", "Left Display, Digit 3, Segment 5")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_3_6", function()
+	return pcn_ul[3][6]
+end, 3, "PCN", "Left Display, Digit 3, Segment 6")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_3_7", function()
+	return pcn_ul[3][7]
+end, 3, "PCN", "Left Display, Digit 3, Segment 7")
+
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_4_0", function()
+	return pcn_ul[4][0]
+end, 3, "PCN", "Left Display, Digit 4, Segment 0")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_4_1", function()
+	return pcn_ul[4][1]
+end, 3, "PCN", "Left Display, Digit 4, Segment 1")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_4_2", function()
+	return pcn_ul[4][2]
+end, 3, "PCN", "Left Display, Digit 4, Segment 2")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_4_3", function()
+	return pcn_ul[4][3]
+end, 3, "PCN", "Left Display, Digit 4, Segment 3")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_4_4", function()
+	return pcn_ul[4][4]
+end, 3, "PCN", "Left Display, Digit 4, Segment 4")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_4_5", function()
+	return pcn_ul[4][5]
+end, 3, "PCN", "Left Display, Digit 4, Segment 5")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_4_6", function()
+	return pcn_ul[4][6]
+end, 3, "PCN", "Left Display, Digit 4, Segment 6")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_4_7", function()
+	return pcn_ul[4][7]
+end, 3, "PCN", "Left Display, Digit 4, Segment 7")
+
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_5_0", function()
+	return pcn_ul[5][0]
+end, 3, "PCN", "Left Display, Digit 5, Segment 0")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_5_1", function()
+	return pcn_ul[5][1]
+end, 3, "PCN", "Left Display, Digit 5, Segment 1")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_5_2", function()
+	return pcn_ul[5][2]
+end, 3, "PCN", "Left Display, Digit 5, Segment 2")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_5_3", function()
+	return pcn_ul[5][3]
+end, 3, "PCN", "Left Display, Digit 5, Segment 3")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_5_4", function()
+	return pcn_ul[5][4]
+end, 3, "PCN", "Left Display, Digit 5, Segment 4")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_5_5", function()
+	return pcn_ul[5][5]
+end, 3, "PCN", "Left Display, Digit 5, Segment 5")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_5_6", function()
+	return pcn_ul[5][6]
+end, 3, "PCN", "Left Display, Digit 5, Segment 6")
+M_2000C:defineIntegerFromGetter("PCN_DISP_L_5_7", function()
+	return pcn_ul[5][7]
+end, 3, "PCN", "Left Display, Digit 5, Segment 7")
+
+-- upper right PCN display
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_1_0", function()
+	return pcn_ur[1][0]
+end, 3, "PCN", "Right Display, Digit 1, Segment 0")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_1_1", function()
+	return pcn_ur[1][1]
+end, 3, "PCN", "Right Display, Digit 1, Segment 1")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_1_2", function()
+	return pcn_ur[1][2]
+end, 3, "PCN", "Right Display, Digit 1, Segment 2")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_1_3", function()
+	return pcn_ur[1][3]
+end, 3, "PCN", "Right Display, Digit 1, Segment 3")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_1_4", function()
+	return pcn_ur[1][4]
+end, 3, "PCN", "Right Display, Digit 1, Segment 4")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_1_5", function()
+	return pcn_ur[1][5]
+end, 3, "PCN", "Right Display, Digit 1, Segment 5")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_1_6", function()
+	return pcn_ur[1][6]
+end, 3, "PCN", "Right Display, Digit 1, Segment 6")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_1_7", function()
+	return pcn_ur[1][7]
+end, 3, "PCN", "Right Display, Digit 1, Segment 7")
+
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_2_0", function()
+	return pcn_ur[2][0]
+end, 3, "PCN", "Right Display, Digit 2, Segment 0")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_2_1", function()
+	return pcn_ur[2][1]
+end, 3, "PCN", "Right Display, Digit 2, Segment 1")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_2_2", function()
+	return pcn_ur[2][2]
+end, 3, "PCN", "Right Display, Digit 2, Segment 2")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_2_3", function()
+	return pcn_ur[2][3]
+end, 3, "PCN", "Right Display, Digit 2, Segment 3")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_2_4", function()
+	return pcn_ur[2][4]
+end, 3, "PCN", "Right Display, Digit 2, Segment 4")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_2_5", function()
+	return pcn_ur[2][5]
+end, 3, "PCN", "Right Display, Digit 2, Segment 5")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_2_6", function()
+	return pcn_ur[2][6]
+end, 3, "PCN", "Right Display, Digit 2, Segment 6")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_2_7", function()
+	return pcn_ur[2][7]
+end, 3, "PCN", "Right Display, Digit 2, Segment 7")
+
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_3_0", function()
+	return pcn_ur[3][0]
+end, 3, "PCN", "Right Display, Digit 3, Segment 0")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_3_1", function()
+	return pcn_ur[3][1]
+end, 3, "PCN", "Right Display, Digit 3, Segment 1")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_3_2", function()
+	return pcn_ur[3][2]
+end, 3, "PCN", "Right Display, Digit 3, Segment 2")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_3_3", function()
+	return pcn_ur[3][3]
+end, 3, "PCN", "Right Display, Digit 3, Segment 3")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_3_4", function()
+	return pcn_ur[3][4]
+end, 3, "PCN", "Right Display, Digit 3, Segment 4")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_3_5", function()
+	return pcn_ur[3][5]
+end, 3, "PCN", "Right Display, Digit 3, Segment 5")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_3_6", function()
+	return pcn_ur[3][6]
+end, 3, "PCN", "Right Display, Digit 3, Segment 6")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_3_7", function()
+	return pcn_ur[3][7]
+end, 3, "PCN", "Right Display, Digit 3, Segment 7")
+
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_4_0", function()
+	return pcn_ur[4][0]
+end, 3, "PCN", "Right Display, Digit 4, Segment 0")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_4_1", function()
+	return pcn_ur[4][1]
+end, 3, "PCN", "Right Display, Digit 4, Segment 1")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_4_2", function()
+	return pcn_ur[4][2]
+end, 3, "PCN", "Right Display, Digit 4, Segment 2")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_4_3", function()
+	return pcn_ur[4][3]
+end, 3, "PCN", "Right Display, Digit 4, Segment 3")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_4_4", function()
+	return pcn_ur[4][4]
+end, 3, "PCN", "Right Display, Digit 4, Segment 4")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_4_5", function()
+	return pcn_ur[4][5]
+end, 3, "PCN", "Right Display, Digit 4, Segment 5")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_4_6", function()
+	return pcn_ur[4][6]
+end, 3, "PCN", "Right Display, Digit 4, Segment 6")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_4_7", function()
+	return pcn_ur[4][7]
+end, 3, "PCN", "Right Display, Digit 4, Segment 7")
+
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_5_0", function()
+	return pcn_ur[5][0]
+end, 3, "PCN", "Right Display, Digit 5, Segment 0")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_5_1", function()
+	return pcn_ur[5][1]
+end, 3, "PCN", "Right Display, Digit 5, Segment 1")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_5_2", function()
+	return pcn_ur[5][2]
+end, 3, "PCN", "Right Display, Digit 5, Segment 2")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_5_3", function()
+	return pcn_ur[5][3]
+end, 3, "PCN", "Right Display, Digit 5, Segment 3")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_5_4", function()
+	return pcn_ur[5][4]
+end, 3, "PCN", "Right Display, Digit 5, Segment 4")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_5_5", function()
+	return pcn_ur[5][5]
+end, 3, "PCN", "Right Display, Digit 5, Segment 5")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_5_6", function()
+	return pcn_ur[5][6]
+end, 3, "PCN", "Right Display, Digit 5, Segment 6")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_5_7", function()
+	return pcn_ur[5][7]
+end, 3, "PCN", "Right Display, Digit 5, Segment 7")
+
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_6_0", function()
+	return pcn_ur[6][0]
+end, 3, "PCN", "Right Display, Digit 6, Segment 0")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_6_1", function()
+	return pcn_ur[6][1]
+end, 3, "PCN", "Right Display, Digit 6, Segment 1")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_6_2", function()
+	return pcn_ur[6][2]
+end, 3, "PCN", "Right Display, Digit 6, Segment 2")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_6_3", function()
+	return pcn_ur[6][3]
+end, 3, "PCN", "Right Display, Digit 6, Segment 3")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_6_4", function()
+	return pcn_ur[6][4]
+end, 3, "PCN", "Right Display, Digit 6, Segment 4")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_6_5", function()
+	return pcn_ur[6][5]
+end, 3, "PCN", "Right Display, Digit 6, Segment 5")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_6_6", function()
+	return pcn_ur[6][6]
+end, 3, "PCN", "Right Display, Digit 6, Segment 6")
+M_2000C:defineIntegerFromGetter("PCN_DISP_R_6_7", function()
+	return pcn_ur[6][7]
+end, 3, "PCN", "Right Display, Digit 6, Segment 7")
+
+-- bottom left pcn prep display
+M_2000C:defineIntegerFromGetter("PCN_DISP_PREP_1_0", function()
+	return pcn_bl[1][0]
+end, 3, "PCN", "Prep Display, Digit 1, Segment 0")
+M_2000C:defineIntegerFromGetter("PCN_DISP_PREP_1_1", function()
+	return pcn_bl[1][1]
+end, 3, "PCN", "Prep Display, Digit 1, Segment 1")
+M_2000C:defineIntegerFromGetter("PCN_DISP_PREP_1_2", function()
+	return pcn_bl[1][2]
+end, 3, "PCN", "Prep Display, Digit 1, Segment 2")
+M_2000C:defineIntegerFromGetter("PCN_DISP_PREP_1_3", function()
+	return pcn_bl[1][3]
+end, 3, "PCN", "Prep Display, Digit 1, Segment 3")
+M_2000C:defineIntegerFromGetter("PCN_DISP_PREP_1_4", function()
+	return pcn_bl[1][4]
+end, 3, "PCN", "Prep Display, Digit 1, Segment 4")
+M_2000C:defineIntegerFromGetter("PCN_DISP_PREP_1_5", function()
+	return pcn_bl[1][5]
+end, 3, "PCN", "Prep Display, Digit 1, Segment 5")
+M_2000C:defineIntegerFromGetter("PCN_DISP_PREP_1_6", function()
+	return pcn_bl[1][6]
+end, 3, "PCN", "Prep Display, Digit 1, Segment 6")
+
+M_2000C:defineIntegerFromGetter("PCN_DISP_PREP_2_0", function()
+	return pcn_bl[2][0]
+end, 3, "PCN", "Prep Display, Digit 2, Segment 0")
+M_2000C:defineIntegerFromGetter("PCN_DISP_PREP_2_1", function()
+	return pcn_bl[2][1]
+end, 3, "PCN", "Prep Display, Digit 2, Segment 1")
+M_2000C:defineIntegerFromGetter("PCN_DISP_PREP_2_2", function()
+	return pcn_bl[2][2]
+end, 3, "PCN", "Prep Display, Digit 2, Segment 2")
+M_2000C:defineIntegerFromGetter("PCN_DISP_PREP_2_3", function()
+	return pcn_bl[2][3]
+end, 3, "PCN", "Prep Display, Digit 2, Segment 3")
+M_2000C:defineIntegerFromGetter("PCN_DISP_PREP_2_4", function()
+	return pcn_bl[2][4]
+end, 3, "PCN", "Prep Display, Digit 2, Segment 4")
+M_2000C:defineIntegerFromGetter("PCN_DISP_PREP_2_5", function()
+	return pcn_bl[2][5]
+end, 3, "PCN", "Prep Display, Digit 2, Segment 5")
+M_2000C:defineIntegerFromGetter("PCN_DISP_PREP_2_6", function()
+	return pcn_bl[2][6]
+end, 3, "PCN", "Prep Display, Digit 2, Segment 6")
+
+-- bottom right pcn dest display
+M_2000C:defineIntegerFromGetter("PCN_DISP_DEST_1_0", function()
+	return pcn_br[1][0]
+end, 3, "PCN", "Dest Display, Digit 1, Segment 0")
+M_2000C:defineIntegerFromGetter("PCN_DISP_DEST_1_1", function()
+	return pcn_br[1][1]
+end, 3, "PCN", "Dest Display, Digit 1, Segment 1")
+M_2000C:defineIntegerFromGetter("PCN_DISP_DEST_1_2", function()
+	return pcn_br[1][2]
+end, 3, "PCN", "Dest Display, Digit 1, Segment 2")
+M_2000C:defineIntegerFromGetter("PCN_DISP_DEST_1_3", function()
+	return pcn_br[1][3]
+end, 3, "PCN", "Dest Display, Digit 1, Segment 3")
+M_2000C:defineIntegerFromGetter("PCN_DISP_DEST_1_4", function()
+	return pcn_br[1][4]
+end, 3, "PCN", "Dest Display, Digit 1, Segment 4")
+M_2000C:defineIntegerFromGetter("PCN_DISP_DEST_1_5", function()
+	return pcn_br[1][5]
+end, 3, "PCN", "Dest Display, Digit 1, Segment 5")
+M_2000C:defineIntegerFromGetter("PCN_DISP_DEST_1_6", function()
+	return pcn_br[1][6]
+end, 3, "PCN", "Dest Display, Digit 1, Segment 6")
+
+M_2000C:defineIntegerFromGetter("PCN_DISP_DEST_2_0", function()
+	return pcn_br[2][0]
+end, 3, "PCN", "Dest Display, Digit 2, Segment 0")
+M_2000C:defineIntegerFromGetter("PCN_DISP_DEST_2_1", function()
+	return pcn_br[2][1]
+end, 3, "PCN", "Dest Display, Digit 2, Segment 1")
+M_2000C:defineIntegerFromGetter("PCN_DISP_DEST_2_2", function()
+	return pcn_br[2][2]
+end, 3, "PCN", "Dest Display, Digit 2, Segment 2")
+M_2000C:defineIntegerFromGetter("PCN_DISP_DEST_2_3", function()
+	return pcn_br[2][3]
+end, 3, "PCN", "Dest Display, Digit 2, Segment 3")
+M_2000C:defineIntegerFromGetter("PCN_DISP_DEST_2_4", function()
+	return pcn_br[2][4]
+end, 3, "PCN", "Dest Display, Digit 2, Segment 4")
+M_2000C:defineIntegerFromGetter("PCN_DISP_DEST_2_5", function()
+	return pcn_br[2][5]
+end, 3, "PCN", "Dest Display, Digit 2, Segment 5")
+M_2000C:defineIntegerFromGetter("PCN_DISP_DEST_2_6", function()
+	return pcn_br[2][6]
+end, 3, "PCN", "Dest Display, Digit 2, Segment 6")
 
 return M_2000C

@@ -133,12 +133,10 @@ local function combine_ufc_line(left, center, right, centerStart)
 	left = Functions.coerce_nil_to_string(left)
 	right = Functions.coerce_nil_to_string(right)
 	center = Functions.coerce_nil_to_string(center)
-	local leftChars, leftSpecial
-	local rightChars, rightSpecial
-	local centerChars, centerSpecial
-	left, leftChars, leftSpecial = prepareCharsAndSpecial(left)
-	right, rightChars, rightSpecial = prepareCharsAndSpecial(right)
-	center, centerChars, centerSpecial = prepareCharsAndSpecial(center)
+
+	local _, leftChars, leftSpecial = prepareCharsAndSpecial(left)
+	local _, rightChars, rightSpecial = prepareCharsAndSpecial(right)
+	local _, centerChars, centerSpecial = prepareCharsAndSpecial(center)
 
 	local paddingSpaces = ufc_string_length - string.len(rightChars)
 
@@ -232,8 +230,8 @@ end
 
 -- UFC Active Radios
 local function determine_active_radios(line5, line6)
-	local activeUHF1 = ""
-	local activeUHF2 = ""
+	local activeUHF1
+	local activeUHF2
 
 	if line6:find("*") == 1 then
 		activeUHF1 = line6:sub(2, 4)

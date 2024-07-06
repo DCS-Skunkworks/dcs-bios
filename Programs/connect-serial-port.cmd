@@ -26,6 +26,8 @@ if "%COMPORT%" == "ASK" set /p COMPORT=Enter a COM Port Number:
 
 set /A TTYNUM=%COMPORT%-1
 if "%MODE_OUTPUT_REDIR%" == "NUL" echo Connecting to COM port %COMPORT%
+REM The DTR and RTS settings to the mode command effect whether the microcontroller restarts when the port opens.
+REM Different combinations of DTR/RTS={on|off} might be needed depending on the type of board, and whether you want it to restart.
 mode COM%COMPORT% BAUD=250000 PARITY=N DATA=8 STOP=1 TO=off DTR=off %MODE_OUTPUT_REDIR%
 timeout 5
 if "%PROTOCOL%" == "UDP" socat\socat %VERBOSE% UDP4-RECV:5010,ip-add-membership=239.255.50.10:0.0.0.0,reuseaddr!!udp-sendto:localhost:7778 /dev/ttyS%TTYNUM%

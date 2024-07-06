@@ -1,7 +1,6 @@
 module("F-16C_50", package.seeall)
 
 local Functions = require("Scripts.DCS-BIOS.lib.common.Functions")
-local Log = require("Scripts.DCS-BIOS.lib.common.Log")
 
 local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 
@@ -203,7 +202,7 @@ F_16C_50:defineToggleSwitch("UHF_DOOR", 37, 3014, 734, "UHF", "UHF Access Door, 
 
 --IFF Control Panel
 F_16C_50:defineToggleSwitch("IFF_C_I_KNB", 35, 3001, 542, "IFF", "IFF C & I Knob, UFC/BACKUP")
-F_16C_50:defineMultipositionSwitch("IFF_MASTER_KNB", 35, 3002, 540, 5, 0.1, "IFF", "IFF MASTER Knob, OFF/STBY/LOW/NORM/EMER")
+F_16C_50:defineMultipositionSwitch("IFF_MASTER_KNB", 35, 3002, 539, 5, 0.1, "IFF", "IFF MASTER Knob, OFF/STBY/LOW/NORM/EMER")
 F_16C_50:define3PosTumb("IFF_M4_CODE_SW", 35, 3003, 541, "IFF", "IFF M-4 CODE Switch, HOLD/ A/B /ZERO")
 F_16C_50:define3PosTumb("IFF_M4_REPLY_SW", 35, 3004, 543, "IFF", "IFF MODE 4 REPLY Switch, OUT/A/B")
 F_16C_50:defineToggleSwitch("IFF_M4_MONITOR_SW", 35, 3005, 544, "IFF", "IFF MODE 4 MONITOR Switch, OUT/AUDIO")
@@ -1674,7 +1673,7 @@ DEDLayout_l5["HTS_TOT"] = { 7, 10 }
 
 --DEDLayout_l5[""] = {,}
 
-DEDLayout = { DEDLayout_l1, DEDLayout_l2, DEDLayout_l3, DEDLayout_l4, DEDLayout_l5 }
+local DEDLayout = { DEDLayout_l1, DEDLayout_l2, DEDLayout_l3, DEDLayout_l4, DEDLayout_l5 }
 
 ---------------------------- DED Display Utility Functions
 local function mergeString(original_string, new_data, location)
@@ -1710,10 +1709,14 @@ local function IntToByteString(intval)
 	return string.char(retBytes[1], retBytes[2], retBytes[3], retBytes[4])
 end
 
-local OR, XOR, AND = 1, 3, 4
+local OR = 1
+-- local XOR = 3
+-- local AND = 4
 
 local function bitoper(a, b, oper)
-	local r, m, s = 0, 2 ^ 31, 0
+	local r = 0
+	local m = 2 ^ 31
+	local s
 
 	repeat
 		s, a, b = a + b + m, a % m, b % m
@@ -2010,5 +2013,9 @@ F_16C_50:defineFloat("CANOPY_LOCK", 607, { 0, 1 }, "Cockpit Mechanics", "Canopy 
 
 F_16C_50:defineReadWriteRadio("UHF_RADIO", 36, 7, 3, 1000, "UHF RADIO")
 F_16C_50:defineReadWriteRadio("VHF_RADIO", 38, 7, 3, 1000, "VHF RADIO")
+
+F_16C_50:defineFloat("STANDBY_COMPASS_HEADING", 610, { 1, 0 }, "Standby Compass", "Standby Compass Heading")
+F_16C_50:defineFloat("STANDBY_COMPASS_PITCH", 611, { -1, 1 }, "Standby Compass", "Standby Compass Pitch")
+F_16C_50:defineFloat("STANDBY_COMPASS_ROLL", 612, { -1, 1 }, "Standby Compass", "Standby Compass Roll")
 
 return F_16C_50

@@ -1,155 +1,289 @@
-# DCS-Skunkworks DCS-BIOS
+[![Contributors][contributors-shield]][contributors-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
+[![Discord][discord-shield]][discord-url]
+[![Release][release-shield]][release-url]
+![Downloads][downloads-shield]
 
-[![Static Badge](https://img.shields.io/badge/license-SimPL--2.0-green)](https://github.com/DCS-Skunkworks/dcs-bios/blob/master/LICENCE)
-[![GitHub release](https://img.shields.io/github/release/DCS-Skunkworks/dcs-bios.svg)](https://github.com/DCS-Skunkworks/dcs-bios/releases)
-[![Discord](https://img.shields.io/discord/533342958712258572)](https://discord.gg/5svGwKX)
+<br />
+<div align="center">
+  <a href="https://github.com/DCS-Skunkworks/dcs-bios">
+    <img src="https://avatars.githubusercontent.com/u/34946890?s=200&v=4" alt="Logo" width="80" height="80">
+  </a>
 
-DCS-BIOS is a ```Export.lua``` file for use with [DCS: World](http://www.digitalcombatsimulator.com).
-It provides a stable, documented interface for external hardware and software to interact with the clickable cockpit of a DCS: World aircraft.
+<h3 align="center">DCS-BIOS</h3>
 
-This version is a fork of [DCS-BIOS](https://github.com/dcs-bios/dcs-bios) created and programmed by [jboecker](https://github.com/jboecker).
-While the original repo has gone stale this is continously updated.
+  <p align="center">
+    a DCS data exporting tool
+    <br />
+    <a href="https://github.com/DCS-Skunkworks/dcs-bios/wiki"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/DCS-Skunkworks/dcs-bios/discussions">Ask a Question</a>
+    ·
+    <a href="https://github.com/DCS-Skunkworks/dcs-bios/issues/new?labels=bug&template=bug_report.md">Report Bug</a>
+    ·
+    <a href="https://github.com/DCS-Skunkworks/dcs-bios/issues/new?labels=enhancement&template=feature_request.md">Request Feature</a>
+  </p>
+</div>
 
-DCS-Skunkworks' DCS-BIOS is similar to the original DCS-BIOS before it was updated to the BIOS-HUB version.
-Fully compatible for pit builders and Arduino users.
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+      </ul>
+      <ul>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+      <ul>
+        <li><a href="#panel-builders">Panel Builders</a></li>
+      </ul>
+      <ul>
+        <li><a href="#software-developers">Software Developers</a></li>
+      </ul>
+    <li><a href="#modules">Modules</a></li>
+      <ul>
+        <li><a href="#official">Official</a></li>
+      </ul>
+      <ul>
+        <li><a href="#mods">Mods</a></li>
+      </ul>
+      <ul>
+        <li><a href="#adding-a-mod">Adding a Mod</a></li>
+      </ul>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgments">Acknowledgments</a></li>
+  </ol>
+</details>
 
+## About The Project
 
-- Release/Prerelease are mostly for the stable version of DCS.
-- DCS Beta Users should use the ```DCS-BIOS Openbeta``` nightly release. Starting a mission will generate the json files.
-- Arduino Users should download the ```Source code(zip)``` on the Release page to get all needed files
+DCS-BIOS is an `Export.lua` script for use with [DCS: World][dcs-url], enabling external hardware and software to interact with the clickable cockpit of a DCS aircraft.
 
-[Remember to look at our wiki for troubleshooting](https://github.com/DCS-Skunkworks/dcs-bios/wiki)
+> [!NOTE]
+> DCS-Skunkworks DCS-BIOS is a continuation of the [original DCS-BIOS][original-dcs-bios-url], which is no longer updated.
 
-## For Users
+## Getting Started
 
-[What do I download?](https://github.com/DCS-Skunkworks/dcs-bios/wiki/What-do-I-download%3F)
+This is an example of how you may give instructions on setting up your project locally.
+To get a local copy up and running follow these simple example steps.
 
-## For Panel Builders
+### Prerequisites
 
-You don't need to be a programmer or electrical engineer.
-The release includes a ```DCS-BIOS User Guide``` that shows you step by step on how to connect your panel to DCS using DCS-BIOS and the beginner-friendly [Arduino microcontroller platform](http://arduino.cc).
-You don't have to write any program code yourself.
+#### Find your DCS Scripts folder
 
-## For Software Developers
+Start by finding your DCS Saved Games folder. On Windows, this is likely either:
+- `C:\Users\USERNAME\Saved Games\DCS`
+- `C:\Users\USERNAME\Saved Games\DCS.openbeta`
 
-Included in the release is the ```Developer Guide``` that explains how to connect to and interpret the DCS-BIOS export data stream and how to send commands to DCS-BIOS to operate controls inside the cockpit.
+Within that folder, you find the folder called `Scripts`. Create one if it does not exist. The final path should look like:
+- `C:\Users\USERNAME\Saved Games\DCS\Scripts`
+- `C:\Users\USERNAME\Saved Games\DCS.openbeta\Scripts`
 
-## Is My Aircraft Supported?
+### Installation
+
+> [!Note]
+> The process for updating DCS-BIOS is exactly the same as installing it.
+
+1. Go to the [latest release][latest-release-url]
+2. Download `DCS-BIOS_x.y.z.zip`
+3. Extract the zip file
+4. Within the extracted folder, copy the `DCS-BIOS` folder into the previously mentioned scripts folder.
+5. **If your Scripts folder does not have an `Export.lua` file**, copy the `Export.lua` file over
+6. **If your scripts folder _does_ have an `Export.lua` file**, add the following line to the end 
+```dofile(lfs.writedir() .. [[Scripts\DCS-BIOS\BIOS.lua]])```
+
+> [!Tip]
+> Still having trouble? Check out our [wiki][wiki-url], ask a question in [Discussions][discussions-url] or get in touch on [Discord][discord-url].
+
+## Usage
+
+### Panel Builders
+
+Arduino Users should download the `Source code (zip)` on the Release page to get all needed files.
+
+You don't need to be a programmer or electrical engineer to build your own panels. The [DCS-BIOS User Guide][user-guide-url] includes step-by-step instructions on how to connect your panel to DCS using DCS-BIOS and the beginner-friendly [Arduino microcontroller platform](http://arduino.cc). You don't have to write any code yourself.
+
+#### Connect DCS-BIOS stream to your serial ports
+
+Both `socat` and [DCSBIOSBridge](dcsbiosbridge-url) can be used to connect to your device.
+
+> [!Important]
+> If using `socat`, the files in the .zip file must be unzipped directly in the socat folder. The path **must** be `/socat/socat.exe`
+
+#### Debugging
+
+If you are working a lot with hardware, it may come in handy to log and replay dcs-bios data. There are two scripts in [Programs/tools](Programs/tools/) that allow you to do so.
+
+`python connect-logger.py` will log all dcs-bios data to `dcsbios_data.json`. Ensure that you start the logger before loading a mission, to capture the mission-start message properly.
+
+`python replay-log.py` will ask for a serial port like `connect-serial-port.cmd` and replay the data to that com-port. When it reaches the end of the file, it will loop forever until you close it. The first message will not be repeated as this is usualy the mission-start message and should only be sent once.
+
+`dcsbios_data.json` This file contains the logged data in hex format. If you are familiar with the format of dcs-bios messages, you may modify the file by hand if needed. The included sample file is a recording of the A-10C with a blinking Master Caution light.
+
+### Software Developers
+
+The [Developer Guide][developer-guide-url] explains how to connect to and interpret the DCS-BIOS export data stream and how to send commands to DCS-BIOS in order to operate controls inside the cockpit.
+
+## Modules
+
+> [!Note]
+> Aircraft with multiple variants (e.g. A-10C/A-10C II, F-14A/B, etc.) are considered single modules.
 
 Currently, DCS-BIOS supports the following aircraft modules:
 
-* **A-4E-C** _(contributed by Dehuman, revised by WarLord) [get the mod here](https://github.com/heclak/community-a4e-c)
-* **A-10C / A10C-II** _(contributed by FSF-Ian, extended by WarLord) (use A-10C for All Versions)_
-* **A-29B** _(contributed by WarLord) [get the mod here](https://github.com/luizrenault/a-29b-community)
-* **AH-6J** _(contributed by WarLord) [get the mod here](https://forums.eagle.ru/showthread.php?t=267143)
-* **AH-64D** _(contributed by WarLord)_
-* **AJS-37** _(contributed by pdmarsh extended by WarLord,ArturDCS,Matchstick)_
-* **Alphajet** _(contributed by WarLord) [get the mod here](http://www.jetesons.com/telechargement.html)
-* **AV8BNA** _(contributed by WarLord,Matchstick)_
-* **Bf-109-K-4** _(contributed by ArturDCS)_
-* **C-101CC / EB** _(contributed by WarLord,cdpkobra) (use C-101 for All Versions)_
-* **Christen Eagle II** _(contributed by WarLord,cdpkobra)_
-* **Edge-540** _(contributed by WarLord) [get the mod here](http://virtualairrace.com/downloads/)
-* **Extra-330SR** _(contributed by WarLord) (use Edge-540) [get the mod here](http://virtualairrace.com/downloads/)
-* **F-14B / A** _(contributed by WarLord,ArturDCS,Bullitt) (use F-14 for All Versions)_
-* **F-15E** _(contributed by WarLord,Maverick87Shaka)_
-* **F-16C** _(contributed by WarLord,cdpkobra,Matchstick,BuzzKillington)_
-* **F-22A** _(contributed by WarLord) [get the mod here](https://grinnellidesigns.com/f22)
-* **F-5E-3** _(contributed by geebeer2, extended by WarLord)_
-* **F-86F** _(contributed by ArturDCS)_
-* **F/A-18C** _(contributed by AndrewW)_
-* **FW-190-A8** _(contributed by WarLord,MD44)_
-* **FW-190-D9** _(contributed by ArturDCS)_
-* **I-16** _(contributed by WarLord,NightStalker)_
-* **JF-17** _(contributed by WarLord,cdpkobra)_
-* **Ka-50 / Ka-50 3** _(contributed by airtom, revised by WarLord)_
-* **L-39ZA / C** _(contributed by kadda11, revised by WarLord) (use L-39 for All Versions)_
-* **M-2000C** _(contributed by Exo7,ArturDCS,Matchstick)_
-* **MB-339** _(contributed by WarLord) (use MB-339PAN for All Versions)_
-* **Mi-8** _(contributed by ArturDCS,revised by WarLord)_
-* **Mi-24P** _(contributed by WarLord,BaD CrC)_
-* **MiG-15bis** _(contributed by WarLord,Steve Gee)_
-* **MiG-19P** _(contributed by WarLord)_
-* **MiG-21Bis** _(contributed by wraith444)_
-* **Mirage F1** _(contributed by WarLord) (use Mirage F1 for All Versions)_
-* **Mosquito FB Mk.VI** _(contributed by WarLord)_
-* **NS430** _(contributed by Capt_Zeen, extended by Imp, revised by Celemourn)_
-* **P-47D** _(contributed by WarLord and Donators) (use P-47D for All Versions)_
-* **P-51D** _(contributed by pdmarsh)_
-* **Spitfire** _(revised by WarLord)_
-* **SA 342** _(all Versions; use SA342 for All)_
-* **T-45** _(contributed by WarLord) [get the mod here](https://forums.eagle.ru/topic/203816)
-* **TF-51D** _(contributed by pdmarsh, ArturDCS) (use P-51D)_
-* **UH-1H** _(contributed by FSF-Ian)_
-* **Yak-52** _(contributed by WarLord,cdpkobra)_
-* Externals for all Airplanes _(Speedbrake and Lights; Weight on Wheels Code from DeadMeat)_
-* All Flaming Cliffs 3 Modules _(FC3) (A-10A; F-15C; J-11A; MiG-29A;
-  MiG-29S; Su-25; Su-25T; Su-27; Su-33) (contributed by danvac, extended by WarLord)_
-* Superbug mod _(F-18 E+F+Growler)_
-* Mods (FC3): **VSN-Mods, PAK-FA Project, Civil Aircraft mod, Upuaut's Bell-47G, Mirage F.1, SU-30 FAMILY PROJECT, MIG-23UB Project,
-              Virtual Cockpits, AC-130**
+### Official
+| Module | Status | Contributors |
+|-|-|-|
+| A-10C/A10C-II | ✅ | _FSF-Ian, WarLord_ |
+| AH-64D | ✅ | _WarLord_ |
+| AJS-37 | ✅ | _pdmarsh, WarLord, ArturDCS, Matchstick_ |
+| AV-8B N/A | ✅ | _WarLord, Matchstick_ |
+| Bf-109-K-4 | ✅ | _ArturDCS_ |
+| C-101CC/EB | ✅ | _WarLord, cdpkobra_ |
+| Christen Eagle II | ✅ | _WarLord, cdpkobra_ |
+| F-14A/B | ✅ | _WarLord, ArturDCS, Bullitt_ |
+| F-15E | ✅ | _WarLord, Maverick87Shaka_ |
+| F-16C | ✅ | _WarLord, cdpkobra, Matchstick, BuzzKillington_ |
+| F-4E | 🚧 | _[WIP](https://github.com/DCS-Skunkworks/dcs-bios/issues/584)_ |
+| F-5E-3 | ✅ | _geebeer2, WarLord_ |
+| F-86F | ✅ | _ArturDCS_ |
+| F/A-18C | ✅ | _AndrewW_ |
+| Fw 190 A-8 | ✅ | _WarLord, MD44_ |
+| Fw 190 D-9 | ✅ | _ArturDCS_ |
+| I-16 | ✅ | _WarLord, NightStalker_ |
+| JF-17 | ✅ | _WarLord, cdpkobra_ |
+| Ka-50/Ka-50 3 | ✅ | _airtom, WarLord_ |
+| L-39ZA/C | ✅ | _kadda11, WarLord_ |
+| M-2000C | ✅ | _Exo7, ArturDCS, Matchstick_ |
+| MB-339 | ✅ | _WarLord_ |
+| Mi-8MTV2 | ✅ | _ArturDCS, WarLord_ |
+| Mi-24P | ✅ | _WarLord, BaD CrC_ |
+| MiG-15bis | ✅ | _WarLord, Steve Gee_ |
+| MiG-19P | ✅ | _WarLord_ |
+| MiG-21Bis | ✅ | _wraith444_ |
+| Mirage F1 | ✅ | _WarLord_ |
+| Mosquito FB Mk.VI | ✅ | _WarLord_ |
+| OH-58D | 🚧 | _[WIP](https://github.com/DCS-Skunkworks/dcs-bios/issues/724)_ |
+| P-47D | ✅ | _WarLord, Donators_ |
+| P-51D/TF-51D | ✅ | _pdmarsh_ |
+| Spitfire LF Mk. IX | ✅ | _WarLord_ |
+| SA342 | ✅ |  |
+| UH-1H | ✅ | _FSF-Ian_ |
+| Yak-52 | ✅ | _WarLord, cdpkobra_ |
+| Flaming Cliffs (all modules) | ✅ | _danvac, WarLord_ |
 
-  Always use the latest version of the Mods!
+### Full-Fidelity Mods
 
-If you want to add support for another module, please get in touch.(see below)
+| Module | Status | Contributors | Link |
+|-|-|-|-|
+| A-4E-C | ✅ | _Dehuman, revised by WarLord_ | [GitHub](https://github.com/heclak/community-a4e-c) |
+| A-29B | ✅ | _WarLord_ | [GitHub](https://github.com/luizrenault/a-29b-community) |
+| AH-6J | ✅ | _WarLord_ | [DCS Forums](https://forum.dcs.world/topic/228394-helicopter-efm-demo) |
+| Alphajet | ✅ | _WarLord_ | [Developer](http://www.jetesons.com/telechargement.html) |
+| Edge-540/Extra-330SR | ✅ | _WarLord_ | [Developer](http://virtualairrace.com/downloads/) |
+| F-18E/F/G | ✅ |  | [DCS Forums](https://forum.dcs.world/topic/316971-cjs-super-hornet-community-mod-v23-official-thread/) |
+| F-22A | ✅ | _WarLord_ | [Developer](https://grinnellidesigns.com/f22) |
+| T-45 | ✅ | _WarLord_ | [DCS Forums](https://forum.dcs.world/topic/203816-vnao-t-45-goshawk/) |
 
-## For Hardware Developers
+### Flaming Cliffs Mods
+- AC-130
+- Civil Aircraft mod
+- MIG-23UB Project
+- Mirage F.1
+- PAK-FA Project
+- SU-30 FAMILY PROJECT
+- Upuaut's Bell-47G
+- Virtual Cockpits
+- VSN-Mods
 
-If you are working a lot with hardware, it may come in handy to log and replay dcs-bios data. There are two scripts in ```\Programs\tools``` that allow you to do so.
 
-```python connect-logger.py``` will log all dcs-bios data to ```dcsbios_data.json```. Ensure that you start the logger before loading a mission, to capture the mission-start message properly.
+### Adding a Mod
 
-```python replay-log.py``` will ask for a serial port like ```connect-serial-port.cmd``` and replay the data to that com-port. When it reaches the end of the file, it will loop forever until you close it. The first message will not be repeated as this is usualy the mission-start message and should only be sent once.
+DCS-BIOS supports many community mods out-of-the-box.
 
-```dcsbios_data.json``` This file contains the logged data in hex format. If you are familiar with the format of dcs-bios messages, you may modify the file by hand if needed. The included sample file is a recording of the A-10C with a blinking Master Caution light.
+In order to a Flaming-Cliffs-based mod which is not supported by DCS-BIOS, add the following to the bottom of `DCS-BIOS/lib/AircraftList.lua`:
 
-## Mod Support
+```lua
+add("PlaneName", false)
+```
+> [!Tip]
+> To get the correct plane name, open the DCS-BIOS Reference Tool (`MetadataStart`) while you fly that plane and look what value `_ACFT_NAME` has.
 
-If you want to add a FC3 based mod (eg. VSN_Mod Planes) for commondata support, you must follow
-these instructions:
+> [!Important]
+> Please consider submitting a pull request to add support for the module to DCS-BIOS for all users!
 
-Add at the bottom in ```\DCS-BIOS\lib\AircraftList.lua``` the entry :
 
-```a("PlaneName", false)```
+## Contributing
 
-To get the correct plane name, open the DCS-BIOS Reference Tool (```MetadataStart```) while you fly that plane and look what value ```_ACFT_NAME``` has.
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-## Connect DCS-BIOS stream to your serial ports
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You may also simply [open an issue][issues-url].
 
-You can use either ```socat``` or ```DCSBIOSBridge```.
+Please see [Contributing.md][contributing-url] for more information.
 
-### DCSBIOSBridge
-[Download here](https://github.com/DCS-Skunkworks/DCSBIOSBridge/releases)
+> [!Important]
+> If you plan on submitting a pull request, **please** read the Contributing Guide first.
 
-### socat
-There are 2 socat versions, 32 and 64 bit. Choose that version that fits best for you.
-The files in the zip File must be unzipped direct in the socat folder.
+## License
 
-  The path must be: /socat/socat.exe
+Distributed under the `GPL 3.0` license. See [LICENSE][license-url] for more information.
 
-## Video Tutorials
+The [original DCS-BIOS][original-dcs-bios-url] was created by [FSF]Ian under the `SimPL 2.0` license.
 
-[DCS-BIOS Channel on Youtube](https://www.youtube.com/channel/UCwECFPfC3QJiNYS5fskF2vg/)
+The copy of `socat` that comes with DCS-BIOS is licensed under `GPL 2.0` (see [Programs/socat/COPYING](Programs/socat/COPYING)).
 
-## Contribute
+## Contact
 
-If you have a question or found a bug, please [open an issue on the GitHub issue tracker](https://github.com/DCS-Skunkworks/dcs-bios/issues).
+For questions, consider asking in our [Discussions][discussions-url] page, or reach out to us on [Discord][discord-url].
 
-If you want to contribute code or documentation, please send a pull request on GitHub.
+## Acknowledgments
 
-### License
+- [Original DCS-BIOS][original-dcs-bios-url]
+- [Best-README-Template](https://github.com/othneildrew/Best-README-Template)
+- [luacheck](https://github.com/lunarmodules/luacheck)
+- [LuaUnit](https://github.com/bluebird75/luaunit)
+- [StyLua](https://github.com/JohnnyMorganz/StyLua)
+- [lua-language-server](https://github.com/LuaLS/lua-language-server)
 
-The [original DCS-BIOS](https://github.com/dcs-bios/dcs-bios) was created by [FSF]Ian.
+## Related Projects
 
-DCS-BIOS is released under a slightly modified ```Simple Public License 2.0``` (think "a version of the GPL readable by mere mortals"). Please see the file ```LICENSE```.
+- [Arduino Library](https://github.com/DCS-Skunkworks/dcs-bios-arduino-library)
+- [Arduino Examples](https://github.com/DCS-Skunkworks/dcs-bios-arduino_examples)
+- [Bort DCS-BIOS Reference Tool](https://github.com/DCS-Skunkworks/bort)
+- [BIOSBuddy DCS-BIOS Reference Tool](https://github.com/DCS-Skunkworks/biosbuddy)
+- [DCS-BIOS Bridge](https://github.com/DCS-Skunkworks/dcsbiosbridge)
 
-The copy of `socat` that comes with DCS-BIOS is licensed under the ```GPLv2``` (see `/Programs/socat/COPYING`).
 
-## Support
+[contributors-shield]: https://img.shields.io/github/contributors/DCS-Skunkworks/dcs-bios.svg?style=for-the-badge
+[contributors-url]: https://github.com/DCS-Skunkworks/dcs-bios/graphs/contributors
+[issues-shield]: https://img.shields.io/github/issues/DCS-Skunkworks/dcs-bios.svg?style=for-the-badge
+[issues-url]: https://github.com/DCS-Skunkworks/dcs-bios/issues
+[license-shield]: https://img.shields.io/github/license/DCS-Skunkworks/dcs-bios.svg?style=for-the-badge
+[license-url]: https://github.com/DCS-Skunkworks/dcs-bios/blob/master/LICENSE
+[release-shield]: https://img.shields.io/github/release/DCS-Skunkworks/dcs-bios.svg?style=for-the-badge
+[release-url]: https://github.com/DCS-Skunkworks/dcs-bios/releases
+[discord-shield]: https://img.shields.io/discord/533342958712258572?style=for-the-badge
+[discord-url]: https://discord.gg/5svGwKX
+[downloads-shield]: https://img.shields.io/github/downloads/DCS-Skunkworks/dcs-bios/total?style=for-the-badge
 
-* [DCS-Skunkworks Discord Server](https://discord.gg/5svGwKX)
-* [Arduino Library](https://github.com/DCS-Skunkworks/dcs-bios-arduino-library)
-* [Arduino Examples](https://github.com/DCS-Skunkworks/dcs-bios-arduino_examples)
-* [Bort DCS-BIOS Reference Tool](https://github.com/DCS-Skunkworks/bort)
-* [BIOSBuddy DCS-BIOS Reference Tool](https://github.com/DCS-Skunkworks/biosbuddy)
-* [DCS-BIOS Bridge](https://github.com/DCS-Skunkworks/dcsbiosbridge)
+[dcs-url]: http://www.digitalcombatsimulator.com
+[original-dcs-bios-url]: https://github.com/dcs-bios/dcs-bios
+[latest-release-url]: https://github.com/DCS-Skunkworks/dcs-bios/releases/latest
+[wiki-url]: https://github.com/DCS-Skunkworks/dcs-bios/wiki/
+[discussions-url]: https://github.com/DCS-Skunkworks/dcs-bios/discussions/
+[user-guide-url]: https://github.com/DCS-Skunkworks/dcs-bios/blob/master/Scripts/DCS-BIOS/doc/userguide.adoc
+[dcsbiosbridge-url]: https://github.com/DCS-Skunkworks/DCSBIOSBridge/releases
+[developer-guide-url]: https://github.com/DCS-Skunkworks/dcs-bios/blob/master/Scripts/DCS-BIOS/doc/developerguide.adoc
+[contributing-url]: https://github.com/DCS-Skunkworks/dcs-bios/blob/master/CONTRIBUTING.md
+

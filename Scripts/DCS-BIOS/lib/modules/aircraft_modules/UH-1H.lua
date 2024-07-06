@@ -303,10 +303,10 @@ UH_1H:definePotentiometer("ADI_PITCH_TRIM", 5, 3002, 144, { -1, 1 }, "Front Dash
 UH_1H:defineRotary("ALT_ADJ_CPLT", 19, 3001, 172, "Front Dash", "Copilot Altimeter Pressure Adjustment")
 UH_1H:defineRotary("ALT_ADJ_PLT", 18, 3001, 181, "Front Dash", "Pilot Altimeter Pressure Adjustment")
 
-UH_1H:definePushButton("VHFCOMM_TEST_SW", 20, 3002, 6, "VHF COMM Radio", "Communication Test Button")
+UH_1H:definePushButton("VHFCOMM_TEST_SW", 20, 3002, 6, "VHF COMM Radio", "VHF Communication Test Button")
 
-UH_1H:defineTumb("VHFCOMM_PWR", 20, 3001, 5, 0.15, { 0.85, 1.0 }, nil, false, "VHF COMM Radio", "Power")
-local vhf_comm_vol = UH_1H:definePotentiometer("VHFCOMM_VOL", 20, 3003, 9, { 0, 0.65 }, "VHF COMM Radio", "Volume Control (step size less than 8192 may not work)")
+UH_1H:defineTumb("VHFCOMM_PWR", 20, 3001, 5, 0.15, { 0.85, 1.0 }, nil, false, "VHF COMM Radio", "VHF Power")
+local vhf_comm_vol = UH_1H:definePotentiometer("VHFCOMM_VOL", 20, 3003, 9, { 0, 0.65 }, "VHF COMM Radio", "VHF Volume Control (step size less than 8192 may not work)")
 local vhf_comm_vol_var_step_input = vhf_comm_vol.inputs[2] --[[@as VariableStepInput]]
 vhf_comm_vol_var_step_input.suggested_step = 8192
 
@@ -332,7 +332,7 @@ UH_1H:defineMultipositionSwitch("INT_MODE", 21, 3008, 30, 6, 0.1, "Intercom Pane
 
 UH_1H:defineToggleSwitch("RADIO_ICS_SW", 21, 3009, 194, "Cyclic", "Radio/ICS Switch")
 
-UH_1H:defineTumb("UHF_PRESET", 22, 3001, 16, 0.05, { 0, 0.95 }, { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" }, false, "UHF Radio", "Preset Channel Selector")
+UH_1H:defineTumb("UHF_PRESET", 22, 3001, 16, 0.05, { 0, 0.95 }, { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" }, false, "UHF Radio", "UHF Preset Channel Selector")
 
 local function getUhfFreq(dev0)
 	local function a(n)
@@ -345,18 +345,18 @@ UH_1H:defineString("UHF_FREQ", getUhfFreq, 6, "UHF Radio", "UHF Frequency")
 UH_1H:defineFixedStepInput("UHF_10MHZ", 22, 3002, { 0.1, -0.1 }, "UHF Radio", "UHF 10 MHz Selector") --18
 UH_1H:defineFixedStepInput("UHF_1MHZ", 22, 3003, { 0.1, -0.1 }, "UHF Radio", "UHF 1 MHz Selector") --19
 UH_1H:defineFixedStepInput("UHF_50KHZ", 22, 3004, { 0.1, -0.1 }, "UHF Radio", "UHF 50 KHz Selector") --20
-UH_1H:defineMultipositionSwitch("UHF_MODE", 22, 3005, 15, 3, 0.1, "UHF Radio", "Frequency Mode Select")
-UH_1H:defineMultipositionSwitch("UHF_FUNCTION", 22, 3006, 17, 4, 0.1, "UHF Radio", "Function Dial")
-UH_1H:defineToggleSwitch("UHF_SQUELCH_SW", 22, 3007, 22, "UHF Radio", "Squelch Switch")
-UH_1H:definePotentiometer("UHF_VOL", 22, 3008, 21, { 0, 1 }, "UHF Radio", "Volume Control")
+UH_1H:defineMultipositionSwitch("UHF_MODE", 22, 3005, 15, 3, 0.1, "UHF Radio", "UHF Frequency Mode Select")
+UH_1H:defineMultipositionSwitch("UHF_FUNCTION", 22, 3006, 17, 4, 0.1, "UHF Radio", "UHF Function Dial")
+UH_1H:defineToggleSwitch("UHF_SQUELCH_SW", 22, 3007, 22, "UHF Radio", "UHF Squelch Switch")
+UH_1H:definePotentiometer("UHF_VOL", 22, 3008, 21, { 0, 1 }, "UHF Radio", "UHF Volume Control")
 
-UH_1H:defineTumb("VHFFM_FREQ1", 23, 3001, 31, 0.1, { 0.3, 0.7 }, { "3", "4", "5", "6", "7" }, false, "VHF FM Radio", "Frequency Tens of MHz")
-UH_1H:defineTumb("VHFFM_FREQ2", 23, 3002, 32, 0.1, { 0.0, 0.9 }, nil, false, "VHF FM Radio", "Frequency 1 MHz")
-UH_1H:defineTumb("VHFFM_FREQ3", 23, 3003, 33, 0.1, { 0.0, 0.9 }, nil, false, "VHF FM Radio", "Frequency Decimals MHz")
-UH_1H:defineTumb("VHFFM_FREQ4", 23, 3004, 34, 0.1, { 0.0, 0.1 }, { "0", "5" }, false, "VHF FM Radio", "Frequency Hundreds of MHz")
-UH_1H:defineMultipositionSwitch("VHFFM_MODE", 23, 3007, 35, 4, 0.1, "VHF FM Radio", "Mode Dial: OFF / T/R / RETRAN / HOME")
-UH_1H:defineTumb("VHFFM_SQUELCH", 23, 3005, 36, 0.1, { 0, 0.2 }, nil, false, "VHF FM Radio", "Squelch Mode: DIS / CARR / TONE")
-UH_1H:definePotentiometer("VHFFM_VOL", 23, 3006, 37, { 0.3, 1 }, "VHF FM Radio", "Volume Control")
+UH_1H:defineTumb("VHFFM_FREQ1", 23, 3001, 31, 0.1, { 0.3, 0.7 }, { "3", "4", "5", "6", "7" }, false, "VHF FM Radio", "VHF FM Frequency Tens of MHz")
+UH_1H:defineTumb("VHFFM_FREQ2", 23, 3002, 32, 0.1, { 0.0, 0.9 }, nil, false, "VHF FM Radio", "VHF FM Frequency 1 MHz")
+UH_1H:defineTumb("VHFFM_FREQ3", 23, 3003, 33, 0.1, { 0.0, 0.9 }, nil, false, "VHF FM Radio", "VHF FM Frequency Decimals MHz")
+UH_1H:defineTumb("VHFFM_FREQ4", 23, 3004, 34, 0.1, { 0.0, 0.1 }, { "0", "5" }, false, "VHF FM Radio", "VHF FM Frequency Hundreds of MHz")
+UH_1H:defineMultipositionSwitch("VHFFM_MODE", 23, 3007, 35, 4, 0.1, "VHF FM Radio", "VHF FM Mode Dial: OFF / T/R / RETRAN / HOME")
+UH_1H:defineTumb("VHFFM_SQUELCH", 23, 3005, 36, 0.1, { 0, 0.2 }, nil, false, "VHF FM Radio", "VHF FM Squelch Mode: DIS / CARR / TONE")
+UH_1H:definePotentiometer("VHFFM_VOL", 23, 3006, 37, { 0.3, 1 }, "VHF FM Radio", "VHF FM Volume Control")
 
 UH_1H:defineTumb("VHFNAV_PWR", 25, 3003, 51, 0.1, { 0.8, 1.0 }, nil, false, "VHF NAV Radio", "VHF NAV Off / On / Test")
 
@@ -371,7 +371,7 @@ UH_1H:defineString("VHFNAV_FREQ", getVhfNavFreq, 6, "VHF NAV Radio", "VHF NAV Fr
 UH_1H:defineFixedStepTumb("VHFNAV_MHZ", 25, 3001, 52, 0.1, { 0, 1 }, { 0.1, -0.1 }, nil, "VHF NAV Radio", "VHF NAV MHz Selector")
 UH_1H:defineFixedStepTumb("VHFNAV_KHZ", 25, 3002, 53, 0.1, { 0, 1 }, { 0.1, -0.1 }, nil, "VHF NAV Radio", "VHF NAV KHz Selector")
 
-local vhf_nav_vol = UH_1H:definePotentiometer("VHFNAV_VOL", 25, 3004, 54, { 0, 0.65 }, "VHF NAV Radio", "Volume Control (step size less than 8192 may not work)")
+local vhf_nav_vol = UH_1H:definePotentiometer("VHFNAV_VOL", 25, 3004, 54, { 0, 0.65 }, "VHF NAV Radio", "VHF NAV Volume Control (step size less than 8192 may not work)")
 local vhf_nav_vol_var_step_input = vhf_nav_vol.inputs[2] --[[@as VariableStepInput]]
 vhf_nav_vol_var_step_input.suggested_step = 8192
 

@@ -150,7 +150,7 @@ function Logger:log_table(level, tab, max_depth, max_bytes_to_log)
 	self.bytes_logged = 0
 	self.max_bytes_to_log = max_bytes_to_log or default_log_size_limit
 	max_depth = max_depth or default_max_depth
-	local return_code, buffer = self:dump_table(tab, max_depth)
+	local _, buffer = self:dump_table(tab, max_depth)
 	self:log_simple(level, "\n" .. buffer .. "\n")
 end
 
@@ -164,9 +164,8 @@ function Logger:dump_table(tab, max_depth)
 	--- Recursive table dump
 	--- @param tablex table
 	--- @param depth number
-	--- @param max_depth number
 	--- @return number, string
-	local function log_tablex(tablex, depth, max_depth)
+	local function log_tablex(tablex, depth)
 		local return_value = 0
 		local return_buffer = ""
 
@@ -192,7 +191,7 @@ function Logger:dump_table(tab, max_depth)
 					self.bytes_logged = self.bytes_logged + string.len(str)
 					return_buffer = return_buffer .. "\n" .. str
 					local tmp_buffer
-					return_value, tmp_buffer = log_tablex(v, depth + 1, max_depth)
+					return_value, tmp_buffer = log_tablex(v, depth + 1)
 					if tmp_buffer ~= nil then
 						return_buffer = return_buffer .. tmp_buffer
 					end
@@ -205,7 +204,7 @@ function Logger:dump_table(tab, max_depth)
 		end
 		return return_value, return_buffer
 	end
-	local result_code, result_buffer = log_tablex(tab, 0, max_depth)
+	local result_code, result_buffer = log_tablex(tab, 0)
 	return result_code, result_buffer
 end
 
@@ -221,7 +220,7 @@ function Logger:log_table_indexes(tab)
 
 	local output = "Indexes :\n"
 
-	for k, v in pairs(tab) do
+	for k, _ in pairs(tab) do
 		if k ~= nil then
 			if type(k) == "string" or type(k) == "number" then
 				output = output .. k .. "\n"
@@ -246,7 +245,6 @@ function Logger:log_array(array)
 		return
 	end
 
-	local padLength = 20
 	local output = "Array :\n"
 	for k, v in pairs(array) do
 		if k ~= nil then

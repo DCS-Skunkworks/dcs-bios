@@ -11,15 +11,6 @@ local Protocol = {
 	exportModules = {},
 }
 
--- _G.BIOS.protocol = Protocol -- set global for legacy module compatibility
-
---- @deprecated
---- Sets the modules to export for `moduleBeingDefined`. Legacy modules only.
---- @param acftList string[]
-function Protocol.setExportModuleAircrafts(acftList)
-	Protocol.set_export_module_aircraft(_G.moduleBeingDefined.name, acftList)
-end
-
 --- @private
 --- @param name string the name of the module to set export aircraft for
 --- @param acftList string[]
@@ -49,33 +40,11 @@ function Protocol.aircraft_names_to_modules()
 	return aircraftNameToModules
 end
 
---- @deprecated
---- Legacy function which initializes the global variable `moduleBeingDefined`. For use in legacy modules.
----@param name string
----@param baseAddress integer
-function Protocol.beginModule(name, baseAddress)
-	_G.moduleBeingDefined = {
-		name = name,
-		documentation = {},
-		inputProcessors = {},
-		memoryMap = BIOS.util.MemoryMap:create({ baseAddress = baseAddress }),
-		exportHooks = {},
-	}
-
-	Protocol.exportModules[name] = _G.moduleBeingDefined
-end
-
---- @deprecated
---- Writes the json for `moduleBeingDefined`. For legacy modules .
-function Protocol.endModule()
-	Protocol.write_module_json(_G.moduleBeingDefined)
-end
-
 --- @private
 --- Writes the json for a given module
 --- @param module Module the module to write
 function Protocol.write_module_json(module)
-	module = module or _G.moduleBeingDefined -- legacy behavior
+	module = module
 
 	if BIOSConfig.dev_mode then
 		local function saveDoc()
@@ -108,9 +77,9 @@ function Protocol.saveAddresses()
 			end
 		end
 
-		for moduleName, export_module in pairs(Protocol.exportModules) do
+		for _, export_module in pairs(Protocol.exportModules) do
 			for _, category in pairs(export_module.documentation) do
-				for identifier, args in pairs(category) do
+				for _, args in pairs(category) do
 					local outputs = args.outputs or {}
 					for _, output in ipairs(outputs) do
 						-- we redefine here for a few legacy plane controls using BIOS.util.defineTumb
@@ -153,7 +122,7 @@ function Protocol.saveAddresses()
 
 		-- Write the header file
 		local address_header_file, err = io.open(lfs.writedir() .. [[Scripts/DCS-BIOS/doc/Addresses.h]], "w")
-		if err then
+		if err or not address_header_file then
 			print("Error opening file:", err) -- Print error if unable to open file
 			return
 		else
