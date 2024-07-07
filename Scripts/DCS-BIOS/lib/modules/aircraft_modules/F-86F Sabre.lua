@@ -100,7 +100,7 @@ F_86F_Sabre:definePushButton("SLAVE_FAST", 20, 3003, 598, "Gyro Compass", "Direc
 F_86F_Sabre:defineToggleSwitch("J8_ATT_CAGE", 24, 3001, 714, "Attitude Indicator", "J-8 Attitude Indicator Cage Knob - Pull to cage")
 F_86F_Sabre:definePushButton("ACC_RST", 12, 3001, 1004, "Cockpit", "Accelerometer Reset Button - Push to reset")
 F_86F_Sabre:definePushButton("A4_SIGHT_CAGE", 22, 3025, 212, "Throttle", "A-4 Sight Electrical Caging Button")
-F_86F_Sabre:defineToggleSwitch("A4_SIGHT_FIL_SEL", 22, 3015, 642, "Cockpit", "A-4 Sight Filament Selector Switch, SECONDARY/PRIMARY")
+F_86F_Sabre:defineTumb("A4_SIGHT_FIL_SEL", 22, 3015, 642, 2, { -1, 1 }, nil, false, "Cockpit", "A-4 Sight Filament Selector Switch, SECONDARY/PRIMARY")
 F_86F_Sabre:defineTumb("DEM_BMB_REL_SEL", 5, 3006, 639, 2, { -1, 1 }, nil, false, "Cockpit", "Demolition Bomb Release Selector Switch, AUTO RELEASE/MANUAL RELEASE")
 F_86F_Sabre:defineTumb("DEM_BMB_SEQ_SEL", 5, 3008, 752, 0.1, { 0, 0.5 }, nil, false, "Cockpit", "Demolition Bomb Sequence Selector Switch, ALL/OFF/LEFT/RIGHT")
 F_86F_Sabre:defineTumb("RKT_JETT", 5, 3012, 637, 2, { -1, 1 }, nil, false, "Cockpit", "Rocket Jettison Switch, READY/OFF")
@@ -359,11 +359,12 @@ local function getHDG(dev0)
 end
 F_86F_Sabre:defineIntegerFromGetter("HEADING_VALUE", getHDG, 65000, "Gauge Values", "Heading Value")
 
-local function getVVI(dev0)
-	local value = dev0:get_argument_value(24)
-	return (-1319.8 * value ^ 5) + (0.00000005 * value ^ 4) + (4334.8 * value ^ 3) + (0.0000002 * value ^ 2) + (2988.1 * value) + 0.0000001
-end
-F_86F_Sabre:defineIntegerFromGetter("VVI_VALUE", getVVI, 65000, "Gauge Values", "Verticl Velocity VVI")
+-- local function getVVI(dev0)
+-- 	local value = dev0:get_argument_value(24)
+-- 	return (-1319.8 * value ^ 5) + (0.00000005 * value ^ 4) + (4334.8 * value ^ 3) + (0.0000002 * value ^ 2) + (2988.1 * value) + 0.0000001
+-- end
+-- F_86F_Sabre:defineIntegerFromGetter("VVI_VALUE", getVVI, 65000, "Gauge Values", "Verticl Velocity VVI")
+F_86F_Sabre:reserveIntValue(65000) -- negatives can't be sent, so this control serves no purpose
 
 F_86F_Sabre:defineIndicatorLight("RADAR_TGT_L", 618, "Lamps", "Radar Target Indicator Light (red)")
 F_86F_Sabre:defineIndicatorLight("BOMB_FRAG_L", 619, "Weapon System Lights", "Fragmentation Bombs Indicator Light (red)")
