@@ -237,6 +237,10 @@ F_4E:definePushButton("PLT_ARC_164_TONE", ARC_164_DEVICE_ID, 3027, 1377, PILOT_A
 F_4E:defineMultipositionRollerLimited("PLT_ARC_164_MODE", ARC_164_DEVICE_ID, 3004, 122, 6, PILOT_ARC_164, "Select Radio Mode")
 F_4E:definePotentiometer("PLT_ARC_164_AUX_VOLUME", ARC_164_DEVICE_ID, 3012, 139, { 0, 1 }, PILOT_ARC_164, "Change AUX Volume")
 
+F_4E:defineString("PLT_ARC_164_CHANNEL_DISPLAY", function(_)
+	return Module.parse_indication(9)["freq_foreground"]
+end, 2, PILOT_ARC_164, "UHF Channel Display")
+
 local WSO_ARC_164 = "WSO ARC-164"
 
 F_4E:definePushButton("WSO_ARC_164_TOGGLE_COMMAND", ARC_164_DEVICE_ID, 3013, 144, WSO_ARC_164, "Toggle Radio Command")
@@ -263,6 +267,10 @@ F_4E:defineToggleSwitch("WSO_ARC_164_FREQ_MODE", ARC_164_DEVICE_ID, 3030, 147, W
 F_4E:definePushButton("WSO_ARC_164_TONE", ARC_164_DEVICE_ID, 3031, 2523, WSO_ARC_164, "Tone Button")
 F_4E:defineMultipositionRollerLimited("WSO_ARC_164_MODE", ARC_164_DEVICE_ID, 3015, 2031, 6, WSO_ARC_164, "Select Radio Mode")
 F_4E:definePotentiometer("WSO_ARC_164_AUX_VOLUME", ARC_164_DEVICE_ID, 3023, 164, { 0, 1 }, WSO_ARC_164, "Change AUX Volume")
+
+F_4E:defineString("WSO_ARC_164_CHANNEL_DISPLAY", function(_)
+	return Module.parse_indication(10)["freq_foreground"]
+end, 2, WSO_ARC_164, "UHF Channel Display")
 
 -- IFF
 local IFF_DEVICE_ID = 4
