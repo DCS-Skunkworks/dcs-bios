@@ -2163,7 +2163,17 @@ F_4E:defineInputOnlyPushButton("WSO_JESTER_OPTION_RIGHT", JESTER_WHEEL_DEVICE_ID
 F_4E:defineInputOnlyPushButton("WSO_JESTER_UI_ACTION", JESTER_WHEEL_DEVICE_ID, 3152, WSO_JESTER_WHEEL, "Jester UI Action (short, hold)")
 
 -- Grease Pencil
--- local GREASE_PENCIL_DEVICE_ID = 82
+local GREASE_PENCIL_DEVICE_ID = 82
+
+-- Pilot Grease Pencil
+local PILOT_GREASE_PENCIL = "PLT Grease Pencil"
+
+F_4E:defineToggleSwitch("PLT_GREASE_PENCIL", GREASE_PENCIL_DEVICE_ID, 3001, 3036, PILOT_GREASE_PENCIL, "Hide/Show Grease Pencil")
+
+-- WSO Grease Pencil
+local WSO_GREASE_PENCIL = "WSO Grease Pencil"
+
+F_4E:defineToggleSwitch("WSO_GREASE_PENCIL", GREASE_PENCIL_DEVICE_ID, 3003, 3037, WSO_GREASE_PENCIL, "Hide/Show Grease Pencil")
 
 -- Circuit Breakers
 -- local CIRCUIT_BREAKERS_DEVICE_ID = 84
