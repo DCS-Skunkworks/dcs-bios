@@ -1,5 +1,10 @@
 module("F-4E", package.seeall)
 
+local ActionArgument = require("Scripts.DCS-BIOS.lib.modules.documentation.ActionArgument")
+local ActionInput = require("Scripts.DCS-BIOS.lib.modules.documentation.ActionInput")
+local Control = require("Scripts.DCS-BIOS.lib.modules.documentation.Control")
+local ControlType = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlType")
+
 local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 
 --- @class F_4E: Module
@@ -80,6 +85,28 @@ end
 --- @param description string additional information about the control
 function F_4E:defineSpringloaded3PosTumb(identifier, device_id, command, arg_number, category, description)
 	self:defineSpringloaded_3PosTumb(identifier, device_id, command, command, arg_number, category, description)
+end
+
+--- Adds a push button with no outputs
+--- @param identifier string the unique identifier for the control
+--- @param device_id integer the dcs device id
+--- @param command integer the dcs command to move the switch up or down
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+function F_4E:defineInputOnlyPushButton(identifier, device_id, command, category, description)
+	local control = Control:new(category, ControlType.action, identifier, description, {
+		ActionInput:new(ActionArgument.toggle, "Triggers the action"),
+	}, {})
+
+	self:addControl(control)
+
+	self:addInputProcessor(identifier, function(action)
+		local dev = GetDevice(device_id)
+		if dev and action == ActionArgument.toggle then
+			dev:performClickableAction(command, 1)
+			dev:performClickableAction(command, 0)
+		end
+	end)
 end
 
 -- helper functions
@@ -1826,7 +1853,7 @@ local PILOT_EJECTION_SEAT = "PLT Ejection Seat"
 
 F_4E:defineToggleSwitch("PLT_EJECT_SIGNAL", EJECTION_SEAT_DEVICE_ID, 3002, 2834, PILOT_EJECTION_SEAT, "Signal Ejection To WSO")
 F_4E:defineIndicatorLight("PLT_EJECT_LIGHT", 2835, PILOT_EJECTION_SEAT, "Eject Lamp (Red)")
-F_4E:definePushButton("PLT_EJECT_INSTANT", EJECTION_SEAT_DEVICE_ID, 3005, 0, PILOT_EJECTION_SEAT, "Eject (Single Press)") -- draw arg 0 - no output
+F_4E:defineInputOnlyPushButton("PLT_EJECT_INSTANT", EJECTION_SEAT_DEVICE_ID, 3005, PILOT_EJECTION_SEAT, "Eject (Single Press)") -- draw arg 0 - no output
 
 -- WSO Ejection Seat
 local WSO_EJECTION_SEAT = "WSO Ejection Seat"
@@ -1834,7 +1861,7 @@ local WSO_EJECTION_SEAT = "WSO Ejection Seat"
 F_4E:defineToggleSwitch("WSO_EJECT_SELECTOR", EJECTION_SEAT_DEVICE_ID, 3001, 995, WSO_EJECTION_SEAT, "Ejection Command Selector (vert: WSO, horz: Both)")
 F_4E:definePushButton("WSO_EJECT_LIGHT_TEST", EJECTION_SEAT_DEVICE_ID, 3003, 2836, WSO_EJECTION_SEAT, "Eject Light (push to test)")
 F_4E:defineIndicatorLight("WSO_EJECT_LIGHT", 2837, WSO_EJECTION_SEAT, "Eject Lamp (Red)")
-F_4E:definePushButton("WSO_EJECT_INSTANT", EJECTION_SEAT_DEVICE_ID, 3007, 0, WSO_EJECTION_SEAT, "Eject (Single Press)") -- draw arg 0 - no output
+F_4E:defineInputOnlyPushButton("WSO_EJECT_INSTANT", EJECTION_SEAT_DEVICE_ID, 3007, WSO_EJECTION_SEAT, "Eject (Single Press)") -- draw arg 0 - no output
 
 -- Interior Lights
 local INTERIOR_LIGHTS_DEVICE_ID = 72
@@ -1966,7 +1993,174 @@ F_4E:defineString("WSO_COURSE_INDICATOR_DISTANCE", function(dev0)
 end, 3, WSO_COURSE_INDICATOR, "Distance Drum")
 
 -- Jester Wheel
--- local JESTER_WHEEL_DEVICE_ID = 78
+local JESTER_WHEEL_DEVICE_ID = 78
+
+-- Pilot Jester Commands
+local PILOT_JESTER_WHEEL = "PLT Jester Wheel"
+
+F_4E:defineInputOnlyPushButton("PILOT_JESTER_OPTION_BACK", JESTER_WHEEL_DEVICE_ID, 3003, PILOT_JESTER_WHEEL, "Jester UI Back")
+F_4E:defineInputOnlyPushButton("PILOT_JESTER_OPTION_NAV_HOME", JESTER_WHEEL_DEVICE_ID, 3201, PILOT_JESTER_WHEEL, "Jester UI Navigate To Main Menu")
+F_4E:defineInputOnlyPushButton("PILOT_JESTER_OPTION_1", JESTER_WHEEL_DEVICE_ID, 3004, PILOT_JESTER_WHEEL, "Jester UI Option 1")
+F_4E:defineInputOnlyPushButton("PILOT_JESTER_OPTION_2", JESTER_WHEEL_DEVICE_ID, 3005, PILOT_JESTER_WHEEL, "Jester UI Option 2")
+F_4E:defineInputOnlyPushButton("PILOT_JESTER_OPTION_3", JESTER_WHEEL_DEVICE_ID, 3006, PILOT_JESTER_WHEEL, "Jester UI Option 3")
+F_4E:defineInputOnlyPushButton("PILOT_JESTER_OPTION_4", JESTER_WHEEL_DEVICE_ID, 3007, PILOT_JESTER_WHEEL, "Jester UI Option 4")
+F_4E:defineInputOnlyPushButton("PILOT_JESTER_OPTION_5", JESTER_WHEEL_DEVICE_ID, 3008, PILOT_JESTER_WHEEL, "Jester UI Option 5")
+F_4E:defineInputOnlyPushButton("PILOT_JESTER_OPTION_6", JESTER_WHEEL_DEVICE_ID, 3009, PILOT_JESTER_WHEEL, "Jester UI Option 6")
+F_4E:defineInputOnlyPushButton("PILOT_JESTER_OPTION_7", JESTER_WHEEL_DEVICE_ID, 3010, PILOT_JESTER_WHEEL, "Jester UI Option 7")
+F_4E:defineInputOnlyPushButton("PILOT_JESTER_OPTION_8", JESTER_WHEEL_DEVICE_ID, 3011, PILOT_JESTER_WHEEL, "Jester UI Option 8")
+F_4E:defineInputOnlyPushButton("PILOT_JESTER_OPTION_LEFT", JESTER_WHEEL_DEVICE_ID, 3012, PILOT_JESTER_WHEEL, "Jester UI Left/CCW")
+F_4E:defineInputOnlyPushButton("PILOT_JESTER_OPTION_CENTER", JESTER_WHEEL_DEVICE_ID, 3013, PILOT_JESTER_WHEEL, "Jester UI Middle/Select")
+F_4E:defineInputOnlyPushButton("PILOT_JESTER_OPTION_RIGHT", JESTER_WHEEL_DEVICE_ID, 3014, PILOT_JESTER_WHEEL, "Jester UI Right/CW")
+F_4E:defineInputOnlyPushButton("PILOT_JESTER_UI_ACTION", JESTER_WHEEL_DEVICE_ID, 3150, PILOT_JESTER_WHEEL, "Jester UI Action (short, hold)")
+F_4E:defineInputOnlyPushButton("PILOT_JESTER_CONTEXT_ACTION", JESTER_WHEEL_DEVICE_ID, 3122, PILOT_JESTER_WHEEL, "Jester Context Action (short, hold, double click)")
+
+-- Specific Jester Commands
+local PILOT_JESTER_COMMANDS = "PLT Jester Commands"
+
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADIO_MODE_OFF", JESTER_WHEEL_DEVICE_ID, 3062, PILOT_JESTER_COMMANDS, "Jester Command: UHF Radio > Mode > Off")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADIO_MODE_TRADF", JESTER_WHEEL_DEVICE_ID, 3063, PILOT_JESTER_COMMANDS, "Jester Command: UHF Radio > Mode > T/R, ADF")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADIO_MODE_TRGADF", JESTER_WHEEL_DEVICE_ID, 3064, PILOT_JESTER_COMMANDS, "Jester Command: UHF Radio > Mode > T/R+G, ADF")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADIO_MODE_ADFGCMD", JESTER_WHEEL_DEVICE_ID, 3065, PILOT_JESTER_COMMANDS, "Jester Command: UHF Radio > Mode > ADF+G, CMD")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADIO_MODE_ADFG", JESTER_WHEEL_DEVICE_ID, 3066, PILOT_JESTER_COMMANDS, "Jester Command: UHF Radio > Mode > ADF, G")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADIO_MODE_GADF", JESTER_WHEEL_DEVICE_ID, 3067, PILOT_JESTER_COMMANDS, "Jester Command: UHF Radio > Mode > G, ADF")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADIO_FREQ_MODE_PRESET", JESTER_WHEEL_DEVICE_ID, 3068, PILOT_JESTER_COMMANDS, "Jester Command: UHF Radio > Frequency Mode > Preset")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADIO_FREQ_MODE_MANUAL", JESTER_WHEEL_DEVICE_ID, 3069, PILOT_JESTER_COMMANDS, "Jester Command: UHF Radio > Frequency Mode > Manual")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADIO_CHANNEL_COM_1", JESTER_WHEEL_DEVICE_ID, 3070, PILOT_JESTER_COMMANDS, "Jester Command: UHF Radio > Channel > Comm > 1")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADIO_CHANNEL_COM_2", JESTER_WHEEL_DEVICE_ID, 3071, PILOT_JESTER_COMMANDS, "Jester Command: UHF Radio > Channel > Comm > 2")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADIO_CHANNEL_COM_3", JESTER_WHEEL_DEVICE_ID, 3164, PILOT_JESTER_COMMANDS, "Jester Command: UHF Radio > Channel > Comm > 3")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADIO_CHANNEL_COM_4", JESTER_WHEEL_DEVICE_ID, 3165, PILOT_JESTER_COMMANDS, "Jester Command: UHF Radio > Channel > Comm > 4")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADIO_CHANNEL_COM_5", JESTER_WHEEL_DEVICE_ID, 3166, PILOT_JESTER_COMMANDS, "Jester Command: UHF Radio > Channel > Comm > 5")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADIO_CHANNEL_COM_6", JESTER_WHEEL_DEVICE_ID, 3167, PILOT_JESTER_COMMANDS, "Jester Command: UHF Radio > Channel > Comm > 6")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADIO_CHANNEL_COM_7", JESTER_WHEEL_DEVICE_ID, 3168, PILOT_JESTER_COMMANDS, "Jester Command: UHF Radio > Channel > Comm > 7")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADIO_CHANNEL_COM_8", JESTER_WHEEL_DEVICE_ID, 3169, PILOT_JESTER_COMMANDS, "Jester Command: UHF Radio > Channel > Comm > 8")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADIO_CHANNEL_COM_9", JESTER_WHEEL_DEVICE_ID, 3170, PILOT_JESTER_COMMANDS, "Jester Command: UHF Radio > Channel > Comm > 9")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADIO_CHANNEL_COM_10", JESTER_WHEEL_DEVICE_ID, 3171, PILOT_JESTER_COMMANDS, "Jester Command: UHF Radio > Channel > Comm > 10")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADIO_CHANNEL_COM_11", JESTER_WHEEL_DEVICE_ID, 3172, PILOT_JESTER_COMMANDS, "Jester Command: UHF Radio > Channel > Comm > 11")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADIO_CHANNEL_COM_12", JESTER_WHEEL_DEVICE_ID, 3173, PILOT_JESTER_COMMANDS, "Jester Command: UHF Radio > Channel > Comm > 12")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADIO_CHANNEL_COM_13", JESTER_WHEEL_DEVICE_ID, 3174, PILOT_JESTER_COMMANDS, "Jester Command: UHF Radio > Channel > Comm > 13")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADIO_CHANNEL_COM_14", JESTER_WHEEL_DEVICE_ID, 3175, PILOT_JESTER_COMMANDS, "Jester Command: UHF Radio > Channel > Comm > 14")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADIO_CHANNEL_COM_15", JESTER_WHEEL_DEVICE_ID, 3176, PILOT_JESTER_COMMANDS, "Jester Command: UHF Radio > Channel > Comm > 15")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADIO_CHANNEL_COM_16", JESTER_WHEEL_DEVICE_ID, 3177, PILOT_JESTER_COMMANDS, "Jester Command: UHF Radio > Channel > Comm > 16")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADIO_CHANNEL_COM_17", JESTER_WHEEL_DEVICE_ID, 3178, PILOT_JESTER_COMMANDS, "Jester Command: UHF Radio > Channel > Comm > 17")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADIO_CHANNEL_COM_18", JESTER_WHEEL_DEVICE_ID, 3179, PILOT_JESTER_COMMANDS, "Jester Command: UHF Radio > Channel > Comm > 18")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADIO_CHANNEL_AUX_1", JESTER_WHEEL_DEVICE_ID, 3072, PILOT_JESTER_COMMANDS, "Jester Command: UHF Radio > Channel > Aux > 1")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADIO_CHANNEL_AUX_2", JESTER_WHEEL_DEVICE_ID, 3073, PILOT_JESTER_COMMANDS, "Jester Command: UHF Radio > Channel > Aux > 2")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADIO_CHANNEL_AUX_3", JESTER_WHEEL_DEVICE_ID, 3180, PILOT_JESTER_COMMANDS, "Jester Command: UHF Radio > Channel > Aux > 3")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADIO_CHANNEL_AUX_4", JESTER_WHEEL_DEVICE_ID, 3181, PILOT_JESTER_COMMANDS, "Jester Command: UHF Radio > Channel > Aux > 4")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADIO_CHANNEL_AUX_5", JESTER_WHEEL_DEVICE_ID, 3182, PILOT_JESTER_COMMANDS, "Jester Command: UHF Radio > Channel > Aux > 5")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADIO_CHANNEL_AUX_6", JESTER_WHEEL_DEVICE_ID, 3183, PILOT_JESTER_COMMANDS, "Jester Command: UHF Radio > Channel > Aux > 6")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADIO_CHANNEL_AUX_7", JESTER_WHEEL_DEVICE_ID, 3184, PILOT_JESTER_COMMANDS, "Jester Command: UHF Radio > Channel > Aux > 7")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADIO_CHANNEL_AUX_8", JESTER_WHEEL_DEVICE_ID, 3185, PILOT_JESTER_COMMANDS, "Jester Command: UHF Radio > Channel > Aux > 8")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADIO_CHANNEL_AUX_9", JESTER_WHEEL_DEVICE_ID, 3186, PILOT_JESTER_COMMANDS, "Jester Command: UHF Radio > Channel > Aux > 9")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADIO_CHANNEL_AUX_10", JESTER_WHEEL_DEVICE_ID, 3187, PILOT_JESTER_COMMANDS, "Jester Command: UHF Radio > Channel > Aux > 10")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADIO_CHANNEL_AUX_11", JESTER_WHEEL_DEVICE_ID, 3188, PILOT_JESTER_COMMANDS, "Jester Command: UHF Radio > Channel > Aux > 11")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADIO_CHANNEL_AUX_12", JESTER_WHEEL_DEVICE_ID, 3189, PILOT_JESTER_COMMANDS, "Jester Command: UHF Radio > Channel > Aux > 12")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADIO_CHANNEL_AUX_13", JESTER_WHEEL_DEVICE_ID, 3190, PILOT_JESTER_COMMANDS, "Jester Command: UHF Radio > Channel > Aux > 13")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADIO_CHANNEL_AUX_14", JESTER_WHEEL_DEVICE_ID, 3191, PILOT_JESTER_COMMANDS, "Jester Command: UHF Radio > Channel > Aux > 14")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADIO_CHANNEL_AUX_15", JESTER_WHEEL_DEVICE_ID, 3192, PILOT_JESTER_COMMANDS, "Jester Command: UHF Radio > Channel > Aux > 15")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADIO_CHANNEL_AUX_16", JESTER_WHEEL_DEVICE_ID, 3193, PILOT_JESTER_COMMANDS, "Jester Command: UHF Radio > Channel > Aux > 16")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADIO_CHANNEL_AUX_17", JESTER_WHEEL_DEVICE_ID, 3194, PILOT_JESTER_COMMANDS, "Jester Command: UHF Radio > Channel > Aux > 17")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADIO_CHANNEL_AUX_18", JESTER_WHEEL_DEVICE_ID, 3195, PILOT_JESTER_COMMANDS, "Jester Command: UHF Radio > Channel > Aux > 18")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADIO_CHANNEL_AUX_19", JESTER_WHEEL_DEVICE_ID, 3196, PILOT_JESTER_COMMANDS, "Jester Command: UHF Radio > Channel > Aux > 19")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADIO_CHANNEL_AUX_20", JESTER_WHEEL_DEVICE_ID, 3197, PILOT_JESTER_COMMANDS, "Jester Command: UHF Radio > Channel > Aux > 20")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADAR_OPERATION_ACTIVE", JESTER_WHEEL_DEVICE_ID, 3148, PILOT_JESTER_COMMANDS, "Jester Command: Radar > Operation > Active")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADAR_OPERATION_STANDBY", JESTER_WHEEL_DEVICE_ID, 3149, PILOT_JESTER_COMMANDS, "Jester Command: Radar > Operation > Standby")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADAR_AUTO_FOCUS_ON", JESTER_WHEEL_DEVICE_ID, 3135, PILOT_JESTER_COMMANDS, "Jester Command: Radar > Operation > Auto Focus On")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADAR_AUTO_FOCUS_OFF", JESTER_WHEEL_DEVICE_ID, 3137, PILOT_JESTER_COMMANDS, "Jester Command: Radar > Operation > Auto Focus Off")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADAR_IFF", JESTER_WHEEL_DEVICE_ID, 3134, PILOT_JESTER_COMMANDS, "Jester Command: Radar > IFF")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADAR_SCAN_0_10_ABS", JESTER_WHEEL_DEVICE_ID, 3138, PILOT_JESTER_COMMANDS, "Jester Command: Radar > Scan Elevation > 0 - 10k ft")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADAR_SCAN_10_20_ABS", JESTER_WHEEL_DEVICE_ID, 3139, PILOT_JESTER_COMMANDS, "Jester Command: Radar > Scan Elevation > 10 - 20k ft")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADAR_SCAN_20_30_ABS", JESTER_WHEEL_DEVICE_ID, 3140, PILOT_JESTER_COMMANDS, "Jester Command: Radar > Scan Elevation > 20 - 30k ft")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADAR_SCAN_30_40_ABS", JESTER_WHEEL_DEVICE_ID, 3141, PILOT_JESTER_COMMANDS, "Jester Command: Radar > Scan Elevation > 30 - 40k ft")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADAR_SCAN_40_50_ABS", JESTER_WHEEL_DEVICE_ID, 3142, PILOT_JESTER_COMMANDS, "Jester Command: Radar > Scan Elevation > 40 - 50k ft")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADAR_SCAN_50_60_ABS", JESTER_WHEEL_DEVICE_ID, 3143, PILOT_JESTER_COMMANDS, "Jester Command: Radar > Scan Elevation > 50 - 60k ft")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADAR_SCAN_CENTER_REL", JESTER_WHEEL_DEVICE_ID, 3154, PILOT_JESTER_COMMANDS, "Jester Command: Radar > Scan Elevation > Center")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADAR_SCAN_MINUS_3_REL", JESTER_WHEEL_DEVICE_ID, 3155, PILOT_JESTER_COMMANDS, "Jester Command: Radar > Scan Elevation > -3500 ft")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADAR_SCAN_MINUS_5_REL", JESTER_WHEEL_DEVICE_ID, 3156, PILOT_JESTER_COMMANDS, "Jester Command: Radar > Scan Elevation > -5000 ft")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADAR_SCAN_MINUS_7_REL", JESTER_WHEEL_DEVICE_ID, 3157, PILOT_JESTER_COMMANDS, "Jester Command: Radar > Scan Elevation > -7500 ft")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADAR_SCAN_PLUS_3_REL", JESTER_WHEEL_DEVICE_ID, 3158, PILOT_JESTER_COMMANDS, "Jester Command: Radar > Scan Elevation > +3500 ft")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADAR_SCAN_PLUS_5_REL", JESTER_WHEEL_DEVICE_ID, 3159, PILOT_JESTER_COMMANDS, "Jester Command: Radar > Scan Elevation > +5000 ft")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADAR_SCAN_PLUS_7_REL", JESTER_WHEEL_DEVICE_ID, 3160, PILOT_JESTER_COMMANDS, "Jester Command: Radar > Scan Elevation > +7500 ft")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADAR_RANGE_25_WIDE", JESTER_WHEEL_DEVICE_ID, 3144, PILOT_JESTER_COMMANDS, "Jester Command: Radar > Scan Type > 25nm Wide")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADAR_RANGE_25_NARROW", JESTER_WHEEL_DEVICE_ID, 3145, PILOT_JESTER_COMMANDS, "Jester Command: Radar > Scan Type > 25nm Narrow")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADAR_RANGE_50_WIDE", JESTER_WHEEL_DEVICE_ID, 3146, PILOT_JESTER_COMMANDS, "Jester Command: Radar > Scan Type > 50nm Wide")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_RADAR_RANGE_50_NARROW", JESTER_WHEEL_DEVICE_ID, 3147, PILOT_JESTER_COMMANDS, "Jester Command: Radar > Scan Type > 50nm Narrow")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_A2G_VIDEO_WEAPONS", JESTER_WHEEL_DEVICE_ID, 3074, PILOT_JESTER_COMMANDS, "Jester Command: A2G > Video Source > Weapons")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_A2G_VIDEO_PAVE_SPIKE", JESTER_WHEEL_DEVICE_ID, 3075, PILOT_JESTER_COMMANDS, "Jester Command: A2G > Video Source > Pave Spike")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_A2G_TGP_OPERATION_READY", JESTER_WHEEL_DEVICE_ID, 3076, PILOT_JESTER_COMMANDS, "Jester Command: A2G > Pave Spike > Operation > Ready")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_A2G_TGP_OPERATION_STANDBY", JESTER_WHEEL_DEVICE_ID, 3077, PILOT_JESTER_COMMANDS, "Jester Command: A2G > Pave Spike > Operation > Standby")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_NAV_WITH_TGT1", JESTER_WHEEL_DEVICE_ID, 3078, PILOT_JESTER_COMMANDS, "Jester Command: Navigation > Navigate With > TGT 1")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_NAV_WITH_TGT2", JESTER_WHEEL_DEVICE_ID, 3079, PILOT_JESTER_COMMANDS, "Jester Command: Navigation > Navigate With > TGT 2")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_NAV_TACAN_MODE_OFF", JESTER_WHEEL_DEVICE_ID, 3081, PILOT_JESTER_COMMANDS, "Jester Command: Navigation > Tacan > Mode > Off")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_NAV_TACAN_MODE_R", JESTER_WHEEL_DEVICE_ID, 3082, PILOT_JESTER_COMMANDS, "Jester Command: Navigation > Tacan > Mode > R")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_NAV_TACAN_MODE_TR", JESTER_WHEEL_DEVICE_ID, 3083, PILOT_JESTER_COMMANDS, "Jester Command: Navigation > Tacan > Mode > T/R")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_NAV_TACAN_MODE_AAR", JESTER_WHEEL_DEVICE_ID, 3084, PILOT_JESTER_COMMANDS, "Jester Command: Navigation > Tacan > Mode > A/A R")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_NAV_TACAN_MODE_AATR", JESTER_WHEEL_DEVICE_ID, 3085, PILOT_JESTER_COMMANDS, "Jester Command: Navigation > Tacan > Mode > A/A T/R")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_SYSTEMS_CHAFF_MODE_OFF", JESTER_WHEEL_DEVICE_ID, 3086, PILOT_JESTER_COMMANDS, "Jester Command: Systems > Chaff Mode > Off")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_SYSTEMS_CHAFF_MODE_SINGLE", JESTER_WHEEL_DEVICE_ID, 3087, PILOT_JESTER_COMMANDS, "Jester Command: Systems > Chaff Mode > Single")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_SYSTEMS_CHAFF_MODE_MULTIPLE", JESTER_WHEEL_DEVICE_ID, 3088, PILOT_JESTER_COMMANDS, "Jester Command: Systems > Chaff Mode > Multiple")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_SYSTEMS_CHAFF_MODE_PROGRAM", JESTER_WHEEL_DEVICE_ID, 3089, PILOT_JESTER_COMMANDS, "Jester Command: Systems > Chaff Mode > Program")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_SYSTEMS_FLARE_MODE_OFF", JESTER_WHEEL_DEVICE_ID, 3090, PILOT_JESTER_COMMANDS, "Jester Command: Systems > Flare Mode > Off")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_SYSTEMS_FLARE_MODE_SINGLE", JESTER_WHEEL_DEVICE_ID, 3091, PILOT_JESTER_COMMANDS, "Jester Command: Systems > Flare Mode > Single")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_SYSTEMS_FLARE_MODE_PROGRAM", JESTER_WHEEL_DEVICE_ID, 3092, PILOT_JESTER_COMMANDS, "Jester Command: Systems > Flare Mode > Program")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_SYSTEMS_JAMMER_STANDBY", JESTER_WHEEL_DEVICE_ID, 3093, PILOT_JESTER_COMMANDS, "Jester Command: Systems > Jammer > Standby")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_SYSTEMS_JAMMER_TRANSMIT", JESTER_WHEEL_DEVICE_ID, 3094, PILOT_JESTER_COMMANDS, "Jester Command: Systems > Jammer > Transmit")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_SYSTEMS_AVTR_RECORD", JESTER_WHEEL_DEVICE_ID, 3099, PILOT_JESTER_COMMANDS, "Jester Command: Systems > AVTR > Record")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_SYSTEMS_AVTR_STANDBY", JESTER_WHEEL_DEVICE_ID, 3198, PILOT_JESTER_COMMANDS, "Jester Command: Systems > AVTR > Standby")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_SYSTEMS_AVTR_OFF", JESTER_WHEEL_DEVICE_ID, 3100, PILOT_JESTER_COMMANDS, "Jester Command: Systems > AVTR > Off")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_CREW_TALKING_TALK", JESTER_WHEEL_DEVICE_ID, 3131, PILOT_JESTER_COMMANDS, "Jester Command: Crew Contract > Talking > Talk")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_CREW_TALKING_SILENCE", JESTER_WHEEL_DEVICE_ID, 3132, PILOT_JESTER_COMMANDS, "Jester Command: Crew Contract > Talking > Silence")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_CREW_EJECTION_WSO", JESTER_WHEEL_DEVICE_ID, 3097, PILOT_JESTER_COMMANDS, "Jester Command: Crew Contract > Ejection > WSO")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_CREW_EJECTION_BOTH", JESTER_WHEEL_DEVICE_ID, 3098, PILOT_JESTER_COMMANDS, "Jester Command: Crew Contract > Ejection > Both")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_CREW_PRESENCE_AUTO", JESTER_WHEEL_DEVICE_ID, 3128, PILOT_JESTER_COMMANDS, "Jester Command: Crew Contract > Presence > Auto")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_CREW_PRESENCE_ENABLED", JESTER_WHEEL_DEVICE_ID, 3129, PILOT_JESTER_COMMANDS, "Jester Command: Crew Contract > Presence > Force")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_CREW_PRESENCE_DISABLED", JESTER_WHEEL_DEVICE_ID, 3130, PILOT_JESTER_COMMANDS, "Jester Command: Crew Contract > Presence > Disable")
+F_4E:defineInputOnlyPushButton("PLT_JESTER_COMMAND_CREW_START_ALIGNMENT", JESTER_WHEEL_DEVICE_ID, 3133, PILOT_JESTER_COMMANDS, "Jester Command: Crew Contract > Start Alignment")
+
+-- Specific Crew Chief Commands
+local PILOT_CREW_CHIEF_COMMANDS = "PLT Crew Chief Commands"
+
+F_4E:defineInputOnlyPushButton("PLT_CREW_CHIEF_COMMAND_COMMS_CHECK", JESTER_WHEEL_DEVICE_ID, 3101, PILOT_CREW_CHIEF_COMMANDS, "Crew Chief Command: Comms Check")
+F_4E:defineInputOnlyPushButton("PLT_CREW_CHIEF_COMMAND_WHEEL_CHOCKS_PLACE", JESTER_WHEEL_DEVICE_ID, 3102, PILOT_CREW_CHIEF_COMMANDS, "Crew Chief Command: Wheel Chocks > Place")
+F_4E:defineInputOnlyPushButton("PLT_CREW_CHIEF_COMMAND_WHEEL_CHOCKS_REMOVE", JESTER_WHEEL_DEVICE_ID, 3103, PILOT_CREW_CHIEF_COMMANDS, "Crew Chief Command: Wheel Chocks > Remove")
+F_4E:defineInputOnlyPushButton("PLT_CREW_CHIEF_COMMAND_EXT_POWER_CONNECT", JESTER_WHEEL_DEVICE_ID, 3104, PILOT_CREW_CHIEF_COMMANDS, "Crew Chief Command: External Power > Connect")
+F_4E:defineInputOnlyPushButton("PLT_CREW_CHIEF_COMMAND_EXT_POWER_DISCONNECT", JESTER_WHEEL_DEVICE_ID, 3105, PILOT_CREW_CHIEF_COMMANDS, "Crew Chief Command: External Power > Disconnect")
+F_4E:defineInputOnlyPushButton("PLT_CREW_CHIEF_COMMAND_AIR_SOURCE_CONNECT_RIGHT", JESTER_WHEEL_DEVICE_ID, 3106, PILOT_CREW_CHIEF_COMMANDS, "Crew Chief Command: Air Source > Connect Right Engine")
+F_4E:defineInputOnlyPushButton("PLT_CREW_CHIEF_COMMAND_AIR_SOURCE_CONNECT_LEFT", JESTER_WHEEL_DEVICE_ID, 3107, PILOT_CREW_CHIEF_COMMANDS, "Crew Chief Command: Air Source > Connect Left Engine")
+F_4E:defineInputOnlyPushButton("PLT_CREW_CHIEF_COMMAND_AIR_SOURCE_START", JESTER_WHEEL_DEVICE_ID, 3108, PILOT_CREW_CHIEF_COMMANDS, "Crew Chief Command: Air Source > Start Flow")
+F_4E:defineInputOnlyPushButton("PLT_CREW_CHIEF_COMMAND_AIR_SOURCE_STOP", JESTER_WHEEL_DEVICE_ID, 3109, PILOT_CREW_CHIEF_COMMANDS, "Crew Chief Command: Air Source > Stop Flow")
+F_4E:defineInputOnlyPushButton("PLT_CREW_CHIEF_COMMAND_AIR_SOURCE_DISCONNECT", JESTER_WHEEL_DEVICE_ID, 3110, PILOT_CREW_CHIEF_COMMANDS, "Crew Chief Command: Air Source > Disconnect")
+F_4E:defineInputOnlyPushButton("PLT_CREW_CHIEF_COMMAND_AIR_SOURCE_LOAD_CARTRIDGES", JESTER_WHEEL_DEVICE_ID, 3111, PILOT_CREW_CHIEF_COMMANDS, "Crew Chief Command: Air Source > Load Starter Cartridges")
+F_4E:defineInputOnlyPushButton("PLT_CREW_CHIEF_COMMAND_AIR_SOURCE_REMOVE_CARTRIDGES", JESTER_WHEEL_DEVICE_ID, 3112, PILOT_CREW_CHIEF_COMMANDS, "Crew Chief Command: Air Source > Remove Starter Cartridges")
+F_4E:defineInputOnlyPushButton("PLT_CREW_CHIEF_COMMAND_BOARDING_LADDER_PLACE", JESTER_WHEEL_DEVICE_ID, 3113, PILOT_CREW_CHIEF_COMMANDS, "Crew Chief Command: Boarding > Place Ladder")
+F_4E:defineInputOnlyPushButton("PLT_CREW_CHIEF_COMMAND_BOARDING_LADDER_REMOVE", JESTER_WHEEL_DEVICE_ID, 3114, PILOT_CREW_CHIEF_COMMANDS, "Crew Chief Command: Boarding > Remove Ladder")
+F_4E:defineInputOnlyPushButton("PLT_CREW_CHIEF_COMMAND_BOARDING_STEPS_EXTEND", JESTER_WHEEL_DEVICE_ID, 3115, PILOT_CREW_CHIEF_COMMANDS, "Crew Chief Command: Boarding > Extend Steps")
+F_4E:defineInputOnlyPushButton("PLT_CREW_CHIEF_COMMAND_BOARDING_STEPS_RETRACT", JESTER_WHEEL_DEVICE_ID, 3116, PILOT_CREW_CHIEF_COMMANDS, "Crew Chief Command: Boarding > Retract Steps")
+F_4E:defineInputOnlyPushButton("PLT_CREW_CHIEF_COMMAND_CHECKS_PITOT_HEAT", JESTER_WHEEL_DEVICE_ID, 3117, PILOT_CREW_CHIEF_COMMANDS, "Crew Chief Command: Checks > Pitot Heat")
+F_4E:defineInputOnlyPushButton("PLT_CREW_CHIEF_COMMAND_CHECKS_SPOILER_ACTUATOR", JESTER_WHEEL_DEVICE_ID, 3118, PILOT_CREW_CHIEF_COMMANDS, "Crew Chief Command: Checks > Spoiler Actuator")
+F_4E:defineInputOnlyPushButton("PLT_CREW_CHIEF_COMMAND_CHECKS_FLIGHT_CONTROLS", JESTER_WHEEL_DEVICE_ID, 3119, PILOT_CREW_CHIEF_COMMANDS, "Crew Chief Command: Checks > Flight Controls")
+F_4E:defineInputOnlyPushButton("PLT_CREW_CHIEF_COMMAND_CHECKS_ARI_DISENGAGE", JESTER_WHEEL_DEVICE_ID, 3199, PILOT_CREW_CHIEF_COMMANDS, "Crew Chief Command: Checks > ARI Disengage")
+F_4E:defineInputOnlyPushButton("PLT_CREW_CHIEF_COMMAND_CHECKS_STAB_AUG", JESTER_WHEEL_DEVICE_ID, 3200, PILOT_CREW_CHIEF_COMMANDS, "Crew Chief Command: Checks > Stab Aug")
+F_4E:defineInputOnlyPushButton("PLT_CREW_CHIEF_COMMAND_CHECKS_TRIM_NEUTRAL", JESTER_WHEEL_DEVICE_ID, 3120, PILOT_CREW_CHIEF_COMMANDS, "Crew Chief Command: Checks > Trim Neutral")
+F_4E:defineInputOnlyPushButton("PLT_CREW_CHIEF_COMMAND_CANCEL", JESTER_WHEEL_DEVICE_ID, 3121, PILOT_CREW_CHIEF_COMMANDS, "Crew Chief Command: Cancel")
+
+-- WSO Jester Commands
+local WSO_JESTER_WHEEL = "WSO Jester Wheel"
+
+F_4E:defineInputOnlyPushButton("WSO_JESTER_OPTION_BACK", JESTER_WHEEL_DEVICE_ID, 3015, WSO_JESTER_WHEEL, "Jester UI Back")
+F_4E:defineInputOnlyPushButton("WSO_JESTER_OPTION_NAV_HOME", JESTER_WHEEL_DEVICE_ID, 3203, WSO_JESTER_WHEEL, "Jester UI Navigate To Main Menu")
+F_4E:defineInputOnlyPushButton("WSO_JESTER_OPTION_1", JESTER_WHEEL_DEVICE_ID, 3016, WSO_JESTER_WHEEL, "Jester UI Option 1")
+F_4E:defineInputOnlyPushButton("WSO_JESTER_OPTION_2", JESTER_WHEEL_DEVICE_ID, 3017, WSO_JESTER_WHEEL, "Jester UI Option 2")
+F_4E:defineInputOnlyPushButton("WSO_JESTER_OPTION_3", JESTER_WHEEL_DEVICE_ID, 3018, WSO_JESTER_WHEEL, "Jester UI Option 3")
+F_4E:defineInputOnlyPushButton("WSO_JESTER_OPTION_4", JESTER_WHEEL_DEVICE_ID, 3019, WSO_JESTER_WHEEL, "Jester UI Option 4")
+F_4E:defineInputOnlyPushButton("WSO_JESTER_OPTION_5", JESTER_WHEEL_DEVICE_ID, 3020, WSO_JESTER_WHEEL, "Jester UI Option 5")
+F_4E:defineInputOnlyPushButton("WSO_JESTER_OPTION_6", JESTER_WHEEL_DEVICE_ID, 3021, WSO_JESTER_WHEEL, "Jester UI Option 6")
+F_4E:defineInputOnlyPushButton("WSO_JESTER_OPTION_7", JESTER_WHEEL_DEVICE_ID, 3022, WSO_JESTER_WHEEL, "Jester UI Option 7")
+F_4E:defineInputOnlyPushButton("WSO_JESTER_OPTION_8", JESTER_WHEEL_DEVICE_ID, 3023, WSO_JESTER_WHEEL, "Jester UI Option 8")
+F_4E:defineInputOnlyPushButton("WSO_JESTER_OPTION_LEFT", JESTER_WHEEL_DEVICE_ID, 3024, WSO_JESTER_WHEEL, "Jester UI Left/CCW")
+F_4E:defineInputOnlyPushButton("WSO_JESTER_OPTION_CENTER", JESTER_WHEEL_DEVICE_ID, 3025, WSO_JESTER_WHEEL, "Jester UI Middle/Select")
+F_4E:defineInputOnlyPushButton("WSO_JESTER_OPTION_RIGHT", JESTER_WHEEL_DEVICE_ID, 3026, WSO_JESTER_WHEEL, "Jester UI Right/CW")
+F_4E:defineInputOnlyPushButton("WSO_JESTER_UI_ACTION", JESTER_WHEEL_DEVICE_ID, 3152, WSO_JESTER_WHEEL, "Jester UI Action (short, hold)")
 
 -- Grease Pencil
 -- local GREASE_PENCIL_DEVICE_ID = 82
