@@ -2,8 +2,8 @@ module("Mosquito", package.seeall)
 
 local Control = require("Scripts.DCS-BIOS.lib.modules.documentation.Control")
 local ControlType = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlType")
+local FixedStepInput = require("Scripts.DCS-BIOS.lib.modules.documentation.FixedStepInput")
 local IntegerOutput = require("Scripts.DCS-BIOS.lib.modules.documentation.IntegerOutput")
-local SetStateInput = require("Scripts.DCS-BIOS.lib.modules.documentation.SetStateInput")
 local Suffix = require("Scripts.DCS-BIOS.lib.modules.documentation.Suffix")
 
 local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
@@ -14,60 +14,40 @@ local Mosquito = Module:new("Mosquito", 0x7000, { "MosquitoFBMkVI" })
 
 -- remove Arg# Pilot 500
 
-function Mosquito:define3PosMossi(msg, device_id, command, arg_number, category, description)
-	local alloc = self:allocateInt(2, msg)
+--- Adds a lever which may only be incremented or decremented.
+--- @param identifier string the unique identifier for the control
+--- @param device_id integer the dcs device id
+--- @param command integer the dcs command
+--- @param arg_number integer the dcs argument number
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+function Mosquito:define3PosMossi(identifier, device_id, command, arg_number, category, description)
+	local alloc = self:allocateInt(2, identifier)
 	self:addExportHook(function(dev0)
 		local lut = { [-1] = 0, [0] = 1, [1] = 2 }
 		alloc:setValue(lut[Module.round(dev0:get_argument_value(arg_number))])
 	end)
 
-	local control = Control:new(category, ControlType.selector, msg, description, {
-		SetStateInput:new(2, "set the switch position -- 0 = left, 1 = centered, 2 = right"),
+	local control = Control:new(category, ControlType.electrically_held_switch, identifier, description, {
+		FixedStepInput:new("move up or down"),
 	}, {
-		IntegerOutput:new(alloc, Suffix.none, "selector position -- 0 = Left, 1 = Mid ,  2 = Right"),
+		IntegerOutput:new(alloc, Suffix.none, "selector position -- 0 = Down, 1 = Mid ,  2 = Up"),
 	})
 	self:addControl(control)
 
-	self:addInputProcessor(msg, function(toState)
-		if toState == "0" then
-			toState = -1
-		elseif toState == "1" then
-			toState = 0
-		elseif toState == "2" then
-			toState = 1
-		else
-			return
-		end
-		local fromState = GetDevice(0):get_argument_value(arg_number)
+	self:addInputProcessor(identifier, function(state)
 		local dev = GetDevice(device_id)
 
-		if dev == nil then
+		if not dev then
 			return
 		end
 
-		if fromState == 0 and toState == 1 then
-			dev:performClickableAction(command, 0)
-			dev:performClickableAction(command, 1)
-		end
-		if fromState == 1 and toState == 0 then
-			dev:performClickableAction(command, 0)
-		end
-		if fromState == 0 and toState == -1 then
+		if state == "DEC" then
 			dev:performClickableAction(command, -1)
-		end
-		if fromState == -1 and toState == 0 then
 			dev:performClickableAction(command, 0)
-			dev:performClickableAction(command, 1)
-		end
-		if fromState == -1 and toState == 1 then
-			dev:performClickableAction(command, 0)
+		elseif state == "INC" then
 			dev:performClickableAction(command, 1)
 			dev:performClickableAction(command, 0)
-			dev:performClickableAction(command, 1)
-		end
-		if fromState == 1 and toState == -1 then
-			dev:performClickableAction(command, 0)
-			dev:performClickableAction(command, -1)
 		end
 	end)
 end
