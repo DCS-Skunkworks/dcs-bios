@@ -1546,6 +1546,10 @@ F_4E:defineIndicatorLight("WSO_TGT_DESIGNATOR_LIGHT_MALF", 2720, WSO_TARGET_DESI
 F_4E:defineIndicatorLight("WSO_TGT_DESIGNATOR_LIGHT_OVHT", 2721, WSO_TARGET_DESIGNATOR_SET_CONTROL, "Target Designator Overheat button lamp")
 F_4E:defineIndicatorLight("WSO_TGT_DESIGNATOR_LIGHT_INS_OUT", 2722, WSO_TARGET_DESIGNATOR_SET_CONTROL, "Target Designator INS Out button lamp")
 
+F_4E:defineString("WSO_TGT_DESIGNATOR_BIT_DISPLAY", function(_)
+	return Module.parse_indication(7)["bit_foreground"]
+end, 1, WSO_TARGET_DESIGNATOR_SET_CONTROL, "Bit Display")
+
 -- Laser Coder Control
 local WSO_LASER_CODE_PANEL = "WSO Laser Code Panel"
 
@@ -1578,6 +1582,10 @@ F_4E:definePushButton("PLT_RANGE_INDICATOR_TEST", TARGET_DESIGNATOR_DEVICE_ID, 3
 F_4E:definePotentiometer("PLT_RANGE_INDICATOR_BRIGHTNESS", TARGET_DESIGNATOR_DEVICE_ID, 3021, 1211, { 0, 1 }, PLT_RANGE_INDICATOR_PANEL, "Display Brightness")
 F_4E:definePotentiometer("PLT_RANGE_INDICATOR_DESIRED_RANGE", TARGET_DESIGNATOR_DEVICE_ID, 3023, 1212, { 0, 1 }, PLT_RANGE_INDICATOR_PANEL, "Desired Release Range")
 F_4E:define3PosTumb0To1("PLT_RANGE_INDICATOR_MODE", TARGET_DESIGNATOR_DEVICE_ID, 3022, 1210, PLT_RANGE_INDICATOR_PANEL, "Range Mode")
+
+F_4E:defineString("PLT_RANGE_INDICATOR_RANGE", function(_)
+	return Module.parse_indication(8)["range_indicator_foreground"]
+end, 3, PLT_RANGE_INDICATOR_PANEL, "Range")
 
 -- WSO Front Panel
 local WSO_FRONT_PANEL_DEVICE_ID = 65
