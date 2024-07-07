@@ -508,7 +508,7 @@ UH_1H:defineToggleSwitch("CARGO_REL_SAFE", 52, 3003, 228, "Overhead Panel", "Car
 UH_1H:defineFloat("DOOR_POS_L", 420, { 0, 1 }, "Cockpit", "Door Position Left")
 UH_1H:defineFloat("DOOR_POS_R", 422, { 0, 1 }, "Cockpit", "Door Position Right")
 
-UH_1H:defineFloatFromDrawArgument("EXT_ROTOR", 40, "External Aircraft Model", "Rotor Move")
+UH_1H:defineFullRangeFloatFromExternalDrawArgument("EXT_ROTOR", 40, "External Aircraft Model", "Rotor Move")
 UH_1H:defineBitFromDrawArgument("EXT_LAND_LIGHT_F", 208, "External Aircraft Model", "Landing Light Front (white)")
 UH_1H:defineBitFromDrawArgument("EXT_LAND_LIGHT_M", 209, "External Aircraft Model", "Landing Light Mid (white)")
 UH_1H:defineBitFromDrawArgument("EXT_LIGHT_TAIL", 192, "External Aircraft Model", "Tail Light (white)")

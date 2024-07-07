@@ -62,6 +62,6 @@ AH_6J:defineFloat("DRUM_ALT_ADJ_MB4", 116, { 0, 1 }, "Gauges", "Altimeter MB Dru
 --Externals
 AH_6J:defineBitFromDrawArgument("EXT_POSITION_LIGHTS", 190, "External Aircraft Model", "Position Lights (red,Green)")
 AH_6J:defineBitFromDrawArgument("EXT_LAND_LIGHT", 208, "External Aircraft Model", "Landing Light (white)")
-AH_6J:defineFloatFromDrawArgument("EXT_ROTOR", 37, "External Aircraft Model", "Rotor Move")
+AH_6J:defineFullRangeFloatFromExternalDrawArgument("EXT_ROTOR", 37, "External Aircraft Model", "Rotor Move")
 
 return AH_6J

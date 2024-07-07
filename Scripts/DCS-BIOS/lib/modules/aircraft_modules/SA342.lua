@@ -490,7 +490,7 @@ SA342:defineIndicatorLight("HOT3_NUIT_LAMP", 193, "Indicator Lights", "HOT3 Pane
 SA342:defineBitFromDrawArgument("EXT_POSITION_LIGHT_LEFT", 190, "External Aircraft Model", "Left Position Light (red)")
 SA342:defineBitFromDrawArgument("EXT_POSITION_LIGHT_RIGHT", 191, "External Aircraft Model", "Right Position Light (green)")
 SA342:defineBitFromDrawArgument("EXT_STROBE", 193, "External Aircraft Model", "Strobe Light")
-SA342:defineFloatFromDrawArgument("EXT_ROTOR", 37, "External Aircraft Model", "Rotor Move")
+SA342:defineFullRangeFloatFromExternalDrawArgument("EXT_ROTOR", 37, "External Aircraft Model", "Rotor Move")
 
 SA342:definePushButton("VHF_AM_RADIO_VOL_1_P", SYNC_DEVICE_ID, 3241, 452, "Intercom", "VHF AM Radio Volume 1 (Push)")
 SA342:definePushButton("FM_RADIO_VOL_1_P", SYNC_DEVICE_ID, 3242, 453, "Intercom", "FM Radio Volume 1 (Push)")

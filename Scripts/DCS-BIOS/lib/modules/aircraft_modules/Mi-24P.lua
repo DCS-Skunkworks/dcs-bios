@@ -1166,7 +1166,7 @@ Mi_24P:defineToggleSwitch("OP_PKI_LOCK", 17, 3006, 15, "PKI", "OPERATOR PKI Lock
 
 Mi_24P:defineFloat("OP_AIM_REF_MARKER", 1028, { 0, 1 }, "Gauges OP", "OPERATOR Aiming Reference Marker")
 
-Mi_24P:defineFloatFromDrawArgument("EXT_ROTOR", 40, "External Aircraft Model", "Rotor Move")
+Mi_24P:defineFullRangeFloatFromExternalDrawArgument("EXT_ROTOR", 40, "External Aircraft Model", "Rotor Move")
 
 --R60 control
 Mi_24P:defineToggleSwitch("PLT_R60_PW", 73, 3001, 1033, "R60", "PILOT R60 Power")

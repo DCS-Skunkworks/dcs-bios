@@ -755,7 +755,7 @@ AH_64D:defineFloatFromDrawArgument("EXT_WIPER_CPG", 14, "External Aircraft Model
 AH_64D:defineBitFromDrawArgument("EXT_WOW_TAIL", 1, "External Aircraft Model", "Weight ON Wheels Tail Gear")
 AH_64D:defineBitFromDrawArgument("EXT_WOW_RIGHT", 4, "External Aircraft Model", "Weight ON Wheels Right Gear")
 AH_64D:defineBitFromDrawArgument("EXT_WOW_LEFT", 6, "External Aircraft Model", "Weight ON Wheels Left Gear")
-AH_64D:defineFloatFromDrawArgument("EXT_ROTOR", 40, "External Aircraft Model", "Rotor Move")
+AH_64D:defineFullRangeFloatFromExternalDrawArgument("EXT_ROTOR", 40, "External Aircraft Model", "Rotor Move")
 
 AH_64D:defineToggleSwitch("PLT_L_SUNVISOR", 9, 3017, 849, "PLT Cockpit", "Pilot Left Sunvisor")
 AH_64D:defineToggleSwitch("PLT_R_SUNVISOR", 9, 3018, 850, "PLT Cockpit", "Pilot Right Sunvisor")
