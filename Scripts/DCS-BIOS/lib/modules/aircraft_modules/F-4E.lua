@@ -2179,7 +2179,21 @@ F_4E:defineToggleSwitch("WSO_GREASE_PENCIL", GREASE_PENCIL_DEVICE_ID, 3003, 3037
 -- local CIRCUIT_BREAKERS_DEVICE_ID = 84
 
 -- Seat
--- local SEAT_DEVICE_ID = 85
+local SEAT_DEVICE_ID = 85
+
+-- Pilot Seat
+local PILOT_SEAT = "PLT Seat"
+
+F_4E:defineSpringloaded_3PosTumb("PLT_SEAT_ADJUST", SEAT_DEVICE_ID, 3001, 3001, 3041, PILOT_SEAT, "Change Seat Position")
+F_4E:defineFullRangeFloat("PLT_SEAT_HEIGHT", 3042, PILOT_SEAT, "Seat Height")
+
+-- WSO Seat
+local WSO_SEAT = "WSO Seat"
+
+F_4E:defineSpringloaded_3PosTumb("WSO_SEAT_ADJUST", SEAT_DEVICE_ID, 3002, 3002, 3043, WSO_SEAT, "Change Seat Position")
+F_4E:defineFullRangeFloat("WSO_SEAT_HEIGHT", 3044, WSO_SEAT, "Seat Height")
+
+-- todo: seat pos draw arg
 
 -- ECM
 -- local ECM_DEVICE_ID = 91
