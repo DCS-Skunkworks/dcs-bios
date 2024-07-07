@@ -736,15 +736,36 @@ function Module:defineBitFromDrawArgument(identifier, draw_arg_id, category, des
 	end, 1, category, description)
 end
 
---- Adds a new integer output based on a custom getter function
+--- Adds a new integer output for an external draw argument ranging between 0 and 1
 --- @param identifier string the unique identifier for the control
 --- @param arg_number integer the dcs argument number
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
 --- @return Control control the control which was added to the module
 function Module:defineFloatFromDrawArgument(identifier, arg_number, category, description)
+	return self:defineFloatFromExternalDrawArgument(identifier, arg_number, { 0, 1 }, category, description)
+end
+
+--- Adds a new integer output for an external draw argument ranging between -1 and 1
+--- @param identifier string the unique identifier for the control
+--- @param arg_number integer the dcs argument number
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @return Control control the control which was added to the module
+function Module:defineFullRangeFloatFromExternalDrawArgument(identifier, arg_number, category, description)
+	return self:defineFloatFromExternalDrawArgument(identifier, arg_number, { -1, 1 }, category, description)
+end
+
+--- Adds a new integer output for an external draw argument ranging between -1 and 1
+--- @param identifier string the unique identifier for the control
+--- @param arg_number integer the dcs argument number
+--- @param limits number[] a length-2 array with the lower and upper bounds of the data as used in dcs
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @return Control control the control which was added to the module
+function Module:defineFloatFromExternalDrawArgument(identifier, arg_number, limits, category, description)
 	return self:defineIntegerFromGetter(identifier, function()
-		return math.floor(LoGetAircraftDrawArgumentValue(arg_number) * 65535)
+		return Module.valueConvert(LoGetAircraftDrawArgumentValue(arg_number), limits, { 0, 65535 })
 	end, 65535, category, description)
 end
 
