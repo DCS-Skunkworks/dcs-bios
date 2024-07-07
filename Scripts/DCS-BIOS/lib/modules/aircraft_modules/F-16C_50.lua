@@ -72,7 +72,8 @@ F_16C_50:definePushButton("DN_LOCK_BTN", 7, 3002, 361, "Gear System", "DN LOCK R
 F_16C_50:defineToggleSwitch("HOOK_SW", 7, 3006, 354, "Gear System", "HOOK Switch, UP/DN")
 F_16C_50:definePushButton("HORN_SILENCE_BTN", 7, 3007, 359, "Gear System", "HORN SILENCER Button - Push to reset")
 F_16C_50:defineToggleSwitch("BRAKE_CHAN_SW", 7, 3005, 356, "Gear System", "BRAKES Channel Switch, CHAN 1/CHAN 2")
-F_16C_50:defineSpringloaded_3PosTumb("ANTI_SKID_SW", 7, 3004, 3003, 357, "Gear System", "ANTI-SKID Switch, PARKING BRAKE/ANTI-SKID/OFF")
+-- these are specific commands which are defined and used in keybinds, but don't appear in clickabledata.lua
+F_16C_50:defineRockerSwitch("ANTI_SKID_SW", 7, 3014, 3014, 3010, 3010, 357, "Gear System", "ANTI-SKID Switch, PARKING BRAKE/ANTI-SKID/OFF")
 
 --ECS
 F_16C_50:definePotentiometer("TEMP_KNB", 13, 3002, 692, { -0.3, 0.3 }, "ECS", "TEMP Knob")
