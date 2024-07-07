@@ -1350,6 +1350,12 @@ F_4E:defineIndicatorLight("WSO_RADAR_T", 2878, WSO_RADAR, "T Lamp (Red)")
 F_4E:defineIndicatorLight("WSO_RADAR_COOL_OFF", 2689, WSO_RADAR, "Cool Off Lamp (Blue)")
 F_4E:defineIndicatorLight("WSO_RADAR_A2A_LIGHT", 2690, WSO_RADAR, "Air to Air Button Lamp (Green)")
 
+-- WSO Range Indicator
+local WSO_RANGE_INDICATOR = "WSO Range Indicator"
+
+F_4E:definePositiveFloat("WSO_RANGE_RATE_NEEDLE", 2626, WSO_RANGE_INDICATOR, "Rate Needle")
+F_4E:definePositiveFloat("WSO_RANGE_THOUSANDS_NEEDLE", 2741, WSO_RANGE_INDICATOR, "Thousands Arrow (Outer)")
+
 -- Pilot Radar
 local PILOT_RADAR = "PLT Radar"
 
@@ -1366,6 +1372,9 @@ F_4E:defineIndicatorLight("PLT_RADAR_5", 2533, PILOT_RADAR, "5 Range Lamp (Green
 F_4E:defineIndicatorLight("PLT_RADAR_10", 2534, PILOT_RADAR, "10 Range Lamp (Green)")
 F_4E:defineIndicatorLight("PLT_RADAR_25", 2535, PILOT_RADAR, "25 Range Lamp (Green)")
 F_4E:defineIndicatorLight("PLT_RADAR_50", 2536, PILOT_RADAR, "50 Range Lamp (Green)")
+
+F_4E:defineIndicatorLight("PLT_RADAR_IN_RANGE", 373, PILOT_RADAR, "In Range Lamp (Blue)")
+F_4E:defineIndicatorLight("PLT_RADAR_HOLD_ALT", 2532, PILOT_RADAR, "Hold Alt Lamp (Blue)")
 
 -- BDHI
 -- local BDHI_DEVICE_ID = 53
