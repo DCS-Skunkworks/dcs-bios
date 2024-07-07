@@ -75,8 +75,7 @@ DCS-BIOS is an `Export.lua` script for use with [DCS: World][dcs-url], enabling 
 
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+Getting started with DCS-BIOS is easy! Just follow these simple steps. 
 
 ### Prerequisites
 
@@ -125,7 +124,7 @@ Both `socat` and [DCSBIOSBridge](dcsbiosbridge-url) can be used to connect to yo
 
 If you are working a lot with hardware, it may come in handy to log and replay dcs-bios data. There are two scripts in [Programs/tools](Programs/tools/) that allow you to do so.
 
-`python connect-logger.py` will log all dcs-bios data to `dcsbios_data.json`. Ensure that you start the logger before loading a mission, to capture the mission-start message properly.
+`python connect-logger.py` will log all dcs-bios data to `dcsbios_data.json`. Ensure that you start the logger before loading a mission in order to capture the mission-start message properly.
 
 `python replay-log.py` will ask for a serial port like `connect-serial-port.cmd` and replay the data to that com-port. When it reaches the end of the file, it will loop forever until you close it. The first message will not be repeated as this is usualy the mission-start message and should only be sent once.
 
