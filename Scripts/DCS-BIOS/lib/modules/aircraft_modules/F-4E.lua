@@ -2196,7 +2196,32 @@ F_4E:defineFullRangeFloat("WSO_SEAT_HEIGHT", 3044, WSO_SEAT, "Seat Height")
 -- todo: seat pos draw arg
 
 -- ECM
--- local ECM_DEVICE_ID = 91
+local ECM_DEVICE_ID = 91
+
+-- WSO ECM
+local WSO_ECM = "WSO ECM"
+
+-- left
+F_4E:defineMultipositionSwitch0To1("WSO_ECM_MODE_L", ECM_DEVICE_ID, 3001, 2650, 5, WSO_ECM, "Select ECM Mode (left pylons)")
+F_4E:definePushButton("WSO_ECM_RESET_L", ECM_DEVICE_ID, 3005, 2657, WSO_ECM, "Reset ECM Fault (left pylons)")
+
+F_4E:defineIndicatorLight("WSO_ECM_STANDBY_1_L", 2651, WSO_ECM, "Left Standby 1 Lamp (Yellow)")
+F_4E:defineIndicatorLight("WSO_ECM_STANDBY_2_L", 2652, WSO_ECM, "Left Standby 2 Lamp (Yellow)")
+F_4E:defineIndicatorLight("WSO_ECM_XMIT_1_L", 2653, WSO_ECM, "Left Xmit 1 Lamp (Green)")
+F_4E:defineIndicatorLight("WSO_ECM_XMIT_3_L", 2654, WSO_ECM, "Left Xmit 3 Lamp (Green)")
+F_4E:defineIndicatorLight("WSO_ECM_AI_L", 2655, WSO_ECM, "Left AI Lamp (Red)")
+F_4E:defineIndicatorLight("WSO_ECM_FAULT_L", 2656, WSO_ECM, "Left Fault Lamp (Red)")
+
+-- right
+F_4E:defineMultipositionSwitch0To1("WSO_ECM_MODE_R", ECM_DEVICE_ID, 3007, 2658, 5, WSO_ECM, "Select ECM Mode (right pylons)")
+F_4E:definePushButton("WSO_ECM_RESET_R", ECM_DEVICE_ID, 3011, 2665, WSO_ECM, "Reset ECM Fault (right pylons)")
+
+F_4E:defineIndicatorLight("WSO_ECM_STANDBY_1_R", 2659, WSO_ECM, "Right Standby 1 Lamp (Yellow)")
+F_4E:defineIndicatorLight("WSO_ECM_STANDBY_2_R", 2660, WSO_ECM, "Right Standby 2 Lamp (Yellow)")
+F_4E:defineIndicatorLight("WSO_ECM_XMIT_1_R", 2661, WSO_ECM, "Right Xmit 1 Lamp (Green)")
+F_4E:defineIndicatorLight("WSO_ECM_XMIT_3_R", 2662, WSO_ECM, "Right Xmit 3 Lamp (Green)")
+F_4E:defineIndicatorLight("WSO_ECM_AI_R", 2663, WSO_ECM, "Right AI Lamp (Red)")
+F_4E:defineIndicatorLight("WSO_ECM_FAULT_R", 2664, WSO_ECM, "Right Fault Lamp (Red)")
 
 -- Pilot Stick
 local PILOT_STICK = "PLT Stick"
