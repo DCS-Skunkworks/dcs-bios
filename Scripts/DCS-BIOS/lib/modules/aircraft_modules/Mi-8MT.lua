@@ -929,7 +929,7 @@ Mi_8MT:defineBitFromDrawArgument("EXT_STROBE", 193, "External Aircraft Model", "
 Mi_8MT:defineBitFromDrawArgument("EXT_WOW_NOSE", 1, "External Aircraft Model", "Weight ON Wheels Nose Gear")
 Mi_8MT:defineBitFromDrawArgument("EXT_WOW_RIGHT", 4, "External Aircraft Model", "Weight ON Wheels Right Gear")
 Mi_8MT:defineBitFromDrawArgument("EXT_WOW_LEFT", 6, "External Aircraft Model", "Weight ON Wheels Left Gear")
-Mi_8MT:defineFloatFromDrawArgument("EXT_ROTOR", 40, "External Aircraft Model", "Rotor Move")
+Mi_8MT:defineFullRangeFloatFromExternalDrawArgument("EXT_ROTOR", 40, "External Aircraft Model", "Rotor Move")
 
 Mi_8MT:defineIndicatorLight("LMP_BOMB_SIGHT_L_CRS", 47, "Lamps", " Bomb Sight Course Left Light (red)")
 Mi_8MT:defineIndicatorLight("LMP_BOMB_SIGHT_R_CRS", 48, "Lamps", " Bomb Sight Course Right Light (red) (red)")

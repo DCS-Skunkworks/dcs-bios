@@ -824,7 +824,7 @@ Ka_50:defineIndicatorLight("PLAFOND_LAMP", 1000, "Lighting Control Panel", "Plaf
 Ka_50:defineToggleSwitch("LIGHT_CPT_INT", 51, 3009, 1001, "Lighting Control Panel", "Lighting cockpit interior Lamp Switch")
 Ka_50:defineToggleSwitch("REDU_GEAR_OIL_PRESS", 4, 3024, 258, "Right Panel", "Reducing Gear box oil pressure indication selector") ---action=3024, stop_action=3025
 Ka_50:defineToggleSwitch("SLING_AUT_MAN", 41, 3004, 259, "Right Panel", "Sling load Auto/Manual")
-Ka_50:defineFloatFromDrawArgument("EXT_ROTORS", 40, "External Aircraft Model", "Rotors Move")
+Ka_50:defineFullRangeFloatFromExternalDrawArgument("EXT_ROTORS", 40, "External Aircraft Model", "Rotors Move")
 
 Ka_50:defineFloat("DOOR_POS_L", 533, { 0, 1 }, "Cockpit", "Door Position Left")
 Ka_50:defineFloat("DOOR_POS_T", 535, { 0, 1 }, "Cockpit", "Door Position Top")
