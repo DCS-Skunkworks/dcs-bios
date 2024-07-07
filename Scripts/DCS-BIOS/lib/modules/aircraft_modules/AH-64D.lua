@@ -663,7 +663,7 @@ AH_64D:defineFloat("CPG_CANOPY_POS", 798, { 0, 1 }, "Cockpit Gauges", "Gunner Ca
 
 --CMWS
 AH_64D:reserveIntValue(1) -- PLT_CMWS_PW updated from a 2-position to 3-position switch
-AH_64D:definePushButton("PLT_CMWS_PW_TEST", 80, 3002, 610, "PLT CMWS", "Pilot CMWS PWR Switch, TEST")
+AH_64D:reserveIntValue(1) -- AH_64D:definePushButton("PLT_CMWS_PW_TEST", 80, 3002, 610, "PLT CMWS", "Pilot CMWS PWR Switch, TEST")
 AH_64D:definePotentiometer("PLT_CMWS_VOL", 80, 3003, 611, { 0, 1 }, "PLT CMWS", "Pilot CMWS Audio Volume Knob")
 AH_64D:definePotentiometer("PLT_CMWS_LAMP", 80, 3004, 612, { 0, 1 }, "PLT CMWS", "Pilot CMWS Lamp Knob")
 AH_64D:defineToggleSwitch("PLT_CMWS_ARM", 80, 3005, 614, "PLT CMWS", "Pilot CMWS Flare Squibs Switch, ARM/SAFE")
