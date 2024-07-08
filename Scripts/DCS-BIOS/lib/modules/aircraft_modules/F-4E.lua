@@ -1216,8 +1216,9 @@ local EMERGENCY_ATTITUDE_DEVICE_ID = 47
 local PILOT_SAI = "PLT Emergency Attitude Indicator"
 
 F_4E:defineToggleSwitch("PLT_SAI_CAGE", EMERGENCY_ATTITUDE_DEVICE_ID, 3002, 628, PILOT_SAI, "Cage/Uncage")
--- todo: set state basically functions as an inc, inc/dec don't work as expected
-F_4E:definePotentiometer("PLT_SAI_TRIM", EMERGENCY_ATTITUDE_DEVICE_ID, 3001, 629, { 0, 1 }, PILOT_SAI, "Trim Emergency Attitude Indicator")
+-- control isn't fully implemented in the module, so we can't use it as a potentiometer (yet)
+-- F_4E:definePotentiometer("PLT_SAI_TRIM", EMERGENCY_ATTITUDE_DEVICE_ID, 3001, 629, { 0, 1 }, PILOT_SAI, "Trim Emergency Attitude Indicator")
+F_4E:defineRotary("PLT_SAI_TRIM", EMERGENCY_ATTITUDE_DEVICE_ID, 3001, 629, PILOT_SAI, "Trim Emergency Attitude Indicator")
 
 F_4E:defineFullRangeFloat("PLT_SAI_PITCH", 625, PILOT_SAI, "Y-Axis Rotation (Pitch)")
 F_4E:definePositiveFloat("PLT_SAI_ROLL", 626, PILOT_SAI, "Z-Axis Rotation (Roll)")
