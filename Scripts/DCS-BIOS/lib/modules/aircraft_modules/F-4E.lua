@@ -2288,4 +2288,12 @@ local PILOT_RIGHT_WALL = "PLT Right Wall"
 F_4E:defineSpringloaded_3PosTumbWithRange("PLT_EXT_LIGHT_FORMATION_MODE", EXTERIOR_LIGHTS_DEVICE_ID, 3003, 3003, 1367, { 0, 1 }, PILOT_RIGHT_WALL, "Set Formation Lights Mode")
 F_4E:definePotentiometer("PLT_EXT_LIGHT_FORMATION_BRIGHTNESS", EXTERIOR_LIGHTS_DEVICE_ID, 3002, 1368, { 0, 1 }, PILOT_RIGHT_WALL, "Change Formation Lights Brightness")
 
+-- Pilot Azimuth-Elevation Indicator
+local PILOT_AZIMUTH_ELEVATION_INDICATOR = "PLT Azimuth-Elevation Indicator"
+
+F_4E:definePositiveFloat("PLT_AZIMUTH_ELEVATION_ROLL_NEEDLE", 2611, PILOT_AZIMUTH_ELEVATION_INDICATOR, "Roll Needle")
+F_4E:definePositiveFloat("PLT_AZIMUTH_ELEVATION_FLAG_RED", 2761, PILOT_AZIMUTH_ELEVATION_INDICATOR, "Red Flag (top-left)")
+F_4E:definePositiveFloat("PLT_AZIMUTH_ELEVATION_FLAG_YELLOW", 2762, PILOT_AZIMUTH_ELEVATION_INDICATOR, "Yellow Flag (top-right)")
+F_4E:definePositiveFloat("PLT_AZIMUTH_ELEVATION_FLAG_GREEN", 2763, PILOT_AZIMUTH_ELEVATION_INDICATOR, "Green Flag (bottom)")
+
 return F_4E
