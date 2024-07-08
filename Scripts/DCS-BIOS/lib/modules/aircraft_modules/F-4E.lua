@@ -109,6 +109,15 @@ function F_4E:defineInputOnlyPushButton(identifier, device_id, command, category
 	end)
 end
 
+--- Adds a dimmable indicator light
+--- @param identifier string the unique identifier for the control
+--- @param arg_number integer the dcs argument number
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+function F_4E:defineDimmableIndicatorLight(identifier, arg_number, category, description)
+	self:definePositiveFloat(identifier, arg_number, category, description)
+end
+
 -- helper functions
 
 --- Returns an integer value for a drum-based numeric indicator
@@ -150,22 +159,22 @@ local PILOT_KY_28 = "PLT KY-28"
 
 F_4E:definePushButton("PLT_KY_28_P_MODE_TEST", ICS_DEVICE_ID, 3029, 2791, PILOT_KY_28, "KY-28 P Mode Light (push to test)")
 F_4E:definePotentiometer("PLT_KY_28_P_MODE_DIM", ICS_DEVICE_ID, 3030, 2790, { 0, 1 }, PILOT_KY_28, "KY-28 P Mode Light (rotate to dim)")
-F_4E:defineIndicatorLight("PLT_KY_28_P_MODE", 2554, PILOT_KY_28, "KY-28 P Mode Light")
+F_4E:defineDimmableIndicatorLight("PLT_KY_28_P_MODE", 2554, PILOT_KY_28, "KY-28 P Mode Light")
 
 F_4E:definePushButton("PLT_KY_28_C_MODE_TEST", ICS_DEVICE_ID, 3033, 2793, PILOT_KY_28, "KY-28 C Mode Light (push to test)")
 F_4E:definePotentiometer("PLT_KY_28_C_MODE_DIM", ICS_DEVICE_ID, 3034, 2792, { 0, 1 }, PILOT_KY_28, "KY-28 C Mode Light (rotate to dim)")
-F_4E:defineIndicatorLight("PLT_KY_28_C_MODE", 2555, PILOT_KY_28, "KY-28 C Mode Light")
+F_4E:defineDimmableIndicatorLight("PLT_KY_28_C_MODE", 2555, PILOT_KY_28, "KY-28 C Mode Light")
 
 -- WSO KY-28
 local WSO_KY_28 = "WSO KY-28"
 
 F_4E:definePushButton("WSO_KY_28_P_MODE_TEST", ICS_DEVICE_ID, 3037, 2622, WSO_KY_28, "KY-28 P Mode Light (push to test)")
 F_4E:definePotentiometer("WSO_KY_28_P_MODE_DIM", ICS_DEVICE_ID, 3038, 2807, { 0, 1 }, WSO_KY_28, "KY-28 P Mode Light (rotate to dim)")
-F_4E:defineIndicatorLight("WSO_KY_28_P_MODE", 2675, WSO_KY_28, "KY-28 P Mode Light")
+F_4E:defineDimmableIndicatorLight("WSO_KY_28_P_MODE", 2675, WSO_KY_28, "KY-28 P Mode Light")
 
 F_4E:definePushButton("WSO_KY_28_C_MODE_TEST", ICS_DEVICE_ID, 3041, 2623, WSO_KY_28, "KY-28 C Mode Light (push to test)")
 F_4E:definePotentiometer("WSO_KY_28_C_MODE_DIM", ICS_DEVICE_ID, 3042, 2808, { 0, 1 }, WSO_KY_28, "KY-28 C Mode Light (rotate to dim)")
-F_4E:defineIndicatorLight("WSO_KY_28_C_MODE", 2676, WSO_KY_28, "KY-28 C Mode Light")
+F_4E:defineDimmableIndicatorLight("WSO_KY_28_C_MODE", 2676, WSO_KY_28, "KY-28 C Mode Light")
 
 F_4E:definePushButton("WSO_KY_28_ERASE", ICS_DEVICE_ID, 3045, 2647, WSO_KY_28, "Erase KY-28 Data")
 F_4E:defineToggleSwitch("WSO_KY_28_BAND", ICS_DEVICE_ID, 3047, 2648, WSO_KY_28, "Select KY-28 Mode")
@@ -214,7 +223,7 @@ F_4E:defineToggleSwitch("PLT_ARC_164_ANTENNA_SELECTION", ARC_164_DEVICE_ID, 3001
 
 F_4E:definePushButton("PLT_ARC_164_TOGGLE_COMM_COMMAND", ARC_164_DEVICE_ID, 3002, 119, PILOT_ARC_164, "Toggle Radio Command")
 F_4E:definePotentiometer("PLT_ARC_164_COMM_COMMAND_BRIGHTNESS", ARC_164_DEVICE_ID, 3054, 2768, { 0, 1 }, PILOT_ARC_164, "Change Radio Command Light Brightness")
-F_4E:defineIndicatorLight("PLT_ARC_164_COMM_COMMAND_LIGHT", 169, PILOT_ARC_164, "Radio Command Lamp (Green)")
+F_4E:defineDimmableIndicatorLight("PLT_ARC_164_COMM_COMMAND_LIGHT", 169, PILOT_ARC_164, "Radio Command Lamp (Green)")
 F_4E:definePotentiometer("PLT_ARC_164_VOLUME", ARC_164_DEVICE_ID, 3003, 121, { 0, 1 }, PILOT_ARC_164, "Change UHF Volume")
 F_4E:defineToggleSwitch("PLT_ARC_164_SQUELCH", ARC_164_DEVICE_ID, 3024, 1374, PILOT_ARC_164, "UHF Squelch Switch")
 
@@ -245,7 +254,7 @@ local WSO_ARC_164 = "WSO ARC-164"
 
 F_4E:definePushButton("WSO_ARC_164_TOGGLE_COMMAND", ARC_164_DEVICE_ID, 3013, 144, WSO_ARC_164, "Toggle Radio Command")
 F_4E:definePotentiometer("WSO_ARC_164_COMMAND_BRIGHTNESS", ARC_164_DEVICE_ID, 3055, 2772, { 0, 1 }, WSO_ARC_164, "Change Radio Command Light Brightness")
-F_4E:defineIndicatorLight("WSO_ARC_164_COMM_COMMAND_LIGHT", 172, WSO_ARC_164, "Radio Command Lamp (Green)")
+F_4E:defineDimmableIndicatorLight("WSO_ARC_164_COMM_COMMAND_LIGHT", 172, WSO_ARC_164, "Radio Command Lamp (Green)")
 F_4E:definePotentiometer("WSO_ARC_164_VOLUME", ARC_164_DEVICE_ID, 3014, 146, { 0, 1 }, WSO_ARC_164, "Change UHF Volume")
 F_4E:defineToggleSwitch("WSO_ARC_164_SQUELCH", ARC_164_DEVICE_ID, 3028, 2524, WSO_ARC_164, "UHF Squelch Switch")
 
@@ -281,10 +290,10 @@ local PILOT_IFF_PANEL = "PLT IFF Panel"
 F_4E:defineMultipositionSwitch0To1("PLT_IFF_CODE", IFF_DEVICE_ID, 3001, 1322, 4, PILOT_IFF_PANEL, "Select Mode 4 Function")
 F_4E:definePushButton("PLT_IFF_REPLY_TEST_BUTTON", IFF_DEVICE_ID, 3064, 2843, PILOT_IFF_PANEL, "IFF Reply Lamp (push to test)")
 F_4E:definePotentiometer("PLT_IFF_REPLY_TEST_DIM", IFF_DEVICE_ID, 3065, 2842, { 0, 1 }, PILOT_IFF_PANEL, "IFF Reply Lamp (rotate to dim)")
-F_4E:defineIndicatorLight("PLT_IFF_REPLY_TEST_LIGHT", 2557, PILOT_IFF_PANEL, "IFF Reply Test Light (Blue)")
+F_4E:defineDimmableIndicatorLight("PLT_IFF_REPLY_TEST_LIGHT", 2557, PILOT_IFF_PANEL, "IFF Reply Test Light (Blue)")
 F_4E:definePushButton("PLT_IFF_TEST_BUTTON", IFF_DEVICE_ID, 3066, 2845, PILOT_IFF_PANEL, "IFF Test Lamp (push to test)")
 F_4E:definePotentiometer("PLT_IFF_TEST_DIM", IFF_DEVICE_ID, 3067, 2844, { 0, 1 }, PILOT_IFF_PANEL, "IFF Test Lamp (rotate to dim)")
-F_4E:defineIndicatorLight("PLT_IFF_TEST_LIGHT", 2556, PILOT_IFF_PANEL, "IFF Test Light (Blue)")
+F_4E:defineDimmableIndicatorLight("PLT_IFF_TEST_LIGHT", 2556, PILOT_IFF_PANEL, "IFF Test Light (Blue)")
 F_4E:defineMultipositionSwitch0To1("PLT_IFF_MASTER", IFF_DEVICE_ID, 3005, 1521, 5, PILOT_IFF_PANEL, "Select Master Mode")
 F_4E:define3PosTumb("PLT_IFF_AUDIO_LIGHT_SW", IFF_DEVICE_ID, 3009, 1328, PILOT_IFF_PANEL, "Select Mode 4 Indication")
 F_4E:define3PosTumb("PLT_IFF_M1", IFF_DEVICE_ID, 3013, 1323, PILOT_IFF_PANEL, "Mode 1")
@@ -328,10 +337,10 @@ F_4E:defineMultipositionRollerLimited("PLT_CM_FLARE_BURST_COUNT", COUNTERMEASURE
 F_4E:defineMultipositionRollerLimited("PLT_CM_FLARE_BURST_INTERVAL", COUNTERMEASURES_DEVICE_ID, 3019, 1505, 5, PILOT_COUNTERMEASURES_PANEL, "Select Flare Burst Interval")
 F_4E:definePushButton("PLT_CM_ON_TEST_BUTTON", COUNTERMEASURES_DEVICE_ID, 3002, 1437, PILOT_COUNTERMEASURES_PANEL, "CMS Indicator (push to test)")
 F_4E:definePotentiometer("PLT_CM_ON_DIM", COUNTERMEASURES_DEVICE_ID, 3003, 1438, { 0, 1 }, PILOT_COUNTERMEASURES_PANEL, "CMS Indicator (rotate to dim)")
-F_4E:defineIndicatorLight("PLT_CM_ON_LIGHT", 1414, PILOT_COUNTERMEASURES_PANEL, "ALE-40 On Lamp (Green)")
+F_4E:defineDimmableIndicatorLight("PLT_CM_ON_LIGHT", 1414, PILOT_COUNTERMEASURES_PANEL, "ALE-40 On Lamp (Green)")
 F_4E:definePushButton("PLT_CM_FLARE_TEST_BUTTON", COUNTERMEASURES_DEVICE_ID, 3004, 1439, PILOT_COUNTERMEASURES_PANEL, "Flare Indicator (push to test)")
 F_4E:definePotentiometer("PLT_CM_FLARE_DIM", COUNTERMEASURES_DEVICE_ID, 3005, 1440, { 0, 1 }, PILOT_COUNTERMEASURES_PANEL, "Flare Indicator (rotate to dim)")
-F_4E:defineIndicatorLight("PLT_CM_FLARE_LIGHT", 1415, PILOT_COUNTERMEASURES_PANEL, "ALE-40 Flares Lamp (Red)")
+F_4E:defineDimmableIndicatorLight("PLT_CM_FLARE_LIGHT", 1415, PILOT_COUNTERMEASURES_PANEL, "ALE-40 Flares Lamp (Red)")
 F_4E:defineToggleSwitch("PLT_CM_FLARE_NORMAL", COUNTERMEASURES_DEVICE_ID, 3001, 1417, PILOT_COUNTERMEASURES_PANEL, "Select Dispense Program")
 
 -- wso countermeasures panel
@@ -342,11 +351,11 @@ F_4E:defineToggleSwitch("WSO_CM_RIPPLE_COVER", COUNTERMEASURES_DEVICE_ID, 3010, 
 F_4E:defineToggleSwitch("WSO_CM_RIPPLE", COUNTERMEASURES_DEVICE_ID, 3011, 1445, WSO_COUNTERMEASURES_PANEL, "Toggle Ripple Release")
 F_4E:definePushButton("WSO_CM_CHAFF_TEST_BUTTON", COUNTERMEASURES_DEVICE_ID, 3006, 1450, WSO_COUNTERMEASURES_PANEL, "Chaff Indicator (push to test)")
 F_4E:definePotentiometer("WSO_CM_CHAFF_DIM", COUNTERMEASURES_DEVICE_ID, 3007, 1448, { 0, 1 }, WSO_COUNTERMEASURES_PANEL, "Chaff Indicator (rotate to dim)")
-F_4E:defineIndicatorLight("WSO_CM_CHAFF_LIGHT", 1441, WSO_COUNTERMEASURES_PANEL, "Chaff Lamp (Green)")
+F_4E:defineDimmableIndicatorLight("WSO_CM_CHAFF_LIGHT", 1441, WSO_COUNTERMEASURES_PANEL, "Chaff Lamp (Green)")
 F_4E:defineMultipositionRollerLimited("WSO_CM_CHAFF_MODE", COUNTERMEASURES_DEVICE_ID, 3020, 1444, 4, WSO_COUNTERMEASURES_PANEL, "Select Chaff Mode")
 F_4E:definePushButton("WSO_CM_FLARE_TEST_BUTTON", COUNTERMEASURES_DEVICE_ID, 3008, 1451, WSO_COUNTERMEASURES_PANEL, "Flare Indicator (push to test)")
 F_4E:definePotentiometer("WSO_CM_FLARE_DIM", COUNTERMEASURES_DEVICE_ID, 3009, 1449, { 0, 1 }, WSO_COUNTERMEASURES_PANEL, "Flare Indicator (rotate to dim)")
-F_4E:defineIndicatorLight("WSO_CM_FLARE_LIGHT", 1442, WSO_COUNTERMEASURES_PANEL, "Flare Lamp (Red)")
+F_4E:defineDimmableIndicatorLight("WSO_CM_FLARE_LIGHT", 1442, WSO_COUNTERMEASURES_PANEL, "Flare Lamp (Red)")
 F_4E:defineMultipositionRollerLimited("WSO_CM_FLARE_MODE", COUNTERMEASURES_DEVICE_ID, 3021, 1443, 3, WSO_COUNTERMEASURES_PANEL, "Select Flare Mode")
 
 local wso_cm_chaff_hundreds = 0
@@ -514,9 +523,9 @@ F_4E:defineToggleSwitch("WSO_INS_ALIGN_MODE_COVER", INS_DEVICE_ID, 3001, 996, WS
 F_4E:defineToggleSwitch("WSO_INS_ALIGN_MODE", INS_DEVICE_ID, 3002, 997, WSO_INS_PANEL, "INS Align Mode Switch")
 F_4E:defineMultipositionRollerLimited("WSO_INS_POWER", INS_DEVICE_ID, 3003, 998, 4, WSO_INS_PANEL, "INS Power Knob")
 F_4E:definePotentiometer("WSO_INS_ALIGN_DIM", INS_DEVICE_ID, 3007, 2818, { 0, 1 }, WSO_INS_PANEL, "INS Align Lamp (rotate to dim)")
-F_4E:defineIndicatorLight("WSO_INS_ALIGN", 999, WSO_INS_PANEL, "WSO INS Align Lamp (Green)")
+F_4E:defineDimmableIndicatorLight("WSO_INS_ALIGN", 999, WSO_INS_PANEL, "WSO INS Align Lamp (Green)")
 F_4E:definePotentiometer("WSO_INS_HEAT_DIM", INS_DEVICE_ID, 3008, 2819, { 0, 1 }, WSO_INS_PANEL, "INS Heat Lamp (rotate to dim)")
-F_4E:defineIndicatorLight("WSO_INS_HEAT", 1000, WSO_INS_PANEL, "WSO INS Heat Lamp (Red)")
+F_4E:defineDimmableIndicatorLight("WSO_INS_HEAT", 1000, WSO_INS_PANEL, "WSO INS Heat Lamp (Red)")
 
 -- Navigation (AN-ASN-46A)
 local NAVIGATION_DEVICE_ID = 16
@@ -929,7 +938,7 @@ F_4E:definePushButton("PLT_WPN_STORES_EMERGENCY_RELEASE", WEAPONS_DEVICE_ID, 303
 
 F_4E:definePushButton("PLT_WPN_LABS_PULL_UP_TEST", WEAPONS_DEVICE_ID, 3072, 368, PILOT_WEAPONS, "LABS Pull-Up Light (push to test)")
 F_4E:definePotentiometer("PLT_WPN_LABS_PULL_UP_DIM", WEAPONS_DEVICE_ID, 3073, 2794, { 0, 1 }, PILOT_WEAPONS, "LABS Pull-Up Light (rotate to dim)")
-F_4E:defineIndicatorLight("PLT_WPN_LABS_PULL_UP", 367, PILOT_WEAPONS, "LABS Pull-up Lamp (Red)")
+F_4E:defineDimmableIndicatorLight("PLT_WPN_LABS_PULL_UP", 367, PILOT_WEAPONS, "LABS Pull-up Lamp (Red)")
 
 F_4E:defineToggleSwitch("PLT_WPN_GUN_RATE", WEAPONS_DEVICE_ID, 3012, 278, PILOT_WEAPONS, "Set Gun Rate")
 F_4E:defineRotary("PLT_WPN_GUN_ROUNDS", WEAPONS_DEVICE_ID, 3050, 1412, PILOT_WEAPONS, "Set Gun Rounds")
@@ -1235,7 +1244,7 @@ F_4E:definePotentiometer("PLT_TACAN_VOLUME", TACAN_DEVICE_ID, 3005, 642, { 0, 1 
 F_4E:defineMultipositionRollerLimited("PLT_TACAN_MODE", TACAN_DEVICE_ID, 3006, 646, 5, PILOT_TACAN, "Select TACAN Mode")
 F_4E:definePushButton("PLT_TACAN_TEST", TACAN_DEVICE_ID, 3007, 655, PILOT_TACAN, "Test TACAN")
 
-F_4E:defineIndicatorLight("PLT_TACAN_COMMAND_LIGHT", 170, PILOT_TACAN, "TACAN Command Lamp (Green)")
+F_4E:defineDimmableIndicatorLight("PLT_TACAN_COMMAND_LIGHT", 170, PILOT_TACAN, "TACAN Command Lamp (Green)")
 F_4E:defineIndicatorLight("PLT_TACAN_TEST_LIGHT", 657, PILOT_TACAN, "TACAN Test Lamp (Red)")
 F_4E:defineString("PLT_TACAN_CHANNEL", function(dev0)
 	return get_tacan_channel(dev0, 645, 644, 643, 656)
@@ -1253,7 +1262,7 @@ F_4E:definePotentiometer("WSO_TACAN_VOLUME", TACAN_DEVICE_ID, 3012, 649, { 0, 1 
 F_4E:defineMultipositionRollerLimited("WSO_TACAN_MODE", TACAN_DEVICE_ID, 3013, 653, 5, WSO_TACAN, "Select TACAN Mode")
 F_4E:definePushButton("WSO_TACAN_TEST", TACAN_DEVICE_ID, 3014, 659, WSO_TACAN, "Test TACAN")
 
-F_4E:defineIndicatorLight("WSO_TACAN_COMMAND_LIGHT", 171, WSO_TACAN, "TACAN Command Lamp (Green)")
+F_4E:defineDimmableIndicatorLight("WSO_TACAN_COMMAND_LIGHT", 171, WSO_TACAN, "TACAN Command Lamp (Green)")
 F_4E:defineIndicatorLight("WSO_TACAN_TEST_LIGHT", 661, WSO_TACAN, "TACAN Test Lamp (Red)")
 F_4E:defineString("WSO_TACAN_CHANNEL", function(dev0)
 	return get_tacan_channel(dev0, 652, 651, 650, 660)
@@ -1294,14 +1303,14 @@ F_4E:defineString("PLT_HSI_RANGE", function(dev0)
 end, 4, PILOT_HSI, "Range Drum (miles)")
 
 F_4E:definePositiveFloat("PLT_HSI_RANGE_WARNING_FLAG", 683, PILOT_HSI, "Range Warning Flag")
-F_4E:defineIndicatorLight("PLT_HSI_NAV", 684, PILOT_HSI, "NAV Lamp (Red)")
-F_4E:defineIndicatorLight("PLT_HSI_DL_L", 685, PILOT_HSI, "Left DL Lamp (Red)")
-F_4E:defineIndicatorLight("PLT_HSI_ILS", 686, PILOT_HSI, "ILS Lamp (Red)")
-F_4E:defineIndicatorLight("PLT_HSI_MAN", 687, PILOT_HSI, "MAN Lamp (Red)")
-F_4E:defineIndicatorLight("PLT_HSI_TAC", 688, PILOT_HSI, "TAC Lamp (Red)")
-F_4E:defineIndicatorLight("PLT_HSI_TGT", 689, PILOT_HSI, "TGT Lamp (Red)")
-F_4E:defineIndicatorLight("PLT_HSI_UHF", 690, PILOT_HSI, "UHF Lamp (Red)")
-F_4E:defineIndicatorLight("PLT_HSI_DL_R", 691, PILOT_HSI, "Right DL Lamp (Red)")
+F_4E:defineDimmableIndicatorLight("PLT_HSI_NAV", 684, PILOT_HSI, "NAV Lamp (Red)")
+F_4E:defineDimmableIndicatorLight("PLT_HSI_DL_L", 685, PILOT_HSI, "Left DL Lamp (Red)")
+F_4E:defineDimmableIndicatorLight("PLT_HSI_ILS", 686, PILOT_HSI, "ILS Lamp (Red)")
+F_4E:defineDimmableIndicatorLight("PLT_HSI_MAN", 687, PILOT_HSI, "MAN Lamp (Red)")
+F_4E:defineDimmableIndicatorLight("PLT_HSI_TAC", 688, PILOT_HSI, "TAC Lamp (Red)")
+F_4E:defineDimmableIndicatorLight("PLT_HSI_TGT", 689, PILOT_HSI, "TGT Lamp (Red)")
+F_4E:defineDimmableIndicatorLight("PLT_HSI_UHF", 690, PILOT_HSI, "UHF Lamp (Red)")
+F_4E:defineDimmableIndicatorLight("PLT_HSI_DL_R", 691, PILOT_HSI, "Right DL Lamp (Red)")
 
 -- Radar
 local RADAR_DEVICE_ID = 52
@@ -1788,7 +1797,7 @@ F_4E:definePushButton("WSO_IFF_MODE_DEC_ONES", IFF_INTERROGATOR_DEVICE_ID, 3010,
 
 F_4E:definePushButton("WSO_IFF_CHALLENGE_TEST_BUTTON", IFF_INTERROGATOR_DEVICE_ID, 3015, 2646, WSO_IFF_PANEL, "Challenge Light (push to test)")
 F_4E:definePotentiometer("WSO_IFF_CHALLENGE_DIM", IFF_INTERROGATOR_DEVICE_ID, 3016, 2811, { 0, 1 }, WSO_IFF_PANEL, "Challenge Light (rotate to dim)")
-F_4E:defineIndicatorLight("WSO_IFF_CHALLENGE_LIGHT", 2695, WSO_IFF_PANEL, "IFF Challenge Light (Blue)")
+F_4E:defineDimmableIndicatorLight("WSO_IFF_CHALLENGE_LIGHT", 2695, WSO_IFF_PANEL, "IFF Challenge Light (Blue)")
 
 F_4E:defineSpringloaded3PosTumb("WSO_IFF_TEST_CHALLENGE", IFF_INTERROGATOR_DEVICE_ID, 3013, 2645, WSO_IFF_PANEL, "Test/Challenge Code Switch")
 
@@ -1796,7 +1805,7 @@ F_4E:reserveIntValue(1) -- Anti-Jam, not yet implemented
 
 F_4E:definePushButton("WSO_IFF_COMBAT_TREE_CHALLENGE_TEST_BUTTON", IFF_INTERROGATOR_DEVICE_ID, 3018, 2640, WSO_IFF_PANEL, "Combat-Tree Challenge Light (push to test) (not simulated)")
 F_4E:definePotentiometer("WSO_IFF_COMBAT_TREE_CHALLENGE_DIM", IFF_INTERROGATOR_DEVICE_ID, 3019, 2812, { 0, 1 }, WSO_IFF_PANEL, "Combat-Tree Challenge Light (rotate to dim) (not simulated)")
-F_4E:defineIndicatorLight("WSO_IFF_COMBAT_TREE_CHALLENGE_TEST_LIGHT", 2696, WSO_IFF_PANEL, "Combat-Tree Challenge Light (Blue)")
+F_4E:defineDimmableIndicatorLight("WSO_IFF_COMBAT_TREE_CHALLENGE_TEST_LIGHT", 2696, WSO_IFF_PANEL, "Combat-Tree Challenge Light (Blue)")
 
 F_4E:definePushButton("WSO_IFF_COMBAT_TREE_TEST", IFF_INTERROGATOR_DEVICE_ID, 3021, 2641, WSO_IFF_PANEL, "Test Combat-Tree")
 F_4E:define3PosTumb("WSO_IFF_COMBAT_TREE_MODE_2", IFF_INTERROGATOR_DEVICE_ID, 3022, 2642, WSO_IFF_PANEL, "Set Combat-Tree Type 2 Mode")
@@ -1850,7 +1859,7 @@ end, 6, PILOT_VOR_ILS, "VOR/ILS Frequency")
 
 F_4E:definePushButton("PLT_VOR_ILS_MARKER_TEST", VOR_ILS_DEVICE_ID, 3010, 2798, PILOT_VOR_ILS, "Marker-Beacon Lamp (push to test)")
 F_4E:definePotentiometer("PLT_VOR_ILS_MARKER_DIM", VOR_ILS_DEVICE_ID, 3011, 2797, { 0, 1 }, PILOT_VOR_ILS, "Marker-Beacon Lamp (rotate to dim)")
-F_4E:defineIndicatorLight("PLT_VOR_ILS_MARKER_LIGHT", 693, PILOT_VOR_ILS, "Marker Beacon Lamp (Red)")
+F_4E:defineDimmableIndicatorLight("PLT_VOR_ILS_MARKER_LIGHT", 693, PILOT_VOR_ILS, "Marker Beacon Lamp (Red)")
 
 -- WSO VOR/ILS
 local WSO_VOR_ILS = "WSO VOR/ILS"
@@ -1860,7 +1869,7 @@ F_4E:definePotentiometer("WSO_VOR_ILS_MARKER_VOLUME", VOR_ILS_DEVICE_ID, 3006, 2
 
 F_4E:definePushButton("WSO_VOR_ILS_MARKER_TEST", VOR_ILS_DEVICE_ID, 3008, 2620, WSO_VOR_ILS, "Marker-Beacon Lamp (push to test)")
 F_4E:definePotentiometer("WSO_VOR_ILS_MARKER_DIM", VOR_ILS_DEVICE_ID, 3009, 2806, { 0, 1 }, WSO_VOR_ILS, "Marker-Beacon Lamp (rotate to dim)")
-F_4E:defineIndicatorLight("WSO_VOR_ILS_MARKER_LIGHT", 2674, WSO_VOR_ILS, "Marker Beacon Lamp (Red)")
+F_4E:defineDimmableIndicatorLight("WSO_VOR_ILS_MARKER_LIGHT", 2674, WSO_VOR_ILS, "Marker Beacon Lamp (Red)")
 
 -- Ejection Seat
 local EJECTION_SEAT_DEVICE_ID = 71
