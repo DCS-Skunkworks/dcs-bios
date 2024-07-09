@@ -1,0 +1,50 @@
+name: Control Request
+description: Request or propose a new control in DCS-BIOS.
+labels: ["enhancement", "needs triage"]
+assignees:
+  - charliefoxtwo
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to improve DCS-BIOS! Your effort is greatly appreciated.
+  - type: checkboxes
+    id: version
+    attributes:
+      label: Version
+      description: Please verify you're using the [latest version](https://github.com/DCS-Skunkworks/dcs-bios/releases/latest) of DCS-BIOS
+      options:
+        - label: I am using the latest version
+          required: true
+  - type: input
+    id: aircraft
+    attributes:
+      label: Aircraft
+      description: The name of the aircraft you'd like to request new controls for
+      placeholder: A-10C II
+    validations:
+      required: true
+  - type: input
+    id: control
+    attributes:
+      label: Control
+      description: The name of the control or panel you'd like to see added
+      placeholder: ARC-210 Radio Panel
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Please keep in mind that we aren't familiar with all aircraft.
+      placeholder: The A-10C II recently had the ARC-210 added, and it would be great to see this panel added to DCS-BIOS as well!
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: Please attach any screenshots which might help describe the new control. Screenshots are greatly appreciated!
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional context
+      description: Any other information you'd like to include
