@@ -1,0 +1,63 @@
+name: Bug Report
+description: Report a bug with DCS-BIOS.
+labels: ["bug", "needs triage"]
+assignees:
+  - charliefoxtwo
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report! Please provide as much information as you can in order to help us get to the bottom of the issue.
+  - type: checkboxes
+    id: version
+    attributes:
+      label: Version
+      description: Please verify you're using the [latest version](https://github.com/DCS-Skunkworks/dcs-bios/releases/latest) of DCS-BIOS
+      options:
+        - label: I am using the latest version
+          required: true
+  - type: input
+    id: aircraft
+    attributes:
+      label: Aircraft
+      description: The name of the aircraft you're having trouble with
+      placeholder: A-10C II
+    validations:
+      required: true
+  - type: input
+    id: control
+    attributes:
+      label: Control
+      description: The ID of the control you're having trouble with
+      placeholder: FLAPS_SWITCH
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Please keep in mind that we aren't familiar with all aircraft.
+      placeholder: The A-10C II `FLAPS_SWITCH` control won't decrement properly.
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Load into hot start A-10C
+        2. Send `FLAPS_SWITCH DEC` to dcs-bios
+        3. Observe that the flaps switch does not move
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      placeholder: The flaps switch should have moved, and the flaps should have lowered
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: Please attach any screenshots which might help explain the issue here. Screenshots are greatly appreciated!
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional context
+      description: Any other information you'd like to include about your problem

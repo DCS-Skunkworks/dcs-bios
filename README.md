@@ -21,9 +21,9 @@
     <br />
     <a href="https://github.com/DCS-Skunkworks/dcs-bios/discussions">Ask a Question</a>
     ·
-    <a href="https://github.com/DCS-Skunkworks/dcs-bios/issues/new?labels=bug&template=bug_report.md">Report Bug</a>
+    <a href="https://github.com/DCS-Skunkworks/dcs-bios/issues/new?assignees=charliefoxtwo&labels=bug%2Cneeds+triage&projects=&template=10_bug_report.yml">Report Bug</a>
     ·
-    <a href="https://github.com/DCS-Skunkworks/dcs-bios/issues/new?labels=enhancement&template=feature_request.md">Request Feature</a>
+    <a href="https://github.com/DCS-Skunkworks/dcs-bios/issues/new?assignees=charliefoxtwo&labels=enhancement%2Cneeds+triage&projects=&template=20_control_request.yml">Request Feature</a>
   </p>
 </div>
 
@@ -134,6 +134,11 @@ If you are working a lot with hardware, it may come in handy to log and replay d
 
 The [Developer Guide][developer-guide-url] explains how to connect to and interpret the DCS-BIOS export data stream and how to send commands to DCS-BIOS in order to operate controls inside the cockpit.
 
+There are also a variety of client libraries available, including (but not limited to):
+| Language | Library |
+|-|-|
+| C# | [DCS-BIOS Communicator](client-lib-dcs-bios-communicator-url) |
+
 ## Modules
 
 > [!Note]
@@ -186,7 +191,7 @@ Currently, DCS-BIOS supports the following aircraft modules:
 
 | Module | Status | Contributors | Link |
 |-|-|-|-|
-| A-4E-C | ✅ | _Dehuman, revised by WarLord_ | [GitHub](https://github.com/heclak/community-a4e-c) |
+| A-4E-C | ✅ | _Dehuman, WarLord_ | [GitHub](https://github.com/heclak/community-a4e-c) |
 | A-29B | ✅ | _WarLord_ | [GitHub](https://github.com/luizrenault/a-29b-community) |
 | AH-6J | ✅ | _WarLord_ | [DCS Forums](https://forum.dcs.world/topic/228394-helicopter-efm-demo) |
 | Alphajet | ✅ | _WarLord_ | [Developer](http://www.jetesons.com/telechargement.html) |
@@ -286,3 +291,4 @@ For questions, consider asking in our [Discussions][discussions-url] page, or re
 [developer-guide-url]: https://github.com/DCS-Skunkworks/dcs-bios/blob/master/Scripts/DCS-BIOS/doc/developerguide.adoc
 [contributing-url]: https://github.com/DCS-Skunkworks/dcs-bios/blob/master/CONTRIBUTING.md
 
+[client-lib-dcs-bios-communicator-url]: https://github.com/charliefoxtwo/DCS-BIOS-Communicator
