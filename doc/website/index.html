@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>DCS-BIOS</title>
+    <meta name="description" content="DCS-BIOS is a data export tool for DCS." />
+
+    <!--Inter UI font-->
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+
+    <!--vendors styles-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+
+    <!-- Bootstrap CSS / Color Scheme -->
+    <link rel="stylesheet" href="css/cyan.css" id="theme-color">
+</head>
+
+<body>
+
+    <!--navigation-->
+    <section class="smart-scroll">
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-md navbar-dark">
+                <a class="navbar-brand heading-black" href="index.html">
+                    dcs-bios
+                </a>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link page-scroll" href="#features">Features</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link page-scroll" href="#installation">Installation</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link page-scroll" href="#faq">FAQ</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </section>
+
+    <!--hero header-->
+    <section class="py-7 py-md-0 bg-hero" id="home">
+        <div class="container">
+            <div class="row vh-md-100">
+                <div class="col-md-8 col-sm-10 col-12 mx-auto my-auto text-center">
+                    <h1 class="heading-black text-capitalize">Export your DCS cockpit with DCS-BIOS</h1>
+                    <p class="lead py-3">DCS-BIOS exports cockpit parameters such as switches, gauges, and lights in an
+                        easy-to-use format.</p>
+                    <a href="https://github.com/DCS-Skunkworks/dcs-bios/releases/latest" target="_blank"
+                        class="btn btn-primary d-inline-flex flex-row align-items-center">
+                        Download
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- features section -->
+    <section class="pt-6 pb-7" id="features">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mx-auto text-center">
+                    <h2 class="heading-black">DCS-BIOS exports everything you need.</h2>
+                    <p class="text-muted lead">Whether you're building a software integration, custom panel, or full
+                        simpit, DCS-BIOS has you covered.</p>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-md-10 mx-auto">
+                    <div class="row feature-boxes">
+                        <div class="col-md-6 box">
+                            <h5>Stable, Documented API</h5>
+                            <p class="text-muted">We monitor DCS changes to command IDs and arguments, so you don't have
+                                to &mdash; all while maintaining the same external interface.</p>
+                        </div>
+                        <div class="col-md-6 box">
+                            <h5>Unlimited devices</h5>
+                            <p class="text-muted">Hook up as many custom panels, gauges, and integrations as you want
+                                &mdash; it all works.</p>
+                        </div>
+                        <div class="col-md-6 box">
+                            <h5>Extremely efficient protocol</h5>
+                            <p class="text-muted">Due to the compact nature of the data export protocol &ndash; designed
+                                with slow serial ports in mind &ndash; you'll never notice any lag in-game or in your
+                                panel.</p>
+                        </div>
+                        <div class="col-md-6 box">
+                            <h5>Arduino ecosystem</h5>
+                            <p class="text-muted">Pit builders can take advantage of low-cost, readily-available
+                                microcontrollers to build the pit of their dreams.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--installation section-->
+    <section class="py-7 bg-dark section-angle top-right bottom-right" id="installation">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mx-auto text-center">
+                    <h2 class="text-white heading-black">Installation</h2>
+                    <p class="text-light lead">Get up and running in a few simple steps</p>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-auto col-lg-2 mr-auto"></div>
+                <div class="col-md-12 col-lg-8 mr-auto">
+                    <h3>Find your DCS Scripts folder</h3>
+                    <p>Start by finding your DCS Saved Games folder. On Windows, this is likely either:</p>
+                    <ul>
+                        <li><code class="filepath">C:\Users\USERNAME\Saved Games\DCS</code></li>
+                        <li><code class="filepath">C:\Users\USERNAME\Saved Games\DCS.openbeta</code></li>
+                    </ul>
+
+                    <p>Within that folder, you find the folder called Scripts. Create one if it does not exist. The
+                        final path should look like one of the following:</p>
+
+                    <ul>
+                        <li><code class="filepath">C:\Users\USERNAME\Saved Games\DCS\Scripts</code></li>
+                        <li><code class="filepath">C:\Users\USERNAME\Saved Games\DCS.openbeta\Scripts</code></li>
+                    </ul>
+
+                    <h3>Install DCS-BIOS</h3>
+                    <ol>
+                        <li><a href="https://github.com/DCS-Skunkworks/dcs-bios/releases/latest">Download</a> DCS-BIOS
+                            (<code class="filename">DCS-BIOS_x.y.z.zip</code>)</li>
+                        <li>Extract the zip file</li>
+                        <li>Within the extracted folder, copy the <b>DCS-BIOS</b> folder into the previously mentioned
+                            scripts folder
+                            <ul>
+                                <li>If you're updating DCS-BIOS and already have a <b>DCS-BIOS</b> folder in your
+                                    scripts folder, delete it first.</li>
+                            </ul>
+                        </li>
+                        <li><b>If your scripts folder does not have an</b> <code class="filename">Export.lua</code>
+                            <b>file</b>, copy the <code class="filename">Export.lua</code> file over</li>
+                        <li>
+                            <b>If your scripts folder <i>does</i> have an</b> <code class="filename">Export.lua</code>
+                            <b>file</b>, add the following line to the end:
+                            <p><code>dofile(lfs.writedir() .. [[Scripts\DCS-BIOS\BIOS.lua]])</code></p>
+                        </li>
+                    </ol>
+                    <h3>That's it! 🎉</h3>
+                    <p>DCS-BIOS is now installed and ready to go.</p>
+                </div>
+                <div class="col-md-auto col-lg-2 mr-auto"></div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-md-8 col-12 divider top-divider mx-auto pt-5 text-center">
+                    <h3>Building a panel?</h3>
+                    <p class="mb-4">For further instructions on how to set up your first custom Arduino panel, check out
+                        our User Guide.</p>
+                    <a class="btn btn-primary"
+                        href="https://github.com/DCS-Skunkworks/dcs-bios/blob/master/Scripts/DCS-BIOS/doc/userguide.adoc#step-2-connecting-your-led-and-push-button-switch"
+                        target="_blank">
+                        User Guide
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--faq section-->
+    <section class="py-7" id="faq">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mx-auto text-center">
+                    <h2>Frequently asked questions</h2>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-md-10 mx-auto">
+                    <div class="row">
+                        <div class="col-md-6 mb-5">
+                            <h6>What aircraft does DCS-BIOS support?</h6>
+                            <p class="text-muted">DCS-BIOS supports all official modules, as well as many popular mods.
+                                See the full list <a
+                                    href="https://github.com/DCS-Skunkworks/dcs-bios?tab=readme-ov-file#modules">here</a>
+                            </p>
+                        </div>
+                        <div class="col-md-6 mb-5">
+                            <h6>Do I need to know how to code to build panels?</h6>
+                            <p class="text-muted">No! Most reference tools for DCS-BIOS (such as <a
+                                    href="https://github.com/DCS-Skunkworks/bort">Bort</a>) provide code snippets that
+                                you can copy/paste.</p>
+                        </div>
+                        <div class="col-md-6 mb-5">
+                            <h6>How often do you release updates?</h6>
+                            <p class="text-muted">Most DCS updates will require a DCS-BIOS update to ensure all modules
+                                continue to function.</p>
+                        </div>
+                        <div class="col-md-6 mb-5">
+                            <h6>How can I contact you?</h6>
+                            <p class="text-muted">Get in touch with us on <a
+                                    href="https://discord.gg/5svGwKX">Discord</a>!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-6 mx-auto text-center">
+                    <h5 class="mb-4">Have questions?</h5>
+                    <a href="https://discord.gg/5svGwKX" class="btn btn-primary">Contact us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--news section-->
+    <section class="py-7 bg-dark section-angle top-left bottom-left" id="blog">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mx-auto text-center">
+                    <h2 class="heading-black">What are you waiting for?</h2>
+                    <p class="text-muted lead">Get started with DCS-BIOS today.</p>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-6 mx-auto text-center">
+                    <a class="btn btn-primary" href="https://github.com/DCS-Skunkworks/dcs-bios/releases/latest"
+                        target="_blank">
+                        Download
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--footer-->
+    <footer class="py-6">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-5 mr-auto">
+                    <h5>About DCS-BIOS</h5>
+                    <p class="text-muted">DCS-BIOS is a community project run by volunteers with a shared passion for
+                        flight simulators and pit building.</p>
+                </div>
+                <div class="col-sm-2">
+                    <h5>Legal</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="https://github.com/DCS-Skunkworks/dcs-bios/blob/master/LICENSE"
+                                target="_blank">License</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-2">
+                    <h5>Related Tools</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="https://github.com/DCS-Skunkworks/bort" target="_blank">Bort</a></li>
+                        <li><a href="https://github.com/DCS-Skunkworks/dcs-bios-arduino-library" target="_blank">Arduino
+                                Library</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-2">
+                    <h5>Help</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" target="https://github.com/DCS-Skunkworks/dcs-bios/issues/new/choose">Bug
+                                Report</a></li>
+                        <li><a href="https://github.com/DCS-Skunkworks/dcs-bios/discussions" target="_blank">GitHub
+                                Discussions</a></li>
+                        <li><a href="https://discord.gg/5svGwKX" target="_blank">Discord</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
