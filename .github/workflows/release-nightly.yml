@@ -42,11 +42,11 @@ jobs:
     steps:
       - name: Get current date
         id: date
-        run: echo "::set-output name=date::$(date +'%F')"
-        
+        run: echo "date=$(date +'%F')" >> $GITHUB_OUTPUT
+
       - name: Set release filename
         id: filename
-        run: echo "::set-output name=zip::DCS-BIOS_nightly_${{ steps.date.outputs.date }}.zip"
+        run: echo "zip=DCS-BIOS_nightly_${{ steps.date.outputs.date }}.zip" >> $GITHUB_OUTPUT
 
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -73,7 +73,7 @@ jobs:
         uses: thedoctor0/zip-release@0.7.6
         with:
           type: zip
-          filename: 'Arduino Tools.zip'
+          filename: 'Arduino_Tools.zip'
           directory: './Programs'
 
       - name: Update latest tag
@@ -89,7 +89,7 @@ jobs:
         with:
           allowUpdates: true
           artifactErrorsFailBuild: true
-          artifacts: './Scripts/${{ steps.filename.outputs.zip }},./Programs/Arduino Tools.zip'
+          artifacts: './Scripts/${{ steps.filename.outputs.zip }},./Programs/Arduino_Tools.zip'
           commit: master
           makeLatest: true
           name: 'DCS-BIOS Nightly ${{ steps.date.outputs.date }}'
