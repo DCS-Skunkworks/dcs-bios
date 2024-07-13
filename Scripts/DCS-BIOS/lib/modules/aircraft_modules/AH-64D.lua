@@ -327,7 +327,7 @@ AH_64D:definePushButton("PLT_KU_ENT", 29, 3006, 261, "PLT Keyboard Unit", "Pilot
 AH_64D:definePotentiometer("PLT_KU_BRT", 29, 3050, 316, { 0, 1 }, "PLT Keyboard Unit", "Pilot Scratchpad Keyboard Brightness Knob")
 
 AH_64D:defineString("PLT_KU_DISPLAY", function()
-	return parse_ku(15)
+	return parse_ku(16)
 end, 22, "PLT Keyboard Unit", "Pilot Keyboard Unit Display")
 
 AH_64D:definePushButton("CPG_KU_A", 30, 3007, 164, "CPG Keyboard Unit", "Gunner Keyboard Unit A Key")
@@ -382,7 +382,7 @@ AH_64D:definePushButton("CPG_KU_ENT", 30, 3006, 212, "CPG Keyboard Unit", "Gunne
 AH_64D:definePotentiometer("CPG_KU_BRT", 30, 3050, 621, { 0, 1 }, "CPG Keyboard Unit", "Gunner Scratchpad Keyboard Brightness Knob")
 
 AH_64D:defineString("CPG_KU_DISPLAY", function()
-	return parse_ku(14)
+	return parse_ku(15)
 end, 22, "CPG Keyboard Unit", "Gunner Keyboard Unit Display")
 
 -- Enhanced Up-Front Display
@@ -402,11 +402,11 @@ local plt_EUFD = {}
 local cpg_EUFD = {}
 
 AH_64D:addExportHook(function()
-	plt_EUFD = parse_eufd(17)
+	plt_EUFD = parse_eufd(18)
 end)
 
 AH_64D:addExportHook(function()
-	cpg_EUFD = parse_eufd(18)
+	cpg_EUFD = parse_eufd(19)
 end)
 
 AH_64D:defineString("PLT_EUFD_LINE1", function()
@@ -784,7 +784,7 @@ local fwd_right_sector_dim = 0
 local cmws_page = ""
 
 AH_64D:addExportHook(function()
-	local cmws = AH_64D.parse_indication(24)
+	local cmws = AH_64D.parse_indication(25)
 
 	flare_letter = ""
 	flare_count = ""
