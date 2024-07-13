@@ -1,0 +1,85 @@
+name: Release DCS-BIOS nightly build
+
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    name: Run unit tests
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up lua
+        uses: leafo/gh-actions-lua@v10
+        with:
+          luaVersion: "5.1.5"
+
+      - name: compile
+        run: |
+          lua ./Scripts/DCS-BIOS/test/compile/LocalCompile.lua
+
+      - name: test
+        run: |
+          lua ./Scripts/DCS-BIOS/test/TestSuite.lua
+
+  release:
+    needs: test
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    name: Release zip file
+    steps:        
+      - name: Set release filename
+        id: filename
+        run: echo "zip=DCS-BIOS_${{ github.ref_name }}.zip" >> $GITHUB_OUTPUT
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up lua
+        uses: leafo/gh-actions-lua@v10
+        with:
+          luaVersion: "5.1.5"
+
+        # recompile, so the generated files are always up-to-date
+      - name: compile
+        run: |
+          lua ./Scripts/DCS-BIOS/test/compile/LocalCompile.lua
+
+      - name: Archive Release
+        uses: thedoctor0/zip-release@0.7.6
+        with:
+          type: zip
+          filename: '${{ steps.filename.outputs.zip }}'
+          directory: './Scripts'
+          exclusions: '/*test/*'
+
+      - name: Archive Programs
+        uses: thedoctor0/zip-release@0.7.6
+        with:
+          type: zip
+          filename: 'Arduino_Tools.zip'
+          directory: './Programs'
+
+      - name: Update latest tag
+        uses: rickstaa/action-create-tag@v1
+        id: tag_create
+        with:
+          tag: latest
+          force_push_tag: true
+          message: Nightly build of master branch
+
+      - name: Upload Release
+        uses: ncipollo/release-action@v1
+        with:
+          artifactErrorsFailBuild: true
+          artifacts: './Scripts/${{ steps.filename.outputs.zip }},./Programs/Arduino_Tools.zip'
+          makeLatest: true
+          name: 'DCS-BIOS v${{ github.ref_name }}'
