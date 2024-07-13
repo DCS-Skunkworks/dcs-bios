@@ -114,8 +114,7 @@
                 </div>
             </div>
             <div class="row mt-3">
-                <div class="col-md-auto col-lg-2 mr-auto"></div>
-                <div class="col-md-12 col-lg-8 mr-auto">
+                <div class="col-md-12 col-lg-8 mx-auto mr-auto">
                     <h3>Find your DCS Scripts folder</h3>
                     <p>Start by finding your DCS Saved Games folder. On Windows, this is likely either:</p>
                     <ul>
@@ -131,20 +130,26 @@
                         <li><code class="filepath">C:\Users\USERNAME\Saved Games\DCS.openbeta\Scripts</code></li>
                     </ul>
 
-                    <h3>Install DCS-BIOS</h3>
+                    <h3 class="mt-4">Install DCS-BIOS</h3>
                     <ol>
                         <li><a href="https://github.com/DCS-Skunkworks/dcs-bios/releases/latest">Download</a> DCS-BIOS
-                            (<code class="filename">DCS-BIOS_x.y.z.zip</code>)</li>
+                            (<code class="filename">DCS-BIOS_x.y.z.zip</code>)
+                            <ul>
+                                <li><i>Downloading DCS-BIOS for a custom panel? Also download <code
+                                            class="filename">Arduino_Tools.zip</code>.</i></li>
+                            </ul>
+                        </li>
                         <li>Extract the zip file</li>
                         <li>Within the extracted folder, copy the <b>DCS-BIOS</b> folder into the previously mentioned
                             scripts folder
                             <ul>
-                                <li>If you're updating DCS-BIOS and already have a <b>DCS-BIOS</b> folder in your
-                                    scripts folder, delete it first.</li>
+                                <li><i>If you're updating DCS-BIOS and already have a <b>DCS-BIOS</b> folder in your
+                                        scripts folder, delete it first.</i></li>
                             </ul>
                         </li>
                         <li><b>If your scripts folder does not have an</b> <code class="filename">Export.lua</code>
-                            <b>file</b>, copy the <code class="filename">Export.lua</code> file over</li>
+                            <b>file</b>, copy the <code class="filename">Export.lua</code> file over
+                        </li>
                         <li>
                             <b>If your scripts folder <i>does</i> have an</b> <code class="filename">Export.lua</code>
                             <b>file</b>, add the following line to the end:
@@ -154,7 +159,6 @@
                     <h3>That's it! 🎉</h3>
                     <p>DCS-BIOS is now installed and ready to go.</p>
                 </div>
-                <div class="col-md-auto col-lg-2 mr-auto"></div>
             </div>
             <div class="row mt-5">
                 <div class="col-md-8 col-12 divider top-divider mx-auto pt-5 text-center">
@@ -186,7 +190,7 @@
                             <h6>What aircraft does DCS-BIOS support?</h6>
                             <p class="text-muted">DCS-BIOS supports all official modules, as well as many popular mods.
                                 See the full list <a
-                                    href="https://github.com/DCS-Skunkworks/dcs-bios?tab=readme-ov-file#modules">here</a>
+                                    href="https://github.com/DCS-Skunkworks/dcs-bios?tab=readme-ov-file#modules">here</a>.
                             </p>
                         </div>
                         <div class="col-md-6 mb-5">
@@ -218,19 +222,33 @@
     </section>
 
     <!--news section-->
-    <section class="py-7 bg-dark section-angle top-left bottom-left" id="blog">
-        <div class="container">
+    <section class="py-6 bg-dark section-angle top-left bottom-left" id="blog">
+        <div class="container mt-3">
             <div class="row">
                 <div class="col-md-6 mx-auto text-center">
-                    <h2 class="heading-black">What are you waiting for?</h2>
-                    <p class="text-muted lead">Get started with DCS-BIOS today.</p>
+                    <h2 class="heading-black">Powered by DCS-BIOS</h2>
+                    <p class="text-muted lead">Check out these projects running DCS-BIOS at their core.</p>
                 </div>
             </div>
-            <div class="row mt-4">
-                <div class="col-md-6 mx-auto text-center">
-                    <a class="btn btn-primary" href="https://github.com/DCS-Skunkworks/dcs-bios/releases/latest"
-                        target="_blank">
-                        Download
+            <div class="row mt-5">
+                <div class="col-lg-3 col-sm-6 col-xs-12 mb-5 text-center">
+                    <a href="https://thewarthogproject.com/" target="_blank" class="card-title mb-2">
+                        <img height="130rem" src="./img/thewarthogproject.svg" alt="The Warthog Project" />
+                    </a>
+                </div>
+                <div class="col-lg-3 col-sm-6 col-xs-12 mb-5 text-center">
+                    <a href="https://openhornet.com/" target="_blank" class="card-title mb-2">
+                        <img height="130rem" src="./img/open_hornet_logo.svg" alt="Open Hornet Project" />
+                    </a>
+                </div>
+                <div class="col-lg-3 col-sm-6 col-xs-12 mb-5 text-center">
+                    <a href="https://tekcreations.space/" target="_blank" class="card-title mb-2">
+                        <img height="130rem" src="./img/tek_creations_logo.svg" alt="Tek Creations" />
+                    </a>
+                </div>
+                <div class="col-lg-3 col-sm-6 col-xs-12 mb-5 text-center">
+                    <a href="https://dcsbioskit.com/" target="_blank" class="card-title mb-2">
+                        <img height="130rem" src="./img/dcs_bios_kit_logo.svg" alt="DCSBIOSKit" />
                     </a>
                 </div>
             </div>
