@@ -6,6 +6,9 @@ on:
     # Release at 22.00, Github does not guarantee exact time
     - cron:  '0 22 * * *'
 
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -66,6 +69,13 @@ jobs:
           directory: './Scripts'
           exclusions: '/*test/*'
 
+      - name: Archive Programs
+        uses: thedoctor0/zip-release@0.7.6
+        with:
+          type: zip
+          filename: 'Arduino Tools.zip'
+          directory: './Programs'
+
       - name: Update latest tag
         uses: rickstaa/action-create-tag@v1
         id: tag_create
@@ -79,7 +89,7 @@ jobs:
         with:
           allowUpdates: true
           artifactErrorsFailBuild: true
-          artifacts: './Scripts/${{ steps.filename.outputs.zip }}'
+          artifacts: './Scripts/${{ steps.filename.outputs.zip }},./Programs/Arduino Tools.zip'
           commit: master
           makeLatest: true
           name: 'DCS-BIOS Nightly ${{ steps.date.outputs.date }}'
