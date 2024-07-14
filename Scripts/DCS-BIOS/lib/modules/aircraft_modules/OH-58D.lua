@@ -274,7 +274,10 @@ local IGNITION_PANEL = "Ignition Panel"
 OH_58D:defineToggleSwitch("IGNITION_KEY", devices.ELECTRIC, 3035, 50, IGNITION_PANEL, "Ignition Keylock Switch")
 
 -- CMWS Panel
--- local CMWS_PANEL = "CMWS Panel"
+local CMWS_PANEL = "CMWS Panel"
+
+OH_58D:defineToggleSwitch("CMWS_ARM", devices.CI, 3005, 44, CMWS_PANEL, "Arm/Safe Switch")
+OH_58D:defineToggleSwitch("CMWS_BYPASS", devices.CI, 3006, 45, CMWS_PANEL, "Auto/Bypass Switch")
 
 -- CSC (Pilot)
 -- local CSC_PILOT = "CSC (Pilot)"
