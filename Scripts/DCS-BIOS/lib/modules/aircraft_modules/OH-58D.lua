@@ -334,7 +334,9 @@ OH_58D:defineMultipositionSwitch("CPLT_CSC_TRANSMIT_SELECTOR", devices.SYNC, 313
 OH_58D:defineToggleSwitch("CPLT_CSC_MIC", devices.SYNC, 3137, 832, CSC_COPILOT, "MIC Switch")
 
 -- Remote ICS Panel
--- local REMOTE_ICS_PANEL = "Remote ICS Panel"
+local REMOTE_ICS_PANEL = "Remote ICS Panel"
+
+OH_58D:define3PosTumb("REMOTE_ICS", devices.SYNC, 3068, 190, REMOTE_ICS_PANEL, "Remote ICS Switch")
 
 -- Armament Control Panel
 -- local ARMAMENT_PANEL = "Armament Control Panel"
