@@ -280,7 +280,31 @@ OH_58D:defineToggleSwitch("CMWS_ARM", devices.CI, 3005, 44, CMWS_PANEL, "Arm/Saf
 OH_58D:defineToggleSwitch("CMWS_BYPASS", devices.CI, 3006, 45, CMWS_PANEL, "Auto/Bypass Switch")
 
 -- CSC (Pilot)
--- local CSC_PILOT = "CSC (Pilot)"
+local CSC_PILOT = "CSC (Pilot)"
+
+OH_58D:definePotentiometer("PLT_CSC_VOLUME", devices.SYNC, 3051, 173, { 0, 0.8 }, CSC_PILOT, "Volume Control Knob")
+OH_58D:defineToggleSwitch("PLT_CSC_RADIO_1_INHIBIT", devices.SYNC, 3052, 174, CSC_PILOT, "Radio Monitor 1 [FM1] Inhibit On/Off")
+-- volume commands disabled as they aren't properly implemented in the module
+-- OH_58D:definePotentiometer("PLT_CSC_RADIO_1_VOLUME", devices.SYNC, 3053, 175, { 0, 0.8 }, CSC_PILOT, "Radio Monitor 1 [FM1] Audio Ouput")
+OH_58D:reserveIntValue(65535)
+OH_58D:defineToggleSwitch("PLT_CSC_RADIO_2_INHIBIT", devices.SYNC, 3054, 176, CSC_PILOT, "Radio Monitor 2 [UHF] Inhibit On/Off")
+-- OH_58D:definePotentiometer("PLT_CSC_RADIO_2_VOLUME", devices.SYNC, 3055, 177, { 0, 0.8 }, CSC_PILOT, "Radio Monitor 2 [UHF] Audio Ouput")
+OH_58D:reserveIntValue(65535)
+OH_58D:defineToggleSwitch("PLT_CSC_RADIO_3_INHIBIT", devices.SYNC, 3056, 178, CSC_PILOT, "Radio Monitor 3 [VHF] Inhibit On/Off")
+-- OH_58D:definePotentiometer("PLT_CSC_RADIO_3_VOLUME", devices.SYNC, 3057, 179, { 0, 0.8 }, CSC_PILOT, "Radio Monitor 3 [VHF] Audio Ouput")
+OH_58D:reserveIntValue(65535)
+OH_58D:defineToggleSwitch("PLT_CSC_RADIO_4_INHIBIT", devices.SYNC, 3058, 180, CSC_PILOT, "Radio Monitor 4 [N/A] Inhibit On/Off")
+-- OH_58D:definePotentiometer("PLT_CSC_RADIO_4_VOLUME", devices.SYNC, 3059, 181, { 0, 0.8 }, CSC_PILOT, "Radio Monitor 4 [N/A] Audio Ouput")
+OH_58D:reserveIntValue(65535)
+OH_58D:defineToggleSwitch("PLT_CSC_RADIO_5_INHIBIT", devices.SYNC, 3060, 182, CSC_PILOT, "Radio Monitor 5 [FM2] Inhibit On/Off")
+-- OH_58D:definePotentiometer("PLT_CSC_RADIO_5_VOLUME", devices.SYNC, 3061, 183, { 0, 0.8 }, CSC_PILOT, "Radio Monitor 5 [FM2] Audio Ouput")
+OH_58D:reserveIntValue(65535)
+OH_58D:definePotentiometer("PLT_CSC_NAV_A_VOLUME", devices.SYNC, 3062, 184, { 0, 0.8 }, CSC_PILOT, "Radio Monitor NAV A Audio Ouput")
+OH_58D:definePotentiometer("PLT_CSC_NAV_B_VOLUME", devices.SYNC, 3063, 185, { 0, 0.8 }, CSC_PILOT, "Radio Monitor NAV B Audio Ouput")
+OH_58D:defineMultipositionSwitch("PLT_CSC_ICS_MODE", devices.SYNC, 3064, 186, 4, 0.1, CSC_PILOT, "ICS Rotary Switch")
+OH_58D:definePotentiometer("PLT_CSC_VOX", devices.SYNC, 3065, 187, { 0, 0.8 }, CSC_PILOT, "Vox Control")
+OH_58D:defineMultipositionSwitch("PLT_CSC_TRANSMIT_SELECTOR", devices.SYNC, 3066, 188, 8, 0.1, CSC_PILOT, "Transmit Selector Switch")
+OH_58D:defineToggleSwitch("PLT_CSC_MIC", devices.SYNC, 3067, 189, CSC_PILOT, "MIC Switch")
 
 -- CSC (Copilot)
 -- local CSC_COPILOT = "CSC (Copilot)"
