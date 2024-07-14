@@ -851,4 +851,6 @@ C_101:definePotentiometer("FRONT_MIRROR_ADJ", 1, 3242, 10, { 0, 1 }, "Misc", "FR
 C_101:defineReadWriteRadio("COMM_RADIO", 10, 7, 3, 1000, "COMM RADIO")
 C_101:defineReadWriteRadio("VUHF_RADIO", 11, 7, 3, 1000, "VUHF RADIO")
 
+C_101:defineSeatPosition("ownIndex", 2, "Player's current seat position (0 = Front, 1 = Back)")
+
 return C_101

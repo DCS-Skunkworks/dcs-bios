@@ -517,4 +517,6 @@ UH_1H:defineReadWriteRadio("VHF_ARC134", 20, 7, 3, 1000, "VHF ARC-134 Radio")
 UH_1H:defineReadWriteRadio("UHF_ARC51", 22, 7, 3, 1000, "UHF ARC-51 Radio")
 UH_1H:defineReadWriteRadio("VHF_ARC131", 23, 5, 2, 10000, "VHF ARC-131 Radio")
 
+UH_1H:defineSeatPosition("SEAT", 4, "Player's current seat position (0 = Pilot, 1 = Copilot, 2 = Left Door, 3 = Right Door)")
+
 return UH_1H

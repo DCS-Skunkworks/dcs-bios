@@ -988,6 +988,16 @@ function Module:defineSpringloaded_3PosTumbWithRange(identifier, device_id, down
 	return control
 end
 
+--- @param seat_param_name string the name of the parameter controlling the seat index
+--- @param seat_count integer the total number of seats available
+--- @param description string additional information about the control
+--- @return Control
+function Module:defineSeatPosition(seat_param_name, seat_count, description)
+	return self:defineIntegerFromGetter("SEAT_POSITION", function(_)
+		return tonumber(Module.parse_cockpit_params()[seat_param_name]) or 0
+	end, seat_count - 1, "Seat", description)
+end
+
 --- Defines an ejection handle switch which performs a clickable action 3 times to trigger the ejection sequence in-game
 --- @param identifier string the unique identifier for the control
 --- @param device_id integer the dcs device id
@@ -1178,7 +1188,7 @@ local ParseIndicationState = {
 	item_block = "item_block",
 }
 
---- Parses a dcs indication from a string into a key-value table, or nil if no data is available
+--- Parses a dcs indication from a string into a key-value table
 --- Values are separated with "-----------------------------------------\n"
 --- @param indicator_id integer
 --- @return {[string|integer]: string}
@@ -1260,6 +1270,34 @@ function Module.parse_indication(indicator_id)
 	end
 
 	ret[0] = total_values
+
+	return ret
+end
+
+--- Parses the dcs cockpit params
+--- Values are separated by newlines and split by ":"
+--- @return {[string]: string}
+function Module.parse_cockpit_params()
+	local ret = {}
+	local params = list_cockpit_params()
+
+	for line in string.gmatch(params, "([^\n]+)") do
+		local key = {}
+
+		-- some entries are things like ExternalFM:HumanInfo:FinMx:0.000000, so we need to be able to handle colons in the keys
+		while true do
+			local separator_index = line:find(":")
+			if separator_index == nil then
+				break
+			end
+
+			local start = line:sub(1, separator_index - 1)
+			table.insert(key, start)
+			line = line:sub(separator_index + 1)
+		end
+
+		ret[table.concat(key, ":")] = line
+	end
 
 	return ret
 end
