@@ -914,4 +914,6 @@ AH_64D:reserveIntValue(1)
 AH_64D:reserveIntValue(1)
 AH_64D:defineSpringloaded_3PosTumb("PLT_CMWS_PW", 80, 3001, 3002, 610, "PLT CMWS", "Pilot CMWS PWR Switch, OFF/ON/TEST")
 
+AH_64D:defineSeatPosition("SEAT", 2, "Player's current seat position (0 = Pilot, 1 = CP/G)")
+
 return AH_64D

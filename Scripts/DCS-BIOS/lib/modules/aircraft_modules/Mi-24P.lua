@@ -1193,4 +1193,6 @@ Mi_24P:defineReadWriteRadio("JADRO1I_RADIO", 50, 7, 1, 100, "JADRO-1I Radio")
 Mi_24P:defineReadWriteRadio("EUCALYPT_RADIO", 51, 7, 3, 1000, "EUCALYPT Radio")
 Mi_24P:defineReadOnlyRadio("R852_RADIO", 52, 7, 3, 1000, "R-852 Radio")
 
+Mi_24P:defineSeatPosition("SEAT", 3, "Player's current seat position (0 = Pilot, 1 = Operator, 2 = Door Gunner)")
+
 return Mi_24P

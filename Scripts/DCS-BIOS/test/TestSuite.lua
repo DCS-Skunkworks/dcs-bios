@@ -5,6 +5,7 @@ require("Scripts.DCS-BIOS.test.ConnectionManagerTest") -- unit tests for send/re
 require("Scripts.DCS-BIOS.test.MemoryMapTest") -- unit tests for the memory map
 require("Scripts.DCS-BIOS.test.MemoryMapEntryTest") -- unit tests for memory map entries
 require("Scripts.DCS-BIOS.test.ModuleTest") -- unit tests for core aircraft module functionality
+require("Scripts.DCS-BIOS.test.ParseCockpitParamsTest") -- unit tests for the parse_cockpit_params function
 require("Scripts.DCS-BIOS.test.ParseIndicationTest") -- unit tests for the parse_indication function
 require("Scripts.DCS-BIOS.test.ServerTest") -- unit tests for tcp/udp server code
 require("Scripts.DCS-BIOS.test.StateMachineTest") -- unit tests for the core state machine loop
