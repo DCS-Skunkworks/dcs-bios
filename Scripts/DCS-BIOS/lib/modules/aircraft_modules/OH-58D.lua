@@ -269,7 +269,9 @@ OH_58D:defineSpringloaded_3PosTumb("PLT_COLLECTIVE_SCAS_TRIM_LR", devices.SCAS, 
 OH_58D:definePushButton("PLT_COLLECTIVE_IZLID", devices.SYNC, 3046, 49, COLLECTIVE_PILOT, "IZLID (Gun Laser)")
 
 -- Ignition Panel
--- local IGNITION_PANEL = "Ignition Panel"
+local IGNITION_PANEL = "Ignition Panel"
+
+OH_58D:defineToggleSwitch("IGNITION_KEY", devices.ELECTRIC, 3035, 50, IGNITION_PANEL, "Ignition Keylock Switch")
 
 -- CMWS Panel
 -- local CMWS_PANEL = "CMWS Panel"
