@@ -71,7 +71,9 @@ jobs:
       - name: Upload Release
         uses: ncipollo/release-action@v1
         with:
+          allowUpdates: true
           artifactErrorsFailBuild: true
           artifacts: './Scripts/${{ steps.filename.outputs.zip }},./Programs/Arduino_Tools.zip'
           makeLatest: true
-          name: 'DCS-BIOS v${{ github.ref_name }}'
+          name: 'DCS-BIOS ${{ github.ref_name }}'
+          removeArtifacts: true
