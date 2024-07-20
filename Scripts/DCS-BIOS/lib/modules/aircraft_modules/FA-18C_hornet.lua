@@ -973,4 +973,8 @@ FA_18C_hornet:defineToggleSwitch("KY58_FILL_SEL_PULL", 41, 3003, 0, "KY-58 Contr
 FA_18C_hornet:defineReadWriteRadio("COMM1", 38, 7, 3, 1000, "COMM1 Radio")
 FA_18C_hornet:defineReadWriteRadio("COMM2", 39, 7, 3, 1000, "COMM2 Radio")
 
+FA_18C_hornet:defineString("HUD_LTDR", function()
+	return Functions.coerce_nil_to_string(Module.parse_indication(1)["MPD_FLIR_LaserStatus_label"])
+end, 5, "HUD", "Laser Status")
+
 return FA_18C_hornet
