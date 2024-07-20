@@ -7308,6 +7308,7 @@
 #define FA_18C_hornet_HUD_BALANCE_A 0x745C
 #define FA_18C_hornet_HUD_BLACK_LVL 0x745A, 0xFFFF, 0
 #define FA_18C_hornet_HUD_BLACK_LVL_A 0x745A
+#define FA_18C_hornet_HUD_LTDR_A 0x75A2
 #define FA_18C_hornet_HUD_SYM_BRT 0x7458, 0xFFFF, 0
 #define FA_18C_hornet_HUD_SYM_BRT_A 0x7458
 #define FA_18C_hornet_HUD_SYM_BRT_SELECT 0x742C, 0x0800, 11
@@ -7419,6 +7420,7 @@
 #define FA_18C_hornet_LEFT_DDI_CONT_CTL_A 0x7412
 #define FA_18C_hornet_LEFT_DDI_CRS_SW 0x74A8, 0x6000, 13
 #define FA_18C_hornet_LEFT_DDI_HDG_SW 0x74A8, 0x1800, 11
+#define FA_18C_hornet_LEFT_DDI_LTDR_A 0x75A8
 #define FA_18C_hornet_LEFT_DDI_PB_01 0x740E, 0x0008, 3
 #define FA_18C_hornet_LEFT_DDI_PB_01_AM 0x740E, 0x0008
 #define FA_18C_hornet_LEFT_DDI_PB_02 0x740E, 0x0010, 4
@@ -7582,6 +7584,7 @@
 #define FA_18C_hornet_RIGHT_DDI_BRT_SELECT 0x7418, 0x0060, 5
 #define FA_18C_hornet_RIGHT_DDI_CONT_CTL 0x7454, 0xFFFF, 0
 #define FA_18C_hornet_RIGHT_DDI_CONT_CTL_A 0x7454
+#define FA_18C_hornet_RIGHT_DDI_LTDR_A 0x75AE
 #define FA_18C_hornet_RIGHT_DDI_PB_01 0x7418, 0x0080, 7
 #define FA_18C_hornet_RIGHT_DDI_PB_01_AM 0x7418, 0x0080
 #define FA_18C_hornet_RIGHT_DDI_PB_02 0x7418, 0x0100, 8
