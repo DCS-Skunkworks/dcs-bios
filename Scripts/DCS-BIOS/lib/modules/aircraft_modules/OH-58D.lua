@@ -670,7 +670,10 @@ OH_58D:defineChiclet("MPD_SEL_4", "FUELQTY_ENGTRQ_vis", MPD, "Fuel Quantity/Engi
 OH_58D:defineChiclet("MPD_SEL_5", "NG_NP_vis", MPD, "NG/NP Chiclet (green)")
 
 -- Air Vent Control
--- local AIR_VENT_CONTROL = "Air Vent Control"
+local AIR_VENT_CONTROL = "Air Vent Control"
+
+OH_58D:definePotentiometer("AIR_VENT_PLT", devices.SYNC, 3149, 860, { 0, 1 }, AIR_VENT_CONTROL, "Pilot Air Vent Pull")
+OH_58D:definePotentiometer("AIR_VENT_CPLT", devices.SYNC, 3150, 861, { 0, 1 }, AIR_VENT_CONTROL, "Copilot Air Vent Pull")
 
 -- Standby Attitude Indicator
 -- local SAI = "Standby Attitude Indicator"
