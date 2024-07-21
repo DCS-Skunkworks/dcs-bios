@@ -676,7 +676,15 @@ OH_58D:definePotentiometer("AIR_VENT_PLT", devices.SYNC, 3149, 860, { 0, 1 }, AI
 OH_58D:definePotentiometer("AIR_VENT_CPLT", devices.SYNC, 3150, 861, { 0, 1 }, AIR_VENT_CONTROL, "Copilot Air Vent Pull")
 
 -- Standby Attitude Indicator
--- local SAI = "Standby Attitude Indicator"
+local SAI = "Standby Attitude Indicator"
+
+OH_58D:definePushButton("SAI_CAGE", devices.SENSORS, 3003, 58, SAI, "Adjustment Knob (Uncage)")
+OH_58D:defineRotary("SAI_TRIM_KNOB", devices.SENSORS, 3002, 59, SAI, "Adjustment Knob (Rotate)")
+
+OH_58D:defineFloat("SAI_TRIM_BAR", 54, { -1, 1 }, SAI, "Horizontal Indicator Position")
+OH_58D:defineFloat("SAI_PITCH", 55, { -1, 1 }, SAI, "Pitch")
+OH_58D:defineFloat("SAI_ROLL", 56, { -1, 1 }, SAI, "Roll")
+OH_58D:defineFloat("SAI_OFF_FLAG", 57, { 0, 1 }, SAI, "OFF Flag")
 
 -- RPM Vertical Scale Instrument
 -- local RPM_SCALE = "RPM Vertical Scale Instrument"
