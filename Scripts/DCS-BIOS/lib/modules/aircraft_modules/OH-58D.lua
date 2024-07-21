@@ -59,6 +59,25 @@ local devices = {
 	KNEEBOARD = 51,
 }
 
+-- Aircraft configuration (set in mission editor)
+local CONFIGURATION = "Configuration"
+
+OH_58D:defineIntegerFromGetter("CONFIGURATION_AN_ALQ_144", function(dev0)
+	return dev0:get_argument_value(840) < 0 and 1 or 0
+end, 1, CONFIGURATION, "AN/ALQ-144 Present")
+
+OH_58D:defineIntegerFromGetter("CONFIGURATION_PILOT_DISPLAY_UNIT", function(dev0)
+	return dev0:get_argument_value(839)
+end, 1, CONFIGURATION, "Pilot Display Unit Present")
+
+OH_58D:defineIntegerFromGetter("CONFIGURATION_DOORS", function(dev0)
+	return dev0:get_argument_value(799) < 1 and 1 or 0
+end, 1, CONFIGURATION, "Doors Present")
+
+OH_58D:defineIntegerFromGetter("CONFIGURATION_PERSONAL_WEAPONS", function(dev0)
+	return dev0:get_argument_value(600) > 0 and 1 or 0
+end, 1, CONFIGURATION, "Personal Weapons Present")
+
 -- Center post console (behind crew, between seats)
 local CENTER_POST_CONSOLE = "Center Post Console"
 
@@ -125,7 +144,8 @@ local OVERHEAD_CONSOLE_PILOT = "Overhead Console (Pilot)"
 OH_58D:defineToggleSwitch("PLT_OVERHEAD_IR_BEACON", devices.ELECTRIC, 3034, 274, OVERHEAD_CONSOLE_PILOT, "IR Beacon Switch")
 OH_58D:definePotentiometer("PLT_OVERHEAD_FORMATION_LIGHTS", devices.ELECTRIC, 3029, 275, { 0, 1 }, OVERHEAD_CONSOLE_PILOT, "Formation Lights Brightness Dial")
 
-OH_58D:defineToggleSwitch("PLT_OVERHEAD_SW_CMWS", devices.ELECTRIC, 3033, 276, OVERHEAD_CONSOLE_PILOT, "CMWS Circuit Breaker Switch")
+OH_58D:defineToggleSwitch("PLT_OVERHEAD_IR_JAMMER_BASE", devices.ELECTRIC, 3054, 841, OVERHEAD_CONSOLE_PILOT, "IR Jammer Base Switch") -- present when AN/ALQ-144 installed
+OH_58D:defineToggleSwitch("PLT_OVERHEAD_SW_CMWS", devices.ELECTRIC, 3033, 276, OVERHEAD_CONSOLE_PILOT, "CMWS Circuit Breaker Switch") -- present when AN/ALQ-144 NOT installed
 OH_58D:defineToggleSwitch("PLT_OVERHEAD_CB_FUZZ_BNR", devices.ELECTRIC, 3031, 278, OVERHEAD_CONSOLE_PILOT, "Fuzz Burner Circuit Breaker Switch")
 OH_58D:defineToggleSwitch("PLT_OVERHEAD_SW_BATT_CHGR", devices.ELECTRIC, 3032, 277, OVERHEAD_CONSOLE_PILOT, "Battery Charger Circuit Breaker Switch")
 
@@ -208,6 +228,7 @@ OH_58D:defineToggleSwitch("FRONT_OVERHEAD_DEFOG_R", devices.ELECTRIC, 3018, 257,
 OH_58D:define3PosTumb("FRONT_OVERHEAD_COMPARTMENT_BLOWER", devices.ELECTRIC, 3019, 258, OVERHEAD_CONSOLE_FRONT, "Compartment Blower Switch")
 
 -- row 5
+OH_58D:defineToggleSwitch("FRONT_OVERHEAD_IR_JAMMER_XMTR", devices.ELECTRIC, 3086, 842, OVERHEAD_CONSOLE_FRONT, "IR Jammer Xmit Switch") -- present when AN/ALQ-144 installed
 OH_58D:defineToggleSwitch("FRONT_OVERHEAD_FUEL_BOOST", devices.ELECTRIC, 3020, 259, OVERHEAD_CONSOLE_FRONT, "Fuel Boost Switch")
 OH_58D:defineToggleSwitch("FRONT_OVERHEAD_ANTI_ICE", devices.ELECTRIC, 3021, 260, OVERHEAD_CONSOLE_FRONT, "Engine Anti Ice Switch")
 OH_58D:defineToggleSwitch("FRONT_OVERHEAD_OIL_BYPASS", devices.ELECTRIC, 3022, 261, OVERHEAD_CONSOLE_FRONT, "Engine Oil Bypass Switch")
@@ -426,6 +447,23 @@ OH_58D:define3PosTumb("REMOTE_ICS", devices.SYNC, 3068, 190, REMOTE_ICS_PANEL, "
 
 -- Cockpit
 -- local COCKPIT = "Cockpit"
--- left/right armor panels
+-- left/right armor panels (801-802)
+-- doors open/closed (800, 803)
+-- airbags deployed (836)
+-- grenades (850-852, 856-858)
+-- grease pencil (834-835)
+-- nvgs (710, 760)
+-- water bottle (833)
+-- fire extinguisher (601)
+-- flag (930, 931)
+
+-- Pilot Display Unit
+-- local PDU = "Pilot Display Unit"
+
+-- Copilot M4
+-- local COPILOT_M4 = "M4 (Copilot)"
+-- stowed 870
+-- transform 871-876
+-- m4 release
 
 return OH_58D
