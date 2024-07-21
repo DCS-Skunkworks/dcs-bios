@@ -431,7 +431,14 @@ OH_58D:definePushButton("MFK_ARROW_LEFT", devices.MFK, 3051, 242, MFK, "Arrow Le
 OH_58D:definePushButton("MFK_ARROW_RIGHT", devices.MFK, 3052, 243, MFK, "Arrow Right (Space)")
 
 -- SCAS Control Panel
--- local SCAS_PANEL = "SCAS Control Panel"
+local SCAS_PANEL = "SCAS Control Panel"
+
+OH_58D:defineToggleSwitch("SCAS_FORCE_TRIM", devices.SCAS, 3001, 161, SCAS_PANEL, "Force Trim Switch")
+OH_58D:defineToggleSwitch("SCAS_HYDRAULIC_SYSTEM", devices.SCAS, 3002, 162, SCAS_PANEL, "Hydraulic System Switch")
+OH_58D:defineToggleSwitch("SCAS_PITCH_ROLL", devices.SCAS, 3003, 163, SCAS_PANEL, "Pitch/Roll Engage Switch")
+OH_58D:defineToggleSwitch("SCAS_YAW", devices.SCAS, 3004, 164, SCAS_PANEL, "Yaw Engage Switch")
+OH_58D:defineToggleSwitch("SCAS_POWER", devices.SCAS, 3005, 165, SCAS_PANEL, "Power Switch")
+OH_58D:definePushButton("SCAS_TEST", devices.SCAS, 3006, 166, SCAS_PANEL, "Test Button")
 
 -- Multiparameter Display (MPD)
 -- local MPD = "MPD"
