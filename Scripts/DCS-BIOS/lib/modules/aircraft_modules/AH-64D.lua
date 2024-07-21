@@ -579,7 +579,7 @@ AH_64D:define3PosTumb("PLT_NVS_MODE", 3, 3005, 309, "PLT NVS Panel", "Pilot NVS 
 AH_64D:define3PosTumb("CPG_NVS_MODE", 3, 3006, 363, "CPG NVS Panel", "Gunner NVS MODE Switch, FIXED/NORM/OFF")
 
 --Generator Reset PANEL
-AH_64D:defineSpringloaded_3PosTumb("PLT_GEN_RESET", 3, 3002, 3001, 355, "PLT Generator Panel", "Pilot Generator Reset Switch, GEN 1/GEN 2")
+AH_64D:defineSpringloaded_3PosTumb("PLT_GEN_RESET", 3, 3017, 3018, 355, "PLT Generator Panel", "Pilot Generator Reset Switch, GEN 1/GEN 2")
 AH_64D:defineSpringloaded_3PosTumb("PLT_CHK_OSPD_ENG_A", 6, 3008, 3007, 353, "PLT Generator Panel", "Pilot CKT A Check Overspeed Test Switch, ENG 2/ENG 1")
 AH_64D:defineSpringloaded_3PosTumb("PLT_CHK_OSPD_ENG_B", 6, 3010, 3009, 354, "PLT Generator Panel", "Pilot CKT B Check Overspeed Test Switch, ENG 2/ENG 1")
 
