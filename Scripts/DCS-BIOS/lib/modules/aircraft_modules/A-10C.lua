@@ -217,6 +217,17 @@ function A_10C:defineHatSwitch(identifier, device_id, center_command, directiona
 	end)
 end
 
+--- Sets the last export hook that was added to only run if func evaluates to true
+--- @param func fun(): boolean
+function A_10C:conditionalize_last_export(func)
+	local original_hook = self.exportHooks[#self.exportHooks]
+	self.exportHooks[#self.exportHooks] = function(dev0)
+		if func() then
+			original_hook(dev0)
+		end
+	end
+end
+
 local cmsp = {}
 
 A_10C:addExportHook(function()
@@ -231,6 +242,22 @@ end
 local function get_cmsp_line_2()
 	return string.format("%-4s %-4s %-4s %-4s", Functions.coerce_nil_to_string(cmsp["txt_DOWN1"]), Functions.coerce_nil_to_string(cmsp["txt_DOWN2"]), Functions.coerce_nil_to_string(cmsp["txt_DOWN3"]), Functions.coerce_nil_to_string(cmsp["txt_DOWN4"]))
 end
+
+local arc_210_present = false
+
+--- @return boolean present whether the ARC-210 is installed
+local function is_arc_210_present()
+	return arc_210_present
+end
+
+--- @return boolean present whether the VHF AM radio is installed
+local function is_vhf_am_present()
+	return not arc_210_present
+end
+
+A_10C:addExportHook(function(dev0)
+	arc_210_present = dev0:get_argument_value(998) > 0.999
+end)
 
 A_10C:defineString("CMSP1", get_cmsp_line_1, 19, "CMSP", "CMSP Display Line 1")
 A_10C:defineString("CMSP2", get_cmsp_line_2, 19, "CMSP", "CMSP Display Line 2")
@@ -928,16 +955,26 @@ A_10C:defineString("UHF_FREQUENCY", getUHFFrequency, 7, "UHF Radio", "UHF Freque
 A_10C:defineString("UHF_PRESET", getUHFPreset, 2, "UHF Radio", "UHF Preset Display")
 
 A_10C:defineRadioWheel("VHFAM_PRESET", 55, 3001, 3001, { -0.01, 0.01 }, 137, 0.01, { 0, 0.20 }, { " 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" }, "VHF AM Radio", "Preset Channel Selector")
+A_10C:conditionalize_last_export(is_vhf_am_present)
 A_10C:defineMultipositionSwitch("VHFAM_MODE", 55, 3003, 138, 3, 0.1, "VHF AM Radio", "Mode OFF/TR/DF")
+A_10C:conditionalize_last_export(is_vhf_am_present)
 A_10C:defineMultipositionSwitch("VHFAM_FREQEMER", 55, 3004, 135, 4, 0.1, "VHF AM Radio", "Frequency Selection Dial FM/AM/MAN/PRE")
+A_10C:conditionalize_last_export(is_vhf_am_present)
 A_10C:definePotentiometer("VHFAM_VOL", 55, 3005, 133, { 0, 1 }, "VHF AM Radio", "VHF AM Volume Control")
+A_10C:conditionalize_last_export(is_vhf_am_present)
 A_10C:definePushButton("VHFAM_LOAD", 55, 3006, 136, "VHF AM Radio", "Load Button")
+A_10C:conditionalize_last_export(is_vhf_am_present)
 A_10C:define3PosTumb("VHFAM_SQUELCH", 55, 3007, 134, "VHF AM Radio", "Squelch")
+A_10C:conditionalize_last_export(is_vhf_am_present)
 A_10C:defineRadioWheel("VHFAM_FREQ1", 55, 3009, 3010, { -0.1, 0.1 }, 143, 0.05, { 0.15, 0.80 }, { " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10", "11", "12", "13", "14", "15" }, "VHF AM Radio", "Frequency Selector 1")
+A_10C:conditionalize_last_export(is_vhf_am_present)
 A_10C:defineRadioWheel("VHFAM_FREQ2", 55, 3011, 3012, { -0.1, 0.1 }, 144, 0.1, { 0, 1 }, nil, "VHF AM Radio", "Frequency Selector 2")
+A_10C:conditionalize_last_export(is_vhf_am_present)
 A_10C:defineRadioWheel("VHFAM_FREQ3", 55, 3013, 3014, { -0.1, 0.1 }, 145, 0.1, { 0, 1 }, nil, "VHF AM Radio", "Frequency Selector 3")
+A_10C:conditionalize_last_export(is_vhf_am_present)
 A_10C:definePushButton("VHFFM_LOAD", 56, 3006, 150, "VHF FM Radio", "Load Button")
 A_10C:defineRadioWheel("VHFAM_FREQ4", 55, 3015, 3016, { -0.25, 0.25 }, 146, 0.25, { 0, 1 }, { "00", "25", "50", "75" }, "VHF AM Radio", "Frequency Selector 4")
+A_10C:conditionalize_last_export(is_vhf_am_present)
 A_10C:reserveIntValue(1)
 
 A_10C:defineRadioWheel("VHFFM_PRESET", 56, 3001, 3001, { -0.01, 0.01 }, 151, 0.01, { 0, 0.20 }, { " 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" }, "VHF FM Radio", "Preset Channel Selector")
@@ -1104,7 +1141,9 @@ end, CDU_LINE_LEN, "CDU Display", "CDU Line 10")
 local arc_210_data = {}
 
 A_10C:addExportHook(function()
-	arc_210_data = Module.parse_indication(18)
+	if is_arc_210_present() then
+		arc_210_data = Module.parse_indication(18)
+	end
 end)
 
 -- these ARC-210 strings are brought over from a legacy method of providing data for the device
@@ -1185,9 +1224,13 @@ A_10C:defineIndicatorLight("NMSP_UHF_LED", 619, "NMSP", "UHF LED (green)")
 A_10C:defineIndicatorLight("NMSP_FM_LED", 620, "NMSP", "FM LED (green)")
 
 A_10C:define8BitFloat("VHFAM_FREQ1_ROT", 143, { 0, 1 }, "VHF AM Radio", "Frequency Selector 1 Rotation")
+A_10C:conditionalize_last_export(is_vhf_am_present)
 A_10C:define8BitFloat("VHFAM_FREQ2_ROT", 144, { 0, 1 }, "VHF AM Radio", "Frequency Selector 2 Rotation")
+A_10C:conditionalize_last_export(is_vhf_am_present)
 A_10C:define8BitFloat("VHFAM_FREQ3_ROT", 145, { 0, 1 }, "VHF AM Radio", "Frequency Selector 3 Rotation")
+A_10C:conditionalize_last_export(is_vhf_am_present)
 A_10C:define8BitFloat("VHFAM_FREQ4_ROT", 146, { 0, 1 }, "VHF AM Radio", "Frequency Selector 4 Rotation")
+A_10C:conditionalize_last_export(is_vhf_am_present)
 
 A_10C:define8BitFloat("VHFFM_FREQ1_ROT", 157, { 0, 1 }, "VHF FM Radio", "Frequency Selector 1 Rotation")
 A_10C:define8BitFloat("VHFFM_FREQ2_ROT", 158, { 0, 1 }, "VHF FM Radio", "Frequency Selector 2 Rotation")
@@ -1298,6 +1341,7 @@ end
 
 A_10C:defineString("ILS_FREQUENCY_S", getILSFrequency, 6, "ILS Panel", "ILS Frequency (String)")
 A_10C:defineString("VHF_AM_FREQUENCY_S", getVhfAmFreqency, 7, "VHF AM Radio", "VHF AM Frequency (String)")
+A_10C:conditionalize_last_export(is_vhf_am_present)
 A_10C:defineString("VHF_FM_FREQUENCY_S", getVhfFmFreqency, 7, "VHF FM Radio", "VHF FM Frequency (String)")
 
 A_10C:defineFloat("INT_CONSOLE_L_BRIGHT", 800, { 0, 1 }, "Light System Control Panel", "Console Light Brightness")
@@ -1317,32 +1361,57 @@ A_10C:defineToggleSwitch("STICK_HIDE", 39, 3016, 999, "Misc", "Hide Stick toggle
 
 --ARC-210
 A_10C:defineMultipositionSwitch("ARC210_MASTER", 55, 3043, 551, 7, 0.1, "ARC-210", "ARC-210 Master Switch")
+A_10C:conditionalize_last_export(is_arc_210_present)
 A_10C:defineRotary("ARC210_CHN_KNB", 55, 3027, 552, "ARC-210", "ARC-210 Channel Selector Knob")
+A_10C:conditionalize_last_export(is_arc_210_present)
 A_10C:defineMultipositionSwitch("ARC210_SEC_SW", 55, 3044, 553, 7, 0.1, "ARC-210", "ARC-210 Secondary Switch")
+A_10C:conditionalize_last_export(is_arc_210_present)
 
 A_10C:defineTumb("ARC210_100MHZ_SEL", 55, 3025, 554, 0.1, { 0, 0.3 }, nil, false, "ARC-210 Radio", "ARC-210 100MHz Selector")
+A_10C:conditionalize_last_export(is_arc_210_present)
 A_10C:defineTumb("ARC210_10MHZ_SEL", 55, 3023, 555, 0.1, { 0, 0.9 }, nil, false, "ARC-210 Radio", "ARC-210 10MHz Selector")
+A_10C:conditionalize_last_export(is_arc_210_present)
 A_10C:defineTumb("ARC210_1MHZ_SEL", 55, 3021, 556, 0.1, { 0, 0.9 }, nil, false, "ARC-210 Radio", "ARC-210 1MHz Selector")
+A_10C:conditionalize_last_export(is_arc_210_present)
 A_10C:defineTumb("ARC210_100KHZ_SEL", 55, 3019, 557, 0.1, { 0, 0.9 }, nil, false, "ARC-210 Radio", "ARC-210 100KHz Selector")
+A_10C:conditionalize_last_export(is_arc_210_present)
 A_10C:defineTumb("ARC210_25KHZ_SEL", 55, 3017, 558, 0.1, { 0, 0.3 }, { "00", "25", "50", "75" }, false, "ARC-210 Radio", "ARC-210 25KHz Selector")
+A_10C:conditionalize_last_export(is_arc_210_present)
 
 A_10C:definePushButton("ARC210_ENTER", 55, 3014, 573, "ARC-210", "ARC-210 Enter")
+A_10C:conditionalize_last_export(is_arc_210_present)
 A_10C:definePushButton("ARC210_OFF_FREQ", 55, 3013, 572, "ARC-210", "ARC-210 Offset Frequency")
+A_10C:conditionalize_last_export(is_arc_210_present)
 A_10C:definePushButton("ARC210_TRANS_REC_FUNC", 55, 3012, 571, "ARC-210", "ARC-210 Transmit / Receive Function Toggle")
+A_10C:conditionalize_last_export(is_arc_210_present)
 A_10C:definePushButton("ARC210_AMP_FREQ_MODUL", 55, 3011, 570, "ARC-210", "ARC-210 Amplitude / Frequency Modulation Select")
+A_10C:conditionalize_last_export(is_arc_210_present)
 A_10C:definePushButton("ARC210_MENU", 55, 3010, 569, "ARC-210", "ARC-210 Menu Pages")
+A_10C:conditionalize_last_export(is_arc_210_present)
 A_10C:definePushButton("ARC210_SQUELCH", 55, 3015, 568, "ARC-210", "ARC-210 Squelch ON/OFF")
+A_10C:conditionalize_last_export(is_arc_210_present)
 A_10C:definePushButton("ARC210_TRANS_REC_SEL", 55, 3004, 567, "ARC-210", "ARC-210 Select Receiver - Transmitter")
+A_10C:conditionalize_last_export(is_arc_210_present)
 A_10C:definePushButton("ARC210_GPS", 55, 3003, 566, "ARC-210", "ARC-210 GPS")
+A_10C:conditionalize_last_export(is_arc_210_present)
 A_10C:definePushButton("ARC210_TOD_REC", 55, 3002, 565, "ARC-210", "ARC-210 Time of Day Receive")
+A_10C:conditionalize_last_export(is_arc_210_present)
 A_10C:definePushButton("ARC210_TOD_SEND", 55, 3001, 564, "ARC-210", "ARC-210 Time of Day Send")
+A_10C:conditionalize_last_export(is_arc_210_present)
 A_10C:definePushButton("ARC210_FSK_UP", 55, 3005, 563, "ARC-210", "ARC-210 Upper FSK")
+A_10C:conditionalize_last_export(is_arc_210_present)
 A_10C:definePushButton("ARC210_FSK_MID", 55, 3006, 562, "ARC-210", "ARC-210 Middle FSK")
+A_10C:conditionalize_last_export(is_arc_210_present)
 A_10C:definePushButton("ARC210_FSK_LOW", 55, 3007, 561, "ARC-210", "ARC-210 Lower FSK")
+A_10C:conditionalize_last_export(is_arc_210_present)
 A_10C:definePushButton("ARC210_BRIGHT_INC", 55, 3008, 560, "ARC-210", "ARC-210 Brightness Increase")
+A_10C:conditionalize_last_export(is_arc_210_present)
 A_10C:definePushButton("ARC210_BRIGHT_DEC", 55, 3009, 559, "ARC-210", "ARC-210 Brightness Decrease")
+A_10C:conditionalize_last_export(is_arc_210_present)
 
-A_10C:defineIndicatorLight("ARC210_PRESENT", 998, "ARC-210", "ARC-210 Present")
+A_10C:defineIntegerFromGetter("ARC210_PRESENT", function(_)
+	return arc_210_present and 1 or 0
+end, 1, "ARC-210", "ARC-210 Present")
 A_10C:defineString("ARC210_FREQUENCY", function()
 	return Functions.pad_left(arc_210_data["freq_label_mhz"], 3) .. "." .. Functions.pad_right(arc_210_data["freq_label_khz"], 3)
 end, 7, "ARC-210 Display", "ARC-210 Frequency (String)")
@@ -1352,6 +1421,10 @@ A_10C:defineBitFromDrawArgument("EXT_TOP_LIGHT", 202, "External Aircraft Model",
 A_10C:defineBitFromDrawArgument("EXT_TAIL_LIGHT", 203, "External Aircraft Model", "Tail Light (white)")
 A_10C:defineBitFromDrawArgument("EXT_L_RUDDER_LIGHT", 204, "External Aircraft Model", "Left Rudder Light (white)")
 A_10C:defineBitFromDrawArgument("EXT_R_RUDDER_LIGHT", 205, "External Aircraft Model", "Right Rudder Light (white)")
+
+A_10C:defineIntegerFromGetter("VHFAM_PRESENT", function(_)
+	return is_vhf_am_present() and 1 or 0
+end, 1, "VHF AM Radio", "VHF AM Present")
 
 -- A_10C:defineReadWriteRadio("UHF", 54, 7, 3, 1000, "UHF radio frequency") -- disabled - 4xx.xxx should be Axx.xxx - how do we accomplish this?
 -- A_10C:defineReadWriteRadio("VHF_AM", 55, 7, 3, 1000, "VHF AM radio frequency") -- disabled - last digit seems to sometimes be 1 greater (e.g. 124.001)
