@@ -765,10 +765,87 @@ OH_58D:defineLadderChiclet("RPM_NP_31", NP_RPM, 30, RPM_SCALE, NP_RPM_DESCRIPTIO
 OH_58D:defineLadderChiclet("RPM_NP_32", NP_RPM, 31, RPM_SCALE, NP_RPM_DESCRIPTION, "red")
 OH_58D:defineLadderChiclet("RPM_NP_33", NP_RPM, 32, RPM_SCALE, NP_RPM_DESCRIPTION, "red")
 
--- indication 2 (also tgt/trq)
-
 -- TGT/TRQ Indicator
--- local TGT_TRQ = "TGT/TRQ Indicator"
+local TGT_TRQ = "TGT/TRQ Indicator"
+
+local tgt_trq = {}
+
+OH_58D:addExportHook(function(_)
+	tgt_trq = Module.parse_indication(2)
+end)
+
+OH_58D:defineString("TGT_DISPLAY", function(_)
+	return Functions.pad_left(tgt_trq["TGTDisplay"], 3)
+end, 3, TGT_TRQ, "TGT Display")
+
+OH_58D:defineString("TRQ_DISPLAY", function(_)
+	return Functions.pad_left(tgt_trq["TRQDisplay"], 3)
+end, 3, TGT_TRQ, "TRQ Display")
+
+-- TGT
+local TGT = "TGT"
+local TGT_DESCRIPTION = "TGT"
+
+OH_58D:defineLadderChiclet("TGT_1", TGT, 0, TGT_TRQ, TGT_DESCRIPTION, "blue")
+OH_58D:defineLadderChiclet("TGT_2", TGT, 1, TGT_TRQ, TGT_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("TGT_3", TGT, 2, TGT_TRQ, TGT_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("TGT_4", TGT, 3, TGT_TRQ, TGT_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("TGT_5", TGT, 4, TGT_TRQ, TGT_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("TGT_6", TGT, 5, TGT_TRQ, TGT_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("TGT_7", TGT, 6, TGT_TRQ, TGT_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("TGT_8", TGT, 7, TGT_TRQ, TGT_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("TGT_9", TGT, 8, TGT_TRQ, TGT_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("TGT_10", TGT, 9, TGT_TRQ, TGT_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("TGT_11", TGT, 10, TGT_TRQ, TGT_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("TGT_12", TGT, 11, TGT_TRQ, TGT_DESCRIPTION, "yellow")
+OH_58D:defineLadderChiclet("TGT_13", TGT, 12, TGT_TRQ, TGT_DESCRIPTION, "yellow")
+OH_58D:defineLadderChiclet("TGT_14", TGT, 13, TGT_TRQ, TGT_DESCRIPTION, "yellow")
+OH_58D:defineLadderChiclet("TGT_15", TGT, 14, TGT_TRQ, TGT_DESCRIPTION, "yellow")
+OH_58D:defineLadderChiclet("TGT_16", TGT, 15, TGT_TRQ, TGT_DESCRIPTION, "yellow")
+OH_58D:defineLadderChiclet("TGT_17", TGT, 16, TGT_TRQ, TGT_DESCRIPTION, "yellow")
+OH_58D:defineLadderChiclet("TGT_18", TGT, 17, TGT_TRQ, TGT_DESCRIPTION, "yellow")
+OH_58D:defineLadderChiclet("TGT_19", TGT, 18, TGT_TRQ, TGT_DESCRIPTION, "yellow")
+OH_58D:defineLadderChiclet("TGT_20", TGT, 19, TGT_TRQ, TGT_DESCRIPTION, "yellow")
+OH_58D:defineLadderChiclet("TGT_21", TGT, 20, TGT_TRQ, TGT_DESCRIPTION, "red")
+OH_58D:defineLadderChiclet("TGT_22", TGT, 21, TGT_TRQ, TGT_DESCRIPTION, "red")
+OH_58D:defineLadderChiclet("TGT_23", TGT, 22, TGT_TRQ, TGT_DESCRIPTION, "red")
+OH_58D:defineLadderChiclet("TGT_24", TGT, 23, TGT_TRQ, TGT_DESCRIPTION, "red")
+OH_58D:defineLadderChiclet("TGT_25", TGT, 24, TGT_TRQ, TGT_DESCRIPTION, "red")
+OH_58D:defineLadderChiclet("TGT_26", TGT, 25, TGT_TRQ, TGT_DESCRIPTION, "red")
+OH_58D:defineLadderChiclet("TGT_27", TGT, 26, TGT_TRQ, TGT_DESCRIPTION, "red")
+
+-- TRQ
+local TRQ = "TRQ"
+local TRQ_DESCRIPTION = "TRQ"
+
+OH_58D:defineLadderChiclet("TRQ_1", TRQ, 0, TGT_TRQ, TRQ_DESCRIPTION, "blue")
+OH_58D:defineLadderChiclet("TRQ_2", TRQ, 1, TGT_TRQ, TRQ_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("TRQ_3", TRQ, 2, TGT_TRQ, TRQ_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("TRQ_4", TRQ, 3, TGT_TRQ, TRQ_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("TRQ_5", TRQ, 4, TGT_TRQ, TRQ_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("TRQ_6", TRQ, 5, TGT_TRQ, TRQ_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("TRQ_7", TRQ, 6, TGT_TRQ, TRQ_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("TRQ_8", TRQ, 7, TGT_TRQ, TRQ_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("TRQ_9", TRQ, 8, TGT_TRQ, TRQ_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("TRQ_10", TRQ, 9, TGT_TRQ, TRQ_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("TRQ_11", TRQ, 10, TGT_TRQ, TRQ_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("TRQ_12", TRQ, 11, TGT_TRQ, TRQ_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("TRQ_13", TRQ, 12, TGT_TRQ, TRQ_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("TRQ_14", TRQ, 13, TGT_TRQ, TRQ_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("TRQ_15", TRQ, 14, TGT_TRQ, TRQ_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("TRQ_16", TRQ, 15, TGT_TRQ, TRQ_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("TRQ_17", TRQ, 16, TGT_TRQ, TRQ_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("TRQ_18", TRQ, 17, TGT_TRQ, TRQ_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("TRQ_19", TRQ, 18, TGT_TRQ, TRQ_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("TRQ_20", TRQ, 19, TGT_TRQ, TRQ_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("TRQ_21", TRQ, 20, TGT_TRQ, TRQ_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("TRQ_22", TRQ, 21, TGT_TRQ, TRQ_DESCRIPTION, "red")
+OH_58D:defineLadderChiclet("TRQ_23", TRQ, 22, TGT_TRQ, TRQ_DESCRIPTION, "red")
+OH_58D:defineLadderChiclet("TRQ_24", TRQ, 23, TGT_TRQ, TRQ_DESCRIPTION, "red")
+OH_58D:defineLadderChiclet("TRQ_25", TRQ, 24, TGT_TRQ, TRQ_DESCRIPTION, "red")
+OH_58D:defineLadderChiclet("TRQ_26", TRQ, 25, TGT_TRQ, TRQ_DESCRIPTION, "red")
+OH_58D:defineLadderChiclet("TRQ_27", TRQ, 26, TGT_TRQ, TRQ_DESCRIPTION, "red")
+OH_58D:defineLadderChiclet("TRQ_28", TRQ, 27, TGT_TRQ, TRQ_DESCRIPTION, "red")
 
 -- Pilot MPD
 -- local MPD_PILOT = "MPD (Pilot)"
