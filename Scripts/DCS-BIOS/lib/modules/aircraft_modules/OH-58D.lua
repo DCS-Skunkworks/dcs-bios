@@ -687,7 +687,84 @@ OH_58D:defineFloat("SAI_ROLL", 56, { -1, 1 }, SAI, "Roll")
 OH_58D:defineFloat("SAI_OFF_FLAG", 57, { 0, 1 }, SAI, "OFF Flag")
 
 -- RPM Vertical Scale Instrument
--- local RPM_SCALE = "RPM Vertical Scale Instrument"
+local RPM_SCALE = "RPM Vertical Scale Instrument"
+
+-- NR
+local NR_RPM = "NRRPM"
+local NR_RPM_DESCRIPTION = "NR RPM"
+
+OH_58D:defineLadderChiclet("RPM_NR_1", NR_RPM, 0, RPM_SCALE, NR_RPM_DESCRIPTION, "blue")
+OH_58D:defineLadderChiclet("RPM_NR_2", NR_RPM, 1, RPM_SCALE, NR_RPM_DESCRIPTION, "red")
+OH_58D:defineLadderChiclet("RPM_NR_3", NR_RPM, 2, RPM_SCALE, NR_RPM_DESCRIPTION, "red")
+OH_58D:defineLadderChiclet("RPM_NR_4", NR_RPM, 3, RPM_SCALE, NR_RPM_DESCRIPTION, "red")
+OH_58D:defineLadderChiclet("RPM_NR_5", NR_RPM, 4, RPM_SCALE, NR_RPM_DESCRIPTION, "red")
+OH_58D:defineLadderChiclet("RPM_NR_6", NR_RPM, 5, RPM_SCALE, NR_RPM_DESCRIPTION, "red")
+OH_58D:defineLadderChiclet("RPM_NR_7", NR_RPM, 6, RPM_SCALE, NR_RPM_DESCRIPTION, "red")
+OH_58D:defineLadderChiclet("RPM_NR_8", NR_RPM, 7, RPM_SCALE, NR_RPM_DESCRIPTION, "red")
+OH_58D:defineLadderChiclet("RPM_NR_9", NR_RPM, 8, RPM_SCALE, NR_RPM_DESCRIPTION, "red")
+OH_58D:defineLadderChiclet("RPM_NR_10", NR_RPM, 9, RPM_SCALE, NR_RPM_DESCRIPTION, "red")
+OH_58D:defineLadderChiclet("RPM_NR_11", NR_RPM, 10, RPM_SCALE, NR_RPM_DESCRIPTION, "red")
+OH_58D:defineLadderChiclet("RPM_NR_12", NR_RPM, 11, RPM_SCALE, NR_RPM_DESCRIPTION, "yellow")
+OH_58D:defineLadderChiclet("RPM_NR_13", NR_RPM, 12, RPM_SCALE, NR_RPM_DESCRIPTION, "yellow")
+OH_58D:defineLadderChiclet("RPM_NR_14", NR_RPM, 13, RPM_SCALE, NR_RPM_DESCRIPTION, "yellow")
+OH_58D:defineLadderChiclet("RPM_NR_15", NR_RPM, 14, RPM_SCALE, NR_RPM_DESCRIPTION, "yellow")
+OH_58D:defineLadderChiclet("RPM_NR_16", NR_RPM, 15, RPM_SCALE, NR_RPM_DESCRIPTION, "yellow")
+OH_58D:defineLadderChiclet("RPM_NR_17", NR_RPM, 16, RPM_SCALE, NR_RPM_DESCRIPTION, "yellow")
+OH_58D:defineLadderChiclet("RPM_NR_18", NR_RPM, 17, RPM_SCALE, NR_RPM_DESCRIPTION, "yellow")
+OH_58D:defineLadderChiclet("RPM_NR_19", NR_RPM, 18, RPM_SCALE, NR_RPM_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("RPM_NR_20", NR_RPM, 19, RPM_SCALE, NR_RPM_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("RPM_NR_21", NR_RPM, 20, RPM_SCALE, NR_RPM_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("RPM_NR_22", NR_RPM, 21, RPM_SCALE, NR_RPM_DESCRIPTION, "yellow")
+OH_58D:defineLadderChiclet("RPM_NR_23", NR_RPM, 22, RPM_SCALE, NR_RPM_DESCRIPTION, "yellow")
+OH_58D:defineLadderChiclet("RPM_NR_24", NR_RPM, 23, RPM_SCALE, NR_RPM_DESCRIPTION, "yellow")
+OH_58D:defineLadderChiclet("RPM_NR_25", NR_RPM, 24, RPM_SCALE, NR_RPM_DESCRIPTION, "yellow")
+OH_58D:defineLadderChiclet("RPM_NR_26", NR_RPM, 25, RPM_SCALE, NR_RPM_DESCRIPTION, "yellow")
+OH_58D:defineLadderChiclet("RPM_NR_27", NR_RPM, 26, RPM_SCALE, NR_RPM_DESCRIPTION, "yellow")
+OH_58D:defineLadderChiclet("RPM_NR_28", NR_RPM, 27, RPM_SCALE, NR_RPM_DESCRIPTION, "yellow")
+OH_58D:defineLadderChiclet("RPM_NR_29", NR_RPM, 28, RPM_SCALE, NR_RPM_DESCRIPTION, "red")
+OH_58D:defineLadderChiclet("RPM_NR_30", NR_RPM, 29, RPM_SCALE, NR_RPM_DESCRIPTION, "red")
+OH_58D:defineLadderChiclet("RPM_NR_31", NR_RPM, 30, RPM_SCALE, NR_RPM_DESCRIPTION, "red")
+OH_58D:defineLadderChiclet("RPM_NR_32", NR_RPM, 31, RPM_SCALE, NR_RPM_DESCRIPTION, "red")
+OH_58D:defineLadderChiclet("RPM_NR_33", NR_RPM, 32, RPM_SCALE, NR_RPM_DESCRIPTION, "red")
+
+-- NP
+local NP_RPM = "NPRPM"
+local NP_RPM_DESCRIPTION = "NP RPM"
+
+OH_58D:defineLadderChiclet("RPM_NP_1", NP_RPM, 0, RPM_SCALE, NP_RPM_DESCRIPTION, "blue")
+OH_58D:defineLadderChiclet("RPM_NP_2", NP_RPM, 1, RPM_SCALE, NP_RPM_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("RPM_NP_3", NP_RPM, 2, RPM_SCALE, NP_RPM_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("RPM_NP_4", NP_RPM, 3, RPM_SCALE, NP_RPM_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("RPM_NP_5", NP_RPM, 4, RPM_SCALE, NP_RPM_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("RPM_NP_6", NP_RPM, 5, RPM_SCALE, NP_RPM_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("RPM_NP_7", NP_RPM, 6, RPM_SCALE, NP_RPM_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("RPM_NP_8", NP_RPM, 7, RPM_SCALE, NP_RPM_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("RPM_NP_9", NP_RPM, 8, RPM_SCALE, NP_RPM_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("RPM_NP_10", NP_RPM, 9, RPM_SCALE, NP_RPM_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("RPM_NP_11", NP_RPM, 10, RPM_SCALE, NP_RPM_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("RPM_NP_12", NP_RPM, 11, RPM_SCALE, NP_RPM_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("RPM_NP_13", NP_RPM, 12, RPM_SCALE, NP_RPM_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("RPM_NP_14", NP_RPM, 13, RPM_SCALE, NP_RPM_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("RPM_NP_15", NP_RPM, 14, RPM_SCALE, NP_RPM_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("RPM_NP_16", NP_RPM, 15, RPM_SCALE, NP_RPM_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("RPM_NP_17", NP_RPM, 16, RPM_SCALE, NP_RPM_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("RPM_NP_18", NP_RPM, 17, RPM_SCALE, NP_RPM_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("RPM_NP_19", NP_RPM, 18, RPM_SCALE, NP_RPM_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("RPM_NP_20", NP_RPM, 19, RPM_SCALE, NP_RPM_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("RPM_NP_21", NP_RPM, 20, RPM_SCALE, NP_RPM_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("RPM_NP_22", NP_RPM, 21, RPM_SCALE, NP_RPM_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("RPM_NP_23", NP_RPM, 22, RPM_SCALE, NP_RPM_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("RPM_NP_24", NP_RPM, 23, RPM_SCALE, NP_RPM_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("RPM_NP_25", NP_RPM, 24, RPM_SCALE, NP_RPM_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("RPM_NP_26", NP_RPM, 25, RPM_SCALE, NP_RPM_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("RPM_NP_27", NP_RPM, 26, RPM_SCALE, NP_RPM_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("RPM_NP_28", NP_RPM, 27, RPM_SCALE, NP_RPM_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("RPM_NP_29", NP_RPM, 28, RPM_SCALE, NP_RPM_DESCRIPTION, "red")
+OH_58D:defineLadderChiclet("RPM_NP_30", NP_RPM, 29, RPM_SCALE, NP_RPM_DESCRIPTION, "red")
+OH_58D:defineLadderChiclet("RPM_NP_31", NP_RPM, 30, RPM_SCALE, NP_RPM_DESCRIPTION, "red")
+OH_58D:defineLadderChiclet("RPM_NP_32", NP_RPM, 31, RPM_SCALE, NP_RPM_DESCRIPTION, "red")
+OH_58D:defineLadderChiclet("RPM_NP_33", NP_RPM, 32, RPM_SCALE, NP_RPM_DESCRIPTION, "red")
+
 -- indication 2 (also tgt/trq)
 
 -- TGT/TRQ Indicator
