@@ -240,6 +240,9 @@ OH_58D:define3PosTumb("FRONT_OVERHEAD_DC_GEN", devices.ELECTRIC, 3025, 264, OVER
 OH_58D:define3PosTumb("FRONT_OVERHEAD_BATT_2", devices.ELECTRIC, 3026, 249, OVERHEAD_CONSOLE_FRONT, "Battery 2 Switch")
 OH_58D:define3PosTumb("FRONT_OVERHEAD_BATT_1", devices.ELECTRIC, 3027, 248, OVERHEAD_CONSOLE_FRONT, "Battery 1 Switch")
 
+-- fuel shutoff
+OH_58D:definePotentiometer("FRONT_OVERHEAD_FUEL_SHUTOFF", devices.FUEL, 3002, 245, { 0, 1 }, OVERHEAD_CONSOLE_FRONT, "Fuel Shutoff Lever")
+
 -- Cyclic (Pilot)
 local CYCLIC_PILOT = "Cyclic (Pilot)"
 
@@ -370,9 +373,6 @@ OH_58D:define3PosTumb("ARMAMENT_MASTER_ARM", devices.WEAPONS, 3005, 171, ARMAMEN
 OH_58D:defineSpringloaded_3PosTumb("ARMAMENT_GUN", devices.WEAPONS, 3006, 3012, 172, ARMAMENT_PANEL, "Gun Switch")
 OH_58D:defineGatedIndicatorLight("ARMAMENT_STBY", 584, 0.4, 0.6, ARMAMENT_PANEL, "STBY Lamp (white)")
 OH_58D:defineGatedIndicatorLight("ARMAMENT_ARMED", 584, 1, nil, ARMAMENT_PANEL, "ARMED Lamp (white)")
-
--- Fuel Control Panel
--- local FUEL_CONTROL_PANEL = "Fuel Control Panel"
 
 -- Multifunction Keyboard (MFK)
 -- local MFK = "Multifunction Keyboard"
