@@ -1,5 +1,6 @@
 module("OH-58D", package.seeall)
 
+local Functions = require("Scripts.DCS-BIOS.lib.common.Functions")
 local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 
 --- @class OH_58D: Module
@@ -58,6 +59,38 @@ local devices = {
 	MACROS = 50,
 	KNEEBOARD = 51,
 }
+
+local cockpit_params = {}
+
+OH_58D:addExportHook(function(_)
+	cockpit_params = Module.parse_cockpit_params()
+end)
+
+--- Adds a new output for the chiclet-style displays on the Kiowa
+--- @param identifier string the unique identifier for the control
+--- @param cockpit_parameter string the cockpit parameter for this chiclet
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+function OH_58D:defineChiclet(identifier, cockpit_parameter, category, description)
+	self:defineIntegerFromGetter(identifier, function(_)
+		local val = tonumber(cockpit_params[cockpit_parameter]) or 0
+		val = Module.cap(val, 0, 1) -- red chiclets go from 0-1.75 for some reason?
+		return Module.valueConvert(val, { 0, 1 }, { 0, 65535 })
+	end, 65535, category, description)
+end
+
+--- Adds a new output for the chiclet-style displays on the Kiowa
+--- @param identifier string the unique identifier for the control
+--- @param param_prefix string the start of the cockpit param names for this ladder
+--- @param chiclet_index integer the index of the chiclet to display
+--- @param category string the category in which the control should appear
+--- @param ladder_description string a description of the ladder
+--- @param color string the color of the chiclet
+function OH_58D:defineLadderChiclet(identifier, param_prefix, chiclet_index, category, ladder_description, color)
+	local cockpit_parameter = param_prefix .. "_Ladder_vis" .. tostring(chiclet_index)
+	local description = ladder_description .. " Chiclet " .. tostring(chiclet_index + 1) .. " (" .. color .. ")"
+	self:defineChiclet(identifier, cockpit_parameter, category, description)
+end
 
 -- Aircraft configuration (set in mission editor)
 local CONFIGURATION = "Configuration"
@@ -441,9 +474,200 @@ OH_58D:defineToggleSwitch("SCAS_POWER", devices.SCAS, 3005, 165, SCAS_PANEL, "Po
 OH_58D:definePushButton("SCAS_TEST", devices.SCAS, 3006, 166, SCAS_PANEL, "Test Button")
 
 -- Multiparameter Display (MPD)
--- local MPD = "MPD"
--- indication 1
--- list_cockpit_params() TRANSOILPRESS_Ladder_vis9:0.500000
+local MPD = "MPD"
+
+local mpd = {}
+
+OH_58D:addExportHook(function(_)
+	mpd = Module.parse_indication(1)
+end)
+
+OH_58D:definePushButton("MPD_MFD_BACKUP", devices.MPD, 3001, 121, MPD, "Multifunction Display Backup Button")
+OH_58D:defineSpringloaded_3PosTumb("MPD_BIT", devices.MPD, 3002, 3006, 118, MPD, "BIT/Reset Switch")
+OH_58D:defineSpringloaded_3PosTumb("MPD_TEST", devices.MPD, 3003, 3003, 119, MPD, "Test/Digit Switch")
+OH_58D:defineSpringloaded_3PosTumb("MPD_SELECT", devices.MPD, 3004, 3004, 120, MPD, "Select Switch")
+OH_58D:definePotentiometer("MPD_BRIGHTNESS", devices.MPD, 3005, 122, { 0, 1 }, MPD, "Brightness Dial")
+
+local NG_MAP = {
+	["PN"] = "Pn",
+	["ERR"] = "Err",
+}
+
+OH_58D:defineString("MPD_NG_DISPLAY", function(_)
+	local text = mpd["NGParamDisplay"]
+	text = NG_MAP[text] or text
+
+	return Functions.pad_left(text, 4)
+end, 4, MPD, "NG Display (no decimal)")
+
+OH_58D:defineString("MPD_NG_DISPLAY_DECIMAL", function(_)
+	local mpd_text = mpd["NGParamDisplay"] -- only show decimal if mpd text is a number
+	return tonumber(mpd_text) and Functions.coerce_nil_to_string(mpd["NGParamDisplayPoint"]) or ""
+end, 1, MPD, "NG Display (decimal point only)")
+
+OH_58D:defineString("MPD_NG_DISPLAY_FULL", function(_)
+	local text = Functions.pad_left(mpd["NGParamDisplay"], 4)
+	local decimal = mpd["NGParamDisplayPoint"]
+
+	-- if there's no decimal or numbers is actually text (Pn, Err) then return
+	if not decimal or not tonumber(text) then
+		return NG_MAP[text] or text
+	end
+
+	return text:sub(1, #text - 1) .. decimal .. text:sub(#text)
+end, 5, MPD, "NG Display (including decimal if present)")
+
+OH_58D:defineString("MPD_DISPLAY_L", function(_)
+	return Functions.pad_left(mpd["LeftParamDisplay"], 3)
+end, 3, MPD, "Left Parameter Display")
+
+OH_58D:defineString("MPD_DISPLAY_R", function(_)
+	return Functions.pad_left(mpd["RightParamDisplay"], 3)
+end, 3, MPD, "Right Parameter Display")
+
+OH_58D:defineIntegerFromGetter("MPD_WARN", function(_)
+	local visibility = tonumber(cockpit_params["BIT_vis"])
+	return visibility and visibility > 0 and 1 or 0
+end, 1, MPD, "Warn Lamp (Yellow)")
+
+-- Transmission Oil Pressure
+local XMSN_OIL_PRESS = "TRANSOILPRESS"
+local XMSN_OIL_PRESS_DESCRIPTION = "XMSN Oil Pressure"
+
+OH_58D:defineLadderChiclet("MPD_XMSN_OIL_PRESSURE_1", XMSN_OIL_PRESS, 0, MPD, XMSN_OIL_PRESS_DESCRIPTION, "blue")
+OH_58D:defineLadderChiclet("MPD_XMSN_OIL_PRESSURE_2", XMSN_OIL_PRESS, 1, MPD, XMSN_OIL_PRESS_DESCRIPTION, "red")
+OH_58D:defineLadderChiclet("MPD_XMSN_OIL_PRESSURE_3", XMSN_OIL_PRESS, 2, MPD, XMSN_OIL_PRESS_DESCRIPTION, "red")
+OH_58D:defineLadderChiclet("MPD_XMSN_OIL_PRESSURE_4", XMSN_OIL_PRESS, 3, MPD, XMSN_OIL_PRESS_DESCRIPTION, "red")
+OH_58D:defineLadderChiclet("MPD_XMSN_OIL_PRESSURE_5", XMSN_OIL_PRESS, 4, MPD, XMSN_OIL_PRESS_DESCRIPTION, "red")
+OH_58D:defineLadderChiclet("MPD_XMSN_OIL_PRESSURE_6", XMSN_OIL_PRESS, 5, MPD, XMSN_OIL_PRESS_DESCRIPTION, "red")
+OH_58D:defineLadderChiclet("MPD_XMSN_OIL_PRESSURE_7", XMSN_OIL_PRESS, 6, MPD, XMSN_OIL_PRESS_DESCRIPTION, "red")
+OH_58D:defineLadderChiclet("MPD_XMSN_OIL_PRESSURE_8", XMSN_OIL_PRESS, 7, MPD, XMSN_OIL_PRESS_DESCRIPTION, "red")
+OH_58D:defineLadderChiclet("MPD_XMSN_OIL_PRESSURE_9", XMSN_OIL_PRESS, 8, MPD, XMSN_OIL_PRESS_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_XMSN_OIL_PRESSURE_10", XMSN_OIL_PRESS, 9, MPD, XMSN_OIL_PRESS_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_XMSN_OIL_PRESSURE_11", XMSN_OIL_PRESS, 10, MPD, XMSN_OIL_PRESS_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_XMSN_OIL_PRESSURE_12", XMSN_OIL_PRESS, 11, MPD, XMSN_OIL_PRESS_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_XMSN_OIL_PRESSURE_13", XMSN_OIL_PRESS, 12, MPD, XMSN_OIL_PRESS_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_XMSN_OIL_PRESSURE_14", XMSN_OIL_PRESS, 13, MPD, XMSN_OIL_PRESS_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_XMSN_OIL_PRESSURE_15", XMSN_OIL_PRESS, 14, MPD, XMSN_OIL_PRESS_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_XMSN_OIL_PRESSURE_16", XMSN_OIL_PRESS, 15, MPD, XMSN_OIL_PRESS_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_XMSN_OIL_PRESSURE_17", XMSN_OIL_PRESS, 16, MPD, XMSN_OIL_PRESS_DESCRIPTION, "green")
+
+-- Transmission Oil Temperature
+local XMSN_OIL_TEMP = "TRANSOILTEMP"
+local XMSN_OIL_TEMP_DESCRIPTION = "XMSN Oil Temperature"
+
+OH_58D:defineLadderChiclet("MPD_XMSN_OIL_TEMP_1", XMSN_OIL_TEMP, 0, MPD, XMSN_OIL_TEMP_DESCRIPTION, "blue")
+OH_58D:defineLadderChiclet("MPD_XMSN_OIL_TEMP_2", XMSN_OIL_TEMP, 1, MPD, XMSN_OIL_TEMP_DESCRIPTION, "red")
+OH_58D:defineLadderChiclet("MPD_XMSN_OIL_TEMP_3", XMSN_OIL_TEMP, 2, MPD, XMSN_OIL_TEMP_DESCRIPTION, "red")
+OH_58D:defineLadderChiclet("MPD_XMSN_OIL_TEMP_4", XMSN_OIL_TEMP, 3, MPD, XMSN_OIL_TEMP_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_XMSN_OIL_TEMP_5", XMSN_OIL_TEMP, 4, MPD, XMSN_OIL_TEMP_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_XMSN_OIL_TEMP_6", XMSN_OIL_TEMP, 5, MPD, XMSN_OIL_TEMP_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_XMSN_OIL_TEMP_7", XMSN_OIL_TEMP, 6, MPD, XMSN_OIL_TEMP_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_XMSN_OIL_TEMP_8", XMSN_OIL_TEMP, 7, MPD, XMSN_OIL_TEMP_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_XMSN_OIL_TEMP_9", XMSN_OIL_TEMP, 8, MPD, XMSN_OIL_TEMP_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_XMSN_OIL_TEMP_10", XMSN_OIL_TEMP, 9, MPD, XMSN_OIL_TEMP_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_XMSN_OIL_TEMP_11", XMSN_OIL_TEMP, 10, MPD, XMSN_OIL_TEMP_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_XMSN_OIL_TEMP_12", XMSN_OIL_TEMP, 11, MPD, XMSN_OIL_TEMP_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_XMSN_OIL_TEMP_13", XMSN_OIL_TEMP, 12, MPD, XMSN_OIL_TEMP_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_XMSN_OIL_TEMP_14", XMSN_OIL_TEMP, 13, MPD, XMSN_OIL_TEMP_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_XMSN_OIL_TEMP_15", XMSN_OIL_TEMP, 14, MPD, XMSN_OIL_TEMP_DESCRIPTION, "red")
+OH_58D:defineLadderChiclet("MPD_XMSN_OIL_TEMP_16", XMSN_OIL_TEMP, 15, MPD, XMSN_OIL_TEMP_DESCRIPTION, "red")
+OH_58D:defineLadderChiclet("MPD_XMSN_OIL_TEMP_17", XMSN_OIL_TEMP, 16, MPD, XMSN_OIL_TEMP_DESCRIPTION, "red")
+
+-- Engine Oil Pressure
+local ENG_OIL_PRESS = "ENGOILPRESS"
+local ENG_OIL_PRESS_DESCRIPTION = "Engine Oil Pressure"
+
+OH_58D:defineLadderChiclet("MPD_ENG_OIL_PRESSURE_1", ENG_OIL_PRESS, 0, MPD, ENG_OIL_PRESS_DESCRIPTION, "blue")
+OH_58D:defineLadderChiclet("MPD_ENG_OIL_PRESSURE_2", ENG_OIL_PRESS, 1, MPD, ENG_OIL_PRESS_DESCRIPTION, "red")
+OH_58D:defineLadderChiclet("MPD_ENG_OIL_PRESSURE_3", ENG_OIL_PRESS, 2, MPD, ENG_OIL_PRESS_DESCRIPTION, "red")
+OH_58D:defineLadderChiclet("MPD_ENG_OIL_PRESSURE_4", ENG_OIL_PRESS, 3, MPD, ENG_OIL_PRESS_DESCRIPTION, "red")
+OH_58D:defineLadderChiclet("MPD_ENG_OIL_PRESSURE_5", ENG_OIL_PRESS, 4, MPD, ENG_OIL_PRESS_DESCRIPTION, "red")
+OH_58D:defineLadderChiclet("MPD_ENG_OIL_PRESSURE_6", ENG_OIL_PRESS, 5, MPD, ENG_OIL_PRESS_DESCRIPTION, "yellow")
+OH_58D:defineLadderChiclet("MPD_ENG_OIL_PRESSURE_7", ENG_OIL_PRESS, 6, MPD, ENG_OIL_PRESS_DESCRIPTION, "yellow")
+OH_58D:defineLadderChiclet("MPD_ENG_OIL_PRESSURE_8", ENG_OIL_PRESS, 7, MPD, ENG_OIL_PRESS_DESCRIPTION, "yellow")
+OH_58D:defineLadderChiclet("MPD_ENG_OIL_PRESSURE_9", ENG_OIL_PRESS, 8, MPD, ENG_OIL_PRESS_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_ENG_OIL_PRESSURE_10", ENG_OIL_PRESS, 9, MPD, ENG_OIL_PRESS_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_ENG_OIL_PRESSURE_11", ENG_OIL_PRESS, 10, MPD, ENG_OIL_PRESS_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_ENG_OIL_PRESSURE_12", ENG_OIL_PRESS, 11, MPD, ENG_OIL_PRESS_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_ENG_OIL_PRESSURE_13", ENG_OIL_PRESS, 12, MPD, ENG_OIL_PRESS_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_ENG_OIL_PRESSURE_14", ENG_OIL_PRESS, 13, MPD, ENG_OIL_PRESS_DESCRIPTION, "red")
+OH_58D:defineLadderChiclet("MPD_ENG_OIL_PRESSURE_15", ENG_OIL_PRESS, 14, MPD, ENG_OIL_PRESS_DESCRIPTION, "red")
+OH_58D:defineLadderChiclet("MPD_ENG_OIL_PRESSURE_16", ENG_OIL_PRESS, 15, MPD, ENG_OIL_PRESS_DESCRIPTION, "red")
+OH_58D:defineLadderChiclet("MPD_ENG_OIL_PRESSURE_17", ENG_OIL_PRESS, 16, MPD, ENG_OIL_PRESS_DESCRIPTION, "red")
+
+-- Engine Oil Temperature
+local ENG_OIL_TEMP = "ENGOILTEMP"
+local ENG_OIL_TEMP_DESCRIPTION = "Engine Oil Temp"
+
+OH_58D:defineLadderChiclet("MPD_ENG_OIL_TEMP_1", ENG_OIL_TEMP, 0, MPD, ENG_OIL_TEMP_DESCRIPTION, "blue")
+OH_58D:defineLadderChiclet("MPD_ENG_OIL_TEMP_2", ENG_OIL_TEMP, 1, MPD, ENG_OIL_TEMP_DESCRIPTION, "red")
+OH_58D:defineLadderChiclet("MPD_ENG_OIL_TEMP_3", ENG_OIL_TEMP, 2, MPD, ENG_OIL_TEMP_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_ENG_OIL_TEMP_4", ENG_OIL_TEMP, 3, MPD, ENG_OIL_TEMP_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_ENG_OIL_TEMP_5", ENG_OIL_TEMP, 4, MPD, ENG_OIL_TEMP_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_ENG_OIL_TEMP_6", ENG_OIL_TEMP, 5, MPD, ENG_OIL_TEMP_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_ENG_OIL_TEMP_7", ENG_OIL_TEMP, 6, MPD, ENG_OIL_TEMP_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_ENG_OIL_TEMP_8", ENG_OIL_TEMP, 7, MPD, ENG_OIL_TEMP_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_ENG_OIL_TEMP_9", ENG_OIL_TEMP, 8, MPD, ENG_OIL_TEMP_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_ENG_OIL_TEMP_10", ENG_OIL_TEMP, 9, MPD, ENG_OIL_TEMP_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_ENG_OIL_TEMP_11", ENG_OIL_TEMP, 10, MPD, ENG_OIL_TEMP_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_ENG_OIL_TEMP_12", ENG_OIL_TEMP, 11, MPD, ENG_OIL_TEMP_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_ENG_OIL_TEMP_13", ENG_OIL_TEMP, 12, MPD, ENG_OIL_TEMP_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_ENG_OIL_TEMP_14", ENG_OIL_TEMP, 13, MPD, ENG_OIL_TEMP_DESCRIPTION, "red")
+OH_58D:defineLadderChiclet("MPD_ENG_OIL_TEMP_15", ENG_OIL_TEMP, 14, MPD, ENG_OIL_TEMP_DESCRIPTION, "red")
+OH_58D:defineLadderChiclet("MPD_ENG_OIL_TEMP_16", ENG_OIL_TEMP, 15, MPD, ENG_OIL_TEMP_DESCRIPTION, "red")
+OH_58D:defineLadderChiclet("MPD_ENG_OIL_TEMP_17", ENG_OIL_TEMP, 16, MPD, ENG_OIL_TEMP_DESCRIPTION, "red")
+
+-- Fuel Quantity
+local FUEL_QTY = "FUELQTY"
+local FUEL_QTY_DESCRIPTION = "Fuel Quantity"
+
+OH_58D:defineLadderChiclet("MPD_FUEL_QTY_1", FUEL_QTY, 0, MPD, FUEL_QTY_DESCRIPTION, "blue")
+OH_58D:defineLadderChiclet("MPD_FUEL_QTY_2", FUEL_QTY, 1, MPD, FUEL_QTY_DESCRIPTION, "yellow")
+OH_58D:defineLadderChiclet("MPD_FUEL_QTY_3", FUEL_QTY, 2, MPD, FUEL_QTY_DESCRIPTION, "yellow")
+OH_58D:defineLadderChiclet("MPD_FUEL_QTY_4", FUEL_QTY, 3, MPD, FUEL_QTY_DESCRIPTION, "yellow")
+OH_58D:defineLadderChiclet("MPD_FUEL_QTY_5", FUEL_QTY, 4, MPD, FUEL_QTY_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_FUEL_QTY_6", FUEL_QTY, 5, MPD, FUEL_QTY_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_FUEL_QTY_7", FUEL_QTY, 6, MPD, FUEL_QTY_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_FUEL_QTY_8", FUEL_QTY, 7, MPD, FUEL_QTY_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_FUEL_QTY_9", FUEL_QTY, 8, MPD, FUEL_QTY_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_FUEL_QTY_10", FUEL_QTY, 9, MPD, FUEL_QTY_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_FUEL_QTY_11", FUEL_QTY, 10, MPD, FUEL_QTY_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_FUEL_QTY_12", FUEL_QTY, 11, MPD, FUEL_QTY_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_FUEL_QTY_13", FUEL_QTY, 12, MPD, FUEL_QTY_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_FUEL_QTY_14", FUEL_QTY, 13, MPD, FUEL_QTY_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_FUEL_QTY_15", FUEL_QTY, 14, MPD, FUEL_QTY_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_FUEL_QTY_16", FUEL_QTY, 15, MPD, FUEL_QTY_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_FUEL_QTY_17", FUEL_QTY, 16, MPD, FUEL_QTY_DESCRIPTION, "green")
+
+-- Fuel Quantity
+local NG_PERCENT = "NG_PERCENT"
+local NG_PERCENT_DESCRIPTION = "NG Percent"
+
+OH_58D:defineLadderChiclet("MPD_NG_1", NG_PERCENT, 0, MPD, NG_PERCENT_DESCRIPTION, "blue")
+OH_58D:defineLadderChiclet("MPD_NG_2", NG_PERCENT, 1, MPD, NG_PERCENT_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_NG_3", NG_PERCENT, 2, MPD, NG_PERCENT_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_NG_4", NG_PERCENT, 3, MPD, NG_PERCENT_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_NG_5", NG_PERCENT, 4, MPD, NG_PERCENT_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_NG_6", NG_PERCENT, 5, MPD, NG_PERCENT_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_NG_7", NG_PERCENT, 6, MPD, NG_PERCENT_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_NG_8", NG_PERCENT, 7, MPD, NG_PERCENT_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_NG_9", NG_PERCENT, 8, MPD, NG_PERCENT_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_NG_10", NG_PERCENT, 9, MPD, NG_PERCENT_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_NG_11", NG_PERCENT, 10, MPD, NG_PERCENT_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_NG_12", NG_PERCENT, 11, MPD, NG_PERCENT_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_NG_13", NG_PERCENT, 12, MPD, NG_PERCENT_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_NG_14", NG_PERCENT, 13, MPD, NG_PERCENT_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_NG_15", NG_PERCENT, 14, MPD, NG_PERCENT_DESCRIPTION, "green")
+OH_58D:defineLadderChiclet("MPD_NG_16", NG_PERCENT, 15, MPD, NG_PERCENT_DESCRIPTION, "red")
+OH_58D:defineLadderChiclet("MPD_NG_17", NG_PERCENT, 16, MPD, NG_PERCENT_DESCRIPTION, "red")
+
+-- Selector
+OH_58D:defineChiclet("MPD_SEL_1", "BATTV_STARTV_vis", MPD, "Battery/Starter Voltage Chiclet (green)")
+OH_58D:defineChiclet("MPD_SEL_2", "RECTLD_SGENLD_vis", MPD, "Rectifier/Generator Load Chiclet (green)")
+OH_58D:defineChiclet("MPD_SEL_3", "ACV_RECTV_vis", MPD, "AC/Rectifier Voltage Chiclet (green)")
+OH_58D:defineChiclet("MPD_SEL_4", "FUELQTY_ENGTRQ_vis", MPD, "Fuel Quantity/Engine Torque Chiclet (green)")
+OH_58D:defineChiclet("MPD_SEL_5", "NG_NP_vis", MPD, "NG/NP Chiclet (green)")
 
 -- Air Vent Control
 -- local AIR_VENT_CONTROL = "Air Vent Control"
