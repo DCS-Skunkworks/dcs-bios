@@ -360,7 +360,16 @@ local REMOTE_ICS_PANEL = "Remote ICS Panel"
 OH_58D:define3PosTumb("REMOTE_ICS", devices.SYNC, 3068, 190, REMOTE_ICS_PANEL, "Remote ICS Switch")
 
 -- Armament Control Panel
--- local ARMAMENT_PANEL = "Armament Control Panel"
+local ARMAMENT_PANEL = "Armament Control Panel"
+
+OH_58D:defineToggleSwitch("ARMAMENT_JETTISON_COVER_L", devices.WEAPONS, 3001, 167, ARMAMENT_PANEL, "Left Pylon Jettison Switch Guard")
+OH_58D:defineToggleSwitch("ARMAMENT_JETTISON_COVER_R", devices.WEAPONS, 3002, 168, ARMAMENT_PANEL, "Right Pylon Jettison Switch Guard")
+OH_58D:defineToggleSwitch("ARMAMENT_JETTISON_L", devices.WEAPONS, 3003, 169, ARMAMENT_PANEL, "Left Pylon Jettison Switch")
+OH_58D:defineToggleSwitch("ARMAMENT_JETTISON_R", devices.WEAPONS, 3004, 170, ARMAMENT_PANEL, "Right Pylon Jettison Switch")
+OH_58D:define3PosTumb("ARMAMENT_MASTER_ARM", devices.WEAPONS, 3005, 171, ARMAMENT_PANEL, "Master Switch")
+OH_58D:defineSpringloaded_3PosTumb("ARMAMENT_GUN", devices.WEAPONS, 3006, 3012, 172, ARMAMENT_PANEL, "Gun Switch")
+OH_58D:defineGatedIndicatorLight("ARMAMENT_STBY", 584, 0.4, 0.6, ARMAMENT_PANEL, "STBY Lamp (white)")
+OH_58D:defineGatedIndicatorLight("ARMAMENT_ARMED", 584, 1, nil, ARMAMENT_PANEL, "ARMED Lamp (white)")
 
 -- Fuel Control Panel
 -- local FUEL_CONTROL_PANEL = "Fuel Control Panel"
@@ -436,8 +445,10 @@ OH_58D:define3PosTumb("REMOTE_ICS", devices.SYNC, 3068, 190, REMOTE_ICS_PANEL, "
 -- local CMWS = "CMWS"
 -- indication 10
 
+-- Interior Lights
+-- local INTERIOR_LIGHTS = "Interior Lights"
 -- Floodlights
--- local FLOODLIGHTS = "Floodlights"
+-- Console lights
 
 -- Free Air Temperature Gauge
 -- local FREE_AIR_TEMP = "Free Air Temperature Gauge"
