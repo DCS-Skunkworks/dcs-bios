@@ -871,7 +871,27 @@ OH_58D:defineSpringloaded_3PosTumb("MFD_PLT_BRIGHTNESS", devices.RMFD, 3021, 302
 OH_58D:defineSpringloaded_3PosTumb("MFD_PLT_CONTRAST", devices.RMFD, 3023, 3022, 89, MFD_PILOT, "Contrast")
 
 -- Copilot MFD
--- local MFD_COPILOT = "MFD (Copilot)"
+local MFD_COPILOT = "MFD (Copilot)"
+
+OH_58D:definePushButton("MFD_CPLT_L1", devices.LMFD, 3001, 286, MFD_COPILOT, "Line Address Key L1")
+OH_58D:definePushButton("MFD_CPLT_L2", devices.LMFD, 3002, 287, MFD_COPILOT, "Line Address Key L2")
+OH_58D:definePushButton("MFD_CPLT_L3", devices.LMFD, 3003, 288, MFD_COPILOT, "Line Address Key L3")
+OH_58D:definePushButton("MFD_CPLT_L4", devices.LMFD, 3004, 289, MFD_COPILOT, "Line Address Key L4")
+OH_58D:definePushButton("MFD_CPLT_L5", devices.LMFD, 3005, 290, MFD_COPILOT, "Line Address Key L5")
+OH_58D:defineToggleSwitch("MFD_CPLT_PRIMARY_BACKUP", devices.LMFD, 3006, 285, MFD_COPILOT, "Display Mode Primary/Backup")
+OH_58D:definePushButton("MFD_CPLT_B1", devices.LMFD, 3008, 296, MFD_COPILOT, "Line Address Key B1")
+OH_58D:definePushButton("MFD_CPLT_B2", devices.LMFD, 3009, 297, MFD_COPILOT, "Line Address Key B2")
+OH_58D:definePushButton("MFD_CPLT_B3", devices.LMFD, 3010, 298, MFD_COPILOT, "Line Address Key B3")
+OH_58D:definePushButton("MFD_CPLT_B4", devices.LMFD, 3011, 299, MFD_COPILOT, "Line Address Key B4")
+OH_58D:defineToggleSwitch("MFD_CPLT_MANUAL_NVG", devices.LMFD, 3012, 284, MFD_COPILOT, "Display Mode Manual/NVG")
+OH_58D:definePushButton("MFD_CPLT_R1", devices.LMFD, 3013, 291, MFD_COPILOT, "Line Address Key R1")
+OH_58D:definePushButton("MFD_CPLT_R2", devices.LMFD, 3014, 292, MFD_COPILOT, "Line Address Key R2")
+OH_58D:definePushButton("MFD_CPLT_R3", devices.LMFD, 3015, 293, MFD_COPILOT, "Line Address Key R3")
+OH_58D:definePushButton("MFD_CPLT_R4", devices.LMFD, 3016, 294, MFD_COPILOT, "Line Address Key R4")
+OH_58D:definePushButton("MFD_CPLT_R5", devices.LMFD, 3017, 295, MFD_COPILOT, "Line Address Key R5")
+OH_58D:definePushButton("MFD_CPLT_INIT", devices.LMFD, 3019, 300, MFD_COPILOT, "INIT [L2MUM/CDS Cycle]")
+OH_58D:defineSpringloaded_3PosTumb("MFD_CPLT_BRIGHTNESS", devices.LMFD, 3021, 3020, 301, MFD_COPILOT, "Brightness")
+OH_58D:defineSpringloaded_3PosTumb("MFD_CPLT_CONTRAST", devices.LMFD, 3023, 3022, 302, MFD_COPILOT, "Contrast")
 
 -- Pilot MFD Auxiliary Control Panel
 -- local MFD_AUX_PANEL_PILOT = "MFD Auxiliary Panel (Pilot)"
