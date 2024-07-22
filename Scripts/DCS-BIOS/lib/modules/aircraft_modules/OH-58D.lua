@@ -903,7 +903,15 @@ OH_58D:defineFloat("MFD_PLT_AUX_PITCH", 108, { -1, 1 }, MFD_AUX_PANEL_PILOT, "Pi
 OH_58D:defineFloat("MFD_PLT_AUX_SLIP_BALL", 110, { -1, 1 }, MFD_AUX_PANEL_PILOT, "Slip Ball")
 
 -- Copilot MFD Auxiliary Control Panel
--- local MFD_AUX_PANEL_COPILOT = "MFD Auxiliary Panel (Copilot)"
+local MFD_AUX_PANEL_COPILOT = "MFD Auxiliary Panel (Copilot)"
+
+OH_58D:defineToggleSwitch("MFD_CPLT_AUX_ALFGL", devices.LMFD, 3038, 111, MFD_AUX_PANEL_COPILOT, "ALFGL Switch")
+OH_58D:defineSpringloaded_3PosTumb("MFD_CPLT_AUX_WPN_ASE", devices.LMFD, 3040, 3039, 112, MFD_AUX_PANEL_COPILOT, "WPN/ASE Switch")
+OH_58D:defineSpringloaded_3PosTumb("MFD_CPLT_AUX_IDM_INIT", devices.LMFD, 3042, 3041, 113, MFD_AUX_PANEL_COPILOT, "IDM/INIT Switch")
+OH_58D:defineToggleSwitch("MFD_CPLT_AUX_L2MUM", devices.LMFD, 3043, 114, MFD_AUX_PANEL_COPILOT, "L2MUM Switch")
+OH_58D:define3PosTumb("MFD_CPLT_AUX_TIS", devices.LMFD, 3044, 115, MFD_AUX_PANEL_COPILOT, "TIS Switch")
+OH_58D:defineToggleSwitch("MFD_CPLT_AUX_LMC", devices.LMFD, 3045, 116, MFD_AUX_PANEL_COPILOT, "LMC Switch")
+OH_58D:defineToggleSwitch("MFD_CPLT_AUX_ALE", devices.LMFD, 3046, 117, MFD_AUX_PANEL_COPILOT, "ALE Switch")
 
 -- Clock
 -- local CLOCK = "Clock"
