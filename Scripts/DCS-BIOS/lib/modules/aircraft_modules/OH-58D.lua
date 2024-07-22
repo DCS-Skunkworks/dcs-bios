@@ -847,17 +847,37 @@ OH_58D:defineLadderChiclet("TRQ_26", TRQ, 25, TGT_TRQ, TRQ_DESCRIPTION, "red")
 OH_58D:defineLadderChiclet("TRQ_27", TRQ, 26, TGT_TRQ, TRQ_DESCRIPTION, "red")
 OH_58D:defineLadderChiclet("TRQ_28", TRQ, 27, TGT_TRQ, TRQ_DESCRIPTION, "red")
 
--- Pilot MPD
--- local MPD_PILOT = "MPD (Pilot)"
+-- Pilot MFD
+local MFD_PILOT = "MFD (Pilot)"
 
--- Copilot MPD
--- local MPD_COPILOT = "MPD (Copilot)"
+OH_58D:definePushButton("MFD_PLT_L1", devices.RMFD, 3001, 73, MFD_PILOT, "Line Address Key L1")
+OH_58D:definePushButton("MFD_PLT_L2", devices.RMFD, 3002, 74, MFD_PILOT, "Line Address Key L2")
+OH_58D:definePushButton("MFD_PLT_L3", devices.RMFD, 3003, 75, MFD_PILOT, "Line Address Key L3")
+OH_58D:definePushButton("MFD_PLT_L4", devices.RMFD, 3004, 76, MFD_PILOT, "Line Address Key L4")
+OH_58D:definePushButton("MFD_PLT_L5", devices.RMFD, 3005, 77, MFD_PILOT, "Line Address Key L5")
+OH_58D:defineToggleSwitch("MFD_PLT_PRIMARY_BACKUP", devices.RMFD, 3006, 72, MFD_PILOT, "Display Mode Primary/Backup")
+OH_58D:definePushButton("MFD_PLT_B1", devices.RMFD, 3008, 83, MFD_PILOT, "Line Address Key B1")
+OH_58D:definePushButton("MFD_PLT_B2", devices.RMFD, 3009, 84, MFD_PILOT, "Line Address Key B2")
+OH_58D:definePushButton("MFD_PLT_B3", devices.RMFD, 3010, 85, MFD_PILOT, "Line Address Key B3")
+OH_58D:definePushButton("MFD_PLT_B4", devices.RMFD, 3011, 86, MFD_PILOT, "Line Address Key B4")
+OH_58D:defineToggleSwitch("MFD_PLT_MANUAL_NVG", devices.RMFD, 3012, 69, MFD_PILOT, "Display Mode Manual/NVG")
+OH_58D:definePushButton("MFD_PLT_R1", devices.RMFD, 3013, 78, MFD_PILOT, "Line Address Key R1")
+OH_58D:definePushButton("MFD_PLT_R2", devices.RMFD, 3014, 79, MFD_PILOT, "Line Address Key R2")
+OH_58D:definePushButton("MFD_PLT_R3", devices.RMFD, 3015, 80, MFD_PILOT, "Line Address Key R3")
+OH_58D:definePushButton("MFD_PLT_R4", devices.RMFD, 3016, 81, MFD_PILOT, "Line Address Key R4")
+OH_58D:definePushButton("MFD_PLT_R5", devices.RMFD, 3017, 82, MFD_PILOT, "Line Address Key R5")
+OH_58D:definePushButton("MFD_PLT_INIT", devices.RMFD, 3019, 87, MFD_PILOT, "INIT")
+OH_58D:defineSpringloaded_3PosTumb("MFD_PLT_BRIGHTNESS", devices.RMFD, 3021, 3020, 88, MFD_PILOT, "Brightness")
+OH_58D:defineSpringloaded_3PosTumb("MFD_PLT_CONTRAST", devices.RMFD, 3023, 3022, 89, MFD_PILOT, "Contrast")
 
--- Pilot MPD Auxiliary Control Panel
--- local MPD_AUX_PANEL_PILOT = "MPD Auxiliary Panel (Pilot)"
+-- Copilot MFD
+-- local MFD_COPILOT = "MFD (Copilot)"
 
--- Copilot MPD Auxiliary Control Panel
--- local MPD_AUX_PANEL_COPILOT = "MPD Auxiliary Panel (Copilot)"
+-- Pilot MFD Auxiliary Control Panel
+-- local MFD_AUX_PANEL_PILOT = "MFD Auxiliary Panel (Pilot)"
+
+-- Copilot MFD Auxiliary Control Panel
+-- local MFD_AUX_PANEL_COPILOT = "MFD Auxiliary Panel (Copilot)"
 
 -- Clock
 -- local CLOCK = "Clock"
