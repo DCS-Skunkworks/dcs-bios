@@ -894,7 +894,13 @@ OH_58D:defineSpringloaded_3PosTumb("MFD_CPLT_BRIGHTNESS", devices.LMFD, 3021, 30
 OH_58D:defineSpringloaded_3PosTumb("MFD_CPLT_CONTRAST", devices.LMFD, 3023, 3022, 302, MFD_COPILOT, "Contrast")
 
 -- Pilot MFD Auxiliary Control Panel
--- local MFD_AUX_PANEL_PILOT = "MFD Auxiliary Panel (Pilot)"
+local MFD_AUX_PANEL_PILOT = "MFD Auxiliary Panel (Pilot)"
+
+OH_58D:definePushButton("MFD_PLT_AUX_INIT", devices.RMFD, 3018, 109, MFD_AUX_PANEL_PILOT, "INIT [Initial Page]")
+OH_58D:defineFloat("MFD_PLT_AUX_ROLL", 107, { -1, 1 }, MFD_AUX_PANEL_PILOT, "Roll Switch Position (not clickable)")
+OH_58D:defineFloat("MFD_PLT_AUX_PITCH", 108, { -1, 1 }, MFD_AUX_PANEL_PILOT, "Pitch Switch Position (not clickable)")
+
+OH_58D:defineFloat("MFD_PLT_AUX_SLIP_BALL", 110, { -1, 1 }, MFD_AUX_PANEL_PILOT, "Slip Ball")
 
 -- Copilot MFD Auxiliary Control Panel
 -- local MFD_AUX_PANEL_COPILOT = "MFD Auxiliary Panel (Copilot)"
