@@ -601,7 +601,7 @@ AH_64D:definePushButton("PLT_EMERG_HYD_BTN", 5, 3002, 313, "PLT Left Console", "
 AH_64D:definePushButton("PLT_T_WHEEL_UNLOCK_BTN", 5, 3003, 308, "PLT Left Console", "Pilot TAIL WHEEL Pushbutton, LOCK/UNLOCK")
 AH_64D:define3PosTumb("PLT_ROTOR_BRK", 5, 3001, 314, "PLT Left Console", "Pilot Rotor Brake Switch, OFF/BRK/LOCK")
 AH_64D:definePushButton("PLT_APU_BTN", 6, 3001, 400, "PLT Left Console", "Pilot APU Pushbutton")
-AH_64D:defineToggleSwitch("PLT_APU_BTN_CVR", 6, 3002, 4001, "PLT Left Console", "Pilot APU Pushbutton Cover, OPEN/CLOSE")
+AH_64D:defineToggleSwitch("PLT_APU_BTN_CVR", 6, 3002, 401, "PLT Left Console", "Pilot APU Pushbutton Cover, OPEN/CLOSE")
 AH_64D:definePotentiometer("PLT_PW_LVR_FRIC", 2, 3001, 633, { 0, 1 }, "PLT Left Console", "Pilot Power Lever Friction Adjustment Lever")
 AH_64D:defineSpringloaded_3PosTumb("PLT_ENG1_START", 6, 3004, 3003, 317, "PLT Left Console", "Pilot No.1 Engine Start Switch, IGN ORIDE/START")
 AH_64D:defineSpringloaded_3PosTumb("PLT_ENG2_START", 6, 3006, 3005, 318, "PLT Left Console", "Pilot No.2 Engine Start Switch, IGN ORIDE/START")
