@@ -64,6 +64,7 @@ local indicators = {
 	MPD = 1,
 	RPM_TGT_TRQ = 2,
 	CLOCK = 7,
+	RFI = 8,
 }
 
 --- @type { [string]: string }
@@ -1030,8 +1031,220 @@ local STANDBY_AIRSPEED_INDICATOR = "Standby Airspeed Indicator"
 OH_58D:defineFloat("AIRSPEED_NEEDLE", 60, { 0, 1 }, STANDBY_AIRSPEED_INDICATOR, "Needle")
 
 -- Remote Frequency Indicator
--- local REMOTE_FREQUENCY_INDICATOR = "Remote Frequency Indicator"
--- indication 8
+local RFI = "Remote Frequency Indicator"
+
+OH_58D:definePushButton("RFI_CIPHER_L", devices.RFD, 3001, 123, RFI, "Left Cipher Button")
+OH_58D:definePushButton("RFI_CIPHER_R", devices.RFD, 3002, 124, RFI, "Right Cipher Button")
+OH_58D:definePushButton("RFI_TEST", devices.RFD, 3005, 125, RFI, "Test Button")
+OH_58D:definePotentiometer("RFI_BRIGHTNESS_KNOB", devices.RFD, 3006, 126, { 0, 0.8 }, RFI, "Brightness Dial")
+
+OH_58D:defineIntegerFromGetter("RFI_BRIGHTNESS", function(_)
+	return Module.valueConvert(Module.cap(tonumber(cockpit_params["RFD_Fond_vis"]) or 0, 0, 1), { 0, 1 }, { 0, 65535 })
+end, 65535, RFI, "Display Brightness")
+
+local rfi = {}
+
+OH_58D:addExportHook(function(_)
+	rfi = Module.parse_indication(indicators.RFI)
+end)
+
+--- @private
+--- Gets the number for an RFI line
+--- @param index integer the line index (1-5)
+--- @return string number the line number text
+local function rfi_number(index)
+	if tonumber(cockpit_params["RFD_text_vis"]) < 1 then
+		return ""
+	end
+
+	return rfi[string.format("Number%d", index)]
+end
+
+--- @private
+--- Gets the channel for an RFI line
+--- @param index integer the line index (1-5)
+--- @return string number the line channel text
+local function rfi_channel(index)
+	if tonumber(cockpit_params["RFD_text_vis"]) < 1 then
+		return ""
+	end
+
+	return Functions.pad_left(rfi[string.format("CHNL%d", index)], 2)
+end
+
+--- @private
+--- Gets the frequency for an RFI line
+--- @param index integer the line index (1-5)
+--- @return string number the line frequency text
+local function rfi_frequency(index)
+	if tonumber(cockpit_params["RFD_text_vis"]) < 1 then
+		return ""
+	end
+
+	return Functions.pad_left(rfi[string.format("Freq%d", index)], 7)
+end
+
+--- @private
+--- Gets whether a texture is visible
+--- @param param_name string the name of the cockpit parameter
+--- @return integer visible whether the texture is visible (0 = no, 1 = yes)
+local function visibility_value(param_name)
+	return Module.cap(Module.round(tonumber(cockpit_params[param_name]) or 0), 0, 1)
+end
+
+--- @private
+--- Gets whether the cipher texture is shown
+--- @param index integer the line index (1-5)
+--- @return integer cipher whether the cipher texture is shown (0 = no, 1 = yes)
+local function cipher_value(index)
+	return visibility_value(string.format("Cipher_vis%d", index))
+end
+
+--- @private
+--- Gets whether the pilot select texture is shown
+--- @param index integer the line index (1-5)
+--- @return integer cipher whether the cipher texture is shown (0 = no, 1 = yes)
+local function pilot_select_value(index)
+	return visibility_value(string.format("PilotSelect_vis%d", index))
+end
+
+--- @private
+--- Gets whether the copilot select texture is shown
+--- @param index integer the line index (1-5)
+--- @return integer cipher whether the cipher texture is shown (0 = no, 1 = yes)
+local function copilot_select_value(index)
+	return visibility_value(string.format("CopilotSelect_vis%d", index))
+end
+
+-- line 1
+
+OH_58D:defineString("RFI_LINE_1_NUMBER", function(_)
+	return rfi_number(1)
+end, 1, RFI, "Line 1 Line Number")
+
+OH_58D:defineString("RFI_LINE_1_CHANNEL", function(_)
+	return rfi_channel(1)
+end, 2, RFI, "Line 1 Channel")
+
+OH_58D:defineString("RFI_LINE_1_FREQUENCY", function(_)
+	return rfi_frequency(1)
+end, 7, RFI, "Line 1 Frequency")
+
+OH_58D:defineIntegerFromGetter("RFI_LINE_1_CIPHER", function(_)
+	return cipher_value(1)
+end, 1, RFI, "Line 1 Cipher Visibility")
+
+OH_58D:defineIntegerFromGetter("RFI_LINE_1_SELECT_PILOT", function(_)
+	return pilot_select_value(1)
+end, 1, RFI, "Line 1 Selected Arrow Visibility (Pilot)")
+
+OH_58D:defineIntegerFromGetter("RFI_LINE_1_SELECT_COPILOT", function(_)
+	return copilot_select_value(1)
+end, 1, RFI, "Line 1 Selected Arrow Visibility (Copilot)")
+
+-- line 2
+
+OH_58D:defineString("RFI_LINE_2_NUMBER", function(_)
+	return rfi_number(2)
+end, 1, RFI, "Line 2 Line Number")
+
+OH_58D:defineString("RFI_LINE_2_CHANNEL", function(_)
+	return rfi_channel(2)
+end, 2, RFI, "Line 2 Channel")
+
+OH_58D:defineString("RFI_LINE_2_FREQUENCY", function(_)
+	return rfi_frequency(2)
+end, 7, RFI, "Line 2 Frequency")
+
+OH_58D:defineIntegerFromGetter("RFI_LINE_2_CIPHER", function(_)
+	return cipher_value(2)
+end, 1, RFI, "Line 2 Cipher Visibility")
+
+OH_58D:defineIntegerFromGetter("RFI_LINE_2_SELECT_PILOT", function(_)
+	return pilot_select_value(2)
+end, 1, RFI, "Line 2 Selected Arrow Visibility (Pilot)")
+
+OH_58D:defineIntegerFromGetter("RFI_LINE_2_SELECT_COPILOT", function(_)
+	return copilot_select_value(2)
+end, 1, RFI, "Line 2 Selected Arrow Visibility (Copilot)")
+
+-- line 3
+
+OH_58D:defineString("RFI_LINE_3_NUMBER", function(_)
+	return rfi_number(3)
+end, 1, RFI, "Line 3 Line Number")
+
+OH_58D:defineString("RFI_LINE_3_CHANNEL", function(_)
+	return rfi_channel(3)
+end, 2, RFI, "Line 3 Channel")
+
+OH_58D:defineString("RFI_LINE_3_FREQUENCY", function(_)
+	return rfi_frequency(3)
+end, 7, RFI, "Line 3 Frequency")
+
+OH_58D:defineIntegerFromGetter("RFI_LINE_3_CIPHER", function(_)
+	return cipher_value(3)
+end, 1, RFI, "Line 3 Cipher Visibility")
+
+OH_58D:defineIntegerFromGetter("RFI_LINE_3_SELECT_PILOT", function(_)
+	return pilot_select_value(3)
+end, 1, RFI, "Line 3 Selected Arrow Visibility (Pilot)")
+
+OH_58D:defineIntegerFromGetter("RFI_LINE_3_SELECT_COPILOT", function(_)
+	return copilot_select_value(3)
+end, 1, RFI, "Line 3 Selected Arrow Visibility (Copilot)")
+
+-- line 4
+
+OH_58D:defineString("RFI_LINE_4_NUMBER", function(_)
+	return rfi_number(4)
+end, 1, RFI, "Line 4 Line Number")
+
+OH_58D:defineString("RFI_LINE_4_CHANNEL", function(_)
+	return rfi_channel(4)
+end, 2, RFI, "Line 4 Channel")
+
+OH_58D:defineString("RFI_LINE_4_FREQUENCY", function(_)
+	return rfi_frequency(4)
+end, 7, RFI, "Line 4 Frequency")
+
+OH_58D:defineIntegerFromGetter("RFI_LINE_4_CIPHER", function(_)
+	return cipher_value(4)
+end, 1, RFI, "Line 4 Cipher Visibility")
+
+OH_58D:defineIntegerFromGetter("RFI_LINE_4_SELECT_PILOT", function(_)
+	return pilot_select_value(4)
+end, 1, RFI, "Line 4 Selected Arrow Visibility (Pilot)")
+
+OH_58D:defineIntegerFromGetter("RFI_LINE_4_SELECT_COPILOT", function(_)
+	return copilot_select_value(4)
+end, 1, RFI, "Line 4 Selected Arrow Visibility (Copilot)")
+
+-- line5
+
+OH_58D:defineString("RFI_LINE_5_NUMBER", function(_)
+	return rfi_number(5)
+end, 1, RFI, "Line 5 Line Number")
+
+OH_58D:defineString("RFI_LINE_5_CHANNEL", function(_)
+	return rfi_channel(5)
+end, 2, RFI, "Line 5 Channel")
+
+OH_58D:defineString("RFI_LINE_5_FREQUENCY", function(_)
+	return rfi_frequency(5)
+end, 7, RFI, "Line 5 Frequency")
+
+OH_58D:defineIntegerFromGetter("RFI_LINE_5_CIPHER", function(_)
+	return cipher_value(5)
+end, 1, RFI, "Line 5 Cipher Visibility")
+
+OH_58D:defineIntegerFromGetter("RFI_LINE_5_SELECT_PILOT", function(_)
+	return pilot_select_value(5)
+end, 1, RFI, "Line 5 Selected Arrow Visibility (Pilot)")
+
+OH_58D:defineIntegerFromGetter("RFI_LINE_5_SELECT_COPILOT", function(_)
+	return copilot_select_value(5)
+end, 1, RFI, "Line 5 Selected Arrow Visibility (Copilot)")
 
 -- Dashboard Buttons (buttons on the dash without an associated panel)
 -- local DASHBOARD_BUTTONS = "Dashboard Buttons"
