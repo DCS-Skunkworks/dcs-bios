@@ -934,35 +934,33 @@ OH_58D:addExportHook(function(_)
 end)
 
 OH_58D:defineString("CLOCK_HOURS", function(_)
-	return clock["Hours"]
+	return Functions.coerce_nil_to_string(clock["Hours"])
 end, 2, CLOCK, "Hours display")
 
 OH_58D:defineString("CLOCK_MINUTES", function(_)
-	return clock["Minutes"]
+	return Functions.coerce_nil_to_string(clock["Minutes"])
 end, 2, CLOCK, "Minutes display")
 
 OH_58D:defineString("CLOCK_SECONDS", function(_)
-	return clock["Seconds"]
+	return Functions.coerce_nil_to_string(clock["Seconds"])
 end, 2, CLOCK, "Seconds display")
 
 OH_58D:defineString("CLOCK_SEPARATOR", function(_)
-	return clock["Dots"]
+	return Functions.coerce_nil_to_string(clock["Dots"])
 end, 1, CLOCK, "Separator (between hours and minutes)")
 
 OH_58D:defineString("CLOCK_PAGE", function(_)
+	local page = nil
+
 	if tonumber(cockpit_params["LT_vis"]) > 0 then
-		return clock["LT"]
+		page = clock["LT"]
+	elseif tonumber(cockpit_params["UTC_vis"]) > 0 then
+		page = clock["UTC"]
+	elseif tonumber(cockpit_params["SW_vis"]) > 0 then
+		page = clock["SW"]
 	end
 
-	if tonumber(cockpit_params["UTC_vis"]) > 0 then
-		return clock["UTC"]
-	end
-
-	if tonumber(cockpit_params["SW_vis"]) > 0 then
-		return clock["SW"]
-	end
-
-	return ""
+	return Functions.coerce_nil_to_string(page)
 end, 3, CLOCK, "Page (LT, UTC, SW)")
 
 -- Standby Magnetic Compass
