@@ -78,8 +78,13 @@ end)
 --- @param cockpit_parameter string the cockpit parameter for this chiclet
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
-function OH_58D:defineChiclet(identifier, cockpit_parameter, category, description)
+--- @param off_func (fun(): boolean)? determines whether the chiclet should not be shown because the display is off
+function OH_58D:defineChiclet(identifier, cockpit_parameter, category, description, off_func)
 	self:defineIntegerFromGetter(identifier, function(_)
+		if off_func and off_func() then
+			return 0
+		end
+
 		local val = tonumber(cockpit_params[cockpit_parameter]) or 0
 		val = Module.cap(val, 0, 1) -- red chiclets go from 0-1.75 for some reason?
 		return Module.valueConvert(val, { 0, 1 }, { 0, 65535 })
@@ -94,9 +99,17 @@ end
 --- @param ladder_description string a description of the ladder
 --- @param color string the color of the chiclet
 function OH_58D:defineLadderChiclet(identifier, param_prefix, chiclet_index, category, ladder_description, color)
-	local cockpit_parameter = param_prefix .. "_Ladder_vis" .. tostring(chiclet_index)
+	local name_prefix = param_prefix .. "_Ladder_vis"
+	local cockpit_parameter = name_prefix .. tostring(chiclet_index)
 	local description = ladder_description .. " Chiclet " .. tostring(chiclet_index + 1) .. " (" .. color .. ")"
-	self:defineChiclet(identifier, cockpit_parameter, category, description)
+
+	local off_func = function()
+		local on_off = tonumber(cockpit_params[name_prefix .. "0"]) or 0
+		-- the other chiclets continue to export, but shouldn't be shown if index 0 is off
+		return on_off < 0.001
+	end
+
+	self:defineChiclet(identifier, cockpit_parameter, category, description, off_func)
 end
 
 -- Aircraft configuration (set in mission editor)
