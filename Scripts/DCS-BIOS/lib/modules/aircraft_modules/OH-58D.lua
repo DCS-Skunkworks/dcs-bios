@@ -978,7 +978,40 @@ OH_58D:definePotentiometer("RWR_BRIGHTNESS", devices.SYNC, 3001, 36, { 0, 0.8 },
 OH_58D:defineToggleSwitch("RWR_DAY_NIGHT", devices.SYNC, 3002, 37, RWR, "Day/Night Switch")
 
 -- Standby Altimeter
--- local STANDBY_ALTIMETER = "Standby Altimeter"
+local STANDBY_ALTIMETER = "Standby Altimeter"
+
+OH_58D:defineRotary("ALTIMETER_KNOB", devices.SENSORS, 3001, 62, STANDBY_ALTIMETER, "Barometric Knob")
+
+OH_58D:defineFloat("ALTIMETER_NEEDLE", 61, { 0, 1 }, STANDBY_ALTIMETER, "Needle") -- this goes -1 to 1 in modelviewer, but in testing the value never drops below 0
+OH_58D:defineString("ALTIMETER_PRESSURE", function(dev0)
+	return tostring(Module.build_gauge_from_arguments(dev0, { 66, 65, 64, 63 }))
+end, 4, STANDBY_ALTIMETER, "Pressure Setting (inHg)")
+
+OH_58D:defineString("ALTIMETER_VALUE", function(dev0)
+	local value = Module.round(dev0:get_argument_value(68) * 10) % 10
+
+	local ten_thousands = Module.round(dev0:get_argument_value(67) * 10) % 10
+
+	if ten_thousands >= 2 then
+		value = value + ((ten_thousands - 1) * 10)
+	end
+
+	return Functions.pad_left(tostring(value) .. "000", 5)
+end, 5, STANDBY_ALTIMETER, "Barometric Altitude")
+
+OH_58D:defineIntegerFromGetter("ALTIMETER_TEN_THOUSANDS_FLAG", function(dev0)
+	local ten_thousands = Module.round(dev0:get_argument_value(67) * 10) % 10
+
+	if ten_thousands == 0 then
+		return 2
+	end
+
+	if ten_thousands == 1 then
+		return 1
+	end
+
+	return 0
+end, 2, STANDBY_ALTIMETER, "Ten Thousands Flag (0 = no flag, 1 = yellow, 2 = red)")
 
 -- Standby Airspeed Indicator
 -- local STANDBY_AIRSPEED_INDICATOR = "Standby Airspeed Indicator"
@@ -997,6 +1030,9 @@ OH_58D:defineToggleSwitch("RWR_DAY_NIGHT", devices.SYNC, 3002, 37, RWR, "Day/Nig
 
 -- MMS Control Panel
 -- local MMS_CONTROL_PANEL = "MMS Control Panel"
+
+-- PDU
+-- local PDU = "Pilot Display Unit"
 
 -- CMWS
 -- local CMWS = "CMWS"
