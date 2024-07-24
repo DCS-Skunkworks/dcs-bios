@@ -1014,7 +1014,9 @@ OH_58D:defineIntegerFromGetter("ALTIMETER_TEN_THOUSANDS_FLAG", function(dev0)
 end, 2, STANDBY_ALTIMETER, "Ten Thousands Flag (0 = no flag, 1 = yellow, 2 = red)")
 
 -- Standby Airspeed Indicator
--- local STANDBY_AIRSPEED_INDICATOR = "Standby Airspeed Indicator"
+local STANDBY_AIRSPEED_INDICATOR = "Standby Airspeed Indicator"
+
+OH_58D:defineFloat("AIRSPEED_NEEDLE", 60, { 0, 1 }, STANDBY_AIRSPEED_INDICATOR, "Needle")
 
 -- Remote Frequency Indicator
 -- local REMOTE_FREQUENCY_INDICATOR = "Remote Frequency Indicator"
