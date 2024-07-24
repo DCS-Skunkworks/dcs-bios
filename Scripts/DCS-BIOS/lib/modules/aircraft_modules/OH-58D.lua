@@ -966,7 +966,10 @@ OH_58D:defineString("CLOCK_PAGE", function(_)
 end, 3, CLOCK, "Page (LT, UTC, SW)")
 
 -- Standby Magnetic Compass
--- local STANDBY_COMPASS = "Standby Magnetic Compass"
+local STANDBY_COMPASS = "Standby Magnetic Compass"
+
+OH_58D:defineFloat("COMPASS_ROLL", 265, { -1, 1 }, STANDBY_COMPASS, "Roll")
+OH_58D:defineFloat("COMPASS_HEADING", 266, { 0, 1 }, STANDBY_COMPASS, "Heading") -- this goes -1 to 1 in modelviewer, but in testing the value never drops below 0
 
 -- AN/APR-39 Radar Indicator
 -- local RWR = "AN/APR-39 Radar Indicator"
