@@ -60,6 +60,13 @@ local devices = {
 	KNEEBOARD = 51,
 }
 
+local indicators = {
+	MPD = 1,
+	RPM_TGT_TRQ = 2,
+	CLOCK = 7,
+}
+
+--- @type { [string]: string }
 local cockpit_params = {}
 
 OH_58D:addExportHook(function(_)
@@ -479,7 +486,7 @@ local MPD = "MPD"
 local mpd = {}
 
 OH_58D:addExportHook(function(_)
-	mpd = Module.parse_indication(1)
+	mpd = Module.parse_indication(indicators.MPD)
 end)
 
 OH_58D:definePushButton("MPD_MFD_BACKUP", devices.MPD, 3001, 121, MPD, "Multifunction Display Backup Button")
@@ -771,7 +778,7 @@ local TGT_TRQ = "TGT/TRQ Indicator"
 local tgt_trq = {}
 
 OH_58D:addExportHook(function(_)
-	tgt_trq = Module.parse_indication(2)
+	tgt_trq = Module.parse_indication(indicators.RPM_TGT_TRQ)
 end)
 
 OH_58D:defineString("TGT_DISPLAY", function(_)
@@ -914,8 +921,49 @@ OH_58D:defineToggleSwitch("MFD_CPLT_AUX_LMC", devices.LMFD, 3045, 116, MFD_AUX_P
 OH_58D:defineToggleSwitch("MFD_CPLT_AUX_ALE", devices.LMFD, 3046, 117, MFD_AUX_PANEL_COPILOT, "ALE Switch")
 
 -- Clock
--- local CLOCK = "Clock"
--- indication 7 (unclear how mode is tracked?)
+local CLOCK = "Clock"
+
+OH_58D:definePushButton("CLOCK_RESET", devices.CLOCK, 3001, 130, CLOCK, "Reset/Set Button")
+OH_58D:definePushButton("CLOCK_START_STOP", devices.CLOCK, 3002, 132, CLOCK, "Start/Stop/Advance Button")
+OH_58D:definePushButton("CLOCK_MODE", devices.CLOCK, 3003, 131, CLOCK, "Mode Button")
+
+local clock = {}
+
+OH_58D:addExportHook(function(_)
+	clock = Module.parse_indication(indicators.CLOCK)
+end)
+
+OH_58D:defineString("CLOCK_HOURS", function(_)
+	return clock["Hours"]
+end, 2, CLOCK, "Hours display")
+
+OH_58D:defineString("CLOCK_MINUTES", function(_)
+	return clock["Minutes"]
+end, 2, CLOCK, "Minutes display")
+
+OH_58D:defineString("CLOCK_SECONDS", function(_)
+	return clock["Seconds"]
+end, 2, CLOCK, "Seconds display")
+
+OH_58D:defineString("CLOCK_SEPARATOR", function(_)
+	return clock["Dots"]
+end, 1, CLOCK, "Separator (between hours and minutes)")
+
+OH_58D:defineString("CLOCK_PAGE", function(_)
+	if tonumber(cockpit_params["LT_vis"]) > 0 then
+		return clock["LT"]
+	end
+
+	if tonumber(cockpit_params["UTC_vis"]) > 0 then
+		return clock["UTC"]
+	end
+
+	if tonumber(cockpit_params["SW_vis"]) > 0 then
+		return clock["SW"]
+	end
+
+	return ""
+end, 3, CLOCK, "Page (LT, UTC, SW)")
 
 -- Standby Magnetic Compass
 -- local STANDBY_COMPASS = "Standby Magnetic Compass"
