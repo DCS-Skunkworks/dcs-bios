@@ -972,7 +972,10 @@ OH_58D:defineFloat("COMPASS_ROLL", 265, { -1, 1 }, STANDBY_COMPASS, "Roll")
 OH_58D:defineFloat("COMPASS_HEADING", 266, { 0, 1 }, STANDBY_COMPASS, "Heading") -- this goes -1 to 1 in modelviewer, but in testing the value never drops below 0
 
 -- AN/APR-39 Radar Indicator
--- local RWR = "AN/APR-39 Radar Indicator"
+local RWR = "AN/APR-39 Radar Indicator"
+
+OH_58D:definePotentiometer("RWR_BRIGHTNESS", devices.SYNC, 3001, 36, { 0, 0.8 }, RWR, "Brightness Dial")
+OH_58D:defineToggleSwitch("RWR_DAY_NIGHT", devices.SYNC, 3002, 37, RWR, "Day/Night Switch")
 
 -- Standby Altimeter
 -- local STANDBY_ALTIMETER = "Standby Altimeter"
