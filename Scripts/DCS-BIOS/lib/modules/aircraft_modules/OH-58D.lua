@@ -65,6 +65,7 @@ local indicators = {
 	RPM_TGT_TRQ = 2,
 	CLOCK = 7,
 	RFI = 8,
+	CMWS = 10,
 }
 
 --- @type { [string]: string }
@@ -1285,8 +1286,129 @@ OH_58D:definePushButton("PDU_BIT", devices.PDU, 3001, 310, PDU, "BIT Switch")
 OH_58D:definePotentiometer("PDU_BRIGHTNESS", devices.PDU, 3002, 311, { 0, 0.8 }, PDU, "Brightness Dial")
 
 -- CMWS
--- local CMWS = "CMWS"
--- indication 10
+local CMWS = "CMWS"
+
+OH_58D:defineSpringloaded_3PosTumb("CMWS_ON_OFF_TEST", devices.CI, 3004, 3001, 38, CMWS, "On/Off/Test Knob")
+OH_58D:definePotentiometer("CMWS_AUDIO", devices.CI, 3002, 39, { 0, 0.75 }, CMWS, "Audio Dial")
+OH_58D:definePotentiometer("CMWS_LAMP", devices.CI, 3003, 40, { 0, 0.75 }, CMWS, "Lamp Dial")
+
+local cmws = {
+	line_1 = "",
+	line_2 = "",
+	d = 0,
+	r = 0,
+	arrow_small_u = 0,
+	arrow_small_ur = 0,
+	arrow_small_r = 0,
+	arrow_small_dr = 0,
+	arrow_small_d = 0,
+	arrow_small_dl = 0,
+	arrow_small_l = 0,
+	arrow_small_ul = 0,
+	arrow_large_ur = 0,
+	arrow_large_dr = 0,
+	arrow_large_dl = 0,
+	arrow_large_ul = 0,
+}
+
+local cmws_startup_string = string.char(127) .. string.char(127) .. string.char(127) .. string.char(127)
+
+OH_58D:addExportHook(function(_)
+	local ind = Module.parse_indication(indicators.CMWS)
+
+	local text = ind["statusDisplay"]
+
+	if text then
+		local lines = {}
+		for s in text:gmatch("[^\r\n]+") do
+			table.insert(lines, s)
+		end
+
+		-- 0x007F appears on startup, but the actual display output is _basically_ 0000 (not quite, but close enough)
+		cmws.line_1 = lines[1] == cmws_startup_string and "0000" or lines[1]
+		cmws.line_2 = lines[2] == cmws_startup_string and "0000" or lines[2]
+	else
+		cmws.line_1 = ""
+		cmws.line_2 = ""
+	end
+
+	cmws.d = Functions.nil_state_to_int_flag(ind["dispense"])
+	cmws.r = Functions.nil_state_to_int_flag(ind["ready"])
+	cmws.arrow_small_u = Functions.nil_state_to_int_flag(ind["smallArrow1"])
+	cmws.arrow_small_ur = Functions.nil_state_to_int_flag(ind["smallArrow2"])
+	cmws.arrow_small_r = Functions.nil_state_to_int_flag(ind["smallArrow3"])
+	cmws.arrow_small_dr = Functions.nil_state_to_int_flag(ind["smallArrow4"])
+	cmws.arrow_small_d = Functions.nil_state_to_int_flag(ind["smallArrow5"])
+	cmws.arrow_small_dl = Functions.nil_state_to_int_flag(ind["smallArrow2"]) -- NOT a typo (well, not in bios, probably a typo in the module luas)
+	cmws.arrow_small_l = Functions.nil_state_to_int_flag(ind["smallArrow7"])
+	cmws.arrow_small_ul = Functions.nil_state_to_int_flag(ind["smallArrow8"])
+
+	-- these should have a dim and bright state, but it's unclear how to get this data
+	cmws.arrow_large_ur = Functions.nil_state_to_int_flag(ind["threatArrowFrontRight"])
+	cmws.arrow_large_dr = Functions.nil_state_to_int_flag(ind["threatArrowRearRight"])
+	cmws.arrow_large_dl = Functions.nil_state_to_int_flag(ind["threatArrowRearLeft"])
+	cmws.arrow_large_ul = Functions.nil_state_to_int_flag(ind["threatArrowFrontLeft"])
+end)
+
+-- text lines
+OH_58D:defineString("CMWS_LINE_1", function()
+	return cmws.line_1
+end, 4, CMWS, "Line 1")
+OH_58D:defineString("CMWS_LINE_2", function()
+	return cmws.line_2
+end, 4, CMWS, "Line 2")
+
+-- symbology lights
+OH_58D:defineIntegerFromGetter("CMWS_D", function(_)
+	return cmws.d
+end, 1, CMWS, "Dispense Lamp (orange)")
+OH_58D:defineIntegerFromGetter("CMWS_R", function(_)
+	return cmws.r
+end, 1, CMWS, "Ready Lamp (orange)")
+
+OH_58D:defineIntegerFromGetter("CMWS_ARROW_SMALL_U", function(_)
+	return cmws.arrow_small_u
+end, 1, CMWS, "Small Arrow Forward (orange)")
+OH_58D:defineIntegerFromGetter("CMWS_ARROW_SMALL_UR", function(_)
+	return cmws.arrow_small_ur
+end, 1, CMWS, "Small Arrow Forward Right (orange)")
+OH_58D:defineIntegerFromGetter("CMWS_ARROW_SMALL_R", function(_)
+	return cmws.arrow_small_r
+end, 1, CMWS, "Small Arrow Right (orange)")
+OH_58D:defineIntegerFromGetter("CMWS_ARROW_SMALL_DR", function(_)
+	return cmws.arrow_small_dr
+end, 1, CMWS, "Small Arrow Aft Right (orange)")
+OH_58D:defineIntegerFromGetter("CMWS_ARROW_SMALL_D", function(_)
+	return cmws.arrow_small_d
+end, 1, CMWS, "Small Arrow Aft (orange)")
+OH_58D:defineIntegerFromGetter("CMWS_ARROW_SMALL_DL", function(_)
+	return cmws.arrow_small_dl
+end, 1, CMWS, "Small Arrow Aft Left (orange)")
+OH_58D:defineIntegerFromGetter("CMWS_ARROW_SMALL_L", function(_)
+	return cmws.arrow_small_l
+end, 1, CMWS, "Small Arrow Left (orange)")
+OH_58D:defineIntegerFromGetter("CMWS_ARROW_SMALL_UL", function(_)
+	return cmws.arrow_small_ul
+end, 1, CMWS, "Small Arrow Forward Left (orange)")
+
+OH_58D:defineIntegerFromGetter("CMWS_ARROW_LARGE_UR", function(_)
+	return cmws.arrow_large_ur
+end, 1, CMWS, "Large Arrow Forward Right (orange)")
+OH_58D:defineIntegerFromGetter("CMWS_ARROW_LARGE_DR", function(_)
+	return cmws.arrow_large_dr
+end, 1, CMWS, "Large Arrow Aft Right (orange)")
+OH_58D:defineIntegerFromGetter("CMWS_ARROW_LARGE_DL", function(_)
+	return cmws.arrow_large_dl
+end, 1, CMWS, "Large Arrow Aft Left (orange)")
+OH_58D:defineIntegerFromGetter("CMWS_ARROW_LARGE_UL", function(_)
+	return cmws.arrow_large_ul
+end, 1, CMWS, "Large Arrow Forward Left (orange)")
+
+-- reserve values in case we can discern between dim and bright threat arrows in the future
+OH_58D:reserveIntValue(2)
+OH_58D:reserveIntValue(2)
+OH_58D:reserveIntValue(2)
+OH_58D:reserveIntValue(2)
 
 -- Interior Lights
 -- local INTERIOR_LIGHTS = "Interior Lights"
