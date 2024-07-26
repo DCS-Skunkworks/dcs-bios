@@ -1256,7 +1256,10 @@ OH_58D:defineGatedIndicatorLight("DASH_FADEC_AUTO", 283, 0.45, 0.55, DASH_BUTTON
 OH_58D:defineGatedIndicatorLight("DASH_FADEC_MAN", 283, 0.95, nil, DASH_BUTTONS, "FADEC MAN Lamp (yellow)")
 
 -- Channel Select Switch
--- local CHANNEL_SELECT_SWITCH = "Channel Select Switch"
+local CHANNEL_SELECT_SWITCH = "Channel Select Switch"
+
+OH_58D:defineSpringloaded_3PosTumb("CHANNEL_SELECT_UP_DOWN", devices.SYNC, 3144, 3145, 837, CHANNEL_SELECT_SWITCH, "Channel Select Switch Up/Down")
+OH_58D:defineSpringloaded_3PosTumb("CHANNEL_SELECT_LEFT_RIGHT", devices.SYNC, 3146, 3147, 838, CHANNEL_SELECT_SWITCH, "Channel Select Switch Left/Right")
 
 -- MMS Control Panel
 -- local MMS_CONTROL_PANEL = "MMS Control Panel"
