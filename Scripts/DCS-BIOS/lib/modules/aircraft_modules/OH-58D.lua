@@ -1262,7 +1262,21 @@ OH_58D:defineSpringloaded_3PosTumb("CHANNEL_SELECT_UP_DOWN", devices.SYNC, 3144,
 OH_58D:defineSpringloaded_3PosTumb("CHANNEL_SELECT_LEFT_RIGHT", devices.SYNC, 3146, 3147, 838, CHANNEL_SELECT_SWITCH, "Channel Select Switch Left/Right")
 
 -- MMS Control Panel
--- local MMS_CONTROL_PANEL = "MMS Control Panel"
+local MMS_CONTROL_PANEL = "MMS Control Panel"
+
+OH_58D:definePushButton("MMS_CODE_LIST", devices.SYNC, 3011, 135, MMS_CONTROL_PANEL, "MMS Code List Button")
+OH_58D:defineToggleSwitch("MMS_FIRST_LAST", devices.SYNC, 3012, 136, MMS_CONTROL_PANEL, "MMS First/Last Switch")
+OH_58D:define3PosTumb("MMS_LASER_POWER", devices.SYNC, 3013, 137, MMS_CONTROL_PANEL, "MMS Laser Power Switch")
+OH_58D:defineSpringloaded_3PosTumb("MMS_MFD_SYMBOLOGY_INTENSITY", devices.MMS, 3035, 3036, 138, MMS_CONTROL_PANEL, "MFD Symbology Intensity Switch")
+OH_58D:defineSpringloaded_3PosTumb("MMS_SYMBOLOGY_INTENSITY", devices.MMS, 3037, 3038, 139, MMS_CONTROL_PANEL, "MMS Symbology Intensity Switch")
+OH_58D:defineSpringloaded_3PosTumb("MMS_VIDEO_GAIN", devices.MMS, 3029, 3030, 140, MMS_CONTROL_PANEL, "Video Gain Switch")
+OH_58D:defineSpringloaded_3PosTumb("MMS_VIDEO_FOCUS", devices.MMS, 3031, 3032, 141, MMS_CONTROL_PANEL, "Video Level Switch")
+OH_58D:defineSpringloaded_3PosTumb("MMS_VIDEO_LEVEL", devices.MMS, 3033, 3034, 142, MMS_CONTROL_PANEL, "Video Focus Switch")
+OH_58D:defineToggleSwitch("MMS_SYMBOLOGY_INTENSITY_AUTO", devices.MMS, 3009, 143, MMS_CONTROL_PANEL, "MMS Symbology Intensity Switch Manual/Auto")
+OH_58D:defineToggleSwitch("MMS_VIDEO_GAIN_AUTO", devices.MMS, 3010, 144, MMS_CONTROL_PANEL, "Video Gain Switch Manual/Auto")
+OH_58D:defineToggleSwitch("MMS_VIDEO_FOCUS_AUTO", devices.MMS, 3011, 145, MMS_CONTROL_PANEL, "Video Level Switch Manual/Auto")
+OH_58D:defineToggleSwitch("MMS_VIDEO_LEVEL_AUTO", devices.MMS, 3012, 146, MMS_CONTROL_PANEL, "Video Focus Switch Manual/Auto")
+OH_58D:defineMultipositionSwitch("MMS_MODE", devices.MMS, 3013, 147, 6, 1 / 5, MMS_CONTROL_PANEL, "MMS Mode Selector")
 
 -- PDU
 -- local PDU = "Pilot Display Unit"
