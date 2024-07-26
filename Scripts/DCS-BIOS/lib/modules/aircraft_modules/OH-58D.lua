@@ -1247,9 +1247,13 @@ OH_58D:defineIntegerFromGetter("RFI_LINE_5_SELECT_COPILOT", function(_)
 end, 1, RFI, "Line 5 Selected Arrow Visibility (Copilot)")
 
 -- Dashboard Buttons (buttons on the dash without an associated panel)
--- local DASHBOARD_BUTTONS = "Dashboard Buttons"
--- FADEC AUTO/MAN
--- EFB Filter Bypass
+local DASH_BUTTONS = "Dashboard Buttons"
+
+OH_58D:definePushButton("DASH_FADEC", devices.FADEC, 3001, 282, DASH_BUTTONS, "FADEC Auto/Manual Switch")
+OH_58D:definePushButton("DASH_EBF_FILTER", devices.ELECTRIC, 3030, 10, DASH_BUTTONS, "EBF Filter Bypass Button")
+
+OH_58D:defineGatedIndicatorLight("DASH_FADEC_AUTO", 283, 0.45, 0.55, DASH_BUTTONS, "FADEC AUTO Lamp (green)")
+OH_58D:defineGatedIndicatorLight("DASH_FADEC_MAN", 283, 0.95, nil, DASH_BUTTONS, "FADEC MAN Lamp (yellow)")
 
 -- Channel Select Switch
 -- local CHANNEL_SELECT_SWITCH = "Channel Select Switch"
