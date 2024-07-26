@@ -1279,7 +1279,10 @@ OH_58D:defineToggleSwitch("MMS_VIDEO_LEVEL_AUTO", devices.MMS, 3012, 146, MMS_CO
 OH_58D:defineMultipositionSwitch("MMS_MODE", devices.MMS, 3013, 147, 6, 1 / 5, MMS_CONTROL_PANEL, "MMS Mode Selector")
 
 -- PDU
--- local PDU = "Pilot Display Unit"
+local PDU = "Pilot Display Unit"
+
+OH_58D:definePushButton("PDU_BIT", devices.PDU, 3001, 310, PDU, "BIT Switch")
+OH_58D:definePotentiometer("PDU_BRIGHTNESS", devices.PDU, 3002, 311, { 0, 0.8 }, PDU, "Brightness Dial")
 
 -- CMWS
 -- local CMWS = "CMWS"
