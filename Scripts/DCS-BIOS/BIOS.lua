@@ -7,6 +7,7 @@ package.path = lfs.writedir() .. "?.lua;" .. package.path
 local BIOSConfig = require("Scripts.DCS-BIOS.BIOSConfig")
 local BIOSStateMachine = require("Scripts.DCS-BIOS.lib.BIOSStateMachine")
 local ConnectionManager = require("Scripts.DCS-BIOS.lib.ConnectionManager")
+local Log = require("Scripts.DCS-BIOS.lib.common.Log")
 local Protocol = require("Scripts.DCS-BIOS.lib.Protocol")
 local TCPServer = require("Scripts.DCS-BIOS.lib.io.TCPServer")
 local UDPServer = require("Scripts.DCS-BIOS.lib.io.UDPServer")
@@ -104,39 +105,73 @@ for _, tcp in ipairs(BIOSConfig.tcp_config) do
 	connection_manager:addConnection(TCPServer:new(tcp.address, tcp.port, socket, process_input_line))
 end
 
+-- track whether we successfully initialized dcs-bios, so we don't try exporting if something went wrong
+local initialized = false
+
+--- @param func function? the nested function to call
+local function call_function_safe(func)
+	if func then
+		local status, result = pcall(func)
+		if not status then
+			Log:log_error("error calling export function from another script")
+			Log:log_error(result)
+		end
+	end
+end
+
 -- Lua Export Functions
 LuaExportStart = function()
-	state_machine:init()
+	local status, result = pcall(state_machine.init, state_machine)
+
+	if not status then
+		Log:log_error("error initializing export server")
+		Log:log_error(result)
+	end
+
+	initialized = true
 
 	-- Chain previously-included export as necessary
-	if PrevExport.LuaExportStart then
-		PrevExport.LuaExportStart()
-	end
+	call_function_safe(PrevExport.LuaExportStart)
 end
 
 LuaExportStop = function()
-	state_machine:shutdown()
+	local status, result = pcall(state_machine.shutdown, state_machine)
+
+	if not status then
+		Log:log_error("error shutting down export server")
+		Log:log_error(result)
+	end
+
+	initialized = false
 
 	-- Chain previously-included export as necessary
-	if PrevExport.LuaExportStop then
-		PrevExport.LuaExportStop()
-	end
+	call_function_safe(PrevExport.LuaExportStop)
 end
 
 function LuaExportBeforeNextFrame()
-	state_machine:receive()
+	if initialized then
+		local status, result = pcall(state_machine.receive, state_machine)
+
+		if not status then
+			Log:log_error("error receiving data from network connections")
+			Log:log_error(result)
+		end
+	end
 
 	-- Chain previously-included export as necessary
-	if PrevExport.LuaExportBeforeNextFrame then
-		PrevExport.LuaExportBeforeNextFrame()
-	end
+	call_function_safe(PrevExport.LuaExportBeforeNextFrame)
 end
 
 function LuaExportAfterNextFrame()
-	state_machine:step()
+	if initialized then
+		local status, result = pcall(state_machine.step, state_machine)
+
+		if not status then
+			Log:log_error("error exporting cockpit data")
+			Log:log_error(result)
+		end
+	end
 
 	-- Chain previously-included export as necessary
-	if PrevExport.LuaExportAfterNextFrame then
-		PrevExport.LuaExportAfterNextFrame()
-	end
+	call_function_safe(PrevExport.LuaExportAfterNextFrame)
 end
