@@ -1523,9 +1523,29 @@ OH_58D:defineInputOnlyPushButton("M4_CPLT_DEPLOY", devices.SYNC, 3047, COPILOT_M
 OH_58D:defineGatedIndicatorLight("M4_CPLT_DEPLOYED", 869, 0.2, nil, COPILOT_M4, "M4 Deployed")
 
 -- Exterior Lights
--- local EXTERIOR_LIGHTS = "Exterior Lights"
+local EXTERIOR_LIGHTS = "Exterior Lights"
+
+OH_58D:defineFloatFromDrawArgument("EXT_LIGHT_POSITION_LIGHT_LEFT", 190, EXTERIOR_LIGHTS, "Left Position Light (red)")
+OH_58D:defineFloatFromDrawArgument("EXT_LIGHT_POSITION_LIGHT_RIGHT", 191, EXTERIOR_LIGHTS, "Right Position Light (green)")
+OH_58D:defineFloatFromDrawArgument("EXT_LIGHT_TAIL", 192, EXTERIOR_LIGHTS, "Tail Light (white)")
+OH_58D:defineFloatFromDrawArgument("EXT_LIGHT_ANTI_COLL_TOP", 193, EXTERIOR_LIGHTS, "Top Anti-Collision Light (red)")
+OH_58D:defineFloatFromDrawArgument("EXT_LIGHT_ANTI_COLL_BOT", 194, EXTERIOR_LIGHTS, "Bottom Anti-Collision Light (red)")
+OH_58D:defineBitFromDrawArgument("EXT_LIGHT_SEARCH", 208, EXTERIOR_LIGHTS, "Search Light (white)")
 
 -- Exterior Model
--- local EXTERIOR_MODEL = "Exterior Model"
+local EXTERIOR_MODEL = "Exterior Model"
+
+OH_58D:defineFullRangeFloatFromExternalDrawArgument("EXT_ROTOR_PITCH_LATERAL", 11, EXTERIOR_MODEL, "Blade Pitch (left/right cyclic)")
+OH_58D:defineFullRangeFloatFromExternalDrawArgument("EXT_ROTOR_PITCH_FORWARD_AFT", 12, EXTERIOR_MODEL, "Blade Pitch (forward/aft cyclic)")
+OH_58D:defineFullRangeFloatFromExternalDrawArgument("EXT_ROTOR_SPIN", 40, EXTERIOR_MODEL, "Rotor Position")
+OH_58D:defineFullRangeFloatFromExternalDrawArgument("EXT_ANTI_TRQ_SPIN", 41, EXTERIOR_MODEL, "Anti-torque Rotor Position")
+OH_58D:defineFloatFromDrawArgument("EXT_SEARCH_LIGHT_PITCH", 209, EXTERIOR_MODEL, "Search Light Pitch")
+OH_58D:defineFloatFromDrawArgument("EXT_SEARCH_LIGHT_ROTATION", 210, EXTERIOR_MODEL, "Search Light Rotation")
+OH_58D:defineFullRangeFloatFromExternalDrawArgument("EXT_ROTOR_PITCH_COLLECTIVE", 274, EXTERIOR_MODEL, "Blade Pitch (collective)")
+OH_58D:defineFullRangeFloatFromExternalDrawArgument("EXT_ROTOR_FLEX", 280, EXTERIOR_MODEL, "Blade Flex")
+OH_58D:defineFullRangeFloatFromExternalDrawArgument("EXT_MMS_PITCH", 527, EXTERIOR_MODEL, "MMS Pitch")
+OH_58D:defineFullRangeFloatFromExternalDrawArgument("EXT_MMS_YAW", 528, EXTERIOR_MODEL, "MMS Yaw")
+OH_58D:defineBitFromDrawArgument("EXT_MMS_REMOVED", 850, EXTERIOR_MODEL, "MMS Removed")
+OH_58D:defineBitFromDrawArgument("EXT_RAPID_DEPLOYMENT_GEAR", 851, EXTERIOR_MODEL, "Rapid Deployment Gear Installed")
 
 return OH_58D
