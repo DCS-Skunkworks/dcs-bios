@@ -1,10 +1,5 @@
 module("F-4E", package.seeall)
 
-local ActionArgument = require("Scripts.DCS-BIOS.lib.modules.documentation.ActionArgument")
-local ActionInput = require("Scripts.DCS-BIOS.lib.modules.documentation.ActionInput")
-local Control = require("Scripts.DCS-BIOS.lib.modules.documentation.Control")
-local ControlType = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlType")
-
 local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 
 --- @class F_4E: Module
@@ -85,28 +80,6 @@ end
 --- @param description string additional information about the control
 function F_4E:defineSpringloaded3PosTumb(identifier, device_id, command, arg_number, category, description)
 	self:defineSpringloaded_3PosTumb(identifier, device_id, command, command, arg_number, category, description)
-end
-
---- Adds a push button with no outputs
---- @param identifier string the unique identifier for the control
---- @param device_id integer the dcs device id
---- @param command integer the dcs command to move the switch up or down
---- @param category string the category in which the control should appear
---- @param description string additional information about the control
-function F_4E:defineInputOnlyPushButton(identifier, device_id, command, category, description)
-	local control = Control:new(category, ControlType.action, identifier, description, {
-		ActionInput:new(ActionArgument.toggle, "Triggers the action"),
-	}, {})
-
-	self:addControl(control)
-
-	self:addInputProcessor(identifier, function(action)
-		local dev = GetDevice(device_id)
-		if dev and action == ActionArgument.toggle then
-			dev:performClickableAction(command, 1)
-			dev:performClickableAction(command, 0)
-		end
-	end)
 end
 
 --- Adds a dimmable indicator light
