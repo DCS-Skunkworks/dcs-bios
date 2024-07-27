@@ -50,7 +50,7 @@ FW_190A8:defineRotary("GUN4_AMM_C", 20, 3009, 60, "Weapon Control", "Set Gun 4 A
 FW_190A8:defineTumb("BMB_FUSE_SEL", 20, 3016, 109, 0.1, { 0, 0.4 }, nil, false, "Weapon Control", "Bomb Fusing Selector")
 FW_190A8:definePushButton("JETT_FUS_STORES", 20, 3018, 92, "Weapon Control", "Jettison Fuselage Stores")
 
-FW_190A8:defineRotary("SIGHT_BRIGHT", 21, 3001, 133, "Gun Sight", "Gunsight Brightness Rheostat")
+FW_190A8:definePotentiometer("SIGHT_BRIGHT", 21, 3001, 133, { 1, 0 }, "Gun Sight", "Gunsight Brightness Rheostat")
 FW_190A8:defineToggleSwitch("SIGHT_SMOKE", 21, 3004, 134, "Gun Sight", "Gun Sight Smoked Screen Controls")
 
 FW_190A8:defineToggleSwitch("CB_ORD_ON", 1, 3005, 141, "Circuit Breakers", "Drop Ordnance & Optional Armament Power On")
