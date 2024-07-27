@@ -178,7 +178,7 @@ Currently, DCS-BIOS supports the following aircraft modules:
 | MiG-21Bis | ✅ | _wraith444_ |
 | Mirage F1 | ✅ | _WarLord_ |
 | Mosquito FB Mk.VI | ✅ | _WarLord_ |
-| OH-58D | 🚧 | _[WIP](https://github.com/DCS-Skunkworks/dcs-bios/issues/724)_ |
+| OH-58D | ✅ | |
 | P-47D | ✅ | _WarLord, Donators_ |
 | P-51D/TF-51D | ✅ | _pdmarsh_ |
 | Spitfire LF Mk. IX | ✅ | _WarLord_ |

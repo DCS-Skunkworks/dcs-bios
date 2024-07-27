@@ -1548,4 +1548,11 @@ OH_58D:defineFullRangeFloatFromExternalDrawArgument("EXT_MMS_YAW", 528, EXTERIOR
 OH_58D:defineBitFromDrawArgument("EXT_MMS_REMOVED", 850, EXTERIOR_MODEL, "MMS Removed")
 OH_58D:defineBitFromDrawArgument("EXT_RAPID_DEPLOYMENT_GEAR", 851, EXTERIOR_MODEL, "Rapid Deployment Gear Installed")
 
+-- radios
+-- setting values doesn't seem to do anything currently, so these are read-only for now
+OH_58D:defineReadOnlyRadio("RADIO_FM1", 29, 6, 3, 1000, "FM-1")
+OH_58D:defineReadOnlyRadio("RADIO_UHF", 30, 7, 3, 1000, "UHF")
+OH_58D:defineReadOnlyRadio("RADIO_VHF", 31, 7, 3, 1000, "VHF")
+OH_58D:defineReadOnlyRadio("RADIO_FM2", 32, 6, 3, 1000, "FM-2")
+
 return OH_58D
