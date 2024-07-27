@@ -1431,7 +1431,9 @@ OH_58D:defineIntegerFromGetter("INTERIOR_FLOODLIGHT_WHITE", function(dev0)
 end, 65535, INTERIOR_LIGHTS, "White Floodlight Intensity")
 
 -- Free Air Temperature Gauge
--- local FREE_AIR_TEMP = "Free Air Temperature Gauge"
+local FAT = "Free Air Temperature Gauge"
+
+OH_58D:defineFloat("FAT_NEEDLE", 244, { -1, 1 }, FAT, "Guage Needle")
 
 -- Exterior Lights
 -- local EXTERIOR_LIGHTS = "Exterior Lights"
