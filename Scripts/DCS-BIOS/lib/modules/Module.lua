@@ -369,6 +369,31 @@ function Module:definePushButton(identifier, device_id, command, arg_number, cat
 	return control
 end
 
+--- Adds a push button with no outputs
+--- @param identifier string the unique identifier for the control
+--- @param device_id integer the dcs device id
+--- @param command integer the dcs command to move the switch up or down
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @return Control control the control which was added to the module
+function Module:defineInputOnlyPushButton(identifier, device_id, command, category, description)
+	local control = Control:new(category, ControlType.action, identifier, description, {
+		ActionInput:new(ActionArgument.toggle, "Triggers the action"),
+	}, {})
+
+	self:addControl(control)
+
+	self:addInputProcessor(identifier, function(action)
+		local dev = GetDevice(device_id)
+		if dev and action == ActionArgument.toggle then
+			dev:performClickableAction(command, 1)
+			dev:performClickableAction(command, 0)
+		end
+	end)
+
+	return control
+end
+
 --- Adds a new rotary potentiometer with values between 0 and 65535
 --- @param identifier string the unique identifier for the control
 --- @param device_id integer the dcs device id

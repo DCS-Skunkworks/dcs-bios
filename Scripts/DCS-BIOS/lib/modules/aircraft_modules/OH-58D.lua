@@ -1496,10 +1496,31 @@ OH_58D:defineIndicatorLight("COCKPIT_FLAG", 930, COCKPIT, "Flag Visible")
 OH_58D:defineFloat("COCKPIT_FLAG_WAVE", 931, { -1, 1 }, COCKPIT, "Flag Wave Position")
 
 -- Copilot M4
--- local COPILOT_M4 = "M4 (Copilot)"
--- stowed 870
--- transform 871-876
--- m4 release
+local COPILOT_M4 = "M4 (Copilot)"
+
+-- OH_58D:defineInputOnlyPushButton("M4_CPLT_AIM", devices.M3P_LASER, 3006, COPILOT_M4, "Aim") -- doesn't seem to do anything
+OH_58D:reserveIntValue(1) -- in case aiming works and has a draw arg in the future
+local m4_fire = OH_58D:definePushButton("M4_CPLT_FIRE", devices.M3P_LASER, 3007, 0, COPILOT_M4, "Fire (must decrement to fire again)")
+assert(m4_fire.inputs[3].interface == "action")
+m4_fire.inputs[3] = nil -- toggle won't work since there is no draw arg, so the control will never appear to be on
+m4_fire.outputs[1] = nil -- there is no draw arg, so the output won't work
+
+-- input doesn't work properly (maybe because it's not clickable?)
+-- OH_58D:definePotentiometer("M4_CPLT_X", devices.M3P_LASER, 3004, 881, { -1, 1 }, COPILOT_M4, "Position (left/right)")
+-- OH_58D:definePotentiometer("M4_CPLT_Y", devices.M3P_LASER, 3005, 882, { -1, 1 }, COPILOT_M4, "Position (up/down)")
+OH_58D:defineFloat("M4_CPLT_X", 881, { -1, 1 }, COPILOT_M4, "Position (left/right)")
+OH_58D:defineFloat("M4_CPLT_Y", 882, { -1, 1 }, COPILOT_M4, "Position (up/down)")
+
+OH_58D:defineGatedIndicatorLight("M4_CPLT_VR_DEPLOYED", 870, 0.99, nil, COPILOT_M4, "M4 Deployed (VR)")
+OH_58D:defineFloat("M4_CPLT_VR_X", 871, { -1, 1 }, COPILOT_M4, "Position (VR) (left/right)")
+OH_58D:defineFloat("M4_CPLT_VR_Z", 872, { -1, 1 }, COPILOT_M4, "Position (VR) (forward/back)")
+OH_58D:defineFloat("M4_CPLT_VR_Y", 873, { -1, 1 }, COPILOT_M4, "Position (VR) (up/down)")
+OH_58D:defineFloat("M4_CPLT_VR_ROLL", 874, { -1, 1 }, COPILOT_M4, "Roll (VR)")
+OH_58D:defineFloat("M4_CPLT_VR_PITCH", 875, { -1, 1 }, COPILOT_M4, "Pitch (VR)")
+OH_58D:defineFloat("M4_CPLT_VR_YAW", 876, { -1, 1 }, COPILOT_M4, "Yaw (VR)")
+
+OH_58D:defineInputOnlyPushButton("M4_CPLT_DEPLOY", devices.SYNC, 3047, COPILOT_M4, "Deploy/Stow M4")
+OH_58D:defineGatedIndicatorLight("M4_CPLT_DEPLOYED", 869, 0.2, nil, COPILOT_M4, "M4 Deployed")
 
 -- Exterior Lights
 -- local EXTERIOR_LIGHTS = "Exterior Lights"
