@@ -68,7 +68,12 @@ end
 function BIOSStateMachine:queue_module_data(module, dev0)
 	if dev0 ~= nil then
 		for _, hook in ipairs(module.exportHooks) do
-			hook(dev0)
+			local status, result = pcall(hook, dev0)
+
+			if not status then
+				Log:log_error(module.name .. ": error calling export hook")
+				Log:log_error(result)
+			end
 		end
 	end
 
