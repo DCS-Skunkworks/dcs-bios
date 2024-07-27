@@ -1411,9 +1411,24 @@ OH_58D:reserveIntValue(2)
 OH_58D:reserveIntValue(2)
 
 -- Interior Lights
--- local INTERIOR_LIGHTS = "Interior Lights"
--- Floodlights
--- Console lights
+local INTERIOR_LIGHTS = "Interior Lights"
+
+OH_58D:defineFloat("INTERIOR_FRONT_DASH_BRIGHTNESS", 28, { 0, 1 }, INTERIOR_LIGHTS, "Front Dash Brightness")
+OH_58D:defineFloat("INTERIOR_CENTER_CONSOLE_BRIGHTNESS", 31, { 0, 1 }, INTERIOR_LIGHTS, "Center Console Brightness")
+OH_58D:defineIntegerFromGetter("INTERIOR_FLOODLIGHT_GREEN", function(dev0)
+	local which_floodlight = dev0:get_argument_value(304)
+	if which_floodlight < 0 then
+		return 0
+	end
+	return which_floodlight < 0.5 and Module.valueConvert(dev0:get_argument_value(26), { -0.01, 0.75 }, { 0, 65535 }) or 0
+end, 65535, INTERIOR_LIGHTS, "Green Floodlight Intensity")
+OH_58D:defineIntegerFromGetter("INTERIOR_FLOODLIGHT_WHITE", function(dev0)
+	local which_floodlight = dev0:get_argument_value(304)
+	if which_floodlight < 0 then
+		return 0
+	end
+	return which_floodlight > 0.99 and Module.valueConvert(dev0:get_argument_value(26), { -0.01, 0.75 }, { 0, 65535 }) or 0
+end, 65535, INTERIOR_LIGHTS, "White Floodlight Intensity")
 
 -- Free Air Temperature Gauge
 -- local FREE_AIR_TEMP = "Free Air Temperature Gauge"
