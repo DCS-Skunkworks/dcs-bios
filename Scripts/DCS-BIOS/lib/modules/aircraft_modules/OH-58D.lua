@@ -1435,28 +1435,76 @@ local FAT = "Free Air Temperature Gauge"
 
 OH_58D:defineFloat("FAT_NEEDLE", 244, { -1, 1 }, FAT, "Guage Needle")
 
--- Exterior Lights
--- local EXTERIOR_LIGHTS = "Exterior Lights"
-
 -- Cockpit
--- local COCKPIT = "Cockpit"
--- left/right armor panels (801-802)
--- doors open/closed (800, 803)
--- airbags deployed (836)
--- grenades (850-852, 856-858)
--- grease pencil (834-835)
--- nvgs (710, 760)
--- water bottle (833)
--- fire extinguisher (601)
--- flag (930, 931)
+local COCKPIT = "Cockpit"
 
--- Pilot Display Unit
--- local PDU = "Pilot Display Unit"
+OH_58D:defineFloat("COCKPIT_PLT_ARMOR_PANEL", 801, { 0, 1 }, COCKPIT, "Armor Panel (Pilot)")
+OH_58D:defineFloat("COCKPIT_CPLT_ARMOR_PANEL", 802, { 0, 1 }, COCKPIT, "Armor Panel (Copilot)")
+OH_58D:defineFloat("COCKPIT_PLT_DOOR", 800, { 0, 1 }, COCKPIT, "Door (Pilot)")
+OH_58D:defineFloat("COCKPIT_CPLT_DOOR", 803, { 0, 1 }, COCKPIT, "Door (Copilot)")
+OH_58D:defineGatedIndicatorLight("COCKPIT_AIRBAGS", 836, 0.001, nil, COCKPIT, "Airbags Deployed")
+OH_58D:defineGatedIndicatorLight("COCKPIT_GRENADE_L", 850, 0.001, nil, COCKPIT, "Grenade Present (Left)")
+OH_58D:defineGatedIndicatorLight("COCKPIT_GRENADE_C", 851, 0.001, nil, COCKPIT, "Grenade Present (Center)")
+OH_58D:defineGatedIndicatorLight("COCKPIT_GRENADE_R", 852, 0.001, nil, COCKPIT, "Grenade Present (Right)")
+
+local function grenade_color(dev0, arg)
+	local value = dev0:get_argument_value(arg)
+
+	if value < 0.05 then
+		return 0
+	end
+
+	if value < 0.15 then
+		return 1
+	end
+
+	if value < 0.25 then
+		return 2
+	end
+
+	if value < 0.35 then
+		return 3
+	end
+
+	if value < 0.45 then
+		return 4
+	end
+
+	return 5
+end
+
+OH_58D:defineIntegerFromGetter("COCKPIT_GRENADE_L_COLOR", function(dev0)
+	return grenade_color(dev0, 856)
+end, 5, COCKPIT, "Grenade Color (Left) (G, Y, V, B, W, R)")
+OH_58D:defineIntegerFromGetter("COCKPIT_GRENADE_C_COLOR", function(dev0)
+	return grenade_color(dev0, 857)
+end, 5, COCKPIT, "Grenade Color (Center) (G, Y, V, B, W, R)")
+OH_58D:defineIntegerFromGetter("COCKPIT_GRENADE_R_COLOR", function(dev0)
+	return grenade_color(dev0, 858)
+end, 5, COCKPIT, "Grenade Color (Right) (G, Y, V, B, W, R)")
+
+OH_58D:defineFloat("COCKPIT_GREASE_PENCIL_Y", 834, { -1, 1 }, COCKPIT, "Grease Pencil (y-axis)")
+OH_58D:defineFloat("COCKPIT_GREASE_PENCIL_X", 835, { -1, 1 }, COCKPIT, "Grease Pencil (x-axis)")
+
+OH_58D:defineIndicatorLightInverted("COCKPIT_PLT_NVGS", 303, COCKPIT, "NVGs Present (Pilot)")
+OH_58D:defineIndicatorLightInverted("COCKPIT_CPLT_NVGS", 760, COCKPIT, "NVGs Present (Copilot)")
+OH_58D:defineIndicatorLightInverted("COCKPIT_WATER_BOTTLE", 833, COCKPIT, "Water Bottle Present")
+
+OH_58D:defineGatedIndicatorLight("COCKPIT_FIRE_EXTINGUISHER", 601, 0.01, nil, COCKPIT, "Fire Extinguisher Present")
+
+OH_58D:defineIndicatorLight("COCKPIT_FLAG", 930, COCKPIT, "Flag Visible")
+OH_58D:defineFloat("COCKPIT_FLAG_WAVE", 931, { -1, 1 }, COCKPIT, "Flag Wave Position")
 
 -- Copilot M4
 -- local COPILOT_M4 = "M4 (Copilot)"
 -- stowed 870
 -- transform 871-876
 -- m4 release
+
+-- Exterior Lights
+-- local EXTERIOR_LIGHTS = "Exterior Lights"
+
+-- Exterior Model
+-- local EXTERIOR_MODEL = "Exterior Model"
 
 return OH_58D
