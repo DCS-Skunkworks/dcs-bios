@@ -162,7 +162,7 @@ function BIOSStateMachine:shutdown()
 	local dev0 = GetDevice(0)
 
 	-- Nullify the aircraft name and publish one last frame to identify end of mission.
-	self.metadata_start:setAircraftName("")
+	self.metadata_start.setAircraftName("")
 
 	-- send frame sync sequence
 	self.connection_manager:queue(frame_sync_sequence)
