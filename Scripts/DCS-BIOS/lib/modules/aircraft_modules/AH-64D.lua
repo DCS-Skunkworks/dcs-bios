@@ -13,6 +13,10 @@ local AH_64D = Module:new("AH-64D", 0x8000, { "AH-64D_BLK_II" })
 
 -- remove Arg# PLT 956; CPG 957
 
+local devices = {
+	HOTAS_INPUT = 25,
+}
+
 --Functions
 --- Parses keyboard unit data
 local function parse_ku(indicator_id)
@@ -915,5 +919,81 @@ AH_64D:reserveIntValue(1)
 AH_64D:defineSpringloaded_3PosTumb("PLT_CMWS_PW", 80, 3001, 3002, 610, "PLT CMWS", "Pilot CMWS PWR Switch, OFF/ON/TEST")
 
 AH_64D:defineSeatPosition("SEAT", 2, "Player's current seat position (0 = Pilot, 1 = CP/G)")
+
+-- Pilot Collective
+
+-- mission grip
+local COLLECTIVE_MISSION_PILOT = "PLT Collective (Mission Grip)"
+
+AH_64D:defineSpringloaded_3PosTumb("PLT_COLLECTIVE_FCR_SCAN_SIZE_UD", devices.HOTAS_INPUT, 3025, 3024, 535, COLLECTIVE_MISSION_PILOT, "FCR Scan Size Switch U/D (0=M/Down, 2=Z/Up)")
+AH_64D:defineSpringloaded_3PosTumb("PLT_COLLECTIVE_FCR_SCAN_SIZE_LR", devices.HOTAS_INPUT, 3026, 3027, 536, COLLECTIVE_MISSION_PILOT, "FCR Scan Size Switch L/R (0=N/Left, 2=W/Right)")
+AH_64D:defineSpringloaded_3PosTumb("PLT_COLLECTIVE_SIGHT_SELECT_UD", devices.HOTAS_INPUT, 3029, 3028, 537, COLLECTIVE_MISSION_PILOT, "Sight Select Switch U/D (0=LINK/Down, 2=HMD/Up)")
+AH_64D:defineSpringloaded_3PosTumb("PLT_COLLECTIVE_SIGHT_SELECT_LR", devices.HOTAS_INPUT, 3030, 3031, 538, COLLECTIVE_MISSION_PILOT, "Sight Select Switch L/R (0=FCR/Left, 2=TADS/Right)")
+AH_64D:defineSpringloaded_3PosTumb("PLT_COLLECTIVE_FCR_MODE_UD", devices.HOTAS_INPUT, 3033, 3032, 539, COLLECTIVE_MISSION_PILOT, "FCR Mode Switch U/D (0=ATM/Down, 2=GTM/Up)")
+AH_64D:defineSpringloaded_3PosTumb("PLT_COLLECTIVE_FCR_MODE_LR", devices.HOTAS_INPUT, 3034, 3035, 540, COLLECTIVE_MISSION_PILOT, "FCR Mode Switch L/R (0=TPM/Left, 2=RMAP/Right)")
+AH_64D:definePotentiometer("PLT_COLLECTIVE_CURSOR_UD", devices.HOTAS_INPUT, 3043, 541, { -1, 1 }, COLLECTIVE_MISSION_PILOT, "Cursor Controller U/D")
+AH_64D:definePotentiometer("PLT_COLLECTIVE_CURSOR_LR", devices.HOTAS_INPUT, 3042, 542, { -1, 1 }, COLLECTIVE_MISSION_PILOT, "Cursor Controller L/R")
+AH_64D:definePushButton("PLT_COLLECTIVE_CURSOR_ENTER", devices.HOTAS_INPUT, 3040, 543, COLLECTIVE_MISSION_PILOT, "Cursor Enter")
+AH_64D:definePushButton("PLT_COLLECTIVE_ALT_CURSOR_ENTER", devices.HOTAS_INPUT, 3041, 544, COLLECTIVE_MISSION_PILOT, "Alternate Cursor Enter")
+AH_64D:definePushButton("PLT_COLLECTIVE_CURSOR_DISPLAY", devices.HOTAS_INPUT, 3044, 545, COLLECTIVE_MISSION_PILOT, "Cursor Display Select Button")
+AH_64D:defineSpringloaded_3PosTumb("PLT_COLLECTIVE_FCR_SCAN", devices.HOTAS_INPUT, 3046, 3045, 546, COLLECTIVE_MISSION_PILOT, "FCR Scan Switch (0=Continuous, 2=Single)")
+AH_64D:definePushButton("PLT_COLLECTIVE_CUED_SEARCH", devices.HOTAS_INPUT, 3047, 547, COLLECTIVE_MISSION_PILOT, "CUED Search Switch")
+AH_64D:definePushButton("PLT_COLLECTIVE_MISSILE_ADVANCE", devices.HOTAS_INPUT, 3048, 548, COLLECTIVE_MISSION_PILOT, "Missile Advance Switch")
+
+-- flight grip
+local COLLECTIVE_FLIGHT_PILOT = "PLT Collective (Flight Grip)"
+
+AH_64D:defineToggleSwitch("PLT_COLLECTIVE_JETTISON_COVER", devices.HOTAS_INPUT, 3049, 549, COLLECTIVE_FLIGHT_PILOT, "Emergency Jettison Guard")
+AH_64D:definePushButton("PLT_COLLECTIVE_JETTISON", devices.HOTAS_INPUT, 3050, 550, COLLECTIVE_FLIGHT_PILOT, "Emergency Jettison Switch")
+AH_64D:defineSpringloaded_3PosTumb("PLT_COLLECTIVE_NVS_SELECT", devices.HOTAS_INPUT, 3052, 3051, 551, COLLECTIVE_FLIGHT_PILOT, "NVS Select Switch (0=PNVS, 2=TADS)")
+AH_64D:defineSpringloaded_3PosTumb("PLT_COLLECTIVE_BS_PLRT", devices.HOTAS_INPUT, 3053, 3054, 552, COLLECTIVE_FLIGHT_PILOT, "Boresight/Polarity Switch (0=B/S, 2=PLRT)")
+AH_64D:defineSpringloaded_3PosTumb("PLT_COLLECTIVE_STAB_CONTROL", devices.HOTAS_INPUT, 3055, 3056, 553, COLLECTIVE_FLIGHT_PILOT, "Stabilator Control Switch (0=NU, 2=ND)")
+AH_64D:definePushButton("PLT_COLLECTIVE_STAB_RESET", devices.HOTAS_INPUT, 3057, 554, COLLECTIVE_FLIGHT_PILOT, "Stabilator Control Switch - Reset")
+AH_64D:defineSpringloaded_3PosTumb("PLT_COLLECTIVE_SEARCHLIGHT", devices.HOTAS_INPUT, 3059, 3058, 555, COLLECTIVE_FLIGHT_PILOT, "Searchlight (0=STOW, 1=OFF, 2=ON)")
+AH_64D:defineSpringloaded_3PosTumb("PLT_COLLECTIVE_SEARCHLIGHT_UD", devices.HOTAS_INPUT, 3061, 3060, 556, COLLECTIVE_FLIGHT_PILOT, "Searchlight Position U/D (0=RET/Down, 2=EXT/Up)")
+AH_64D:defineSpringloaded_3PosTumb("PLT_COLLECTIVE_SEARCHLIGHT_LR", devices.HOTAS_INPUT, 3062, 3063, 557, COLLECTIVE_FLIGHT_PILOT, "Searchlight Position L/R (0=L/Left, 2=R/Right)")
+AH_64D:defineToggleSwitch("PLT_COLLECTIVE_CHOP_COVER", devices.HOTAS_INPUT, 3064, 558, COLLECTIVE_FLIGHT_PILOT, "CHOP Button Guard")
+AH_64D:definePushButton("PLT_COLLECTIVE_CHOP", devices.HOTAS_INPUT, 3065, 559, COLLECTIVE_FLIGHT_PILOT, "CHOP Button")
+AH_64D:definePushButton("PLT_COLLECTIVE_TAIL_WHEEL", devices.HOTAS_INPUT, 3066, 560, COLLECTIVE_FLIGHT_PILOT, "Tail Wheel Lock/Unlock")
+AH_64D:defineToggleSwitch("PLT_COLLECTIVE_BUCS_COVER", devices.HOTAS_INPUT, 3067, 561, COLLECTIVE_FLIGHT_PILOT, "BUCS Trigger Guard")
+AH_64D:definePushButton("PLT_COLLECTIVE_BUCS", devices.HOTAS_INPUT, 3068, 562, COLLECTIVE_FLIGHT_PILOT, "BUCS Trigger")
+
+-- CP/G Collective
+
+-- mission grip
+local COLLECTIVE_MISSION_CPG = "CPG Collective (Mission Grip)"
+
+AH_64D:defineSpringloaded_3PosTumb("CPG_COLLECTIVE_FCR_SCAN_SIZE_UD", devices.HOTAS_INPUT, 3025, 3024, 577, COLLECTIVE_MISSION_CPG, "FCR Scan Size Switch U/D (0=M/Down, 2=Z/Up)")
+AH_64D:defineSpringloaded_3PosTumb("CPG_COLLECTIVE_FCR_SCAN_SIZE_LR", devices.HOTAS_INPUT, 3026, 3027, 578, COLLECTIVE_MISSION_CPG, "FCR Scan Size Switch L/R (0=N/Left, 2=W/Right)")
+AH_64D:defineSpringloaded_3PosTumb("CPG_COLLECTIVE_SIGHT_SELECT_UD", devices.HOTAS_INPUT, 3029, 3028, 579, COLLECTIVE_MISSION_CPG, "Sight Select Switch U/D (0=LINK/Down, 2=HMD/Up)")
+AH_64D:defineSpringloaded_3PosTumb("CPG_COLLECTIVE_SIGHT_SELECT_LR", devices.HOTAS_INPUT, 3030, 3031, 580, COLLECTIVE_MISSION_CPG, "Sight Select Switch L/R (0=FCR/Left, 2=TADS/Right)")
+AH_64D:defineSpringloaded_3PosTumb("CPG_COLLECTIVE_FCR_MODE_UD", devices.HOTAS_INPUT, 3033, 3032, 581, COLLECTIVE_MISSION_CPG, "FCR Mode Switch U/D (0=ATM/Down, 2=GTM/Up)")
+AH_64D:defineSpringloaded_3PosTumb("CPG_COLLECTIVE_FCR_MODE_LR", devices.HOTAS_INPUT, 3034, 3035, 582, COLLECTIVE_MISSION_CPG, "FCR Mode Switch L/R (0=TPM/Left, 2=RMAP/Right)")
+AH_64D:definePotentiometer("CPG_COLLECTIVE_CURSOR_UD", devices.HOTAS_INPUT, 3043, 583, { -1, 1 }, COLLECTIVE_MISSION_CPG, "Cursor Controller U/D")
+AH_64D:definePotentiometer("CPG_COLLECTIVE_CURSOR_LR", devices.HOTAS_INPUT, 3042, 584, { -1, 1 }, COLLECTIVE_MISSION_CPG, "Cursor Controller L/R")
+AH_64D:definePushButton("CPG_COLLECTIVE_CURSOR_ENTER", devices.HOTAS_INPUT, 3040, 585, COLLECTIVE_MISSION_CPG, "Cursor Enter")
+AH_64D:definePushButton("CPG_COLLECTIVE_ALT_CURSOR_ENTER", devices.HOTAS_INPUT, 3041, 586, COLLECTIVE_MISSION_CPG, "Alternate Cursor Enter")
+AH_64D:definePushButton("CPG_COLLECTIVE_CURSOR_DISPLAY", devices.HOTAS_INPUT, 3044, 587, COLLECTIVE_MISSION_CPG, "Cursor Display Select Button")
+AH_64D:defineSpringloaded_3PosTumb("CPG_COLLECTIVE_FCR_SCAN", devices.HOTAS_INPUT, 3046, 3045, 588, COLLECTIVE_MISSION_CPG, "FCR Scan Switch (0=Continuous, 2=Single)")
+AH_64D:definePushButton("CPG_COLLECTIVE_CUED_SEARCH", devices.HOTAS_INPUT, 3047, 589, COLLECTIVE_MISSION_CPG, "CUED Search Switch")
+AH_64D:definePushButton("CPG_COLLECTIVE_MISSILE_ADVANCE", devices.HOTAS_INPUT, 3048, 590, COLLECTIVE_MISSION_CPG, "Missile Advance Switch")
+
+-- flight grip
+local COLLECTIVE_FLIGHT_CPG = "CPG Collective (Flight Grip)"
+
+AH_64D:defineToggleSwitch("CPG_COLLECTIVE_JETTISON_COVER", devices.HOTAS_INPUT, 3049, 591, COLLECTIVE_FLIGHT_CPG, "Emergency Jettison Guard")
+AH_64D:definePushButton("CPG_COLLECTIVE_JETTISON", devices.HOTAS_INPUT, 3050, 592, COLLECTIVE_FLIGHT_CPG, "Emergency Jettison Switch")
+AH_64D:defineSpringloaded_3PosTumb("CPG_COLLECTIVE_NVS_SELECT", devices.HOTAS_INPUT, 3052, 3051, 593, COLLECTIVE_FLIGHT_CPG, "NVS Select Switch (0=PNVS, 2=TADS)")
+AH_64D:defineSpringloaded_3PosTumb("CPG_COLLECTIVE_BS_PLRT", devices.HOTAS_INPUT, 3053, 3054, 594, COLLECTIVE_FLIGHT_CPG, "Boresight/Polarity Switch (0=B/S, 2=PLRT)")
+AH_64D:defineSpringloaded_3PosTumb("CPG_COLLECTIVE_STAB_CONTROL", devices.HOTAS_INPUT, 3055, 3056, 595, COLLECTIVE_FLIGHT_CPG, "Stabilator Control Switch (0=NU, 2=ND)")
+AH_64D:definePushButton("CPG_COLLECTIVE_STAB_RESET", devices.HOTAS_INPUT, 3057, 596, COLLECTIVE_FLIGHT_CPG, "Stabilator Control Switch - Reset")
+AH_64D:defineSpringloaded_3PosTumb("CPG_COLLECTIVE_SEARCHLIGHT", devices.HOTAS_INPUT, 3059, 3058, 597, COLLECTIVE_FLIGHT_CPG, "Searchlight (0=STOW, 1=OFF, 2=ON)")
+AH_64D:defineSpringloaded_3PosTumb("CPG_COLLECTIVE_SEARCHLIGHT_UD", devices.HOTAS_INPUT, 3061, 3060, 598, COLLECTIVE_FLIGHT_CPG, "Searchlight Position U/D (0=RET/Down, 2=EXT/Up)")
+AH_64D:defineSpringloaded_3PosTumb("CPG_COLLECTIVE_SEARCHLIGHT_LR", devices.HOTAS_INPUT, 3062, 3063, 599, COLLECTIVE_FLIGHT_CPG, "Searchlight Position L/R (0=L/Left, 2=R/Right)")
+AH_64D:defineToggleSwitch("CPG_COLLECTIVE_CHOP_COVER", devices.HOTAS_INPUT, 3064, 600, COLLECTIVE_FLIGHT_CPG, "CHOP Button Guard")
+AH_64D:definePushButton("CPG_COLLECTIVE_CHOP", devices.HOTAS_INPUT, 3065, 601, COLLECTIVE_FLIGHT_CPG, "CHOP Button")
+AH_64D:definePushButton("CPG_COLLECTIVE_TAIL_WHEEL", devices.HOTAS_INPUT, 3066, 602, COLLECTIVE_FLIGHT_CPG, "Tail Wheel Lock/Unlock")
+AH_64D:defineToggleSwitch("CPG_COLLECTIVE_BUCS_COVER", devices.HOTAS_INPUT, 3067, 603, COLLECTIVE_FLIGHT_CPG, "BUCS Trigger Guard")
+AH_64D:definePushButton("CPG_COLLECTIVE_BUCS", devices.HOTAS_INPUT, 3068, 604, COLLECTIVE_FLIGHT_CPG, "BUCS Trigger")
 
 return AH_64D
