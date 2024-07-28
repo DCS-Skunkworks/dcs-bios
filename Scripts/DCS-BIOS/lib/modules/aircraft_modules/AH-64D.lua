@@ -996,4 +996,44 @@ AH_64D:definePushButton("CPG_COLLECTIVE_TAIL_WHEEL", devices.HOTAS_INPUT, 3066, 
 AH_64D:defineToggleSwitch("CPG_COLLECTIVE_BUCS_COVER", devices.HOTAS_INPUT, 3067, 603, COLLECTIVE_FLIGHT_CPG, "BUCS Trigger Guard")
 AH_64D:definePushButton("CPG_COLLECTIVE_BUCS", devices.HOTAS_INPUT, 3068, 604, COLLECTIVE_FLIGHT_CPG, "BUCS Trigger")
 
+-- Pilot Cyclic
+local CYCLIC_PILOT = "PLT Cyclic"
+
+AH_64D:defineToggleSwitch("PLT_CYCLIC_TRIGGER_COVER", devices.HOTAS_INPUT, 3001, 522, CYCLIC_PILOT, "Weapons Trigger Guard")
+AH_64D:defineSpringloaded_3PosTumbWithRange("PLT_CYCLIC_TRIGGER", devices.HOTAS_INPUT, 3002, 3003, 523, { 0, 1 }, CYCLIC_PILOT, "Weapons Trigger")
+AH_64D:defineSpringloaded_3PosTumb("PLT_CYCLIC_TRIM_UD", devices.HOTAS_INPUT, 3005, 3004, 524, CYCLIC_PILOT, "Force Trim/Hold Mode Switch U/D (0=D/Down, 2=R/Up)")
+AH_64D:defineSpringloaded_3PosTumb("PLT_CYCLIC_TRIM_LR", devices.HOTAS_INPUT, 3006, 3007, 525, CYCLIC_PILOT, "Force Trim/Hold Mode Switch L/R (0=AT/Left, 2=A/Right)")
+AH_64D:defineSpringloaded_3PosTumb("PLT_CYCLIC_WEAPON_UD", devices.HOTAS_INPUT, 3009, 3008, 526, CYCLIC_PILOT, "Weapons Action Switch U/D (0=A/Down, 2=G/Up)")
+AH_64D:defineSpringloaded_3PosTumb("PLT_CYCLIC_WEAPON_LR", devices.HOTAS_INPUT, 3010, 3011, 527, CYCLIC_PILOT, "Weapons Action Switch L/R (0=M/Left, 2=R/Right)")
+AH_64D:defineSpringloaded_3PosTumb("PLT_CYCLIC_SYMBOLOGY", devices.HOTAS_INPUT, 3013, 3012, 528, CYCLIC_PILOT, "Symbology Select Switch (0=HB/Down, 2=CT/Up)")
+AH_64D:definePushButton("PLT_CYCLIC_SYMBOLOGY_PRESS", devices.HOTAS_INPUT, 3014, 530, CYCLIC_PILOT, "Symbology Select Switch - Depress")
+-- AH_64D:defineSpringloaded_3PosTumb("PLT_CYCLIC_CMDS", devices.HOTAS_INPUT, 3016, 3015, 0, CYCLIC_PILOT, "CMDS Switch (0=Down, 2=Up)") -- appears to just trigger chaff/flare buttons
+AH_64D:defineSpringloaded_3PosTumb("PLT_CYCLIC_RTS", devices.HOTAS_INPUT, 3017, 3018, 531, CYCLIC_PILOT, "PTT/RTS Switch - (0=RADIO/Left, 2=ICS/Right)")
+AH_64D:defineInputOnlyPushButton("PLT_CYCLIC_RTS_PRESS", devices.HOTAS_INPUT, 3019, CYCLIC_PILOT, "PTT/RTS Switch - Depress") -- no arg present
+AH_64D:reserveIntValue(1) -- in case RTS press gets a draw arg
+AH_64D:definePushButton("PLT_CYCLIC_FMC_RELEASE", devices.HOTAS_INPUT, 3020, 534, CYCLIC_PILOT, "FMC Release Button")
+AH_64D:definePushButton("PLT_CYCLIC_CHAFF", devices.HOTAS_INPUT, 3021, 533, CYCLIC_PILOT, "Chaff Dispense")
+AH_64D:definePushButton("PLT_CYCLIC_FLARE", devices.HOTAS_INPUT, 3022, 529, CYCLIC_PILOT, "Flare Dispense")
+AH_64D:definePushButton("PLT_CYCLIC_ATA_CAGE", devices.HOTAS_INPUT, 3023, 532, CYCLIC_PILOT, "ATA Missile Cage/Uncage Button")
+
+-- CP/G Cyclic
+local CYCLIC_CPG = "CPG Cyclic"
+
+AH_64D:defineToggleSwitch("CPG_CYCLIC_TRIGGER_COVER", devices.HOTAS_INPUT, 3001, 563, CYCLIC_CPG, "Weapons Trigger Guard")
+AH_64D:defineSpringloaded_3PosTumbWithRange("CPG_CYCLIC_TRIGGER", devices.HOTAS_INPUT, 3002, 3003, 564, { 0, 1 }, CYCLIC_CPG, "Weapons Trigger")
+AH_64D:defineSpringloaded_3PosTumb("CPG_CYCLIC_TRIM_UD", devices.HOTAS_INPUT, 3005, 3004, 565, CYCLIC_CPG, "Force Trim/Hold Mode Switch U/D (0=D/Down, 2=R/Up)")
+AH_64D:defineSpringloaded_3PosTumb("CPG_CYCLIC_TRIM_LR", devices.HOTAS_INPUT, 3006, 3007, 566, CYCLIC_CPG, "Force Trim/Hold Mode Switch L/R (0=AT/Left, 2=A/Right)")
+AH_64D:defineSpringloaded_3PosTumb("CPG_CYCLIC_WEAPON_UD", devices.HOTAS_INPUT, 3009, 3008, 567, CYCLIC_CPG, "Weapons Action Switch U/D (0=A/Down, 2=G/Up)")
+AH_64D:defineSpringloaded_3PosTumb("CPG_CYCLIC_WEAPON_LR", devices.HOTAS_INPUT, 3010, 3011, 568, CYCLIC_CPG, "Weapons Action Switch L/R (0=M/Left, 2=R/Right)")
+AH_64D:defineSpringloaded_3PosTumb("CPG_CYCLIC_SYMBOLOGY", devices.HOTAS_INPUT, 3013, 3012, 569, CYCLIC_CPG, "Symbology Select Switch (0=HB/Down, 2=CT/Up)")
+AH_64D:definePushButton("CPG_CYCLIC_SYMBOLOGY_PRESS", devices.HOTAS_INPUT, 3014, 570, CYCLIC_CPG, "Symbology Select Switch - Depress")
+-- AH_64D:defineSpringloaded_3PosTumb("CPG_CYCLIC_CMDS", devices.HOTAS_INPUT, 3016, 3015, 0, CYCLIC_PILOT, "CMDS Switch (0=Down, 2=Up)") -- appears to just trigger chaff/flare buttons
+AH_64D:defineSpringloaded_3PosTumb("CPG_CYCLIC_RTS", devices.HOTAS_INPUT, 3017, 3018, 573, CYCLIC_CPG, "PTT/RTS Switch - (0=RADIO/Left, 2=ICS/Right)")
+AH_64D:defineInputOnlyPushButton("CPG_CYCLIC_RTS_PRESS", devices.HOTAS_INPUT, 3019, CYCLIC_CPG, "PTT/RTS Switch - Depress") -- no arg present
+AH_64D:reserveIntValue(1) -- in case RTS press gets a draw arg
+AH_64D:definePushButton("CPG_CYCLIC_FMC_RELEASE", devices.HOTAS_INPUT, 3020, 574, CYCLIC_CPG, "FMC Release Button")
+AH_64D:definePushButton("CPG_CYCLIC_CHAFF", devices.HOTAS_INPUT, 3021, 575, CYCLIC_CPG, "Chaff Dispense")
+AH_64D:definePushButton("CPG_CYCLIC_FLARE", devices.HOTAS_INPUT, 3022, 572, CYCLIC_CPG, "Flare Dispense")
+AH_64D:definePushButton("CPG_CYCLIC_ATA_CAGE", devices.HOTAS_INPUT, 3023, 576, CYCLIC_CPG, "ATA Missile Cage/Uncage Button")
+
 return AH_64D
