@@ -182,10 +182,10 @@ AH_64D:definePotentiometer("PLT_INTL_STBYINST_L_KNB", 11, 3009, 331, { 0, 1 }, "
 
 AH_64D:definePushButton("CPG_INTL_MCAUTION_BTN", 11, 3003, 807, "CPG Internal Light System", "Gunner Master Caution Button")
 AH_64D:definePushButton("CPG_INTL_MWARN_BTN", 11, 3004, 805, "CPG Internal Light System", "Gunner Master Warning Button")
-AH_64D:definePushButton("CPG_INTL_TEST_BTN", 11, 3011, 367, "CPG Internal Light System", "Gunner Light Test Button")
-AH_64D:definePotentiometer("CPG_INTL_SIGNAL_L_KNB", 11, 3012, 364, { 0, 1 }, "CPG Internal Light System", "Gunner Signal Lights Control Knob")
-AH_64D:definePotentiometer("CPG_INTL_PRIMARY_L_KNB", 11, 3013, 365, { 0, 1 }, "CPG Internal Light System", "Gunner Primary Lights Control Knob")
-AH_64D:definePotentiometer("CPG_INTL_FLOOD_L_KNB", 11, 3014, 366, { 0, 1 }, "CPG Internal Light System", "Gunner Flood Lights Control Knob")
+AH_64D:definePushButton("CPG_INTL_TEST_BTN", 11, 3012, 367, "CPG Internal Light System", "Gunner Light Test Button")
+AH_64D:definePotentiometer("CPG_INTL_SIGNAL_L_KNB", 11, 3013, 364, { 0, 1 }, "CPG Internal Light System", "Gunner Signal Lights Control Knob")
+AH_64D:definePotentiometer("CPG_INTL_PRIMARY_L_KNB", 11, 3014, 365, { 0, 1 }, "CPG Internal Light System", "Gunner Primary Lights Control Knob")
+AH_64D:definePotentiometer("CPG_INTL_FLOOD_L_KNB", 11, 3015, 366, { 0, 1 }, "CPG Internal Light System", "Gunner Flood Lights Control Knob")
 
 -- Standby Attitude Indicator
 AH_64D:definePushButton("PLT_SAI_CAGE", 13, 3001, 620, "PLT SAI", "Pilot SAI Cage Knob, (LMB) Pull to cage")
