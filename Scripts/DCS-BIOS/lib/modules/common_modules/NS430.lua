@@ -61,6 +61,7 @@ local ns430_aircraft = {
 }
 --- @class NS430: Module
 local NS430 = Module:new("NS430", 0x0600, ns430_aircraft)
+NS430.dev0_required = false
 
 -- v2.0 by Celemourn
 -- v3.0 ArturDCS

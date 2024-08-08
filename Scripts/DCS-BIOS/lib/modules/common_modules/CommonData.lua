@@ -6,6 +6,7 @@ local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 
 --- @class CommonData: Module
 local CommonData = Module:new("CommonData", 0x0400, AircraftList.ALL_PLAYABLE_AIRCRAFT)
+CommonData.dev0_required = false
 
 local latDeg = 0
 local latSec = 0

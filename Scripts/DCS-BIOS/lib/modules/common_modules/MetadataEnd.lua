@@ -10,6 +10,7 @@ local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 --- setUpdateCounter
 --- setUpdateSkipCounter
 local MetadataEnd = Module:new("MetadataEnd", 0xfffe, {})
+MetadataEnd.dev0_required = false
 
 local updateCounter = 0
 local updateSkipCounter = 0

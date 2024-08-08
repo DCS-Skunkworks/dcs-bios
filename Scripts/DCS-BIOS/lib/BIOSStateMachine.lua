@@ -66,6 +66,7 @@ end
 --- @param module Module
 --- @param dev0 CockpitDevice?
 function BIOSStateMachine:queue_module_data(module, dev0)
+	dev0 = module.dev0_required and dev0 or {} -- if dev0 isn't required, just pass an empty object
 	if dev0 ~= nil then
 		for _, hook in ipairs(module.exportHooks) do
 			local status, result = pcall(hook, dev0)
