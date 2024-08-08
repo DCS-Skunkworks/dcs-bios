@@ -23,7 +23,9 @@ local ns430_aircraft = {
 	"F-14B",
 	"F-15C",
 	"F-5E-3",
+	"F-5E-3_FC",
 	"F-86F Sabre",
+	"F-86F_FC",
 	"FW-190A8",
 	"FW-190D9",
 	"I-16",
@@ -35,6 +37,7 @@ local ns430_aircraft = {
 	"Mi-8MT",
 	"Mi-24P",
 	"MiG-15bis",
+	"MiG-15bis_FC",
 	"MiG-19P",
 	"MiG-21Bis",
 	"MiG-29A",
@@ -61,6 +64,7 @@ local ns430_aircraft = {
 }
 --- @class NS430: Module
 local NS430 = Module:new("NS430", 0x0600, ns430_aircraft)
+NS430.dev0_required = false
 
 -- v2.0 by Celemourn
 -- v3.0 ArturDCS

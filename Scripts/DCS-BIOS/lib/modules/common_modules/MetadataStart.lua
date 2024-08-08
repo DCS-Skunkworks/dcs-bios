@@ -10,6 +10,7 @@ local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 --- @class MetadataStart: Module
 --- @field setAircraftName  function
 local MetadataStart = Module:new("MetadataStart", 0x0000, {})
+MetadataStart.dev0_required = false
 
 -- "data" will be set by the Protocol module
 local aircraft_name
