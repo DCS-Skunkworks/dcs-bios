@@ -9,6 +9,34 @@ local F_16C_50 = Module:new("F-16C_50", 0x4400, { "F-16C_50", "F-16D_50_NS", "F-
 
 -- V1.15f by WarLord ft. BuzzKillington, afewyards; DED Display by Matchstick, AMVI_Ares & RafaPolit
 
+--- Adds a 3-position switch with behavior specific to the anti-skid switch.
+--- @param identifier string the unique identifier for the control
+--- @param device_id integer the dcs device id
+--- @param down_switch integer the dcs command to move the switch down
+--- @param up_switch integer the dcs command to move the switch up
+--- @param arg_number integer the dcs argument number
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @return Control control the control which was added to the module
+function F_16C_50:defineAntiSkidSwitch(identifier, device_id, down_switch, up_switch, arg_number, category, description)
+	local control = self:defineSpringloaded_3PosTumb(identifier, device_id, down_switch, up_switch, arg_number, category, description)
+	self.inputProcessors[control.identifier] = function(toState)
+		local dev = GetDevice(device_id)
+		if dev == nil then
+			return
+		end
+		if toState == "0" then --downSwitch
+			dev:performClickableAction(down_switch, -1)
+		elseif toState == "1" then --Stop
+			dev:performClickableAction(down_switch, 0)
+			dev:performClickableAction(up_switch, 0)
+		elseif toState == "2" then --upSwitch
+			dev:performClickableAction(down_switch, 0)
+			dev:performClickableAction(up_switch, 1)
+		end
+	end
+end
+
 ---- Switches
 --Control Interface
 F_16C_50:defineToggleSwitch("DIGI_BAK_SW", 2, 3001, 566, "Control Interface", "DIGITAL BACKUP Switch, OFF/BACKUP")
@@ -73,7 +101,7 @@ F_16C_50:defineToggleSwitch("HOOK_SW", 7, 3006, 354, "Gear System", "HOOK Switch
 F_16C_50:definePushButton("HORN_SILENCE_BTN", 7, 3007, 359, "Gear System", "HORN SILENCER Button - Push to reset")
 F_16C_50:defineToggleSwitch("BRAKE_CHAN_SW", 7, 3005, 356, "Gear System", "BRAKES Channel Switch, CHAN 1/CHAN 2")
 -- these are specific commands which are defined and used in keybinds, but don't appear in clickabledata.lua
-F_16C_50:defineRockerSwitch("ANTI_SKID_SW", 7, 3014, 3014, 3010, 3010, 357, "Gear System", "ANTI-SKID Switch, PARKING BRAKE/ANTI-SKID/OFF")
+F_16C_50:defineAntiSkidSwitch("ANTI_SKID_SW", 7, 3010, 3014, 357, "Gear System", "ANTI-SKID Switch, PARKING BRAKE/ANTI-SKID/OFF")
 
 --ECS
 F_16C_50:definePotentiometer("TEMP_KNB", 13, 3002, 692, { -0.3, 0.3 }, "ECS", "TEMP Knob")
