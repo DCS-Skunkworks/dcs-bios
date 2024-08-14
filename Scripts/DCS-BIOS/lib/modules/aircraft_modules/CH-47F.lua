@@ -33,46 +33,49 @@ local devices = {
 	CHRONOMETER = 25,
 	COMPASS = 26,
 	EXTERNAL_CARGO_EQUIPMENT = 27,
-	GRIPS = 28,
-	EMERGENCY_PANEL = 29,
-	LIGHTING_REFLECTS = 30,
-	TERTIARY_REFLECTS = 31,
-	FD = 32,
-	TURN = 33,
-	GPS1 = 34,
-	GPS2 = 35,
-	EGI1 = 36,
-	EGI2 = 37,
-	TACAN = 38,
-	ILS = 39,
-	MLS = 40,
-	MARKER_BEACON = 41,
-	ARN_147 = 42,
-	ARN_149 = 43,
-	APN_209 = 44,
-	ANV_241A = 45,
-	ARC_164 = 46,
-	ARC_186 = 47,
-	ARC_201 = 48,
-	ARC_220 = 49,
-	COMM_PANEL_LEFT = 50,
-	COMM_PANEL_RIGHT = 51,
-	COMM_PANEL_TROOP_COMMANDER = 52,
-	COMM_PANEL_LH_GUNNER = 53,
-	COMM_PANEL_RH_GUNNER = 54,
-	COMM_PANEL_AFT_ENGINEER = 55,
-	INTERCOM = 56,
-	CREWE = 57,
-	WORKSTATIONS = 58,
-	AFT_WORKSTATION = 59,
-	HELMET_DEVICE = 60,
-	MACROS = 61,
-	ARCADE = 62,
-	KNEEBOARD = 63,
-	AN_APR39 = 64,
-	AN_AVR2A = 65,
-	AN_AAR57 = 66,
-	AN_ALE47 = 67,
+	EXTERNAL_CARGO_SPEECH = 28,
+	GRIPS = 29,
+	HEATER = 30,
+	EMERGENCY_PANEL = 31,
+	LIGHTING_REFLECTS = 32,
+	TERTIARY_REFLECTS = 33,
+	FD = 34,
+	TURN = 35,
+	GPS1 = 36,
+	GPS2 = 37,
+	EGI1 = 38,
+	EGI2 = 39,
+	TACAN = 40,
+	ILS = 41,
+	MLS = 42,
+	MARKER_BEACON = 43,
+	ARN_147 = 44,
+	ARN_149 = 45,
+	APN_209 = 46,
+	ANV_241A = 47,
+	ARC_164 = 48,
+	ARC_186 = 49,
+	ARC_201 = 50,
+	ARC_220 = 51,
+	COMM_PANEL_LEFT = 52,
+	COMM_PANEL_RIGHT = 53,
+	COMM_PANEL_TROOP_COMMANDER = 54,
+	COMM_PANEL_LH_GUNNER = 55,
+	COMM_PANEL_RH_GUNNER = 56,
+	COMM_PANEL_AFT_ENGINEER = 57,
+	INTERCOM = 58,
+	CREWE = 59,
+	WORKSTATIONS = 60,
+	AFT_WORKSTATION = 61,
+	HELMET_DEVICE = 62,
+	MACROS = 63,
+	ARCADE = 64,
+	KNEEBOARD = 65,
+	AN_APR39 = 66,
+	AN_AAR57 = 67,
+	AN_ALE47 = 68,
+	VPM1 = 69,
+	VPM2 = 70,
 }
 
 --- Adds a rocker switch with momentary on and off positions controlled by a single command
@@ -99,7 +102,15 @@ CH_47F:defineFloat("MISC_CENTER_ANT_FM1_VHF", 1395, { 0, 1 }, CENTER_MISC_SWITCH
 CH_47F:defineFloat("MISC_CENTER_ANT_VHF_FM1", 1396, { 0, 1 }, CENTER_MISC_SWITCH_PANEL, "VHF (Top) / FM1 (Bot) Lamp (Green)")
 
 -- ASE Control Panel
--- local ASE_PANEL = "ASE Control Panel"
+local ASE_PANEL = "ASE Control Panel"
+
+CH_47F:defineToggleSwitch("ASE_JETTISON_COVER", devices.AN_ALE47, 3001, 1444, ASE_PANEL, "Jettison Switch Cover")
+CH_47F:defineToggleSwitch("ASE_JETTISON", devices.AN_ALE47, 3003, 1445, ASE_PANEL, "Jettison Switch")
+CH_47F:defineToggleSwitch("ASE_ARM", devices.AN_ALE47, 3005, 1446, ASE_PANEL, "Arm Switch")
+CH_47F:defineToggleSwitch("ASE_BYPASS", devices.AN_ALE47, 3007, 1447, ASE_PANEL, "Bypass Switch")
+CH_47F:definePotentiometer("ASE_RWR_VOLUME", devices.AN_ALE47, 3009, 1448, { 0, 1 }, ASE_PANEL, "RWR Volume Knob")
+
+CH_47F:defineFloat("ASE_ARM_LAMP", 1449, { 0, 1 }, ASE_PANEL, "Arm Lamp (Green)")
 
 -- ARC-186 Control Panel
 -- local ARC_186 = "ARC-186"
