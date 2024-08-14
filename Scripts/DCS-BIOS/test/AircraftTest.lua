@@ -44,7 +44,11 @@ function TestAircraft:testC101()
 	self:validateModule(require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.C-101"), "C-101", 0x3600)
 end
 
-function TestAircraft:testCEII()
+function TestAircraft:testCH_47F()
+	self:validateModule(require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.CH-47F"), "CH-47F", 0x9C00)
+end
+
+function TestAircraft:testChristenEagleII()
 	self:validateModule(require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.Christen Eagle II"), "Christen Eagle II", 0x2800)
 end
 
