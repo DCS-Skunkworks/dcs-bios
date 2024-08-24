@@ -1,5 +1,6 @@
 module("CH-47F", package.seeall)
 
+local Functions = require("Scripts.DCS-BIOS.lib.common.Functions")
 local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 
 --- @class CH_47F: Module
@@ -113,7 +114,39 @@ CH_47F:definePotentiometer("ASE_RWR_VOLUME", devices.AN_ALE47, 3009, 1448, { 0, 
 CH_47F:defineFloat("ASE_ARM_LAMP", 1449, { 0, 1 }, ASE_PANEL, "Arm Lamp (Green)")
 
 -- ARC-186 Control Panel
--- local ARC_186 = "ARC-186"
+local ARC_186 = "ARC-186"
+
+CH_47F:defineRadioWheel("ARC_186_PRESET", devices.ARC_186, 3001, 3001, { -0.01, 0.01 }, 1223, 0.01, { 0, 0.2 }, { " 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" }, ARC_186, "Preset Channel Selector")
+CH_47F:defineMultipositionSwitch("ARC_186_FREQUENCY_MODE", devices.ARC_186, 3003, 1224, 3, 0.1, ARC_186, "Frequency Mode Dial")
+CH_47F:defineMultipositionSwitch("ARC_186_FREQUENCY_SELECTION", devices.ARC_186, 3004, 1221, 4, 0.1, ARC_186, "Frequency Selection Dial")
+CH_47F:definePotentiometer("ARC_186_VOLUME", devices.ARC_186, 3005, 1219, { 0, 1 }, ARC_186, "Volume")
+CH_47F:definePushButton("ARC_186_LOAD", devices.ARC_186, 3006, 1222, ARC_186, "Load")
+CH_47F:defineSpringloaded_3PosTumb("ARC_186_SQUELCH", devices.ARC_186, 3007, 3008, 1220, ARC_186, "Squelch / TONE") --  as of 2.9.7.59263, this control just doesn't work
+CH_47F:defineRadioWheel("ARC_186_FREQ_TENS", devices.ARC_186, 3009, 3010, { -0.1, 0.1 }, 1225, 0.1, { 0, 1 }, nil, ARC_186, "Tens Frequency Selector")
+CH_47F:defineRadioWheel("ARC_186_FREQ_ONES", devices.ARC_186, 3011, 3012, { -0.1, 0.1 }, 1226, 0.1, { 0, 1 }, nil, ARC_186, "Ones Frequency Selector")
+CH_47F:defineRadioWheel("ARC_186_FREQ_TENTHS", devices.ARC_186, 3013, 3014, { -0.1, 0.1 }, 1227, 0.1, { 0, 1 }, nil, ARC_186, "Tenths Frequency Selector")
+CH_47F:defineRadioWheel("ARC_186_FREQ_HUNDREDTHS", devices.ARC_186, 3015, 3016, { -0.25, 0.25 }, 1228, 0.25, { 0, 1 }, nil, ARC_186, "Hundredths Frequency Selector")
+
+-- todo: sometimes this gets slightly out of sync with the model
+CH_47F:defineString("ARC_186_FREQ_TENS_VALUE", function(dev0)
+	local val = dev0:get_argument_value(1229)
+	local output = Module.round(Module.valueConvert(val, { 0.125, 0.775 }, { 0, 13 }))
+	output = (output % 13) + 3
+	return Functions.pad_left(tostring(output), 2)
+end, 2, ARC_186, "Tens Frequency")
+CH_47F:defineString("ARC_186_FREQ_ONES_VALUE", function(dev0)
+	local val = dev0:get_argument_value(1230)
+	return tostring(Module.round(val * 10) % 10)
+end, 1, ARC_186, "Ones Frequency")
+CH_47F:defineString("ARC_186_FREQ_TENTHS_VALUE", function(dev0)
+	local val = dev0:get_argument_value(1231)
+	return string.format(".%d", Module.round(val * 10) % 10)
+end, 2, ARC_186, "Tenths Frequency")
+CH_47F:defineString("ARC_186_FREQ_HUNDREDTHS_VALUE", function(dev0)
+	local val = dev0:get_argument_value(1232)
+	local step = Module.round(val * 4) % 4
+	return string.format("%02d", step * 25)
+end, 2, ARC_186, "Hundredths Frequency")
 
 -- Steering Control Panel
 -- local STEERING_PANEL = "Steering Control Panel"
