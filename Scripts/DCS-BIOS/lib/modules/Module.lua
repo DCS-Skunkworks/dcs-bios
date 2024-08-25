@@ -396,6 +396,53 @@ function Module:defineInputOnlyPushButton(identifier, device_id, command, catego
 	return control
 end
 
+--- Adds a push button with no outputs and which sends only a single specified input on press. This is useful when no draw arg is present to evaluate the state of a control.
+--- @param identifier string the unique identifier for the control
+--- @param device_id integer the dcs device id
+--- @param command integer the dcs command to move the switch up or down
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @return Control control the control which was added to the module
+function Module:defineInputOnlySetStatePushButton(identifier, device_id, command, category, description)
+	local control = Control:new(category, ControlType.action, identifier, description, {
+		SetStateInput:new(1, "Sends the command"),
+	}, {})
+
+	self:addControl(control)
+
+	self:addInputProcessor(identifier, function(value)
+		local dev = GetDevice(device_id)
+		local val = tonumber(value)
+		if dev and val then
+			dev:performClickableAction(command, val)
+		end
+	end)
+
+	return control
+end
+
+--- Adds an input-only control which performs a specific LoSetCommand with no arguments
+--- @param identifier string the unique identifier for the control
+--- @param iCommand ICommand the dcs icommand to move the switch up or down
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @return Control control the control which was added to the module
+function Module:defineLoSetCommand(identifier, iCommand, category, description)
+	local control = Control:new(category, ControlType.action, identifier, description, {
+		ActionInput:new(ActionArgument.toggle, "Triggers the action"),
+	}, {})
+
+	self:addControl(control)
+
+	self:addInputProcessor(identifier, function(action)
+		if action == ActionArgument.toggle then
+			LoSetCommand(iCommand)
+		end
+	end)
+
+	return control
+end
+
 --- Adds a new rotary potentiometer with values between 0 and 65535
 --- @param identifier string the unique identifier for the control
 --- @param device_id integer the dcs device id

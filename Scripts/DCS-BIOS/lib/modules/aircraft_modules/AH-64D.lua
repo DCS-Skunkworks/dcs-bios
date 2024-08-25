@@ -2,6 +2,7 @@ module("AH-64D", package.seeall)
 
 local AH_64D_EUFD = require("Scripts.DCS-BIOS.lib.modules.displays.AH_64D_EUFD")
 local Functions = require("Scripts.DCS-BIOS.lib.common.Functions")
+local ICommand = require("Scripts.DCS-BIOS.lib.modules.ICommand")
 local TextDisplay = require("Scripts.DCS-BIOS.lib.modules.TextDisplay")
 
 local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
@@ -14,6 +15,7 @@ local AH_64D = Module:new("AH-64D", 0x8000, { "AH-64D_BLK_II" })
 -- remove Arg# PLT 956; CPG 957
 
 local devices = {
+	CONTROL_INTERFACE = 2,
 	HOTAS_INPUT = 25,
 }
 
@@ -606,7 +608,7 @@ AH_64D:definePushButton("PLT_T_WHEEL_UNLOCK_BTN", 5, 3003, 308, "PLT Left Consol
 AH_64D:define3PosTumb("PLT_ROTOR_BRK", 5, 3001, 314, "PLT Left Console", "Pilot Rotor Brake Switch, OFF/BRK/LOCK")
 AH_64D:definePushButton("PLT_APU_BTN", 6, 3001, 400, "PLT Left Console", "Pilot APU Pushbutton")
 AH_64D:defineToggleSwitch("PLT_APU_BTN_CVR", 6, 3002, 401, "PLT Left Console", "Pilot APU Pushbutton Cover, OPEN/CLOSE")
-AH_64D:definePotentiometer("PLT_PW_LVR_FRIC", 2, 3001, 633, { 0, 1 }, "PLT Left Console", "Pilot Power Lever Friction Adjustment Lever")
+AH_64D:definePotentiometer("PLT_PW_LVR_FRIC", devices.CONTROL_INTERFACE, 3001, 633, { 0, 1 }, "PLT Left Console", "Pilot Power Lever Friction Adjustment Lever")
 AH_64D:defineSpringloaded_3PosTumb("PLT_ENG1_START", 6, 3004, 3003, 317, "PLT Left Console", "Pilot No.1 Engine Start Switch, IGN ORIDE/START")
 AH_64D:defineSpringloaded_3PosTumb("PLT_ENG2_START", 6, 3006, 3005, 318, "PLT Left Console", "Pilot No.2 Engine Start Switch, IGN ORIDE/START")
 
@@ -648,8 +650,8 @@ AH_64D:definePushButton("PLT_M4_TRIGGER", 9, 3009, 827, "PLT Cockpit", "Pilot M4
 AH_64D:define3PosTumb("PLT_M4_SAVE", 9, 3007, 828, "PLT Cockpit", "Pilot M4 Safety")
 AH_64D:definePushButton("PLT_DEFOG_BTN", 9, 3001, 356, "PLT Cockpit", "Pilot Defog Button")
 AH_64D:defineTumb("PLT_WIPER_SW", 9, 3002, 357, 0.1, { -0.1, 0.2 }, nil, false, "PLT Cockpit", "Pilot Wiper Control Switch, PARK/OFF/LO/HI")
-AH_64D:definePotentiometer("PLT_ENG_L_PW_LVR", 6, 3031, 398, { 0, 1 }, "PLT Cockpit", "Pilot Power Lever Smoothly (Left)")
-AH_64D:definePotentiometer("PLT_ENG_R_PW_LVR", 6, 3032, 399, { 0, 1 }, "PLT Cockpit", "Pilot Power Lever Smoothly (Right)")
+AH_64D:definePotentiometer("PLT_ENG_L_PW_LVR", 6, 3031, 398, { 0, 1 }, "PLT Left Console", "Pilot Power Lever Smoothly (Left)")
+AH_64D:definePotentiometer("PLT_ENG_R_PW_LVR", 6, 3032, 399, { 0, 1 }, "PLT Left Console", "Pilot Power Lever Smoothly (Right)")
 AH_64D:defineTumb("PLT_MASTER_IGN_SW", 3, 3003, 315, 0.5, { 0, 1 }, nil, false, "PLT Cockpit", "Pilot Master Ignition Switch, OFF/BATT/EXT PWR")
 
 AH_64D:defineToggleSwitch("CPG_CANOPY", 9, 3006, 799, "CPG Cockpit", "Gunner Canopy, OPEN/CLOSE")
@@ -657,8 +659,8 @@ AH_64D:definePushButton("CPG_M4_TRIGGER", 9, 3010, 825, "CPG Cockpit", "Gunner M
 AH_64D:define3PosTumb("CPG_M4_SAVE", 9, 3008, 826, "CPG Cockpit", "Gunner M4 Safety")
 AH_64D:definePushButton("CPG_DEFOG_BTN", 9, 3003, 394, "CPG Cockpit", "Gunner Defog Button")
 AH_64D:defineTumb("CPG_WIPER_SW", 9, 3004, 395, 0.1, { -0.1, 0.2 }, nil, false, "CPG Cockpit", "Gunner Wiper Control Switch, PARK/OFF/LO/HI")
-AH_64D:definePotentiometer("CPG_ENG_L_PW_LVR", 6, 3031, 398, { 0, 1 }, "CPG Cockpit", "Gunner Power Lever Smoothly (Left)")
-AH_64D:definePotentiometer("CPG_ENG_R_PW_LVR", 6, 3032, 399, { 0, 1 }, "CPG Cockpit", "Gunner Power Lever Smoothly (Right)")
+AH_64D:definePotentiometer("CPG_ENG_L_PW_LVR", 6, 3031, 398, { 0, 1 }, "CPG Left Console", "Gunner Power Lever Smoothly (Left)")
+AH_64D:definePotentiometer("CPG_ENG_R_PW_LVR", 6, 3032, 399, { 0, 1 }, "CPG Left Console", "Gunner Power Lever Smoothly (Right)")
 AH_64D:defineToggleSwitch("CPG_STICK_FOLD", 87, 3007, 809, "CPG Cockpit", "Gunner Stick Folding, UP/DOWN")
 AH_64D:define3PosTumb("CPG_PROC_SEL_SW", 3, 3004, 397, "CPG Cockpit", "Gunner Processor Select Switch, SP 1/AUTO/SP 2")
 
@@ -1035,5 +1037,13 @@ AH_64D:definePushButton("CPG_CYCLIC_FMC_RELEASE", devices.HOTAS_INPUT, 3020, 574
 AH_64D:definePushButton("CPG_CYCLIC_CHAFF", devices.HOTAS_INPUT, 3021, 575, CYCLIC_CPG, "Chaff Dispense")
 AH_64D:definePushButton("CPG_CYCLIC_FLARE", devices.HOTAS_INPUT, 3022, 572, CYCLIC_CPG, "Flare Dispense")
 AH_64D:definePushButton("CPG_CYCLIC_ATA_CAGE", devices.HOTAS_INPUT, 3023, 576, CYCLIC_CPG, "ATA Missile Cage/Uncage Button")
+
+-- additional throttle lever controls (these don't seem to work for the CP/G)
+AH_64D:defineInputOnlySetStatePushButton("PLT_ENG_L_PW_LVR_LIFT", devices.CONTROL_INTERFACE, 3011, "PLT Left Console", "Power Lever Finger Lift (Left)")
+AH_64D:defineInputOnlySetStatePushButton("PLT_ENG_R_PW_LVR_LIFT", devices.CONTROL_INTERFACE, 3012, "PLT Left Console", "Power Lever Finger Lift (Right)")
+AH_64D:defineLoSetCommand("PLT_ENG_L_PW_LVR_IDLE", ICommand.left_engine_start, "PLT Left Console", "Power Lever Idle (Left)")
+AH_64D:defineLoSetCommand("PLT_ENG_R_PW_LVR_IDLE", ICommand.right_engine_start, "PLT Left Console", "Power Lever Idle (Right)")
+AH_64D:defineLoSetCommand("PLT_ENG_L_PW_LVR_OFF", ICommand.left_engine_stop, "PLT Left Console", "Power Lever Off (Left)")
+AH_64D:defineLoSetCommand("PLT_ENG_R_PW_LVR_OFF", ICommand.right_engine_stop, "PLT Left Console", "Power Lever Off (Right)")
 
 return AH_64D
