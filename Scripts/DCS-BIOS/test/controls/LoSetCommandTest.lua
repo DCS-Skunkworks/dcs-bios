@@ -1,30 +1,30 @@
 local ActionArgument = require("Scripts.DCS-BIOS.lib.modules.documentation.ActionArgument")
 local ControlType = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlType")
+local ICommand = require("Scripts.DCS-BIOS.lib.modules.ICommand")
 local InputType = require("Scripts.DCS-BIOS.lib.modules.documentation.InputType")
 local MockDevice = require("Scripts.DCS-BIOS.test.controls.MockDevice")
 local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 
 local lu = require("Scripts.DCS-BIOS.test.ext.luaunit")
 
---- @class TestInputOnlyPushButton
+--- @class TestLoSetCommand
 --- @field module Module
-TestInputOnlyPushButton = {}
+TestLoSetCommand = {}
 local moduleName = "MyModule"
 local moduleAddress = 0x4200
 
-function TestInputOnlyPushButton:setUp()
+function TestLoSetCommand:setUp()
 	self.module = Module:new(moduleName, moduleAddress, {})
 	Input_Processor_Device = MockDevice:new(0)
 end
 
-local id = "MY_INPUT_ONLY_PUSH_BUTTON"
-local device_id = 1
-local command = 2
-local category = "Input-Only Push Buttons"
-local description = "This is an input-only push button"
+local id = "MY_LO_SET_COMMAND"
+local iCommand = ICommand.left_engine_start
+local category = "LoSetCommands"
+local description = "This is a LoSetCommand"
 
-function TestInputOnlyPushButton:testAddPushButton()
-	local control = self.module:defineInputOnlyPushButton(id, device_id, command, category, description)
+function TestLoSetCommand:testAddLoSetCommand()
+	local control = self.module:defineLoSetCommand(id, iCommand, category, description)
 
 	lu.assertEquals(control, self.module.documentation[category][id])
 	lu.assertEquals(control.control_type, ControlType.action)
@@ -42,15 +42,13 @@ function TestInputOnlyPushButton:testAddPushButton()
 	lu.assertEquals(#control.outputs, 0)
 end
 
-function TestInputOnlyPushButton:testInputToggle()
-	self.module:defineInputOnlyPushButton(id, device_id, command, category, description)
+function LoSetCommand(iCommand)
+	lu.assertEquals(ICommand.left_engine_start, iCommand)
+end
+
+function TestLoSetCommand:testLoSetCommand()
+	self.module:defineLoSetCommand(id, iCommand, category, description)
 	local input_processor = self.module.inputProcessors[id]
 
 	input_processor("TOGGLE")
-
-	lu.assertEquals(#Input_Processor_Device.clickable_actions, 2)
-	local action_press = Input_Processor_Device.clickable_actions[1]
-	lu.assertAlmostEquals(action_press[command], 1)
-	local action_release = Input_Processor_Device.clickable_actions[2]
-	lu.assertAlmostEquals(action_release[command], 0)
 end
