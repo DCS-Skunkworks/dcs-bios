@@ -379,6 +379,30 @@ end
 --- @param description string additional information about the control
 --- @return Control control the control which was added to the module
 function Module:defineInputOnlyPushButton(identifier, device_id, command, category, description)
+	return self:defineInputOnlyPushButtonWithValues(identifier, device_id, command, 1, 0, category, description)
+end
+
+--- Adds a push button with no outputs that only sends 1, with no subsequent 0
+--- @param identifier string the unique identifier for the control
+--- @param device_id integer the dcs device id
+--- @param command integer the dcs command to move the switch up or down
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @return Control control the control which was added to the module
+function Module:defineInputOnlyPushButtonNoOff(identifier, device_id, command, category, description)
+	return self:defineInputOnlyPushButtonWithValues(identifier, device_id, command, 1, nil, category, description)
+end
+
+--- Adds a push button with no outputs and specific input values
+--- @param identifier string the unique identifier for the control
+--- @param device_id integer the dcs device id
+--- @param command integer the dcs command to move the switch up or down
+--- @param on_press integer? the value to send on press, if any
+--- @param on_release integer? the value to send on release, if any
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @return Control control the control which was added to the module
+function Module:defineInputOnlyPushButtonWithValues(identifier, device_id, command, on_press, on_release, category, description)
 	local control = Control:new(category, ControlType.action, identifier, description, {
 		ActionInput:new(ActionArgument.toggle, "Triggers the action"),
 	}, {})
@@ -388,8 +412,12 @@ function Module:defineInputOnlyPushButton(identifier, device_id, command, catego
 	self:addInputProcessor(identifier, function(action)
 		local dev = GetDevice(device_id)
 		if dev and action == ActionArgument.toggle then
-			dev:performClickableAction(command, 1)
-			dev:performClickableAction(command, 0)
+			if on_press then
+				dev:performClickableAction(command, on_press)
+			end
+			if on_release then
+				dev:performClickableAction(command, on_release)
+			end
 		end
 	end)
 
