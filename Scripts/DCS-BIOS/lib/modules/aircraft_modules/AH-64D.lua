@@ -1041,9 +1041,7 @@ AH_64D:definePushButton("CPG_CYCLIC_ATA_CAGE", devices.HOTAS_INPUT, 3023, 576, C
 -- additional throttle lever controls (these don't seem to work for the CP/G)
 AH_64D:defineInputOnlySetStatePushButton("PLT_ENG_L_PW_LVR_LIFT", devices.CONTROL_INTERFACE, 3011, "PLT Left Console", "Power Lever Finger Lift (Left)")
 AH_64D:defineInputOnlySetStatePushButton("PLT_ENG_R_PW_LVR_LIFT", devices.CONTROL_INTERFACE, 3012, "PLT Left Console", "Power Lever Finger Lift (Right)")
-AH_64D:defineLoSetCommand("PLT_ENG_L_PW_LVR_IDLE", ICommand.left_engine_start, "PLT Left Console", "Power Lever Idle (Left)")
-AH_64D:defineLoSetCommand("PLT_ENG_R_PW_LVR_IDLE", ICommand.right_engine_start, "PLT Left Console", "Power Lever Idle (Right)")
-AH_64D:defineLoSetCommand("PLT_ENG_L_PW_LVR_OFF", ICommand.left_engine_stop, "PLT Left Console", "Power Lever Off (Left)")
-AH_64D:defineLoSetCommand("PLT_ENG_R_PW_LVR_OFF", ICommand.right_engine_stop, "PLT Left Console", "Power Lever Off (Right)")
+AH_64D:defineLoSetCommand2Pos("PLT_ENG_L_PW_LVR_IDLE", ICommand.left_engine_stop, ICommand.left_engine_start, "PLT Left Console", "Power Lever Idle/Off (Left)")
+AH_64D:defineLoSetCommand2Pos("PLT_ENG_R_PW_LVR_IDLE", ICommand.right_engine_stop, ICommand.right_engine_start, "PLT Left Console", "Power Lever Idle/Off (Right)")
 
 return AH_64D
