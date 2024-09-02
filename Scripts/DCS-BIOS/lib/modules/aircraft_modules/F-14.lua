@@ -7,6 +7,10 @@ local F_14 = Module:new("F-14", 0x1200, { "F-14B", "F-14A-135-GR" })
 
 --v4.6b by WarLord,ArturDCS,Matchstick and Bullitt
 
+local devices = {
+	JESTERAI = 62,
+}
+
 -- remove Arg# Stick 33
 
 ----------------------------------------- Extra Functions
@@ -1492,5 +1496,66 @@ F_14:defineIntegerFromGetter("AFTERBURNER_ZONE_RIGHT", function()
 end, 5, "Airframe", "Right afterburner zone")
 
 F_14:definePushButton("RIO_MASTER_CAUTION_RESET", 35, 3057, 9229, "Weapons Panel", "RIO Master Caution Reset")
+
+-- Jester
+local PILOT_JESTER_WHEEL = "PLT Jester Wheel"
+
+F_14:defineInputOnlyPushButtonWithValues("PLT_JESTER_MENU_TOGGLE", devices.JESTERAI, 3550, 1, -1, PILOT_JESTER_WHEEL, "Toggle Menu")
+F_14:defineInputOnlyPushButtonNoOff("PLT_JESTER_COMMAND_1", devices.JESTERAI, 3551, PILOT_JESTER_WHEEL, "Command 1")
+F_14:defineInputOnlyPushButtonNoOff("PLT_JESTER_COMMAND_2", devices.JESTERAI, 3552, PILOT_JESTER_WHEEL, "Command 2")
+F_14:defineInputOnlyPushButtonNoOff("PLT_JESTER_COMMAND_3", devices.JESTERAI, 3553, PILOT_JESTER_WHEEL, "Command 3")
+F_14:defineInputOnlyPushButtonNoOff("PLT_JESTER_COMMAND_4", devices.JESTERAI, 3554, PILOT_JESTER_WHEEL, "Command 4")
+F_14:defineInputOnlyPushButtonNoOff("PLT_JESTER_COMMAND_5", devices.JESTERAI, 3555, PILOT_JESTER_WHEEL, "Command 5")
+F_14:defineInputOnlyPushButtonNoOff("PLT_JESTER_COMMAND_6", devices.JESTERAI, 3556, PILOT_JESTER_WHEEL, "Command 6")
+F_14:defineInputOnlyPushButtonNoOff("PLT_JESTER_COMMAND_7", devices.JESTERAI, 3557, PILOT_JESTER_WHEEL, "Command 7")
+F_14:defineInputOnlyPushButtonNoOff("PLT_JESTER_COMMAND_8", devices.JESTERAI, 3558, PILOT_JESTER_WHEEL, "Command 8")
+F_14:defineInputOnlyPushButtonNoOff("PLT_JESTER_CHECK", devices.JESTERAI, 3669, PILOT_JESTER_WHEEL, "Check")
+F_14:defineInputOnlyPushButtonNoOff("PLT_JESTER_LC", devices.JESTERAI, 3670, PILOT_JESTER_WHEEL, "Loud and Clear")
+F_14:defineInputOnlyPushButtonNoOff("PLT_JESTER_MENU_CLOSE", devices.JESTERAI, 3725, PILOT_JESTER_WHEEL, "Close Menu")
+
+local PILOT_JESTER_NAV_COMMANDS = "PLT Jester Nav Commands"
+
+F_14:defineInputOnlyPushButtonNoOff("PLT_JESTER_COMMAND_NAV_SP_1", devices.JESTERAI, 3566, PILOT_JESTER_NAV_COMMANDS, "Set Steerpoint SP 1")
+F_14:defineInputOnlyPushButtonNoOff("PLT_JESTER_COMMAND_NAV_SP_2", devices.JESTERAI, 3567, PILOT_JESTER_NAV_COMMANDS, "Set Steerpoint SP 2")
+F_14:defineInputOnlyPushButtonNoOff("PLT_JESTER_COMMAND_NAV_SP_3", devices.JESTERAI, 3568, PILOT_JESTER_NAV_COMMANDS, "Set Steerpoint SP 3")
+F_14:defineInputOnlyPushButtonNoOff("PLT_JESTER_COMMAND_NAV_FIXED_POINT", devices.JESTERAI, 3569, PILOT_JESTER_NAV_COMMANDS, "Set Steerpoint Fixed Point")
+F_14:defineInputOnlyPushButtonNoOff("PLT_JESTER_COMMAND_NAV_IP", devices.JESTERAI, 3570, PILOT_JESTER_NAV_COMMANDS, "Set Steerpoint Initial Point")
+F_14:defineInputOnlyPushButtonNoOff("PLT_JESTER_COMMAND_NAV_TARGET", devices.JESTERAI, 3571, PILOT_JESTER_NAV_COMMANDS, "Set Steerpoint Surface Target")
+F_14:defineInputOnlyPushButtonNoOff("PLT_JESTER_COMMAND_NAV_HOME", devices.JESTERAI, 3572, PILOT_JESTER_NAV_COMMANDS, "Set Steerpoint Home Base")
+F_14:defineInputOnlyPushButtonNoOff("PLT_JESTER_COMMAND_NAV_MAN", devices.JESTERAI, 3573, PILOT_JESTER_NAV_COMMANDS, "Set Steerpoint Man")
+
+local PILOT_JESTER_RADAR_COMMANDS = "PLT Jester Radar Commands"
+
+F_14:defineInputOnlyPushButtonNoOff("PLT_JESTER_COMMAND_VSL_HIGH", devices.JESTERAI, 3574, PILOT_JESTER_RADAR_COMMANDS, "VSL High")
+F_14:defineInputOnlyPushButtonNoOff("PLT_JESTER_COMMAND_VSL_LOW", devices.JESTERAI, 3575, PILOT_JESTER_RADAR_COMMANDS, "VSL Low")
+F_14:defineInputOnlyPushButtonNoOff("PLT_JESTER_COMMAND_STT_MODE", devices.JESTERAI, 3576, PILOT_JESTER_RADAR_COMMANDS, "Toggle PD-STT or P-STT")
+F_14:defineInputOnlyPushButtonNoOff("PLT_JESTER_COMMAND_BREAK_LOCK", devices.JESTERAI, 3577, PILOT_JESTER_RADAR_COMMANDS, "Break Lock")
+F_14:defineInputOnlyPushButtonNoOff("PLT_JESTER_COMMAND_RANGE_AUTO", devices.JESTERAI, 3578, PILOT_JESTER_RADAR_COMMANDS, "Range Auto")
+F_14:defineInputOnlyPushButtonNoOff("PLT_JESTER_COMMAND_RANGE_25", devices.JESTERAI, 3579, PILOT_JESTER_RADAR_COMMANDS, "Range 25")
+F_14:defineInputOnlyPushButtonNoOff("PLT_JESTER_COMMAND_RANGE_50", devices.JESTERAI, 3580, PILOT_JESTER_RADAR_COMMANDS, "Range 50")
+F_14:defineInputOnlyPushButtonNoOff("PLT_JESTER_COMMAND_RANGE_100", devices.JESTERAI, 3581, PILOT_JESTER_RADAR_COMMANDS, "Range 100")
+F_14:defineInputOnlyPushButtonNoOff("PLT_JESTER_COMMAND_RANGE_200", devices.JESTERAI, 3582, PILOT_JESTER_RADAR_COMMANDS, "Range 200")
+F_14:defineInputOnlyPushButtonNoOff("PLT_JESTER_COMMAND_RANGE_400", devices.JESTERAI, 3583, PILOT_JESTER_RADAR_COMMANDS, "Range 400")
+F_14:defineInputOnlyPushButtonNoOff("PLT_JESTER_COMMAND_LOCK_AHEAD", devices.JESTERAI, 3584, PILOT_JESTER_RADAR_COMMANDS, "STT Lock Ahead")
+F_14:defineInputOnlyPushButtonNoOff("PLT_JESTER_COMMAND_LOCK_AHEAD_ENEMY", devices.JESTERAI, 3585, PILOT_JESTER_RADAR_COMMANDS, "STT Lock Enemy Ahead")
+F_14:defineInputOnlyPushButtonNoOff("PLT_JESTER_COMMAND_LOCK_AHEAD_FRIENDLY", devices.JESTERAI, 3586, PILOT_JESTER_RADAR_COMMANDS, "STT Lock Friendly Ahead")
+F_14:defineInputOnlyPushButtonNoOff("PLT_JESTER_COMMAND_GROUND_STABILIZE", devices.JESTERAI, 3587, PILOT_JESTER_RADAR_COMMANDS, "Ground Stabilize")
+F_14:defineInputOnlyPushButtonNoOff("PLT_JESTER_COMMAND_AIRCRAFT_STABILIZE", devices.JESTERAI, 3588, PILOT_JESTER_RADAR_COMMANDS, "Aircraft Stabilize")
+F_14:defineInputOnlyPushButtonNoOff("PLT_JESTER_COMMAND_RADAR_TWS", devices.JESTERAI, 3589, PILOT_JESTER_RADAR_COMMANDS, "TWS Mode")
+F_14:defineInputOnlyPushButtonNoOff("PLT_JESTER_COMMAND_RADAR_RWS", devices.JESTERAI, 3590, PILOT_JESTER_RADAR_COMMANDS, "RWS Mode")
+
+-- Iceman
+local RIO_ICEMAN_WHEEL = "RIO Iceman Wheel"
+
+F_14:defineInputOnlyPushButtonWithValues("RIO_ICEMAN_MENU_TOGGLE", devices.JESTERAI, 3550, 1, -1, RIO_ICEMAN_WHEEL, "Toggle Menu")
+F_14:defineInputOnlyPushButtonNoOff("RIO_ICEMAN_COMMAND_1", devices.JESTERAI, 3551, RIO_ICEMAN_WHEEL, "Command 1")
+F_14:defineInputOnlyPushButtonNoOff("RIO_ICEMAN_COMMAND_2", devices.JESTERAI, 3552, RIO_ICEMAN_WHEEL, "Command 2")
+F_14:defineInputOnlyPushButtonNoOff("RIO_ICEMAN_COMMAND_3", devices.JESTERAI, 3553, RIO_ICEMAN_WHEEL, "Command 3")
+F_14:defineInputOnlyPushButtonNoOff("RIO_ICEMAN_COMMAND_4", devices.JESTERAI, 3554, RIO_ICEMAN_WHEEL, "Command 4")
+F_14:defineInputOnlyPushButtonNoOff("RIO_ICEMAN_COMMAND_5", devices.JESTERAI, 3555, RIO_ICEMAN_WHEEL, "Command 5")
+F_14:defineInputOnlyPushButtonNoOff("RIO_ICEMAN_COMMAND_6", devices.JESTERAI, 3556, RIO_ICEMAN_WHEEL, "Command 6")
+F_14:defineInputOnlyPushButtonNoOff("RIO_ICEMAN_COMMAND_7", devices.JESTERAI, 3557, RIO_ICEMAN_WHEEL, "Command 7")
+F_14:defineInputOnlyPushButtonNoOff("RIO_ICEMAN_COMMAND_8", devices.JESTERAI, 3558, RIO_ICEMAN_WHEEL, "Command 8")
+F_14:defineInputOnlyPushButtonNoOff("RIO_ICEMAN_MENU_CLOSE", devices.JESTERAI, 3725, RIO_ICEMAN_WHEEL, "Close Menu")
 
 return F_14
