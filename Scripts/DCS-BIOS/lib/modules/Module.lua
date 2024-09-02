@@ -443,6 +443,32 @@ function Module:defineLoSetCommand(identifier, iCommand, category, description)
 	return control
 end
 
+--- Adds an input-only control which performs a specific LoSetCommand with no arguments
+--- @param identifier string the unique identifier for the control
+--- @param iCommand_off ICommand the dcs icommand to move the switch down
+--- @param iCommand_on ICommand the dcs icommand to move the switch up
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @return Control control the control which was added to the module
+function Module:defineLoSetCommand2Pos(identifier, iCommand_off, iCommand_on, category, description)
+	local control = Control:new(category, ControlType.action, identifier, description, {
+		FixedStepInput:new("switch to previous or next state"),
+		SetStateInput:new(1, "set the switch position -- 0 = off, 1 = on"),
+	}, {})
+
+	self:addControl(control)
+
+	self:addInputProcessor(identifier, function(action)
+		if action == "1" or action == "INC" then
+			LoSetCommand(iCommand_on)
+		elseif action == "0" or action == "DEC" then
+			LoSetCommand(iCommand_off)
+		end
+	end)
+
+	return control
+end
+
 --- Adds a new rotary potentiometer with values between 0 and 65535
 --- @param identifier string the unique identifier for the control
 --- @param device_id integer the dcs device id
