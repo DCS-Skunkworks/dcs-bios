@@ -1171,4 +1171,306 @@ F_15E:defineMultipositionSwitch("R_LCP_LASER_DIG_4", 44, 3073, 73, 8, 0.1, "Rear
 F_15E:defineReadWriteRadio("UHF_RADIO", 7, 7, 3, 1000, "UHF RADIO")
 F_15E:defineReadWriteRadio("ARC_210_RADIO", 8, 7, 3, 1000, "ARC-210 RADIO")
 
+local F_MFDL_BUTTONS = {}
+
+local F_MFDC_BUTTONS = {}
+
+local F_MFDR_BUTTONS = {}
+
+local function split(stringvalue, delimiter)
+    result = {};
+    for match in (stringvalue .. delimiter):gmatch("(.-)" .. delimiter) do
+        table.insert(result, match);
+    end
+    return result;
+end
+
+--[[ types PB entries may be missing ; write entries only if they're nil,  "`" or "^" ; add child values with $ for splitting ; only acceptable suffix is _LABEL ; 
+PB%d 							PB1 to PB9
+PB%d%d 							PB01 to PB20 or PB10 to PB20
+[random prefix]_PB%d%d_LABEL 	PACS_PB01-20_LABEL
+PB%d%d-%d%d						PB01-02 for split on PB01 and PB02
+PB%d%d_PB%d%d					PB12_PB13 for split on PB12 and PB13
+[any prefix]_PB%d				TFR_PB5
+[any prefix]_PB%d%d				TFR_PB15 or TPOD_PB01 to TPOD_PB20 or SWPN_PB04
+PB%d%d_Value					is data begins 3 lines after "children are {" line
+PB%d%d%d%d						PB0405 for split between 04 and 05
+]]--
+
+local function parseMFDButtons(stringindication)
+	local input = split(stringindication, "%c")
+	local values = {};
+	for numline, checkline in pairs(input) do
+		if checkline  and string.sub(checkline, 1, 1) == "-" then
+			local start = numline+1
+			local val = input[start]
+			local double = false
+			local done = false
+			if val then
+				local pos = string.match(val, "^PB(%d[%d]?)$")
+				if not pos then
+					pos = string.match(val, "^[%a+_]+PB(%d+)[_LABEL]-$")
+					if not pos then
+						pos = string.match(val, "^PB(%d+)%-%d+$")
+						if not pos then
+							pos = string.match(val, "^PB(%d%d)[%d%d|_PB%d%d]+$")
+							double = true
+						else
+						  	double = true
+						end
+					end
+			  	end
+				if pos then
+					local num = tonumber(pos)
+					local combine = ""
+					for i = start+1, #input do
+						local line = input[i]
+						if line then
+							if string.sub(line, 1,1) ~="-" and line ~= "children are {" then
+								combine = combine .. line
+							elseif line == "children are {" then
+								combine = combine .. "$"
+								for j = i+3, #input do
+									local childline = input[j]
+									if line and string.sub(childline, 1, 1) ~= "}" then
+										combine = combine .. childline
+									else
+										break
+									end
+								end
+							else
+								break
+							end  
+						end
+					end
+					--print(num .. ", " .. val .. ": " .. combine)
+					if not double then
+						if not values[num] or string.match(values[num], "^[`%^]$") then
+							values[num] = combine
+						end
+					else
+						if (not values[num] and not values[num+1]) or (string.match(values[num], "^[`%^]$") and string.match(values[num+1], "^[`%^]$")) then
+							local startnum = string.find(combine, "%d")
+							values[num + (num>10 and 1 or 0)] = string.sub(combine, 1, startnum-1)
+							values[num + (num>10 and 0 or 1)] = string.sub(combine, startnum, #combine)
+						end
+					end
+				end  
+			end 
+		end
+	end
+
+	for i = 1, 20 do
+		if not values[i] then
+			values[i] = "          the button ind"
+		end
+	end
+	return values
+end
+
+F_15E:addExportHook(function()
+	local input = list_indication(3)
+	if not input then
+		return
+	end
+	F_MFDL_BUTTONS = parseMFDButtons(input)
+
+	input = list_indication(5)
+	if not input then
+		return
+	end
+	
+	F_MFDC_BUTTONS = parseMFDButtons(input)
+
+	input = list_indication(7)
+	if not input then
+		return
+	end
+	
+	F_MFDR_BUTTONS = parseMFDButtons(input)
+end)
+
+F_15E:defineString("F_MFDL_BUTTON_1", function() 
+    return F_MFDL_BUTTONS[1] 
+end, 10, "Front Left MFD", "PB 1") 
+F_15E:defineString("F_MFDL_BUTTON_2", function() 
+    return F_MFDL_BUTTONS[2] 
+end, 10, "Front Left MFD", "PB 2") 
+F_15E:defineString("F_MFDL_BUTTON_3", function() 
+    return F_MFDL_BUTTONS[3] 
+end, 10, "Front Left MFD", "PB 3") 
+F_15E:defineString("F_MFDL_BUTTON_4", function() 
+    return F_MFDL_BUTTONS[4] 
+end, 10, "Front Left MFD", "PB 4") 
+F_15E:defineString("F_MFDL_BUTTON_5", function() 
+    return F_MFDL_BUTTONS[5] 
+end, 10, "Front Left MFD", "PB 5") 
+F_15E:defineString("F_MFDL_BUTTON_6", function() 
+    return F_MFDL_BUTTONS[6] 
+end, 10, "Front Left MFD", "PB 6") 
+F_15E:defineString("F_MFDL_BUTTON_7", function() 
+    return F_MFDL_BUTTONS[7] 
+end, 10, "Front Left MFD", "PB 7") 
+F_15E:defineString("F_MFDL_BUTTON_8", function() 
+    return F_MFDL_BUTTONS[8] 
+end, 10, "Front Left MFD", "PB 8") 
+F_15E:defineString("F_MFDL_BUTTON_9", function() 
+    return F_MFDL_BUTTONS[9] 
+end, 10, "Front Left MFD", "PB 9") 
+F_15E:defineString("F_MFDL_BUTTON_10", function() 
+    return F_MFDL_BUTTONS[10] 
+end, 10, "Front Left MFD", "PB 10") 
+F_15E:defineString("F_MFDL_BUTTON_11", function() 
+    return F_MFDL_BUTTONS[11] 
+end, 10, "Front Left MFD", "PB 11") 
+F_15E:defineString("F_MFDL_BUTTON_12", function() 
+    return F_MFDL_BUTTONS[12] 
+end, 10, "Front Left MFD", "PB 12") 
+F_15E:defineString("F_MFDL_BUTTON_13", function() 
+    return F_MFDL_BUTTONS[13] 
+end, 10, "Front Left MFD", "PB 13") 
+F_15E:defineString("F_MFDL_BUTTON_14", function() 
+    return F_MFDL_BUTTONS[14] 
+end, 10, "Front Left MFD", "PB 14") 
+F_15E:defineString("F_MFDL_BUTTON_15", function() 
+    return F_MFDL_BUTTONS[15] 
+end, 10, "Front Left MFD", "PB 15") 
+F_15E:defineString("F_MFDL_BUTTON_16", function() 
+    return F_MFDL_BUTTONS[16] 
+end, 10, "Front Left MFD", "PB 16") 
+F_15E:defineString("F_MFDL_BUTTON_17", function() 
+    return F_MFDL_BUTTONS[17] 
+end, 10, "Front Left MFD", "PB 17") 
+F_15E:defineString("F_MFDL_BUTTON_18", function() 
+    return F_MFDL_BUTTONS[18] 
+end, 10, "Front Left MFD", "PB 18") 
+F_15E:defineString("F_MFDL_BUTTON_19", function() 
+    return F_MFDL_BUTTONS[19] 
+end, 10, "Front Left MFD", "PB 19") 
+F_15E:defineString("F_MFDL_BUTTON_20", function() 
+    return F_MFDL_BUTTONS[20] 
+end, 10, "Front Left MFD", "PB 20")
+
+F_15E:defineString("F_MFDC_BUTTON_1", function() 
+    return F_MFDC_BUTTONS[1] 
+end, 10, "Front Center MFD", "PB 1") 
+F_15E:defineString("F_MFDC_BUTTON_2", function() 
+    return F_MFDC_BUTTONS[2] 
+end, 10, "Front Center MFD", "PB 2") 
+F_15E:defineString("F_MFDC_BUTTON_3", function() 
+    return F_MFDC_BUTTONS[3] 
+end, 10, "Front Center MFD", "PB 3") 
+F_15E:defineString("F_MFDC_BUTTON_4", function() 
+    return F_MFDC_BUTTONS[4] 
+end, 10, "Front Center MFD", "PB 4") 
+F_15E:defineString("F_MFDC_BUTTON_5", function() 
+    return F_MFDC_BUTTONS[5] 
+end, 10, "Front Center MFD", "PB 5") 
+F_15E:defineString("F_MFDC_BUTTON_6", function() 
+    return F_MFDC_BUTTONS[6] 
+end, 10, "Front Center MFD", "PB 6") 
+F_15E:defineString("F_MFDC_BUTTON_7", function() 
+    return F_MFDC_BUTTONS[7] 
+end, 10, "Front Center MFD", "PB 7") 
+F_15E:defineString("F_MFDC_BUTTON_8", function() 
+    return F_MFDC_BUTTONS[8] 
+end, 10, "Front Center MFD", "PB 8") 
+F_15E:defineString("F_MFDC_BUTTON_9", function() 
+    return F_MFDC_BUTTONS[9] 
+end, 10, "Front Center MFD", "PB 9") 
+F_15E:defineString("F_MFDC_BUTTON_10", function() 
+    return F_MFDC_BUTTONS[10] 
+end, 10, "Front Center MFD", "PB 10") 
+F_15E:defineString("F_MFDC_BUTTON_11", function() 
+    return F_MFDC_BUTTONS[11] 
+end, 10, "Front Center MFD", "PB 11") 
+F_15E:defineString("F_MFDC_BUTTON_12", function() 
+    return F_MFDC_BUTTONS[12] 
+end, 10, "Front Center MFD", "PB 12") 
+F_15E:defineString("F_MFDC_BUTTON_13", function() 
+    return F_MFDC_BUTTONS[13] 
+end, 10, "Front Center MFD", "PB 13") 
+F_15E:defineString("F_MFDC_BUTTON_14", function() 
+    return F_MFDC_BUTTONS[14] 
+end, 10, "Front Center MFD", "PB 14") 
+F_15E:defineString("F_MFDC_BUTTON_15", function() 
+    return F_MFDC_BUTTONS[15] 
+end, 10, "Front Center MFD", "PB 15") 
+F_15E:defineString("F_MFDC_BUTTON_16", function() 
+    return F_MFDC_BUTTONS[16] 
+end, 10, "Front Center MFD", "PB 16") 
+F_15E:defineString("F_MFDC_BUTTON_17", function() 
+    return F_MFDC_BUTTONS[17] 
+end, 10, "Front Center MFD", "PB 17") 
+F_15E:defineString("F_MFDC_BUTTON_18", function() 
+    return F_MFDC_BUTTONS[18] 
+end, 10, "Front Center MFD", "PB 18") 
+F_15E:defineString("F_MFDC_BUTTON_19", function() 
+    return F_MFDC_BUTTONS[19] 
+end, 10, "Front Center MFD", "PB 19") 
+F_15E:defineString("F_MFDC_BUTTON_20", function() 
+    return F_MFDC_BUTTONS[20] 
+end, 10, "Front Center MFD", "PB 20") 
+
+F_15E:defineString("F_MFDR_BUTTON_1", function() 
+    return F_MFDR_BUTTONS[1] 
+end, 10, "Front Right MFD", "PB 1") 
+F_15E:defineString("F_MFDR_BUTTON_2", function() 
+    return F_MFDR_BUTTONS[2] 
+end, 10, "Front Right MFD", "PB 2") 
+F_15E:defineString("F_MFDR_BUTTON_3", function() 
+    return F_MFDR_BUTTONS[3] 
+end, 10, "Front Right MFD", "PB 3") 
+F_15E:defineString("F_MFDR_BUTTON_4", function() 
+    return F_MFDR_BUTTONS[4] 
+end, 10, "Front Right MFD", "PB 4") 
+F_15E:defineString("F_MFDR_BUTTON_5", function() 
+    return F_MFDR_BUTTONS[5] 
+end, 10, "Front Right MFD", "PB 5") 
+F_15E:defineString("F_MFDR_BUTTON_6", function() 
+    return F_MFDR_BUTTONS[6] 
+end, 10, "Front Right MFD", "PB 6") 
+F_15E:defineString("F_MFDR_BUTTON_7", function() 
+    return F_MFDR_BUTTONS[7] 
+end, 10, "Front Right MFD", "PB 7") 
+F_15E:defineString("F_MFDR_BUTTON_8", function() 
+    return F_MFDR_BUTTONS[8] 
+end, 10, "Front Right MFD", "PB 8") 
+F_15E:defineString("F_MFDR_BUTTON_9", function() 
+    return F_MFDR_BUTTONS[9] 
+end, 10, "Front Right MFD", "PB 9") 
+F_15E:defineString("F_MFDR_BUTTON_10", function() 
+    return F_MFDR_BUTTONS[10] 
+end, 10, "Front Right MFD", "PB 10") 
+F_15E:defineString("F_MFDR_BUTTON_11", function() 
+    return F_MFDR_BUTTONS[11] 
+end, 10, "Front Right MFD", "PB 11") 
+F_15E:defineString("F_MFDR_BUTTON_12", function() 
+    return F_MFDR_BUTTONS[12] 
+end, 10, "Front Right MFD", "PB 12") 
+F_15E:defineString("F_MFDR_BUTTON_13", function() 
+    return F_MFDR_BUTTONS[13] 
+end, 10, "Front Right MFD", "PB 13") 
+F_15E:defineString("F_MFDR_BUTTON_14", function() 
+    return F_MFDR_BUTTONS[14] 
+end, 10, "Front Right MFD", "PB 14") 
+F_15E:defineString("F_MFDR_BUTTON_15", function() 
+    return F_MFDR_BUTTONS[15] 
+end, 10, "Front Right MFD", "PB 15") 
+F_15E:defineString("F_MFDR_BUTTON_16", function() 
+    return F_MFDR_BUTTONS[16] 
+end, 10, "Front Right MFD", "PB 16") 
+F_15E:defineString("F_MFDR_BUTTON_17", function() 
+    return F_MFDR_BUTTONS[17] 
+end, 10, "Front Right MFD", "PB 17") 
+F_15E:defineString("F_MFDR_BUTTON_18", function() 
+    return F_MFDR_BUTTONS[18] 
+end, 10, "Front Right MFD", "PB 18") 
+F_15E:defineString("F_MFDR_BUTTON_19", function() 
+    return F_MFDR_BUTTONS[19] 
+end, 10, "Front Right MFD", "PB 19") 
+F_15E:defineString("F_MFDR_BUTTON_20", function() 
+    return F_MFDR_BUTTONS[20] 
+end, 10, "Front Right MFD", "PB 20")
+
 return F_15E
