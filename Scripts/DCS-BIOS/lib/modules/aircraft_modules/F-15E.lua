@@ -1171,4 +1171,606 @@ F_15E:defineMultipositionSwitch("R_LCP_LASER_DIG_4", 44, 3073, 73, 8, 0.1, "Rear
 F_15E:defineReadWriteRadio("UHF_RADIO", 7, 7, 3, 1000, "UHF RADIO")
 F_15E:defineReadWriteRadio("ARC_210_RADIO", 8, 7, 3, 1000, "ARC-210 RADIO")
 
+local F_MPDL_BUTTONS = {}
+
+local F_MPCD_BUTTONS = {}
+
+local F_MPDR_BUTTONS = {}
+
+local function split(stringvalue, delimiter)
+	local result = {}
+	for match in (stringvalue .. delimiter):gmatch("(.-)" .. delimiter) do
+		table.insert(result, match)
+	end
+	return result
+end
+
+--[[ types PB entries may be missing ; write entries only if they're nil,  "`" or "^" ; add child values with $ for splitting ; only acceptable suffix is _LABEL ;
+PB%d 							PB1 to PB9
+PB%d%d 							PB01 to PB20 or PB10 to PB20
+[random prefix]_PB%d%d_LABEL 	PACS_PB01-20_LABEL
+PB%d%d-%d%d						PB01-02 for split on PB01 and PB02
+PB%d%d_PB%d%d					PB12_PB13 for split on PB12 and PB13
+[any prefix]_PB%d				TFR_PB5
+[any prefix]_PB%d%d				TFR_PB15 or TPOD_PB01 to TPOD_PB20 or SWPN_PB04
+PB%d%d_Value					is data begins 3 lines after "children are {" line
+PB%d%d%d%d						PB0405 for split between 04 and 05
+PB%d%d_%d%d						PB13_14 for split between 13 and 14
+]]
+--
+
+-- matches for various pushbutton label names
+local matchers = {
+	{ "^PB(%d[%d]?)$", false },
+	{ "^[%a+_]+PB(%d+)[_LABEL]-$", false },
+	{ "^PB(%d+)%-%d+$", true },
+	{ "^PB(%d%d)[%d%d|_PB%d%d|_%d%d]+$", true },
+}
+
+-- function for matching the "PB____" button descriptors
+local function match_button_descriptors(val)
+	for _, pair in ipairs(matchers) do
+		local pos = string.match(val, pair[1])
+		if pos then
+			return tonumber(pos), pair[2]
+		end
+	end
+	return nil, nil
+end
+
+-- function for parsing the button labels
+local function parseMFDButtons(indicationID)
+	local input = split(list_indication(indicationID), "%c")
+	if not input then
+		return nil
+	end
+	local values = {}
+	for numline, checkline in pairs(input) do
+		if checkline and string.sub(checkline, 1, 1) == "-" then -- a line of dashes denotes the start/end of a value grouping
+			local start = numline + 1
+			local val = input[start]
+			if val then
+				local num, double = match_button_descriptors(val) -- check if its one of the PB lines
+				if num then
+					local combine = ""
+					for i = start + 1, #input do -- real values start 1 line after the PB___ stuff
+						local line = input[i]
+						if line then
+							if line == "children are {" then -- check for sub-value (child)
+								combine = combine .. "$"
+								for j = i + 3, #input do -- sub-values start 3 lines after the beginning "children are" line
+									local childline = input[j]
+									if line and string.sub(childline, 1, 1) ~= "}" then -- sub-values end with }
+										combine = combine .. childline
+									else
+										break
+									end
+								end
+							elseif string.sub(line, 1, 1) ~= "-" then -- check if value group ended with dashes
+								combine = combine .. line
+							else
+								break
+							end
+						end
+					end
+					if double then
+						if (not values[num] and not values[num + 1]) or (string.match(values[num], "^[`%^]$") and string.match(values[num + 1], "^[`%^]$")) then
+							local startnum = string.find(combine, "%d")
+							if startnum then
+								values[num + (num > 10 and 1 or 0)] = string.sub(combine, 1, startnum - 1) -- if the buttons is on the right or top, reverse the order so the top has text
+								values[num + (num > 10 and 0 or 1)] = string.sub(combine, startnum, #combine) -- and the bottom has the number (like how its displayed)
+							end
+						end
+					else
+						if (not values[num] or string.match(values[num], "^[`%^]$")) and combine ~= "" then -- up/down arrows are ´/^ so they should be overwritten
+							values[num] = combine
+						end
+					end
+				end
+			end
+		end
+	end
+
+	for i = 1, 20 do -- fill the rest with spaces
+		if not values[i] then
+			values[i] = " "
+		end
+	end
+	return values
+end
+
+F_15E:addExportHook(function()
+	local output = parseMFDButtons(3)
+	if not output then
+		return
+	end
+	F_MPDL_BUTTONS = output
+end)
+
+F_15E:addExportHook(function()
+	local output = parseMFDButtons(5)
+	if not output then
+		return
+	end
+	F_MPCD_BUTTONS = output
+end)
+
+F_15E:addExportHook(function()
+	local output = parseMFDButtons(7)
+	if not output then
+		return
+	end
+	F_MPDR_BUTTONS = output
+end)
+
+F_15E:defineString("F_MPDL_PBLABEL_01", function()
+	return F_MPDL_BUTTONS[1]
+end, 10, "Front Left MPD Labels", "PB 01")
+F_15E:defineString("F_MPDL_PBLABEL_02", function()
+	return F_MPDL_BUTTONS[2]
+end, 10, "Front Left MPD Labels", "PB 02")
+F_15E:defineString("F_MPDL_PBLABEL_03", function()
+	return F_MPDL_BUTTONS[3]
+end, 10, "Front Left MPD Labels", "PB 03")
+F_15E:defineString("F_MPDL_PBLABEL_04", function()
+	return F_MPDL_BUTTONS[4]
+end, 10, "Front Left MPD Labels", "PB 04")
+F_15E:defineString("F_MPDL_PBLABEL_05", function()
+	return F_MPDL_BUTTONS[5]
+end, 10, "Front Left MPD Labels", "PB 05")
+F_15E:defineString("F_MPDL_PBLABEL_06", function()
+	return F_MPDL_BUTTONS[6]
+end, 10, "Front Left MPD Labels", "PB 06")
+F_15E:defineString("F_MPDL_PBLABEL_07", function()
+	return F_MPDL_BUTTONS[7]
+end, 10, "Front Left MPD Labels", "PB 07")
+F_15E:defineString("F_MPDL_PBLABEL_08", function()
+	return F_MPDL_BUTTONS[8]
+end, 10, "Front Left MPD Labels", "PB 08")
+F_15E:defineString("F_MPDL_PBLABEL_09", function()
+	return F_MPDL_BUTTONS[9]
+end, 10, "Front Left MPD Labels", "PB 09")
+F_15E:defineString("F_MPDL_PBLABEL_10", function()
+	return F_MPDL_BUTTONS[10]
+end, 10, "Front Left MPD Labels", "PB 10")
+F_15E:defineString("F_MPDL_PBLABEL_11", function()
+	return F_MPDL_BUTTONS[11]
+end, 10, "Front Left MPD Labels", "PB 11")
+F_15E:defineString("F_MPDL_PBLABEL_12", function()
+	return F_MPDL_BUTTONS[12]
+end, 10, "Front Left MPD Labels", "PB 12")
+F_15E:defineString("F_MPDL_PBLABEL_13", function()
+	return F_MPDL_BUTTONS[13]
+end, 10, "Front Left MPD Labels", "PB 13")
+F_15E:defineString("F_MPDL_PBLABEL_14", function()
+	return F_MPDL_BUTTONS[14]
+end, 10, "Front Left MPD Labels", "PB 14")
+F_15E:defineString("F_MPDL_PBLABEL_15", function()
+	return F_MPDL_BUTTONS[15]
+end, 10, "Front Left MPD Labels", "PB 15")
+F_15E:defineString("F_MPDL_PBLABEL_16", function()
+	return F_MPDL_BUTTONS[16]
+end, 10, "Front Left MPD Labels", "PB 16")
+F_15E:defineString("F_MPDL_PBLABEL_17", function()
+	return F_MPDL_BUTTONS[17]
+end, 10, "Front Left MPD Labels", "PB 17")
+F_15E:defineString("F_MPDL_PBLABEL_18", function()
+	return F_MPDL_BUTTONS[18]
+end, 10, "Front Left MPD Labels", "PB 18")
+F_15E:defineString("F_MPDL_PBLABEL_19", function()
+	return F_MPDL_BUTTONS[19]
+end, 10, "Front Left MPD Labels", "PB 19")
+F_15E:defineString("F_MPDL_PBLABEL_20", function()
+	return F_MPDL_BUTTONS[20]
+end, 10, "Front Left MPD Labels", "PB 20")
+
+F_15E:defineString("F_MPCD_PBLABEL_01", function()
+	return F_MPCD_BUTTONS[1]
+end, 10, "Front Center MPCD Labels", "PB 01")
+F_15E:defineString("F_MPCD_PBLABEL_02", function()
+	return F_MPCD_BUTTONS[2]
+end, 10, "Front Center MPCD Labels", "PB 02")
+F_15E:defineString("F_MPCD_PBLABEL_03", function()
+	return F_MPCD_BUTTONS[3]
+end, 10, "Front Center MPCD Labels", "PB 03")
+F_15E:defineString("F_MPCD_PBLABEL_04", function()
+	return F_MPCD_BUTTONS[4]
+end, 10, "Front Center MPCD Labels", "PB 04")
+F_15E:defineString("F_MPCD_PBLABEL_05", function()
+	return F_MPCD_BUTTONS[5]
+end, 10, "Front Center MPCD Labels", "PB 05")
+F_15E:defineString("F_MPCD_PBLABEL_06", function()
+	return F_MPCD_BUTTONS[6]
+end, 10, "Front Center MPCD Labels", "PB 06")
+F_15E:defineString("F_MPCD_PBLABEL_07", function()
+	return F_MPCD_BUTTONS[7]
+end, 10, "Front Center MPCD Labels", "PB 07")
+F_15E:defineString("F_MPCD_PBLABEL_08", function()
+	return F_MPCD_BUTTONS[8]
+end, 10, "Front Center MPCD Labels", "PB 08")
+F_15E:defineString("F_MPCD_PBLABEL_09", function()
+	return F_MPCD_BUTTONS[9]
+end, 10, "Front Center MPCD Labels", "PB 09")
+F_15E:defineString("F_MPCD_PBLABEL_10", function()
+	return F_MPCD_BUTTONS[10]
+end, 10, "Front Center MPCD Labels", "PB 10")
+F_15E:defineString("F_MPCD_PBLABEL_11", function()
+	return F_MPCD_BUTTONS[11]
+end, 10, "Front Center MPCD Labels", "PB 11")
+F_15E:defineString("F_MPCD_PBLABEL_12", function()
+	return F_MPCD_BUTTONS[12]
+end, 10, "Front Center MPCD Labels", "PB 12")
+F_15E:defineString("F_MPCD_PBLABEL_13", function()
+	return F_MPCD_BUTTONS[13]
+end, 10, "Front Center MPCD Labels", "PB 13")
+F_15E:defineString("F_MPCD_PBLABEL_14", function()
+	return F_MPCD_BUTTONS[14]
+end, 10, "Front Center MPCD Labels", "PB 14")
+F_15E:defineString("F_MPCD_PBLABEL_15", function()
+	return F_MPCD_BUTTONS[15]
+end, 10, "Front Center MPCD Labels", "PB 15")
+F_15E:defineString("F_MPCD_PBLABEL_16", function()
+	return F_MPCD_BUTTONS[16]
+end, 10, "Front Center MPCD Labels", "PB 16")
+F_15E:defineString("F_MPCD_PBLABEL_17", function()
+	return F_MPCD_BUTTONS[17]
+end, 10, "Front Center MPCD Labels", "PB 17")
+F_15E:defineString("F_MPCD_PBLABEL_18", function()
+	return F_MPCD_BUTTONS[18]
+end, 10, "Front Center MPCD Labels", "PB 18")
+F_15E:defineString("F_MPCD_PBLABEL_19", function()
+	return F_MPCD_BUTTONS[19]
+end, 10, "Front Center MPCD Labels", "PB 19")
+F_15E:defineString("F_MPCD_PBLABEL_20", function()
+	return F_MPCD_BUTTONS[20]
+end, 10, "Front Center MPCD Labels", "PB 20")
+
+F_15E:defineString("F_MPDR_PBLABEL_01", function()
+	return F_MPDR_BUTTONS[1]
+end, 10, "Front Right MPD Labels", "PB 01")
+F_15E:defineString("F_MPDR_PBLABEL_02", function()
+	return F_MPDR_BUTTONS[2]
+end, 10, "Front Right MPD Labels", "PB 02")
+F_15E:defineString("F_MPDR_PBLABEL_03", function()
+	return F_MPDR_BUTTONS[3]
+end, 10, "Front Right MPD Labels", "PB 03")
+F_15E:defineString("F_MPDR_PBLABEL_04", function()
+	return F_MPDR_BUTTONS[4]
+end, 10, "Front Right MPD Labels", "PB 04")
+F_15E:defineString("F_MPDR_PBLABEL_05", function()
+	return F_MPDR_BUTTONS[5]
+end, 10, "Front Right MPD Labels", "PB 05")
+F_15E:defineString("F_MPDR_PBLABEL_06", function()
+	return F_MPDR_BUTTONS[6]
+end, 10, "Front Right MPD Labels", "PB 06")
+F_15E:defineString("F_MPDR_PBLABEL_07", function()
+	return F_MPDR_BUTTONS[7]
+end, 10, "Front Right MPD Labels", "PB 07")
+F_15E:defineString("F_MPDR_PBLABEL_08", function()
+	return F_MPDR_BUTTONS[8]
+end, 10, "Front Right MPD Labels", "PB 08")
+F_15E:defineString("F_MPDR_PBLABEL_09", function()
+	return F_MPDR_BUTTONS[9]
+end, 10, "Front Right MPD Labels", "PB 09")
+F_15E:defineString("F_MPDR_PBLABEL_10", function()
+	return F_MPDR_BUTTONS[10]
+end, 10, "Front Right MPD Labels", "PB 10")
+F_15E:defineString("F_MPDR_PBLABEL_11", function()
+	return F_MPDR_BUTTONS[11]
+end, 10, "Front Right MPD Labels", "PB 11")
+F_15E:defineString("F_MPDR_PBLABEL_12", function()
+	return F_MPDR_BUTTONS[12]
+end, 10, "Front Right MPD Labels", "PB 12")
+F_15E:defineString("F_MPDR_PBLABEL_13", function()
+	return F_MPDR_BUTTONS[13]
+end, 10, "Front Right MPD Labels", "PB 13")
+F_15E:defineString("F_MPDR_PBLABEL_14", function()
+	return F_MPDR_BUTTONS[14]
+end, 10, "Front Right MPD Labels", "PB 14")
+F_15E:defineString("F_MPDR_PBLABEL_15", function()
+	return F_MPDR_BUTTONS[15]
+end, 10, "Front Right MPD Labels", "PB 15")
+F_15E:defineString("F_MPDR_PBLABEL_16", function()
+	return F_MPDR_BUTTONS[16]
+end, 10, "Front Right MPD Labels", "PB 16")
+F_15E:defineString("F_MPDR_PBLABEL_17", function()
+	return F_MPDR_BUTTONS[17]
+end, 10, "Front Right MPD Labels", "PB 17")
+F_15E:defineString("F_MPDR_PBLABEL_18", function()
+	return F_MPDR_BUTTONS[18]
+end, 10, "Front Right MPD Labels", "PB 18")
+F_15E:defineString("F_MPDR_PBLABEL_19", function()
+	return F_MPDR_BUTTONS[19]
+end, 10, "Front Right MPD Labels", "PB 19")
+F_15E:defineString("F_MPDR_PBLABEL_20", function()
+	return F_MPDR_BUTTONS[20]
+end, 10, "Front Right MPD Labels", "PB 20")
+
+local R_MPCDL_BUTTONS = {}
+
+local R_MPDL_BUTTONS = {}
+
+local R_MPDR_BUTTONS = {}
+
+local R_MPCDR_BUTTONS = {}
+
+F_15E:addExportHook(function()
+	local output = parseMFDButtons(10)
+	if not output then
+		return
+	end
+	R_MPCDL_BUTTONS = output
+end)
+
+F_15E:addExportHook(function()
+	local output = parseMFDButtons(12)
+	if not output then
+		return
+	end
+
+	R_MPDL_BUTTONS = output
+end)
+
+F_15E:addExportHook(function()
+	local output = parseMFDButtons(14)
+	if not output then
+		return
+	end
+
+	R_MPDR_BUTTONS = output
+end)
+
+F_15E:addExportHook(function()
+	local output = parseMFDButtons(16)
+	if not output then
+		return
+	end
+
+	R_MPCDR_BUTTONS = output
+end)
+
+F_15E:defineString("R_MPCDL_PBLABEL_01", function()
+	return R_MPCDL_BUTTONS[1]
+end, 10, "Rear Left MPCD Labels", "PB 01")
+F_15E:defineString("R_MPCDL_PBLABEL_02", function()
+	return R_MPCDL_BUTTONS[2]
+end, 10, "Rear Left MPCD Labels", "PB 02")
+F_15E:defineString("R_MPCDL_PBLABEL_03", function()
+	return R_MPCDL_BUTTONS[3]
+end, 10, "Rear Left MPCD Labels", "PB 03")
+F_15E:defineString("R_MPCDL_PBLABEL_04", function()
+	return R_MPCDL_BUTTONS[4]
+end, 10, "Rear Left MPCD Labels", "PB 04")
+F_15E:defineString("R_MPCDL_PBLABEL_05", function()
+	return R_MPCDL_BUTTONS[5]
+end, 10, "Rear Left MPCD Labels", "PB 05")
+F_15E:defineString("R_MPCDL_PBLABEL_06", function()
+	return R_MPCDL_BUTTONS[6]
+end, 10, "Rear Left MPCD Labels", "PB 06")
+F_15E:defineString("R_MPCDL_PBLABEL_07", function()
+	return R_MPCDL_BUTTONS[7]
+end, 10, "Rear Left MPCD Labels", "PB 07")
+F_15E:defineString("R_MPCDL_PBLABEL_08", function()
+	return R_MPCDL_BUTTONS[8]
+end, 10, "Rear Left MPCD Labels", "PB 08")
+F_15E:defineString("R_MPCDL_PBLABEL_09", function()
+	return R_MPCDL_BUTTONS[9]
+end, 10, "Rear Left MPCD Labels", "PB 9")
+F_15E:defineString("R_MPCDL_PBLABEL_10", function()
+	return R_MPCDL_BUTTONS[10]
+end, 10, "Rear Left MPCD Labels", "PB 10")
+F_15E:defineString("R_MPCDL_PBLABEL_11", function()
+	return R_MPCDL_BUTTONS[11]
+end, 10, "Rear Left MPCD Labels", "PB 11")
+F_15E:defineString("R_MPCDL_PBLABEL_12", function()
+	return R_MPCDL_BUTTONS[12]
+end, 10, "Rear Left MPCD Labels", "PB 12")
+F_15E:defineString("R_MPCDL_PBLABEL_13", function()
+	return R_MPCDL_BUTTONS[13]
+end, 10, "Rear Left MPCD Labels", "PB 13")
+F_15E:defineString("R_MPCDL_PBLABEL_14", function()
+	return R_MPCDL_BUTTONS[14]
+end, 10, "Rear Left MPCD Labels", "PB 14")
+F_15E:defineString("R_MPCDL_PBLABEL_15", function()
+	return R_MPCDL_BUTTONS[15]
+end, 10, "Rear Left MPCD Labels", "PB 15")
+F_15E:defineString("R_MPCDL_PBLABEL_16", function()
+	return R_MPCDL_BUTTONS[16]
+end, 10, "Rear Left MPCD Labels", "PB 16")
+F_15E:defineString("R_MPCDL_PBLABEL_17", function()
+	return R_MPCDL_BUTTONS[17]
+end, 10, "Rear Left MPCD Labels", "PB 17")
+F_15E:defineString("R_MPCDL_PBLABEL_18", function()
+	return R_MPCDL_BUTTONS[18]
+end, 10, "Rear Left MPCD Labels", "PB 18")
+F_15E:defineString("R_MPCDL_PBLABEL_19", function()
+	return R_MPCDL_BUTTONS[19]
+end, 10, "Rear Left MPCD Labels", "PB 19")
+F_15E:defineString("R_MPCDL_PBLABEL_20", function()
+	return R_MPCDL_BUTTONS[20]
+end, 10, "Rear Left MPCD Labels", "PB 20")
+
+F_15E:defineString("R_MPDL_PBLABEL_01", function()
+	return R_MPDL_BUTTONS[1]
+end, 10, "Rear Left MPD Labels", "PB 01")
+F_15E:defineString("R_MPDL_PBLABEL_02", function()
+	return R_MPDL_BUTTONS[2]
+end, 10, "Rear Left MPD Labels", "PB 02")
+F_15E:defineString("R_MPDL_PBLABEL_03", function()
+	return R_MPDL_BUTTONS[3]
+end, 10, "Rear Left MPD Labels", "PB 03")
+F_15E:defineString("R_MPDL_PBLABEL_04", function()
+	return R_MPDL_BUTTONS[4]
+end, 10, "Rear Left MPD Labels", "PB 04")
+F_15E:defineString("R_MPDL_PBLABEL_05", function()
+	return R_MPDL_BUTTONS[5]
+end, 10, "Rear Left MPD Labels", "PB 05")
+F_15E:defineString("R_MPDL_PBLABEL_06", function()
+	return R_MPDL_BUTTONS[6]
+end, 10, "Rear Left MPD Labels", "PB 06")
+F_15E:defineString("R_MPDL_PBLABEL_07", function()
+	return R_MPDL_BUTTONS[7]
+end, 10, "Rear Left MPD Labels", "PB 07")
+F_15E:defineString("R_MPDL_PBLABEL_08", function()
+	return R_MPDL_BUTTONS[8]
+end, 10, "Rear Left MPD Labels", "PB 08")
+F_15E:defineString("R_MPDL_PBLABEL_09", function()
+	return R_MPDL_BUTTONS[9]
+end, 10, "Rear Left MPD Labels", "PB 09")
+F_15E:defineString("R_MPDL_PBLABEL_10", function()
+	return R_MPDL_BUTTONS[10]
+end, 10, "Rear Left MPD Labels", "PB 10")
+F_15E:defineString("R_MPDL_PBLABEL_11", function()
+	return R_MPDL_BUTTONS[11]
+end, 10, "Rear Left MPD Labels", "PB 11")
+F_15E:defineString("R_MPDL_PBLABEL_12", function()
+	return R_MPDL_BUTTONS[12]
+end, 10, "Rear Left MPD Labels", "PB 12")
+F_15E:defineString("R_MPDL_PBLABEL_13", function()
+	return R_MPDL_BUTTONS[13]
+end, 10, "Rear Left MPD Labels", "PB 13")
+F_15E:defineString("R_MPDL_PBLABEL_14", function()
+	return R_MPDL_BUTTONS[14]
+end, 10, "Rear Left MPD Labels", "PB 14")
+F_15E:defineString("R_MPDL_PBLABEL_15", function()
+	return R_MPDL_BUTTONS[15]
+end, 10, "Rear Left MPD Labels", "PB 15")
+F_15E:defineString("R_MPDL_PBLABEL_16", function()
+	return R_MPDL_BUTTONS[16]
+end, 10, "Rear Left MPD Labels", "PB 16")
+F_15E:defineString("R_MPDL_PBLABEL_17", function()
+	return R_MPDL_BUTTONS[17]
+end, 10, "Rear Left MPD Labels", "PB 17")
+F_15E:defineString("R_MPDL_PBLABEL_18", function()
+	return R_MPDL_BUTTONS[18]
+end, 10, "Rear Left MPD Labels", "PB 18")
+F_15E:defineString("R_MPDL_PBLABEL_19", function()
+	return R_MPDL_BUTTONS[19]
+end, 10, "Rear Left MPD Labels", "PB 19")
+F_15E:defineString("R_MPDL_PBLABEL_20", function()
+	return R_MPDL_BUTTONS[20]
+end, 10, "Rear Left MPD Labels", "PB 20")
+
+F_15E:defineString("R_MPDR_PBLABEL_01", function()
+	return R_MPDR_BUTTONS[1]
+end, 10, "Rear Right MPD Labels", "PB 01")
+F_15E:defineString("R_MPDR_PBLABEL_02", function()
+	return R_MPDR_BUTTONS[2]
+end, 10, "Rear Right MPD Labels", "PB 02")
+F_15E:defineString("R_MPDR_PBLABEL_03", function()
+	return R_MPDR_BUTTONS[3]
+end, 10, "Rear Right MPD Labels", "PB 03")
+F_15E:defineString("R_MPDR_PBLABEL_04", function()
+	return R_MPDR_BUTTONS[4]
+end, 10, "Rear Right MPD Labels", "PB 04")
+F_15E:defineString("R_MPDR_PBLABEL_05", function()
+	return R_MPDR_BUTTONS[5]
+end, 10, "Rear Right MPD Labels", "PB 05")
+F_15E:defineString("R_MPDR_PBLABEL_06", function()
+	return R_MPDR_BUTTONS[6]
+end, 10, "Rear Right MPD Labels", "PB 06")
+F_15E:defineString("R_MPDR_PBLABEL_07", function()
+	return R_MPDR_BUTTONS[7]
+end, 10, "Rear Right MPD Labels", "PB 07")
+F_15E:defineString("R_MPDR_PBLABEL_08", function()
+	return R_MPDR_BUTTONS[8]
+end, 10, "Rear Right MPD Labels", "PB 08")
+F_15E:defineString("R_MPDR_PBLABEL_09", function()
+	return R_MPDR_BUTTONS[9]
+end, 10, "Rear Right MPD Labels", "PB 09")
+F_15E:defineString("R_MPDR_PBLABEL_10", function()
+	return R_MPDR_BUTTONS[10]
+end, 10, "Rear Right MPD Labels", "PB 10")
+F_15E:defineString("R_MPDR_PBLABEL_11", function()
+	return R_MPDR_BUTTONS[11]
+end, 10, "Rear Right MPD Labels", "PB 11")
+F_15E:defineString("R_MPDR_PBLABEL_12", function()
+	return R_MPDR_BUTTONS[12]
+end, 10, "Rear Right MPD Labels", "PB 12")
+F_15E:defineString("R_MPDR_PBLABEL_13", function()
+	return R_MPDR_BUTTONS[13]
+end, 10, "Rear Right MPD Labels", "PB 13")
+F_15E:defineString("R_MPDR_PBLABEL_14", function()
+	return R_MPDR_BUTTONS[14]
+end, 10, "Rear Right MPD Labels", "PB 14")
+F_15E:defineString("R_MPDR_PBLABEL_15", function()
+	return R_MPDR_BUTTONS[15]
+end, 10, "Rear Right MPD Labels", "PB 15")
+F_15E:defineString("R_MPDR_PBLABEL_16", function()
+	return R_MPDR_BUTTONS[16]
+end, 10, "Rear Right MPD Labels", "PB 16")
+F_15E:defineString("R_MPDR_PBLABEL_17", function()
+	return R_MPDR_BUTTONS[17]
+end, 10, "Rear Right MPD Labels", "PB 17")
+F_15E:defineString("R_MPDR_PBLABEL_18", function()
+	return R_MPDR_BUTTONS[18]
+end, 10, "Rear Right MPD Labels", "PB 18")
+F_15E:defineString("R_MPDR_PBLABEL_19", function()
+	return R_MPDR_BUTTONS[19]
+end, 10, "Rear Right MPD Labels", "PB 19")
+F_15E:defineString("R_MPDR_PBLABEL_20", function()
+	return R_MPDR_BUTTONS[20]
+end, 10, "Rear Right MPD Labels", "PB 20")
+
+F_15E:defineString("R_MPCDR_PBLABEL_01", function()
+	return R_MPCDR_BUTTONS[1]
+end, 10, "Rear Right MPCD Labels", "PB 01")
+F_15E:defineString("R_MPCDR_PBLABEL_02", function()
+	return R_MPCDR_BUTTONS[2]
+end, 10, "Rear Right MPCD Labels", "PB 02")
+F_15E:defineString("R_MPCDR_PBLABEL_03", function()
+	return R_MPCDR_BUTTONS[3]
+end, 10, "Rear Right MPCD Labels", "PB 03")
+F_15E:defineString("R_MPCDR_PBLABEL_04", function()
+	return R_MPCDR_BUTTONS[4]
+end, 10, "Rear Right MPCD Labels", "PB 04")
+F_15E:defineString("R_MPCDR_PBLABEL_05", function()
+	return R_MPCDR_BUTTONS[5]
+end, 10, "Rear Right MPCD Labels", "PB 05")
+F_15E:defineString("R_MPCDR_PBLABEL_06", function()
+	return R_MPCDR_BUTTONS[6]
+end, 10, "Rear Right MPCD Labels", "PB 06")
+F_15E:defineString("R_MPCDR_PBLABEL_07", function()
+	return R_MPCDR_BUTTONS[7]
+end, 10, "Rear Right MPCD Labels", "PB 07")
+F_15E:defineString("R_MPCDR_PBLABEL_08", function()
+	return R_MPCDR_BUTTONS[8]
+end, 10, "Rear Right MPCD Labels", "PB 08")
+F_15E:defineString("R_MPCDR_PBLABEL_09", function()
+	return R_MPCDR_BUTTONS[9]
+end, 10, "Rear Right MPCD Labels", "PB 09")
+F_15E:defineString("R_MPCDR_PBLABEL_10", function()
+	return R_MPCDR_BUTTONS[10]
+end, 10, "Rear Right MPCD Labels", "PB 10")
+F_15E:defineString("R_MPCDR_PBLABEL_11", function()
+	return R_MPCDR_BUTTONS[11]
+end, 10, "Rear Right MPCD Labels", "PB 11")
+F_15E:defineString("R_MPCDR_PBLABEL_12", function()
+	return R_MPCDR_BUTTONS[12]
+end, 10, "Rear Right MPCD Labels", "PB 12")
+F_15E:defineString("R_MPCDR_PBLABEL_13", function()
+	return R_MPCDR_BUTTONS[13]
+end, 10, "Rear Right MPCD Labels", "PB 13")
+F_15E:defineString("R_MPCDR_PBLABEL_14", function()
+	return R_MPCDR_BUTTONS[14]
+end, 10, "Rear Right MPCD Labels", "PB 14")
+F_15E:defineString("R_MPCDR_PBLABEL_15", function()
+	return R_MPCDR_BUTTONS[15]
+end, 10, "Rear Right MPCD Labels", "PB 15")
+F_15E:defineString("R_MPCDR_PBLABEL_16", function()
+	return R_MPCDR_BUTTONS[16]
+end, 10, "Rear Right MPCD Labels", "PB 16")
+F_15E:defineString("R_MPCDR_PBLABEL_17", function()
+	return R_MPCDR_BUTTONS[17]
+end, 10, "Rear Right MPCD Labels", "PB 17")
+F_15E:defineString("R_MPCDR_PBLABEL_18", function()
+	return R_MPCDR_BUTTONS[18]
+end, 10, "Rear Right MPCD Labels", "PB 18")
+F_15E:defineString("R_MPCDR_PBLABEL_19", function()
+	return R_MPCDR_BUTTONS[19]
+end, 10, "Rear Right MPCD Labels", "PB 19")
+F_15E:defineString("R_MPCDR_PBLABEL_20", function()
+	return R_MPCDR_BUTTONS[20]
+end, 10, "Rear Right MPCD Labels", "PB 20")
+
 return F_15E
