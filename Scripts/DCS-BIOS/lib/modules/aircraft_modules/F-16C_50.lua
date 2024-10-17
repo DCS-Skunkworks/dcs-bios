@@ -2090,4 +2090,7 @@ F_16C_50:defineFloat("STANDBY_COMPASS_HEADING", 610, { 1, 0 }, "Standby Compass"
 F_16C_50:defineFloat("STANDBY_COMPASS_PITCH", 611, { -1, 1 }, "Standby Compass", "Standby Compass Pitch")
 F_16C_50:defineFloat("STANDBY_COMPASS_ROLL", 612, { -1, 1 }, "Standby Compass", "Standby Compass Roll")
 
+F_16C_50:defineIndicatorLight("LIGHT_RWR_SHIP_U", 153, "Warning, Caution and IndicatorLights", "RWR SHIP U Light (green)")
+F_16C_50:defineIndicatorLight("LIGHT_RWR_SYSTEST_ON", 154, "Warning, Caution and IndicatorLights", "RWR SYSTEST ON Light (green)")
+
 return F_16C_50
