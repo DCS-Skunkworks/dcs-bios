@@ -466,9 +466,9 @@ F_14:defineToggleSwitch("RIO_KY28_ZEROIZE", 2, 3427, 361, "KY-28", "RIO KY-28 ZE
 F_14:definePotentiometer("PLT_UHF_REMOTE_BRIGHTNESS", 3, 3350, 1031, { 0, 1 }, "UHF 1", "PILOT UHF ARC-159 Remote Display Brightness")
 F_14:definePotentiometer("RIO_UHF_REMOTE_BRIGHTNESS", 3, 3353, 406, { 0, 1 }, "UHF 1", "RIO UHF ARC-159 Remote Display Brightness")
 F_14:definePotentiometer("PLT_VUHF_REMOTE_BRIGHTNESS", 4, 3356, 1030, { 0, 1 }, "VUHF", "PILOT VHF/UHF Radio Remote Display Brightness")
-F_14:defineToggleSwitch("PLT_UHF_DISPLAY_TEST", 2, 3352, 15004, "UHF 1", "PILOT UHF ARC-159 Radio Remote Display Test")
+F_14:defineToggleSwitch("PLT_UHF_DISPLAY_TEST", 3, 3352, 15004, "UHF 1", "PILOT UHF ARC-159 Radio Remote Display Test")
 F_14:defineToggleSwitch("RIO_UHF_DISPLAY_TEST", 3, 3355, 405, "UHF 1", "RIO UHF ARC-159 Radio Remote Display Test")
-F_14:defineToggleSwitch("PLT_VUHF_DISPLAY_TEST", 3, 3355, 15003, "VUHF", "PILOT VHF/UHF ARC-182 Radio Remote Display Test")
+F_14:defineToggleSwitch("PLT_VUHF_DISPLAY_TEST", 4, 3358, 15003, "VUHF", "PILOT VHF/UHF ARC-182 Radio Remote Display Test")
 
 -- DECM Panel
 F_14:defineMultipositionSwitch("RIO_DECM_PW_MODE", 53, 3252, 151, 6, 0.2, "DECM Panel", "RIO DECM ALQ-100 Power/Mode")
