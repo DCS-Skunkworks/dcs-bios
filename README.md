@@ -275,7 +275,7 @@ For questions, consider asking in our [Discussions][discussions-url] page, or re
 [issues-shield]: https://img.shields.io/github/issues/DCS-Skunkworks/dcs-bios.svg?style=for-the-badge
 [issues-url]: https://github.com/DCS-Skunkworks/dcs-bios/issues
 [license-shield]: https://img.shields.io/github/license/DCS-Skunkworks/dcs-bios.svg?style=for-the-badge
-[license-url]: https://github.com/DCS-Skunkworks/dcs-bios/blob/master/LICENSE
+[license-url]: https://github.com/DCS-Skunkworks/dcs-bios/blob/main/LICENSE
 [release-shield]: https://img.shields.io/github/release/DCS-Skunkworks/dcs-bios.svg?style=for-the-badge
 [release-url]: https://github.com/DCS-Skunkworks/dcs-bios/releases
 [discord-shield]: https://img.shields.io/discord/533342958712258572?style=for-the-badge
@@ -287,9 +287,9 @@ For questions, consider asking in our [Discussions][discussions-url] page, or re
 [latest-release-url]: https://github.com/DCS-Skunkworks/dcs-bios/releases/latest
 [wiki-url]: https://github.com/DCS-Skunkworks/dcs-bios/wiki/
 [discussions-url]: https://github.com/DCS-Skunkworks/dcs-bios/discussions/
-[user-guide-url]: https://github.com/DCS-Skunkworks/dcs-bios/blob/master/Scripts/DCS-BIOS/doc/userguide.adoc
+[user-guide-url]: https://github.com/DCS-Skunkworks/dcs-bios/blob/main/Scripts/DCS-BIOS/doc/userguide.adoc
 [dcsbiosbridge-url]: https://github.com/DCS-Skunkworks/DCSBIOSBridge/releases
-[developer-guide-url]: https://github.com/DCS-Skunkworks/dcs-bios/blob/master/Scripts/DCS-BIOS/doc/developerguide.adoc
-[contributing-url]: https://github.com/DCS-Skunkworks/dcs-bios/blob/master/CONTRIBUTING.md
+[developer-guide-url]: https://github.com/DCS-Skunkworks/dcs-bios/blob/main/Scripts/DCS-BIOS/doc/developerguide.adoc
+[contributing-url]: https://github.com/DCS-Skunkworks/dcs-bios/blob/main/CONTRIBUTING.md
 
 [client-lib-dcs-bios-communicator-url]: https://github.com/charliefoxtwo/DCS-BIOS-Communicator

@@ -46,7 +46,7 @@ Before creating bug reports, please check [this list](#before-submitting-a-bug-r
 
 #### Before Submitting A Bug Report
 
-- **Check if you can reproduce the problem [in the latest version of DCS-BIOS](https://github.com/DCS-Skunkworks/dcs-bios/blob/master/README.md#installation)**.
+- **Check if you can reproduce the problem [in the latest version of DCS-BIOS](https://github.com/DCS-Skunkworks/dcs-bios/blob/main/README.md#installation)**.
 - **Check the [discussions](https://github.com/DCS-Skunkworks/dcs-bios/discussions)** for a list of common questions and problems.
 - **Perform a [cursory search](https://github.com/search?q=+is%3Aissue+user%3ADCS-Skunkworks)** to see if the problem has already been reported. If it has **and the issue is still open**, add a comment to the existing issue instead of opening a new one.
 
@@ -82,7 +82,7 @@ Include details about your configuration and environment:
 
 This section guides you through submitting an enhancement suggestion for DCS-BIOS, including completely new features and minor improvements to existing functionality. Following these guidelines helps maintainers and the community understand your suggestion :pencil: and find related suggestions :mag_right:.
 
-Before creating enhancement suggestions, please check [this list](#before-submitting-an-enhancement-suggestion) as you might find out that you don't need to create one. When you are creating an enhancement suggestion, please [include as many details as possible](#how-do-i-submit-a-good-enhancement-suggestion). Fill in [the template](https://github.com/DCS-Skunkworks/dcs-bios/blob/master/.github/ISSUE_TEMPLATE/feature_request.md), including the steps that you imagine you would take if the feature you're requesting existed.
+Before creating enhancement suggestions, please check [this list](#before-submitting-an-enhancement-suggestion) as you might find out that you don't need to create one. When you are creating an enhancement suggestion, please [include as many details as possible](#how-do-i-submit-a-good-enhancement-suggestion). Fill in [the template](https://github.com/DCS-Skunkworks/dcs-bios/blob/main/.github/ISSUE_TEMPLATE/feature_request.md), including the steps that you imagine you would take if the feature you're requesting existed.
 
 #### Before Submitting An Enhancement Suggestion
 

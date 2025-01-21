@@ -82,7 +82,7 @@ jobs:
         with:
           tag: latest
           force_push_tag: true
-          message: Nightly build of master branch
+          message: Nightly build of main branch
 
       - name: Upload Release
         uses: ncipollo/release-action@v1
@@ -90,7 +90,7 @@ jobs:
           allowUpdates: true
           artifactErrorsFailBuild: true
           artifacts: './Scripts/${{ steps.filename.outputs.zip }},./Programs/Arduino_Tools.zip'
-          commit: master
+          commit: main
           makeLatest: true
           name: 'DCS-BIOS Nightly ${{ steps.date.outputs.date }}'
           prerelease: true
