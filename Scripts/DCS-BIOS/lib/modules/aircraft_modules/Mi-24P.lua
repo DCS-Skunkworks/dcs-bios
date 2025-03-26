@@ -50,7 +50,7 @@ Mi_24P:defineFloat("PLT_RAM_TEMP", 980, { 0, 1 }, "Engine Gauges", "PILOT RAM Te
 Mi_24P:defineIndicatorLight("PLT_APU_ON_L", 79, "Engine Lights", "PILOT APU OFF Light (yellow)")
 Mi_24P:defineIndicatorLight("PLT_GEN_R_OFF_L", 81, "Engine Lights", "PILOT Right Generator OFF Light (red)")
 Mi_24P:defineIndicatorLight("PLT_GEN_L_OFF_L", 94, "Engine Lights", "PILOT Left Generator OFF Light (red)")
-Mi_24P:defineIndicatorLight("PLT_GEN_PARALLEL_L", 94, "Engine Lights", "PILOT Generators in Parallel Light (green)")
+Mi_24P:defineIndicatorLight("PLT_GEN_PARALLEL_L", 178, "Engine Lights", "PILOT Generators in Parallel Light (green)")
 Mi_24P:defineIndicatorLight("PLT_MAIN_TRANS_115_OFF_L", 82, "Engine Lights", "PILOT Main Transformer 115V OFF Light (yellow)")
 Mi_24P:defineIndicatorLight("PLT_MAIN_TRANS_36_OFF_L", 84, "Engine Lights", "PILOT Main Transformer 36V OFF Light (yellow)")
 Mi_24P:defineIndicatorLight("PLT_DC_SOCK_ON_L", 64, "Engine Lights", "PILOT DC Socket ON Light (yellow)")
