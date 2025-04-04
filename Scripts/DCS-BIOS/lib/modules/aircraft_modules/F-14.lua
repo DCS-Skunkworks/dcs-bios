@@ -127,6 +127,33 @@ local function get_radio_remote_display(dev0, indicator_id, test_button_id)
 	return insert_radio_separator(data[3], " ")
 end
 
+---Gets a radio display
+---@param indicator_id integer the indicator to read
+---@param is_pilot boolean whether this is the pilot or rio display
+---@return string display value
+local function get_radio_vuhf_display(indicator_id, is_pilot)
+	local data = Module.parse_indication(indicator_id)
+
+	if not data[0] then
+		return ""
+	end
+
+	-- data[0] holds the length of the data table. 6 Indicates it is in manual frequency mode otherwise it is in preset mode (5).
+	local manual_mode = data[0] == 6
+
+	-- for the rio, we want the data at index 3, and the separator at index 4 if not in preset mode
+	-- for the pilot, we want the data at index 5, and the separator at index 6 if not in preset mode
+	local lower_index = is_pilot and 5 or 3
+
+	if manual_mode then
+		-- in manual mode, the separator is in the next index
+		return insert_radio_separator(data[lower_index], data[lower_index + 1])
+	end
+
+	-- in preset mode, there is no separator, but the next index has other data that we don't care about
+	return insert_radio_separator(data[lower_index], " ")
+end
+
 --------------------------------- Matchstick End
 
 ----------------------------------------- BIOS-Profile
@@ -1332,8 +1359,8 @@ end, 7, "UHF 1", "PILOT UHF ARC-159 Radio Remote Display")
 F_14:defineString("RIO_UHF_REMOTE_DISP", function(dev0)
 	return get_rio_uhf_display(dev0)
 end, 7, "UHF 1", "RIO UHF ARC-159 Radio Remote Display")
-F_14:defineString("PLT_VUHF_REMOTE_DISP", function(dev0)
-	return get_radio_remote_display(dev0, 13, 15003)
+F_14:defineString("PLT_VUHF_REMOTE_DISP", function(_)
+	return get_radio_vuhf_display(14, true)
 end, 7, "VUHF", "PILOT VHF/UHF ARC-182 Radio Remote Display")
 
 local function get_hud_mode(dev0)
@@ -1557,5 +1584,9 @@ F_14:defineInputOnlyPushButtonNoOff("RIO_ICEMAN_COMMAND_6", devices.JESTERAI, 35
 F_14:defineInputOnlyPushButtonNoOff("RIO_ICEMAN_COMMAND_7", devices.JESTERAI, 3557, RIO_ICEMAN_WHEEL, "Command 7")
 F_14:defineInputOnlyPushButtonNoOff("RIO_ICEMAN_COMMAND_8", devices.JESTERAI, 3558, RIO_ICEMAN_WHEEL, "Command 8")
 F_14:defineInputOnlyPushButtonNoOff("RIO_ICEMAN_MENU_CLOSE", devices.JESTERAI, 3725, RIO_ICEMAN_WHEEL, "Close Menu")
+
+F_14:defineString("RIO_VUHF_DISP", function(_)
+	return get_radio_vuhf_display(13, false)
+end, 7, "VUHF", "RIO VHF/UHF ARC-182 Radio Display")
 
 return F_14
