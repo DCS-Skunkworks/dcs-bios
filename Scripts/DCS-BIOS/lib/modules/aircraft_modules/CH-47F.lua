@@ -197,7 +197,42 @@ CH_47F:defineIndicatorLight("PLT_LPCAP_HOT_MIC_LIGHT", 622, PILOT_AUDIO_PANEL, "
 CH_47F:defineIndicatorLight("PLT_LPCAP_CALL_LIGHT", 623, PILOT_AUDIO_PANEL, "Call Button Light (Yellow)")
 
 -- Copilot Low Profile Control Audio Panel
--- local COPILOT_AUDIO_PANEL = "CPLT Low Profile Audio Panel"
+local COPILOT_AUDIO_PANEL = "CPLT Low Profile Audio Panel"
+
+CH_47F:defineToggleSwitch("CPLT_LPCAP_R1_PUSH", devices.COMM_PANEL_LEFT, 3001, 625, COPILOT_AUDIO_PANEL, "FM1 Mute/Monitor")
+CH_47F:definePotentiometer("CPLT_LPCAP_R1_KNOB", devices.COMM_PANEL_LEFT, 3003, 624, { 0, 1 }, COPILOT_AUDIO_PANEL, "FM1 Volume")
+CH_47F:defineToggleSwitch("CPLT_LPCAP_R2_PUSH", devices.COMM_PANEL_LEFT, 3006, 627, COPILOT_AUDIO_PANEL, "UHF Mute/Monitor")
+CH_47F:definePotentiometer("CPLT_LPCAP_R2_KNOB", devices.COMM_PANEL_LEFT, 3008, 626, { 0, 1 }, COPILOT_AUDIO_PANEL, "UHF Volume")
+CH_47F:defineToggleSwitch("CPLT_LPCAP_R3_PUSH", devices.COMM_PANEL_LEFT, 3011, 629, COPILOT_AUDIO_PANEL, "VHF Mute/Monitor")
+CH_47F:definePotentiometer("CPLT_LPCAP_R3_KNOB", devices.COMM_PANEL_LEFT, 3013, 628, { 0, 1 }, COPILOT_AUDIO_PANEL, "VHF Volume")
+CH_47F:defineToggleSwitch("CPLT_LPCAP_R4_PUSH", devices.COMM_PANEL_LEFT, 3016, 631, COPILOT_AUDIO_PANEL, "HF Mute/Monitor")
+CH_47F:definePotentiometer("CPLT_LPCAP_R4_KNOB", devices.COMM_PANEL_LEFT, 3018, 630, { 0, 1 }, COPILOT_AUDIO_PANEL, "HF Volume")
+CH_47F:defineToggleSwitch("CPLT_LPCAP_R5_PUSH", devices.COMM_PANEL_LEFT, 3021, 633, COPILOT_AUDIO_PANEL, "FM2 Mute/Monitor")
+CH_47F:definePotentiometer("CPLT_LPCAP_R5_KNOB", devices.COMM_PANEL_LEFT, 3023, 632, { 0, 1 }, COPILOT_AUDIO_PANEL, "FM2 Volume")
+CH_47F:defineToggleSwitch("CPLT_LPCAP_R6_PUSH", devices.COMM_PANEL_LEFT, 3026, 635, COPILOT_AUDIO_PANEL, "Spare Mute/Monitor")
+CH_47F:definePotentiometer("CPLT_LPCAP_R6_KNOB", devices.COMM_PANEL_LEFT, 3028, 634, { 0, 1 }, COPILOT_AUDIO_PANEL, "Spare Volume")
+CH_47F:defineToggleSwitch("CPLT_LPCAP_R7_PUSH", devices.COMM_PANEL_LEFT, 3031, 637, COPILOT_AUDIO_PANEL, "RWR Mute/Monitor")
+CH_47F:definePotentiometer("CPLT_LPCAP_R7_KNOB", devices.COMM_PANEL_LEFT, 3033, 636, { 0, 1 }, COPILOT_AUDIO_PANEL, "RWR Volume")
+CH_47F:defineToggleSwitch("CPLT_LPCAP_N1_PUSH", devices.COMM_PANEL_LEFT, 3036, 639, COPILOT_AUDIO_PANEL, "VOR Mute/Monitor")
+CH_47F:definePotentiometer("CPLT_LPCAP_N1_KNOB", devices.COMM_PANEL_LEFT, 3038, 638, { 0, 1 }, COPILOT_AUDIO_PANEL, "VOR Volume")
+CH_47F:defineToggleSwitch("CPLT_LPCAP_N2_PUSH", devices.COMM_PANEL_LEFT, 3041, 641, COPILOT_AUDIO_PANEL, "TACAN Mute/Monitor")
+CH_47F:definePotentiometer("CPLT_LPCAP_N2_KNOB", devices.COMM_PANEL_LEFT, 3043, 640, { 0, 1 }, COPILOT_AUDIO_PANEL, "TACAN Volume")
+CH_47F:defineToggleSwitch("CPLT_LPCAP_N3_PUSH", devices.COMM_PANEL_LEFT, 3046, 643, COPILOT_AUDIO_PANEL, "ADF Mute/Monitor")
+CH_47F:definePotentiometer("CPLT_LPCAP_N3_KNOB", devices.COMM_PANEL_LEFT, 3048, 642, { 0, 1 }, COPILOT_AUDIO_PANEL, "ADF Volume")
+CH_47F:defineToggleSwitch("CPLT_LPCAP_N4_PUSH", devices.COMM_PANEL_LEFT, 3051, 645, COPILOT_AUDIO_PANEL, "MB Mute/Monitor")
+CH_47F:definePotentiometer("CPLT_LPCAP_N4_KNOB", devices.COMM_PANEL_LEFT, 3053, 644, { 0, 1 }, COPILOT_AUDIO_PANEL, "MB Volume")
+CH_47F:definePotentiometer("CPLT_LPCAP_MASTER_VOLUME", devices.COMM_PANEL_LEFT, 3056, 647, { 0, 1 }, COPILOT_AUDIO_PANEL, "Master Volume")
+CH_47F:definePushButton("CPLT_LPCAP_ICS_BUTTON", devices.COMM_PANEL_LEFT, 3059, 648, COPILOT_AUDIO_PANEL, "ICS Button")
+CH_47F:definePushButton("CPLT_LPCAP_VOX_BUTTON", devices.COMM_PANEL_LEFT, 3060, 649, COPILOT_AUDIO_PANEL, "VOX Button")
+CH_47F:definePushButton("CPLT_LPCAP_HOT_MIC_BUTTON", devices.COMM_PANEL_LEFT, 3061, 650, COPILOT_AUDIO_PANEL, "Hot Mic Button")
+CH_47F:definePushButton("CPLT_LPCAP_CALL_BUTTON", devices.COMM_PANEL_LEFT, 3062, 651, COPILOT_AUDIO_PANEL, "Call Button")
+CH_47F:defineMultipositionSwitch("CPLT_LPCAP_TX_SELECTOR", devices.COMM_PANEL_LEFT, 3063, 646, 11, 0.05, COPILOT_AUDIO_PANEL, "TX Selector Switch")
+
+CH_47F:defineIndicatorLight("CPLT_LPCAP_ICU_LIGHT", 652, COPILOT_AUDIO_PANEL, "ICU Light (Orange)")
+CH_47F:defineIndicatorLight("CPLT_LPCAP_ICS_LIGHT", 653, COPILOT_AUDIO_PANEL, "ICS Button Light (Yellow)")
+CH_47F:defineIndicatorLight("CPLT_LPCAP_VOX_LIGHT", 654, COPILOT_AUDIO_PANEL, "VOX Button Light (Yellow)")
+CH_47F:defineIndicatorLight("CPLT_LPCAP_HOT_MIC_LIGHT", 655, COPILOT_AUDIO_PANEL, "Hot Mic Button Light (Yellow)")
+CH_47F:defineIndicatorLight("CPLT_LPCAP_CALL_LIGHT", 656, COPILOT_AUDIO_PANEL, "Call Button Light (Yellow)")
 
 -- Troop Commander Low Profile Control Audio Panel
 -- local TC_AUDIO_PANEL = "TC Low Profile Audio Panel"
