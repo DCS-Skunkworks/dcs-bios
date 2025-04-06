@@ -203,7 +203,7 @@ AH_64D:defineFloat("PLT_SAI_BALL", 626, { -1, 1 }, "PLT SAI Gauges", "Pilot SAI 
 AH_64D:defineFloat("PLT_SAI_TURN", 627, { -1, 1 }, "PLT SAI Gauges", "Pilot SAI Turn")
 
 -- Standby Altimeter
-AH_64D:defineRotary("PLT_ALT_SET_KNB", 15, 3001, 477, "PLT Altimeter", "Pilot Altimeter Barometric Setting Knob")
+AH_64D:definePotentiometer("PLT_ALT_SET_KNB", 15, 3001, 477, { 0, 1 }, "PLT Altimeter", "Pilot Altimeter Barometric Setting Knob")
 
 AH_64D:defineFloat("PLT_ALT_NEEDLE", 479, { 0, 1 }, "PLT Altimeter Gauges", "Pilot Altimeter Needle")
 AH_64D:defineFloat("PLT_ALT_1000", 605, { 0, 1 }, "PLT Altimeter Gauges", "Pilot Altimeter 1000 Drum")
