@@ -273,7 +273,42 @@ CH_47F:defineIndicatorLight("TC_LPCAP_HOT_MIC_LIGHT", 688, TC_AUDIO_PANEL, "Hot 
 CH_47F:defineIndicatorLight("TC_LPCAP_CALL_LIGHT", 689, TC_AUDIO_PANEL, "Call Button Light (Yellow)")
 
 -- Left Gunner Low Profile Control Audio Panel
--- local LG_AUDIO_PANEL = "Gunner (L) Low Profile Audio Panel"
+local LG_AUDIO_PANEL = "Gunner (L) Low Profile Audio Panel"
+
+CH_47F:defineToggleSwitch("LG_LPCAP_R1_PUSH", devices.COMM_PANEL_LH_GUNNER, 3001, 1067, LG_AUDIO_PANEL, "FM1 Mute/Monitor")
+CH_47F:definePotentiometer("LG_LPCAP_R1_KNOB", devices.COMM_PANEL_LH_GUNNER, 3003, 1066, { 0, 1 }, LG_AUDIO_PANEL, "FM1 Volume")
+CH_47F:defineToggleSwitch("LG_LPCAP_R2_PUSH", devices.COMM_PANEL_LH_GUNNER, 3006, 1069, LG_AUDIO_PANEL, "UHF Mute/Monitor")
+CH_47F:definePotentiometer("LG_LPCAP_R2_KNOB", devices.COMM_PANEL_LH_GUNNER, 3008, 1068, { 0, 1 }, LG_AUDIO_PANEL, "UHF Volume")
+CH_47F:defineToggleSwitch("LG_LPCAP_R3_PUSH", devices.COMM_PANEL_LH_GUNNER, 3011, 1071, LG_AUDIO_PANEL, "VHF Mute/Monitor")
+CH_47F:definePotentiometer("LG_LPCAP_R3_KNOB", devices.COMM_PANEL_LH_GUNNER, 3013, 1070, { 0, 1 }, LG_AUDIO_PANEL, "VHF Volume")
+CH_47F:defineToggleSwitch("LG_LPCAP_R4_PUSH", devices.COMM_PANEL_LH_GUNNER, 3016, 1073, LG_AUDIO_PANEL, "HF Mute/Monitor")
+CH_47F:definePotentiometer("LG_LPCAP_R4_KNOB", devices.COMM_PANEL_LH_GUNNER, 3018, 1072, { 0, 1 }, LG_AUDIO_PANEL, "HF Volume")
+CH_47F:defineToggleSwitch("LG_LPCAP_R5_PUSH", devices.COMM_PANEL_LH_GUNNER, 3021, 1075, LG_AUDIO_PANEL, "FM2 Mute/Monitor")
+CH_47F:definePotentiometer("LG_LPCAP_R5_KNOB", devices.COMM_PANEL_LH_GUNNER, 3023, 1074, { 0, 1 }, LG_AUDIO_PANEL, "FM2 Volume")
+CH_47F:defineToggleSwitch("LG_LPCAP_R6_PUSH", devices.COMM_PANEL_LH_GUNNER, 3026, 1077, LG_AUDIO_PANEL, "Spare Mute/Monitor")
+CH_47F:definePotentiometer("LG_LPCAP_R6_KNOB", devices.COMM_PANEL_LH_GUNNER, 3028, 1076, { 0, 1 }, LG_AUDIO_PANEL, "Spare Volume")
+CH_47F:defineToggleSwitch("LG_LPCAP_R7_PUSH", devices.COMM_PANEL_LH_GUNNER, 3031, 1079, LG_AUDIO_PANEL, "RWR Mute/Monitor")
+CH_47F:definePotentiometer("LG_LPCAP_R7_KNOB", devices.COMM_PANEL_LH_GUNNER, 3033, 1078, { 0, 1 }, LG_AUDIO_PANEL, "RWR Volume")
+CH_47F:defineToggleSwitch("LG_LPCAP_N1_PUSH", devices.COMM_PANEL_LH_GUNNER, 3036, 1081, LG_AUDIO_PANEL, "VOR Mute/Monitor")
+CH_47F:definePotentiometer("LG_LPCAP_N1_KNOB", devices.COMM_PANEL_LH_GUNNER, 3038, 1080, { 0, 1 }, LG_AUDIO_PANEL, "VOR Volume")
+CH_47F:defineToggleSwitch("LG_LPCAP_N2_PUSH", devices.COMM_PANEL_LH_GUNNER, 3041, 1083, LG_AUDIO_PANEL, "TACAN Mute/Monitor")
+CH_47F:definePotentiometer("LG_LPCAP_N2_KNOB", devices.COMM_PANEL_LH_GUNNER, 3043, 1082, { 0, 1 }, LG_AUDIO_PANEL, "TACAN Volume")
+CH_47F:defineToggleSwitch("LG_LPCAP_N3_PUSH", devices.COMM_PANEL_LH_GUNNER, 3046, 1085, LG_AUDIO_PANEL, "ADF Mute/Monitor")
+CH_47F:definePotentiometer("LG_LPCAP_N3_KNOB", devices.COMM_PANEL_LH_GUNNER, 3048, 1084, { 0, 1 }, LG_AUDIO_PANEL, "ADF Volume")
+CH_47F:defineToggleSwitch("LG_LPCAP_N4_PUSH", devices.COMM_PANEL_LH_GUNNER, 3051, 1087, LG_AUDIO_PANEL, "MB Mute/Monitor")
+CH_47F:definePotentiometer("LG_LPCAP_N4_KNOB", devices.COMM_PANEL_LH_GUNNER, 3053, 1086, { 0, 1 }, LG_AUDIO_PANEL, "MB Volume")
+CH_47F:definePotentiometer("LG_LPCAP_MASTER_VOLUME", devices.COMM_PANEL_LH_GUNNER, 3056, 1089, { 0, 1 }, LG_AUDIO_PANEL, "Master Volume")
+CH_47F:definePushButton("LG_LPCAP_ICS_BUTTON", devices.COMM_PANEL_LH_GUNNER, 3059, 1090, LG_AUDIO_PANEL, "ICS Button")
+CH_47F:definePushButton("LG_LPCAP_VOX_BUTTON", devices.COMM_PANEL_LH_GUNNER, 3060, 1091, LG_AUDIO_PANEL, "VOX Button")
+CH_47F:definePushButton("LG_LPCAP_HOT_MIC_BUTTON", devices.COMM_PANEL_LH_GUNNER, 3061, 1092, LG_AUDIO_PANEL, "Hot Mic Button")
+CH_47F:definePushButton("LG_LPCAP_CALL_BUTTON", devices.COMM_PANEL_LH_GUNNER, 3062, 1093, LG_AUDIO_PANEL, "Call Button")
+CH_47F:defineMultipositionSwitch("LG_LPCAP_TX_SELECTOR", devices.COMM_PANEL_LH_GUNNER, 3063, 1088, 11, 0.05, LG_AUDIO_PANEL, "TX Selector Switch")
+
+CH_47F:defineIndicatorLight("LG_LPCAP_ICU_LIGHT", 1094, LG_AUDIO_PANEL, "ICU Light (Orange)")
+CH_47F:defineIndicatorLight("LG_LPCAP_ICS_LIGHT", 1095, LG_AUDIO_PANEL, "ICS Button Light (Yellow)")
+CH_47F:defineIndicatorLight("LG_LPCAP_VOX_LIGHT", 1096, LG_AUDIO_PANEL, "VOX Button Light (Yellow)")
+CH_47F:defineIndicatorLight("LG_LPCAP_HOT_MIC_LIGHT", 1097, LG_AUDIO_PANEL, "Hot Mic Button Light (Yellow)")
+CH_47F:defineIndicatorLight("LG_LPCAP_CALL_LIGHT", 1098, LG_AUDIO_PANEL, "Call Button Light (Yellow)")
 
 -- Right Gunner Low Profile Control Audio Panel
 -- local RG_AUDIO_PANEL = "Gunner (R) Low Profile Audio Panel"
