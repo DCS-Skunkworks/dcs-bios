@@ -235,7 +235,42 @@ CH_47F:defineIndicatorLight("CPLT_LPCAP_HOT_MIC_LIGHT", 655, COPILOT_AUDIO_PANEL
 CH_47F:defineIndicatorLight("CPLT_LPCAP_CALL_LIGHT", 656, COPILOT_AUDIO_PANEL, "Call Button Light (Yellow)")
 
 -- Troop Commander Low Profile Control Audio Panel
--- local TC_AUDIO_PANEL = "TC Low Profile Audio Panel"
+local TC_AUDIO_PANEL = "TC Low Profile Audio Panel"
+
+CH_47F:defineToggleSwitch("TC_LPCAP_R1_PUSH", devices.COMM_PANEL_TROOP_COMMANDER, 3001, 658, TC_AUDIO_PANEL, "FM1 Mute/Monitor")
+CH_47F:definePotentiometer("TC_LPCAP_R1_KNOB", devices.COMM_PANEL_TROOP_COMMANDER, 3003, 657, { 0, 1 }, TC_AUDIO_PANEL, "FM1 Volume")
+CH_47F:defineToggleSwitch("TC_LPCAP_R2_PUSH", devices.COMM_PANEL_TROOP_COMMANDER, 3006, 660, TC_AUDIO_PANEL, "UHF Mute/Monitor")
+CH_47F:definePotentiometer("TC_LPCAP_R2_KNOB", devices.COMM_PANEL_TROOP_COMMANDER, 3008, 659, { 0, 1 }, TC_AUDIO_PANEL, "UHF Volume")
+CH_47F:defineToggleSwitch("TC_LPCAP_R3_PUSH", devices.COMM_PANEL_TROOP_COMMANDER, 3011, 662, TC_AUDIO_PANEL, "VHF Mute/Monitor")
+CH_47F:definePotentiometer("TC_LPCAP_R3_KNOB", devices.COMM_PANEL_TROOP_COMMANDER, 3013, 661, { 0, 1 }, TC_AUDIO_PANEL, "VHF Volume")
+CH_47F:defineToggleSwitch("TC_LPCAP_R4_PUSH", devices.COMM_PANEL_TROOP_COMMANDER, 3016, 664, TC_AUDIO_PANEL, "HF Mute/Monitor")
+CH_47F:definePotentiometer("TC_LPCAP_R4_KNOB", devices.COMM_PANEL_TROOP_COMMANDER, 3018, 663, { 0, 1 }, TC_AUDIO_PANEL, "HF Volume")
+CH_47F:defineToggleSwitch("TC_LPCAP_R5_PUSH", devices.COMM_PANEL_TROOP_COMMANDER, 3021, 666, TC_AUDIO_PANEL, "FM2 Mute/Monitor")
+CH_47F:definePotentiometer("TC_LPCAP_R5_KNOB", devices.COMM_PANEL_TROOP_COMMANDER, 3023, 665, { 0, 1 }, TC_AUDIO_PANEL, "FM2 Volume")
+CH_47F:defineToggleSwitch("TC_LPCAP_R6_PUSH", devices.COMM_PANEL_TROOP_COMMANDER, 3026, 668, TC_AUDIO_PANEL, "Spare Mute/Monitor")
+CH_47F:definePotentiometer("TC_LPCAP_R6_KNOB", devices.COMM_PANEL_TROOP_COMMANDER, 3028, 667, { 0, 1 }, TC_AUDIO_PANEL, "Spare Volume")
+CH_47F:defineToggleSwitch("TC_LPCAP_R7_PUSH", devices.COMM_PANEL_TROOP_COMMANDER, 3031, 670, TC_AUDIO_PANEL, "RWR Mute/Monitor")
+CH_47F:definePotentiometer("TC_LPCAP_R7_KNOB", devices.COMM_PANEL_TROOP_COMMANDER, 3033, 669, { 0, 1 }, TC_AUDIO_PANEL, "RWR Volume")
+CH_47F:defineToggleSwitch("TC_LPCAP_N1_PUSH", devices.COMM_PANEL_TROOP_COMMANDER, 3036, 672, TC_AUDIO_PANEL, "VOR Mute/Monitor")
+CH_47F:definePotentiometer("TC_LPCAP_N1_KNOB", devices.COMM_PANEL_TROOP_COMMANDER, 3038, 671, { 0, 1 }, TC_AUDIO_PANEL, "VOR Volume")
+CH_47F:defineToggleSwitch("TC_LPCAP_N2_PUSH", devices.COMM_PANEL_TROOP_COMMANDER, 3041, 674, TC_AUDIO_PANEL, "TACAN Mute/Monitor")
+CH_47F:definePotentiometer("TC_LPCAP_N2_KNOB", devices.COMM_PANEL_TROOP_COMMANDER, 3043, 673, { 0, 1 }, TC_AUDIO_PANEL, "TACAN Volume")
+CH_47F:defineToggleSwitch("TC_LPCAP_N3_PUSH", devices.COMM_PANEL_TROOP_COMMANDER, 3046, 676, TC_AUDIO_PANEL, "ADF Mute/Monitor")
+CH_47F:definePotentiometer("TC_LPCAP_N3_KNOB", devices.COMM_PANEL_TROOP_COMMANDER, 3048, 675, { 0, 1 }, TC_AUDIO_PANEL, "ADF Volume")
+CH_47F:defineToggleSwitch("TC_LPCAP_N4_PUSH", devices.COMM_PANEL_TROOP_COMMANDER, 3051, 678, TC_AUDIO_PANEL, "MB Mute/Monitor")
+CH_47F:definePotentiometer("TC_LPCAP_N4_KNOB", devices.COMM_PANEL_TROOP_COMMANDER, 3053, 677, { 0, 1 }, TC_AUDIO_PANEL, "MB Volume")
+CH_47F:definePotentiometer("TC_LPCAP_MASTER_VOLUME", devices.COMM_PANEL_TROOP_COMMANDER, 3056, 680, { 0, 1 }, TC_AUDIO_PANEL, "Master Volume")
+CH_47F:definePushButton("TC_LPCAP_ICS_BUTTON", devices.COMM_PANEL_TROOP_COMMANDER, 3059, 681, TC_AUDIO_PANEL, "ICS Button")
+CH_47F:definePushButton("TC_LPCAP_VOX_BUTTON", devices.COMM_PANEL_TROOP_COMMANDER, 3060, 682, TC_AUDIO_PANEL, "VOX Button")
+CH_47F:definePushButton("TC_LPCAP_HOT_MIC_BUTTON", devices.COMM_PANEL_TROOP_COMMANDER, 3061, 683, TC_AUDIO_PANEL, "Hot Mic Button")
+CH_47F:definePushButton("TC_LPCAP_CALL_BUTTON", devices.COMM_PANEL_TROOP_COMMANDER, 3062, 684, TC_AUDIO_PANEL, "Call Button")
+CH_47F:defineMultipositionSwitch("TC_LPCAP_TX_SELECTOR", devices.COMM_PANEL_TROOP_COMMANDER, 3063, 679, 11, 0.05, TC_AUDIO_PANEL, "TX Selector Switch")
+
+CH_47F:defineIndicatorLight("TC_LPCAP_ICU_LIGHT", 685, TC_AUDIO_PANEL, "ICU Light (Orange)")
+CH_47F:defineIndicatorLight("TC_LPCAP_ICS_LIGHT", 686, TC_AUDIO_PANEL, "ICS Button Light (Yellow)")
+CH_47F:defineIndicatorLight("TC_LPCAP_VOX_LIGHT", 687, TC_AUDIO_PANEL, "VOX Button Light (Yellow)")
+CH_47F:defineIndicatorLight("TC_LPCAP_HOT_MIC_LIGHT", 688, TC_AUDIO_PANEL, "Hot Mic Button Light (Yellow)")
+CH_47F:defineIndicatorLight("TC_LPCAP_CALL_LIGHT", 689, TC_AUDIO_PANEL, "Call Button Light (Yellow)")
 
 -- Left Gunner Low Profile Control Audio Panel
 -- local LG_AUDIO_PANEL = "Gunner (L) Low Profile Audio Panel"
