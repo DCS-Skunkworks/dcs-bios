@@ -400,9 +400,24 @@ CH_47F:definePushButton("PLT_CYCLIC_ACK", devices.GRIPS, 3024, 1279, PILOT_CYCLI
 CH_47F:definePushButton("PLT_CYCLIC_CD_RELEASE", devices.GRIPS, 3025, 1280, PILOT_CYCLIC, "Centering Device Release")
 CH_47F:defineToggleSwitch("PLT_CYCLIC_HOOK_RELEASE_COVER", devices.EXTERNAL_CARGO_EQUIPMENT, 3005, 1281, PILOT_CYCLIC, "Cargo Hook Release Cover")
 CH_47F:definePushButton("PLT_CYCLIC_HOOK_RELEASE", devices.EXTERNAL_CARGO_EQUIPMENT, 3007, 1282, PILOT_CYCLIC, "Cargo Hook Release")
+CH_47F:reserveIntValue(1) -- CM DISP CONT
 
 -- Copilot Cyclic
--- local COPILOT_CYCLIC = "CPLT Cyclic"
+local COPILOT_CYCLIC = "CPLT Cyclic"
+
+CH_47F:defineMultipositionSwitch("CPLT_CYCLIC_XMIT", devices.GRIPS, 3096, 1283, 3, 0.5, COPILOT_CYCLIC, "Radio/ICS Transmit Trigger")
+CH_47F:definePushButton("CPLT_CYCLIC_CURSOR_ACTIVATION", devices.GRIPS, 3097, 1284, COPILOT_CYCLIC, "Cursor Activation")
+CH_47F:defineSingleCommandRocker("CPLT_CYCLIC_CURSOR_POS_X", devices.GRIPS, 3098, 1285, COPILOT_CYCLIC, "Cursor Position Hat (X Axis)")
+CH_47F:defineSingleCommandRocker("CPLT_CYCLIC_CURSOR_POS_Y", devices.GRIPS, 3099, 1286, COPILOT_CYCLIC, "Cursor Position Hat (Y Axis)")
+CH_47F:defineSingleCommandRocker("CPLT_CYCLIC_AFCS_TRIM_X", devices.GRIPS, 3100, 1287, COPILOT_CYCLIC, "AFCS Trim Hat (X Axis)")
+CH_47F:defineSingleCommandRocker("CPLT_CYCLIC_AFCS_TRIM_Y", devices.GRIPS, 3101, 1288, COPILOT_CYCLIC, "AFCS Trim Hat (Y Axis)")
+CH_47F:definePushButton("CPLT_CYCLIC_FD_DECOUPLE", devices.GRIPS, 3102, 1289, COPILOT_CYCLIC, "Flight Director Decoupler")
+CH_47F:defineSingleCommandRocker("CPLT_CYCLIC_CM_DISPENSE", devices.GRIPS, 3103, 1290, COPILOT_CYCLIC, "Flare/Chaff Dispense")
+CH_47F:definePushButton("CPLT_CYCLIC_ACK", devices.GRIPS, 3104, 1291, COPILOT_CYCLIC, "Acknowledge Button")
+CH_47F:definePushButton("CPLT_CYCLIC_CD_RELEASE", devices.GRIPS, 3105, 1292, COPILOT_CYCLIC, "Centering Device Release")
+CH_47F:defineToggleSwitch("CPLT_CYCLIC_HOOK_RELEASE_COVER", devices.EXTERNAL_CARGO_EQUIPMENT, 3009, 1293, COPILOT_CYCLIC, "Cargo Hook Release Cover")
+CH_47F:definePushButton("CPLT_CYCLIC_HOOK_RELEASE", devices.EXTERNAL_CARGO_EQUIPMENT, 3011, 1294, COPILOT_CYCLIC, "Cargo Hook Release")
+CH_47F:reserveIntValue(1) -- CM DISP CONT
 
 -- Pilot Thrust Lever
 -- local PILOT_THRUST = "PLT Thrust Lever"
