@@ -348,7 +348,42 @@ CH_47F:defineIndicatorLight("RG_LPCAP_HOT_MIC_LIGHT", 1130, RG_AUDIO_PANEL, "Hot
 CH_47F:defineIndicatorLight("RG_LPCAP_CALL_LIGHT", 1131, RG_AUDIO_PANEL, "Call Button Light (Yellow)")
 
 -- Aft Engineer Low Profile Control Audio Panel
--- local AE_AUDIO_PANEL = "Ramp Low Profile Audio Panel"
+local AE_AUDIO_PANEL = "Ramp Low Profile Audio Panel"
+
+CH_47F:defineToggleSwitch("AE_LPCAP_R1_PUSH", devices.COMM_PANEL_AFT_ENGINEER, 3001, 691, AE_AUDIO_PANEL, "FM1 Mute/Monitor")
+CH_47F:definePotentiometer("AE_LPCAP_R1_KNOB", devices.COMM_PANEL_AFT_ENGINEER, 3003, 690, { 0, 1 }, AE_AUDIO_PANEL, "FM1 Volume")
+CH_47F:defineToggleSwitch("AE_LPCAP_R2_PUSH", devices.COMM_PANEL_AFT_ENGINEER, 3006, 693, AE_AUDIO_PANEL, "UHF Mute/Monitor")
+CH_47F:definePotentiometer("AE_LPCAP_R2_KNOB", devices.COMM_PANEL_AFT_ENGINEER, 3008, 692, { 0, 1 }, AE_AUDIO_PANEL, "UHF Volume")
+CH_47F:defineToggleSwitch("AE_LPCAP_R3_PUSH", devices.COMM_PANEL_AFT_ENGINEER, 3011, 695, AE_AUDIO_PANEL, "VHF Mute/Monitor")
+CH_47F:definePotentiometer("AE_LPCAP_R3_KNOB", devices.COMM_PANEL_AFT_ENGINEER, 3013, 694, { 0, 1 }, AE_AUDIO_PANEL, "VHF Volume")
+CH_47F:defineToggleSwitch("AE_LPCAP_R4_PUSH", devices.COMM_PANEL_AFT_ENGINEER, 3016, 697, AE_AUDIO_PANEL, "HF Mute/Monitor")
+CH_47F:definePotentiometer("AE_LPCAP_R4_KNOB", devices.COMM_PANEL_AFT_ENGINEER, 3018, 696, { 0, 1 }, AE_AUDIO_PANEL, "HF Volume")
+CH_47F:defineToggleSwitch("AE_LPCAP_R5_PUSH", devices.COMM_PANEL_AFT_ENGINEER, 3021, 699, AE_AUDIO_PANEL, "FM2 Mute/Monitor")
+CH_47F:definePotentiometer("AE_LPCAP_R5_KNOB", devices.COMM_PANEL_AFT_ENGINEER, 3023, 698, { 0, 1 }, AE_AUDIO_PANEL, "FM2 Volume")
+CH_47F:defineToggleSwitch("AE_LPCAP_R6_PUSH", devices.COMM_PANEL_AFT_ENGINEER, 3026, 701, AE_AUDIO_PANEL, "Spare Mute/Monitor")
+CH_47F:definePotentiometer("AE_LPCAP_R6_KNOB", devices.COMM_PANEL_AFT_ENGINEER, 3028, 700, { 0, 1 }, AE_AUDIO_PANEL, "Spare Volume")
+CH_47F:defineToggleSwitch("AE_LPCAP_R7_PUSH", devices.COMM_PANEL_AFT_ENGINEER, 3031, 703, AE_AUDIO_PANEL, "RWR Mute/Monitor")
+CH_47F:definePotentiometer("AE_LPCAP_R7_KNOB", devices.COMM_PANEL_AFT_ENGINEER, 3033, 702, { 0, 1 }, AE_AUDIO_PANEL, "RWR Volume")
+CH_47F:defineToggleSwitch("AE_LPCAP_N1_PUSH", devices.COMM_PANEL_AFT_ENGINEER, 3036, 705, AE_AUDIO_PANEL, "VOR Mute/Monitor")
+CH_47F:definePotentiometer("AE_LPCAP_N1_KNOB", devices.COMM_PANEL_AFT_ENGINEER, 3038, 704, { 0, 1 }, AE_AUDIO_PANEL, "VOR Volume")
+CH_47F:defineToggleSwitch("AE_LPCAP_N2_PUSH", devices.COMM_PANEL_AFT_ENGINEER, 3041, 707, AE_AUDIO_PANEL, "TACAN Mute/Monitor")
+CH_47F:definePotentiometer("AE_LPCAP_N2_KNOB", devices.COMM_PANEL_AFT_ENGINEER, 3043, 706, { 0, 1 }, AE_AUDIO_PANEL, "TACAN Volume")
+CH_47F:defineToggleSwitch("AE_LPCAP_N3_PUSH", devices.COMM_PANEL_AFT_ENGINEER, 3046, 709, AE_AUDIO_PANEL, "ADF Mute/Monitor")
+CH_47F:definePotentiometer("AE_LPCAP_N3_KNOB", devices.COMM_PANEL_AFT_ENGINEER, 3048, 708, { 0, 1 }, AE_AUDIO_PANEL, "ADF Volume")
+CH_47F:defineToggleSwitch("AE_LPCAP_N4_PUSH", devices.COMM_PANEL_AFT_ENGINEER, 3051, 711, AE_AUDIO_PANEL, "MB Mute/Monitor")
+CH_47F:definePotentiometer("AE_LPCAP_N4_KNOB", devices.COMM_PANEL_AFT_ENGINEER, 3053, 710, { 0, 1 }, AE_AUDIO_PANEL, "MB Volume")
+CH_47F:definePotentiometer("AE_LPCAP_MASTER_VOLUME", devices.COMM_PANEL_AFT_ENGINEER, 3056, 713, { 0, 1 }, AE_AUDIO_PANEL, "Master Volume")
+CH_47F:definePushButton("AE_LPCAP_ICS_BUTTON", devices.COMM_PANEL_AFT_ENGINEER, 3059, 714, AE_AUDIO_PANEL, "ICS Button")
+CH_47F:definePushButton("AE_LPCAP_VOX_BUTTON", devices.COMM_PANEL_AFT_ENGINEER, 3060, 715, AE_AUDIO_PANEL, "VOX Button")
+CH_47F:definePushButton("AE_LPCAP_HOT_MIC_BUTTON", devices.COMM_PANEL_AFT_ENGINEER, 3061, 716, AE_AUDIO_PANEL, "Hot Mic Button")
+CH_47F:definePushButton("AE_LPCAP_CALL_BUTTON", devices.COMM_PANEL_AFT_ENGINEER, 3062, 717, AE_AUDIO_PANEL, "Call Button")
+CH_47F:defineMultipositionSwitch("AE_LPCAP_TX_SELECTOR", devices.COMM_PANEL_AFT_ENGINEER, 3063, 712, 11, 0.05, AE_AUDIO_PANEL, "TX Selector Switch")
+
+CH_47F:defineIndicatorLight("AE_LPCAP_ICU_LIGHT", 718, AE_AUDIO_PANEL, "ICU Light (Orange)")
+CH_47F:defineIndicatorLight("AE_LPCAP_ICS_LIGHT", 719, AE_AUDIO_PANEL, "ICS Button Light (Yellow)")
+CH_47F:defineIndicatorLight("AE_LPCAP_VOX_LIGHT", 720, AE_AUDIO_PANEL, "VOX Button Light (Yellow)")
+CH_47F:defineIndicatorLight("AE_LPCAP_HOT_MIC_LIGHT", 721, AE_AUDIO_PANEL, "Hot Mic Button Light (Yellow)")
+CH_47F:defineIndicatorLight("AE_LPCAP_CALL_LIGHT", 722, AE_AUDIO_PANEL, "Call Button Light (Yellow)")
 
 -- Pilot Cyclic
 -- local PILOT_CYCLIC = "PLT Cyclic"
