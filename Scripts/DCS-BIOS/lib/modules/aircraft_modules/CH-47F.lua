@@ -438,7 +438,22 @@ CH_47F:defineSingleCommandRocker("PLT_THRUST_DAFCS_MODE_X", devices.GRIPS, 3014,
 CH_47F:defineSingleCommandRocker("PLT_THRUST_DAFCS_MODE_Y", devices.GRIPS, 3015, 1307, PILOT_THRUST, "DAFCS Mode (Y Axis)")
 
 -- Copilot Thrust Lever
--- local COPILOT_THRUST = "CPLT Thrust Lever"
+local COPILOT_THRUST = "CPLT Thrust Lever"
+
+CH_47F:definePushButton("CPLT_THRUST_BRAKE", devices.GRIPS, 3087, 750, COPILOT_THRUST, "Thrust Brake")
+CH_47F:definePushButton("CPLT_THRUST_MARK", devices.GRIPS, 3081, 1312, COPILOT_THRUST, "MARK Button")
+CH_47F:defineToggleSwitch("CPLT_THRUST_SEARCH_LAMP", devices.GRIPS, 3082, 1308, COPILOT_THRUST, "Searchlight IR/White Lamp")
+CH_47F:definePushButton("CPLT_THRUST_SEARCH_BRT_DIM", devices.GRIPS, 3084, 1309, COPILOT_THRUST, "Searchlight Bright/Dim")
+CH_47F:defineSingleCommandRocker("CPLT_THRUST_SEARCH_X", devices.GRIPS, 3085, 1310, COPILOT_THRUST, "Searchlight Position (X Axis)")
+CH_47F:defineSingleCommandRocker("CPLT_THRUST_SEARCH_Y", devices.GRIPS, 3086, 1311, COPILOT_THRUST, "Searchlight Position (Y Axis)")
+CH_47F:defineSingleCommandRocker("CPLT_THRUST_HOVER_ALT", devices.GRIPS, 3088, 1313, COPILOT_THRUST, "Hover Altitude Up/Down")
+CH_47F:definePushButton("CPLT_THRUST_GO_AROUND", devices.GRIPS, 3089, 1314, COPILOT_THRUST, "Go Around")
+CH_47F:defineSingleCommandRocker("CPLT_THRUST_RADIO_FREQ_X", devices.GRIPS, 3090, 1315, COPILOT_THRUST, "Radio Frequency (X Axis)")
+CH_47F:defineSingleCommandRocker("CPLT_THRUST_RADIO_FREQ_Y", devices.GRIPS, 3091, 1316, COPILOT_THRUST, "Radio Frequency (Y Axis)")
+CH_47F:defineSingleCommandRocker("CPLT_THRUST_HUD_MODE_X", devices.GRIPS, 3092, 1317, COPILOT_THRUST, "HUD Mode (X Axis)")
+CH_47F:defineSingleCommandRocker("CPLT_THRUST_HUD_MODE_Y", devices.GRIPS, 3093, 1318, COPILOT_THRUST, "HUD Mode (Y Axis)")
+CH_47F:defineSingleCommandRocker("CPLT_THRUST_DAFCS_MODE_X", devices.GRIPS, 3094, 1319, COPILOT_THRUST, "DAFCS Mode (X Axis)")
+CH_47F:defineSingleCommandRocker("CPLT_THRUST_DAFCS_MODE_Y", devices.GRIPS, 3095, 1320, COPILOT_THRUST, "DAFCS Mode (Y Axis)")
 
 -- Pilot Multi-Function Control Unit
 -- local PILOT_MF_UNIT = "PLT Multi-Function Control Unit"
