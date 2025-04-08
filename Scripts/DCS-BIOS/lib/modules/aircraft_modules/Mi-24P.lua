@@ -971,10 +971,10 @@ Mi_24P:defineTumb("OP_WIPER_SPD_1", 11, 3021, 674, 0.15, { 0, 0.15 }, nil, false
 Mi_24P:defineTumb("OP_WIPER_SPD_2", 11, 3021, 674, 0.25, { 0, 0.25 }, nil, false, "Wiper", "OPERATOR Windscreen Wiper Control Switch, SPEED 2")
 
 --ARK U2
-Mi_24P:defineToggleSwitch("PLT_ARCU2_PW", 54, 3001, 324, "ARC-U2 ", "PILOT ARC-U2 switcher ON/OFF")
-Mi_24P:defineSpringloaded_3PosTumb("PLT_ARCU2_FRAME", 54, 3002, 3003, 325, "ARC-U2 ", "PILOT ARC-U2 switcher L–RAMKA-P")
-Mi_24P:defineToggleSwitch("PLT_ARCU2_SENS", 54, 3004, 326, "ARC-U2 ", "PILOT ARC-U2 switcher sensitivity B-M")
-Mi_24P:define3PosTumb("PLT_ARCU2_COMPASS", 54, 3005, 327, "ARC-U2 ", "PILOT ARC-U2 switcher COMPASS R-852–RADIOLINK–COMPASS R-828")
+Mi_24P:defineToggleSwitch("PLT_ARCU2_PW", 54, 3001, 324, "ARC-U2", "PILOT ARC-U2 switcher ON/OFF")
+Mi_24P:defineSpringloaded_3PosTumb("PLT_ARCU2_FRAME", 54, 3002, 3003, 325, "ARC-U2", "PILOT ARC-U2 switcher L–RAMKA-P")
+Mi_24P:defineToggleSwitch("PLT_ARCU2_SENS", 54, 3004, 326, "ARC-U2", "PILOT ARC-U2 switcher sensitivity B-M")
+Mi_24P:define3PosTumb("PLT_ARCU2_COMPASS", 54, 3005, 327, "ARC-U2", "PILOT ARC-U2 switcher COMPASS R-852–RADIOLINK–COMPASS R-828")
 
 --SPU-8
 Mi_24P:defineToggleSwitch("PLT_SPU8_NET", 55, 3007, 452, "SPU-8 PLT", "PILOT SPU-8 Network 1/2 Switch (N/F)")
