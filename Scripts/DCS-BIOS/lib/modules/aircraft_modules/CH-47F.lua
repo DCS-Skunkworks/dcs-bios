@@ -420,7 +420,22 @@ CH_47F:definePushButton("CPLT_CYCLIC_HOOK_RELEASE", devices.EXTERNAL_CARGO_EQUIP
 CH_47F:reserveIntValue(1) -- CM DISP CONT
 
 -- Pilot Thrust Lever
--- local PILOT_THRUST = "PLT Thrust Lever"
+local PILOT_THRUST = "PLT Thrust Lever"
+
+CH_47F:definePushButton("PLT_THRUST_BRAKE", devices.GRIPS, 3007, 748, PILOT_THRUST, "Thrust Brake")
+CH_47F:definePushButton("PLT_THRUST_MARK", devices.GRIPS, 3001, 1299, PILOT_THRUST, "MARK Button")
+CH_47F:defineToggleSwitch("PLT_THRUST_SEARCH_LAMP", devices.GRIPS, 3002, 1295, PILOT_THRUST, "Searchlight IR/White Lamp")
+CH_47F:definePushButton("PLT_THRUST_SEARCH_BRT_DIM", devices.GRIPS, 3004, 1296, PILOT_THRUST, "Searchlight Bright/Dim")
+CH_47F:defineSingleCommandRocker("PLT_THRUST_SEARCH_X", devices.GRIPS, 3005, 1297, PILOT_THRUST, "Searchlight Position (X Axis)")
+CH_47F:defineSingleCommandRocker("PLT_THRUST_SEARCH_Y", devices.GRIPS, 3006, 1298, PILOT_THRUST, "Searchlight Position (Y Axis)")
+CH_47F:defineSingleCommandRocker("PLT_THRUST_HOVER_ALT", devices.GRIPS, 3008, 1300, PILOT_THRUST, "Hover Altitude Up/Down")
+CH_47F:definePushButton("PLT_THRUST_GO_AROUND", devices.GRIPS, 3009, 1301, PILOT_THRUST, "Go Around")
+CH_47F:defineSingleCommandRocker("PLT_THRUST_RADIO_FREQ_X", devices.GRIPS, 3010, 1302, PILOT_THRUST, "Radio Frequency (X Axis)")
+CH_47F:defineSingleCommandRocker("PLT_THRUST_RADIO_FREQ_Y", devices.GRIPS, 3011, 1303, PILOT_THRUST, "Radio Frequency (Y Axis)")
+CH_47F:defineSingleCommandRocker("PLT_THRUST_HUD_MODE_X", devices.GRIPS, 3012, 1304, PILOT_THRUST, "HUD Mode (X Axis)")
+CH_47F:defineSingleCommandRocker("PLT_THRUST_HUD_MODE_Y", devices.GRIPS, 3013, 1305, PILOT_THRUST, "HUD Mode (Y Axis)")
+CH_47F:defineSingleCommandRocker("PLT_THRUST_DAFCS_MODE_X", devices.GRIPS, 3014, 1306, PILOT_THRUST, "DAFCS Mode (X Axis)")
+CH_47F:defineSingleCommandRocker("PLT_THRUST_DAFCS_MODE_Y", devices.GRIPS, 3015, 1307, PILOT_THRUST, "DAFCS Mode (Y Axis)")
 
 -- Copilot Thrust Lever
 -- local COPILOT_THRUST = "CPLT Thrust Lever"
