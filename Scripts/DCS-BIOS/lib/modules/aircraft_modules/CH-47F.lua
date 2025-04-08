@@ -471,7 +471,19 @@ CH_47F:definePushButton("PLT_MFCU_S6", devices.GRIPS, 3066, 1423, PILOT_MFCU, "S
 CH_47F:defineSingleCommandRocker("PLT_MFCU_R1", devices.GRIPS, 3067, 1425, PILOT_MFCU, "R1 Rocker Switch")
 
 -- Copilot Multi-Function Control Unit
--- local COPILOT_MF_UNIT = "CPLT Multi-Function Control Unit"
+local COPILOT_MFCU = "CPLT Multi-Function Control Unit"
+
+CH_47F:definePotentiometer("CPLT_MFCU_S1_X", devices.GRIPS, 3131, 1426, { 0, 1 }, COPILOT_MFCU, "S1 Transducer Hat (X Axis)")
+CH_47F:definePotentiometer("CPLT_MFCU_S1_Y", devices.GRIPS, 3135, 1427, { 0, 1 }, COPILOT_MFCU, "S1 Transducer Hat (Y Axis)")
+CH_47F:definePushButton("CPLT_MFCU_S1_PRESS", devices.GRIPS, 3139, 1428, COPILOT_MFCU, "S1 Transducer Hat (Press)")
+CH_47F:defineSingleCommandRocker("CPLT_MFCU_S2_X", devices.GRIPS, 3140, 1429, COPILOT_MFCU, "S2 Hat (X Axis)")
+CH_47F:defineSingleCommandRocker("CPLT_MFCU_S2_Y", devices.GRIPS, 3141, 1430, COPILOT_MFCU, "S2 Hat (Y Axis)")
+CH_47F:defineSingleCommandRocker("CPLT_MFCU_S3_X", devices.GRIPS, 3142, 1431, COPILOT_MFCU, "S3 Hat (X Axis)")
+CH_47F:defineSingleCommandRocker("CPLT_MFCU_S3_Y", devices.GRIPS, 3143, 1432, COPILOT_MFCU, "S3 Hat (Y Axis)")
+CH_47F:definePushButton("CPLT_MFCU_S4", devices.GRIPS, 3144, 1433, COPILOT_MFCU, "S4 Button")
+CH_47F:definePushButton("CPLT_MFCU_S5", devices.GRIPS, 3145, 1434, COPILOT_MFCU, "S5 Trigger")
+CH_47F:definePushButton("CPLT_MFCU_S6", devices.GRIPS, 3146, 1435, COPILOT_MFCU, "S6 Button")
+CH_47F:defineSingleCommandRocker("CPLT_MFCU_R1", devices.GRIPS, 3147, 1437, COPILOT_MFCU, "R1 Rocker Switch")
 
 -- Canted Console
 -- Pilot CDU
