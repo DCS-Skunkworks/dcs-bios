@@ -17,6 +17,8 @@ local AH_64D = Module:new("AH-64D", 0x8000, { "AH-64D_BLK_II" })
 local devices = {
 	CONTROL_INTERFACE = 2,
 	HOTAS_INPUT = 25,
+	EUFD_PLT = 48,
+	EUFD_CPG = 49,
 }
 
 --Functions
@@ -501,23 +503,29 @@ AH_64D:defineString("CPG_EUFD_LINE14", function()
 	return cpg_EUFD[14]
 end, LINE_LEN, "CPG Up-Front Display", "Gunner Up-Front Display Line 14")
 
-AH_64D:defineSpringloaded_3PosTumb("PLT_EUFD_WCA", 48, 3002, 3001, 271, "PLT Up-Front Display", "Pilot Up-Front Display WCA Rocker Switch")
-AH_64D:defineSpringloaded_3PosTumb("PLT_EUFD_IDM", 48, 3004, 3003, 270, "PLT Up-Front Display", "Pilot Up-Front Display IDM Rocker Switch")
-AH_64D:defineSpringloaded_3PosTumb("PLT_EUFD_RTS", 48, 3006, 3005, 272, "PLT Up-Front Display", "Pilot Up-Front Display RTS Rocker Switch")
-AH_64D:definePotentiometer("PLT_EUFD_BRT", 48, 3011, 273, { 0, 1 }, "PLT Up-Front Display", "Pilot Up-Front Display Brightness Knob")
-AH_64D:definePushButton("PLT_EUFD_ENT", 48, 3008, 275, "PLT Up-Front Display", "Pilot Up-Front Display ENTER Button")
-AH_64D:definePushButton("PLT_EUFD_SWAP", 48, 3010, 277, "PLT Up-Front Display", "Pilot Up-Front Display Swap Button")
-AH_64D:definePushButton("PLT_EUFD_PRESET", 48, 3007, 274, "PLT Up-Front Display", "Pilot Up-Front Display Preset Button")
-AH_64D:definePushButton("PLT_EUFD_STOPWATCH", 48, 3009, 276, "PLT Up-Front Display", "Pilot Up-Front Display Stopwatch Button - Press to start/stop, Hold to reset")
+-- Pilot EUFD
+local PILOT_EUFD = "PLT Up-Front Display"
 
-AH_64D:defineSpringloaded_3PosTumb("CPG_EUFD_WCA", 49, 3002, 3001, 263, "CPG Up-Front Display", "Gunner Up-Front Display WCA Rocker Switch")
-AH_64D:defineSpringloaded_3PosTumb("CPG_EUFD_IDM", 49, 3004, 3003, 262, "CPG Up-Front Display", "Gunner Up-Front Display IDM Rocker Switch")
-AH_64D:defineSpringloaded_3PosTumb("CPG_EUFD_RTS", 49, 3006, 3005, 264, "CPG Up-Front Display", "Gunner Up-Front Display RTS Rocker Switch")
-AH_64D:definePotentiometer("CPG_EUFD_BRT", 49, 3011, 265, { 0, 1 }, "CPG Up-Front Display", "Gunner Up-Front Display Brightness Knob")
-AH_64D:definePushButton("CPG_EUFD_ENT", 49, 3008, 267, "CPG Up-Front Display", "Gunner Up-Front Display ENTER Button")
-AH_64D:definePushButton("CPG_EUFD_SWAP", 49, 3010, 269, "CPG Up-Front Display", "Gunner Up-Front Display Swap Button")
-AH_64D:definePushButton("CPG_EUFD_PRESET", 49, 3007, 266, "CPG Up-Front Display", "Gunner Up-Front Display Preset Button")
-AH_64D:definePushButton("CPG_EUFD_STOPWATCH", 49, 3009, 268, "CPG Up-Front Display", "Gunner Up-Front Display Stopwatch Button - Press to start/stop, Hold to reset")
+AH_64D:defineRockerSwitch("PLT_EUFD_WCA", devices.EUFD_PLT, 3001, 3001, 3002, 3002, 271, PILOT_EUFD, "Pilot Up-Front Display WCA Rocker Switch")
+AH_64D:defineSpringloaded_3PosTumb("PLT_EUFD_IDM", devices.EUFD_PLT, 3004, 3003, 270, PILOT_EUFD, "Pilot Up-Front Display IDM Rocker Switch")
+AH_64D:defineSpringloaded_3PosTumb("PLT_EUFD_RTS", devices.EUFD_PLT, 3006, 3005, 272, PILOT_EUFD, "Pilot Up-Front Display RTS Rocker Switch")
+AH_64D:definePotentiometer("PLT_EUFD_BRT", devices.EUFD_PLT, 3011, 273, { 0, 1 }, PILOT_EUFD, "Pilot Up-Front Display Brightness Knob")
+AH_64D:definePushButton("PLT_EUFD_ENT", devices.EUFD_PLT, 3008, 275, PILOT_EUFD, "Pilot Up-Front Display ENTER Button")
+AH_64D:definePushButton("PLT_EUFD_SWAP", devices.EUFD_PLT, 3010, 277, PILOT_EUFD, "Pilot Up-Front Display Swap Button")
+AH_64D:definePushButton("PLT_EUFD_PRESET", devices.EUFD_PLT, 3007, 274, PILOT_EUFD, "Pilot Up-Front Display Preset Button")
+AH_64D:definePushButton("PLT_EUFD_STOPWATCH", devices.EUFD_PLT, 3009, 276, PILOT_EUFD, "Pilot Up-Front Display Stopwatch Button - Press to start/stop, Hold to reset")
+
+-- CP/G EUFD
+local CPG_EUFD = "CPG Up-Front Display"
+
+AH_64D:defineRockerSwitch("CPG_EUFD_WCA", devices.EUFD_CPG, 3001, 3001, 3002, 3002, 263, CPG_EUFD, "Gunner Up-Front Display WCA Rocker Switch")
+AH_64D:defineSpringloaded_3PosTumb("CPG_EUFD_IDM", devices.EUFD_CPG, 3004, 3003, 262, CPG_EUFD, "Gunner Up-Front Display IDM Rocker Switch")
+AH_64D:defineSpringloaded_3PosTumb("CPG_EUFD_RTS", devices.EUFD_CPG, 3006, 3005, 264, CPG_EUFD, "Gunner Up-Front Display RTS Rocker Switch")
+AH_64D:definePotentiometer("CPG_EUFD_BRT", devices.EUFD_CPG, 3011, 265, { 0, 1 }, CPG_EUFD, "Gunner Up-Front Display Brightness Knob")
+AH_64D:definePushButton("CPG_EUFD_ENT", devices.EUFD_CPG, 3008, 267, CPG_EUFD, "Gunner Up-Front Display ENTER Button")
+AH_64D:definePushButton("CPG_EUFD_SWAP", devices.EUFD_CPG, 3010, 269, CPG_EUFD, "Gunner Up-Front Display Swap Button")
+AH_64D:definePushButton("CPG_EUFD_PRESET", devices.EUFD_CPG, 3007, 266, CPG_EUFD, "Gunner Up-Front Display Preset Button")
+AH_64D:definePushButton("CPG_EUFD_STOPWATCH", devices.EUFD_CPG, 3009, 268, CPG_EUFD, "Gunner Up-Front Display Stopwatch Button - Press to start/stop, Hold to reset")
 
 -- TEDAC Display
 AH_64D:definePushButton("CPG_TEDAC_TAD_SEL", 51, 3005, 150, "CPG TEDAC Display", "Gunner TEDAC Display TAD Video Select Button")
