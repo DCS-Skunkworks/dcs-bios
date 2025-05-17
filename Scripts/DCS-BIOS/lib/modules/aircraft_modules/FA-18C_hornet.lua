@@ -243,8 +243,8 @@ FA_18C_hornet:defineIndicatorLight("RH_ADV_SPARE_RH4", 36, "RH Advisory Panel", 
 FA_18C_hornet:defineIndicatorLight("RH_ADV_SPARE_RH5", 37, "RH Advisory Panel", "SPARE RH5 (green)")
 
 -- 9. APU Fire Warning / Extinguisher Light
-FA_18C_hornet:defineIndicatorLight("FIRE_APU_LT", 29, "APU Fire Warning Extinguisher Light", "FIRE APU (red)")
-FA_18C_hornet:definePushButton("APU_FIRE_BTN", 12, 3009, 30, "APU Fire Warning Extinguisher Light", "APU Fire Warning/Extinguisher Light")
+FA_18C_hornet:defineIndicatorLight("FIRE_APU_LT", 29, "APU Fire Warning Extinguisher Light", "FIRE APU (red) Light")
+FA_18C_hornet:definePushButton("APU_FIRE_BTN", 12, 3009, 30, "APU Fire Warning Extinguisher Light", "APU Fire Warning/Extinguisher Button")
 
 -- 10. Right Engine Fire Warning / Extinguisher Light
 FA_18C_hornet:defineIndicatorLight("FIRE_RIGHT_LT", 26, "Right Engine Fire Warning Extinguisher Light", "FIRE RIGHT (red)")
