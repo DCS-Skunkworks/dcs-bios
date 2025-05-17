@@ -87,6 +87,7 @@ function BIOSStateMachine:queue_module_data(module, dev0)
 end
 
 function BIOSStateMachine:init()
+	Log:log_info("starting dcs-bios")
 	for _, connection in ipairs(self.connection_manager.connections) do
 		connection:init()
 	end
@@ -119,6 +120,14 @@ function BIOSStateMachine:step()
 
 	self.active_modules = self.modules_by_name[current_aircraft_name] or {}
 	if self.active_aircraft_name ~= current_aircraft_name then
+		if self.active_aircraft_name == nil then
+			Log:log_info("mission start with aircraft: " .. current_aircraft_name)
+		elseif current_aircraft_name == "NONE" then
+			Log:log_info("unloaded aircraft")
+		else
+			Log:log_info("loaded aircraft: " .. current_aircraft_name)
+		end
+
 		for _, acftModule in ipairs(self.active_modules) do
 			acftModule.memoryMap:clearValues()
 		end
@@ -165,6 +174,7 @@ function BIOSStateMachine:step()
 end
 
 function BIOSStateMachine:shutdown()
+	Log:log_info("shutting down dcs-bios")
 	local dev0 = GetDevice(0)
 
 	-- Nullify the aircraft name and publish one last frame to identify end of mission.
