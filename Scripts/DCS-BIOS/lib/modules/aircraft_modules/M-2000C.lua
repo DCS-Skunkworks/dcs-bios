@@ -169,7 +169,7 @@ local function display_matrix_to_string(displayMatrix)
 		end
 
 		if allOff and segment[7] and segment[7] > 0 then
-			result = result .. " ." -- Return space and point if only decimal point is on
+			result = result .. ". " -- Return space and point if only decimal point is on
 		elseif allOff then
 			result = result .. " " -- Return space for all segments off
 		else
