@@ -154,12 +154,26 @@ local function build_pcn_segments(pcn, pcn_segment, display_name, length, includ
 end
 
 local function display_matrix_to_string(displayMatrix)
+	-- Mapping from binary segment pattern to character
+	local segment_to_char = {
+		[63] = "0",
+		[24] = "1",
+		[109] = "2",
+		[124] = "3",
+		[90] = "4",
+		[118] = "5",
+		[119] = "6",
+		[28] = "7",
+		[127] = "8",
+		[126] = "9",
+	}
+
 	local result = ""
 
 	for i = 1, #displayMatrix do
 		local segment = displayMatrix[i]
 
-		-- Check if all segments (expect last) are off
+		-- Check if all segments (except last) are off
 		local allOff = true
 		for j = 0, 6 do
 			if segment[j] and segment[j] > 0 then
@@ -169,54 +183,26 @@ local function display_matrix_to_string(displayMatrix)
 		end
 
 		if allOff and segment[7] and segment[7] > 0 then
-			result = result .. ". " -- Return space and point if only decimal point is on
+			result = result .. ". " -- Return decimal point and space if only decimal point is on
 		elseif allOff then
 			result = result .. " " -- Return space for all segments off
 		else
-			-- Segment patterns for each digits
-			local patterns = {
-				[0] = { [0] = true, [1] = true, [2] = true, [3] = true, [4] = true, [5] = true, [6] = false },
-				[1] = { [0] = false, [1] = false, [2] = false, [3] = true, [4] = true, [5] = false, [6] = false },
-				[2] = { [0] = true, [1] = false, [2] = true, [3] = true, [4] = false, [5] = true, [6] = true },
-				[3] = { [0] = false, [1] = false, [2] = true, [3] = true, [4] = true, [5] = true, [6] = true },
-				[4] = { [0] = false, [1] = true, [2] = false, [3] = true, [4] = true, [5] = false, [6] = true },
-				[5] = { [0] = false, [1] = true, [2] = true, [3] = false, [4] = true, [5] = true, [6] = true },
-				[6] = { [0] = true, [1] = true, [2] = true, [3] = false, [4] = true, [5] = true, [6] = true },
-				[7] = { [0] = false, [1] = false, [2] = true, [3] = true, [4] = true, [5] = false, [6] = false },
-				[8] = { [0] = true, [1] = true, [2] = true, [3] = true, [4] = true, [5] = true, [6] = true },
-				[9] = { [0] = false, [1] = true, [2] = true, [3] = true, [4] = true, [5] = true, [6] = true },
-			}
-
-			local digit = nil
-			for d, pattern in pairs(patterns) do
-				local match = true
-				for j = 0, 6 do
-					local segmentActive = segment[j] and segment[j] > 0
-					if segmentActive ~= pattern[j] then
-						match = false
-						break
-					end
-				end
-				if match then
-					digit = d
-					break
+			local patternValue = 0
+			for j = 0, 6 do
+				-- If segment is on, set the corresponding bit
+				if segment[j] and segment[j] > 0 then
+					patternValue = patternValue + (2 ^ j)
 				end
 			end
 
-			-- Add digit to result, with decimal point if segment 7 is on
-			if digit ~= nil then
-				if segment[7] and segment[7] > 0 then
-					result = result .. "." .. tostring(digit)
-				else
-					result = result .. tostring(digit)
-				end
+			-- Look up character from pattern
+			local char = segment_to_char[patternValue] or "*" -- Default to * if pattern not recognized
+
+			-- Add decimal point if segment 7 is on
+			if segment[7] and segment[7] > 0 then
+				result = result .. "." .. char
 			else
-				-- If no match found return * with a decimal point if necessary
-				if segment[7] and segment[7] > 0 then
-					result = result .. ".*"
-				else
-					result = result .. "*"
-				end
+				result = result .. char
 			end
 		end
 	end
