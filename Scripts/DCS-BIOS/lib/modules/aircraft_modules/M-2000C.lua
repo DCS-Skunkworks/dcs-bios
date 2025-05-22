@@ -111,6 +111,10 @@ local pcn_ur = {}
 -- 0 4
 -- 75
 
+-- parse full PCN display
+local pcnLeftDigits = ""
+local pcnRightDigits = ""
+
 local function segment_char_value(char)
 	if char > "p" then
 		return 1
@@ -147,6 +151,77 @@ local function build_pcn_segments(pcn, pcn_segment, display_name, length, includ
 		padded_segment_values = i == 7 and Functions.pad_left(padded_segment_values:sub(1, #padded_segment_values - 1), length) or padded_segment_values -- and decimals behave this way for... reasons
 		add_pcn_segment_values(pcn_segment, padded_segment_values, i)
 	end
+end
+
+local function display_matrix_to_string(displayMatrix)
+	local result = ""
+
+	for i = 1, #displayMatrix do
+		local segment = displayMatrix[i]
+
+		-- Check if all segments (expect last) are off
+		local allOff = true
+		for j = 0, 6 do
+			if segment[j] and segment[j] > 0 then
+				allOff = false
+				break
+			end
+		end
+
+		if allOff and segment[7] and segment[7] > 0 then
+			result = result .. " ." -- Return space and point if only decimal point is on
+		elseif allOff then
+			result = result .. " " -- Return space for all segments off
+		else
+			-- Segment patterns for each digits
+			local patterns = {
+				[0] = { [0] = true, [1] = true, [2] = true, [3] = true, [4] = true, [5] = true, [6] = false },
+				[1] = { [0] = false, [1] = false, [2] = false, [3] = true, [4] = true, [5] = false, [6] = false },
+				[2] = { [0] = true, [1] = false, [2] = true, [3] = true, [4] = false, [5] = true, [6] = true },
+				[3] = { [0] = false, [1] = false, [2] = true, [3] = true, [4] = true, [5] = true, [6] = true },
+				[4] = { [0] = false, [1] = true, [2] = false, [3] = true, [4] = true, [5] = false, [6] = true },
+				[5] = { [0] = false, [1] = true, [2] = true, [3] = false, [4] = true, [5] = true, [6] = true },
+				[6] = { [0] = true, [1] = true, [2] = true, [3] = false, [4] = true, [5] = true, [6] = true },
+				[7] = { [0] = false, [1] = false, [2] = true, [3] = true, [4] = true, [5] = false, [6] = false },
+				[8] = { [0] = true, [1] = true, [2] = true, [3] = true, [4] = true, [5] = true, [6] = true },
+				[9] = { [0] = false, [1] = true, [2] = true, [3] = true, [4] = true, [5] = true, [6] = true },
+			}
+
+			local digit = nil
+			for d, pattern in pairs(patterns) do
+				local match = true
+				for j = 0, 6 do
+					local segmentActive = segment[j] and segment[j] > 0
+					if segmentActive ~= pattern[j] then
+						match = false
+						break
+					end
+				end
+				if match then
+					digit = d
+					break
+				end
+			end
+
+			-- Add digit to result, with decimal point if segment 7 is on
+			if digit ~= nil then
+				if segment[7] and segment[7] > 0 then
+					result = result .. "." .. tostring(digit)
+				else
+					result = result .. tostring(digit)
+				end
+			else
+				-- If no match found return * with a decimal point if necessary
+				if segment[7] and segment[7] > 0 then
+					result = result .. ".*"
+				else
+					result = result .. "*"
+				end
+			end
+		end
+	end
+
+	return result
 end
 
 M_2000C:addExportHook(function()
@@ -195,18 +270,29 @@ M_2000C:addExportHook(function()
 	else
 		pcnLeft1Digit = pcnLeft
 	end
+
 	pcnLeft2Digit = pcnLeft:sub(1, 2)
+
+	pcnLeftDigits = pcnLeft1Digit .. display_matrix_to_string(pcn_ul)
+	pcnRightDigits = pcnRight1Digit .. display_matrix_to_string(pcn_ur)
 end)
 
 -- parse PCN lower display
 local pcn_bl = {}
 local pcn_br = {}
 
+-- parse full PCN display
+local pcnPrep = ""
+local pcnDest = ""
+
 M_2000C:addExportHook(function()
 	local pcn = M_2000C.parse_indication(10)
 
 	build_pcn_segments(pcn, pcn_bl, "PCN_BL_SEG", 2, false)
 	build_pcn_segments(pcn, pcn_br, "PCN_BR_SEG", 2, false)
+
+	pcnPrep = display_matrix_to_string(pcn_bl)
+	pcnDest = display_matrix_to_string(pcn_br)
 end)
 
 local function getvtbRange()
@@ -641,22 +727,22 @@ M_2000C:definePushButton("INS_ENTER_BTN", 9, 3596, 596, "PCN", "I - PCN - INS Bu
 M_2000C:definePushButton("INS_NEXT_WP_BTN", 9, 3110, 110, "PCN", "I - PCN - INS Next Waypoint Button")
 M_2000C:definePushButton("INS_PREV_WP_BTN", 9, 3111, 111, "PCN", "I - PCN - INS Previous Waypoint Button")
 -- these outputs have been disabled after Razbam replaced the string outputs with segment displays, some of which randomly do not work in-game
--- M_2000C:defineString("PCN_DISP_DEST", function()
--- 	return pcnDest
--- end, 2, "PCN", "O - PCN - DEST Display")
-M_2000C:reserveStringValue(2)
--- M_2000C:defineString("PCN_DISP_L", function()
--- 	return pcnLeftDigits
--- end, 8, "PCN", "O - PCN - Left Display")
-M_2000C:reserveStringValue(8)
--- M_2000C:defineString("PCN_DISP_PREP", function()
--- 	return pcnPrep
--- end, 2, "PCN", "O - PCN - PREP Display")
-M_2000C:reserveStringValue(2)
--- M_2000C:defineString("PCN_DISP_R", function()
--- 	return pcnRightDigits
--- end, 9, "PCN", "O - PCN - Right Display")
-M_2000C:reserveStringValue(9)
+M_2000C:defineString("PCN_DISP_DEST", function()
+	return pcnDest
+end, 2, "PCN", "O - PCN - DEST Display")
+-- M_2000C:reserveStringValue(2)
+M_2000C:defineString("PCN_DISP_L", function()
+	return pcnLeftDigits
+end, 8, "PCN", "O - PCN - Left Display")
+-- M_2000C:reserveStringValue(8)
+M_2000C:defineString("PCN_DISP_PREP", function()
+	return pcnPrep
+end, 2, "PCN", "O - PCN - PREP Display")
+-- M_2000C:reserveStringValue(2)
+M_2000C:defineString("PCN_DISP_R", function()
+	return pcnRightDigits
+end, 9, "PCN", "O - PCN - Right Display")
+-- M_2000C:reserveStringValue(9)
 M_2000C:defineString("PCN_DIS_DL", function()
 	return pcnLeft1Digit
 end, 1, "PCN", "PCN Digit Left Display")
