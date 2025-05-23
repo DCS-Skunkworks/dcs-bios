@@ -95,15 +95,7 @@ M_2000C:addExportHook(function()
 	ppaInterval = Functions.pad_left(ppa.text_PPA_INT, PPA_LEN)
 end)
 
--- parse PCN upper display
-local pcnRight1Digit = ""
-local pcnRight2Digit = ""
-local pcnLeft1Digit = ""
-local pcnLeft2Digit = ""
-
 -- a display output consists of a specific number of digits, and each digit has 8 segments
-local pcn_ul = {}
-local pcn_ur = {}
 
 --  2
 -- 1 3
@@ -111,9 +103,37 @@ local pcn_ur = {}
 -- 0 4
 -- 75
 
--- parse full PCN display
-local pcnLeftDigits = ""
-local pcnRightDigits = ""
+-- Mapping from binary segment pattern to character
+local segment_to_char = {
+	[0] = " ",
+	[63] = "0",
+	[24] = "1",
+	[109] = "2",
+	[124] = "3",
+	[90] = "4",
+	[118] = "5",
+	[119] = "6",
+	[28] = "7",
+	[127] = "8",
+	[126] = "9",
+}
+
+-- PCN upper display special characters
+local pcnRight1Digit = ""
+local pcnRight2Digit = ""
+local pcnLeft1Digit = ""
+local pcnLeft2Digit = ""
+
+-- PCN display data, storing all segments for each digits
+local pcn_ul = {}
+local pcn_ur = {}
+
+-- PCN display data, storing all the completed digit strings for each display
+local pcnDigitStrings = {}
+
+-- Full PCN display string
+local pcnLeftString = ""
+local pcnRightString = ""
 
 local function segment_char_value(char)
 	if char > "p" then
@@ -131,65 +151,57 @@ local function segment_char_value(char)
 	return 0
 end
 
-local function add_pcn_segment_values(pcn_segment, segment_value, segment_index)
+local function add_pcn_segment_values(pcn_segment, segment_value, segment_index, digit_patterns, dot_patterns)
 	for index = 1, #segment_value do
-		local value = segment_value:sub(index, index)
+		local value = segment_char_value(segment_value:sub(index, index))
+
 		if not pcn_segment[index] then
 			pcn_segment[index] = {}
 		end
+		pcn_segment[index][segment_index] = value
 
-		pcn_segment[index][segment_index] = segment_char_value(value)
+		if segment_index == 7 then
+			dot_patterns[index] = (value > 0)
+		elseif value > 0 then
+			digit_patterns[index] = (digit_patterns[index] or 0) + (2 ^ segment_index)
+		end
 	end
 end
 
+local function build_pcn_string(digit_patterns, dot_patterns)
+	local result = ""
+
+	for i = 1, #digit_patterns do
+		-- Look up character from pattern
+		local char = segment_to_char[digit_patterns[i]] or "*" -- Default to * if pattern not recognized
+
+		-- Add decimal point if segment 7 is on
+		result = result .. (dot_patterns[i] and "." or "") .. char
+	end
+
+	return result
+end
+
 local function build_pcn_segments(pcn, pcn_segment, display_name, length, include_decimals)
+	local pcn_digits = {}
+	local pcn_dot = {}
+
+	for j = 1, length do
+		pcn_digits[j] = 0
+		pcn_dot[j] = false
+	end
+
 	for i = 0, include_decimals and 7 or 6, 1 do
 		local raw_values = pcn[string.format("%s%d", display_name, i)] or ""
 		-- sometimes these strings have a random leading whitespace, who knows why
 		local segment_values = raw_values:gsub("^%s*(.*)$", "%1") -- remove any leading whitespaces, just in case
 		local padded_segment_values = Functions.pad_left(segment_values, length) -- add back leading whitespace to ensure we're adequately padded
 		padded_segment_values = i == 7 and Functions.pad_left(padded_segment_values:sub(1, #padded_segment_values - 1), length) or padded_segment_values -- and decimals behave this way for... reasons
-		add_pcn_segment_values(pcn_segment, padded_segment_values, i)
-	end
-end
 
-local function display_matrix_to_string(displayMatrix)
-	-- Mapping from binary segment pattern to character
-	local segment_to_char = {
-		[0] = " ",
-		[63] = "0",
-		[24] = "1",
-		[109] = "2",
-		[124] = "3",
-		[90] = "4",
-		[118] = "5",
-		[119] = "6",
-		[28] = "7",
-		[127] = "8",
-		[126] = "9",
-	}
-
-	local result = ""
-
-	for i = 1, #displayMatrix do
-		local segment = displayMatrix[i]
-
-		local patternValue = 0
-		for j = 0, 6 do
-			-- If segment is on, set the corresponding bit
-			if segment[j] and segment[j] > 0 then
-				patternValue = patternValue + (2 ^ j)
-			end
-		end
-
-		-- Look up character from pattern
-		local char = segment_to_char[patternValue] or "*" -- Default to * if pattern not recognized
-
-		-- Add decimal point if segment 7 is on
-		result = result .. (segment[7] and segment[7] > 0 and "." or "") .. char
+		add_pcn_segment_values(pcn_segment, padded_segment_values, i, pcn_digits, pcn_dot)
 	end
 
-	return result
+	pcnDigitStrings[display_name] = build_pcn_string(pcn_digits, pcn_dot)
 end
 
 M_2000C:addExportHook(function()
@@ -241,17 +253,15 @@ M_2000C:addExportHook(function()
 
 	pcnLeft2Digit = pcnLeft:sub(1, 2)
 
-	pcnLeftDigits = pcnLeft1Digit .. display_matrix_to_string(pcn_ul)
-	pcnRightDigits = pcnRight1Digit .. display_matrix_to_string(pcn_ur)
+	pcnLeftString = pcnLeft1Digit .. pcnDigitStrings["PCN_UL_SEG"]
+	pcnRightString = pcnRight1Digit .. pcnDigitStrings["PCN_UR_SEG"]
 end)
 
--- parse PCN lower display
 local pcn_bl = {}
 local pcn_br = {}
 
--- parse full PCN display
-local pcnPrep = ""
-local pcnDest = ""
+local pcnPrepString = ""
+local pcnDestString = ""
 
 M_2000C:addExportHook(function()
 	local pcn = M_2000C.parse_indication(10)
@@ -259,8 +269,8 @@ M_2000C:addExportHook(function()
 	build_pcn_segments(pcn, pcn_bl, "PCN_BL_SEG", 2, false)
 	build_pcn_segments(pcn, pcn_br, "PCN_BR_SEG", 2, false)
 
-	pcnPrep = display_matrix_to_string(pcn_bl)
-	pcnDest = display_matrix_to_string(pcn_br)
+	pcnPrepString = pcnDigitStrings["PCN_BL_SEG"]
+	pcnDestString = pcnDigitStrings["PCN_BR_SEG"]
 end)
 
 local function getvtbRange()
@@ -696,19 +706,19 @@ M_2000C:definePushButton("INS_NEXT_WP_BTN", 9, 3110, 110, "PCN", "I - PCN - INS 
 M_2000C:definePushButton("INS_PREV_WP_BTN", 9, 3111, 111, "PCN", "I - PCN - INS Previous Waypoint Button")
 -- these outputs have been disabled after Razbam replaced the string outputs with segment displays, some of which randomly do not work in-game
 M_2000C:defineString("PCN_DISP_DEST", function()
-	return pcnDest
+	return pcnDestString
 end, 2, "PCN", "O - PCN - DEST Display")
 -- M_2000C:reserveStringValue(2)
 M_2000C:defineString("PCN_DISP_L", function()
-	return pcnLeftDigits
+	return pcnLeftString
 end, 8, "PCN", "O - PCN - Left Display")
 -- M_2000C:reserveStringValue(8)
 M_2000C:defineString("PCN_DISP_PREP", function()
-	return pcnPrep
+	return pcnPrepString
 end, 2, "PCN", "O - PCN - PREP Display")
 -- M_2000C:reserveStringValue(2)
 M_2000C:defineString("PCN_DISP_R", function()
-	return pcnRightDigits
+	return pcnRightString
 end, 9, "PCN", "O - PCN - Right Display")
 -- M_2000C:reserveStringValue(9)
 M_2000C:defineString("PCN_DIS_DL", function()
