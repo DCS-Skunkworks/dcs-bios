@@ -253,8 +253,8 @@ M_2000C:addExportHook(function()
 
 	pcnLeft2Digit = pcnLeft:sub(1, 2)
 
-	pcnLeftString = pcnLeft1Digit .. pcnDigitStrings["PCN_UL_SEG"]
-	pcnRightString = pcnRight1Digit .. pcnDigitStrings["PCN_UR_SEG"]
+	pcnLeftString = (pcnLeft1Digit == "" and " " or pcnLeft1Digit) .. pcnDigitStrings["PCN_UL_SEG"]
+	pcnRightString = (pcnRight1Digit == "" and " " or pcnRight1Digit) .. pcnDigitStrings["PCN_UR_SEG"]
 end)
 
 local pcn_bl = {}
