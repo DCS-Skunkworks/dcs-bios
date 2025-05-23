@@ -186,7 +186,7 @@ local function display_matrix_to_string(displayMatrix)
 		local char = segment_to_char[patternValue] or "*" -- Default to * if pattern not recognized
 
 		-- Add decimal point if segment 7 is on
-		result = result .. (segment[7] and segment[7] > 0 and "." .. char or char)
+		result = result .. (segment[7] and segment[7] > 0 and "." or "") .. char
 	end
 
 	return result
