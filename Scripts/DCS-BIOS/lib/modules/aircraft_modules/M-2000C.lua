@@ -156,6 +156,7 @@ end
 local function display_matrix_to_string(displayMatrix)
 	-- Mapping from binary segment pattern to character
 	local segment_to_char = {
+		[0] = " ",
 		[63] = "0",
 		[24] = "1",
 		[109] = "2",
@@ -173,38 +174,19 @@ local function display_matrix_to_string(displayMatrix)
 	for i = 1, #displayMatrix do
 		local segment = displayMatrix[i]
 
-		-- Check if all segments (except last) are off
-		local allOff = true
+		local patternValue = 0
 		for j = 0, 6 do
+			-- If segment is on, set the corresponding bit
 			if segment[j] and segment[j] > 0 then
-				allOff = false
-				break
+				patternValue = patternValue + (2 ^ j)
 			end
 		end
 
-		if allOff and segment[7] and segment[7] > 0 then
-			result = result .. ". " -- Return decimal point and space if only decimal point is on
-		elseif allOff then
-			result = result .. " " -- Return space for all segments off
-		else
-			local patternValue = 0
-			for j = 0, 6 do
-				-- If segment is on, set the corresponding bit
-				if segment[j] and segment[j] > 0 then
-					patternValue = patternValue + (2 ^ j)
-				end
-			end
+		-- Look up character from pattern
+		local char = segment_to_char[patternValue] or "*" -- Default to * if pattern not recognized
 
-			-- Look up character from pattern
-			local char = segment_to_char[patternValue] or "*" -- Default to * if pattern not recognized
-
-			-- Add decimal point if segment 7 is on
-			if segment[7] and segment[7] > 0 then
-				result = result .. "." .. char
-			else
-				result = result .. char
-			end
-		end
+		-- Add decimal point if segment 7 is on
+		result = result .. (segment[7] and segment[7] > 0 and "." .. char or char)
 	end
 
 	return result
