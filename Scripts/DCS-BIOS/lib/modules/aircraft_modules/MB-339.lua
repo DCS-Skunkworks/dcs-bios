@@ -604,8 +604,8 @@ MB_339:defineToggleSwitch("CB_COMM_RDU", 1, 3995, 1522, "Circuit Breakers", "C/B
 
 --Electrical
 MB_339:defineToggleSwitch("BATTERY_SW", 1, COMMANDS.BatterySwitch, 300, "Electrical", "Battery Switch")
-MB_339:defineToggleSwitch("GEN1_SW", 1, COMMANDS.Generator1Switch, 301, "Electrical", "Generator 1 Switch")
-MB_339:defineToggleSwitch("GEN2_SW", 1, COMMANDS.Generator2Switch, 302, "Electrical", "Generator 2 Switch")
+MB_339:reserveIntValue(1) -- MB_339:defineToggleSwitch("GEN1_SW", 1, COMMANDS.Generator1Switch, 301, "Electrical", "Generator 1 Switch")
+MB_339:reserveIntValue(1) -- MB_339:defineToggleSwitch("GEN2_SW", 1, COMMANDS.Generator2Switch, 302, "Electrical", "Generator 2 Switch")
 MB_339:defineToggleSwitch("AC_PW_SW", 1, COMMANDS.AcPwrEmergSwitch, 303, "Electrical", "AC Power Switch")
 MB_339:defineToggleSwitch("BUS_RESET_SW", 1, COMMANDS.BusResetSwitch, 231, "Electrical", "Bus Reset Switch")
 MB_339:defineToggleSwitch("BUS_RESET_CV", 1, COMMANDS.BusResetGuard, 233, "Electrical", "Bus Reset Cover")
@@ -1319,5 +1319,9 @@ MB_339:defineReadWriteRadio("AFT_COMM2", 10, 7, 3, 1000, "Aft COMM2")
 -- GunsightRepeater
 MB_339:define3PosTumb("GUN_REP_PWR", 1, COMMANDS.GunsightRepeaterPower, 409, "Gunsight Repeater", "Gunsight Repeater Power")
 MB_339:definePotentiometer("GUN_REP_BRIGHT", 1, COMMANDS.GunsightRepeaterBrt, 408, { 0, 1 }, "Gunsight Repeater", "Gunsight Repeater Brightness")
+
+-- generator switches updated from 2pos to 3pos
+MB_339:defineSpringloaded_3PosTumb("GEN1_SW", 1, COMMANDS.Generator1ResetSwitch, COMMANDS.Generator1Switch, 301, "Electrical", "Generator 1 Switch")
+MB_339:defineSpringloaded_3PosTumb("GEN2_SW", 1, COMMANDS.Generator2ResetSwitch, COMMANDS.Generator2Switch, 302, "Electrical", "Generator 2 Switch")
 
 return MB_339
