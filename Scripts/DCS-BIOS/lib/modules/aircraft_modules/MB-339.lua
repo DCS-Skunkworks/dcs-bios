@@ -1078,7 +1078,8 @@ MB_339:defineIndicatorLight("WP_STAT6_L", 501, "Weapons Lights", "Station 6 Ligh
 MB_339:define3PosTumb("GUN_PWR", 1, COMMANDS.GunsightPower, 478, "Gunsight", "Gunsight Power")
 MB_339:definePotentiometer("GUN_BRIGHT", 1, COMMANDS.GunsightBrt, 479, { 0, 1 }, "Gunsight", "Gunsight Brightness")
 MB_339:definePushButton("GUN_TEST", 1, COMMANDS.GunsightTest, 480, "Gunsight", "Gunsight Test")
-MB_339:defineMultipositionSwitch("GUN_DEP_100", 1, COMMANDS.GunsightXxx, 481, 10, 0.1, "Gunsight", "Gunsight Depression reticle x 100")
+MB_339:defineToggleSwitch("GUN_DEP_100", 1, COMMANDS.GunsightXxx, 481, "Gunsight", "Gunsight Depression reticle x 100")
+MB_339:reserveIntValue(7) -- MB_339:defineMultipositionSwitch("GUN_DEP_100", 1, COMMANDS.GunsightXxx, 481, 10, 0.1, "Gunsight", "Gunsight Depression reticle x 100")
 MB_339:defineMultipositionSwitch("GUN_DEP_10", 1, COMMANDS.GunsightxXx, 482, 10, 0.1, "Gunsight", "Gunsight Depression reticle x 10")
 MB_339:defineMultipositionSwitch("GUN_DEP_1", 1, COMMANDS.GunsightxxX, 483, 10, 0.1, "Gunsight", "Gunsight Depression reticle x 1")
 
