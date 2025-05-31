@@ -37,23 +37,27 @@ function F_16C_50:defineAntiSkidSwitch(identifier, device_id, down_switch, up_sw
 	end
 end
 
+local devices = {
+	CONTROL_INTERFACE = 2,
+}
+
 ---- Switches
 --Control Interface
-F_16C_50:defineToggleSwitch("DIGI_BAK_SW", 2, 3001, 566, "Control Interface", "DIGITAL BACKUP Switch, OFF/BACKUP")
-F_16C_50:defineToggleSwitch("ALT_FLAPS_SW", 2, 3002, 567, "Control Interface", "ALT FLAPS Switch, NORM/EXTEND")
-F_16C_50:defineToggleSwitch("BIT_SW", 2, 3003, 574, "Control Interface", "BIT Switch, OFF/BIT")
-F_16C_50:defineToggleSwitch("FLCS_RESET_SW", 2, 3004, 573, "Control Interface", "FLCS RESET Switch, OFF/RESET")
-F_16C_50:defineToggleSwitch("LE_FLAPS_SW", 2, 3005, 572, "Control Interface", "LE FLAPS Switch, AUTO/LOCK")
-F_16C_50:defineToggleSwitch("TRIM_AP_DISC_SW", 2, 3006, 564, "Control Interface", "TRIM/AP DISC Switch, DISC/NORM")
-F_16C_50:definePotentiometer("ROLL_TRIM", 2, 3007, 560, { -1, 1 }, "Control Interface", "ROLL TRIM Wheel")
-F_16C_50:definePotentiometer("PITCH_TRIM", 2, 3008, 562, { -1, 1 }, "Control Interface", "PITCH TRIM Wheel")
-F_16C_50:definePotentiometer("YAW_TRIM", 2, 3009, 565, { -1, 1 }, "Control Interface", "YAW TRIM Knob")
-F_16C_50:defineToggleSwitch("MANUAL_PITCH_SW", 2, 3010, 425, "Control Interface", "MANUAL PITCH Override Switch, OVRD/NORM")
-F_16C_50:defineToggleSwitch("STORES_CONFIG_SW", 2, 3011, 358, "Control Interface", "STORES CONFIG Switch, CAT III/CAT I")
-F_16C_50:defineSpringloaded_3PosTumb("AP_PITCH_SW", 2, 3012, 3013, 109, "Control Interface", "Autopilot PITCH Switch, ATT HOLD/ A/P OFF/ ALT HOLD")
-F_16C_50:define3PosTumb("AP_ROLL_SW", 2, 3014, 108, "Control Interface", "Autopilot ROLL Switch, STRG SEL/ATT HOLD/HDG SEL")
-F_16C_50:defineToggleSwitch("ADV_MODE_SW", 2, 3015, 97, "Control Interface", "ADV MODE Switch")
-F_16C_50:defineToggleSwitch("MAN_TF_FLYUP_SW", 2, 3016, 568, "Control Interface", "MANUAL TF FLYUP Switch, ENABLE/DISABLE")
+F_16C_50:defineToggleSwitch("DIGI_BAK_SW", devices.CONTROL_INTERFACE, 3001, 566, "Control Interface", "DIGITAL BACKUP Switch, OFF/BACKUP")
+F_16C_50:defineToggleSwitch("ALT_FLAPS_SW", devices.CONTROL_INTERFACE, 3002, 567, "Control Interface", "ALT FLAPS Switch, NORM/EXTEND")
+F_16C_50:defineToggleSwitch("BIT_SW", devices.CONTROL_INTERFACE, 3003, 574, "Control Interface", "BIT Switch, OFF/BIT")
+F_16C_50:defineToggleSwitch("FLCS_RESET_SW", devices.CONTROL_INTERFACE, 3004, 573, "Control Interface", "FLCS RESET Switch, OFF/RESET")
+F_16C_50:defineToggleSwitch("LE_FLAPS_SW", devices.CONTROL_INTERFACE, 3005, 572, "Control Interface", "LE FLAPS Switch, AUTO/LOCK")
+F_16C_50:defineToggleSwitch("TRIM_AP_DISC_SW", devices.CONTROL_INTERFACE, 3006, 564, "Control Interface", "TRIM/AP DISC Switch, DISC/NORM")
+F_16C_50:definePotentiometer("ROLL_TRIM", devices.CONTROL_INTERFACE, 3007, 560, { -1, 1 }, "Control Interface", "ROLL TRIM Wheel")
+F_16C_50:definePotentiometer("PITCH_TRIM", devices.CONTROL_INTERFACE, 3008, 562, { -1, 1 }, "Control Interface", "PITCH TRIM Wheel")
+F_16C_50:definePotentiometer("YAW_TRIM", devices.CONTROL_INTERFACE, 3009, 565, { -1, 1 }, "Control Interface", "YAW TRIM Knob")
+F_16C_50:defineToggleSwitch("MANUAL_PITCH_SW", devices.CONTROL_INTERFACE, 3010, 425, "Control Interface", "MANUAL PITCH Override Switch, OVRD/NORM")
+F_16C_50:defineToggleSwitch("STORES_CONFIG_SW", devices.CONTROL_INTERFACE, 3011, 358, "Control Interface", "STORES CONFIG Switch, CAT III/CAT I")
+F_16C_50:defineSpringloaded_3PosTumb("AP_PITCH_SW", devices.CONTROL_INTERFACE, 3012, 3013, 109, "Control Interface", "Autopilot PITCH Switch, ATT HOLD/ A/P OFF/ ALT HOLD")
+F_16C_50:define3PosTumb("AP_ROLL_SW", devices.CONTROL_INTERFACE, 3014, 108, "Control Interface", "Autopilot ROLL Switch, STRG SEL/ATT HOLD/HDG SEL")
+F_16C_50:defineToggleSwitch("ADV_MODE_SW", devices.CONTROL_INTERFACE, 3015, 97, "Control Interface", "ADV MODE Switch")
+F_16C_50:defineToggleSwitch("MAN_TF_FLYUP_SW", devices.CONTROL_INTERFACE, 3016, 568, "Control Interface", "MANUAL TF FLYUP Switch, ENABLE/DISABLE")
 
 --External Lights
 F_16C_50:defineTumb("ANTI_COLL_LIGHT_KNB", 11, 3001, 531, 0.1, { 0, 0.7 }, nil, true, "External Lights", "ANTI-COLL Knob, OFF/1/2/3/4/A/B/C")
@@ -2092,5 +2096,10 @@ F_16C_50:defineFloat("STANDBY_COMPASS_ROLL", 612, { -1, 1 }, "Standby Compass", 
 
 F_16C_50:defineIndicatorLight("LIGHT_RWR_SHIP_U", 153, "Warning, Caution and IndicatorLights", "RWR SHIP U Light (green)")
 F_16C_50:defineIndicatorLight("LIGHT_RWR_SYSTEST_ON", 154, "Warning, Caution and IndicatorLights", "RWR SYSTEST ON Light (green)")
+
+-- Throttle
+local THROTTLE = "Throttle"
+
+F_16C_50:definePushButton("THROTTLE_OFF_IDLE", devices.CONTROL_INTERFACE, 3037, 757, THROTTLE, "Throttle Off/Idle")
 
 return F_16C_50
