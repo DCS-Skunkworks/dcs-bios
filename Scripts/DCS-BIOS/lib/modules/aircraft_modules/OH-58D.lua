@@ -1284,6 +1284,7 @@ local PDU = "Pilot Display Unit"
 
 OH_58D:definePushButton("PDU_BIT", devices.PDU, 3001, 310, PDU, "BIT Switch")
 OH_58D:definePotentiometer("PDU_BRIGHTNESS", devices.PDU, 3002, 311, { 0, 0.8 }, PDU, "Brightness Dial")
+OH_58D:defineInputOnlyPushButton("PDU_SHOW_HIDE", devices.PDU, 3004, PDU, "Hide/Unhide PDU")
 
 -- CMWS
 local CMWS = "CMWS"
