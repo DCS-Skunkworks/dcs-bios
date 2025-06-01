@@ -2301,4 +2301,8 @@ F_4E:definePositiveFloat("PLT_AZIMUTH_ELEVATION_FLAG_GREEN", 2763, PILOT_AZIMUTH
 
 F_4E:defineReadWriteRadio("RADIO_ARC_164", ARC_164_DEVICE_ID, 7, 3, 1000, "ARC-164 (Comm Command)")
 
+-- new controls
+F_4E:defineIndicatorLight("WSO_WRCS_ALT_LIGHT", 391, WSO_WRCS, "ALT Light (Red)")
+F_4E:defineIndicatorLight("WSO_WRCS_RANGE_LIGHT", 392, WSO_WRCS, "Freeze Light (Red)")
+
 return F_4E
