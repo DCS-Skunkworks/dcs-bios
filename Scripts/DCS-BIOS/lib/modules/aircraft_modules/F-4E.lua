@@ -1213,7 +1213,7 @@ local PILOT_TACAN = "PLT TACAN"
 F_4E:definePushButton("PLT_TACAN_TOGGLE_COMMAND", TACAN_DEVICE_ID, 3001, 120, PILOT_TACAN, "Toggle TACAN Command")
 F_4E:definePotentiometer("PLT_TACAN_COMMAND_LIGHT_BRIGHTNESS", TACAN_DEVICE_ID, 3015, 2770, { 0, 1 }, PILOT_TACAN, "Change TACAN Command Light Brightness")
 F_4E:defineMultipositionRollerLimited("PLT_TACAN_SET_TENS", TACAN_DEVICE_ID, 3003, 641, 13, PILOT_TACAN, "Set TACAN Channel (tens/hundreds)")
-F_4E:defineMultipositionSwitch("PLT_TACAN_SET_ONES", TACAN_DEVICE_ID, 3002, 640, 10, 0.1, PILOT_TACAN, "Set TACAN Channel (ones)") -- yes, even though everything else is a "roller", this is a switch
+F_4E:defineMultipositionSwitch("PLT_TACAN_SET_ONES", TACAN_DEVICE_ID, 3002, 640, 10, 1 / 9, PILOT_TACAN, "Set TACAN Channel (ones)") -- yes, even though everything else is a "roller", this is a switch
 F_4E:defineToggleSwitch("PLT_TACAN_SET_XY", TACAN_DEVICE_ID, 3004, 654, PILOT_TACAN, "Set TACAN Channel (X/Y)")
 F_4E:definePotentiometer("PLT_TACAN_VOLUME", TACAN_DEVICE_ID, 3005, 642, { 0, 1 }, PILOT_TACAN, "Change TACAN Volume")
 F_4E:defineMultipositionRollerLimited("PLT_TACAN_MODE", TACAN_DEVICE_ID, 3006, 646, 5, PILOT_TACAN, "Select TACAN Mode")
@@ -1231,7 +1231,7 @@ local WSO_TACAN = "WSO TACAN"
 F_4E:definePushButton("WSO_TACAN_TOGGLE_COMMAND", TACAN_DEVICE_ID, 3008, 145, WSO_TACAN, "Toggle TACAN Command")
 F_4E:definePotentiometer("WSO_TACAN_COMMAND_LIGHT_BRIGHTNESS", TACAN_DEVICE_ID, 3016, 2774, { 0, 1 }, WSO_TACAN, "Change TACAN Command Light Brightness")
 F_4E:defineMultipositionRollerLimited("WSO_TACAN_SET_TENS", TACAN_DEVICE_ID, 3010, 648, 13, WSO_TACAN, "Set TACAN Channel (tens/hundreds)")
-F_4E:defineMultipositionRollerLimited("WSO_TACAN_SET_ONES", TACAN_DEVICE_ID, 3009, 647, 10, WSO_TACAN, "Set TACAN Channel (ones)")
+F_4E:defineMultipositionSwitch("WSO_TACAN_SET_ONES", TACAN_DEVICE_ID, 3009, 647, 10, 1 / 9, WSO_TACAN, "Set TACAN Channel (ones)") -- yes, even though everything else is a "roller", this is a switch
 F_4E:defineToggleSwitch("WSO_TACAN_SET_XY", TACAN_DEVICE_ID, 3011, 658, WSO_TACAN, "Set TACAN Channel (X/Y)")
 F_4E:definePotentiometer("WSO_TACAN_VOLUME", TACAN_DEVICE_ID, 3012, 649, { 0, 1 }, WSO_TACAN, "Change TACAN Volume")
 F_4E:defineMultipositionRollerLimited("WSO_TACAN_MODE", TACAN_DEVICE_ID, 3013, 653, 5, WSO_TACAN, "Select TACAN Mode")
