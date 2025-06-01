@@ -604,7 +604,22 @@ end
 --- @param description string additional information about the control
 --- @return Control control the control which was added to the module
 function Module:defineMultipositionSwitch(identifier, device_id, command, arg_number, num_positions, increment, category, description)
-	local control = self:defineTumb(identifier, device_id, command, arg_number, increment, { 0, increment * (num_positions - 1) }, nil, false, category, description)
+	return self:defineMultipositionSwitchWithCycle(identifier, device_id, command, arg_number, num_positions, increment, false, category, description)
+end
+
+--- Adds an n-position switch
+--- @param identifier string the unique identifier for the control
+--- @param device_id integer the dcs device id
+--- @param command integer the dcs command
+--- @param arg_number integer the dcs argument number
+--- @param num_positions integer the number of positions the switch has
+--- @param increment number the amount to increment the dcs data by with each step of the switch
+--- @param cycle boolean whether the control should roll over when exceeding the min/max value
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @return Control control the control which was added to the module
+function Module:defineMultipositionSwitchWithCycle(identifier, device_id, command, arg_number, num_positions, increment, cycle, category, description)
+	local control = self:defineTumb(identifier, device_id, command, arg_number, increment, { 0, increment * (num_positions - 1) }, nil, cycle, category, description)
 
 	return control
 end
