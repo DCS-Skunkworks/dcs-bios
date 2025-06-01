@@ -1589,4 +1589,8 @@ F_14:defineString("RIO_VUHF_DISP", function(_)
 	return get_radio_vuhf_display(13, false)
 end, 7, "VUHF", "RIO VHF/UHF ARC-182 Radio Display")
 
+F_14:defineInputOnlyPushButtonNoOff("CANOPY_TOGGLE", 12, 3183, "Cockpit", "Canopy Open/Close")
+F_14:defineInputOnlyPushButtonNoOff("SALUTE", 18, 3023, "Communications", "Salute")
+F_14:defineInputOnlyPushButtonNoOff("ON_THE_BALL", 2, 3749, "Communications", "Tomcat on the Ball")
+
 return F_14
