@@ -34,6 +34,19 @@ function F_14:defineIndicatorLightLANTBottom(identifier, arg_number, category, d
 	self:defineGatedIndicatorLight(identifier, arg_number, 0.55, 0.99, category, description)
 end
 
+-- it's not clear why the range is -1 to 2 - the controls are defined as -1 to 1, but for some reason they end up at 2 instead
+--- Adds a two-position toggle switch with a control range of -1 to 2
+--- @param identifier string the unique identifier for the control
+--- @param device_id integer the dcs device id
+--- @param command integer the dcs command
+--- @param arg_number integer the dcs argument number
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @return Control control the control which was added to the module
+function F_14:defineModuleDefaultToggleSwitch(identifier, device_id, command, arg_number, category, description)
+	return self:defineToggleSwitchManualRange(identifier, device_id, command, arg_number, { -1, 2 }, category, description)
+end
+
 local steer_mode = "2"
 
 F_14:addExportHook(function(dev0)
@@ -220,7 +233,7 @@ F_14:defineToggleSwitch("PLT_AFCS_YAW", 22, 3036, 2108, "SAS", "PILOT AFCS Stabi
 F_14:define3PosTumb("PLT_AUTOPLT_VECTOR_CARRIER", 22, 3037, 2109, "Autopilot", "PILOT Autopilot - Vector / Automatic Carrier Landing")
 F_14:defineToggleSwitch("PLT_AUTOPLT_ALT", 22, 3038, 2110, "Autopilot", "PILOT Autopilot - Altitude Hold")
 F_14:define3PosTumb("PLT_AUTOPLT_HDG", 22, 3039, 2111, "Autopilot", "PILOT Autopilot - Heading / Ground Track")
-F_14:defineFixedStepTumb("PLT_AUTOPLT_ENGAGE", 22, 3040, 2112, 2, { -1, 1 }, { -1, 1 }, nil, "Autopilot", "PILOT Autopilot - Engage")
+F_14:defineModuleDefaultToggleSwitch("PLT_AUTOPLT_ENGAGE", 22, 3040, 2112, "Autopilot", "PILOT Autopilot - Engage")
 
 -- Flaps
 F_14:definePotentiometer("PLT_FLAPS_LEVER", 19, 3044, 225, { 0, 1 }, "Flaps", "PILOT Flaps Lever")
@@ -337,8 +350,8 @@ F_14:defineToggleSwitch("PLT_TACAN_CMD_BUTTON", 47, 3324, 292, "Volume Panel", "
 F_14:defineToggleSwitch("RIO_TACAN_CMD_BUTTON", 47, 3325, 135, "TACAN RIO", "RIO TACAN CMD Button")
 F_14:defineTumb("PLT_TACAN_MODE", 47, 3326, 2041, 0.25, { 0, 1 }, nil, false, "TACAN PILOT", "PILOT TACAN Mode")
 F_14:definePotentiometer("PLT_TACAN_VOLUME", 47, 3328, 2036, { 0, 1 }, "TACAN PILOT", "PILOT TACAN Volume")
-F_14:defineFixedStepTumb("PLT_TACAN_MODE_NORMAL_INV", 47, 3335, 2042, 2, { -1, 1 }, { -1, 1 }, nil, "TACAN PILOT", "PILOT TACAN Mode Normal/Inverse")
-F_14:defineFixedStepTumb("PLT_TACAN_CHANNEL", 47, 3336, 2043, 2, { -1, 1 }, { -1, 1 }, nil, "TACAN PILOT", "PILOT TACAN Channel XY")
+F_14:defineModuleDefaultToggleSwitch("PLT_TACAN_MODE_NORMAL_INV", 47, 3335, 2042, "TACAN PILOT", "PILOT TACAN Mode Normal/Inverse")
+F_14:defineModuleDefaultToggleSwitch("PLT_TACAN_CHANNEL", 47, 3336, 2043, "TACAN PILOT", "PILOT TACAN Channel XY")
 F_14:definePushButton("PLT_TACAN_BIT", 47, 3334, 2115, "TACAN PILOT", "PILOT TACAN Bit")
 F_14:defineTumb("PLT_TACAN_DIAL_TENS", 47, 3330, 8888, 1 / 12, { 0, 1 }, nil, false, "TACAN PILOT", "PILOT TACAN Channel Wheel (Tens)")
 F_14:defineTumb("PLT_TACAN_DIAL_ONES", 47, 3332, 8889, 1 / 9, { 0, 1 }, nil, false, "TACAN PILOT", "PILOT TACAN Channel Lever (Ones)")
@@ -546,7 +559,7 @@ F_14:defineMultipositionSwitch("RIO_TID_MODE_DEST", 46, 3109, 51, 8, 0.142857, "
 F_14:definePotentiometer("PLT_AHRS_HDG_KNOB", 51, 3433, 904, { -1, 1 }, "AHRS", "PILOT Compass HDG Slave Knob")
 F_14:definePushButton("PLT_AHRS_HDG_PUSH", 51, 3432, 16014, "AHRS", "PILOT Compass HDG Slave Push")
 F_14:define3PosTumb("PLT_AHRS_MODE", 51, 3434, 905, "AHRS", "PILOT Compass Mode")
-F_14:defineFixedStepTumb("PLT_AHRS_HEMISPHERE", 51, 3436, 906, 2, { -1, 1 }, { -1, 1 }, nil, "AHRS", "PILOT Compass N-S Hemisphere")
+F_14:defineModuleDefaultToggleSwitch("PLT_AHRS_HEMISPHERE", 51, 3436, 906, "AHRS", "PILOT Compass N-S Hemisphere")
 F_14:definePotentiometer("PLT_AHRS_LAT", 51, 3438, 909, { 0, 1 }, "AHRS", "PILOT Compass LAT Correction")
 
 -- Spoiler Overrides
