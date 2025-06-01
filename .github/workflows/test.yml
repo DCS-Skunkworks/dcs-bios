@@ -9,6 +9,9 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: read
+
     name: Run unit tests
     steps:
       - name: Checkout repository

@@ -9,6 +9,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: read
+
     name: Run Luacheck
     steps:
       - name: Checkout repository
