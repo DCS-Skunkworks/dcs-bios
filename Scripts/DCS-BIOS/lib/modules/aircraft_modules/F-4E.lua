@@ -2305,4 +2305,6 @@ F_4E:defineReadWriteRadio("RADIO_ARC_164", ARC_164_DEVICE_ID, 7, 3, 1000, "ARC-1
 F_4E:defineIndicatorLight("WSO_WRCS_ALT_LIGHT", 391, WSO_WRCS, "ALT Light (Red)")
 F_4E:defineIndicatorLight("WSO_WRCS_RANGE_LIGHT", 392, WSO_WRCS, "Freeze Light (Red)")
 
+F_4E:definePotentiometer("PLT_RADAR_HORIZONTAL_LINE", RADAR_DEVICE_ID, 3113, 1205, { 0, 1 }, PILOT_RADAR, "Adjust Horizon on Display")
+
 return F_4E
