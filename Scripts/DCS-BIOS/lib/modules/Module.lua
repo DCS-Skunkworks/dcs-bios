@@ -549,7 +549,22 @@ end
 --- @param description string additional information about the control
 --- @return Control control the control which was added to the module
 function Module:defineToggleSwitch(identifier, device_id, command, arg_number, category, description)
-	local control = self:defineTumb(identifier, device_id, command, arg_number, 1, { 0, 1 }, nil, false, category, description)
+	return self:defineToggleSwitchManualRange(identifier, device_id, command, arg_number, { 0, 1 }, category, description)
+end
+
+--- Adds a two-position toggle switch
+--- @param identifier string the unique identifier for the control
+--- @param device_id integer the dcs device id
+--- @param command integer the dcs command
+--- @param arg_number integer the dcs argument number
+--- @param limits number[] a length-2 array with the lower and upper bounds of the data as used in dcs
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @return Control control the control which was added to the module
+function Module:defineToggleSwitchManualRange(identifier, device_id, command, arg_number, limits, category, description)
+	assert_min_max(limits, "limits")
+	local step = limits[2] - limits[1]
+	local control = self:defineTumb(identifier, device_id, command, arg_number, step, limits, nil, false, category, description)
 
 	return control
 end
