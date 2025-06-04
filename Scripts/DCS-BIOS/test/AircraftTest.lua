@@ -1,3 +1,4 @@
+local AircraftList = require("Scripts.DCS-BIOS.lib.AircraftList")
 local JSON = require("Scripts.DCS-BIOS.lib.ext.JSON")
 local lu = require("Scripts.DCS-BIOS.test.ext.luaunit")
 
@@ -221,6 +222,9 @@ function TestAircraft:validateModule(module, expected_name, expected_address)
 	lu.assertEquals(module.memoryMap.baseAddress, expected_address)
 	JSON:encode(module.documentation) -- verify json generation works
 	self:validateControlNames(module.name, module.documentation)
+	for _, name in ipairs(module.aircraftList) do
+		lu.assertTableContains(AircraftList.ALL_PLAYABLE_AIRCRAFT, name, "aircraft " .. name .. " not present in AircraftList")
+	end
 end
 
 --- Validates that all control names follow the defined pattern and that there are no duplicates
