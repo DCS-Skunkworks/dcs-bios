@@ -676,6 +676,13 @@ CH_47F:reserveStringValue(24)
 CH_47F:reserveStringValue(24)
 CH_47F:reserveStringValue(24) -- todo: this would just be for underscore, since it overlaps on last character. unclear if necessary
 
+-- Pilot Multi-Function Control Knob Panel
+local PILOT_MFK_PANEL = "PLT Multi-Function Control Knob Panel"
+
+CH_47F:defineRotary("PLT_MFK_INNER_KNOB", devices.CDU_RIGHT, 3001, 983, PILOT_MFK_PANEL, "Inner Knob (Rotate)")
+CH_47F:definePushButton("PLT_MFK_INNER_PRESS", devices.CDU_RIGHT, 3003, 984, PILOT_MFK_PANEL, "Inner Knob (Press)")
+CH_47F:defineRotary("PLT_MFK_OUTER_KNOB", devices.CDU_RIGHT, 3002, 982, PILOT_MFK_PANEL, "Outer Knob (Rotate)")
+
 -- Miscellaneous Switch Control Panel
 -- local CANTED_MISC_SWITCH_PANEL = "Canted Console Misc Switch Control Panel"
 
