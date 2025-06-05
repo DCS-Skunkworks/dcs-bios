@@ -698,7 +698,12 @@ CH_47F:definePotentiometer("MISC_CANTED_CDU_2_BRT", devices.CANTED_CONSOLE, 3041
 CH_47F:definePushButton("MISC_CANTED_LAMP_TEST", devices.CANTED_CONSOLE, 3044, 582, CANTED_MISC_SWITCH_PANEL, "Lamp Test Button")
 
 -- Emergency/Auxiliary Control Panel
--- local EMERGENCY_AUX_PANEL = "Emergency/Auxiliary Control Panel"
+local EMERGENCY_AUX_PANEL = "Emergency/Auxiliary Control Panel"
+
+CH_47F:defineMultipositionSwitch("EMERG_AUX_RADIO_MODE", devices.EMERGENCY_PANEL, 3001, 583, 3, 0.1, EMERGENCY_AUX_PANEL, "Radio Mode (MAN/NORM/GUARD)")
+CH_47F:defineToggleSwitch("EMERG_AUX_IDENT", devices.EMERGENCY_PANEL, 3002, 584, EMERGENCY_AUX_PANEL, "Ident Switch")
+CH_47F:defineMultipositionSwitch("EMERG_AUX_IFF", devices.EMERGENCY_PANEL, 3003, 585, 3, 0.1, EMERGENCY_AUX_PANEL, "IFF Mode (HOLD/OFF/EMER)")
+CH_47F:defineToggleSwitch("EMERG_AUX_ZEROIZE", devices.EMERGENCY_PANEL, 3004, 586, EMERGENCY_AUX_PANEL, "Zeroize Switch")
 
 -- DAFCS Panel
 -- local DAFCS_PANEL = "DAFCS Panel"
