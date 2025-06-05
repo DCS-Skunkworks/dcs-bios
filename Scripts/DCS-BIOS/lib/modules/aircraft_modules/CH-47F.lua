@@ -92,7 +92,7 @@ local devices = {
 --- @param description string additional information about the control
 --- @return Control
 function CH_47F:defineSingleCommandRocker(identifier, device_id, command, arg_number, category, description)
-	self:defineRockerSwitch(identifier, device_id, command, command, command, command, arg_number, category, description)
+	return self:defineRockerSwitch(identifier, device_id, command, command, command, command, arg_number, category, description)
 end
 
 -- Center Console
@@ -706,7 +706,15 @@ CH_47F:defineMultipositionSwitch("EMERG_AUX_IFF", devices.EMERGENCY_PANEL, 3003,
 CH_47F:defineToggleSwitch("EMERG_AUX_ZEROIZE", devices.EMERGENCY_PANEL, 3004, 586, EMERGENCY_AUX_PANEL, "Zeroize Switch")
 
 -- DAFCS Panel
--- local DAFCS_PANEL = "DAFCS Panel"
+local DAFCS_PANEL = "DAFCS Panel"
+
+CH_47F:definePushButton("DAFCS_FLT_DIR", devices.CANTED_CONSOLE, 3030, 574, DAFCS_PANEL, "FLT DIR Button")
+CH_47F:defineSingleCommandRocker("DAFS_TRIM_FWD", devices.CANTED_CONSOLE, 3031, 576, DAFCS_PANEL, "FWD Trim Switch")
+CH_47F:defineSingleCommandRocker("DAFS_TRIM_AFT", devices.CANTED_CONSOLE, 3032, 577, DAFCS_PANEL, "AFT Trim Switch")
+CH_47F:defineToggleSwitch("DAFCS_MODE", devices.CANTED_CONSOLE, 3033, 578, DAFCS_PANEL, "DAFCS Mode (Manual/Auto)")
+CH_47F:defineMultipositionSwitch("DAFCS_SYSTEM", devices.CANTED_CONSOLE, 3035, 579, 5, 0.1, DAFCS_PANEL, "System Select")
+
+CH_47F:defineFloat("DAFCS_CPLR_LIGHT", 575, { 0, 1 }, DAFCS_PANEL, "CPLR Lamp (Green)")
 
 -- Pilot Instrument Panel
 -- local PILOT_INSTRUMENT_PANEL = "PLT Instrument Panel"
