@@ -691,7 +691,11 @@ CH_47F:definePushButton("CPLT_MFK_INNER_PRESS", devices.CDU_LEFT, 3003, 987, COP
 CH_47F:defineRotary("CPLT_MFK_OUTER_KNOB", devices.CDU_LEFT, 3002, 985, COPILOT_MFK_PANEL, "Outer Knob (Rotate)")
 
 -- Miscellaneous Switch Control Panel
--- local CANTED_MISC_SWITCH_PANEL = "Canted Console Misc Switch Control Panel"
+local CANTED_MISC_SWITCH_PANEL = "Canted Console Misc Switch Control Panel"
+
+CH_47F:definePotentiometer("MISC_CANTED_CDU_1_BRT", devices.CANTED_CONSOLE, 3038, 580, { 0, 1 }, CANTED_MISC_SWITCH_PANEL, "CDU 1 Brightness")
+CH_47F:definePotentiometer("MISC_CANTED_CDU_2_BRT", devices.CANTED_CONSOLE, 3041, 581, { 0, 1 }, CANTED_MISC_SWITCH_PANEL, "CDU 2 Brightness")
+CH_47F:definePushButton("MISC_CANTED_LAMP_TEST", devices.CANTED_CONSOLE, 3044, 582, CANTED_MISC_SWITCH_PANEL, "Lamp Test Button")
 
 -- Emergency/Auxiliary Control Panel
 -- local EMERGENCY_AUX_PANEL = "Emergency/Auxiliary Control Panel"
