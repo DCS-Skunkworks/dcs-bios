@@ -683,6 +683,13 @@ CH_47F:defineRotary("PLT_MFK_INNER_KNOB", devices.CDU_RIGHT, 3001, 983, PILOT_MF
 CH_47F:definePushButton("PLT_MFK_INNER_PRESS", devices.CDU_RIGHT, 3003, 984, PILOT_MFK_PANEL, "Inner Knob (Press)")
 CH_47F:defineRotary("PLT_MFK_OUTER_KNOB", devices.CDU_RIGHT, 3002, 982, PILOT_MFK_PANEL, "Outer Knob (Rotate)")
 
+-- Copilot Multi-Function Control Knob Panel
+local COPILOT_MFK_PANEL = "CPLT Multi-Function Control Knob Panel"
+
+CH_47F:defineRotary("CPLT_MFK_INNER_KNOB", devices.CDU_LEFT, 3001, 986, COPILOT_MFK_PANEL, "Inner Knob (Rotate)")
+CH_47F:definePushButton("CPLT_MFK_INNER_PRESS", devices.CDU_LEFT, 3003, 987, COPILOT_MFK_PANEL, "Inner Knob (Press)")
+CH_47F:defineRotary("CPLT_MFK_OUTER_KNOB", devices.CDU_LEFT, 3002, 985, COPILOT_MFK_PANEL, "Outer Knob (Rotate)")
+
 -- Miscellaneous Switch Control Panel
 -- local CANTED_MISC_SWITCH_PANEL = "Canted Console Misc Switch Control Panel"
 
