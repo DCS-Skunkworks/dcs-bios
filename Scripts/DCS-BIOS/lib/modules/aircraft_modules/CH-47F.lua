@@ -716,17 +716,32 @@ CH_47F:defineMultipositionSwitch("DAFCS_SYSTEM", devices.CANTED_CONSOLE, 3035, 5
 
 CH_47F:defineFloat("DAFCS_CPLR_LIGHT", 575, { 0, 1 }, DAFCS_PANEL, "CPLR Lamp (Green)")
 
+-- Parking Brake
+local PARKING_BRAKE = "Parking Brake"
+
+CH_47F:definePushButton("PARKING_BRAKE", devices.CENTRAL_CONSOLE, 3100, 740, PARKING_BRAKE, "Parking Brake")
+CH_47F:reserveIntValue(65535) -- reserved in case parking brake gets an axis control
+
 -- Pilot Instrument Panel
--- local PILOT_INSTRUMENT_PANEL = "PLT Instrument Panel"
--- master caution, cabin air pull
+local PILOT_INSTRUMENT_PANEL = "PLT Instrument Panel"
+
+CH_47F:definePushButton("PLT_MASTER_CAUTION", devices.GRIPS, 3026, 1393, PILOT_INSTRUMENT_PANEL, "Master Caution Button")
+CH_47F:defineFloat("PLT_MASTER_CAUTION_LIGHT", 1394, { 0, 1 }, PILOT_INSTRUMENT_PANEL, "Master Caution Lamp (Yellow)")
+CH_47F:reserveIntValue(65535) -- cabin air pull inop
 
 -- Copilot Instrument Panel
--- local COPILOT_INSTRUMENT_PANEL = "CPLT Instrument Panel"
--- master caution, cabin air pull
+local COPILOT_INSTRUMENT_PANEL = "CPLT Instrument Panel"
+
+CH_47F:definePushButton("CPLT_MASTER_CAUTION", devices.GRIPS, 3106, 1391, COPILOT_INSTRUMENT_PANEL, "Master Caution Button")
+CH_47F:defineFloat("CPLT_MASTER_CAUTION_LIGHT", 1392, { 0, 1 }, COPILOT_INSTRUMENT_PANEL, "Master Caution Lamp (Yellow)")
+CH_47F:reserveIntValue(65535) -- cabin air pull inop
 
 -- Center Instrument Panel
--- local CENTER_INSTRUMENT_PANEL = "Center Instrument Panel"
--- battery low light
+local CENTER_INSTRUMENT_PANEL = "Center Instrument Panel"
+
+CH_47F:definePushButton("BATT_LOW_TEST", devices.CANTED_CONSOLE, 3009, 724, CENTER_INSTRUMENT_PANEL, "Battery Low (Press to test)")
+CH_47F:definePotentiometer("BATT_LOW_DIM", devices.CANTED_CONSOLE, 3010, 725, { 0, 1 }, CENTER_INSTRUMENT_PANEL, "Battery Low (Rotate to dim)")
+CH_47F:defineFloat("BATT_LOW_LIGHT", 723, { 0, 1 }, CENTER_INSTRUMENT_PANEL, "Battery Low Lamp (Green)")
 
 -- Pilot Inboard MFD
 -- local PILOT_MFD_INNER = "PLT Inboard MFD"
