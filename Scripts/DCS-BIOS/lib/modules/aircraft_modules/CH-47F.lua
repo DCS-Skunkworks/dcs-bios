@@ -984,7 +984,38 @@ local COPILOT_INCLINOMETER = "CPLT Inclinometer"
 CH_47F:defineFloat("CPLT_INCLINOMETER", 1217, { -1, 1 }, COPILOT_INCLINOMETER, "Inclinometer")
 
 -- Radar Altimeter
--- local RADAR_ALTIMETER = "Radar Altimeter"
+local RADAR_ALTIMETER = "Radar Altimeter"
+
+CH_47F:definePotentiometer("RAD_ALT_DIMMER", devices.CANTED_CONSOLE, 3016, 739, { 0, 1 }, RADAR_ALTIMETER, "Dimmer Knob")
+CH_47F:defineRotary("RAD_ALT_SET_LO", devices.APN_209, 3002, 1193, RADAR_ALTIMETER, "Low Altitude Setting Knob")
+CH_47F:defineRotary("RAD_ALT_SET_HI", devices.APN_209, 3003, 1194, RADAR_ALTIMETER, "High Altitude Setting Knob (Rotate to set)")
+CH_47F:definePushButton("RAD_ALT_SET_HI_TEST", devices.APN_209, 3001, 1195, RADAR_ALTIMETER, "High Altitude Setting Knob (Push to test)")
+
+CH_47F:defineFloat("RAD_ALT_NEEDLE", 1191, { 0, 1 }, RADAR_ALTIMETER, "Altitude Needle")
+CH_47F:defineFloat("RAD_ALT_BUG_LO", 1196, { 0, 1 }, RADAR_ALTIMETER, "Low Altitude Bug")
+CH_47F:defineFloat("RAD_ALT_BUG_HI", 1197, { 0, 1 }, RADAR_ALTIMETER, "High Altitude Bug")
+CH_47F:defineFloat("RAD_ALT_FLAG_OFF", 1198, { 0, 1 }, RADAR_ALTIMETER, "OFF Flag")
+
+local function get_display_char(dev0, arg_number)
+	local v = dev0:get_argument_value(arg_number)
+	if v < 0 or v >= 1 then
+		return " "
+	else
+		return tostring(math.floor(v / 0.09999)) -- for 9 we actually get a value just *below* 0.9 - probably a floating point error in dcs
+	end
+end
+
+CH_47F:defineString("RAD_ALT_DISPLAY", function(dev0)
+	local thousands = get_display_char(dev0, 1200)
+	local hundreds = get_display_char(dev0, 1201)
+	local tens = get_display_char(dev0, 1202)
+	local ones = get_display_char(dev0, 1203)
+	return thousands .. hundreds .. tens .. ones
+end, 4, RADAR_ALTIMETER, "Display")
+
+CH_47F:defineIndicatorLight("RAD_ALT_LO_LIGHT", 1199, RADAR_ALTIMETER, "LO Lamp (Yellow)")
+CH_47F:defineIndicatorLight("RAD_ALT_HI_LIGHT", 1192, RADAR_ALTIMETER, "HI Lamp (Yellow)")
+CH_47F:defineFloat("RAD_ALT_BRIGHTNESS", 1204, { 0, 1 }, RADAR_ALTIMETER, "Display Brightness")
 
 -- Longitudinal Stick Position Indicator
 -- local LONG_STICK_INDICATOR = "Longitudinal Stick Position Indicator"
