@@ -1018,7 +1018,9 @@ CH_47F:defineIndicatorLight("RAD_ALT_HI_LIGHT", 1192, RADAR_ALTIMETER, "HI Lamp 
 CH_47F:defineFloat("RAD_ALT_BRIGHTNESS", 1204, { 0, 1 }, RADAR_ALTIMETER, "Display Brightness")
 
 -- Longitudinal Stick Position Indicator
--- local LONG_STICK_INDICATOR = "Longitudinal Stick Position Indicator"
+local LONG_STICK_INDICATOR = "Longitudinal Stick Position Indicator"
+
+CH_47F:defineFloat("LONG_STICK_INDICATOR", 1460, { 0, 1 }, LONG_STICK_INDICATOR, "Longitudinal Stick Position Indicator")
 
 -- Chronometer
 -- local CHRONOMETER = "Chronometer"
