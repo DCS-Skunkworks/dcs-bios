@@ -964,14 +964,24 @@ CH_47F:definePotentiometer("FIRE_HANDLE_ENG2_TWIST", devices.CANTED_CONSOLE, 300
 -- Pilot Standby Flight Display
 -- local PILOT_STANDBY_FLIGHT_DISPLAY = "PLT Standby Flight Display"
 
+CH_47F:reserveIntValue(1) -- push button
+CH_47F:reserveIntValue(65535) -- knob
+
 -- Copilot Standby Flight Display
 -- local COPILOT_STANDBY_FLIGHT_DISPLAY = "CPLT Standby Flight Display"
 
+CH_47F:reserveIntValue(1) -- push button
+CH_47F:reserveIntValue(65535) -- knob
+
 -- Pilot Inclinometer
--- local PILOT_INCLINOMETER = "PLT Inclinometer"
+local PILOT_INCLINOMETER = "PLT Inclinometer"
+
+CH_47F:defineFloat("PLT_INCLINOMETER", 1218, { -1, 1 }, PILOT_INCLINOMETER, "Inclinometer")
 
 -- Copilot Inclinometer
--- local COPILOT_INCLINOMETER = "CPLT Inclinometer"
+local COPILOT_INCLINOMETER = "CPLT Inclinometer"
+
+CH_47F:defineFloat("CPLT_INCLINOMETER", 1217, { -1, 1 }, COPILOT_INCLINOMETER, "Inclinometer")
 
 -- Radar Altimeter
 -- local RADAR_ALTIMETER = "Radar Altimeter"
