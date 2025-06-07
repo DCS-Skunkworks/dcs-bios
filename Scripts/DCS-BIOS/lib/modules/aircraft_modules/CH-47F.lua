@@ -954,7 +954,12 @@ CH_47F:defineRockerSwitch("MFD_CENTER_VID_CON", devices.MFD_CENTER, 3037, 3039, 
 CH_47F:defineRockerSwitch("MFD_CENTER_BKLT_BRT", devices.MFD_CENTER, 3040, 3042, 3041, 3042, 869, CENTER_MFD, "Backlight Brightness Rocker")
 
 -- Fire handles
--- local FIRE_PANEL = "Fire Handle Panel"
+local FIRE_PANEL = "Fire Handle Panel"
+
+CH_47F:defineSingleCommandRocker("FIRE_HANDLE_ENG1_PULL", devices.CANTED_CONSOLE, 3001, 731, FIRE_PANEL, "Engine 1 Fire Handle (Pull)")
+CH_47F:definePotentiometer("FIRE_HANDLE_ENG1_TWIST", devices.CANTED_CONSOLE, 3002, 732, { 0, 1 }, FIRE_PANEL, "Engine 1 Fire Handle (Twist)")
+CH_47F:defineSingleCommandRocker("FIRE_HANDLE_ENG2_PULL", devices.CANTED_CONSOLE, 3005, 735, FIRE_PANEL, "Engine 2 Fire Handle (Pull)")
+CH_47F:definePotentiometer("FIRE_HANDLE_ENG2_TWIST", devices.CANTED_CONSOLE, 3006, 736, { 0, 1 }, FIRE_PANEL, "Engine 2 Fire Handle (Twist)")
 
 -- Pilot Standby Flight Display
 -- local PILOT_STANDBY_FLIGHT_DISPLAY = "PLT Standby Flight Display"
