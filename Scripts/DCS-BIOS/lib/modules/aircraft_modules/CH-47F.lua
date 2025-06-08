@@ -1023,7 +1023,20 @@ local LONG_STICK_INDICATOR = "Longitudinal Stick Position Indicator"
 CH_47F:defineFloat("LONG_STICK_INDICATOR", 1460, { 0, 1 }, LONG_STICK_INDICATOR, "Longitudinal Stick Position Indicator")
 
 -- Chronometer
--- local CHRONOMETER = "Chronometer"
+local CHRONOMETER = "Chronometer"
+
+CH_47F:definePushButton("CHRONOMETER_SELECT", devices.TERTIARY_REFLECTS, 3001, 1209, CHRONOMETER, "SELECT Button")
+CH_47F:definePushButton("CHRONOMETER_CONTROL", devices.TERTIARY_REFLECTS, 3002, 1210, CHRONOMETER, "CONTROL Button")
+CH_47F:definePotentiometer("CHRONOMETER_DIM", devices.TERTIARY_REFLECTS, 3003, 1208, { 0, 1 }, CHRONOMETER, "DIM Knob")
+
+-- indicator 23
+CH_47F:reserveIntValue(1) -- TAG_0 -> GMT tick
+CH_47F:reserveIntValue(1) -- TAG_1 -> LT tick
+CH_47F:reserveIntValue(1) -- TAG_3 -> ET tick
+-- DIGIT_6 - 11 -> top value
+CH_47F:reserveStringValue(6)
+-- DIGIT_0 -  3 -> bottom value
+CH_47F:reserveIntValue(4)
 
 -- AN/APR-39
 -- local RWR = "AN/APR-39"
