@@ -1098,7 +1098,11 @@ CH_47F:definePotentiometer("PLT_LIGHT_CENTER_DIM", devices.OVERHEAD_CONSOLE, 309
 CH_47F:definePotentiometer("PLT_LIGHT_INSTRUMENT_DIM", devices.OVERHEAD_CONSOLE, 3097, 523, { 0, 1 }, PILOT_LIGHT_PANEL, "Instrument Light Dimmer")
 
 -- Copilot Light Panel
--- local COPILOT_LIGHT_PANEL = "CPLT Lighting Panel"
+local COPILOT_LIGHT_PANEL = "CPLT Lighting Panel"
+
+CH_47F:defineToggleSwitch("CPLT_LIGHT_SEARCHLIGHT", devices.OVERHEAD_CONSOLE, 3100, 524, COPILOT_LIGHT_PANEL, "Searchlight (RET/ON)")
+CH_47F:definePotentiometer("CPLT_LIGHT_OVERHEAD_DIM", devices.OVERHEAD_CONSOLE, 3102, 525, { 0, 1 }, COPILOT_LIGHT_PANEL, "Overhead Light Dimmer")
+CH_47F:definePotentiometer("CPLT_LIGHT_INSTRUMENT_DIM", devices.OVERHEAD_CONSOLE, 3105, 526, { 0, 1 }, COPILOT_LIGHT_PANEL, "Instrument Light Dimmer")
 
 -- Fuel Control Panel
 -- local FUEL_PANEL = "Fuel Control Panel"
