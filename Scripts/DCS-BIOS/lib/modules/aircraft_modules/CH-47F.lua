@@ -1055,7 +1055,12 @@ CH_47F:defineFloat("COMPASS_ROLL", 1212, { -1, 1 }, COMPASS, "Compass Roll")
 
 -- Overhead Switch Panel
 -- EAPS Control Panel
--- local EAPS_PANEL = "EAPS Control Panel"
+local EAPS_PANEL = "EAPS Control Panel"
+
+CH_47F:defineToggleSwitch("EAPS_ENG1_FAN", devices.OVERHEAD_CONSOLE, 3040, 501, EAPS_PANEL, "Engine 1 Fan (OFF/ON)")
+CH_47F:defineToggleSwitch("EAPS_ENG1_DOORS", devices.OVERHEAD_CONSOLE, 3042, 502, EAPS_PANEL, "Engine 1 Doors (CLOSE/OPEN)")
+CH_47F:defineToggleSwitch("EAPS_ENG2_FAN", devices.OVERHEAD_CONSOLE, 3044, 503, EAPS_PANEL, "Engine 2 Fan (OFF/ON)")
+CH_47F:defineToggleSwitch("EAPS_ENG2_DOORS", devices.OVERHEAD_CONSOLE, 3046, 504, EAPS_PANEL, "Engine 2 Doors (CLOSE/OPEN)")
 
 -- Exterior Light Panel
 -- local EXTERIOR_LIGHT_PANEL = "Exterior Light Panel"
