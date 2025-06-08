@@ -1090,7 +1090,12 @@ CH_47F:definePotentiometer("LIGHT_CENTER_CONSOLE_DIM", devices.OVERHEAD_CONSOLE,
 CH_47F:definePotentiometer("LIGHT_STICK_POSITION_DIM", devices.OVERHEAD_CONSOLE, 3051, 506, { 0, 1 }, LIGHT_PANEL, "Stick Position Light Dimmer")
 
 -- Pilot Light Panel
--- local PILOT_LIGHT_PANEL = "PLT Lighting Panel"
+local PILOT_LIGHT_PANEL = "PLT Lighting Panel"
+
+CH_47F:defineToggleSwitch("PLT_LIGHT_SEARCHLIGHT", devices.OVERHEAD_CONSOLE, 3089, 520, PILOT_LIGHT_PANEL, "Searchlight (RET/ON)")
+CH_47F:defineMultipositionSwitch("PLT_LIGHT_MODE", devices.OVERHEAD_CONSOLE, 3091, 521, 3, 0.1, PILOT_LIGHT_PANEL, "Mode Select (DAY/NIGHT/NVG)")
+CH_47F:definePotentiometer("PLT_LIGHT_CENTER_DIM", devices.OVERHEAD_CONSOLE, 3094, 522, { 0, 1 }, PILOT_LIGHT_PANEL, "Center Light Dimmer")
+CH_47F:definePotentiometer("PLT_LIGHT_INSTRUMENT_DIM", devices.OVERHEAD_CONSOLE, 3097, 523, { 0, 1 }, PILOT_LIGHT_PANEL, "Instrument Light Dimmer")
 
 -- Copilot Light Panel
 -- local COPILOT_LIGHT_PANEL = "CPLT Lighting Panel"
