@@ -1084,7 +1084,10 @@ CH_47F:defineMultipositionSwitch("INT_LIGHT_DOME", devices.OVERHEAD_CONSOLE, 306
 CH_47F:definePotentiometer("INT_LIGHT_DIM", devices.OVERHEAD_CONSOLE, 3064, 511, { 0, 1 }, INTERIOR_LIGHT_PANEL, "Flood Light Dimmer")
 
 -- Light Panel
--- local LIGHT_PANEL = "Lighting Panel"
+local LIGHT_PANEL = "Lighting Panel"
+
+CH_47F:definePotentiometer("LIGHT_CENTER_CONSOLE_DIM", devices.OVERHEAD_CONSOLE, 3048, 505, { 0, 1 }, LIGHT_PANEL, "Center Console Light Dimmer")
+CH_47F:definePotentiometer("LIGHT_STICK_POSITION_DIM", devices.OVERHEAD_CONSOLE, 3051, 506, { 0, 1 }, LIGHT_PANEL, "Stick Position Light Dimmer")
 
 -- Pilot Light Panel
 -- local PILOT_LIGHT_PANEL = "PLT Lighting Panel"
