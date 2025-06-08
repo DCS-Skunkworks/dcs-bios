@@ -1105,7 +1105,18 @@ CH_47F:definePotentiometer("CPLT_LIGHT_OVERHEAD_DIM", devices.OVERHEAD_CONSOLE, 
 CH_47F:definePotentiometer("CPLT_LIGHT_INSTRUMENT_DIM", devices.OVERHEAD_CONSOLE, 3105, 526, { 0, 1 }, COPILOT_LIGHT_PANEL, "Instrument Light Dimmer")
 
 -- Fuel Control Panel
--- local FUEL_PANEL = "Fuel Control Panel"
+local FUEL_PANEL = "Fuel Control Panel"
+
+CH_47F:defineToggleSwitch("FUEL_LH_AUX_FWD", devices.OVERHEAD_CONSOLE, 3001, 1, FUEL_PANEL, "Forward Left Aux Pump")
+CH_47F:defineToggleSwitch("FUEL_LH_MAIN_FWD", devices.OVERHEAD_CONSOLE, 3003, 2, FUEL_PANEL, "Forward Left Main Pump")
+CH_47F:defineToggleSwitch("FUEL_LH_MAIN_AFT", devices.OVERHEAD_CONSOLE, 3005, 3, FUEL_PANEL, "Aft Left Main Pump")
+CH_47F:defineToggleSwitch("FUEL_LH_AUX_AFT", devices.OVERHEAD_CONSOLE, 3007, 4, FUEL_PANEL, "Aft Left Aux Pump")
+CH_47F:defineToggleSwitch("FUEL_RH_AUX_FWD", devices.OVERHEAD_CONSOLE, 3009, 5, FUEL_PANEL, "Forward Right Aux Pump")
+CH_47F:defineToggleSwitch("FUEL_RH_MAIN_FWD", devices.OVERHEAD_CONSOLE, 3011, 6, FUEL_PANEL, "Forward Right Main Pump")
+CH_47F:defineToggleSwitch("FUEL_RH_MAIN_AFT", devices.OVERHEAD_CONSOLE, 3013, 7, FUEL_PANEL, "Aft Right Main Pump")
+CH_47F:defineToggleSwitch("FUEL_RH_AUX_AFT", devices.OVERHEAD_CONSOLE, 3015, 8, FUEL_PANEL, "Aft Right Aux Pump")
+CH_47F:defineToggleSwitch("FUEL_REFUEL_STATION", devices.OVERHEAD_CONSOLE, 3017, 9, FUEL_PANEL, "Refueling Station")
+CH_47F:defineToggleSwitch("FUEL_CROSSFEED", devices.OVERHEAD_CONSOLE, 3019, 10, FUEL_PANEL, "Crossfeed")
 
 -- Anti-Ice Panel
 -- local ANTI_ICE_PANEL = "Anti-Ice Panel"
