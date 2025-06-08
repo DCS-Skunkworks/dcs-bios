@@ -1119,7 +1119,12 @@ CH_47F:defineToggleSwitch("FUEL_REFUEL_STATION", devices.OVERHEAD_CONSOLE, 3017,
 CH_47F:defineToggleSwitch("FUEL_CROSSFEED", devices.OVERHEAD_CONSOLE, 3019, 10, FUEL_PANEL, "Crossfeed")
 
 -- Anti-Ice Panel
--- local ANTI_ICE_PANEL = "Anti-Ice Panel"
+local ANTI_ICE_PANEL = "Anti-Ice Panel"
+
+CH_47F:defineToggleSwitch("ANTI_ICE_WINDSHIELD_HEAT_CPLT", devices.OVERHEAD_CONSOLE, 3108, 527, ANTI_ICE_PANEL, "Copilot Windshield Heat")
+CH_47F:defineToggleSwitch("ANTI_ICE_WINDSHIELD_HEAT_CENTER", devices.OVERHEAD_CONSOLE, 3110, 528, ANTI_ICE_PANEL, "Center Windshield Heat")
+CH_47F:defineToggleSwitch("ANTI_ICE_WINDSHIELD_HEAT_PLT", devices.OVERHEAD_CONSOLE, 3112, 529, ANTI_ICE_PANEL, "Pilot Windshield Heat")
+CH_47F:defineToggleSwitch("ANTI_ICE_PITOT_HEAT", devices.OVERHEAD_CONSOLE, 3114, 530, ANTI_ICE_PANEL, "Pitot Heat")
 
 -- Eng Cond Panel
 -- local ENGINE_COND_PANEL = "Engine Cond Panel"
