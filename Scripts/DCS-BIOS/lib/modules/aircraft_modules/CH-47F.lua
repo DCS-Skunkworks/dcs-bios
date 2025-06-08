@@ -1075,7 +1075,13 @@ CH_47F:defineMultipositionSwitch("EXT_LIGHT_POSITION_BRIGHTNESS", devices.OVERHE
 CH_47F:defineToggleSwitch("EXT_LIGHT_POSITION_PATTERN", devices.OVERHEAD_CONSOLE, 3087, 519, EXTERIOR_LIGHT_PANEL, "Position Lights Pattern (FLASH/STDY)")
 
 -- Interior Light Panel
--- local INTERIOR_LIGHT_PANEL = "Interior Lighting Panel"
+local INTERIOR_LIGHT_PANEL = "Interior Lighting Panel"
+
+CH_47F:defineToggleSwitch("INT_LIGHT_INST", devices.OVERHEAD_CONSOLE, 3054, 507, INTERIOR_LIGHT_PANEL, "Instrument Flood Light")
+CH_47F:defineToggleSwitch("INT_LIGHT_OVHD", devices.OVERHEAD_CONSOLE, 3056, 508, INTERIOR_LIGHT_PANEL, "Overhead Flood Light")
+CH_47F:defineMultipositionSwitch("INT_LIGHT_EMER_EXIT", devices.OVERHEAD_CONSOLE, 3058, 509, 3, 0.1, INTERIOR_LIGHT_PANEL, "Emergency Exit Light (DISARM/TEST/ARM)")
+CH_47F:defineMultipositionSwitch("INT_LIGHT_DOME", devices.OVERHEAD_CONSOLE, 3061, 510, 3, 0.1, INTERIOR_LIGHT_PANEL, "Dome Light (WHT/OFF/NVG)")
+CH_47F:definePotentiometer("INT_LIGHT_DIM", devices.OVERHEAD_CONSOLE, 3064, 511, { 0, 1 }, INTERIOR_LIGHT_PANEL, "Flood Light Dimmer")
 
 -- Light Panel
 -- local LIGHT_PANEL = "Lighting Panel"
