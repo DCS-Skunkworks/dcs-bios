@@ -1045,7 +1045,13 @@ CH_47F:defineToggleSwitch("RWR_DAY_NIGHT", devices.CANTED_CONSOLE, 3071, 1331, R
 CH_47F:definePotentiometer("RWR_DIM", devices.CANTED_CONSOLE, 3073, 1332, { 0, 1 }, RWR, "Dimmer Knob")
 
 -- Magnetic Compass
--- local COMPASS = "Magnetic Compass"
+local COMPASS = "Magnetic Compass"
+
+CH_47F:definePotentiometer("COMPASS_BRIGHTNESS", devices.TERTIARY_REFLECTS, 3006, 1216, { 0, 1 }, COMPASS, "Brightness Knob")
+CH_47F:defineFloat("COMPASS_LIGHT", 1215, { 0, 1 }, COMPASS, "Compass Light (Green)")
+CH_47F:defineFloat("COMPASS_YAW", 1214, { 0, 1 }, COMPASS, "Compass Rotation")
+CH_47F:defineFloat("COMPASS_PITCH", 1213, { -1, 1 }, COMPASS, "Compass Pitch")
+CH_47F:defineFloat("COMPASS_ROLL", 1212, { -1, 1 }, COMPASS, "Compass Roll")
 
 -- Overhead Switch Panel
 -- EAPS Control Panel
