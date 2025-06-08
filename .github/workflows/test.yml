@@ -18,7 +18,8 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Set up lua
-        uses: leafo/gh-actions-lua@v10
+        # uses: leafo/gh-actions-lua@v10 # needs cache dependency update https://github.com/leafo/gh-actions-lua/pull/56
+        uses: lewis6991/gh-actions-lua@01aab24c4de9555717b685f9b142a2abbe12ef14
         with:
           luaVersion: "5.1.5"
 
