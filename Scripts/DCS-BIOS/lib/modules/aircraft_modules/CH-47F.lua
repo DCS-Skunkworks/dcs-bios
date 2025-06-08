@@ -1039,7 +1039,10 @@ CH_47F:reserveStringValue(6)
 CH_47F:reserveIntValue(4)
 
 -- AN/APR-39
--- local RWR = "AN/APR-39"
+local RWR = "AN/APR-39"
+
+CH_47F:defineToggleSwitch("RWR_DAY_NIGHT", devices.CANTED_CONSOLE, 3071, 1331, RWR, "Day/Night Switch")
+CH_47F:definePotentiometer("RWR_DIM", devices.CANTED_CONSOLE, 3073, 1332, { 0, 1 }, RWR, "Dimmer Knob")
 
 -- Magnetic Compass
 -- local COMPASS = "Magnetic Compass"
