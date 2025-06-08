@@ -8,6 +8,7 @@ local F_14 = Module:new("F-14", 0x1200, { "F-14B", "F-14A-135-GR" })
 --v4.6b by WarLord,ArturDCS,Matchstick and Bullitt
 
 local devices = {
+	TCS = 38,
 	JESTERAI = 62,
 }
 
@@ -636,7 +637,7 @@ F_14:defineToggleSwitch("RIO_HCU_TCS", 58, 3096, 2007, "HCU", "RIO HCU TCS Mode"
 F_14:defineToggleSwitch("RIO_HCU_RADAR", 58, 3097, 2008, "HCU", "RIO HCU Radar Mode")
 F_14:defineToggleSwitch("RIO_HCU_DDD", 58, 3098, 2009, "HCU", "RIO HCU DDD Mode")
 F_14:defineToggleSwitch("RIO_HCU_TID", 58, 3099, 2010, "HCU", "RIO HCU TID Mode")
-F_14:define3PosTumb("RIO_HCU_TVIR_SW", 37, 3100, 2011, "HCU", "RIO HCU TV/IR Switch")
+F_14:define3PosTumb("RIO_HCU_TVIR_SW", devices.TCS, 3100, 2011, "HCU", "RIO HCU TV/IR Switch")
 F_14:define3PosTumb("RIO_HCU_WCS", 39, 3101, 2012, "HCU", "RIO HCU WCS Switch")
 F_14:definePushButton("RIO_HCU_PW_RESET", 39, 3644, 2013, "HCU", "RIO HCU Power Reset")
 F_14:definePushButton("RIO_HCU_LIGHT_TEST", 39, 3645, 2014, "HCU", "RIO HCU Light Test")
@@ -688,12 +689,12 @@ F_14:defineToggleSwitch("RIO_RADAR_STABI", 39, 3449, 83, "Radar", "RIO Radar Sta
 F_14:define3PosTumb("RIO_RADAR_VSL", 39, 3448, 84, "Radar", "RIO Radar VSL Switch")
 
 -- RIO TCS Controls
-F_14:define3PosTumb("RIO_TCS_ACQ", 38, 3495, 87, "TCS", "RIO TCS Acquisition")
-F_14:defineToggleSwitch("RIO_TCS_FOV", 38, 3494, 88, "TCS", "RIO TCS FOV")
-F_14:define3PosTumb("RIO_TCS_SLAVE", 38, 3496, 89, "TCS", "RIO TCS Slave")
-F_14:define3PosTumb("RIO_RECORD_PW", 38, 3617, 90, "TCS", "RIO Record Power")
-F_14:defineMultipositionSwitch("RIO_RECORD_MODE", 38, 3618, 91, 5, 1.0 / 4.0, "TCS", "RIO Record Mode")
-F_14:definePotentiometer("RIO_RECORD_RESET", 38, 3622, 16016, { 0, 1 }, "Radar", "RIO Record Reset")
+F_14:define3PosTumb("RIO_TCS_ACQ", devices.TCS, 3495, 87, "TCS", "RIO TCS Acquisition")
+F_14:defineToggleSwitch("RIO_TCS_FOV", devices.TCS, 3494, 88, "TCS", "RIO TCS FOV")
+F_14:define3PosTumb("RIO_TCS_SLAVE", devices.TCS, 3496, 89, "TCS", "RIO TCS Slave")
+F_14:define3PosTumb("RIO_RECORD_PW", devices.TCS, 3617, 90, "TCS", "RIO Record Power")
+F_14:defineMultipositionSwitch("RIO_RECORD_MODE", devices.TCS, 3618, 91, 5, 1.0 / 4.0, "TCS", "RIO Record Mode")
+F_14:definePotentiometer("RIO_RECORD_RESET", devices.TCS, 3622, 16016, { 0, 1 }, "Radar", "RIO Record Reset")
 
 -- RIO Armament Panel
 F_14:defineMultipositionSwitch("RIO_WEAPON_TYPE", 55, 3146, 59, 44, 1.0 / 43.0, "Armament Panel", "RIO Weapon Type Wheel")
@@ -1431,8 +1432,8 @@ F_14:defineIntegerFromGetter("HSD_MAN_CRS", function()
 end, 360, "HSD", "HSD MAN Course Display")
 
 F_14:defineToggleSwitch("PLT_HUDCAM", 12, 3756, 3490, "Cockpit Mechanics", "PILOT Hide Guncam")
-F_14:definePotentiometer("RIO_TCS_TRIM_AZI", 38, 3750, 85, { 0, 1 }, "TCS", "RIO TCS Trim Azimuth")
-F_14:definePotentiometer("RIO_TCS_TRIM_ELE", 38, 3751, 86, { 0, 1 }, "TCS", "RIO TCS Trim Elevation")
+F_14:definePotentiometer("RIO_TCS_TRIM_AZI", devices.TCS, 3750, 85, { 0, 1 }, "TCS", "RIO TCS Trim Azimuth")
+F_14:definePotentiometer("RIO_TCS_TRIM_ELE", devices.TCS, 3751, 86, { 0, 1 }, "TCS", "RIO TCS Trim Elevation")
 
 -- Fire System
 F_14:definePushButton("PLT_FIRE_EX_BOTTLE_L", 67, 3059, 15083, "Fire System", "PILOT Fire Ext Bottle - Left")
