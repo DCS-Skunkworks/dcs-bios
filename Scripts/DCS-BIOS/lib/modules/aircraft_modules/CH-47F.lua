@@ -1063,19 +1063,28 @@ CH_47F:defineToggleSwitch("EAPS_ENG2_FAN", devices.OVERHEAD_CONSOLE, 3044, 503, 
 CH_47F:defineToggleSwitch("EAPS_ENG2_DOORS", devices.OVERHEAD_CONSOLE, 3046, 504, EAPS_PANEL, "Engine 2 Doors (CLOSE/OPEN)")
 
 -- Exterior Light Panel
--- local EXTERIOR_LIGHT_PANEL = "Exterior Light Panel"
+local EXTERIOR_LIGHT_PANEL = "Exterior Lighting Panel"
+
+CH_47F:defineMultipositionSwitch("EXT_LIGHT_ANTICOLLISION_MODE", devices.OVERHEAD_CONSOLE, 3067, 512, 7, 0.1, EXTERIOR_LIGHT_PANEL, "Anticollision Mode")
+CH_47F:defineMultipositionSwitch("EXT_LIGHT_ANTICOLLISION_IR_PATTERN", devices.OVERHEAD_CONSOLE, 3070, 513, 5, 0.1, EXTERIOR_LIGHT_PANEL, "Anticollision IR Pattern")
+CH_47F:definePotentiometer("EXT_LIGHT_ANTICOLLISION_IR_DIM", devices.OVERHEAD_CONSOLE, 3073, 514, { 0, 1 }, EXTERIOR_LIGHT_PANEL, "Anticollision IR Dimmer")
+CH_47F:defineMultipositionSwitch("EXT_LIGHT_FORM_MODE", devices.OVERHEAD_CONSOLE, 3076, 515, 3, 0.1, EXTERIOR_LIGHT_PANEL, "Formation Lights Mode (NVG/OFF/NORM)")
+CH_47F:defineToggleSwitch("EXT_LIGHT_FORM_PATTERN", devices.OVERHEAD_CONSOLE, 3079, 516, EXTERIOR_LIGHT_PANEL, "Formation Lights Pattern (FLASH/STDY)")
+CH_47F:definePotentiometer("EXT_LIGHT_FORM_DIM", devices.OVERHEAD_CONSOLE, 3081, 517, { 0, 1 }, EXTERIOR_LIGHT_PANEL, "Formation Lights Dimmer")
+CH_47F:defineMultipositionSwitch("EXT_LIGHT_POSITION_BRIGHTNESS", devices.OVERHEAD_CONSOLE, 3084, 518, 3, 0.1, EXTERIOR_LIGHT_PANEL, "Position Lights Brightness (DIM/OFF/BRT)")
+CH_47F:defineToggleSwitch("EXT_LIGHT_POSITION_PATTERN", devices.OVERHEAD_CONSOLE, 3087, 519, EXTERIOR_LIGHT_PANEL, "Position Lights Pattern (FLASH/STDY)")
 
 -- Interior Light Panel
--- local INTERIOR_LIGHT_PANEL = "Interior Light Panel"
+-- local INTERIOR_LIGHT_PANEL = "Interior Lighting Panel"
 
 -- Light Panel
--- local LIGHT_PANEL = "Light Panel"
+-- local LIGHT_PANEL = "Lighting Panel"
 
 -- Pilot Light Panel
--- local PILOT_LIGHT_PANEL = "PLT Light Panel"
+-- local PILOT_LIGHT_PANEL = "PLT Lighting Panel"
 
 -- Copilot Light Panel
--- local COPILOT_LIGHT_PANEL = "CPLT Light Panel"
+-- local COPILOT_LIGHT_PANEL = "CPLT Lighting Panel"
 
 -- Fuel Control Panel
 -- local FUEL_PANEL = "Fuel Control Panel"
