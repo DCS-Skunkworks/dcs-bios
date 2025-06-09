@@ -1184,7 +1184,16 @@ CH_47F:defineSingleCommandRocker("FADEC_ENGINE_START", devices.OVERHEAD_CONSOLE,
 CH_47F:definePotentiometer("FADEC_NR", devices.OVERHEAD_CONSOLE, 3196, 572, { 0, 1 }, FADEC_PANEL, "NR% Selector")
 
 -- Hydraulic Control Panel
--- local HYDRAULIC_PANEL = "Hydraulic Control Panel"
+local HYDRAULIC_PANEL = "Hydraulic Control Panel"
+
+CH_47F:defineMultipositionSwitch("HYD_FLT_CONT", devices.OVERHEAD_CONSOLE, 3021, 493, 3, 0.1, HYDRAULIC_PANEL, "Flight Control (2 ON/BOTH/1 ON)")
+CH_47F:defineToggleSwitch("HYD_PWR_XFER_1", devices.OVERHEAD_CONSOLE, 3024, 494, HYDRAULIC_PANEL, "Power Transfer 1")
+CH_47F:defineToggleSwitch("HYD_PWR_XFER_2", devices.OVERHEAD_CONSOLE, 3026, 495, HYDRAULIC_PANEL, "Power Transfer 2")
+CH_47F:defineToggleSwitch("HYD_PWR_STEER_COVER", devices.OVERHEAD_CONSOLE, 3028, 496, HYDRAULIC_PANEL, "Power Steering Cover")
+CH_47F:defineToggleSwitch("HYD_PWR_STEER", devices.OVERHEAD_CONSOLE, 3030, 497, HYDRAULIC_PANEL, "Power Steering")
+CH_47F:defineMultipositionSwitch("HYD_RAMP_PWR", devices.OVERHEAD_CONSOLE, 3032, 498, 3, 0.1, HYDRAULIC_PANEL, "Ramp Power (OFF/ON/EMERG)")
+CH_47F:defineToggleSwitch("HYD_RAMP_EMER_COVER", devices.OVERHEAD_CONSOLE, 3035, 499, HYDRAULIC_PANEL, "Ramp Emergency Cover")
+CH_47F:defineMultipositionSwitch("HYD_RAMP_EMER", devices.OVERHEAD_CONSOLE, 3037, 500, 3, 0.1, HYDRAULIC_PANEL, "Ramp Emergency (UP/HOLD/DOWN)")
 
 -- Interior Lights
 -- local INTERIOR_LIGHTS = "Interior Lights"
