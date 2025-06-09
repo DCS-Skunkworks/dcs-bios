@@ -1127,7 +1127,12 @@ CH_47F:defineToggleSwitch("ANTI_ICE_WINDSHIELD_HEAT_PLT", devices.OVERHEAD_CONSO
 CH_47F:defineToggleSwitch("ANTI_ICE_PITOT_HEAT", devices.OVERHEAD_CONSOLE, 3114, 530, ANTI_ICE_PANEL, "Pitot Heat")
 
 -- Eng Cond Panel
--- local ENGINE_COND_PANEL = "Engine Cond Panel"
+local ENGINE_COND_PANEL = "Engine Condition Panel"
+
+CH_47F:definePotentiometer("ENG_COND_ENG1", devices.OVERHEAD_CONSOLE, 3116, 534, { 0, 1 }, ENGINE_COND_PANEL, "Engine 1 Lever")
+CH_47F:definePushButton("ENG_COND_ENG1_STEP", devices.OVERHEAD_CONSOLE, 3122, 536, ENGINE_COND_PANEL, "Engine 1 Lever (Step in)")
+CH_47F:definePotentiometer("ENG_COND_ENG2", devices.OVERHEAD_CONSOLE, 3119, 535, { 0, 1 }, ENGINE_COND_PANEL, "Engine 2 Lever")
+CH_47F:definePushButton("ENG_COND_ENG2_STEP", devices.OVERHEAD_CONSOLE, 3123, 537, ENGINE_COND_PANEL, "Engine 2 Lever (Step in)")
 
 -- Hoist Control Panel
 -- local HOIST_PANEL = "Hoist Control Panel"
