@@ -1200,6 +1200,38 @@ local OIL_LEVEL_CHECK = "Oil Level Check Switch"
 
 CH_47F:defineToggleSwitch("OIL_LEVEL_CHECK", devices.OVERHEAD_CONSOLE, 3205, 1413, OIL_LEVEL_CHECK, "Oil Level Check")
 
+-- Pilot Interior Lights
+local PILOT_INTERIOR_LIGHTS = "PLT Interior Lights"
+
+CH_47F:definePotentiometer("PLT_INT_LIGHT_STALK_DASH_BRT", devices.OVERHEAD_CONSOLE, 3239, 1382, { 0, 1 }, PILOT_INTERIOR_LIGHTS, "Dash Stalk Light Brightness Knob")
+CH_47F:defineFloat("PLT_INT_LIGHT_STALK_DASH", 1383, { 0, 1 }, PILOT_INTERIOR_LIGHTS, "Dash Stalk Lamp (Green)")
+CH_47F:defineToggleSwitch("PLT_INT_LIGHT_STALK_CB_UNLOCK", devices.OVERHEAD_CONSOLE, 3253, 1464, PILOT_INTERIOR_LIGHTS, "Circuit Breaker Stalk Lamp (Lock/Unlock)")
+CH_47F:definePotentiometer("PLT_INT_LIGHT_STALK_CB_BRT", devices.OVERHEAD_CONSOLE, 3248, 1388, { 0, 1 }, PILOT_INTERIOR_LIGHTS, "Circuit Breaker Stalk Light Brightness Knob")
+CH_47F:defineFloat("PLT_INT_LIGHT_STALK_CB", 1389, { 0, 1 }, PILOT_INTERIOR_LIGHTS, "Circuit Breaker Stalk Lamp (Green)")
+CH_47F:definePotentiometer("PLT_INT_LIGHT_UTIL_BRT", devices.OVERHEAD_CONSOLE, 3207, 1348, { 0, 1 }, PILOT_INTERIOR_LIGHTS, "Utility Light Brightness Knob")
+CH_47F:defineToggleSwitch("PLT_INT_LIGHT_UTIL_COLOR", devices.OVERHEAD_CONSOLE, 3216, 1351, PILOT_INTERIOR_LIGHTS, "Utility Light Color Selector (WHITE/GREEN)")
+CH_47F:defineFloat("PLT_INT_LIGHT_UTIL_WHITE", 1352, { 0, 1 }, PILOT_INTERIOR_LIGHTS, "Utility Lamp (White)")
+CH_47F:defineFloat("PLT_INT_LIGHT_UTIL_GREEN", 1353, { 0, 1 }, PILOT_INTERIOR_LIGHTS, "Utility Lamp (Green)")
+
+-- Copilot Interior Lights
+local COPILOT_INTERIOR_LIGHTS = "CPLT Interior Lights"
+
+CH_47F:definePotentiometer("CPLT_INT_LIGHT_STALK_DASH_BRT", devices.OVERHEAD_CONSOLE, 3236, 1380, { 0, 1 }, COPILOT_INTERIOR_LIGHTS, "Dash Stalk Light Brightness Knob")
+CH_47F:defineFloat("CPLT_INT_LIGHT_STALK_DASH", 1381, { 0, 1 }, COPILOT_INTERIOR_LIGHTS, "Dash Stalk Lamp (Green)")
+CH_47F:defineToggleSwitch("CPLT_INT_LIGHT_STALK_CB_UNLOCK", devices.OVERHEAD_CONSOLE, 3251, 1462, COPILOT_INTERIOR_LIGHTS, "Circuit Breaker Stalk Lamp (Lock/Unlock)")
+CH_47F:definePotentiometer("CPLT_INT_LIGHT_STALK_CB_BRT", devices.OVERHEAD_CONSOLE, 3245, 1386, { 0, 1 }, COPILOT_INTERIOR_LIGHTS, "Circuit Breaker Stalk Light Brightness Knob")
+CH_47F:defineFloat("CPLT_INT_LIGHT_STALK_CB", 1387, { 0, 1 }, COPILOT_INTERIOR_LIGHTS, "Circuit Breaker Stalk Lamp (Green)")
+CH_47F:definePotentiometer("CPLT_INT_LIGHT_UTIL_BRT", devices.OVERHEAD_CONSOLE, 3222, 1356, { 0, 1 }, COPILOT_INTERIOR_LIGHTS, "Utility Light Brightness Knob")
+CH_47F:defineToggleSwitch("CPLT_INT_LIGHT_UTIL_COLOR", devices.OVERHEAD_CONSOLE, 3230, 1359, COPILOT_INTERIOR_LIGHTS, "Utility Light Color Selector (WHITE/GREEN)")
+CH_47F:defineFloat("CPLT_INT_LIGHT_UTIL_WHITE", 1360, { 0, 1 }, COPILOT_INTERIOR_LIGHTS, "Utility Lamp (White)")
+CH_47F:defineFloat("CPLT_INT_LIGHT_UTIL_GREEN", 1361, { 0, 1 }, COPILOT_INTERIOR_LIGHTS, "Utility Lamp (Green)")
+
+-- Troop Commander Interior Lights
+local TC_INTERIOR_LIGHTS = "TC Interior Lights"
+
+CH_47F:definePotentiometer("TC_INT_LIGHT_STALK_BRT", devices.OVERHEAD_CONSOLE, 3242, 1384, { 0, 1 }, TC_INTERIOR_LIGHTS, "Stalk Light Brightness Knob")
+CH_47F:defineFloat("TC_INT_LIGHT_STALK", 1385, { 0, 1 }, TC_INTERIOR_LIGHTS, "Stalk Lamp (Green)")
+
 -- Interior Lights
 -- local INTERIOR_LIGHTS = "Interior Lights"
 -- includes utility light controls, jump light, etc
