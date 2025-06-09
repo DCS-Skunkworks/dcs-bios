@@ -1147,7 +1147,17 @@ CH_47F:defineToggleSwitch("HOIST_EMERGENCY_RELEASE_COVER", devices.OVERHEAD_CONS
 CH_47F:defineToggleSwitch("HOIST_EMERGENCY_RELEASE", devices.OVERHEAD_CONSOLE, 3167, 555, HOIST_PANEL, "Emergency Release")
 
 -- Troop Warn/Heating Control Panel
--- local TROOP_WARN_HEATING_PANEL = "Troop Warn/Heating Control Panel"
+local TROOP_WARN_HEATING_PANEL = "Troop Warn/Heating/Wiper Control Panel"
+
+CH_47F:defineMultipositionSwitch("TROOP_JUMP_LIGHT", devices.OVERHEAD_CONSOLE, 3131, 541, 3, 0.1, TROOP_WARN_HEATING_PANEL, "Jump Light (GREEN/OFF/RED)")
+CH_47F:defineToggleSwitch("TROOP_JUMP_ALARM", devices.OVERHEAD_CONSOLE, 3134, 542, TROOP_WARN_HEATING_PANEL, "Jump Alarm")
+CH_47F:defineFloat("TROOP_JUMP_LIGHT_GREEN", 539, { 0, 1 }, TROOP_WARN_HEATING_PANEL, "Jump Light GREEN Lamp (Green)")
+CH_47F:defineFloat("TROOP_JUMP_LIGHT_RED", 540, { 0, 1 }, TROOP_WARN_HEATING_PANEL, "Jump Light RED Lamp (Green)")
+
+CH_47F:definePotentiometer("HEAT_CABIN_TEMP", devices.OVERHEAD_CONSOLE, 3136, 543, { 0, 1 }, TROOP_WARN_HEATING_PANEL, "Cabin Temperature (COOL/WARM)")
+CH_47F:defineMultipositionSwitch("HEAT_MODE", devices.OVERHEAD_CONSOLE, 3139, 544, 3, 0.1, TROOP_WARN_HEATING_PANEL, "Heat Mode (BLWR ONLY/OFF/HTR ON)")
+CH_47F:definePushButton("HEAT_START", devices.OVERHEAD_CONSOLE, 3142, 545, TROOP_WARN_HEATING_PANEL, "Heater Start")
+CH_47F:defineMultipositionSwitch("WIPER_MODE", devices.OVERHEAD_CONSOLE, 3143, 756, 5, 0.1, TROOP_WARN_HEATING_PANEL, "Wiper Mode (PARK/OFF/SLOW/MED/FAST)")
 
 -- Electrical Power Panel
 -- local ELECTRICAL_POWER_PANEL = "Electrical Power Panel"
