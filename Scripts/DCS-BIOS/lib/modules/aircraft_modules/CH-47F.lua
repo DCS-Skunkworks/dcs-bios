@@ -1171,7 +1171,17 @@ CH_47F:defineFloat("ELECTRICAL_UTILITY_PRESSURE", 562, { 0, 1 }, ELECTRICAL_POWE
 CH_47F:defineFloat("ELECTRICAL_APU_READY", 563, { 0, 1 }, ELECTRICAL_POWER_PANEL, "APU RDY Lamp (Green)")
 
 -- FADEC Panel
--- local FADEC_PANEL = "FADEC Panel"
+local FADEC_PANEL = "FADEC Panel"
+
+CH_47F:defineToggleSwitch("FADEC_ENG1_MODE", devices.OVERHEAD_CONSOLE, 3184, 564, FADEC_PANEL, "Engine 1 Mode (REV/PRI)")
+CH_47F:defineToggleSwitch("FADEC_ENG2_MODE", devices.OVERHEAD_CONSOLE, 3186, 565, FADEC_PANEL, "Engine 2 Mode (REV/PRI)")
+CH_47F:defineSingleCommandRocker("FADEC_ENG1_NR", devices.OVERHEAD_CONSOLE, 3188, 566, FADEC_PANEL, "Engine 1 NR (DEC/INC)")
+CH_47F:defineSingleCommandRocker("FADEC_ENG2_NR", devices.OVERHEAD_CONSOLE, 3189, 567, FADEC_PANEL, "Engine 2 NR (DEC/INC)")
+CH_47F:defineToggleSwitch("FADEC_BU_POWER", devices.OVERHEAD_CONSOLE, 3190, 568, FADEC_PANEL, "Backup Power")
+CH_47F:defineSingleCommandRocker("FADEC_OSPD", devices.OVERHEAD_CONSOLE, 3192, 569, FADEC_PANEL, "Overspeed Test (1/2)")
+CH_47F:defineToggleSwitch("FADEC_LOAD_SHARE", devices.OVERHEAD_CONSOLE, 3193, 570, FADEC_PANEL, "Load Share (PTIT/TRQ)")
+CH_47F:defineSingleCommandRocker("FADEC_ENGINE_START", devices.OVERHEAD_CONSOLE, 3195, 571, FADEC_PANEL, "Engine Start (1/2)")
+CH_47F:definePotentiometer("FADEC_NR", devices.OVERHEAD_CONSOLE, 3196, 572, { 0, 1 }, FADEC_PANEL, "NR% Selector")
 
 -- Hydraulic Control Panel
 -- local HYDRAULIC_PANEL = "Hydraulic Control Panel"
