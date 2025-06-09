@@ -1232,12 +1232,10 @@ local TC_INTERIOR_LIGHTS = "TC Interior Lights"
 CH_47F:definePotentiometer("TC_INT_LIGHT_STALK_BRT", devices.OVERHEAD_CONSOLE, 3242, 1384, { 0, 1 }, TC_INTERIOR_LIGHTS, "Stalk Light Brightness Knob")
 CH_47F:defineFloat("TC_INT_LIGHT_STALK", 1385, { 0, 1 }, TC_INTERIOR_LIGHTS, "Stalk Lamp (Green)")
 
--- Interior Lights
--- local INTERIOR_LIGHTS = "Interior Lights"
--- includes utility light controls, jump light, etc
-
 -- Free Air Temperature Gauge
--- local FREE_AIR_TEMP = "Free Air Temperature Gauge"
+local FREE_AIR_TEMP = "Free Air Temperature Gauge"
+
+CH_47F:defineFloat("FREE_AIR_TEMP", 1211, { 0, 1 }, FREE_AIR_TEMP, "Free Air Temperature")
 
 -- Pilot Circuit Breakers
 -- local PILOT_CIRCUIT_BREAKERS = "PLT Circuit Breakers"
@@ -1251,6 +1249,10 @@ CH_47F:defineFloat("TC_INT_LIGHT_STALK", 1385, { 0, 1 }, TC_INTERIOR_LIGHTS, "St
 
 -- Ramp Maintenance Panel
 -- local RAMP_MAINTENANCE_PANEL = "Ramp Maintenance Panel"
+
+-- Interior Lights
+-- local INTERIOR_LIGHTS = "Interior Lights"
+-- includes utility light controls, jump light, etc
 
 -- Interior Model
 -- local INTERIOR_MODEL = "Interior Model"
