@@ -1135,7 +1135,16 @@ CH_47F:definePotentiometer("ENG_COND_ENG2", devices.OVERHEAD_CONSOLE, 3119, 535,
 CH_47F:definePushButton("ENG_COND_ENG2_STEP", devices.OVERHEAD_CONSOLE, 3123, 537, ENGINE_COND_PANEL, "Engine 2 Lever (Step in)")
 
 -- Hoist Control Panel
--- local HOIST_PANEL = "Hoist Control Panel"
+local HOIST_PANEL = "Hoist Control Panel"
+
+CH_47F:defineToggleSwitch("HOIST_CABLE_CUT_COVER", devices.OVERHEAD_CONSOLE, 3147, 546, HOIST_PANEL, "Cable Cut Cover")
+CH_47F:defineToggleSwitch("HOIST_CABLE_CUT", devices.OVERHEAD_CONSOLE, 3149, 547, HOIST_PANEL, "Cable Cut")
+CH_47F:definePotentiometer("HOIST_CONTROL_KNOB", devices.OVERHEAD_CONSOLE, 3151, 548, { -1, 1 }, HOIST_PANEL, "OUT/IN Knob")
+CH_47F:defineMultipositionSwitch("HOIST_CONTROL", devices.OVERHEAD_CONSOLE, 3156, 551, 3, 0.1, HOIST_PANEL, "Hoist Control (REMOTE/OFF/PLT)")
+CH_47F:defineMultipositionSwitch("HOIST_HOOK_CONTROL", devices.OVERHEAD_CONSOLE, 3159, 552, 3, 0.1, HOIST_PANEL, "Hook Control (RESET/OFF/ARM)")
+CH_47F:defineMultipositionSwitch("HOIST_HOOK_SELECT", devices.OVERHEAD_CONSOLE, 3162, 553, 5, 0.1, HOIST_PANEL, "Hook Select (FWD/MID/AFT/TANDEM/ALL)")
+CH_47F:defineToggleSwitch("HOIST_EMERGENCY_RELEASE_COVER", devices.OVERHEAD_CONSOLE, 3165, 554, HOIST_PANEL, "Emergency Release Cover")
+CH_47F:defineToggleSwitch("HOIST_EMERGENCY_RELEASE", devices.OVERHEAD_CONSOLE, 3167, 555, HOIST_PANEL, "Emergency Release")
 
 -- Troop Warn/Heating Control Panel
 -- local TROOP_WARN_HEATING_PANEL = "Troop Warn/Heating Control Panel"
