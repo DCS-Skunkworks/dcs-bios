@@ -1195,6 +1195,11 @@ CH_47F:defineMultipositionSwitch("HYD_RAMP_PWR", devices.OVERHEAD_CONSOLE, 3032,
 CH_47F:defineToggleSwitch("HYD_RAMP_EMER_COVER", devices.OVERHEAD_CONSOLE, 3035, 499, HYDRAULIC_PANEL, "Ramp Emergency Cover")
 CH_47F:defineMultipositionSwitch("HYD_RAMP_EMER", devices.OVERHEAD_CONSOLE, 3037, 500, 3, 0.1, HYDRAULIC_PANEL, "Ramp Emergency (UP/HOLD/DOWN)")
 
+-- Oil Level Check Switch
+local OIL_LEVEL_CHECK = "Oil Level Check Switch"
+
+CH_47F:defineToggleSwitch("OIL_LEVEL_CHECK", devices.OVERHEAD_CONSOLE, 3205, 1413, OIL_LEVEL_CHECK, "Oil Level Check")
+
 -- Interior Lights
 -- local INTERIOR_LIGHTS = "Interior Lights"
 -- includes utility light controls, jump light, etc
