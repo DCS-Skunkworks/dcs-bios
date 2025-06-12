@@ -568,4 +568,11 @@ SA342:defineReadWriteRadio("UHF_RADIO", 30, 7, 3, 1000, "UHF Radio")
 
 SA342:defineToggleSwitch("LASER_POWER", SYNC_DEVICE_ID, 3286, 367, "PE", "Deprecated - use VCB_POWER instead")
 
+-- Autopilot mode lights
+SA342:defineIndicatorLight("AP_ALV_YELLOW_LAMP", 1330, "Indicator Lights", "Autopilot Heading-Align Lamp (yellow)")
+SA342:defineIndicatorLight("AP_ALV_GREEN_LAMP", 1331, "Indicator Lights", "Autopilot Heading-Align Lamp (green)")
+SA342:defineIndicatorLight("AP_CVS_YELLOW_LAMP", 1332, "Indicator Lights", "Autopilot Auto-Hover Lamp (yellow)")
+SA342:defineIndicatorLight("AP_CVS_GREEN_LAMP", 1333, "Indicator Lights", "Autopilot Auto-Hover Lamp (green)")
+SA342:defineFloat("AP_LIGHTS_BRIGHTNESS", 1334, { 1, 0 }, "Indicator Lights", "Autopilot Lights Brightness")
+
 return SA342
