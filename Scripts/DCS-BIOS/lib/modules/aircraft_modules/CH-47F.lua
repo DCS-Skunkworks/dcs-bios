@@ -1483,12 +1483,126 @@ CH_47F:defineCircuitBreaker("CPLT_CB_HYDRAULICS_NO_1_COOLING_BLOWER", devices.PD
 CH_47F:defineCircuitBreaker("CPLT_CB_BATT_CHRG_1_RCCO", devices.PDP1, 3164, 175, COPILOT_CIRCUIT_BREAKERS, "BATT CHRG 1 RCCO")
 CH_47F:defineCircuitBreaker("CPLT_CB_NO_1_DC_AUX_PDP_FEED", devices.PDP1, 3165, 176, COPILOT_CIRCUIT_BREAKERS, "NO 1 DC AUX PDP FEED")
 
--- Ramp Controls
--- local RAMP_CONTROLS = "Ramp Controls"
--- includes misc controls around the ramp
+-- Cabin and Ramp Lights Control
+local CABIN_RAMP_LIGHTS = "Cabin and Ramp Lights Control"
+
+CH_47F:defineMultipositionSwitch("CABIN_RAMP_LIGHTS_MODE", devices.AFT_WORKSTATION, 3001, 1399, 3, 0.1, CABIN_RAMP_LIGHTS, "Light Mode (NVG/OFF/WHITE)")
+CH_47F:definePotentiometer("CABIN_RAMP_LIGHTS_DIM", devices.AFT_WORKSTATION, 3004, 1400, { 0, 1 }, CABIN_RAMP_LIGHTS, "Cabin/Ramp Light Dimmer")
 
 -- Ramp Maintenance Panel
--- local RAMP_MAINTENANCE_PANEL = "Ramp Maintenance Panel"
+local RAMP_MAINTENANCE_PANEL = "Ramp Maintenance Panel"
+
+CH_47F:defineToggleSwitch("RAMP_MAINT_FLT_CONT", devices.MAINTENANCE_PANEL, 3001, 1034, RAMP_MAINTENANCE_PANEL, "FLT CONT Reservoir (1/2)")
+CH_47F:defineMultipositionSwitch("RAMP_MAINT_PWR_ASSR", devices.MAINTENANCE_PANEL, 3003, 1035, 3, 0.1, RAMP_MAINTENANCE_PANEL, "PWR ASSR Test")
+CH_47F:defineMultipositionSwitch("RAMP_MAINT_LIGHT_MODE", devices.MAINTENANCE_PANEL, 3007, 1036, 3, 0.1, RAMP_MAINTENANCE_PANEL, "Light Mode (DAY/NIGHT BRT/NIGHT DIM)")
+CH_47F:definePushButton("RAMP_MAINT_LEVEL_CHECK", devices.MAINTENANCE_PANEL, 3010, 1037, RAMP_MAINTENANCE_PANEL, "Level Check")
+CH_47F:defineSingleCommandRocker("RAMP_MAINT_FAULT_IND", devices.MAINTENANCE_PANEL, 3011, 1038, RAMP_MAINTENANCE_PANEL, "FAULT IND Test")
+
+CH_47F:defineIndicatorLight("RAMP_MAINT_FWD_XMSN_CHIPS", 988, RAMP_MAINTENANCE_PANEL, "Forward Transmission Chips Lamp (Yellow)")
+CH_47F:defineIndicatorLight("RAMP_MAINT_FWD_XMSN_DEBRIS", 989, RAMP_MAINTENANCE_PANEL, "Forward Transmission Debris Lamp (Yellow)")
+CH_47F:defineIndicatorLight("RAMP_MAINT_FWD_XMSN_MAIN_PRESS_LO", 990, RAMP_MAINTENANCE_PANEL, "Forward Transmission Main Pressure Low Lamp (Yellow)")
+CH_47F:defineIndicatorLight("RAMP_MAINT_FWD_XMSN_AUX_PRESS_LO", 991, RAMP_MAINTENANCE_PANEL, "Forward Transmission Auxiliary Pressure Low Lamp (Yellow)")
+CH_47F:defineIndicatorLight("RAMP_MAINT_FWD_XMSN_TEMP_HI", 992, RAMP_MAINTENANCE_PANEL, "Forward Transmission Temperature High Lamp (Yellow)")
+
+CH_47F:defineIndicatorLight("RAMP_MAINT_ENG1_XMSN_CHIPS", 993, RAMP_MAINTENANCE_PANEL, "Engine 1 Transmission Chips Lamp (Yellow)")
+CH_47F:defineIndicatorLight("RAMP_MAINT_ENG1_XMSN_DEBRIS", 994, RAMP_MAINTENANCE_PANEL, "Engine 1 Transmission Debris Lamp (Yellow)")
+CH_47F:defineIndicatorLight("RAMP_MAINT_ENG1_XMSN_PRESS_LO", 995, RAMP_MAINTENANCE_PANEL, "Engine 1 Transmission Pressure Low Lamp (Yellow)")
+CH_47F:defineIndicatorLight("RAMP_MAINT_ENG1_XMSN_TEMP_HI", 996, RAMP_MAINTENANCE_PANEL, "Engine 1 Transmission Temperature High Lamp (Yellow)")
+
+CH_47F:defineIndicatorLight("RAMP_MAINT_ENG2_XMSN_CHIPS", 997, RAMP_MAINTENANCE_PANEL, "Engine 2 Transmission Chips Lamp (Yellow)")
+CH_47F:defineIndicatorLight("RAMP_MAINT_ENG2_XMSN_DEBRIS", 998, RAMP_MAINTENANCE_PANEL, "Engine 2 Transmission Debris Lamp (Yellow)")
+CH_47F:defineIndicatorLight("RAMP_MAINT_ENG2_XMSN_PRESS_LO", 999, RAMP_MAINTENANCE_PANEL, "Engine 2 Transmission Pressure Low Lamp (Yellow)")
+CH_47F:defineIndicatorLight("RAMP_MAINT_ENG2_XMSN_TEMP_HI", 1000, RAMP_MAINTENANCE_PANEL, "Engine 2 Transmission Temperature High Lamp (Yellow)")
+
+CH_47F:defineIndicatorLight("RAMP_MAINT_COMB_XMSN_CHIPS", 1001, RAMP_MAINTENANCE_PANEL, "Combined Transmission Chips Lamp (Yellow)")
+CH_47F:defineIndicatorLight("RAMP_MAINT_COMB_XMSN_L_DEBRIS", 1002, RAMP_MAINTENANCE_PANEL, "Combined Transmission Left Debris Lamp (Yellow)")
+CH_47F:defineIndicatorLight("RAMP_MAINT_COMB_XMSN_R_DEBRIS", 1003, RAMP_MAINTENANCE_PANEL, "Combined Transmission Right Debris Lamp (Yellow)")
+CH_47F:defineIndicatorLight("RAMP_MAINT_COMB_XMSN_MAIN_PRESS_LO", 1004, RAMP_MAINTENANCE_PANEL, "Combined Transmission Main Pressure Low Lamp (Yellow)")
+CH_47F:defineIndicatorLight("RAMP_MAINT_COMB_XMSN_AUX_PRESS_LO", 1005, RAMP_MAINTENANCE_PANEL, "Combined Transmission Auxiliary Pressure Low Lamp (Yellow)")
+CH_47F:defineIndicatorLight("RAMP_MAINT_COMB_XMSN_TEMP_HI", 1006, RAMP_MAINTENANCE_PANEL, "Combined Transmission Temperature High Lamp (Yellow)")
+
+CH_47F:defineIndicatorLight("RAMP_MAINT_ENG1_CHIPS", 1007, RAMP_MAINTENANCE_PANEL, "Engine 1 Chips Lamp (Yellow)")
+
+CH_47F:defineIndicatorLight("RAMP_MAINT_ENG2_CHIPS", 1008, RAMP_MAINTENANCE_PANEL, "Engine 2 Chips Lamp (Yellow)")
+
+CH_47F:defineIndicatorLight("RAMP_MAINT_AFT_XMSN_CHIPS", 1009, RAMP_MAINTENANCE_PANEL, "Aft Transmission Chips Lamp (Yellow)")
+CH_47F:defineIndicatorLight("RAMP_MAINT_AFT_XMSN_DEBRIS", 1010, RAMP_MAINTENANCE_PANEL, "Aft Transmission Debris Lamp (Yellow)")
+CH_47F:defineIndicatorLight("RAMP_MAINT_AFT_XMSN_MAIN_PRESS_LO", 1011, RAMP_MAINTENANCE_PANEL, "Aft Transmission Main Pressure Low Lamp (Yellow)")
+CH_47F:defineIndicatorLight("RAMP_MAINT_AFT_XMSN_AUX_PRESS_LO", 1012, RAMP_MAINTENANCE_PANEL, "Aft Transmission Auxiliary Pressure Low Lamp (Yellow)")
+CH_47F:defineIndicatorLight("RAMP_MAINT_AFT_XMSN_TEMP_HI", 1013, RAMP_MAINTENANCE_PANEL, "Aft Transmission Temperature High Lamp (Yellow)")
+
+CH_47F:defineIndicatorLight("RAMP_MAINT_AFT_SHAFT_CHIPS", 1014, RAMP_MAINTENANCE_PANEL, "Aft Shaft Chips Lamp (Yellow)")
+CH_47F:defineIndicatorLight("RAMP_MAINT_AFT_SHAFT_PRESS_LO", 1015, RAMP_MAINTENANCE_PANEL, "Aft Shaft Pressure Low Lamp (Yellow)")
+
+CH_47F:defineIndicatorLight("RAMP_MAINT_L_GND_CONT", 1016, RAMP_MAINTENANCE_PANEL, "Left Ground Contact Lamp (Green)")
+CH_47F:defineIndicatorLight("RAMP_MAINT_R_GND_CONT", 1017, RAMP_MAINTENANCE_PANEL, "Right Ground Contact Lamp (Green)")
+
+CH_47F:defineIndicatorLight("RAMP_MAINT_FLT_CONT_1_FLTR_CHNG_PRESS", 1018, RAMP_MAINTENANCE_PANEL, "Flight Control 1 FLTR CHNG PRESS Lamp (Yellow)")
+CH_47F:defineIndicatorLight("RAMP_MAINT_FLT_CONT_1_FLTR_CHNG_RTN", 1019, RAMP_MAINTENANCE_PANEL, "Flight Control 1 FLTR CHNG RTN Lamp (Yellow)")
+CH_47F:defineIndicatorLight("RAMP_MAINT_FLT_CONT_1_PUMP_FAIL", 1020, RAMP_MAINTENANCE_PANEL, "Flight Control 1 Pump Fail Lamp (Yellow)")
+
+CH_47F:defineIndicatorLight("RAMP_MAINT_FLT_CONT_2_FLTR_CHNG_PRESS", 1021, RAMP_MAINTENANCE_PANEL, "Flight Control 2 FLTR CHNG PRESS Lamp (Yellow)")
+CH_47F:defineIndicatorLight("RAMP_MAINT_FLT_CONT_2_FLTR_CHNG_RTN", 1022, RAMP_MAINTENANCE_PANEL, "Flight Control 2 FLTR CHNG RTN Lamp (Yellow)")
+CH_47F:defineIndicatorLight("RAMP_MAINT_FLT_CONT_2_PUMP_FAIL", 1023, RAMP_MAINTENANCE_PANEL, "Flight Control 2 Pump Fail Lamp (Yellow)")
+
+CH_47F:defineIndicatorLight("RAMP_MAINT_UTILITY_FLTR_CHNG_PRESS", 1024, RAMP_MAINTENANCE_PANEL, "Utility FLTR CHNG PRESS Lamp (Yellow)")
+CH_47F:defineIndicatorLight("RAMP_MAINT_UTILITY_FLTR_CHNG_RTN", 1025, RAMP_MAINTENANCE_PANEL, "Utility FLTR CHNG RTN Lamp (Yellow)")
+CH_47F:defineIndicatorLight("RAMP_MAINT_UTILITY_APU_PUMP_FAIL", 1026, RAMP_MAINTENANCE_PANEL, "Utility APU Pump Fail Lamp (Yellow)")
+CH_47F:defineIndicatorLight("RAMP_MAINT_UTILITY_UTIL_PUMP_FAIL", 1027, RAMP_MAINTENANCE_PANEL, "Utility Pump Fail Lamp (Yellow)")
+
+local function maintenance_panel_gauge_char(dev0, arg_number)
+	local value = Module.round(dev0:get_argument_value(arg_number) * 10) - 1
+	return value >= 0 and tostring(value) or " "
+end
+
+local function maintenance_panel_gauge(dev0, hundreds_arg, tens_arg, ones_arg)
+	local hundreds = maintenance_panel_gauge_char(dev0, hundreds_arg)
+	local tens = maintenance_panel_gauge_char(dev0, tens_arg)
+	local ones = maintenance_panel_gauge_char(dev0, ones_arg)
+
+	return hundreds .. tens .. ones
+end
+
+CH_47F:defineFloat("RAMP_MAINT_HYD_GAUGE_BRT", 1039, { 0, 1 }, RAMP_MAINTENANCE_PANEL, "Hydraulic Gauges Display Brightness")
+
+CH_47F:defineIndicatorLight("RAMP_MAINT_FLT_CONT_1_PRESS_LIMIT", 1028, RAMP_MAINTENANCE_PANEL, "Flight Control 1 Pressure Limit Lamp (Yellow)")
+CH_47F:defineFloat("RAMP_MAINT_FLT_CONT_1_PRESS", 1040, { 0, 0.4 }, RAMP_MAINTENANCE_PANEL, "Flight Control 1 Pressure Gauge")
+CH_47F:defineString("RAMP_MAINT_FLT_CONT_1_PRESS_DISPLAY", function(dev0)
+	return maintenance_panel_gauge(dev0, 1041, 1042, 1043)
+end, 3, RAMP_MAINTENANCE_PANEL, "Flight Control 1 Pressure Readout")
+
+CH_47F:defineIndicatorLight("RAMP_MAINT_FLT_CONT_2_PRESS_LIMIT", 1029, RAMP_MAINTENANCE_PANEL, "Flight Control 2 Pressure Limit Lamp (Yellow)")
+CH_47F:defineFloat("RAMP_MAINT_FLT_CONT_2_PRESS", 1044, { 0, 0.4 }, RAMP_MAINTENANCE_PANEL, "Flight Control 2 Pressure Gauge")
+CH_47F:defineString("RAMP_MAINT_FLT_CONT_2_PRESS_DISPLAY", function(dev0)
+	return maintenance_panel_gauge(dev0, 1045, 1046, 1047)
+end, 3, RAMP_MAINTENANCE_PANEL, "Flight Control 2 Pressure Readout")
+
+CH_47F:defineIndicatorLight("RAMP_MAINT_UTILITY_PRESS_LIMIT", 1030, RAMP_MAINTENANCE_PANEL, "Utility Pressure Limit Lamp (Yellow)")
+CH_47F:defineFloat("RAMP_MAINT_UTILITY_PRESS", 1048, { 0, 0.4 }, RAMP_MAINTENANCE_PANEL, "Utility Pressure Gauge")
+CH_47F:defineString("RAMP_MAINT_UTILITY_PRESS_DISPLAY", function(dev0)
+	return maintenance_panel_gauge(dev0, 1049, 1050, 1051)
+end, 3, RAMP_MAINTENANCE_PANEL, "Utility Pressure Readout")
+
+CH_47F:defineIndicatorLight("RAMP_MAINT_FLT_CONT_1_TEMP_LIMIT", 1031, RAMP_MAINTENANCE_PANEL, "Flight Control 1 Temperature Limit Lamp (Yellow)")
+CH_47F:defineFloat("RAMP_MAINT_FLT_CONT_1_TEMP", 1052, { 0, 0.4 }, RAMP_MAINTENANCE_PANEL, "Flight Control 1 Temperature Gauge")
+CH_47F:defineString("RAMP_MAINT_FLT_CONT_1_TEMP_DISPLAY", function(dev0)
+	return maintenance_panel_gauge(dev0, 1053, 1054, 1055)
+end, 3, RAMP_MAINTENANCE_PANEL, "Flight Control 1 Temperature Readout")
+
+CH_47F:defineIndicatorLight("RAMP_MAINT_FLT_CONT_2_TEMP_LIMIT", 1032, RAMP_MAINTENANCE_PANEL, "Flight Control 2 Temperature Limit Lamp (Yellow)")
+CH_47F:defineFloat("RAMP_MAINT_FLT_CONT_2_TEMP", 1056, { 0, 0.4 }, RAMP_MAINTENANCE_PANEL, "Flight Control 2 Temperature Gauge")
+CH_47F:defineString("RAMP_MAINT_FLT_CONT_2_TEMP_DISPLAY", function(dev0)
+	return maintenance_panel_gauge(dev0, 1057, 1058, 1059)
+end, 3, RAMP_MAINTENANCE_PANEL, "Flight Control 2 Temperature Readout")
+
+CH_47F:defineIndicatorLight("RAMP_MAINT_UTILITY_TEMP_LIMIT", 1033, RAMP_MAINTENANCE_PANEL, "Utility Temperature Limit Lamp (Yellow)")
+CH_47F:defineFloat("RAMP_MAINT_UTILITY_TEMP", 1060, { 0, 0.4 }, RAMP_MAINTENANCE_PANEL, "Utility Temperature Gauge")
+CH_47F:defineString("RAMP_MAINT_UTILITY_TEMP_DISPLAY", function(dev0)
+	return maintenance_panel_gauge(dev0, 1061, 1062, 1063)
+end, 3, RAMP_MAINTENANCE_PANEL, "Utility Temperature Readout")
+
+CH_47F:defineFloat("RAMP_MAINT_FLT_CONT_RSVR", 1064, { 0, 0.4 }, RAMP_MAINTENANCE_PANEL, "Flight Control Reservoir Gauge")
+CH_47F:defineFloat("RAMP_MAINT_UTILITY_RSVR", 1065, { 0, 0.4 }, RAMP_MAINTENANCE_PANEL, "Utility Reservoir Gauge")
 
 -- Interior Lights
 -- local INTERIOR_LIGHTS = "Interior Lights"
