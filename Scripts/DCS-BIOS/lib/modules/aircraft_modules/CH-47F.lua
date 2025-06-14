@@ -961,6 +961,9 @@ CH_47F:definePotentiometer("FIRE_HANDLE_ENG1_TWIST", devices.CANTED_CONSOLE, 300
 CH_47F:defineSingleCommandRocker("FIRE_HANDLE_ENG2_PULL", devices.CANTED_CONSOLE, 3005, 735, FIRE_PANEL, "Engine 2 Fire Handle (Pull)")
 CH_47F:definePotentiometer("FIRE_HANDLE_ENG2_TWIST", devices.CANTED_CONSOLE, 3006, 736, { 0, 1 }, FIRE_PANEL, "Engine 2 Fire Handle (Twist)")
 
+CH_47F:defineFloat("FIRE_HANDLE_ENG1_LIGHT", 737, { 0, 1 }, FIRE_PANEL, "Engine 1 Fire Handle Lamp (Red)")
+CH_47F:defineFloat("FIRE_HANDLE_ENG2_LIGHT", 738, { 0, 1 }, FIRE_PANEL, "Engine 2 Fire Handle Lamp (Red)")
+
 -- Pilot Standby Flight Display
 -- local PILOT_STANDBY_FLIGHT_DISPLAY = "PLT Standby Flight Display"
 
