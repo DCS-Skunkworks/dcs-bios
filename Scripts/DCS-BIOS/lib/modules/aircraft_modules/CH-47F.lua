@@ -1651,8 +1651,38 @@ CH_47F:defineFloat("PLT_INT_LIGHT_CDU", 1337, { 0, 1 }, INTERIOR_LIGHTS, "Pilot 
 CH_47F:defineFloat("CPLT_INT_LIGHT_CDU", 1336, { 0, 1 }, INTERIOR_LIGHTS, "Copilot CDU Backlight (Green)")
 
 -- Interior Model
--- local INTERIOR_MODEL = "Interior Model"
--- seats, hatches, etc
+local INTERIOR_MODEL = "Interior Model"
+
+CH_47F:defineFloat("RG_INT_MODEL_DOOR", 1206, { 0, 1 }, INTERIOR_MODEL, "Right Gunner Door Open")
+CH_47F:defineFloat("RG_INT_MODEL_STEP", 1207, { 0, 1 }, INTERIOR_MODEL, "Right Gunner Step Open")
+
+CH_47F:defineIndicatorLight("LG_INT_MODEL_WINDOW", 1205, INTERIOR_MODEL, "Left Gunner Window Open")
+
+CH_47F:defineIntegerFromGetter("INT_MODEL_CARGO_SEAT_POSITION", function(dev0)
+	local value = dev0:get_argument_value(1330)
+
+	if value < 0.1 then
+		return 0
+	end
+
+	if value < 0.11 then
+		return 1
+	end
+
+	if value < 0.2 then
+		return 2
+	end
+
+	return 3
+end, 3, INTERIOR_MODEL, "Cargo Seat Position (OUT/HIDDEN/FOLDING/FOLDED)")
+
+CH_47F:defineFloat("INT_MODEL_HOIST_PANEL_DOOR", 1165, { 0, 1 }, INTERIOR_MODEL, "Hoist Panel Door Open")
+CH_47F:defineFloat("INT_MODEL_HOIST_PANEL_LATCHES", 1166, { 0, 1 }, INTERIOR_MODEL, "Hoist Panel Latches Open")
+
+CH_47F:defineFloat("INT_MODEL_RAMP_SKIDS_OUT", 1190, { 0, 1 }, INTERIOR_MODEL, "Ramp Skids Out")
+CH_47F:defineFloat("INT_MODEL_RAMP_DOOR", 1188, { 0, 1 }, INTERIOR_MODEL, "Ramp Door")
+CH_47F:defineFloat("INT_MODEL_RAMP_DOOR_TOP", 1189, { 0, 1 }, INTERIOR_MODEL, "Ramp Door Top Half (Slide)")
+CH_47F:defineIndicatorLightInverted("INT_MODEL_RAMP_CENTER_SKID", 1479, INTERIOR_MODEL, "Ramp Center Skid Present")
 
 -- Exterior Lights
 -- local EXTERIOR_LIGHTS = "Exterior Lights"
