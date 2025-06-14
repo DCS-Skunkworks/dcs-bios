@@ -1725,4 +1725,9 @@ CH_47F:defineFullRangeFloatFromExternalDrawArgument("CPLT_EXT_SEARCH_LIGHT_ROTAT
 
 -- Radios
 
+CH_47F:defineReadWriteRadio("RADIO_ARC_164", devices.ARC_164, 7, 3, 1000, "ARC-164 (UHF)")
+CH_47F:defineReadWriteRadio("RADIO_ARC_186", devices.ARC_186, 6, 3, 1000, "ARC-186 (FM1)") -- done
+CH_47F:defineReadWriteRadio("RADIO_ARC_201", devices.ARC_201, 6, 3, 1000, "ARC-201 (FM2)")
+CH_47F:defineReadWriteRadio("RADIO_ARC_220", devices.ARC_220, 7, 4, 100, "ARC-220 (HF)")
+
 return CH_47F
