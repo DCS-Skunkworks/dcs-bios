@@ -1685,10 +1685,43 @@ CH_47F:defineFloat("INT_MODEL_RAMP_DOOR_TOP", 1189, { 0, 1 }, INTERIOR_MODEL, "R
 CH_47F:defineIndicatorLightInverted("INT_MODEL_RAMP_CENTER_SKID", 1479, INTERIOR_MODEL, "Ramp Center Skid Present")
 
 -- Exterior Lights
--- local EXTERIOR_LIGHTS = "Exterior Lights"
+local EXTERIOR_LIGHTS = "Exterior Lights"
+
+CH_47F:defineFloatFromDrawArgument("EXT_LIGHT_NAV_L", 190, EXTERIOR_LIGHTS, "Left Nav Light (Red)")
+CH_47F:defineFloatFromDrawArgument("EXT_LIGHT_NAV_R", 191, EXTERIOR_LIGHTS, "Right Nav Light (Green)")
+CH_47F:defineFloatFromDrawArgument("EXT_LIGHT_NAV_AFT", 192, EXTERIOR_LIGHTS, "Aft Nav Light (White)")
+CH_47F:defineFloatFromDrawArgument("EXT_LIGHT_IR", 193, EXTERIOR_LIGHTS, "IR Lights (Red)")
+CH_47F:defineFloatFromDrawArgument("EXT_LIGHT_BOTTOM_FRONT", 194, EXTERIOR_LIGHTS, "Front Undercarriage Light (White)")
+CH_47F:defineFloatFromDrawArgument("EXT_LIGHT_BOTTOM_MID", 195, EXTERIOR_LIGHTS, "Middle Undercarriage Light (White)")
+CH_47F:defineFloatFromDrawArgument("EXT_LIGHT_BOTTOM_REAR", 196, EXTERIOR_LIGHTS, "Rear Undercarriage Light (White)")
+CH_47F:defineFloatFromDrawArgument("EXT_LIGHT_TOP_BEACON", 197, EXTERIOR_LIGHTS, "Top Beacon Light (Red)")
+CH_47F:defineFloatFromDrawArgument("EXT_LIGHT_BOTTOM_BEACON", 198, EXTERIOR_LIGHTS, "Bottom Beacon Light (Red)")
+CH_47F:defineFloatFromDrawArgument("EXT_LIGHT_TOP_FORMATION", 200, EXTERIOR_LIGHTS, "Top Formation Lights (Blue)")
+CH_47F:defineFloatFromDrawArgument("PLT_EXT_LIGHT_SEARCHLIGHT", 209, EXTERIOR_LIGHTS, "Pilot Searchlight (White)")
+CH_47F:defineFloatFromDrawArgument("CPLT_EXT_LIGHT_SEARCHLIGHT", 208, EXTERIOR_LIGHTS, "Copilot Searchlight (White)")
 
 -- Exterior Model
--- local EXTERIOR_MODEL = "Exterior Model"
+local EXTERIOR_MODEL = "Exterior Model"
+
+CH_47F:defineFloatFromDrawArgument("EXT_GEAR_AL_COMPRESS", 1, EXTERIOR_LIGHTS, "Aft Left Gear Strut Compression")
+CH_47F:defineFullRangeFloatFromExternalDrawArgument("EXT_GEAR_AL_ROT", 2, EXTERIOR_MODEL, "Aft Left Gear Rotation")
+CH_47F:defineFloatFromDrawArgument("EXT_GEAR_AR_COMPRESS", 343, EXTERIOR_LIGHTS, "Aft Right Gear Strut Compression")
+CH_47F:defineFullRangeFloatFromExternalDrawArgument("EXT_GEAR_AR_ROT", 344, EXTERIOR_MODEL, "Aft Right Gear Rotation")
+CH_47F:defineFloatFromDrawArgument("EXT_GEAR_FR_COMPRESS", 4, EXTERIOR_LIGHTS, "Forward Right Gear Strut Compression")
+CH_47F:defineFloatFromDrawArgument("EXT_GEAR_FL_COMPRESS", 6, EXTERIOR_LIGHTS, "Forward Left Gear Strut Compression")
+CH_47F:defineFullRangeFloatFromExternalDrawArgument("EXT_ROTOR_SPIN", 40, EXTERIOR_MODEL, "Rotor Position")
+CH_47F:defineFullRangeFloatFromExternalDrawArgument("EXT_ROTOR_PITCH_COLLECTIVE_FRONT", 274, EXTERIOR_MODEL, "Front Blade Pitch (collective)")
+CH_47F:defineFullRangeFloatFromExternalDrawArgument("EXT_ROTOR_PITCH_COLLECTIVE_AFT", 275, EXTERIOR_MODEL, "Aft Blade Pitch (collective)")
+CH_47F:defineFullRangeFloatFromExternalDrawArgument("EXT_ROTOR_FLEX_FRONT_1", 326, EXTERIOR_MODEL, "Front Rotor Blade 1 Flex")
+CH_47F:defineFullRangeFloatFromExternalDrawArgument("EXT_ROTOR_FLEX_FRONT_2", 327, EXTERIOR_MODEL, "Front Rotor Blade 2 Flex")
+CH_47F:defineFullRangeFloatFromExternalDrawArgument("EXT_ROTOR_FLEX_FRONT_3", 328, EXTERIOR_MODEL, "Front Rotor Blade 3 Flex")
+CH_47F:defineFullRangeFloatFromExternalDrawArgument("EXT_ROTOR_FLEX_AFT_1", 329, EXTERIOR_MODEL, "Aft Rotor Blade 1 Flex")
+CH_47F:defineFullRangeFloatFromExternalDrawArgument("EXT_ROTOR_FLEX_AFT_2", 330, EXTERIOR_MODEL, "Aft Rotor Blade 2 Flex")
+CH_47F:defineFullRangeFloatFromExternalDrawArgument("EXT_ROTOR_FLEX_AFT_3", 331, EXTERIOR_MODEL, "Aft Rotor Blade 3 Flex")
+CH_47F:defineFloatFromDrawArgument("PLT_EXT_SEARCH_LIGHT_PITCH", 423, EXTERIOR_MODEL, "Pilot Search Light Pitch")
+CH_47F:defineFullRangeFloatFromExternalDrawArgument("PLT_EXT_SEARCH_LIGHT_ROTATION", 424, EXTERIOR_MODEL, "Pilot Search Light Rotation")
+CH_47F:defineFloatFromDrawArgument("CPLT_EXT_SEARCH_LIGHT_PITCH", 425, EXTERIOR_MODEL, "Copilot Search Light Pitch")
+CH_47F:defineFullRangeFloatFromExternalDrawArgument("CPLT_EXT_SEARCH_LIGHT_ROTATION", 426, EXTERIOR_MODEL, "Copilot Search Light Rotation")
 
 -- Radios
 
