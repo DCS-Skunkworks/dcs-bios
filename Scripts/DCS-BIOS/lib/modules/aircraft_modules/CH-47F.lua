@@ -1608,8 +1608,47 @@ CH_47F:defineFloat("RAMP_MAINT_FLT_CONT_RSVR", 1064, { 0, 0.4 }, RAMP_MAINTENANC
 CH_47F:defineFloat("RAMP_MAINT_UTILITY_RSVR", 1065, { 0, 0.4 }, RAMP_MAINTENANCE_PANEL, "Utility Reservoir Gauge")
 
 -- Interior Lights
--- local INTERIOR_LIGHTS = "Interior Lights"
--- includes utility light controls, jump light, etc
+local INTERIOR_LIGHTS = "Interior Lights"
+
+CH_47F:defineFloat("PLT_INT_LIGHT_FLOOD_WHITE", 1346, { 0, 1 }, INTERIOR_LIGHTS, "Pilot Flood Light (White)")
+CH_47F:defineFloat("PLT_INT_LIGHT_FLOOD_GREEN", 1347, { 0, 1 }, INTERIOR_LIGHTS, "Pilot Flood Light (Green)")
+CH_47F:defineFloat("CPLT_INT_LIGHT_FLOOD_WHITE", 1344, { 0, 1 }, INTERIOR_LIGHTS, "Copilot Flood Light (White)")
+CH_47F:defineFloat("CPLT_INT_LIGHT_FLOOD_GREEN", 1345, { 0, 1 }, INTERIOR_LIGHTS, "Copilot Flood Light (Green)")
+
+CH_47F:defineFloat("PLT_INT_LIGHT_OVERHEAD_FLOOD", 1379, { 0, 1 }, INTERIOR_LIGHTS, "Pilot Overhead Console Flood Light (Green)")
+CH_47F:defineFloat("CPLT_INT_LIGHT_OVERHEAD_FLOOD", 1378, { 0, 1 }, INTERIOR_LIGHTS, "Copilot Overhead Console Flood Light (Green)")
+
+CH_47F:defineFloat("PLT_INT_LIGHT_DASH_INSTRUMENT", 1372, { 0, 1 }, INTERIOR_LIGHTS, "Pilot Dash Instrument Flood Light (Green)")
+CH_47F:defineFloat("PLT_INT_LIGHT_DASH_MFD_IB", 1374, { 0, 1 }, INTERIOR_LIGHTS, "Pilot Dash Inboard MFD Flood Light (Green)")
+CH_47F:defineFloat("PLT_INT_LIGHT_DASH_MFD_OB", 1376, { 0, 1 }, INTERIOR_LIGHTS, "Pilot Dash Outboard MFD Flood Light (Green)")
+
+CH_47F:defineFloat("INT_LIGHT_DASH_MFD_CENTER", 1370, { 0, 1 }, INTERIOR_LIGHTS, "Dash Center MFD Flood Light (Green)")
+
+CH_47F:defineFloat("CPLT_INT_LIGHT_DASH_INSTRUMENT", 1368, { 0, 1 }, INTERIOR_LIGHTS, "Copilot Dash Instrument Flood Light (Green)")
+CH_47F:defineFloat("CPLT_INT_LIGHT_DASH_MFD_IB", 1366, { 0, 1 }, INTERIOR_LIGHTS, "Copilot Dash Inboard MFD Flood Light (Green)")
+CH_47F:defineFloat("CPLT_INT_LIGHT_DASH_MFD_OB", 1364, { 0, 1 }, INTERIOR_LIGHTS, "Copilot Dash Outboard MFD Flood Light (Green)")
+
+CH_47F:defineFloat("LG_INT_LIGHT_EMERGENCY", 1401, { 0, 1 }, INTERIOR_LIGHTS, "Left Gunner Emergency Light (White)")
+CH_47F:defineFloat("RG_INT_LIGHT_EMERGENCY", 1405, { 0, 1 }, INTERIOR_LIGHTS, "Right Gunner Emergency Light (White)")
+CH_47F:defineFloat("AE_INT_LIGHT_EMERGENCY", 1409, { 0, 1 }, INTERIOR_LIGHTS, "Aft Engineer Emergency Light (White)")
+
+CH_47F:defineFloat("INT_LIGHT_JUMP_FRONT_GREEN", 1440, { 0, 1 }, INTERIOR_LIGHTS, "Front Jump Light (Green)")
+CH_47F:defineFloat("INT_LIGHT_JUMP_FRONT_RED", 1441, { 0, 1 }, INTERIOR_LIGHTS, "Front Jump Light (Red)")
+CH_47F:defineFloat("INT_LIGHT_JUMP_AFT_GREEN", 1442, { 0, 1 }, INTERIOR_LIGHTS, "Aft Jump Light (Green)")
+CH_47F:defineFloat("INT_LIGHT_JUMP_AFT_RED", 1443, { 0, 1 }, INTERIOR_LIGHTS, "Aft Jump Light (Red)")
+
+CH_47F:defineFloat("INT_LIGHT_CARGO_WHITE", 1397, { 0, 1 }, INTERIOR_LIGHTS, "Cargo Hold Lights (White)")
+CH_47F:defineFloat("INT_LIGHT_CARGO_GREEN", 1398, { 0, 1 }, INTERIOR_LIGHTS, "Cargo Hold Lights (Green)")
+
+CH_47F:defineFloat("INT_LIGHT_STICK_INDICATOR", 1343, { 0, 1 }, INTERIOR_LIGHTS, "Longitudinal Stick Position Indicator Backlight (Green)")
+CH_47F:defineFloat("INT_LIGHT_CENTER_CONSOLE_LPCAP", 1438, { 0, 1 }, INTERIOR_LIGHTS, "PLT/CPLT/TC LPCAP Backlight (Green)")
+CH_47F:defineFloat("INT_LIGHT_CANTED_CONSOLE_STEER", 1342, { 0, 1 }, INTERIOR_LIGHTS, "Canted Console/Steer Swivel Backlight (Green)")
+CH_47F:defineFloat("INT_LIGHT_OVERHEAD_CONSOLE", 1341, { 0, 1 }, INTERIOR_LIGHTS, "Overhead Console Backlight (Green)")
+CH_47F:defineFloat("PLT_INT_LIGHT_MFDS", 1340, { 0, 1 }, INTERIOR_LIGHTS, "Pilot MFDs Backlight (Green)")
+CH_47F:defineFloat("INT_LIGHT_CENTER_DASH", 1339, { 0, 1 }, INTERIOR_LIGHTS, "Center MFD/Instruments/Fire Extinguisher Backlight (Green)")
+CH_47F:defineFloat("CPLT_INT_LIGHT_MFDS", 1338, { 0, 1 }, INTERIOR_LIGHTS, "Copilot MFDs Backlight (Green)")
+CH_47F:defineFloat("PLT_INT_LIGHT_CDU", 1337, { 0, 1 }, INTERIOR_LIGHTS, "Pilot CDU Backlight (Green)")
+CH_47F:defineFloat("CPLT_INT_LIGHT_CDU", 1336, { 0, 1 }, INTERIOR_LIGHTS, "Copilot CDU Backlight (Green)")
 
 -- Interior Model
 -- local INTERIOR_MODEL = "Interior Model"
