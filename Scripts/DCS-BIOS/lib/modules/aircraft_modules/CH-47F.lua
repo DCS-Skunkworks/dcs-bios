@@ -565,6 +565,8 @@ CH_47F:definePushButton("PLT_CDU_BLANK", devices.CDU_RIGHT, 3066, 489, PILOT_CDU
 CH_47F:definePushButton("PLT_CDU_DATA", devices.CDU_RIGHT, 3081, 490, PILOT_CDU, "DATA")
 CH_47F:definePushButton("PLT_CDU_STAT", devices.CDU_RIGHT, 3082, 492, PILOT_CDU, "STAT")
 
+-- todo (https://github.com/DCS-Skunkworks/dcs-bios/issues/1138): add CDU displays
+-- list_indication(1)
 CH_47F:reserveStringValue(24)
 CH_47F:reserveStringValue(24)
 CH_47F:reserveStringValue(24)
@@ -660,6 +662,8 @@ CH_47F:definePushButton("CPLT_CDU_BLANK", devices.CDU_LEFT, 3066, 414, COPILOT_C
 CH_47F:definePushButton("CPLT_CDU_DATA", devices.CDU_LEFT, 3081, 415, COPILOT_CDU, "DATA")
 CH_47F:definePushButton("CPLT_CDU_STAT", devices.CDU_LEFT, 3082, 416, COPILOT_CDU, "STAT")
 
+-- todo (https://github.com/DCS-Skunkworks/dcs-bios/issues/1138): add CDU displays
+-- list_indication(0)
 CH_47F:reserveStringValue(24)
 CH_47F:reserveStringValue(24)
 CH_47F:reserveStringValue(24)
@@ -1032,6 +1036,7 @@ CH_47F:definePushButton("CHRONOMETER_SELECT", devices.TERTIARY_REFLECTS, 3001, 1
 CH_47F:definePushButton("CHRONOMETER_CONTROL", devices.TERTIARY_REFLECTS, 3002, 1210, CHRONOMETER, "CONTROL Button")
 CH_47F:definePotentiometer("CHRONOMETER_DIM", devices.TERTIARY_REFLECTS, 3003, 1208, { 0, 1 }, CHRONOMETER, "DIM Knob")
 
+-- todo (https://github.com/DCS-Skunkworks/dcs-bios/issues/1139): Add chronometer display
 -- indicator 23
 CH_47F:reserveIntValue(1) -- TAG_0 -> GMT tick
 CH_47F:reserveIntValue(1) -- TAG_1 -> LT tick
@@ -1726,7 +1731,7 @@ CH_47F:defineFullRangeFloatFromExternalDrawArgument("CPLT_EXT_SEARCH_LIGHT_ROTAT
 -- Radios
 
 CH_47F:defineReadWriteRadio("RADIO_ARC_164", devices.ARC_164, 7, 3, 1000, "ARC-164 (UHF)")
-CH_47F:defineReadWriteRadio("RADIO_ARC_186", devices.ARC_186, 6, 3, 1000, "ARC-186 (FM1)") -- done
+CH_47F:defineReadWriteRadio("RADIO_ARC_186", devices.ARC_186, 6, 3, 1000, "ARC-186 (FM1)")
 CH_47F:defineReadWriteRadio("RADIO_ARC_201", devices.ARC_201, 6, 3, 1000, "ARC-201 (FM2)")
 CH_47F:defineReadWriteRadio("RADIO_ARC_220", devices.ARC_220, 7, 4, 100, "ARC-220 (HF)")
 
