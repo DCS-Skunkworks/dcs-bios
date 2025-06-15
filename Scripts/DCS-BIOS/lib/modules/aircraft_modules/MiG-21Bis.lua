@@ -448,8 +448,8 @@ MiG_21Bis:defineIndicatorLight("ENG_START_LIGHT", 509, "Main Warning Lights", "E
 MiG_21Bis:defineFloat("ENG_OXY_ST", 61, { 0, 1 }, "Left Vertical Aft Panel", "Engine Oxygen Status")
 
 --Engine and Throttle
-MiG_21Bis:defineFloat("ENGINE_RPM", 670, { 0, 1 }, "Engine Status Panel", "Engine RPM 1 Needle")
-MiG_21Bis:defineFloat("ENGINE_RPM2", 50, { 0, 1 }, "Engine Status Panel", "Engine RPM 2 Needle")
+MiG_21Bis:defineFloat("ENGINE_RPM", 50, { 0, 1 }, "Engine Status Panel", "Engine RPM 1 Needle")
+MiG_21Bis:defineFloat("ENGINE_RPM2", 670, { 0, 1 }, "Engine Status Panel", "Engine RPM 2 Needle")
 MiG_21Bis:defineFloat("ENGINE_TEMP", 51, { 0, 1 }, "Engine Status Panel", "EGT Needle")
 MiG_21Bis:defineIndicatorLight("FORSAZ_1", 507, "Main Warning Lights", "Afterburner Active Light (green)")
 MiG_21Bis:defineIndicatorLight("FORSAZ_2", 508, "Main Warning Lights", "Emergency Afterburner Light (green)")
