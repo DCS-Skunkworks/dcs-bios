@@ -4,6 +4,7 @@
 [![Discord][discord-shield]][discord-url]
 [![Release][release-shield]][release-url]
 ![Downloads][downloads-shield]
+[![Sponsors][opencollective-shield]][opencollective-url]
 
 <br />
 <div align="center">
@@ -65,6 +66,9 @@
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
+
+> [!NOTE]
+> Adding new modules and supporting existing ones takes a _lot_ of time. If you have the financial means and like what we do, please consider supporting us on [Open Collective](https://opencollective.com/dcs-skunkworks)!
 
 ## About The Project
 
@@ -279,6 +283,8 @@ For questions, consider asking in our [Discussions][discussions-url] page, or re
 [license-url]: https://github.com/DCS-Skunkworks/dcs-bios/blob/main/LICENSE
 [release-shield]: https://img.shields.io/github/release/DCS-Skunkworks/dcs-bios.svg?style=for-the-badge
 [release-url]: https://github.com/DCS-Skunkworks/dcs-bios/releases
+[opencollective-shield]: https://img.shields.io/opencollective/sponsors/dcs-skunkworks?style=for-the-badge
+[opencollective-url]: https://opencollective.com/dcs-skunkworks
 [discord-shield]: https://img.shields.io/discord/533342958712258572?style=for-the-badge
 [discord-url]: https://discord.gg/5svGwKX
 [downloads-shield]: https://img.shields.io/github/downloads/DCS-Skunkworks/dcs-bios/total?style=for-the-badge
