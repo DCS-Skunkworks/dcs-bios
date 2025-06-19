@@ -89,6 +89,10 @@ function TestAircraft:testF86FSabre()
 	self:validateModule(require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.F-86F Sabre"), "F-86F Sabre", 0x3000)
 end
 
+function TestAircraft:testF4U1D()
+	self:validateModule(require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.F4U-1D"), "F4U-1D", 0x3a00)
+end
+
 function TestAircraft:testFA18C()
 	self:validateModule(require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.FA-18C_hornet"), "FA-18C_hornet", 0x7400)
 end

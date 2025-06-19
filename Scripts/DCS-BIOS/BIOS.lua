@@ -42,6 +42,7 @@ local modules = {
 	require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.F-4E"),
 	require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.F-5E-3"),
 	require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.F-86F Sabre"),
+	require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.F4U-1D"),
 	require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.FA-18C_hornet"),
 	require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.FC3"),
 	require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.FW-190A8"),
