@@ -659,8 +659,8 @@ Mi_24P:defineIndicatorLight("OP_L166B_WORK_L", 868, "I9K113 Lights", "OPERATOR L
 Mi_24P:defineIndicatorLight("OP_L166B_FAIL_L", 869, "I9K113 Lights", "OPERATOR L166B Failure Light (green)")
 
 ---ASP17
-Mi_24P:defineToggleSwitch("PLT_ASP17_MODE_MAN_AUTO", 16, 3001, 553, "ASP17", "PILOT ASP17 Sight Mode, MANUAL/AUTO")
-Mi_24P:defineToggleSwitch("PLT_ASP17_MODE_SYNC_ASYNC", 16, 3002, 554, "ASP17", "PILOT ASP17 Sight Sync, SYNC/ASYNC")
+Mi_24P:defineToggleSwitchManualRange("PLT_ASP17_MODE_MAN_AUTO", 16, 3001, 553, { 0, 0.5 }, "ASP17", "PILOT ASP17 Sight Mode, MANUAL/AUTO")
+Mi_24P:defineToggleSwitchManualRange("PLT_ASP17_MODE_SYNC_ASYNC", 16, 3002, 554, { 0, 0.5 }, "ASP17", "PILOT ASP17 Sight Sync, SYNC/ASYNC")
 Mi_24P:definePotentiometer("PLT_ASP17_VERTICAL_ADJ", 16, 3005, 556, { 0, 1 }, "ASP17", "PILOT ASP17 Sight Crosshair Vertical Adjustment")
 Mi_24P:definePotentiometer("PLT_ASP17_BASE_ADJ", 16, 3008, 557, { 0, 1 }, "ASP17", "PILOT ASP17 Base and Range Adjustment")
 Mi_24P:definePotentiometer("PLT_ASP17_CROSSHAIR_BRIGHT_ADJ", 16, 3011, 564, { 0, 1 }, "ASP17", "PILOT ASP17 Sight Crosshair Brightness Adjustment")
