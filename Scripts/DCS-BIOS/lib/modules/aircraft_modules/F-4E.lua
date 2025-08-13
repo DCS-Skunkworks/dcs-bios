@@ -2308,4 +2308,7 @@ F_4E:defineIndicatorLight("WSO_WRCS_RANGE_LIGHT", 392, WSO_WRCS, "Freeze Light (
 
 F_4E:definePotentiometer("PLT_RADAR_HORIZONTAL_LINE", RADAR_DEVICE_ID, 3113, 1205, { 0, 1 }, PILOT_RADAR, "Adjust Horizon on Display")
 
+F_4E:defineIndicatorLight("WSO_RADAR_CORDS_LIGHT", 2730, WSO_RADAR, "CORDS Lamp (Orange)")
+F_4E:defineIndicatorLight("WSO_RADAR_TEMP_LIGHT", 2731, WSO_RADAR, "TEMP Lamp (Orange)")
+
 return F_4E
