@@ -3,11 +3,11 @@ module("TextDisplay", package.seeall)
 --- @class TextDisplayItem
 --- @field pages string[]
 --- @field id string
---- @field static_text boolean
 --- @field x integer
 --- @field y integer
 --- @field index integer?
 --- @field alignment string?
+--- @field color string?
 
 --- @class TextDisplay
 local TextDisplay = {}
@@ -38,14 +38,31 @@ end
 ---@param force_page_match boolean whether the page name must match in order to display an item, even if only one page is possible
 ---@return table displayLines The lines of the display
 function TextDisplay.GetDisplayLines(dcsDisplay, width, height, displayIndicatorData, displayPage, replaceSymbolMap, parentMap, force_page_match)
+	local r, _ = TextDisplay.GetDisplayLinesWithColor(dcsDisplay, width, height, displayIndicatorData, displayPage, replaceSymbolMap, parentMap, force_page_match)
+	return r
+end
+
+---Gets the display lines and their colors for a DCS display
+---@param dcsDisplay table The DCS display to parse
+---@param width number The character width of the screen
+---@param height number The lines of text the screen supports
+---@param displayIndicatorData { [string]: TextDisplayItem[] } The data from the lua file containing information about the display
+---@param displayPage string The current display page
+---@param replaceSymbolMap table Map of symbols to replace from -> to
+---@param parentMap table? map of pages to their parent pages
+---@param force_page_match boolean whether the page name must match in order to display an item, even if only one page is possible
+---@return table, table displayLines The lines of the display
+function TextDisplay.GetDisplayLinesWithColor(dcsDisplay, width, height, displayIndicatorData, displayPage, replaceSymbolMap, parentMap, force_page_match)
 	local emptyLine = string.rep(" ", width)
 
 	local displayLines = {}
+	local lineColors = {}
 	for i = 1, height do
 		displayLines[i] = emptyLine
+		lineColors[i] = emptyLine
 	end
 	if not dcsDisplay then
-		return displayLines
+		return displayLines, lineColors
 	end
 
 	parentMap = parentMap or {}
@@ -80,12 +97,18 @@ function TextDisplay.GetDisplayLines(dcsDisplay, width, height, displayIndicator
 			if render_instructions then
 				local ri = render_instructions
 				local old_line = displayLines[ri.y]
+				local old_color = lineColors[ri.y]
 				local replacements = {}
+				local color_replacements = {}
+				local has_color = ri.color ~= nil
 				if not ri.alignment or ri.alignment == "LFT" then
 					for i = 1, v:len(), 1 do
 						local c = v:sub(i, i)
 						if c ~= " " then
 							replacements[ri.x + i - 1] = c
+							if has_color then
+								color_replacements[ri.x + i - 1] = ri.color
+							end
 						end
 					end
 				elseif ri.alignment == "RGHT" then
@@ -93,19 +116,27 @@ function TextDisplay.GetDisplayLines(dcsDisplay, width, height, displayIndicator
 						local c = v:sub(i, i)
 						if c ~= " " then
 							replacements[ri.x - (v:len() - i)] = c
+							if has_color then
+								color_replacements[ri.x - (v:len() - i)] = ri.color
+							end
 						end
 					end
 				end
 				local new_line = ""
+				local new_color = ""
 				for i = 1, width, 1 do
 					new_line = new_line .. (replacements[i] or old_line:sub(i, i))
+					if has_color then
+						new_color = new_color .. (color_replacements[i] or old_color:sub(i, i))
+					end
 				end
 				displayLines[ri.y] = new_line
+				lineColors[ri.y] = new_color
 			end
 		end
 	end
 
-	return displayLines
+	return displayLines, lineColors
 end
 
 return TextDisplay

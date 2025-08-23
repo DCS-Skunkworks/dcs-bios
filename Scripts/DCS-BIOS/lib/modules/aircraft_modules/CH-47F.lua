@@ -1,7 +1,10 @@
 module("CH-47F", package.seeall)
 
+local CH_47F_CDU = require("Scripts.DCS-BIOS.lib.modules.displays.CH_47F_CDU")
 local Functions = require("Scripts.DCS-BIOS.lib.common.Functions")
+local Log = require("Scripts.DCS-BIOS.lib.common.Log")
 local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
+local TextDisplay = require("Scripts.DCS-BIOS.lib.modules.TextDisplay")
 
 --- @class CH_47F: Module
 local CH_47F = Module:new("CH-47F", 0x9C00, { "CH-47Fbl1" })
@@ -488,9 +491,74 @@ CH_47F:definePushButton("CPLT_MFCU_S5", devices.GRIPS, 3145, 1434, COPILOT_MFCU,
 CH_47F:definePushButton("CPLT_MFCU_S6", devices.GRIPS, 3146, 1435, COPILOT_MFCU, "S6 Button")
 CH_47F:defineSingleCommandRocker("CPLT_MFCU_R1", devices.GRIPS, 3147, 1437, COPILOT_MFCU, "R1 Rocker Switch")
 
+local plt_cdu_lines = { "", "", "", "", "", "", "", "", "", "", "", "", "", "" }
+local cplt_cdu_lines = { "", "", "", "", "", "", "", "", "", "", "", "", "", "" }
+local plt_cdu_colors = { "", "", "", "", "", "", "", "", "", "", "", "", "", "" }
+local cplt_cdu_colors = { "", "", "", "", "", "", "", "", "", "", "", "", "", "" }
+
+-- ¡ == ✓
+-- { == ↑
+-- } == ↓
+-- < == Δ
+-- > == Ṫ (or something similar)
+local cdu_replace_map = {
+	[string.char(26)] = string.char(0xBB), -- →
+	[string.char(27)] = string.char(0xAB), -- ←
+	[string.char(18)] = string.char(0xAE), -- ↕
+	[string.char(20)] = string.char(0xA1), -- ✓
+}
+
+--- Guesses the current CDU page. This is the best we can do, as the CDU page name isn't actually exposed anywehre.
+--- @param cdu { [string|integer]: string } the actual cdu data
+--- @param reference { [string]: TextDisplayItem[] } the reference used to determine which strings are shown where
+--- @return string page_name the name of the current CDU page
+local function guess_cdu_page_name(cdu, reference)
+	for key, _ in pairs(cdu) do
+		local ref = reference[key]
+
+		-- first, find a control that only has one variation
+		if ref ~= nil and #ref == 1 then
+			local pages = ref[1].pages
+			-- then, ensure that control only occurs on one page
+			if pages ~= nil and #pages == 1 then
+				return pages[1] -- if so, this must be the right page
+			end
+		end
+	end
+
+	Log:log_warn("unable to get CDU page name")
+	return ""
+end
+
+local CDU_LINE_LEN = 24
+
+CH_47F:addExportHook(function()
+	local cdu = Module.parse_indication(1)
+
+	local scratch_string = cdu["scratch_text"]
+	if scratch_string ~= nil then
+		CH_47F_CDU["scratch_cursor"][1].x = 3 + scratch_string:len()
+	end
+
+	local display_page = guess_cdu_page_name(cdu, CH_47F_CDU)
+	plt_cdu_lines, plt_cdu_colors = TextDisplay.GetDisplayLinesWithColor(cdu, CDU_LINE_LEN, 14, CH_47F_CDU, display_page, cdu_replace_map, nil, false)
+end)
+
+CH_47F:addExportHook(function()
+	local cdu = Module.parse_indication(0)
+
+	local scratch_string = cdu["scratch_text"]
+	if scratch_string ~= nil then
+		CH_47F_CDU["scratch_cursor"][1].x = 3 + scratch_string:len()
+	end
+
+	local display_page = guess_cdu_page_name(cdu, CH_47F_CDU)
+	cplt_cdu_lines, cplt_cdu_colors = TextDisplay.GetDisplayLinesWithColor(cdu, CDU_LINE_LEN, 14, CH_47F_CDU, display_page, cdu_replace_map, nil, false)
+end)
+
 -- Canted Console
 -- Pilot CDU
-local PILOT_CDU = "PLT CDU"
+local PILOT_CDU = "PLT CDU Buttons"
 
 CH_47F:definePushButton("PLT_CDU_MSN", devices.CDU_RIGHT, 3070, 417, PILOT_CDU, "MSN")
 CH_47F:definePushButton("PLT_CDU_FPLN", devices.CDU_RIGHT, 3071, 418, PILOT_CDU, "FPLN")
@@ -568,26 +636,54 @@ CH_47F:definePushButton("PLT_CDU_BLANK", devices.CDU_RIGHT, 3066, 489, PILOT_CDU
 CH_47F:definePushButton("PLT_CDU_DATA", devices.CDU_RIGHT, 3081, 490, PILOT_CDU, "DATA")
 CH_47F:definePushButton("PLT_CDU_STAT", devices.CDU_RIGHT, 3082, 492, PILOT_CDU, "STAT")
 
--- todo (https://github.com/DCS-Skunkworks/dcs-bios/issues/1138): add CDU displays
--- list_indication(1)
+local PILOT_CDU_DISPLAY = "PLT CDU Display"
+
+CH_47F:defineString("PLT_CDU_LINE1", function()
+	return plt_cdu_lines[1]
+end, CDU_LINE_LEN, PILOT_CDU_DISPLAY, "CDU Line 1")
+CH_47F:defineString("PLT_CDU_LINE2", function()
+	return plt_cdu_lines[2]
+end, CDU_LINE_LEN, PILOT_CDU_DISPLAY, "CDU Line 2")
+CH_47F:defineString("PLT_CDU_LINE3", function()
+	return plt_cdu_lines[3]
+end, CDU_LINE_LEN, PILOT_CDU_DISPLAY, "CDU Line 3")
+CH_47F:defineString("PLT_CDU_LINE4", function()
+	return plt_cdu_lines[4]
+end, CDU_LINE_LEN, PILOT_CDU_DISPLAY, "CDU Line 4")
+CH_47F:defineString("PLT_CDU_LINE5", function()
+	return plt_cdu_lines[5]
+end, CDU_LINE_LEN, PILOT_CDU_DISPLAY, "CDU Line 5")
+CH_47F:defineString("PLT_CDU_LINE6", function()
+	return plt_cdu_lines[6]
+end, CDU_LINE_LEN, PILOT_CDU_DISPLAY, "CDU Line 6")
+CH_47F:defineString("PLT_CDU_LINE7", function()
+	return plt_cdu_lines[7]
+end, CDU_LINE_LEN, PILOT_CDU_DISPLAY, "CDU Line 7")
+CH_47F:defineString("PLT_CDU_LINE8", function()
+	return plt_cdu_lines[8]
+end, CDU_LINE_LEN, PILOT_CDU_DISPLAY, "CDU Line 8")
+CH_47F:defineString("PLT_CDU_LINE9", function()
+	return plt_cdu_lines[9]
+end, CDU_LINE_LEN, PILOT_CDU_DISPLAY, "CDU Line 9")
+CH_47F:defineString("PLT_CDU_LINE10", function()
+	return plt_cdu_lines[10]
+end, CDU_LINE_LEN, PILOT_CDU_DISPLAY, "CDU Line 10")
+CH_47F:defineString("PLT_CDU_LINE11", function()
+	return plt_cdu_lines[11]
+end, CDU_LINE_LEN, PILOT_CDU_DISPLAY, "CDU Line 11")
+CH_47F:defineString("PLT_CDU_LINE12", function()
+	return plt_cdu_lines[12]
+end, CDU_LINE_LEN, PILOT_CDU_DISPLAY, "CDU Line 12")
+CH_47F:defineString("PLT_CDU_LINE13", function()
+	return plt_cdu_lines[13]
+end, CDU_LINE_LEN, PILOT_CDU_DISPLAY, "CDU Line 13")
+CH_47F:defineString("PLT_CDU_LINE14", function()
+	return plt_cdu_lines[14]
+end, CDU_LINE_LEN, PILOT_CDU_DISPLAY, "CDU Line 14")
 CH_47F:reserveStringValue(24)
-CH_47F:reserveStringValue(24)
-CH_47F:reserveStringValue(24)
-CH_47F:reserveStringValue(24)
-CH_47F:reserveStringValue(24)
-CH_47F:reserveStringValue(24)
-CH_47F:reserveStringValue(24)
-CH_47F:reserveStringValue(24)
-CH_47F:reserveStringValue(24)
-CH_47F:reserveStringValue(24)
-CH_47F:reserveStringValue(24)
-CH_47F:reserveStringValue(24)
-CH_47F:reserveStringValue(24)
-CH_47F:reserveStringValue(24)
-CH_47F:reserveStringValue(24) -- todo: this would just be for underscore, since it overlaps on last character. unclear if necessary
 
 -- Copilot CDU
-local COPILOT_CDU = "CPLT CDU"
+local COPILOT_CDU = "CPLT CDU Buttons"
 
 CH_47F:definePushButton("CPLT_CDU_MSN", devices.CDU_LEFT, 3070, 342, COPILOT_CDU, "MSN")
 CH_47F:definePushButton("CPLT_CDU_FPLN", devices.CDU_LEFT, 3071, 343, COPILOT_CDU, "FPLN")
@@ -665,23 +761,51 @@ CH_47F:definePushButton("CPLT_CDU_BLANK", devices.CDU_LEFT, 3066, 414, COPILOT_C
 CH_47F:definePushButton("CPLT_CDU_DATA", devices.CDU_LEFT, 3081, 415, COPILOT_CDU, "DATA")
 CH_47F:definePushButton("CPLT_CDU_STAT", devices.CDU_LEFT, 3082, 416, COPILOT_CDU, "STAT")
 
--- todo (https://github.com/DCS-Skunkworks/dcs-bios/issues/1138): add CDU displays
--- list_indication(0)
+local COPILOT_CDU_DISPLAY = "CPLT CDU Display"
+
+CH_47F:defineString("CPLT_CDU_LINE1", function()
+	return cplt_cdu_lines[1]
+end, CDU_LINE_LEN, COPILOT_CDU_DISPLAY, "CDU Line 1")
+CH_47F:defineString("CPLT_CDU_LINE2", function()
+	return cplt_cdu_lines[2]
+end, CDU_LINE_LEN, COPILOT_CDU_DISPLAY, "CDU Line 2")
+CH_47F:defineString("CPLT_CDU_LINE3", function()
+	return cplt_cdu_lines[3]
+end, CDU_LINE_LEN, COPILOT_CDU_DISPLAY, "CDU Line 3")
+CH_47F:defineString("CPLT_CDU_LINE4", function()
+	return cplt_cdu_lines[4]
+end, CDU_LINE_LEN, COPILOT_CDU_DISPLAY, "CDU Line 4")
+CH_47F:defineString("CPLT_CDU_LINE5", function()
+	return cplt_cdu_lines[5]
+end, CDU_LINE_LEN, COPILOT_CDU_DISPLAY, "CDU Line 5")
+CH_47F:defineString("CPLT_CDU_LINE6", function()
+	return cplt_cdu_lines[6]
+end, CDU_LINE_LEN, COPILOT_CDU_DISPLAY, "CDU Line 6")
+CH_47F:defineString("CPLT_CDU_LINE7", function()
+	return cplt_cdu_lines[7]
+end, CDU_LINE_LEN, COPILOT_CDU_DISPLAY, "CDU Line 7")
+CH_47F:defineString("CPLT_CDU_LINE8", function()
+	return cplt_cdu_lines[8]
+end, CDU_LINE_LEN, COPILOT_CDU_DISPLAY, "CDU Line 8")
+CH_47F:defineString("CPLT_CDU_LINE9", function()
+	return cplt_cdu_lines[9]
+end, CDU_LINE_LEN, COPILOT_CDU_DISPLAY, "CDU Line 9")
+CH_47F:defineString("CPLT_CDU_LINE10", function()
+	return cplt_cdu_lines[10]
+end, CDU_LINE_LEN, COPILOT_CDU_DISPLAY, "CDU Line 10")
+CH_47F:defineString("CPLT_CDU_LINE11", function()
+	return cplt_cdu_lines[11]
+end, CDU_LINE_LEN, COPILOT_CDU_DISPLAY, "CDU Line 11")
+CH_47F:defineString("CPLT_CDU_LINE12", function()
+	return cplt_cdu_lines[12]
+end, CDU_LINE_LEN, COPILOT_CDU_DISPLAY, "CDU Line 12")
+CH_47F:defineString("CPLT_CDU_LINE13", function()
+	return cplt_cdu_lines[13]
+end, CDU_LINE_LEN, COPILOT_CDU_DISPLAY, "CDU Line 13")
+CH_47F:defineString("CPLT_CDU_LINE14", function()
+	return cplt_cdu_lines[14]
+end, CDU_LINE_LEN, COPILOT_CDU_DISPLAY, "CDU Line 14")
 CH_47F:reserveStringValue(24)
-CH_47F:reserveStringValue(24)
-CH_47F:reserveStringValue(24)
-CH_47F:reserveStringValue(24)
-CH_47F:reserveStringValue(24)
-CH_47F:reserveStringValue(24)
-CH_47F:reserveStringValue(24)
-CH_47F:reserveStringValue(24)
-CH_47F:reserveStringValue(24)
-CH_47F:reserveStringValue(24)
-CH_47F:reserveStringValue(24)
-CH_47F:reserveStringValue(24)
-CH_47F:reserveStringValue(24)
-CH_47F:reserveStringValue(24)
-CH_47F:reserveStringValue(24) -- todo: this would just be for underscore, since it overlaps on last character. unclear if necessary
 
 -- Pilot Multi-Function Control Knob Panel
 local PILOT_MFK_PANEL = "PLT Multi-Function Control Knob Panel"
@@ -1737,5 +1861,93 @@ CH_47F:defineReadWriteRadio("RADIO_ARC_164", devices.ARC_164, 7, 3, 1000, "ARC-1
 CH_47F:defineReadWriteRadio("RADIO_ARC_186", devices.ARC_186, 6, 3, 1000, "ARC-186 (FM1)")
 CH_47F:defineReadWriteRadio("RADIO_ARC_201", devices.ARC_201, 6, 3, 1000, "ARC-201 (FM2)")
 CH_47F:defineReadWriteRadio("RADIO_ARC_220", devices.ARC_220, 7, 4, 100, "ARC-220 (HF)")
+
+-- CDU Color Colors
+
+CH_47F:defineString("PLT_CDU_LINE1_COLOR", function()
+	return plt_cdu_colors[1]
+end, CDU_LINE_LEN, PILOT_CDU_DISPLAY, "CDU Line 1 Color")
+CH_47F:defineString("PLT_CDU_LINE2_COLOR", function()
+	return plt_cdu_colors[2]
+end, CDU_LINE_LEN, PILOT_CDU_DISPLAY, "CDU Line 2 Color")
+CH_47F:defineString("PLT_CDU_LINE3_COLOR", function()
+	return plt_cdu_colors[3]
+end, CDU_LINE_LEN, PILOT_CDU_DISPLAY, "CDU Line 3 Color")
+CH_47F:defineString("PLT_CDU_LINE4_COLOR", function()
+	return plt_cdu_colors[4]
+end, CDU_LINE_LEN, PILOT_CDU_DISPLAY, "CDU Line 4 Color")
+CH_47F:defineString("PLT_CDU_LINE5_COLOR", function()
+	return plt_cdu_colors[5]
+end, CDU_LINE_LEN, PILOT_CDU_DISPLAY, "CDU Line 5 Color")
+CH_47F:defineString("PLT_CDU_LINE6_COLOR", function()
+	return plt_cdu_colors[6]
+end, CDU_LINE_LEN, PILOT_CDU_DISPLAY, "CDU Line 6 Color")
+CH_47F:defineString("PLT_CDU_LINE7_COLOR", function()
+	return plt_cdu_colors[7]
+end, CDU_LINE_LEN, PILOT_CDU_DISPLAY, "CDU Line 7 Color")
+CH_47F:defineString("PLT_CDU_LINE8_COLOR", function()
+	return plt_cdu_colors[8]
+end, CDU_LINE_LEN, PILOT_CDU_DISPLAY, "CDU Line 8 Color")
+CH_47F:defineString("PLT_CDU_LINE9_COLOR", function()
+	return plt_cdu_colors[9]
+end, CDU_LINE_LEN, PILOT_CDU_DISPLAY, "CDU Line 9 Color")
+CH_47F:defineString("PLT_CDU_LINE10_COLOR", function()
+	return plt_cdu_colors[10]
+end, CDU_LINE_LEN, PILOT_CDU_DISPLAY, "CDU Line 10 Color")
+CH_47F:defineString("PLT_CDU_LINE11_COLOR", function()
+	return plt_cdu_colors[11]
+end, CDU_LINE_LEN, PILOT_CDU_DISPLAY, "CDU Line 11 Color")
+CH_47F:defineString("PLT_CDU_LINE12_COLOR", function()
+	return plt_cdu_colors[12]
+end, CDU_LINE_LEN, PILOT_CDU_DISPLAY, "CDU Line 12 Color")
+CH_47F:defineString("PLT_CDU_LINE13_COLOR", function()
+	return plt_cdu_colors[13]
+end, CDU_LINE_LEN, PILOT_CDU_DISPLAY, "CDU Line 13 Color")
+CH_47F:defineString("PLT_CDU_LINE14_COLOR", function()
+	return plt_cdu_colors[14]
+end, CDU_LINE_LEN, PILOT_CDU_DISPLAY, "CDU Line 14 Color")
+
+CH_47F:defineString("CPLT_CDU_LINE1_COLOR", function()
+	return cplt_cdu_colors[1]
+end, CDU_LINE_LEN, COPILOT_CDU_DISPLAY, "CDU Line 1 Color")
+CH_47F:defineString("CPLT_CDU_LINE2_COLOR", function()
+	return cplt_cdu_colors[2]
+end, CDU_LINE_LEN, COPILOT_CDU_DISPLAY, "CDU Line 2 Color")
+CH_47F:defineString("CPLT_CDU_LINE3_COLOR", function()
+	return cplt_cdu_colors[3]
+end, CDU_LINE_LEN, COPILOT_CDU_DISPLAY, "CDU Line 3 Color")
+CH_47F:defineString("CPLT_CDU_LINE4_COLOR", function()
+	return cplt_cdu_colors[4]
+end, CDU_LINE_LEN, COPILOT_CDU_DISPLAY, "CDU Line 4 Color")
+CH_47F:defineString("CPLT_CDU_LINE5_COLOR", function()
+	return cplt_cdu_colors[5]
+end, CDU_LINE_LEN, COPILOT_CDU_DISPLAY, "CDU Line 5 Color")
+CH_47F:defineString("CPLT_CDU_LINE6_COLOR", function()
+	return cplt_cdu_colors[6]
+end, CDU_LINE_LEN, COPILOT_CDU_DISPLAY, "CDU Line 6 Color")
+CH_47F:defineString("CPLT_CDU_LINE7_COLOR", function()
+	return cplt_cdu_colors[7]
+end, CDU_LINE_LEN, COPILOT_CDU_DISPLAY, "CDU Line 7 Color")
+CH_47F:defineString("CPLT_CDU_LINE8_COLOR", function()
+	return cplt_cdu_colors[8]
+end, CDU_LINE_LEN, COPILOT_CDU_DISPLAY, "CDU Line 8 Color")
+CH_47F:defineString("CPLT_CDU_LINE9_COLOR", function()
+	return cplt_cdu_colors[9]
+end, CDU_LINE_LEN, COPILOT_CDU_DISPLAY, "CDU Line 9 Color")
+CH_47F:defineString("CPLT_CDU_LINE10_COLOR", function()
+	return cplt_cdu_colors[10]
+end, CDU_LINE_LEN, COPILOT_CDU_DISPLAY, "CDU Line 10 Color")
+CH_47F:defineString("CPLT_CDU_LINE11_COLOR", function()
+	return cplt_cdu_colors[11]
+end, CDU_LINE_LEN, COPILOT_CDU_DISPLAY, "CDU Line 11 Color")
+CH_47F:defineString("CPLT_CDU_LINE12_COLOR", function()
+	return cplt_cdu_colors[12]
+end, CDU_LINE_LEN, COPILOT_CDU_DISPLAY, "CDU Line 12 Color")
+CH_47F:defineString("CPLT_CDU_LINE13_COLOR", function()
+	return cplt_cdu_colors[13]
+end, CDU_LINE_LEN, COPILOT_CDU_DISPLAY, "CDU Line 13 Color")
+CH_47F:defineString("CPLT_CDU_LINE14_COLOR", function()
+	return cplt_cdu_colors[14]
+end, CDU_LINE_LEN, COPILOT_CDU_DISPLAY, "CDU Line 14 Color")
 
 return CH_47F
