@@ -6,6 +6,11 @@ local Functions = require("Scripts.DCS-BIOS.lib.common.Functions")
 --- @field private logfile file*
 --- @field private max_bytes_to_log number Used by log_table
 --- @field private bytes_logged number Used by log_table
+--- @field private last_message string Last logged message
+--- @field private last_message_level string Level of last message
+--- @field private last_message_time number Unix timestamp of last message
+--- @field private last_message_duplicate_count number Count of duplicate messages
+--- @field private skipped_message_time_interval number Max number of seconds between two duplicate messages
 local Logger = {}
 
 --2023-10-08 09:20:49
@@ -39,6 +44,11 @@ function Logger:new(logfile)
 		logfile = io.open(logfile, "w"),
 		max_bytes_to_log = default_log_size_limit,
 		bytes_logged = 0,
+		last_message = nil,
+		last_level = nil,
+		last_message_time = nil,
+		last_message_duplicate_count = 0,
+		skipped_message_time_interval = 5,
 	}
 	setmetatable(o, self)
 	self.__index = self
@@ -107,7 +117,27 @@ function Logger:log_simple(level, data)
 
 	if type(data) == "string" or type(data) == "number" then
 		if self.logfile then
-			self.logfile:write(Functions.pad_right(getTimestamp(), timeformat_length + 2) .. Functions.pad_right(level, pad_after_level + 2) .. data .. "\n")
+			local data_str = tostring(data)
+			local current_time = os.time()
+
+			-- Check if data is duplicate and less than 5 seconds after last message
+			if self.last_message == data_str and self.last_message_time and (current_time - self.last_message_time) < self.skipped_message_time_interval then
+				self.last_message_duplicate_count = self.last_message_duplicate_count + 1
+				self.last_message_time = current_time
+			-- Write skipped messages summary, the new message and reset tracking variables
+			else
+				if self.last_message_duplicate_count > 0 then
+					self.logfile:write(Functions.pad_right(getTimestamp(), timeformat_length + 2) .. Functions.pad_right(self.last_level, pad_after_level + 2) .. self.last_message_duplicate_count .. " duplicate message(s) skipped.\n")
+					self.last_message_duplicate_count = 0
+				end
+
+				self.logfile:write(Functions.pad_right(getTimestamp(), timeformat_length + 2) .. Functions.pad_right(level, pad_after_level + 2) .. data .. "\n")
+
+				self.last_message = data_str
+				self.last_level = level
+				self.last_message_time = current_time
+			end
+
 			self.logfile:flush()
 		end
 	end
