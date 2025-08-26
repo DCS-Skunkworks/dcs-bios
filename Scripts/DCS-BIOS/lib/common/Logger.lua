@@ -1,5 +1,6 @@
 module("Logger", package.seeall)
 
+local BIOSConfig = require("Scripts.DCS-BIOS.BIOSConfig")
 local Functions = require("Scripts.DCS-BIOS.lib.common.Functions")
 
 --- @class Logger
@@ -121,21 +122,23 @@ function Logger:log_simple(level, data)
 			local current_time = os.time()
 
 			-- Check if data is duplicate and less than 5 seconds after last message
-			if self.last_message == data_str and self.last_message_time and (current_time - self.last_message_time) < self.skipped_message_time_interval then
+			if BIOSConfig.clean_logs and self.last_message == data_str and self.last_message_time and (current_time - self.last_message_time) < self.skipped_message_time_interval then
 				self.last_message_duplicate_count = self.last_message_duplicate_count + 1
 				self.last_message_time = current_time
 			-- Write skipped messages summary, the new message and reset tracking variables
 			else
-				if self.last_message_duplicate_count > 0 then
-					self.logfile:write(Functions.pad_right(getTimestamp(), timeformat_length + 2) .. Functions.pad_right(self.last_level, pad_after_level + 2) .. self.last_message_duplicate_count .. " duplicate message(s) skipped.\n")
-					self.last_message_duplicate_count = 0
+				if BIOSConfig.clean_logs then
+					if self.last_message_duplicate_count > 0 then
+						self.logfile:write(Functions.pad_right(getTimestamp(), timeformat_length + 2) .. Functions.pad_right(self.last_level, pad_after_level + 2) .. self.last_message_duplicate_count .. " duplicate message(s) skipped.\n")
+						self.last_message_duplicate_count = 0
+					end
+
+					self.last_message = data_str
+					self.last_level = level
+					self.last_message_time = current_time
 				end
 
 				self.logfile:write(Functions.pad_right(getTimestamp(), timeformat_length + 2) .. Functions.pad_right(level, pad_after_level + 2) .. data .. "\n")
-
-				self.last_message = data_str
-				self.last_level = level
-				self.last_message_time = current_time
 			end
 
 			self.logfile:flush()
