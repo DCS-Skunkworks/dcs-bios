@@ -2311,4 +2311,7 @@ F_4E:definePotentiometer("PLT_RADAR_HORIZONTAL_LINE", RADAR_DEVICE_ID, 3113, 120
 F_4E:defineIndicatorLight("WSO_RADAR_CORDS_LIGHT", 2730, WSO_RADAR, "CORDS Lamp (Orange)")
 F_4E:defineIndicatorLight("WSO_RADAR_TEMP_LIGHT", 2731, WSO_RADAR, "TEMP Lamp (Orange)")
 
+F_4E:defineIndicatorLight("WSO_AOA_INDEXER_LEFT_COMBAT_TREE", 2703, WSO_AOA_INDICATOR, "AoA Indexer Combat Tree Lamp (Left) (Green)")
+F_4E:defineIndicatorLight("WSO_AOA_INDEXER_RIGHT_COMBAT_TREE", 2707, WSO_AOA_INDICATOR, "AoA Indexer Combat Tree Lamp (Right) (Green)")
+
 return F_4E
