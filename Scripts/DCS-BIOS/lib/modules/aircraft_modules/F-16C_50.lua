@@ -350,12 +350,14 @@ F_16C_50:definePotentiometer("SAI_PITCH_TRIM", 47, 3003, 66, nil, "SAI", "SAI Ca
 --ADI
 F_16C_50:definePotentiometer("ADI_PITCH_TRIM", 50, 3001, 22, nil, "ADI", "ADI Pitch Trim Knob")
 
+local EHSI = "EHSI"
+
 --EHSI
-F_16C_50:definePushButton("EHSI_CRS_SET", 28, 3005, 43, "EHSI", "EHSI CRS Set")
-F_16C_50:defineRotary("EHSI_CRS_SET_KNB", 28, 3004, 44, "EHSI", "EHSI CRS Set Knob")
-F_16C_50:definePushButton("EHSI_HDG_SET_BTN", 28, 3003, 42, "EHSI", "EHSI HDG Set Button")
-F_16C_50:defineRotary("EHSI_HDG_SET_KNB", 28, 3002, 45, "EHSI", "EHSI HDG Set Knob")
-F_16C_50:definePushButton("EHSI_MODE", 28, 3001, 46, "EHSI", "EHSI Mode (M) Button")
+F_16C_50:definePushButton("EHSI_CRS_SET", 28, 3005, 43, EHSI, "EHSI CRS Set")
+F_16C_50:defineRotary("EHSI_CRS_SET_KNB", 28, 3004, 44, EHSI, "EHSI CRS Set Knob")
+F_16C_50:definePushButton("EHSI_HDG_SET_BTN", 28, 3003, 42, EHSI, "EHSI HDG Set Button")
+F_16C_50:defineRotary("EHSI_HDG_SET_KNB", 28, 3002, 45, EHSI, "EHSI HDG Set Knob")
+F_16C_50:definePushButton("EHSI_MODE", 28, 3001, 46, EHSI, "EHSI Mode (M) Button")
 
 --Clock
 F_16C_50:defineRotary("CLOCK_WIND", 51, 3002, 625, "Clock", "Clock Wind")
@@ -2101,5 +2103,49 @@ F_16C_50:defineIndicatorLight("LIGHT_RWR_SYSTEST_ON", 154, "Warning, Caution and
 local THROTTLE = "Throttle"
 
 F_16C_50:definePushButton("THROTTLE_OFF_IDLE", devices.CONTROL_INTERFACE, 3037, 757, THROTTLE, "Throttle Off/Idle")
+
+-- EHSI Display
+local ehsi_display = {
+	mode_left = "",
+	mode_right = "",
+	course = "",
+	range = "",
+	invalid_range = false,
+}
+
+F_16C_50:addExportHook(function()
+	local display = Module.parse_indication(13)
+
+	if not display then
+		ehsi_display.mode_left = ""
+		ehsi_display.mode_right = ""
+		ehsi_display.course = ""
+		ehsi_display.range = ""
+		ehsi_display.invalid_range = false
+		return
+	end
+
+	ehsi_display.mode_left = display["Mode Left"]
+	ehsi_display.mode_right = display["Mode Right"]
+	ehsi_display.course = display["Course Indicator Value"]
+	ehsi_display.range = display["Range Indicator Value"] .. display["Range Indicator DIGIT"]
+	ehsi_display.invalid_range = display["InvalidRange Flag"] ~= nil
+end)
+
+F_16C_50:defineString("EHSI_MODE_LEFT", function()
+	return ehsi_display.mode_left
+end, 3, EHSI, "Left Mode Text (blank/PLS)")
+F_16C_50:defineString("EHSI_MODE_RIGHT", function()
+	return ehsi_display.mode_right
+end, 3, EHSI, "Right Mode Text (NAV/TCN)")
+F_16C_50:defineString("EHSI_COURSE", function()
+	return ehsi_display.course
+end, 3, EHSI, "Course Text")
+F_16C_50:defineString("EHSI_RANGE", function()
+	return ehsi_display.range
+end, 4, EHSI, "Range Text")
+F_16C_50:defineIntegerFromGetter("EHSI_RANGE_INVALID", function()
+	return ehsi_display.invalid_range and 1 or 0
+end, 1, EHSI, "Range Invalid Strikethrough")
 
 return F_16C_50
