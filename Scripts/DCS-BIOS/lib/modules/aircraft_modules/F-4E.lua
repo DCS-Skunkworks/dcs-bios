@@ -5,6 +5,10 @@ local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 --- @class F_4E: Module
 local F_4E = Module:new("F-4E", 0x2A00, { "F-4E-45MC" })
 
+local devices = {
+	TODO = 87,
+}
+
 -- helper control definitions
 
 --- Default limited multiposition tumb for F-4E
@@ -2313,5 +2317,10 @@ F_4E:defineIndicatorLight("WSO_RADAR_TEMP_LIGHT", 2731, WSO_RADAR, "TEMP Lamp (O
 
 F_4E:defineIndicatorLight("WSO_AOA_INDEXER_LEFT_COMBAT_TREE", 2703, WSO_AOA_INDICATOR, "AoA Indexer Combat Tree Lamp (Left) (Green)")
 F_4E:defineIndicatorLight("WSO_AOA_INDEXER_RIGHT_COMBAT_TREE", 2707, WSO_AOA_INDICATOR, "AoA Indexer Combat Tree Lamp (Right) (Green)")
+
+local WSO_MAVERICK_CONTRAST_SWITCH = "WSO Maverick Contrast Switch"
+
+F_4E:define3PosTumb("WSO_MAVERICK_CONTRAST_SWITCH", devices.TODO, 3007, 993, WSO_MAVERICK_CONTRAST_SWITCH, "Maverick Contrast-Lock Polarity")
+F_4E:definePushButton("WSO_COOLING_RESET_BUTTON", devices.TODO, 3008, 994, WSO_CNI, "Reset Cooling Button")
 
 return F_4E
