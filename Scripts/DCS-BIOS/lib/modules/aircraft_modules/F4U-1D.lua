@@ -174,7 +174,9 @@ F4U_1D:defineToggleSwitch("BOMB_BOX_RELEASE_PYLON", devices.WEAPON, 3930, 116, B
 -- local DIRECTIONAL_GYRO = "Directional Gyro"
 
 -- Manifold Pressure Gauge
--- local MANIFOLD_PRESSURE = "Manifold Pressure Gauge"
+local MANIFOLD_PRESSURE = "Manifold Pressure Gauge"
+
+F4U_1D:defineFloat("MANIFOLD_PRESSURE_GAUGE", 10, { 0, 1 }, MANIFOLD_PRESSURE, "Manifold Pressure Gauge")
 
 -- Airspeed Indicator
 -- local ASI = "Airspeed Indicator"
