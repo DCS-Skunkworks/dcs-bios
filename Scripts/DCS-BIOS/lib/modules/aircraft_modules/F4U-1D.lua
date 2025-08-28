@@ -177,7 +177,9 @@ F4U_1D:defineFloat("TACHOMETER_DIAL", 22, { 0, 1 }, TACHOMETER, "Tachometer Gaug
 -- local DIRECTIONAL_GYRO = "Directional Gyro"
 
 -- Manifold Pressure Gauge
--- local MANIFOLD_PRESSURE = "Manifold Pressure Gauge"
+local MANIFOLD_PRESSURE = "Manifold Pressure Gauge"
+
+F4U_1D:defineFloat("MANIFOLD_PRESSURE_GAUGE", 10, { 0, 1 }, MANIFOLD_PRESSURE, "Manifold Pressure Gauge")
 
 -- Airspeed Indicator
 -- local ASI = "Airspeed Indicator"
