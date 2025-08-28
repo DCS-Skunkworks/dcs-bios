@@ -12,6 +12,7 @@ local Functions = require("Scripts.DCS-BIOS.lib.common.Functions")
 --- @field private last_message_time number Unix timestamp of last message
 --- @field private last_message_duplicate_count number Count of duplicate messages
 --- @field private skipped_message_time_interval number Max number of seconds between two duplicate messages
+--- @field private memory_error_cache table<string, {minValue: number, maxValue: number, count: integer}> Cache for memory errors messages
 local Logger = {}
 
 --2023-10-08 09:20:49
@@ -50,6 +51,7 @@ function Logger:new(logfile)
 		last_message_time = nil,
 		last_message_duplicate_count = 0,
 		skipped_message_time_interval = 5,
+		memory_error_cache = {},
 	}
 	setmetatable(o, self)
 	self.__index = self
@@ -303,6 +305,62 @@ function Logger:log_array(array)
 		end
 	end
 	self:log_simple(level, "\n" .. output .. "\n")
+end
+
+--- @param control_id string Id of the control sending a memory error
+--- @param value number The current value of the control
+--- @param maxAcceptedValue integer The maximum acceptable value for the control
+--- @param clean_value integer
+--- @param address integer
+--- @param mask integer
+function Logger:log_memory_error(control_id, value, maxAcceptedValue, clean_value, address, mask)
+	if BIOSConfig.clean_logs then
+		local cachedControlError = self.memory_error_cache[control_id]
+
+		if not cachedControlError then
+			self:log_simple(Logger.logging_level.error, string.format("MemoryAllocation.lua: value %f (originally %f) is larger than max %d for %s (address %d mask %d)", clean_value, value, maxAcceptedValue, control_id or "n/a", address, mask))
+
+			self.memory_error_cache[control_id] = {
+				minValue = value,
+				maxValue = value,
+				count = 1,
+			}
+		else
+			cachedControlError.count = cachedControlError.count + 1
+
+			if value < cachedControlError.minValue then
+				cachedControlError.minValue = value
+			elseif value > cachedControlError.maxValue then
+				cachedControlError.maxValue = value
+			end
+		end
+	else
+		if clean_value < 0 then
+			self:log_error(string.format("MemoryAllocation.lua: value %f (originally %f) is too small for %s (address %d mask %d)", clean_value, value, maxAcceptedValue, control_id or "n/a", address, mask))
+		else
+			self:log_error(string.format("MemoryAllocation.lua: value %f (originally %f) is larger than max %d for %s (address %d mask %d)", clean_value, value, maxAcceptedValue, control_id or "n/a", address, mask))
+		end
+	end
+end
+
+--- @param control_id string Id of the control sending a memory error
+function Logger:reset_control_memory_errors(control_id)
+	if BIOSConfig.clean_logs then
+		local cachedControlError = self.memory_error_cache[control_id]
+
+		if cachedControlError then
+			self:log_simple(Logger.logging_level.error, string.format("MemoryAllocation.lua: Skipped %d value errors for %s - Min recorded value: %s, Max recorded value: %s", cachedControlError.count, control_id, cachedControlError.minValue, cachedControlError.maxValue))
+			self.memory_error_cache[control_id] = nil
+		end
+	end
+end
+
+function Logger:flush_memory_error()
+	for control_id, cachedControlError in pairs(self.memory_error_cache) do
+		self:log_simple(Logger.logging_level.error, string.format("MemoryAllocation.lua: Skipped %d value errors for %s - Min recorded value: %s, Max recorded value: %s", cachedControlError.count, control_id, cachedControlError.minValue, cachedControlError.maxValue))
+	end
+
+	self.memory_error_cache = {}
 end
 
 return Logger

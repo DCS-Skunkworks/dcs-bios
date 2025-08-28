@@ -31,7 +31,7 @@ local BIOSConfig = {
 		},
 	},
 	dev_mode = true,
-	clean_logs = false,
+	clean_logs = true,
 }
 
 return BIOSConfig

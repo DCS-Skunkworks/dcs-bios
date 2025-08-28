@@ -54,14 +54,13 @@ function MemoryAllocation:setValue(value)
 	local clean_value = value < 0 and value + 0.01 >= 0 and 0 or value
 
 	clean_value = math.floor(clean_value)
-	if clean_value < 0 then
-		Log:log_error(string.format("MemoryAllocation.lua: value %f (originally %f) is too small for %s (address %d mask %d)", clean_value, value, self.debug_name or "n/a", self.address, self.mask))
+	if clean_value < 0 or clean_value > self.maxValue then
+		Log:log_memory_error(self.debug_name or "n/a", value, self.maxValue, clean_value, self.address, self.mask)
 		return
+	else
+		Log:reset_control_memory_errors(self.debug_name or "n/a")
 	end
-	if clean_value > self.maxValue then
-		Log:log_error(string.format("MemoryAllocation.lua: value %f (originally %f) is larger than max %d for %s (address %d mask %d)", clean_value, value, self.maxValue, self.debug_name or "n/a", self.address, self.mask))
-		return
-	end
+
 	assert(clean_value >= 0)
 	assert(clean_value <= self.maxValue)
 	if self.value ~= clean_value then
