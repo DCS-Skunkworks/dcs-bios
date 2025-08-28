@@ -195,7 +195,9 @@ local MANIFOLD_PRESSURE = "Manifold Pressure Gauge"
 F4U_1D:defineFloat("MANIFOLD_PRESSURE_GAUGE", 10, { 0, 1 }, MANIFOLD_PRESSURE, "Manifold Pressure Gauge")
 
 -- Airspeed Indicator
--- local ASI = "Airspeed Indicator"
+local ASI = "Airspeed Indicator"
+
+F4U_1D:defineFloat("AIRSPEED_INDICATOR", 11, { 0, 1 }, ASI, "Airspeed Indicator")
 
 -- Compass
 -- local COMPASS = "Compass"
