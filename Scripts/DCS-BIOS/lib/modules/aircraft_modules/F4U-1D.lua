@@ -165,7 +165,10 @@ F4U_1D:define3PosTumb("BOMB_BOX_ARMING", devices.WEAPON, 3929, 117, BOMB_SWITCH_
 F4U_1D:defineToggleSwitch("BOMB_BOX_RELEASE_PYLON", devices.WEAPON, 3930, 116, BOMB_SWITCH_BOX, "Pylon Release")
 
 -- Tachometer
--- local TACHOMETER = "Tachometer"
+local TACHOMETER = "Tachometer"
+
+F4U_1D:defineFloat("TACHOMETER_NEEDLE", 23, { 0, 1 }, TACHOMETER, "Tachometer Gauge Needle")
+F4U_1D:defineFloat("TACHOMETER_DIAL", 22, { 0, 1 }, TACHOMETER, "Tachometer Gauge Dial")
 
 -- Altimeter
 -- local ALTIMETER = "Altimeter"
