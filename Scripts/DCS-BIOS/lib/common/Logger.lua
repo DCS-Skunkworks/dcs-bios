@@ -318,7 +318,7 @@ function Logger:log_memory_error(control_id, value, maxAcceptedValue, clean_valu
 		local cachedControlError = self.memory_error_cache[control_id]
 
 		if not cachedControlError then
-			self:log_simple(Logger.logging_level.error, string.format("MemoryAllocation.lua: value %f (originally %f) is larger than max %d for %s (address %d mask %d)", clean_value, value, maxAcceptedValue, control_id or "n/a", address, mask))
+			self:log_error(string.format("MemoryAllocation.lua: value %f (originally %f) is larger than max %d for %s (address %d mask %d)", clean_value, value, maxAcceptedValue, control_id or "n/a", address, mask))
 
 			self.memory_error_cache[control_id] = {
 				minValue = value,
