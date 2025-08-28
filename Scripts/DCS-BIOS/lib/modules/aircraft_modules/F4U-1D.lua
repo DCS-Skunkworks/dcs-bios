@@ -209,7 +209,10 @@ F4U_1D:defineFloat("AIRSPEED_INDICATOR", 11, { 0, 1 }, ASI, "Airspeed Indicator"
 -- local HORIZON_GYRO = "Gyro Horizon"
 
 -- Climb Indicator
--- local VSI = "Climb Indicator"
+local VSI = "Climb Indicator"
+
+F4U_1D:defineFloat("CLIMB_INDICATOR", 29, { -1, 1 }, VSI, "Climb Indicator")
+F4U_1D:definePotentiometer("CLIMB_INDICATOR_SET", devices.NAV, 3302, 229, { -1, 1 }, VSI, "Climb Indicator Set")
 
 -- Clock
 -- local CLOCK = "Clock"
