@@ -206,7 +206,14 @@ F4U_1D:defineFloat("AIRSPEED_INDICATOR", 11, { 0, 1 }, ASI, "Airspeed Indicator"
 -- local TURN_BANK_INDICATOR = "Turn and Bank Indicator"
 
 -- Gyro Horizon
--- local HORIZON_GYRO = "Gyro Horizon"
+local HORIZON_GYRO = "Gyro Horizon"
+
+F4U_1D:defineFloat("GYRO_HORIZON_PITCH", 15, { -1, 1 }, HORIZON_GYRO, "Gyro Horizon Pitch")
+F4U_1D:defineFloat("GYRO_HORIZON_PITCH_SHIFT", 17, { -1, 1 }, HORIZON_GYRO, "Gyro Horizon Pitch Shift")
+F4U_1D:definePotentiometer("GYRO_HORIZON_SET_PITCH_SHIFT", devices.NAV, 3359, 17, { -1, 1 }, HORIZON_GYRO, "Gyro Horizon Set Pitch Shift")
+F4U_1D:defineFloat("GYRO_HORIZON_BANK", 14, { -1, 1 }, HORIZON_GYRO, "Gyro Horizon Bank")
+F4U_1D:defineFloat("GYRO_HORIZON_CAGE_FLAG", 18, { 0, 1 }, HORIZON_GYRO, "Gyro Horizon Cage Flag")
+F4U_1D:definePushButton("GYRO_HORIZON_CAGE", devices.NAV, 3356, 18, HORIZON_GYRO, "Gyro Horizon Cage")
 
 -- Climb Indicator
 -- local VSI = "Climb Indicator"
