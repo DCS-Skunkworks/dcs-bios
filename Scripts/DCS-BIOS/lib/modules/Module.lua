@@ -1385,8 +1385,13 @@ function Module.parse_indication(indicator_id)
 		key = nil
 	end
 
+	-- for the below matching, it's easiest to just ensure indication ends with a newline
+	if indication:sub(-1) ~= "\n" then
+		indication = indication .. "\n"
+	end
+
 	-- state machine to process indication
-	for line in string.gmatch(indication, "([^\n]+)") do
+	for line in string.gmatch(indication, "([^\n]*)\n") do
 		if line == indication_split then
 			-- start a new item block
 			if current_state() ~= ParseIndicationState.item_block then -- don't insert this if we're already in a block - state is already accurate
@@ -1402,7 +1407,8 @@ function Module.parse_indication(indicator_id)
 			end
 			table.insert(state, ParseIndicationState.child_block)
 			add_block_to_result() -- it's unclear if these items will never have values and are only for child blocks, so we'll add it to be safe
-		elseif line == children_end_block and #state > 0 then
+		-- make sure current_block_lines has something in it, otherwise this end character could just be a value
+		elseif line == children_end_block and #current_block_lines > 0 and #state > 0 then
 			-- end a child block if we're in one
 			if current_state() == ParseIndicationState.item_block then
 				-- write old item and start a new one

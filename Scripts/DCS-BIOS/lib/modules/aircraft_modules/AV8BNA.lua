@@ -364,9 +364,9 @@ AV8BNA:defineIndicatorLight("CW_LIGHT", 277, "Warning, Caution and IndicatorLigh
 AV8BNA:defineIndicatorLight("AI_LIGHT", 278, "Warning, Caution and IndicatorLights", "AI Lamp (green)")
 AV8BNA:defineIndicatorLight("AAA_LIGHT", 279, "Warning, Caution and IndicatorLights", "AAA Lamp (green)")
 --MIP OUTER LEFT SIDE
-AV8BNA:defineIndicatorLight("NAV_LIGHT", 283, "Warning, Caution and IndicatorLights", "NAV Lamp (green)")
-AV8BNA:defineIndicatorLight("VSTOL_LIGHT", 285, "Warning, Caution and IndicatorLights", "VSTOL Lamp (green)")
-AV8BNA:defineIndicatorLight("AG_LIGHT", 281, "Warning, Caution and IndicatorLights", "A/G Lamp (green)")
+AV8BNA:defineIndicatorLight("NAV_LIGHT", 283, "Warning, Caution and IndicatorLights", "NAV Master Mode Lamp (green)")
+AV8BNA:defineIndicatorLight("VSTOL_LIGHT", 285, "Warning, Caution and IndicatorLights", "VSTOL Master Mode Lamp (green)")
+AV8BNA:defineIndicatorLight("AG_LIGHT", 281, "Warning, Caution and IndicatorLights", "A/G Master Mode Lamp (green)")
 AV8BNA:defineIndicatorLight("SEL_LIGHT", 451, "Warning, Caution and IndicatorLights", "SEL Lamp (green)")
 AV8BNA:defineIndicatorLight("CMBT_LIGHT", 452, "Warning, Caution and IndicatorLights", "CMBT Lamp (green)")
 AV8BNA:defineIndicatorLight("STO_LIGHT", 453, "Warning, Caution and IndicatorLights", "STO Lamp (green)")

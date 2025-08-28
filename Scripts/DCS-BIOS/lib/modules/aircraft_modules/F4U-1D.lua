@@ -165,19 +165,39 @@ F4U_1D:define3PosTumb("BOMB_BOX_ARMING", devices.WEAPON, 3929, 117, BOMB_SWITCH_
 F4U_1D:defineToggleSwitch("BOMB_BOX_RELEASE_PYLON", devices.WEAPON, 3930, 116, BOMB_SWITCH_BOX, "Pylon Release")
 
 -- Tachometer
--- local TACHOMETER = "Tachometer"
+local TACHOMETER = "Tachometer"
+
+F4U_1D:defineFloat("TACHOMETER_NEEDLE", 23, { 0, 1 }, TACHOMETER, "Tachometer Gauge Needle")
+F4U_1D:defineFloat("TACHOMETER_DIAL", 22, { 0, 1 }, TACHOMETER, "Tachometer Gauge Dial")
 
 -- Altimeter
--- local ALTIMETER = "Altimeter"
+local ALTIMETER = "Altimeter"
+
+F4U_1D:defineFloat("ALTIMETER_10000_FT", 16, { 0, 1 }, ALTIMETER, "Altimeter 10000ft Needle")
+F4U_1D:defineFloat("ALTIMETER_1000_FT", 25, { 0, 1 }, ALTIMETER, "Altimeter 1000ft Needle")
+F4U_1D:defineFloat("ALTIMETER_100_FT", 24, { 0, 1 }, ALTIMETER, "Altimeter 100ft Needle")
+F4U_1D:defineFloat("ALTIMETER_PRESSURE", 26, { -1, 1 }, ALTIMETER, "Altimeter Pressure Gauge")
+F4U_1D:definePotentiometer("SET_ALTIMETER_PRESSURE", devices.PITOT, 3301, 26, { -1, 1 }, ALTIMETER, "Set Altimeter Pressure")
+F4U_1D:defineFloat("ALTIMETER_INNER_NEEDLE", 426, { -1, 1 }, ALTIMETER, "Altimeter Inner Needle")
+F4U_1D:defineFloat("ALTIMETER_OUTER_NEEDLE", 326, { -1, 1 }, ALTIMETER, "Altimeter Outer Needle")
 
 -- Directional Gyro
--- local DIRECTIONAL_GYRO = "Directional Gyro"
+local DIRECTIONAL_GYRO = "Directional Gyro"
+
+F4U_1D:defineFloat("DIRECTIONAL_GYRO_HEADING", 12, { 0, 1 }, DIRECTIONAL_GYRO, "Directional Gyro Heading")
+F4U_1D:defineFloat("DIRECTIONAL_GYRO_HEADING_CAGE_FLAG", 313, { 0, 1 }, DIRECTIONAL_GYRO, "Directional Gyro Heading Cage Flag")
+F4U_1D:definePotentiometer("DIRECTIONAL_GYRO_SET", devices.NAV, 3362, 13, { -1, 1 }, DIRECTIONAL_GYRO, "Directional Gyro Heading Set")
+F4U_1D:definePushButton("DIRECTIONAL_GYRO_CAGE", devices.NAV, 3365, 313, DIRECTIONAL_GYRO, "Directional Gyro Heading Cage")
 
 -- Manifold Pressure Gauge
--- local MANIFOLD_PRESSURE = "Manifold Pressure Gauge"
+local MANIFOLD_PRESSURE = "Manifold Pressure Gauge"
+
+F4U_1D:defineFloat("MANIFOLD_PRESSURE_GAUGE", 10, { 0, 1 }, MANIFOLD_PRESSURE, "Manifold Pressure Gauge")
 
 -- Airspeed Indicator
--- local ASI = "Airspeed Indicator"
+local ASI = "Airspeed Indicator"
+
+F4U_1D:defineFloat("AIRSPEED_INDICATOR", 11, { 0, 1 }, ASI, "Airspeed Indicator")
 
 -- Compass
 -- local COMPASS = "Compass"
