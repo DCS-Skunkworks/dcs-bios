@@ -354,3 +354,31 @@ tas_string
 	lu.assertEquals(ind[22], "0000")
 	lu.assertEquals(ind[23], "0000")
 end
+
+function TestParseIndication:testRightCurlyBraceField()
+	-- CH-47 has right curly brace characters appear in CDU
+	local test_string = [[-----------------------------------------
+#1#
+
+children are {
+-----------------------------------------
+value_1
+foo
+-----------------------------------------
+value_right_curly_brace
+}
+-----------------------------------------
+value_2
+bar
+}
+]]
+
+	function list_indication()
+		return test_string
+	end
+
+	local ind = Module.parse_indication(0)
+	lu.assertEquals(ind.value_1, "foo")
+	lu.assertEquals(ind.value_right_curly_brace, "}")
+	lu.assertEquals(ind.value_2, "bar")
+end

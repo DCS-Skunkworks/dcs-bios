@@ -1052,4 +1052,11 @@ AH_64D:defineInputOnlySetStatePushButton("PLT_ENG_R_PW_LVR_LIFT", devices.CONTRO
 AH_64D:defineLoSetCommand2Pos("PLT_ENG_L_PW_LVR_IDLE", ICommand.left_engine_stop, ICommand.left_engine_start, "PLT Left Console", "Power Lever Idle/Off (Left)")
 AH_64D:defineLoSetCommand2Pos("PLT_ENG_R_PW_LVR_IDLE", ICommand.right_engine_stop, ICommand.right_engine_start, "PLT Left Console", "Power Lever Idle/Off (Right)")
 
+-- Pilot Standby Compass
+local PILOT_STANDBY_COMPASS = "PLT Standby Compass"
+
+AH_64D:defineFloat("PLT_STANDBY_COMPASS_HDG", 630, { 0, 1 }, PILOT_STANDBY_COMPASS, "Standby Compass Heading")
+AH_64D:defineFloat("PLT_STANDBY_COMPASS_PITCH", 631, { -1, 1 }, PILOT_STANDBY_COMPASS, "Standby Compass Pitch")
+AH_64D:defineFloat("PLT_STANDBY_COMPASS_BANK", 632, { -1, 1 }, PILOT_STANDBY_COMPASS, "Standby Compass Bank")
+
 return AH_64D
