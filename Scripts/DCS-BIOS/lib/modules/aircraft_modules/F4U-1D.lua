@@ -171,7 +171,15 @@ F4U_1D:defineFloat("TACHOMETER_NEEDLE", 23, { 0, 1 }, TACHOMETER, "Tachometer Ga
 F4U_1D:defineFloat("TACHOMETER_DIAL", 22, { 0, 1 }, TACHOMETER, "Tachometer Gauge Dial")
 
 -- Altimeter
--- local ALTIMETER = "Altimeter"
+local ALTIMETER = "Altimeter"
+
+F4U_1D:defineFloat("ALTIMETER_10000_FT", 16, { 0, 1 }, ALTIMETER, "Altimeter 10000ft Needle")
+F4U_1D:defineFloat("ALTIMETER_1000_FT", 25, { 0, 1 }, ALTIMETER, "Altimeter 1000ft Needle")
+F4U_1D:defineFloat("ALTIMETER_100_FT", 24, { 0, 1 }, ALTIMETER, "Altimeter 100ft Needle")
+F4U_1D:defineFloat("ALTIMETER_PRESSURE", 26, { -1, 1 }, ALTIMETER, "Altimeter Pressure Gauge")
+F4U_1D:definePotentiometer("SET_ALTIMETER_PRESSURE", devices.PITOT, 3301, 26, { -1, 1 }, ALTIMETER, "Set Altimeter Pressure")
+F4U_1D:defineFloat("ALTIMETER_INNER_NEEDLE", 426, { -1, 1 }, ALTIMETER, "Altimeter Inner Needle")
+F4U_1D:defineFloat("ALTIMETER_OUTER_NEEDLE", 326, { -1, 1 }, ALTIMETER, "Altimeter Outer Needle")
 
 -- Directional Gyro
 local DIRECTIONAL_GYRO = "Directional Gyro"
