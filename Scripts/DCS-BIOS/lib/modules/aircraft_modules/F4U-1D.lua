@@ -177,7 +177,9 @@ F4U_1D:defineToggleSwitch("BOMB_BOX_RELEASE_PYLON", devices.WEAPON, 3930, 116, B
 -- local MANIFOLD_PRESSURE = "Manifold Pressure Gauge"
 
 -- Airspeed Indicator
--- local ASI = "Airspeed Indicator"
+local ASI = "Airspeed Indicator"
+
+F4U_1D:defineFloat("AIRSPEED_INDICATOR", 11, { 0, 1 }, ASI, "Airspeed Indicator")
 
 -- Compass
 -- local COMPASS = "Compass"
