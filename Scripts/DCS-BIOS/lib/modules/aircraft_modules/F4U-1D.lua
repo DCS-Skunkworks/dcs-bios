@@ -175,7 +175,7 @@ local DIRECTIONAL_GYRO = "Directional Gyro"
 
 F4U_1D:defineFloat("DIRECTIONAL_GYRO_HEADING", 12, { 0, 1 }, DIRECTIONAL_GYRO, "Directional Gyro Heading")
 F4U_1D:defineFloat("DIRECTIONAL_GYRO_HEADING_CAGE_FLAG", 313, { 0, 1 }, DIRECTIONAL_GYRO, "Directional Gyro Heading Cage Flag")
-F4U_1D:definePotentiometer("DIRECTIONAL_GYRO_SET", devices.NAV, 3362, 12, { 0, 1 }, DIRECTIONAL_GYRO, "Directional Gyro Heading Set")
+F4U_1D:definePotentiometer("DIRECTIONAL_GYRO_SET", devices.NAV, 3362, 13, { -1, 1 }, DIRECTIONAL_GYRO, "Directional Gyro Heading Set")
 F4U_1D:definePushButton("DIRECTIONAL_GYRO_CAGE", devices.NAV, 3365, 313, DIRECTIONAL_GYRO, "Directional Gyro Heading Cage")
 
 -- Manifold Pressure Gauge
