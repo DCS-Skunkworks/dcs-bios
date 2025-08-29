@@ -216,7 +216,9 @@ F4U_1D:defineFloat("SLIP_BALL", 28, { -1, 1 }, TURN_BANK_INDICATOR, "Slip Ball")
 -- local HORIZON_GYRO = "Gyro Horizon"
 
 -- Climb Indicator
--- local VSI = "Climb Indicator"
+local VSI = "Climb Indicator"
+
+F4U_1D:defineFloat("CLIMB_INDICATOR", 29, { -1, 1 }, VSI, "Climb Indicator")
 
 -- Clock
 -- local CLOCK = "Clock"
