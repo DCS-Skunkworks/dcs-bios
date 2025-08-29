@@ -318,7 +318,7 @@ function Logger:log_memory_error(control_id, value, maxAcceptedValue, clean_valu
 		local cachedControlError = self.memory_error_cache[control_id]
 
 		if not cachedControlError then
-			self:log_error(string.format("MemoryAllocation.lua: value %f (originally %f) is larger than max %d for %s (address %d mask %d)", clean_value, value, maxAcceptedValue, control_id or "n/a", address, mask))
+			self:log_error(string.format("MemoryAllocation.lua: value %f (originally %f) is outside of range [0, %d] for %s (address %d mask %d)", clean_value, value, maxAcceptedValue, control_id or "n/a", address, mask))
 
 			self.memory_error_cache[control_id] = {
 				minValue = value,
@@ -335,29 +335,23 @@ function Logger:log_memory_error(control_id, value, maxAcceptedValue, clean_valu
 			end
 		end
 	else
-		if clean_value < 0 then
-			self:log_error(string.format("MemoryAllocation.lua: value %f (originally %f) is too small for %s (address %d mask %d)", clean_value, value, maxAcceptedValue, control_id or "n/a", address, mask))
-		else
-			self:log_error(string.format("MemoryAllocation.lua: value %f (originally %f) is larger than max %d for %s (address %d mask %d)", clean_value, value, maxAcceptedValue, control_id or "n/a", address, mask))
-		end
+		self:log_error(string.format("MemoryAllocation.lua: value %f (originally %f) is outside of range [0, %d] for %s (address %d mask %d)", clean_value, value, maxAcceptedValue, control_id or "n/a", address, mask))
 	end
 end
 
 --- @param control_id string Id of the control sending a memory error
 function Logger:reset_control_memory_errors(control_id)
-	if BIOSConfig.clean_logs then
-		local cachedControlError = self.memory_error_cache[control_id]
+	local cachedControlError = self.memory_error_cache[control_id]
 
-		if cachedControlError then
-			self:log_simple(Logger.logging_level.error, string.format("MemoryAllocation.lua: Skipped %d value errors for %s - Min recorded value: %s, Max recorded value: %s", cachedControlError.count, control_id, cachedControlError.minValue, cachedControlError.maxValue))
-			self.memory_error_cache[control_id] = nil
-		end
+	if cachedControlError then
+		self:log_simple(Logger.logging_level.error, string.format("MemoryAllocation.lua: Skipped %d value errors for %s - Min recorded value: %f, Max recorded value: %f", cachedControlError.count, control_id, cachedControlError.minValue, cachedControlError.maxValue))
+		self.memory_error_cache[control_id] = nil
 	end
 end
 
 function Logger:flush_memory_error()
 	for control_id, cachedControlError in pairs(self.memory_error_cache) do
-		self:log_simple(Logger.logging_level.error, string.format("MemoryAllocation.lua: Skipped %d value errors for %s - Min recorded value: %s, Max recorded value: %s", cachedControlError.count, control_id, cachedControlError.minValue, cachedControlError.maxValue))
+		self:log_simple(Logger.logging_level.error, string.format("MemoryAllocation.lua: Skipped %d value errors for %s - Min recorded value: %f, Max recorded value: %f", cachedControlError.count, control_id, cachedControlError.minValue, cachedControlError.maxValue))
 	end
 
 	self.memory_error_cache = {}
