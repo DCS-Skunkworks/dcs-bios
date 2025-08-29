@@ -200,7 +200,11 @@ local ASI = "Airspeed Indicator"
 F4U_1D:defineFloat("AIRSPEED_INDICATOR", 11, { 0, 1 }, ASI, "Airspeed Indicator")
 
 -- Compass
--- local COMPASS = "Compass"
+local COMPASS = "Compass"
+
+F4U_1D:defineFloat("HSI_COURSE", 1, { 0, 1 }, COMPASS, "HSI Course Indicator")
+F4U_1D:defineFloat("RADIO_COURSE", 2, { 0, 1 }, COMPASS, "Rasio Course Indicator")
+F4U_1D:defineRotary("RADIO_COURSE_SET", devices.NAV, 3354, 3, COMPASS, "Radio Course Set")
 
 -- Turn and Bank Indicator
 -- local TURN_BANK_INDICATOR = "Turn and Bank Indicator"
