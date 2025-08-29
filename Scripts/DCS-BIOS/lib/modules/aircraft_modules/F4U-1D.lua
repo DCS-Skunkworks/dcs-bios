@@ -186,7 +186,7 @@ F4U_1D:defineToggleSwitch("BOMB_BOX_RELEASE_PYLON", devices.WEAPON, 3930, 116, B
 local TURN_BANK_INDICATOR = "Turn and Bank Indicator"
 
 F4U_1D:defineFloat("TURN_NEEDLE", 27, { -1, 1 }, TURN_BANK_INDICATOR, "Turn Needle")
-F4U_1D:defineFloat("SLIPBALL", 28, { -1, 1 }, TURN_BANK_INDICATOR, "SLIPBALL")
+F4U_1D:defineFloat("SLIP_BALL", 28, { -1, 1 }, TURN_BANK_INDICATOR, "Slip Ball")
 
 -- Gyro Horizon
 -- local HORIZON_GYRO = "Gyro Horizon"
