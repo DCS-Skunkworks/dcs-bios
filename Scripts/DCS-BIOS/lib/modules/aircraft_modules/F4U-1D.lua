@@ -207,7 +207,10 @@ F4U_1D:defineFloat("RADIO_COURSE", 2, { 0, 1 }, COMPASS, "Rasio Course Indicator
 F4U_1D:defineRotary("RADIO_COURSE_SET", devices.NAV, 3354, 3, COMPASS, "Radio Course Set")
 
 -- Turn and Bank Indicator
--- local TURN_BANK_INDICATOR = "Turn and Bank Indicator"
+local TURN_BANK_INDICATOR = "Turn and Bank Indicator"
+
+F4U_1D:defineFloat("TURN_NEEDLE", 27, { -1, 1 }, TURN_BANK_INDICATOR, "Turn Needle")
+F4U_1D:defineFloat("SLIP_BALL", 28, { -1, 1 }, TURN_BANK_INDICATOR, "Slip Ball")
 
 -- Gyro Horizon
 -- local HORIZON_GYRO = "Gyro Horizon"
