@@ -177,6 +177,7 @@ function BIOSStateMachine:step()
 end
 
 function BIOSStateMachine:shutdown()
+	Log:flush_memory_error()
 	Log:log_info("shutting down dcs-bios")
 	local dev0 = GetDevice(0)
 

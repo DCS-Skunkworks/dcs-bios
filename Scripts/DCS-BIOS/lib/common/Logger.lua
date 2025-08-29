@@ -1,11 +1,18 @@
 module("Logger", package.seeall)
 
+local BIOSConfig = require("Scripts.DCS-BIOS.BIOSConfig")
 local Functions = require("Scripts.DCS-BIOS.lib.common.Functions")
 
 --- @class Logger
 --- @field private logfile file*
 --- @field private max_bytes_to_log number Used by log_table
 --- @field private bytes_logged number Used by log_table
+--- @field private last_message string Last logged message
+--- @field private last_message_level string Level of last message
+--- @field private last_message_time number Unix timestamp of last message
+--- @field private last_message_duplicate_count number Count of duplicate messages
+--- @field private skipped_message_time_interval number Max number of seconds between two duplicate messages
+--- @field private memory_error_cache table<string, {minValue: number, maxValue: number, count: integer}> Cache for memory errors messages
 local Logger = {}
 
 --2023-10-08 09:20:49
@@ -39,6 +46,12 @@ function Logger:new(logfile)
 		logfile = io.open(logfile, "w"),
 		max_bytes_to_log = default_log_size_limit,
 		bytes_logged = 0,
+		last_message = nil,
+		last_level = nil,
+		last_message_time = nil,
+		last_message_duplicate_count = 0,
+		skipped_message_time_interval = 5,
+		memory_error_cache = {},
 	}
 	setmetatable(o, self)
 	self.__index = self
@@ -107,7 +120,29 @@ function Logger:log_simple(level, data)
 
 	if type(data) == "string" or type(data) == "number" then
 		if self.logfile then
-			self.logfile:write(Functions.pad_right(getTimestamp(), timeformat_length + 2) .. Functions.pad_right(level, pad_after_level + 2) .. data .. "\n")
+			local data_str = tostring(data)
+			local current_time = os.time()
+
+			-- Check if data is duplicate and less than 5 seconds after last message
+			if BIOSConfig.clean_logs and self.last_message == data_str and self.last_message_time and (current_time - self.last_message_time) < self.skipped_message_time_interval then
+				self.last_message_duplicate_count = self.last_message_duplicate_count + 1
+				self.last_message_time = current_time
+			-- Write skipped messages summary, the new message and reset tracking variables
+			else
+				if BIOSConfig.clean_logs then
+					if self.last_message_duplicate_count > 0 then
+						self.logfile:write(Functions.pad_right(getTimestamp(), timeformat_length + 2) .. Functions.pad_right(self.last_level, pad_after_level + 2) .. self.last_message_duplicate_count .. " duplicate message(s) skipped.\n")
+						self.last_message_duplicate_count = 0
+					end
+
+					self.last_message = data_str
+					self.last_level = level
+					self.last_message_time = current_time
+				end
+
+				self.logfile:write(Functions.pad_right(getTimestamp(), timeformat_length + 2) .. Functions.pad_right(level, pad_after_level + 2) .. data .. "\n")
+			end
+
 			self.logfile:flush()
 		end
 	end
@@ -270,6 +305,56 @@ function Logger:log_array(array)
 		end
 	end
 	self:log_simple(level, "\n" .. output .. "\n")
+end
+
+--- @param control_id string Id of the control sending a memory error
+--- @param value number The current value of the control
+--- @param maxAcceptedValue integer The maximum acceptable value for the control
+--- @param clean_value integer
+--- @param address integer
+--- @param mask integer
+function Logger:log_memory_error(control_id, value, maxAcceptedValue, clean_value, address, mask)
+	if BIOSConfig.clean_logs then
+		local cachedControlError = self.memory_error_cache[control_id]
+
+		if not cachedControlError then
+			self:log_error(string.format("MemoryAllocation.lua: value %f (originally %f) is outside of range [0, %d] for %s (address %d mask %d)", clean_value, value, maxAcceptedValue, control_id or "n/a", address, mask))
+
+			self.memory_error_cache[control_id] = {
+				minValue = value,
+				maxValue = value,
+				count = 1,
+			}
+		else
+			cachedControlError.count = cachedControlError.count + 1
+
+			if value < cachedControlError.minValue then
+				cachedControlError.minValue = value
+			elseif value > cachedControlError.maxValue then
+				cachedControlError.maxValue = value
+			end
+		end
+	else
+		self:log_error(string.format("MemoryAllocation.lua: value %f (originally %f) is outside of range [0, %d] for %s (address %d mask %d)", clean_value, value, maxAcceptedValue, control_id or "n/a", address, mask))
+	end
+end
+
+--- @param control_id string Id of the control sending a memory error
+function Logger:reset_control_memory_errors(control_id)
+	local cachedControlError = self.memory_error_cache[control_id]
+
+	if cachedControlError then
+		self:log_simple(Logger.logging_level.error, string.format("MemoryAllocation.lua: Skipped %d value errors for %s - Min recorded value: %f, Max recorded value: %f", cachedControlError.count, control_id, cachedControlError.minValue, cachedControlError.maxValue))
+		self.memory_error_cache[control_id] = nil
+	end
+end
+
+function Logger:flush_memory_error()
+	for control_id, cachedControlError in pairs(self.memory_error_cache) do
+		self:log_simple(Logger.logging_level.error, string.format("MemoryAllocation.lua: Skipped %d value errors for %s - Min recorded value: %f, Max recorded value: %f", cachedControlError.count, control_id, cachedControlError.minValue, cachedControlError.maxValue))
+	end
+
+	self.memory_error_cache = {}
 end
 
 return Logger

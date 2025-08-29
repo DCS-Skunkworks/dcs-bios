@@ -14,6 +14,7 @@ module("BIOSConfig", package.seeall)
 --- @field tcp_config TCPConnectionConfig[]
 --- @field udp_config UDPConnectionConfig[]
 --- @field dev_mode boolean whether dev mode is enabled and json/header files should be written
+--- @field clean_logs boolean whether duplicate log messages should be removed
 local BIOSConfig = {
 	tcp_config = {
 		{
@@ -30,6 +31,7 @@ local BIOSConfig = {
 		},
 	},
 	dev_mode = true,
+	clean_logs = true,
 }
 
 return BIOSConfig
