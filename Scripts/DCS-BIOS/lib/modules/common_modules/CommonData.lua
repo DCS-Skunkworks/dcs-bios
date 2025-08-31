@@ -68,6 +68,7 @@ local function updatePosition()
 		local hdgDegValue = selfData.Heading / (2 * math.pi) * 360
 		hdgDeg = math.floor(hdgDegValue)
 		hdgDegFrac = (hdgDegValue - hdgDeg) * 127
+		hdgDeg = hdgDeg % 360 -- sometimes the value is larger than 360 for some reason
 	end
 end
 CommonData:addExportHook(updatePosition)
