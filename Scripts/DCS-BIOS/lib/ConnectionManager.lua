@@ -31,7 +31,7 @@ end
 ---@param msg string the message to send
 function ConnectionManager:queue(msg)
 	if msg:len() > self.MAX_PAYLOAD_SIZE then
-		error("Message exceeded max buffer size! " + msg)
+		error(string.format("Message (%d) exceeded max buffer size (%d) :: %s", msg:len(), self.MAX_PAYLOAD_SIZE, msg))
 	end
 
 	table.insert(self.msg_buf, msg)
