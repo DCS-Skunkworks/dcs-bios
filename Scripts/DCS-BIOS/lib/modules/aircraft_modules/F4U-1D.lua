@@ -213,7 +213,7 @@ F4U_1D:defineFloat("GYRO_HORIZON_PITCH_TRIM", 17, { -1, 1 }, HORIZON_GYRO, "Gyro
 F4U_1D:definePotentiometer("GYRO_HORIZON_PITCH_TRIM_SET", devices.NAV, 3359, 17, { -1, 1 }, HORIZON_GYRO, "Gyro Horizon Set Pitch Trim")
 F4U_1D:defineFloat("GYRO_HORIZON_BANK", 14, { -1, 1 }, HORIZON_GYRO, "Gyro Horizon Bank")
 F4U_1D:defineFloat("GYRO_HORIZON_CAGE_FLAG", 18, { 0, 1 }, HORIZON_GYRO, "Gyro Horizon Cage Flag")
-F4U_1D:definePushButton("GYRO_HORIZON_CAGE", devices.NAV, 3356, 18, HORIZON_GYRO, "Gyro Horizon Cage")
+F4U_1D:defineToggleSwitch("GYRO_HORIZON_CAGE", devices.NAV, 3356, 18, HORIZON_GYRO, "Gyro Horizon Cage")
 
 -- Climb Indicator
 -- local VSI = "Climb Indicator"
