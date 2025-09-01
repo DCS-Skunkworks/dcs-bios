@@ -12040,7 +12040,7 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_FPLN_DATA_1",
 			},
 			id = "ETE_right_bracket",
-			x = 14,
+			x = 24,
 			y = 9,
 			color = "w",
 		},
