@@ -506,6 +506,7 @@ local cdu_replace_map = {
 	[string.char(27)] = string.char(0xAB), -- ←
 	[string.char(18)] = string.char(0xAE), -- ↕
 	[string.char(20)] = string.char(0xA1), -- ✓
+	["°"] = string.char(0xB0), -- needed for degree symbol
 }
 
 --- Guesses the current CDU page. This is the best we can do, as the CDU page name isn't actually exposed anywehre.
