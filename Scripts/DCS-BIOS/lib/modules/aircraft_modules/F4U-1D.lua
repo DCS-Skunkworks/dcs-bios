@@ -221,7 +221,21 @@ local VSI = "Climb Indicator"
 F4U_1D:defineFloat("CLIMB_INDICATOR", 29, { -1, 1 }, VSI, "Climb Indicator")
 
 -- Clock
--- local CLOCK = "Clock"
+local CLOCK = "Clock"
+
+F4U_1D:defineFloat("CLOCK_CURRTIME_HOURS", 4, { 0, 1 }, CLOCK, "Clock Current time Hours")
+F4U_1D:reserveIntValue(65535) -- Clock current time Minute hand should be draw arg 5, currently not working with DCS bios
+F4U_1D:reserveIntValue(65535) -- Clock current time Minute hand should be draw arg 212, currently not working with DCS bios
+F4U_1D:defineFloat("CLOCK_CIVIL_DATE", 247, { 0, 1 }, CLOCK, "Clock Civil Date Dial")
+F4U_1D:defineFloat("CLOCK_RIGHT_INNER_DIAL", 246, { 0, 1 }, CLOCK, "Clock Inner Right Dial")
+F4U_1D:defineFloat("CLOCK_ELAPSED_TIME_MINUTES", 245, { 0, 1 }, CLOCK, "Clock Elapsed Time Minutes")
+F4U_1D:defineFloat("CLOCK_ELAPSED_TIME_HOURS", 244, { 0, 1 }, CLOCK, "Clock Elapsed Time Hours")
+F4U_1D:defineFloat("CLOCK_TOP_INNER_DIAL", 345, { 0, 1 }, CLOCK, "Clock Inner Top Dial")
+F4U_1D:definePushButton("CLOCK_SET_DATE", devices.CLOCK, 3653, 347, CLOCK, "Clock Set Date Button")
+F4U_1D:definePushButton("CLOCK_CHRONOMETER_START_STOP_RESET", devices.CLOCK, 3652, 248, CLOCK, "Clock Chronograph Button")
+F4U_1D:defineSpringloaded_3PosTumb("CLOCK_ADJUSTMENT_BUTTON", devices.CLOCK, 3651, 3651, 250, CLOCK, "Clock Adjustment Button (Reset/Norm/Adjust)")
+F4U_1D:defineRotary("CLOCK_ADJUSTMENT_ROTARY", devices.CLOCK, 3650, 249, CLOCK, "Clock Adjustment Rotary (left/right)")
+F4U_1D:defineFloat("CLOCK_STATE_INDICATOR", 251, { 0, 1 }, CLOCK, "Clock State Indicator")
 
 -- Cylinder Temperature Indicator
 -- local CHT = "Cylinder Temperature Indicator"
