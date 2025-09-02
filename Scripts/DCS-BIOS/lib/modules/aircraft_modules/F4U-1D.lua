@@ -237,7 +237,9 @@ F4U_1D:defineFloat("CLIMB_INDICATOR", 29, { -1, 1 }, VSI, "Climb Indicator")
 -- local ENGINE_GAUGE_UNIT = "Engine Gauge Unit"
 
 -- Fuel Quantity Gauge
--- local FUEL_QUANTITY = "Fuel Quantity Gauge"
+local FUEL_QUANTITY = "Fuel Quantity Gauge"
+
+F4U_1D:defineFloat("FUEL_QUANTITY_GAUGE", 7, { 0, 1 }, FUEL_QUANTITY, "Fuel Quantity Gauge")
 
 -- Hydraulic Pressure Gauge
 -- local HYD_PRESSURE = "Hydraulic Pressure Gauge"
