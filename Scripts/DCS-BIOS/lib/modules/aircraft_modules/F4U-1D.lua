@@ -231,7 +231,9 @@ F4U_1D:defineFloat("CLIMB_INDICATOR", 29, { -1, 1 }, VSI, "Climb Indicator")
 -- local CLOCK = "Clock"
 
 -- Cylinder Temperature Indicator
--- local CHT = "Cylinder Temperature Indicator"
+local CHT = "Cylinder Temperature Indicator"
+
+F4U_1D:defineFloat("CYLINDER_TEMPERATURE_INDICATOR", 21, { 0, 1 }, CHT, "Cylinder Temperature Indicator")
 
 -- Engine Gauge Unit
 -- local ENGINE_GAUGE_UNIT = "Engine Gauge Unit"
