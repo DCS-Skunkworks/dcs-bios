@@ -234,7 +234,11 @@ F4U_1D:defineFloat("CLIMB_INDICATOR", 29, { -1, 1 }, VSI, "Climb Indicator")
 -- local CHT = "Cylinder Temperature Indicator"
 
 -- Engine Gauge Unit
--- local ENGINE_GAUGE_UNIT = "Engine Gauge Unit"
+local ENGINE_GAUGE_UNIT = "Engine Gauge Unit"
+
+F4U_1D:defineFloat("ENGINE_GAUGE_OIL_TEMP", 30, { 0, 1 }, ENGINE_GAUGE_UNIT, "Enginge Oil Temp Gauge")
+F4U_1D:defineFloat("ENGINE_GAUGE_OIL_PRESSURE", 31, { 0, 1 }, ENGINE_GAUGE_UNIT, "Enginge Oil Pressure Gauge")
+F4U_1D:defineFloat("ENGINE_GAUGE_FUEL_PRESSURE", 32, { 0, 1 }, ENGINE_GAUGE_UNIT, "Enginge Fuel Pressure Gauge")
 
 -- Fuel Quantity Gauge
 -- local FUEL_QUANTITY = "Fuel Quantity Gauge"
