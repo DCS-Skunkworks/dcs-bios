@@ -243,7 +243,10 @@ F4U_1D:defineFloat("CLIMB_INDICATOR", 29, { -1, 1 }, VSI, "Climb Indicator")
 -- local HYD_PRESSURE = "Hydraulic Pressure Gauge"
 
 -- Voltammeter
--- local VOLTAMMETER = "Voltammeter"
+local VOLTAMMETER = "Voltammeter"
+
+F4U_1D:defineFloat("VOLTAMMETER", 8, { 0, 1 }, VOLTAMMETER, "Voltammeter")
+F4U_1D:definePushButton("VOLTS_AMPS_BUTTON", devices.ELECTRO, 3001, 9, VOLTAMMETER, "Volts/AMPs Button")
 
 -- Accelerometer
 -- local ACCELEROMETER = "Accelerometer"
