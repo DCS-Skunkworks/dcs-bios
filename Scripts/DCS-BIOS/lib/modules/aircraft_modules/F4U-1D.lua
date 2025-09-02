@@ -240,7 +240,9 @@ F4U_1D:defineFloat("CLIMB_INDICATOR", 29, { -1, 1 }, VSI, "Climb Indicator")
 -- local FUEL_QUANTITY = "Fuel Quantity Gauge"
 
 -- Hydraulic Pressure Gauge
--- local HYD_PRESSURE = "Hydraulic Pressure Gauge"
+local HYD_PRESSURE = "Hydraulic Pressure Gauge"
+
+F4U_1D:defineFloat("HYDRAULIC_PRESSURE_GAUGE", 35, { 0, 1 }, HYD_PRESSURE, "Hydraulic Pressure Gauge")
 
 -- Voltammeter
 -- local VOLTAMMETER = "Voltammeter"
