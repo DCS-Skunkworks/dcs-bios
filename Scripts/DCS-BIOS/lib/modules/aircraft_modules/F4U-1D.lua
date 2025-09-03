@@ -245,7 +245,9 @@ F4U_1D:defineRotary("CLOCK_ADJUSTMENT_ROTARY", devices.CLOCK, 3650, 249, CLOCK, 
 F4U_1D:defineFloat("CLOCK_STATE_INDICATOR", 251, { 0, 1 }, CLOCK, "Clock State Indicator")
 
 -- Cylinder Temperature Indicator
--- local CHT = "Cylinder Temperature Indicator"
+local CHT = "Cylinder Temperature Indicator"
+
+F4U_1D:defineFloat("CYLINDER_TEMPERATURE_INDICATOR", 21, { 0, 1 }, CHT, "Cylinder Temperature Indicator")
 
 -- Engine Gauge Unit
 local ENGINE_GAUGE_UNIT = "Engine Gauge Unit"
