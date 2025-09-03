@@ -251,7 +251,10 @@ local HYD_PRESSURE = "Hydraulic Pressure Gauge"
 F4U_1D:defineFloat("HYDRAULIC_PRESSURE_GAUGE", 35, { 0, 1 }, HYD_PRESSURE, "Hydraulic Pressure Gauge")
 
 -- Voltammeter
--- local VOLTAMMETER = "Voltammeter"
+local VOLTAMMETER = "Voltammeter"
+
+F4U_1D:defineFloat("VOLTAMMETER", 8, { 0, 1 }, VOLTAMMETER, "Voltammeter")
+F4U_1D:definePushButton("VOLTAMMETER_VOLTS_AMPS_BUTTON", devices.ELECTRO, 3001, 9, VOLTAMMETER, "Volts/Amps Button")
 
 -- Accelerometer
 -- local ACCELEROMETER = "Accelerometer"
