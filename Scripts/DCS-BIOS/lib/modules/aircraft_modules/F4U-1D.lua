@@ -277,7 +277,9 @@ F4U_1D:definePushButton("VOLTAMMETER_VOLTS_AMPS_BUTTON", devices.ELECTRO, 3001, 
 -- local FUEL_PRESSURE_GAUGE = "Fuel Pressure Gauge"
 
 -- Emergency Pressure Release
--- local EMERGENCY_PRESSURE_RELEASE = "Emergency Pressure Release"
+local EMERGENCY_PRESSURE_RELEASE = "Emergency Pressure Release"
+
+F4U_1D:defineToggleSwitch("EMERGENCY_PRESSURE_RELEASE", devices.ENGINE, 3245, 199, EMERGENCY_PRESSURE_RELEASE, "Emergency Pressure Release")
 
 -- Rocket Station Distributor Box
 -- local ROCKET_STATION = "Rocket Station Distributor Box"
