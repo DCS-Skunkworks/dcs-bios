@@ -281,8 +281,10 @@ F4U_1D:defineFloat("ACCELEROMETER_MIN_G_NEEDLE", 208, { -1, 0 }, ACCELEROMETER, 
 F4U_1D:definePushButton("ACCELEROMETER_RESET_BUTTON", devices.UTILITY, 3815, 209, ACCELEROMETER, "Accelerometer Reset Button")
 F4U_1D:reserveIntValue(65535) -- Theres a knob for the Accelerometer reset button thats currently not used, tied to command 3816 under "Accel_reset_kb"
 
--- Fuel Pressure Gauge
--- local FUEL_PRESSURE_GAUGE = "Fuel Pressure Gauge"
+-- Water Pressure Gauge
+local WATER_PRESSURE_GAUGE = "Water Pressure Gauge"
+
+F4U_1D:defineFloat("WATER_PRESSURE_GAUGE", 242, { 0, 1 }, WATER_PRESSURE_GAUGE, "Water Pressure Gauge")
 
 -- Emergency Pressure Release
 local EMERGENCY_PRESSURE_RELEASE = "Emergency Pressure Release"
