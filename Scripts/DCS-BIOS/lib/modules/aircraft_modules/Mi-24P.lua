@@ -1046,7 +1046,7 @@ Mi_24P:defineFloat("OP_CANOPY_POS", 849, { 0, 1 }, "Gauges OP", "OPERATOR Canopy
 Mi_24P:defineFloat("PLT_CANOPY_POS", 9, { 0, 1 }, "Gauges PLT", "PILOT Door Position")
 Mi_24P:defineFloat("OP_WIPER_POS", 973, { 0, 1 }, "Gauges OP", "OPERATOR Wiper Position")
 Mi_24P:defineFloat("PLT_WIPER_POS", 972, { 0, 1 }, "Gauges PLT", "PILOT Wiper Position")
-Mi_24P:defineFloat("PLT_VARIOMETER", 1, { -1, 1 }, "Gauges PLT", "PILOT Variometer")
+Mi_24P:defineFloat("PLT_VARIOMETER", 95, { -1, 1 }, "Gauges PLT", "PILOT Variometer")
 Mi_24P:defineFloat("PLT_GMETER", 17, { -1, 1 }, "Gauges PLT", "PILOT G-Meter")
 Mi_24P:defineFloat("PLT_GMETER_MIN", 16, { -1, 1 }, "Gauges PLT", "PILOT G-Meter Min")
 Mi_24P:defineFloat("PLT_GMETER_MAX", 18, { -1, 1 }, "Gauges PLT", "PILOT G-Meter Max")
