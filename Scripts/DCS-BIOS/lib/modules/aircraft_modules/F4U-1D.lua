@@ -255,7 +255,15 @@ F4U_1D:defineFloat("CLIMB_INDICATOR", 29, { -1, 1 }, VSI, "Climb Indicator")
 -- local EMERGENCY_PRESSURE_RELEASE = "Emergency Pressure Release"
 
 -- Rocket Station Distributor Box
--- local ROCKET_STATION = "Rocket Station Distributor Box"
+local ROCKET_STATION = "Rocket Station Distributor Box"
+
+F4U_1D:defineToggleSwitch("ROCKET_STATION_ON/OFF_COVER", devices.WEAPON, 3950, 166, ROCKET_STATION, "Rocket Station On/Off Cover")
+F4U_1D:defineToggleSwitch("ROCKET_STATION_ON/OFF", devices.WEAPON, 3951, 167, ROCKET_STATION, "Rocket Station On/Off")
+F4U_1D:defineToggleSwitch("ROCKET_STATION_ARM/SAFE", devices.WEAPON, 3952, 168, ROCKET_STATION, "Rocket Station Arm/Safe")
+F4U_1D:defineToggleSwitch("ROCKET_STATION_SINGLE/AUTO", devices.WEAPON, 3953, 169, ROCKET_STATION, "Rocket Station Single/Auto")
+F4U_1D:defineToggleSwitch("ROCKET_STATION_SELECTOR_PULL", devices.WEAPON, 3954, 171, ROCKET_STATION, "Rocket Station Selector Pull")
+F4U_1D:reserveIntValue(3) --F4U_1D:defineMultipositionSwitch("ROCKET_STATION_SELECTOR_TURN", devices.WEAPON, 3955, 172, 4, 0.25, ROCKET_STATION, "Rocket Station Selector Turn")
+F4U_1D:definePotentiometer("ROCKET_STATION_DIMMING_LIGHT", devices.WEAPON, 3957, 173, { 0, 1 }, ROCKET_STATION, "Rocket Station Dimming Light")
 
 -- Cooling Flaps Controls
 -- local COOLING_FLAPS = "Cooling Flaps Controls"
