@@ -246,7 +246,9 @@ local FUEL_QUANTITY = "Fuel Quantity Gauge"
 F4U_1D:defineFloat("FUEL_QUANTITY_GAUGE", 7, { 0, 1 }, FUEL_QUANTITY, "Fuel Quantity Gauge")
 
 -- Hydraulic Pressure Gauge
--- local HYD_PRESSURE = "Hydraulic Pressure Gauge"
+local HYD_PRESSURE = "Hydraulic Pressure Gauge"
+
+F4U_1D:defineFloat("HYDRAULIC_PRESSURE_GAUGE", 35, { 0, 1 }, HYD_PRESSURE, "Hydraulic Pressure Gauge")
 
 -- Voltammeter
 -- local VOLTAMMETER = "Voltammeter"
