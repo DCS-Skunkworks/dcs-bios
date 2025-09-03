@@ -252,7 +252,9 @@ F4U_1D:defineFloat("CLIMB_INDICATOR", 29, { -1, 1 }, VSI, "Climb Indicator")
 -- local FUEL_PRESSURE_GAUGE = "Fuel Pressure Gauge"
 
 -- Emergency Pressure Release
--- local EMERGENCY_PRESSURE_RELEASE = "Emergency Pressure Release"
+local EMERGENCY_PRESSURE_RELEASE = "Emergency Pressure Release"
+
+F4U_1D:defineToggleSwitch("EMERGENCY_PRESSURE_RELEASE", devices.ENGINE, 3245, 199, EMERGENCY_PRESSURE_RELEASE, "Emergency Pressure Release")
 
 -- Rocket Station Distributor Box
 -- local ROCKET_STATION = "Rocket Station Distributor Box"
