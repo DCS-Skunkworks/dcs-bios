@@ -241,7 +241,9 @@ F4U_1D:defineFloat("ENGINE_GAUGE_OIL_PRESSURE", 31, { 0, 1 }, ENGINE_GAUGE_UNIT,
 F4U_1D:defineFloat("ENGINE_GAUGE_FUEL_PRESSURE", 32, { 0, 1 }, ENGINE_GAUGE_UNIT, "Enginge Fuel Pressure Gauge")
 
 -- Fuel Quantity Gauge
--- local FUEL_QUANTITY = "Fuel Quantity Gauge"
+local FUEL_QUANTITY = "Fuel Quantity Gauge"
+
+F4U_1D:defineFloat("FUEL_QUANTITY_GAUGE", 7, { 0, 1 }, FUEL_QUANTITY, "Fuel Quantity Gauge")
 
 -- Hydraulic Pressure Gauge
 -- local HYD_PRESSURE = "Hydraulic Pressure Gauge"
