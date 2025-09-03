@@ -223,7 +223,7 @@ F4U_1D:defineFloat("CLIMB_INDICATOR", 29, { -1, 1 }, VSI, "Climb Indicator")
 -- Clock
 local CLOCK = "Clock"
 
-F4U_1D:defineFloat("CLOCK_CURRTIME_HOURS", 4, { 0, 1 }, CLOCK, "Clock Current time Hours")
+F4U_1D:defineFloat("CLOCK_CURRTIME_HOURS", 4, { 0, 1 }, CLOCK, "Clock Current Time Hours")
 F4U_1D:reserveIntValue(65535) -- Clock current time Minute hand should be draw arg 5, currently not working with DCS bios
 F4U_1D:reserveIntValue(65535) -- Clock current time second hand should be draw arg 6, currently not working with DCS bios
 F4U_1D:defineFloat("CLOCK_CIVIL_DATE", 247, { 0, 1 }, CLOCK, "Clock Civil Date Dial")
