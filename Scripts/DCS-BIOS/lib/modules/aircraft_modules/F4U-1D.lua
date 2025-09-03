@@ -234,7 +234,7 @@ F4U_1D:defineFloat("CLOCK_TOP_INNER_DIAL", 345, { 0, 1 }, CLOCK, "Clock Inner To
 F4U_1D:definePushButton("CLOCK_SET_DATE", devices.CLOCK, 3653, 347, CLOCK, "Clock Set Date Button")
 F4U_1D:definePushButton("CLOCK_CHRONOMETER_START_STOP_RESET", devices.CLOCK, 3652, 248, CLOCK, "Start/Stop/Reset Button")
 F4U_1D:defineSpringloaded_3PosTumb("CLOCK_ADJUSTMENT_BUTTON", devices.CLOCK, 3651, 3651, 250, CLOCK, "Clock Adjustment Button (Reset/Norm/Adjust)")
-F4U_1D:defineRotary("CLOCK_ADJUSTMENT_ROTARY", devices.CLOCK, 3650, 249, CLOCK, "Clock Adjustment Rotary (left/right)")
+F4U_1D:defineRotary("CLOCK_ADJUSTMENT_ROTARY", devices.CLOCK, 3650, 249, CLOCK, "Clock Adjustment Rotary")
 F4U_1D:defineFloat("CLOCK_STATE_INDICATOR", 251, { 0, 1 }, CLOCK, "Clock State Indicator")
 
 -- Cylinder Temperature Indicator
