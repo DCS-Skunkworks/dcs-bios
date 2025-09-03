@@ -273,8 +273,10 @@ F4U_1D:definePushButton("VOLTAMMETER_VOLTS_AMPS_BUTTON", devices.ELECTRO, 3001, 
 -- Accelerometer
 -- local ACCELEROMETER = "Accelerometer"
 
--- Fuel Pressure Gauge
--- local FUEL_PRESSURE_GAUGE = "Fuel Pressure Gauge"
+-- Water Pressure Gauge
+local WATER_PRESSURE_GAUGE = "Water Pressure Gauge"
+
+F4U_1D:defineFloat("WATER_PRESSURE_GAUGE", 242, { 0, 1 }, WATER_PRESSURE_GAUGE, "Water Pressure Gauge")
 
 -- Emergency Pressure Release
 local EMERGENCY_PRESSURE_RELEASE = "Emergency Pressure Release"
