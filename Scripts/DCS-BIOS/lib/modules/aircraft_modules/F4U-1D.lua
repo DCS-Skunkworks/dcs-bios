@@ -271,7 +271,13 @@ F4U_1D:defineFloat("VOLTAMMETER", 8, { 0, 1 }, VOLTAMMETER, "Voltammeter")
 F4U_1D:definePushButton("VOLTAMMETER_VOLTS_AMPS_BUTTON", devices.ELECTRO, 3001, 9, VOLTAMMETER, "Volts/Amps Button")
 
 -- Accelerometer
--- local ACCELEROMETER = "Accelerometer"
+local ACCELEROMETER = "Accelerometer"
+
+F4U_1D:defineFloat("ACCELEROMETER_CURRENT_G_NEEDLE", 206, { -1, 1 }, ACCELEROMETER, "Accelerometer Current G Needle")
+F4U_1D:defineFloat("ACCELEROMETER_MAX_G_NEEDLE", 207, { 0, 1 }, ACCELEROMETER, "Accelerometer Max G Needle")
+F4U_1D:defineFloat("ACCELEROMETER_MIN_G_NEEDLE", 208, { -1, 0 }, ACCELEROMETER, "Accelerometer Min G Needle")
+F4U_1D:definePushButton("ACCELEROMETER_RESET_BUTTON", devices.UTILITY, 3815, 209, ACCELEROMETER, "Accelerometer Reset Button")
+F4U_1D:reserveIntValue(65535) -- Theres a knob for the Accelerometer reset button thats currently not used, tied to command 3816 under "Accel_reset_kb"
 
 -- Fuel Pressure Gauge
 -- local FUEL_PRESSURE_GAUGE = "Fuel Pressure Gauge"
