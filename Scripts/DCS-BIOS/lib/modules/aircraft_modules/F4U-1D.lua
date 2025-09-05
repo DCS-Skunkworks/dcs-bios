@@ -289,7 +289,17 @@ F4U_1D:defineToggleSwitch("EMERGENCY_PRESSURE_RELEASE", devices.ENGINE, 3245, 19
 -- includes two indicators on front right panel
 
 -- Pilot's Distribution Box
--- local PILOT_DISTRO = "Pilot's Distribution Box"
+local PILOT_DISTRO = "Pilot's Distribution Box"
+
+F4U_1D:defineToggleSwitch("PILOT_DISTRO_BATTERY_SWITCH", devices.ELECTRO, 3002, 120, PILOT_DISTRO, "Battery Switch")
+F4U_1D:defineToggleSwitch("PILOT_DISTRO_FUEL_PUMP_SWITCH", devices.ENGINE, 3211, 121, PILOT_DISTRO, "Fuel Pump Switch")
+F4U_1D:definePushButton("PILOT_DISTRO_PRIMER_SWITCH", devices.ENGINE, 3212, 122, PILOT_DISTRO, "Primer Switch")
+F4U_1D:definePushButton("PILOT_DISTRO_STARTER_SWITCH", devices.ENGINE, 3231, 123, PILOT_DISTRO, "Starter Switch")
+F4U_1D:defineToggleSwitch("PILOT_DISTRO_STARTER_SWITCH_COVER", devices.ENGINE, 3233, 124, PILOT_DISTRO, "Starter Switch Cover")
+F4U_1D:reserveIntValue(65535) -- Emergency Generator Switch Cover, draw arg 181
+F4U_1D:reserveIntValue(65535) -- Emergency Generator Switch, draw arg 180
+F4U_1D:reserveIntValue(65535) -- Emergency Radio Switch Cover, draw arg 179
+F4U_1D:reserveIntValue(65535) -- Emergency Radio Switch, draw arg 178
 
 -- Arresting Hook Control
 -- local HOOK = "Arresting Hook"
