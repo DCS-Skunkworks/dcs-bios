@@ -1951,4 +1951,6 @@ CH_47F:defineString("CPLT_CDU_LINE14_COLOR", function()
 	return cplt_cdu_colors[14]
 end, CDU_LINE_LEN, COPILOT_CDU_DISPLAY, "CDU Line 14 Color")
 
+CH_47F:defineSeatPosition("SEAT", 2, "Player's current seat position (0 = Pilot, 1 = Copilot)")
+
 return CH_47F
