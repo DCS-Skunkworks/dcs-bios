@@ -286,7 +286,6 @@ F4U_1D:defineToggleSwitch("EMERGENCY_PRESSURE_RELEASE", devices.ENGINE, 3245, 19
 
 -- Cooling Flaps Controls
 local COOLING_FLAPS = "Cooling Flaps Controls"
--- includes two indicators on front right panel
 
 F4U_1D:defineSpringloaded_3PosTumb("COOLING_FLAPS_OIL", devices.ENGINE, 3219, 3218, 165, COOLING_FLAPS, "Oil Cooling Flaps Open/Close")
 F4U_1D:defineSpringloaded_3PosTumb("COOLING_FLAPS_INTERCOOLER", devices.ENGINE, 3217, 3216, 164, COOLING_FLAPS, "Intercooler Flaps Open/Close")
