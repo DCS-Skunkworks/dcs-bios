@@ -288,9 +288,9 @@ F4U_1D:defineToggleSwitch("EMERGENCY_PRESSURE_RELEASE", devices.ENGINE, 3245, 19
 local COOLING_FLAPS = "Cooling Flaps Controls"
 -- includes two indicators on front right panel
 
-F4U_1D:defineSpringloaded_3PosTumb("COOLING_FLAPS_OIL", devices.ENGINE, 3219, 3218, 163, COOLING_FLAPS, "Oil Cooling Flaps Open/Close")
+F4U_1D:defineSpringloaded_3PosTumb("COOLING_FLAPS_OIL", devices.ENGINE, 3219, 3218, 165, COOLING_FLAPS, "Oil Cooling Flaps Open/Close")
 F4U_1D:defineSpringloaded_3PosTumb("COOLING_FLAPS_INTERCOOLER", devices.ENGINE, 3217, 3216, 164, COOLING_FLAPS, "Intercooler Flaps Open/Close")
-F4U_1D:defineSpringloaded_3PosTumb("COOLING_FLAPS_ENGINE", devices.ENGINE, 3215, 3214, 165, COOLING_FLAPS, "Engine Cooling Flaps Open/Close")
+F4U_1D:defineSpringloaded_3PosTumb("COOLING_FLAPS_ENGINE", devices.ENGINE, 3215, 3214, 163, COOLING_FLAPS, "Engine Cooling Flaps Open/Close")
 F4U_1D:defineFloat("OIL_COOLER_DOOR_INDICATOR", 265, { 0, 1 }, COOLING_FLAPS, "Oil Cooling Door Indicator")
 F4U_1D:defineFloat("INTERCOOLER_DOOR_INDICATOR", 264, { 0, 1 }, COOLING_FLAPS, "Intercooler Door Indicator")
 
