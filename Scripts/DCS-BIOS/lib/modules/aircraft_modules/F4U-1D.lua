@@ -275,7 +275,7 @@ F4U_1D:defineToggleSwitch("ROCKET_STATION_SINGLE_AUTO", devices.WEAPON, 3953, 16
 F4U_1D:defineToggleSwitch("ROCKET_STATION_SELECTOR_PULL", devices.WEAPON, 3954, 171, ROCKET_STATION, "Rocket Station Selector Pull")
 F4U_1D:reserveIntValue(3) --F4U_1D:defineMultipositionSwitch("ROCKET_STATION_SELECTOR_TURN", devices.WEAPON, 3955, 172, 4, 0.25, ROCKET_STATION, "Rocket Station Selector Turn")
 F4U_1D:definePotentiometer("ROCKET_STATION_DIMMING_LIGHT", devices.WEAPON, 3957, 173, { 0, 1 }, ROCKET_STATION, "Rocket Station Dimming Light")
-F4U_1D:defineIntegerFromArg("ROCKET_STATION_SELECTOR_INDICTOR", 170, 7, ROCKET_STATION, "Rocket Station Selector Indicator")
+F4U_1D:defineIntegerFromArg("ROCKET_STATION_SELECTOR_INDICATOR", 170, 7, ROCKET_STATION, "Rocket Station Selector Indicator")
 F4U_1D:defineIndicatorLight("ROCKET_STATION_READY_LIGHT", 267, ROCKET_STATION, "Rocket Station Ready Light (Red)")
 
 -- Cooling Flaps Controls
