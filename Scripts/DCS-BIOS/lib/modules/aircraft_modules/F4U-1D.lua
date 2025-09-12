@@ -300,9 +300,9 @@ F4U_1D:reserveIntValue(1) -- Emergency Generator Switch Cover, draw arg 181
 F4U_1D:reserveIntValue(1) -- Emergency Generator Switch, draw arg 180
 F4U_1D:reserveIntValue(1) -- Emergency Radio Switch Cover, draw arg 179
 F4U_1D:reserveIntValue(1) -- Emergency Radio Switch, draw arg 178
-F4U_1D:define3PosTumb("PILOT_DISTRO_RECOGNITION_LIGHT_SWITCH_RED", devices.LIGHTS, 3714, 155, PILOT_DISTRO, "Red Recognition Light (Flash/Off/Steady)")
-F4U_1D:define3PosTumb("PILOT_DISTRO_RECOGNITION_LIGHT_SWITCH_GREEN", devices.LIGHTS, 3716, 156, PILOT_DISTRO, "Green Recognition Light (Flash/Off/Steady)")
-F4U_1D:define3PosTumb("PILOT_DISTRO_RECOGNITION_LIGHT_SWITCH_AMBER", devices.LIGHTS, 3718, 157, PILOT_DISTRO, "Amber Recognition Light (Flash/Off/Steady)")
+F4U_1D:define3PosTumb("PILOT_DISTRO_RECOGNITION_LIGHT_SWITCH_RED", devices.LIGHTS, 3714, 155, PILOT_DISTRO, "Red Recognition Light (Steady/Off/Flash)")
+F4U_1D:define3PosTumb("PILOT_DISTRO_RECOGNITION_LIGHT_SWITCH_GREEN", devices.LIGHTS, 3716, 156, PILOT_DISTRO, "Green Recognition Light (Steady/Off/Flash)")
+F4U_1D:define3PosTumb("PILOT_DISTRO_RECOGNITION_LIGHT_SWITCH_AMBER", devices.LIGHTS, 3718, 157, PILOT_DISTRO, "Amber Recognition Light (Steady/Off/Flash)")
 F4U_1D:reserveIntValue(1) -- Red keying switch, draw arg 154
 F4U_1D:define3PosTumb("PILOT_DISTRO_EXTERIOR_LIGHTS_SWITCH", devices.LIGHTS, 3704, 132, PILOT_DISTRO, "Exteriot Lights (Flash/Off/Steady)")
 F4U_1D:define3PosTumb("PILOT_DISTRO_WING_LIGHTS_SWITCH", devices.LIGHTS, 3702, 130, PILOT_DISTRO, "Wing Lights (Dim/Off/Bright)")
