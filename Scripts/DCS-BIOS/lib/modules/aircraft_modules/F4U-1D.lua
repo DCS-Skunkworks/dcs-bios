@@ -311,9 +311,9 @@ F4U_1D:define3PosTumb("PILOT_DISTRO_FORMATION_LIGHTS_SWITCH", devices.LIGHTS, 37
 F4U_1D:define3PosTumb("PILOT_DISTRO_SECTION_LIGHTS_SWITCH", devices.LIGHTS, 3705, 134, PILOT_DISTRO, "Section Lights (Dim/Off/Bright)")
 F4U_1D:defineToggleSwitch("PILOT_DISTRO_APPROACH_LIGHTS_SWITCH", devices.LIGHTS, 3760, 158, PILOT_DISTRO, "Approach Lights Switch")
 F4U_1D:defineToggleSwitch("PILOT_DISTRO_COCKPIT_LIGHTS_SWITCH", devices.LIGHTS, 3706, 129, PILOT_DISTRO, "Cockpit Lights Switch")
-F4U_1D:definePotentiometer("PILOT_DISTRO_CHARTBOARD_LIGHT_SWITCH", devices.LIGHTS, 3749, 137, { 0, 1 }, PILOT_DISTRO, "Chartboard Light")
-F4U_1D:definePotentiometer("PILOT_DISTRO_LEFT_PANEL_LIGHT_SWITCH", devices.LIGHTS, 3707, 138, { 0, 1 }, PILOT_DISTRO, "Left Panel Light")
-F4U_1D:definePotentiometer("PILOT_DISTRO_RIGHT_PANEL_LIGHT_SWITCH", devices.LIGHTS, 3708, 139, { 0, 1 }, PILOT_DISTRO, "Right Panel Light")
+F4U_1D:definePotentiometer("PILOT_DISTRO_CHARTBOARD_LIGHT_KNOB", devices.LIGHTS, 3749, 137, { 0, 1 }, PILOT_DISTRO, "Chart Board Light Knob")
+F4U_1D:definePotentiometer("PILOT_DISTRO_LEFT_PANEL_LIGHT_KNOB", devices.LIGHTS, 3707, 138, { 0, 1 }, PILOT_DISTRO, "Left Panel Light Knob")
+F4U_1D:definePotentiometer("PILOT_DISTRO_RIGHT_PANEL_LIGHT_KNOB", devices.LIGHTS, 3708, 139, { 0, 1 }, PILOT_DISTRO, "Right Panel Light Knob")
 F4U_1D:definePotentiometer("PILOT_DISTRO_LEFT_INSTRUMENT_BOARD_LIGHT_KNOB", devices.LIGHTS, 3709, 140, { 0, 1 }, PILOT_DISTRO, "Left Instrument Panel Light Knob")
 F4U_1D:definePotentiometer("PILOT_DISTRO_RIGHT_INSTRUMENT_BOARD_LIGHT_KNOB", devices.LIGHTS, 3710, 141, { 0, 1 }, PILOT_DISTRO, "Right Instrument Panel Light Knob")
 
