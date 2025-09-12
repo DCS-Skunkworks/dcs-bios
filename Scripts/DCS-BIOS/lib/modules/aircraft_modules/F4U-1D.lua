@@ -325,7 +325,33 @@ F4U_1D:defineFloat("OIL_COOLER_DOOR_INDICATOR", 265, { 0, 1 }, COOLING_FLAPS, "O
 F4U_1D:defineFloat("INTERCOOLER_DOOR_INDICATOR", 264, { 0, 1 }, COOLING_FLAPS, "Intercooler Door Indicator")
 
 -- Pilot's Distribution Box
--- local PILOT_DISTRO = "Pilot's Distribution Box"
+local PILOT_DISTRO = "Pilot's Distribution Box"
+
+F4U_1D:defineToggleSwitch("PILOT_DISTRO_BATTERY_SWITCH", devices.ELECTRO, 3002, 120, PILOT_DISTRO, "Battery Switch")
+F4U_1D:defineToggleSwitch("PILOT_DISTRO_FUEL_PUMP_SWITCH", devices.ENGINE, 3211, 121, PILOT_DISTRO, "Fuel Pump Switch")
+F4U_1D:definePushButton("PILOT_DISTRO_PRIMER_SWITCH", devices.ENGINE, 3212, 122, PILOT_DISTRO, "Primer Switch")
+F4U_1D:definePushButton("PILOT_DISTRO_STARTER_SWITCH", devices.ENGINE, 3231, 123, PILOT_DISTRO, "Starter Switch")
+F4U_1D:defineToggleSwitch("PILOT_DISTRO_STARTER_SWITCH_COVER", devices.ENGINE, 3233, 124, PILOT_DISTRO, "Starter Switch Cover")
+F4U_1D:reserveIntValue(1) -- Emergency Generator Switch Cover, draw arg 181
+F4U_1D:reserveIntValue(1) -- Emergency Generator Switch, draw arg 180
+F4U_1D:reserveIntValue(1) -- Emergency Radio Switch Cover, draw arg 179
+F4U_1D:reserveIntValue(1) -- Emergency Radio Switch, draw arg 178
+F4U_1D:define3PosTumb("PILOT_DISTRO_RECOGNITION_LIGHT_SWITCH_RED", devices.LIGHTS, 3714, 155, PILOT_DISTRO, "Red Recognition Light (Steady/Off/Flash)")
+F4U_1D:define3PosTumb("PILOT_DISTRO_RECOGNITION_LIGHT_SWITCH_GREEN", devices.LIGHTS, 3716, 156, PILOT_DISTRO, "Green Recognition Light (Steady/Off/Flash)")
+F4U_1D:define3PosTumb("PILOT_DISTRO_RECOGNITION_LIGHT_SWITCH_AMBER", devices.LIGHTS, 3718, 157, PILOT_DISTRO, "Amber Recognition Light (Steady/Off/Flash)")
+F4U_1D:reserveIntValue(1) -- Red keying switch, draw arg 154
+F4U_1D:define3PosTumb("PILOT_DISTRO_EXTERIOR_LIGHTS_SWITCH", devices.LIGHTS, 3704, 132, PILOT_DISTRO, "Exterior Lights (Flash/Off/Steady)")
+F4U_1D:define3PosTumb("PILOT_DISTRO_WING_LIGHTS_SWITCH", devices.LIGHTS, 3702, 130, PILOT_DISTRO, "Wing Lights (Dim/Off/Bright)")
+F4U_1D:define3PosTumb("PILOT_DISTRO_TAIL_LIGHTS_SWITCH", devices.LIGHTS, 3720, 131, PILOT_DISTRO, "Tail Lights (Dim/Off/Bright)")
+F4U_1D:define3PosTumb("PILOT_DISTRO_FORMATION_LIGHTS_SWITCH", devices.LIGHTS, 3737, 133, PILOT_DISTRO, "Formation Lights (Dim/Off/Bright)")
+F4U_1D:define3PosTumb("PILOT_DISTRO_SECTION_LIGHTS_SWITCH", devices.LIGHTS, 3705, 134, PILOT_DISTRO, "Section Lights (Dim/Off/Bright)")
+F4U_1D:defineToggleSwitch("PILOT_DISTRO_APPROACH_LIGHTS_SWITCH", devices.LIGHTS, 3760, 158, PILOT_DISTRO, "Approach Lights Switch")
+F4U_1D:defineToggleSwitch("PILOT_DISTRO_COCKPIT_LIGHTS_SWITCH", devices.LIGHTS, 3706, 129, PILOT_DISTRO, "Cockpit Lights Switch")
+F4U_1D:definePotentiometer("PILOT_DISTRO_CHARTBOARD_LIGHT_KNOB", devices.LIGHTS, 3749, 137, { 0, 1 }, PILOT_DISTRO, "Chart Board Light Knob")
+F4U_1D:definePotentiometer("PILOT_DISTRO_LEFT_PANEL_LIGHT_KNOB", devices.LIGHTS, 3707, 138, { 0, 1 }, PILOT_DISTRO, "Left Panel Light Knob")
+F4U_1D:definePotentiometer("PILOT_DISTRO_RIGHT_PANEL_LIGHT_KNOB", devices.LIGHTS, 3708, 139, { 0, 1 }, PILOT_DISTRO, "Right Panel Light Knob")
+F4U_1D:definePotentiometer("PILOT_DISTRO_LEFT_INSTRUMENT_BOARD_LIGHT_KNOB", devices.LIGHTS, 3709, 140, { 0, 1 }, PILOT_DISTRO, "Left Instrument Panel Light Knob")
+F4U_1D:definePotentiometer("PILOT_DISTRO_RIGHT_INSTRUMENT_BOARD_LIGHT_KNOB", devices.LIGHTS, 3710, 141, { 0, 1 }, PILOT_DISTRO, "Right Instrument Panel Light Knob")
 
 -- Arresting Hook Control
 -- local HOOK = "Arresting Hook"
