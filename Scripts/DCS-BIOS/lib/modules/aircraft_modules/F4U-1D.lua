@@ -314,8 +314,8 @@ F4U_1D:defineToggleSwitch("PILOT_DISTRO_COCKPIT_LIGHTS_SWITCH", devices.LIGHTS, 
 F4U_1D:definePotentiometer("PILOT_DISTRO_CHARTBOARD_LIGHT_SWITCH", devices.LIGHTS, 3749, 137, { 0, 1 }, PILOT_DISTRO, "Chartboard Light")
 F4U_1D:definePotentiometer("PILOT_DISTRO_LEFT_PANEL_LIGHT_SWITCH", devices.LIGHTS, 3707, 138, { 0, 1 }, PILOT_DISTRO, "Left Panel Light")
 F4U_1D:definePotentiometer("PILOT_DISTRO_RIGHT_PANEL_LIGHT_SWITCH", devices.LIGHTS, 3708, 139, { 0, 1 }, PILOT_DISTRO, "Right Panel Light")
-F4U_1D:definePotentiometer("PILOT_DISTRO_LEFT_INSTRIMENT_BOARD_LIGHT_SWITCH", devices.LIGHTS, 3709, 140, { 0, 1 }, PILOT_DISTRO, "Left Instrimrnt Panel Light")
-F4U_1D:definePotentiometer("PILOT_DISTRO_RIGHT_INSTRIMENT_BOARD_LIGHT_SWITCH", devices.LIGHTS, 3710, 141, { 0, 1 }, PILOT_DISTRO, "Right Instrimrnt Panel Light")
+F4U_1D:definePotentiometer("PILOT_DISTRO_LEFT_INSTRUMENT_BOARD_LIGHT_KNOB", devices.LIGHTS, 3709, 140, { 0, 1 }, PILOT_DISTRO, "Left Instrument Panel Light Knob")
+F4U_1D:definePotentiometer("PILOT_DISTRO_RIGHT_INSTRUMENT_BOARD_LIGHT_KNOB", devices.LIGHTS, 3710, 141, { 0, 1 }, PILOT_DISTRO, "Right Instrument Panel Light Knob")
 
 -- Arresting Hook Control
 -- local HOOK = "Arresting Hook"
