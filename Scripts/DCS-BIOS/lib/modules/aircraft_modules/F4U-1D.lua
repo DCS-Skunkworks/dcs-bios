@@ -330,7 +330,7 @@ F4U_1D:defineFloat("INTERCOOLER_DOOR_INDICATOR", 264, { 0, 1 }, COOLING_FLAPS, "
 -- Arresting Hook Control
 -- local HOOK = "Arresting Hook"
 
-F4U_1D:reserveIntValue(3) --F4U_1D:define3PosTumb("ARRESTING_HOOK_CONTROL", devices.CONTROL, 3501, 202, HOOK, "Arresting Hook Control (Down/Parking/Up)")
+F4U_1D:reserveIntValue(2) --F4U_1D:define3PosTumb("ARRESTING_HOOK_CONTROL", devices.CONTROL, 3501, 202, HOOK, "Arresting Hook Control (Down/Parking/Up)")
 
 -- Oxygen System
 -- local O2_SYSTEM = "Oxygen System"
