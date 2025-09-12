@@ -356,6 +356,8 @@ F4U_1D:definePotentiometer("PILOT_DISTRO_RIGHT_INSTRUMENT_BOARD_LIGHT_KNOB", dev
 -- Arresting Hook Control
 -- local HOOK = "Arresting Hook"
 
+F4U_1D:reserveIntValue(2) --F4U_1D:define3PosTumb("ARRESTING_HOOK_CONTROL", devices.CONTROL, 3501, 202, HOOK, "Arresting Hook Control (Down/Parking/Up)")
+
 -- Oxygen System
 -- local O2_SYSTEM = "Oxygen System"
 -- includes flow indicator
