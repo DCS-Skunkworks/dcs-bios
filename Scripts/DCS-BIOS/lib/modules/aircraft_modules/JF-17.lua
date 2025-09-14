@@ -536,19 +536,19 @@ JF_17:defineBitFromDrawArgument("EXT_WOW_RIGHT", 4, "External Aircraft Model", "
 JF_17:defineBitFromDrawArgument("EXT_WOW_LEFT", 6, "External Aircraft Model", "Weight ON Wheels Left Gear")
 
 local function processUFCPLine(ufcpLine, lineNum)
-	local temp_txt_win = ufcpLine["txt_win" .. lineNum]
+	local txt_win = ufcpLine["txt_win" .. lineNum]
 	local txt_win_fill = ufcpLine["txt_win" .. lineNum .. "_fill"]
 	local cur_win = ufcpLine["cur_win" .. lineNum]
 	local txt_winr = ufcpLine["txt_win" .. lineNum .. "r"]
 	local cur_winr = ufcpLine["cur_win" .. lineNum .. "r"]
 	local UFCPLineLength = 8
-	local txt_win = temp_txt_win and temp_txt_win:gsub(string.char(127), "^") or ""
+	txt_win = txt_win and txt_win:gsub(string.char(127), "^")
 
 	local processedUFCPLine
 
 	if txt_win_fill ~= nil then
 		local full_txt_win_fill = txt_win_fill .. string.rep(" ", UFCPLineLength - string.len(txt_win_fill))
-		if temp_txt_win ~= nil then
+		if txt_win ~= nil then
 			if cur_win ~= nil then
 				if txt_win:find("-") then
 					processedUFCPLine = txt_win:sub(1, txt_win:find("-") - cur_win:len()) .. cur_win .. txt_win:sub(txt_win:find("-") + cur_win:len()) .. full_txt_win_fill:sub(txt_win:len() + 1)
