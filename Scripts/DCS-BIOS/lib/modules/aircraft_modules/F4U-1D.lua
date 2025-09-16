@@ -330,6 +330,16 @@ F4U_1D:defineFloat("INTERCOOLER_DOOR_INDICATOR", 264, { 0, 1 }, COOLING_FLAPS, "
 -- Arresting Hook Control
 -- local HOOK = "Arresting Hook"
 
+-- Rear Right Circuit Breaker Panel
+local RIGHT_CIRCUIT_BREAKER = "Rear Right Circuit Breaker Panel"
+
+F4U_1D:defineToggleSwitch("RIGHT_CIRCUIT_BREAKER_IFF_RADIO", devices.BREAKERS, 3866, 148, RIGHT_CIRCUIT_BREAKER, "IFF/Radio CB")
+F4U_1D:defineToggleSwitch("RIGHT_CIRCUIT_BREAKER_EXTERNAL_LIGHTS", devices.BREAKERS, 3867, 149, RIGHT_CIRCUIT_BREAKER, "External Lights CB")
+F4U_1D:defineToggleSwitch("RIGHT_CIRCUIT_BREAKER_RECOGNITION_LIGHTS", devices.BREAKERS, 3868, 150, RIGHT_CIRCUIT_BREAKER, "Recognition Lights CB")
+F4U_1D:defineToggleSwitch("RIGHT_CIRCUIT_BREAKER_STARTER", devices.BREAKERS, 3869, 151, RIGHT_CIRCUIT_BREAKER, "Starter CB")
+F4U_1D:defineToggleSwitch("RIGHT_CIRCUIT_BREAKER_INTERITA_SWITCH", devices.BREAKERS, 3870, 152, RIGHT_CIRCUIT_BREAKER, "Interita Switch CB")
+F4U_1D:defineToggleSwitch("RIGHT_CIRCUIT_BREAKER_INSTRUMENT_SWITCH", devices.BREAKERS, 3871, 153, RIGHT_CIRCUIT_BREAKER, "Instrument Switch CB")
+
 -- Oxygen System
 -- local O2_SYSTEM = "Oxygen System"
 -- includes flow indicator
