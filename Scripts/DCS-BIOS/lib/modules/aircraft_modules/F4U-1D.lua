@@ -359,8 +359,12 @@ F4U_1D:definePotentiometer("PILOT_DISTRO_RIGHT_INSTRUMENT_BOARD_LIGHT_KNOB", dev
 F4U_1D:reserveIntValue(2) --F4U_1D:define3PosTumb("ARRESTING_HOOK_CONTROL", devices.CONTROL, 3501, 202, HOOK, "Arresting Hook Control (Down/Parking/Up)")
 
 -- Oxygen System
--- local O2_SYSTEM = "Oxygen System"
--- includes flow indicator
+local O2_SYSTEM = "Oxygen System"
+
+F4U_1D:defineFloat("OXYGEN_PRESSURE_GAUGE", 34, { 0, 1 }, O2_SYSTEM, "Oxygen Pressure Gauge")
+F4U_1D:defineFloat("OXYGEN_FLOW_BLINKER", 33, { 0, 1 }, O2_SYSTEM, "Oxygen Flow Blinker")
+F4U_1D:reserveIntValue(65535) -- oxygen bottle valvue, not currently implamented uses arg 177 for turning animation
+F4U_1D:reserveIntValue(65535) -- oxygen flow valvue, not currently implamented uses arg 277 for turning animation
 
 -- Navigation Antenna Control
 -- local NAV_ANTENNA = "Navigation Antenna"
