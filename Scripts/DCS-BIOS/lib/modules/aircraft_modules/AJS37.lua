@@ -168,7 +168,7 @@ AJS37:definePushButton("CANOPY_JETTISON", 22, 3407, 210, "Flight Data Unit", "Ca
 AJS37:definePushButton("COUNTERMEASURE_FAST_RELEASE", 22, 3001, 184, "Flight Data Unit", "Countermeasure Fast Release")
 AJS37:defineToggleSwitch("EMERGENCY_ROLL_TRIM", 22, 3716, 390, "Flight Data Unit", "Emergency Roll Trim")
 AJS37:defineToggleSwitch("EMERGENCY_PITCH_TRIM", 22, 3717, 389, "Flight Data Unit", "Emergency Pitch Trim")
-AJS37:defineToggleSwitch("EMERGENCY_YAW_TRIM", 22, 3918, 388, "Flight Data Unit", "Emergency Yaw Trim")
+AJS37:defineToggleSwitch("EMERGENCY_YAW_TRIM", 22, 3918, 388, "Flight Data Unit", "Yaw Trim")
 AJS37:defineToggleSwitch("MAG_DEC_COVER", 22, 3742, 1200, "Flight Data Unit", "Magnetic Declination Cover")
 AJS37:defineToggleSwitch("AUTO_YAW_TRIM_COVER", 22, 3741, 493, "Flight Data Unit", "Autopilot Yaw Trim Cover")
 AJS37:defineToggleSwitch("PARKING_BRAKE", 22, 3408, 22, "Flight Data Unit", "Parking Brake")
@@ -418,8 +418,10 @@ AJS37:defineString("AJS37_NAV_INDICATOR_DATA_6", function()
 	return Functions.coerce_nil_to_string(nav_data["data6"])
 end, 1, "Navigation Panel", "Navigation Panel Data Digit 6")
 
-AJS37:defineIndicatorLight("HUVUDVARNING_L", 444, "Front Panel Lights", "Master Caution Light left (red)")
-AJS37:defineIndicatorLight("HUVUDVARNING_R", 445, "Front Panel Lights", "Master Caution Light right (red)")
+local FRONT_PANEL_LIGHTS = "Front Panel Lights"
+
+AJS37:defineIndicatorLight("HUVUDVARNING_L", 444, FRONT_PANEL_LIGHTS, "Master Caution Light left (red)")
+AJS37:defineIndicatorLight("HUVUDVARNING_R", 445, FRONT_PANEL_LIGHTS, "Master Caution Light right (red)")
 
 -- parse dest indicator
 local dest_data = {}
@@ -434,21 +436,21 @@ AJS37:defineString("AJS37_DEST_INDICATOR_DATA_2", function()
 	return Functions.coerce_nil_to_string(dest_data["Dest2"])
 end, 1, "Destination", "Destination Data Digit 2")
 
-AJS37:defineIndicatorLight("ALT_WARNING_LAMP", 450, "Front Panel Lights", "Altitude Warning Lamp (red)")
-AJS37:defineIndicatorLight("FALLD_LAST_LAMP", 461, "Front Panel Lights", "Falld Last (Stores Released) Lamp (red)")
-AJS37:defineIndicatorLight("REV_TRANSONIC_LAMP", 462, "Front Panel Lights", "Revadvr Transonic Lamp (red)")
-AJS37:defineIndicatorLight("AFK_ENABLED_L", 463, "Front Panel Lights", "AFK Enabled Lamp (red)")
-AJS37:defineIndicatorLight("AOA_15_L", 464, "Front Panel Lights", "AOA 15deg Lamp (white)")
-AJS37:defineIndicatorLight("RDR_UR_L", 451, "Front Panel Lights", "Radar Display upper/right Lamp (white)")
-AJS37:defineIndicatorLight("RDR_R_L", 452, "Front Panel Lights", "Radar Display right Lamp (white)")
-AJS37:defineIndicatorLight("RDR_LR_L", 453, "Front Panel Lights", "Radar Display lower/right Lamp (white)")
-AJS37:defineIndicatorLight("RDR_LL_L", 454, "Front Panel Lights", "Radar Display lower/left Lamp (white)")
-AJS37:defineIndicatorLight("RDR_L_L", 455, "Front Panel Lights", "Radar Display left Lamp (white)")
-AJS37:defineIndicatorLight("RDR_UL_L", 456, "Front Panel Lights", "Radar Display upper/left Lamp (white)")
-AJS37:defineIndicatorLight("REVERSAL_L", 460, "Front Panel Lights", "Thrust Reverser Light (green)")
-AJS37:defineGatedIndicatorLight("BURNER_STAGE1_L", 405, 0.3, nil, "Front Panel Lights", "Afterburner Stage 1 Lamp (white)")
-AJS37:defineGatedIndicatorLight("BURNER_STAGE2_L", 405, 0.6, nil, "Front Panel Lights", "Afterburner Stage 2 Lamp (white)")
-AJS37:defineGatedIndicatorLight("BURNER_STAGE3_L", 405, 0.9, nil, "Front Panel Lights", "Afterburner Stage 3 Lamp (white)")
+AJS37:defineIndicatorLight("ALT_WARNING_LAMP", 450, FRONT_PANEL_LIGHTS, "Altitude Warning Lamp (red)")
+AJS37:defineIndicatorLight("FALLD_LAST_LAMP", 461, FRONT_PANEL_LIGHTS, "Falld Last (Stores Released) Lamp (red)")
+AJS37:defineIndicatorLight("REV_TRANSONIC_LAMP", 462, FRONT_PANEL_LIGHTS, "Revadvr Transonic Lamp (red)")
+AJS37:defineIndicatorLight("AFK_ENABLED_L", 463, FRONT_PANEL_LIGHTS, "AFK Enabled Lamp (red)")
+AJS37:defineIndicatorLight("AOA_15_L", 464, FRONT_PANEL_LIGHTS, "AOA 15deg Lamp (white)")
+AJS37:defineIndicatorLight("RDR_UR_L", 451, FRONT_PANEL_LIGHTS, "Radar Display upper/right Lamp (white)")
+AJS37:defineIndicatorLight("RDR_R_L", 452, FRONT_PANEL_LIGHTS, "Radar Display right Lamp (white)")
+AJS37:defineIndicatorLight("RDR_LR_L", 453, FRONT_PANEL_LIGHTS, "Radar Display lower/right Lamp (white)")
+AJS37:defineIndicatorLight("RDR_LL_L", 454, FRONT_PANEL_LIGHTS, "Radar Display lower/left Lamp (white)")
+AJS37:defineIndicatorLight("RDR_L_L", 455, FRONT_PANEL_LIGHTS, "Radar Display left Lamp (white)")
+AJS37:defineIndicatorLight("RDR_UL_L", 456, FRONT_PANEL_LIGHTS, "Radar Display upper/left Lamp (white)")
+AJS37:defineIndicatorLight("REVERSAL_L", 460, FRONT_PANEL_LIGHTS, "Thrust Reverser Light (green)")
+AJS37:defineGatedIndicatorLight("BURNER_STAGE1_L", 405, 0.3, nil, FRONT_PANEL_LIGHTS, "Afterburner Stage 1 Lamp (white)")
+AJS37:defineGatedIndicatorLight("BURNER_STAGE2_L", 405, 0.6, nil, FRONT_PANEL_LIGHTS, "Afterburner Stage 2 Lamp (white)")
+AJS37:defineGatedIndicatorLight("BURNER_STAGE3_L", 405, 0.9, nil, FRONT_PANEL_LIGHTS, "Afterburner Stage 3 Lamp (white)")
 AJS37:definePushButton("SNABBRESNING", 22, 3091, 0, "Radar", "Snabbresning") --No Arg left bottom radar display
 AJS37:define3PosTumb("SEAT_HEIGHT", 22, 3404, 212, "Flight Data Unit", "Seat Height Adjustment")
 AJS37:definePotentiometer("AIRSPEED_INDEXER", 22, 3410, 104, { 0, 1 }, "Flight Data Unit", "Airspeed Indexer")
@@ -593,5 +595,49 @@ AJS37:defineFloat("INDICATOR_LIGHTS_BRIGHTNESS", 448, { 1, 0 }, LIGHTS, "Indicat
 
 AJS37:defineIndicatorLight("ERROR_PANEL_BLANK", 447, ERROR_PANEL, "Blank Line (green)")
 AJS37:defineIndicatorLight("ERROR_PANEL_OLJETEMP", 449, ERROR_PANEL, "Oil Temperature (yellow)")
+
+--- @param dev0 CockpitDevice
+--- @return number range
+local function radar_range(dev0)
+	local raw_value = dev0:get_argument_value(3000)
+
+	if raw_value < 0.01 then
+		return 0
+	end
+
+	if raw_value < 0.19 then
+		return 1
+	end
+
+	if raw_value < 0.29 then
+		return 2
+	end
+
+	if raw_value < 0.39 then
+		return 3
+	end
+
+	return 4
+end
+
+--- @param dev0 CockpitDevice
+--- @param expected number the expected result
+--- @return number on_off 1 for on, 0 for off
+local function radar_range_binary(dev0, expected)
+	return radar_range(dev0) == expected and 1 or 0
+end
+
+AJS37:defineIntegerFromGetter("RDR_RANGE_15_L", function(dev0)
+	return radar_range_binary(dev0, 1)
+end, 1, FRONT_PANEL_LIGHTS, "Radar Display Range 15 Lamp (red)")
+AJS37:defineIntegerFromGetter("RDR_RANGE_30_L", function(dev0)
+	return radar_range_binary(dev0, 2)
+end, 1, FRONT_PANEL_LIGHTS, "Radar Display Range 30 Lamp (red)")
+AJS37:defineIntegerFromGetter("RDR_RANGE_60_L", function(dev0)
+	return radar_range_binary(dev0, 3)
+end, 1, FRONT_PANEL_LIGHTS, "Radar Display Range 60 Lamp (red)")
+AJS37:defineIntegerFromGetter("RDR_RANGE_120_L", function(dev0)
+	return radar_range_binary(dev0, 4)
+end, 1, FRONT_PANEL_LIGHTS, "Radar Display Range 120 Lamp (red)")
 
 return AJS37
