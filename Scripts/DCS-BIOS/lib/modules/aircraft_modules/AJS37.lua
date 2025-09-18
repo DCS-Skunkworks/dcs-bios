@@ -13,6 +13,10 @@ local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 --- @class AJS37: Module
 local AJS37 = Module:new("AJS37", 0x4600, { "AJS37" })
 
+local devices = {
+	LIGHTS = 17,
+}
+
 --overhaul by WarLord v1.0a
 --remove Arg# Pilot 3333
 
@@ -98,16 +102,18 @@ AJS37:definePushButton("NAV_SELECT_BTN_LS", 12, 3009, 270, "Navigation", "Naviga
 AJS37:definePushButton("NAV_SELECT_BTN_L_MAL", 12, 3008, 281, "Navigation", "Navigation Selector Button L MAL")
 
 --Lights
-AJS37:defineToggleSwitch("ANTI_COLLISION_LIGHTS", 17, 3001, 250, "Lights", "Anti Collision Lights")
-AJS37:define3PosTumb("NAVIGATION_LIGHTS", 17, 3002, 251, "Lights", "Navigation Lights")
-AJS37:defineToggleSwitch("FORMATION_LIGHTS", 17, 3003, 252, "Lights", "Formation Lights")
-AJS37:defineToggleSwitch("POSITION_LIGHTS", 17, 3004, 253, "Lights", "Position Lights")
-AJS37:define3PosTumb("TAXI_LANDING_LIGHTS", 17, 3009, 3554, "Lights", "Taxi/Landing Lights")
-AJS37:defineToggleSwitch("EMERGENCY_LIGHTS", 17, 3010, 3555, "Lights", "Emergency Lights")
-AJS37:definePotentiometer("FLOOD_LIGHTS", 17, 3007, 393, { 0, 1 }, "Lights", "Flood Lights")
-AJS37:definePotentiometer("PANEL_LIGHTS", 17, 3006, 392, { 0, 1 }, "Lights", "Panel Lights")
-AJS37:defineTumb("POSITION_LIGHTS_BRIGHTNESS", 17, 3005, 254, 0.1, { 0, 0.2 }, nil, false, "Lights", "Position Lights Brightness")
-AJS37:definePotentiometer("INSTRUMENT_LIGHTS", 17, 3008, 394, { 0, 1 }, "Lights", "Instrument Lights")
+local LIGHTS = "Lights"
+
+AJS37:defineToggleSwitch("ANTI_COLLISION_LIGHTS", devices.LIGHTS, 3001, 250, LIGHTS, "Anti Collision Lights")
+AJS37:define3PosTumb("NAVIGATION_LIGHTS", devices.LIGHTS, 3002, 251, LIGHTS, "Navigation Lights")
+AJS37:defineToggleSwitch("FORMATION_LIGHTS", devices.LIGHTS, 3003, 252, LIGHTS, "Formation Lights")
+AJS37:defineToggleSwitch("POSITION_LIGHTS", devices.LIGHTS, 3004, 253, LIGHTS, "Position Lights")
+AJS37:define3PosTumb("TAXI_LANDING_LIGHTS", devices.LIGHTS, 3009, 3554, LIGHTS, "Taxi/Landing Lights")
+AJS37:defineToggleSwitch("EMERGENCY_LIGHTS", devices.LIGHTS, 3010, 3555, LIGHTS, "Emergency Lights")
+AJS37:definePotentiometer("FLOOD_LIGHTS", devices.LIGHTS, 3007, 393, { 0, 1 }, LIGHTS, "Flood Lights")
+AJS37:definePotentiometer("PANEL_LIGHTS", devices.LIGHTS, 3006, 392, { 0, 1 }, LIGHTS, "Panel Lights")
+AJS37:defineTumb("POSITION_LIGHTS_BRIGHTNESS", devices.LIGHTS, 3005, 254, 0.1, { 0, 0.2 }, nil, false, LIGHTS, "Position Lights Brightness")
+AJS37:definePotentiometer("INSTRUMENT_LIGHTS", devices.LIGHTS, 3008, 394, { 0, 1 }, LIGHTS, "Instrument Lights")
 
 --Engine Panel
 AJS37:defineToggleSwitch("START_SYSTEM", 18, 3001, 206, "Engine Panel", "Start System")
@@ -579,5 +585,8 @@ AJS37:defineFixedStepTumb("FR22_BASE", 30, 3230, 492, 1 / 100, { 0, 0.85 }, { -1
 local group_output_map = { "--", "10", "11", "12", "13", "14", "15", "20", "21", "22", "23", "24", "25", "30", "31", "32", "33", "40", "41", "42", "43", "44", "45", "50", "51", "52", "53", "54", "55", "60", "61", "62", "63", "64", "70", "71", "72", "73", "74", "80", "81", "82", "T3", "--" }
 
 AJS37:defineFixedStepTumb("FR22_GROUP", 30, 3307, 360, 1 / 100, { 0, 0.43 }, { -1, 1 }, group_output_map, "FR22 Radio", "FR22 Group Selector")
+
+AJS37:defineToggleSwitch("INDICATOR_LIGHTS_BRIGHTNESS_SWITCH", devices.LIGHTS, 3021, 3553, LIGHTS, "Indicator Lights Brightness Switch")
+AJS37:defineFloat("INDICATOR_LIGHTS_BRIGHTNESS", 448, { 1, 0 }, LIGHTS, "Indicator Lights Brightness")
 
 return AJS37
