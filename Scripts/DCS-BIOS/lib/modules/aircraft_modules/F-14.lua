@@ -529,7 +529,7 @@ F_14:define3PosTumb("RIO_CMDS_PW", 5, 3267, 390, "CMDS", "RIO AN/ALE-37 Power/Mo
 F_14:define3PosTumb("RIO_CMDS_DISP_CHAFF", 5, 3269, 389, "CMDS", "RIO AN/ALE-37 Chaff Dispense")
 F_14:define3PosTumb("RIO_CMDS_DISP_FLAR", 5, 3270, 388, "CMDS", "RIO AN/ALE-37 Flare Dispense")
 F_14:define3PosTumb("RIO_CMDS_DISP_JAMMER", 5, 3271, 387, "CMDS", "RIO AN/ALE-37 Jammer Dispense")
-F_14:define3PosTumb("RIO_CMDS_FLAREMODE", 5, 3272, 398, "CMDS", "RIO AN/ALE-37 Flare Mode")
+F_14:define3PosTumb("RIO_CMDS_FLAREMODE", 5, 3273, 398, "CMDS", "RIO AN/ALE-37 Flare Mode")
 F_14:definePushButton("RIO_CMDS_FLARE_SALVO", 5, 3272, 391, "CMDS", "RIO AN/ALE-37 Flare Salvo")
 F_14:definePotentiometer("RIO_CMDS_COUNT_CHAFF", 5, 3275, 386, { 0, 1 }, "CMDS", "AN/ALE-37 Chaff Counter")
 F_14:definePotentiometer("RIO_CMDS_COUNT_FLARE", 5, 3277, 385, { 0, 1 }, "CMDS", "AN/ALE-37 Flare Counter")
