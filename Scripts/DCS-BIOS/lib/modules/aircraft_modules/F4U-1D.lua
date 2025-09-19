@@ -373,7 +373,9 @@ F4U_1D:defineToggleSwitch("RIGHT_CIRCUIT_BREAKER_INSTRUMENT_RELAY", devices.BREA
 -- includes flow indicator
 
 -- Navigation Antenna Control
--- local NAV_ANTENNA = "Navigation Antenna"
+local NAV_ANTENNA = "Navigation Antenna"
+
+F4U_1D:reserveIntValue(2) -- nav antenna control not currently implemented, draw arg 36 is for the adjusting handle
 
 F4U_1D:reserveIntValue(2) -- nav antenna control not currently implemented, draw arg 36 is for the adjusting handle
 
