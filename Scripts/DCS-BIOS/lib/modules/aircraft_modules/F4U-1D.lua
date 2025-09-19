@@ -358,6 +358,16 @@ F4U_1D:definePotentiometer("PILOT_DISTRO_RIGHT_INSTRUMENT_BOARD_LIGHT_KNOB", dev
 
 F4U_1D:reserveIntValue(2) --F4U_1D:define3PosTumb("ARRESTING_HOOK_CONTROL", devices.CONTROL, 3501, 202, HOOK, "Arresting Hook Control (Down/Parking/Up)")
 
+-- Rear Right Circuit Breaker Panel
+local RIGHT_CIRCUIT_BREAKER = "Rear Right Circuit Breaker Panel"
+
+F4U_1D:defineToggleSwitch("RIGHT_CIRCUIT_BREAKER_IFF_RADIO", devices.BREAKERS, 3866, 148, RIGHT_CIRCUIT_BREAKER, "IFF/Radio CB")
+F4U_1D:defineToggleSwitch("RIGHT_CIRCUIT_BREAKER_EXTERNAL_LIGHTS", devices.BREAKERS, 3867, 149, RIGHT_CIRCUIT_BREAKER, "External Lights CB")
+F4U_1D:defineToggleSwitch("RIGHT_CIRCUIT_BREAKER_RECOGNITION_LIGHTS", devices.BREAKERS, 3868, 150, RIGHT_CIRCUIT_BREAKER, "Recognition Lights CB")
+F4U_1D:defineToggleSwitch("RIGHT_CIRCUIT_BREAKER_STARTER", devices.BREAKERS, 3869, 151, RIGHT_CIRCUIT_BREAKER, "Starter CB")
+F4U_1D:defineToggleSwitch("RIGHT_CIRCUIT_BREAKER_INERTIA_SWITCH", devices.BREAKERS, 3870, 152, RIGHT_CIRCUIT_BREAKER, "Inertia Switch CB")
+F4U_1D:defineToggleSwitch("RIGHT_CIRCUIT_BREAKER_INSTRUMENT_RELAY", devices.BREAKERS, 3871, 153, RIGHT_CIRCUIT_BREAKER, "Instrument Relay CB")
+
 -- Oxygen System
 -- local O2_SYSTEM = "Oxygen System"
 -- includes flow indicator
