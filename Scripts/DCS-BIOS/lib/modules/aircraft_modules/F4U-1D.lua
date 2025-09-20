@@ -376,7 +376,12 @@ F4U_1D:defineToggleSwitch("RIGHT_CIRCUIT_BREAKER_INSTRUMENT_RELAY", devices.BREA
 -- local NAV_ANTENNA = "Navigation Antenna"
 
 -- C-26/ARC-5
--- local C26 = "Receiver Control Box"
+local C26 = "Receiver Control Box"
+
+F4U_1D:defineToggleSwitch("RECEIVER_C26_CW_VOICE_SWITCH", devices.RADIONAV, 3613, 096, C26, "Receiver C-26 CW/Voice Switch")
+F4U_1D:definePotentiometer("RECEIVER_C26_FREQUENCY_ROTARY", devices.RADIONAV, 3614, 097, { 0, 1 }, C26, "Receiver C-26 Frequency Rotary")
+F4U_1D:definePotentiometer("RECEIVER_C26_SENSITIVITY_ROTARY", devices.RADIONAV, 3615, 098, { 0, 1 }, C26, "Receiver C-26 Sensitivity Rotary")
+F4U_1D:defineFloat("RECEIVER_C26_FREQUENCY_DIAL", 94, { 0, 1 }, C26, "Receiver C-26 Frequency Dial")
 
 -- C-30A/ARC-5
 -- local C30A = "C-30A/ARC-5 Control Unit"
