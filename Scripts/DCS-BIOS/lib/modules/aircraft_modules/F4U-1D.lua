@@ -369,8 +369,13 @@ F4U_1D:defineToggleSwitch("RIGHT_CIRCUIT_BREAKER_INERTIA_SWITCH", devices.BREAKE
 F4U_1D:defineToggleSwitch("RIGHT_CIRCUIT_BREAKER_INSTRUMENT_RELAY", devices.BREAKERS, 3871, 153, RIGHT_CIRCUIT_BREAKER, "Instrument Relay CB")
 
 -- Oxygen System
--- local O2_SYSTEM = "Oxygen System"
--- includes flow indicator
+local O2_SYSTEM = "Oxygen System"
+
+F4U_1D:defineFloat("OXYGEN_PRESSURE_GAUGE", 34, { 0, 1 }, O2_SYSTEM, "Oxygen Pressure Gauge")
+F4U_1D:defineFloat("OXYGEN_FLOW_BLINKER", 33, { 0, 1 }, O2_SYSTEM, "Oxygen Flow Blinker")
+F4U_1D:reserveIntValue(65535) -- oxygen bottle valve, not currently implemented uses arg 177 for turning animation
+F4U_1D:reserveIntValue(65535) -- oxygen flow valve, not currently implemented uses arg 277 for turning animation
+F4U_1D:reserveIntValue(1) -- oxygen valve Lever, not currently implemented uses arg 377 for turning animation
 
 -- Navigation Antenna Control
 -- local NAV_ANTENNA = "Navigation Antenna"
