@@ -104,30 +104,37 @@ function TextDisplay.GetDisplayLinesWithColor(dcsDisplay, width, height, display
 				if not ri.alignment or ri.alignment == "LFT" then
 					for i = 1, v:len(), 1 do
 						local c = v:sub(i, i)
-						if c ~= " " then
-							replacements[ri.x + i - 1] = c
-							if has_color then
-								color_replacements[ri.x + i - 1] = ri.color
-							end
+						replacements[ri.x + i - 1] = c
+						if has_color then
+							color_replacements[ri.x + i - 1] = ri.color
 						end
 					end
 				elseif ri.alignment == "RGHT" then
 					for i = 1, v:len(), 1 do
 						local c = v:sub(i, i)
-						if c ~= " " then
-							replacements[ri.x - (v:len() - i)] = c
-							if has_color then
-								color_replacements[ri.x - (v:len() - i)] = ri.color
-							end
+						replacements[ri.x - (v:len() - i)] = c
+						if has_color then
+							color_replacements[ri.x - (v:len() - i)] = ri.color
 						end
 					end
 				end
 				local new_line = ""
 				local new_color = ""
 				for i = 1, width, 1 do
-					new_line = new_line .. (replacements[i] or old_line:sub(i, i))
-					if has_color then
-						new_color = new_color .. (color_replacements[i] or old_color:sub(i, i))
+					local replacement_char = replacements[i]
+					if replacement_char and replacement_char ~= " " then -- don't overwrite for blank spaces
+						new_line = new_line .. replacement_char
+						new_color = new_color .. (has_color and color_replacements[i] or old_color:sub(i, i))
+					else
+						new_line = new_line .. old_line:sub(i, i)
+						local original_color = old_color:sub(i, i)
+						if original_color ~= " " then
+							-- if we have a definite existing color, use it
+							new_color = new_color .. original_color
+						else
+							-- otherwise, we can try the replacement
+							new_color = new_color .. (has_color and color_replacements[i] or original_color)
+						end
 					end
 				end
 				displayLines[ri.y] = new_line

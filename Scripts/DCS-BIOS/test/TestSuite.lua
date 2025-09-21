@@ -9,6 +9,7 @@ require("Scripts.DCS-BIOS.test.ParseCockpitParamsTest") -- unit tests for the pa
 require("Scripts.DCS-BIOS.test.ParseIndicationTest") -- unit tests for the parse_indication function
 require("Scripts.DCS-BIOS.test.ServerTest") -- unit tests for tcp/udp server code
 require("Scripts.DCS-BIOS.test.StateMachineTest") -- unit tests for the core state machine loop
+require("Scripts.DCS-BIOS.test.TextDisplayTest") -- unit tests for the TextDisplay class
 
 local lu = require("Scripts.DCS-BIOS.test.ext.luaunit")
 os.exit(lu.LuaUnit:run())
