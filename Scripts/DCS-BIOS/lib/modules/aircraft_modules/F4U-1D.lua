@@ -375,6 +375,8 @@ F4U_1D:defineToggleSwitch("RIGHT_CIRCUIT_BREAKER_INSTRUMENT_RELAY", devices.BREA
 -- Navigation Antenna Control
 -- local NAV_ANTENNA = "Navigation Antenna"
 
+F4U_1D:reserveIntValue(1) -- nav antenna control not currently implemented, draw arg 36 is for the adjusting handle
+
 -- C-26/ARC-5
 -- local C26 = "Receiver Control Box"
 
