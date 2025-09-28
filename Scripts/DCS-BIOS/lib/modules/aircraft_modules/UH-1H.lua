@@ -338,7 +338,7 @@ local function getUhfFreq(dev0)
 	local function a(n)
 		return dev0:get_argument_value(n)
 	end
-	return string.format("%.0f%.0f%.0f.%.0f%.0f", 2 + a(10), a(11) * 10, a(12) * 10, a(13) * 10, a(14) * 10) .. "." .. string.format("%.0f", a(12) * 10)
+	return string.format("%.0f%.0f%.0f.%.0f%.0f", 2 + a(10), a(11) * 10, a(12) * 10, a(13) * 10, a(14) * 10)
 end
 UH_1H:defineString("UHF_FREQ", getUhfFreq, 6, "UHF Radio", "UHF Frequency")
 
