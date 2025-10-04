@@ -72,4 +72,66 @@ local devices = {
 	SO69 = 64,
 }
 
+-- Flight controls
+
+-- Control & Test pannel
+
+-- Electrical power pannel
+
+-- System power pannel
+
+-- Engine & APU start pannel
+
+-- Illumination controls (internal)
+
+-- Lights controls (external)
+
+-- RHAW SPO-15 RWR
+
+-- Caution/Warning light pannel
+
+-- A-323 Navigation control pannel
+
+-- Indicators & Instruments
+
+-- Oxygen system
+
+-- Air conditionning
+
+-- Emergency control pannel
+
+-- Flaps controls
+
+-- R-862 VHF / UHF control pannel
+
+-- ADF control pannel
+
+-- Engine emergency pannel
+
+-- PSR-31 Weapon controls panel
+
+-- AFCS Autopilot control pannel
+
+-- PUR-31 Radar control pannel
+
+-- HUD control pannel
+
+-- HDD control pannel
+
+-- Countermeasures control panel
+
+-- Canopy controls
+
+-- Refueling pannel
+
+-- AEKRAN warning system
+
+-- Voice information and warning system (VIWAS) controls
+
+-- Guidance system panel (Not available)
+
+-- IFF transponder (Not available)
+
+-- KD system panel (Not available)
+
 return MiG_29A
