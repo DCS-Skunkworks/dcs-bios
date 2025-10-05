@@ -3,7 +3,7 @@ module("MiG-29A", package.seeall)
 local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 
 --- @class MiG_29A: Module
-local MiG_29A = Module:new("MiG-29A", 0x3c00, { "MiG-29A" })
+local MiG_29A = Module:new("MiG-29 Fulcrum", 0x3c00, { "MiG-29 Fulcrum" })
 
 local devices = {
 	FM_PROXY = 1,
@@ -72,7 +72,11 @@ local devices = {
 	SO69 = 64,
 }
 
--- Flight controls
+-- Stick
+
+-- Throttle
+
+-- Pedals
 
 -- Control & Test pannel
 
@@ -82,17 +86,69 @@ local devices = {
 
 -- Engine & APU start pannel
 
--- Illumination controls (internal)
+-- AFT lightning control panel
+
+-- FWD lightning control pane
 
 -- Lights controls (external)
 
--- RHAW SPO-15 RWR
+-- AOA
 
--- Caution/Warning light pannel
+-- Master caution
+
+-- Air speed
+
+-- Altimiter
+
+-- Flaps / Landing gear indicator
+
+-- ADI
+
+-- HSI
+
+-- Combined indicator (VVI/Turn/Slip indicator)
+
+-- TAS indicator
+
+-- Clock
+
+-- ADF mode toggle switch
+
+-- Nose wheel brake
+
+-- Radar altimiter
+
+-- Counter measure pannel
+
+-- Gas temperature meters
+
+-- Fuel flow indicator
+
+-- Combined oxygen indicator
+
+-- Combined pressure indicator
+
+-- Air duct ramp indicator
+
+-- RPM indicator
+
+-- Voltmeter
+
+-- Hydrolique pressure
+
+-- SPO-15 RWR
+
+-- Canopy jettison
+
+-- Canopy indicator
+
+-- Cabine air controls
+
+-- Tally light pannel
 
 -- A-323 Navigation control pannel
 
--- Indicators & Instruments
+-- Lower center console
 
 -- Oxygen system
 
@@ -114,24 +170,38 @@ local devices = {
 
 -- PUR-31 Radar control pannel
 
--- HUD control pannel
+-- HUD control pannel (With sun visor controls)
 
 -- HDD control pannel
-
--- Countermeasures control panel
 
 -- Canopy controls
 
 -- Refueling pannel
 
--- AEKRAN warning system
+-- EKRAN warning system
 
 -- Voice information and warning system (VIWAS) controls
 
--- Guidance system panel (Not available)
+-- Left wall
 
--- IFF transponder (Not available)
+-- Chut controls
 
--- KD system panel (Not available)
+-- Mirrors
+
+-- Emergency landing gear
+
+-- Weapon settings pannel
+
+-- Ejection handle
+
+-- Interior Lights
+
+-- Interior Model
+
+-- Exterior Lights
+
+-- Exterior Model
+
+-- Radios
 
 return MiG_29A
