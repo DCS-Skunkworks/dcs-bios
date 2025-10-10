@@ -165,6 +165,10 @@ function TestAircraft:testMiG_21Bis()
 	self:validateModule(require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.MiG-21Bis"), "MiG-21Bis", 0x2200)
 end
 
+function TestAircraft:testMiG_29A()
+	self:validateModule(require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.MiG-29A"), "MiG-29 Fulcrum", 0x3c00)
+end
+
 function TestAircraft:testMirageF1()
 	self:validateModule(require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.MirageF1"), "MirageF1", 0x8600)
 end

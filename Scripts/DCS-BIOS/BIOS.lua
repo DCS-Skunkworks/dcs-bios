@@ -60,6 +60,7 @@ local modules = {
 	require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.MiG-15bis"),
 	require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.MiG-19P"),
 	require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.MiG-21Bis"),
+	require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.MiG-29A"),
 	require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.Mosquito"),
 	require("Scripts.DCS-BIOS.lib.modules.common_modules.NS430"),
 	require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.OH-58D"),
