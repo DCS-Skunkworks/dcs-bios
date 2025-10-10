@@ -79,19 +79,17 @@ DCS-BIOS is an `Export.lua` script for use with [DCS: World][dcs-url], enabling 
 
 ## Getting Started
 
-Getting started with DCS-BIOS is easy! Just follow these simple steps.
+Getting started with DCS-BIOS is easy! Just follow these simple steps. 
 
 ### Prerequisites
 
 #### Find your DCS Scripts folder
 
 Start by finding your DCS Saved Games folder. On Windows, this is likely either:
-
 - `C:\Users\USERNAME\Saved Games\DCS`
 - `C:\Users\USERNAME\Saved Games\DCS.openbeta`
 
 Within that folder, you find the folder called `Scripts`. Create one if it does not exist. The final path should look like:
-
 - `C:\Users\USERNAME\Saved Games\DCS\Scripts`
 - `C:\Users\USERNAME\Saved Games\DCS.openbeta\Scripts`
 
@@ -105,8 +103,8 @@ Within that folder, you find the folder called `Scripts`. Create one if it does 
 3. Extract the zip file
 4. Within the extracted folder, copy the `DCS-BIOS` folder into the previously mentioned scripts folder.
 5. **If your Scripts folder does not have an `Export.lua` file**, copy the `Export.lua` file over
-6. **If your scripts folder _does_ have an `Export.lua` file**, add the following line to the end
-   `dofile(lfs.writedir() .. [[Scripts\DCS-BIOS\BIOS.lua]])`
+6. **If your scripts folder _does_ have an `Export.lua` file**, add the following line to the end 
+```dofile(lfs.writedir() .. [[Scripts\DCS-BIOS\BIOS.lua]])```
 
 > [!Tip]
 > Still having trouble? Check out our [wiki][wiki-url], ask a question in [Discussions][discussions-url] or get in touch on [Discord][discord-url].
@@ -153,65 +151,63 @@ There are also a variety of client libraries available, including (but not limit
 Currently, DCS-BIOS supports the following aircraft modules:
 
 ### Official
-
-| Module                       | Status | Contributors                                                    |
-| ---------------------------- | ------ | --------------------------------------------------------------- |
-| A-10C/A10C-II                | ✅     | _FSF-Ian, WarLord_                                              |
-| AH-64D                       | ✅     | _WarLord_                                                       |
-| AJS-37                       | ✅     | _pdmarsh, WarLord, ArturDCS, Matchstick_                        |
-| AV-8B N/A                    | ✅     | _WarLord, Matchstick_                                           |
-| Bf-109-K-4                   | ✅     | _ArturDCS_                                                      |
-| C-101CC/EB                   | ✅     | _WarLord, cdpkobra_                                             |
-| CH-47F                       | ✅     |                                                                 |
-| Christen Eagle II            | ✅     | _WarLord, cdpkobra_                                             |
-| F-14A/B                      | ✅     | _WarLord, ArturDCS, Bullitt_                                    |
-| F-15E                        | ✅     | _WarLord, Maverick87Shaka_                                      |
-| F-16C                        | ✅     | _WarLord, cdpkobra, Matchstick, BuzzKillington_                 |
-| F-4E                         | ✅     |                                                                 |
-| F-5E-3                       | ✅     | _geebeer2, WarLord_                                             |
-| F-86F                        | ✅     | _ArturDCS_                                                      |
-| F4U-1D                       | 🚧     | _[WIP](https://github.com/DCS-Skunkworks/dcs-bios/issues/1146)_ |
-| F/A-18C                      | ✅     | _AndrewW_                                                       |
-| Fw 190 A-8                   | ✅     | _WarLord, MD44_                                                 |
-| Fw 190 D-9                   | ✅     | _ArturDCS_                                                      |
-| I-16                         | ✅     | _WarLord, NightStalker_                                         |
-| JF-17                        | ✅     | _WarLord, cdpkobra_                                             |
-| Ka-50/Ka-50 3                | ✅     | _airtom, WarLord_                                               |
-| L-39ZA/C                     | ✅     | _kadda11, WarLord_                                              |
-| M-2000C                      | ✅     | _Exo7, ArturDCS, Matchstick_                                    |
-| MB-339                       | ✅     | _WarLord_                                                       |
-| Mi-8MTV2                     | ✅     | _ArturDCS, WarLord_                                             |
-| Mi-24P                       | ✅     | _WarLord, BaD CrC_                                              |
-| MiG-15bis                    | ✅     | _WarLord, Steve Gee_                                            |
-| MiG-19P                      | ✅     | _WarLord_                                                       |
-| MiG-21Bis                    | ✅     | _wraith444_                                                     |
-| MiG-29 Fulcrum               | 🚧     | _[WIP](https://github.com/DCS-Skunkworks/dcs-bios/issues/1285)_ |
-| Mirage F1                    | ✅     | _WarLord_                                                       |
-| Mosquito FB Mk.VI            | ✅     | _WarLord_                                                       |
-| OH-58D                       | ✅     |                                                                 |
-| P-47D                        | ✅     | _WarLord, Donators_                                             |
-| P-51D/TF-51D                 | ✅     | _pdmarsh_                                                       |
-| Spitfire LF Mk. IX           | ✅     | _WarLord_                                                       |
-| SA342                        | ✅     |                                                                 |
-| UH-1H                        | ✅     | _FSF-Ian_                                                       |
-| Yak-52                       | ✅     | _WarLord, cdpkobra_                                             |
-| Flaming Cliffs (all modules) | ✅     | _danvac, WarLord_                                               |
+| Module | Status | Contributors |
+|-|-|-|
+| A-10C/A10C-II | ✅ | _FSF-Ian, WarLord_ |
+| AH-64D | ✅ | _WarLord_ |
+| AJS-37 | ✅ | _pdmarsh, WarLord, ArturDCS, Matchstick_ |
+| AV-8B N/A | ✅ | _WarLord, Matchstick_ |
+| Bf-109-K-4 | ✅ | _ArturDCS_ |
+| C-101CC/EB | ✅ | _WarLord, cdpkobra_ |
+| CH-47F | ✅ | |
+| Christen Eagle II | ✅ | _WarLord, cdpkobra_ |
+| F-14A/B | ✅ | _WarLord, ArturDCS, Bullitt_ |
+| F-15E | ✅ | _WarLord, Maverick87Shaka_ |
+| F-16C | ✅ | _WarLord, cdpkobra, Matchstick, BuzzKillington_ |
+| F-4E | ✅ | |
+| F-5E-3 | ✅ | _geebeer2, WarLord_ |
+| F-86F | ✅ | _ArturDCS_ |
+| F4U-1D | 🚧 | _[WIP](https://github.com/DCS-Skunkworks/dcs-bios/issues/1146)_ |
+| F/A-18C | ✅ | _AndrewW_ |
+| Fw 190 A-8 | ✅ | _WarLord, MD44_ |
+| Fw 190 D-9 | ✅ | _ArturDCS_ |
+| I-16 | ✅ | _WarLord, NightStalker_ |
+| JF-17 | ✅ | _WarLord, cdpkobra_ |
+| Ka-50/Ka-50 3 | ✅ | _airtom, WarLord_ |
+| L-39ZA/C | ✅ | _kadda11, WarLord_ |
+| M-2000C | ✅ | _Exo7, ArturDCS, Matchstick_ |
+| MB-339 | ✅ | _WarLord_ |
+| Mi-8MTV2 | ✅ | _ArturDCS, WarLord_ |
+| Mi-24P | ✅ | _WarLord, BaD CrC_ |
+| MiG-15bis | ✅ | _WarLord, Steve Gee_ |
+| MiG-19P | ✅ | _WarLord_ |
+| MiG-21Bis | ✅ | _wraith444_ |
+| MiG-29 Fulcrum | 🚧 | _[WIP](https://github.com/DCS-Skunkworks/dcs-bios/issues/1285)_ |
+| Mirage F1 | ✅ | _WarLord_ |
+| Mosquito FB Mk.VI | ✅ | _WarLord_ |
+| OH-58D | ✅ | |
+| P-47D | ✅ | _WarLord, Donators_ |
+| P-51D/TF-51D | ✅ | _pdmarsh_ |
+| Spitfire LF Mk. IX | ✅ | _WarLord_ |
+| SA342 | ✅ |  |
+| UH-1H | ✅ | _FSF-Ian_ |
+| Yak-52 | ✅ | _WarLord, cdpkobra_ |
+| Flaming Cliffs (all modules) | ✅ | _danvac, WarLord_ |
 
 ### Full-Fidelity Mods
 
-| Module               | Status | Contributors       | Link                                                                                                   |
-| -------------------- | ------ | ------------------ | ------------------------------------------------------------------------------------------------------ |
-| A-4E-C               | ✅     | _Dehuman, WarLord_ | [GitHub](https://github.com/heclak/community-a4e-c)                                                    |
-| A-29B                | ✅     | _WarLord_          | [GitHub](https://github.com/luizrenault/a-29b-community)                                               |
-| AH-6J                | ✅     | _WarLord_          | [DCS Forums](https://forum.dcs.world/topic/228394-helicopter-efm-demo)                                 |
-| Alphajet             | ✅     | _WarLord_          | [Developer](http://www.jetesons.com/telechargement.html)                                               |
-| Edge-540/Extra-330SR | ✅     | _WarLord_          | [Developer](http://virtualairrace.com/downloads/)                                                      |
-| F-18E/F/G            | ✅     |                    | [DCS Forums](https://forum.dcs.world/topic/316971-cjs-super-hornet-community-mod-v23-official-thread/) |
-| F-22A                | ✅     | _WarLord_          | [Developer](https://grinnellidesigns.com/f22)                                                          |
-| T-45                 | ✅     | _WarLord_          | [DCS Forums](https://forum.dcs.world/topic/203816-vnao-t-45-goshawk/)                                  |
+| Module | Status | Contributors | Link |
+|-|-|-|-|
+| A-4E-C | ✅ | _Dehuman, WarLord_ | [GitHub](https://github.com/heclak/community-a4e-c) |
+| A-29B | ✅ | _WarLord_ | [GitHub](https://github.com/luizrenault/a-29b-community) |
+| AH-6J | ✅ | _WarLord_ | [DCS Forums](https://forum.dcs.world/topic/228394-helicopter-efm-demo) |
+| Alphajet | ✅ | _WarLord_ | [Developer](http://www.jetesons.com/telechargement.html) |
+| Edge-540/Extra-330SR | ✅ | _WarLord_ | [Developer](http://virtualairrace.com/downloads/) |
+| F-18E/F/G | ✅ |  | [DCS Forums](https://forum.dcs.world/topic/316971-cjs-super-hornet-community-mod-v23-official-thread/) |
+| F-22A | ✅ | _WarLord_ | [Developer](https://grinnellidesigns.com/f22) |
+| T-45 | ✅ | _WarLord_ | [DCS Forums](https://forum.dcs.world/topic/203816-vnao-t-45-goshawk/) |
 
 ### Flaming Cliffs Mods
-
 - AC-130
 - Civil Aircraft mod
 - MIG-23UB Project
@@ -222,6 +218,7 @@ Currently, DCS-BIOS supports the following aircraft modules:
 - Virtual Cockpits
 - VSN-Mods
 
+
 ### Adding a Mod
 
 DCS-BIOS supports many community mods out-of-the-box.
@@ -231,12 +228,12 @@ In order to a Flaming-Cliffs-based mod which is not supported by DCS-BIOS, add t
 ```lua
 add("PlaneName", false)
 ```
-
 > [!Tip]
 > To get the correct plane name, open the DCS-BIOS Reference Tool (`MetadataStart`) while you fly that plane and look what value `_ACFT_NAME` has.
 
 > [!Important]
 > Please consider submitting a pull request to add support for the module to DCS-BIOS for all users!
+
 
 ## Contributing
 
@@ -278,6 +275,7 @@ For questions, consider asking in our [Discussions][discussions-url] page, or re
 - [BIOSBuddy DCS-BIOS Reference Tool](https://github.com/DCS-Skunkworks/biosbuddy)
 - [DCS-BIOS Bridge](https://github.com/DCS-Skunkworks/dcsbiosbridge)
 
+
 [contributors-shield]: https://img.shields.io/github/contributors/DCS-Skunkworks/dcs-bios.svg?style=for-the-badge
 [contributors-url]: https://github.com/DCS-Skunkworks/dcs-bios/graphs/contributors
 [issues-shield]: https://img.shields.io/github/issues/DCS-Skunkworks/dcs-bios.svg?style=for-the-badge
@@ -291,6 +289,7 @@ For questions, consider asking in our [Discussions][discussions-url] page, or re
 [discord-shield]: https://img.shields.io/discord/533342958712258572?style=for-the-badge
 [discord-url]: https://discord.gg/5svGwKX
 [downloads-shield]: https://img.shields.io/github/downloads/DCS-Skunkworks/dcs-bios/total?style=for-the-badge
+
 [dcs-url]: http://www.digitalcombatsimulator.com
 [original-dcs-bios-url]: https://github.com/dcs-bios/dcs-bios
 [latest-release-url]: https://github.com/DCS-Skunkworks/dcs-bios/releases/latest
@@ -300,4 +299,5 @@ For questions, consider asking in our [Discussions][discussions-url] page, or re
 [dcsbiosbridge-url]: https://github.com/DCS-Skunkworks/DCSBIOSBridge/releases
 [developer-guide-url]: https://github.com/DCS-Skunkworks/dcs-bios/blob/main/Scripts/DCS-BIOS/doc/developerguide.adoc
 [contributing-url]: https://github.com/DCS-Skunkworks/dcs-bios/blob/main/CONTRIBUTING.md
+
 [client-lib-dcs-bios-communicator-url]: https://github.com/charliefoxtwo/DCS-BIOS-Communicator
