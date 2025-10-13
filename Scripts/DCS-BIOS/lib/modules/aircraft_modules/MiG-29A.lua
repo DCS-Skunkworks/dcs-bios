@@ -154,12 +154,9 @@ local devices = {
 local O2_SYSTEM = "Oxygen System"
 
 MiG_29A:defineToggleSwitch("OXYGEN_FLOW_VALVE", devices.AIR_INTERFACE, 3017, 106, O2_SYSTEM, "Oxygen Flow Valve")
-MiG_29A:defineToggleSwitch("OXYGEN_MIX_COVER", devices.AIR_INTERFACE, 3024, 115, O2_SYSTEM, "Oxygen Mixture Switch Cover")
-MiG_29A:defineToggleSwitch("OXYGEN_MIX_SWITCH", devices.AIR_INTERFACE, 3018, 116, O2_SYSTEM, "Oxygen Mixture Switch")
-MiG_29A:defineToggleSwitch("OXYGEN_EMERGENCY_COVER", devices.AIR_INTERFACE, 3026, 117, O2_SYSTEM, "Oxygen Emergency Switch Cover")
-MiG_29A:defineToggleSwitch("OXYGEN_EMERGENCY_SWITCH", devices.AIR_INTERFACE, 3020, 118, O2_SYSTEM, "Oxygen Emergency Switch")
-MiG_29A:defineToggleSwitch("OXYGEN_VENT_HELMET_COVER", devices.AIR_INTERFACE, 3028, 119, O2_SYSTEM, "Oxygen Vent Helmet Switch Cover")
-MiG_29A:defineToggleSwitch("OXYGEN_VENT_HELMET_SWITCH", devices.AIR_INTERFACE, 3022, 120, O2_SYSTEM, "Oxygen Vent Helmet Switch")
+MiG_29A:defineToggleSwitch("OXYGEN_MIX_SWITCH", devices.AIR_INTERFACE, 3018, 115, O2_SYSTEM, "Oxygen Mixture Switch")
+MiG_29A:defineToggleSwitch("OXYGEN_EMERGENCY_SWITCH", devices.AIR_INTERFACE, 3020, 117, O2_SYSTEM, "Oxygen Emergency Switch")
+MiG_29A:defineToggleSwitch("OXYGEN_VENT_HELMET_SWITCH", devices.AIR_INTERFACE, 3022, 119, O2_SYSTEM, "Oxygen Vent Helmet Switch")
 MiG_29A:defineToggleSwitch("OXYGEN_CABIN_EMERGENCY_DECOMPRESSION_SWITCH", devices.AIR_INTERFACE, 3014, 247, O2_SYSTEM, "Cabin Emergency Decompression Switch")
 
 -- Air conditionning
