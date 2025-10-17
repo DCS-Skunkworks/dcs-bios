@@ -1,6 +1,13 @@
 module("MiG-29A", package.seeall)
 
+local Control = require("Scripts.DCS-BIOS.lib.modules.documentation.Control")
+local ControlType = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlType")
+local IntegerOutput = require("Scripts.DCS-BIOS.lib.modules.documentation.IntegerOutput")
 local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
+local SetStateInput = require("Scripts.DCS-BIOS.lib.modules.documentation.SetStateInput")
+local Suffix = require("Scripts.DCS-BIOS.lib.modules.documentation.Suffix")
+
+local Log = require("Scripts.DCS-BIOS.lib.common.Log")
 
 --- @class MiG_29A: Module
 local MiG_29A = Module:new("MiG-29 Fulcrum", 0x3c00, { "MiG-29 Fulcrum" })
@@ -71,6 +78,49 @@ local devices = {
 	INTERROGATOR = 63,
 	SO69 = 64,
 }
+
+function MiG_29A:defineCabinTempSwitch(identifier, device_id, arg_number, category, description)
+	local alloc = self:allocateInt(3)
+	self:addExportHook(function(dev0)
+		local val = MiG_29A.round2(dev0:get_argument_value(arg_number), 2)
+		if val == 0 then
+			alloc:setValue(0)
+		elseif val == 0.15 then
+			alloc:setValue(1)
+		elseif val == 0.45 then
+			alloc:setValue(2)
+		elseif val == 0.75 then
+			alloc:setValue(3)
+		end
+	end)
+
+	local control = Control:new(category, ControlType.toggle_switch, identifier, description, {
+		SetStateInput:new(3, "set the switch position"),
+	}, {
+		IntegerOutput:new(alloc, Suffix.none, "switch position -- 0 = Middle, 1 = UP , 2 = LEFT, 3 = RIGHT"),
+	})
+	self:addControl(control)
+
+	self:addInputProcessor(identifier, function(toState)
+		local dev = GetDevice(device_id)
+
+		Log:log_info("toState is: " .. toState)
+
+		if dev == nil then
+			return
+		end
+
+		if toState == "0" then -- OFF
+			dev:performClickableAction(3001, 0)
+		elseif toState == "1" then -- AUTO
+			dev:performClickableAction(3002, 0.15)
+		elseif toState == "2" then -- HOT
+			dev:performClickableAction(3003, 0.45)
+		elseif toState == "3" then -- COLD
+			dev:performClickableAction(3004, 0.75)
+		end
+	end)
+end
 
 -- Stick
 
@@ -167,7 +217,7 @@ MiG_29A:definePotentiometer("AIR_CONDITIONING_SUIT_VENTILATION_KNOB", devices.AI
 MiG_29A:defineToggleSwitch("AIR_CONDITIONING_COCKPIT_BLOW_DISTRIBUTION_LEVER", devices.AIR_INTERFACE, 3010, 254, AIR_CONDITIONING, "Cockpit air distribution lever OPEN/PILOT")
 MiG_29A:defineToggleSwitch("AIR_CONDITIONING_COCKPIT_AIR_SUPPLY_LEVER", devices.AIR_INTERFACE, 3012, 246, AIR_CONDITIONING, "Cockpit air supply lever OPEN/CLOSED")
 MiG_29A:definePotentiometer("AIR_CONDITIONING_CABIN_TEMP_CONTROL_KNOB", devices.AIR_INTERFACE, 3007, 114, { 0, 0.5 }, AIR_CONDITIONING, "Cabin Temperature Control Knob")
--- Cabin temperature custom 4 way switch
+MiG_29A:defineCabinTempSwitch("AIR_CONDITIONING_CABIN_TEMP_SWITCH", devices.AIR_INTERFACE, 555, AIR_CONDITIONING, "Cabin Temperature Switch")
 
 -- Emergency control pannel
 
