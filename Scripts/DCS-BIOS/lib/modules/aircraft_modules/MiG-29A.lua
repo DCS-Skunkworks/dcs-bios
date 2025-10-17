@@ -81,13 +81,14 @@ function MiG_29A:defineCabinTempSwitch(identifier, device_id, arg_number, catego
 	local alloc = self:allocateInt(3)
 	self:addExportHook(function(dev0)
 		local val = MiG_29A.round2(dev0:get_argument_value(arg_number), 2)
-		if val == 0 then
+
+		if val < 0.075 then -- position 0
 			alloc:setValue(0)
-		elseif val == 0.15 then
+		elseif val < 0.30 then -- position 1
 			alloc:setValue(1)
-		elseif val == 0.45 then
+		elseif val < 0.60 then -- position 2
 			alloc:setValue(2)
-		elseif val == 0.75 then
+		else -- position 3
 			alloc:setValue(3)
 		end
 	end)
