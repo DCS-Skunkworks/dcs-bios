@@ -2323,4 +2323,13 @@ local WSO_MAVERICK_CONTRAST_SWITCH = "WSO Maverick Contrast Switch"
 F_4E:define3PosTumb("WSO_MAVERICK_CONTRAST_SWITCH", devices.TODO, 3007, 993, WSO_MAVERICK_CONTRAST_SWITCH, "Maverick Contrast-Lock Polarity")
 F_4E:definePushButton("WSO_COOLING_RESET_BUTTON", devices.TODO, 3008, 994, WSO_CNI, "Reset Cooling Button")
 
+-- Full export WSO Landing Gear indicators
+F_4E:defineFloat("WSO_GEAR_INDICATOR_LEFT_FULL", 984, { 0, 1 }, WSO_LANDING_GEAR, "Landing Gear Up/Down Indicator (Left) FULL")
+F_4E:defineFloat("WSO_GEAR_INDICATOR_NOSE_FULL", 986, { 0, 1 }, WSO_LANDING_GEAR, "Landing Gear Up/Down Indicator (Nose) FULL")
+F_4E:defineFloat("WSO_GEAR_INDICATOR_RIGHT_FULL", 988, { 0, 1 }, WSO_LANDING_GEAR, "Landing Gear Up/Down Indicator (Right) FULL")
+
+-- Full export WSO Control Surfaces
+F_4E:defineFloat("WSO_CONTROLS_FLAPS_INDICATOR_FULL", 228, { 0, 1 }, WSO_CONTROL_SURFACES, "Flaps Indicator FULL")
+F_4E:defineFloat("WSO_CONTROLS_SLATS_INDICATOR_FULL", 227, { 0, 1 }, WSO_CONTROL_SURFACES, "Slats Indicator FULL")
+
 return F_4E
