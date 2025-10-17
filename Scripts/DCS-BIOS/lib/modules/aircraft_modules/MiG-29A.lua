@@ -172,7 +172,7 @@ MiG_29A:defineToggleSwitch("OXYGEN_CABIN_EMERGENCY_DECOMPRESSION_SWITCH", device
 -- Engine emergency pannel
 
 -- PSR-31 Weapon controls panel
-local WEAPONS_CONTROL = "PSR-31 Weapon control panel"
+local WEAPONS_CONTROL = "PSR-31 Weapon Control Panel"
 
 MiG_29A:defineToggleSwitch("WEAPONS_CONTROL_MASTER_ARM", devices.INPUT_PANEL, 3011, 526, WEAPONS_CONTROL, "Master Arm Switch")
 MiG_29A:define3PosTumb("WEAPONS_CONTROL_RADAR_ZONE_SWITCH", devices.INPUT_PANEL, 3006, 525, WEAPONS_CONTROL, "Radar Operating Zone Wwitch LEFT/CENTER/RIGHT")
