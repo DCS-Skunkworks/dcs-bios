@@ -2323,13 +2323,20 @@ local WSO_MAVERICK_CONTRAST_SWITCH = "WSO Maverick Contrast Switch"
 F_4E:define3PosTumb("WSO_MAVERICK_CONTRAST_SWITCH", devices.TODO, 3007, 993, WSO_MAVERICK_CONTRAST_SWITCH, "Maverick Contrast-Lock Polarity")
 F_4E:definePushButton("WSO_COOLING_RESET_BUTTON", devices.TODO, 3008, 994, WSO_CNI, "Reset Cooling Button")
 
--- RAW export WSO Landing Gear indicators
+-- RAW export Landing Gear indicators
 F_4E:defineFloat("WSO_GEAR_INDICATOR_LEFT_RAW", 984, { 0, 1 }, WSO_LANDING_GEAR, "Landing Gear Up/Down Indicator (Left) RAW")
 F_4E:defineFloat("WSO_GEAR_INDICATOR_NOSE_RAW", 986, { 0, 1 }, WSO_LANDING_GEAR, "Landing Gear Up/Down Indicator (Nose) RAW")
 F_4E:defineFloat("WSO_GEAR_INDICATOR_RIGHT_RAW", 988, { 0, 1 }, WSO_LANDING_GEAR, "Landing Gear Up/Down Indicator (Right) RAW")
 
--- RAW export WSO Control Surfaces
+F_4E:defineFloat("PLT_GEAR_INDICATOR_LEFT_RAW", 52, { 0, 1 }, PILOT_LANDING_GEAR, "Landing Gear Up/Down Indicator (Left) RAW")
+F_4E:defineFloat("PLT_GEAR_INDICATOR_NOSE_RAW", 51, { 0, 1 }, PILOT_LANDING_GEAR, "Landing Gear Up/Down Indicator (Nose) RAW")
+F_4E:defineFloat("PLT_GEAR_INDICATOR_RIGHT_RAW", 50, { 0, 1 }, PILOT_LANDING_GEAR, "Landing Gear Up/Down Indicator (Right) RAW")
+
+-- RAW export Control Surfaces Indicators
 F_4E:defineFloat("WSO_CONTROLS_FLAPS_INDICATOR_RAW", 228, { 0, 1 }, WSO_CONTROL_SURFACES, "Flaps Indicator RAW")
 F_4E:defineFloat("WSO_CONTROLS_SLATS_INDICATOR_RAW", 227, { 0, 1 }, WSO_CONTROL_SURFACES, "Slats Indicator RAW")
+
+F_4E:defineFloat("PLT_CONTROLS_FLAPS_INDICATOR_RAW", 226, { 0, 1 }, PILOT_CONTROL_SURFACES, "Flaps Indicator RAW")
+F_4E:defineFloat("PLT_CONTROLS_SLATS_INDICATOR_RAW", 225, { 0, 1 }, PILOT_CONTROL_SURFACES, "Slats Indicator RAW")
 
 return F_4E
