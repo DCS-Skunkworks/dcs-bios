@@ -5,6 +5,22 @@ local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 --- @class MiG_29A: Module
 local MiG_29A = Module:new("MiG-29 Fulcrum", 0x3c00, { "MiG-29 Fulcrum" })
 
+local R862SelectedChannel
+
+MiG_29A:addExportHook(function(dev0)
+	local val = dev0:get_argument_value(284)
+	local channel = math.floor((val * 20) + 0.5)
+
+	if channel > 19 then
+		channel = 19
+	end
+	if channel < 0 then
+		channel = 0
+	end
+
+	R862SelectedChannel = channel
+end)
+
 local devices = {
 	FM_PROXY = 1,
 	SNSR_SYS_INTERFACE = 2,
@@ -166,6 +182,17 @@ MiG_29A:defineToggleSwitch("OXYGEN_CABIN_EMERGENCY_DECOMPRESSION_SWITCH", device
 -- Flaps controls
 
 -- R-862 VHF / UHF control pannel
+local R_862 = "R-862 VHF / UHF"
+
+MiG_29A:reserveIntValue(1) -- Guard frequency lamp indicator
+MiG_29A:defineToggleSwitch("R862_GUARD_RECEIVER_SWITCH", devices.VHF_UHF_R862, 3006, 248, R_862, "Guard Receiver Select Switch (ON/OFF)")
+MiG_29A:defineToggleSwitch("R862_ADF_SWITCH", devices.VHF_UHF_R862, 3005, 249, R_862, "ADF Switch (ON/OFF)")
+MiG_29A:defineToggleSwitch("R862_SQUELCH_SWITCH", devices.VHF_UHF_R862, 3003, 250, R_862, "Squelch Switch (ON/OFF)")
+MiG_29A:definePotentiometer("R862_VOLUME_KNOB", devices.VHF_UHF_R862, 3004, 251, { 0, 1 }, R_862, "Volume Control Knob")
+MiG_29A:defineMultipositionSwitch("R862_CHANNEL_SELECTOR", devices.VHF_UHF_R862, 3002, 252, 20, 0.05, R_862, "Channel Selector (0-19)")
+MiG_29A:defineIntegerFromGetter("R862_SELECTED_CHANNEL_INDICATOR", function()
+	return R862SelectedChannel
+end, 19, R_862, "Selected Channel Indicator")
 
 -- ADF control pannel
 
