@@ -2,6 +2,7 @@ module("MiG-29A", package.seeall)
 
 local Control = require("Scripts.DCS-BIOS.lib.modules.documentation.Control")
 local ControlType = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlType")
+local FixedStepInput = require("Scripts.DCS-BIOS.lib.modules.documentation.FixedStepInput")
 local IntegerOutput = require("Scripts.DCS-BIOS.lib.modules.documentation.IntegerOutput")
 local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 local SetStateInput = require("Scripts.DCS-BIOS.lib.modules.documentation.SetStateInput")
@@ -77,24 +78,30 @@ local devices = {
 	SO69 = 64,
 }
 
+local function cabinTempSwitchIntValue(arg_value)
+	local val = MiG_29A.round2(arg_value, 2)
+
+	if val < 0.075 then
+		return 0
+	elseif val < 0.30 then
+		return 1
+	elseif val < 0.60 then
+		return 2
+	else
+		return 3
+	end
+end
+
 function MiG_29A:defineCabinTempSwitch(identifier, device_id, arg_number, category, description)
 	local alloc = self:allocateInt(3)
 	self:addExportHook(function(dev0)
-		local val = MiG_29A.round2(dev0:get_argument_value(arg_number), 2)
-
-		if val < 0.075 then -- position 0
-			alloc:setValue(0)
-		elseif val < 0.30 then -- position 1
-			alloc:setValue(1)
-		elseif val < 0.60 then -- position 2
-			alloc:setValue(2)
-		else -- position 3
-			alloc:setValue(3)
-		end
+		local val = cabinTempSwitchIntValue(dev0:get_argument_value(arg_number))
+		alloc:setValue(val)
 	end)
 
 	local control = Control:new(category, ControlType.toggle_switch, identifier, description, {
 		SetStateInput:new(3, "set the switch position"),
+		FixedStepInput:new("switch to previous or next state"),
 	}, {
 		IntegerOutput:new(alloc, Suffix.none, "switch position -- 0 = Middle, 1 = UP , 2 = LEFT, 3 = RIGHT"),
 	})
@@ -107,13 +114,30 @@ function MiG_29A:defineCabinTempSwitch(identifier, device_id, arg_number, catego
 			return
 		end
 
-		if toState == "0" then -- OFF
+		local currentState = cabinTempSwitchIntValue(GetDevice(0):get_argument_value(arg_number))
+		local new_state
+
+		if toState == "INC" and currentState == 3 then
+			return
+		elseif toState == "DEC" and currentState == 0 then
+			return
+		end
+
+		if toState == "INC" then
+			new_state = currentState + 1
+		elseif toState == "DEC" then
+			new_state = currentState - 1
+		else
+			new_state = tonumber(toState)
+		end
+
+		if new_state == 0 then -- OFF
 			dev:performClickableAction(3001, 0)
-		elseif toState == "1" then -- AUTO
+		elseif new_state == 1 then -- AUTO
 			dev:performClickableAction(3002, 0.15)
-		elseif toState == "2" then -- HOT
+		elseif new_state == 2 then -- HOT
 			dev:performClickableAction(3003, 0.45)
-		elseif toState == "3" then -- COLD
+		elseif new_state == 3 then -- COLD
 			dev:performClickableAction(3004, 0.75)
 		end
 	end)
