@@ -7,8 +7,6 @@ local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 local SetStateInput = require("Scripts.DCS-BIOS.lib.modules.documentation.SetStateInput")
 local Suffix = require("Scripts.DCS-BIOS.lib.modules.documentation.Suffix")
 
-local Log = require("Scripts.DCS-BIOS.lib.common.Log")
-
 --- @class MiG_29A: Module
 local MiG_29A = Module:new("MiG-29 Fulcrum", 0x3c00, { "MiG-29 Fulcrum" })
 
@@ -103,8 +101,6 @@ function MiG_29A:defineCabinTempSwitch(identifier, device_id, arg_number, catego
 
 	self:addInputProcessor(identifier, function(toState)
 		local dev = GetDevice(device_id)
-
-		Log:log_info("toState is: " .. toState)
 
 		if dev == nil then
 			return
