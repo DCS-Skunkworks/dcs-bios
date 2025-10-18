@@ -117,15 +117,15 @@ function MiG_29A:defineCabinTempSwitch(identifier, device_id, arg_number, catego
 		local currentState = cabinTempSwitchIntValue(GetDevice(0):get_argument_value(arg_number))
 		local new_state
 
-		if toState == "INC" and currentState == 3 then
-			return
-		elseif toState == "DEC" and currentState == 0 then
-			return
-		end
-
 		if toState == "INC" then
+			if currentState >= 3 then
+				return
+			end
 			new_state = currentState + 1
 		elseif toState == "DEC" then
+			if currentState <= 0 then
+				return
+			end
 			new_state = currentState - 1
 		else
 			new_state = tonumber(toState)
