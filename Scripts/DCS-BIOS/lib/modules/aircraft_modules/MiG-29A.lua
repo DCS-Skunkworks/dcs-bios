@@ -198,7 +198,11 @@ MiG_29A:defineMultipositionSwitch("WEAPONS_CONTROL_WCS_MODES_SELECTOR", devices.
 
 -- Left wall
 
--- Chut controls
+-- Chute controls
+local DRAG_CHUTE = "Drag Chute"
+
+MiG_29A:definePushButton("CHUTE_JETTISON_BUTTON", devices.INPUT_PANEL, 3038, 243, DRAG_CHUTE, "Drag Chute Jettison Button")
+MiG_29A:definePushButton("CHUTE_LAUNCH_BUTTON", devices.INPUT_PANEL, 3037, 28, DRAG_CHUTE, "Drag Chute Launch Button")
 
 -- Mirrors
 
