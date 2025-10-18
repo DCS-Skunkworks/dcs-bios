@@ -1,6 +1,12 @@
 module("MiG-29A", package.seeall)
 
+local Control = require("Scripts.DCS-BIOS.lib.modules.documentation.Control")
+local ControlType = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlType")
+local FixedStepInput = require("Scripts.DCS-BIOS.lib.modules.documentation.FixedStepInput")
+local IntegerOutput = require("Scripts.DCS-BIOS.lib.modules.documentation.IntegerOutput")
 local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
+local SetStateInput = require("Scripts.DCS-BIOS.lib.modules.documentation.SetStateInput")
+local Suffix = require("Scripts.DCS-BIOS.lib.modules.documentation.Suffix")
 
 --- @class MiG_29A: Module
 local MiG_29A = Module:new("MiG-29 Fulcrum", 0x3c00, { "MiG-29 Fulcrum" })
@@ -83,6 +89,69 @@ local devices = {
 	INTERROGATOR = 63,
 	SO69 = 64,
 }
+
+local function cabinTempSwitchIntValue(arg_value)
+	if arg_value < 0.075 then
+		return 0
+	elseif arg_value < 0.30 then
+		return 1
+	elseif arg_value < 0.60 then
+		return 2
+	else
+		return 3
+	end
+end
+
+function MiG_29A:defineCabinTempSwitch(identifier, device_id, arg_number, category, description)
+	local alloc = self:allocateInt(3)
+	self:addExportHook(function(dev0)
+		local val = cabinTempSwitchIntValue(dev0:get_argument_value(arg_number))
+		alloc:setValue(val)
+	end)
+
+	local control = Control:new(category, ControlType.toggle_switch, identifier, description, {
+		SetStateInput:new(3, "set the switch position"),
+		FixedStepInput:new("switch to previous or next state"),
+	}, {
+		IntegerOutput:new(alloc, Suffix.none, "switch position -- 0 = Middle, 1 = UP , 2 = LEFT, 3 = RIGHT"),
+	})
+	self:addControl(control)
+
+	self:addInputProcessor(identifier, function(toState)
+		local dev = GetDevice(device_id)
+
+		if dev == nil then
+			return
+		end
+
+		local currentState = cabinTempSwitchIntValue(GetDevice(0):get_argument_value(arg_number))
+		local new_state
+
+		if toState == "INC" then
+			if currentState >= 3 then
+				return
+			end
+			new_state = currentState + 1
+		elseif toState == "DEC" then
+			if currentState <= 0 then
+				return
+			end
+			new_state = currentState - 1
+		else
+			new_state = tonumber(toState)
+		end
+
+		if new_state == 0 then -- OFF
+			dev:performClickableAction(3001, 0)
+		elseif new_state == 1 then -- AUTO
+			dev:performClickableAction(3002, 0.15)
+		elseif new_state == 2 then -- HOT
+			dev:performClickableAction(3003, 0.45)
+		elseif new_state == 3 then -- COLD
+			dev:performClickableAction(3004, 0.75)
+		end
+	end)
+end
 
 -- Stick
 
@@ -172,6 +241,14 @@ MiG_29A:defineToggleSwitch("OXYGEN_VENT_HELMET_SWITCH", devices.AIR_INTERFACE, 3
 MiG_29A:defineToggleSwitch("OXYGEN_CABIN_EMERGENCY_DECOMPRESSION_SWITCH", devices.AIR_INTERFACE, 3014, 247, O2_SYSTEM, "Cabin Emergency Decompression Switch")
 
 -- Air conditionning
+local AIR_CONDITIONING = "Air Conditioning"
+
+MiG_29A:defineToggleSwitch("AIR_CONDITIONING_SUIT_VENTILATION_TOGGLE", devices.AIR_INTERFACE, 3016, 108, AIR_CONDITIONING, "Suit Ventilation (OPEN/CLOSE)")
+MiG_29A:definePotentiometer("AIR_CONDITIONING_SUIT_VENTILATION_KNOB", devices.AIR_INTERFACE, 3030, 109, { 0, 0.6 }, AIR_CONDITIONING, "Suit Ventilation Temperature Knob")
+MiG_29A:defineToggleSwitch("AIR_CONDITIONING_COCKPIT_BLOW_DISTRIBUTION_LEVER", devices.AIR_INTERFACE, 3010, 254, AIR_CONDITIONING, "Cockpit air distribution lever (OPEN/PILOT)")
+MiG_29A:defineToggleSwitch("AIR_CONDITIONING_COCKPIT_AIR_SUPPLY_LEVER", devices.AIR_INTERFACE, 3012, 246, AIR_CONDITIONING, "Cockpit air supply lever (OPEN/CLOSED)")
+MiG_29A:definePotentiometer("AIR_CONDITIONING_CABIN_TEMP_CONTROL_KNOB", devices.AIR_INTERFACE, 3007, 114, { 0, 0.5 }, AIR_CONDITIONING, "Cabin Temperature Control Knob (OFF/AUTO/HOT/COLD)")
+MiG_29A:defineCabinTempSwitch("AIR_CONDITIONING_CABIN_TEMP_SWITCH", devices.AIR_INTERFACE, 555, AIR_CONDITIONING, "Cabin Temperature Switch (OFF/AUTO/HOT/COLD)")
 
 -- Flaps controls
 local FLAPS_CONTROL = "Flaps Controls"
