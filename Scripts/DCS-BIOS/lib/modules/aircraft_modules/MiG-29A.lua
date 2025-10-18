@@ -161,8 +161,6 @@ MiG_29A:defineToggleSwitch("OXYGEN_CABIN_EMERGENCY_DECOMPRESSION_SWITCH", device
 
 -- Air conditionning
 
--- Emergency control pannel
-
 -- Flaps controls
 
 -- R-862 VHF / UHF control pannel
