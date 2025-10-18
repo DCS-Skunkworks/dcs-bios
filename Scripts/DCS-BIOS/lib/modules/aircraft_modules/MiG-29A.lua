@@ -182,7 +182,7 @@ MiG_29A:defineToggleSwitch("OXYGEN_CABIN_EMERGENCY_DECOMPRESSION_SWITCH", device
 -- Flaps controls
 
 -- R-862 VHF / UHF control pannel
-local R_862 = "R-862 VHF / UHF"
+local R_862 = "R-862 VHF/UHF"
 
 MiG_29A:reserveIntValue(1) -- Guard frequency lamp indicator
 MiG_29A:defineToggleSwitch("R862_GUARD_RECEIVER_SWITCH", devices.VHF_UHF_R862, 3006, 248, R_862, "Guard Receiver Select Switch (ON/OFF)")
