@@ -79,13 +79,11 @@ local devices = {
 }
 
 local function cabinTempSwitchIntValue(arg_value)
-	local val = MiG_29A.round2(arg_value, 2)
-
-	if val < 0.075 then
+	if arg_value < 0.075 then
 		return 0
-	elseif val < 0.30 then
+	elseif arg_value < 0.30 then
 		return 1
-	elseif val < 0.60 then
+	elseif arg_value < 0.60 then
 		return 2
 	else
 		return 3
