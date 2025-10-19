@@ -335,8 +335,8 @@ MiG_29A:defineToggleSwitch("LEFT_WALL_EXT_STORES_SWITCH", devices.WP, 3010, 29, 
 -- Left console auxiliary controls
 local LEFT_AUXILIARY = "Left Console Auxiliary Controls"
 
-MiG_29A:definePotentiometer("LEFT_WALL_IR_VOLUME", devices.INTERCOM, 3001, 98, { 0, 1 }, LEFT_WALL, "IR Volume Control Knob")
-MiG_29A:defineSpringloaded_3PosTumb("LEFT_WALL_RUDDER_TRIM_SWITCH", devices.CONTROL_INTERFACE, 3001, 3002, 99, LEFT_WALL, "Rudder Trim Switch (LEFT/OFF/RIGHT)")
+MiG_29A:definePotentiometer("LEFT_WALL_IR_VOLUME", devices.INTERCOM, 3001, 98, { 0, 1 }, LEFT_AUXILIARY, "IR Volume Control Knob")
+MiG_29A:defineSpringloaded_3PosTumb("LEFT_WALL_RUDDER_TRIM_SWITCH", devices.CONTROL_INTERFACE, 3001, 3002, 99, LEFT_AUXILIARY, "Rudder Trim Switch (LEFT/OFF/RIGHT)")
 
 -- Chute controls
 local DRAG_CHUTE = "Drag Chute"
