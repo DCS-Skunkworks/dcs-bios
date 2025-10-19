@@ -316,6 +316,10 @@ MiG_29A:defineMultipositionSwitch("WEAPONS_CONTROL_WCS_MODES_SELECTOR", devices.
 -- HDD control pannel
 
 -- Canopy controls
+local CANOPY_CONTROLS = "Canopy Controls"
+
+MiG_29A:define3PosTumb0To1("LEFT_WALL_CANOPY_HANDLE", devices.AIR_INTERFACE, 3008, 810, CANOPY_CONTROLS, "Canopy Control Handle (CLOSE/TAXI/OPEN)")
+MiG_29A:defineIndicatorLight("LEFT_WALL_CANOPY_LOCK_INDICATOR", 383, CANOPY_CONTROLS, "Canopy Lock Indicator")
 
 -- Refueling pannel
 
@@ -327,8 +331,6 @@ MiG_29A:defineMultipositionSwitch("WEAPONS_CONTROL_WCS_MODES_SELECTOR", devices.
 local LEFT_WALL = "Left Wall"
 
 MiG_29A:defineToggleSwitch("LEFT_WALL_EXT_STORES_SWITCH", devices.WP, 3010, 29, LEFT_WALL, "External Stores Selector Switch (INBD/OUTBD)")
-MiG_29A:define3PosTumb0To1("LEFT_WALL_CANOPY_HANDLE", devices.AIR_INTERFACE, 3008, 810, LEFT_WALL, "Canopy Control Handle (CLOSE/TAXI/OPEN)")
-MiG_29A:defineIndicatorLight("LEFT_WALL_CANOPY_LOCK_INDICATOR", 383, LEFT_WALL, "Canopy Lock Indicator")
 MiG_29A:definePotentiometer("LEFT_WALL_IR_VOLUME", devices.INTERCOM, 3001, 98, { 0, 1 }, LEFT_WALL, "IR Volume Control Knob")
 MiG_29A:defineSpringloaded_3PosTumb("LEFT_WALL_RUDDER_TRIM_SWITCH", devices.CONTROL_INTERFACE, 3001, 3002, 99, LEFT_WALL, "Rudder Trim Switch (LEFT/OFF/RIGHT)")
 
