@@ -312,7 +312,16 @@ MiG_29A:definePushButton("CHUTE_LAUNCH_BUTTON", devices.INPUT_PANEL, 3037, 28, D
 
 -- Emergency landing gear
 
--- Weapon settings pannel
+-- PU-S31 Weapon settings panel
+local WEAPONS_SETTINGS = "PU-S31 Weapon Settings Panel"
+
+MiG_29A:defineToggleSwitch("WEAPON_SETTINGS_COOP_SWITCH", devices.INPUT_PANEL, 3019, 287, WEAPONS_SETTINGS, "Coop Switch (NO RETARD/COOP RETARD)")
+MiG_29A:defineToggleSwitch("WEAPON_SETTINGS_AG_SWITCH", devices.INPUT_PANEL, 3015, 286, WEAPONS_SETTINGS, "A/G Mode Switch (AIR/GROUND)")
+MiG_29A:defineToggleSwitch("WEAPON_SETTINGS_BOMB_JETTISON_ARM_SWITCH", devices.WP, 3008, 290, WEAPONS_SETTINGS, "Bombs Jettison Arm Switch (SAFE/ARMED)")
+MiG_29A:defineToggleSwitch("WEAPON_SETTINGS_EMERGENCY_JETTISON_COVER", devices.WP, 3006, 291, WEAPONS_SETTINGS, "Emergency Jettison Button Cover")
+MiG_29A:definePushButton("WEAPON_SETTINGS_EMERGENCY_JETTISON_BUTTON", devices.WP, 3005, 292, WEAPONS_SETTINGS, "Emergency Jettison Button")
+MiG_29A:defineToggleSwitch("WEAPON_SETTINGS_GUIDANCE_MODE_SWITCH", devices.INPUT_PANEL, 3017, 289, WEAPONS_SETTINGS, "Guidance Mode Switch")
+MiG_29A:defineToggleSwitch("WEAPON_SETTINGS_LOCK_SWITCH", devices.INPUT_PANEL, 3033, 288, WEAPONS_SETTINGS, "Lock Switch (FOE/FRIEND)")
 
 -- Ejection handle
 
