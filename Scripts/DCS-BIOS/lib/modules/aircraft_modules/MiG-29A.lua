@@ -23,19 +23,16 @@ function MiG_29A:defineIntegerFromArg(identifier, arg_number, max_value, categor
 	end, max_value, category, description)
 end
 
---- Defines multiposition with a a custom range
+--- Defines multiposition with a manual range
 --- @param identifier string the unique identifier for the control
 --- @param device_id integer the dcs device id
 --- @param command integer the dcs command
 --- @param arg_number integer the dcs argument number
 --- @param count integer the number of discrete steps the control has
---- @param limits number[]? a length-2 array with the lower and upper bounds of the data as used in dcs
+--- @param limits number[] a length-2 array with the lower and upper bounds of the data as used in dcs
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
-function MiG_29A:defineMultipositionCustomRange(identifier, device_id, command, arg_number, count, limits, category, description)
-	limits = limits or { 0, 1 }
-	assert(#limits == 2, string.format("limits may only contain a min and max value"))
-
+function MiG_29A:defineMultipositionManualRange(identifier, device_id, command, arg_number, count, limits, category, description)
 	self:defineTumb(identifier, device_id, command, arg_number, 1 / (count - 1), limits, nil, false, category, description)
 end
 
@@ -305,7 +302,7 @@ MiG_29A:defineMultipositionSwitch("WEAPONS_CONTROL_WCS_MODES_SELECTOR", devices.
 -- PUR-31 Radar control panel
 local PUR_31 = "PUR-31 Radar Control Panel"
 
-MiG_29A:defineMultipositionCustomRange("RADAR_CONTROLS_ANTENNA_ELEV_SELECTOR", devices.INPUT_PANEL, 3025, 294, 11, { -0.4, 0.6 }, PUR_31, "Radar Antenna Elevation Selector (-6/+10)")
+MiG_29A:defineMultipositionManualRange("RADAR_CONTROLS_ANTENNA_ELEV_SELECTOR", devices.INPUT_PANEL, 3025, 294, 11, { -0.4, 0.6 }, PUR_31, "Radar Antenna Elevation Selector (-6/+10)")
 MiG_29A:defineMultipositionSwitch("RADAR_CONTROLS_MODE_SWITCH", devices.INPUT_PANEL, 3021, 295, 4, 0.1, PUR_31, "Radar Mode Selector (AUTO/CLOSE CMBT/HEAD ON/P)")
 MiG_29A:define3PosTumb("RADAR_CONTROLS_ILLUMINATION_SWITCH", devices.INPUT_PANEL, 3029, 296, PUR_31, "Radar Illumination Switch (OFF/DUMMY/ILLUM)")
 MiG_29A:define3PosTumb("RADAR_CONTROLS_ECCM_SWITCH", devices.INPUT_PANEL, 3031, 299, PUR_31, "Radar ECCM Counteraction Switch (CAJ/OFF/AJ)")
