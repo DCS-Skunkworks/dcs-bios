@@ -331,7 +331,11 @@ MiG_29A:definePushButton("CHUTE_LAUNCH_BUTTON", devices.INPUT_PANEL, 3037, 28, D
 
 -- Mirrors
 
--- Emergency landing gear
+-- Landing gear controls
+local LANDING_GEAR = "Landing Gear Controls"
+
+MiG_29A:defineToggleSwitch("LANDING_GEAR_HANDLE", devices.HYDRO_INTERFACE, 3001, 80, LANDING_GEAR, "Landing Gear Handle (EXTENDED/RETRACTED)")
+MiG_29A:reserveIntValue(1) -- Emergency Landing Gear Handle
 
 -- PU-S31 Weapon settings panel
 local WEAPONS_SETTINGS = "PU-S31 Weapon Settings Panel"
