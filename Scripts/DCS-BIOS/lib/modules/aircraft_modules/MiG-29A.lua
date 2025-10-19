@@ -8,6 +8,8 @@ local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 local SetStateInput = require("Scripts.DCS-BIOS.lib.modules.documentation.SetStateInput")
 local Suffix = require("Scripts.DCS-BIOS.lib.modules.documentation.Suffix")
 
+local Log = require("Scripts.DCS-BIOS.lib.common.Log")
+
 --- @class MiG_29A: Module
 local MiG_29A = Module:new("MiG-29 Fulcrum", 0x3c00, { "MiG-29 Fulcrum" })
 
@@ -21,6 +23,29 @@ function MiG_29A:defineIntegerFromArg(identifier, arg_number, max_value, categor
 	self:defineIntegerFromGetter(identifier, function(dev0)
 		return Module.round(dev0:get_argument_value(arg_number) * max_value)
 	end, max_value, category, description)
+end
+
+--- Adds an n-position toggle switch with dcs data values between 0 and 1
+--- @param identifier string the unique identifier for the control
+--- @param device_id integer the dcs device id
+--- @param command integer the dcs command
+--- @param arg_number integer the dcs argument number
+--- @param positions integer the number of switch positions
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+function MiG_29A:defineMultipositionSwitch0To1(identifier, device_id, command, arg_number, positions, category, description)
+	self:defineMultipositionSwitch(identifier, device_id, command, arg_number, positions, 1 / (positions - 1), category, description)
+end
+
+--- Adds a 3-position toggle switch with dcs data values between 0 and 1
+--- @param identifier string the unique identifier for the control
+--- @param device_id integer the dcs device id
+--- @param command integer the dcs command
+--- @param arg_number integer the dcs argument number
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+function MiG_29A:define3PosTumb0To1(identifier, device_id, command, arg_number, category, description)
+	self:defineMultipositionSwitch0To1(identifier, device_id, command, arg_number, 3, category, description)
 end
 
 local devices = {
@@ -301,6 +326,11 @@ MiG_29A:defineMultipositionSwitch("WEAPONS_CONTROL_WCS_MODES_SELECTOR", devices.
 -- Voice information and warning system (VIWAS) controls
 
 -- Left wall
+local LEFT_WALL = "Left Wall"
+
+MiG_29A:defineToggleSwitch("LEFT_WALL_EXT_STORES_SWITCH", devices.WP, 3010, 29, LEFT_WALL, "External Stores Selector Switch (INBD/OUTBD)")
+MiG_29A:define3PosTumb0To1("LEFT_WALL_CANOPY_HANDLE", devices.AIR_INTERFACE, 3008, 810, LEFT_WALL, "Canopy Control Handle (CLOSE/TAXI/OPEN)")
+MiG_29A:defineIndicatorLight("LEFT_WALL_CANOPY_LOCK_INDICATOR", 383, LEFT_WALL, "Canopy Lock Indicator")
 
 -- Chute controls
 local DRAG_CHUTE = "Drag Chute"
