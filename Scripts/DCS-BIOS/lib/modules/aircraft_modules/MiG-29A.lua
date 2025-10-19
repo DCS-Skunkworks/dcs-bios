@@ -288,17 +288,17 @@ MiG_29A:defineMultipositionSwitch("WEAPONS_CONTROL_WCS_MODES_SELECTOR", devices.
 local AUTOPILOT = "AFCS Autopilot Control Panel"
 
 MiG_29A:definePushButton("AUTOPILOT_DAMPER_BUTTON", devices.AFCS_INTERFACE, 3001, 82, AUTOPILOT, "Autopilot Damper Button")
-MiG_29A:defineIndicatorLight("AUTOPILOT_DAMPER_LIGHT", 83, AUTOPILOT, "Autopilot Damper Light")
+MiG_29A:defineFloat("AUTOPILOT_DAMPER_LIGHT", 83, { 0, 1 }, AUTOPILOT, "Autopilot Damper Light")
 MiG_29A:definePushButton("AUTOPILOT_AUTO_RECOVER_BUTTON", devices.AFCS_INTERFACE, 3002, 84, AUTOPILOT, "Autopilot Auto Recover Button")
-MiG_29A:defineIndicatorLight("AUTOPILOT_AUTO_RECOVER_LIGHT", 85, AUTOPILOT, "Autopilot Auto Recover Light")
+MiG_29A:defineFloat("AUTOPILOT_AUTO_RECOVER_LIGHT", 85, { 0, 1 }, AUTOPILOT, "Autopilot Auto Recover Light")
 MiG_29A:definePushButton("AUTOPILOT_ALT_HOLD_BUTTON", devices.AFCS_INTERFACE, 3003, 86, AUTOPILOT, "Autopilot ALT Hold Button")
-MiG_29A:defineIndicatorLight("AUTOPILOT_ALT_HOLD_LIGHT", 87, AUTOPILOT, "Autopilot ALT Hold Light")
+MiG_29A:defineFloat("AUTOPILOT_ALT_HOLD_LIGHT", 87, { 0, 1 }, AUTOPILOT, "Autopilot ALT Hold Light")
 MiG_29A:definePushButton("AUTOPILOT_ATT_HOLD_BUTTON", devices.AFCS_INTERFACE, 3004, 88, AUTOPILOT, "Autopilot Given ATT Hold Button")
-MiG_29A:defineIndicatorLight("AUTOPILOT_ATT_HOLD_LIGHT", 89, AUTOPILOT, "Autopilot ATT Hold Light")
+MiG_29A:defineFloat("AUTOPILOT_ATT_HOLD_LIGHT", 89, { 0, 1 }, AUTOPILOT, "Autopilot ATT Hold Light")
 MiG_29A:definePushButton("AUTOPILOT_APPROACH_BUTTON", devices.AFCS_INTERFACE, 3005, 90, AUTOPILOT, "Autopilot Approach Button")
-MiG_29A:defineIndicatorLight("AUTOPILOT_APPROACH_LIGHT", 91, AUTOPILOT, "Autopilot Approach Light")
+MiG_29A:defineFloat("AUTOPILOT_APPROACH_LIGHT", 91, { 0, 1 }, AUTOPILOT, "Autopilot Approach Light")
 MiG_29A:definePushButton("AUTOPILOT_MISSED_APPROACH_BUTTON", devices.AFCS_INTERFACE, 3006, 92, AUTOPILOT, "Autopilot Missed Approach Button")
-MiG_29A:defineIndicatorLight("AUTOPILOT_MISSED_APPROACH_LIGHT", 93, AUTOPILOT, "Autopilot Missed Approach Light")
+MiG_29A:defineFloat("AUTOPILOT_MISSED_APPROACH_LIGHT", 93, { 0, 1 }, AUTOPILOT, "Autopilot Missed Approach Light")
 
 -- PUR-31 Radar control pannel
 
