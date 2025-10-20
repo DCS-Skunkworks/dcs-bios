@@ -11,31 +11,6 @@ local Suffix = require("Scripts.DCS-BIOS.lib.modules.documentation.Suffix")
 --- @class MiG_29A: Module
 local MiG_29A = Module:new("MiG-29 Fulcrum", 0x3c00, { "MiG-29 Fulcrum" })
 
---- Defines a 0-max_value output from a 0-1 input
---- @param identifier string the unique identifier for the control
---- @param arg_number integer the dcs argument number
---- @param max_value integer the maximum value of the output
---- @param category string the category in which the control should appear
---- @param description string additional information about the control
-function MiG_29A:defineIntegerFromArg(identifier, arg_number, max_value, category, description)
-	self:defineIntegerFromGetter(identifier, function(dev0)
-		return Module.round(dev0:get_argument_value(arg_number) * max_value)
-	end, max_value, category, description)
-end
-
---- Defines multiposition with a manual range
---- @param identifier string the unique identifier for the control
---- @param device_id integer the dcs device id
---- @param command integer the dcs command
---- @param arg_number integer the dcs argument number
---- @param count integer the number of discrete steps the control has
---- @param limits number[] a length-2 array with the lower and upper bounds of the data as used in dcs
---- @param category string the category in which the control should appear
---- @param description string additional information about the control
-function MiG_29A:defineMultipositionManualRange(identifier, device_id, command, arg_number, count, limits, category, description)
-	self:defineTumb(identifier, device_id, command, arg_number, 1 / (count - 1), limits, nil, false, category, description)
-end
-
 local devices = {
 	FM_PROXY = 1,
 	SNSR_SYS_INTERFACE = 2,
@@ -102,6 +77,54 @@ local devices = {
 	INTERROGATOR = 63,
 	SO69 = 64,
 }
+
+--- Defines a 0-max_value output from a 0-1 input
+--- @param identifier string the unique identifier for the control
+--- @param arg_number integer the dcs argument number
+--- @param max_value integer the maximum value of the output
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+function MiG_29A:defineIntegerFromArg(identifier, arg_number, max_value, category, description)
+	self:defineIntegerFromGetter(identifier, function(dev0)
+		return Module.round(dev0:get_argument_value(arg_number) * max_value)
+	end, max_value, category, description)
+end
+
+--- Defines multiposition with a manual range
+--- @param identifier string the unique identifier for the control
+--- @param device_id integer the dcs device id
+--- @param command integer the dcs command
+--- @param arg_number integer the dcs argument number
+--- @param count integer the number of discrete steps the control has
+--- @param limits number[] a length-2 array with the lower and upper bounds of the data as used in dcs
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+function MiG_29A:defineMultipositionManualRange(identifier, device_id, command, arg_number, count, limits, category, description)
+	self:defineTumb(identifier, device_id, command, arg_number, 1 / (count - 1), limits, nil, false, category, description)
+end
+
+--- Adds an n-position toggle switch with dcs data values between 0 and 1
+--- @param identifier string the unique identifier for the control
+--- @param device_id integer the dcs device id
+--- @param command integer the dcs command
+--- @param arg_number integer the dcs argument number
+--- @param positions integer the number of switch positions
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+function MiG_29A:defineMultipositionSwitch0To1(identifier, device_id, command, arg_number, positions, category, description)
+	self:defineMultipositionSwitch(identifier, device_id, command, arg_number, positions, 1 / (positions - 1), category, description)
+end
+
+--- Adds a 3-position toggle switch with dcs data values between 0 and 1
+--- @param identifier string the unique identifier for the control
+--- @param device_id integer the dcs device id
+--- @param command integer the dcs command
+--- @param arg_number integer the dcs argument number
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+function MiG_29A:define3PosTumb0To1(identifier, device_id, command, arg_number, category, description)
+	self:defineMultipositionSwitch0To1(identifier, device_id, command, arg_number, 3, category, description)
+end
 
 local function cabinTempSwitchIntValue(arg_value)
 	if arg_value < 0.075 then
@@ -328,6 +351,10 @@ MiG_29A:defineToggleSwitch("RADAR_CONTROLS_COMPENSATION_SWITCH", devices.INPUT_P
 -- HDD control pannel
 
 -- Canopy controls
+local CANOPY_CONTROLS = "Canopy Controls"
+
+MiG_29A:define3PosTumb0To1("LEFT_WALL_CANOPY_HANDLE", devices.AIR_INTERFACE, 3008, 810, CANOPY_CONTROLS, "Canopy Control Handle (CLOSE/TAXI/OPEN)")
+MiG_29A:defineIndicatorLight("LEFT_WALL_CANOPY_LOCK_INDICATOR", 383, CANOPY_CONTROLS, "Canopy Lock Indicator")
 
 -- Refueling pannel
 
@@ -336,6 +363,15 @@ MiG_29A:defineToggleSwitch("RADAR_CONTROLS_COMPENSATION_SWITCH", devices.INPUT_P
 -- Voice information and warning system (VIWAS) controls
 
 -- Left wall
+local LEFT_WALL = "Left Wall"
+
+MiG_29A:defineToggleSwitch("LEFT_WALL_EXT_STORES_SWITCH", devices.WP, 3010, 29, LEFT_WALL, "External Stores Selector Switch (INBD/OUTBD)")
+
+-- Left console auxiliary controls
+local LEFT_AUXILIARY = "Left Console Auxiliary Controls"
+
+MiG_29A:definePotentiometer("LEFT_WALL_IR_VOLUME", devices.INTERCOM, 3001, 98, { 0, 1 }, LEFT_AUXILIARY, "IR Volume Control Knob")
+MiG_29A:defineSpringloaded_3PosTumb("LEFT_WALL_RUDDER_TRIM_SWITCH", devices.CONTROL_INTERFACE, 3001, 3002, 99, LEFT_AUXILIARY, "Rudder Trim Switch (LEFT/OFF/RIGHT)")
 
 -- Chute controls
 local DRAG_CHUTE = "Drag Chute"
