@@ -11,41 +11,6 @@ local Suffix = require("Scripts.DCS-BIOS.lib.modules.documentation.Suffix")
 --- @class MiG_29A: Module
 local MiG_29A = Module:new("MiG-29 Fulcrum", 0x3c00, { "MiG-29 Fulcrum" })
 
---- Defines a 0-max_value output from a 0-1 input
---- @param identifier string the unique identifier for the control
---- @param arg_number integer the dcs argument number
---- @param max_value integer the maximum value of the output
---- @param category string the category in which the control should appear
---- @param description string additional information about the control
-function MiG_29A:defineIntegerFromArg(identifier, arg_number, max_value, category, description)
-	self:defineIntegerFromGetter(identifier, function(dev0)
-		return Module.round(dev0:get_argument_value(arg_number) * max_value)
-	end, max_value, category, description)
-end
-
---- Adds an n-position toggle switch with dcs data values between 0 and 1
---- @param identifier string the unique identifier for the control
---- @param device_id integer the dcs device id
---- @param command integer the dcs command
---- @param arg_number integer the dcs argument number
---- @param positions integer the number of switch positions
---- @param category string the category in which the control should appear
---- @param description string additional information about the control
-function MiG_29A:defineMultipositionSwitch0To1(identifier, device_id, command, arg_number, positions, category, description)
-	self:defineMultipositionSwitch(identifier, device_id, command, arg_number, positions, 1 / (positions - 1), category, description)
-end
-
---- Adds a 3-position toggle switch with dcs data values between 0 and 1
---- @param identifier string the unique identifier for the control
---- @param device_id integer the dcs device id
---- @param command integer the dcs command
---- @param arg_number integer the dcs argument number
---- @param category string the category in which the control should appear
---- @param description string additional information about the control
-function MiG_29A:define3PosTumb0To1(identifier, device_id, command, arg_number, category, description)
-	self:defineMultipositionSwitch0To1(identifier, device_id, command, arg_number, 3, category, description)
-end
-
 local devices = {
 	FM_PROXY = 1,
 	SNSR_SYS_INTERFACE = 2,
@@ -112,6 +77,54 @@ local devices = {
 	INTERROGATOR = 63,
 	SO69 = 64,
 }
+
+--- Defines a 0-max_value output from a 0-1 input
+--- @param identifier string the unique identifier for the control
+--- @param arg_number integer the dcs argument number
+--- @param max_value integer the maximum value of the output
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+function MiG_29A:defineIntegerFromArg(identifier, arg_number, max_value, category, description)
+	self:defineIntegerFromGetter(identifier, function(dev0)
+		return Module.round(dev0:get_argument_value(arg_number) * max_value)
+	end, max_value, category, description)
+end
+
+--- Defines multiposition with a manual range
+--- @param identifier string the unique identifier for the control
+--- @param device_id integer the dcs device id
+--- @param command integer the dcs command
+--- @param arg_number integer the dcs argument number
+--- @param count integer the number of discrete steps the control has
+--- @param limits number[] a length-2 array with the lower and upper bounds of the data as used in dcs
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+function MiG_29A:defineMultipositionManualRange(identifier, device_id, command, arg_number, count, limits, category, description)
+	self:defineTumb(identifier, device_id, command, arg_number, 1 / (count - 1), limits, nil, false, category, description)
+end
+
+--- Adds an n-position toggle switch with dcs data values between 0 and 1
+--- @param identifier string the unique identifier for the control
+--- @param device_id integer the dcs device id
+--- @param command integer the dcs command
+--- @param arg_number integer the dcs argument number
+--- @param positions integer the number of switch positions
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+function MiG_29A:defineMultipositionSwitch0To1(identifier, device_id, command, arg_number, positions, category, description)
+	self:defineMultipositionSwitch(identifier, device_id, command, arg_number, positions, 1 / (positions - 1), category, description)
+end
+
+--- Adds a 3-position toggle switch with dcs data values between 0 and 1
+--- @param identifier string the unique identifier for the control
+--- @param device_id integer the dcs device id
+--- @param command integer the dcs command
+--- @param arg_number integer the dcs argument number
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+function MiG_29A:define3PosTumb0To1(identifier, device_id, command, arg_number, category, description)
+	self:defineMultipositionSwitch0To1(identifier, device_id, command, arg_number, 3, category, description)
+end
 
 local function cabinTempSwitchIntValue(arg_value)
 	if arg_value < 0.075 then
@@ -307,9 +320,31 @@ MiG_29A:defineToggleSwitch("WEAPONS_CONTROL_BURST_MODE_SWITCH", devices.WP, 3012
 MiG_29A:definePotentiometer("WEAPONS_CONTROL_WING_SPAN_KNOB", devices.INPUT_PANEL, 3001, 520, { 0, 1 }, WEAPONS_CONTROL, "Target Wing Span Knob")
 MiG_29A:defineMultipositionSwitch("WEAPONS_CONTROL_WCS_MODES_SELECTOR", devices.INPUT_PANEL, 3004, 523, 8, 0.1, WEAPONS_CONTROL, "WCS Modes Selector Knob (TOSS/NAV/RAD/IR/CC/HELM/OPT/BS)")
 
--- AFCS Autopilot control pannel
+-- AFCS Autopilot control panel
+local AUTOPILOT = "AFCS Autopilot Control Panel"
 
--- PUR-31 Radar control pannel
+MiG_29A:definePushButton("AUTOPILOT_DAMPER_BUTTON", devices.AFCS_INTERFACE, 3001, 82, AUTOPILOT, "Autopilot Damper Button")
+MiG_29A:defineFloat("AUTOPILOT_DAMPER_LIGHT", 83, { 0, 1 }, AUTOPILOT, "Autopilot Damper Light")
+MiG_29A:definePushButton("AUTOPILOT_AUTO_RECOVER_BUTTON", devices.AFCS_INTERFACE, 3002, 84, AUTOPILOT, "Autopilot Auto Recover Button")
+MiG_29A:defineFloat("AUTOPILOT_AUTO_RECOVER_LIGHT", 85, { 0, 1 }, AUTOPILOT, "Autopilot Auto Recover Light")
+MiG_29A:definePushButton("AUTOPILOT_ALT_HOLD_BUTTON", devices.AFCS_INTERFACE, 3003, 86, AUTOPILOT, "Autopilot ALT Hold Button")
+MiG_29A:defineFloat("AUTOPILOT_ALT_HOLD_LIGHT", 87, { 0, 1 }, AUTOPILOT, "Autopilot ALT Hold Light")
+MiG_29A:definePushButton("AUTOPILOT_ATT_HOLD_BUTTON", devices.AFCS_INTERFACE, 3004, 88, AUTOPILOT, "Autopilot Given ATT Hold Button")
+MiG_29A:defineFloat("AUTOPILOT_ATT_HOLD_LIGHT", 89, { 0, 1 }, AUTOPILOT, "Autopilot ATT Hold Light")
+MiG_29A:definePushButton("AUTOPILOT_APPROACH_BUTTON", devices.AFCS_INTERFACE, 3005, 90, AUTOPILOT, "Autopilot Approach Button")
+MiG_29A:defineFloat("AUTOPILOT_APPROACH_LIGHT", 91, { 0, 1 }, AUTOPILOT, "Autopilot Approach Light")
+MiG_29A:definePushButton("AUTOPILOT_MISSED_APPROACH_BUTTON", devices.AFCS_INTERFACE, 3006, 92, AUTOPILOT, "Autopilot Missed Approach Button")
+MiG_29A:defineFloat("AUTOPILOT_MISSED_APPROACH_LIGHT", 93, { 0, 1 }, AUTOPILOT, "Autopilot Missed Approach Light")
+
+-- PUR-31 Radar control panel
+local PUR_31 = "PUR-31 Radar Control Panel"
+
+MiG_29A:defineMultipositionManualRange("RADAR_CONTROLS_ANTENNA_ELEV_SELECTOR", devices.INPUT_PANEL, 3025, 294, 11, { -0.4, 0.6 }, PUR_31, "Radar Antenna Elevation Selector (-6/+10)")
+MiG_29A:defineMultipositionSwitch("RADAR_CONTROLS_MODE_SWITCH", devices.INPUT_PANEL, 3021, 295, 4, 0.1, PUR_31, "Radar Mode Selector (AUTO/CLOSE CMBT/HEAD ON/P)")
+MiG_29A:define3PosTumb("RADAR_CONTROLS_ILLUMINATION_SWITCH", devices.INPUT_PANEL, 3029, 296, PUR_31, "Radar Illumination Switch (OFF/DUMMY/ILLUM)")
+MiG_29A:define3PosTumb("RADAR_CONTROLS_ECCM_SWITCH", devices.INPUT_PANEL, 3031, 299, PUR_31, "Radar ECCM Counteraction Switch (CAJ/OFF/AJ)")
+MiG_29A:defineToggleSwitch("RADAR_CONTROLS_TWF_SWITCH", devices.INPUT_PANEL, 3023, 298, PUR_31, "Radar TWF Switch (FHS/RHS)")
+MiG_29A:defineToggleSwitch("RADAR_CONTROLS_COMPENSATION_SWITCH", devices.INPUT_PANEL, 3027, 297, PUR_31, "Radar Compensation Switch")
 
 -- HUD control pannel (With sun visor controls)
 
@@ -346,9 +381,22 @@ MiG_29A:definePushButton("CHUTE_LAUNCH_BUTTON", devices.INPUT_PANEL, 3037, 28, D
 
 -- Mirrors
 
--- Emergency landing gear
+-- Landing gear controls
+local LANDING_GEAR = "Landing Gear Controls"
 
--- Weapon settings pannel
+MiG_29A:defineToggleSwitch("LANDING_GEAR_HANDLE", devices.HYDRO_INTERFACE, 3001, 80, LANDING_GEAR, "Landing Gear Handle (EXTENDED/RETRACTED)")
+MiG_29A:reserveIntValue(1) -- Emergency Landing Gear Handle
+
+-- PU-S31 Weapon settings panel
+local WEAPONS_SETTINGS = "PU-S31 Weapon Settings Panel"
+
+MiG_29A:defineToggleSwitch("WEAPON_SETTINGS_COOP_SWITCH", devices.INPUT_PANEL, 3019, 287, WEAPONS_SETTINGS, "Coop Switch (NO RETARD/COOP RETARD)")
+MiG_29A:defineToggleSwitch("WEAPON_SETTINGS_AG_SWITCH", devices.INPUT_PANEL, 3015, 286, WEAPONS_SETTINGS, "A/G Mode Switch (AIR/GROUND)")
+MiG_29A:defineToggleSwitch("WEAPON_SETTINGS_BOMB_JETTISON_ARM_SWITCH", devices.WP, 3008, 290, WEAPONS_SETTINGS, "Bombs Jettison Arm Switch (SAFE/ARMED)")
+MiG_29A:defineToggleSwitch("WEAPON_SETTINGS_EMERGENCY_JETTISON_COVER", devices.WP, 3006, 291, WEAPONS_SETTINGS, "Emergency Jettison Button Cover")
+MiG_29A:definePushButton("WEAPON_SETTINGS_EMERGENCY_JETTISON_BUTTON", devices.WP, 3005, 292, WEAPONS_SETTINGS, "Emergency Jettison Button")
+MiG_29A:defineToggleSwitch("WEAPON_SETTINGS_GUIDANCE_MODE_SWITCH", devices.INPUT_PANEL, 3017, 289, WEAPONS_SETTINGS, "Guidance Mode Switch")
+MiG_29A:defineToggleSwitch("WEAPON_SETTINGS_LOCK_SWITCH", devices.INPUT_PANEL, 3033, 288, WEAPONS_SETTINGS, "Lock Switch (FOE/FRIEND)")
 
 -- Ejection handle
 
