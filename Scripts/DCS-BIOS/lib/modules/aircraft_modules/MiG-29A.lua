@@ -367,11 +367,17 @@ local LEFT_WALL = "Left Wall"
 
 MiG_29A:defineToggleSwitch("LEFT_WALL_EXT_STORES_SWITCH", devices.WP, 3010, 29, LEFT_WALL, "External Stores Selector Switch (INBD/OUTBD)")
 
--- Left console auxiliary controls
-local LEFT_AUXILIARY = "Left Console Auxiliary Controls"
+-- Bottom left console auxiliary controls
+local BOTTOM_LEFT_AUXILIARY = "Bottom Left Console Auxiliary Controls"
 
-MiG_29A:definePotentiometer("LEFT_WALL_IR_VOLUME", devices.INTERCOM, 3001, 98, { 0, 1 }, LEFT_AUXILIARY, "IR Volume Control Knob")
-MiG_29A:defineSpringloaded_3PosTumb("LEFT_WALL_RUDDER_TRIM_SWITCH", devices.CONTROL_INTERFACE, 3001, 3002, 99, LEFT_AUXILIARY, "Rudder Trim Switch (LEFT/OFF/RIGHT)")
+MiG_29A:definePotentiometer("LEFT_WALL_IR_VOLUME", devices.INTERCOM, 3001, 98, { 0, 1 }, BOTTOM_LEFT_AUXILIARY, "IR Volume Control Knob")
+MiG_29A:defineSpringloaded_3PosTumb("LEFT_WALL_RUDDER_TRIM_SWITCH", devices.CONTROL_INTERFACE, 3001, 3002, 99, BOTTOM_LEFT_AUXILIARY, "Rudder Trim Switch (LEFT/OFF/RIGHT)")
+
+-- Top left console auxiliary controls
+local TOP_LEFT_AUXILIARY = "Top Left Console Auxiliary Controls"
+
+MiG_29A:define3PosTumb("LEFT_WALL_TAXI_LIGHT_SWITCH", devices.EXTLIGHTS_SYSTEM, 3003, 178, TOP_LEFT_AUXILIARY, "Taxi Light Switch (OFF/TAXI/LAND LIGHT)")
+MiG_29A:definePushButton("LEFT_WALL_MISSILE_EMERGENCY_JETTISON_BUTTON", devices.WP, 3004, 95, TOP_LEFT_AUXILIARY, "Emergency Missile Jettison Button")
 
 -- Chute controls
 local DRAG_CHUTE = "Drag Chute"
