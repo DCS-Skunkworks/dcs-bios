@@ -2339,4 +2339,11 @@ F_4E:defineFloat("WSO_CONTROLS_SLATS_INDICATOR_RAW", 227, { 0, 1 }, WSO_CONTROL_
 F_4E:defineFloat("PLT_CONTROLS_FLAPS_INDICATOR_RAW", 226, { 0, 1 }, PILOT_CONTROL_SURFACES, "Flaps Indicator RAW")
 F_4E:defineFloat("PLT_CONTROLS_SLATS_INDICATOR_RAW", 225, { 0, 1 }, PILOT_CONTROL_SURFACES, "Slats Indicator RAW")
 
+-- Pilot Left Wall
+local EFB_DEVICE_ID = 98
+
+local PILOT_LEFT_WALL = "PLT Left Wall"
+
+F_4E:defineToggleSwitch("PLT_EFB_TOGGLE", EFB_DEVICE_ID, 3001, 5011, PILOT_LEFT_WALL, "Hide/Show Electronic Flight Bag (EFB)")
+
 return F_4E
