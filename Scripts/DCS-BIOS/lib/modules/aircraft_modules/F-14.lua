@@ -513,7 +513,7 @@ F_14:defineToggleSwitch("PLT_VUHF_DISPLAY_TEST", 4, 3358, 15003, "VUHF", "PILOT 
 
 -- DECM Panel
 F_14:defineMultipositionSwitch("RIO_DECM_PW_MODE", 53, 3252, 151, 6, 0.2, "DECM Panel", "RIO DECM ALQ-100 Power/Mode")
-F_14:definePotentiometer("RIO_DECM_VOL", 53, 3253, 9950, { 0, 1 }, "DECM Panel", "RIO DECM ALQ-100 Volume")
+F_14:definePotentiometer("RIO_DECM_VOL", 71, 3253, 9950, { 0, 1 }, "DECM Panel", "RIO DECM ALQ-100 Volume")
 
 -- RWR Control Panel ALR-67
 F_14:definePotentiometer("PLT_RWR_BRIGHT", 54, 3262, 16011, { 0, 1 }, "RWR Control Panel", "PILOT AN/ALR-67 Display Brightness")
