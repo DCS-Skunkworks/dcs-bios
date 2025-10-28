@@ -209,7 +209,13 @@ end
 
 -- Lights controls (external)
 
--- AOA
+-- Combined AOA / G meter indicator
+local AOA_G_METER = "Combined AOA / G meter indicator"
+
+MiG_29A:definePushButton("AOA_G_METER_RESET_BUTTON", devices.AOA_G_METER, 3001, 528, AOA_G_METER, " G-Index Reset Button")
+MiG_29A:defineFloat("AOA_G_METER_MAX_G_POINTER", 3, { 0, 1 }, AOA_G_METER, "Max G-Index Pointer")
+MiG_29A:defineFloat("AOA_G_METER_G_POINTER", 6, { 0, 1 }, AOA_G_METER, "Current G-Index Pointer")
+MiG_29A:defineFloat("AOA_G_METER_AOA_POINTER", 7, { 0, 1 }, AOA_G_METER, "Current AOA Pointer")
 
 -- Master caution
 
