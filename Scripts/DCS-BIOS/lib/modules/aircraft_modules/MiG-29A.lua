@@ -212,6 +212,10 @@ end
 -- AOA
 
 -- Master caution
+local MASTER_CAUTION = "Master Caution"
+
+MiG_29A:defineFloat("MASTER_CAUTION_BRIGHTNESS", 445, { 0, 1 }, MASTER_CAUTION, "Master Caution Light Brightness")
+MiG_29A:defineFloat("MASTER_CAUTION_ROTATION", 453, { 0, 1 }, MASTER_CAUTION, "Master Caution Light Rotation")
 
 -- Air speed
 
