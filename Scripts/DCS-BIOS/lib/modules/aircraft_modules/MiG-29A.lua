@@ -198,10 +198,11 @@ MiG_29A:definePushButton("THROTTLE_RADIO_BUTTON", devices.HOTAS, 3024, 840, THRO
 MiG_29A:definePushButton("THROTTLE_SPEED_BRAKE_BUTTON", devices.HOTAS, 3026, 841, THROTTLE, "Speed Brake Button")
 MiG_29A:definePushButton("THROTTLE_LOCK_BUTTON", devices.HOTAS, 3025, 842, THROTTLE, "Lock On / NWS Button")
 MiG_29A:definePushButton("THROTTLE_COUNTERMEASURES_BUTTON", devices.HOTAS, 3027, 61, THROTTLE, "Countermeasures Dispense Button")
-MiG_29A:definePushButton("THROTTLE_AFTERBURNER_LOCK_LEFT", devices.HOTAS, 3028, 846, THROTTLE, "Afterburner Lock Left Latch")
-MiG_29A:definePushButton("THROTTLE_AFTERBURNER_LOCK_RIGHT", devices.HOTAS, 3029, 845, THROTTLE, "Afterburner Lock Right Latch")
-MiG_29A:definePushButton("THROTTLE_IDLE_LOCK_LEFT", devices.HOTAS, 3031, 847, THROTTLE, "Idle Lock Left Latch")
-MiG_29A:definePushButton("THROTTLE_IDLE_LOCK_RIGHT", devices.HOTAS, 3032, 844, THROTTLE, "Idle Lock Right Latch")
+MiG_29A:definePushButton("THROTTLE_AFTERBURNER_LOCK_LEFT", devices.HOTAS, 3028, 846, THROTTLE, "Afterburner Lock Latch (Left)")
+MiG_29A:definePushButton("THROTTLE_AFTERBURNER_LOCK_RIGHT", devices.HOTAS, 3029, 845, THROTTLE, "Afterburner Lock Latch (Right)")
+MiG_29A:definePushButton("THROTTLE_IDLE_LOCK_LEFT", devices.HOTAS, 3031, 847, THROTTLE, "Idle Lock Latch (Left)")
+MiG_29A:definePushButton("THROTTLE_IDLE_LOCK_RIGHT", devices.HOTAS, 3032, 844, THROTTLE, "Idle Lock Latch (Right)")
+MiG_29A:reserveIntValue(65535) -- Manual Ranging Control Potentiometer
 
 -- Pedals
 
