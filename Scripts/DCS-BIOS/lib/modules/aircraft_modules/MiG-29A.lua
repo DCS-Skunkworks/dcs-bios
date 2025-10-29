@@ -8,6 +8,8 @@ local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 local SetStateInput = require("Scripts.DCS-BIOS.lib.modules.documentation.SetStateInput")
 local Suffix = require("Scripts.DCS-BIOS.lib.modules.documentation.Suffix")
 
+local Log = require("Scripts.DCS-BIOS.lib.common.Log")
+
 --- @class MiG_29A: Module
 local MiG_29A = Module:new("MiG-29 Fulcrum", 0x3c00, { "MiG-29 Fulcrum" })
 
@@ -195,10 +197,14 @@ local unitSystem
 MiG_29A:addExportHook(function(dev0)
 	local val = dev0:get_argument_value(1)
 
-	if val >= 0.01 then
-		unitSystem = "imperial"
-	else
-		unitSystem = "metric"
+	if unitSystem == nil then
+		if val >= 0.01 then
+			Log:log_info("Selected imperial unit")
+			unitSystem = "imperial"
+		else
+			Log:log_info("Selected metric unit")
+			unitSystem = "metric"
+		end
 	end
 end)
 
