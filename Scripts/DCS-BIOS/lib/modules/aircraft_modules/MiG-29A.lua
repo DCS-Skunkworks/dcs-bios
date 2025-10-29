@@ -254,6 +254,9 @@ MiG_29A:definePotentiometer("MASTER_CAUTION_BRIGHTNESS_KNOB", devices.INTLIGHTS_
 -- ADF mode toggle switch
 
 -- Nose wheel brake
+local NOSE_WHEEL_BRAKE = "Nose Wheel Brake (Instrument Panel)"
+
+MiG_29A:defineToggleSwitch("NOSE_WHEEL_BRAKE_HANDLE", devices.INPUT_PANEL, 3035, 23, NOSE_WHEEL_BRAKE, "Nose Wheel Brake Handle (ON/OFF)")
 
 -- Radar altimiter
 
