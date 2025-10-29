@@ -8,6 +8,8 @@ local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 local SetStateInput = require("Scripts.DCS-BIOS.lib.modules.documentation.SetStateInput")
 local Suffix = require("Scripts.DCS-BIOS.lib.modules.documentation.Suffix")
 
+local Log = require("Scripts.DCS-BIOS.lib.common.Log")
+
 --- @class MiG_29A: Module
 local MiG_29A = Module:new("MiG-29 Fulcrum", 0x3c00, { "MiG-29 Fulcrum" })
 
@@ -189,6 +191,51 @@ function MiG_29A:defineCabinTempSwitch(identifier, device_id, arg_number, catego
 	end)
 end
 
+local unitSystem
+
+MiG_29A:addExportHook(function(dev0)
+	local val = dev0:get_argument_value(1)
+
+	if unitSystem == nil then
+		if val >= 0.01 then
+			unitSystem = "imperial"
+			Log:log_info("setting unit system to imperial")
+		else
+			unitSystem = "metric"
+			Log:log_info("setting unit system to metric")
+		end
+	end
+end)
+
+-- Args for indicators based on unit system
+local metrics_args = {
+	["IAS_INDICATOR_POINTER"] = { 8, 821 },
+	["IAS_INDICATOR_WINDOW"] = { 5, 820 },
+}
+
+-- This is called too early before the unit system is determined
+local function getIndicatorArg(identifier)
+	local arg = metrics_args[identifier]
+
+	assert(arg ~= nil, "MiG_29A:getIndicatorArg: Unknown indicator: " .. identifier)
+
+	if unitSystem == "metric" then
+		Log:log_info("returning metric arg: " .. arg[1])
+		return arg[1]
+	else
+		Log:log_info("returning imperial arg: " .. arg[2])
+		return arg[2]
+	end
+end
+
+local function tempGetIndicatorName(description)
+	if unitSystem == "metric" then
+		return description .. " (Metric)"
+	else
+		return description .. " (Imperial)"
+	end
+end
+
 -- Stick
 
 -- Throttle
@@ -212,7 +259,7 @@ end
 -- Combined AOA / G meter indicator
 local AOA_G_METER = "Combined AOA / G meter indicator"
 
-MiG_29A:definePushButton("AOA_G_METER_RESET_BUTTON", devices.AOA_G_METER, 3001, 528, AOA_G_METER, " G-Index Reset Button")
+MiG_29A:definePushButton("AOA_G_METER_RESET_BUTTON", devices.AOA_G_METER, 3001, 528, AOA_G_METER, "G-Index Reset Button")
 MiG_29A:defineFloat("AOA_G_METER_MAX_G_POINTER", 3, { 0, 1 }, AOA_G_METER, "Max G-Index Pointer")
 MiG_29A:defineFloat("AOA_G_METER_G_POINTER", 6, { 0, 1 }, AOA_G_METER, "Current G-Index Pointer")
 MiG_29A:defineFloat("AOA_G_METER_AOA_POINTER", 7, { 0, 1 }, AOA_G_METER, "Current AOA Pointer")
@@ -222,13 +269,8 @@ MiG_29A:defineFloat("AOA_G_METER_AOA_POINTER", 7, { 0, 1 }, AOA_G_METER, "Curren
 -- IAS indicator
 local IAS = "IAS indicator"
 
--- Metric indicators
-MiG_29A:defineFloat("IAS_METRIC_INDICATOR_POINTER", 8, { 0, 1 }, IAS, "IAS Pointer (Metric)")
-MiG_29A:defineFloat("IAS_METRIC_INDICATOR_WINDOW", 5, { 0, 1 }, IAS, "IAS Mach Number (1/0) (Metric)")
-
--- Imperial indicators
-MiG_29A:defineFloat("IAS_IMP_INDICATOR_POINTER", 821, { 0, 1 }, IAS, "IAS Pointer (Imperial)")
-MiG_29A:defineFloat("IAS_IMP_INDICATOR_WINDOW", 820, { 0, 1 }, IAS, "IAS Mach Number (Imperial)") -- 0 to 100% from 0 to 600 airspeed then back to 0%... Two scales?
+MiG_29A:defineFloat("IAS_INDICATOR_POINTER", getIndicatorArg("IAS_INDICATOR_POINTER"), { 0, 1 }, IAS, tempGetIndicatorName("IAS Pointer")) -- in imperial: 0 to 100% from 0 to 600 airspeed then back to 0%... Two scales?
+MiG_29A:defineFloat("IAS_INDICATOR_WINDOW", getIndicatorArg("IAS_INDICATOR_WINDOW"), { 0, 1 }, IAS, tempGetIndicatorName("IAS Mach Number"))
 
 -- Altimiter
 
