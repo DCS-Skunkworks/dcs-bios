@@ -213,6 +213,7 @@ MiG_29A:defineInvertedPushButton("STICK_TRIM_AFT", devices.HOTAS, 3005, 51, STIC
 MiG_29A:defineInvertedPushButton("STICK_TRIM_LEFT", devices.HOTAS, 3006, 52, STICK, "Trim Switch LEFT")
 MiG_29A:definePushButton("STICK_TRIM_RIGHT", devices.HOTAS, 3007, 52, STICK, "Trim Switch RIGHT")
 MiG_29A:definePushButton("STICK_LEVELING_BUTTON", devices.HOTAS, 3008, 55, STICK, "Leveling Button")
+MiG_29A:defineGatedIndicatorLight("STICK_LEVELING_LIGHT", 49, 0.5, nil, STICK, "Leveling Light")
 MiG_29A:definePushButton("STICK_ACFS_OFF_BUTTON", devices.HOTAS, 3009, 48, STICK, "ACFS Modes Off Button")
 MiG_29A:definePushButton("STICK_TARGET_ACQUISITION_DEPRESS_BUTTON", devices.HOTAS, 3016, 472, STICK, "Target Acquisition Depress Button")
 MiG_29A:definePotentiometer("STICK_TARGET_ACQUISITION_HORIZ", devices.HOTAS, 3010, 471, { -1, 1 }, STICK, "Target Acquisition Horizontal Axis")
