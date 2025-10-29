@@ -1,5 +1,6 @@
 module("MiG-29A", package.seeall)
 
+local ApiVariant = require("Scripts.DCS-BIOS.lib.modules.documentation.ApiVariant")
 local Control = require("Scripts.DCS-BIOS.lib.modules.documentation.Control")
 local ControlType = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlType")
 local FixedStepInput = require("Scripts.DCS-BIOS.lib.modules.documentation.FixedStepInput")
@@ -189,7 +190,41 @@ function MiG_29A:defineCabinTempSwitch(identifier, device_id, arg_number, catego
 	end)
 end
 
+--- Adds a new push button control that sends a negative input
+--- @param identifier string the unique identifier for the control
+--- @param device_id integer the dcs device id
+--- @param command integer the dcs command
+--- @param arg_number integer the dcs argument number
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @return Control control the control which was added to the module
+function MiG_29A:defineInvertedPushButton(identifier, device_id, command, arg_number, category, description)
+	local control = self:defineTumb(identifier, device_id, command, arg_number, 1, { -1, 0 }, nil, false, category, description)
+	control.api_variant = ApiVariant.momentary_last_position
+
+	return control
+end
+
 -- Stick
+local STICK = "Stick Controls"
+
+MiG_29A:definePushButton("STICK_TRIM_FWD", devices.HOTAS, 3004, 51, STICK, "Trim Switch FWD")
+MiG_29A:defineInvertedPushButton("STICK_TRIM_AFT", devices.HOTAS, 3005, 51, STICK, "Trim Switch AFT")
+MiG_29A:defineInvertedPushButton("STICK_TRIM_LEFT", devices.HOTAS, 3006, 52, STICK, "Trim Switch LEFT")
+MiG_29A:definePushButton("STICK_TRIM_RIGHT", devices.HOTAS, 3007, 52, STICK, "Trim Switch RIGHT")
+MiG_29A:definePushButton("STICK_LEVELING_BUTTON", devices.HOTAS, 3008, 55, STICK, "Leveling Button")
+MiG_29A:definePushButton("STICK_ACFS_OFF_BUTTON", devices.HOTAS, 3009, 48, STICK, "ACFS Modes Off Button")
+MiG_29A:definePushButton("STICK_TARGET_ACQUISITION_DEPRESS_BUTTON", devices.HOTAS, 3016, 472, STICK, "Target Acquisition Depress Button")
+MiG_29A:definePotentiometer("STICK_TARGET_ACQUISITION_HORIZ", devices.HOTAS, 3010, 471, { -1, 1 }, STICK, "Target Acquisition Horizontal Axis")
+MiG_29A:definePotentiometer("STICK_TARGET_ACQUISITION_VERT", devices.HOTAS, 3011, 470, { -1, 1 }, STICK, "Target Acquisition Vertical Axis")
+MiG_29A:definePushButton("STICK_BREAK_LOCK_BUTTON", devices.HOTAS, 3017, 54, STICK, "Break-lock Button")
+MiG_29A:defineToggleSwitch("STICK_BRAKE_LEVER", devices.HOTAS, 3020, 47, STICK, "Brake Lever")
+MiG_29A:definePushButton("STICK_AP_CUTOFF_BUTTON", devices.HOTAS, 3019, 70, STICK, "Autopilor Cut-Off Button")
+MiG_29A:defineToggleSwitch("STICK_GUN_TRIGGER_FIRST_DETENT", devices.HOTAS, 3002, 442, STICK, "Gun Trigger (First Detent)")
+MiG_29A:defineToggleSwitch("STICK_GUN_TRIGGER_SECOND_DETENT", devices.HOTAS, 3001, 442, STICK, "Gun Trigger (Second Detent)")
+MiG_29A:defineToggleSwitch("STICK_WEAPON_TRIGGER", devices.HOTAS, 3003, 441, STICK, "Weapon Trigger")
+MiG_29A:defineToggleSwitch("STICK_EMERGENCY_JETTISON_COVER", devices.HOTAS, 3022, 100, STICK, "Emergency Jettison Button Cover")
+MiG_29A:definePushButton("STICK_EMERGENCY_JETTISON_BUTTON", devices.HOTAS, 3021, 101, STICK, "Emergency Jettison Button")
 
 -- Throttle
 local THROTTLE = "Throttle Controls"
