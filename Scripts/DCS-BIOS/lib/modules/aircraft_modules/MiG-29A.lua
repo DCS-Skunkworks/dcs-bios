@@ -218,6 +218,11 @@ MiG_29A:defineFloat("AOA_G_METER_G_POINTER", 6, { 0, 1 }, AOA_G_METER, "Current 
 MiG_29A:defineFloat("AOA_G_METER_AOA_POINTER", 7, { 0, 1 }, AOA_G_METER, "Current AOA Pointer")
 
 -- Master caution
+local MASTER_CAUTION = "Master Caution"
+
+MiG_29A:defineFloat("MASTER_CAUTION_LIGHT", 445, { 0, 1 }, MASTER_CAUTION, "Master Caution Light")
+MiG_29A:definePushButton("MASTER_CAUTION_EXTINGUISH_BUTTON", devices.INTLIGHTS_SYSTEM, 3002, 97, MASTER_CAUTION, "Master Caution Extinguish Button")
+MiG_29A:definePotentiometer("MASTER_CAUTION_BRIGHTNESS_KNOB", devices.INTLIGHTS_SYSTEM, 3003, 453, { 0, 1 }, MASTER_CAUTION, "Master Caution Brightness Knob")
 
 -- Air speed
 
