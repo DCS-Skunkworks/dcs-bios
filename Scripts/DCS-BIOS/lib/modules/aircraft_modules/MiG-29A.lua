@@ -192,7 +192,7 @@ end
 -- Stick
 
 -- Throttle
-local THROTTLE = "Throttle controls"
+local THROTTLE = "Throttle Controls"
 
 MiG_29A:definePushButton("THROTTLE_RADIO_BUTTON", devices.HOTAS, 3024, 840, THROTTLE, "Radio Button")
 MiG_29A:definePushButton("THROTTLE_SPEED_BRAKE_BUTTON", devices.HOTAS, 3026, 841, THROTTLE, "Speed Brake Button")
