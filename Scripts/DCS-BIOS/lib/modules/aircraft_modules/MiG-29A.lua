@@ -8,8 +8,6 @@ local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 local SetStateInput = require("Scripts.DCS-BIOS.lib.modules.documentation.SetStateInput")
 local Suffix = require("Scripts.DCS-BIOS.lib.modules.documentation.Suffix")
 
-local Log = require("Scripts.DCS-BIOS.lib.common.Log")
-
 --- @class MiG_29A: Module
 local MiG_29A = Module:new("MiG-29 Fulcrum", 0x3c00, { "MiG-29 Fulcrum" })
 
@@ -191,49 +189,49 @@ function MiG_29A:defineCabinTempSwitch(identifier, device_id, arg_number, catego
 	end)
 end
 
+-- Unit system set by the user settings, "metric" or "imperial"
 local unitSystem
 
 MiG_29A:addExportHook(function(dev0)
 	local val = dev0:get_argument_value(1)
 
-	if unitSystem == nil then
-		if val >= 0.01 then
-			unitSystem = "imperial"
-			Log:log_info("setting unit system to imperial")
-		else
-			unitSystem = "metric"
-			Log:log_info("setting unit system to metric")
-		end
+	if val >= 0.01 then
+		unitSystem = "imperial"
+	else
+		unitSystem = "metric"
 	end
 end)
 
--- Args for indicators based on unit system
-local metrics_args = {
-	["IAS_INDICATOR_POINTER"] = { 8, 821 },
-	["IAS_INDICATOR_WINDOW"] = { 5, 820 },
-}
+--- Defines a single gauge from a metric arg and an imperial arg based on user selected unit system
+--- @param identifier string the unique identifier for the control
+--- @param arg_number_metric integer the dcs argument number for the metric gauge
+--- @param arg_number_imperial integer the dcs argument number for the imperial gauge
+--- @param limits number[] a length-2 array with the lower and upper bounds of the data as used in dcs
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+function MiG_29A:defineMultiUnitFloat(identifier, arg_number_metric, arg_number_imperial, limits, category, description)
+	assert(#limits == 2, string.format("%s may only contain a min and max value", identifier))
+	local max_value = 65535
+	local alloc = self:allocateInt(max_value, identifier)
 
--- This is called too early before the unit system is determined
-local function getIndicatorArg(identifier)
-	local arg = metrics_args[identifier]
-
-	assert(arg ~= nil, "MiG_29A:getIndicatorArg: Unknown indicator: " .. identifier)
-
-	if unitSystem == "metric" then
-		Log:log_info("returning metric arg: " .. arg[1])
-		return arg[1]
-	else
-		Log:log_info("returning imperial arg: " .. arg[2])
-		return arg[2]
+	local function getArgFromUnit(dev0)
+		if unitSystem == "metric" then
+			return dev0:get_argument_value(arg_number_metric)
+		else
+			return dev0:get_argument_value(arg_number_imperial)
+		end
 	end
-end
 
-local function tempGetIndicatorName(description)
-	if unitSystem == "metric" then
-		return description .. " (Metric)"
-	else
-		return description .. " (Imperial)"
-	end
+	self:addExportHook(function(dev0)
+		alloc:setValue(Module.valueConvert(getArgFromUnit(dev0), limits, { 0, max_value }))
+	end)
+
+	local control = Control:new(category, ControlType.metadata, identifier, description, {}, {
+		IntegerOutput:new(alloc, Suffix.none, description),
+	})
+	self:addControl(control)
+
+	return control
 end
 
 -- Stick
@@ -269,8 +267,8 @@ MiG_29A:defineFloat("AOA_G_METER_AOA_POINTER", 7, { 0, 1 }, AOA_G_METER, "Curren
 -- IAS indicator
 local IAS = "IAS indicator"
 
-MiG_29A:defineFloat("IAS_INDICATOR_POINTER", getIndicatorArg("IAS_INDICATOR_POINTER"), { 0, 1 }, IAS, tempGetIndicatorName("IAS Pointer")) -- in imperial: 0 to 100% from 0 to 600 airspeed then back to 0%... Two scales?
-MiG_29A:defineFloat("IAS_INDICATOR_WINDOW", getIndicatorArg("IAS_INDICATOR_WINDOW"), { 0, 1 }, IAS, tempGetIndicatorName("IAS Mach Number"))
+MiG_29A:defineMultiUnitFloat("IAS_INDICATOR_POINTER", 8, 821, { 0, 1 }, IAS, "IAS Pointer")
+MiG_29A:defineMultiUnitFloat("IAS_INDICATOR_WINDOW", 5, 820, { 0, 1 }, IAS, "IAS Mach Number")
 
 -- Altimiter
 
