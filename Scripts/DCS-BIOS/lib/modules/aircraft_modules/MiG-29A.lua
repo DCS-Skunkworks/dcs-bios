@@ -219,7 +219,16 @@ MiG_29A:defineFloat("AOA_G_METER_AOA_POINTER", 7, { 0, 1 }, AOA_G_METER, "Curren
 
 -- Master caution
 
--- Air speed
+-- IAS indicator
+local IAS = "IAS indicator"
+
+-- Metric indicators
+MiG_29A:defineFloat("IAS_METRIC_INDICATOR_POINTER", 8, { 0, 1 }, IAS, "IAS Pointer (Metric)")
+MiG_29A:defineFloat("IAS_METRIC_INDICATOR_WINDOW", 5, { 0, 1 }, IAS, "IAS Window (1/0) (Metric)")
+
+-- Imperial indicators
+MiG_29A:defineFloat("IAS_IMP_INDICATOR_POINTER", 821, { 0, 1 }, IAS, "IAS Pointer (Imperial)")
+MiG_29A:defineFloat("IAS_IMP_INDICATOR_WINDOW", 820, { 0, 1 }, IAS, "IAS Window (Imperial)") -- 0 to 100% from 0 to 600 airspeed then back to 0%... Two scales?
 
 -- Altimiter
 
