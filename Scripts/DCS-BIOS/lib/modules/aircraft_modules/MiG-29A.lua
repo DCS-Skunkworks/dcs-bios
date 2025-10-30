@@ -208,7 +208,7 @@ end
 -- Stick
 local STICK = "Stick Controls"
 
-MiG_29A:defineRockerSwitch("STICK_TRIM_HORIZ", devices.HOTAS, 3007, 3006, 3006, 3007, 52, STICK, "Trim Hat Switch Hozrizontal (LEFT/MIDDLE/RIGHT)")
+MiG_29A:defineRockerSwitch("STICK_TRIM_HORIZ", devices.HOTAS, 3007, 3006, 3006, 3007, 52, STICK, "Trim Hat Switch Horizontal (LEFT/MIDDLE/RIGHT)")
 MiG_29A:defineRockerSwitch("STICK_TRIM_VERT", devices.HOTAS, 3004, 3005, 3005, 3004, 51, STICK, "Trim Hat Switch Vertical (UP/MIDDLE/DOWN)")
 MiG_29A:definePushButton("STICK_LEVELING_BUTTON", devices.HOTAS, 3008, 55, STICK, "Leveling Button")
 MiG_29A:defineGatedIndicatorLight("STICK_LEVELING_LIGHT", 49, 0.5, nil, STICK, "Leveling Light")
