@@ -208,8 +208,8 @@ end
 -- Stick
 local STICK = "Stick Controls"
 
-MiG_29A:defineRockerSwitch("STICK_TRIM_HORIZ", devices.HOTAS, 3007, 3006, 3006, 3007, 52, STICK, "Trim Switch Hozrizontal (LEFT/MIDDLE/RIGHT)")
-MiG_29A:defineRockerSwitch("STICK_TRIM_VERT", devices.HOTAS, 3004, 3005, 3005, 3004, 51, STICK, "Trim Switch Vertical (UP/MIDDLE/DOWN)")
+MiG_29A:defineRockerSwitch("STICK_TRIM_HORIZ", devices.HOTAS, 3007, 3006, 3006, 3007, 52, STICK, "Trim Hat Switch Hozrizontal (LEFT/MIDDLE/RIGHT)")
+MiG_29A:defineRockerSwitch("STICK_TRIM_VERT", devices.HOTAS, 3004, 3005, 3005, 3004, 51, STICK, "Trim Hat Switch Vertical (UP/MIDDLE/DOWN)")
 MiG_29A:definePushButton("STICK_LEVELING_BUTTON", devices.HOTAS, 3008, 55, STICK, "Leveling Button")
 MiG_29A:defineGatedIndicatorLight("STICK_LEVELING_LIGHT", 49, 0.5, nil, STICK, "Leveling Light")
 MiG_29A:definePushButton("STICK_ACFS_OFF_BUTTON", devices.HOTAS, 3009, 48, STICK, "ACFS Modes Off Button")
@@ -217,8 +217,9 @@ MiG_29A:definePushButton("STICK_TARGET_ACQUISITION_DEPRESS_BUTTON", devices.HOTA
 MiG_29A:definePotentiometer("STICK_TARGET_ACQUISITION_HORIZ", devices.HOTAS, 3010, 471, { -1, 1 }, STICK, "Target Acquisition Horizontal Axis")
 MiG_29A:definePotentiometer("STICK_TARGET_ACQUISITION_VERT", devices.HOTAS, 3011, 470, { -1, 1 }, STICK, "Target Acquisition Vertical Axis")
 MiG_29A:definePushButton("STICK_BREAK_LOCK_BUTTON", devices.HOTAS, 3017, 54, STICK, "Break-lock Button")
-MiG_29A:defineToggleSwitch("STICK_BRAKE_LEVER", devices.HOTAS, 3020, 47, STICK, "Brake Lever")
-MiG_29A:definePushButton("STICK_AP_CUTOFF_BUTTON", devices.HOTAS, 3019, 70, STICK, "Autopilot Cut-Off Button")
+MiG_29A:defineToggleSwitch("STICK_BRAKE_LEVER", devices.HOTAS, 3019, 47, STICK, "Brake Lever (50%)")
+MiG_29A:defineToggleSwitch("STICK_RUN_UP_BRAKE_LEVER", devices.HOTAS, 3020, 47, STICK, "Run-up Brake Lever (100%)")
+MiG_29A:definePushButton("STICK_AP_CUTOFF_BUTTON", devices.HOTAS, 3018, 70, STICK, "Autopilot Cut-Off Button")
 MiG_29A:defineToggleSwitch("STICK_GUN_TRIGGER_FIRST_DETENT", devices.HOTAS, 3002, 442, STICK, "Gun Trigger (First Detent)")
 MiG_29A:defineToggleSwitch("STICK_GUN_TRIGGER_SECOND_DETENT", devices.HOTAS, 3001, 442, STICK, "Gun Trigger (Second Detent)")
 MiG_29A:defineToggleSwitch("STICK_WEAPON_TRIGGER", devices.HOTAS, 3003, 441, STICK, "Weapon Trigger")
