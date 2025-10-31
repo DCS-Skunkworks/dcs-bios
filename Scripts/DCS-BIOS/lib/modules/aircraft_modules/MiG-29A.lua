@@ -243,7 +243,7 @@ function MiG_29A:defineGunTrigger(identifier, device_id, arg_number, category, d
 
 		-- todo: second detent doesn't seem to work, also can't revert back to released state
 		if new_state == 0 then -- RELEASED
-			dev:performClickableAction(3001, 0)
+			dev:performClickableAction(3002, 0)
 		elseif new_state == 1 then -- FIRST DETENT
 			dev:performClickableAction(3002, 0.6)
 		elseif new_state == 2 then -- SECOND DETENT
