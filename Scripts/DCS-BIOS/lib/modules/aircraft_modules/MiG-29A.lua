@@ -3,6 +3,7 @@ module("MiG-29A", package.seeall)
 local Control = require("Scripts.DCS-BIOS.lib.modules.documentation.Control")
 local ControlType = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlType")
 local FixedStepInput = require("Scripts.DCS-BIOS.lib.modules.documentation.FixedStepInput")
+local ICommand = require("Scripts.DCS-BIOS.lib.modules.ICommand")
 local IntegerOutput = require("Scripts.DCS-BIOS.lib.modules.documentation.IntegerOutput")
 local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 local SetStateInput = require("Scripts.DCS-BIOS.lib.modules.documentation.SetStateInput")
@@ -145,7 +146,7 @@ function MiG_29A:defineCabinTempSwitch(identifier, device_id, arg_number, catego
 		alloc:setValue(val)
 	end)
 
-	local control = Control:new(category, ControlType.toggle_switch, identifier, description, {
+	local control = Control:new(category, ControlType.selector, identifier, description, {
 		SetStateInput:new(3, "set the switch position"),
 		FixedStepInput:new("switch to previous or next state"),
 	}, {
@@ -187,6 +188,108 @@ function MiG_29A:defineCabinTempSwitch(identifier, device_id, arg_number, catego
 			dev:performClickableAction(3004, 0.75)
 		end
 	end)
+end
+
+local function gunTriggerIntValue(arg_value)
+	if arg_value < 0.30 then
+		return 0
+	elseif arg_value < 0.675 then
+		return 1
+	else
+		return 2
+	end
+end
+
+function MiG_29A:defineGunTrigger(identifier, device_id, arg_number, category, description)
+	local alloc = self:allocateInt(2)
+	self:addExportHook(function(dev0)
+		local val = gunTriggerIntValue(dev0:get_argument_value(arg_number))
+		alloc:setValue(val)
+	end)
+
+	local control = Control:new(category, ControlType.toggle_switch, identifier, description, {
+		SetStateInput:new(2, "set the trigger position"),
+		FixedStepInput:new("switch to previous or next state"),
+	}, {
+		IntegerOutput:new(alloc, Suffix.none, "trigger position -- 0 = released, 1 = first detent , 2 = second detent"),
+	})
+	self:addControl(control)
+
+	self:addInputProcessor(identifier, function(toState)
+		local dev = GetDevice(device_id)
+
+		if dev == nil then
+			return
+		end
+
+		local currentState = gunTriggerIntValue(GetDevice(0):get_argument_value(arg_number))
+		local new_state
+
+		if toState == "INC" then
+			if currentState >= 2 then
+				return
+			end
+			new_state = currentState + 1
+		elseif toState == "DEC" then
+			if currentState <= 0 then
+				return
+			end
+			new_state = currentState - 1
+		else
+			new_state = tonumber(toState)
+		end
+
+		if new_state == 0 then -- RELEASED
+			dev:performClickableAction(3001, 0)
+			dev:performClickableAction(3002, 0)
+		elseif new_state == 1 then -- FIRST DETENT
+			dev:performClickableAction(3001, 0)
+			-- 0.6 is the arg value when the first detent is pressed
+			dev:performClickableAction(3002, 0.6)
+		elseif new_state == 2 then -- SECOND DETENT
+			dev:performClickableAction(3001, 0)
+			dev:performClickableAction(3001, 1)
+		end
+	end)
+end
+
+--- Adds an input-only control which performs a specific LoSetCommand with no arguments
+--- @param identifier string the unique identifier for the control
+--- @param iCommand ICommand the dcs icommand to move the switch up or down
+--- @param arg_number integer the dcs argument number
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @return Control control the control which was added to the module
+function MiG_29A:defineBrakeLever(identifier, iCommand, arg_number, category, description)
+	local max_value = 65535
+	local limits = { -1, 1 }
+
+	local intervalLength = limits[2] - limits[1]
+	self:addInputProcessor(identifier, function(value)
+		local newValue = 0
+		if value:match("-[0-9]+") then
+			newValue = Module.cap(newValue + tonumber(value), 0, max_value)
+		elseif value:match("[0-9]+") then
+			newValue = Module.cap(tonumber(value) or 0, 0, max_value)
+		end
+
+		LoSetCommand(iCommand, -(newValue / max_value * intervalLength + limits[1]))
+	end)
+
+	local value = self:allocateInt(max_value, identifier)
+
+	self:addExportHook(function(dev0)
+		value:setValue((dev0:get_argument_value(arg_number) / 0.5) * max_value)
+	end)
+
+	local control = Control:new(category, ControlType.limited_dial, identifier, description, {
+		SetStateInput:new(max_value, "set the position of the dial"),
+	}, {
+		IntegerOutput:new(value, Suffix.none, "position of the potentiometer"),
+	})
+	self:addControl(control)
+
+	return control
 end
 
 -- Unit system set by the user settings, "metric" or "imperial"
@@ -236,9 +339,39 @@ function MiG_29A:defineMultiUnitFloat(identifier, arg_number_metric, arg_number_
 	return control
 end
 
+
 -- Stick
+local STICK = "Stick Controls"
+
+MiG_29A:defineRockerSwitch("STICK_TRIM_HORIZ", devices.HOTAS, 3007, 3006, 3006, 3007, 52, STICK, "Trim Hat Switch Horizontal (LEFT/MIDDLE/RIGHT)")
+MiG_29A:defineRockerSwitch("STICK_TRIM_VERT", devices.HOTAS, 3004, 3005, 3005, 3004, 51, STICK, "Trim Hat Switch Vertical (UP/MIDDLE/DOWN)")
+MiG_29A:definePushButton("STICK_LEVELING_BUTTON", devices.HOTAS, 3008, 55, STICK, "Leveling Button")
+MiG_29A:defineGatedIndicatorLight("STICK_LEVELING_LIGHT", 49, 0.5, nil, STICK, "Leveling Light")
+MiG_29A:definePushButton("STICK_ACFS_OFF_BUTTON", devices.HOTAS, 3009, 48, STICK, "ACFS Modes Off Button")
+MiG_29A:definePushButton("STICK_TARGET_ACQUISITION_DEPRESS_BUTTON", devices.HOTAS, 3016, 472, STICK, "Target Acquisition Depress Button")
+MiG_29A:definePotentiometer("STICK_TARGET_ACQUISITION_HORIZ", devices.HOTAS, 3010, 471, { -1, 1 }, STICK, "Target Acquisition Horizontal Axis")
+MiG_29A:definePotentiometer("STICK_TARGET_ACQUISITION_VERT", devices.HOTAS, 3011, 470, { -1, 1 }, STICK, "Target Acquisition Vertical Axis")
+MiG_29A:definePushButton("STICK_BREAK_LOCK_BUTTON", devices.HOTAS, 3017, 54, STICK, "Break-lock Button")
+MiG_29A:definePushButton("STICK_AP_CUTOFF_BUTTON", devices.HOTAS, 3018, 70, STICK, "Autopilot Cut-Off Button")
+MiG_29A:defineGunTrigger("STICK_GUN_TRIGGER", devices.HOTAS, 442, STICK, "Gun Trigger")
+MiG_29A:defineToggleSwitch("STICK_WEAPON_TRIGGER", devices.HOTAS, 3003, 441, STICK, "Weapon Trigger")
+MiG_29A:defineToggleSwitch("STICK_EMERGENCY_JETTISON_COVER", devices.HOTAS, 3022, 100, STICK, "Emergency Jettison Button Cover")
+MiG_29A:definePushButton("STICK_EMERGENCY_JETTISON_BUTTON", devices.HOTAS, 3021, 101, STICK, "Emergency Jettison Button")
+MiG_29A:defineBrakeLever("STICK_BRAKE_LEVER", ICommand.wheel_brake, 47, STICK, "Wheel Brake")
+MiG_29A:defineToggleSwitch("STICK_RUN_UP_BRAKE_LEVER", devices.HOTAS, 3020, 47, STICK, "Run-up Brake Lever")
 
 -- Throttle
+local THROTTLE = "Throttle Controls"
+
+MiG_29A:definePushButton("THROTTLE_RADIO_BUTTON", devices.HOTAS, 3024, 840, THROTTLE, "Radio Button")
+MiG_29A:definePushButton("THROTTLE_SPEED_BRAKE_BUTTON", devices.HOTAS, 3026, 841, THROTTLE, "Speed Brake Button")
+MiG_29A:definePushButton("THROTTLE_LOCK_BUTTON", devices.HOTAS, 3025, 842, THROTTLE, "Lock On / NWS Button")
+MiG_29A:definePushButton("THROTTLE_COUNTERMEASURES_BUTTON", devices.HOTAS, 3027, 61, THROTTLE, "Countermeasures Dispense Button")
+MiG_29A:definePushButton("THROTTLE_AFTERBURNER_LOCK_LEFT", devices.HOTAS, 3028, 846, THROTTLE, "Afterburner Lock Latch (Left)")
+MiG_29A:definePushButton("THROTTLE_AFTERBURNER_LOCK_RIGHT", devices.HOTAS, 3029, 845, THROTTLE, "Afterburner Lock Latch (Right)")
+MiG_29A:definePushButton("THROTTLE_IDLE_LOCK_LEFT", devices.HOTAS, 3031, 847, THROTTLE, "Idle Lock Latch (Left)")
+MiG_29A:definePushButton("THROTTLE_IDLE_LOCK_RIGHT", devices.HOTAS, 3032, 844, THROTTLE, "Idle Lock Latch (Right)")
+MiG_29A:reserveIntValue(65535) -- Manual Ranging Control Potentiometer
 
 -- Pedals
 
@@ -265,6 +398,11 @@ MiG_29A:defineFloat("AOA_G_METER_G_POINTER", 6, { 0, 1 }, AOA_G_METER, "Current 
 MiG_29A:defineFloat("AOA_G_METER_AOA_POINTER", 7, { 0, 1 }, AOA_G_METER, "Current AOA Pointer")
 
 -- Master caution
+local MASTER_CAUTION = "Master Caution"
+
+MiG_29A:defineFloat("MASTER_CAUTION_LIGHT", 445, { 0, 1 }, MASTER_CAUTION, "Master Caution Light")
+MiG_29A:definePushButton("MASTER_CAUTION_EXTINGUISH_BUTTON", devices.INTLIGHTS_SYSTEM, 3002, 97, MASTER_CAUTION, "Master Caution Extinguish Button")
+MiG_29A:definePotentiometer("MASTER_CAUTION_BRIGHTNESS_KNOB", devices.INTLIGHTS_SYSTEM, 3003, 453, { 0, 1 }, MASTER_CAUTION, "Master Caution Brightness Knob")
 
 -- IAS indicator
 local IAS = "IAS indicator"
@@ -289,6 +427,9 @@ MiG_29A:defineMultiUnitFloat("IAS_INDICATOR_WINDOW", 5, 820, { 0, 1 }, IAS, "IAS
 -- ADF mode toggle switch
 
 -- Nose wheel brake
+local NOSE_WHEEL_BRAKE = "Nose Wheel Brake (Instrument Panel)"
+
+MiG_29A:defineToggleSwitch("NOSE_WHEEL_BRAKE_HANDLE", devices.INPUT_PANEL, 3035, 23, NOSE_WHEEL_BRAKE, "Nose Wheel Brake Handle (ON/OFF)")
 
 -- Radar altimiter
 
