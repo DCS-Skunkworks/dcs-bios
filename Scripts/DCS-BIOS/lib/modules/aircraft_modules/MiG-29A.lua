@@ -339,7 +339,6 @@ function MiG_29A:defineMultiUnitFloat(identifier, arg_number_metric, arg_number_
 	return control
 end
 
-
 -- Stick
 local STICK = "Stick Controls"
 
