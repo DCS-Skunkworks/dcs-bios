@@ -244,6 +244,7 @@ function MiG_29A:defineGunTrigger(identifier, device_id, arg_number, category, d
 			dev:performClickableAction(3002, 0)
 		elseif new_state == 1 then -- FIRST DETENT
 			dev:performClickableAction(3001, 0)
+			-- 0.6 is the arg value when the first detent is pressed
 			dev:performClickableAction(3002, 0.6)
 		elseif new_state == 2 then -- SECOND DETENT
 			dev:performClickableAction(3001, 0)
