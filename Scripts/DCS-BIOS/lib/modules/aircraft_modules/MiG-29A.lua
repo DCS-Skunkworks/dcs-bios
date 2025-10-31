@@ -1,15 +1,13 @@
 module("MiG-29A", package.seeall)
 
-local ApiVariant = require("Scripts.DCS-BIOS.lib.modules.documentation.ApiVariant")
 local Control = require("Scripts.DCS-BIOS.lib.modules.documentation.Control")
 local ControlType = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlType")
 local FixedStepInput = require("Scripts.DCS-BIOS.lib.modules.documentation.FixedStepInput")
+local ICommand = require("Scripts.DCS-BIOS.lib.modules.ICommand")
 local IntegerOutput = require("Scripts.DCS-BIOS.lib.modules.documentation.IntegerOutput")
 local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 local SetStateInput = require("Scripts.DCS-BIOS.lib.modules.documentation.SetStateInput")
 local Suffix = require("Scripts.DCS-BIOS.lib.modules.documentation.Suffix")
-
-local Log = require("Scripts.DCS-BIOS.lib.common.Log")
 
 --- @class MiG_29A: Module
 local MiG_29A = Module:new("MiG-29 Fulcrum", 0x3c00, { "MiG-29 Fulcrum" })
@@ -254,6 +252,45 @@ function MiG_29A:defineGunTrigger(identifier, device_id, arg_number, category, d
 	end)
 end
 
+--- Adds an input-only control which performs a specific LoSetCommand with no arguments
+--- @param identifier string the unique identifier for the control
+--- @param iCommand ICommand the dcs icommand to move the switch up or down
+--- @param arg_number integer the dcs argument number
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @return Control control the control which was added to the module
+function MiG_29A:defineBrakeLever(identifier, iCommand, arg_number, category, description)
+	local max_value = 65535
+	local limits = { -1, 1 }
+
+	local intervalLength = limits[2] - limits[1]
+	self:addInputProcessor(identifier, function(value)
+		local newValue = 0
+		if value:match("-[0-9]+") then
+			newValue = Module.cap(newValue + tonumber(value), 0, max_value)
+		elseif value:match("[0-9]+") then
+			newValue = Module.cap(tonumber(value) or 0, 0, max_value)
+		end
+
+		LoSetCommand(iCommand, -(newValue / max_value * intervalLength + limits[1]))
+	end)
+
+	local value = self:allocateInt(max_value, identifier)
+
+	self:addExportHook(function(dev0)
+		value:setValue((dev0:get_argument_value(arg_number) / 0.5) * max_value)
+	end)
+
+	local control = Control:new(category, ControlType.limited_dial, identifier, description, {
+		SetStateInput:new(max_value, "set the position of the dial"),
+	}, {
+		IntegerOutput:new(value, Suffix.none, "position of the potentiometer"),
+	})
+	self:addControl(control)
+
+	return control
+end
+
 -- Stick
 local STICK = "Stick Controls"
 
@@ -266,13 +303,13 @@ MiG_29A:definePushButton("STICK_TARGET_ACQUISITION_DEPRESS_BUTTON", devices.HOTA
 MiG_29A:definePotentiometer("STICK_TARGET_ACQUISITION_HORIZ", devices.HOTAS, 3010, 471, { -1, 1 }, STICK, "Target Acquisition Horizontal Axis")
 MiG_29A:definePotentiometer("STICK_TARGET_ACQUISITION_VERT", devices.HOTAS, 3011, 470, { -1, 1 }, STICK, "Target Acquisition Vertical Axis")
 MiG_29A:definePushButton("STICK_BREAK_LOCK_BUTTON", devices.HOTAS, 3017, 54, STICK, "Break-lock Button")
-MiG_29A:defineToggleSwitch("STICK_BRAKE_LEVER", devices.HOTAS, 3019, 47, STICK, "Brake Lever (50%)")
-MiG_29A:defineToggleSwitch("STICK_RUN_UP_BRAKE_LEVER", devices.HOTAS, 3020, 47, STICK, "Run-up Brake Lever (100%)")
 MiG_29A:definePushButton("STICK_AP_CUTOFF_BUTTON", devices.HOTAS, 3018, 70, STICK, "Autopilot Cut-Off Button")
 MiG_29A:defineGunTrigger("STICK_GUN_TRIGGER", devices.HOTAS, 442, STICK, "Gun Trigger")
 MiG_29A:defineToggleSwitch("STICK_WEAPON_TRIGGER", devices.HOTAS, 3003, 441, STICK, "Weapon Trigger")
 MiG_29A:defineToggleSwitch("STICK_EMERGENCY_JETTISON_COVER", devices.HOTAS, 3022, 100, STICK, "Emergency Jettison Button Cover")
 MiG_29A:definePushButton("STICK_EMERGENCY_JETTISON_BUTTON", devices.HOTAS, 3021, 101, STICK, "Emergency Jettison Button")
+MiG_29A:defineBrakeLever("STICK_BRAKE_LEVER", ICommand.wheel_brake, 47, STICK, "Wheel Brake")
+MiG_29A:defineToggleSwitch("STICK_RUN_UP_BRAKE_LEVER", devices.HOTAS, 3020, 47, STICK, "Run-up Brake Lever")
 
 -- Throttle
 local THROTTLE = "Throttle Controls"
