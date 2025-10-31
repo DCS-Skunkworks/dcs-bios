@@ -146,7 +146,7 @@ function MiG_29A:defineCabinTempSwitch(identifier, device_id, arg_number, catego
 		alloc:setValue(val)
 	end)
 
-	local control = Control:new(category, ControlType.toggle_switch, identifier, description, {
+	local control = Control:new(category, ControlType.selector, identifier, description, {
 		SetStateInput:new(3, "set the switch position"),
 		FixedStepInput:new("switch to previous or next state"),
 	}, {
