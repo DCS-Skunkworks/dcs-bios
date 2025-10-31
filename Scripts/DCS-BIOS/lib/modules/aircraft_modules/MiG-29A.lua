@@ -9,6 +9,8 @@ local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 local SetStateInput = require("Scripts.DCS-BIOS.lib.modules.documentation.SetStateInput")
 local Suffix = require("Scripts.DCS-BIOS.lib.modules.documentation.Suffix")
 
+local Log = require("Scripts.DCS-BIOS.lib.common.Log")
+
 --- @class MiG_29A: Module
 local MiG_29A = Module:new("MiG-29 Fulcrum", 0x3c00, { "MiG-29 Fulcrum" })
 
@@ -190,19 +192,64 @@ function MiG_29A:defineCabinTempSwitch(identifier, device_id, arg_number, catego
 	end)
 end
 
---- Adds a new push button control that sends a negative input
---- @param identifier string the unique identifier for the control
---- @param device_id integer the dcs device id
---- @param command integer the dcs command
---- @param arg_number integer the dcs argument number
---- @param category string the category in which the control should appear
---- @param description string additional information about the control
---- @return Control control the control which was added to the module
-function MiG_29A:defineInvertedPushButton(identifier, device_id, command, arg_number, category, description)
-	local control = self:defineTumb(identifier, device_id, command, arg_number, 1, { -1, 0 }, nil, false, category, description)
-	control.api_variant = ApiVariant.momentary_last_position
+local function gunTriggerIntValue(arg_value)
+	if arg_value < 0.30 then
+		return 0
+	elseif arg_value < 0.675 then
+		return 1
+	else
+		return 2
+	end
+end
 
-	return control
+function MiG_29A:defineGunTrigger(identifier, device_id, arg_number, category, description)
+	local alloc = self:allocateInt(2)
+	self:addExportHook(function(dev0)
+		local val = gunTriggerIntValue(dev0:get_argument_value(arg_number))
+		alloc:setValue(val)
+	end)
+
+	local control = Control:new(category, ControlType.toggle_switch, identifier, description, {
+		SetStateInput:new(2, "set the trigger position"),
+		FixedStepInput:new("switch to previous or next state"),
+	}, {
+		IntegerOutput:new(alloc, Suffix.none, "trigger position -- 0 = released, 1 = first detent , 2 = second detent"),
+	})
+	self:addControl(control)
+
+	self:addInputProcessor(identifier, function(toState)
+		local dev = GetDevice(device_id)
+
+		if dev == nil then
+			return
+		end
+
+		local currentState = gunTriggerIntValue(GetDevice(0):get_argument_value(arg_number))
+		local new_state
+
+		if toState == "INC" then
+			if currentState >= 2 then
+				return
+			end
+			new_state = currentState + 1
+		elseif toState == "DEC" then
+			if currentState <= 0 then
+				return
+			end
+			new_state = currentState - 1
+		else
+			new_state = tonumber(toState)
+		end
+
+		-- todo: second detent doesn't seem to work, also can't revert back to released state
+		if new_state == 0 then -- RELEASED
+			dev:performClickableAction(3001, 0)
+		elseif new_state == 1 then -- FIRST DETENT
+			dev:performClickableAction(3002, 0.6)
+		elseif new_state == 2 then -- SECOND DETENT
+			dev:performClickableAction(3001, 0.75)
+		end
+	end)
 end
 
 -- Stick
@@ -220,8 +267,7 @@ MiG_29A:definePushButton("STICK_BREAK_LOCK_BUTTON", devices.HOTAS, 3017, 54, STI
 MiG_29A:defineToggleSwitch("STICK_BRAKE_LEVER", devices.HOTAS, 3019, 47, STICK, "Brake Lever (50%)")
 MiG_29A:defineToggleSwitch("STICK_RUN_UP_BRAKE_LEVER", devices.HOTAS, 3020, 47, STICK, "Run-up Brake Lever (100%)")
 MiG_29A:definePushButton("STICK_AP_CUTOFF_BUTTON", devices.HOTAS, 3018, 70, STICK, "Autopilot Cut-Off Button")
-MiG_29A:defineToggleSwitch("STICK_GUN_TRIGGER_FIRST_DETENT", devices.HOTAS, 3002, 442, STICK, "Gun Trigger (First Detent)")
-MiG_29A:defineToggleSwitch("STICK_GUN_TRIGGER_SECOND_DETENT", devices.HOTAS, 3001, 442, STICK, "Gun Trigger (Second Detent)")
+MiG_29A:defineGunTrigger("STICK_GUN_TRIGGER", devices.HOTAS, 442, STICK, "Gun Trigger")
 MiG_29A:defineToggleSwitch("STICK_WEAPON_TRIGGER", devices.HOTAS, 3003, 441, STICK, "Weapon Trigger")
 MiG_29A:defineToggleSwitch("STICK_EMERGENCY_JETTISON_COVER", devices.HOTAS, 3022, 100, STICK, "Emergency Jettison Button Cover")
 MiG_29A:definePushButton("STICK_EMERGENCY_JETTISON_BUTTON", devices.HOTAS, 3021, 101, STICK, "Emergency Jettison Button")
