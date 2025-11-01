@@ -2346,4 +2346,6 @@ local PILOT_LEFT_WALL = "PLT Left Wall"
 
 F_4E:defineToggleSwitch("PLT_EFB_TOGGLE", EFB_DEVICE_ID, 3001, 5011, PILOT_LEFT_WALL, "Hide/Show Electronic Flight Bag (EFB)")
 
+F_4E:defineFloat("WSO_RADAR_METER_MONITOR", 1002, { 0, 1 }, WSO_RADAR, "Radar Meter Monitor Gauge")
+
 return F_4E
