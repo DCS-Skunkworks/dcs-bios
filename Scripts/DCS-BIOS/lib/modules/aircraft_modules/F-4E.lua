@@ -2348,4 +2348,10 @@ F_4E:defineToggleSwitch("PLT_EFB_TOGGLE", EFB_DEVICE_ID, 3001, 5011, PILOT_LEFT_
 
 F_4E:defineFloat("WSO_RADAR_METER_MONITOR", 1002, { 0, 1 }, WSO_RADAR, "Radar Meter Monitor Gauge")
 
+F_4E:defineFloat("WSO_O2_LIQUID_OXYGEN_GAUGE", 239, { 0, 1 }, WSO_O2_SYSTEM, "Liquid Oxygen Quantity Gauge")
+
+local WSO_LEFT_WALL = "WSO Left Wall"
+
+F_4E:defineFloat("WSO_ALTITUDE_GAUGE", 240, { 0, 1 }, WSO_LEFT_WALL, "Cockpit Altitude Gauge")
+
 return F_4E
