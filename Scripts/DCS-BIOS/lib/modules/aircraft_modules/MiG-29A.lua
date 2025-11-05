@@ -366,7 +366,20 @@ MiG_29A:definePotentiometer("MASTER_CAUTION_BRIGHTNESS_KNOB", devices.INTLIGHTS_
 
 -- HSI
 
--- Combined indicator (VVI/Turn/Slip indicator)
+-- ADI indicator
+local ADI = "Attitude director indicator"
+
+MiG_29A:defineFloat("ADI_PITCH_INDICATOR", 81, { -1, 1 }, ADI, "Pitch Indicator")
+MiG_29A:defineFloat("ADI_ROLL_INDICATOR", 30, { -1, 1 }, ADI, "Roll Indicator")
+MiG_29A:defineFloat("ADI_SLIP_INDICATOR", 31, { -1, 1 }, ADI, "Slip Indicator")
+MiG_29A:defineFloat("ADI_HORIZ_FLIGHT_DIRECTOR", 27, { -1, 1 }, ADI, "Horizontal Flight Director")
+MiG_29A:defineFloat("ADI_PITCH_OFF_INDICATOR", 94, { 0, 1 }, ADI, "Pitch Off Indicator")
+MiG_29A:defineFloat("ADI_AZIMUTH_OFF_INDICATOR", 96, { 0, 1 }, ADI, "Azimuth Off Indicator")
+MiG_29A:defineFloat("ADI_HORIZ_PLANE_INDICATOR", 393, { -1, 1 }, ADI, "Horizontal Plane Indicator")
+MiG_29A:defineFloat("ADI_VERT_PLANE_INDICATOR", 392, { -1, 1 }, ADI, "Vertical Plane Indicator")
+MiG_29A:definePotentiometer("ADI_POSITION_ADJUSTMENT_KNOB", devices.ADI, 3001, 264, { -1, 1 }, ADI, "Aircraft Symbol Adjustment Knob")
+MiG_29A:definePushButton("ADI_GYRO_CAGE_BUTTON", devices.ADI, 3002, 265, ADI, "Gyro Cage Button")
+MiG_29A:defineFloat("ADI_GYRO_CAGE_LIGHT", 262, { 0, 1 }, ADI, "Gyro Cage Light")
 
 -- TAS indicator
 
