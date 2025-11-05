@@ -366,6 +366,12 @@ MiG_29A:definePotentiometer("MASTER_CAUTION_BRIGHTNESS_KNOB", devices.INTLIGHTS_
 
 -- HSI
 
+-- Course settings panel
+local COURSE_SETTINGS = "Course Setting Control Panel"
+
+MiG_29A:definePushButton("COURSE_SETTINGS_MAG_BUTTON", devices.NAV, 3021, 274, COURSE_SETTINGS, "Magnetic Course Adjustment Button")
+MiG_29A:defineToggleSwitch("COURSE_SETTINGS_MODE_SWITCH", devices.NAV, 3022, 273, COURSE_SETTINGS, "Course Mode Switch (MANUAL/AUTO)")
+
 -- Combined indicator (VVI/Turn/Slip indicator)
 
 -- TAS indicator
