@@ -360,14 +360,8 @@ MiG_29A:definePotentiometer("MASTER_CAUTION_BRIGHTNESS_KNOB", devices.INTLIGHTS_
 
 -- Altimiter
 
--- Flaps / Landing gear indicator
-
--- ADI
-
--- HSI
-
--- IP-52-03 Combined indicator (VVI/Turn/Slip indicator)
-local IP_52_03 = "IP-52-03 Combined indicator"
+-- IP-52-03 Flaps / Landing gear indicator
+local IP_52_03 = "IP-52-03 Control surfaces / Landing gear indicators"
 
 MiG_29A:defineFloat("IP_52_03_UPPER_SPEEDBRAKE_INDICATOR", 44, { 0, 1 }, IP_52_03, "Upper Speedbrake Indicator")
 MiG_29A:defineFloat("IP_52_03_LOWER_SPEEDBRAKE_INDICATOR", 45, { 0, 1 }, IP_52_03, "Lower Speedbrake Indicator")
@@ -381,6 +375,12 @@ MiG_29A:defineFloat("IP_52_03_NOSE_GEAR_INDICATOR", 40, { 0, 1 }, IP_52_03, "Nos
 MiG_29A:defineFloat("IP_52_03_LEFT_GEAR_INDICATOR", 39, { 0, 1 }, IP_52_03, "Left Gear Indicator")
 MiG_29A:defineFloat("IP_52_03_RIGHT_GEAR_INDICATOR", 41, { 0, 1 }, IP_52_03, "Right Gear Indicator")
 MiG_29A:defineFloat("IP_52_03_GEAR_WARNING_INDICATOR", 46, { 0, 1 }, IP_52_03, "Gear Release Warning Indicator")
+
+-- ADI
+
+-- HSI
+
+-- Combined indicator (VVI/Turn/Slip indicator)
 
 -- TAS indicator
 
