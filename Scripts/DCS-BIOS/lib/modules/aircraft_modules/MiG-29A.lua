@@ -364,7 +364,27 @@ MiG_29A:definePotentiometer("MASTER_CAUTION_BRIGHTNESS_KNOB", devices.INTLIGHTS_
 
 -- ADI
 
--- HSI
+-- PNP-72-12 HSI
+local PNP_72_12 = "PNP-72-12 Horizontal situation indicator"
+
+MiG_29A:defineFloat("HSI_COMPASS_SCALE", 32, { 0, 1 }, PNP_72_12, "Compass scale")
+MiG_29A:defineFloat("HSI_BEARING_POINTER", 36, { 0, 1 }, PNP_72_12, "Bearing Pointer")
+MiG_29A:defineFloat("HSI_COURSE_HEADING_POINTER", 35, { 0, 1 }, PNP_72_12, "Course Heading Pointer")
+MiG_29A:defineFloat("HSI_GLIDE_SLOPE_INDICATOR", 33, { -1, 1 }, PNP_72_12, "Glide Slope Indicator")
+MiG_29A:defineFloat("HSI_COURSE_DEVIATION_INDICATOR", 34, { -1, 1 }, PNP_72_12, "Course Deviation Indicator")
+MiG_29A:defineFloat("HSI_AZIMUTH_SENSOR_FLAG", 121, { 0, 0.012 }, PNP_72_12, "Azimuth Sensor Failure Flag")
+MiG_29A:defineFloat("HSI_GLIDE_SENSOR_FLAG", 122, { 0, 0.012 }, PNP_72_12, "Glide Slope Sensor Failure Flag")
+MiG_29A:defineFloat("HSI_SENSORS_FLAG", 402, { 0, 0.012 }, PNP_72_12, "Sensor Failure Flag")
+MiG_29A:defineFloat("HSI_RANGE_COVER", 403, { 0, 0.012 }, PNP_72_12, "Range Indicator Cover")
+MiG_29A:defineFloat("HSI_COURSE_COVER", 404, { 0, 0.012 }, PNP_72_12, "Course Indicator Cover")
+MiG_29A:defineFloat("HSI_COURSE_HEADING_TENS", 400, { -1, 1 }, PNP_72_12, "Course Indicator (Tens)")
+MiG_29A:defineFloat("HSI_COURSE_HEADING_ONES", 401, { 0, 1 }, PNP_72_12, "Course Indicator (Ones)")
+-- TODO: Re-enable when defineMultiUnitFloat is merged
+-- MiG_29A:defineMultiUnitFloat("HSI_RANGE_HUNDREDS", 111, 826, { 0, 1 }, PNP_72_12, "Range Indicator (Hundreds)")
+-- MiG_29A:defineMultiUnitFloat("HSI_RANGE_TENS", 112, 827, { 0, 1 }, PNP_72_12, "Range Indicator (Tens)")
+-- MiG_29A:defineMultiUnitFloat("HSI_RANGE_ONES", 113, 828, { 0, 1 }, PNP_72_12, "Range Indicator (Ones)")
+MiG_29A:definePushButton("HSI_TEST_BUTTON", devices.HSI, 3002, 269, PNP_72_12, "Test Button")
+MiG_29A:definePotentiometer("HSI_COURSE_SELECTION_KNOB", devices.HSI, 3001, 270, { 0, 1 }, PNP_72_12, "Course Selection Knob")
 
 -- Combined indicator (VVI/Turn/Slip indicator)
 
