@@ -296,9 +296,9 @@ end
 local unitSystem
 
 MiG_29A:addExportHook(function(dev0)
-	local val = dev0:get_argument_value(1)
-
 	if unitSystem == nil then
+		local val = dev0:get_argument_value(1)
+
 		if val >= 0.01 then
 			unitSystem = "imperial"
 		else
