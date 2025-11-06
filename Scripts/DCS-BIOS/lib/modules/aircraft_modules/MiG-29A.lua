@@ -292,17 +292,17 @@ function MiG_29A:defineBrakeLever(identifier, iCommand, arg_number, category, de
 	return control
 end
 
--- Unit system set by the user settings, "metric" or "imperial"
-local unitSystem
+-- Unit system set by the user settings, true if "metric", false if "imperial"
+local unit_metric = nil
 
 MiG_29A:addExportHook(function(dev0)
-	if unitSystem == nil then
+	if unit_metric == nil then
 		local val = dev0:get_argument_value(1)
 
 		if val >= 0.01 then
-			unitSystem = "imperial"
+			unit_metric = false
 		else
-			unitSystem = "metric"
+			unit_metric = true
 		end
 	end
 end)
@@ -320,7 +320,7 @@ function MiG_29A:defineMultiUnitFloat(identifier, arg_number_metric, arg_number_
 	local alloc = self:allocateInt(max_value, identifier)
 
 	local function getArgFromUnit(dev0)
-		if unitSystem == "metric" then
+		if unit_metric then
 			return dev0:get_argument_value(arg_number_metric)
 		else
 			return dev0:get_argument_value(arg_number_imperial)
