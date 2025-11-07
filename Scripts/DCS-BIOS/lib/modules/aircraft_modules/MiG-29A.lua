@@ -436,10 +436,9 @@ MiG_29A:defineFloat("HSI_RANGE_COVER", 403, { 0, 0.012 }, PNP_72_12, "Range Indi
 MiG_29A:defineFloat("HSI_COURSE_COVER", 404, { 0, 0.012 }, PNP_72_12, "Course Indicator Cover")
 MiG_29A:defineFloat("HSI_COURSE_HEADING_TENS", 400, { -1, 1 }, PNP_72_12, "Course Indicator (Tens)")
 MiG_29A:defineFloat("HSI_COURSE_HEADING_ONES", 401, { 0, 1 }, PNP_72_12, "Course Indicator (Ones)")
--- TODO: Re-enable when defineMultiUnitFloat is merged
--- MiG_29A:defineMultiUnitFloat("HSI_RANGE_HUNDREDS", 111, 826, { 0, 1 }, PNP_72_12, "Range Indicator (Hundreds)")
--- MiG_29A:defineMultiUnitFloat("HSI_RANGE_TENS", 112, 827, { 0, 1 }, PNP_72_12, "Range Indicator (Tens)")
--- MiG_29A:defineMultiUnitFloat("HSI_RANGE_ONES", 113, 828, { 0, 1 }, PNP_72_12, "Range Indicator (Ones)")
+MiG_29A:defineMultiUnitFloat("HSI_RANGE_HUNDREDS", 111, 826, { 0, 1 }, PNP_72_12, "Range Indicator (Hundreds)")
+MiG_29A:defineMultiUnitFloat("HSI_RANGE_TENS", 112, 827, { 0, 1 }, PNP_72_12, "Range Indicator (Tens)")
+MiG_29A:defineMultiUnitFloat("HSI_RANGE_ONES", 113, 828, { 0, 1 }, PNP_72_12, "Range Indicator (Ones)")
 MiG_29A:definePushButton("HSI_TEST_BUTTON", devices.HSI, 3002, 269, PNP_72_12, "Test Button")
 MiG_29A:definePotentiometer("HSI_COURSE_SELECTION_KNOB", devices.HSI, 3001, 270, { 0, 1 }, PNP_72_12, "Course Selection Knob")
 
