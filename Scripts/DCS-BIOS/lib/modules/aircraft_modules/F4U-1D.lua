@@ -395,7 +395,7 @@ local C30A = "C-30A/ARC-5 Control Unit"
 
 F4U_1D:defineMultipositionSwitch("C30A_CHANNEL_SELECTOR", devices.RADIO, 3609, 88, 4, 1 / 3, C30A, "Channel Selector (1/2/3/4)")
 F4U_1D:defineToggleSwitch("C30A_ON_OFF_SWITCH", devices.RADIO, 3610, 92, C30A, "On/Off Switch")
-F4U_1D:defineMultipositionSwitch("C30A_CW_VOICE_SWITCH", devices.RADIO, 3612, 95, 4, 1 / 3, C30A,  "CW/Voice Switch (A/B/C/D)")
+F4U_1D:defineMultipositionSwitch("C30A_CW_VOICE_SWITCH", devices.RADIO, 3612, 95, 4, 1 / 3, C30A, "CW/Voice Switch (A/B/C/D)")
 
 -- C-38/ARC-5
 -- local C38 = "Range Receiver Control Box"
