@@ -322,18 +322,12 @@ function MiG_29A:defineMultiUnitFloatManualRange(identifier, arg_number_metric, 
 	local alloc = self:allocateInt(max_value, identifier)
 
 	local function getArgFromUnit(dev0)
-		if unit_metric then
-			return dev0:get_argument_value(arg_number_metric)
-		else
-			return dev0:get_argument_value(arg_number_imperial)
-		end
+		local arg = unit_metric and arg_number_metric or arg_number_imperial
+		return dev0:get_argument_value(arg)
 	end
 
 	self:addExportHook(function(dev0)
-		local limits = imperial_limits
-		if unit_metric then
-			limits = metric_limits
-		end
+		local limits = unit_metric and imperial_limits or metric_limits
 
 		alloc:setValue(Module.valueConvert(getArgFromUnit(dev0), limits, { 0, max_value }))
 	end)
