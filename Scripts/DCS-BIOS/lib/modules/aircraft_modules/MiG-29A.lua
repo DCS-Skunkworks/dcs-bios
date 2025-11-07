@@ -307,15 +307,17 @@ MiG_29A:addExportHook(function(dev0)
 	end
 end)
 
---- Defines a single gauge from a metric arg and an imperial arg based on user selected unit system
+--- Defines a single gauge from a metric arg and it's limits and an imperial arg and it's limits based on user selected unit system
 --- @param identifier string the unique identifier for the control
 --- @param arg_number_metric integer the dcs argument number for the metric gauge
 --- @param arg_number_imperial integer the dcs argument number for the imperial gauge
---- @param limits number[] a length-2 array with the lower and upper bounds of the data as used in dcs
+--- @param metric_limits number[] a length-2 array with the lower and upper bounds of the data for the metric control as used in dcs
+--- @param imperial_limits number[] a length-2 array with the lower and upper bounds of the data for the imperial control as used in dcs
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
-function MiG_29A:defineMultiUnitFloat(identifier, arg_number_metric, arg_number_imperial, limits, category, description)
-	assert(#limits == 2, string.format("%s may only contain a min and max value", identifier))
+function MiG_29A:defineMultiUnitFloatManualRange(identifier, arg_number_metric, arg_number_imperial, metric_limits, imperial_limits, category, description)
+	assert(#metric_limits == 2, string.format("%s may only contain a min and max value", identifier))
+	assert(#imperial_limits == 2, string.format("%s may only contain a min and max value", identifier))
 	local max_value = 65535
 	local alloc = self:allocateInt(max_value, identifier)
 
@@ -328,6 +330,11 @@ function MiG_29A:defineMultiUnitFloat(identifier, arg_number_metric, arg_number_
 	end
 
 	self:addExportHook(function(dev0)
+		local limits = imperial_limits
+		if unit_metric then
+			limits = metric_limits
+		end
+
 		alloc:setValue(Module.valueConvert(getArgFromUnit(dev0), limits, { 0, max_value }))
 	end)
 
@@ -337,6 +344,17 @@ function MiG_29A:defineMultiUnitFloat(identifier, arg_number_metric, arg_number_
 	self:addControl(control)
 
 	return control
+end
+
+--- Defines a single gauge from a metric arg and an imperial arg based on user selected unit system
+--- @param identifier string the unique identifier for the control
+--- @param arg_number_metric integer the dcs argument number for the metric gauge
+--- @param arg_number_imperial integer the dcs argument number for the imperial gauge
+--- @param limits number[] a length-2 array with the lower and upper bounds of the data for the control as used in dcs
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+function MiG_29A:defineMultiUnitFloat(identifier, arg_number_metric, arg_number_imperial, limits, category, description)
+	self:defineMultiUnitFloatManualRange(identifier, arg_number_metric, arg_number_imperial, limits, limits, category, description)
 end
 
 -- Stick
@@ -407,7 +425,7 @@ MiG_29A:definePotentiometer("MASTER_CAUTION_BRIGHTNESS_KNOB", devices.INTLIGHTS_
 local IAS = "IAS indicator"
 
 MiG_29A:defineMultiUnitFloat("IAS_INDICATOR_POINTER", 8, 821, { 0, 1 }, IAS, "IAS Pointer")
-MiG_29A:defineMultiUnitFloat("IAS_INDICATOR_WINDOW", 5, 820, { 0, 1 }, IAS, "IAS Mach Number")
+MiG_29A:defineMultiUnitFloatManualRange("IAS_INDICATOR_WINDOW", 5, 820, { 1, 0 }, { 0, 1 }, IAS, "IAS Mach Number")
 
 -- Altimiter
 
