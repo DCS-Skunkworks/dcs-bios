@@ -292,6 +292,59 @@ function MiG_29A:defineBrakeLever(identifier, iCommand, arg_number, category, de
 	return control
 end
 
+-- Unit system set by the user settings, true if "metric", false if "imperial"
+local unit_metric = nil
+
+MiG_29A:addExportHook(function(dev0)
+	if unit_metric == nil then
+		unit_metric = dev0:get_argument_value(1) < 0.01
+	end
+end)
+
+--- Defines a single gauge from a metric arg and it's limits and an imperial arg and it's limits based on user selected unit system
+--- @param identifier string the unique identifier for the control
+--- @param arg_number_metric integer the dcs argument number for the metric gauge
+--- @param arg_number_imperial integer the dcs argument number for the imperial gauge
+--- @param metric_limits number[] a length-2 array with the lower and upper bounds of the data for the metric control as used in dcs
+--- @param imperial_limits number[] a length-2 array with the lower and upper bounds of the data for the imperial control as used in dcs
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+function MiG_29A:defineMultiUnitFloatManualRange(identifier, arg_number_metric, arg_number_imperial, metric_limits, imperial_limits, category, description)
+	assert(#metric_limits == 2, string.format("%s may only contain a min and max value", identifier))
+	assert(#imperial_limits == 2, string.format("%s may only contain a min and max value", identifier))
+	local max_value = 65535
+	local alloc = self:allocateInt(max_value, identifier)
+
+	local function getArgFromUnit(dev0)
+		local arg = unit_metric and arg_number_metric or arg_number_imperial
+		return dev0:get_argument_value(arg)
+	end
+
+	self:addExportHook(function(dev0)
+		local limits = unit_metric and imperial_limits or metric_limits
+
+		alloc:setValue(Module.valueConvert(getArgFromUnit(dev0), limits, { 0, max_value }))
+	end)
+
+	local control = Control:new(category, ControlType.metadata, identifier, description, {}, {
+		IntegerOutput:new(alloc, Suffix.none, description),
+	})
+	self:addControl(control)
+
+	return control
+end
+
+--- Defines a single gauge from a metric arg and an imperial arg based on user selected unit system
+--- @param identifier string the unique identifier for the control
+--- @param arg_number_metric integer the dcs argument number for the metric gauge
+--- @param arg_number_imperial integer the dcs argument number for the imperial gauge
+--- @param limits number[] a length-2 array with the lower and upper bounds of the data for the control as used in dcs
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+function MiG_29A:defineMultiUnitFloat(identifier, arg_number_metric, arg_number_imperial, limits, category, description)
+	self:defineMultiUnitFloatManualRange(identifier, arg_number_metric, arg_number_imperial, limits, limits, category, description)
+end
+
 -- Stick
 local STICK = "Stick Controls"
 
@@ -344,7 +397,7 @@ MiG_29A:reserveIntValue(65535) -- Manual Ranging Control Potentiometer
 -- Combined AOA / G meter indicator
 local AOA_G_METER = "Combined AOA / G meter indicator"
 
-MiG_29A:definePushButton("AOA_G_METER_RESET_BUTTON", devices.AOA_G_METER, 3001, 528, AOA_G_METER, " G-Index Reset Button")
+MiG_29A:definePushButton("AOA_G_METER_RESET_BUTTON", devices.AOA_G_METER, 3001, 528, AOA_G_METER, "G-Index Reset Button")
 MiG_29A:defineFloat("AOA_G_METER_MAX_G_POINTER", 3, { 0, 1 }, AOA_G_METER, "Max G-Index Pointer")
 MiG_29A:defineFloat("AOA_G_METER_G_POINTER", 6, { 0, 1 }, AOA_G_METER, "Current G-Index Pointer")
 MiG_29A:defineFloat("AOA_G_METER_AOA_POINTER", 7, { 0, 1 }, AOA_G_METER, "Current AOA Pointer")
@@ -356,7 +409,11 @@ MiG_29A:defineFloat("MASTER_CAUTION_LIGHT", 445, { 0, 1 }, MASTER_CAUTION, "Mast
 MiG_29A:definePushButton("MASTER_CAUTION_EXTINGUISH_BUTTON", devices.INTLIGHTS_SYSTEM, 3002, 97, MASTER_CAUTION, "Master Caution Extinguish Button")
 MiG_29A:definePotentiometer("MASTER_CAUTION_BRIGHTNESS_KNOB", devices.INTLIGHTS_SYSTEM, 3003, 453, { 0, 1 }, MASTER_CAUTION, "Master Caution Brightness Knob")
 
--- Air speed
+-- IAS indicator
+local IAS = "IAS indicator"
+
+MiG_29A:defineMultiUnitFloat("IAS_INDICATOR_POINTER", 8, 821, { 0, 1 }, IAS, "IAS Pointer")
+MiG_29A:defineMultiUnitFloatManualRange("IAS_INDICATOR_WINDOW", 5, 820, { 1, 0 }, { 0, 1 }, IAS, "IAS Mach Number")
 
 -- Altimiter
 
