@@ -297,13 +297,7 @@ local unit_metric = nil
 
 MiG_29A:addExportHook(function(dev0)
 	if unit_metric == nil then
-		local val = dev0:get_argument_value(1)
-
-		if val >= 0.01 then
-			unit_metric = false
-		else
-			unit_metric = true
-		end
+		unit_metric = dev0:get_argument_value(1) < 0.01
 	end
 end)
 
