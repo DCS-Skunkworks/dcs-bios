@@ -441,6 +441,8 @@ MiG_29A:defineMultiUnitFloat("HSI_RANGE_TENS", 112, 827, { 0, 1 }, PNP_72_12, "R
 MiG_29A:defineMultiUnitFloat("HSI_RANGE_ONES", 113, 828, { 0, 1 }, PNP_72_12, "Range Indicator (Ones)")
 MiG_29A:definePushButton("HSI_TEST_BUTTON", devices.HSI, 3002, 269, PNP_72_12, "Test Button")
 MiG_29A:definePotentiometer("HSI_COURSE_SELECTION_KNOB", devices.HSI, 3001, 270, { 0, 1 }, PNP_72_12, "Course Selection Knob")
+MiG_29A:definePushButton("HSI_COURSE_MAG_BUTTON", devices.NAV, 3021, 274, PNP_72_12, "Magnetic Course Adjustment Button")
+MiG_29A:defineToggleSwitch("HSI_COURSE_MODE_SWITCH", devices.NAV, 3022, 273, PNP_72_12, "Course Mode Switch (MANUAL/AUTO)")
 
 -- Combined indicator (VVI/Turn/Slip indicator)
 
