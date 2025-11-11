@@ -424,7 +424,7 @@ MiG_29A:defineMultiUnitFloatManualRange("IAS_INDICATOR_WINDOW", 5, 820, { 1, 0 }
 -- PNP-72-12 HSI
 local PNP_72_12 = "PNP-72-12 HSI"
 
-MiG_29A:defineFloat("HSI_COMPASS_SCALE", 32, { 0, 1 }, PNP_72_12, "Compass scale")
+MiG_29A:defineFloat("HSI_COMPASS_CARD", 32, { 0, 1 }, PNP_72_12, "Compass Card")
 MiG_29A:defineFloat("HSI_BEARING_POINTER", 36, { 0, 1 }, PNP_72_12, "Bearing Pointer")
 MiG_29A:defineFloat("HSI_COURSE_HEADING_POINTER", 35, { 0, 1 }, PNP_72_12, "Course Heading Pointer")
 MiG_29A:defineFloat("HSI_GLIDE_SLOPE_INDICATOR", 33, { -1, 1 }, PNP_72_12, "Glide Slope Indicator")
