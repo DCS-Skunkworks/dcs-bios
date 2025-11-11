@@ -423,8 +423,10 @@ MiG_29A:defineMultiUnitFloatManualRange("IAS_INDICATOR_WINDOW", 5, 820, { 1, 0 }
 
 -- HSI
 
+-- DA-200P Combined indicator (VVI/Turn/Slip indicator)
+
 -- ADI indicator
-local ADI = "Attitude director indicator"
+local ADI = "ADI"
 
 MiG_29A:defineFloat("ADI_PITCH_INDICATOR", 81, { -1, 1 }, ADI, "Pitch Indicator")
 MiG_29A:defineFloat("ADI_ROLL_INDICATOR", 30, { -1, 1 }, ADI, "Roll Indicator")
