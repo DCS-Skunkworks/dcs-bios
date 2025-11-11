@@ -361,7 +361,7 @@ MiG_29A:definePotentiometer("MASTER_CAUTION_BRIGHTNESS_KNOB", devices.INTLIGHTS_
 -- Altimiter
 
 -- IP-52-03 Flaps / Landing gear indicator
-local IP_52_03 = "IP-52-03 Control surfaces / Landing gear indicators"
+local IP_52_03 = "IP-52-03 Control Surfaces / Landing Gear Indicators"
 
 MiG_29A:defineFloat("IP_52_03_UPPER_SPEEDBRAKE_INDICATOR", 44, { 0, 1 }, IP_52_03, "Upper Speedbrake Indicator")
 MiG_29A:defineFloat("IP_52_03_LOWER_SPEEDBRAKE_INDICATOR", 45, { 0, 1 }, IP_52_03, "Lower Speedbrake Indicator")
