@@ -417,7 +417,21 @@ MiG_29A:defineMultiUnitFloatManualRange("IAS_INDICATOR_WINDOW", 5, 820, { 1, 0 }
 
 -- Altimiter
 
--- Flaps / Landing gear indicator
+-- IP-52-03 Flaps / Landing gear indicator
+local IP_52_03 = "IP-52-03 Control Surfaces / Landing Gear Indicators"
+
+MiG_29A:defineFloat("IP_52_03_UPPER_SPEEDBRAKE_INDICATOR", 44, { 0, 1 }, IP_52_03, "Upper Speedbrake Indicator")
+MiG_29A:defineFloat("IP_52_03_LOWER_SPEEDBRAKE_INDICATOR", 45, { 0, 1 }, IP_52_03, "Lower Speedbrake Indicator")
+MiG_29A:defineFloat("IP_52_03_LEFT_SLAT_INDICATOR", 320, { 0, 1 }, IP_52_03, "Left Slat Indicator")
+MiG_29A:defineFloat("IP_52_03_RIGHT_SLAT_INDICATOR", 321, { 0, 1 }, IP_52_03, "Right Slat Indicator")
+MiG_29A:defineFloat("IP_52_03_LEFT_FLAP_TAKEOFF_INDICATOR", 42, { 0, 1 }, IP_52_03, "Left Flap Take Off Indicator")
+MiG_29A:defineFloat("IP_52_03_RIGHT_FLAP_TAKEOFF_INDICATOR", 43, { 0, 1 }, IP_52_03, "Right Flap Take Off Indicator")
+MiG_29A:defineFloat("IP_52_03_LEFT_FLAP_LANDING_INDICATOR", 56, { 0, 1 }, IP_52_03, "Left Flap Landing Indicator")
+MiG_29A:defineFloat("IP_52_03_RIGHT_FLAP_LANDING_INDICATOR", 57, { 0, 1 }, IP_52_03, "Right Flap Landing Indicator")
+MiG_29A:defineFloat("IP_52_03_NOSE_GEAR_INDICATOR", 40, { 0, 1 }, IP_52_03, "Nose Gear Indicator")
+MiG_29A:defineFloat("IP_52_03_LEFT_GEAR_INDICATOR", 39, { 0, 1 }, IP_52_03, "Left Gear Indicator")
+MiG_29A:defineFloat("IP_52_03_RIGHT_GEAR_INDICATOR", 41, { 0, 1 }, IP_52_03, "Right Gear Indicator")
+MiG_29A:defineFloat("IP_52_03_GEAR_WARNING_INDICATOR", 46, { 0, 1 }, IP_52_03, "Gear Release Warning Indicator")
 
 -- HSI
 
