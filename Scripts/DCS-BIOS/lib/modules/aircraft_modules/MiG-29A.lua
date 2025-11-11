@@ -345,6 +345,51 @@ function MiG_29A:defineMultiUnitFloat(identifier, arg_number_metric, arg_number_
 	self:defineMultiUnitFloatManualRange(identifier, arg_number_metric, arg_number_imperial, limits, limits, category, description)
 end
 
+local function flagIntValue(arg_value)
+	if arg_value < 0.002 then
+		return 0
+	elseif arg_value < 0.006 then
+		return 1
+	elseif arg_value < 0.010 then
+		return 2
+	else
+		return 3
+	end
+end
+
+function MiG_29A:defineFlag(identifier, arg_number, category, description)
+	local alloc = self:allocateInt(3, identifier)
+	self:addExportHook(function(dev0)
+		local val = flagIntValue(dev0:get_argument_value(arg_number))
+		alloc:setValue(val)
+	end)
+
+	local control = Control:new(category, ControlType.selector, identifier, description, {}, {
+		IntegerOutput:new(alloc, Suffix.none, "flag position"),
+	})
+	self:addControl(control)
+
+	return control
+end
+
+local function hsi_indicator_argument_display(dev0, arg_number, max_value)
+	local val = Module.round(dev0:get_argument_value(arg_number) * max_value)
+	return val >= 10 and 0 or val
+end
+
+local function hsi_course_string(dev0, arg_tens, arg_ones)
+	local tens = Module.round(((dev0:get_argument_value(arg_tens) + 1) / 2) * 36)
+	return string.format("%d%d", tens, hsi_indicator_argument_display(dev0, arg_ones, 10))
+end
+
+local function hsi_range_string(dev0, arg_hundreds_metric, arg_tens_metric, arg_ones_metric, arg_hundreds_imperial, arg_tens_imperial, arg_ones_imperial)
+	if unit_metric then
+		return string.format("%d%d%d", hsi_indicator_argument_display(dev0, arg_hundreds_metric, 10), hsi_indicator_argument_display(dev0, arg_tens_metric, 10), hsi_indicator_argument_display(dev0, arg_ones_metric, 10))
+	else
+		return string.format("%d%d%d", hsi_indicator_argument_display(dev0, arg_hundreds_imperial, 10), hsi_indicator_argument_display(dev0, arg_tens_imperial, 10), hsi_indicator_argument_display(dev0, arg_ones_imperial, 10))
+	end
+end
+
 -- Stick
 local STICK = "Stick Controls"
 
@@ -433,7 +478,34 @@ MiG_29A:defineFloat("IP_52_03_LEFT_GEAR_INDICATOR", 39, { 0, 1 }, IP_52_03, "Lef
 MiG_29A:defineFloat("IP_52_03_RIGHT_GEAR_INDICATOR", 41, { 0, 1 }, IP_52_03, "Right Gear Indicator")
 MiG_29A:defineFloat("IP_52_03_GEAR_WARNING_INDICATOR", 46, { 0, 1 }, IP_52_03, "Gear Release Warning Indicator")
 
--- HSI
+-- PNP-72-12 HSI
+local PNP_72_12 = "PNP-72-12 HSI"
+
+MiG_29A:defineFloat("HSI_COMPASS_CARD", 32, { 0, 1 }, PNP_72_12, "Compass Card")
+MiG_29A:defineFloat("HSI_BEARING_POINTER", 36, { 0, 1 }, PNP_72_12, "Bearing Pointer")
+MiG_29A:defineFloat("HSI_COURSE_HEADING_POINTER", 35, { 0, 1 }, PNP_72_12, "Course Heading Pointer")
+MiG_29A:defineFloat("HSI_GLIDE_SLOPE_INDICATOR", 33, { -1, 1 }, PNP_72_12, "Glide Slope Indicator")
+MiG_29A:defineFloat("HSI_COURSE_DEVIATION_INDICATOR", 34, { -1, 1 }, PNP_72_12, "Course Deviation Indicator")
+MiG_29A:defineFlag("HSI_AZIMUTH_SENSOR_FLAG", 121, PNP_72_12, "Azimuth Sensor Failure Flag")
+MiG_29A:defineFlag("HSI_GLIDE_SENSOR_FLAG", 122, PNP_72_12, "Glide Slope Sensor Failure Flag")
+MiG_29A:defineFlag("HSI_SENSORS_FLAG", 402, PNP_72_12, "Sensor Failure Flag")
+MiG_29A:defineFlag("HSI_RANGE_COVER", 403, PNP_72_12, "Range Indicator Cover")
+MiG_29A:defineFlag("HSI_COURSE_COVER", 404, PNP_72_12, "Course Indicator Cover")
+MiG_29A:defineFloat("HSI_COURSE_HEADING_TENS", 400, { -1, 1 }, PNP_72_12, "Course Indicator (Tens)")
+MiG_29A:defineFloat("HSI_COURSE_HEADING_ONES", 401, { 0, 1 }, PNP_72_12, "Course Indicator (Ones)")
+MiG_29A:defineMultiUnitFloat("HSI_RANGE_HUNDREDS", 111, 826, { 0, 1 }, PNP_72_12, "Range Indicator (Hundreds)")
+MiG_29A:defineMultiUnitFloat("HSI_RANGE_TENS", 112, 827, { 0, 1 }, PNP_72_12, "Range Indicator (Tens)")
+MiG_29A:defineMultiUnitFloat("HSI_RANGE_ONES", 113, 828, { 0, 1 }, PNP_72_12, "Range Indicator (Ones)")
+MiG_29A:definePushButton("HSI_TEST_BUTTON", devices.HSI, 3002, 269, PNP_72_12, "Test Button")
+MiG_29A:definePotentiometer("HSI_COURSE_SELECTION_KNOB", devices.HSI, 3001, 270, { 0, 1 }, PNP_72_12, "Course Selection Knob")
+MiG_29A:definePushButton("HSI_COURSE_MAG_BUTTON", devices.NAV, 3021, 274, PNP_72_12, "Magnetic Course Adjustment Button")
+MiG_29A:defineToggleSwitch("HSI_COURSE_MODE_SWITCH", devices.NAV, 3022, 273, PNP_72_12, "Course Mode Switch (MANUAL/AUTO)")
+MiG_29A:defineString("HSI_COURSE_HEADING_FULL", function(dev0)
+	return hsi_course_string(dev0, 400, 401)
+end, 3, PNP_72_12, "Course Indicator")
+MiG_29A:defineString("HSI_RANGE_FULL", function(dev0)
+	return hsi_range_string(dev0, 111, 112, 113, 826, 827, 828)
+end, 3, PNP_72_12, "Range Indicator")
 
 -- DA-200P Combined indicator (VVI/Turn/Slip indicator)
 
