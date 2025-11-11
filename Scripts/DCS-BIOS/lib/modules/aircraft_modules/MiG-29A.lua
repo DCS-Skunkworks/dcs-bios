@@ -422,7 +422,7 @@ MiG_29A:defineMultiUnitFloatManualRange("IAS_INDICATOR_WINDOW", 5, 820, { 1, 0 }
 -- ADI
 
 -- PNP-72-12 HSI
-local PNP_72_12 = "PNP-72-12 Horizontal situation indicator"
+local PNP_72_12 = "PNP-72-12 HSI"
 
 MiG_29A:defineFloat("HSI_COMPASS_SCALE", 32, { 0, 1 }, PNP_72_12, "Compass scale")
 MiG_29A:defineFloat("HSI_BEARING_POINTER", 36, { 0, 1 }, PNP_72_12, "Bearing Pointer")
