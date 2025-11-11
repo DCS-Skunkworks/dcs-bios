@@ -435,9 +435,21 @@ MiG_29A:defineMultiUnitFloatManualRange("IAS_INDICATOR_WINDOW", 5, 820, { 1, 0 }
 
 -- Altimiter
 
--- Flaps / Landing gear indicator
+-- IP-52-03 Flaps / Landing gear indicator
+local IP_52_03 = "IP-52-03 Control Surfaces / Landing Gear Indicators"
 
--- ADI
+MiG_29A:defineFloat("IP_52_03_UPPER_SPEEDBRAKE_INDICATOR", 44, { 0, 1 }, IP_52_03, "Upper Speedbrake Indicator")
+MiG_29A:defineFloat("IP_52_03_LOWER_SPEEDBRAKE_INDICATOR", 45, { 0, 1 }, IP_52_03, "Lower Speedbrake Indicator")
+MiG_29A:defineFloat("IP_52_03_LEFT_SLAT_INDICATOR", 320, { 0, 1 }, IP_52_03, "Left Slat Indicator")
+MiG_29A:defineFloat("IP_52_03_RIGHT_SLAT_INDICATOR", 321, { 0, 1 }, IP_52_03, "Right Slat Indicator")
+MiG_29A:defineFloat("IP_52_03_LEFT_FLAP_TAKEOFF_INDICATOR", 42, { 0, 1 }, IP_52_03, "Left Flap Take Off Indicator")
+MiG_29A:defineFloat("IP_52_03_RIGHT_FLAP_TAKEOFF_INDICATOR", 43, { 0, 1 }, IP_52_03, "Right Flap Take Off Indicator")
+MiG_29A:defineFloat("IP_52_03_LEFT_FLAP_LANDING_INDICATOR", 56, { 0, 1 }, IP_52_03, "Left Flap Landing Indicator")
+MiG_29A:defineFloat("IP_52_03_RIGHT_FLAP_LANDING_INDICATOR", 57, { 0, 1 }, IP_52_03, "Right Flap Landing Indicator")
+MiG_29A:defineFloat("IP_52_03_NOSE_GEAR_INDICATOR", 40, { 0, 1 }, IP_52_03, "Nose Gear Indicator")
+MiG_29A:defineFloat("IP_52_03_LEFT_GEAR_INDICATOR", 39, { 0, 1 }, IP_52_03, "Left Gear Indicator")
+MiG_29A:defineFloat("IP_52_03_RIGHT_GEAR_INDICATOR", 41, { 0, 1 }, IP_52_03, "Right Gear Indicator")
+MiG_29A:defineFloat("IP_52_03_GEAR_WARNING_INDICATOR", 46, { 0, 1 }, IP_52_03, "Gear Release Warning Indicator")
 
 -- PNP-72-12 HSI
 local PNP_72_12 = "PNP-72-12 HSI"
@@ -468,7 +480,22 @@ MiG_29A:defineString("HSI_RANGE_FULL", function(dev0)
 	return hsi_range_string(dev0, 111, 112, 113, 826, 827, 828)
 end, 3, PNP_72_12, "Range Indicator")
 
--- Combined indicator (VVI/Turn/Slip indicator)
+-- DA-200P Combined indicator (VVI/Turn/Slip indicator)
+
+-- ADI
+local ADI = "ADI"
+
+MiG_29A:defineFloat("ADI_PITCH_INDICATOR", 81, { -1, 1 }, ADI, "Pitch Indicator")
+MiG_29A:defineFloat("ADI_ROLL_INDICATOR", 30, { -1, 1 }, ADI, "Roll Indicator")
+MiG_29A:defineFloat("ADI_SLIP_INDICATOR", 31, { -1, 1 }, ADI, "Slip Indicator")
+MiG_29A:defineFloat("ADI_HORIZ_FLIGHT_DIRECTOR", 27, { -1, 1 }, ADI, "Horizontal Flight Director")
+MiG_29A:defineFloat("ADI_PITCH_OFF_INDICATOR", 94, { 0, 1 }, ADI, "Pitch Off Indicator")
+MiG_29A:defineFloat("ADI_AZIMUTH_OFF_INDICATOR", 96, { 0, 1 }, ADI, "Azimuth Off Indicator")
+MiG_29A:defineFloat("ADI_HORIZ_PLANE_INDICATOR", 393, { -1, 1 }, ADI, "Horizontal Plane Indicator")
+MiG_29A:defineFloat("ADI_VERT_PLANE_INDICATOR", 392, { -1, 1 }, ADI, "Vertical Plane Indicator")
+MiG_29A:definePotentiometer("ADI_POSITION_ADJUSTMENT_KNOB", devices.ADI, 3001, 264, { -1, 1 }, ADI, "Aircraft Symbol Adjustment Knob")
+MiG_29A:definePushButton("ADI_GYRO_CAGE_BUTTON", devices.ADI, 3002, 265, ADI, "Gyro Cage Button")
+MiG_29A:defineFloat("ADI_GYRO_CAGE_LIGHT", 262, { 0, 1 }, ADI, "Gyro Cage Light")
 
 -- TAS indicator
 
