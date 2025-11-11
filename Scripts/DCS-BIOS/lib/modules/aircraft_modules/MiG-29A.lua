@@ -419,13 +419,11 @@ MiG_29A:defineMultiUnitFloatManualRange("IAS_INDICATOR_WINDOW", 5, 820, { 1, 0 }
 
 -- Flaps / Landing gear indicator
 
--- ADI
-
 -- HSI
 
 -- DA-200P Combined indicator (VVI/Turn/Slip indicator)
 
--- ADI indicator
+-- ADI
 local ADI = "ADI"
 
 MiG_29A:defineFloat("ADI_PITCH_INDICATOR", 81, { -1, 1 }, ADI, "Pitch Indicator")
