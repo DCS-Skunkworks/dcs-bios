@@ -345,6 +345,33 @@ function MiG_29A:defineMultiUnitFloat(identifier, arg_number_metric, arg_number_
 	self:defineMultiUnitFloatManualRange(identifier, arg_number_metric, arg_number_imperial, limits, limits, category, description)
 end
 
+local function flagIntValue(arg_value)
+	if arg_value < 0.002 then
+		return 0
+	elseif arg_value < 0.006 then
+		return 1
+	elseif arg_value < 0.010 then
+		return 2
+	else
+		return 3
+	end
+end
+
+function MiG_29A:defineFlag(identifier, arg_number, category, description)
+	local alloc = self:allocateInt(3, identifier)
+	self:addExportHook(function(dev0)
+		local val = flagIntValue(dev0:get_argument_value(arg_number))
+		alloc:setValue(val)
+	end)
+
+	local control = Control:new(category, ControlType.selector, identifier, description, {}, {
+		IntegerOutput:new(alloc, Suffix.none, "flag position"),
+	})
+	self:addControl(control)
+
+	return control
+end
+
 local function hsi_indicator_argument_display(dev0, arg_number, max_value)
 	local val = Module.round(dev0:get_argument_value(arg_number) * max_value)
 	return val >= 10 and 0 or val
@@ -459,11 +486,11 @@ MiG_29A:defineFloat("HSI_BEARING_POINTER", 36, { 0, 1 }, PNP_72_12, "Bearing Poi
 MiG_29A:defineFloat("HSI_COURSE_HEADING_POINTER", 35, { 0, 1 }, PNP_72_12, "Course Heading Pointer")
 MiG_29A:defineFloat("HSI_GLIDE_SLOPE_INDICATOR", 33, { -1, 1 }, PNP_72_12, "Glide Slope Indicator")
 MiG_29A:defineFloat("HSI_COURSE_DEVIATION_INDICATOR", 34, { -1, 1 }, PNP_72_12, "Course Deviation Indicator")
-MiG_29A:defineFloat("HSI_AZIMUTH_SENSOR_FLAG", 121, { 0, 0.012 }, PNP_72_12, "Azimuth Sensor Failure Flag")
-MiG_29A:defineFloat("HSI_GLIDE_SENSOR_FLAG", 122, { 0, 0.012 }, PNP_72_12, "Glide Slope Sensor Failure Flag")
-MiG_29A:defineFloat("HSI_SENSORS_FLAG", 402, { 0, 0.012 }, PNP_72_12, "Sensor Failure Flag")
-MiG_29A:defineFloat("HSI_RANGE_COVER", 403, { 0, 0.012 }, PNP_72_12, "Range Indicator Cover")
-MiG_29A:defineFloat("HSI_COURSE_COVER", 404, { 0, 0.012 }, PNP_72_12, "Course Indicator Cover")
+MiG_29A:defineFlag("HSI_AZIMUTH_SENSOR_FLAG", 121, PNP_72_12, "Azimuth Sensor Failure Flag")
+MiG_29A:defineFlag("HSI_GLIDE_SENSOR_FLAG", 122, PNP_72_12, "Glide Slope Sensor Failure Flag")
+MiG_29A:defineFlag("HSI_SENSORS_FLAG", 402, PNP_72_12, "Sensor Failure Flag")
+MiG_29A:defineFlag("HSI_RANGE_COVER", 403, PNP_72_12, "Range Indicator Cover")
+MiG_29A:defineFlag("HSI_COURSE_COVER", 404, PNP_72_12, "Course Indicator Cover")
 MiG_29A:defineFloat("HSI_COURSE_HEADING_TENS", 400, { -1, 1 }, PNP_72_12, "Course Indicator (Tens)")
 MiG_29A:defineFloat("HSI_COURSE_HEADING_ONES", 401, { 0, 1 }, PNP_72_12, "Course Indicator (Ones)")
 MiG_29A:defineMultiUnitFloat("HSI_RANGE_HUNDREDS", 111, 826, { 0, 1 }, PNP_72_12, "Range Indicator (Hundreds)")
