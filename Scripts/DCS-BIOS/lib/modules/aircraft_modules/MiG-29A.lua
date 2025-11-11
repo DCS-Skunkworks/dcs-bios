@@ -345,6 +345,24 @@ function MiG_29A:defineMultiUnitFloat(identifier, arg_number_metric, arg_number_
 	self:defineMultiUnitFloatManualRange(identifier, arg_number_metric, arg_number_imperial, limits, limits, category, description)
 end
 
+local function hsi_indicator_argument_display(dev0, arg_number, max_value)
+	local val = Module.round(dev0:get_argument_value(arg_number) * max_value)
+	return val >= 10 and 0 or val
+end
+
+local function hsi_course_string(dev0, arg_tens, arg_ones)
+	local tens = Module.round(((dev0:get_argument_value(arg_tens) + 1) / 2) * 36)
+	return string.format("%d%d", tens, hsi_indicator_argument_display(dev0, arg_ones, 10))
+end
+
+local function hsi_range_string(dev0, arg_hundreds_metric, arg_tens_metric, arg_ones_metric, arg_hundreds_imperial, arg_tens_imperial, arg_ones_imperial)
+	if unit_metric then
+		return string.format("%d%d%d", hsi_indicator_argument_display(dev0, arg_hundreds_metric, 10), hsi_indicator_argument_display(dev0, arg_tens_metric, 10), hsi_indicator_argument_display(dev0, arg_ones_metric, 10))
+	else
+		return string.format("%d%d%d", hsi_indicator_argument_display(dev0, arg_hundreds_imperial, 10), hsi_indicator_argument_display(dev0, arg_tens_imperial, 10), hsi_indicator_argument_display(dev0, arg_ones_imperial, 10))
+	end
+end
+
 -- Stick
 local STICK = "Stick Controls"
 
@@ -443,6 +461,12 @@ MiG_29A:definePushButton("HSI_TEST_BUTTON", devices.HSI, 3002, 269, PNP_72_12, "
 MiG_29A:definePotentiometer("HSI_COURSE_SELECTION_KNOB", devices.HSI, 3001, 270, { 0, 1 }, PNP_72_12, "Course Selection Knob")
 MiG_29A:definePushButton("HSI_COURSE_MAG_BUTTON", devices.NAV, 3021, 274, PNP_72_12, "Magnetic Course Adjustment Button")
 MiG_29A:defineToggleSwitch("HSI_COURSE_MODE_SWITCH", devices.NAV, 3022, 273, PNP_72_12, "Course Mode Switch (MANUAL/AUTO)")
+MiG_29A:defineString("HSI_COURSE_HEADING_FULL", function(dev0)
+	return hsi_course_string(dev0, 400, 401)
+end, 3, PNP_72_12, "Course Indicator")
+MiG_29A:defineString("HSI_RANGE_FULL", function(dev0)
+	return hsi_range_string(dev0, 111, 112, 113, 826, 827, 828)
+end, 3, PNP_72_12, "Range Indicator")
 
 -- Combined indicator (VVI/Turn/Slip indicator)
 
