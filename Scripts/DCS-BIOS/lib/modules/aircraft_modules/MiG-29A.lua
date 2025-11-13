@@ -527,6 +527,16 @@ MiG_29A:defineFloat("ADI_GYRO_CAGE_LIGHT", 262, { 0, 1 }, ADI, "Gyro Cage Light"
 -- TAS indicator
 
 -- Clock
+local ACHS_1M = "AChS-1M Clock"
+
+MiG_29A:defineFloat("ACHS_1M_CURRENT_HOURS", 19, { 0, 1 }, ACHS_1M, "Current Hours")
+MiG_29A:defineFloat("ACHS_1M_CURRENT_MINUTES", 18, { 0, 1 }, ACHS_1M, "Current Minutes")
+MiG_29A:defineFloat("ACHS_1M_CURRENT_SECONDS", 37, { 0, 1 }, ACHS_1M, "Current Seconds")
+MiG_29A:defineFloat("ACHS_1M_FLIGHT_HOURS", 395, { 0, 1 }, ACHS_1M, "Flight Hours")
+MiG_29A:defineFloat("ACHS_1M_FLIGHT_MINUTES", 396, { 0, 1 }, ACHS_1M, "Flight Minutes")
+MiG_29A:defineFloat("ACHS_1M_STOP_WATCH_MINUTES", 394, { 0, 1 }, ACHS_1M, "Stop Watch Minutes")
+MiG_29A:defineFloat("ACHS_1M_STOP_WATCH_SECONDS", 406, { 0, 1 }, ACHS_1M, "Stop Watch Seconds")
+MiG_29A:defineFloat("ACHS_1M_FLIGHT_STATUS_WINDOW", 58, { 0, 1 }, ACHS_1M, "Flight Time Status Window")
 
 -- ADF mode toggle switch
 
