@@ -529,6 +529,10 @@ MiG_29A:defineFloat("ADI_GYRO_CAGE_LIGHT", 262, { 0, 1 }, ADI, "Gyro Cage Light"
 -- Clock
 
 -- ADF mode toggle switch
+local ADF_SWITCH = "ADF Mode Switch"
+
+MiG_29A:defineToggleSwitch("ADF_MODE_SWITCH", devices.ARK, 3005, 139, ADF_SWITCH, "Mode Switch (INNER/OUTER)")
+MiG_29A:defineFloat("ADF_MODE_BEACON_INNER_LIGHT", 364, { 0, 1 }, ADF_SWITCH, "Beacon Inner Light")
 
 -- Nose wheel brake
 local NOSE_WHEEL_BRAKE = "Nose Wheel Brake (Instrument Panel)"
