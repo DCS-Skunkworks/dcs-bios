@@ -334,6 +334,30 @@ function MiG_29A:defineMultiUnitFloatManualRange(identifier, arg_number_metric, 
 	return control
 end
 
+--- Defines a gauge from a arg that returns a value only if unit system is imperial
+--- @param identifier string the unique identifier for the control
+--- @param arg_number integer the dcs argument number for the gauge
+--- @param limits number[] a length-2 array with the lower and upper bounds of the data for the control as used in dcs
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+function MiG_29A:defineImperialFloat(identifier, arg_number, limits, category, description)
+	assert(#limits == 2, string.format("%s may only contain a min and max value", identifier))
+	local max_value = 65535
+	local alloc = self:allocateInt(max_value, identifier)
+
+	self:addExportHook(function(dev0)
+		alloc:setValue(Module.valueConvert(not unit_metric and dev0:get_argument_value(arg_number) or 0, limits, { 0, max_value }))
+	end)
+
+	local control = Control:new(category, ControlType.metadata, identifier, description, {}, {
+		IntegerOutput:new(alloc, Suffix.none, description),
+	})
+
+	self:addControl(control)
+
+	return control
+end
+
 --- Defines a single gauge from a metric arg and an imperial arg based on user selected unit system
 --- @param identifier string the unique identifier for the control
 --- @param arg_number_metric integer the dcs argument number for the metric gauge
@@ -524,7 +548,12 @@ MiG_29A:definePotentiometer("ADI_POSITION_ADJUSTMENT_KNOB", devices.ADI, 3001, 2
 MiG_29A:definePushButton("ADI_GYRO_CAGE_BUTTON", devices.ADI, 3002, 265, ADI, "Gyro Cage Button")
 MiG_29A:defineFloat("ADI_GYRO_CAGE_LIGHT", 262, { 0, 1 }, ADI, "Gyro Cage Light")
 
--- TAS indicator
+-- TAS
+local TAS = "TAS"
+
+MiG_29A:defineMultiUnitFloat("TAS_MACH_POINTER", 79, 825, { 0, 1 }, TAS, "Mach Pointer")
+MiG_29A:defineMultiUnitFloat("TAS_SPEED_POINTER", 182, 823, { 0, 1 }, TAS, "True Air Speed Pointer")
+MiG_29A:defineImperialFloat("TAS_IMPERIAL_MACH_WINDOW", 824, { 0, 1 }, TAS, "Mach Window")
 
 -- Clock
 
