@@ -9,6 +9,8 @@ local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 local SetStateInput = require("Scripts.DCS-BIOS.lib.modules.documentation.SetStateInput")
 local Suffix = require("Scripts.DCS-BIOS.lib.modules.documentation.Suffix")
 
+local Log = require("Scripts.DCS-BIOS.lib.common.Log")
+
 --- @class MiG_29A: Module
 local MiG_29A = Module:new("MiG-29 Fulcrum", 0x3c00, { "MiG-29 Fulcrum" })
 
@@ -390,6 +392,12 @@ local function hsi_range_string(dev0, arg_hundreds_metric, arg_tens_metric, arg_
 	end
 end
 
+MiG_29A:addExportHook(function(dev0)
+	local val = dev0:get_argument_value(279)
+
+	Log:log_info("Value: " .. val)
+end)
+
 -- Stick
 local STICK = "Stick Controls"
 
@@ -537,11 +545,10 @@ MiG_29A:defineFloat("ACHS_1M_FLIGHT_MINUTES", 396, { 0, 1 }, ACHS_1M, "Flight Mi
 MiG_29A:defineFloat("ACHS_1M_STOP_WATCH_MINUTES", 394, { 0, 1 }, ACHS_1M, "Stop Watch Minutes")
 MiG_29A:defineFloat("ACHS_1M_STOP_WATCH_SECONDS", 406, { 0, 1 }, ACHS_1M, "Stop Watch Seconds")
 MiG_29A:defineFloat("ACHS_1M_FLIGHT_STATUS_WINDOW", 58, { 0, 1 }, ACHS_1M, "Flight Time Status Window")
-MiG_29A:definePushButton("ACHS_1M_LEFT_PUSH_BUTTON", devices.CLOCK, 3001, 278, ACHS_1M, "Left Head Push Button")
-MiG_29A:definePushButton("ACHS_1M_LEFT_PULL_BUTTON", devices.CLOCK, 3002, 278, ACHS_1M, "Left Head Pull Button")
-MiG_29A:definePotentiometer("ACHS_1M_LEFT_ROTATE_BUTTON", devices.CLOCK, 3003, 277, { 0, 1 }, ACHS_1M, "Left Head Rotate Button")
-MiG_29A:definePushButton("ACHS_1M_RIGHT_PUSH_BUTTON", devices.CLOCK, 3004, 280, ACHS_1M, "Right Head Push Button")
-MiG_29A:definePotentiometer("ACHS_1M_RIGHT_ROTATE_BUTTON", devices.CLOCK, 3005, 279, { 0, 1 }, ACHS_1M, "Right Head Rotate Button")
+MiG_29A:defineSpringloaded_3PosTumb("ACHS_1M_LEFT_ROTARY", devices.CLOCK, 3001, 3002, 278, ACHS_1M, "Left Head Rotary")
+MiG_29A:defineRotary("ACHS_1M_LEFT_ROTATE_ROTARY", devices.CLOCK, 3003, 277, ACHS_1M, "Left Head Rotate Rotary")
+MiG_29A:definePushButton("ACHS_1M_RIGHT_PUSH_ROTARY", devices.CLOCK, 3004, 280, ACHS_1M, "Right Head Push Rotary")
+MiG_29A:defineToggleSwitchManualRange("ACHS_1M_RIGHT_ROTATE_ROTARY", devices.CLOCK, 3005, 279, { -0.15, 0.15 }, ACHS_1M, "Right Head Rotate Rotary")
 
 -- ADF mode toggle switch
 
