@@ -530,7 +530,12 @@ MiG_29A:definePotentiometer("ADI_POSITION_ADJUSTMENT_KNOB", devices.ADI, 3001, 2
 MiG_29A:definePushButton("ADI_GYRO_CAGE_BUTTON", devices.ADI, 3002, 265, ADI, "Gyro Cage Button")
 MiG_29A:defineFloat("ADI_GYRO_CAGE_LIGHT", 262, { 0, 1 }, ADI, "Gyro Cage Light")
 
--- TAS indicator
+-- TAS
+local TAS = "TAS Indicator"
+
+MiG_29A:defineMultiUnitFloat("TAS_MACH_POINTER", 79, 825, { 0, 1 }, TAS, "Mach Pointer")
+MiG_29A:defineMultiUnitFloat("TAS_SPEED_POINTER", 182, 823, { 0, 1 }, TAS, "True Air Speed Pointer")
+MiG_29A:defineFloat("TAS_MACH_WINDOW", 824, { 0, 1 }, TAS, "Mach Window")
 
 -- Clock
 
