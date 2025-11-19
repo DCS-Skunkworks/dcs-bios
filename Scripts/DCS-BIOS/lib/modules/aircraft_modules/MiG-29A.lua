@@ -508,6 +508,12 @@ MiG_29A:defineString("HSI_RANGE_FULL", function(dev0)
 end, 3, PNP_72_12, "Range Indicator")
 
 -- DA-200P Combined indicator (VVI/Turn/Slip indicator)
+local DA_200P = "DA-200P Combined Indicator"
+
+MiG_29A:defineMultiUnitFloat("DA200P_VARIOMETER_POINTER", 24, 838, { -1, 1 }, DA_200P, "Variometer Pointer")
+MiG_29A:defineMultiUnitFloat("DA200P_DIRECTION_INDICATOR", 25, 839, { -1, 1 }, DA_200P, "Direction Indicator")
+MiG_29A:defineFloat("DA200P_SLIP_INDICATOR", 26, { -1, 1 }, DA_200P, "Slip Indicator")
+MiG_29A:definePotentiometer("DA200P_VVI_ADJUSTMENT_KNOB", devices.VVI_TURN_SLIP, 3001, 268, { 0, 1 }, DA_200P, "VVI Adjustment Knob")
 
 -- ADI
 local ADI = "ADI"
