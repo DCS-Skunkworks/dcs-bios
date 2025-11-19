@@ -13,7 +13,7 @@ local devices = {
 	RWR_INTERFACE = 71,
 }
 
--- remove Arg# Stick 33
+-- remove Arg# Stick 33, Bodies 3334
 
 ----------------------------------------- Extra Functions
 function F_14:defineIndicatorLightRed(identifier, arg_number, category, description) --red
