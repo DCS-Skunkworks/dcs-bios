@@ -545,7 +545,7 @@ MiG_29A:defineFloat("ACHS_1M_FLIGHT_MINUTES", 396, { 0, 1 }, ACHS_1M, "Flight Mi
 MiG_29A:defineFloat("ACHS_1M_STOP_WATCH_MINUTES", 394, { 0, 1 }, ACHS_1M, "Stop Watch Minutes")
 MiG_29A:defineFloat("ACHS_1M_STOP_WATCH_SECONDS", 406, { 0, 1 }, ACHS_1M, "Stop Watch Seconds")
 MiG_29A:defineFloat("ACHS_1M_FLIGHT_STATUS_WINDOW", 58, { 0, 1 }, ACHS_1M, "Flight Time Status Window")
-MiG_29A:defineSpringloaded_3PosTumb("ACHS_1M_LEFT_ROTARY", devices.CLOCK, 3001, 3002, 278, ACHS_1M, "Left Head Rotary")
+MiG_29A:defineSpringloaded_3PosTumb("ACHS_1M_LEFT_ROTARY_PUSH_PULL", devices.CLOCK, 3001, 3002, 278, ACHS_1M, "Left Head Rotary")
 MiG_29A:defineRotary("ACHS_1M_LEFT_ROTATE_ROTARY", devices.CLOCK, 3003, 277, ACHS_1M, "Left Head Rotate Rotary")
 MiG_29A:definePushButton("ACHS_1M_RIGHT_PUSH_ROTARY", devices.CLOCK, 3004, 280, ACHS_1M, "Right Head Push Rotary")
 MiG_29A:defineToggleSwitchManualRange("ACHS_1M_RIGHT_ROTATE_ROTARY", devices.CLOCK, 3005, 279, { -0.15, 0.15 }, ACHS_1M, "Right Head Rotate Rotary")
