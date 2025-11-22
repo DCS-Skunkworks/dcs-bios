@@ -9,8 +9,6 @@ local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 local SetStateInput = require("Scripts.DCS-BIOS.lib.modules.documentation.SetStateInput")
 local Suffix = require("Scripts.DCS-BIOS.lib.modules.documentation.Suffix")
 
-local Log = require("Scripts.DCS-BIOS.lib.common.Log")
-
 --- @class MiG_29A: Module
 local MiG_29A = Module:new("MiG-29 Fulcrum", 0x3c00, { "MiG-29 Fulcrum" })
 
@@ -391,12 +389,6 @@ local function hsi_range_string(dev0, arg_hundreds_metric, arg_tens_metric, arg_
 		return string.format("%d%d%d", hsi_indicator_argument_display(dev0, arg_hundreds_imperial, 10), hsi_indicator_argument_display(dev0, arg_tens_imperial, 10), hsi_indicator_argument_display(dev0, arg_ones_imperial, 10))
 	end
 end
-
-MiG_29A:addExportHook(function(dev0)
-	local val = dev0:get_argument_value(279)
-
-	Log:log_info("Value: " .. val)
-end)
 
 -- Stick
 local STICK = "Stick Controls"
