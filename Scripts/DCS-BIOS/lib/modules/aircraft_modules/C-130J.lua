@@ -105,6 +105,188 @@ local devices = {
 	FAILURE_MGR = 97,
 }
 
--- todo: define panels
+-- Flight Station Forward
+
+-- Pilot Side Console
+
+-- Pilot Oxygen Regulator
+
+-- Pilot Intercommunications System Monitor Panel
+
+-- Pilot Side Console END
+
+-- Copilot Side Console
+
+-- Copilot Oxygen Regulator
+
+-- Copilot Intercommunications System Monitor Panel
+
+-- Get-Home Control Panel
+
+-- Copilot Side Console END
+
+-- Main Instrument Panel
+
+-- Parking Brake
+
+-- Pilot Reference Set/Mode Select Panel
+
+-- Copilot Reference Set/Mode Select Panel
+
+-- Left Outer Avionics Management Unit
+
+-- Left Inner Avionics Management Unit
+
+-- Right Inner Avionics Management Unit
+
+-- Right Outer Avionics Management Unit
+
+-- Communication/Navigation/Electronic Circuit Breaker Panel
+
+-- Pilot Mode Annunciator Panel
+
+-- Copilot Mode Annunciator Panel
+
+-- Pilot Inclinometer
+
+-- Copilot Inclinometer
+
+-- Left Outer Head Down Display
+
+-- Left Inner Head Down Display
+
+-- Right Inner Head Down Display
+
+-- Right Outer Head Down Display
+
+-- Hydraulic Control Panel
+
+-- Landing Gear/Landing Lights Panel
+
+-- Flap and Trim Indicator Panel
+
+-- Standby Altimeter/Airspeed Indicator
+
+-- Standby Attitude Indicator
+
+-- Main Instrument Panel END
+
+-- Overhead Console
+
+-- Oxygen Regulator
+
+-- Pilot Reading Light Control
+
+-- Copilot Reading Light Control
+
+-- Augmented Reading Light Control
+
+-- Control Boost Panel
+
+-- Oil Cooler Flaps Panel
+
+-- Electrical Panel
+
+-- Pressurization Panel
+
+-- Fuel Management Panel
+
+-- Air Conditioning Panel
+
+-- Pilot HUD Panel
+
+-- Copilot HUD Panel
+
+-- Wipers/ELT/Emergency Exit Lights Extinguish Panel
+
+-- APU Panel
+
+-- Engine Start Panel
+
+-- Fire Panel
+
+-- FADEC/Prop Control/Prop Sync/ATCS Panel
+
+-- Exterior Lighting Panel
+
+-- Ice Protection Panel
+
+-- Bleed Air Panel
+
+-- Emergency Exit Lights Extinguish
+
+-- Standby Magnetic Compass
+
+-- Overhead Console END
+
+-- Center Console
+
+-- Pilot Lighting Panel
+
+-- Copilot Lighting Panel
+
+-- Radar Control Panel
+
+-- Pilot Intercommunications System Control Panel
+
+-- Copilot Intercommunications System Control Panel
+
+-- Augmented Itercommunications System Control Panel
+
+-- Pilot Communication/Navigation/Identification Management Unit
+
+-- Copilot Communication/Navigation/Identification Management Unit
+
+-- Augmented Communication/Navigation/Identification Management Unit
+
+-- Pilot Remote Heading and Course Selector
+
+-- Copilot Remote Heading and Course Selector
+
+-- Throttle Quadrant
+
+-- Cursor Control Panel
+
+-- Wing Flaps Control Quadrant
+
+-- Augmented Intercommunications System Monitor Panel
+
+-- Trim Panel
+
+-- Defensive Systems Panel
+
+-- Aerial Delivery Panel
+
+-- Automatic Flight Control System Panel
+
+-- ARC-210
+
+-- Center Console END
+
+-- Nosewheel Steering
+
+-- Pilot Yoke
+
+-- Copilot Yoke
+
+-- Flight Station Forward END
+
+-- Loadmaster Station
+
+-- TODO: panel, circuit breakers, crew door handle
+
+-- Loadmaster Station End
+
+-- Interior Lights
+
+-- Interior Model
+
+-- Exterior Lights
+
+-- Exterior Model
+
+-- Radios
+
+-- Seat Position
 
 return C_130J
