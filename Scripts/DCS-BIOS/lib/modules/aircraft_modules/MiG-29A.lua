@@ -578,7 +578,7 @@ MiG_29A:defineToggleSwitch("NOSE_WHEEL_BRAKE_HANDLE", devices.INPUT_PANEL, 3035,
 
 -- Radar altimiter
 
--- Counter measure pannel
+-- Counter measure panel
 local COUNTERMEASURES = "Countermeasures Dispenser Panel"
 
 MiG_29A:definePushButton("COUNTERMEASURES_EMERGENCY_JETTISON_BUTTON", devices.WP, 3001, 143, COUNTERMEASURES, "Countermeasures Emergency Jettison Button")
