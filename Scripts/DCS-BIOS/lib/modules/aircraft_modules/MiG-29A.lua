@@ -390,6 +390,18 @@ local function hsi_range_string(dev0, arg_hundreds_metric, arg_tens_metric, arg_
 	end
 end
 
+local function getCountermesureCounterString(arg_value)
+	if arg_value < 0.2 then
+		return "60"
+	elseif arg_value < 0.45 then
+		return "40"
+	elseif arg_value < 0.75 then
+		return "20"
+	else
+		return "00"
+	end
+end
+
 -- Stick
 local STICK = "Stick Controls"
 
@@ -567,6 +579,14 @@ MiG_29A:defineToggleSwitch("NOSE_WHEEL_BRAKE_HANDLE", devices.INPUT_PANEL, 3035,
 -- Radar altimiter
 
 -- Counter measure pannel
+local COUNTERMEASURES = "Countermeasures Dispenser Panel"
+
+MiG_29A:definePushButton("COUNTERMEASURES_EMERGENCY_JETTISON_BUTTON", devices.WP, 3001, 143, COUNTERMEASURES, "Countermeasures Emergency Jettison Button")
+MiG_29A:define3PosTumb("COUNTERMEASURES_PROGRAM_SWITCH", devices.WP, 3002, 140, COUNTERMEASURES, "Countermeasures Program Switch (RHS/FHS/GROUND)")
+MiG_29A:defineFloat("COUNTERMEASURES_COUNTER_FLOAT", 38, { 0, 1 }, COUNTERMEASURES, "Countermeasures Counter Float")
+MiG_29A:defineString("COUNTERMEASURES_COUNTER_STRING", function(dev0)
+	return getCountermesureCounterString(dev0:get_argument_value(38))
+end, 2, COUNTERMEASURES, "Countermeasures Counter String")
 
 -- Gas temperature meters
 
