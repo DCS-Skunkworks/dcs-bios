@@ -597,12 +597,18 @@ end, 2, COUNTERMEASURES, "Countermeasures Counter String")
 -- Combined pressure indicator
 
 -- Air duct ramp indicator
+local AIR_DUCT_RAMP = "Air Duct Ramp"
+
+MiG_29A:defineFloat("AIR_DUCT_LEFT_RAMP_POSITION_INDICATOR", 443, { 0, 1 }, AIR_DUCT_RAMP, "Left Ramp Position Indicator")
+MiG_29A:defineFloat("AIR_DUCT_RIGHT_RAMP_POSITION_INDICATOR", 444, { 0, 1 }, AIR_DUCT_RAMP, "Right Ramp Position Indicator")
 
 -- ITE-2TB Engine RPM Tachometer
 local ITE_2TB = "ITE-2TB Engine RPM Tachometer"
 
 MiG_29A:defineFloat("ITE_2TB_LEFT_ENGINE_RPM_POINTER", 16, { 0, 1 }, ITE_2TB, "Left Engine RPM Pointer")
 MiG_29A:defineFloat("ITE_2TB_RIGHT_ENGINE_RPM_POINTER", 17, { 0, 1 }, ITE_2TB, "Right Engine RPM Pointer")
+MiG_29A:reserveIntValue(65535) -- Left Ramp Setting Knob
+MiG_29A:reserveIntValue(65535) -- Right Ramp Setting Knob
 
 -- Voltmeter
 
