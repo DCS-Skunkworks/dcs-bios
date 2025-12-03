@@ -595,10 +595,10 @@ end, 2, COUNTERMEASURES, "Countermeasures Counter String")
 -- IKG-1 Combined oxygen indicator
 local IKG_1_OXYGEN = "IKG-1 Combined Oxygen Indicator"
 
-MiG_29A:defineFloat("IKG_1_COCKPIT_ALTITUDE_POINTER", 300, { 0, 1 }, IKG_1_OXYGEN, "Cockpit Altitude Pointer")
+MiG_29A:defineFloat("IKG_1_OXYGEN_ALTITUDE_POINTER", 300, { 0, 1 }, IKG_1_OXYGEN, "Cockpit Altitude Pointer")
 MiG_29A:defineFloat("IKG_1_OXYGEN_QUANTITY_POINTER", 301, { 0, 1 }, IKG_1_OXYGEN, "Oxygen Quantity Pointer")
 MiG_29A:defineFloat("IKG_1_OXYGEN_FLOW_POINTER", 302, { 0, 1 }, IKG_1_OXYGEN, "Oxygen Flow Pointer")
-MiG_29A:defineFloat("IKG_1_COCKPIT_PRESSURIZATION_POINTER", 303, { 0, 1 }, IKG_1_OXYGEN, "Cockpit Pressurization Pointer")
+MiG_29A:defineFloat("IKG_1_OXYGEN_PRESSURIZATION_POINTER", 303, { 0, 1 }, IKG_1_OXYGEN, "Cockpit Pressurization Pointer")
 
 -- Combined pressure indicator
 
