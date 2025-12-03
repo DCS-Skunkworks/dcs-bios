@@ -597,6 +597,11 @@ end, 2, COUNTERMEASURES, "Countermeasures Counter String")
 -- IKG-1 Combined Pressure Indicator
 local IKG_1_PRESSURE = "IKG-1 Combined Pressure Indicator"
 
+MiG_29A:defineFloat("IKG_1_HYDRO_PRESSURE_MAIN_INDICATOR", 304, { 0, 1 }, IKG_1_PRESSURE, "Main Hydraulic Pressure Indicator")
+MiG_29A:defineFloat("IKG_1_HYDRO_PRESSURE_BOOST_INDICATOR", 305, { 0, 1 }, IKG_1_PRESSURE, "Boost Hydraulic Pressure Indicator")
+MiG_29A:defineFloat("IKG_1_PNEUMATIC_PRESSURE_MAIN_INDICATOR", 306, { 0, 1 }, IKG_1_PRESSURE, "Main Pneumatic Pressure Indicator")
+MiG_29A:defineFloat("IKG_1_PNEUMATIC_PRESSURE_EMERGENCY_INDICATOR", 306, { 0, 1 }, IKG_1_PRESSURE, "Emergency Pneumatic Pressure Indicator")
+
 -- Air duct ramp indicator
 
 -- ITE-2TB Engine RPM Tachometer
