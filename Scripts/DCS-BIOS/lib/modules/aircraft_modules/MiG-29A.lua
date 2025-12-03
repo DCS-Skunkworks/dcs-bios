@@ -594,7 +594,8 @@ end, 2, COUNTERMEASURES, "Countermeasures Counter String")
 
 -- Combined oxygen indicator
 
--- Combined pressure indicator
+-- IKG-1 Combined Pressure Indicator
+local IKG_1_PRESSURE = "IKG-1 Combined Pressure Indicator"
 
 -- Air duct ramp indicator
 
