@@ -577,6 +577,14 @@ local NOSE_WHEEL_BRAKE = "Nose Wheel Brake (Instrument Panel)"
 MiG_29A:defineToggleSwitch("NOSE_WHEEL_BRAKE_HANDLE", devices.INPUT_PANEL, 3035, 23, NOSE_WHEEL_BRAKE, "Nose Wheel Brake Handle (ON/OFF)")
 
 -- Radar altimiter
+local RADAR_ALTIMITER = "Radar Altimiter"
+
+MiG_29A:defineMultiUnitFloat("RADAR_ALTIMITER_ALTITUDE_POINTER", 9, 849, { -1, 1 }, RADAR_ALTIMITER, "Altitude Pointer")
+MiG_29A:defineMultiUnitFloat("RADAR_ALTIMITER_LOW_ALTITUDE_MARKER", 405, 850, { -1, 1 }, RADAR_ALTIMITER, "Low Altitude Marker")
+MiG_29A:defineMultiUnitFloat("RADAR_ALTIMITER_SENSOR_FLAG", 13, 851, { 0, 1 }, RADAR_ALTIMITER, "Sensor Failure Flag")
+MiG_29A:defineRotary("RADAR_ALTIMITER_LOW_ALTITUDE_ROTARY", devices.RADALT, 3002, 137, RADAR_ALTIMITER, "Low Altitude Knob")
+MiG_29A:defineFloat("RADAR_ALTIMITER_LOW_ALTITUDE_LIGHT", 170, { 0, 1 }, RADAR_ALTIMITER, "Low Altitude Warning Light")
+MiG_29A:definePushButton("RADAR_ALTIMITER_TEST_BUTTON", devices.RADALT, 3001, 138, RADAR_ALTIMITER, "Test Button")
 
 -- Counter measure panel
 local COUNTERMEASURES = "Countermeasures Dispenser Panel"
