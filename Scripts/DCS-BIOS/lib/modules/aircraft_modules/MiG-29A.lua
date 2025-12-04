@@ -372,21 +372,21 @@ function MiG_29A:defineFlag(identifier, arg_number, category, description)
 	return control
 end
 
-local function hsi_indicator_argument_display(dev0, arg_number, max_value)
+local function indicator_argument_display(dev0, arg_number, max_value)
 	local val = Module.round(dev0:get_argument_value(arg_number) * max_value)
 	return val >= 10 and 0 or val
 end
 
 local function hsi_course_string(dev0, arg_tens, arg_ones)
 	local tens = Module.round(((dev0:get_argument_value(arg_tens) + 1) / 2) * 36)
-	return string.format("%d%d", tens, hsi_indicator_argument_display(dev0, arg_ones, 10))
+	return string.format("%d%d", tens, indicator_argument_display(dev0, arg_ones, 10))
 end
 
 local function hsi_range_string(dev0, arg_hundreds_metric, arg_tens_metric, arg_ones_metric, arg_hundreds_imperial, arg_tens_imperial, arg_ones_imperial)
 	if unit_metric then
-		return string.format("%d%d%d", hsi_indicator_argument_display(dev0, arg_hundreds_metric, 10), hsi_indicator_argument_display(dev0, arg_tens_metric, 10), hsi_indicator_argument_display(dev0, arg_ones_metric, 10))
+		return string.format("%d%d%d", indicator_argument_display(dev0, arg_hundreds_metric, 10), indicator_argument_display(dev0, arg_tens_metric, 10), indicator_argument_display(dev0, arg_ones_metric, 10))
 	else
-		return string.format("%d%d%d", hsi_indicator_argument_display(dev0, arg_hundreds_imperial, 10), hsi_indicator_argument_display(dev0, arg_tens_imperial, 10), hsi_indicator_argument_display(dev0, arg_ones_imperial, 10))
+		return string.format("%d%d%d", indicator_argument_display(dev0, arg_hundreds_imperial, 10), indicator_argument_display(dev0, arg_tens_imperial, 10), indicator_argument_display(dev0, arg_ones_imperial, 10))
 	end
 end
 
@@ -602,7 +602,26 @@ local ITG_1 = "ITG-1 Gas Temperature Meters"
 MiG_29A:defineFloat("ITG_1_LEFT_ENGINE_GAS_TEMPERATURE_POINTER", 12, { 0, 1 }, ITG_1, "Left Engine Temperature Pointer")
 MiG_29A:defineFloat("ITG_1_RIGHT_ENGINE_GAS_TEMPERATURE_POINTER", 14, { 0, 1 }, ITG_1, "Right Engine Temperature Pointer")
 
--- Fuel flow indicator
+-- ISTR4 Fuel flow metering system indicator
+local ISTR4 = "ISTR4 Fuel Flow Metering System Indicator"
+
+MiG_29A:defineFloat("ISTR4_ESTIMATED_DISTANCE_THOUSANDS", 225, { 0, 1 }, ISTR4, "Estimated Flight Distance Indicator (Thousands)")
+MiG_29A:defineFloat("ISTR4_ESTIMATED_DISTANCE_HUNDREDS", 226, { 0, 1 }, ISTR4, "Estimated Flight Distance Indicator (Hundreds)")
+MiG_29A:defineFloat("ISTR4_ESTIMATED_DISTANCE_TENS", 227, { 0, 1 }, ISTR4, "Estimated Flight Distance Indicator (Tens)")
+MiG_29A:defineString("ISTR4_ESTIMATED_DISTANCE_FULL", function(dev0)
+	return string.format("%d%d%d", indicator_argument_display(dev0, 225, 10), indicator_argument_display(dev0, 226, 10), indicator_argument_display(dev0, 227, 10))
+end, 3, ISTR4, "Estimated Flight Distance Indicator")
+MiG_29A:defineToggleSwitch("ISTR4_DISTANCE_COMPUTER_MODE_SWITCH", devices.FUEL_INDICATOR, 3002, 446, ISTR4, "Distance Computer Mode Switch (OPT/TAC)")
+MiG_29A:defineFloat("ISTR4_DISTANCE_COMPUTER_OPT_LIGHT", 66, { 0, 1 }, ISTR4, "Distance Computer OPT Light (Orange)")
+MiG_29A:defineFloat("ISTR4_DISTANCE_COMPUTER_TAC_LIGHT", 62, { 0, 1 }, ISTR4, "Distance Computer TAC Light (Orange)")
+MiG_29A:defineToggleSwitch("ISTR4_FUEL_MEASURING_MODE_SWITCH", devices.FUEL_INDICATOR, 3001, 440, ISTR4, "Fuel Measuring Mode Switch (T/P)")
+MiG_29A:defineFloat("ISTR4_FUEL_MEASURING_T_LIGHT", 63, { 0, 1 }, ISTR4, "Fuel Measuring Mode T Light (Green)")
+MiG_29A:defineFloat("ISTR4_FUEL_MEASURING_P_LIGHT", 64, { 0, 1 }, ISTR4, "Fuel Measuring Mode P Light (Green)")
+MiG_29A:defineFloat("ISTR4_TOTAL_FUEL_GAUGE", 22, { 0, 1 }, ISTR4, "Total Fuel Gauge")
+MiG_29A:defineFloat("ISTR4_EXTERNAL_TANKS_EMPTY_LIGHT", 221, { 0, 1 }, ISTR4, 'External Tanks Empty Light "CL" (Yellow)')
+MiG_29A:defineFloat("ISTR4_WING_TANK_EMPTY_LIGHT", 217, { 0, 1 }, ISTR4, 'Wing Tank Empty Light "WING" (Yellow)')
+MiG_29A:defineFloat("ISTR4_TANK_3_EMPTY_LIGHT", 218, { 0, 1 }, ISTR4, 'Tank 3 Empty Light "3" (Yellow)')
+MiG_29A:defineFloat("ISTR4_TANK_1_EMPTY_LIGHT", 220, { 0, 1 }, ISTR4, 'Tank 1 Empty Light "1" (Yellow)')
 
 -- Combined oxygen indicator
 
