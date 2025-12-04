@@ -396,7 +396,7 @@ F4U_1D:defineFloat("RECEIVER_C26_FREQUENCY_DIAL", 94, { 0, 1 }, C26, "Receiver C
 -- C-38/ARC-5
 local C38 = "Range Receiver Control Box"
 
-F4U_1D:definePotentiometer("RECEIVER_C38_NOISE_LEVEL_ROTARY", devices.RADIONAV, 3601, 80, { 0, 1 }, C38, "Receiver C-38 Nosie Level Rotary")
+F4U_1D:definePotentiometer("RECEIVER_C38_NOISE_LEVEL_ROTARY", devices.RADIONAV, 3601, 80, { 0, 1 }, C38, "Receiver C-38 Noise Level Rotary")
 F4U_1D:definePotentiometer("RECEIVER_C38_VOLUME_ROTARY", devices.RADIO, 3602, 81, { 0, 1 }, C38, "Receiver C-38 Volume Rotary")
 F4U_1D:defineToggleSwitch("RECEIVER_C38_RECEIVER_A_SWITCH", devices.RADIO, 3603, 82, C38, "Receiver C-38 Receiver A On/Off Switch")
 F4U_1D:defineToggleSwitch("RECEIVER_C38_RECEIVER_C_SWITCH", devices.RADIONAV, 3604, 83, C38, "Receiver C-38 Receiver C On/Off Switch")
