@@ -226,6 +226,25 @@ local devices = {
 -- Copilot Lighting Panel
 
 -- Radar Control Panel
+local RADAR_CONTROL_PANEL = "Radar Control Panel"
+C_130J:defineMultipositionSwitch("PNT_RCP_MASTER_485", devices.NAV_RADAR, 3001, 485, 3, 0.4, RADAR_CONTROL_PANEL, "Radar Master Power Switch")
+C_130J:definePushButton("PNT_RCP_PRCN_398", devices.NAV_RADAR, 3010, 398, RADAR_CONTROL_PANEL, "Radar PRCN Mode Switch")
+C_130J:definePushButton("PNT_RCP_MAP_399", devices.NAV_RADAR, 3011, 399, RADAR_CONTROL_PANEL, "Radar MAP Mode Switch")
+C_130J:definePushButton("PNT_RCP_WX_400", devices.NAV_RADAR, 3012, 400, RADAR_CONTROL_PANEL, "Radar WX Mode Switch")
+C_130J:definePushButton("PNT_RCP_SP_401", devices.NAV_RADAR, 3013, 401, RADAR_CONTROL_PANEL, "Radar SP Mode Switch")
+C_130J:definePushButton("PNT_RCP_MGM_402", devices.NAV_RADAR, 3014, 402, RADAR_CONTROL_PANEL, "Radar MGM Mode Switch")
+C_130J:definePushButton("PNT_RCP_WS_403", devices.NAV_RADAR, 3015, 403, RADAR_CONTROL_PANEL, "Radar WS Mode Switch")
+C_130J:definePushButton("PNT_RCP_BCN_404", devices.NAV_RADAR, 3016, 404, RADAR_CONTROL_PANEL, "Radar BCN Mode Switch")
+C_130J:defineMultipositionSwitch("PNT_INTENSITY_SEL_486", devices.NAV_RADAR, 3002, 486, 4, 0.3, RADAR_CONTROL_PANEL, "Intensity Target Select Switch")
+C_130J:definePushButton("PNT_RCP_PSEL_405", devices.NAV_RADAR, 3009, 405, RADAR_CONTROL_PANEL, "Radar PSEL Mode Switch")
+C_130J:defineRockerSwitch("PNT_RCP_INTENSITY_INC_UP_410", devices.NAV_RADAR, 3003, 3003, 3003, 3003, 410, RADAR_CONTROL_PANEL, "Radar Intensity Increase")
+C_130J:defineRockerSwitch("PNT_RCP_INTENSITY_INC_DN_410", devices.NAV_RADAR, 3003, 3003, 3003, 3003, 410, RADAR_CONTROL_PANEL, "Radar Intensity Decrease")
+C_130J:defineRockerSwitch("PNT_RCP_GAIN_INC_UP_411", devices.NAV_RADAR, 3004, 3004, 3004, 3004, 411, RADAR_CONTROL_PANEL, "Radar Gain Increase")
+C_130J:defineRockerSwitch("PNT_RCP_GAIN_INC_DN_411", devices.NAV_RADAR, 3004, 3004, 3004, 3004, 411, RADAR_CONTROL_PANEL, "Radar Gain Decrease")
+C_130J:definePushButton("PNT_RCP_OFS_406", devices.NAV_RADAR, 3005, 406, RADAR_CONTROL_PANEL, "Radar OFS Mode Switch")
+C_130J:definePushButton("PNT_RCP_FRZ_407", devices.NAV_RADAR, 3006, 407, RADAR_CONTROL_PANEL, "Radar FRZ Mode Switch")
+C_130J:definePushButton("PNT_RCP_PEN_408", devices.NAV_RADAR, 3007, 408, RADAR_CONTROL_PANEL, "Radar PEN Mode Switch")
+C_130J:definePushButton("PNT_RCP_SCTR_409", devices.NAV_RADAR, 3008, 409, RADAR_CONTROL_PANEL, "Radar SCTR Mode Switch")
 
 -- Pilot Intercommunications System Control Panel
 
