@@ -596,7 +596,11 @@ MiG_29A:defineString("COUNTERMEASURES_COUNTER_STRING", function(dev0)
 	return getCountermeasuresCounterString(dev0:get_argument_value(38))
 end, 2, COUNTERMEASURES, "Countermeasures Counter String")
 
--- Gas temperature meters
+-- ITG-1 Gas temperature meters
+local ITG_1 = "ITG-1 Gas Temperature Meters"
+
+MiG_29A:defineFloat("ITG_1_LEFT_ENGINE_GAS_TEMPERATURE_POINTER", 12, { 0, 1 }, ITG_1, "Left Engine Temperature Pointer")
+MiG_29A:defineFloat("ITG_1_RIGHT_ENGINE_GAS_TEMPERATURE_POINTER", 14, { 0, 1 }, ITG_1, "Right Engine Temperature Pointer")
 
 -- Fuel flow indicator
 
