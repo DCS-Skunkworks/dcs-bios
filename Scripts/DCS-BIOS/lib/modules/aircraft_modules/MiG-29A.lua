@@ -472,7 +472,7 @@ local IAS = "IAS indicator"
 MiG_29A:defineMultiUnitFloat("IAS_INDICATOR_POINTER", 8, 821, { 0, 1 }, IAS, "IAS Pointer")
 MiG_29A:defineMultiUnitFloatManualRange("IAS_INDICATOR_WINDOW", 5, 820, { 1, 0 }, { 0, 1 }, IAS, "IAS Mach Number")
 
--- Altimiter
+-- Altimeter
 
 -- IP-52-03 Flaps / Landing gear indicator
 local IP_52_03 = "IP-52-03 Control Surfaces / Landing Gear Indicators"
@@ -576,7 +576,15 @@ local NOSE_WHEEL_BRAKE = "Nose Wheel Brake (Instrument Panel)"
 
 MiG_29A:defineToggleSwitch("NOSE_WHEEL_BRAKE_HANDLE", devices.INPUT_PANEL, 3035, 23, NOSE_WHEEL_BRAKE, "Nose Wheel Brake Handle (ON/OFF)")
 
--- Radar altimiter
+-- Radar altimeter
+local RADAR_ALTIMETER = "Radar Altimeter"
+
+MiG_29A:defineMultiUnitFloat("RADAR_ALTIMETER_ALTITUDE_POINTER", 9, 849, { -1, 1 }, RADAR_ALTIMETER, "Altitude Pointer")
+MiG_29A:defineMultiUnitFloat("RADAR_ALTIMETER_LOW_ALTITUDE_MARKER", 405, 850, { -1, 1 }, RADAR_ALTIMETER, "Low Altitude Marker")
+MiG_29A:defineMultiUnitFloat("RADAR_ALTIMETER_SENSOR_FLAG", 13, 851, { 0, 1 }, RADAR_ALTIMETER, "Sensor Failure Flag")
+MiG_29A:defineRotary("RADAR_ALTIMETER_LOW_ALTITUDE_ROTARY", devices.RADALT, 3002, 137, RADAR_ALTIMETER, "Low Altitude Knob")
+MiG_29A:defineFloat("RADAR_ALTIMETER_LOW_ALTITUDE_LIGHT", 170, { 0, 1 }, RADAR_ALTIMETER, "Low Altitude Warning Light")
+MiG_29A:definePushButton("RADAR_ALTIMETER_TEST_BUTTON", devices.RADALT, 3001, 138, RADAR_ALTIMETER, "Test Button")
 
 -- Counter measure panel
 local COUNTERMEASURES = "Countermeasures Dispenser Panel"
