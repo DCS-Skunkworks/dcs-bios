@@ -640,6 +640,12 @@ MiG_29A:defineFloat("IKG_1_PNEUMATIC_PRESSURE_MAIN_INDICATOR", 306, { 0, 1 }, IK
 MiG_29A:defineFloat("IKG_1_PNEUMATIC_PRESSURE_EMERGENCY_INDICATOR", 306, { 0, 1 }, IKG_1_PRESSURE, "Emergency Pneumatic Pressure Indicator")
 
 -- Air duct ramp indicator
+local AIR_DUCT_RAMP = "Air Duct Ramp"
+
+MiG_29A:defineFloat("AIR_DUCT_LEFT_RAMP_POSITION_INDICATOR", 443, { 0, 1 }, AIR_DUCT_RAMP, "Left Ramp Position Indicator")
+MiG_29A:defineFloat("AIR_DUCT_RIGHT_RAMP_POSITION_INDICATOR", 444, { 0, 1 }, AIR_DUCT_RAMP, "Right Ramp Position Indicator")
+MiG_29A:reserveIntValue(65535) -- Left Ramp Setting Knob
+MiG_29A:reserveIntValue(65535) -- Right Ramp Setting Knob
 
 -- ITE-2TB Engine RPM Tachometer
 local ITE_2TB = "ITE-2TB Engine RPM Tachometer"
