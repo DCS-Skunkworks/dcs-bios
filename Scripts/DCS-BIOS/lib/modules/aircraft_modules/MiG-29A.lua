@@ -623,7 +623,13 @@ MiG_29A:defineFloat("ISTR4_WING_TANK_EMPTY_LIGHT", 217, { 0, 1 }, ISTR4, 'Wing T
 MiG_29A:defineFloat("ISTR4_TANK_3_EMPTY_LIGHT", 218, { 0, 1 }, ISTR4, 'Tank 3 Empty Light "3" (Yellow)')
 MiG_29A:defineFloat("ISTR4_TANK_1_EMPTY_LIGHT", 220, { 0, 1 }, ISTR4, 'Tank 1 Empty Light "1" (Yellow)')
 
--- Combined oxygen indicator
+-- IKG-1 Combined oxygen indicator
+local IKG_1_OXYGEN = "IKG-1 Combined Oxygen Indicator"
+
+MiG_29A:defineFloat("IKG_1_OXYGEN_ALTITUDE_POINTER", 300, { 0, 1 }, IKG_1_OXYGEN, "Cockpit Altitude Pointer")
+MiG_29A:defineFloat("IKG_1_OXYGEN_QUANTITY_POINTER", 301, { 0, 1 }, IKG_1_OXYGEN, "Oxygen Quantity Pointer")
+MiG_29A:defineFloat("IKG_1_OXYGEN_FLOW_POINTER", 302, { 0, 1 }, IKG_1_OXYGEN, "Oxygen Flow Pointer")
+MiG_29A:defineFloat("IKG_1_OXYGEN_PRESSURIZATION_POINTER", 303, { 0, 1 }, IKG_1_OXYGEN, "Cockpit Pressurization Pointer")
 
 -- Combined pressure indicator
 
