@@ -631,7 +631,13 @@ MiG_29A:defineFloat("IKG_1_OXYGEN_QUANTITY_POINTER", 301, { 0, 1 }, IKG_1_OXYGEN
 MiG_29A:defineFloat("IKG_1_OXYGEN_FLOW_POINTER", 302, { 0, 1 }, IKG_1_OXYGEN, "Oxygen Flow Pointer")
 MiG_29A:defineFloat("IKG_1_OXYGEN_PRESSURIZATION_POINTER", 303, { 0, 1 }, IKG_1_OXYGEN, "Cockpit Pressurization Pointer")
 
--- Combined pressure indicator
+-- IKG-1 Combined Pressure Indicator
+local IKG_1_PRESSURE = "IKG-1 Combined Pressure Indicator"
+
+MiG_29A:defineFloat("IKG_1_HYDRO_PRESSURE_MAIN_INDICATOR", 304, { 0, 1 }, IKG_1_PRESSURE, "Main Hydraulic Pressure Indicator")
+MiG_29A:defineFloat("IKG_1_HYDRO_PRESSURE_BOOST_INDICATOR", 305, { 0, 1 }, IKG_1_PRESSURE, "Boost Hydraulic Pressure Indicator")
+MiG_29A:defineFloat("IKG_1_PNEUMATIC_PRESSURE_MAIN_INDICATOR", 306, { 0, 1 }, IKG_1_PRESSURE, "Main Pneumatic Pressure Indicator")
+MiG_29A:defineFloat("IKG_1_PNEUMATIC_PRESSURE_EMERGENCY_INDICATOR", 306, { 0, 1 }, IKG_1_PRESSURE, "Emergency Pneumatic Pressure Indicator")
 
 -- Air duct ramp indicator
 
