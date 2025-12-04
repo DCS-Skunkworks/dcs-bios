@@ -606,7 +606,11 @@ end, 2, COUNTERMEASURES, "Countermeasures Counter String")
 
 -- Air duct ramp indicator
 
--- RPM indicator
+-- ITE-2TB Engine RPM Tachometer
+local ITE_2TB = "ITE-2TB Engine RPM Tachometer"
+
+MiG_29A:defineFloat("ITE_2TB_LEFT_ENGINE_RPM_POINTER", 16, { 0, 1 }, ITE_2TB, "Left Engine RPM Pointer")
+MiG_29A:defineFloat("ITE_2TB_RIGHT_ENGINE_RPM_POINTER", 17, { 0, 1 }, ITE_2TB, "Right Engine RPM Pointer")
 
 -- Voltmeter
 
