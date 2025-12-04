@@ -1370,7 +1370,7 @@ local WSO_RADAR = "WSO Radar"
 
 F_4E:defineSpringloaded3PosTumb("WSO_RADAR_ANTENNA_ELEVATION", RADAR_DEVICE_ID, 3011, 1014, WSO_RADAR, "Change Radar Antenna Elevation")
 F_4E:definePushButton("WSO_RADAR_CHALLENGE", RADAR_DEVICE_ID, 3014, 2508, WSO_RADAR, "Challenge Button")
-F_4E:reserveIntValue(1) -- Trigger found at the end of the file
+F_4E:reserveIntValue(1)
 
 -- WSO Radar Antenna Panel
 F_4E:defineTumb("WSO_RADAR_METER_MODE", RADAR_DEVICE_ID, 3015, 1001, 1.673 / 15, { -0.673, 1 }, nil, false, WSO_RADAR, "Select Meter Mode (Volt/Signal)")
