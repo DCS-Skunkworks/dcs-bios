@@ -1609,22 +1609,22 @@ F_14:defineInputOnlyPushButtonNoOff("SALUTE", 18, 3023, "Communications", "Salut
 F_14:defineInputOnlyPushButtonNoOff("ON_THE_BALL", 2, 3749, "Communications", "Tomcat on the Ball")
 
 -- Pilot F14A-Early TONE VOLUME Panel
-F_14:definePotentiometer("PLT_ALR45_VOL", 71, 3880, 2046, { 0, 1 }, "Volume Panel", "PILOT ALR-45 Volume")
-F_14:definePotentiometer("PLT_ALR50_VOL", 71, 3881, 2050, { 0, 1 }, "Volume Panel", "PILOT ALR-50 Volume")
+F_14:definePotentiometer("PLT_ALR45_VOL", devices.RWR_INTERFACE, 3880, 2046, { 0, 1 }, "Volume Panel", "PILOT ALR-45 Volume")
+F_14:definePotentiometer("PLT_ALR50_VOL", devices.RWR_INTERFACE, 3881, 2050, { 0, 1 }, "Volume Panel", "PILOT ALR-50 Volume")
 
 -- RWR Control Panel ALR-45/50
 local ALR_45_50 = "ALR-45/50 RWR Control Panel"
 
-F_14:defineSpringloaded_3PosTumb("RIO_RWR_ALR45_LOW_BAND", 71, 3869, 3869, 154, ALR_45_50, "LOW Band Switch (DEFEAT/NORM/BYPASS)")
-F_14:defineSpringloaded_3PosTumb("RIO_RWR_ALR45_MID_BAND", 71, 3870, 3870, 178, ALR_45_50, "MID Band Switch (DEFEAT/NORM/BYPASS)")
-F_14:defineSpringloaded_3PosTumb("RIO_RWR_ALR45_HIGH_BAND", 71, 3871, 3871, 155, ALR_45_50, "HIGH Band Switch (DEFEAT/NORM/BYPASS)")
-F_14:defineToggleSwitch("RIO_RWR_ALR45_AAA", 71, 3872, 173, ALR_45_50, "AAA Switch (DEFEAT/NORM)")
-F_14:definePotentiometer("RIO_RWR_ALR45_VOL", 71, 3873, 158, { 0, 1 }, ALR_45_50, "ALR-45 Volume")
-F_14:definePotentiometer("RIO_RWR_ALR50_VOL", 71, 3874, 157, { 0, 1 }, ALR_45_50, "ALR-50 Volume")
-F_14:defineToggleSwitch("RIO_RWR_ALR45_POWER", 71, 3875, 174, ALR_45_50, "Power Switch (OFF/ON)")
-F_14:defineSpringloaded_3PosTumb("RIO_RWR_ALR45_LOW_MID_BAND_TEST", 71, 3876, 3876, 169, ALR_45_50, "LOW/MID Band Test Switch (LOW/OFF/MID)")
-F_14:defineToggleSwitch("RIO_RWR_ALR45_HIGH_BAND_TEST", 71, 3877, 170, ALR_45_50, "HIGH Band Test Switch (OFF/HIGH)")
-F_14:defineToggleSwitch("RIO_RWR_ALR45_ML_TEST", 71, 3878, 171, ALR_45_50, "ML Test Switch (OFF/ML)")
-F_14:defineToggleSwitch("RIO_RWR_ALR45_DISPLAY_TEST", 71, 3879, 172, ALR_45_50, "DISPLAY Test Switch (OFF/DISPLAY)")
+F_14:defineSpringloaded_3PosTumb("RIO_RWR_ALR45_LOW_BAND", devices.RWR_INTERFACE, 3869, 3869, 154, ALR_45_50, "LOW Band Switch (DEFEAT/NORM/BYPASS)")
+F_14:defineSpringloaded_3PosTumb("RIO_RWR_ALR45_MID_BAND", devices.RWR_INTERFACE, 3870, 3870, 178, ALR_45_50, "MID Band Switch (DEFEAT/NORM/BYPASS)")
+F_14:defineSpringloaded_3PosTumb("RIO_RWR_ALR45_HIGH_BAND", devices.RWR_INTERFACE, 3871, 3871, 155, ALR_45_50, "HIGH Band Switch (DEFEAT/NORM/BYPASS)")
+F_14:defineToggleSwitch("RIO_RWR_ALR45_AAA", devices.RWR_INTERFACE, 3872, 173, ALR_45_50, "AAA Switch (DEFEAT/NORM)")
+F_14:definePotentiometer("RIO_RWR_ALR45_VOL", devices.RWR_INTERFACE, 3873, 158, { 0, 1 }, ALR_45_50, "ALR-45 Volume")
+F_14:definePotentiometer("RIO_RWR_ALR50_VOL", devices.RWR_INTERFACE, 3874, 157, { 0, 1 }, ALR_45_50, "ALR-50 Volume")
+F_14:defineToggleSwitch("RIO_RWR_ALR45_POWER", devices.RWR_INTERFACE, 3875, 174, ALR_45_50, "Power Switch (OFF/ON)")
+F_14:defineSpringloaded_3PosTumb("RIO_RWR_ALR45_LOW_MID_BAND_TEST", devices.RWR_INTERFACE, 3876, 3876, 169, ALR_45_50, "LOW/MID Band Test Switch (LOW/OFF/MID)")
+F_14:defineToggleSwitch("RIO_RWR_ALR45_HIGH_BAND_TEST", devices.RWR_INTERFACE, 3877, 170, ALR_45_50, "HIGH Band Test Switch (OFF/HIGH)")
+F_14:defineToggleSwitch("RIO_RWR_ALR45_ML_TEST", devices.RWR_INTERFACE, 3878, 171, ALR_45_50, "ML Test Switch (OFF/ML)")
+F_14:defineToggleSwitch("RIO_RWR_ALR45_DISPLAY_TEST", devices.RWR_INTERFACE, 3879, 172, ALR_45_50, "DISPLAY Test Switch (OFF/DISPLAY)")
 
 return F_14
