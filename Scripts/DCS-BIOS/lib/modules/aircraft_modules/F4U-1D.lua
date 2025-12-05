@@ -403,8 +403,8 @@ F4U_1D:defineToggleSwitch("RECEIVER_C38_RECEIVER_C_SWITCH", devices.RADIONAV, 36
 F4U_1D:defineToggleSwitch("RECEIVER_C38_CW_VOICE_SWITCH", devices.RADIONAV, 3605, 84, C38, "Receiver C-38 CW/Voice Switch")
 F4U_1D:definePotentiometer("RECEIVER_C38_PITCH_ROTARY", devices.RADIONAV, 3606, 85, { 0, 1 }, C38, "Receiver C-38 Pitch Rotary")
 F4U_1D:defineMultipositionSwitch("RECEIVER_C38_CHANNEL_SELECT_SWITCH", devices.RADIONAV, 3607, 86, 6, 1 / 6, C38, "Receiver C38 Channel Switch")
-F4U_1D:definePotentiometer("RECEIVER_C38_SENSITIVITY_ROTARY", devices.RADIONAV, 3608, 87, { -1, 1 }, C38, "Receiver C-38 Sensitivity Rotary")
-F4U_1D:defineIntegerFromArg("RECEIVER_C38_CHANNEL_INDICATOR", 93, 5, C38, "Receiver C-38 Channel Indicator")
+F4U_1D:definePotentiometer("RECEIVER_C38_SENSITIVITY_ROTARY", devices.RADIONAV, 3608, 87, { 0, 1 }, C38, "Receiver C-38 Sensitivity Rotary")
+F4U_1D:defineFloat("RECEIVER_C38_CHANNEL_INDICATOR", 93, { 0, 1 }, C38, "Receiver C-38 Channel Indicator")
 
 -- IFF Switch Panel
 -- local IFF = "IFF Switch Panel"
