@@ -246,8 +246,8 @@ C_130J:definePotentiometer("PLT_ISC_H2_VOLUME", devices.VOLUME_MANAGER, 3004, 20
 C_130J:definePushButton("PLT_ISC_H2_BUTTON", devices.VOLUME_MANAGER, 3018, 208, PLT_ISC_PANEL, "Pilot HF 2 Pull to Monitor")
 C_130J:definePotentiometer("PLT_ISC_PA_VOLUME", devices.VOLUME_MANAGER, 3005, 211, { 0, 1 }, PLT_ISC_PANEL, "Pilot PA Volume Knob")
 C_130J:definePushButton("PLT_ISC_PA_BUTTON", devices.VOLUME_MANAGER, 3019, 210, PLT_ISC_PANEL, "Pilot PA Pull to Monitor")
-C_130J:definePotentiometer("PLT_ISC_PA_GAIN", devices.VOLUME_MANAGER, 3006, 1353, {0,1}, PLT_ISC_PANEL, "Pilot PA GAIN Knob")
-C_130J:definePotentiometer("PLT_ISC_VOX_SENSITIVITY", devices.VOLUME_MANAGER, 3007, 1354, {0, 1}, PLT_ISC_PANEL, "Pilot VOX Sensitivity Knob")
+C_130J:definePotentiometer("PLT_ISC_PA_GAIN", devices.VOLUME_MANAGER, 3006, 1353, { 0, 1 }, PLT_ISC_PANEL, "Pilot PA GAIN Knob")
+C_130J:definePotentiometer("PLT_ISC_VOX_SENSITIVITY", devices.VOLUME_MANAGER, 3007, 1354, { 0, 1 }, PLT_ISC_PANEL, "Pilot VOX Sensitivity Knob")
 C_130J:definePotentiometer("PLT_ISC_V1_VOLUME", devices.VOLUME_MANAGER, 3008, 213, { 0, 1 }, PLT_ISC_PANEL, "Pilot VHF 1 Volume Knob")
 C_130J:definePushButton("PLT_ISC_V1_BUTTON", devices.VOLUME_MANAGER, 3020, 212, PLT_ISC_PANEL, "Pilot VHF 1 Pull to Monitor")
 C_130J:definePotentiometer("PLT_ISC_V2_VOLUME", devices.VOLUME_MANAGER, 3009, 215, { 0, 1 }, PLT_ISC_PANEL, "Pilot VHF 2 Volume Knob")
@@ -265,7 +265,7 @@ C_130J:definePushButton("PLT_ISC_U2_BUTTON", devices.VOLUME_MANAGER, 3026, 224, 
 C_130J:defineRockerSwitch("PLT_ICS_INT_RADIO_ROCKER", devices.VOLUME_MANAGER, 3015, 3015, 3015, 3015, 291, PLT_ISC_PANEL, "Pilot Intercom/Radio Transmit")
 C_130J:defineMultipositionSwitch("PLT_ISC_INTERPHONE_MODE", devices.VOLUME_MANAGER, 3027, 293, 4, 0.3, PLT_ISC_PANEL, "Pilot Interphone Mode Switch")
 C_130J:defineTumb("PLT_ISC_TRANSMISSION_SELECTOR", devices.VOLUME_MANAGER, 3028, 294, 0.11, { -2, 7 }, nil, false, PLT_ISC_PANEL, "Pilot Transmission Selector Switch")
-C_130J:definePotentiometer("PLT_ISC_MASTER_VOLUME", devices.VOLUME_MANAGER, 3001, 1355, {0, 1}, PLT_ISC_PANEL, "Pilot Master Volume Knob")
+C_130J:definePotentiometer("PLT_ISC_MASTER_VOLUME", devices.VOLUME_MANAGER, 3001, 1355, { 0, 1 }, PLT_ISC_PANEL, "Pilot Master Volume Knob")
 
 -- Copilot Intercommunications System Control Panel
 
