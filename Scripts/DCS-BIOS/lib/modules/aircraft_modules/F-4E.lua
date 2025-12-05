@@ -1,12 +1,6 @@
 module("F-4E", package.seeall)
 
-local Control = require("Scripts.DCS-BIOS.lib.modules.documentation.Control")
-local ControlType = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlType")
-local FixedStepInput = require("Scripts.DCS-BIOS.lib.modules.documentation.FixedStepInput")
-local IntegerOutput = require("Scripts.DCS-BIOS.lib.modules.documentation.IntegerOutput")
 local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
-local SetStateInput = require("Scripts.DCS-BIOS.lib.modules.documentation.SetStateInput")
-local Suffix = require("Scripts.DCS-BIOS.lib.modules.documentation.Suffix")
 
 --- @class F_4E: Module
 local F_4E = Module:new("F-4E", 0x2A00, { "F-4E-45MC" })
@@ -132,71 +126,6 @@ local function drum_set(dev0, ...)
 	end
 
 	return string.format(string.rep("%d", #vals), unpack(vals))
-end
-
-local function antenna_trigger_value(arg_value)
-	if arg_value < 0.25 then
-		return 0
-	elseif arg_value < 0.75 then
-		return 1
-	else
-		return 2
-	end
-end
-
---- Adds a two stage trigger
---- @param identifier string the unique identifier for the control
---- @param command integer the dcs command to move the trigger up or down
---- @param arg_number integer the dcs argument number
---- @param category string the category in which the control should appear
---- @param description string additional information about the control
-function F_4E:defineTwoStageTrigger(identifier, device_id, command, arg_number, category, description)
-	local alloc = self:allocateInt(2)
-	self:addExportHook(function(dev0)
-		local val = antenna_trigger_value(dev0:get_argument_value(arg_number))
-		alloc:setValue(val)
-	end)
-
-	local control = Control:new(category, ControlType.toggle_switch, identifier, description, {
-		SetStateInput:new(2, "set the trigger position"),
-		FixedStepInput:new("switch to previous or next state"),
-	}, {
-		IntegerOutput:new(alloc, Suffix.none, "trigger position -- 0 = released, 1 = first detent , 2 = second detent"),
-	})
-	self:addControl(control)
-
-	self:addInputProcessor(identifier, function(toState)
-		local dev = GetDevice(device_id)
-
-		if dev == nil then
-			return
-		end
-
-		local currentState = antenna_trigger_value(GetDevice(0):get_argument_value(arg_number))
-		local new_state
-
-		if toState == "INC" then
-			if currentState >= 2 then
-				return
-			end
-			new_state = currentState + 1
-		elseif toState == "DEC" then
-			if currentState <= 0 then
-				return
-			end
-			new_state = currentState - 1
-		else
-			new_state = tonumber(toState)
-		end
-
-		if new_state == 0 then -- RELEASED
-			dev:performClickableAction(command, 0)
-		elseif new_state == 1 then -- FIRST DETENT
-			dev:performClickableAction(command, 0.5)
-		elseif new_state == 2 then -- SECOND DETENT
-			dev:performClickableAction(command, 1)
-		end
-	end)
 end
 
 -- ICS
@@ -2426,6 +2355,6 @@ F_4E:defineFloat("WSO_ALTITUDE_GAUGE", 240, { 0, 1 }, WSO_LEFT_WALL, "Cockpit Al
 
 -- WSO Radar Antenna Trigger
 
-F_4E:defineTwoStageTrigger("WSO_RADAR_ANTENNA_TRIGGER", RADAR_DEVICE_ID, 3010, 1013, WSO_RADAR, "Antenna Trigger")
+F_4E:define3PosTumb0To1("WSO_RADAR_ANTENNA_TRIGGER", RADAR_DEVICE_ID, 3010, 1013, WSO_RADAR, "Antenna Trigger")
 
 return F_4E
