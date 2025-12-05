@@ -1608,4 +1608,8 @@ F_14:defineInputOnlyPushButtonNoOff("CANOPY_TOGGLE", 12, 3183, "Cockpit", "Canop
 F_14:defineInputOnlyPushButtonNoOff("SALUTE", 18, 3023, "Communications", "Salute")
 F_14:defineInputOnlyPushButtonNoOff("ON_THE_BALL", 2, 3749, "Communications", "Tomcat on the Ball")
 
+-- Pilot F14A-Early TONE VOLUME Panel
+F_14:definePotentiometer("PLT_ALR45_VOL", 71, 3880, 2046, { 0, 1 }, "Volume Panel", "PILOT ALR-45 Volume")
+F_14:definePotentiometer("PLT_ALR50_VOL", 71, 3881, 2050, { 0, 1 }, "Volume Panel", "PILOT ALR-50 Volume")
+
 return F_14
