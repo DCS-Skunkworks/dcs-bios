@@ -1299,7 +1299,7 @@ local WSO_RADAR = "WSO Radar"
 
 F_4E:defineSpringloaded3PosTumb("WSO_RADAR_ANTENNA_ELEVATION", RADAR_DEVICE_ID, 3011, 1014, WSO_RADAR, "Change Radar Antenna Elevation")
 F_4E:definePushButton("WSO_RADAR_CHALLENGE", RADAR_DEVICE_ID, 3014, 2508, WSO_RADAR, "Challenge Button")
-F_4E:reserveIntValue(1) -- reserved in case Trigger becomes clickable
+F_4E:reserveIntValue(1)
 
 -- WSO Radar Antenna Panel
 F_4E:defineTumb("WSO_RADAR_METER_MODE", RADAR_DEVICE_ID, 3015, 1001, 1.673 / 15, { -0.673, 1 }, nil, false, WSO_RADAR, "Select Meter Mode (Volt/Signal)")
@@ -2352,5 +2352,9 @@ local WSO_LEFT_WALL = "WSO Left Wall"
 
 F_4E:defineFloat("WSO_LIQUID_OXYGEN_GAUGE", 239, { 0, 1 }, WSO_LEFT_WALL, "Liquid Oxygen Quantity Gauge")
 F_4E:defineFloat("WSO_ALTITUDE_GAUGE", 240, { 0, 1 }, WSO_LEFT_WALL, "Cockpit Altitude Gauge")
+
+-- WSO Radar Antenna Trigger
+
+F_4E:define3PosTumb0To1("WSO_RADAR_ANTENNA_TRIGGER", RADAR_DEVICE_ID, 3010, 1013, WSO_RADAR, "Antenna Trigger")
 
 return F_4E
