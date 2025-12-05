@@ -9,6 +9,7 @@ local F_14 = Module:new("F-14", 0x1200, { "F-14B", "F-14A-135-GR", "F-14A-135-GR
 
 local devices = {
 	TCS = 38,
+	ECMD = 44,
 	JESTERAI = 62,
 	RWR_INTERFACE = 71,
 }
@@ -340,12 +341,12 @@ F_14:definePotentiometer("PLT_HSD_BRIGHT", 41, 3240, 1043, { 0, 1 }, "HSD", "PIL
 F_14:definePushButton("PLT_HSD_TEST", 41, 3243, 1041, "HSD", "PILOT HSD Test")
 
 -- ECMD
-F_14:definePotentiometer("RIO_ECMD_BRIGHT", 45, 3245, 2023, { 0, 1 }, "ECMD", "RIO ECMD Brightness")
-F_14:definePushButton("RIO_ECMD_TEST", 45, 3246, 2024, "ECMD", "RIO ECMD Test")
-F_14:defineToggleSwitch("RIO_ECM_MODE", 45, 3247, 189, "ECMD", "RIO ECM Display Mode")
-F_14:define3PosTumb("RIO_ECM_OVERRIDE", 45, 3248, 156, "ECMD", "RIO ECM Display Override")
-F_14:define3PosTumb("RIO_ECM_CORR", 45, 3249, 168, "ECMD", "RIO ECM Display Corr")
-F_14:define3PosTumb("RIO_ECM_ADF", 45, 3250, 190, "ECMD", "RIO ECM Display Data/ADF")
+F_14:definePotentiometer("RIO_ECMD_BRIGHT", devices.ECMD, 3245, 2023, { 0, 1 }, "ECMD", "RIO ECMD Brightness")
+F_14:definePushButton("RIO_ECMD_TEST", devices.ECMD, 3246, 2024, "ECMD", "RIO ECMD Test")
+F_14:defineToggleSwitch("RIO_ECM_MODE", devices.ECMD, 3247, 4102, "ECMD", "RIO ECM Display Mode")
+F_14:define3PosTumb("RIO_ECM_OVERRIDE", devices.ECMD, 3248, 4101, "ECMD", "RIO ECM Display Override")
+F_14:define3PosTumb("RIO_ECM_CORR", devices.ECMD, 3249, 4100, "ECMD", "RIO ECM Display Corr")
+F_14:define3PosTumb("RIO_ECM_ADF", devices.ECMD, 3250, 4103, "ECMD", "RIO ECM Display Data/ADF")
 
 -- TACAN Pilot Panel
 F_14:defineToggleSwitch("PLT_TACAN_CMD_BUTTON", 47, 3324, 292, "Volume Panel", "PILOT TACAN CMD Button")
