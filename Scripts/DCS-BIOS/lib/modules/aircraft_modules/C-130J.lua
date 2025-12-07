@@ -264,7 +264,7 @@ C_130J:definePotentiometer("PLT_ICS_U2_VOLUME", devices.VOLUME_MANAGER, 3014, 22
 C_130J:definePushButton("PLT_ICS_U2_BUTTON", devices.VOLUME_MANAGER, 3026, 224, PLT_ICS_PANEL, "Pilot UHF 2 Pull to Monitor")
 C_130J:defineRockerSwitch("PLT_ICS_INT_RADIO_ROCKER", devices.VOLUME_MANAGER, 3015, 3015, 3015, 3015, 291, PLT_ICS_PANEL, "Pilot Intercom/Radio Transmit")
 C_130J:defineMultipositionSwitch("PLT_ICS_INTERPHONE_MODE", devices.VOLUME_MANAGER, 3027, 293, 4, 0.3, PLT_ICS_PANEL, "Pilot Interphone Mode Switch")
-C_130J:defineTumb("PLT_ICS_TRANSMISSION_SELECTOR", devices.VOLUME_MANAGER, 3028, 294, 0.11, { -2, 7 }, nil, false, PLT_ICS_PANEL, "Pilot Transmission Selector Switch")
+C_130J:defineTumb("PLT_ICS_TRANSMISSION_SELECTOR", devices.VOLUME_MANAGER, 3028, 294, 1 / 9, { -2 / 9, 7 / 9 }, nil, false, PLT_ICS_PANEL, "Pilot Transmission Selector Switch")
 C_130J:definePotentiometer("PLT_ICS_MASTER_VOLUME", devices.VOLUME_MANAGER, 3001, 1355, { 0, 1 }, PLT_ICS_PANEL, "Pilot Master Volume Knob")
 
 -- Copilot Intercommunications System Control Panel
