@@ -406,6 +406,11 @@ F4U_1D:defineMultipositionSwitch("RECEIVER_C38_CHANNEL_SELECT_SWITCH", devices.R
 F4U_1D:definePotentiometer("RECEIVER_C38_SENSITIVITY_ROTARY", devices.RADIONAV, 3608, 87, { 0, 1 }, C38, "Receiver C-38 Sensitivity Rotary")
 F4U_1D:defineFloat("RECEIVER_C38_CHANNEL_INDICATOR", 93, { 0, 1 }, C38, "Receiver C-38 Channel Indicator")
 
+F4U_1D:defineString("RECEIVER_C38_CHANNEL_INDICATOR_VALUE", function(dev0)
+	local val = dev0:get_argument_value(93)
+	return tostring(Module.round(Module.valueConvert(val, { 0, 1 }, { 1, 6 })))
+end, 1, C38, "Receiver C-38 Selected Channel")
+
 -- IFF Switch Panel
 -- local IFF = "IFF Switch Panel"
 
