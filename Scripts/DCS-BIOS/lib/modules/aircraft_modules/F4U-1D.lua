@@ -398,7 +398,22 @@ F4U_1D:defineToggleSwitch("C30A_ON_OFF_SWITCH", devices.RADIO, 3610, 92, C30A, "
 F4U_1D:defineMultipositionSwitch("C30A_CW_VOICE_SWITCH", devices.RADIO, 3612, 95, 4, 1 / 3, C30A, "CW/Voice Switch (A/B/C/D)")
 
 -- C-38/ARC-5
--- local C38 = "Range Receiver Control Box"
+local C38 = "Range Receiver Control Box"
+
+F4U_1D:definePotentiometer("RECEIVER_C38_NOISE_LEVEL_ROTARY", devices.RADIONAV, 3601, 80, { 0, 1 }, C38, "Receiver C-38 Noise Level Rotary")
+F4U_1D:definePotentiometer("RECEIVER_C38_VOLUME_ROTARY", devices.RADIO, 3602, 81, { 0, 1 }, C38, "Receiver C-38 Volume Rotary")
+F4U_1D:defineToggleSwitch("RECEIVER_C38_RECEIVER_A_SWITCH", devices.RADIO, 3603, 82, C38, "Receiver C-38 Receiver A On/Off Switch")
+F4U_1D:defineToggleSwitch("RECEIVER_C38_RECEIVER_C_SWITCH", devices.RADIONAV, 3604, 83, C38, "Receiver C-38 Receiver C On/Off Switch")
+F4U_1D:defineToggleSwitch("RECEIVER_C38_CW_VOICE_SWITCH", devices.RADIONAV, 3605, 84, C38, "Receiver C-38 CW/Voice Switch")
+F4U_1D:definePotentiometer("RECEIVER_C38_PITCH_ROTARY", devices.RADIONAV, 3606, 85, { 0, 1 }, C38, "Receiver C-38 Pitch Rotary")
+F4U_1D:defineMultipositionSwitch("RECEIVER_C38_CHANNEL_SELECT_SWITCH", devices.RADIONAV, 3607, 86, 6, 1 / 6, C38, "Receiver C38 Channel Switch")
+F4U_1D:definePotentiometer("RECEIVER_C38_SENSITIVITY_ROTARY", devices.RADIONAV, 3608, 87, { 0, 1 }, C38, "Receiver C-38 Sensitivity Rotary")
+F4U_1D:defineFloat("RECEIVER_C38_CHANNEL_INDICATOR", 93, { 0, 1 }, C38, "Receiver C-38 Channel Indicator")
+
+F4U_1D:defineString("RECEIVER_C38_CHANNEL_INDICATOR_VALUE", function(dev0)
+	local val = dev0:get_argument_value(93)
+	return tostring(Module.round(Module.valueConvert(val, { 0, 1 }, { 1, 6 })))
+end, 1, C38, "Receiver C-38 Selected Channel")
 
 -- IFF Switch Panel
 -- local IFF = "IFF Switch Panel"
