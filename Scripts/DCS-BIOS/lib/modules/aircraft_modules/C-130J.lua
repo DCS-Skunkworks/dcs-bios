@@ -249,8 +249,8 @@ C_130J:definePotentiometer("CPLT_CC_LIGHTING_MASTER_DISPLAY_BRIGHTNESS", devices
 
 -- Copilot Intercommunications System Control Panel
 
--- Augmented Itercommunications System Control Panel
-local AUG_ICS_PANEL = "Augmented Itercommunications System Control Panel"
+-- Augmented Intercommunications System Control Panel
+local AUG_ICS_PANEL = "Augmented Intercommunications System Control Panel"
 C_130J:definePotentiometer("AUG_ICS_VOR1_VOLUME", devices.VOLUME_MANAGER, 3098, 249, { 0, 1 }, AUG_ICS_PANEL, "Aug MonVOR 1 Volume")
 C_130J:defineToggleSwitch("AUG_ICS_VOR1_BUTTON", devices.VOLUME_MANAGER, 3108, 248, AUG_ICS_PANEL, "Aug MonVOR 1 Pull to Monitor")
 C_130J:definePotentiometer("AUG_ICS_TACAN1_VOLUME", devices.VOLUME_MANAGER, 3100, 251, { 0, 1 }, AUG_ICS_PANEL, "Aug MonTACAN 1 Volume")
