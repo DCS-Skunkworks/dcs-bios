@@ -411,7 +411,7 @@ F4U_1D:definePotentiometer("BAT_BOMB_GAIN", devices.BATBOMB, 3883, 812, { 0, 1 }
 F4U_1D:definePotentiometer("BAT_BOMB_SCOPE_BRIGHTNESS", devices.BATBOMB, 3886, 815, { 0, 1 }, BAT_BOMB_PANEL, "Bat Bomb Scope Brightness Knob")
 F4U_1D:define3PosTumb("BAT_BOMB_RADAR_ON_OFF", devices.BATBOMB, 3889, 813, BAT_BOMB_PANEL, "Bat Bomb Radar (OFF/MIN/RUN)")
 F4U_1D:defineIndicatorLight("BAT_BOMB_TARGET_ALARM_LIGHT", 814, BAT_BOMB_PANEL, "Bat Bomb Target Alarm Light (Red)")
-F4U_1D:defineIndicatorLight("BAT_BOMB_PANEL_SCOPE_VISABILITY", 902, BAT_BOMB_PANEL, "Bat Bomb Panel and Scope Visability (Not Visable/Visable)")
+F4U_1D:defineIndicatorLight("BAT_BOMB_PANEL_SCOPE_VISIBILITY", 902, BAT_BOMB_PANEL, "Bat Bomb Panel and Scope Visibility (Not Visible/Visible)")
 
 -- Canopy
 -- local CANOPY = "Canopy"
