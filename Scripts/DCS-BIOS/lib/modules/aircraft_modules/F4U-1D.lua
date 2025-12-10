@@ -419,9 +419,14 @@ end, 1, C38, "Receiver C-38 Selected Channel")
 -- local IFF = "IFF Switch Panel"
 
 -- Bat Bomb
--- local BAT_BOMB_PANEL = "Bat Bomb Panel"
--- 902, contains additional controls
--- display has knob too
+local BAT_BOMB_PANEL = "Bat Bomb Panel"
+F4U_1D:definePushButton("BAT_BOMB_SEARCH_MODE", devices.BATBOMB, 3882, 810, BAT_BOMB_PANEL, "Bat Bomb Search Button")
+F4U_1D:definePushButton("BAT_BOMB_LOCK_TARGET", devices.BATBOMB, 3881, 811, BAT_BOMB_PANEL, "Bat Bomb Lock Target Button")
+F4U_1D:definePotentiometer("BAT_BOMB_GAIN", devices.BATBOMB, 3883, 812, { 0, 1 }, BAT_BOMB_PANEL, "Bat Bomb Gain Knob")
+F4U_1D:definePotentiometer("BAT_BOMB_SCOPE_BRIGHTNESS", devices.BATBOMB, 3886, 815, { 0, 1 }, BAT_BOMB_PANEL, "Bat Bomb Scope Brightness Knob")
+F4U_1D:define3PosTumb("BAT_BOMB_RADAR_ON_OFF", devices.BATBOMB, 3889, 813, BAT_BOMB_PANEL, "Bat Bomb Radar (OFF/MIN/RUN)")
+F4U_1D:defineIndicatorLight("BAT_BOMB_TARGET_ALARM_LIGHT", 814, BAT_BOMB_PANEL, "Bat Bomb Target Alarm Light (Red)")
+F4U_1D:defineIndicatorLight("BAT_BOMB_PANEL_SCOPE_VISIBILITY", 902, BAT_BOMB_PANEL, "Bat Bomb Panel and Scope Visibility (Not Visible/Visible)")
 
 -- Canopy
 -- local CANOPY = "Canopy"
