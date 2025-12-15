@@ -429,6 +429,11 @@ C_130J:definePushButton("PLT_CNI_KBD_Z", devices.P_CNI, 3067, 1165, PLT_CNU_MU, 
 C_130J:definePushButton("PLT_CNI_KBD_SLASH", devices.P_CNI, 3068, 1168, PLT_CNU_MU, "Pilot CNI-MU / Key")
 C_130J:definePushButton("PLT_CNI_KBD_DEL", devices.P_CNI, 3028, 1167, PLT_CNU_MU, "Pilot CNI-MU DEL Key")
 C_130J:definePushButton("PLT_CNI_KBD_CLR", devices.P_CNI, 3029, 1169, PLT_CNU_MU, "Pilot CNI-MU CLR Key")
+C_130J:defineIndicatorLight("PLT_CNI_DSPY_LED", 4137, PLT_CNU_MU, "Pilot CNI-MU DSPY Light (Green)")
+C_130J:defineIndicatorLight("PLT_CNI_MSG_LED", 4138, PLT_CNU_MU, "Pilot CNI-MU MSG Light (Green)")
+C_130J:defineIndicatorLight("PLT_CNI_FAIL_LED", 4139, PLT_CNU_MU, "Pilot CNI-MU FAIL Light (Yellow)")
+C_130J:defineIndicatorLight("PLT_CNI_OFSET_LED", 4140, PLT_CNU_MU, "Pilot CNI-MU OFSET Light (Green)")
+C_130J:defineIndicatorLight("PLT_CNI_EXEC_LED", 3390, PLT_CNU_MU, "Pilot CNI-MU EXEC Light (Green)")
 
 -- Copilot Communication/Navigation/Identification Management Unit
 local CP_CNU_MU = "Copilot Communication/Navigation/Identification Management Unit"
@@ -501,6 +506,11 @@ C_130J:definePushButton("CP_CNI_KBD_Z", devices.C_CNI, 3067, 1235, CP_CNU_MU, "C
 C_130J:definePushButton("CP_CNI_KBD_SLASH", devices.C_CNI, 3068, 1238, CP_CNU_MU, "Copilot CNI-MU / Key")
 C_130J:definePushButton("CP_CNI_KBD_DEL", devices.C_CNI, 3028, 1237, CP_CNU_MU, "Copilot CNI-MU DEL Key")
 C_130J:definePushButton("CP_CNI_KBD_CLR", devices.C_CNI, 3029, 1239, CP_CNU_MU, "Copilot CNI-MU CLR Key")
+C_130J:defineIndicatorLight("CP_CNI_DSPY_LED", 4141, CP_CNU_MU, "Copilot CNI-MU DSPY Light (Green)")
+C_130J:defineIndicatorLight("CP_CNI_MSG_LED", 4142, CP_CNU_MU, "Copilot CNI-MU MSG Light (Green)")
+C_130J:defineIndicatorLight("CP_CNI_FAIL_LED", 4143, CP_CNU_MU, "Copilot CNI-MU FAIL Light (Yellow)")
+C_130J:defineIndicatorLight("CP_CNI_OFSET_LED", 4144, CP_CNU_MU, "Copilot CNI-MU OFSET Light (Green)")
+C_130J:defineIndicatorLight("CP_CNI_EXEC_LED", 3392, CP_CNU_MU, "Copilot CNI-MU EXEC Light (Green)")
 
 -- Augmented Communication/Navigation/Identification Management Unit
 local AUG_CNU_MU = "Augmented Communication/Navigation/Identification Management Unit"
@@ -573,6 +583,11 @@ C_130J:definePushButton("AUG_CNI_KBD_Z", devices.AC_CNI, 3067, 1305, AUG_CNU_MU,
 C_130J:definePushButton("AUG_CNI_KBD_SLASH", devices.AC_CNI, 3068, 1308, AUG_CNU_MU, "Aug Crew CNI-MU / Key")
 C_130J:definePushButton("AUG_CNI_KBD_DEL", devices.AC_CNI, 3028, 1307, AUG_CNU_MU, "Aug Crew CNI-MU DEL Key")
 C_130J:definePushButton("AUG_CNI_KBD_CLR", devices.AC_CNI, 3029, 1309, AUG_CNU_MU, "Aug Crew CNI-MU CLR Key")
+C_130J:defineIndicatorLight("AUG_CNI_DSPY_LED", 4145, CP_CNU_MU, "Aug Crew CNI-MU DSPY Light (Green)")
+C_130J:defineIndicatorLight("AUG_CNI_MSG_LED", 4146, CP_CNU_MU, "Aug Crew CNI-MU MSG Light (Green)")
+C_130J:defineIndicatorLight("AUG_CNI_FAIL_LED", 4147, CP_CNU_MU, "Aug Crew CNI-MU FAIL Light (Yellow)")
+C_130J:defineIndicatorLight("AUG_CNI_OFSET_LED", 4148, CP_CNU_MU, "Aug Crew CNI-MU OFSET Light (Green)")
+C_130J:defineIndicatorLight("AUG_CNI_EXEC_LED", 3394, AUG_CNU_MU, "Aug Crew CNI-MU EXEC Light (Green)")
 
 -- Pilot Remote Heading and Course Selector
 
