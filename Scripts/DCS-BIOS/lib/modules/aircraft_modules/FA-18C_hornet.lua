@@ -974,20 +974,18 @@ FA_18C_hornet:defineToggleSwitch("KY58_FILL_SEL_PULL", 41, 3003, 0, "KY-58 Contr
 FA_18C_hornet:defineReadWriteRadio("COMM1", 38, 7, 3, 1000, "COMM1 Radio")
 FA_18C_hornet:defineReadWriteRadio("COMM2", 39, 7, 3, 1000, "COMM2 Radio")
 
-FA_18C_hornet:defineString("HUD_LTDR", function()
-	return Functions.coerce_nil_to_string(Module.parse_indication(1)["MPD_FLIR_LaserStatus_label"])
-end, 5, "HUD", "Laser Status")
+-- HUD dispay strings. see git notes for all field labels
+local hud = {}
 
-FA_18C_hornet:defineIntegerFromGetter("HUD_ATC_ENGAGED", function()
-	-- Indication ID 1 contains "ATC" text when ATC is displayed on HUD
-	local success, ind_text = pcall(list_indication, 1)
-	if success and ind_text then
-		-- If "ATC" is found in Indication 1, ATC is ENGAGED (return 1)
-		if string.find(ind_text, "ATC") then
-			return 1
-		end
-	end
-	return 0
-end, 1, "HUD", "Auto Throttle Control Engaged")
+FA_18C_hornet:addExportHook(function()
+	hud = Module.parse_indication(1) or {}
+end)
+
+FA_18C_hornet:defineString("HUD_LTDR", function()
+	return Functions.coerce_nil_to_string(hud.MPD_FLIR_LaserStatus_label)
+end, 5, "HUD", "Laser Status")
+FA_18C_hornet:defineString("HUD_ATC_NWS_ENGAGED", function()
+	return Functions.coerce_nil_to_string(hud.NWS_cue)
+end, 3, "HUD", "ATC - NWS Engaged")
 
 return FA_18C_hornet
