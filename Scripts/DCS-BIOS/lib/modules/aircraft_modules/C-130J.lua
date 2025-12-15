@@ -432,7 +432,7 @@ C_130J:definePushButton("PLT_CNI_KBD_CLR", devices.P_CNI, 3029, 1169, PLT_CNU_MU
 
 -- Copilot Communication/Navigation/Identification Management Unit
 local CP_CNU_MU = "Copilot Communication/Navigation/Identification Management Unit"
-C_130J:definePushButton("CC_CNI_LSK_L1", devices.C_CNI, 3001, 1170, CP_CNU_MU, "Copilot CNI-MU LSK L1")
+C_130J:definePushButton("CP_CNI_LSK_L1", devices.C_CNI, 3001, 1170, CP_CNU_MU, "Copilot CNI-MU LSK L1")
 C_130J:definePushButton("CP_CNI_LSK_L2", devices.C_CNI, 3002, 1171, CP_CNU_MU, "Copilot CNI-MU LSK L2")
 C_130J:definePushButton("CP_CNI_LSK_L3", devices.C_CNI, 3003, 1172, CP_CNU_MU, "Copilot CNI-MU LSK L3")
 C_130J:definePushButton("CP_CNI_LSK_L4", devices.C_CNI, 3004, 1173, CP_CNU_MU, "Copilot CNI-MU LSK L4")
@@ -503,7 +503,7 @@ C_130J:definePushButton("CP_CNI_KBD_DEL", devices.C_CNI, 3028, 1237, CP_CNU_MU, 
 C_130J:definePushButton("CP_CNI_KBD_CLR", devices.C_CNI, 3029, 1239, CP_CNU_MU, "Copilot CNI-MU CLR Key")
 
 -- Augmented Communication/Navigation/Identification Management Unit
-local AUG_CNU_MU = "Aug Crew Communication/Navigation/Identification Management Unit"
+local AUG_CNU_MU = "Augmented Communication/Navigation/Identification Management Unit"
 C_130J:definePushButton("AUG_CNI_LSK_L1", devices.AC_CNI, 3001, 1240, AUG_CNU_MU, "Aug Crew CNI-MU LSK L1")
 C_130J:definePushButton("AUG_CNI_LSK_L2", devices.AC_CNI, 3002, 1241, AUG_CNU_MU, "Aug Crew CNI-MU LSK L2")
 C_130J:definePushButton("AUG_CNI_LSK_L3", devices.AC_CNI, 3003, 1242, AUG_CNU_MU, "Aug Crew CNI-MU LSK L3")
