@@ -986,6 +986,6 @@ FA_18C_hornet:defineString("HUD_LTDR", function()
 end, 5, "HUD", "Laser Status")
 FA_18C_hornet:defineString("HUD_ATC_NWS_ENGAGED", function()
 	return Functions.coerce_nil_to_string(hud.NWS_cue)
-end, 3, "HUD", "ATC - NWS Engaged")
+end, 6, "HUD", "ATC - NWS Engaged")
 
 return FA_18C_hornet
