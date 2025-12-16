@@ -658,7 +658,7 @@ FA_18C_hornet:definePushButton("GEAR_SILENCE_BTN", 40, 3018, 230, "Landing Gear 
 FA_18C_hornet:definePushButton("SEL_JETT_BTN", 23, 3010, 235, "Select Jettison Button", "Selective Jettison Pushbutton")
 FA_18C_hornet:defineTumb("SEL_JETT_KNOB", 23, 3011, 236, 0.1, { -0.1, 0.3 }, nil, false, "Select Jettison Button", "Selective Jettison Knob, L FUS MSL/SAFE/R FUS MSL/ RACK/LCHR /STORES")
 FA_18C_hornet:defineToggleSwitch("ANTI_SKID_SW", 5, 3004, 238, "Select Jettison Button", "Anti Skid")
-FA_18C_hornet:defineToggleSwitchToggleOnly("LAUNCH_BAR_SW", 5, 3008, 233, "Select Jettison Button", "Launch Bar")
+FA_18C_hornet:defineToggleSwitchToggleOnly("LAUNCH_BAR_SW", 5, 3008, 233, "Select Jettison Button", "Launch Bar Switch")
 FA_18C_hornet:defineToggleSwitchToggleOnly("HOOK_BYPASS_SW", 9, 3009, 239, "Select Jettison Button", "HOOK BYPASS Switch, FIELD/CARRIER")
 FA_18C_hornet:define3PosTumb("FLAP_SW", 2, 3007, 234, "Select Jettison Button", "FLAP Switch, AUTO/HALF/FULL")
 FA_18C_hornet:defineToggleSwitch("LDG_TAXI_SW", 8, 3004, 237, "Select Jettison Button", "LDG/TAXI LIGHT Switch")
@@ -960,7 +960,8 @@ FA_18C_hornet:defineString("IFEI_R_TEXTURE", function()
 	return Functions.nil_state_to_str_flag(ifei.RTexture)
 end, 1, "Integrated Fuel/Engine Indicator (IFEI)", "Right Texture Visible: 1 = yes, 0 = no")
 
-FA_18C_hornet:defineFloatFromDrawArgument("EXT_HOOK", 25, "External Aircraft Model", "Hook")
+FA_18C_hornet:defineFloatFromDrawArgument("EXT_HOOK", 25, "External Aircraft Model", "Hook Position")
+FA_18C_hornet:defineFloatFromDrawArgument("EXT_LAUNCH_BAR", 85, "External Aircraft Model", "Launch Bar position")
 
 FA_18C_hornet:defineFloat("INT_THROTTLE_LEFT", 104, { 0, 1 }, "Throttle Quadrant", "Left Throttle Position")
 FA_18C_hornet:defineFloat("INT_THROTTLE_RIGHT", 105, { 0, 1 }, "Throttle Quadrant", "Right Throttle Position")
@@ -973,8 +974,18 @@ FA_18C_hornet:defineToggleSwitch("KY58_FILL_SEL_PULL", 41, 3003, 0, "KY-58 Contr
 FA_18C_hornet:defineReadWriteRadio("COMM1", 38, 7, 3, 1000, "COMM1 Radio")
 FA_18C_hornet:defineReadWriteRadio("COMM2", 39, 7, 3, 1000, "COMM2 Radio")
 
+-- HUD dispay strings. see git notes for all field labels
+local hud = {}
+
+FA_18C_hornet:addExportHook(function()
+	hud = Module.parse_indication(1) or {}
+end)
+
 FA_18C_hornet:defineString("HUD_LTDR", function()
-	return Functions.coerce_nil_to_string(Module.parse_indication(1)["MPD_FLIR_LaserStatus_label"])
+	return Functions.coerce_nil_to_string(hud.MPD_FLIR_LaserStatus_label)
 end, 5, "HUD", "Laser Status")
+FA_18C_hornet:defineString("HUD_ATC_NWS_ENGAGED", function()
+	return Functions.coerce_nil_to_string(hud.NWS_cue)
+end, 6, "HUD", "ATC - NWS Engaged")
 
 return FA_18C_hornet
