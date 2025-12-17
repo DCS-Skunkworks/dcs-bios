@@ -244,6 +244,35 @@ C_130J:definePotentiometer("CPLT_CC_LIGHTING_PANEL_BACKLIGHTING", devices.LIGHTI
 C_130J:definePotentiometer("CPLT_CC_LIGHTING_MASTER_DISPLAY_BRIGHTNESS", devices.LIGHTING_PANELS, 3024, 1349, { 0, 1 }, CPLT_LIGHTING_PANEL, "Copilot Master Display Brightness Knob")
 
 -- Radar Control Panel
+local RADAR_CONTROL_PANEL = "Radar Control Panel"
+C_130J:defineMultipositionSwitch("RCP_MASTER_POWER", devices.NAV_RADAR, 3001, 485, 3, 0.4, RADAR_CONTROL_PANEL, "Radar Master Power Switch")
+C_130J:definePushButton("RCP_PRCN_MODE", devices.NAV_RADAR, 3010, 398, RADAR_CONTROL_PANEL, "Radar PRCN Mode Switch")
+C_130J:definePushButton("RCP_MAP_MODE", devices.NAV_RADAR, 3011, 399, RADAR_CONTROL_PANEL, "Radar MAP Mode Switch")
+C_130J:definePushButton("RCP_WX_MODE", devices.NAV_RADAR, 3012, 400, RADAR_CONTROL_PANEL, "Radar WX Mode Switch")
+C_130J:definePushButton("RCP_SP_MODE", devices.NAV_RADAR, 3013, 401, RADAR_CONTROL_PANEL, "Radar SP Mode Switch")
+C_130J:definePushButton("RCP_MGM_MODE", devices.NAV_RADAR, 3014, 402, RADAR_CONTROL_PANEL, "Radar MGM Mode Switch")
+C_130J:definePushButton("RCP_WS_MODE", devices.NAV_RADAR, 3015, 403, RADAR_CONTROL_PANEL, "Radar WS Mode Switch")
+C_130J:definePushButton("RCP_BCN_MODE", devices.NAV_RADAR, 3016, 404, RADAR_CONTROL_PANEL, "Radar BCN Mode Switch")
+C_130J:defineMultipositionSwitch("RCP_INTENSITY_TARGET", devices.NAV_RADAR, 3002, 486, 4, 0.3, RADAR_CONTROL_PANEL, "Intensity Target Select Switch")
+C_130J:definePushButton("RCP_PSEL_MODE", devices.NAV_RADAR, 3009, 405, RADAR_CONTROL_PANEL, "Radar PSEL Mode Switch")
+C_130J:defineRockerSwitch("RCP_INTENSITY_ROCKER", devices.NAV_RADAR, 3003, 3003, 3003, 3003, 410, RADAR_CONTROL_PANEL, "Radar Intensity Increase/Decrease")
+C_130J:defineRockerSwitch("RCP_GAIN_ROCKER", devices.NAV_RADAR, 3004, 3004, 3004, 3004, 411, RADAR_CONTROL_PANEL, "Radar Gain Increase/Decrease")
+C_130J:definePushButton("RCP_OFS_MODE", devices.NAV_RADAR, 3005, 406, RADAR_CONTROL_PANEL, "Radar OFS Mode Switch")
+C_130J:definePushButton("RCP_FRZ_MODE", devices.NAV_RADAR, 3006, 407, RADAR_CONTROL_PANEL, "Radar FRZ Mode Switch")
+C_130J:definePushButton("RCP_PEN_MODE", devices.NAV_RADAR, 3007, 408, RADAR_CONTROL_PANEL, "Radar PEN Mode Switch")
+C_130J:definePushButton("RCP_SCTR_MODE", devices.NAV_RADAR, 3008, 409, RADAR_CONTROL_PANEL, "Radar SCTR Mode Switch")
+C_130J:defineIndicatorLight("RCP_PRCN_MODE_LED", 4077, RADAR_CONTROL_PANEL, "Radar PRCN Mode Switch Led (Green)")
+C_130J:defineIndicatorLight("RCP_MAP_MODE_LED", 4078, RADAR_CONTROL_PANEL, "Radar MAP Mode Switch Led (Green)")
+C_130J:defineIndicatorLight("RCP_WX_MODE_LED", 4079, RADAR_CONTROL_PANEL, "Radar WX Mode Switch Led (Green)")
+C_130J:defineIndicatorLight("RCP_SP_MODE_LED", 4080, RADAR_CONTROL_PANEL, "Radar SP Mode Switch Led (Green)")
+C_130J:defineIndicatorLight("RCP_MGM_MODE_LED", 4081, RADAR_CONTROL_PANEL, "Radar MGM Mode Switch Led (Green)")
+C_130J:defineIndicatorLight("RCP_WS_MODE_LED", 4082, RADAR_CONTROL_PANEL, "Radar WS Mode Switch Led (Green)")
+C_130J:defineIndicatorLight("RCP_BCN_MODE_LED", 4083, RADAR_CONTROL_PANEL, "Radar BCN Mode Switch Led (Green)")
+C_130J:defineIndicatorLight("RCP_PSEL_MODE_LED", 4084, RADAR_CONTROL_PANEL, "Radar PSEL Mode Switch Led (Green)")
+C_130J:defineIndicatorLight("RCP_OFS_MODE_LED", 4085, RADAR_CONTROL_PANEL, "Radar OFS Mode Switch Led (Green)")
+C_130J:defineIndicatorLight("RCP_FRZ_MODE_LED", 4086, RADAR_CONTROL_PANEL, "Radar FRZ Mode Switch Led (Green)")
+C_130J:defineIndicatorLight("RCP_PEN_MODE_LED", 4087, RADAR_CONTROL_PANEL, "Radar PEN Mode Switch Led (Green)")
+C_130J:defineIndicatorLight("RCP_SCTR_MODE_LED", 4088, RADAR_CONTROL_PANEL, "Radar SCTR Mode Switch Led (Green)")
 
 -- Pilot Intercommunications System Control Panel
 local PLT_ICS_PANEL = "PLT Intercommunications System Control Panel"
