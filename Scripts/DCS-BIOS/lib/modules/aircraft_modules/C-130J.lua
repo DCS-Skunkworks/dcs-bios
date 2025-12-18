@@ -365,8 +365,18 @@ C_130J:definePotentiometer("AUG_ICS_MASTER_VOLUME", devices.VOLUME_MANAGER, 3097
 -- Augmented Communication/Navigation/Identification Management Unit
 
 -- Pilot Remote Heading and Course Selector
+local PLT_HEAD_COURSE = "PLT Remote Heading and Course Selector"
+C_130J:definePotentiometer("PNT_HEADING_ADJUST", devices.PILOT_CPT_INTERFACE, 3001, 490, { 0, 1 }, PLT_HEAD_COURSE, "Pilot Heading Adjust")
+C_130J:defineToggleSwitch("PNT_HEADING_SYNC", devices.PILOT_CPT_INTERFACE, 3003, 562, PLT_HEAD_COURSE, "Pilot Heading Push to Sync")
+C_130J:definePotentiometer("PNT_COURSE_ADJUST", devices.PILOT_CPT_INTERFACE, 3002, 491, { 0, 1 }, PLT_HEAD_COURSE, "Pilot Course Adjust")
+C_130J:defineToggleSwitch("PNT_COURSE_SYNC", devices.PILOT_CPT_INTERFACE, 3004, 563, PLT_HEAD_COURSE, "Pilot Course Push to Sync")
 
 -- Copilot Remote Heading and Course Selector
+local CPLT_HEAD_COURSE = "CPLT Remote Heading and Course Selector"
+C_130J:definePotentiometer("CPLT_HEADING_ADJUST", devices.COPILOT_CPT_INTERFACE, 3001, 492, { 0, 1 }, CPLT_HEAD_COURSE, "Copilot Heading Adjust")
+C_130J:defineToggleSwitch("CPLT_HEADING_SYNC", devices.COPILOT_CPT_INTERFACE, 3003, 564, CPLT_HEAD_COURSE, "Copilot Heading Push to Sync")
+C_130J:definePotentiometer("CPLT_COURSE_ADJUST", devices.COPILOT_CPT_INTERFACE, 3002, 493, { 0, 1 }, CPLT_HEAD_COURSE, "Copilot Course Adjust")
+C_130J:defineToggleSwitch("CPLT_COURSE_SYNC", devices.COPILOT_CPT_INTERFACE, 3004, 565, CPLT_HEAD_COURSE, "Copilot Course Push to Sync")
 
 -- Throttle Quadrant
 
