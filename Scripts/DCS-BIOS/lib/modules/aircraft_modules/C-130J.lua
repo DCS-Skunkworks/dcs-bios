@@ -105,6 +105,10 @@ local devices = {
 	FAILURE_MGR = 97,
 }
 
+function C_130J:defineIndicatorLight(identifier, arg_number, category, description)
+	self:defineGatedIndicatorLight(identifier, arg_number, 0.01, nil, category, description)
+end
+
 -- Flight Station Forward
 
 -- Pilot Side Console
@@ -433,7 +437,7 @@ C_130J:defineIndicatorLight("PLT_CNI_DSPY_LED", 4137, PLT_CNI_MU, "Pilot CNI-MU 
 C_130J:defineIndicatorLight("PLT_CNI_MSG_LED", 4138, PLT_CNI_MU, "Pilot CNI-MU MSG Light (Green)")
 C_130J:defineIndicatorLight("PLT_CNI_FAIL_LED", 4139, PLT_CNI_MU, "Pilot CNI-MU FAIL Light (Yellow)")
 C_130J:defineIndicatorLight("PLT_CNI_OFSET_LED", 4140, PLT_CNI_MU, "Pilot CNI-MU OFSET Light (Green)")
-C_130J:defineIndicatorLight("PLT_CNI_EXEC_LED", 3390, PLT_CNI_MU, "Pilot CNI-MU EXEC Light (Green)")
+C_130J:defineFloat("PLT_CNI_EXEC_LED", 3390, { 0, 1 }, PLT_CNI_MU, "Pilot CNI-MU EXEC Light (Green)")
 
 -- Copilot Communication/Navigation/Identification Management Unit
 local CPLT_CNI_MU = "Copilot Communication/Navigation/Identification Management Unit"
@@ -510,7 +514,7 @@ C_130J:defineIndicatorLight("CPLT_CNI_DSPY_LED", 4141, CPLT_CNI_MU, "Copilot CNI
 C_130J:defineIndicatorLight("CPLT_CNI_MSG_LED", 4142, CPLT_CNI_MU, "Copilot CNI-MU MSG Light (Green)")
 C_130J:defineIndicatorLight("CPLT_CNI_FAIL_LED", 4143, CPLT_CNI_MU, "Copilot CNI-MU FAIL Light (Yellow)")
 C_130J:defineIndicatorLight("CPLT_CNI_OFSET_LED", 4144, CPLT_CNI_MU, "Copilot CNI-MU OFSET Light (Green)")
-C_130J:defineIndicatorLight("CPLT_CNI_EXEC_LED", 3392, CPLT_CNI_MU, "Copilot CNI-MU EXEC Light (Green)")
+C_130J:defineFloat("CPLT_CNI_EXEC_LED", 3392, { 0, 1 }, CPLT_CNI_MU, "Copilot CNI-MU EXEC Light (Green)")
 
 -- Augmented Communication/Navigation/Identification Management Unit
 local AUG_CNI_MU = "Augmented Communication/Navigation/Identification Management Unit"
@@ -587,7 +591,7 @@ C_130J:defineIndicatorLight("AUG_CNI_DSPY_LED", 4145, AUG_CNI_MU, "Aug Crew CNI-
 C_130J:defineIndicatorLight("AUG_CNI_MSG_LED", 4146, AUG_CNI_MU, "Aug Crew CNI-MU MSG Light (Green)")
 C_130J:defineIndicatorLight("AUG_CNI_FAIL_LED", 4147, AUG_CNI_MU, "Aug Crew CNI-MU FAIL Light (Yellow)")
 C_130J:defineIndicatorLight("AUG_CNI_OFSET_LED", 4148, AUG_CNI_MU, "Aug Crew CNI-MU OFSET Light (Green)")
-C_130J:defineIndicatorLight("AUG_CNI_EXEC_LED", 3394, AUG_CNI_MU, "Aug Crew CNI-MU EXEC Light (Green)")
+C_130J:defineFloat("AUG_CNI_EXEC_LED", 3394, { 0, 1 }, AUG_CNI_MU, "Aug Crew CNI-MU EXEC Light (Green)")
 
 -- Pilot Remote Heading and Course Selector
 
