@@ -369,6 +369,17 @@ C_130J:definePotentiometer("AUG_ICS_MASTER_VOLUME", devices.VOLUME_MANAGER, 3097
 -- Copilot Remote Heading and Course Selector
 
 -- Throttle Quadrant
+local THROTTLE_QUADRANT = "Throttle Quadrant"
+C_130J:definePushButton("CC_LSGI_ENGINE_1_SWITCH", devices.MECH_INTERFACE, 3004, 46, THROTTLE_QUADRANT, "Engine 1 LSGI Select Switch")
+C_130J:definePushButton("CC_LSGI_ENGINE_2_SWITCH", devices.MECH_INTERFACE, 3005, 47, THROTTLE_QUADRANT, "Engine 2 LSGI Select Switch")
+C_130J:definePushButton("CC_LSGI_ENGINE_3_SWITCH", devices.MECH_INTERFACE, 3006, 48, THROTTLE_QUADRANT, "Engine 3 LSGI Select Switch")
+C_130J:definePushButton("CC_LSGI_ENGINE_4_SWITCH", devices.MECH_INTERFACE, 3007, 49, THROTTLE_QUADRANT, "Engine 4 LSGI Select Switch")
+C_130J:definePushButton("CC_L_ATHROTTLE_DISC", devices.AP_INTERFACE, 3035, 19, THROTTLE_QUADRANT, "Left Autothrottle Disconnect Button")
+C_130J:definePushButton("CC_R_ATHROTTLE_DISC", devices.AP_INTERFACE, 3036, 20, THROTTLE_QUADRANT, "Right Autothrottle Disconnect Button")
+C_130J:defineIndicatorLight("CC_LSGI_ENGINE_1_LED", 4091, THROTTLE_QUADRANT, "Engine 1 LSGI Switch Low Led (Green)")
+C_130J:defineIndicatorLight("CC_LSGI_ENGINE_2_LED", 4092, THROTTLE_QUADRANT, "Engine 2 LSGI Switch Low Led (Green)")
+C_130J:defineIndicatorLight("CC_LSGI_ENGINE_3_LED", 4093, THROTTLE_QUADRANT, "Engine 3 LSGI Switch Low Led (Green)")
+C_130J:defineIndicatorLight("CC_LSGI_ENGINE_4_LED", 4094, THROTTLE_QUADRANT, "Engine 4 LSGI Switch Low Led (Green)")
 
 -- Cursor Control Panel
 
