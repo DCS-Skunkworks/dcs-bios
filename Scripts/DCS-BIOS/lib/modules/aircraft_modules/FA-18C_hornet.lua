@@ -961,7 +961,6 @@ FA_18C_hornet:defineString("IFEI_R_TEXTURE", function()
 end, 1, "Integrated Fuel/Engine Indicator (IFEI)", "Right Texture Visible: 1 = yes, 0 = no")
 
 FA_18C_hornet:defineFloatFromDrawArgument("EXT_HOOK", 25, "External Aircraft Model", "Hook Position")
-FA_18C_hornet:defineFloatFromDrawArgument("EXT_LAUNCH_BAR", 85, "External Aircraft Model", "Launch Bar position")
 
 FA_18C_hornet:defineFloat("INT_THROTTLE_LEFT", 104, { 0, 1 }, "Throttle Quadrant", "Left Throttle Position")
 FA_18C_hornet:defineFloat("INT_THROTTLE_RIGHT", 105, { 0, 1 }, "Throttle Quadrant", "Right Throttle Position")
@@ -987,5 +986,7 @@ end, 5, "HUD", "Laser Status")
 FA_18C_hornet:defineString("HUD_ATC_NWS_ENGAGED", function()
 	return Functions.coerce_nil_to_string(hud.NWS_cue)
 end, 6, "HUD", "ATC - NWS Engaged")
+
+FA_18C_hornet:defineFloatFromDrawArgument("EXT_LAUNCH_BAR", 85, "External Aircraft Model", "Launch Bar position")
 
 return FA_18C_hornet
