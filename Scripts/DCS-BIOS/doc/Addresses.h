@@ -10016,8 +10016,6 @@
 #define FA_18C_hornet_APU_READY_LT_AM 0x74C2, 0x0800
 #define FA_18C_hornet_ARRESTING_HOOK_LT 0x74A0, 0x0400, 10
 #define FA_18C_hornet_ARRESTING_HOOK_LT_AM 0x74A0, 0x0400
-#define FA_18C_hornet_HUD_ATC_NWS_ENGAGED 0x74D8, 0x0400, 10
-#define FA_18C_hornet_HUD_ATC_NWS_ENGAGED_AM 0x74D8, 0x0400
 #define FA_18C_hornet_AUX_REL_SW 0x7488, 0x0800, 11
 #define FA_18C_hornet_AUX_REL_SW_AM 0x7488, 0x0800
 #define FA_18C_hornet_AV_COOL_SW 0x74A0, 0x4000, 14
@@ -10162,8 +10160,8 @@
 #define FA_18C_hornet_EXT_FORMATION_LIGHTS_A 0x7576
 #define FA_18C_hornet_EXT_HOOK 0x7586, 0xFFFF, 0
 #define FA_18C_hornet_EXT_HOOK_A 0x7586
-#define FA_18C_hornet_EXT_LAUNCH_BAR 0x7588, 0xFFFF, 0
-#define FA_18C_hornet_EXT_LAUNCH_BAR_A 0x7588
+#define FA_18C_hornet_EXT_LAUNCH_BAR 0x75AE, 0xFFFF, 0
+#define FA_18C_hornet_EXT_LAUNCH_BAR_A 0x75AE
 #define FA_18C_hornet_EXT_NOZZLE_POS_L 0x757A, 0xFFFF, 0
 #define FA_18C_hornet_EXT_NOZZLE_POS_L_A 0x757A
 #define FA_18C_hornet_EXT_NOZZLE_POS_R 0x7578, 0xFFFF, 0
@@ -10259,6 +10257,7 @@
 #define FA_18C_hornet_HUD_ALT_SW_AM 0x742C, 0x4000
 #define FA_18C_hornet_HUD_AOA_INDEXER 0x745E, 0xFFFF, 0
 #define FA_18C_hornet_HUD_AOA_INDEXER_A 0x745E
+#define FA_18C_hornet_HUD_ATC_NWS_ENGAGED_A 0x75A8
 #define FA_18C_hornet_HUD_ATT_SW 0x742E, 0x0300, 8
 #define FA_18C_hornet_HUD_BALANCE 0x745C, 0xFFFF, 0
 #define FA_18C_hornet_HUD_BALANCE_A 0x745C
