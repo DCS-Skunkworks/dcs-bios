@@ -433,7 +433,25 @@ F4U_1D:defineIndicatorLight("BAT_BOMB_PANEL_SCOPE_VISIBILITY", 902, BAT_BOMB_PAN
 -- emergency release, mirrors
 
 -- Flood Lights
--- local INTERIOR_LIGHTS = "Interior Lights"
+local INTERIOR_LIGHTS = "Interior Lights"
+
+F4U_1D:definePotentiometer("INTERIOR_PANEL_LAMP_LEFT", devices.LIGHTS, 3751, 738, { 0, 1 }, INTERIOR_LIGHTS, "Left Panel Lamp UV/White")
+F4U_1D:definePotentiometer("INTERIOR_PANEL_LAMP_RIGHT", devices.LIGHTS, 3752, 739, { 0, 1 }, INTERIOR_LIGHTS, "Right Panel Lamp UV/White")
+F4U_1D:definePotentiometer("INTERIOR_INSTRUMENT_BOARD_LAMP_LEFT", devices.LIGHTS, 3753, 740, { 0, 1 }, INTERIOR_LIGHTS, "Left Instrument Board Lamp UV/White")
+F4U_1D:definePotentiometer("INTERIOR_INSTRUMENT_BOARD_LAMP_RIGHT", devices.LIGHTS, 3754, 741, { 0, 1 }, INTERIOR_LIGHTS, "Right Instrument Board Lamp UV/White")
+F4U_1D:defineFloat("INTERIOR_CHARTBOARD_LAMP_BRIGHTNESS", 637, { 0, 1 }, INTERIOR_LIGHTS, "Chartboard Lamp Brightness")
+F4U_1D:defineIndicatorLight("INTERIOR_PANEL_LAMP_ON_OFF_LEFT", 638, INTERIOR_LIGHTS, "Left Panel Lamp On/Off ")
+F4U_1D:defineIndicatorLight("INTERIOR_PANEL_LAMP_ON_OFF_RIGHT", 639, INTERIOR_LIGHTS, "Right Panel Lamp On/Off")
+F4U_1D:defineIndicatorLight("INTERIOR_INSTRUMENT_BOARD_LAMP_ON_OFF_LEFT", 640, INTERIOR_LIGHTS, "Left Instrument Board Lamp On/Off")
+F4U_1D:defineIndicatorLight("INTERIOR_INSTRUMENT_BOARD_LAMP_ON_OFF_RIGHT", 641, INTERIOR_LIGHTS, "Right Instrument Board Lamp On/Off")
+F4U_1D:defineFloat("INTERIOR_PANEL_LAMP_BRIGHTNESS_UV_LEFT", 838, { 0, 1 }, INTERIOR_LIGHTS, "Left Panel Brightness (UV)")
+F4U_1D:defineFloat("INTERIOR_PANEL_LAMP_BRIGHTNESS_UV_RIGHT", 839, { 0, 1 }, INTERIOR_LIGHTS, "Right Panel Brightness (UV)")
+F4U_1D:defineFloat("INTERIOR_INSTRUMENT_BOARD_LAMP_BRIGHTNESS_UV_LEFT", 840, { 0, 1 }, INTERIOR_LIGHTS, "Left Instrument Board Brightness (UV)")
+F4U_1D:defineFloat("INTERIOR_INSTRUMENT_BOARD_LAMP_BRIGHTNESS_UV_RIGHT", 841, { 0, 1 }, INTERIOR_LIGHTS, "Right Instrument Board Brightness (UV)")
+F4U_1D:defineFloat("INTERIOR_PANEL_LAMP_BRIGHTNESS_WHITE_LEFT", 938, { 0, 1 }, INTERIOR_LIGHTS, "Left Panel Brightness (White)")
+F4U_1D:defineFloat("INTERIOR_PANEL_LAMP_BRIGHTNESS_WHITE_RIGHT", 939, { 0, 1 }, INTERIOR_LIGHTS, "Right Panel Brightness (White)")
+F4U_1D:defineFloat("INTERIOR_INSTRUMENT_BOARD_LAMP_BRIGHTNESS_WHITE_LEFT", 940, { 0, 1 }, INTERIOR_LIGHTS, "Left Instrument Board Brightness (White)")
+F4U_1D:defineFloat("INTERIOR_INSTRUMENT_BOARD_LAMP_BRIGHTNESS_WHITE_RIGHT", 941, { 0, 1 }, INTERIOR_LIGHTS, "Right Instrument Board Brightness (White)")
 
 -- Interior Model
 -- local INTERIOR_MODEL = "Interior Model"
