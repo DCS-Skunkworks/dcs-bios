@@ -433,7 +433,12 @@ F4U_1D:defineIndicatorLight("BAT_BOMB_PANEL_SCOPE_VISIBILITY", 902, BAT_BOMB_PAN
 -- emergency release, mirrors
 
 -- Flood Lights
--- local INTERIOR_LIGHTS = "Interior Lights"
+local INTERIOR_LIGHTS = "Interior Lights"
+
+F4U_1D:definePotentiometer("INTERIOR_PANEL_LAMP_LEFT", devices.LIGHTS, 3751, 738, { 0, 1 }, INTERIOR_LIGHTS, "Left Panel Lamp UV / Light")
+F4U_1D:definePotentiometer("INTERIOR_PANEL_LAMP_RIGHT", devices.LIGHTS, 3752, 739, { 0, 1 }, INTERIOR_LIGHTS, "Right Panel Lamp UV / Light")
+F4U_1D:definePotentiometer("INTERIOR_INTSRUMENT_BOARD_LAMP_LEFT", devices.LIGHTS, 3753, 740, { 0, 1 }, INTERIOR_LIGHTS, "Left Instrument Board Lamp UV / Light")
+F4U_1D:definePotentiometer("INTERIOR_INTSRUMENT_BOARD_LAMP_RIGHT", devices.LIGHTS, 3754, 741, { 0, 1 }, INTERIOR_LIGHTS, "Right Instrument Board Lamp UV / Light")
 
 -- Interior Model
 -- local INTERIOR_MODEL = "Interior Model"
