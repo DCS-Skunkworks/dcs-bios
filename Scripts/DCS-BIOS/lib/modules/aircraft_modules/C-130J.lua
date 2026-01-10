@@ -640,7 +640,7 @@ C_130J:defineToggleSwitch("CPLT_COURSE_SYNC", devices.COPILOT_CPT_INTERFACE, 300
 
 -- Cursor Control Panel
 local CURSOR_CONTROL_PANEL = "Cursor Control Panel"
-C_130J:defineTumb("CCP_CURSOR_PRIORITY", devices.MECH_INTERFACE, 3003, 65, 0.5, { 0.0, 1.0 }, nil, false, CURSOR_CONTROL_PANEL, "Cursor Priority Switch")
+C_130J:defineMultipositionSwitch("CCP_CURSOR_PRIORITY", devices.MECH_INTERFACE, 3003, 65, 3, 0.5, CURSOR_CONTROL_PANEL, "Cursor Priority Switch")
 C_130J:definePushButton("CCP_CURSOR_RESET", devices.MECH_INTERFACE, 3010, 68, CURSOR_CONTROL_PANEL, "Cursor Reset Switch")
 C_130J:definePushButton("CCP_HUD_CURSOR", devices.MECH_INTERFACE, 3014, 69, CURSOR_CONTROL_PANEL, "HUD Cursor Off/On Switch")
 C_130J:defineRockerSwitch("CCP_DISPLAY_RANGE", devices.MECH_INTERFACE, 3015, 3015, 3015, 3015, 66, CURSOR_CONTROL_PANEL, "Display Range Increase/Decrease")
