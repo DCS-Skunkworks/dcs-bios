@@ -381,6 +381,14 @@ C_130J:defineToggleSwitch("CPLT_COURSE_SYNC", devices.COPILOT_CPT_INTERFACE, 300
 -- Throttle Quadrant
 
 -- Cursor Control Panel
+local CURSOR_CONTROL_PANEL = "Cursor Control Panel"
+C_130J:defineTumb("CCP_CURSOR_PRIORITY", devices.MECH_INTERFACE,  3003, 65, 0.5, {0.0, 1.0}, nil, false, CURSOR_CONTROL_PANEL, "Cursor Priority Switch")
+C_130J:definePushButton("CCP_CURSOR_RESET", devices.MECH_INTERFACE, 3010, 68, CURSOR_CONTROL_PANEL, "Cursor Reset Switch")
+C_130J:definePushButton("CCP_HUD_CURSOR", devices.MECH_INTERFACE, 3014, 69, CURSOR_CONTROL_PANEL, "HUD Cursor Off/On Switch")
+C_130J:defineRockerSwitch("CCP_DISPLAY_RANGE", devices.MECH_INTERFACE, 3015, 3015,3015,3015,66, CURSOR_CONTROL_PANEL, "Display Range Increase/Decrease")
+C_130J:defineRockerSwitch("CCP_DISPLAY_ZOOM", devices.MECH_INTERFACE, 3016, 3016,3016,3016,67, CURSOR_CONTROL_PANEL, "Display Zoom Increase/Decrease")
+C_130J:defineTumb("CCP_CURSOR_SELECT", devices.MECH_INTERFACE, 3030, 72, 1 / 6, {-0.163, 0.83}, nil, false, CURSOR_CONTROL_PANEL, "Cursor Display Select Switch")
+C_130J:defineRockerSwitch("CCP_CURSOR_TILT", devices.MECH_INTERFACE, 3096, 3096,3096,3096,483, CURSOR_CONTROL_PANEL,"Cursor - Tilt")
 
 -- Wing Flaps Control Quadrant
 
