@@ -653,7 +653,7 @@ C_130J:defineIndicatorLight("CC_LSGI_ENGINE_4_LED", 4094, THROTTLE_QUADRANT, "En
 
 -- Wing Flaps Control Quadrant
 local FLAPS_CONTROL = "Wing Flaps Control Quadrant"
-C_130J:definePotentiometer("PNT_FLAP_LVR_15_16", devices.MECH_INTERFACE, 3002, 16, { 0, 1 }, FLAPS_CONTROL, "Flap Control Lever")
+C_130J:definePotentiometer("CC_FLAP_LEVER", devices.MECH_INTERFACE, 3002, 16, { 0, 1 }, FLAPS_CONTROL, "Flap Control Lever")
 
 -- Augmented Intercommunications System Monitor Panel
 
