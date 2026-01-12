@@ -660,6 +660,8 @@ C_130J:defineTumb("CCP_CURSOR_SELECT", devices.MECH_INTERFACE, 3030, 72, 1 / 6, 
 C_130J:defineRockerSwitch("CCP_CURSOR_TILT", devices.MECH_INTERFACE, 3096, 3096, 3096, 3096, 483, CURSOR_CONTROL_PANEL, "Cursor - Tilt")
 
 -- Wing Flaps Control Quadrant
+local FLAPS_CONTROL = "Wing Flaps Control Quadrant"
+C_130J:definePotentiometer("CC_FLAP_LEVER", devices.MECH_INTERFACE, 3002, 16, { 0, 1 }, FLAPS_CONTROL, "Flap Control Lever")
 
 -- Augmented Intercommunications System Monitor Panel
 
