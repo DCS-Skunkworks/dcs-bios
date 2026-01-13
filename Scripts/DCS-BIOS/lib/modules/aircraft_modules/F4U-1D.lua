@@ -429,8 +429,12 @@ F4U_1D:defineIndicatorLight("BAT_BOMB_TARGET_ALARM_LIGHT", 814, BAT_BOMB_PANEL, 
 F4U_1D:defineIndicatorLight("BAT_BOMB_PANEL_SCOPE_VISIBILITY", 902, BAT_BOMB_PANEL, "Bat Bomb Panel and Scope Visibility (Not Visible/Visible)")
 
 -- Canopy
--- local CANOPY = "Canopy"
--- emergency release, mirrors
+local CANOPY = "Canopy"
+F4U_1D:definePushButton("CANOPY_HANDLE", devices.UTILITY, 3458, 39, CANOPY, "Canopy Handle")
+F4U_1D:definePushButton("CANOPY_JETTISON_HANDLES", devices.UTILITY, 3459, 238, CANOPY, "Canopy Jettison Handles")
+F4U_1D:definePotentiometer("MIRROR_ADJUST_CENTER", devices.UTILITY, 3455, 800, { -1, 1 }, CANOPY, "Adjust Center Mirror")
+F4U_1D:definePotentiometer("MIRROR_ADJUST_RIGHT", devices.UTILITY, 3456, 801, { -1, 1 }, CANOPY, "Adjust Right Mirror")
+F4U_1D:definePotentiometer("MIRROR_ADJUST_LEFT", devices.UTILITY, 3457, 802, { -1, 1 }, CANOPY, "Adjust Left Mirror")
 
 -- Flood Lights
 -- local INTERIOR_LIGHTS = "Interior Lights"
