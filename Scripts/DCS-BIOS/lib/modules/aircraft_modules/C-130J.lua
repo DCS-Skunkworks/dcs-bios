@@ -663,8 +663,6 @@ C_130J:defineRockerSwitch("CCP_CURSOR_TILT", devices.MECH_INTERFACE, 3096, 3096,
 local FLAPS_CONTROL = "Wing Flaps Control Quadrant"
 C_130J:definePotentiometer("CC_FLAP_LEVER", devices.MECH_INTERFACE, 3002, 16, { 0, 1 }, FLAPS_CONTROL, "Flap Control Lever")
 
--- Augmented Intercommunications System Monitor Panel
-
 -- Trim Panel
 local TRIM_PANEL = "Trim Panel"
 C_130J:defineSpringloaded_3PosTumb("TRIM_ELEV_TAB_PWR", devices.MECH_INTERFACE, 3038,  3038, 1334, TRIM_PANEL, "Elevator Trim Tab Power Switch: NORM/OFF/EMER")
