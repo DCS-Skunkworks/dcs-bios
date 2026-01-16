@@ -342,26 +342,6 @@ C_130J:definePotentiometer("CPLT_ICS_MASTER_VOLUME", devices.VOLUME_MANAGER, 302
 
 -- Augmented Intercommunications System Control Panel
 local AUG_ICS_PANEL = "Augmented Intercommunications System Control Panel"
-C_130J:definePotentiometer("AUG_ICS_VOR1_VOLUME", devices.VOLUME_MANAGER, 3098, 249, { 0, 1 }, AUG_ICS_PANEL, "Aug MonVOR 1 Volume")
-C_130J:defineToggleSwitch("AUG_ICS_VOR1_BUTTON", devices.VOLUME_MANAGER, 3108, 248, AUG_ICS_PANEL, "Aug MonVOR 1 Pull to Monitor")
-C_130J:definePotentiometer("AUG_ICS_TACAN1_VOLUME", devices.VOLUME_MANAGER, 3100, 251, { 0, 1 }, AUG_ICS_PANEL, "Aug MonTACAN 1 Volume")
-C_130J:defineToggleSwitch("AUG_ICS_TACAN1_BUTTON", devices.VOLUME_MANAGER, 3110, 250, AUG_ICS_PANEL, "Aug MonTACAN 1 Pull to Monitor")
-C_130J:definePotentiometer("AUG_ICS_ADF1_VOLUME", devices.VOLUME_MANAGER, 3102, 253, { 0, 1 }, AUG_ICS_PANEL, "Aug MonADF 1 Volume")
-C_130J:defineToggleSwitch("AUG_ICS_ADF1_BUTTON", devices.VOLUME_MANAGER, 3112, 252, AUG_ICS_PANEL, "Aug MonADF 1 Pull to Monitor")
-C_130J:definePotentiometer("AUG_ICS_SAR_VOLUME", devices.VOLUME_MANAGER, 3104, 255, { 0, 1 }, AUG_ICS_PANEL, "Aug MonSAR Volume")
-C_130J:defineToggleSwitch("AUG_ICS_SAR_BUTTON", devices.VOLUME_MANAGER, 3114, 254, AUG_ICS_PANEL, "Aug MonSAR Pull to Monitor")
-C_130J:definePotentiometer("AUG_ICS_BCN_VOLUME", devices.VOLUME_MANAGER, 3106, 257, { 0, 1 }, AUG_ICS_PANEL, "Aug MonBCN Volume")
-C_130J:defineToggleSwitch("AUG_ICS_BCN_BUTTON", devices.VOLUME_MANAGER, 3116, 256, AUG_ICS_PANEL, "Aug MonBCN Pull to Monitor")
-C_130J:definePotentiometer("AUG_ICS_VOR2_VOLUME", devices.VOLUME_MANAGER, 3099, 259, { 0, 1 }, AUG_ICS_PANEL, "Aug MonVOR 2 Volume")
-C_130J:defineToggleSwitch("AUG_ICS_VOR2_BUTTON", devices.VOLUME_MANAGER, 3109, 258, AUG_ICS_PANEL, "Aug MonVOR 2 Pull to Monitor")
-C_130J:definePotentiometer("AUG_ICS_TACAN2_VOLUME", devices.VOLUME_MANAGER, 3101, 261, { 0, 1 }, AUG_ICS_PANEL, "Aug MonTACAN 2 Volume")
-C_130J:defineToggleSwitch("AUG_ICS_TACAN2_BUTTON", devices.VOLUME_MANAGER, 3111, 260, AUG_ICS_PANEL, "Aug MonTACAN 2 Pull to Monitor")
-C_130J:definePotentiometer("AUG_ICS_ADF2_VOLUME", devices.VOLUME_MANAGER, 3103, 263, { 0, 1 }, AUG_ICS_PANEL, "Aug MonADF 2 Volume")
-C_130J:defineToggleSwitch("AUG_ICS_ADF2_BUTTON", devices.VOLUME_MANAGER, 3113, 262, AUG_ICS_PANEL, "Aug MonADF 2 Pull to Monitor")
-C_130J:definePotentiometer("AUG_ICS_SPARE_VOLUME", devices.VOLUME_MANAGER, 3105, 265, { 0, 1 }, AUG_ICS_PANEL, "Aug MonSpare Knob")
-C_130J:defineToggleSwitch("AUG_ICS_SPARE_BUTTON", devices.VOLUME_MANAGER, 3115, 264, AUG_ICS_PANEL, "Aug MonSpare Button")
-C_130J:definePotentiometer("AUG_ICS_RWR_VOLUME", devices.VOLUME_MANAGER, 3107, 267, { 0, 1 }, AUG_ICS_PANEL, "Aug MonRWR Knob")
-C_130J:defineToggleSwitch("AUG_ICS_RWR_BUTTON", devices.VOLUME_MANAGER, 3117, 266, AUG_ICS_PANEL, "Aug MonRWR Button")
 C_130J:definePotentiometer("AUG_ICS_INTVOLUME", devices.VOLUME_MANAGER, 3118, 269, { 0, 1 }, AUG_ICS_PANEL, "AUG ICSInt Volume")
 C_130J:defineToggleSwitch("AUG_ICS_INT_BUTTON", devices.VOLUME_MANAGER, 3132, 268, AUG_ICS_PANEL, "AUG ICSInt Pull to Monitor")
 C_130J:definePotentiometer("AUG_ICS_H1_VOLUME", devices.VOLUME_MANAGER, 3119, 271, { 0, 1 }, AUG_ICS_PANEL, "AUG ICSH1 Volume")
@@ -664,6 +644,27 @@ local FLAPS_CONTROL = "Wing Flaps Control Quadrant"
 C_130J:definePotentiometer("CC_FLAP_LEVER", devices.MECH_INTERFACE, 3002, 16, { 0, 1 }, FLAPS_CONTROL, "Flap Control Lever")
 
 -- Augmented Intercommunications System Monitor Panel
+local AUG_ICS_MONITOR = "Augmented Intercommunications System Monitor Panel"
+C_130J:definePotentiometer("AUG_ICS_VOR1_VOLUME", devices.VOLUME_MANAGER, 3098, 249, { 0, 1 }, AUG_ICS_MONITOR, "Aug MonVOR 1 Volume")
+C_130J:defineToggleSwitch("AUG_ICS_VOR1_BUTTON", devices.VOLUME_MANAGER, 3108, 248, AUG_ICS_MONITOR, "Aug MonVOR 1 Pull to Monitor")
+C_130J:definePotentiometer("AUG_ICS_VOR2_VOLUME", devices.VOLUME_MANAGER, 3099, 259, { 0, 1 }, AUG_ICS_MONITOR, "Aug MonVOR 2 Volume")
+C_130J:defineToggleSwitch("AUG_ICS_VOR2_BUTTON", devices.VOLUME_MANAGER, 3109, 258, AUG_ICS_MONITOR, "Aug MonVOR 2 Pull to Monitor")
+C_130J:definePotentiometer("AUG_ICS_TACAN1_VOLUME", devices.VOLUME_MANAGER, 3100, 251, { 0, 1 }, AUG_ICS_MONITOR, "Aug MonTACAN 1 Volume")
+C_130J:defineToggleSwitch("AUG_ICS_TACAN1_BUTTON", devices.VOLUME_MANAGER, 3110, 250, AUG_ICS_MONITOR, "Aug MonTACAN 1 Pull to Monitor")
+C_130J:definePotentiometer("AUG_ICS_TACAN2_VOLUME", devices.VOLUME_MANAGER, 3101, 261, { 0, 1 }, AUG_ICS_MONITOR, "Aug MonTACAN 2 Volume")
+C_130J:defineToggleSwitch("AUG_ICS_TACAN2_BUTTON", devices.VOLUME_MANAGER, 3111, 260, AUG_ICS_MONITOR, "Aug MonTACAN 2 Pull to Monitor")
+C_130J:definePotentiometer("AUG_ICS_ADF1_VOLUME", devices.VOLUME_MANAGER, 3102, 253, { 0, 1 }, AUG_ICS_MONITOR, "Aug MonADF 1 Volume")
+C_130J:defineToggleSwitch("AUG_ICS_ADF1_BUTTON", devices.VOLUME_MANAGER, 3112, 252, AUG_ICS_MONITOR, "Aug MonADF 1 Pull to Monitor")
+C_130J:definePotentiometer("AUG_ICS_ADF2_VOLUME", devices.VOLUME_MANAGER, 3103, 263, { 0, 1 }, AUG_ICS_MONITOR, "Aug MonADF 2 Volume")
+C_130J:defineToggleSwitch("AUG_ICS_ADF2_BUTTON", devices.VOLUME_MANAGER, 3113, 262, AUG_ICS_MONITOR, "Aug MonADF 2 Pull to Monitor")
+C_130J:definePotentiometer("AUG_ICS_SAR_VOLUME", devices.VOLUME_MANAGER, 3104, 255, { 0, 1 }, AUG_ICS_MONITOR, "Aug MonSAR Volume")
+C_130J:defineToggleSwitch("AUG_ICS_SAR_BUTTON", devices.VOLUME_MANAGER, 3114, 254, AUG_ICS_MONITOR, "Aug MonSAR Pull to Monitor")
+C_130J:definePotentiometer("AUG_ICS_SPARE_VOLUME", devices.VOLUME_MANAGER, 3105, 265, { 0, 1 }, AUG_ICS_MONITOR, "Aug MonSpare Knob")
+C_130J:defineToggleSwitch("AUG_ICS_SPARE_BUTTON", devices.VOLUME_MANAGER, 3115, 264, AUG_ICS_MONITOR, "Aug MonSpare Button")
+C_130J:definePotentiometer("AUG_ICS_BCN_VOLUME", devices.VOLUME_MANAGER, 3106, 257, { 0, 1 }, AUG_ICS_MONITOR, "Aug MonBCN Volume")
+C_130J:defineToggleSwitch("AUG_ICS_BCN_BUTTON", devices.VOLUME_MANAGER, 3116, 256, AUG_ICS_MONITOR, "Aug MonBCN Pull to Monitor")
+C_130J:definePotentiometer("AUG_ICS_RWR_VOLUME", devices.VOLUME_MANAGER, 3107, 267, { 0, 1 }, AUG_ICS_MONITOR, "Aug MonRWR Knob")
+C_130J:defineToggleSwitch("AUG_ICS_RWR_BUTTON", devices.VOLUME_MANAGER, 3117, 266, AUG_ICS_MONITOR, "Aug MonRWR Button")
 
 -- Trim Panel
 
