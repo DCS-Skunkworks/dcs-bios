@@ -667,6 +667,11 @@ C_130J:definePotentiometer("AUG_ICS_RWR_VOLUME", devices.VOLUME_MANAGER, 3107, 2
 C_130J:defineToggleSwitch("AUG_ICS_RWR_BUTTON", devices.VOLUME_MANAGER, 3117, 266, AUG_ICS_MONITOR, "Aug MonRWR Button")
 
 -- Trim Panel
+local TRIM_PANEL = "Trim Panel"
+C_130J:defineSpringloaded_3PosTumb("TRIM_ELEV_TAB_PWR", devices.MECH_INTERFACE, 3038, 3038, 1334, TRIM_PANEL, "Elevator Trim Tab Power Switch: NORM/OFF/EMER")
+C_130J:defineRockerSwitch("TRIM_RUDDER_SWITCH", devices.MECH_INTERFACE, 3036, 3036, 3036, 3036, 75, TRIM_PANEL, "Rudder Trim Switch")
+C_130J:defineRockerSwitch("TRIM_NOSE_UP_DOWN", devices.MECH_INTERFACE, 3089, 3089, 3088, 3088, 1364, TRIM_PANEL, "Elevator Trim Nose Up/Down")
+C_130J:defineRockerSwitch("TRIM_WING_RIGHT_LEFT", devices.MECH_INTERFACE, 3091, 3091, 3090, 3090, 1365, TRIM_PANEL, "Aileron Trim Right/Left Wing Down")
 
 -- Defensive Systems Panel
 
