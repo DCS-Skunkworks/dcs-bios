@@ -678,6 +678,15 @@ C_130J:defineRockerSwitch("TRIM_WING_RIGHT_LEFT", devices.MECH_INTERFACE, 3091, 
 -- Aerial Delivery Panel
 
 -- Automatic Flight Control System Panel
+local AFCS_PANEL = "Automatic Flight Control System Panel"
+C_130J:definePotentiometer("AFCS_TURN_KNOB", devices.AP_INTERFACE, 3016, 70, { -1, 1 }, AFCS_PANEL, "AFCS Turn Control Knob / Center Detent")
+C_130J:defineRotary("AFCS_PITCH_WHEEL", devices.AP_INTERFACE, 3015, 71, AFCS_PANEL, "AFCS Pitch Control Wheel")
+C_130J:defineToggleSwitch("AFCS_PLT_ENGAGE_SWITCH", devices.AP_INTERFACE, 3011, 52, AFCS_PANEL, "Pilot AFCS Engage Switch")
+C_130J:defineToggleSwitch("AFCS_CPLT_ENGAGE_SWITCH", devices.AP_INTERFACE, 3012, 53, AFCS_PANEL, "Copilot AFCS Engage Switch")
+C_130J:definePushButton("AFCS_PITCH_AXIS_SWITCH", devices.AP_INTERFACE, 3013, 51, AFCS_PANEL, "AFCS Pitch Axis Deselect Switch")
+C_130J:definePushButton("AFCS_LATERAL_AXIS_SWITCH", devices.AP_INTERFACE, 3014, 73, AFCS_PANEL, "AFCS Lateral Axis Deselect Switch")
+C_130J:defineIndicatorLight("AFCS_PITCH_AXIS_SWITCH_LED", 4089, AFCS_PANEL, "AFCS Pitch Axis Deselect Light (Green)")
+C_130J:defineIndicatorLight("AFCS_LATERAL_AXIS_SWITCH_LED", 4090, AFCS_PANEL, "AFCS Lateral Axis Deselect Light (Green)")
 
 -- ARC-210
 
