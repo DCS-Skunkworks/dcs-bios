@@ -676,6 +676,19 @@ C_130J:defineRockerSwitch("TRIM_WING_RIGHT_LEFT", devices.MECH_INTERFACE, 3091, 
 -- Defensive Systems Panel
 
 -- Aerial Delivery Panel
+local AERIAL_DELIVERY = "Aerial Delivery Panel"
+C_130J:defineSpringloaded_3PosTumb("ADP_RAMP_DOOR", devices.MECH_INTERFACE, 3031, 3031, 479, AERIAL_DELIVERY, "Ramp/Door Control Switch: OPEN/OFF/CLOSE")
+C_130J:defineIndicatorLight("ADP_RAMP_DOOR_LED", 4075, AERIAL_DELIVERY, "Ramp/Door Control Switch Light (Green)")
+C_130J:definePushButton("ADP_AIRDROP_CAUTION", devices.MECH_INTERFACE, 3026, 397, AERIAL_DELIVERY, "Airdrop Caution Control Button")
+C_130J:defineIndicatorLight("ADP_AIRDROP_CAUTION_LED", 4095, AERIAL_DELIVERY, "Airdrop Caution Light (Yellow)")
+C_130J:definePushButton("ADP_AIRDROP_JUMP", devices.MECH_INTERFACE, 3027, 326, AERIAL_DELIVERY, "Airdrop Jump Control Button")
+C_130J:defineIndicatorLight("ADP_AIRDROP_JUMP_LED", 4096, AERIAL_DELIVERY, "Airdrop Jump Light (Green)")
+C_130J:defineToggleSwitch("ADP_RELEASE_CHUTE_COVER", devices.MECH_INTERFACE, 3028, 76, AERIAL_DELIVERY, "Chute Release Button Cover")
+C_130J:defineToggleSwitch("ADP_RELEASE_CHUTE_BUTTON", devices.MECH_INTERFACE, 3029, 77, AERIAL_DELIVERY, "Chute Release Button")
+C_130J:defineToggleSwitch("ADP_AIR_DEFLECTOR", devices.MECH_INTERFACE, 3024, 478, AERIAL_DELIVERY, "Air Deflector Control Switch")
+C_130J:defineMultipositionSwitch("ADP_COMP_DROP", devices.MECH_INTERFACE, 3025, 474, 3, 0.5, AERIAL_DELIVERY, "Computer Drop Switch: AUTO/AD-MAN/TJ-AUTO/MAN")
+C_130J:defineToggleSwitch("ADP_BAY_ALARM_GUARD", devices.MECH_INTERFACE, 3022, 78, AERIAL_DELIVERY, "Cargo Bay Alarm Switch Guard")
+C_130J:defineToggleSwitch("ADP_BAY_ALARM_SWITCH", devices.MECH_INTERFACE, 3023, 79, AERIAL_DELIVERY, "Cargo Bay Alarm Switch")
 
 -- Automatic Flight Control System Panel
 
