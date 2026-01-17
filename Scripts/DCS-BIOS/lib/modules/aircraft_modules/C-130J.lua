@@ -680,6 +680,30 @@ C_130J:defineRockerSwitch("TRIM_WING_RIGHT_LEFT", devices.MECH_INTERFACE, 3091, 
 -- Automatic Flight Control System Panel
 
 -- ARC-210
+local ARC_210 = "ARC-210"
+C_130J:definePushButton("ARC210_TOD_SND", devices.VOLUME_MANAGER, 3148, 551, ARC_210, "ARC-210 TOD SND Key")
+C_130J:definePushButton("ARC210_TOD_RCV", devices.VOLUME_MANAGER, 3149, 552, ARC_210, "ARC-210 TOD RCV Key")
+C_130J:definePushButton("ARC210_GPS", devices.VOLUME_MANAGER, 3150, 553, ARC_210, "ARC-210 GPS Key")
+C_130J:definePushButton("ARC210_RT_SELECT", devices.VOLUME_MANAGER, 3151, 554, ARC_210, "ARC-210 RT SELECT Key")
+C_130J:definePushButton("ARC210_LSK_1", devices.VOLUME_MANAGER, 3145, 550, ARC_210, "ARC-210 LSK 1")
+C_130J:definePushButton("ARC210_LSK_2", devices.VOLUME_MANAGER, 3146, 549, ARC_210, "ARC-210 LSK 2")
+C_130J:definePushButton("ARC210_LSK_3", devices.VOLUME_MANAGER, 3147, 548, ARC_210, "ARC-210 LSK 3")
+C_130J:defineTumb("ARC210_SQUELCH_SWITCH", devices.VOLUME_MANAGER, 3159, 532, 2, { -1, 1 }, nil, false, ARC_210, "ARC-210 Squelch Switch")
+C_130J:definePushButton("ARC210_MENU_TIME", devices.VOLUME_MANAGER, 3152, 533, ARC_210, "ARC-210 MENU/TIME Key")
+C_130J:definePushButton("ARC210_AM_FM", devices.VOLUME_MANAGER, 3154, 534, ARC_210, "ARC-210 AM/FM Key")
+C_130J:definePushButton("ARC210_XMT_REC_SEND", devices.VOLUME_MANAGER, 3153, 535, ARC_210, "ARC-210 XMT/REC or SEND Key")
+C_130J:definePushButton("ARC210_OFFSET_RCV", devices.VOLUME_MANAGER, 3155, 536, ARC_210, "ARC-210 OFFSET or RCV Key")
+C_130J:definePushButton("ARC210_BRIGHT_INC", devices.VOLUME_MANAGER, 3156, 547, ARC_210, "ARC-210 Brightness Increase")
+C_130J:definePushButton("ARC210_BRIGHT_DEC", devices.VOLUME_MANAGER, 3157, 546, ARC_210, "ARC-210 Brightness Decrease")
+C_130J:defineMultipositionSwitch("ARC210_100MHZ", devices.VOLUME_MANAGER, 3160, 542, 4, 1 / 3, ARC_210, "ARC-210 100 MHz Selector")
+C_130J:defineMultipositionSwitch("ARC210_10MHZ", devices.VOLUME_MANAGER, 3161, 541, 10, 1 / 9, ARC_210, "ARC-210 10 MHz Selector")
+C_130J:defineMultipositionSwitch("ARC210_1MHZ", devices.VOLUME_MANAGER, 3162, 540, 10, 1 / 9, ARC_210, "ARC-210 1 MHz Selector")
+C_130J:defineMultipositionSwitch("ARC210_100KHZ", devices.VOLUME_MANAGER, 3163, 539, 10, 1 / 9, ARC_210, "ARC-210 100 KHz Selector")
+C_130J:defineMultipositionSwitch("ARC210_25KHZ", devices.VOLUME_MANAGER, 3164, 538, 4, 1 / 3, ARC_210, "ARC-210 25 KHz Selector")
+C_130J:definePushButton("ARC210_ENTER", devices.VOLUME_MANAGER, 3158, 537, ARC_210, "ARC-210 ENTER Key")
+C_130J:defineMultipositionSwitch("ARC210_OPER_MODE", devices.VOLUME_MANAGER, 3165, 543, 7, 1 / 6, ARC_210, "ARC-210 Operational Mode Switch")
+C_130J:defineRotary("ARC210_CHNL_KNOB", devices.VOLUME_MANAGER, 3166, 544, ARC_210, "ARC-210 Channel Selector")
+C_130J:defineMultipositionSwitch("ARC210_FREQ_MODE", devices.VOLUME_MANAGER, 3167, 545, 7, 1 / 6, ARC_210, "ARC-210 Frequency Mode Switch")
 
 -- Center Console END
 
