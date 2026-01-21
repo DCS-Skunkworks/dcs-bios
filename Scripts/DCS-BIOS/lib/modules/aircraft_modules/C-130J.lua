@@ -679,7 +679,7 @@ C_130J:defineToggleSwitch("DSP_DEFENSIVE_MASTER_SWITCH", devices.CMS_MGR, 3001, 
 C_130J:defineToggleSwitch("DSP_CMS_JETTISON_GUARD", devices.CMS_MGR, 3006, 59, DEFENSIVE_SYSTEMS, "CMS Jettison Switch Guard")
 C_130J:defineToggleSwitch("DSP_CMS_JETTISON_SWITCH", devices.CMS_MGR, 3005, 60, DEFENSIVE_SYSTEMS, "CMS Jettison Switch")
 C_130J:defineMultipositionSwitch("DSP_CMDS_MODE", devices.CMS_MGR, 3003, 74, 5, 0.25, DEFENSIVE_SYSTEMS, "CMDS Mode Selector")
-C_130J:defineMultipositionSwitch("DSP_MAN_PRGMS_SWITH", devices.CMS_MGR, 3008, 64, 3, 0.5, DEFENSIVE_SYSTEMS, "MAN PRGMS Switch")
+C_130J:defineMultipositionSwitch("DSP_MAN_PRGMS_SWITCH", devices.CMS_MGR, 3008, 64, 3, 0.5, DEFENSIVE_SYSTEMS, "MAN PRGMS Switch (6/5/1-4)")
 C_130J:defineToggleSwitch("DSP_ECM_MASTER", devices.CMS_MGR, 3007, 62, DEFENSIVE_SYSTEMS, "ECM Master Switch")
 C_130J:defineToggleSwitch("DSP_IRCM_MASTER", devices.CMS_MGR, 3004, 63, DEFENSIVE_SYSTEMS, "IRCM Master Switch")
 C_130J:definePushButton("DSP_RWR_SRCH", devices.CMS_MGR, 3009, 54, DEFENSIVE_SYSTEMS, "RWR SRCH Switch")
