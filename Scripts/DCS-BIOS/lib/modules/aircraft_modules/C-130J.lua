@@ -674,6 +674,24 @@ C_130J:defineRockerSwitch("TRIM_NOSE_UP_DOWN", devices.MECH_INTERFACE, 3089, 308
 C_130J:defineRockerSwitch("TRIM_WING_RIGHT_LEFT", devices.MECH_INTERFACE, 3091, 3091, 3090, 3090, 1365, TRIM_PANEL, "Aileron Trim Right/Left Wing Down")
 
 -- Defensive Systems Panel
+local DEFENSIVE_SYSTEMS = "Defensive Systems Panel"
+C_130J:defineToggleSwitch("DSP_DEFENSIVE_MASTER_SWITCH", devices.CMS_MGR, 3001, 61, DEFENSIVE_SYSTEMS, "Defensive Systems Master Switch")
+C_130J:defineToggleSwitch("DSP_CMS_JETTISON_GUARD", devices.CMS_MGR, 3006, 59, DEFENSIVE_SYSTEMS, "CMS Jettison Switch Guard")
+C_130J:defineToggleSwitch("DSP_CMS_JETTISON_SWITCH", devices.CMS_MGR, 3005, 60, DEFENSIVE_SYSTEMS, "CMS Jettison Switch")
+C_130J:defineMultipositionSwitch("DSP_CMDS_MODE", devices.CMS_MGR, 3003, 74, 5, 0.25, DEFENSIVE_SYSTEMS, "CMDS Mode Selector (STBY/MAN/SEMI/AUTO/BYP)")
+C_130J:defineMultipositionSwitch("DSP_MAN_PRGMS_SWITCH", devices.CMS_MGR, 3008, 64, 3, 0.5, DEFENSIVE_SYSTEMS, "MAN PRGMS Switch (6/5/1-4)")
+C_130J:defineToggleSwitch("DSP_ECM_MASTER", devices.CMS_MGR, 3007, 62, DEFENSIVE_SYSTEMS, "ECM Master Switch")
+C_130J:defineToggleSwitch("DSP_IRCM_MASTER", devices.CMS_MGR, 3004, 63, DEFENSIVE_SYSTEMS, "IRCM Master Switch")
+C_130J:definePushButton("DSP_RWR_SRCH", devices.CMS_MGR, 3009, 54, DEFENSIVE_SYSTEMS, "RWR SRCH Switch")
+C_130J:definePushButton("DSP_RWR_MODE", devices.CMS_MGR, 3010, 55, DEFENSIVE_SYSTEMS, "RWR MODE Switch")
+C_130J:definePushButton("DSP_RWR_HANDOFF", devices.CMS_MGR, 3011, 56, DEFENSIVE_SYSTEMS, "RWR HANDOFF Switch")
+C_130J:definePushButton("DSP_RWR_ALT", devices.CMS_MGR, 3012, 57, DEFENSIVE_SYSTEMS, "RWR ALT Switch")
+C_130J:definePushButton("DSP_RWR_TGT_SEP", devices.CMS_MGR, 3013, 58, DEFENSIVE_SYSTEMS, "RWR TGT SEP Switch")
+C_130J:defineIndicatorLight("DSP_RWR_SRCH_LED", 4097, DEFENSIVE_SYSTEMS, "RWR SRCH Switch Light (Green)")
+C_130J:defineIndicatorLight("DSP_RWR_MODE_LED", 4098, DEFENSIVE_SYSTEMS, "RWR MODE Switch Light (Green)")
+C_130J:defineIndicatorLight("DSP_RWR_HANDOFF_LED", 4099, DEFENSIVE_SYSTEMS, "RWR HANDOFF Switch Light (Green)")
+C_130J:defineIndicatorLight("DSP_RWR_ALT_LED", 4100, DEFENSIVE_SYSTEMS, "RWR ALT Switch Light (Green)")
+C_130J:defineIndicatorLight("DSP_RWR_TGT_SEP_LED", 4101, DEFENSIVE_SYSTEMS, "RWR TGT SEP Switch Light (Green)")
 
 -- Aerial Delivery Panel
 local AERIAL_DELIVERY = "Aerial Delivery Panel"
