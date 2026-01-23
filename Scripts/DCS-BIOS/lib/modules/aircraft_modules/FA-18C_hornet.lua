@@ -664,11 +664,9 @@ FA_18C_hornet:define3PosTumb("FLAP_SW", 2, 3007, 234, "Select Jettison Button", 
 FA_18C_hornet:defineToggleSwitch("LDG_TAXI_SW", 8, 3004, 237, "Select Jettison Button", "LDG/TAXI LIGHT Switch")
 FA_18C_hornet:defineFloat("HYD_IND_BRAKE", 242, { 0, 1 }, "Select Jettison Button", "HYD Indicator Brake")
 
--- 34. Emergency and Parking Brake Handle (second two rows are shorthands < 32 bytes for RS485 users)
+-- 34. Emergency and Parking Brake Handle (see also: end of file)
 FA_18C_hornet:defineToggleSwitch("EMERGENCY_PARKING_BRAKE_PULL", 5, 3005, 240, "Emergency and Parking Brake Handle", "Emergency/Parking Brake Pull")
 FA_18C_hornet:defineEmergencyParkingBrake("EMERGENCY_PARKING_BRAKE_ROTATE", 5, 3007, 3006, 241, "Emergency and Parking Brake Handle", "Emergency/Parking Brake Rotate")
-FA_18C_hornet:defineToggleSwitch("EMER_PARKING_BRAKE_PULL", 5, 3005, 240, "Emergency and Parking Brake Handle", "Emergency/Parking Brake Pull")
-FA_18C_hornet:defineEmergencyParkingBrake("EMER_PARKING_BRAKE_ROTATE", 5, 3007, 3006, 241, "Emergency and Parking Brake Handle", "Emergency/Parking Brake Rotate")
 
 
 -- 35. Dispenser/EMC Panel
@@ -991,5 +989,12 @@ FA_18C_hornet:defineString("HUD_ATC_NWS_ENGAGED", function()
 end, 6, "HUD", "ATC - NWS Engaged")
 
 FA_18C_hornet:defineFloatFromDrawArgument("EXT_LAUNCH_BAR", 85, "External Aircraft Model", "Launch Bar position")
+
+
+--- Emergency and Parking Brake for RS485
+-- 34. Emergency and Parking Brake Handle (shorthands < 32 bytes for RS485 users)
+FA_18C_hornet:defineToggleSwitch("EMER_PARKING_BRAKE_PULL", 5, 3005, 240, "Emergency and Parking Brake Handle", "Emergency/Parking Brake Pull")
+FA_18C_hornet:defineEmergencyParkingBrake("EMER_PARKING_BRAKE_ROTATE", 5, 3007, 3006, 241, "Emergency and Parking Brake Handle", "Emergency/Parking Brake Rotate")
+
 
 return FA_18C_hornet
