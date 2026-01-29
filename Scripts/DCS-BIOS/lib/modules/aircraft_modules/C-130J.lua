@@ -701,9 +701,9 @@ C_130J:defineMultipositionSwitch("ARC210_1MHZ", devices.VOLUME_MANAGER, 3162, 54
 C_130J:defineMultipositionSwitch("ARC210_100KHZ", devices.VOLUME_MANAGER, 3163, 539, 10, 1 / 9, ARC_210, "ARC-210 100 KHz Selector")
 C_130J:defineMultipositionSwitch("ARC210_25KHZ", devices.VOLUME_MANAGER, 3164, 538, 4, 1 / 3, ARC_210, "ARC-210 25 KHz Selector")
 C_130J:definePushButton("ARC210_ENTER", devices.VOLUME_MANAGER, 3158, 537, ARC_210, "ARC-210 ENTER Key")
-C_130J:defineMultipositionSwitch("ARC210_OPER_MODE", devices.VOLUME_MANAGER, 3165, 543, 7, 1 / 6, ARC_210, "ARC-210 Operational Mode Switch")
+C_130J:defineMultipositionSwitch("ARC210_OPER_MODE", devices.VOLUME_MANAGER, 3165, 543, 7, 1 / 6, ARC_210, "ARC-210 Operational Mode Switch: OFF/TR+G/TR/ADF/CHG PRST/TEST/ZERO")
 C_130J:defineRotary("ARC210_CHNL_KNOB", devices.VOLUME_MANAGER, 3166, 544, ARC_210, "ARC-210 Channel Selector")
-C_130J:defineMultipositionSwitch("ARC210_FREQ_MODE", devices.VOLUME_MANAGER, 3167, 545, 7, 1 / 6, ARC_210, "ARC-210 Frequency Mode Switch")
+C_130J:defineMultipositionSwitch("ARC210_FREQ_MODE", devices.VOLUME_MANAGER, 3167, 545, 7, 1 / 6, ARC_210, "ARC-210 Frequency Mode Switch: ECCM MASTER/ECCM/PRST/MAN/MAR/243/I2I")
 
 -- Center Console END
 
