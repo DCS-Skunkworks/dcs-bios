@@ -795,8 +795,8 @@ Mi_24P:defineIndicatorLight("PLT_RV5_DALT_L", 284, "Radar Altimeter Lights", "PI
 
 --MAP DISPLAY
 Mi_24P:define3PosTumb("PLT_MAP_LIGHT", 45, 3011, 192, "MAP DISPLAY", "PILOT Map Highlight  BRIGHT/OFF/DIM")
-Mi_24P:definePotentiometer("PLT_MAP_ADJ_HOR", 45, 3006, 983, { 0, 1 }, "MAP DISPLAY", "PILOT Set the horizontal position of the helicopter on the Map")
-Mi_24P:definePotentiometer("PLT_MAP_ADJ_VERT", 45, 3004, 291, { 0, 1 }, "MAP DISPLAY", "PILOT Set the vertical position of the helicopter on the Map")
+Mi_24P:defineRotary("PLT_MAP_ADJ_HOR", 45, 3006, 983, "MAP DISPLAY", "PILOT Set the horizontal position of the helicopter on the Map")
+Mi_24P:defineRotary("PLT_MAP_ADJ_VERT", 45, 3004, 291, "MAP DISPLAY", "PILOT Set the vertical position of the helicopter on the Map")
 Mi_24P:defineToggleSwitch("PLT_MAP_PW", 45, 3008, 984, "MAP DISPLAY", "PILOT Map Power ON/OFF")
 Mi_24P:defineToggleSwitch("PLT_MAP_SCALE", 45, 3001, 985, "MAP DISPLAY", "PILOT Map Scale Selector")
 
