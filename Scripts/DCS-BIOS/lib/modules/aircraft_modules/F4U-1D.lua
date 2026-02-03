@@ -449,5 +449,6 @@ F4U_1D:definePotentiometer("MIRROR_ADJUST_LEFT", devices.UTILITY, 3457, 802, { -
 -- local EXTERIOR_MODEL = "Exterior Model"
 
 -- Radios
+F4U_1D:defineReadWriteRadio("RADIO_C_30A", 8, 7, 3, 1000, "C-30A")
 
 return F4U_1D
