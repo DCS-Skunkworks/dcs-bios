@@ -1417,126 +1417,6 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
-	["ADF_presets_page_field_10"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_ADF_PRESETS",
-			},
-			id = "ADF_presets_page_field_10",
-			x = 2,
-			y = 3,
-			color = "w",
-		},
-	},
-	["ADF_presets_page_field_11"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_ADF_PRESETS",
-			},
-			id = "ADF_presets_page_field_11",
-			x = 2,
-			y = 3,
-			color = "w",
-		},
-	},
-	["ADF_presets_page_field_12"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_ADF_PRESETS",
-			},
-			id = "ADF_presets_page_field_12",
-			x = 2,
-			y = 3,
-			color = "w",
-		},
-	},
-	["ADF_presets_page_field_13"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_ADF_PRESETS",
-			},
-			id = "ADF_presets_page_field_13",
-			x = 2,
-			y = 3,
-			color = "w",
-		},
-	},
-	["ADF_presets_page_field_14"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_ADF_PRESETS",
-			},
-			id = "ADF_presets_page_field_14",
-			x = 2,
-			y = 3,
-			color = "w",
-		},
-	},
-	["ADF_presets_page_field_15"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_ADF_PRESETS",
-			},
-			id = "ADF_presets_page_field_15",
-			x = 2,
-			y = 3,
-			color = "w",
-		},
-	},
-	["ADF_presets_page_field_16"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_ADF_PRESETS",
-			},
-			id = "ADF_presets_page_field_16",
-			x = 2,
-			y = 3,
-			color = "w",
-		},
-	},
-	["ADF_presets_page_field_17"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_ADF_PRESETS",
-			},
-			id = "ADF_presets_page_field_17",
-			x = 2,
-			y = 3,
-			color = "w",
-		},
-	},
-	["ADF_presets_page_field_18"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_ADF_PRESETS",
-			},
-			id = "ADF_presets_page_field_18",
-			x = 2,
-			y = 3,
-			color = "w",
-		},
-	},
-	["ADF_presets_page_field_19"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_ADF_PRESETS",
-			},
-			id = "ADF_presets_page_field_19",
-			x = 2,
-			y = 3,
-			color = "w",
-		},
-	},
 	["ADF_presets_page_field_2"] = {
 		{
 			alignment = "LFT",
@@ -1545,19 +1425,7 @@ local CH_47F_CDU = {
 			},
 			id = "ADF_presets_page_field_2",
 			x = 2,
-			y = 3,
-			color = "w",
-		},
-	},
-	["ADF_presets_page_field_20"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_ADF_PRESETS",
-			},
-			id = "ADF_presets_page_field_20",
-			x = 2,
-			y = 3,
+			y = 5,
 			color = "w",
 		},
 	},
@@ -1569,7 +1437,7 @@ local CH_47F_CDU = {
 			},
 			id = "ADF_presets_page_field_3",
 			x = 2,
-			y = 3,
+			y = 7,
 			color = "w",
 		},
 	},
@@ -1581,7 +1449,7 @@ local CH_47F_CDU = {
 			},
 			id = "ADF_presets_page_field_4",
 			x = 2,
-			y = 3,
+			y = 9,
 			color = "w",
 		},
 	},
@@ -1593,55 +1461,7 @@ local CH_47F_CDU = {
 			},
 			id = "ADF_presets_page_field_5",
 			x = 2,
-			y = 3,
-			color = "w",
-		},
-	},
-	["ADF_presets_page_field_6"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_ADF_PRESETS",
-			},
-			id = "ADF_presets_page_field_6",
-			x = 2,
-			y = 3,
-			color = "w",
-		},
-	},
-	["ADF_presets_page_field_7"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_ADF_PRESETS",
-			},
-			id = "ADF_presets_page_field_7",
-			x = 2,
-			y = 3,
-			color = "w",
-		},
-	},
-	["ADF_presets_page_field_8"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_ADF_PRESETS",
-			},
-			id = "ADF_presets_page_field_8",
-			x = 2,
-			y = 3,
-			color = "w",
-		},
-	},
-	["ADF_presets_page_field_9"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_ADF_PRESETS",
-			},
-			id = "ADF_presets_page_field_9",
-			x = 2,
-			y = 3,
+			y = 11,
 			color = "w",
 		},
 	},
@@ -2499,6 +2319,30 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
+	["ALT_VALID_DEG"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_LRU_RALT_STATUS",
+			},
+			id = "ALT_VALID_DEG",
+			x = 24,
+			y = 7,
+			color = "g",
+		},
+	},
+	["ALT_VALID_FAIL"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_LRU_RALT_STATUS",
+			},
+			id = "ALT_VALID_FAIL",
+			x = 24,
+			y = 7,
+			color = "g",
+		},
+	},
 	["ALT_VALID_field"] = {
 		{
 			alignment = "RGHT",
@@ -2511,14 +2355,14 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
-	["ALT_VALID_value"] = {
+	["ALT_VALID_GO"] = {
 		{
 			alignment = "RGHT",
 			pages = {
 				"CDU_SUBSET_LRU_RALT_STATUS",
 			},
-			id = "ALT_VALID_value",
-			x = 23,
+			id = "ALT_VALID_GO",
+			x = 24,
 			y = 7,
 			color = "g",
 		},
@@ -2909,6 +2753,7 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_FPLN_HOLD",
 				"CDU_SUBSET_FPLN_HOV_OVERRIDE",
 				"CDU_SUBSET_FPLN_IMPROMPTU",
+				"CDU_SUBSET_FPLN_IMPROMPTU_POINTS",
 				"CDU_SUBSET_FPLN_INTERCEPT",
 				"CDU_SUBSET_FPLN_LADDER",
 				"CDU_SUBSET_FPLN_LOAD_ALTN",
@@ -2952,13 +2797,16 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_LRU_DLU_STATUS",
 				"CDU_SUBSET_LRU_EGI1_STATUS",
 				"CDU_SUBSET_LRU_EGI2_STATUS",
+				"CDU_SUBSET_LRU_F1_STATUS",
 				"CDU_SUBSET_LRU_FQTY_STATUS",
 				"CDU_SUBSET_LRU_GPPU1_STATUS",
 				"CDU_SUBSET_LRU_GPPU2_STATUS",
 				"CDU_SUBSET_LRU_GPS1_STATUS",
 				"CDU_SUBSET_LRU_GPS2_STATUS",
+				"CDU_SUBSET_LRU_H4_STATUS",
 				"CDU_SUBSET_LRU_HUD_STATUS",
 				"CDU_SUBSET_LRU_ICRM_STATUS",
+				"CDU_SUBSET_LRU_IFF_STATUS",
 				"CDU_SUBSET_LRU_INU1_STATUS",
 				"CDU_SUBSET_LRU_INU2_STATUS",
 				"CDU_SUBSET_LRU_MFD1_STATUS",
@@ -2974,6 +2822,8 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_LRU_STATUS_WORDS",
 				"CDU_SUBSET_LRU_STORM_STATUS",
 				"CDU_SUBSET_LRU_TACAN_STATUS",
+				"CDU_SUBSET_LRU_U2_STATUS",
+				"CDU_SUBSET_LRU_V3_STATUS",
 				"CDU_SUBSET_LRU_VOR_STATUS",
 				"CDU_SUBSET_MAINTENANCE_1",
 				"CDU_SUBSET_MAINTENANCE_2",
@@ -3232,16 +3082,57 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
+	["ARINC_429_DEG"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_LRU_EGI1_STATUS",
+				"CDU_SUBSET_LRU_EGI2_STATUS",
+				"CDU_SUBSET_LRU_GPS2_STATUS",
+				"CDU_SUBSET_LRU_INU1_STATUS",
+				"CDU_SUBSET_LRU_INU2_STATUS",
+			},
+			id = "ARINC_429_DEG",
+			x = 24,
+			y = 7,
+			color = "g",
+		},
+	},
+	["ARINC_429_FAIL"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_LRU_EGI1_STATUS",
+				"CDU_SUBSET_LRU_EGI2_STATUS",
+				"CDU_SUBSET_LRU_GPS2_STATUS",
+				"CDU_SUBSET_LRU_INU1_STATUS",
+				"CDU_SUBSET_LRU_INU2_STATUS",
+			},
+			id = "ARINC_429_FAIL",
+			x = 24,
+			y = 7,
+			color = "g",
+		},
+	},
 	["ARINC_429_field"] = {
 		{
 			alignment = "RGHT",
 			pages = {
 				"CDU_SUBSET_LRU_EGI1_STATUS",
 				"CDU_SUBSET_LRU_EGI2_STATUS",
-				"CDU_SUBSET_LRU_GPS1_STATUS",
-				"CDU_SUBSET_LRU_GPS2_STATUS",
 				"CDU_SUBSET_LRU_INU1_STATUS",
 				"CDU_SUBSET_LRU_INU2_STATUS",
+			},
+			id = "ARINC_429_field",
+			x = 24,
+			y = 6,
+			color = "w",
+		},
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_LRU_GPS1_STATUS",
+				"CDU_SUBSET_LRU_GPS2_STATUS",
 			},
 			id = "ARINC_429_field",
 			x = 23,
@@ -3249,19 +3140,41 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
-	["ARINC_429_value"] = {
+	["ARINC_429_GO"] = {
 		{
 			alignment = "RGHT",
 			pages = {
 				"CDU_SUBSET_LRU_EGI1_STATUS",
 				"CDU_SUBSET_LRU_EGI2_STATUS",
-				"CDU_SUBSET_LRU_GPS1_STATUS",
 				"CDU_SUBSET_LRU_GPS2_STATUS",
 				"CDU_SUBSET_LRU_INU1_STATUS",
 				"CDU_SUBSET_LRU_INU2_STATUS",
 			},
+			id = "ARINC_429_GO",
+			x = 24,
+			y = 7,
+			color = "g",
+		},
+	},
+	["ARINC_429_value"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_LRU_GPS1_STATUS",
+			},
 			id = "ARINC_429_value",
 			x = 23,
+			y = 7,
+			color = "g",
+		},
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_LRU_INU1_STATUS",
+				"CDU_SUBSET_LRU_INU2_STATUS",
+			},
+			id = "ARINC_429_value",
+			x = 24,
 			y = 7,
 			color = "g",
 		},
@@ -4381,13 +4294,17 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_LRU_DLU_STATUS",
 				"CDU_SUBSET_LRU_EGI1_STATUS",
 				"CDU_SUBSET_LRU_EGI2_STATUS",
+				"CDU_SUBSET_LRU_F1_STATUS",
 				"CDU_SUBSET_LRU_GPS1_STATUS",
 				"CDU_SUBSET_LRU_GPS2_STATUS",
+				"CDU_SUBSET_LRU_H4_STATUS",
 				"CDU_SUBSET_LRU_INU1_STATUS",
 				"CDU_SUBSET_LRU_INU2_STATUS",
 				"CDU_SUBSET_LRU_RALT_STATUS",
 				"CDU_SUBSET_LRU_STORM_STATUS",
 				"CDU_SUBSET_LRU_TACAN_STATUS",
+				"CDU_SUBSET_LRU_U2_STATUS",
+				"CDU_SUBSET_LRU_V3_STATUS",
 				"CDU_SUBSET_LRU_VOR_STATUS",
 			},
 			id = "BUS1_field",
@@ -4400,29 +4317,6 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_LRU_ADC1_STATUS",
-				"CDU_SUBSET_LRU_ADC2_STATUS",
-				"CDU_SUBSET_LRU_ADF_STATUS",
-				"CDU_SUBSET_LRU_DLU_STATUS",
-				"CDU_SUBSET_LRU_EGI1_STATUS",
-				"CDU_SUBSET_LRU_EGI2_STATUS",
-				"CDU_SUBSET_LRU_GPS1_STATUS",
-				"CDU_SUBSET_LRU_GPS2_STATUS",
-				"CDU_SUBSET_LRU_INU1_STATUS",
-				"CDU_SUBSET_LRU_INU2_STATUS",
-				"CDU_SUBSET_LRU_RALT_STATUS",
-				"CDU_SUBSET_LRU_STORM_STATUS",
-				"CDU_SUBSET_LRU_TACAN_STATUS",
-				"CDU_SUBSET_LRU_VOR_STATUS",
-			},
-			id = "BUS1_status",
-			x = 1,
-			y = 3,
-			color = "w",
-		},
-		{
-			alignment = "LFT",
-			pages = {
 				"CDU_SUBSET_LRU_AFCS1_STATUS",
 				"CDU_SUBSET_LRU_AFCS2_STATUS",
 			},
@@ -4431,13 +4325,40 @@ local CH_47F_CDU = {
 			y = 3,
 			color = "g",
 		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_DLU_STATUS",
+				"CDU_SUBSET_LRU_STORM_STATUS",
+			},
+			id = "BUS1_status",
+			x = 1,
+			y = 3,
+			color = "w",
+		},
 	},
 	["BUS1_status_DEG"] = {
 		{
 			alignment = "LFT",
 			pages = {
+				"CDU_SUBSET_LRU_ADC1_STATUS",
+				"CDU_SUBSET_LRU_ADC2_STATUS",
+				"CDU_SUBSET_LRU_ADF_STATUS",
 				"CDU_SUBSET_LRU_CDU1_STATUS",
 				"CDU_SUBSET_LRU_CDU2_STATUS",
+				"CDU_SUBSET_LRU_EGI1_STATUS",
+				"CDU_SUBSET_LRU_EGI2_STATUS",
+				"CDU_SUBSET_LRU_F1_STATUS",
+				"CDU_SUBSET_LRU_GPS1_STATUS",
+				"CDU_SUBSET_LRU_GPS2_STATUS",
+				"CDU_SUBSET_LRU_H4_STATUS",
+				"CDU_SUBSET_LRU_INU1_STATUS",
+				"CDU_SUBSET_LRU_INU2_STATUS",
+				"CDU_SUBSET_LRU_RALT_STATUS",
+				"CDU_SUBSET_LRU_TACAN_STATUS",
+				"CDU_SUBSET_LRU_U2_STATUS",
+				"CDU_SUBSET_LRU_V3_STATUS",
+				"CDU_SUBSET_LRU_VOR_STATUS",
 			},
 			id = "BUS1_status_DEG",
 			x = 1,
@@ -4449,8 +4370,24 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
+				"CDU_SUBSET_LRU_ADC1_STATUS",
+				"CDU_SUBSET_LRU_ADC2_STATUS",
+				"CDU_SUBSET_LRU_ADF_STATUS",
 				"CDU_SUBSET_LRU_CDU1_STATUS",
 				"CDU_SUBSET_LRU_CDU2_STATUS",
+				"CDU_SUBSET_LRU_EGI1_STATUS",
+				"CDU_SUBSET_LRU_EGI2_STATUS",
+				"CDU_SUBSET_LRU_F1_STATUS",
+				"CDU_SUBSET_LRU_GPS1_STATUS",
+				"CDU_SUBSET_LRU_GPS2_STATUS",
+				"CDU_SUBSET_LRU_H4_STATUS",
+				"CDU_SUBSET_LRU_INU1_STATUS",
+				"CDU_SUBSET_LRU_INU2_STATUS",
+				"CDU_SUBSET_LRU_RALT_STATUS",
+				"CDU_SUBSET_LRU_TACAN_STATUS",
+				"CDU_SUBSET_LRU_U2_STATUS",
+				"CDU_SUBSET_LRU_V3_STATUS",
+				"CDU_SUBSET_LRU_VOR_STATUS",
 			},
 			id = "BUS1_status_FAIL",
 			x = 1,
@@ -4462,8 +4399,24 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
+				"CDU_SUBSET_LRU_ADC1_STATUS",
+				"CDU_SUBSET_LRU_ADC2_STATUS",
+				"CDU_SUBSET_LRU_ADF_STATUS",
 				"CDU_SUBSET_LRU_CDU1_STATUS",
 				"CDU_SUBSET_LRU_CDU2_STATUS",
+				"CDU_SUBSET_LRU_EGI1_STATUS",
+				"CDU_SUBSET_LRU_EGI2_STATUS",
+				"CDU_SUBSET_LRU_F1_STATUS",
+				"CDU_SUBSET_LRU_GPS1_STATUS",
+				"CDU_SUBSET_LRU_GPS2_STATUS",
+				"CDU_SUBSET_LRU_H4_STATUS",
+				"CDU_SUBSET_LRU_INU1_STATUS",
+				"CDU_SUBSET_LRU_INU2_STATUS",
+				"CDU_SUBSET_LRU_RALT_STATUS",
+				"CDU_SUBSET_LRU_TACAN_STATUS",
+				"CDU_SUBSET_LRU_U2_STATUS",
+				"CDU_SUBSET_LRU_V3_STATUS",
+				"CDU_SUBSET_LRU_VOR_STATUS",
 			},
 			id = "BUS1_status_GO",
 			x = 1,
@@ -4485,13 +4438,17 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_LRU_DLU_STATUS",
 				"CDU_SUBSET_LRU_EGI1_STATUS",
 				"CDU_SUBSET_LRU_EGI2_STATUS",
+				"CDU_SUBSET_LRU_F1_STATUS",
 				"CDU_SUBSET_LRU_GPS1_STATUS",
 				"CDU_SUBSET_LRU_GPS2_STATUS",
+				"CDU_SUBSET_LRU_H4_STATUS",
 				"CDU_SUBSET_LRU_INU1_STATUS",
 				"CDU_SUBSET_LRU_INU2_STATUS",
 				"CDU_SUBSET_LRU_RALT_STATUS",
 				"CDU_SUBSET_LRU_STORM_STATUS",
 				"CDU_SUBSET_LRU_TACAN_STATUS",
+				"CDU_SUBSET_LRU_U2_STATUS",
+				"CDU_SUBSET_LRU_V3_STATUS",
 				"CDU_SUBSET_LRU_VOR_STATUS",
 			},
 			id = "BUS2_field",
@@ -4504,29 +4461,6 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_LRU_ADC1_STATUS",
-				"CDU_SUBSET_LRU_ADC2_STATUS",
-				"CDU_SUBSET_LRU_ADF_STATUS",
-				"CDU_SUBSET_LRU_DLU_STATUS",
-				"CDU_SUBSET_LRU_EGI1_STATUS",
-				"CDU_SUBSET_LRU_EGI2_STATUS",
-				"CDU_SUBSET_LRU_GPS1_STATUS",
-				"CDU_SUBSET_LRU_GPS2_STATUS",
-				"CDU_SUBSET_LRU_INU1_STATUS",
-				"CDU_SUBSET_LRU_INU2_STATUS",
-				"CDU_SUBSET_LRU_RALT_STATUS",
-				"CDU_SUBSET_LRU_STORM_STATUS",
-				"CDU_SUBSET_LRU_TACAN_STATUS",
-				"CDU_SUBSET_LRU_VOR_STATUS",
-			},
-			id = "BUS2_status",
-			x = 6,
-			y = 3,
-			color = "w",
-		},
-		{
-			alignment = "LFT",
-			pages = {
 				"CDU_SUBSET_LRU_AFCS1_STATUS",
 				"CDU_SUBSET_LRU_AFCS2_STATUS",
 			},
@@ -4535,13 +4469,40 @@ local CH_47F_CDU = {
 			y = 3,
 			color = "g",
 		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_DLU_STATUS",
+				"CDU_SUBSET_LRU_STORM_STATUS",
+			},
+			id = "BUS2_status",
+			x = 6,
+			y = 3,
+			color = "w",
+		},
 	},
 	["BUS2_status_DEG"] = {
 		{
 			alignment = "LFT",
 			pages = {
+				"CDU_SUBSET_LRU_ADC1_STATUS",
+				"CDU_SUBSET_LRU_ADC2_STATUS",
+				"CDU_SUBSET_LRU_ADF_STATUS",
 				"CDU_SUBSET_LRU_CDU1_STATUS",
 				"CDU_SUBSET_LRU_CDU2_STATUS",
+				"CDU_SUBSET_LRU_EGI1_STATUS",
+				"CDU_SUBSET_LRU_EGI2_STATUS",
+				"CDU_SUBSET_LRU_F1_STATUS",
+				"CDU_SUBSET_LRU_GPS1_STATUS",
+				"CDU_SUBSET_LRU_GPS2_STATUS",
+				"CDU_SUBSET_LRU_H4_STATUS",
+				"CDU_SUBSET_LRU_INU1_STATUS",
+				"CDU_SUBSET_LRU_INU2_STATUS",
+				"CDU_SUBSET_LRU_RALT_STATUS",
+				"CDU_SUBSET_LRU_TACAN_STATUS",
+				"CDU_SUBSET_LRU_U2_STATUS",
+				"CDU_SUBSET_LRU_V3_STATUS",
+				"CDU_SUBSET_LRU_VOR_STATUS",
 			},
 			id = "BUS2_status_DEG",
 			x = 6,
@@ -4553,8 +4514,24 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
+				"CDU_SUBSET_LRU_ADC1_STATUS",
+				"CDU_SUBSET_LRU_ADC2_STATUS",
+				"CDU_SUBSET_LRU_ADF_STATUS",
 				"CDU_SUBSET_LRU_CDU1_STATUS",
 				"CDU_SUBSET_LRU_CDU2_STATUS",
+				"CDU_SUBSET_LRU_EGI1_STATUS",
+				"CDU_SUBSET_LRU_EGI2_STATUS",
+				"CDU_SUBSET_LRU_F1_STATUS",
+				"CDU_SUBSET_LRU_GPS1_STATUS",
+				"CDU_SUBSET_LRU_GPS2_STATUS",
+				"CDU_SUBSET_LRU_H4_STATUS",
+				"CDU_SUBSET_LRU_INU1_STATUS",
+				"CDU_SUBSET_LRU_INU2_STATUS",
+				"CDU_SUBSET_LRU_RALT_STATUS",
+				"CDU_SUBSET_LRU_TACAN_STATUS",
+				"CDU_SUBSET_LRU_U2_STATUS",
+				"CDU_SUBSET_LRU_V3_STATUS",
+				"CDU_SUBSET_LRU_VOR_STATUS",
 			},
 			id = "BUS2_status_FAIL",
 			x = 6,
@@ -4566,8 +4543,24 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
+				"CDU_SUBSET_LRU_ADC1_STATUS",
+				"CDU_SUBSET_LRU_ADC2_STATUS",
+				"CDU_SUBSET_LRU_ADF_STATUS",
 				"CDU_SUBSET_LRU_CDU1_STATUS",
 				"CDU_SUBSET_LRU_CDU2_STATUS",
+				"CDU_SUBSET_LRU_EGI1_STATUS",
+				"CDU_SUBSET_LRU_EGI2_STATUS",
+				"CDU_SUBSET_LRU_F1_STATUS",
+				"CDU_SUBSET_LRU_GPS1_STATUS",
+				"CDU_SUBSET_LRU_GPS2_STATUS",
+				"CDU_SUBSET_LRU_H4_STATUS",
+				"CDU_SUBSET_LRU_INU1_STATUS",
+				"CDU_SUBSET_LRU_INU2_STATUS",
+				"CDU_SUBSET_LRU_RALT_STATUS",
+				"CDU_SUBSET_LRU_TACAN_STATUS",
+				"CDU_SUBSET_LRU_U2_STATUS",
+				"CDU_SUBSET_LRU_V3_STATUS",
+				"CDU_SUBSET_LRU_VOR_STATUS",
 			},
 			id = "BUS2_status_GO",
 			x = 6,
@@ -5144,22 +5137,48 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_LRU_RALT_STATUS",
-			},
-			id = "CBIT_status",
-			x = 7,
-			y = 9,
-			color = "g",
-		},
-		{
-			alignment = "LFT",
-			pages = {
 				"CDU_SUBSET_LRU_DLU_STATUS",
 				"CDU_SUBSET_LRU_STORM_STATUS",
 			},
 			id = "CBIT_status",
 			x = 1,
 			y = 7,
+			color = "g",
+		},
+	},
+	["CBIT_status_DEG"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_RALT_STATUS",
+			},
+			id = "CBIT_status_DEG",
+			x = 1,
+			y = 9,
+			color = "g",
+		},
+	},
+	["CBIT_status_FAIL"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_RALT_STATUS",
+			},
+			id = "CBIT_status_FAIL",
+			x = 1,
+			y = 9,
+			color = "g",
+		},
+	},
+	["CBIT_status_GO"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_RALT_STATUS",
+			},
+			id = "CBIT_status_GO",
+			x = 1,
+			y = 9,
 			color = "g",
 		},
 	},
@@ -5521,6 +5540,7 @@ local CH_47F_CDU = {
 			pages = {
 				"CDU_SUBSET_EGI_1",
 				"CDU_SUBSET_EGI_2",
+				"CDU_SUBSET_GPS_2",
 				"CDU_SUBSET_INU_1",
 				"CDU_SUBSET_INU_2",
 			},
@@ -5571,6 +5591,7 @@ local CH_47F_CDU = {
 			pages = {
 				"CDU_SUBSET_EGI_1",
 				"CDU_SUBSET_EGI_2",
+				"CDU_SUBSET_INU_1",
 				"CDU_SUBSET_INU_2",
 			},
 			id = "CEP_units",
@@ -5582,19 +5603,10 @@ local CH_47F_CDU = {
 			alignment = "LFT",
 			pages = {
 				"CDU_SUBSET_GPS_1",
+				"CDU_SUBSET_GPS_2",
 			},
 			id = "CEP_units",
 			x = 4,
-			y = 7,
-			color = "w",
-		},
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_INU_1",
-			},
-			id = "CEP_units",
-			x = 2,
 			y = 7,
 			color = "w",
 		},
@@ -5610,6 +5622,16 @@ local CH_47F_CDU = {
 			},
 			id = "CEP_value",
 			x = 2,
+			y = 7,
+			color = "g",
+		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_GPS_2",
+			},
+			id = "CEP_value",
+			x = 1,
 			y = 7,
 			color = "g",
 		},
@@ -6553,19 +6575,6 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
-	["CONFIG_branch"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_LRU_ADC1_STATUS",
-				"CDU_SUBSET_LRU_ADC2_STATUS",
-			},
-			id = "CONFIG_branch",
-			x = 1,
-			y = 11,
-			color = "w",
-		},
-	},
 	["CONFIG_field"] = {
 		{
 			alignment = "LFT",
@@ -6574,21 +6583,47 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_LRU_ADC2_STATUS",
 			},
 			id = "CONFIG_field",
-			x = 2,
+			x = 1,
 			y = 11,
 			color = "w",
 		},
 	},
-	["CONFIG_status"] = {
+	["CONFIG_status_DEG"] = {
 		{
 			alignment = "LFT",
 			pages = {
 				"CDU_SUBSET_LRU_ADC1_STATUS",
 				"CDU_SUBSET_LRU_ADC2_STATUS",
 			},
-			id = "CONFIG_status",
-			x = 7,
-			y = 11,
+			id = "CONFIG_status_DEG",
+			x = 1,
+			y = 12,
+			color = "g",
+		},
+	},
+	["CONFIG_status_FAIL"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_ADC1_STATUS",
+				"CDU_SUBSET_LRU_ADC2_STATUS",
+			},
+			id = "CONFIG_status_FAIL",
+			x = 1,
+			y = 12,
+			color = "g",
+		},
+	},
+	["CONFIG_status_GO"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_ADC1_STATUS",
+				"CDU_SUBSET_LRU_ADC2_STATUS",
+			},
+			id = "CONFIG_status_GO",
+			x = 1,
+			y = 12,
 			color = "g",
 		},
 	},
@@ -7035,17 +7070,9 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_FPLN_HOLD",
-			},
-			id = "COURSE_field",
-			x = 1,
-			y = 4,
-			color = "w",
-		},
-		{
-			alignment = "LFT",
-			pages = {
 				"CDU_SUBSET_FPLN_EXP_SQUARE",
+				"CDU_SUBSET_FPLN_HOLD",
+				"CDU_SUBSET_FPLN_INTERCEPT",
 				"CDU_SUBSET_FPLN_SECTOR",
 			},
 			id = "COURSE_field",
@@ -7070,17 +7097,9 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_FPLN_HOLD",
-			},
-			id = "COURSE_left_bracket",
-			x = 1,
-			y = 5,
-			color = "w",
-		},
-		{
-			alignment = "LFT",
-			pages = {
 				"CDU_SUBSET_FPLN_EXP_SQUARE",
+				"CDU_SUBSET_FPLN_HOLD",
+				"CDU_SUBSET_FPLN_INTERCEPT",
 				"CDU_SUBSET_FPLN_SECTOR",
 			},
 			id = "COURSE_left_bracket",
@@ -7105,18 +7124,19 @@ local CH_47F_CDU = {
 		{
 			alignment = "RGHT",
 			pages = {
+				"CDU_SUBSET_FPLN_EXP_SQUARE",
 				"CDU_SUBSET_FPLN_HOLD",
+				"CDU_SUBSET_FPLN_SECTOR",
 			},
 			id = "COURSE_right_bracket",
 			x = 5,
-			y = 5,
+			y = 7,
 			color = "w",
 		},
 		{
-			alignment = "RGHT",
+			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_FPLN_EXP_SQUARE",
-				"CDU_SUBSET_FPLN_SECTOR",
+				"CDU_SUBSET_FPLN_INTERCEPT",
 			},
 			id = "COURSE_right_bracket",
 			x = 5,
@@ -7140,17 +7160,9 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_FPLN_HOLD",
-			},
-			id = "COURSE_value",
-			x = 2,
-			y = 5,
-			color = "g",
-		},
-		{
-			alignment = "LFT",
-			pages = {
 				"CDU_SUBSET_FPLN_EXP_SQUARE",
+				"CDU_SUBSET_FPLN_HOLD",
+				"CDU_SUBSET_FPLN_INTERCEPT",
 				"CDU_SUBSET_FPLN_SECTOR",
 			},
 			id = "COURSE_value",
@@ -7437,50 +7449,6 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
-	["CSP_latitude_value_deg"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FPLN_EXP_SQUARE",
-			},
-			id = "CSP_latitude_value_deg",
-			x = 1,
-			y = 3,
-			color = "g",
-		},
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FPLN_SECTOR",
-			},
-			id = "CSP_latitude_value_deg",
-			x = 2,
-			y = 3,
-			color = "g",
-		},
-	},
-	["CSP_latitude_value_fract"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FPLN_EXP_SQUARE",
-			},
-			id = "CSP_latitude_value_fract",
-			x = 5,
-			y = 3,
-			color = "g",
-		},
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FPLN_SECTOR",
-			},
-			id = "CSP_latitude_value_fract",
-			x = 6,
-			y = 3,
-			color = "g",
-		},
-	},
 	["CSP_left_bracket"] = {
 		{
 			alignment = "LFT",
@@ -7492,50 +7460,6 @@ local CH_47F_CDU = {
 			x = 1,
 			y = 3,
 			color = "w",
-		},
-	},
-	["CSP_longitude_value_fract"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FPLN_EXP_SQUARE",
-			},
-			id = "CSP_longitude_value_fract",
-			x = 17,
-			y = 3,
-			color = "g",
-		},
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FPLN_SECTOR",
-			},
-			id = "CSP_longitude_value_fract",
-			x = 18,
-			y = 3,
-			color = "g",
-		},
-	},
-	["CSP_longitude1_value_deg"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FPLN_EXP_SQUARE",
-			},
-			id = "CSP_longitude1_value_deg",
-			x = 12,
-			y = 3,
-			color = "g",
-		},
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FPLN_SECTOR",
-			},
-			id = "CSP_longitude1_value_deg",
-			x = 13,
-			y = 3,
-			color = "g",
 		},
 	},
 	["CSP_right_bracket"] = {
@@ -7651,16 +7575,6 @@ local CH_47F_CDU = {
 			y = 10,
 			color = "g",
 		},
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_START",
-			},
-			id = "DAFIF_date",
-			x = 3,
-			y = 7,
-			color = "g",
-		},
 	},
 	["DAFIF_field"] = {
 		{
@@ -7682,6 +7596,18 @@ local CH_47F_CDU = {
 			x = 4,
 			y = 6,
 			color = "w",
+		},
+	},
+	["DAFIF_Start_date"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_START",
+			},
+			id = "DAFIF_Start_date",
+			x = 3,
+			y = 7,
+			color = "g",
 		},
 	},
 	["DATA_1_3_branch"] = {
@@ -10115,18 +10041,6 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
-	["DTK_value"] = {
-		{
-			alignment = "RGHT",
-			pages = {
-				"CDU_SUBSET_PROGRESS_1",
-			},
-			id = "DTK_value",
-			x = 23,
-			y = 3,
-			color = "g",
-		},
-	},
 	["DTK_value2"] = {
 		{
 			alignment = "LFT",
@@ -10451,6 +10365,18 @@ local CH_47F_CDU = {
 			color = "g",
 		},
 	},
+	["EGI_1_available"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_START_2",
+			},
+			id = "EGI_1_available",
+			x = 1,
+			y = 7,
+			color = "w",
+		},
+	},
 	["EGI_1_branch"] = {
 		{
 			alignment = "LFT",
@@ -10533,6 +10459,18 @@ local CH_47F_CDU = {
 			color = "g",
 		},
 	},
+	["EGI_1_no_available"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_START_2",
+			},
+			id = "EGI_1_no_available",
+			x = 1,
+			y = 7,
+			color = "w",
+		},
+	},
 	["EGI_1_page_field"] = {
 		{
 			alignment = "LFT",
@@ -10586,6 +10524,7 @@ local CH_47F_CDU = {
 			alignment = "LFT",
 			pages = {
 				"CDU_SUBSET_EGI_1_POS_UPDATE",
+				"CDU_SUBSET_EGI_2_POS_UPDATE",
 			},
 			id = "EGI_1_PRES_POSN_value",
 			x = 1,
@@ -10689,6 +10628,18 @@ local CH_47F_CDU = {
 			color = "g",
 		},
 	},
+	["EGI_2_available"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_START_2",
+			},
+			id = "EGI_2_available",
+			x = 24,
+			y = 7,
+			color = "w",
+		},
+	},
 	["EGI_2_branch"] = {
 		{
 			alignment = "RGHT",
@@ -10745,6 +10696,18 @@ local CH_47F_CDU = {
 			color = "g",
 		},
 	},
+	["EGI_2_no_available"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_START_2",
+			},
+			id = "EGI_2_no_available",
+			x = 24,
+			y = 7,
+			color = "w",
+		},
+	},
 	["EGI_2_USE_GPS"] = {
 		{
 			alignment = "RGHT",
@@ -10765,9 +10728,21 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_INU_1",
 			},
 			id = "EGI1_ACTIVE",
-			x = 1,
+			x = 2,
 			y = 13,
 			color = "g",
+		},
+	},
+	["EGI1_AVAILABLE"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_START_2",
+			},
+			id = "EGI1_AVAILABLE",
+			x = 1,
+			y = 11,
+			color = "w",
 		},
 	},
 	["EGI1_branch"] = {
@@ -10838,6 +10813,45 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
+	["EGI1_GPS_asterisk"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_EGI_1",
+				"CDU_SUBSET_INU_1",
+			},
+			id = "EGI1_GPS_asterisk",
+			x = 1,
+			y = 13,
+			color = "w",
+		},
+	},
+	["EGI1_GPS_branch"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_EGI_1",
+				"CDU_SUBSET_INU_1",
+			},
+			id = "EGI1_GPS_branch",
+			x = 1,
+			y = 13,
+			color = "w",
+		},
+	},
+	["EGI1_GPS_empty"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_EGI_1",
+				"CDU_SUBSET_INU_1",
+			},
+			id = "EGI1_GPS_empty",
+			x = 1,
+			y = 13,
+			color = "w",
+		},
+	},
 	["EGI1_GPS_OUT"] = {
 		{
 			alignment = "LFT",
@@ -10846,7 +10860,7 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_INU_1",
 			},
 			id = "EGI1_GPS_OUT",
-			x = 1,
+			x = 2,
 			y = 13,
 			color = "g",
 		},
@@ -10862,6 +10876,18 @@ local CH_47F_CDU = {
 			x = 1,
 			y = 13,
 			color = "g",
+		},
+	},
+	["EGI1_NOT_AVAILABLE"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_START_2",
+			},
+			id = "EGI1_NOT_AVAILABLE",
+			x = 1,
+			y = 11,
+			color = "w",
 		},
 	},
 	["EGI1_page_branch_1"] = {
@@ -10944,7 +10970,7 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_INU_1",
 			},
 			id = "EGI1_USE_GPS",
-			x = 1,
+			x = 2,
 			y = 13,
 			color = "g",
 		},
@@ -10957,9 +10983,21 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_INU_2",
 			},
 			id = "EGI2_ACTIVE",
-			x = 1,
+			x = 2,
 			y = 13,
 			color = "g",
+		},
+	},
+	["EGI2_AVAILABLE"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_START_2",
+			},
+			id = "EGI2_AVAILABLE",
+			x = 24,
+			y = 11,
+			color = "w",
 		},
 	},
 	["EGI2_branch"] = {
@@ -11040,6 +11078,45 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
+	["EGI2_GPS_asterisk"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_EGI_2",
+				"CDU_SUBSET_INU_2",
+			},
+			id = "EGI2_GPS_asterisk",
+			x = 1,
+			y = 13,
+			color = "w",
+		},
+	},
+	["EGI2_GPS_branch"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_EGI_2",
+				"CDU_SUBSET_INU_2",
+			},
+			id = "EGI2_GPS_branch",
+			x = 1,
+			y = 13,
+			color = "w",
+		},
+	},
+	["EGI2_GPS_empty"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_EGI_2",
+				"CDU_SUBSET_INU_2",
+			},
+			id = "EGI2_GPS_empty",
+			x = 1,
+			y = 13,
+			color = "w",
+		},
+	},
 	["EGI2_GPS_OUT"] = {
 		{
 			alignment = "LFT",
@@ -11048,7 +11125,7 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_INU_2",
 			},
 			id = "EGI2_GPS_OUT",
-			x = 1,
+			x = 2,
 			y = 13,
 			color = "g",
 		},
@@ -11064,6 +11141,18 @@ local CH_47F_CDU = {
 			x = 1,
 			y = 13,
 			color = "g",
+		},
+	},
+	["EGI2_NOT_AVAILABLE"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_START_2",
+			},
+			id = "EGI2_NOT_AVAILABLE",
+			x = 24,
+			y = 11,
+			color = "w",
 		},
 	},
 	["EGI2_page_branch_1"] = {
@@ -11184,30 +11273,6 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
-	["EGI2_PRES_POSN_latitude_value_deg"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_EGI_2_POS_UPDATE",
-			},
-			id = "EGI2_PRES_POSN_latitude_value_deg",
-			x = 1,
-			y = 5,
-			color = "g",
-		},
-	},
-	["EGI2_PRES_POSN_longitude_value_deg"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_EGI_2_POS_UPDATE",
-			},
-			id = "EGI2_PRES_POSN_longitude_value_deg",
-			x = 12,
-			y = 5,
-			color = "g",
-		},
-	},
 	["EGI2_PRES_POSN_page_branch"] = {
 		{
 			alignment = "LFT",
@@ -11300,7 +11365,7 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_INU_2",
 			},
 			id = "EGI2_USE_GPS",
-			x = 1,
+			x = 2,
 			y = 13,
 			color = "g",
 		},
@@ -11547,12 +11612,12 @@ local CH_47F_CDU = {
 			color = "g",
 		},
 		{
-			alignment = "LFT",
+			alignment = "RGHT",
 			pages = {
 				"CDU_SUBSET_FPLN_APPR_HOV",
 			},
 			id = "ELEV_value",
-			x = 2,
+			x = 6,
 			y = 11,
 			color = "g",
 		},
@@ -11677,7 +11742,6 @@ local CH_47F_CDU = {
 			alignment = "LFT",
 			pages = {
 				"CDU_SUBSET_GPS_1",
-				"CDU_SUBSET_GPS_2",
 			},
 			id = "EPU_field",
 			x = 1,
@@ -11697,24 +11761,11 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
-	["EPU_units"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_GPS_2",
-			},
-			id = "EPU_units",
-			x = 4,
-			y = 7,
-			color = "w",
-		},
-	},
 	["EPU_value"] = {
 		{
 			alignment = "LFT",
 			pages = {
 				"CDU_SUBSET_GPS_1",
-				"CDU_SUBSET_GPS_2",
 			},
 			id = "EPU_value",
 			x = 1,
@@ -12081,6 +12132,18 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
+	["EXIT_field"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_FPLN_HOLD",
+			},
+			id = "EXIT_field",
+			x = 24,
+			y = 13,
+			color = "w",
+		},
+	},
 	["EXP_SQUARE_branch"] = {
 		{
 			alignment = "RGHT",
@@ -12115,6 +12178,102 @@ local CH_47F_CDU = {
 			x = 24,
 			y = 9,
 			color = "w",
+		},
+	},
+	["EXT_DEG"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_LRU_F1_STATUS",
+				"CDU_SUBSET_LRU_U2_STATUS",
+				"CDU_SUBSET_LRU_V3_STATUS",
+			},
+			id = "EXT_DEG",
+			x = 24,
+			y = 9,
+			color = "g",
+		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_H4_STATUS",
+			},
+			id = "EXT_DEG",
+			x = 1,
+			y = 9,
+			color = "g",
+		},
+	},
+	["EXT_FAIL"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_LRU_F1_STATUS",
+				"CDU_SUBSET_LRU_U2_STATUS",
+				"CDU_SUBSET_LRU_V3_STATUS",
+			},
+			id = "EXT_FAIL",
+			x = 24,
+			y = 9,
+			color = "g",
+		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_H4_STATUS",
+			},
+			id = "EXT_FAIL",
+			x = 1,
+			y = 9,
+			color = "g",
+		},
+	},
+	["EXT_field"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_LRU_F1_STATUS",
+				"CDU_SUBSET_LRU_U2_STATUS",
+				"CDU_SUBSET_LRU_V3_STATUS",
+			},
+			id = "EXT_field",
+			x = 23,
+			y = 8,
+			color = "w",
+		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_H4_STATUS",
+			},
+			id = "EXT_field",
+			x = 1,
+			y = 8,
+			color = "w",
+		},
+	},
+	["EXT_GO"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_LRU_F1_STATUS",
+				"CDU_SUBSET_LRU_U2_STATUS",
+				"CDU_SUBSET_LRU_V3_STATUS",
+			},
+			id = "EXT_GO",
+			x = 24,
+			y = 9,
+			color = "g",
+		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_H4_STATUS",
+			},
+			id = "EXT_GO",
+			x = 1,
+			y = 9,
+			color = "g",
 		},
 	},
 	["F1_branch"] = {
@@ -13877,18 +14036,6 @@ local CH_47F_CDU = {
 			color = "g",
 		},
 	},
-	["F5_freq_step"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_MISSION",
-			},
-			id = "F5_freq_step",
-			x = 14,
-			y = 8,
-			color = "w",
-		},
-	},
 	["F5_INTERCOMM_NONE"] = {
 		{
 			alignment = "RGHT",
@@ -13922,18 +14069,6 @@ local CH_47F_CDU = {
 			id = "F5_INTERCOMM_SIMUL",
 			x = 24,
 			y = 10,
-			color = "g",
-		},
-	},
-	["F5_net_name"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_COMM",
-			},
-			id = "F5_net_name",
-			x = 5,
-			y = 11,
 			color = "g",
 		},
 	},
@@ -14073,32 +14208,6 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
-	["FAF_latitude_value_deg"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FPLN_APPR_HOV",
-				"CDU_SUBSET_FPLN_TACT_APPR",
-			},
-			id = "FAF_latitude_value_deg",
-			x = 2,
-			y = 3,
-			color = "g",
-		},
-	},
-	["FAF_latitude_value_fract"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FPLN_APPR_HOV",
-				"CDU_SUBSET_FPLN_TACT_APPR",
-			},
-			id = "FAF_latitude_value_fract",
-			x = 6,
-			y = 3,
-			color = "g",
-		},
-	},
 	["FAF_left_bracket"] = {
 		{
 			alignment = "LFT",
@@ -14110,32 +14219,6 @@ local CH_47F_CDU = {
 			x = 1,
 			y = 3,
 			color = "w",
-		},
-	},
-	["FAF_longitude_value_fract"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FPLN_APPR_HOV",
-				"CDU_SUBSET_FPLN_TACT_APPR",
-			},
-			id = "FAF_longitude_value_fract",
-			x = 18,
-			y = 3,
-			color = "g",
-		},
-	},
-	["FAF_longitude1_value_deg"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FPLN_APPR_HOV",
-				"CDU_SUBSET_FPLN_TACT_APPR",
-			},
-			id = "FAF_longitude1_value_deg",
-			x = 13,
-			y = 3,
-			color = "g",
 		},
 	},
 	["FAF_right_bracket"] = {
@@ -14178,8 +14261,10 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_LRU_DLU_STATUS",
 				"CDU_SUBSET_LRU_EGI1_STATUS",
 				"CDU_SUBSET_LRU_EGI2_STATUS",
+				"CDU_SUBSET_LRU_F1_STATUS",
 				"CDU_SUBSET_LRU_GPS1_STATUS",
 				"CDU_SUBSET_LRU_GPS2_STATUS",
+				"CDU_SUBSET_LRU_H4_STATUS",
 				"CDU_SUBSET_LRU_INU1_STATUS",
 				"CDU_SUBSET_LRU_INU2_STATUS",
 				"CDU_SUBSET_LRU_MFD1_STATUS",
@@ -14190,6 +14275,8 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_LRU_RALT_STATUS",
 				"CDU_SUBSET_LRU_STORM_STATUS",
 				"CDU_SUBSET_LRU_TACAN_STATUS",
+				"CDU_SUBSET_LRU_U2_STATUS",
+				"CDU_SUBSET_LRU_V3_STATUS",
 				"CDU_SUBSET_LRU_VOR_STATUS",
 			},
 			id = "FAILS_branch",
@@ -14212,8 +14299,10 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_LRU_DLU_STATUS",
 				"CDU_SUBSET_LRU_EGI1_STATUS",
 				"CDU_SUBSET_LRU_EGI2_STATUS",
+				"CDU_SUBSET_LRU_F1_STATUS",
 				"CDU_SUBSET_LRU_GPS1_STATUS",
 				"CDU_SUBSET_LRU_GPS2_STATUS",
+				"CDU_SUBSET_LRU_H4_STATUS",
 				"CDU_SUBSET_LRU_INU1_STATUS",
 				"CDU_SUBSET_LRU_INU2_STATUS",
 				"CDU_SUBSET_LRU_MFD1_STATUS",
@@ -14224,6 +14313,8 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_LRU_RALT_STATUS",
 				"CDU_SUBSET_LRU_STORM_STATUS",
 				"CDU_SUBSET_LRU_TACAN_STATUS",
+				"CDU_SUBSET_LRU_U2_STATUS",
+				"CDU_SUBSET_LRU_V3_STATUS",
 				"CDU_SUBSET_LRU_VOR_STATUS",
 			},
 			id = "FAILS_field",
@@ -14246,8 +14337,10 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_LRU_DLU_STATUS",
 				"CDU_SUBSET_LRU_EGI1_STATUS",
 				"CDU_SUBSET_LRU_EGI2_STATUS",
+				"CDU_SUBSET_LRU_F1_STATUS",
 				"CDU_SUBSET_LRU_GPS1_STATUS",
 				"CDU_SUBSET_LRU_GPS2_STATUS",
+				"CDU_SUBSET_LRU_H4_STATUS",
 				"CDU_SUBSET_LRU_INU1_STATUS",
 				"CDU_SUBSET_LRU_INU2_STATUS",
 				"CDU_SUBSET_LRU_MFD1_STATUS",
@@ -14258,11 +14351,61 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_LRU_RALT_STATUS",
 				"CDU_SUBSET_LRU_STORM_STATUS",
 				"CDU_SUBSET_LRU_TACAN_STATUS",
+				"CDU_SUBSET_LRU_U2_STATUS",
+				"CDU_SUBSET_LRU_V3_STATUS",
 				"CDU_SUBSET_LRU_VOR_STATUS",
 			},
 			id = "FAILS_value",
 			x = 23,
 			y = 3,
+			color = "g",
+		},
+	},
+	["FAULT_DEG"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_LRU_H4_STATUS",
+			},
+			id = "FAULT_DEG",
+			x = 24,
+			y = 9,
+			color = "g",
+		},
+	},
+	["FAULT_FAIL"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_LRU_H4_STATUS",
+			},
+			id = "FAULT_FAIL",
+			x = 24,
+			y = 9,
+			color = "g",
+		},
+	},
+	["FAULT_field"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_LRU_H4_STATUS",
+			},
+			id = "FAULT_field",
+			x = 23,
+			y = 8,
+			color = "w",
+		},
+	},
+	["FAULT_GO"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_LRU_H4_STATUS",
+			},
+			id = "FAULT_GO",
+			x = 24,
+			y = 9,
 			color = "g",
 		},
 	},
@@ -14284,15 +14427,6 @@ local CH_47F_CDU = {
 			alignment = "LFT",
 			pages = {
 				"CDU_SUBSET_LRU_AFCS1_STATUS",
-			},
-			id = "FCC_field",
-			x = 1,
-			y = 7,
-			color = "w",
-		},
-		{
-			alignment = "LFT",
-			pages = {
 				"CDU_SUBSET_LRU_AFCS2_STATUS",
 			},
 			id = "FCC_field",
@@ -14524,12 +14658,12 @@ local CH_47F_CDU = {
 	},
 	["FINAL_ALT_value"] = {
 		{
-			alignment = "LFT",
+			alignment = "RGHT",
 			pages = {
 				"CDU_SUBSET_FPLN_APPR_HOV",
 			},
 			id = "FINAL_ALT_value",
-			x = 2,
+			x = 4,
 			y = 9,
 			color = "g",
 		},
@@ -14539,7 +14673,6 @@ local CH_47F_CDU = {
 			alignment = "RGHT",
 			pages = {
 				"CDU_SUBSET_FPLN_APPR_HOV",
-				"CDU_SUBSET_FPLN_TACT_APPR",
 			},
 			id = "FINAL_CRS_branch",
 			x = 23,
@@ -14552,11 +14685,34 @@ local CH_47F_CDU = {
 			alignment = "RGHT",
 			pages = {
 				"CDU_SUBSET_FPLN_APPR_HOV",
-				"CDU_SUBSET_FPLN_TACT_APPR",
 			},
 			id = "FINAL_CRS_field",
 			x = 24,
 			y = 6,
+			color = "w",
+		},
+	},
+	["FINAL_CRS_left_bracket"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_FPLN_APPR_HOV",
+			},
+			id = "FINAL_CRS_left_bracket",
+			x = 20,
+			y = 7,
+			color = "w",
+		},
+	},
+	["FINAL_CRS_right_bracket"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_FPLN_APPR_HOV",
+			},
+			id = "FINAL_CRS_right_bracket",
+			x = 24,
+			y = 7,
 			color = "w",
 		},
 	},
@@ -14565,7 +14721,6 @@ local CH_47F_CDU = {
 			alignment = "RGHT",
 			pages = {
 				"CDU_SUBSET_FPLN_APPR_HOV",
-				"CDU_SUBSET_FPLN_TACT_APPR",
 			},
 			id = "FINAL_SPD_field",
 			x = 24,
@@ -14588,7 +14743,6 @@ local CH_47F_CDU = {
 			alignment = "RGHT",
 			pages = {
 				"CDU_SUBSET_FPLN_APPR_HOV",
-				"CDU_SUBSET_FPLN_TACT_APPR",
 			},
 			id = "FINAL_SPD_left_bracket",
 			x = 17,
@@ -14610,20 +14764,10 @@ local CH_47F_CDU = {
 		{
 			alignment = "RGHT",
 			pages = {
-				"CDU_SUBSET_FPLN_TACT_APPR",
-			},
-			id = "FINAL_SPD_right_bracket",
-			x = 21,
-			y = 9,
-			color = "w",
-		},
-		{
-			alignment = "RGHT",
-			pages = {
 				"CDU_SUBSET_FPLN_APPR_HOV",
 			},
 			id = "FINAL_SPD_right_bracket",
-			x = 22,
+			x = 21,
 			y = 9,
 			color = "w",
 		},
@@ -14643,7 +14787,6 @@ local CH_47F_CDU = {
 			alignment = "RGHT",
 			pages = {
 				"CDU_SUBSET_FPLN_APPR_HOV",
-				"CDU_SUBSET_FPLN_TACT_APPR",
 			},
 			id = "FINAL_SPD_units",
 			x = 24,
@@ -14666,7 +14809,6 @@ local CH_47F_CDU = {
 			alignment = "RGHT",
 			pages = {
 				"CDU_SUBSET_FPLN_APPR_HOV",
-				"CDU_SUBSET_FPLN_TACT_APPR",
 			},
 			id = "FINAL_SPD_value",
 			x = 20,
@@ -15026,7 +15168,6 @@ local CH_47F_CDU = {
 		{
 			alignment = "RGHT",
 			pages = {
-				"CDU_SUBSET_FPLN",
 				"CDU_SUBSET_FPLN_ALTN",
 				"CDU_SUBSET_MOD_FPLN",
 			},
@@ -15054,7 +15195,6 @@ local CH_47F_CDU = {
 		{
 			alignment = "RGHT",
 			pages = {
-				"CDU_SUBSET_FPLN",
 				"CDU_SUBSET_FPLN_ALTN",
 				"CDU_SUBSET_MOD_FPLN",
 			},
@@ -15082,7 +15222,6 @@ local CH_47F_CDU = {
 		{
 			alignment = "RGHT",
 			pages = {
-				"CDU_SUBSET_FPLN",
 				"CDU_SUBSET_FPLN_ALTN",
 				"CDU_SUBSET_MOD_FPLN",
 			},
@@ -15110,7 +15249,6 @@ local CH_47F_CDU = {
 		{
 			alignment = "RGHT",
 			pages = {
-				"CDU_SUBSET_FPLN",
 				"CDU_SUBSET_FPLN_ALTN",
 				"CDU_SUBSET_MOD_FPLN",
 			},
@@ -15118,6 +15256,54 @@ local CH_47F_CDU = {
 			x = 23,
 			y = 11,
 			color = "w",
+		},
+	},
+	["FP_DATA_PATTERN_1_field"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_FPLN",
+			},
+			id = "FP_DATA_PATTERN_1_field",
+			x = 23,
+			y = 5,
+			color = "p",
+		},
+	},
+	["FP_DATA_PATTERN_2_field"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_FPLN",
+			},
+			id = "FP_DATA_PATTERN_2_field",
+			x = 23,
+			y = 7,
+			color = "p",
+		},
+	},
+	["FP_DATA_PATTERN_3_field"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_FPLN",
+			},
+			id = "FP_DATA_PATTERN_3_field",
+			x = 23,
+			y = 9,
+			color = "p",
+		},
+	},
+	["FP_DATA_PATTERN_4_field"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_FPLN",
+			},
+			id = "FP_DATA_PATTERN_4_field",
+			x = 23,
+			y = 11,
+			color = "p",
 		},
 	},
 	["FPLN"] = {
@@ -15620,8 +15806,17 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_FPLN_APPR_HOV",
 				"CDU_SUBSET_FPLN_TACT_APPR",
+			},
+			id = "G_S_field",
+			x = 1,
+			y = 8,
+			color = "w",
+		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FPLN_APPR_HOV",
 			},
 			id = "G_S_field",
 			x = 1,
@@ -15633,8 +15828,17 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_FPLN_APPR_HOV",
 				"CDU_SUBSET_FPLN_TACT_APPR",
+			},
+			id = "G_S_left_bracket",
+			x = 1,
+			y = 9,
+			color = "w",
+		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FPLN_APPR_HOV",
 			},
 			id = "G_S_left_bracket",
 			x = 1,
@@ -15646,8 +15850,17 @@ local CH_47F_CDU = {
 		{
 			alignment = "RGHT",
 			pages = {
-				"CDU_SUBSET_FPLN_APPR_HOV",
 				"CDU_SUBSET_FPLN_TACT_APPR",
+			},
+			id = "G_S_right_bracket",
+			x = 5,
+			y = 9,
+			color = "w",
+		},
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_FPLN_APPR_HOV",
 			},
 			id = "G_S_right_bracket",
 			x = 5,
@@ -15659,11 +15872,20 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_FPLN_APPR_HOV",
 				"CDU_SUBSET_FPLN_TACT_APPR",
 			},
 			id = "G_S_value",
 			x = 2,
+			y = 9,
+			color = "g",
+		},
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_FPLN_APPR_HOV",
+			},
+			id = "G_S_value",
+			x = 4,
 			y = 7,
 			color = "g",
 		},
@@ -15854,6 +16076,7 @@ local CH_47F_CDU = {
 			pages = {
 				"CDU_SUBSET_LRU_EGI1_STATUS",
 				"CDU_SUBSET_LRU_GPS1_STATUS",
+				"CDU_SUBSET_LRU_GPS2_STATUS",
 				"CDU_SUBSET_LRU_INU1_STATUS",
 			},
 			id = "GPS1_branch",
@@ -15892,6 +16115,7 @@ local CH_47F_CDU = {
 			pages = {
 				"CDU_SUBSET_LRU_EGI1_STATUS",
 				"CDU_SUBSET_LRU_GPS1_STATUS",
+				"CDU_SUBSET_LRU_GPS2_STATUS",
 				"CDU_SUBSET_LRU_INU1_STATUS",
 			},
 			id = "GPS1_field",
@@ -16000,16 +16224,74 @@ local CH_47F_CDU = {
 			color = "g",
 		},
 	},
-	["GPS1_status"] = {
+	["GPS1_status_DEG"] = {
 		{
 			alignment = "LFT",
 			pages = {
 				"CDU_SUBSET_LRU_EGI1_STATUS",
+			},
+			id = "GPS1_status_DEG",
+			x = 7,
+			y = 9,
+			color = "g",
+		},
+		{
+			alignment = "LFT",
+			pages = {
 				"CDU_SUBSET_LRU_GPS1_STATUS",
+				"CDU_SUBSET_LRU_GPS2_STATUS",
 				"CDU_SUBSET_LRU_INU1_STATUS",
 			},
-			id = "GPS1_status",
+			id = "GPS1_status_DEG",
+			x = 2,
+			y = 9,
+			color = "g",
+		},
+	},
+	["GPS1_status_FAIL"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_EGI1_STATUS",
+			},
+			id = "GPS1_status_FAIL",
 			x = 7,
+			y = 9,
+			color = "g",
+		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_GPS1_STATUS",
+				"CDU_SUBSET_LRU_GPS2_STATUS",
+				"CDU_SUBSET_LRU_INU1_STATUS",
+			},
+			id = "GPS1_status_FAIL",
+			x = 2,
+			y = 9,
+			color = "g",
+		},
+	},
+	["GPS1_status_GO"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_EGI1_STATUS",
+			},
+			id = "GPS1_status_GO",
+			x = 7,
+			y = 9,
+			color = "g",
+		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_GPS1_STATUS",
+				"CDU_SUBSET_LRU_GPS2_STATUS",
+				"CDU_SUBSET_LRU_INU1_STATUS",
+			},
+			id = "GPS1_status_GO",
+			x = 2,
 			y = 9,
 			color = "g",
 		},
@@ -16019,7 +16301,6 @@ local CH_47F_CDU = {
 			alignment = "LFT",
 			pages = {
 				"CDU_SUBSET_LRU_EGI2_STATUS",
-				"CDU_SUBSET_LRU_GPS2_STATUS",
 				"CDU_SUBSET_LRU_INU2_STATUS",
 			},
 			id = "GPS2_branch",
@@ -16057,7 +16338,6 @@ local CH_47F_CDU = {
 			alignment = "LFT",
 			pages = {
 				"CDU_SUBSET_LRU_EGI2_STATUS",
-				"CDU_SUBSET_LRU_GPS2_STATUS",
 				"CDU_SUBSET_LRU_INU2_STATUS",
 			},
 			id = "GPS2_field",
@@ -16114,16 +16394,68 @@ local CH_47F_CDU = {
 			color = "g",
 		},
 	},
-	["GPS2_status"] = {
+	["GPS2_status_DEG"] = {
 		{
 			alignment = "LFT",
 			pages = {
 				"CDU_SUBSET_LRU_EGI2_STATUS",
-				"CDU_SUBSET_LRU_GPS2_STATUS",
+			},
+			id = "GPS2_status_DEG",
+			x = 7,
+			y = 9,
+			color = "g",
+		},
+		{
+			alignment = "LFT",
+			pages = {
 				"CDU_SUBSET_LRU_INU2_STATUS",
 			},
-			id = "GPS2_status",
+			id = "GPS2_status_DEG",
+			x = 2,
+			y = 9,
+			color = "g",
+		},
+	},
+	["GPS2_status_FAIL"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_EGI2_STATUS",
+			},
+			id = "GPS2_status_FAIL",
 			x = 7,
+			y = 9,
+			color = "g",
+		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_INU2_STATUS",
+			},
+			id = "GPS2_status_FAIL",
+			x = 2,
+			y = 9,
+			color = "g",
+		},
+	},
+	["GPS2_status_GO"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_EGI2_STATUS",
+			},
+			id = "GPS2_status_GO",
+			x = 7,
+			y = 9,
+			color = "g",
+		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_INU2_STATUS",
+			},
+			id = "GPS2_status_GO",
+			x = 2,
 			y = 9,
 			color = "g",
 		},
@@ -18270,12 +18602,12 @@ local CH_47F_CDU = {
 	},
 	["HAT_field"] = {
 		{
-			alignment = "LFT",
+			alignment = "RGHT",
 			pages = {
 				"CDU_SUBSET_FPLN_TACT_APPR",
 			},
 			id = "HAT_field",
-			x = 1,
+			x = 24,
 			y = 8,
 			color = "w",
 		},
@@ -18287,7 +18619,7 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_FPLN_TACT_APPR",
 			},
 			id = "HAT_left_bracket",
-			x = 1,
+			x = 18,
 			y = 9,
 			color = "w",
 		},
@@ -18299,7 +18631,7 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_FPLN_TACT_APPR",
 			},
 			id = "HAT_right_bracket",
-			x = 5,
+			x = 22,
 			y = 9,
 			color = "w",
 		},
@@ -18311,7 +18643,7 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_FPLN_TACT_APPR",
 			},
 			id = "HAT_units",
-			x = 6,
+			x = 23,
 			y = 9,
 			color = "w",
 		},
@@ -18323,7 +18655,7 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_FPLN_TACT_APPR",
 			},
 			id = "HAT_value",
-			x = 2,
+			x = 19,
 			y = 9,
 			color = "g",
 		},
@@ -18354,16 +18686,6 @@ local CH_47F_CDU = {
 	},
 	["HDG_field"] = {
 		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FD_SELECT",
-			},
-			id = "HDG_field",
-			x = 1,
-			y = 4,
-			color = "w",
-		},
-		{
 			alignment = "RGHT",
 			pages = {
 				"CDU_SUBSET_EGI_1",
@@ -18388,16 +18710,6 @@ local CH_47F_CDU = {
 		},
 	},
 	["HDG_left_bracket"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FD_SELECT",
-			},
-			id = "HDG_left_bracket",
-			x = 1,
-			y = 5,
-			color = "w",
-		},
 		{
 			alignment = "LFT",
 			pages = {
@@ -18507,16 +18819,6 @@ local CH_47F_CDU = {
 	},
 	["HDG_right_bracket"] = {
 		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FD_SELECT",
-			},
-			id = "HDG_right_bracket",
-			x = 5,
-			y = 5,
-			color = "w",
-		},
-		{
 			alignment = "RGHT",
 			pages = {
 				"CDU_SUBSET_MODEL_AIRCRAFT",
@@ -18525,6 +18827,78 @@ local CH_47F_CDU = {
 			x = 5,
 			y = 7,
 			color = "w",
+		},
+	},
+	["HDG_TRK_field"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FD_SELECT",
+			},
+			id = "HDG_TRK_field",
+			x = 1,
+			y = 4,
+			color = "w",
+		},
+	},
+	["HDG_TRK_left_bracket"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FD_SELECT",
+			},
+			id = "HDG_TRK_left_bracket",
+			x = 1,
+			y = 5,
+			color = "w",
+		},
+	},
+	["HDG_TRK_right_bracket"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FD_SELECT",
+			},
+			id = "HDG_TRK_right_bracket",
+			x = 5,
+			y = 5,
+			color = "w",
+		},
+	},
+	["HDG_TRK_units_M"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FD_SELECT",
+			},
+			id = "HDG_TRK_units_M",
+			x = 6,
+			y = 5,
+			color = "g",
+		},
+	},
+	["HDG_TRK_units_T"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FD_SELECT",
+			},
+			id = "HDG_TRK_units_T",
+			x = 6,
+			y = 5,
+			color = "g",
+		},
+	},
+	["HDG_TRK_value"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FD_SELECT",
+			},
+			id = "HDG_TRK_value",
+			x = 2,
+			y = 5,
+			color = "g",
 		},
 	},
 	["HDG_TRK_VS_branch"] = {
@@ -18553,34 +18927,15 @@ local CH_47F_CDU = {
 	},
 	["HDG_value"] = {
 		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FD_SELECT",
-			},
-			id = "HDG_value",
-			x = 2,
-			y = 5,
-			color = "g",
-		},
-		{
 			alignment = "RGHT",
 			pages = {
 				"CDU_SUBSET_EGI_1",
 				"CDU_SUBSET_EGI_2",
-			},
-			id = "HDG_value",
-			x = 24,
-			y = 5,
-			color = "g",
-		},
-		{
-			alignment = "RGHT",
-			pages = {
 				"CDU_SUBSET_INU_1",
 				"CDU_SUBSET_INU_2",
 			},
 			id = "HDG_value",
-			x = 23,
+			x = 24,
 			y = 5,
 			color = "g",
 		},
@@ -18697,66 +19052,6 @@ local CH_47F_CDU = {
 			x = 2,
 			y = 3,
 			color = "w",
-		},
-	},
-	["HOLD_SPD_field"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FPLN_HOLD",
-			},
-			id = "HOLD_SPD_field",
-			x = 1,
-			y = 12,
-			color = "w",
-		},
-	},
-	["HOLD_SPD_left_bracket"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FPLN_HOLD",
-			},
-			id = "HOLD_SPD_left_bracket",
-			x = 1,
-			y = 13,
-			color = "w",
-		},
-	},
-	["HOLD_SPD_right_bracket"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FPLN_HOLD",
-			},
-			id = "HOLD_SPD_right_bracket",
-			x = 7,
-			y = 13,
-			color = "w",
-		},
-	},
-	["HOLD_SPD_units"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FPLN_HOLD",
-			},
-			id = "HOLD_SPD_units",
-			x = 8,
-			y = 13,
-			color = "w",
-		},
-	},
-	["HOLD_SPD_value"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FPLN_HOLD",
-			},
-			id = "HOLD_SPD_value",
-			x = 3,
-			y = 13,
-			color = "g",
 		},
 	},
 	["HORIZON_POSN"] = {
@@ -18972,7 +19267,7 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_FD_SELECT",
 			},
 			id = "HOV_SPD_left_bracket",
-			x = 16,
+			x = 18,
 			y = 13,
 			color = "w",
 		},
@@ -19069,32 +19364,8 @@ local CH_47F_CDU = {
 			},
 			id = "HOVER_FIX_field",
 			x = 2,
-			y = 2,
+			y = 4,
 			color = "w",
-		},
-	},
-	["HOVER_FIX_latitude_value_deg"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FPLN_APPR_HOV",
-			},
-			id = "HOVER_FIX_latitude_value_deg",
-			x = 1,
-			y = 3,
-			color = "g",
-		},
-	},
-	["HOVER_FIX_latitude_value_fract"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FPLN_APPR_HOV",
-			},
-			id = "HOVER_FIX_latitude_value_fract",
-			x = 5,
-			y = 3,
-			color = "g",
 		},
 	},
 	["HOVER_FIX_left_bracket"] = {
@@ -19105,32 +19376,8 @@ local CH_47F_CDU = {
 			},
 			id = "HOVER_FIX_left_bracket",
 			x = 1,
-			y = 3,
+			y = 5,
 			color = "w",
-		},
-	},
-	["HOVER_FIX_longitude_value_deg"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FPLN_APPR_HOV",
-			},
-			id = "HOVER_FIX_longitude_value_deg",
-			x = 12,
-			y = 3,
-			color = "g",
-		},
-	},
-	["HOVER_FIX_longitude_value_fract"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FPLN_APPR_HOV",
-			},
-			id = "HOVER_FIX_longitude_value_fract",
-			x = 17,
-			y = 3,
-			color = "g",
 		},
 	},
 	["HOVER_FIX_right_bracket"] = {
@@ -19141,7 +19388,7 @@ local CH_47F_CDU = {
 			},
 			id = "HOVER_FIX_right_bracket",
 			x = 24,
-			y = 3,
+			y = 5,
 			color = "w",
 		},
 	},
@@ -19153,7 +19400,7 @@ local CH_47F_CDU = {
 			},
 			id = "HOVER_FIX_value",
 			x = 2,
-			y = 3,
+			y = 5,
 			color = "g",
 		},
 	},
@@ -19285,6 +19532,27 @@ local CH_47F_CDU = {
 			y = 9,
 			color = "g",
 		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_ADC1_STATUS",
+				"CDU_SUBSET_LRU_ADC2_STATUS",
+				"CDU_SUBSET_LRU_ADF_STATUS",
+				"CDU_SUBSET_LRU_EGI1_STATUS",
+				"CDU_SUBSET_LRU_EGI2_STATUS",
+				"CDU_SUBSET_LRU_GPS1_STATUS",
+				"CDU_SUBSET_LRU_GPS2_STATUS",
+				"CDU_SUBSET_LRU_INU1_STATUS",
+				"CDU_SUBSET_LRU_INU2_STATUS",
+				"CDU_SUBSET_LRU_RALT_STATUS",
+				"CDU_SUBSET_LRU_TACAN_STATUS",
+				"CDU_SUBSET_LRU_VOR_STATUS",
+			},
+			id = "I_0_DEG",
+			x = 1,
+			y = 7,
+			color = "g",
+		},
 	},
 	["I_0_FAIL"] = {
 		{
@@ -19296,6 +19564,27 @@ local CH_47F_CDU = {
 			id = "I_0_FAIL",
 			x = 24,
 			y = 9,
+			color = "g",
+		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_ADC1_STATUS",
+				"CDU_SUBSET_LRU_ADC2_STATUS",
+				"CDU_SUBSET_LRU_ADF_STATUS",
+				"CDU_SUBSET_LRU_EGI1_STATUS",
+				"CDU_SUBSET_LRU_EGI2_STATUS",
+				"CDU_SUBSET_LRU_GPS1_STATUS",
+				"CDU_SUBSET_LRU_GPS2_STATUS",
+				"CDU_SUBSET_LRU_INU1_STATUS",
+				"CDU_SUBSET_LRU_INU2_STATUS",
+				"CDU_SUBSET_LRU_RALT_STATUS",
+				"CDU_SUBSET_LRU_TACAN_STATUS",
+				"CDU_SUBSET_LRU_VOR_STATUS",
+			},
+			id = "I_0_FAIL",
+			x = 1,
+			y = 7,
 			color = "g",
 		},
 	},
@@ -19345,8 +19634,6 @@ local CH_47F_CDU = {
 			y = 9,
 			color = "g",
 		},
-	},
-	["I_0_status"] = {
 		{
 			alignment = "LFT",
 			pages = {
@@ -19363,7 +19650,7 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_LRU_TACAN_STATUS",
 				"CDU_SUBSET_LRU_VOR_STATUS",
 			},
-			id = "I_0_status",
+			id = "I_0_GO",
 			x = 1,
 			y = 7,
 			color = "g",
@@ -20025,6 +20312,54 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
+	["INIT_EGI1"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_START_2",
+			},
+			id = "INIT_EGI1",
+			x = 1,
+			y = 11,
+			color = "g",
+		},
+	},
+	["INIT_EGI1_field"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_START_2",
+			},
+			id = "INIT_EGI1_field",
+			x = 2,
+			y = 11,
+			color = "w",
+		},
+	},
+	["INIT_EGI2"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_START_2",
+			},
+			id = "INIT_EGI2",
+			x = 24,
+			y = 11,
+			color = "g",
+		},
+	},
+	["INIT_EGI2_field"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_START_2",
+			},
+			id = "INIT_EGI2_field",
+			x = 23,
+			y = 11,
+			color = "w",
+		},
+	},
 	["INIT_SYS"] = {
 		{
 			alignment = "RGHT",
@@ -20034,7 +20369,7 @@ local CH_47F_CDU = {
 			id = "INIT_SYS",
 			x = 24,
 			y = 13,
-			color = "w",
+			color = "g",
 		},
 	},
 	["INIT_SYS_field"] = {
@@ -20145,18 +20480,6 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
-	["INU_1_ACTIVE"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_START_2",
-			},
-			id = "INU_1_ACTIVE",
-			x = 2,
-			y = 9,
-			color = "g",
-		},
-	},
 	["INU_1_available"] = {
 		{
 			alignment = "LFT",
@@ -20166,18 +20489,6 @@ local CH_47F_CDU = {
 			id = "INU_1_available",
 			x = 1,
 			y = 3,
-			color = "w",
-		},
-	},
-	["INU_1_branch"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_START_2",
-			},
-			id = "INU_1_branch",
-			x = 1,
-			y = 9,
 			color = "w",
 		},
 	},
@@ -20191,18 +20502,6 @@ local CH_47F_CDU = {
 			x = 1,
 			y = 2,
 			color = "w",
-		},
-	},
-	["INU_1_GPS_OUT"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_START_2",
-			},
-			id = "INU_1_GPS_OUT",
-			x = 2,
-			y = 9,
-			color = "g",
 		},
 	},
 	["INU_1_HDG"] = {
@@ -20238,18 +20537,6 @@ local CH_47F_CDU = {
 			id = "INU_1_HDG_STORED",
 			x = 10,
 			y = 4,
-			color = "w",
-		},
-	},
-	["INU_1_MODE_field"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_START_2",
-			},
-			id = "INU_1_MODE_field",
-			x = 1,
-			y = 8,
 			color = "w",
 		},
 	},
@@ -20289,30 +20576,6 @@ local CH_47F_CDU = {
 			color = "g",
 		},
 	},
-	["INU_1_USE_GPS"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_START_2",
-			},
-			id = "INU_1_USE_GPS",
-			x = 2,
-			y = 9,
-			color = "g",
-		},
-	},
-	["INU_2_ACTIVE"] = {
-		{
-			alignment = "RGHT",
-			pages = {
-				"CDU_SUBSET_START_2",
-			},
-			id = "INU_2_ACTIVE",
-			x = 23,
-			y = 9,
-			color = "g",
-		},
-	},
 	["INU_2_available"] = {
 		{
 			alignment = "RGHT",
@@ -20325,18 +20588,6 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
-	["INU_2_branch"] = {
-		{
-			alignment = "RGHT",
-			pages = {
-				"CDU_SUBSET_START_2",
-			},
-			id = "INU_2_branch",
-			x = 24,
-			y = 9,
-			color = "w",
-		},
-	},
 	["INU_2_field"] = {
 		{
 			alignment = "RGHT",
@@ -20346,30 +20597,6 @@ local CH_47F_CDU = {
 			id = "INU_2_field",
 			x = 24,
 			y = 2,
-			color = "w",
-		},
-	},
-	["INU_2_GPS_OUT"] = {
-		{
-			alignment = "RGHT",
-			pages = {
-				"CDU_SUBSET_START_2",
-			},
-			id = "INU_2_GPS_OUT",
-			x = 23,
-			y = 9,
-			color = "g",
-		},
-	},
-	["INU_2_MODE_field"] = {
-		{
-			alignment = "RGHT",
-			pages = {
-				"CDU_SUBSET_START_2",
-			},
-			id = "INU_2_MODE_field",
-			x = 24,
-			y = 8,
 			color = "w",
 		},
 	},
@@ -20406,18 +20633,6 @@ local CH_47F_CDU = {
 			id = "INU_2_MODE_SH_ALN",
 			x = 23,
 			y = 3,
-			color = "g",
-		},
-	},
-	["INU_2_USE_GPS"] = {
-		{
-			alignment = "RGHT",
-			pages = {
-				"CDU_SUBSET_START_2",
-			},
-			id = "INU_2_USE_GPS",
-			x = 23,
-			y = 9,
 			color = "g",
 		},
 	},
@@ -20574,7 +20789,7 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_INAV_SELECT_2",
 			},
 			id = "INU1_page_field",
-			x = 2,
+			x = 3,
 			y = 3,
 			color = "g",
 		},
@@ -20641,12 +20856,79 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_LRU_EGI1_STATUS",
-				"CDU_SUBSET_LRU_GPS1_STATUS",
 				"CDU_SUBSET_LRU_INU1_STATUS",
 			},
 			id = "INU1_status",
 			x = 7,
+			y = 11,
+			color = "g",
+		},
+	},
+	["INU1_status_DEG"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_EGI1_STATUS",
+			},
+			id = "INU1_status_DEG",
+			x = 7,
+			y = 11,
+			color = "g",
+		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_GPS1_STATUS",
+				"CDU_SUBSET_LRU_INU1_STATUS",
+			},
+			id = "INU1_status_DEG",
+			x = 2,
+			y = 11,
+			color = "g",
+		},
+	},
+	["INU1_status_FAIL"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_EGI1_STATUS",
+			},
+			id = "INU1_status_FAIL",
+			x = 7,
+			y = 11,
+			color = "g",
+		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_GPS1_STATUS",
+				"CDU_SUBSET_LRU_INU1_STATUS",
+			},
+			id = "INU1_status_FAIL",
+			x = 2,
+			y = 11,
+			color = "g",
+		},
+	},
+	["INU1_status_GO"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_EGI1_STATUS",
+			},
+			id = "INU1_status_GO",
+			x = 7,
+			y = 11,
+			color = "g",
+		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_GPS1_STATUS",
+				"CDU_SUBSET_LRU_INU1_STATUS",
+			},
+			id = "INU1_status_GO",
+			x = 2,
 			y = 11,
 			color = "g",
 		},
@@ -20838,7 +21120,7 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_INAV_SELECT_2",
 			},
 			id = "INU2_page_field",
-			x = 2,
+			x = 3,
 			y = 5,
 			color = "g",
 		},
@@ -20901,16 +21183,71 @@ local CH_47F_CDU = {
 			color = "g",
 		},
 	},
-	["INU2_status"] = {
+	["INU2_status_DEG"] = {
 		{
 			alignment = "LFT",
 			pages = {
 				"CDU_SUBSET_LRU_EGI2_STATUS",
+			},
+			id = "INU2_status_DEG",
+			x = 7,
+			y = 11,
+			color = "g",
+		},
+		{
+			alignment = "LFT",
+			pages = {
 				"CDU_SUBSET_LRU_GPS2_STATUS",
 				"CDU_SUBSET_LRU_INU2_STATUS",
 			},
-			id = "INU2_status",
+			id = "INU2_status_DEG",
+			x = 2,
+			y = 11,
+			color = "g",
+		},
+	},
+	["INU2_status_FAIL"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_EGI2_STATUS",
+			},
+			id = "INU2_status_FAIL",
 			x = 7,
+			y = 11,
+			color = "g",
+		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_GPS2_STATUS",
+				"CDU_SUBSET_LRU_INU2_STATUS",
+			},
+			id = "INU2_status_FAIL",
+			x = 2,
+			y = 11,
+			color = "g",
+		},
+	},
+	["INU2_status_GO"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_EGI2_STATUS",
+			},
+			id = "INU2_status_GO",
+			x = 7,
+			y = 11,
+			color = "g",
+		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_GPS2_STATUS",
+				"CDU_SUBSET_LRU_INU2_STATUS",
+			},
+			id = "INU2_status_GO",
+			x = 2,
 			y = 11,
 			color = "g",
 		},
@@ -21480,33 +21817,11 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_FPLN_HOLD",
-			},
-			id = "latitude_value_deg",
-			x = 2,
-			y = 3,
-			color = "g",
-		},
-		{
-			alignment = "LFT",
-			pages = {
 				"CDU_SUBSET_GPS_1",
 				"CDU_SUBSET_GPS_2",
 			},
 			id = "latitude_value_deg",
 			x = 1,
-			y = 3,
-			color = "g",
-		},
-	},
-	["latitude_value_fract"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FPLN_HOLD",
-			},
-			id = "latitude_value_fract",
-			x = 6,
 			y = 3,
 			color = "g",
 		},
@@ -21519,7 +21834,7 @@ local CH_47F_CDU = {
 			},
 			id = "LEAD_field",
 			x = 1,
-			y = 8,
+			y = 12,
 			color = "w",
 		},
 	},
@@ -21531,7 +21846,7 @@ local CH_47F_CDU = {
 			},
 			id = "LEAD_left_bracket",
 			x = 1,
-			y = 9,
+			y = 13,
 			color = "w",
 		},
 	},
@@ -21543,7 +21858,7 @@ local CH_47F_CDU = {
 			},
 			id = "LEAD_right_bracket",
 			x = 5,
-			y = 9,
+			y = 13,
 			color = "w",
 		},
 	},
@@ -21591,19 +21906,19 @@ local CH_47F_CDU = {
 			},
 			id = "LEAD_units",
 			x = 6,
-			y = 9,
+			y = 13,
 			color = "w",
 		},
 	},
 	["LEAD_value"] = {
 		{
-			alignment = "LFT",
+			alignment = "RGHT",
 			pages = {
 				"CDU_SUBSET_FPLN_APPR_HOV",
 			},
 			id = "LEAD_value",
-			x = 2,
-			y = 9,
+			x = 4,
+			y = 13,
 			color = "g",
 		},
 	},
@@ -21669,13 +21984,13 @@ local CH_47F_CDU = {
 	},
 	["LEG_DIST_field"] = {
 		{
-			alignment = "LFT",
+			alignment = "RGHT",
 			pages = {
 				"CDU_SUBSET_FPLN_HOLD",
 			},
 			id = "LEG_DIST_field",
-			x = 1,
-			y = 10,
+			x = 24,
+			y = 4,
 			color = "w",
 		},
 	},
@@ -21686,8 +22001,8 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_FPLN_HOLD",
 			},
 			id = "LEG_DIST_left_bracket",
-			x = 1,
-			y = 11,
+			x = 17,
+			y = 5,
 			color = "w",
 		},
 	},
@@ -21698,20 +22013,20 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_FPLN_HOLD",
 			},
 			id = "LEG_DIST_right_bracket",
-			x = 6,
-			y = 11,
+			x = 22,
+			y = 5,
 			color = "w",
 		},
 	},
 	["LEG_DIST_units"] = {
 		{
-			alignment = "LFT",
+			alignment = "RGHT",
 			pages = {
 				"CDU_SUBSET_FPLN_HOLD",
 			},
 			id = "LEG_DIST_units",
-			x = 8,
-			y = 11,
+			x = 24,
+			y = 5,
 			color = "w",
 		},
 	},
@@ -21722,68 +22037,8 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_FPLN_HOLD",
 			},
 			id = "LEG_DIST_value",
-			x = 2,
-			y = 11,
-			color = "g",
-		},
-	},
-	["LEG_TIME_field"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FPLN_HOLD",
-			},
-			id = "LEG_TIME_field",
-			x = 1,
-			y = 8,
-			color = "w",
-		},
-	},
-	["LEG_TIME_left_bracket"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FPLN_HOLD",
-			},
-			id = "LEG_TIME_left_bracket",
-			x = 1,
-			y = 9,
-			color = "w",
-		},
-	},
-	["LEG_TIME_right_bracket"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FPLN_HOLD",
-			},
-			id = "LEG_TIME_right_bracket",
-			x = 7,
-			y = 9,
-			color = "w",
-		},
-	},
-	["LEG_TIME_units"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FPLN_HOLD",
-			},
-			id = "LEG_TIME_units",
-			x = 8,
-			y = 9,
-			color = "w",
-		},
-	},
-	["LEG_TIME_value"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FPLN_HOLD",
-			},
-			id = "LEG_TIME_value",
-			x = 2,
-			y = 9,
+			x = 18,
+			y = 5,
 			color = "g",
 		},
 	},
@@ -22266,33 +22521,11 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_FPLN_HOLD",
-			},
-			id = "longitude_value_deg",
-			x = 13,
-			y = 3,
-			color = "g",
-		},
-		{
-			alignment = "LFT",
-			pages = {
 				"CDU_SUBSET_GPS_1",
 				"CDU_SUBSET_GPS_2",
 			},
 			id = "longitude_value_deg",
 			x = 12,
-			y = 3,
-			color = "g",
-		},
-	},
-	["longitude_value_fract"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FPLN_HOLD",
-			},
-			id = "longitude_value_fract",
-			x = 18,
 			y = 3,
 			color = "g",
 		},
@@ -22512,30 +22745,6 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
-	["MAP_latitude_value_deg"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FPLN_TACT_APPR",
-			},
-			id = "MAP_latitude_value_deg",
-			x = 2,
-			y = 5,
-			color = "g",
-		},
-	},
-	["MAP_latitude_value_fract"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FPLN_TACT_APPR",
-			},
-			id = "MAP_latitude_value_fract",
-			x = 6,
-			y = 5,
-			color = "g",
-		},
-	},
 	["MAP_left_bracket"] = {
 		{
 			alignment = "LFT",
@@ -22546,30 +22755,6 @@ local CH_47F_CDU = {
 			x = 1,
 			y = 5,
 			color = "w",
-		},
-	},
-	["MAP_longitude_value_deg"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FPLN_TACT_APPR",
-			},
-			id = "MAP_longitude_value_deg",
-			x = 13,
-			y = 5,
-			color = "g",
-		},
-	},
-	["MAP_longitude_value_fract"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FPLN_TACT_APPR",
-			},
-			id = "MAP_longitude_value_fract",
-			x = 18,
-			y = 5,
-			color = "g",
 		},
 	},
 	["MAP_right_bracket"] = {
@@ -22653,6 +22838,18 @@ local CH_47F_CDU = {
 			id = "MARK_TIME_value",
 			x = 1,
 			y = 11,
+			color = "g",
+		},
+	},
+	["MARK_value"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_PROGRESS_1",
+			},
+			id = "MARK_value",
+			x = 23,
+			y = 3,
 			color = "g",
 		},
 	},
@@ -23786,7 +23983,7 @@ local CH_47F_CDU = {
 			},
 			id = "MODE_ATTITUDE_21",
 			x = 23,
-			y = 3,
+			y = 5,
 			color = "g",
 		},
 	},
@@ -24123,7 +24320,7 @@ local CH_47F_CDU = {
 			},
 			id = "MODE_GC_ALN_2",
 			x = 23,
-			y = 3,
+			y = 5,
 			color = "g",
 		},
 	},
@@ -24279,7 +24476,7 @@ local CH_47F_CDU = {
 			},
 			id = "MODE_IM_ALN_2",
 			x = 23,
-			y = 3,
+			y = 5,
 			color = "g",
 		},
 	},
@@ -24364,7 +24561,7 @@ local CH_47F_CDU = {
 			},
 			id = "MODE_NAV_2",
 			x = 23,
-			y = 3,
+			y = 5,
 			color = "g",
 		},
 	},
@@ -24953,7 +25150,7 @@ local CH_47F_CDU = {
 			},
 			id = "MODE_OFF_2",
 			x = 23,
-			y = 3,
+			y = 5,
 			color = "g",
 		},
 	},
@@ -25013,7 +25210,7 @@ local CH_47F_CDU = {
 			},
 			id = "MODE_ORIENT_2",
 			x = 23,
-			y = 3,
+			y = 5,
 			color = "g",
 		},
 	},
@@ -25133,7 +25330,7 @@ local CH_47F_CDU = {
 			},
 			id = "MODE_SH_ALN_2",
 			x = 23,
-			y = 3,
+			y = 5,
 			color = "g",
 		},
 	},
@@ -25181,7 +25378,7 @@ local CH_47F_CDU = {
 			},
 			id = "MODE_STBY_2",
 			x = 23,
-			y = 3,
+			y = 5,
 			color = "g",
 		},
 	},
@@ -27046,6 +27243,54 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
+	["pg_title_ADC1_STATUS_1"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_ADC1_STATUS",
+			},
+			id = "pg_title_ADC1_STATUS_1",
+			x = 6,
+			y = 1,
+			color = "w",
+		},
+	},
+	["pg_title_ADC1_STATUS_DEG"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_ADC1_STATUS",
+			},
+			id = "pg_title_ADC1_STATUS_DEG",
+			x = 18,
+			y = 1,
+			color = "g",
+		},
+	},
+	["pg_title_ADC1_STATUS_FAIL"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_ADC1_STATUS",
+			},
+			id = "pg_title_ADC1_STATUS_FAIL",
+			x = 18,
+			y = 1,
+			color = "g",
+		},
+	},
+	["pg_title_ADC1_STATUS_GO"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_ADC1_STATUS",
+			},
+			id = "pg_title_ADC1_STATUS_GO",
+			x = 18,
+			y = 1,
+			color = "g",
+		},
+	},
 	["pg_title_ADC2_STATUS_2"] = {
 		{
 			alignment = "LFT",
@@ -27066,6 +27311,42 @@ local CH_47F_CDU = {
 			x = 5,
 			y = 1,
 			color = "w",
+		},
+	},
+	["pg_title_ADC2_STATUS_DEG"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_ADC2_STATUS",
+			},
+			id = "pg_title_ADC2_STATUS_DEG",
+			x = 18,
+			y = 1,
+			color = "g",
+		},
+	},
+	["pg_title_ADC2_STATUS_FAIL"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_ADC2_STATUS",
+			},
+			id = "pg_title_ADC2_STATUS_FAIL",
+			x = 18,
+			y = 1,
+			color = "g",
+		},
+	},
+	["pg_title_ADC2_STATUS_GO"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_ADC2_STATUS",
+			},
+			id = "pg_title_ADC2_STATUS_GO",
+			x = 18,
+			y = 1,
+			color = "g",
 		},
 	},
 	["pg_title_ADF_Control"] = {
@@ -27090,6 +27371,54 @@ local CH_47F_CDU = {
 			x = 8,
 			y = 1,
 			color = "w",
+		},
+	},
+	["pg_title_ADF_STATUS_1"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_ADF_STATUS",
+			},
+			id = "pg_title_ADF_STATUS_1",
+			x = 6,
+			y = 1,
+			color = "w",
+		},
+	},
+	["pg_title_ADF_STATUS_DEG"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_ADF_STATUS",
+			},
+			id = "pg_title_ADF_STATUS_DEG",
+			x = 18,
+			y = 1,
+			color = "g",
+		},
+	},
+	["pg_title_ADF_STATUS_FAIL"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_ADF_STATUS",
+			},
+			id = "pg_title_ADF_STATUS_FAIL",
+			x = 18,
+			y = 1,
+			color = "g",
+		},
+	},
+	["pg_title_ADF_STATUS_GO"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_ADF_STATUS",
+			},
+			id = "pg_title_ADF_STATUS_GO",
+			x = 18,
+			y = 1,
+			color = "g",
 		},
 	},
 	["pg_title_ALTN"] = {
@@ -27192,16 +27521,7 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_LRU_ADC1_STATUS",
-				"CDU_SUBSET_LRU_ADF_STATUS",
 				"CDU_SUBSET_LRU_CDU1_STATUS",
-				"CDU_SUBSET_LRU_EGI1_STATUS",
-				"CDU_SUBSET_LRU_EGI2_STATUS",
-				"CDU_SUBSET_LRU_GPS1_STATUS",
-				"CDU_SUBSET_LRU_GPS2_STATUS",
-				"CDU_SUBSET_LRU_INU1_STATUS",
-				"CDU_SUBSET_LRU_INU2_STATUS",
-				"CDU_SUBSET_LRU_TACAN_STATUS",
 			},
 			id = "pg_title_CDU_STATUS_1",
 			x = 6,
@@ -27664,6 +27984,102 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
+	["pg_title_EGI1_STATUS_1"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_EGI1_STATUS",
+			},
+			id = "pg_title_EGI1_STATUS_1",
+			x = 6,
+			y = 1,
+			color = "w",
+		},
+	},
+	["pg_title_EGI1_STATUS_DEG"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_EGI1_STATUS",
+			},
+			id = "pg_title_EGI1_STATUS_DEG",
+			x = 18,
+			y = 1,
+			color = "g",
+		},
+	},
+	["pg_title_EGI1_STATUS_FAIL"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_EGI1_STATUS",
+			},
+			id = "pg_title_EGI1_STATUS_FAIL",
+			x = 18,
+			y = 1,
+			color = "g",
+		},
+	},
+	["pg_title_EGI1_STATUS_GO"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_EGI1_STATUS",
+			},
+			id = "pg_title_EGI1_STATUS_GO",
+			x = 18,
+			y = 1,
+			color = "g",
+		},
+	},
+	["pg_title_EGI2_STATUS_1"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_EGI2_STATUS",
+			},
+			id = "pg_title_EGI2_STATUS_1",
+			x = 6,
+			y = 1,
+			color = "w",
+		},
+	},
+	["pg_title_EGI2_STATUS_DEG"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_EGI2_STATUS",
+			},
+			id = "pg_title_EGI2_STATUS_DEG",
+			x = 18,
+			y = 1,
+			color = "g",
+		},
+	},
+	["pg_title_EGI2_STATUS_FAIL"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_EGI2_STATUS",
+			},
+			id = "pg_title_EGI2_STATUS_FAIL",
+			x = 18,
+			y = 1,
+			color = "g",
+		},
+	},
+	["pg_title_EGI2_STATUS_GO"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_EGI2_STATUS",
+			},
+			id = "pg_title_EGI2_STATUS_GO",
+			x = 18,
+			y = 1,
+			color = "g",
+		},
+	},
 	["pg_title_EMCON"] = {
 		{
 			alignment = "LFT",
@@ -27794,6 +28210,54 @@ local CH_47F_CDU = {
 			x = 8,
 			y = 1,
 			color = "w",
+		},
+	},
+	["pg_title_F1_STATUS"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_F1_STATUS",
+			},
+			id = "pg_title_F1_STATUS",
+			x = 9,
+			y = 1,
+			color = "w",
+		},
+	},
+	["pg_title_F1_STATUS_DEG"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_F1_STATUS",
+			},
+			id = "pg_title_F1_STATUS_DEG",
+			x = 18,
+			y = 1,
+			color = "g",
+		},
+	},
+	["pg_title_F1_STATUS_FAIL"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_F1_STATUS",
+			},
+			id = "pg_title_F1_STATUS_FAIL",
+			x = 18,
+			y = 1,
+			color = "g",
+		},
+	},
+	["pg_title_F1_STATUS_GO"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_F1_STATUS",
+			},
+			id = "pg_title_F1_STATUS_GO",
+			x = 18,
+			y = 1,
+			color = "g",
 		},
 	},
 	["pg_title_FD_SELECT"] = {
@@ -28025,6 +28489,102 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
+	["pg_title_GPS1_STATUS_1"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_GPS1_STATUS",
+			},
+			id = "pg_title_GPS1_STATUS_1",
+			x = 6,
+			y = 1,
+			color = "w",
+		},
+	},
+	["pg_title_GPS1_STATUS_DEG"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_GPS1_STATUS",
+			},
+			id = "pg_title_GPS1_STATUS_DEG",
+			x = 18,
+			y = 1,
+			color = "g",
+		},
+	},
+	["pg_title_GPS1_STATUS_FAIL"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_GPS1_STATUS",
+			},
+			id = "pg_title_GPS1_STATUS_FAIL",
+			x = 18,
+			y = 1,
+			color = "g",
+		},
+	},
+	["pg_title_GPS1_STATUS_GO"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_GPS1_STATUS",
+			},
+			id = "pg_title_GPS1_STATUS_GO",
+			x = 18,
+			y = 1,
+			color = "g",
+		},
+	},
+	["pg_title_GPS2_STATUS_1"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_GPS2_STATUS",
+			},
+			id = "pg_title_GPS2_STATUS_1",
+			x = 6,
+			y = 1,
+			color = "w",
+		},
+	},
+	["pg_title_GPS2_STATUS_DEG"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_GPS2_STATUS",
+			},
+			id = "pg_title_GPS2_STATUS_DEG",
+			x = 18,
+			y = 1,
+			color = "g",
+		},
+	},
+	["pg_title_GPS2_STATUS_FAIL"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_GPS2_STATUS",
+			},
+			id = "pg_title_GPS2_STATUS_FAIL",
+			x = 18,
+			y = 1,
+			color = "g",
+		},
+	},
+	["pg_title_GPS2_STATUS_GO"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_GPS2_STATUS",
+			},
+			id = "pg_title_GPS2_STATUS_GO",
+			x = 18,
+			y = 1,
+			color = "g",
+		},
+	},
 	["pg_title_H4_ALE_NETS_Presets"] = {
 		{
 			alignment = "LFT",
@@ -28067,6 +28627,54 @@ local CH_47F_CDU = {
 			x = 8,
 			y = 1,
 			color = "w",
+		},
+	},
+	["pg_title_H4_STATUS"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_H4_STATUS",
+			},
+			id = "pg_title_H4_STATUS",
+			x = 9,
+			y = 1,
+			color = "w",
+		},
+	},
+	["pg_title_H4_STATUS_DEG"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_H4_STATUS",
+			},
+			id = "pg_title_H4_STATUS_DEG",
+			x = 18,
+			y = 1,
+			color = "g",
+		},
+	},
+	["pg_title_H4_STATUS_FAIL"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_H4_STATUS",
+			},
+			id = "pg_title_H4_STATUS_FAIL",
+			x = 18,
+			y = 1,
+			color = "g",
+		},
+	},
+	["pg_title_H4_STATUS_GO"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_H4_STATUS",
+			},
+			id = "pg_title_H4_STATUS_GO",
+			x = 18,
+			y = 1,
+			color = "g",
 		},
 	},
 	["pg_title_HOLD_NAME"] = {
@@ -28140,6 +28748,18 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
+	["pg_title_IFF_STATUS"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_IFF_STATUS",
+			},
+			id = "pg_title_IFF_STATUS",
+			x = 9,
+			y = 1,
+			color = "w",
+		},
+	},
 	["pg_title_IMPROMPTU_NAME"] = {
 		{
 			alignment = "LFT",
@@ -28148,6 +28768,16 @@ local CH_47F_CDU = {
 			},
 			id = "pg_title_IMPROMPTU_NAME",
 			x = 9,
+			y = 1,
+			color = "w",
+		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FPLN_IMPROMPTU_POINTS",
+			},
+			id = "pg_title_IMPROMPTU_NAME",
+			x = 5,
 			y = 1,
 			color = "w",
 		},
@@ -28236,6 +28866,54 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
+	["pg_title_INU1_STATUS_1"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_INU1_STATUS",
+			},
+			id = "pg_title_INU1_STATUS_1",
+			x = 6,
+			y = 1,
+			color = "w",
+		},
+	},
+	["pg_title_INU1_STATUS_DEG"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_INU1_STATUS",
+			},
+			id = "pg_title_INU1_STATUS_DEG",
+			x = 18,
+			y = 1,
+			color = "g",
+		},
+	},
+	["pg_title_INU1_STATUS_FAIL"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_INU1_STATUS",
+			},
+			id = "pg_title_INU1_STATUS_FAIL",
+			x = 18,
+			y = 1,
+			color = "g",
+		},
+	},
+	["pg_title_INU1_STATUS_GO"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_INU1_STATUS",
+			},
+			id = "pg_title_INU1_STATUS_GO",
+			x = 18,
+			y = 1,
+			color = "g",
+		},
+	},
 	["pg_title_INU2_POSITION_UPDATE"] = {
 		{
 			alignment = "LFT",
@@ -28246,6 +28924,54 @@ local CH_47F_CDU = {
 			x = 6,
 			y = 1,
 			color = "w",
+		},
+	},
+	["pg_title_INU2_STATUS_1"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_INU2_STATUS",
+			},
+			id = "pg_title_INU2_STATUS_1",
+			x = 6,
+			y = 1,
+			color = "w",
+		},
+	},
+	["pg_title_INU2_STATUS_DEG"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_INU2_STATUS",
+			},
+			id = "pg_title_INU2_STATUS_DEG",
+			x = 18,
+			y = 1,
+			color = "g",
+		},
+	},
+	["pg_title_INU2_STATUS_FAIL"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_INU2_STATUS",
+			},
+			id = "pg_title_INU2_STATUS_FAIL",
+			x = 18,
+			y = 1,
+			color = "g",
+		},
+	},
+	["pg_title_INU2_STATUS_GO"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_INU2_STATUS",
+			},
+			id = "pg_title_INU2_STATUS_GO",
+			x = 18,
+			y = 1,
+			color = "g",
 		},
 	},
 	["pg_title_IRCM_STATUS"] = {
@@ -28779,6 +29505,42 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
+	["pg_title_RALT_STATUS_DEG"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_RALT_STATUS",
+			},
+			id = "pg_title_RALT_STATUS_DEG",
+			x = 18,
+			y = 1,
+			color = "g",
+		},
+	},
+	["pg_title_RALT_STATUS_FAIL"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_RALT_STATUS",
+			},
+			id = "pg_title_RALT_STATUS_FAIL",
+			x = 18,
+			y = 1,
+			color = "g",
+		},
+	},
+	["pg_title_RALT_STATUS_GO"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_RALT_STATUS",
+			},
+			id = "pg_title_RALT_STATUS_GO",
+			x = 18,
+			y = 1,
+			color = "g",
+		},
+	},
 	["pg_title_REF_SELECT"] = {
 		{
 			alignment = "LFT",
@@ -28856,9 +29618,20 @@ local CH_47F_CDU = {
 			alignment = "LFT",
 			pages = {
 				"CDU_SUBSET_START",
-				"CDU_SUBSET_START_2",
 			},
 			id = "pg_title_START_1",
+			x = 10,
+			y = 1,
+			color = "w",
+		},
+	},
+	["pg_title_START_2"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_START_2",
+			},
+			id = "pg_title_START_2",
 			x = 10,
 			y = 1,
 			color = "w",
@@ -28923,6 +29696,54 @@ local CH_47F_CDU = {
 			x = 4,
 			y = 1,
 			color = "w",
+		},
+	},
+	["pg_title_TCN_STATUS_1"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_TACAN_STATUS",
+			},
+			id = "pg_title_TCN_STATUS_1",
+			x = 6,
+			y = 1,
+			color = "w",
+		},
+	},
+	["pg_title_TCN_STATUS_DEG"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_TACAN_STATUS",
+			},
+			id = "pg_title_TCN_STATUS_DEG",
+			x = 18,
+			y = 1,
+			color = "g",
+		},
+	},
+	["pg_title_TCN_STATUS_FAIL"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_TACAN_STATUS",
+			},
+			id = "pg_title_TCN_STATUS_FAIL",
+			x = 18,
+			y = 1,
+			color = "g",
+		},
+	},
+	["pg_title_TCN_STATUS_GO"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_TACAN_STATUS",
+			},
+			id = "pg_title_TCN_STATUS_GO",
+			x = 18,
+			y = 1,
+			color = "g",
 		},
 	},
 	["pg_title_TIMERS"] = {
@@ -29024,6 +29845,54 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
+	["pg_title_U2_STATUS"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_U2_STATUS",
+			},
+			id = "pg_title_U2_STATUS",
+			x = 9,
+			y = 1,
+			color = "w",
+		},
+	},
+	["pg_title_U2_STATUS_DEG"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_U2_STATUS",
+			},
+			id = "pg_title_U2_STATUS_DEG",
+			x = 18,
+			y = 1,
+			color = "g",
+		},
+	},
+	["pg_title_U2_STATUS_FAIL"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_U2_STATUS",
+			},
+			id = "pg_title_U2_STATUS_FAIL",
+			x = 18,
+			y = 1,
+			color = "g",
+		},
+	},
+	["pg_title_U2_STATUS_GO"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_U2_STATUS",
+			},
+			id = "pg_title_U2_STATUS_GO",
+			x = 18,
+			y = 1,
+			color = "g",
+		},
+	},
 	["pg_title_U2_UHF_Presets"] = {
 		{
 			alignment = "LFT",
@@ -29077,6 +29946,54 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
+	["pg_title_V3_STATUS"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_V3_STATUS",
+			},
+			id = "pg_title_V3_STATUS",
+			x = 9,
+			y = 1,
+			color = "w",
+		},
+	},
+	["pg_title_V3_STATUS_DEG"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_V3_STATUS",
+			},
+			id = "pg_title_V3_STATUS_DEG",
+			x = 18,
+			y = 1,
+			color = "g",
+		},
+	},
+	["pg_title_V3_STATUS_FAIL"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_V3_STATUS",
+			},
+			id = "pg_title_V3_STATUS_FAIL",
+			x = 18,
+			y = 1,
+			color = "g",
+		},
+	},
+	["pg_title_V3_STATUS_GO"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_V3_STATUS",
+			},
+			id = "pg_title_V3_STATUS_GO",
+			x = 18,
+			y = 1,
+			color = "g",
+		},
+	},
 	["pg_title_V3_VHF_Presets"] = {
 		{
 			alignment = "LFT",
@@ -29126,6 +30043,42 @@ local CH_47F_CDU = {
 			x = 6,
 			y = 1,
 			color = "w",
+		},
+	},
+	["pg_title_VOR_STATUS_DEG"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_VOR_STATUS",
+			},
+			id = "pg_title_VOR_STATUS_DEG",
+			x = 18,
+			y = 1,
+			color = "g",
+		},
+	},
+	["pg_title_VOR_STATUS_FAIL"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_VOR_STATUS",
+			},
+			id = "pg_title_VOR_STATUS_FAIL",
+			x = 18,
+			y = 1,
+			color = "g",
+		},
+	},
+	["pg_title_VOR_STATUS_GO"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_VOR_STATUS",
+			},
+			id = "pg_title_VOR_STATUS_GO",
+			x = 18,
+			y = 1,
+			color = "g",
 		},
 	},
 	["pg_title_WXR_CONTROL"] = {
@@ -30100,6 +31053,306 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
+	["PT_1_label"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FPLN_IMPROMPTU_POINTS",
+			},
+			id = "PT_1_label",
+			x = 1,
+			y = 2,
+			color = "w",
+		},
+	},
+	["PT_1_left_bracket"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_FPLN_IMPROMPTU_POINTS",
+			},
+			id = "PT_1_left_bracket",
+			x = 1,
+			y = 3,
+			color = "w",
+		},
+	},
+	["PT_1_number"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FPLN_IMPROMPTU_POINTS",
+			},
+			id = "PT_1_number",
+			x = 7,
+			y = 2,
+			color = "w",
+		},
+	},
+	["PT_1_right_bracket"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_FPLN_IMPROMPTU_POINTS",
+			},
+			id = "PT_1_right_bracket",
+			x = 24,
+			y = 3,
+			color = "w",
+		},
+	},
+	["PT_1_value"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FPLN_IMPROMPTU_POINTS",
+			},
+			id = "PT_1_value",
+			x = 2,
+			y = 3,
+			color = "g",
+		},
+	},
+	["PT_2_label"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FPLN_IMPROMPTU_POINTS",
+			},
+			id = "PT_2_label",
+			x = 1,
+			y = 4,
+			color = "w",
+		},
+	},
+	["PT_2_left_bracket"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_FPLN_IMPROMPTU_POINTS",
+			},
+			id = "PT_2_left_bracket",
+			x = 1,
+			y = 5,
+			color = "w",
+		},
+	},
+	["PT_2_number"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FPLN_IMPROMPTU_POINTS",
+			},
+			id = "PT_2_number",
+			x = 7,
+			y = 4,
+			color = "w",
+		},
+	},
+	["PT_2_right_bracket"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_FPLN_IMPROMPTU_POINTS",
+			},
+			id = "PT_2_right_bracket",
+			x = 24,
+			y = 5,
+			color = "w",
+		},
+	},
+	["PT_2_value"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FPLN_IMPROMPTU_POINTS",
+			},
+			id = "PT_2_value",
+			x = 2,
+			y = 5,
+			color = "g",
+		},
+	},
+	["PT_3_label"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FPLN_IMPROMPTU_POINTS",
+			},
+			id = "PT_3_label",
+			x = 1,
+			y = 6,
+			color = "w",
+		},
+	},
+	["PT_3_left_bracket"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_FPLN_IMPROMPTU_POINTS",
+			},
+			id = "PT_3_left_bracket",
+			x = 1,
+			y = 7,
+			color = "w",
+		},
+	},
+	["PT_3_number"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FPLN_IMPROMPTU_POINTS",
+			},
+			id = "PT_3_number",
+			x = 7,
+			y = 6,
+			color = "w",
+		},
+	},
+	["PT_3_right_bracket"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_FPLN_IMPROMPTU_POINTS",
+			},
+			id = "PT_3_right_bracket",
+			x = 24,
+			y = 7,
+			color = "w",
+		},
+	},
+	["PT_3_value"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FPLN_IMPROMPTU_POINTS",
+			},
+			id = "PT_3_value",
+			x = 2,
+			y = 7,
+			color = "g",
+		},
+	},
+	["PT_4_label"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FPLN_IMPROMPTU_POINTS",
+			},
+			id = "PT_4_label",
+			x = 1,
+			y = 8,
+			color = "w",
+		},
+	},
+	["PT_4_left_bracket"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_FPLN_IMPROMPTU_POINTS",
+			},
+			id = "PT_4_left_bracket",
+			x = 1,
+			y = 9,
+			color = "w",
+		},
+	},
+	["PT_4_number"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FPLN_IMPROMPTU_POINTS",
+			},
+			id = "PT_4_number",
+			x = 7,
+			y = 8,
+			color = "w",
+		},
+	},
+	["PT_4_right_bracket"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_FPLN_IMPROMPTU_POINTS",
+			},
+			id = "PT_4_right_bracket",
+			x = 24,
+			y = 9,
+			color = "w",
+		},
+	},
+	["PT_4_value"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FPLN_IMPROMPTU_POINTS",
+			},
+			id = "PT_4_value",
+			x = 2,
+			y = 9,
+			color = "g",
+		},
+	},
+	["PT_5_label"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FPLN_IMPROMPTU_POINTS",
+			},
+			id = "PT_5_label",
+			x = 1,
+			y = 10,
+			color = "w",
+		},
+	},
+	["PT_5_left_bracket"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_FPLN_IMPROMPTU_POINTS",
+			},
+			id = "PT_5_left_bracket",
+			x = 1,
+			y = 11,
+			color = "w",
+		},
+	},
+	["PT_5_number"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FPLN_IMPROMPTU_POINTS",
+			},
+			id = "PT_5_number",
+			x = 7,
+			y = 10,
+			color = "w",
+		},
+	},
+	["PT_5_right_bracket"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_FPLN_IMPROMPTU_POINTS",
+			},
+			id = "PT_5_right_bracket",
+			x = 24,
+			y = 11,
+			color = "w",
+		},
+	},
+	["PT_5_value"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FPLN_IMPROMPTU_POINTS",
+			},
+			id = "PT_5_value",
+			x = 2,
+			y = 11,
+			color = "g",
+		},
+	},
 	["PTN_branch"] = {
 		{
 			alignment = "RGHT",
@@ -30440,6 +31693,16 @@ local CH_47F_CDU = {
 		{
 			alignment = "RGHT",
 			pages = {
+				"CDU_SUBSET_REF_SELECT",
+			},
+			id = "RALT_LOW_field",
+			x = 24,
+			y = 8,
+			color = "w",
+		},
+		{
+			alignment = "RGHT",
+			pages = {
 				"CDU_SUBSET_MISSION",
 			},
 			id = "RALT_LOW_field",
@@ -30459,6 +31722,16 @@ local CH_47F_CDU = {
 		},
 	},
 	["RALT_LOW_left_bracket"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_REF_SELECT",
+			},
+			id = "RALT_LOW_left_bracket",
+			x = 17,
+			y = 9,
+			color = "w",
+		},
 		{
 			alignment = "RGHT",
 			pages = {
@@ -30484,6 +31757,16 @@ local CH_47F_CDU = {
 		{
 			alignment = "RGHT",
 			pages = {
+				"CDU_SUBSET_REF_SELECT",
+			},
+			id = "RALT_LOW_right_bracket",
+			x = 22,
+			y = 9,
+			color = "w",
+		},
+		{
+			alignment = "RGHT",
+			pages = {
 				"CDU_SUBSET_MISSION",
 			},
 			id = "RALT_LOW_right_bracket",
@@ -30506,6 +31789,16 @@ local CH_47F_CDU = {
 		{
 			alignment = "RGHT",
 			pages = {
+				"CDU_SUBSET_REF_SELECT",
+			},
+			id = "RALT_LOW_units",
+			x = 24,
+			y = 9,
+			color = "w",
+		},
+		{
+			alignment = "RGHT",
+			pages = {
 				"CDU_SUBSET_MISSION",
 			},
 			id = "RALT_LOW_units",
@@ -30525,6 +31818,16 @@ local CH_47F_CDU = {
 		},
 	},
 	["RALT_LOW_value"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_REF_SELECT",
+			},
+			id = "RALT_LOW_value",
+			x = 21,
+			y = 9,
+			color = "g",
+		},
 		{
 			alignment = "RGHT",
 			pages = {
@@ -31197,6 +32500,7 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_COMM_U2_FMT_LOAD_2",
 				"CDU_SUBSET_COMM_U2_HQll_SETUP",
 				"CDU_SUBSET_COMM_U2_MWOD_DAY",
+				"CDU_SUBSET_FPLN_IMPROMPTU_POINTS",
 				"CDU_SUBSET_FPLN_LOAD_ALTN",
 				"CDU_SUBSET_FPLN_SAVE_ALTN",
 				"CDU_SUBSET_IFF_MAINTENANCE",
@@ -31213,11 +32517,13 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_LRU_DLU_STATUS",
 				"CDU_SUBSET_LRU_EGI1_STATUS",
 				"CDU_SUBSET_LRU_EGI2_STATUS",
+				"CDU_SUBSET_LRU_F1_STATUS",
 				"CDU_SUBSET_LRU_FQTY_STATUS",
 				"CDU_SUBSET_LRU_GPPU1_STATUS",
 				"CDU_SUBSET_LRU_GPPU2_STATUS",
 				"CDU_SUBSET_LRU_GPS1_STATUS",
 				"CDU_SUBSET_LRU_GPS2_STATUS",
+				"CDU_SUBSET_LRU_H4_STATUS",
 				"CDU_SUBSET_LRU_INU1_STATUS",
 				"CDU_SUBSET_LRU_INU2_STATUS",
 				"CDU_SUBSET_LRU_MFD1_STATUS",
@@ -31229,6 +32535,8 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_LRU_STATUS_WORDS",
 				"CDU_SUBSET_LRU_STORM_STATUS",
 				"CDU_SUBSET_LRU_TACAN_STATUS",
+				"CDU_SUBSET_LRU_U2_STATUS",
+				"CDU_SUBSET_LRU_V3_STATUS",
 				"CDU_SUBSET_LRU_VOR_STATUS",
 				"CDU_SUBSET_MISSION_SELECT_1",
 				"CDU_SUBSET_MISSION_SELECT_2",
@@ -31264,6 +32572,7 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_COMM_U2_FMT_LOAD_2",
 				"CDU_SUBSET_COMM_U2_HQll_SETUP",
 				"CDU_SUBSET_COMM_U2_MWOD_DAY",
+				"CDU_SUBSET_FPLN_IMPROMPTU_POINTS",
 				"CDU_SUBSET_FPLN_LOAD_ALTN",
 				"CDU_SUBSET_FPLN_SAVE_ALTN",
 				"CDU_SUBSET_IFF_MAINTENANCE",
@@ -31280,11 +32589,13 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_LRU_DLU_STATUS",
 				"CDU_SUBSET_LRU_EGI1_STATUS",
 				"CDU_SUBSET_LRU_EGI2_STATUS",
+				"CDU_SUBSET_LRU_F1_STATUS",
 				"CDU_SUBSET_LRU_FQTY_STATUS",
 				"CDU_SUBSET_LRU_GPPU1_STATUS",
 				"CDU_SUBSET_LRU_GPPU2_STATUS",
 				"CDU_SUBSET_LRU_GPS1_STATUS",
 				"CDU_SUBSET_LRU_GPS2_STATUS",
+				"CDU_SUBSET_LRU_H4_STATUS",
 				"CDU_SUBSET_LRU_INU1_STATUS",
 				"CDU_SUBSET_LRU_INU2_STATUS",
 				"CDU_SUBSET_LRU_MFD1_STATUS",
@@ -31296,6 +32607,8 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_LRU_STATUS_WORDS",
 				"CDU_SUBSET_LRU_STORM_STATUS",
 				"CDU_SUBSET_LRU_TACAN_STATUS",
+				"CDU_SUBSET_LRU_U2_STATUS",
+				"CDU_SUBSET_LRU_V3_STATUS",
 				"CDU_SUBSET_LRU_VOR_STATUS",
 				"CDU_SUBSET_MISSION_SELECT_1",
 				"CDU_SUBSET_MISSION_SELECT_2",
@@ -31989,19 +33302,6 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
-	["SCADU_branch"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_LRU_ADC1_STATUS",
-				"CDU_SUBSET_LRU_ADC2_STATUS",
-			},
-			id = "SCADU_branch",
-			x = 1,
-			y = 9,
-			color = "w",
-		},
-	},
 	["SCADU_field"] = {
 		{
 			alignment = "LFT",
@@ -32010,21 +33310,47 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_LRU_ADC2_STATUS",
 			},
 			id = "SCADU_field",
-			x = 2,
+			x = 1,
 			y = 9,
 			color = "w",
 		},
 	},
-	["SCADU_status"] = {
+	["SCADU_status_DEG"] = {
 		{
 			alignment = "LFT",
 			pages = {
 				"CDU_SUBSET_LRU_ADC1_STATUS",
 				"CDU_SUBSET_LRU_ADC2_STATUS",
 			},
-			id = "SCADU_status",
-			x = 7,
-			y = 9,
+			id = "SCADU_status_DEG",
+			x = 1,
+			y = 10,
+			color = "g",
+		},
+	},
+	["SCADU_status_FAIL"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_ADC1_STATUS",
+				"CDU_SUBSET_LRU_ADC2_STATUS",
+			},
+			id = "SCADU_status_FAIL",
+			x = 1,
+			y = 10,
+			color = "g",
+		},
+	},
+	["SCADU_status_GO"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_ADC1_STATUS",
+				"CDU_SUBSET_LRU_ADC2_STATUS",
+			},
+			id = "SCADU_status_GO",
+			x = 1,
+			y = 10,
 			color = "g",
 		},
 	},
@@ -32148,6 +33474,7 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_FPLN_HOLD",
 				"CDU_SUBSET_FPLN_HOV_OVERRIDE",
 				"CDU_SUBSET_FPLN_IMPROMPTU",
+				"CDU_SUBSET_FPLN_IMPROMPTU_POINTS",
 				"CDU_SUBSET_FPLN_INTERCEPT",
 				"CDU_SUBSET_FPLN_LADDER",
 				"CDU_SUBSET_FPLN_LOAD_ALTN",
@@ -32191,13 +33518,16 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_LRU_DLU_STATUS",
 				"CDU_SUBSET_LRU_EGI1_STATUS",
 				"CDU_SUBSET_LRU_EGI2_STATUS",
+				"CDU_SUBSET_LRU_F1_STATUS",
 				"CDU_SUBSET_LRU_FQTY_STATUS",
 				"CDU_SUBSET_LRU_GPPU1_STATUS",
 				"CDU_SUBSET_LRU_GPPU2_STATUS",
 				"CDU_SUBSET_LRU_GPS1_STATUS",
 				"CDU_SUBSET_LRU_GPS2_STATUS",
+				"CDU_SUBSET_LRU_H4_STATUS",
 				"CDU_SUBSET_LRU_HUD_STATUS",
 				"CDU_SUBSET_LRU_ICRM_STATUS",
+				"CDU_SUBSET_LRU_IFF_STATUS",
 				"CDU_SUBSET_LRU_INU1_STATUS",
 				"CDU_SUBSET_LRU_INU2_STATUS",
 				"CDU_SUBSET_LRU_MFD1_STATUS",
@@ -32213,6 +33543,8 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_LRU_STATUS_WORDS",
 				"CDU_SUBSET_LRU_STORM_STATUS",
 				"CDU_SUBSET_LRU_TACAN_STATUS",
+				"CDU_SUBSET_LRU_U2_STATUS",
+				"CDU_SUBSET_LRU_V3_STATUS",
 				"CDU_SUBSET_LRU_VOR_STATUS",
 				"CDU_SUBSET_MAINTENANCE_1",
 				"CDU_SUBSET_MAINTENANCE_2",
@@ -32351,6 +33683,7 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_FPLN_HOLD",
 				"CDU_SUBSET_FPLN_HOV_OVERRIDE",
 				"CDU_SUBSET_FPLN_IMPROMPTU",
+				"CDU_SUBSET_FPLN_IMPROMPTU_POINTS",
 				"CDU_SUBSET_FPLN_INTERCEPT",
 				"CDU_SUBSET_FPLN_LADDER",
 				"CDU_SUBSET_FPLN_LOAD_ALTN",
@@ -32394,13 +33727,16 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_LRU_DLU_STATUS",
 				"CDU_SUBSET_LRU_EGI1_STATUS",
 				"CDU_SUBSET_LRU_EGI2_STATUS",
+				"CDU_SUBSET_LRU_F1_STATUS",
 				"CDU_SUBSET_LRU_FQTY_STATUS",
 				"CDU_SUBSET_LRU_GPPU1_STATUS",
 				"CDU_SUBSET_LRU_GPPU2_STATUS",
 				"CDU_SUBSET_LRU_GPS1_STATUS",
 				"CDU_SUBSET_LRU_GPS2_STATUS",
+				"CDU_SUBSET_LRU_H4_STATUS",
 				"CDU_SUBSET_LRU_HUD_STATUS",
 				"CDU_SUBSET_LRU_ICRM_STATUS",
+				"CDU_SUBSET_LRU_IFF_STATUS",
 				"CDU_SUBSET_LRU_INU1_STATUS",
 				"CDU_SUBSET_LRU_INU2_STATUS",
 				"CDU_SUBSET_LRU_MFD1_STATUS",
@@ -32416,6 +33752,8 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_LRU_STATUS_WORDS",
 				"CDU_SUBSET_LRU_STORM_STATUS",
 				"CDU_SUBSET_LRU_TACAN_STATUS",
+				"CDU_SUBSET_LRU_U2_STATUS",
+				"CDU_SUBSET_LRU_V3_STATUS",
 				"CDU_SUBSET_LRU_VOR_STATUS",
 				"CDU_SUBSET_MAINTENANCE_1",
 				"CDU_SUBSET_MAINTENANCE_2",
@@ -32554,6 +33892,7 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_FPLN_HOLD",
 				"CDU_SUBSET_FPLN_HOV_OVERRIDE",
 				"CDU_SUBSET_FPLN_IMPROMPTU",
+				"CDU_SUBSET_FPLN_IMPROMPTU_POINTS",
 				"CDU_SUBSET_FPLN_INTERCEPT",
 				"CDU_SUBSET_FPLN_LADDER",
 				"CDU_SUBSET_FPLN_LOAD_ALTN",
@@ -32597,13 +33936,16 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_LRU_DLU_STATUS",
 				"CDU_SUBSET_LRU_EGI1_STATUS",
 				"CDU_SUBSET_LRU_EGI2_STATUS",
+				"CDU_SUBSET_LRU_F1_STATUS",
 				"CDU_SUBSET_LRU_FQTY_STATUS",
 				"CDU_SUBSET_LRU_GPPU1_STATUS",
 				"CDU_SUBSET_LRU_GPPU2_STATUS",
 				"CDU_SUBSET_LRU_GPS1_STATUS",
 				"CDU_SUBSET_LRU_GPS2_STATUS",
+				"CDU_SUBSET_LRU_H4_STATUS",
 				"CDU_SUBSET_LRU_HUD_STATUS",
 				"CDU_SUBSET_LRU_ICRM_STATUS",
+				"CDU_SUBSET_LRU_IFF_STATUS",
 				"CDU_SUBSET_LRU_INU1_STATUS",
 				"CDU_SUBSET_LRU_INU2_STATUS",
 				"CDU_SUBSET_LRU_MFD1_STATUS",
@@ -32619,6 +33961,8 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_LRU_STATUS_WORDS",
 				"CDU_SUBSET_LRU_STORM_STATUS",
 				"CDU_SUBSET_LRU_TACAN_STATUS",
+				"CDU_SUBSET_LRU_U2_STATUS",
+				"CDU_SUBSET_LRU_V3_STATUS",
 				"CDU_SUBSET_LRU_VOR_STATUS",
 				"CDU_SUBSET_MAINTENANCE_1",
 				"CDU_SUBSET_MAINTENANCE_2",
@@ -32757,6 +34101,7 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_FPLN_HOLD",
 				"CDU_SUBSET_FPLN_HOV_OVERRIDE",
 				"CDU_SUBSET_FPLN_IMPROMPTU",
+				"CDU_SUBSET_FPLN_IMPROMPTU_POINTS",
 				"CDU_SUBSET_FPLN_INTERCEPT",
 				"CDU_SUBSET_FPLN_LADDER",
 				"CDU_SUBSET_FPLN_LOAD_ALTN",
@@ -32800,13 +34145,16 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_LRU_DLU_STATUS",
 				"CDU_SUBSET_LRU_EGI1_STATUS",
 				"CDU_SUBSET_LRU_EGI2_STATUS",
+				"CDU_SUBSET_LRU_F1_STATUS",
 				"CDU_SUBSET_LRU_FQTY_STATUS",
 				"CDU_SUBSET_LRU_GPPU1_STATUS",
 				"CDU_SUBSET_LRU_GPPU2_STATUS",
 				"CDU_SUBSET_LRU_GPS1_STATUS",
 				"CDU_SUBSET_LRU_GPS2_STATUS",
+				"CDU_SUBSET_LRU_H4_STATUS",
 				"CDU_SUBSET_LRU_HUD_STATUS",
 				"CDU_SUBSET_LRU_ICRM_STATUS",
+				"CDU_SUBSET_LRU_IFF_STATUS",
 				"CDU_SUBSET_LRU_INU1_STATUS",
 				"CDU_SUBSET_LRU_INU2_STATUS",
 				"CDU_SUBSET_LRU_MFD1_STATUS",
@@ -32822,6 +34170,8 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_LRU_STATUS_WORDS",
 				"CDU_SUBSET_LRU_STORM_STATUS",
 				"CDU_SUBSET_LRU_TACAN_STATUS",
+				"CDU_SUBSET_LRU_U2_STATUS",
+				"CDU_SUBSET_LRU_V3_STATUS",
 				"CDU_SUBSET_LRU_VOR_STATUS",
 				"CDU_SUBSET_MAINTENANCE_1",
 				"CDU_SUBSET_MAINTENANCE_2",
@@ -32960,6 +34310,7 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_FPLN_HOLD",
 				"CDU_SUBSET_FPLN_HOV_OVERRIDE",
 				"CDU_SUBSET_FPLN_IMPROMPTU",
+				"CDU_SUBSET_FPLN_IMPROMPTU_POINTS",
 				"CDU_SUBSET_FPLN_INTERCEPT",
 				"CDU_SUBSET_FPLN_LADDER",
 				"CDU_SUBSET_FPLN_LOAD_ALTN",
@@ -33003,13 +34354,16 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_LRU_DLU_STATUS",
 				"CDU_SUBSET_LRU_EGI1_STATUS",
 				"CDU_SUBSET_LRU_EGI2_STATUS",
+				"CDU_SUBSET_LRU_F1_STATUS",
 				"CDU_SUBSET_LRU_FQTY_STATUS",
 				"CDU_SUBSET_LRU_GPPU1_STATUS",
 				"CDU_SUBSET_LRU_GPPU2_STATUS",
 				"CDU_SUBSET_LRU_GPS1_STATUS",
 				"CDU_SUBSET_LRU_GPS2_STATUS",
+				"CDU_SUBSET_LRU_H4_STATUS",
 				"CDU_SUBSET_LRU_HUD_STATUS",
 				"CDU_SUBSET_LRU_ICRM_STATUS",
+				"CDU_SUBSET_LRU_IFF_STATUS",
 				"CDU_SUBSET_LRU_INU1_STATUS",
 				"CDU_SUBSET_LRU_INU2_STATUS",
 				"CDU_SUBSET_LRU_MFD1_STATUS",
@@ -33025,6 +34379,8 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_LRU_STATUS_WORDS",
 				"CDU_SUBSET_LRU_STORM_STATUS",
 				"CDU_SUBSET_LRU_TACAN_STATUS",
+				"CDU_SUBSET_LRU_U2_STATUS",
+				"CDU_SUBSET_LRU_V3_STATUS",
 				"CDU_SUBSET_LRU_VOR_STATUS",
 				"CDU_SUBSET_MAINTENANCE_1",
 				"CDU_SUBSET_MAINTENANCE_2",
@@ -33885,6 +35241,16 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
+				"CDU_SUBSET_FPLN_INTERCEPT",
+			},
+			id = "SPEED_field",
+			x = 1,
+			y = 8,
+			color = "w",
+		},
+		{
+			alignment = "LFT",
+			pages = {
 				"CDU_SUBSET_FD_SELECT",
 			},
 			id = "SPEED_field",
@@ -33897,6 +35263,16 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
+				"CDU_SUBSET_FPLN_INTERCEPT",
+			},
+			id = "SPEED_left_bracket",
+			x = 1,
+			y = 9,
+			color = "w",
+		},
+		{
+			alignment = "LFT",
+			pages = {
 				"CDU_SUBSET_FD_SELECT",
 			},
 			id = "SPEED_left_bracket",
@@ -33906,6 +35282,16 @@ local CH_47F_CDU = {
 		},
 	},
 	["SPEED_right_bracket"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FPLN_INTERCEPT",
+			},
+			id = "SPEED_right_bracket",
+			x = 5,
+			y = 9,
+			color = "w",
+		},
 		{
 			alignment = "LFT",
 			pages = {
@@ -33930,6 +35316,16 @@ local CH_47F_CDU = {
 		},
 	},
 	["SPEED_value"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FPLN_INTERCEPT",
+			},
+			id = "SPEED_value",
+			x = 2,
+			y = 9,
+			color = "g",
+		},
 		{
 			alignment = "LFT",
 			pages = {
@@ -33996,7 +35392,7 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_FPLN_INTERCEPT",
 			},
 			id = "START_POSN_field",
-			x = 2,
+			x = 1,
 			y = 2,
 			color = "w",
 		},
@@ -34034,6 +35430,54 @@ local CH_47F_CDU = {
 			id = "START_POSN_value",
 			x = 2,
 			y = 3,
+			color = "g",
+		},
+	},
+	["START_TIME_field"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FPLN_INTERCEPT",
+			},
+			id = "START_TIME_field",
+			x = 1,
+			y = 4,
+			color = "w",
+		},
+	},
+	["START_TIME_left_bracket"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FPLN_INTERCEPT",
+			},
+			id = "START_TIME_left_bracket",
+			x = 1,
+			y = 5,
+			color = "w",
+		},
+	},
+	["START_TIME_right_bracket"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FPLN_INTERCEPT",
+			},
+			id = "START_TIME_right_bracket",
+			x = 9,
+			y = 5,
+			color = "w",
+		},
+	},
+	["START_TIME_value"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FPLN_INTERCEPT",
+			},
+			id = "START_TIME_value",
+			x = 2,
+			y = 5,
 			color = "g",
 		},
 	},
@@ -34105,9 +35549,14 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
+				"CDU_SUBSET_LRU_ADC1_STATUS",
+				"CDU_SUBSET_LRU_ADC2_STATUS",
+				"CDU_SUBSET_LRU_AFCS1_STATUS",
 				"CDU_SUBSET_LRU_AFCS2_STATUS",
 				"CDU_SUBSET_LRU_CDU1_STATUS",
 				"CDU_SUBSET_LRU_CDU2_STATUS",
+				"CDU_SUBSET_LRU_EGI1_STATUS",
+				"CDU_SUBSET_LRU_EGI2_STATUS",
 				"CDU_SUBSET_LRU_MFD1_STATUS",
 				"CDU_SUBSET_LRU_MFD2_STATUS",
 				"CDU_SUBSET_LRU_MFD3_STATUS",
@@ -34122,20 +35571,19 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_LRU_ADC1_STATUS",
-				"CDU_SUBSET_LRU_ADC2_STATUS",
 				"CDU_SUBSET_LRU_ADF_STATUS",
-				"CDU_SUBSET_LRU_AFCS1_STATUS",
 				"CDU_SUBSET_LRU_DLU_STATUS",
-				"CDU_SUBSET_LRU_EGI1_STATUS",
-				"CDU_SUBSET_LRU_EGI2_STATUS",
+				"CDU_SUBSET_LRU_F1_STATUS",
 				"CDU_SUBSET_LRU_GPS1_STATUS",
 				"CDU_SUBSET_LRU_GPS2_STATUS",
+				"CDU_SUBSET_LRU_H4_STATUS",
 				"CDU_SUBSET_LRU_INU1_STATUS",
 				"CDU_SUBSET_LRU_INU2_STATUS",
 				"CDU_SUBSET_LRU_RALT_STATUS",
 				"CDU_SUBSET_LRU_STORM_STATUS",
 				"CDU_SUBSET_LRU_TACAN_STATUS",
+				"CDU_SUBSET_LRU_U2_STATUS",
+				"CDU_SUBSET_LRU_V3_STATUS",
 				"CDU_SUBSET_LRU_VOR_STATUS",
 			},
 			id = "STATUS_WORDS_branch",
@@ -34148,9 +35596,14 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
+				"CDU_SUBSET_LRU_ADC1_STATUS",
+				"CDU_SUBSET_LRU_ADC2_STATUS",
+				"CDU_SUBSET_LRU_AFCS1_STATUS",
 				"CDU_SUBSET_LRU_AFCS2_STATUS",
 				"CDU_SUBSET_LRU_CDU1_STATUS",
 				"CDU_SUBSET_LRU_CDU2_STATUS",
+				"CDU_SUBSET_LRU_EGI1_STATUS",
+				"CDU_SUBSET_LRU_EGI2_STATUS",
 				"CDU_SUBSET_LRU_MFD1_STATUS",
 				"CDU_SUBSET_LRU_MFD2_STATUS",
 				"CDU_SUBSET_LRU_MFD3_STATUS",
@@ -34165,20 +35618,19 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_LRU_ADC1_STATUS",
-				"CDU_SUBSET_LRU_ADC2_STATUS",
 				"CDU_SUBSET_LRU_ADF_STATUS",
-				"CDU_SUBSET_LRU_AFCS1_STATUS",
 				"CDU_SUBSET_LRU_DLU_STATUS",
-				"CDU_SUBSET_LRU_EGI1_STATUS",
-				"CDU_SUBSET_LRU_EGI2_STATUS",
+				"CDU_SUBSET_LRU_F1_STATUS",
 				"CDU_SUBSET_LRU_GPS1_STATUS",
 				"CDU_SUBSET_LRU_GPS2_STATUS",
+				"CDU_SUBSET_LRU_H4_STATUS",
 				"CDU_SUBSET_LRU_INU1_STATUS",
 				"CDU_SUBSET_LRU_INU2_STATUS",
 				"CDU_SUBSET_LRU_RALT_STATUS",
 				"CDU_SUBSET_LRU_STORM_STATUS",
 				"CDU_SUBSET_LRU_TACAN_STATUS",
+				"CDU_SUBSET_LRU_U2_STATUS",
+				"CDU_SUBSET_LRU_V3_STATUS",
 				"CDU_SUBSET_LRU_VOR_STATUS",
 			},
 			id = "STATUS_WORDS_field",
@@ -35527,6 +36979,66 @@ local CH_47F_CDU = {
 			color = "g",
 		},
 	},
+	["TEMP_DEG"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_F1_STATUS",
+				"CDU_SUBSET_LRU_H4_STATUS",
+				"CDU_SUBSET_LRU_U2_STATUS",
+				"CDU_SUBSET_LRU_V3_STATUS",
+			},
+			id = "TEMP_DEG",
+			x = 1,
+			y = 7,
+			color = "g",
+		},
+	},
+	["TEMP_FAIL"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_F1_STATUS",
+				"CDU_SUBSET_LRU_H4_STATUS",
+				"CDU_SUBSET_LRU_U2_STATUS",
+				"CDU_SUBSET_LRU_V3_STATUS",
+			},
+			id = "TEMP_FAIL",
+			x = 1,
+			y = 7,
+			color = "g",
+		},
+	},
+	["TEMP_field"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_F1_STATUS",
+				"CDU_SUBSET_LRU_H4_STATUS",
+				"CDU_SUBSET_LRU_U2_STATUS",
+				"CDU_SUBSET_LRU_V3_STATUS",
+			},
+			id = "TEMP_field",
+			x = 1,
+			y = 6,
+			color = "w",
+		},
+	},
+	["TEMP_GO"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_LRU_F1_STATUS",
+				"CDU_SUBSET_LRU_H4_STATUS",
+				"CDU_SUBSET_LRU_U2_STATUS",
+				"CDU_SUBSET_LRU_V3_STATUS",
+			},
+			id = "TEMP_GO",
+			x = 1,
+			y = 7,
+			color = "g",
+		},
+	},
 	["TEST_branch"] = {
 		{
 			alignment = "LFT",
@@ -35541,8 +37053,10 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_LRU_DLU_STATUS",
 				"CDU_SUBSET_LRU_EGI1_STATUS",
 				"CDU_SUBSET_LRU_EGI2_STATUS",
+				"CDU_SUBSET_LRU_F1_STATUS",
 				"CDU_SUBSET_LRU_GPS1_STATUS",
 				"CDU_SUBSET_LRU_GPS2_STATUS",
+				"CDU_SUBSET_LRU_H4_STATUS",
 				"CDU_SUBSET_LRU_INU1_STATUS",
 				"CDU_SUBSET_LRU_INU2_STATUS",
 				"CDU_SUBSET_LRU_MFD1_STATUS",
@@ -35553,6 +37067,8 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_LRU_RALT_STATUS",
 				"CDU_SUBSET_LRU_STORM_STATUS",
 				"CDU_SUBSET_LRU_TACAN_STATUS",
+				"CDU_SUBSET_LRU_U2_STATUS",
+				"CDU_SUBSET_LRU_V3_STATUS",
 				"CDU_SUBSET_LRU_VOR_STATUS",
 			},
 			id = "TEST_branch",
@@ -35575,8 +37091,10 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_LRU_DLU_STATUS",
 				"CDU_SUBSET_LRU_EGI1_STATUS",
 				"CDU_SUBSET_LRU_EGI2_STATUS",
+				"CDU_SUBSET_LRU_F1_STATUS",
 				"CDU_SUBSET_LRU_GPS1_STATUS",
 				"CDU_SUBSET_LRU_GPS2_STATUS",
+				"CDU_SUBSET_LRU_H4_STATUS",
 				"CDU_SUBSET_LRU_INU1_STATUS",
 				"CDU_SUBSET_LRU_INU2_STATUS",
 				"CDU_SUBSET_LRU_MFD1_STATUS",
@@ -35587,6 +37105,8 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_LRU_RALT_STATUS",
 				"CDU_SUBSET_LRU_STORM_STATUS",
 				"CDU_SUBSET_LRU_TACAN_STATUS",
+				"CDU_SUBSET_LRU_U2_STATUS",
+				"CDU_SUBSET_LRU_V3_STATUS",
 				"CDU_SUBSET_LRU_VOR_STATUS",
 			},
 			id = "TEST_field",
@@ -35609,8 +37129,10 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_LRU_DLU_STATUS",
 				"CDU_SUBSET_LRU_EGI1_STATUS",
 				"CDU_SUBSET_LRU_EGI2_STATUS",
+				"CDU_SUBSET_LRU_F1_STATUS",
 				"CDU_SUBSET_LRU_GPS1_STATUS",
 				"CDU_SUBSET_LRU_GPS2_STATUS",
+				"CDU_SUBSET_LRU_H4_STATUS",
 				"CDU_SUBSET_LRU_INU1_STATUS",
 				"CDU_SUBSET_LRU_INU2_STATUS",
 				"CDU_SUBSET_LRU_MFD1_STATUS",
@@ -35621,6 +37143,8 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_LRU_RALT_STATUS",
 				"CDU_SUBSET_LRU_STORM_STATUS",
 				"CDU_SUBSET_LRU_TACAN_STATUS",
+				"CDU_SUBSET_LRU_U2_STATUS",
+				"CDU_SUBSET_LRU_V3_STATUS",
 				"CDU_SUBSET_LRU_VOR_STATUS",
 			},
 			id = "TEST_value",
@@ -36640,66 +38164,6 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
-	["TRAIL_field"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FPLN_INTERCEPT",
-			},
-			id = "TRAIL_field",
-			x = 1,
-			y = 10,
-			color = "w",
-		},
-	},
-	["TRAIL_left_bracket"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FPLN_INTERCEPT",
-			},
-			id = "TRAIL_left_bracket",
-			x = 1,
-			y = 11,
-			color = "w",
-		},
-	},
-	["TRAIL_right_bracket"] = {
-		{
-			alignment = "RGHT",
-			pages = {
-				"CDU_SUBSET_FPLN_INTERCEPT",
-			},
-			id = "TRAIL_right_bracket",
-			x = 6,
-			y = 11,
-			color = "w",
-		},
-	},
-	["TRAIL_units"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FPLN_INTERCEPT",
-			},
-			id = "TRAIL_units",
-			x = 7,
-			y = 11,
-			color = "w",
-		},
-	},
-	["TRAIL_value"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FPLN_INTERCEPT",
-			},
-			id = "TRAIL_value",
-			x = 2,
-			y = 11,
-			color = "g",
-		},
-	},
 	["TRB"] = {
 		{
 			alignment = "LFT",
@@ -36828,11 +38292,20 @@ local CH_47F_CDU = {
 	},
 	["TRK_SP_value"] = {
 		{
-			alignment = "LFT",
+			alignment = "RGHT",
 			pages = {
 				"CDU_SUBSET_FPLN_EXP_SQUARE",
-				"CDU_SUBSET_FPLN_IMPROMPTU",
 				"CDU_SUBSET_FPLN_LADDER",
+			},
+			id = "TRK_SP_value",
+			x = 6,
+			y = 9,
+			color = "g",
+		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FPLN_IMPROMPTU",
 			},
 			id = "TRK_SP_value",
 			x = 4,
@@ -36936,39 +38409,51 @@ local CH_47F_CDU = {
 			color = "g",
 		},
 	},
-	["TURN AID_branch"] = {
+	["TUNE_DEG"] = {
 		{
 			alignment = "RGHT",
 			pages = {
-				"CDU_SUBSET_FPLN_LADDER",
+				"CDU_SUBSET_LRU_H4_STATUS",
 			},
-			id = "TURN AID_branch",
+			id = "TUNE_DEG",
 			x = 24,
-			y = 9,
-			color = "w",
+			y = 7,
+			color = "g",
 		},
 	},
-	["TURN AID_field"] = {
+	["TUNE_FAIL"] = {
 		{
 			alignment = "RGHT",
 			pages = {
-				"CDU_SUBSET_FPLN_LADDER",
+				"CDU_SUBSET_LRU_H4_STATUS",
 			},
-			id = "TURN AID_field",
+			id = "TUNE_FAIL",
 			x = 24,
-			y = 8,
-			color = "w",
+			y = 7,
+			color = "g",
 		},
 	},
-	["TURN AID_OPER"] = {
+	["TUNE_field"] = {
 		{
 			alignment = "RGHT",
 			pages = {
-				"CDU_SUBSET_FPLN_LADDER",
+				"CDU_SUBSET_LRU_H4_STATUS",
 			},
-			id = "TURN AID_OPER",
+			id = "TUNE_field",
 			x = 23,
-			y = 9,
+			y = 6,
+			color = "w",
+		},
+	},
+	["TUNE_GO"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_LRU_H4_STATUS",
+			},
+			id = "TUNE_GO",
+			x = 24,
+			y = 7,
 			color = "g",
 		},
 	},
@@ -36976,24 +38461,15 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_FPLN_HOLD",
-			},
-			id = "TURN_branch",
-			x = 1,
-			y = 7,
-			color = "w",
-		},
-		{
-			alignment = "LFT",
-			pages = {
 				"CDU_SUBSET_FPLN_CIRCLE",
 				"CDU_SUBSET_FPLN_EXP_SQUARE",
+				"CDU_SUBSET_FPLN_HOLD",
 				"CDU_SUBSET_FPLN_LADDER",
 				"CDU_SUBSET_FPLN_SECTOR",
 			},
 			id = "TURN_branch",
 			x = 1,
-			y = 11,
+			y = 13,
 			color = "w",
 		},
 	},
@@ -37001,24 +38477,15 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_FPLN_HOLD",
-			},
-			id = "TURN_field",
-			x = 1,
-			y = 6,
-			color = "w",
-		},
-		{
-			alignment = "LFT",
-			pages = {
 				"CDU_SUBSET_FPLN_CIRCLE",
 				"CDU_SUBSET_FPLN_EXP_SQUARE",
+				"CDU_SUBSET_FPLN_HOLD",
 				"CDU_SUBSET_FPLN_LADDER",
 				"CDU_SUBSET_FPLN_SECTOR",
 			},
 			id = "TURN_field",
 			x = 1,
-			y = 10,
+			y = 12,
 			color = "w",
 		},
 	},
@@ -37026,11 +38493,12 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
+				"CDU_SUBSET_FPLN_CIRCLE",
 				"CDU_SUBSET_FPLN_HOLD",
 			},
 			id = "TURN_MODE",
 			x = 2,
-			y = 7,
+			y = 13,
 			color = "g",
 		},
 	},
@@ -37038,14 +38506,13 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_FPLN_CIRCLE",
 				"CDU_SUBSET_FPLN_EXP_SQUARE",
 				"CDU_SUBSET_FPLN_LADDER",
 				"CDU_SUBSET_FPLN_SECTOR",
 			},
 			id = "TURN_value",
 			x = 2,
-			y = 11,
+			y = 13,
 			color = "g",
 		},
 	},
@@ -37140,18 +38607,6 @@ local CH_47F_CDU = {
 			x = 24,
 			y = 5,
 			color = "g",
-		},
-	},
-	["U2_freq_step"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_MISSION",
-			},
-			id = "U2_freq_step",
-			x = 14,
-			y = 4,
-			color = "w",
 		},
 	},
 	["U2_HQ_presets_page_branch_1"] = {
@@ -38968,18 +40423,6 @@ local CH_47F_CDU = {
 			color = "g",
 		},
 	},
-	["V3_freq_step"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_MISSION",
-			},
-			id = "V3_freq_step",
-			x = 14,
-			y = 6,
-			color = "w",
-		},
-	},
 	["V3_INTERCOMM_NONE"] = {
 		{
 			alignment = "RGHT",
@@ -40385,126 +41828,6 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
-	["VOR_ILS_presets_page_field_10"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_VOR_ILS_PRESETS",
-			},
-			id = "VOR_ILS_presets_page_field_10",
-			x = 2,
-			y = 3,
-			color = "w",
-		},
-	},
-	["VOR_ILS_presets_page_field_11"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_VOR_ILS_PRESETS",
-			},
-			id = "VOR_ILS_presets_page_field_11",
-			x = 2,
-			y = 3,
-			color = "w",
-		},
-	},
-	["VOR_ILS_presets_page_field_12"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_VOR_ILS_PRESETS",
-			},
-			id = "VOR_ILS_presets_page_field_12",
-			x = 2,
-			y = 3,
-			color = "w",
-		},
-	},
-	["VOR_ILS_presets_page_field_13"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_VOR_ILS_PRESETS",
-			},
-			id = "VOR_ILS_presets_page_field_13",
-			x = 2,
-			y = 3,
-			color = "w",
-		},
-	},
-	["VOR_ILS_presets_page_field_14"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_VOR_ILS_PRESETS",
-			},
-			id = "VOR_ILS_presets_page_field_14",
-			x = 2,
-			y = 3,
-			color = "w",
-		},
-	},
-	["VOR_ILS_presets_page_field_15"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_VOR_ILS_PRESETS",
-			},
-			id = "VOR_ILS_presets_page_field_15",
-			x = 2,
-			y = 3,
-			color = "w",
-		},
-	},
-	["VOR_ILS_presets_page_field_16"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_VOR_ILS_PRESETS",
-			},
-			id = "VOR_ILS_presets_page_field_16",
-			x = 2,
-			y = 3,
-			color = "w",
-		},
-	},
-	["VOR_ILS_presets_page_field_17"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_VOR_ILS_PRESETS",
-			},
-			id = "VOR_ILS_presets_page_field_17",
-			x = 2,
-			y = 3,
-			color = "w",
-		},
-	},
-	["VOR_ILS_presets_page_field_18"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_VOR_ILS_PRESETS",
-			},
-			id = "VOR_ILS_presets_page_field_18",
-			x = 2,
-			y = 3,
-			color = "w",
-		},
-	},
-	["VOR_ILS_presets_page_field_19"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_VOR_ILS_PRESETS",
-			},
-			id = "VOR_ILS_presets_page_field_19",
-			x = 2,
-			y = 3,
-			color = "w",
-		},
-	},
 	["VOR_ILS_presets_page_field_2"] = {
 		{
 			alignment = "LFT",
@@ -40513,19 +41836,7 @@ local CH_47F_CDU = {
 			},
 			id = "VOR_ILS_presets_page_field_2",
 			x = 2,
-			y = 3,
-			color = "w",
-		},
-	},
-	["VOR_ILS_presets_page_field_20"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_VOR_ILS_PRESETS",
-			},
-			id = "VOR_ILS_presets_page_field_20",
-			x = 2,
-			y = 3,
+			y = 5,
 			color = "w",
 		},
 	},
@@ -40537,7 +41848,7 @@ local CH_47F_CDU = {
 			},
 			id = "VOR_ILS_presets_page_field_3",
 			x = 2,
-			y = 3,
+			y = 7,
 			color = "w",
 		},
 	},
@@ -40549,7 +41860,7 @@ local CH_47F_CDU = {
 			},
 			id = "VOR_ILS_presets_page_field_4",
 			x = 2,
-			y = 3,
+			y = 9,
 			color = "w",
 		},
 	},
@@ -40561,55 +41872,7 @@ local CH_47F_CDU = {
 			},
 			id = "VOR_ILS_presets_page_field_5",
 			x = 2,
-			y = 3,
-			color = "w",
-		},
-	},
-	["VOR_ILS_presets_page_field_6"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_VOR_ILS_PRESETS",
-			},
-			id = "VOR_ILS_presets_page_field_6",
-			x = 2,
-			y = 3,
-			color = "w",
-		},
-	},
-	["VOR_ILS_presets_page_field_7"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_VOR_ILS_PRESETS",
-			},
-			id = "VOR_ILS_presets_page_field_7",
-			x = 2,
-			y = 3,
-			color = "w",
-		},
-	},
-	["VOR_ILS_presets_page_field_8"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_VOR_ILS_PRESETS",
-			},
-			id = "VOR_ILS_presets_page_field_8",
-			x = 2,
-			y = 3,
-			color = "w",
-		},
-	},
-	["VOR_ILS_presets_page_field_9"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_VOR_ILS_PRESETS",
-			},
-			id = "VOR_ILS_presets_page_field_9",
-			x = 2,
-			y = 3,
+			y = 11,
 			color = "w",
 		},
 	},
