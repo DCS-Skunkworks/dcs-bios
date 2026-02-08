@@ -458,7 +458,12 @@ F4U_1D:defineFloat("INTERIOR_INSTRUMENT_BOARD_LAMP_BRIGHTNESS_WHITE_LEFT", 940, 
 F4U_1D:defineFloat("INTERIOR_INSTRUMENT_BOARD_LAMP_BRIGHTNESS_WHITE_RIGHT", 941, { 0, 1 }, INTERIOR_LIGHTS, "Right Instrument Board Brightness (White)")
 
 -- Interior Model
--- local INTERIOR_MODEL = "Interior Model"
+local INTERIOR_MODEL = "Interior Model"
+
+F4U_1D:defineFloat("INTERIOR_MODEL_PANEL_ROTATION_X", 702, { -1, 1 }, INTERIOR_MODEL, "Panel Rotation (X Axis)")
+F4U_1D:defineFloat("INTERIOR_MODEL_PANEL_SHAKE_X", 703, { -1, 1 }, INTERIOR_MODEL, "Panel Shake (X Axis)")
+F4U_1D:defineFloat("INTERIOR_MODEL_PANEL_SHAKE_Y", 704, { -1, 1 }, INTERIOR_MODEL, "Panel Shake (Y Axis)")
+F4U_1D:defineFloat("INTERIOR_MODEL_CANOPY_POSTION", 38, { 0, 1 }, INTERIOR_MODEL, "Position of Canopy")
 
 -- Exterior Lights
 -- local EXTERIOR_LIGHTS = "Exterior Lights"
