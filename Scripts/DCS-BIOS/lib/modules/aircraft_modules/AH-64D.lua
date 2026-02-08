@@ -1059,4 +1059,13 @@ AH_64D:defineFloat("PLT_STANDBY_COMPASS_HDG", 630, { 0, 1 }, PILOT_STANDBY_COMPA
 AH_64D:defineFloat("PLT_STANDBY_COMPASS_PITCH", 631, { -1, 1 }, PILOT_STANDBY_COMPASS, "Standby Compass Pitch")
 AH_64D:defineFloat("PLT_STANDBY_COMPASS_BANK", 632, { -1, 1 }, PILOT_STANDBY_COMPASS, "Standby Compass Bank")
 
+-- additional External Position Data for Gun and Sensors
+AH_64D:defineFullRangeFloatFromExternalDrawArgument("EXT_GUN_POS_YAW", 19, "External Aircraft Model", "Gun Yaw")
+AH_64D:defineFullRangeFloatFromExternalDrawArgument("EXT_GUN_POS_PITCH", 20, "External Aircraft Model", "Gun Pitch")
+AH_64D:defineFloatFromDrawArgument("EXT_GUN_POS_BELT_FEED", 349, "External Aircraft Model", "Gun Belt Feed")
+AH_64D:defineFloatFromDrawArgument("EXT_GUN_POS_RECOIL", 350, "External Aircraft Model", "Gun Recoil")
+AH_64D:defineFullRangeFloatFromExternalDrawArgument("EXT_TADS_POS_YAW", 307, "External Aircraft Model", "TADS Yaw")
+AH_64D:defineFullRangeFloatFromExternalDrawArgument("EXT_TADS_POS_PITCH", 306, "External Aircraft Model", "TADS Pitch")
+AH_64D:defineFullRangeFloatFromExternalDrawArgument("EXT_PNVS_POS_YAW", 600, "External Aircraft Model", "PNVS Yaw")
+
 return AH_64D
