@@ -478,7 +478,28 @@ F4U_1D:defineFloatFromDrawArgument("EXT_LIGHT_FORMATION", 88, EXTERIOR_LIGHTS, "
 F4U_1D:defineBitFromDrawArgument("EXT_LIGHT_APPROACH", 208, EXTERIOR_LIGHTS, "Approach Light (Green)")
 
 -- Exterior Model
--- local EXTERIOR_MODEL = "Exterior Model"
+local EXTERIOR_MODEL = "Exterior Model"
+
+F4U_1D:defineFloatFromExternalDrawArgument("EXT_GEAR_TAIL_POS", 0, { 0, 1 }, EXTERIOR_MODEL, "Tail Gear Position")
+F4U_1D:defineFloatFromExternalDrawArgument("EXT_GEAR_LEFT_POS", 5, { 0, 1 }, EXTERIOR_MODEL, "Left Gear Position")
+F4U_1D:defineFloatFromExternalDrawArgument("EXT_GEAR_RIGHT_POS", 3, { 0, 1 }, EXTERIOR_MODEL, "Right Gear Position")
+F4U_1D:defineFloatFromExternalDrawArgument("EXT_GEAR_TAIL_WOW", 1, { 0, 1 }, EXTERIOR_MODEL, "Weight On Wheels Tail Gear")
+F4U_1D:defineFloatFromExternalDrawArgument("EXT_GEAR_LEFT_WOW", 6, { 0, 1 }, EXTERIOR_MODEL, "Weight On Wheels Left Gear")
+F4U_1D:defineFloatFromExternalDrawArgument("EXT_GEAR_RIGHT_WOW", 4, { 0, 1 }, EXTERIOR_MODEL, "Weight On Wheels Right Gear")
+F4U_1D:defineFullRangeFloatFromExternalDrawArgument("EXT_GEAR_TAIL_ROT", 2, EXTERIOR_MODEL, "Tail Gear Rotation")
+F4U_1D:defineFloatFromExternalDrawArgument("EXT_GEAR_TAIL_HOOK_POS", 25, { 0, 1 }, EXTERIOR_MODEL, "Tail Hook Position")
+F4U_1D:defineFullRangeFloatFromExternalDrawArgument("EXT_GEAR_TAIL_HOOK_ROT", 26, EXTERIOR_MODEL, "Tail Hook Rotation")
+F4U_1D:defineFloatFromExternalDrawArgument("EXT_WINGS_FOLD_POS", 8, { 0, 1 }, EXTERIOR_MODEL, "Folded Wings Position")
+F4U_1D:defineFloatFromExternalDrawArgument("EXT_WINGS_FLAPS_RIGHT_POS", 9, { 0, 1 }, EXTERIOR_MODEL, "Right Flaps Position")
+F4U_1D:defineFloatFromExternalDrawArgument("EXT_WINGS_FLAPS_LEFT_POS", 10, { 0, 1 }, EXTERIOR_MODEL, "Left Flaps Position")
+F4U_1D:defineFullRangeFloatFromExternalDrawArgument("EXT_WINGS_AILERON_RIGHT_POS", 11, EXTERIOR_MODEL, "Right Aileron Position")
+F4U_1D:defineFullRangeFloatFromExternalDrawArgument("EXT_WINGS_AILERON_LEFT_POS", 12, EXTERIOR_MODEL, "Left Aileron Position")
+F4U_1D:defineFullRangeFloatFromExternalDrawArgument("EXT_TAIL_ELEVATOR_LEFT_POS", 16, EXTERIOR_MODEL, "Left Elevator Position")
+F4U_1D:defineFullRangeFloatFromExternalDrawArgument("EXT_TAIL_ELEVATOR_RIGHT_POS", 15, EXTERIOR_MODEL, "Right Elevator Position")
+F4U_1D:defineFullRangeFloatFromExternalDrawArgument("EXT_TAIL_RUDDER_POS", 17, EXTERIOR_MODEL, "Rudder Position")
+F4U_1D:defineFloatFromExternalDrawArgument("EXT_COWL_FLAPS_POS", 277, { 0, 1 }, EXTERIOR_MODEL, "Cowl Flaps Position")
+F4U_1D:defineFloatFromExternalDrawArgument("EXT_OIL_COOLER_FLAP_POS", 278, { 0, 1 }, EXTERIOR_MODEL, "Oil Cooler Flap Position")
+F4U_1D:defineFloatFromExternalDrawArgument("EXT_INTERCOOLER_FLAP_POS", 279, { 0, 1 }, EXTERIOR_MODEL, "Intercooler Flap Position")
 
 -- Radios
 F4U_1D:defineReadWriteRadio("RADIO_C_30A", 8, 7, 3, 1000, "C-30A")
