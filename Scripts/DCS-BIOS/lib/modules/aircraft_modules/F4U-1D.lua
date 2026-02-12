@@ -466,7 +466,16 @@ F4U_1D:defineFloat("INTERIOR_MODEL_PANEL_SHAKE_Y", 704, { -1, 1 }, INTERIOR_MODE
 F4U_1D:defineFloat("INTERIOR_MODEL_CANOPY_POSTION", 38, { 0, 1 }, INTERIOR_MODEL, "Position of Canopy")
 
 -- Exterior Lights
--- local EXTERIOR_LIGHTS = "Exterior Lights"
+local EXTERIOR_LIGHTS = "Exterior Lights"
+
+F4U_1D:defineFloatFromDrawArgument("EXT_LIGHT_NAV_L", 190, EXTERIOR_LIGHTS, "Left Nav Light (Red)")
+F4U_1D:defineFloatFromDrawArgument("EXT_LIGHT_NAV_R", 191, EXTERIOR_LIGHTS, "Right Nav Light (Green)")
+F4U_1D:defineFloatFromDrawArgument("EXT_LIGHT_NAV_AFT", 192, EXTERIOR_LIGHTS, "Aft Nav Light (White)")
+F4U_1D:defineFloatFromDrawArgument("EXT_LIGHT_RECONGITION_RED", 200, EXTERIOR_LIGHTS, "Recognition Light (Red)")
+F4U_1D:defineFloatFromDrawArgument("EXT_LIGHT_RECONGITION_GREEN", 201, EXTERIOR_LIGHTS, "Recognition Light (Green)")
+F4U_1D:defineFloatFromDrawArgument("EXT_LIGHT_RECONGITION_AMBER", 202, EXTERIOR_LIGHTS, "Recognition Light (Amber)")
+F4U_1D:defineFloatFromDrawArgument("EXT_LIGHT_FORMATION", 88, EXTERIOR_LIGHTS, "Formation Lights (Blue)")
+F4U_1D:defineBitFromDrawArgument("EXT_LIGHT_APPROACH", 208, EXTERIOR_LIGHTS, "Approach Light (Green)")
 
 -- Exterior Model
 -- local EXTERIOR_MODEL = "Exterior Model"
