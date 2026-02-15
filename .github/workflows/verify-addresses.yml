@@ -42,7 +42,7 @@ jobs:
 
       - name: diff Addresses.h
         run: |
-          diff=git diff base/Scripts/DCS-BIOS/doc/Addresses.h head/Scripts/DCS-BIOS/doc/Addresses.h
+          diff=$(git diff base/Scripts/DCS-BIOS/doc/Addresses.h head/Scripts/DCS-BIOS/doc/Addresses.h)
 
           mkdir -p ./pr && cd pr
 
@@ -50,6 +50,7 @@ jobs:
           echo $diff | grep '^+#' | wc -l > ./added
           echo $diff | grep '^-#' | wc -l > ./removed
           echo ${{ github.event.number }} > ./number
+        continue-on-error: true # needed because diff will exit with exit code 1 if any differences are found
 
       - name: upload artifact
         uses: actions/upload-artifact@v6
