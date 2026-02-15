@@ -46,9 +46,9 @@ jobs:
 
           mkdir -p ./pr && cd pr
 
-          echo $diff > ./diff
-          echo $diff | grep '^+#' | wc -l > ./added
-          echo $diff | grep '^-#' | wc -l > ./removed
+          echo "$diff" > ./diff
+          echo "$diff" | grep '^+#' | wc -l > ./added
+          echo "$diff" | grep '^-#' | wc -l > ./removed
           echo ${{ github.event.number }} > ./number
 
       - name: upload artifact
