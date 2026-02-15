@@ -16,15 +16,16 @@ jobs:
 
     name: Verify backwards-compatible addresses
     steps:
-      - name: Checkout repository
+      - name: Checkout repository at head
         uses: actions/checkout@v6
         with:
+          ref: ${{ github.head_ref }}
           path: head
 
-      - name: Checkout repository
+      - name: Checkout repository at base
         uses: actions/checkout@v6
         with:
-          ref: ${{ github.event.pull_request.base.sha }}
+          # ref not needed as action is pull_request_target
           path: base
 
       - name: Set up lua
