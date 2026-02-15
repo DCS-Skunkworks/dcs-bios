@@ -242,6 +242,10 @@ function TestAircraft:validateControlNames(module_name, documentation)
 			--   start with a letter, number, or underscore
 			--   end with a letter or number
 			--   contain only letters, numbers, and underscores
+			--   are less than or equal to 64 characters in length
+
+			lu.assertIsTrue(#identifier <= 64, "identifier " .. identifier .. " is longer than 64 characters")
+
 			local identifier_pattern = "^[%u%d_]*[%u%d]$"
 			lu.assertNotIsNil(identifier:match(identifier_pattern), module_name .. ": " .. "id " .. identifier .. " did not meet id requirements")
 			--   don't have any consecutive underscores
