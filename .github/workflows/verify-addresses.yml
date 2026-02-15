@@ -1,7 +1,7 @@
 name: Verify backwards-compatible addresses
 
 on: 
-  pull_request_target:
+  pull_request:
     branches:
       main
 
@@ -11,21 +11,17 @@ jobs:
 
     permissions:
       contents: read
-      issues: write
-      pull-requests: write
 
-    name: Verify backwards-compatible addresses
     steps:
       - name: Checkout repository at head
         uses: actions/checkout@v6
         with:
-          ref: ${{ github.head_ref }}
           path: head
 
       - name: Checkout repository at base
         uses: actions/checkout@v6
         with:
-          # ref not needed as action is pull_request_target
+          ref: ${{ github.event.pull_request.base.sha }}
           path: base
 
       - name: Set up lua
@@ -45,45 +41,20 @@ jobs:
           lua ./Scripts/DCS-BIOS/test/compile/LocalCompile.lua
 
       - name: diff Addresses.h
-        id: diff
         run: |
           diff=git diff base/Scripts/DCS-BIOS/doc/Addresses.h head/Scripts/DCS-BIOS/doc/Addresses.h
           added=echo $diff | grep '^+#' | wc -l
           removed=echo $diff | grep '^-#' | wc -l
-          echo "diff=$diff" >> $GITHUB_OUTPUT
-          echo "added=$added" >> $GITHUB_OUTPUT
-          echo "removed=$removed" >> $GITHUB_OUTPUT
+          mkdir -p ./pr && cd pr
+          echo $diff > ./diff
+          echo $added > ./added
+          echo $removed > ./removed
+          echo ${{ github.event.number }} > ./number
 
-      - name: comment
-        uses: actions/github-script@v8
+      - name: upload artifact
+        uses: actions/upload-artifact@v6
         with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
-          script: |
-            const added = Number(${{ steps.diff.outputs.added }});
-            const removed =  Number(${{ steps.diff.outputs.removed }});
-            const diff = "${{ steps.diff.outputs.diff }}";
+          name: pr
+          path: pr/
 
-            let comment = "";
-
-            if (added === 0 && removed === 0) {
-                comment += `## ✅ No control address changes detected`;
-            } else {
-              if (removed > 0) {
-                comment += `## ⚠️ Control addresses are not backwards-compatible\n`;
-                comment += `Found changes or removals in ${removed} lines. To avoid this, ensure new controls are added to the end of any affected lua files.\n`;
-              } else {
-                comment += `## ✅ Control addresses are backwards-compatible\n`;
-                comment += `Found ${added} new controls.\n`;
-              }
-
-              comment += "```diff\n";
-              comment += diff;
-              comment += "\n```";
-            }
-
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: comment
-            });
+      # todo: fail if removed > 0?

@@ -1,0 +1,76 @@
+name: Add addresses comment
+
+on:
+  workflow_run:
+    workflows: ["Verify backwards-compatible addresses"]
+    types:
+      - completed
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    permissions:
+      pull-requests: write
+
+    if: >
+      github.event.workflow_run.event == 'pull_request'
+    steps:
+      - name: 'Download artifact'
+        uses: actions/github-script@v3.1.0
+        with:
+          script: |
+            var artifacts = await github.actions.listWorkflowRunArtifacts({
+               owner: context.repo.owner,
+               repo: context.repo.repo,
+               run_id: ${{ github.event.workflow_run.id }},
+            });
+            var matchArtifact = artifacts.data.artifacts.filter((artifact) => {
+              return artifact.name == "pr"
+            })[0];
+            var download = await github.actions.downloadArtifact({
+               owner: context.repo.owner,
+               repo: context.repo.repo,
+               artifact_id: matchArtifact.id,
+               archive_format: 'zip',
+            });
+            var fs = require('fs');
+            fs.writeFileSync('${{ github.workspace }}/pr.zip', Buffer.from(download.data));
+      - run: unzip pr.zip
+
+      - name: comment
+        uses: actions/github-script@v8
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            var fs = require('fs');
+
+            const issue_number = Number(fs.readFileSync('./number'));
+            const added = Number(fs.readFileSync('./added'));
+            const removed =  Number(fs.readFileSync('./removed'));
+            const diff = fs.readFileSync('./diff');
+
+            let comment = "";
+
+            if (added === 0 && removed === 0) {
+                comment += `## ✅ No control address changes detected`;
+            } else {
+              if (removed > 0) {
+                comment += `## ⚠️ Control addresses are not backwards-compatible\n`;
+                comment += `Found changes or removals in ${removed} lines. To avoid this, ensure new controls are added to the end of any affected lua files.\n`;
+              } else {
+                comment += `## ✅ Control addresses are backwards-compatible\n`;
+                comment += `Found ${added} new controls.\n`;
+              }
+
+              comment += "```diff\n";
+              comment += diff;
+              comment += "\n```";
+            }
+
+            github.rest.issues.createComment({
+              issue_number: issue_number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment
+            });
