@@ -43,12 +43,12 @@ jobs:
       - name: diff Addresses.h
         run: |
           diff=git diff base/Scripts/DCS-BIOS/doc/Addresses.h head/Scripts/DCS-BIOS/doc/Addresses.h
-          added=echo $diff | grep '^+#' | wc -l
-          removed=echo $diff | grep '^-#' | wc -l
+
           mkdir -p ./pr && cd pr
+
           echo $diff > ./diff
-          echo $added > ./added
-          echo $removed > ./removed
+          echo $diff | grep '^+#' | wc -l > ./added
+          echo $diff | grep '^-#' | wc -l > ./removed
           echo ${{ github.event.number }} > ./number
 
       - name: upload artifact
