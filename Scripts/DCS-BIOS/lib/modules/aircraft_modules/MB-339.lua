@@ -1,5 +1,6 @@
 module("MB-339", package.seeall)
 
+local ICommand = require("Scripts.DCS-BIOS.lib.modules.ICommand")
 local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 
 --- @class MB_339: Module
@@ -827,7 +828,8 @@ MB_339:defineFloat("FUEL_FLOW_G", 313, { 0, 1 }, "Fuel Gauge", "Fuel Flow Gauge"
 MB_339:defineFloat("AFT_FUEL_TRANS_G", 520, { 0, 1 }, "Fuel Gauge", "Aft Fuel Transfer Drum")
 
 --L/G & Ground
-MB_339:defineToggleSwitch("FW_LG_GEAR_LVR", 1, COMMANDS.LandingGearLever, 4, "Gear FW", "Foreward Gear Lever")
+-- LandingGearLever (5002) should work and is present in clickabledata.lua, but the control seems to glitch out when attempting to use it
+MB_339:defineLoSetCommand2PosToggle("FW_LG_GEAR_LVR", ICommand.gear_up, ICommand.gear_down, 4, "Gear FW", "Foreward Gear Lever")
 MB_339:defineToggleSwitch("FW_LG_ASKID", 1, COMMANDS.FwdAntiSkidOnOff, 250, "Gear FW", "Foreward Anti-Skid")
 MB_339:definePotentiometer("FW_LG_PBRAKE", 1, COMMANDS.ParkingBrakePull, 266, { 0, 1 }, "Gear FW", "Forward Parking Brake Pull")
 MB_339:defineToggleSwitch("FW_LG_PBRAKE_LOCK", 1, COMMANDS.ParkingBrakeLock, 263, "Gear FW", "Foreward Parking Brake Lock")
@@ -835,7 +837,7 @@ MB_339:defineToggleSwitch("FW_LG_EMERG_GEAR", 1, COMMANDS.EmergLandingGear, 681,
 MB_339:definePushButton("FW_LG_DL_OVERRIDE", 1, COMMANDS.FwdLandingGearOverride, 379, "Gear FW", "Foreward Down-Lock Override")
 MB_339:defineSpringloaded_3PosTumb("FW_RUDDER_TRIM", 1, COMMANDS.FwdTrimLeftRudder, COMMANDS.FwdTrimRightRudder, 540, "Gear FW", "Foreward Rudder Trim")
 
-MB_339:defineToggleSwitch("AFT_LG_GEAR_LVR", 1, COMMANDS.LandingGearLever, 106, "Gear AFT", "Aft Gear Lever")
+MB_339:defineLoSetCommand2PosToggle("AFT_LG_GEAR_LVR", ICommand.gear_up, ICommand.gear_down, 106, "Gear AFT", "Aft Gear Lever")
 MB_339:defineToggleSwitch("AFT_LG_ASKID", 1, COMMANDS.AftAntiSkidOnOff, 518, "Gear AFT", "Aft Anti-Skid")
 MB_339:definePushButton("AFT_LG_DL_OVERRIDE", 1, COMMANDS.AftLandingGearOverride, 14, "Gear AFT", "Aft Down-Lock Override")
 MB_339:defineSpringloaded_3PosTumb("AFT_RUDDER_TRIM", 1, COMMANDS.AftTrimLeftRudder, COMMANDS.AftTrimRightRudder, 519, "Gear AFT", "Aft Rudder Trim")
