@@ -10926,6 +10926,18 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
+	["EGI1_page_branch_4"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_INAV_SELECT",
+			},
+			id = "EGI1_page_branch_4",
+			x = 2,
+			y = 3,
+			color = "g",
+		},
+	},
 	["EGI1_page_field"] = {
 		{
 			alignment = "LFT",
@@ -11189,6 +11201,18 @@ local CH_47F_CDU = {
 			x = 1,
 			y = 5,
 			color = "w",
+		},
+	},
+	["EGI2_page_branch_4"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_INAV_SELECT",
+			},
+			id = "EGI2_page_branch_4",
+			x = 2,
+			y = 5,
+			color = "g",
 		},
 	},
 	["EGI2_page_field"] = {
@@ -16212,6 +16236,18 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
+	["GPS1_page_branch_4"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_INAV_SELECT",
+			},
+			id = "GPS1_page_branch_4",
+			x = 2,
+			y = 7,
+			color = "g",
+		},
+	},
 	["GPS1_page_field"] = {
 		{
 			alignment = "LFT",
@@ -16380,6 +16416,18 @@ local CH_47F_CDU = {
 			x = 1,
 			y = 9,
 			color = "w",
+		},
+	},
+	["GPS2_page_branch_4"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_INAV_SELECT",
+			},
+			id = "GPS2_page_branch_4",
+			x = 2,
+			y = 9,
+			color = "g",
 		},
 	},
 	["GPS2_page_field"] = {
@@ -20782,6 +20830,18 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
+	["INU1_page_branch_4"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_INAV_SELECT_2",
+			},
+			id = "INU1_page_branch_4",
+			x = 2,
+			y = 3,
+			color = "g",
+		},
+	},
 	["INU1_page_field"] = {
 		{
 			alignment = "LFT",
@@ -21111,6 +21171,18 @@ local CH_47F_CDU = {
 			x = 1,
 			y = 5,
 			color = "w",
+		},
+	},
+	["INU2_page_branch_4"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_INAV_SELECT_2",
+			},
+			id = "INU2_page_branch_4",
+			x = 2,
+			y = 5,
+			color = "g",
 		},
 	},
 	["INU2_page_field"] = {
@@ -30016,7 +30088,7 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_VOR_ILS_CONTROL",
 			},
 			id = "pg_title_VOR_ILS_Control",
-			x = 8,
+			x = 5,
 			y = 1,
 			color = "w",
 		},
