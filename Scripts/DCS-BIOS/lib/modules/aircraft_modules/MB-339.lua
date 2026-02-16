@@ -1,7 +1,13 @@
 module("MB-339", package.seeall)
 
+local Control = require("Scripts.DCS-BIOS.lib.modules.documentation.Control")
+local ControlType = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlType")
+local FixedStepInput = require("Scripts.DCS-BIOS.lib.modules.documentation.FixedStepInput")
 local ICommand = require("Scripts.DCS-BIOS.lib.modules.ICommand")
+local IntegerOutput = require("Scripts.DCS-BIOS.lib.modules.documentation.IntegerOutput")
 local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
+local SetStateInput = require("Scripts.DCS-BIOS.lib.modules.documentation.SetStateInput")
+local Suffix = require("Scripts.DCS-BIOS.lib.modules.documentation.Suffix")
 
 --- @class MB_339: Module
 local MB_339 = Module:new("MB-339", 0x8200, { "MB-339A", "MB-339APAN" })
@@ -18,6 +24,56 @@ local MB_339 = Module:new("MB-339", 0x8200, { "MB-339A", "MB-339APAN" })
 --- @return Control control the control which was added to the module
 function MB_339:defineIndicatorLight08(identifier, arg_number, category, description)
 	return self:defineGatedIndicatorLight(identifier, arg_number, 0.5, 0.9, category, description)
+end
+
+--- Adds a new control specifically for the flaps selector
+--- @param identifier string the unique identifier for the control
+--- @param arg_number integer the dcs argument number
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @return Control control the control which was added to the module
+function MB_339:defineFlapsControl(identifier, arg_number, category, description)
+	local alloc = self:allocateInt(2, identifier)
+
+	local control = Control:new(category, ControlType.action, identifier, description, {
+		FixedStepInput:new("switch to previous or next state"),
+		SetStateInput:new(2, "set position"),
+	}, {
+		IntegerOutput:new(alloc, Suffix.none, "selector position"),
+	})
+
+	self:addControl(control)
+
+	self:addInputProcessor(identifier, function(action)
+		-- 0 = DOWN / 0.5 = TAKE OFF / 1 = UP
+		local current_state = Module.round(GetDevice(0):get_argument_value(arg_number) * 2)
+
+		if current_state == 0 then
+			if action == "1" or action == "INC" then
+				LoSetCommand(ICommand.flaps_maneuver_from_down)
+			elseif action == "2" then
+				LoSetCommand(ICommand.flaps_up)
+			end
+		elseif current_state == 1 then
+			if action == "0" or action == "DEC" then
+				LoSetCommand(ICommand.flaps_down)
+			elseif action == "2" or action == "INC" then
+				LoSetCommand(ICommand.flaps_up)
+			end
+		else -- 2
+			if action == "1" or action == "DEC" then
+				LoSetCommand(ICommand.flaps_maneuver_from_up)
+			elseif action == "0" then
+				LoSetCommand(ICommand.flaps_down)
+			end
+		end
+	end)
+
+	self:addExportHook(function(dev0)
+		alloc:setValue(Module.round(dev0:get_argument_value(arg_number) * 2))
+	end)
+
+	return control
 end
 
 -- pulled from command_defs.lua
@@ -1325,5 +1381,9 @@ MB_339:definePotentiometer("GUN_REP_BRIGHT", 1, COMMANDS.GunsightRepeaterBrt, 40
 -- generator switches updated from 2pos to 3pos
 MB_339:defineSpringloaded_3PosTumb("GEN1_SW", 1, COMMANDS.Generator1ResetSwitch, COMMANDS.Generator1Switch, 301, "Electrical", "Generator 1 Switch")
 MB_339:defineSpringloaded_3PosTumb("GEN2_SW", 1, COMMANDS.Generator2ResetSwitch, COMMANDS.Generator2Switch, 302, "Electrical", "Generator 2 Switch")
+
+-- right now, these are technically the same control
+MB_339:defineFlapsControl("FW_FLAPS_LVR", 7, "Flaps FW", "Forward Flaps Lever (DOWN/TAKE OFF/UP)")
+MB_339:defineFlapsControl("AFT_FLAPS_LVR", 7, "Flaps AFT", "Aft Flaps Lever (DOWN/TAKE OFF/UP)")
 
 return MB_339
