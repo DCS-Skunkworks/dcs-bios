@@ -391,8 +391,8 @@ F_14:define3PosTumb("RIO_ICS_UHF_LWR", 2, 3598, 380, "ICS", "RIO V/UHF 2 ANT Swi
 F_14:define3PosTumb("RIO_ICS_KY_MODE", 2, 3597, 382, "ICS", "RIO KY MODE Switch")
 
 -- UHF ARC-159
-F_14:defineTumb("PLT_UHF1_FREQ_MODE", 3, 3375, 2033, 0.5, { 0, 1 }, nil, false, "UHF 1", "PILOT UHF ARC-159 Freq Mode GUARD/MANUAL/PRESET")
-F_14:defineMultipositionSwitch("PLT_UHF1_FUNCTION", 3, 3371, 2034, 4, 0.333333, "UHF 1", "PILOT UHF ARC-159 Function ADF/BOTH/MAIN/OFF")
+F_14:defineTumb("PLT_UHF1_FREQ_MODE", 3, 3375, 2033, 0.5, { 0, 1 }, nil, false, "UHF 1", "PILOT UHF ARC-159 Freq Mode", { positions = { "GUARD", "MANUAL", "PRESET" } })
+F_14:defineMultipositionSwitch("PLT_UHF1_FUNCTION", 3, 3371, 2034, 4, 0.333333, "UHF 1", "PILOT UHF ARC-159 Function", { positions = { "ADF", "BOTH", "MAIN", "OFF" } })
 F_14:defineTumb("PLT_UHF1_PRESETS", 3, 3373, 2032, 0.0833333333, { 0, 1 }, nil, true, "UHF 1", "PILOT UHF ARC-159 Preset Channel Selector")
 F_14:defineToggleSwitch("PLT_UHF1_SQUELCH", 3, 3365, 2035, "UHF 1", "PILOT UHF ARC-159 Squelch Switch")
 F_14:define3PosTumb("PLT_UHF1_110_DIAL", 3, 3367, 2030, "UHF 1", "PILOT UHF ARC-159 100MHz & 10MHz Dial")
@@ -444,8 +444,8 @@ F_14:defineIntegerFromGetter("PLT_UHF_DIAL3_FREQ", getARC159_Decimal_DIAL3_Frequ
 F_14:defineIntegerFromGetter("PLT_UHF_HIGH_FREQ", getARC159_High_Frequency, 400, "UHF 1", "PILOT High ARC-159 Frequency")
 
 -- VHF/UHF ARC-182 ("V/UHF 2")
-F_14:defineMultipositionSwitch("RIO_VUHF_FREQ_MODE", 4, 3417, 353, 6, 0.2, "VUHF", "RIO VHF/UHF ARC-182 Frequency Mode 243 MAN G PRESET READ LOAD")
-F_14:defineMultipositionSwitch("RIO_VUHF_MODE", 4, 3413, 358, 5, 0.25, "VUHF", "RIO VHF/UHF ARC-182 MODE OFF T/R T/R&G DF TEST")
+F_14:defineMultipositionSwitch("RIO_VUHF_FREQ_MODE", 4, 3417, 353, 6, 0.2, "VUHF", "RIO VHF/UHF ARC-182 Frequency Mode", { positions = { "243", "MAN", "G", "PRESET", "READ", "LOAD" } })
+F_14:defineMultipositionSwitch("RIO_VUHF_MODE", 4, 3413, 358, 5, 0.25, "VUHF", "RIO VHF/UHF ARC-182 MODE", { positions = { "OFF", "T/R", "T/R&G", "DF", "TEST" } })
 F_14:defineTumb("RIO_VUHF_PRESETS", 4, 3415, 352, 0.0833333333, { 0, 1 }, nil, true, "VUHF", "RIO VHF/UHF ARC-182 Preset Channel Selector")
 F_14:defineToggleSwitch("RIO_VUHF_FM_AM", 4, 3419, 359, "VUHF", "RIO VHF/UHF ARC-182 FM/AM Switch")
 F_14:defineToggleSwitch("RIO_VUHF_SQUELCH", 4, 3407, 351, "VUHF", "RIO VHF/UHF ARC-182 Squelch Switch")
@@ -1616,14 +1616,14 @@ F_14:definePotentiometer("PLT_ALR50_VOL", devices.RWR_INTERFACE, 3881, 2050, { 0
 -- RWR Control Panel ALR-45/50
 local ALR_45_50 = "ALR-45/50 RWR Control Panel"
 
-F_14:defineSpringloaded_3PosTumb("RIO_RWR_ALR45_LOW_BAND", devices.RWR_INTERFACE, 3869, 3869, 154, ALR_45_50, "LOW Band Switch (DEFEAT/NORM/BYPASS)")
-F_14:defineSpringloaded_3PosTumb("RIO_RWR_ALR45_MID_BAND", devices.RWR_INTERFACE, 3870, 3870, 178, ALR_45_50, "MID Band Switch (DEFEAT/NORM/BYPASS)")
-F_14:defineSpringloaded_3PosTumb("RIO_RWR_ALR45_HIGH_BAND", devices.RWR_INTERFACE, 3871, 3871, 155, ALR_45_50, "HIGH Band Switch (DEFEAT/NORM/BYPASS)")
+F_14:defineSpringloaded_3PosTumb("RIO_RWR_ALR45_LOW_BAND", devices.RWR_INTERFACE, 3869, 3869, 154, ALR_45_50, "LOW Band Switch", { positions = { "DEFEAT", "NORM", "BYPASS" } })
+F_14:defineSpringloaded_3PosTumb("RIO_RWR_ALR45_MID_BAND", devices.RWR_INTERFACE, 3870, 3870, 178, ALR_45_50, "MID Band Switch", { positions = { "DEFEAT", "NORM", "BYPASS" } })
+F_14:defineSpringloaded_3PosTumb("RIO_RWR_ALR45_HIGH_BAND", devices.RWR_INTERFACE, 3871, 3871, 155, ALR_45_50, "HIGH Band Switch", { positions = { "DEFEAT", "NORM", "BYPASS" } })
 F_14:defineToggleSwitch("RIO_RWR_ALR45_AAA", devices.RWR_INTERFACE, 3872, 173, ALR_45_50, "AAA Switch (DEFEAT/NORM)")
 F_14:definePotentiometer("RIO_RWR_ALR45_VOL", devices.RWR_INTERFACE, 3873, 158, { 0, 1 }, ALR_45_50, "ALR-45 Volume")
 F_14:definePotentiometer("RIO_RWR_ALR50_VOL", devices.RWR_INTERFACE, 3874, 157, { 0, 1 }, ALR_45_50, "ALR-50 Volume")
 F_14:defineToggleSwitch("RIO_RWR_ALR45_POWER", devices.RWR_INTERFACE, 3875, 174, ALR_45_50, "Power Switch (OFF/ON)")
-F_14:defineSpringloaded_3PosTumb("RIO_RWR_ALR45_LOW_MID_BAND_TEST", devices.RWR_INTERFACE, 3876, 3876, 169, ALR_45_50, "LOW/MID Band Test Switch (LOW/OFF/MID)")
+F_14:defineSpringloaded_3PosTumb("RIO_RWR_ALR45_LOW_MID_BAND_TEST", devices.RWR_INTERFACE, 3876, 3876, 169, ALR_45_50, "LOW/MID Band Test Switch", { positions = { "LOW", "OFF", "MID" } })
 F_14:defineToggleSwitch("RIO_RWR_ALR45_HIGH_BAND_TEST", devices.RWR_INTERFACE, 3877, 170, ALR_45_50, "HIGH Band Test Switch (OFF/HIGH)")
 F_14:defineToggleSwitch("RIO_RWR_ALR45_ML_TEST", devices.RWR_INTERFACE, 3878, 171, ALR_45_50, "ML Test Switch (OFF/ML)")
 F_14:defineToggleSwitch("RIO_RWR_ALR45_DISPLAY_TEST", devices.RWR_INTERFACE, 3879, 172, ALR_45_50, "DISPLAY Test Switch (OFF/DISPLAY)")

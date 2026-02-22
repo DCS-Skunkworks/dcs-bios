@@ -806,7 +806,7 @@ MirageF1:definePushButton("P_WL_ENG_FIRE_WARN", 1, 3267, 936, "EE Warning Switch
 
 --BARAX
 MirageF1:definePushButton("P_BARAX_L_TEST", 1, 3684, 1260, "EE BARAX", "Pilot BARAX Light Test")
-MirageF1:defineTumb("P_BARAX_STATE_SEL", 1, 3682, 1262, 0.5, { 0, 1 }, nil, false, "EE BARAX", "Pilot BARAX State Selector OFF/ON/TEST")
+MirageF1:defineTumb("P_BARAX_STATE_SEL", 1, 3682, 1262, 0.5, { 0, 1 }, nil, false, "EE BARAX", "Pilot BARAX State Selector", { positions = { "OFF", "ON", "TEST" } })
 MirageF1:defineToggleSwitch("P_BARAX_EM_RDY", 1, 3683, 1264, "EE BARAX", "Pilot BARAX Emission Ready Korry")
 MirageF1:defineToggleSwitch("P_CANOPY_MIRRORS2", 1, 3181, 2, "COMMON Canopy", "Pilot Mirrors 2")
 MirageF1:defineToggleSwitch("P_CANOPY_OPEN2", 1, 3183, 1, "COMMON Canopy", "Pilot Canopy Open/Close 2")

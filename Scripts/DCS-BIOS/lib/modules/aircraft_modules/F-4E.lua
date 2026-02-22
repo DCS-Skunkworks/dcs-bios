@@ -31,8 +31,9 @@ end
 --- @param positions integer the number of switch positions
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
-function F_4E:defineMultipositionSwitch0To1(identifier, device_id, command, arg_number, positions, category, description)
-	self:defineMultipositionSwitch(identifier, device_id, command, arg_number, positions, 1 / (positions - 1), category, description)
+--- @param attributes SwitchAttributes? additional control attributes
+function F_4E:defineMultipositionSwitch0To1(identifier, device_id, command, arg_number, positions, category, description, attributes)
+	self:defineMultipositionSwitch(identifier, device_id, command, arg_number, positions, 1 / (positions - 1), category, description, attributes)
 end
 
 --- Adds a 3-position toggle switch with dcs data values between 0 and 1
@@ -42,8 +43,9 @@ end
 --- @param arg_number integer the dcs argument number
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
-function F_4E:define3PosTumb0To1(identifier, device_id, command, arg_number, category, description)
-	self:defineMultipositionSwitch0To1(identifier, device_id, command, arg_number, 3, category, description)
+--- @param attributes SwitchAttributes? additional control attributes
+function F_4E:define3PosTumb0To1(identifier, device_id, command, arg_number, category, description, attributes)
+	self:defineMultipositionSwitch0To1(identifier, device_id, command, arg_number, 3, category, description, attributes)
 end
 
 --- Defines a 0-65535 output from a 0-1 input
@@ -926,7 +928,7 @@ F_4E:defineString("PLT_WPN_GUN_ROUNDS_COUNT", function(dev0)
 end, 3, PILOT_WEAPONS, "Gun Rounds")
 
 F_4E:reserveIntValue(1) -- gun pod clear mode switch, not implemented
-F_4E:defineSpringloaded_3PosTumbWithRange("PLT_WPN_MISSILE_REJECT", WEAPONS_DEVICE_ID, 3134, 3134, 2596, { 1, 0 }, PILOT_WEAPONS, "Missile Reject/Norm/Direction Finding Reject")
+F_4E:defineSpringloaded_3PosTumbWithRange("PLT_WPN_MISSILE_REJECT", WEAPONS_DEVICE_ID, 3134, 3134, 2596, { 1, 0 }, PILOT_WEAPONS, "Missile Reject", { positions = { "Reject", "Norm", "Direction Finding Reject" } })
 F_4E:reserveIntValue(1) -- change shrike band, not implemented
 
 -- station select/arm lights (green depressed + yellow arm)
@@ -1797,7 +1799,7 @@ local EXTERIOR_LIGHTS_DEVICE_ID = 69
 local PILOT_EXTERIOR_LIGHTS_PANEL = "PLT Exterior Lights Panel"
 
 F_4E:define3PosTumb0To1("PLT_EXT_LIGHT_ANTI_COLL", EXTERIOR_LIGHTS_DEVICE_ID, 3004, 1355, PILOT_EXTERIOR_LIGHTS_PANEL, "Set Fuselage & Anti-Collision Light Brightness")
-F_4E:define3PosTumb0To1("PLT_EXT_LIGHT_FLASH_MODE", EXTERIOR_LIGHTS_DEVICE_ID, 3005, 1356, PILOT_EXTERIOR_LIGHTS_PANEL, "Set Flasher Mode (only Tail/Anti-Col/Fus)")
+F_4E:define3PosTumb0To1("PLT_EXT_LIGHT_FLASH_MODE", EXTERIOR_LIGHTS_DEVICE_ID, 3005, 1356, PILOT_EXTERIOR_LIGHTS_PANEL, "Set Flasher Mode", { positions = { "only Tail", "Anti-Col", "Fus" } })
 F_4E:define3PosTumb0To1("PLT_EXT_LIGHT_TAIL_BRIGHTNESS", EXTERIOR_LIGHTS_DEVICE_ID, 3006, 1357, PILOT_EXTERIOR_LIGHTS_PANEL, "Set Tail-Position Light Brightness")
 F_4E:define3PosTumb0To1("PLT_EXT_LIGHT_WING_BRIGHTNESS", EXTERIOR_LIGHTS_DEVICE_ID, 3007, 1358, PILOT_EXTERIOR_LIGHTS_PANEL, "Set Wing-Position & Join-Up Light Brightness")
 

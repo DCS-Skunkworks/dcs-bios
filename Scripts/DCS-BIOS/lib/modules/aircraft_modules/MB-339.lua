@@ -1,6 +1,7 @@
 module("MB-339", package.seeall)
 
 local Control = require("Scripts.DCS-BIOS.lib.modules.documentation.Control")
+local ControlAttributeDocumentation = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlAttributeDocumentation")
 local ControlType = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlType")
 local FixedStepInput = require("Scripts.DCS-BIOS.lib.modules.documentation.FixedStepInput")
 local ICommand = require("Scripts.DCS-BIOS.lib.modules.ICommand")
@@ -31,8 +32,9 @@ end
 --- @param arg_number integer the dcs argument number
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
+--- @param attributes SwitchAttributes? additional control attributes
 --- @return Control control the control which was added to the module
-function MB_339:defineFlapsControl(identifier, arg_number, category, description)
+function MB_339:defineFlapsControl(identifier, arg_number, category, description, attributes)
 	local alloc = self:allocateInt(2, identifier)
 
 	local control = Control:new(category, ControlType.action, identifier, description, {
@@ -40,7 +42,7 @@ function MB_339:defineFlapsControl(identifier, arg_number, category, description
 		SetStateInput:new(2, "set position"),
 	}, {
 		IntegerOutput:new(alloc, Suffix.none, "selector position"),
-	})
+	}, nil, ControlAttributeDocumentation.from_switch_attributes(attributes))
 
 	self:addControl(control)
 
@@ -1383,7 +1385,7 @@ MB_339:defineSpringloaded_3PosTumb("GEN1_SW", 1, COMMANDS.Generator1ResetSwitch,
 MB_339:defineSpringloaded_3PosTumb("GEN2_SW", 1, COMMANDS.Generator2ResetSwitch, COMMANDS.Generator2Switch, 302, "Electrical", "Generator 2 Switch")
 
 -- right now, these are technically the same control
-MB_339:defineFlapsControl("FW_FLAPS_LVR", 7, "Flaps FW", "Forward Flaps Lever (DOWN/TAKE OFF/UP)")
-MB_339:defineFlapsControl("AFT_FLAPS_LVR", 7, "Flaps AFT", "Aft Flaps Lever (DOWN/TAKE OFF/UP)")
+MB_339:defineFlapsControl("FW_FLAPS_LVR", 7, "Flaps FW", "Forward Flaps Lever", { positions = { "DOWN", "TAKE OFF", "UP" } })
+MB_339:defineFlapsControl("AFT_FLAPS_LVR", 7, "Flaps AFT", "Aft Flaps Lever", { positions = { "DOWN", "TAKE OFF", "UP" } })
 
 return MB_339

@@ -10,7 +10,7 @@ P_47D:definePushButton("STICK_MG_TRIGGER", 14, 3001, 53, "Weapons", "Stick MG Tr
 P_47D:definePushButton("STICK_SEC_TRIGGER", 14, 3002, 52, "Weapons", "Stick Secondary & Drop Ordnance Trigger")
 
 --Canopy
-P_47D:define3PosTumb("CANOPY_SW", 2, 3013, 39, "Canopy Controls", "Canopy Switch, OPEN/OFF/CLOSE")
+P_47D:define3PosTumb("CANOPY_SW", 2, 3013, 39, "Canopy Controls", "Canopy Switch", { positions = { "OPEN", "OFF", "CLOSE" } })
 P_47D:defineToggleSwitch("CANOPY_JETT_SW", 2, 3020, 157, "Canopy Controls", "Cockpit Jettison Pull Handle")
 P_47D:definePushButton("HATCH_KNB", 2, 3016, 154, "Canopy Controls", "Canopy Hatch Knobs")
 
