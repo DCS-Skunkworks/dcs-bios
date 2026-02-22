@@ -700,19 +700,19 @@ local DED_OLD = "DED Output Data (Deprecated)"
 
 F_16C_50:defineString("DED_LINE_1", function()
 	return legacy_ded_line(1)
-end, 29, DED_OLD, "DED Display Line 1")
+end, 29, DED_OLD, "DED Display Line 1", { deprecated = { since = "0.11.0", use_instead = "DED_L1" } })
 F_16C_50:defineString("DED_LINE_2", function()
 	return legacy_ded_line(2)
-end, 29, DED_OLD, "DED Display Line 2")
+end, 29, DED_OLD, "DED Display Line 2", { deprecated = { since = "0.11.0", use_instead = "DED_L2" } })
 F_16C_50:defineString("DED_LINE_3", function()
 	return legacy_ded_line(3)
-end, 29, DED_OLD, "DED Display Line 3")
+end, 29, DED_OLD, "DED Display Line 3", { deprecated = { since = "0.11.0", use_instead = "DED_L3" } })
 F_16C_50:defineString("DED_LINE_4", function()
 	return legacy_ded_line(4)
-end, 29, DED_OLD, "DED Display Line 4")
+end, 29, DED_OLD, "DED Display Line 4", { deprecated = { since = "0.11.0", use_instead = "DED_L4" } })
 F_16C_50:defineString("DED_LINE_5", function()
 	return legacy_ded_line(5)
-end, 29, DED_OLD, "DED Display Line 5")
+end, 29, DED_OLD, "DED Display Line 5", { deprecated = { since = "0.11.0", use_instead = "DED_L5" } })
 
 ---- CMDS Display
 local CMDS_O1_Amount

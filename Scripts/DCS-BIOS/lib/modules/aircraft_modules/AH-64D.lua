@@ -926,7 +926,7 @@ AH_64D:defineReadWriteRadio("FM2_RADIO", 60, 6, 3, 1000, "FM2 Radio")
 AH_64D:defineReadWriteRadio("HF_RADIO", 61, 6, 4, 100, "HF Radio")
 AH_64D:reserveIntValue(1)
 AH_64D:reserveIntValue(1)
-AH_64D:defineSpringloaded_3PosTumb("PLT_CMWS_PW", 80, 3001, 3002, 610, "PLT CMWS", "Pilot CMWS PWR Switch, OFF/ON/TEST")
+AH_64D:defineSpringloaded_3PosTumb("PLT_CMWS_PW", 80, 3001, 3002, 610, "PLT CMWS", "Pilot CMWS PWR Switch", { positions = { "Off", "On", "Test" } })
 
 AH_64D:defineSeatPosition("SEAT", 2, "Player's current seat position (0 = Pilot, 1 = CP/G)")
 

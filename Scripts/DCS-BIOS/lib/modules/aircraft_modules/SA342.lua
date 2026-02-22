@@ -566,7 +566,7 @@ SA342:defineReadWriteRadio("AM_RADIO", 5, 7, 3, 1000, "AM Radio")
 SA342:defineReadWriteRadio("FM_RADIO", 27, 7, 3, 1000, "FM Radio")
 SA342:defineReadWriteRadio("UHF_RADIO", 30, 7, 3, 1000, "UHF Radio")
 
-SA342:defineToggleSwitch("LASER_POWER", SYNC_DEVICE_ID, 3286, 367, "PE", "Deprecated - use VCB_POWER instead")
+SA342:defineToggleSwitch("LASER_POWER", SYNC_DEVICE_ID, 3286, 367, "PE", "Deprecated - use VCB_POWER instead", { deprecated = { since = "0.8.1", use_instead = "VCB_POWER" } })
 
 -- Autopilot mode lights
 SA342:defineIndicatorLight("AP_ALV_YELLOW_LAMP", 1330, "Indicator Lights", "Autopilot Heading-Align Lamp (yellow)")
