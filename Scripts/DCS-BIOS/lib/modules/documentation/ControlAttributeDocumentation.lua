@@ -5,16 +5,19 @@ local DeprecatedAttributeDocumentation = require("Scripts.DCS-BIOS.lib.modules.d
 --- @class ControlAttributeDocumentation
 --- @field deprecated DeprecatedAttributeDocumentation? whether the control has been deprecated
 --- @field positions string[]? descriptions of each position of the control
+--- @field color string? the color of the light, if any
 local ControlAttributeDocumentation = {}
 
 --- @param deprecated DeprecatedAttributeDocumentation? whether the control has been deprecated
 --- @param positions string[]? descriptions of each position of the control
+--- @param color string? the color of the light, if any
 --- @return ControlAttributeDocumentation
-function ControlAttributeDocumentation:new(deprecated, positions)
+function ControlAttributeDocumentation:new(deprecated, positions, color)
 	--- @type ControlAttributeDocumentation
 	local o = {
 		deprecated = deprecated,
 		positions = positions,
+		color = color,
 	}
 
 	setmetatable(o, self)
@@ -49,7 +52,7 @@ function ControlAttributeDocumentation.from_led_attributes(led_attributes)
 		return nil
 	end
 
-	return ControlAttributeDocumentation:new(DeprecatedAttributeDocumentation.from_attributes(led_attributes.deprecated), { "Off", led_attributes.color })
+	return ControlAttributeDocumentation:new(DeprecatedAttributeDocumentation.from_attributes(led_attributes.deprecated), nil, led_attributes.color)
 end
 
 return ControlAttributeDocumentation

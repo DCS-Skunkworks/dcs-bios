@@ -10,6 +10,7 @@ module("Control", package.seeall)
 --- @field api_variant ApiVariant? TODO
 --- @field deprecated DeprecatedAttributeDocumentation? whether the control has been deprecated
 --- @field positions string[]? descriptions of each position of the control
+--- @field color string? the color of the led, if any
 local Control = {}
 
 --- TODO
@@ -43,6 +44,7 @@ function Control:new(category, controlType, identifier, description, inputs, out
 	if attributes ~= nil then
 		o.deprecated = attributes.deprecated
 		o.positions = attributes.positions
+		o.color = attributes.color
 	end
 
 	setmetatable(o, self)
