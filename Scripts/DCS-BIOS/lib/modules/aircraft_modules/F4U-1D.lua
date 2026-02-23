@@ -44,7 +44,7 @@ end
 local WING_FOLD = "Wing Fold"
 
 F4U_1D:defineToggleSwitch("WING_LOCK", devices.CONTROL, 3510, 200, WING_FOLD, "Wing Lock Lever")
-F4U_1D:defineMultipositionSwitch("WING_FOLD", devices.CONTROL, 3502, 201, 3, 0.5, WING_FOLD, "Wing Fold (SPREAD/NEUTRAL/FOLD)")
+F4U_1D:defineMultipositionSwitch("WING_FOLD", devices.CONTROL, 3502, 201, 3, 0.5, WING_FOLD, "Wing Fold", { positions = { "SPREAD", "NEUTRAL", "FOLD" } })
 
 -- Drop Tank/Bomb Release Controls
 local DROP_TANK_BOMB = "Drop Tank/Bomb Release"
@@ -70,7 +70,7 @@ F4U_1D:definePushButton("HYD_HAND_PUMP", devices.HYDRO, 3101, 49, CO2_GEAR, "Eme
 -- Fuel Selector
 local FUEL_SELECTOR = "Fuel Selector"
 
-F4U_1D:defineMultipositionSwitchWithCycle("FUEL_SELECTOR", devices.ENGINE, 3201, 59, 6, 0.2, true, FUEL_SELECTOR, "Fuel Selector (OFF/MAIN/RESERVE/RIGHT/LEFT/CENTER)")
+F4U_1D:defineMultipositionSwitchWithCycle("FUEL_SELECTOR", devices.ENGINE, 3201, 59, 6, 0.2, true, FUEL_SELECTOR, "Fuel Selector", { positions = { "OFF", "MAIN", "RESERVE", "RIGHT", "LEFT", "CENTER" } })
 
 -- Engine Control Unit
 local ECU = "Engine Control Unit"
@@ -78,13 +78,13 @@ local ECU = "Engine Control Unit"
 F4U_1D:definePotentiometer("ECU_THROTTLE", devices.ENGINE, 3213, 43, { 0, 1 }, ECU, "Throttle")
 F4U_1D:definePotentiometer("ECU_RPM", devices.ENGINE, 3202, 47, { 0, 1 }, ECU, "RPM Governor")
 F4U_1D:reserveIntValue(1) -- push-button on throttle
-F4U_1D:defineMultipositionSwitch("ECU_MIXTURE", devices.ENGINE, 3203, 46, 4, 1 / 3, ECU, "Mixture (CUTOFF/AUTO LEAN/AUTO RICH/FULL RICH)")
-F4U_1D:defineMultipositionSwitch("ECU_SUPERCHARGER", devices.ENGINE, 3204, 44, 3, 0.5, ECU, "Supercharger (NEUTRAL/LOW/HIGH)")
+F4U_1D:defineMultipositionSwitch("ECU_MIXTURE", devices.ENGINE, 3203, 46, 4, 1 / 3, ECU, "Mixture", { positions = { "CUTOFF", "AUTO LEAN", "AUTO RICH", "FULL RICH" } })
+F4U_1D:defineMultipositionSwitch("ECU_SUPERCHARGER", devices.ENGINE, 3204, 44, 3, 0.5, ECU, "Supercharger", { positions = { "NEUTRAL", "LOW", "HIGH" } })
 
 -- Landing Gear and Dive Brake Control
 local GEAR_DIVE_BRAKE = "Landing Gear/Dive Brake"
 
-F4U_1D:define3PosTumb("GEAR_BRAKE_HANDLE", devices.CONTROL, 3507, 57, GEAR_DIVE_BRAKE, "Landing Gear/Dive Brake Handle (GEAR DOWN/GEAR UP BRAKES UP/BRAKES DOWN)")
+F4U_1D:define3PosTumb("GEAR_BRAKE_HANDLE", devices.CONTROL, 3507, 57, GEAR_DIVE_BRAKE, "Landing Gear/Dive Brake Handle", { positions = { "GEAR DOWN", "GEAR UP BRAKES UP", "BRAKES DOWN" } })
 F4U_1D:defineFloat("GEAR_TAIL_POS_IND", 257, { 0, 1 }, GEAR_DIVE_BRAKE, "Tail Wheel Position Indicator")
 F4U_1D:defineFloat("GEAR_L_POS_IND", 457, { 0, 1 }, GEAR_DIVE_BRAKE, "Left Main Gear Position Indicator")
 F4U_1D:defineFloat("GEAR_R_POS_IND", 357, { 0, 1 }, GEAR_DIVE_BRAKE, "Right Main Gear Position Indicator")
@@ -118,7 +118,7 @@ F4U_1D:definePushButton("ROCKETS_FIRE", devices.WEAPON, 3956, 174, ROCKETS, "Fir
 -- Ignition Switch
 local IGNITION = "Ignition Switch"
 
-F4U_1D:defineMultipositionSwitch("IGNITION_MAGS", devices.ENGINE, 3206, 105, 4, 1 / 3, IGNITION, "Ignition Switch (OFF/RIGHT/LEFT/BOTH)")
+F4U_1D:defineMultipositionSwitch("IGNITION_MAGS", devices.ENGINE, 3206, 105, 4, 1 / 3, IGNITION, "Ignition Switch", { positions = { "OFF", "RIGHT", "LEFT", "BOTH" } })
 
 -- Wing Flaps Control
 local FLAPS = "Wing Flaps"
@@ -134,7 +134,7 @@ F4U_1D:defineToggleSwitch("GUN_CHARGE_R", devices.WEAPON, 3922, 41, GUN_CHARGE, 
 -- Front Dashboard
 local FRONT_DASH = "Front Dashboard"
 
--- F4U_1D:defineMultipositionSwitch("DASH_DROP_TANK_LOCK", devices.ENGINE, 3931, 205, 3, 0.5, FRONT_DASH, "Drop Tank Lock (RELEASE/FLIGHT LOCK/ATTACH)")
+-- F4U_1D:defineMultipositionSwitch("DASH_DROP_TANK_LOCK", devices.ENGINE, 3931, 205, 3, 0.5, FRONT_DASH, "Drop Tank Lock", { positions = { "RELEASE", "FLIGHT LOCK", "ATTACH" } })
 F4U_1D:reserveIntValue(3) -- drop tank lock not working properly
 F4U_1D:definePushButton("DASH_STALL_WARN_TEST", devices.UTILITY, 3817, 136, FRONT_DASH, "Stall Warning Test Button")
 
@@ -154,12 +154,12 @@ F4U_1D:defineFloat("CHARTBOARD_LIGHT", 637, { 0, 1 }, CHARTBOARD, "Chartboard La
 -- Gun Switch Box
 local GUN_SWITCH_BOX = "Gun Switch Box"
 
-F4U_1D:define3PosTumb("GUN_BOX_CAMERA", devices.WEAPON, 3920, 114, GUN_SWITCH_BOX, "Gun Camera (GUN/OFF/FWD)")
+F4U_1D:define3PosTumb("GUN_BOX_CAMERA", devices.WEAPON, 3920, 114, GUN_SWITCH_BOX, "Gun Camera", { positions = { "GUN", "OFF", "FWD" } })
 F4U_1D:defineToggleSwitch("GUN_BOX_MASTER_ARM", devices.WEAPON, 3906, 113, GUN_SWITCH_BOX, "Master Arm")
 F4U_1D:defineToggleSwitch("GUN_BOX_OUTBOARD", devices.WEAPON, 3907, 112, GUN_SWITCH_BOX, "Outboard Guns")
 F4U_1D:defineToggleSwitch("GUN_BOX_CENTER", devices.WEAPON, 3908, 111, GUN_SWITCH_BOX, "Center Guns")
 F4U_1D:defineToggleSwitch("GUN_BOX_INBOARD", devices.WEAPON, 3909, 110, GUN_SWITCH_BOX, "Inboard Guns")
-F4U_1D:define3PosTumb("GUN_BOX_GUNSIGHT", devices.WEAPON, 3925, 109, GUN_SWITCH_BOX, "Gunsight (ALT/OFF/LIMIT)")
+F4U_1D:define3PosTumb("GUN_BOX_GUNSIGHT", devices.WEAPON, 3925, 109, GUN_SWITCH_BOX, "Gunsight", { positions = { "ALT", "OFF", "LIMIT" } })
 F4U_1D:definePotentiometer("GUN_BOX_LIGHT_INTENSITY", devices.WEAPON, 3926, 115, { 0, 1 }, GUN_SWITCH_BOX, "Gunsight Light Intensity")
 
 -- Gun Sight
@@ -172,7 +172,7 @@ local BOMB_SWITCH_BOX = "Bomb Switch Box"
 
 F4U_1D:defineToggleSwitch("BOMB_BOX_RELEASE_L", devices.WEAPON, 3927, 119, BOMB_SWITCH_BOX, "Left Wing Release")
 F4U_1D:defineToggleSwitch("BOMB_BOX_RELEASE_R", devices.WEAPON, 3928, 118, BOMB_SWITCH_BOX, "Right Wing Release")
-F4U_1D:define3PosTumb("BOMB_BOX_ARMING", devices.WEAPON, 3929, 117, BOMB_SWITCH_BOX, "Arming (NOSE/SAFE/TAIL)")
+F4U_1D:define3PosTumb("BOMB_BOX_ARMING", devices.WEAPON, 3929, 117, BOMB_SWITCH_BOX, "Arming", { positions = { "NOSE", "SAFE", "TAIL" } })
 F4U_1D:defineToggleSwitch("BOMB_BOX_RELEASE_PYLON", devices.WEAPON, 3930, 116, BOMB_SWITCH_BOX, "Pylon Release")
 
 -- Tachometer
@@ -251,7 +251,7 @@ F4U_1D:defineFloat("CLOCK_ELAPSED_TIME_HOURS", 244, { 0, 1 }, CLOCK, "Clock Elap
 F4U_1D:defineFloat("CLOCK_TOP_INNER_DIAL", 345, { 0, 1 }, CLOCK, "Clock Inner Top Dial")
 F4U_1D:definePushButton("CLOCK_SET_DATE", devices.CLOCK, 3653, 347, CLOCK, "Clock Set Date Button")
 F4U_1D:definePushButton("CLOCK_CHRONOMETER_START_STOP_RESET", devices.CLOCK, 3652, 248, CLOCK, "Start/Stop/Reset Button")
-F4U_1D:defineSpringloaded_3PosTumb("CLOCK_ADJUSTMENT_BUTTON", devices.CLOCK, 3651, 3651, 250, CLOCK, "Clock Adjustment Button (Reset/Norm/Adjust)")
+F4U_1D:defineSpringloaded_3PosTumb("CLOCK_ADJUSTMENT_BUTTON", devices.CLOCK, 3651, 3651, 250, CLOCK, "Clock Adjustment Button", { positions = { "Reset", "Norm", "Adjust" } })
 F4U_1D:defineRotary("CLOCK_ADJUSTMENT_ROTARY", devices.CLOCK, 3650, 249, CLOCK, "Clock Adjustment Rotary")
 F4U_1D:defineFloat("CLOCK_STATE_INDICATOR", 251, { 0, 1 }, CLOCK, "Clock State Indicator")
 
@@ -336,15 +336,15 @@ F4U_1D:reserveIntValue(1) -- Emergency Generator Switch Cover, draw arg 181
 F4U_1D:reserveIntValue(1) -- Emergency Generator Switch, draw arg 180
 F4U_1D:reserveIntValue(1) -- Emergency Radio Switch Cover, draw arg 179
 F4U_1D:reserveIntValue(1) -- Emergency Radio Switch, draw arg 178
-F4U_1D:define3PosTumb("PILOT_DISTRO_RECOGNITION_LIGHT_SWITCH_RED", devices.LIGHTS, 3714, 155, PILOT_DISTRO, "Red Recognition Light (Steady/Off/Flash)")
-F4U_1D:define3PosTumb("PILOT_DISTRO_RECOGNITION_LIGHT_SWITCH_GREEN", devices.LIGHTS, 3716, 156, PILOT_DISTRO, "Green Recognition Light (Steady/Off/Flash)")
-F4U_1D:define3PosTumb("PILOT_DISTRO_RECOGNITION_LIGHT_SWITCH_AMBER", devices.LIGHTS, 3718, 157, PILOT_DISTRO, "Amber Recognition Light (Steady/Off/Flash)")
+F4U_1D:define3PosTumb("PILOT_DISTRO_RECOGNITION_LIGHT_SWITCH_RED", devices.LIGHTS, 3714, 155, PILOT_DISTRO, "Red Recognition Light", { positions = { "Steady", "Off", "Flash" } })
+F4U_1D:define3PosTumb("PILOT_DISTRO_RECOGNITION_LIGHT_SWITCH_GREEN", devices.LIGHTS, 3716, 156, PILOT_DISTRO, "Green Recognition Light", { positions = { "Steady", "Off", "Flash" } })
+F4U_1D:define3PosTumb("PILOT_DISTRO_RECOGNITION_LIGHT_SWITCH_AMBER", devices.LIGHTS, 3718, 157, PILOT_DISTRO, "Amber Recognition Light", { positions = { "Steady", "Off", "Flash" } })
 F4U_1D:reserveIntValue(1) -- Red keying switch, draw arg 154
-F4U_1D:define3PosTumb("PILOT_DISTRO_EXTERIOR_LIGHTS_SWITCH", devices.LIGHTS, 3704, 132, PILOT_DISTRO, "Exterior Lights (Flash/Off/Steady)")
-F4U_1D:define3PosTumb("PILOT_DISTRO_WING_LIGHTS_SWITCH", devices.LIGHTS, 3702, 130, PILOT_DISTRO, "Wing Lights (Dim/Off/Bright)")
-F4U_1D:define3PosTumb("PILOT_DISTRO_TAIL_LIGHTS_SWITCH", devices.LIGHTS, 3720, 131, PILOT_DISTRO, "Tail Lights (Dim/Off/Bright)")
-F4U_1D:define3PosTumb("PILOT_DISTRO_FORMATION_LIGHTS_SWITCH", devices.LIGHTS, 3737, 133, PILOT_DISTRO, "Formation Lights (Dim/Off/Bright)")
-F4U_1D:define3PosTumb("PILOT_DISTRO_SECTION_LIGHTS_SWITCH", devices.LIGHTS, 3705, 134, PILOT_DISTRO, "Section Lights (Dim/Off/Bright)")
+F4U_1D:define3PosTumb("PILOT_DISTRO_EXTERIOR_LIGHTS_SWITCH", devices.LIGHTS, 3704, 132, PILOT_DISTRO, "Exterior Lights", { positions = { "Flash", "Off", "Steady" } })
+F4U_1D:define3PosTumb("PILOT_DISTRO_WING_LIGHTS_SWITCH", devices.LIGHTS, 3702, 130, PILOT_DISTRO, "Wing Lights", { positions = { "Dim", "Off", "Bright" } })
+F4U_1D:define3PosTumb("PILOT_DISTRO_TAIL_LIGHTS_SWITCH", devices.LIGHTS, 3720, 131, PILOT_DISTRO, "Tail Lights", { positions = { "Dim", "Off", "Bright" } })
+F4U_1D:define3PosTumb("PILOT_DISTRO_FORMATION_LIGHTS_SWITCH", devices.LIGHTS, 3737, 133, PILOT_DISTRO, "Formation Lights", { positions = { "Dim", "Off", "Bright" } })
+F4U_1D:define3PosTumb("PILOT_DISTRO_SECTION_LIGHTS_SWITCH", devices.LIGHTS, 3705, 134, PILOT_DISTRO, "Section Lights", { positions = { "Dim", "Off", "Bright" } })
 F4U_1D:defineToggleSwitch("PILOT_DISTRO_APPROACH_LIGHTS_SWITCH", devices.LIGHTS, 3760, 158, PILOT_DISTRO, "Approach Lights Switch")
 F4U_1D:defineToggleSwitch("PILOT_DISTRO_COCKPIT_LIGHTS_SWITCH", devices.LIGHTS, 3706, 129, PILOT_DISTRO, "Cockpit Lights Switch")
 F4U_1D:definePotentiometer("PILOT_DISTRO_CHARTBOARD_LIGHT_KNOB", devices.LIGHTS, 3749, 137, { 0, 1 }, PILOT_DISTRO, "Chart Board Light Knob")
@@ -356,7 +356,7 @@ F4U_1D:definePotentiometer("PILOT_DISTRO_RIGHT_INSTRUMENT_BOARD_LIGHT_KNOB", dev
 -- Arresting Hook Control
 -- local HOOK = "Arresting Hook"
 
-F4U_1D:reserveIntValue(2) --F4U_1D:define3PosTumb("ARRESTING_HOOK_CONTROL", devices.CONTROL, 3501, 202, HOOK, "Arresting Hook Control (Down/Parking/Up)")
+F4U_1D:reserveIntValue(2) --F4U_1D:define3PosTumb("ARRESTING_HOOK_CONTROL", devices.CONTROL, 3501, 202, HOOK, "Arresting Hook Control", { positions = { "Down", "Parking", "Up" } })
 
 -- Rear Right Circuit Breaker Panel
 local RIGHT_CIRCUIT_BREAKER = "Rear Right Circuit Breaker Panel"
@@ -393,9 +393,9 @@ F4U_1D:defineFloat("RECEIVER_C26_FREQUENCY_DIAL", 94, { 0, 1 }, C26, "Receiver C
 -- C-30A/ARC-5
 local C30A = "C-30A/ARC-5 Control Unit"
 
-F4U_1D:defineMultipositionSwitch("C30A_CHANNEL_SELECTOR", devices.RADIO, 3609, 88, 4, 1 / 3, C30A, "Channel Selector (1/2/3/4)")
+F4U_1D:defineMultipositionSwitch("C30A_CHANNEL_SELECTOR", devices.RADIO, 3609, 88, 4, 1 / 3, C30A, "Channel Selector", { positions = { "1", "2", "3", "4" } })
 F4U_1D:defineToggleSwitch("C30A_ON_OFF_SWITCH", devices.RADIO, 3610, 92, C30A, "On/Off Switch")
-F4U_1D:defineMultipositionSwitch("C30A_CW_VOICE_SWITCH", devices.RADIO, 3612, 95, 4, 1 / 3, C30A, "CW/Voice Switch (A/B/C/D)")
+F4U_1D:defineMultipositionSwitch("C30A_CW_VOICE_SWITCH", devices.RADIO, 3612, 95, 4, 1 / 3, C30A, "CW/Voice Switch", { positions = { "A", "B", "C", "D" } })
 
 -- C-38/ARC-5
 local C38 = "Range Receiver Control Box"
@@ -424,7 +424,7 @@ F4U_1D:definePushButton("BAT_BOMB_SEARCH_MODE", devices.BATBOMB, 3882, 810, BAT_
 F4U_1D:definePushButton("BAT_BOMB_LOCK_TARGET", devices.BATBOMB, 3881, 811, BAT_BOMB_PANEL, "Bat Bomb Lock Target Button")
 F4U_1D:definePotentiometer("BAT_BOMB_GAIN", devices.BATBOMB, 3883, 812, { 0, 1 }, BAT_BOMB_PANEL, "Bat Bomb Gain Knob")
 F4U_1D:definePotentiometer("BAT_BOMB_SCOPE_BRIGHTNESS", devices.BATBOMB, 3886, 815, { 0, 1 }, BAT_BOMB_PANEL, "Bat Bomb Scope Brightness Knob")
-F4U_1D:define3PosTumb("BAT_BOMB_RADAR_ON_OFF", devices.BATBOMB, 3889, 813, BAT_BOMB_PANEL, "Bat Bomb Radar (OFF/MIN/RUN)")
+F4U_1D:define3PosTumb("BAT_BOMB_RADAR_ON_OFF", devices.BATBOMB, 3889, 813, BAT_BOMB_PANEL, "Bat Bomb Radar", { positions = { "OFF", "MIN", "RUN" } })
 F4U_1D:defineIndicatorLight("BAT_BOMB_TARGET_ALARM_LIGHT", 814, BAT_BOMB_PANEL, "Bat Bomb Target Alarm Light (Red)")
 F4U_1D:defineIndicatorLight("BAT_BOMB_PANEL_SCOPE_VISIBILITY", 902, BAT_BOMB_PANEL, "Bat Bomb Panel and Scope Visibility (Not Visible/Visible)")
 

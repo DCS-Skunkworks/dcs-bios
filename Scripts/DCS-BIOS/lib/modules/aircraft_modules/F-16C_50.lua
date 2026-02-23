@@ -20,9 +20,9 @@ local F_16C_50 = Module:new("F-16C_50", 0x4400, { "F-16C_50", "F-16D_50_NS", "F-
 --- @param arg_number integer the dcs argument number
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
---- @return Control control the control which was added to the module
-function F_16C_50:defineAntiSkidSwitch(identifier, device_id, down_switch, up_switch, arg_number, category, description)
-	local control = self:defineSpringloaded_3PosTumb(identifier, device_id, down_switch, up_switch, arg_number, category, description)
+--- @param attributes SwitchAttributes? additional control attributes
+function F_16C_50:defineAntiSkidSwitch(identifier, device_id, down_switch, up_switch, arg_number, category, description, attributes)
+	local control = self:defineSpringloaded_3PosTumb(identifier, device_id, down_switch, up_switch, arg_number, category, description, attributes)
 	self.inputProcessors[control.identifier] = function(toState)
 		local dev = GetDevice(device_id)
 		if dev == nil then
@@ -57,20 +57,20 @@ F_16C_50:definePotentiometer("PITCH_TRIM", devices.CONTROL_INTERFACE, 3008, 562,
 F_16C_50:definePotentiometer("YAW_TRIM", devices.CONTROL_INTERFACE, 3009, 565, { -1, 1 }, "Control Interface", "YAW TRIM Knob")
 F_16C_50:defineToggleSwitch("MANUAL_PITCH_SW", devices.CONTROL_INTERFACE, 3010, 425, "Control Interface", "MANUAL PITCH Override Switch, OVRD/NORM")
 F_16C_50:defineToggleSwitch("STORES_CONFIG_SW", devices.CONTROL_INTERFACE, 3011, 358, "Control Interface", "STORES CONFIG Switch, CAT III/CAT I")
-F_16C_50:defineSpringloaded_3PosTumb("AP_PITCH_SW", devices.CONTROL_INTERFACE, 3012, 3013, 109, "Control Interface", "Autopilot PITCH Switch, ATT HOLD/ A/P OFF/ ALT HOLD")
-F_16C_50:define3PosTumb("AP_ROLL_SW", devices.CONTROL_INTERFACE, 3014, 108, "Control Interface", "Autopilot ROLL Switch, STRG SEL/ATT HOLD/HDG SEL")
+F_16C_50:defineSpringloaded_3PosTumb("AP_PITCH_SW", devices.CONTROL_INTERFACE, 3012, 3013, 109, "Control Interface", "Autopilot PITCH Switch", { positions = { "ATT HOLD", "A/P OFF", "ALT HOLD" } })
+F_16C_50:define3PosTumb("AP_ROLL_SW", devices.CONTROL_INTERFACE, 3014, 108, "Control Interface", "Autopilot ROLL Switch", { positions = { "STRG SEL", "ATT HOLD", "HDG SEL" } })
 F_16C_50:defineToggleSwitch("ADV_MODE_SW", devices.CONTROL_INTERFACE, 3015, 97, "Control Interface", "ADV MODE Switch")
 F_16C_50:defineToggleSwitch("MAN_TF_FLYUP_SW", devices.CONTROL_INTERFACE, 3016, 568, "Control Interface", "MANUAL TF FLYUP Switch, ENABLE/DISABLE")
 
 --External Lights
-F_16C_50:defineTumb("ANTI_COLL_LIGHT_KNB", 11, 3001, 531, 0.1, { 0, 0.7 }, nil, true, "External Lights", "ANTI-COLL Knob, OFF/1/2/3/4/A/B/C")
+F_16C_50:defineTumb("ANTI_COLL_LIGHT_KNB", 11, 3001, 531, 0.1, { 0, 0.7 }, nil, true, "External Lights", "ANTI-COLL Knob", { positions = { "OFF", "1", "2", "3", "4", "A", "B", "C" } })
 F_16C_50:defineToggleSwitch("POS_FLASH_LIGHT_SW", 11, 3002, 532, "External Lights", "FLASH STEADY Light Switch, FLASH/STEADY")
-F_16C_50:define3PosTumb("POS_WING_TAIL_LIGHT_SW", 11, 3003, 533, "External Lights", "WING/TAIL Light Switch, BRT/OFF/DIM")
-F_16C_50:define3PosTumb("POS_FUSELAGE_LIGHT_SW", 11, 3004, 534, "External Lights", "FUSELAGE Light Switch, BRT/OFF/DIM")
+F_16C_50:define3PosTumb("POS_WING_TAIL_LIGHT_SW", 11, 3003, 533, "External Lights", "WING/TAIL Light Switch", { positions = { "BRT", "OFF", "DIM" } })
+F_16C_50:define3PosTumb("POS_FUSELAGE_LIGHT_SW", 11, 3004, 534, "External Lights", "FUSELAGE Light Switch", { positions = { "BRT", "OFF", "DIM" } })
 F_16C_50:definePotentiometer("FORM_LIGHT_KNB", 11, 3005, 535, nil, "External Lights", "FORM Light Knob")
-F_16C_50:defineTumb("MASTER_LIGHT_SW", 11, 3006, 536, 0.1, { 0, 0.4 }, nil, true, "External Lights", "MASTER Light Switch, OFF/ALL/A-C/FORM/NORM")
+F_16C_50:defineTumb("MASTER_LIGHT_SW", 11, 3006, 536, 0.1, { 0, 0.4 }, nil, true, "External Lights", "MASTER Light Switch", { positions = { "OFF", "ALL", "A-C", "FORM", "NORM" } })
 F_16C_50:definePotentiometer("AIR_REFUEL_LIGHT_KNB", 11, 3007, 537, nil, "External Lights", "AERIAL REFUELING Light Knob")
-F_16C_50:define3PosTumb("LAND_TAXI_LIGHT_SW", 11, 3008, 360, "External Lights", "LANDING TAXI LIGHTS Switch, LANDING/OFF/TAXI")
+F_16C_50:define3PosTumb("LAND_TAXI_LIGHT_SW", 11, 3008, 360, "External Lights", "LANDING TAXI LIGHTS Switch", { positions = { "LANDING", "OFF", "TAXI" } })
 
 --Interior Lights
 F_16C_50:definePushButton("MASTER_CAUTION", 12, 3001, 116, "Interior Lights", "Master Caution Button - Push to reset")
@@ -80,25 +80,25 @@ F_16C_50:definePotentiometer("PRI_INST_PNL_BRT_KNB", 12, 3004, 686, nil, "Interi
 F_16C_50:definePotentiometer("PRI_DATA_DISPLAY_BRT_KNB", 12, 3005, 687, nil, "Interior Lights", "PRIMARY DATA ENTRY DISPLAY BRT Knob")
 F_16C_50:definePotentiometer("FLOOD_CONSOLES_BRT_KNB", 12, 3006, 688, nil, "Interior Lights", "FLOOD CONSOLES BRT Knob")
 F_16C_50:definePotentiometer("FLOOD_INST_PNL_BRT_KNB", 12, 3007, 690, nil, "Interior Lights", "FLOOD INST PNL BRT Knob")
-F_16C_50:defineSpringloaded_3PosTumb("MAL_IND_LTS_BRT_SW", 12, 3009, 3008, 691, "External Lights", "MAL & IND LTS Switch, BRT/Center/DIM")
+F_16C_50:defineSpringloaded_3PosTumb("MAL_IND_LTS_BRT_SW", 12, 3009, 3008, 691, "External Lights", "MAL & IND LTS Switch", { positions = { "BRT", "Center", "DIM" } })
 F_16C_50:definePotentiometer("AOA_INDEX_BRT_KNB", 12, 3010, 794, nil, "Interior Lights", "AOA Indexer Dimming Lever")
 F_16C_50:definePotentiometer("AR_STATUS_BRT_KNB", 12, 3011, 795, nil, "Interior Lights", "AR Status Indicator Dimming Lever")
 
 --Electric System
-F_16C_50:define3PosTumb("MAIN_PWR_SW", 3, 3001, 510, "Electric System", "MAIN PWR Switch, MAIN PWR/BATT/OFF")
+F_16C_50:define3PosTumb("MAIN_PWR_SW", 3, 3001, 510, "Electric System", "MAIN PWR Switch", { positions = { "MAIN PWR", "BATT", "OFF" } })
 F_16C_50:definePushButton("ELEC_CAUTION", 3, 3002, 511, "Electric System", "ELEC CAUTION RESET Button - Push to reset")
 F_16C_50:defineToggleSwitch("EPU_GEN_TEST_SW", 3, 3005, 579, "Electric System", "EPU/GEN Test Switch, EPU/GEN /OFF")
-F_16C_50:defineSpringloaded_3PosTumb("PROBE_HEAT_SW", 3, 3007, 3006, 578, "Electric System", "PROBE HEAT Switch, PROBE HEAT/OFF/TEST")
-F_16C_50:defineSpringloaded_3PosTumb("FLCS_PWR_TEST_SW", 3, 3003, 3004, 585, "Electric System", "FLCS PWR TEST Switch, MAINT/NORM/TEST")
+F_16C_50:defineSpringloaded_3PosTumb("PROBE_HEAT_SW", 3, 3007, 3006, 578, "Electric System", "PROBE HEAT Switch", { positions = { "PROBE HEAT", "OFF", "TEST" } })
+F_16C_50:defineSpringloaded_3PosTumb("FLCS_PWR_TEST_SW", 3, 3003, 3004, 585, "Electric System", "FLCS PWR TEST Switch", { positions = { "MAINT", "NORM", "TEST" } })
 
 --Fuel System
 F_16C_50:defineToggleSwitch("FUEL_MASTER_SW", 4, 3001, 559, "Fuel System", "FUEL MASTER Switch, MASTER/OFF")
 F_16C_50:defineToggleSwitch("FUEL_MASTER_CV", 4, 3002, 558, "Fuel System", "FUEL MASTER Switch Cover, OPEN/CLOSE")
 F_16C_50:defineToggleSwitch("TANK_INTERTING_SW", 4, 3007, 557, "Fuel System", "TANK INERTING Switch, TANK INERTING /OFF")
-F_16C_50:defineTumb("ENGINE_FEED_KNB", 4, 3004, 556, 0.1, { 0, 0.3 }, nil, true, "External Lights", "ENGINE FEED Knob, OFF/NORM/AFT/FWD")
+F_16C_50:defineTumb("ENGINE_FEED_KNB", 4, 3004, 556, 0.1, { 0, 0.3 }, nil, true, "External Lights", "ENGINE FEED Knob", { positions = { "OFF", "NORM", "AFT", "FWD" } })
 F_16C_50:defineToggleSwitch("AIR_REFUEL_SW", 4, 3008, 555, "Fuel System", "AIR REFUEL Switch, OPEN/CLOSE")
 F_16C_50:defineToggleSwitch("EXT_FUEL_TRANS_SW", 4, 3003, 159, "Fuel System", "External Fuel Transfer Switch, NORM/ WING FIRST")
-F_16C_50:defineTumb("FUEL_QTY_SEL_KNB", 4, 3005, 158, 0.1, { 0.1, 0.5 }, nil, false, "Fuel System", "FUEL QTY SEL Knob, NORM/RSVR/INT WING/EXT WING/EXT CTR")
+F_16C_50:defineTumb("FUEL_QTY_SEL_KNB", 4, 3005, 158, 0.1, { 0.1, 0.5 }, nil, false, "Fuel System", "FUEL QTY SEL Knob", { positions = { "NORM", "RSVR", "INT WING", "EXT WING", "EXT CTR" } })
 F_16C_50:defineSetCommandTumb("FUEL_QTY_SEL_T_KNB", 4, 3006, 158, 0.1, { 0, 0.1 }, { "1", "0" }, false, "Fuel System", "FUEL QTY SEL Knob, TEST")
 
 --Gear System
@@ -108,38 +108,38 @@ F_16C_50:defineToggleSwitch("HOOK_SW", 7, 3006, 354, "Gear System", "HOOK Switch
 F_16C_50:definePushButton("HORN_SILENCE_BTN", 7, 3007, 359, "Gear System", "HORN SILENCER Button - Push to reset")
 F_16C_50:defineToggleSwitch("BRAKE_CHAN_SW", 7, 3005, 356, "Gear System", "BRAKES Channel Switch, CHAN 1/CHAN 2")
 -- these are specific commands which are defined and used in keybinds, but don't appear in clickabledata.lua
-F_16C_50:defineAntiSkidSwitch("ANTI_SKID_SW", 7, 3010, 3014, 357, "Gear System", "ANTI-SKID Switch, PARKING BRAKE/ANTI-SKID/OFF")
+F_16C_50:defineAntiSkidSwitch("ANTI_SKID_SW", 7, 3010, 3014, 357, "Gear System", "ANTI-SKID Switch", { positions = { "PARKING BRAKE", "ANTI-SKID", "OFF" } })
 
 --ECS
 F_16C_50:definePotentiometer("TEMP_KNB", 13, 3002, 692, { -0.3, 0.3 }, "ECS", "TEMP Knob")
-F_16C_50:defineTumb("AIR_SOURCE_KNB", 13, 3001, 693, 0.1, { 0, 0.4 }, nil, true, "ECS", "AIR SOURCE Knob, OFF/NORM/DUMP/RAM")
+F_16C_50:defineTumb("AIR_SOURCE_KNB", 13, 3001, 693, 0.1, { 0, 0.4 }, nil, true, "ECS", "AIR SOURCE Knob")
 F_16C_50:defineTumb("DEFOG_LEVER", 13, 3003, 602, 0.05, { 0, 1 }, nil, false, "ECS", "DEFOG Lever")
 
 --EPU
 F_16C_50:defineToggleSwitch("EPU_SW_COVER_ON", 6, 3001, 527, "EPU", "EPU Switch Cover for ON, OPEN/CLOSE")
 F_16C_50:defineToggleSwitch("EPU_SW_COVER_OFF", 6, 3002, 529, "EPU", "EPU Switch Cover for OFF, OPEN/CLOSE")
-F_16C_50:define3PosTumb("EPU_SW", 6, 3003, 528, "EPU", "EPU Switch, ON/NORM/OFF")
+F_16C_50:define3PosTumb("EPU_SW", 6, 3003, 528, "EPU", "EPU Switch", { positions = { "ON", "NORM", "OFF" } })
 
 --Engine
-F_16C_50:define3PosTumb("ENG_ANTI_ICE", 6, 3004, 710, "Engine", "Engine ANTI ICE Switch, ON/AUTO/OFF")
-F_16C_50:defineSpringloaded_3PosTumb("JFS_SW", 6, 3006, 3005, 447, "Engine", "JFS Switch, START 1/OFF/START 2")
+F_16C_50:define3PosTumb("ENG_ANTI_ICE", 6, 3004, 710, "Engine", "Engine ANTI ICE Switch", { positions = { "ON", "AUTO", "OFF" } })
+F_16C_50:defineSpringloaded_3PosTumb("JFS_SW", 6, 3006, 3005, 447, "Engine", "JFS Switch", { positions = { "START 1", "OFF", "START 2" } })
 F_16C_50:defineToggleSwitch("ENG_CONT_SW_COVER", 6, 3007, 448, "Engine", "ENG CONT Switch Cover, OPEN/CLOSE")
 F_16C_50:defineToggleSwitch("ENG_CONT_SW", 6, 3008, 449, "Engine", "ENG CONT Switch, PRI/SEC")
 F_16C_50:defineToggleSwitch("MAX_PWR_SW", 6, 3009, 451, "Engine", "MAX POWER Switch, MAX POWER/OFF")
-F_16C_50:defineSpringloaded_3PosTumb("AB_RESET_SW", 6, 3011, 3010, 450, "Engine", "AB RESET Switch, AB RESET/NORM/ENG DATA")
+F_16C_50:defineSpringloaded_3PosTumb("AB_RESET_SW", 6, 3011, 3010, 450, "Engine", "AB RESET Switch", { positions = { "AB RESET", "NORM", "ENG DATA" } })
 F_16C_50:definePushButton("FIRE_OHEAT_DETECT_BTN", 6, 3012, 575, "Engine", "FIRE & OHEAT DETECT Test Button - Push to test")
 
 --Oxygen System
-F_16C_50:defineTumb("OXY_SUPPLY_LVR", 8, 3001, 728, 0.5, { 0, 1 }, nil, true, "Oxygen System", "Supply Lever, PBG/ON/OFF")
+F_16C_50:defineTumb("OXY_SUPPLY_LVR", 8, 3001, 728, 0.5, { 0, 1 }, nil, true, "Oxygen System", "Supply Lever", { positions = { "PBG", "ON", "OFF" } })
 F_16C_50:defineToggleSwitch("OXY_DILUTER_LVR", 8, 3002, 727, "Oxygen System", "Diluter Lever, 100 percent/NORM")
-F_16C_50:defineSpringloaded_3PosTumb("OXY_EMERG_LVR", 8, 3004, 3003, 726, "Oxygen System", "Emergency Lever, EMERGENCY/NORMAL/TEST MASK")
+F_16C_50:defineSpringloaded_3PosTumb("OXY_EMERG_LVR", 8, 3004, 3003, 726, "Oxygen System", "Emergency Lever", { positions = { "EMERGENCY", "NORMAL", "TEST MASK" } })
 F_16C_50:defineToggleSwitch("OBOGS_SW", 8, 3005, 576, "Oxygen System", "OBOGS BIT Switch, BIT/OFF")
 
 --Sensor Power Control Panel
 F_16C_50:defineToggleSwitch("HDPT_SW_L", 22, 3002, 670, "Sensor Panel", "LEFT HDPT Switch, ON/OFF")
 F_16C_50:defineToggleSwitch("HDPT_SW_R", 22, 3003, 671, "Sensor Panel", "RIGHT HDPT Switch, ON/OFF")
 F_16C_50:defineToggleSwitch("FCR_PWR_SW", 31, 3001, 672, "Sensor Panel", "FCR Switch, FCR/OFF")
-F_16C_50:define3PosTumb("RDR_ALT_PWR_SW", 15, 3001, 673, "Sensor Panel", "RDR ALT Switch, RDR ALT/STBY/OFF")
+F_16C_50:define3PosTumb("RDR_ALT_PWR_SW", 15, 3001, 673, "Sensor Panel", "RDR ALT Switch", { positions = { "RDR ALT", "STBY", "OFF" } })
 
 --Avionic Power Panel
 F_16C_50:defineToggleSwitch("MMC_PWR_SW", 19, 3001, 715, "Avionic Panel", "MMC Switch, MMC/OFF")
@@ -147,13 +147,13 @@ F_16C_50:defineToggleSwitch("ST_STA_SW", 22, 3001, 716, "Avionic Panel", "ST STA
 F_16C_50:defineToggleSwitch("MFD_SW", 19, 3014, 717, "Avionic Panel", "MFD Switch, MFD/OFF")
 F_16C_50:defineToggleSwitch("UFC_SW", 17, 3001, 718, "Avionic Panel", "UFC Switch, UFC/OFF")
 F_16C_50:defineToggleSwitch("GPS_SW", 59, 3001, 720, "Avionic Panel", "GPS Switch, GPS/OFF")
-F_16C_50:defineTumb("MIDS_LVT_KNB", 41, 3001, 723, 0.1, { 0, 0.2 }, nil, true, "Avionic Panel", "MIDS LVT Knob, ZERO/OFF/ON")
-F_16C_50:defineTumb("INS_KNB", 14, 3001, 719, 0.1, { 0, 0.6 }, nil, true, "Avionic Panel", "INS Knob, OFF/STOR HDG/NORM/NAV/CAL/INFLT ALIGN/ATT")
+F_16C_50:defineTumb("MIDS_LVT_KNB", 41, 3001, 723, 0.1, { 0, 0.2 }, nil, true, "Avionic Panel", "MIDS LVT Knob", { positions = { "ZERO", "OFF", "ON" } })
+F_16C_50:defineTumb("INS_KNB", 14, 3001, 719, 0.1, { 0, 0.6 }, nil, true, "Avionic Panel", "INS Knob", { positions = { "OFF", "STOR HDG", "NORM", "NAV", "CAL", "INFLT ALIGN", "ATT" } })
 F_16C_50:defineToggleSwitch("MAP_SW", 61, 3001, 722, "Avionic Panel", "MAP Switch, MAP/OFF")
 F_16C_50:defineToggleSwitch("DL_SW", 60, 3001, 721, "Avionic Panel", "DL Switch, DL/OFF")
 
 --Modular Mission Computer (MMC)
-F_16C_50:define3PosTumb("MASTER_ARM_SW", 19, 3002, 105, "MMC", "MASTER ARM Switch, MASTER ARM/OFF/SIMULATE")
+F_16C_50:define3PosTumb("MASTER_ARM_SW", 19, 3002, 105, "MMC", "MASTER ARM Switch", { positions = { "MASTER ARM", "OFF", "SIMULATE" } })
 F_16C_50:definePushButton("EMERG_STORE_JETT", 19, 3003, 353, "MMC", "EMER STORES JETTISON Button - Push to jettison")
 F_16C_50:defineToggleSwitch("GND_JETT_ENABLE_SW", 19, 3004, 355, "MMC", "GND JETT ENABLE Switch, ENABLE/OFF")
 F_16C_50:definePushButton("ALT_REL_BTN", 19, 3005, 104, "MMC", "ALT REL Button - Push to release")
@@ -183,25 +183,25 @@ F_16C_50:definePotentiometer("ICP_RASTER_CONTR_KNB", 17, 3021, 193, nil, "UFC", 
 F_16C_50:definePotentiometer("ICP_RASTER_BRT_KNB", 17, 3023, 191, nil, "UFC", "ICP Raster Intensity Knob")
 F_16C_50:definePotentiometer("ICP_HUD_BRT_KNB", 17, 3022, 190, nil, "UFC", "ICP HUD Symbology Intensity Knob")
 F_16C_50:definePushButton("ICP_WX_BTN", 17, 3024, 187, "UFC", "ICP FLIR Polarity Button, Wx")
-F_16C_50:define3PosTumb("ICP_FLIR_GAIN_SW", 17, 3027, 189, "UFC", "ICP FLIR GAIN/LEVEL Switch, GAIN/LVL/AUTO")
+F_16C_50:define3PosTumb("ICP_FLIR_GAIN_SW", 17, 3027, 189, "UFC", "ICP FLIR GAIN/LEVEL Switch", { positions = { "GAIN", "LVL", "AUTO" } })
 F_16C_50:defineSpringloaded_3PosTumb("ICP_DED_SW", 17, 3031, 3030, 183, "UFC", "ICP DED Increment/Decrement Switch")
 F_16C_50:defineSpringloaded_3PosTumb("ICP_FLIR_SW", 17, 3026, 3025, 188, "UFC", "ICP FLIR Increment/Decrement Switch")
-F_16C_50:defineSpringloaded_3PosTumb("ICP_DRIFT_SW", 17, 3029, 3028, 186, "UFC", "ICP DRIFT CUTOUT/WARN RESET Switch, DRIFT C/O /NORM/WARN RESET")
+F_16C_50:defineSpringloaded_3PosTumb("ICP_DRIFT_SW", 17, 3029, 3028, 186, "UFC", "ICP DRIFT CUTOUT/WARN RESET Switch", { positions = { "DRIFT C/O", "NORM", "WARN RESET" } })
 F_16C_50:defineSpringloaded_3PosTumb("ICP_DATA_RTN_SEQ_SW", 17, 3032, 3033, 184, "UFC", "ICP Data Control Switch, RTN-SEQ")
 F_16C_50:defineSpringloaded_3PosTumb("ICP_DATA_UP_DN_SW", 17, 3035, 3034, 185, "UFC", "ICP Data Control Switch, UP-DN")
 F_16C_50:definePushButton("F_ACK_BTN", 17, 3036, 122, "UFC", "F-ACK Button")
 F_16C_50:definePushButton("IFF_ID_BTN", 17, 3037, 125, "UFC", "IFF IDENT Button")
-F_16C_50:define3PosTumb("RF_SW", 17, 3038, 100, "UFC", "RF Switch, SILENT/QUIET/NORM")
+F_16C_50:define3PosTumb("RF_SW", 17, 3038, 100, "UFC", "RF Switch", { positions = { "SILENT", "QUIET", "NORM" } })
 
 --HUD Remote Control Panel
-F_16C_50:define3PosTumb("HUD_SCALES_SW", 19, 3006, 675, "HUD Control Panel", "HUD Scales Switch, VV/VAH / VAH / OFF")
-F_16C_50:define3PosTumb("HUD_FP_MARKER_SW", 19, 3007, 676, "HUD Control Panel", "HUD Flightpath Marker Switch, ATT/FPM / FPM / OFF")
-F_16C_50:define3PosTumb("HUD_DED_DATA_SW", 19, 3008, 677, "HUD Control Panel", "HUD DED/PFLD Data Switch, DED / PFL / OFF")
-F_16C_50:define3PosTumb("HUD_DEPRESS_RET_SW", 19, 3009, 678, "HUD Control Panel", "HUD Depressible Reticle Switch, STBY / PRI / OFF")
-F_16C_50:define3PosTumb("HUD_SPEED_SW", 19, 3010, 679, "HUD Control Panel", "HUD Velocity Switch, CAS / TAS / GND SPD")
-F_16C_50:define3PosTumb("HUD_ALT_SW", 19, 3011, 680, "HUD Control Panel", "HUD Altitude Switch, RADAR / BARO / AUTO")
-F_16C_50:define3PosTumb("HUD_BRT_SW", 19, 3012, 681, "HUD Control Panel", "HUD Brightness Control Switch, DAY / AUTO BRT / NIGHT")
-F_16C_50:define3PosTumb("HUD_TEST_SW", 19, 3013, 682, "HUD Control Panel", "HUD TEST Switch, STEP / ON / OFF")
+F_16C_50:define3PosTumb("HUD_SCALES_SW", 19, 3006, 675, "HUD Control Panel", "HUD Scales Switch", { positions = { "VV/VAH", "VAH", "OFF" } })
+F_16C_50:define3PosTumb("HUD_FP_MARKER_SW", 19, 3007, 676, "HUD Control Panel", "HUD Flightpath Marker Switch", { positions = { "ATT/FPM", "FPM", "OFF" } })
+F_16C_50:define3PosTumb("HUD_DED_DATA_SW", 19, 3008, 677, "HUD Control Panel", "HUD DED/PFLD Data Switch", { positions = { "DED", "PFL", "OFF" } })
+F_16C_50:define3PosTumb("HUD_DEPRESS_RET_SW", 19, 3009, 678, "HUD Control Panel", "HUD Depressible Reticle Switch", { positions = { "STBY", "PRI", "OFF" } })
+F_16C_50:define3PosTumb("HUD_SPEED_SW", 19, 3010, 679, "HUD Control Panel", "HUD Velocity Switch", { positions = { "CAS", "TAS", "GND SPD" } })
+F_16C_50:define3PosTumb("HUD_ALT_SW", 19, 3011, 680, "HUD Control Panel", "HUD Altitude Switch", { positions = { "RADAR", "BARO", "AUTO" } })
+F_16C_50:define3PosTumb("HUD_BRT_SW", 19, 3012, 681, "HUD Control Panel", "HUD Brightness Control Switch", { positions = { "DAY", "AUTO BRT", "NIGHT" } })
+F_16C_50:define3PosTumb("HUD_TEST_SW", 19, 3013, 682, "HUD Control Panel", "HUD TEST Switch", { positions = { "STEP", "ON", "OFF" } })
 
 --Audio Control Panels
 F_16C_50:defineTumb("COMM1_MODE_KNB", 39, 3002, 434, 0.5, { 0, 1 }, nil, true, "Audio Panel", "COMM 1 (UHF) Mode Knob")
@@ -215,10 +215,10 @@ F_16C_50:definePotentiometer("THREAT_KNB", 39, 3008, 437, nil, "Audio Panel", "T
 F_16C_50:definePotentiometer("INTERCOM_KNB", 39, 3011, 440, nil, "Audio Panel", "INTERCOM Knob")
 F_16C_50:definePotentiometer("TACAN_KNB", 39, 3010, 441, nil, "Audio Panel", "TACAN Knob")
 F_16C_50:definePotentiometer("ILS_PWR_KNB", 39, 3009, 442, nil, "Audio Panel", "ILS Power Knob")
-F_16C_50:define3PosTumb("HOT_MIC_SW", 39, 3012, 443, "Audio Panel", "HOT MIC CIPHER Switch, HOT MIC / OFF / CIPHER")
+F_16C_50:define3PosTumb("HOT_MIC_SW", 39, 3012, 443, "Audio Panel", "HOT MIC CIPHER Switch", { positions = { "HOT MIC", "OFF", "CIPHER" } })
 F_16C_50:defineToggleSwitch("VMS_INHIBIT_SW", 39, 3015, 696, "Audio Panel", "Voice Message Inhibit Switch, VOICE MESSAGE/INHIBIT")
-F_16C_50:define3PosTumb("IFF_ANT_SEL_SW", 39, 3013, 711, "Audio Panel", "IFF ANT SEL Switch, LOWER/NORM/UPPER")
-F_16C_50:define3PosTumb("UHF_ANT_SEL_SW", 39, 3014, 712, "Audio Panel", "UHF ANT SEL Switch, LOWER/NORM/UPPER")
+F_16C_50:define3PosTumb("IFF_ANT_SEL_SW", 39, 3013, 711, "Audio Panel", "IFF ANT SEL Switch", { positions = { "LOWER", "NORM", "UPPER" } })
+F_16C_50:define3PosTumb("UHF_ANT_SEL_SW", 39, 3014, 712, "Audio Panel", "UHF ANT SEL Switch", { positions = { "LOWER", "NORM", "UPPER" } })
 
 --UHF Backup Control Panel
 F_16C_50:defineMultipositionSwitch("UHF_CHAN_KNB", 37, 3001, 410, 20, 0.05, "UHF", "UHF CHAN Knob")
@@ -238,24 +238,24 @@ F_16C_50:defineToggleSwitch("UHF_DOOR", 37, 3014, 734, "UHF", "UHF Access Door, 
 
 --IFF Control Panel
 F_16C_50:defineToggleSwitch("IFF_C_I_KNB", 35, 3001, 542, "IFF", "IFF C & I Knob, UFC/BACKUP")
-F_16C_50:defineMultipositionSwitch("IFF_MASTER_KNB", 35, 3002, 540, 5, 0.1, "IFF", "IFF MASTER Knob, OFF/STBY/LOW/NORM/EMER")
-F_16C_50:define3PosTumb("IFF_M4_CODE_SW", 35, 3003, 541, "IFF", "IFF M-4 CODE Switch, HOLD/ A/B /ZERO")
-F_16C_50:define3PosTumb("IFF_M4_REPLY_SW", 35, 3004, 543, "IFF", "IFF MODE 4 REPLY Switch, OUT/A/B")
+F_16C_50:defineMultipositionSwitch("IFF_MASTER_KNB", 35, 3002, 540, 5, 0.1, "IFF", "IFF MASTER Knob", { positions = { "OFF", "STBY", "LOW", "NORM", "EMER" } })
+F_16C_50:define3PosTumb("IFF_M4_CODE_SW", 35, 3003, 541, "IFF", "IFF M-4 CODE Switch", { positions = { "HOLD", "A/B", "ZERO" } })
+F_16C_50:define3PosTumb("IFF_M4_REPLY_SW", 35, 3004, 543, "IFF", "IFF MODE 4 REPLY Switch", { positions = { "OUT", "A", "B" } })
 F_16C_50:defineToggleSwitch("IFF_M4_MONITOR_SW", 35, 3005, 544, "IFF", "IFF MODE 4 MONITOR Switch, OUT/AUDIO")
-F_16C_50:define3PosTumb("IFF_ENABLE_SW", 35, 3006, 553, "IFF", "IFF ENABLE Switch, M1/M3 /OFF/ M3/MS")
+F_16C_50:define3PosTumb("IFF_ENABLE_SW", 35, 3006, 553, "IFF", "IFF ENABLE Switch", { positions = { "M1/M3", "OFF", "M3/MS" } })
 F_16C_50:defineSpringloaded_3PosTumb("IFF_M1_SEL_1", 35, 3008, 3007, 545, "IFF", "IFF MODE 1 Selector Lever, DIGIT 1")
 F_16C_50:defineSpringloaded_3PosTumb("IFF_M1_SEL_2", 35, 3010, 3009, 547, "IFF", "IFF MODE 1 Selector Lever, DIGIT 2")
 F_16C_50:defineSpringloaded_3PosTumb("IFF_M3_SEL_1", 35, 3012, 3011, 549, "IFF", "IFF MODE 3 Selector Lever, DIGIT 1")
 F_16C_50:defineSpringloaded_3PosTumb("IFF_M3_SEL_2", 35, 3014, 3013, 551, "IFF", "IFF MODE 3 Selector Lever, DIGIT 2")
 
 --KY-58
-F_16C_50:defineMultipositionSwitch("KY58_MODE_KNB", 42, 3001, 705, 4, 0.1, "KY-58", "KY-58 MODE Knob, P/C/LD/RV")
+F_16C_50:defineMultipositionSwitch("KY58_MODE_KNB", 42, 3001, 705, 4, 0.1, "KY-58", "KY-58 MODE Knob", { positions = { "P", "C", "LD", "RV" } })
 F_16C_50:definePotentiometer("KY58_VOL_KNB", 42, 3005, 708, nil, "KY-58", "KY-58 VOLUME Knob")
-F_16C_50:defineMultipositionSwitch("KY58_FILL_KNB", 42, 3002, 706, 8, 0.1, "KY-58", "KY-58 FILL Knob, Z 1-5/1/2/3/4/5/6/Z ALL")
-F_16C_50:defineMultipositionSwitch("KY58_PWR_KNB", 42, 3004, 707, 3, 0.5, "KY-58", "KY-58 Power Knob, OFF/ON/TD")
-F_16C_50:define3PosTumb("PLAIN_CIPHER_SW", 39, 3016, 701, "KY-58", "PLAIN Cipher Switch, CRAD 1/PLAIN/CRAD 2")
+F_16C_50:defineMultipositionSwitch("KY58_FILL_KNB", 42, 3002, 706, 8, 0.1, "KY-58", "KY-58 FILL Knob", { positions = { "Z 1-5", "1", "2", "3", "4", "5", "6", "Z ALL" } })
+F_16C_50:defineMultipositionSwitch("KY58_PWR_KNB", 42, 3004, 707, 3, 0.5, "KY-58", "KY-58 Power Knob", { positions = { "OFF", "ON", "TD" } })
+F_16C_50:define3PosTumb("PLAIN_CIPHER_SW", 39, 3016, 701, "KY-58", "PLAIN Cipher Switch", { positions = { "CRAD 1", "PLAIN", "CRAD 2" } })
 F_16C_50:defineToggleSwitch("ZEROIZE_SW_COVER", 39, 3017, 694, "KY-58", "ZEROIZE Switch Cover, OPEN/CLOSE")
-F_16C_50:define3PosTumb("ZEROIZE_SW", 39, 3018, 695, "KY-58", "ZEROIZE Switch, OFP/OFF/DATA")
+F_16C_50:define3PosTumb("ZEROIZE_SW", 39, 3018, 695, "KY-58", "ZEROIZE Switch", { positions = { "OFP", "OFF", "DATA" } })
 
 --HMCS
 F_16C_50:definePotentiometer("HMCS_INT_KNB", 30, 3001, 392, nil, "HMCS", "HMCS SYMBOLOGY INT Knob")
@@ -284,8 +284,8 @@ F_16C_50:defineToggleSwitch("CMDS_01_EXP_CAT_SW", 32, 3005, 365, "CMDS", "CMDS O
 F_16C_50:defineToggleSwitch("CMDS_02_EXP_CAT_SW", 32, 3006, 366, "CMDS", "CMDS O2 Expendable Category Switch, ON/OFF")
 F_16C_50:defineToggleSwitch("CMDS_CH_EXP_CAT_SW", 32, 3007, 367, "CMDS", "CMDS CH Expendable Category Switch, ON/OFF")
 F_16C_50:defineToggleSwitch("CMDS_FL_EXP_CAT_SW", 32, 3008, 368, "CMDS", "CMDS FL Expendable Category Switch, ON/OFF")
-F_16C_50:defineMultipositionSwitch("CMDS_PROG_KNB", 32, 3009, 377, 5, 0.1, "CMDS", "CMDS PROGRAM Knob, BIT/1/2/3/4")
-F_16C_50:defineMultipositionSwitch("CMDS_MODE_KNB", 32, 3010, 378, 6, 0.1, "CMDS", "CMDS MODE Knob, OFF/STBY/MAN/SEMI/AUTO/BYP")
+F_16C_50:defineMultipositionSwitch("CMDS_PROG_KNB", 32, 3009, 377, 5, 0.1, "CMDS", "CMDS PROGRAM Knob", { positions = { "BIT", "1", "2", "3", "4" } })
+F_16C_50:defineMultipositionSwitch("CMDS_MODE_KNB", 32, 3010, 378, 6, 0.1, "CMDS", "CMDS MODE Knob", { positions = { "OFF", "STBY", "MAN", "SEMI", "AUTO", "BYP" } })
 
 --MFD Left
 F_16C_50:definePushButton("MFD_L_1", 24, 3001, 300, "MFD Left", "MFD Left Button 1")
@@ -344,7 +344,7 @@ F_16C_50:defineRotary("AIRSPEED_SET_KNB", 46, 3001, 71, "Airspeed Indicator", "S
 
 --Altimeter
 F_16C_50:defineRotary("ALT_BARO_SET_KNB", 45, 3003, 62, "Altimeter", "Altimeter Barometric Setting Knob")
-F_16C_50:defineSpringloaded_3PosTumb("ALT_MODE_LV", 45, 3002, 3001, 60, "Altimeter", "Altimeter Mode Lever, ELEC/OFF/PNEU")
+F_16C_50:defineSpringloaded_3PosTumb("ALT_MODE_LV", 45, 3002, 3001, 60, "Altimeter", "Altimeter Mode Lever", { positions = { "ELEC", "OFF", "PNEU" } })
 
 --SAI ARU-42/A-2
 F_16C_50:definePushButton("SAI_CAGE", 47, 3002, 67, "SAI", "SAI Cage Knob, (LMB) Pull to cage")
@@ -369,10 +369,10 @@ F_16C_50:definePushButton("CLOCK_ELAPSED", 51, 3003, 628, "Clock", "Clock Elapse
 
 --Cockpit Mechanics
 F_16C_50:defineToggleSwitch("CANOPY_HANDLE", 10, 3004, 600, "Cockpit Mechanics", "Canopy Handle, UP/DOWN")
-F_16C_50:defineSpringloaded_3PosTumb("SEAT_ADJ", 10, 3014, 3013, 786, "Cockpit Mechanics", "SEAT ADJ Switch, UP/OFF/DOWN")
+F_16C_50:defineSpringloaded_3PosTumb("SEAT_ADJ", 10, 3014, 3013, 786, "Cockpit Mechanics", "SEAT ADJ Switch", { positions = { "UP", "OFF", "DOWN" } })
 F_16C_50:defineToggleSwitch("CANOPY_JETT_THANDLE", 10, 3005, 601, "Cockpit Mechanics", "CANOPY JETTISON T-Handle, PULL/STOW")
 F_16C_50:defineToggleSwitch("SEAT_EJECT_SAFE", 10, 3009, 785, "Cockpit Mechanics", "Ejection Safety Lever, ARMED/LOCKED")
-F_16C_50:defineSpringloaded_3PosTumb("CANOPY_SW", 10, 3003, 3002, 606, "Cockpit Mechanics", "Canopy Switch, OPEN/HOLD/CLOSE")
+F_16C_50:defineSpringloaded_3PosTumb("CANOPY_SW", 10, 3003, 3002, 606, "Cockpit Mechanics", "Canopy Switch", { positions = { "OPEN", "HOLD", "CLOSE" } })
 F_16C_50:defineToggleSwitch("HIDE_STICK", 10, 3015, 796, "Cockpit Mechanics", "Hide Stick toggle")
 
 ---- Lights

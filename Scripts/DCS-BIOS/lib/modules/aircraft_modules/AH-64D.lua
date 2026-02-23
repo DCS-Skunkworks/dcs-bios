@@ -62,7 +62,7 @@ AH_64D:definePushButton("PLT_MPD_L_WPN", 42, 3030, 10, "PLT MPD Left", "Pilot Le
 AH_64D:definePushButton("PLT_MPD_L_FCR", 42, 3031, 11, "PLT MPD Left", "Pilot Left MPD FCR Button")
 AH_64D:definePotentiometer("PLT_MPD_L_BRT", 42, 3032, 18, { 0, 1 }, "PLT MPD Left", "Pilot Left MPD Brightness Control Knob")
 AH_64D:definePotentiometer("PLT_MPD_L_VIDEO", 42, 3033, 19, { 0, 1 }, "PLT MPD Left", "Pilot Left MPD Video Control Knob")
-AH_64D:defineTumb("PLT_MPD_L_MODE", 42, 3034, 26, 0.5, { 0, 1 }, nil, false, "PLT MPD Left", "Pilot Left MPD Mode Knob, DAY/NIGHT/MONO")
+AH_64D:defineTumb("PLT_MPD_L_MODE", 42, 3034, 26, 0.5, { 0, 1 }, nil, false, "PLT MPD Left", "Pilot Left MPD Mode Knob", { positions = { "MONO", "NIGHT", "DAY" } })
 
 AH_64D:definePushButton("CPG_MPD_L_T1", 44, 3001, 88, "CPG MPD Left", "Gunner Left MPD T1 Button")
 AH_64D:definePushButton("CPG_MPD_L_T2", 44, 3002, 89, "CPG MPD Left", "Gunner Left MPD T2 Button")
@@ -97,7 +97,7 @@ AH_64D:definePushButton("CPG_MPD_L_WPN", 44, 3030, 78, "CPG MPD Left", "Gunner L
 AH_64D:definePushButton("CPG_MPD_L_FCR", 44, 3031, 79, "CPG MPD Left", "Gunner Left MPD FCR Button")
 AH_64D:definePotentiometer("CPG_MPD_L_BRT", 44, 3032, 86, { 0, 1 }, "CPG MPD Left", "Gunner Left MPD Brightness Control Knob")
 AH_64D:definePotentiometer("CPG_MPD_L_VIDEO", 44, 3033, 87, { 0, 1 }, "CPG MPD Left", "Gunner Left MPD Video Control Knob")
-AH_64D:defineTumb("CPG_MPD_L_MODE", 44, 3034, 94, 0.5, { 0, 1 }, nil, false, "CPG MPD Left", "Gunner Left MPD Mode Knob, DAY/NIGHT/MONO")
+AH_64D:defineTumb("CPG_MPD_L_MODE", 44, 3034, 94, 0.5, { 0, 1 }, nil, false, "CPG MPD Left", "Gunner Left MPD Mode Knob", { positions = { "MONO", "NIGHT", "DAY" } })
 
 --MPD Right
 AH_64D:definePushButton("PLT_MPD_R_T1", 43, 3001, 54, "PLT MPD Right", "Pilot Right MPD T1 Button")
@@ -133,7 +133,7 @@ AH_64D:definePushButton("PLT_MPD_R_WPN", 43, 3030, 44, "PLT MPD Right", "Pilot R
 AH_64D:definePushButton("PLT_MPD_R_FCR", 43, 3031, 45, "PLT MPD Right", "Pilot Right MPD FCR Button")
 AH_64D:definePotentiometer("PLT_MPD_R_BRT", 43, 3032, 52, { 0, 1 }, "PLT MPD Right", "Pilot Right MPD Brightness Control Knob")
 AH_64D:definePotentiometer("PLT_MPD_R_VIDEO", 43, 3033, 53, { 0, 1 }, "PLT MPD Right", "Pilot Right MPD Video Control Knob")
-AH_64D:defineTumb("PLT_MPD_R_MODE", 43, 3034, 60, 0.5, { 0, 1 }, nil, false, "PLT MPD Right", "Pilot Right MPD Mode Knob, DAY/NIGHT/MONO")
+AH_64D:defineTumb("PLT_MPD_R_MODE", 43, 3034, 60, 0.5, { 0, 1 }, nil, false, "PLT MPD Right", "Pilot Right MPD Mode Knob", { positions = { "MONO", "NIGHT", "DAY" } })
 
 AH_64D:definePushButton("CPG_MPD_R_T1", 45, 3001, 122, "CPG MPD Right", "Gunner Right MPD T1 Button")
 AH_64D:definePushButton("CPG_MPD_R_T2", 45, 3002, 123, "CPG MPD Right", "Gunner Right MPD T2 Button")
@@ -168,12 +168,12 @@ AH_64D:definePushButton("CPG_MPD_R_WPN", 45, 3030, 112, "CPG MPD Right", "Gunner
 AH_64D:definePushButton("CPG_MPD_R_FCR", 45, 3031, 113, "CPG MPD Right", "Gunner Right MPD FCR Button")
 AH_64D:definePotentiometer("CPG_MPD_R_BRT", 45, 3032, 120, { 0, 1 }, "CPG MPD Right", "Gunner Right MPD Brightness Control Knob")
 AH_64D:definePotentiometer("CPG_MPD_R_VIDEO", 45, 3033, 121, { 0, 1 }, "CPG MPD Right", "Gunner Right MPD Video Control Knob")
-AH_64D:defineTumb("CPG_MPD_R_MODE", 45, 3034, 128, 0.5, { 0, 1 }, nil, false, "CPG MPD Right", "Gunner Right MPD Mode Knob, DAY/NIGHT/MONO")
+AH_64D:defineTumb("CPG_MPD_R_MODE", 45, 3034, 128, 0.5, { 0, 1 }, nil, false, "CPG MPD Right", "Gunner Right MPD Mode Knob", { positions = { "MONO", "NIGHT", "DAY" } })
 
 --External Light System
-AH_64D:define3PosTumb("PLT_EXTL_NAV_L_SW", 10, 3002, 326, "PLT External Light System", "Pilot Navigation Lights Switch, BRT/OFF/DIM")
+AH_64D:define3PosTumb("PLT_EXTL_NAV_L_SW", 10, 3002, 326, "PLT External Light System", "Pilot Navigation Lights Switch", { positions = { "DIM", "OFF", "BRT" } })
 AH_64D:definePotentiometer("PLT_EXTL_FROMATION_L_KNB", 10, 3001, 329, { 0, 1 }, "PLT External Light System", "Pilot Formation Lights Control Knob")
-AH_64D:define3PosTumb("PLT_EXTL_ACOL_L_SW", 10, 3003, 332, "PLT External Light System", "Pilot Anti-Collision Lights Switch, WHT/OFF/RED")
+AH_64D:define3PosTumb("PLT_EXTL_ACOL_L_SW", 10, 3003, 332, "PLT External Light System", "Pilot Anti-Collision Lights Switch", { positions = { "RED", "OFF", "WHT" } })
 
 --Internal Light System
 AH_64D:definePushButton("PLT_INTL_MCAUTION_BTN", 11, 3001, 305, "PLT Internal Light System", "Pilot Master Caution Button")
@@ -239,7 +239,7 @@ AH_64D:defineSpringloaded_3PosTumb("PLT_COM_UHF_SQL", 63, 3071, 3014, 340, "PLT 
 AH_64D:defineSpringloaded_3PosTumb("PLT_COM_FM1_SQL", 63, 3072, 3015, 341, "PLT COMM Panel", "Pilot FM1 Squelch Switch, ON/OFF")
 AH_64D:defineSpringloaded_3PosTumb("PLT_COM_FM2_SQL", 63, 3073, 3016, 342, "PLT COMM Panel", "Pilot FM2 Squelch Switch, ON/OFF")
 AH_64D:defineSpringloaded_3PosTumb("PLT_COM_HF_SQL", 63, 3074, 3017, 343, "PLT COMM Panel", "Pilot HF Squelch Switch, ON/OFF")
-AH_64D:define3PosTumb("PLT_COM_ICS_MODE", 63, 3018, 346, "PLT COMM Panel", "Pilot ICS Mode Switch, HOT MIC/VOX/PTT")
+AH_64D:define3PosTumb("PLT_COM_ICS_MODE", 63, 3018, 346, "PLT COMM Panel", "Pilot ICS Mode Switch", { positions = { "HOT MIC", "VOX", "PTT" } })
 AH_64D:definePushButton("PLT_COM_IDENT_BTN", 63, 3019, 347, "PLT COMM Panel", "Pilot IDENT Button")
 
 AH_64D:definePotentiometer("CPG_COM_VHF_VOL", 62, 3001, 375, { 0, 1 }, "CPG COMM Panel", "Gunner VHF Volume Control Knob")
@@ -266,7 +266,7 @@ AH_64D:defineSpringloaded_3PosTumb("CPG_COM_UHF_SQL", 62, 3071, 3014, 381, "CPG 
 AH_64D:defineSpringloaded_3PosTumb("CPG_COM_FM1_SQL", 62, 3072, 3015, 382, "CPG COMM Panel", "Gunner FM1 Squelch Switch, ON/OFF")
 AH_64D:defineSpringloaded_3PosTumb("CPG_COM_FM2_SQL", 62, 3073, 3016, 383, "CPG COMM Panel", "Gunner FM2 Squelch Switch, ON/OFF")
 AH_64D:defineSpringloaded_3PosTumb("CPG_COM_HF_SQL", 62, 3074, 3017, 384, "CPG COMM Panel", "Gunner HF Squelch Switch, ON/OFF")
-AH_64D:define3PosTumb("CPG_COM_ICS_MODE", 62, 3018, 387, "CPG COMM Panel", "Gunner ICS Mode Switch, HOT MIC/VOX/PTT")
+AH_64D:define3PosTumb("CPG_COM_ICS_MODE", 62, 3018, 387, "CPG COMM Panel", "Gunner ICS Mode Switch", { positions = { "HOT MIC", "VOX", "PTT" } })
 AH_64D:definePushButton("CPG_COM_IDENT_BTN", 62, 3019, 388, "CPG COMM Panel", "Gunner IDENT Button")
 
 --Emergency Panel
@@ -545,12 +545,12 @@ AH_64D:definePushButton("CPG_TEDAC_FREEZE", 51, 3023, 160, "CPG TEDAC Display", 
 AH_64D:definePushButton("CPG_TEDAC_FILTER", 51, 3024, 159, "CPG TEDAC Display", "Gunner TEDAC Display FILTER Button")
 AH_64D:definePotentiometer("CPG_TEDAC_FLIR_GAIN", 51, 3002, 148, { 0, 1 }, "CPG TEDAC Display", "Gunner TEDAC Display FLIR GAIN Control Knob")
 AH_64D:definePotentiometer("CPG_TEDAC_FLIR_LEV", 51, 3003, 149, { 0, 1 }, "CPG TEDAC Display", "Gunner TEDAC Display FLIR LEV Control Knob")
-AH_64D:defineTumb("CPG_TEDAC_DISP_MODE", 51, 3001, 154, 0.5, { 0, 1 }, nil, false, "CPG TEDAC Display", "Gunner TEDAC Display Mode Knob, DAY/NT/OFF")
+AH_64D:defineTumb("CPG_TEDAC_DISP_MODE", 51, 3001, 154, 0.5, { 0, 1 }, nil, false, "CPG TEDAC Display", "Gunner TEDAC Display Mode Knob", { positions = { "OFF", "NT", "DAY" } })
 
 AH_64D:defineSpringloaded_3PosTumb("CPG_LHG_TEDAC_L_IAT", 51, 3031, 3030, 491, "CPG TEDAC Left Handgrip", "Gunner Image AutoTrack/Offset Switch, OFS/IAT")
 AH_64D:defineSpringloaded_3PosTumb("CPG_LHG_TADS_FOV_UP_DN", 51, 3033, 3032, 492, "CPG TEDAC Left Handgrip", "Gunner TADS FOV Select Switch, Z (Zoom)/M (Medium)")
 AH_64D:defineSpringloaded_3PosTumb("CPG_LHG_TADS_FOV_L_R", 51, 3035, 3034, 49, "CPG TEDAC Left Handgrip", "Gunner TADS FOV Select Switch, N (Narrow)/W (Wide)")
-AH_64D:define3PosTumb("CPG_LHG_TADS_SEL", 51, 3092, 494, "CPG TEDAC Left Handgrip", "Gunner TADS Sensor Select Switch, FLIR/TV/DVO")
+AH_64D:define3PosTumb("CPG_LHG_TADS_SEL", 51, 3092, 494, "CPG TEDAC Left Handgrip", "Gunner TADS Sensor Select Switch", { positions = { "DVO", "TV", "FLIR" } })
 AH_64D:defineSpringloaded_3PosTumb("CPG_LHG_STORE_UPDATE", 51, 3040, 3039, 495, "CPG TEDAC Left Handgrip", "Gunner STORE/Update Switch, UPDT/STORE")
 AH_64D:defineSpringloaded_3PosTumb("CPG_LHG_FCR_SCAN", 51, 3042, 3041, 500, "CPG TEDAC Left Handgrip", "Gunner FCR Scan Switch, C/S")
 AH_64D:definePushButton("CPG_LHG_CUED_SEARCH", 51, 3043, 501, "CPG TEDAC Left Handgrip", "Gunner CUED Search Button")
@@ -566,7 +566,7 @@ AH_64D:definePushButton("CPG_LHG_LR_BTN", 51, 3060, 490, "CPG TEDAC Left Handgri
 
 AH_64D:defineSpringloaded_3PosTumb("CPG_RHG_SIGHT_UP_DN", 51, 3064, 3063, 508, "CPG TEDAC Right Handgrip", "Gunner Sight Select Switch, HMD/LINK")
 AH_64D:defineSpringloaded_3PosTumb("CPG_RHG_SIGHT_L_R", 51, 3066, 3065, 509, "CPG TEDAC Right Handgrip", "Gunner Sight Select Switch, FCR/TADS")
-AH_64D:define3PosTumb("CPG_RHG_LASER_TRACK", 51, 3093, 510, "CPG TEDAC Right Handgrip", "Gunner Laser Tracker Mode Switch, A/O/M")
+AH_64D:define3PosTumb("CPG_RHG_LASER_TRACK", 51, 3093, 510, "CPG TEDAC Right Handgrip", "Gunner Laser Tracker Mode Switch", { positions = { "M", "O", "A" } })
 AH_64D:defineSpringloaded_3PosTumb("CPG_RHG_FCR_SCAN_UP_DN", 51, 3071, 3070, 511, "CPG TEDAC Right Handgrip", "Gunner FCR Scan Size Switch, Z (Zoom)/M (Medium)")
 AH_64D:defineSpringloaded_3PosTumb("CPG_RHG_FCR_SCAN_L_R", 51, 3073, 3072, 512, "CPG TEDAC Right Handgrip", "Gunner FCR Scan Size Switch, N (Narrow)/W (Wide)")
 AH_64D:definePushButton("CPG_RHG_C_SCOPE", 51, 3074, 513, "CPG TEDAC Right Handgrip", "Gunner C-Scope Button")
@@ -578,7 +578,7 @@ AH_64D:definePushButton("CPG_RHG_HDD_SW", 51, 3081, 505, "CPG TEDAC Right Handgr
 AH_64D:definePushButton("CPG_RHG_ENTER", 51, 3082, 518, "CPG TEDAC Right Handgrip", "Gunner Cursor Enter Button")
 AH_64D:defineSpringloaded_3PosTumb("CPG_RHG_MAN_TRK_UP_DN", 51, 3084, 3083, 515, "CPG TEDAC Right Handgrip", "Gunner Sight Manual Tracker Controller, Up/Down")
 AH_64D:defineRockerSwitch("CPG_RHG_MAN_TRK_L_R", 51, 3086, 3086, 3085, 3085, 516, "CPG TEDAC Right Handgrip", "Gunner Sight Manual Tracker Controller, Left/Right") -- for some reason, needs to be different from U/D
-AH_64D:define3PosTumb("CPG_RHG_IAT_POL", 51, 3094, 507, "CPG TEDAC Right Handgrip", "Gunner Image Auto Tracker Polarity Switch, W/A/B")
+AH_64D:define3PosTumb("CPG_RHG_IAT_POL", 51, 3094, 507, "CPG TEDAC Right Handgrip", "Gunner Image Auto Tracker Polarity Switch", { positions = { "B", "A", "W" } })
 
 --Video Control Panel
 AH_64D:definePotentiometer("PLT_VIDEO_IHADSS_BRT", 3, 3011, 278, { 0, 1 }, "PLT Video Control Panel", "Pilot IHADSS BRT Control Knob")
@@ -589,8 +589,8 @@ AH_64D:definePotentiometer("PLT_VIDEO_FLIR_GAIN", 3, 3007, 283, { 0, 1 }, "PLT V
 AH_64D:defineToggleSwitch("PLT_VIDEO_AUTO_CON", 3, 3009, 281, "PLT Video Control Panel", "Pilot Automatic Contrast Mode Switch, ACM/OFF")
 
 -- NVS MODE PANEL
-AH_64D:define3PosTumb("PLT_NVS_MODE", 3, 3005, 309, "PLT NVS Panel", "Pilot NVS MODE Switch, FIXED/NORM/OFF")
-AH_64D:define3PosTumb("CPG_NVS_MODE", 3, 3006, 363, "CPG NVS Panel", "Gunner NVS MODE Switch, FIXED/NORM/OFF")
+AH_64D:define3PosTumb("PLT_NVS_MODE", 3, 3005, 309, "PLT NVS Panel", "Pilot NVS MODE Switch", { positions = { "OFF", "NORM", "FIXED" } })
+AH_64D:define3PosTumb("CPG_NVS_MODE", 3, 3006, 363, "CPG NVS Panel", "Gunner NVS MODE Switch", { positions = { "OFF", "NORM", "FIXED" } })
 
 --Generator Reset PANEL
 AH_64D:defineSpringloaded_3PosTumb("PLT_GEN_RESET", 3, 3017, 3018, 355, "PLT Generator Panel", "Pilot Generator Reset Switch, GEN 1/GEN 2")
@@ -613,7 +613,7 @@ AH_64D:definePushButton("PLT_JETT_STORE_RW", 75, 3006, 325, "PLT Left Console", 
 AH_64D:definePushButton("PLT_JETT_BTN", 75, 3007, 324, "PLT Left Console", "Pilot JETT Pushbutton")
 AH_64D:definePushButton("PLT_EMERG_HYD_BTN", 5, 3002, 313, "PLT Left Console", "Pilot EMERG HYD Pushbutton, ON/OFF")
 AH_64D:definePushButton("PLT_T_WHEEL_UNLOCK_BTN", 5, 3003, 308, "PLT Left Console", "Pilot TAIL WHEEL Pushbutton, LOCK/UNLOCK")
-AH_64D:define3PosTumb("PLT_ROTOR_BRK", 5, 3001, 314, "PLT Left Console", "Pilot Rotor Brake Switch, OFF/BRK/LOCK")
+AH_64D:define3PosTumb("PLT_ROTOR_BRK", 5, 3001, 314, "PLT Left Console", "Pilot Rotor Brake Switch", { positions = { "LOCK", "BRK", "OFF" } })
 AH_64D:definePushButton("PLT_APU_BTN", 6, 3001, 400, "PLT Left Console", "Pilot APU Pushbutton")
 AH_64D:defineToggleSwitch("PLT_APU_BTN_CVR", 6, 3002, 401, "PLT Left Console", "Pilot APU Pushbutton Cover, OPEN/CLOSE")
 AH_64D:definePotentiometer("PLT_PW_LVR_FRIC", devices.CONTROL_INTERFACE, 3001, 633, { 0, 1 }, "PLT Left Console", "Pilot Power Lever Friction Adjustment Lever")
@@ -657,20 +657,20 @@ AH_64D:defineToggleSwitch("PLT_CANOPY", 9, 3005, 796, "PLT Cockpit", "Pilot Cano
 AH_64D:definePushButton("PLT_M4_TRIGGER", 9, 3009, 827, "PLT Cockpit", "Pilot M4 Trigger")
 AH_64D:define3PosTumb("PLT_M4_SAVE", 9, 3007, 828, "PLT Cockpit", "Pilot M4 Safety")
 AH_64D:definePushButton("PLT_DEFOG_BTN", 9, 3001, 356, "PLT Cockpit", "Pilot Defog Button")
-AH_64D:defineTumb("PLT_WIPER_SW", 9, 3002, 357, 0.1, { -0.1, 0.2 }, nil, false, "PLT Cockpit", "Pilot Wiper Control Switch, PARK/OFF/LO/HI")
+AH_64D:defineTumb("PLT_WIPER_SW", 9, 3002, 357, 0.1, { -0.1, 0.2 }, nil, false, "PLT Cockpit", "Pilot Wiper Control Switch", { positions = { "PARK", "OFF", "LO", "HI" } })
 AH_64D:definePotentiometer("PLT_ENG_L_PW_LVR", 6, 3031, 398, { 0, 1 }, "PLT Left Console", "Pilot Power Lever Smoothly (Left)")
 AH_64D:definePotentiometer("PLT_ENG_R_PW_LVR", 6, 3032, 399, { 0, 1 }, "PLT Left Console", "Pilot Power Lever Smoothly (Right)")
-AH_64D:defineTumb("PLT_MASTER_IGN_SW", 3, 3003, 315, 0.5, { 0, 1 }, nil, false, "PLT Cockpit", "Pilot Master Ignition Switch, OFF/BATT/EXT PWR")
+AH_64D:defineTumb("PLT_MASTER_IGN_SW", 3, 3003, 315, 0.5, { 0, 1 }, nil, false, "PLT Cockpit", "Pilot Master Ignition Switch", { positions = { "OFF", "BATT", "EXT PWR" } })
 
 AH_64D:defineToggleSwitch("CPG_CANOPY", 9, 3006, 799, "CPG Cockpit", "Gunner Canopy, OPEN/CLOSE")
 AH_64D:definePushButton("CPG_M4_TRIGGER", 9, 3010, 825, "CPG Cockpit", "Gunner M4 Trigger")
 AH_64D:define3PosTumb("CPG_M4_SAVE", 9, 3008, 826, "CPG Cockpit", "Gunner M4 Safety")
 AH_64D:definePushButton("CPG_DEFOG_BTN", 9, 3003, 394, "CPG Cockpit", "Gunner Defog Button")
-AH_64D:defineTumb("CPG_WIPER_SW", 9, 3004, 395, 0.1, { -0.1, 0.2 }, nil, false, "CPG Cockpit", "Gunner Wiper Control Switch, PARK/OFF/LO/HI")
+AH_64D:defineTumb("CPG_WIPER_SW", 9, 3004, 395, 0.1, { -0.1, 0.2 }, nil, false, "CPG Cockpit", "Gunner Wiper Control Switch", { positions = { "PARK", "OFF", "LO", "HI" } })
 AH_64D:definePotentiometer("CPG_ENG_L_PW_LVR", 6, 3031, 398, { 0, 1 }, "CPG Left Console", "Gunner Power Lever Smoothly (Left)")
 AH_64D:definePotentiometer("CPG_ENG_R_PW_LVR", 6, 3032, 399, { 0, 1 }, "CPG Left Console", "Gunner Power Lever Smoothly (Right)")
 AH_64D:defineToggleSwitch("CPG_STICK_FOLD", 87, 3007, 809, "CPG Cockpit", "Gunner Stick Folding, UP/DOWN")
-AH_64D:define3PosTumb("CPG_PROC_SEL_SW", 3, 3004, 397, "CPG Cockpit", "Gunner Processor Select Switch, SP 1/AUTO/SP 2")
+AH_64D:define3PosTumb("CPG_PROC_SEL_SW", 3, 3004, 397, "CPG Cockpit", "Gunner Processor Select Switch", { positions = { "SP 1", "AUTO", "SP 2" } })
 
 AH_64D:defineFloat("PLT_CANOPY_POS", 795, { 0, 1 }, "Cockpit Gauges", "Pilot Canopy Position")
 AH_64D:defineFloat("CPG_CANOPY_POS", 798, { 0, 1 }, "Cockpit Gauges", "Gunner Canopy Position")
