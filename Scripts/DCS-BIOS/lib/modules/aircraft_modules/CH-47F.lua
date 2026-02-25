@@ -832,9 +832,9 @@ CH_47F:definePushButton("MISC_CANTED_LAMP_TEST", devices.CANTED_CONSOLE, 3044, 5
 -- Emergency/Auxiliary Control Panel
 local EMERGENCY_AUX_PANEL = "Emergency/Auxiliary Control Panel"
 
-CH_47F:defineMultipositionSwitch("EMERG_AUX_RADIO_MODE", devices.EMERGENCY_PANEL, 3001, 583, 3, 0.1, EMERGENCY_AUX_PANEL, "Radio Mode (MAN/NORM/GUARD)")
+CH_47F:defineMultipositionSwitch("EMERG_AUX_RADIO_MODE", devices.EMERGENCY_PANEL, 3001, 583, 3, 0.1, EMERGENCY_AUX_PANEL, "Radio Mode", { positions = { "MAN", "NORM", "GUARD" } })
 CH_47F:defineToggleSwitch("EMERG_AUX_IDENT", devices.EMERGENCY_PANEL, 3002, 584, EMERGENCY_AUX_PANEL, "Ident Switch")
-CH_47F:defineMultipositionSwitch("EMERG_AUX_IFF", devices.EMERGENCY_PANEL, 3003, 585, 3, 0.1, EMERGENCY_AUX_PANEL, "IFF Mode (HOLD/OFF/EMER)")
+CH_47F:defineMultipositionSwitch("EMERG_AUX_IFF", devices.EMERGENCY_PANEL, 3003, 585, 3, 0.1, EMERGENCY_AUX_PANEL, "IFF Mode", { positions = { "HOLD", "OFF", "EMER" } })
 CH_47F:defineToggleSwitch("EMERG_AUX_ZEROIZE", devices.EMERGENCY_PANEL, 3004, 586, EMERGENCY_AUX_PANEL, "Zeroize Switch")
 
 -- DAFCS Panel
@@ -911,7 +911,7 @@ CH_47F:definePushButton("PLT_MFD_IB_L7", devices.MFD_PILOT_INBOARD, 3030, 935, P
 CH_47F:definePushButton("PLT_MFD_IB_L8", devices.MFD_PILOT_INBOARD, 3031, 936, PILOT_MFD_INNER, "L8")
 CH_47F:definePushButton("PLT_MFD_IB_L9", devices.MFD_PILOT_INBOARD, 3032, 937, PILOT_MFD_INNER, "L9")
 
-CH_47F:defineMultipositionSwitch("PLT_MFD_IB_PWR", devices.MFD_PILOT_INBOARD, 3033, 902, 3, 0.5, PILOT_MFD_INNER, "Power Switch (OFF/NVG/NORM)")
+CH_47F:defineMultipositionSwitch("PLT_MFD_IB_PWR", devices.MFD_PILOT_INBOARD, 3033, 902, 3, 0.5, PILOT_MFD_INNER, "Power Switch", { positions = { "OFF", "NVG", "NORM" } })
 
 CH_47F:defineRockerSwitch("PLT_MFD_IB_VID_BRT", devices.MFD_PILOT_INBOARD, 3034, 3036, 3035, 3036, 903, PILOT_MFD_INNER, "Video Brightness Rocker")
 CH_47F:defineRockerSwitch("PLT_MFD_IB_VID_CON", devices.MFD_PILOT_INBOARD, 3037, 3039, 3038, 3039, 904, PILOT_MFD_INNER, "Video Contrast Rocker")
@@ -953,7 +953,7 @@ CH_47F:definePushButton("CPLT_MFD_IB_L7", devices.MFD_COPILOT_INBOARD, 3030, 863
 CH_47F:definePushButton("CPLT_MFD_IB_L8", devices.MFD_COPILOT_INBOARD, 3031, 864, COPILOT_MFD_INNER, "L8")
 CH_47F:definePushButton("CPLT_MFD_IB_L9", devices.MFD_COPILOT_INBOARD, 3032, 865, COPILOT_MFD_INNER, "L9")
 
-CH_47F:defineMultipositionSwitch("CPLT_MFD_IB_PWR", devices.MFD_COPILOT_INBOARD, 3033, 830, 3, 0.5, COPILOT_MFD_INNER, "Power Switch (OFF/NVG/NORM)")
+CH_47F:defineMultipositionSwitch("CPLT_MFD_IB_PWR", devices.MFD_COPILOT_INBOARD, 3033, 830, 3, 0.5, COPILOT_MFD_INNER, "Power Switch", { positions = { "OFF", "NVG", "NORM" } })
 
 CH_47F:defineRockerSwitch("CPLT_MFD_IB_VID_BRT", devices.MFD_COPILOT_INBOARD, 3034, 3036, 3035, 3036, 831, COPILOT_MFD_INNER, "Video Brightness Rocker")
 CH_47F:defineRockerSwitch("CPLT_MFD_IB_VID_CON", devices.MFD_COPILOT_INBOARD, 3037, 3039, 3038, 3039, 832, COPILOT_MFD_INNER, "Video Contrast Rocker")
@@ -995,7 +995,7 @@ CH_47F:definePushButton("PLT_MFD_OB_L7", devices.MFD_PILOT_OUTBOARD, 3030, 971, 
 CH_47F:definePushButton("PLT_MFD_OB_L8", devices.MFD_PILOT_OUTBOARD, 3031, 972, PILOT_MFD_OUTER, "L8")
 CH_47F:definePushButton("PLT_MFD_OB_L9", devices.MFD_PILOT_OUTBOARD, 3032, 973, PILOT_MFD_OUTER, "L9")
 
-CH_47F:defineMultipositionSwitch("PLT_MFD_OB_PWR", devices.MFD_PILOT_OUTBOARD, 3033, 938, 3, 0.5, PILOT_MFD_OUTER, "Power Switch (OFF/NVG/NORM)")
+CH_47F:defineMultipositionSwitch("PLT_MFD_OB_PWR", devices.MFD_PILOT_OUTBOARD, 3033, 938, 3, 0.5, PILOT_MFD_OUTER, "Power Switch", { positions = { "OFF", "NVG", "NORM" } })
 
 CH_47F:defineRockerSwitch("PLT_MFD_OB_VID_BRT", devices.MFD_PILOT_OUTBOARD, 3034, 3036, 3035, 3036, 939, PILOT_MFD_OUTER, "Video Brightness Rocker")
 CH_47F:defineRockerSwitch("PLT_MFD_OB_VID_CON", devices.MFD_PILOT_OUTBOARD, 3037, 3039, 3038, 3039, 940, PILOT_MFD_OUTER, "Video Contrast Rocker")
@@ -1037,7 +1037,7 @@ CH_47F:definePushButton("CPLT_MFD_OB_L7", devices.MFD_COPILOT_OUTBOARD, 3030, 82
 CH_47F:definePushButton("CPLT_MFD_OB_L8", devices.MFD_COPILOT_OUTBOARD, 3031, 828, COPILOT_MFD_OUTER, "L8")
 CH_47F:definePushButton("CPLT_MFD_OB_L9", devices.MFD_COPILOT_OUTBOARD, 3032, 829, COPILOT_MFD_OUTER, "L9")
 
-CH_47F:defineMultipositionSwitch("CPLT_MFD_OB_PWR", devices.MFD_COPILOT_OUTBOARD, 3033, 794, 3, 0.5, COPILOT_MFD_OUTER, "Power Switch (OFF/NVG/NORM)")
+CH_47F:defineMultipositionSwitch("CPLT_MFD_OB_PWR", devices.MFD_COPILOT_OUTBOARD, 3033, 794, 3, 0.5, COPILOT_MFD_OUTER, "Power Switch", { positions = { "OFF", "NVG", "NORM" } })
 
 CH_47F:defineRockerSwitch("CPLT_MFD_OB_VID_BRT", devices.MFD_COPILOT_OUTBOARD, 3034, 3036, 3035, 3036, 795, COPILOT_MFD_OUTER, "Video Brightness Rocker")
 CH_47F:defineRockerSwitch("CPLT_MFD_OB_VID_CON", devices.MFD_COPILOT_OUTBOARD, 3037, 3039, 3038, 3039, 796, COPILOT_MFD_OUTER, "Video Contrast Rocker")
@@ -1079,7 +1079,7 @@ CH_47F:definePushButton("MFD_CENTER_L7", devices.MFD_CENTER, 3030, 899, CENTER_M
 CH_47F:definePushButton("MFD_CENTER_L8", devices.MFD_CENTER, 3031, 900, CENTER_MFD, "L8")
 CH_47F:definePushButton("MFD_CENTER_L9", devices.MFD_CENTER, 3032, 901, CENTER_MFD, "L9")
 
-CH_47F:defineMultipositionSwitch("MFD_CENTER_PWR", devices.MFD_CENTER, 3033, 866, 3, 0.5, CENTER_MFD, "Power Switch (OFF/NVG/NORM)")
+CH_47F:defineMultipositionSwitch("MFD_CENTER_PWR", devices.MFD_CENTER, 3033, 866, 3, 0.5, CENTER_MFD, "Power Switch", { positions = { "OFF", "NVG", "NORM" } })
 
 CH_47F:defineRockerSwitch("MFD_CENTER_VID_BRT", devices.MFD_CENTER, 3034, 3036, 3035, 3036, 867, CENTER_MFD, "Video Brightness Rocker")
 CH_47F:defineRockerSwitch("MFD_CENTER_VID_CON", devices.MFD_CENTER, 3037, 3039, 3038, 3039, 868, CENTER_MFD, "Video Contrast Rocker")
@@ -1204,10 +1204,10 @@ local EXTERIOR_LIGHT_PANEL = "Exterior Lighting Panel"
 CH_47F:defineMultipositionSwitch("EXT_LIGHT_ANTICOLLISION_MODE", devices.OVERHEAD_CONSOLE, 3067, 512, 7, 0.1, EXTERIOR_LIGHT_PANEL, "Anticollision Mode")
 CH_47F:defineMultipositionSwitch("EXT_LIGHT_ANTICOLLISION_IR_PATTERN", devices.OVERHEAD_CONSOLE, 3070, 513, 5, 0.1, EXTERIOR_LIGHT_PANEL, "Anticollision IR Pattern")
 CH_47F:definePotentiometer("EXT_LIGHT_ANTICOLLISION_IR_DIM", devices.OVERHEAD_CONSOLE, 3073, 514, { 0, 1 }, EXTERIOR_LIGHT_PANEL, "Anticollision IR Dimmer")
-CH_47F:defineMultipositionSwitch("EXT_LIGHT_FORM_MODE", devices.OVERHEAD_CONSOLE, 3076, 515, 3, 0.1, EXTERIOR_LIGHT_PANEL, "Formation Lights Mode (NVG/OFF/NORM)")
+CH_47F:defineMultipositionSwitch("EXT_LIGHT_FORM_MODE", devices.OVERHEAD_CONSOLE, 3076, 515, 3, 0.1, EXTERIOR_LIGHT_PANEL, "Formation Lights Mode", { positions = { "NVG", "OFF", "NORM" } })
 CH_47F:defineToggleSwitch("EXT_LIGHT_FORM_PATTERN", devices.OVERHEAD_CONSOLE, 3079, 516, EXTERIOR_LIGHT_PANEL, "Formation Lights Pattern (FLASH/STDY)")
 CH_47F:definePotentiometer("EXT_LIGHT_FORM_DIM", devices.OVERHEAD_CONSOLE, 3081, 517, { 0, 1 }, EXTERIOR_LIGHT_PANEL, "Formation Lights Dimmer")
-CH_47F:defineMultipositionSwitch("EXT_LIGHT_POSITION_BRIGHTNESS", devices.OVERHEAD_CONSOLE, 3084, 518, 3, 0.1, EXTERIOR_LIGHT_PANEL, "Position Lights Brightness (DIM/OFF/BRT)")
+CH_47F:defineMultipositionSwitch("EXT_LIGHT_POSITION_BRIGHTNESS", devices.OVERHEAD_CONSOLE, 3084, 518, 3, 0.1, EXTERIOR_LIGHT_PANEL, "Position Lights Brightness", { positions = { "DIM", "OFF", "BRT" } })
 CH_47F:defineToggleSwitch("EXT_LIGHT_POSITION_PATTERN", devices.OVERHEAD_CONSOLE, 3087, 519, EXTERIOR_LIGHT_PANEL, "Position Lights Pattern (FLASH/STDY)")
 
 -- Interior Light Panel
@@ -1215,8 +1215,8 @@ local INTERIOR_LIGHT_PANEL = "Interior Lighting Panel"
 
 CH_47F:defineToggleSwitch("INT_LIGHT_INST", devices.OVERHEAD_CONSOLE, 3054, 507, INTERIOR_LIGHT_PANEL, "Instrument Flood Light")
 CH_47F:defineToggleSwitch("INT_LIGHT_OVHD", devices.OVERHEAD_CONSOLE, 3056, 508, INTERIOR_LIGHT_PANEL, "Overhead Flood Light")
-CH_47F:defineMultipositionSwitch("INT_LIGHT_EMER_EXIT", devices.OVERHEAD_CONSOLE, 3058, 509, 3, 0.1, INTERIOR_LIGHT_PANEL, "Emergency Exit Light (DISARM/TEST/ARM)")
-CH_47F:defineMultipositionSwitch("INT_LIGHT_DOME", devices.OVERHEAD_CONSOLE, 3061, 510, 3, 0.1, INTERIOR_LIGHT_PANEL, "Dome Light (WHT/OFF/NVG)")
+CH_47F:defineMultipositionSwitch("INT_LIGHT_EMER_EXIT", devices.OVERHEAD_CONSOLE, 3058, 509, 3, 0.1, INTERIOR_LIGHT_PANEL, "Emergency Exit Light", { positions = { "DISARM", "TEST", "ARM" } })
+CH_47F:defineMultipositionSwitch("INT_LIGHT_DOME", devices.OVERHEAD_CONSOLE, 3061, 510, 3, 0.1, INTERIOR_LIGHT_PANEL, "Dome Light", { positions = { "WHT", "OFF", "NVG" } })
 CH_47F:definePotentiometer("INT_LIGHT_DIM", devices.OVERHEAD_CONSOLE, 3064, 511, { 0, 1 }, INTERIOR_LIGHT_PANEL, "Flood Light Dimmer")
 
 -- Light Panel
@@ -1229,7 +1229,7 @@ CH_47F:definePotentiometer("LIGHT_STICK_POSITION_DIM", devices.OVERHEAD_CONSOLE,
 local PILOT_LIGHT_PANEL = "PLT Lighting Panel"
 
 CH_47F:defineToggleSwitch("PLT_LIGHT_SEARCHLIGHT", devices.OVERHEAD_CONSOLE, 3089, 520, PILOT_LIGHT_PANEL, "Searchlight (RET/ON)")
-CH_47F:defineMultipositionSwitch("PLT_LIGHT_MODE", devices.OVERHEAD_CONSOLE, 3091, 521, 3, 0.1, PILOT_LIGHT_PANEL, "Mode Select (DAY/NIGHT/NVG)")
+CH_47F:defineMultipositionSwitch("PLT_LIGHT_MODE", devices.OVERHEAD_CONSOLE, 3091, 521, 3, 0.1, PILOT_LIGHT_PANEL, "Mode Select", { positions = { "DAY", "NIGHT", "NVG" } })
 CH_47F:definePotentiometer("PLT_LIGHT_CENTER_DIM", devices.OVERHEAD_CONSOLE, 3094, 522, { 0, 1 }, PILOT_LIGHT_PANEL, "Center Light Dimmer")
 CH_47F:definePotentiometer("PLT_LIGHT_INSTRUMENT_DIM", devices.OVERHEAD_CONSOLE, 3097, 523, { 0, 1 }, PILOT_LIGHT_PANEL, "Instrument Light Dimmer")
 
@@ -1276,33 +1276,33 @@ local HOIST_PANEL = "Hoist Control Panel"
 CH_47F:defineToggleSwitch("HOIST_CABLE_CUT_COVER", devices.OVERHEAD_CONSOLE, 3147, 546, HOIST_PANEL, "Cable Cut Cover")
 CH_47F:defineToggleSwitch("HOIST_CABLE_CUT", devices.OVERHEAD_CONSOLE, 3149, 547, HOIST_PANEL, "Cable Cut")
 CH_47F:definePotentiometer("HOIST_CONTROL_KNOB", devices.OVERHEAD_CONSOLE, 3151, 548, { -1, 1 }, HOIST_PANEL, "OUT/IN Knob")
-CH_47F:defineMultipositionSwitch("HOIST_CONTROL", devices.OVERHEAD_CONSOLE, 3156, 551, 3, 0.1, HOIST_PANEL, "Hoist Control (REMOTE/OFF/PLT)")
-CH_47F:defineMultipositionSwitch("HOIST_HOOK_CONTROL", devices.OVERHEAD_CONSOLE, 3159, 552, 3, 0.1, HOIST_PANEL, "Hook Control (RESET/OFF/ARM)")
-CH_47F:defineMultipositionSwitch("HOIST_HOOK_SELECT", devices.OVERHEAD_CONSOLE, 3162, 553, 5, 0.1, HOIST_PANEL, "Hook Select (FWD/MID/AFT/TANDEM/ALL)")
+CH_47F:defineMultipositionSwitch("HOIST_CONTROL", devices.OVERHEAD_CONSOLE, 3156, 551, 3, 0.1, HOIST_PANEL, "Hoist Control", { positions = { "REMOTE", "OFF", "PLT" } })
+CH_47F:defineMultipositionSwitch("HOIST_HOOK_CONTROL", devices.OVERHEAD_CONSOLE, 3159, 552, 3, 0.1, HOIST_PANEL, "Hook Control", { positions = { "RESET", "OFF", "ARM" } })
+CH_47F:defineMultipositionSwitch("HOIST_HOOK_SELECT", devices.OVERHEAD_CONSOLE, 3162, 553, 5, 0.1, HOIST_PANEL, "Hook Select", { positions = { "FWD", "MID", "AFT", "TANDEM", "ALL" } })
 CH_47F:defineToggleSwitch("HOIST_EMERGENCY_RELEASE_COVER", devices.OVERHEAD_CONSOLE, 3165, 554, HOIST_PANEL, "Emergency Release Cover")
 CH_47F:defineToggleSwitch("HOIST_EMERGENCY_RELEASE", devices.OVERHEAD_CONSOLE, 3167, 555, HOIST_PANEL, "Emergency Release")
 
 -- Troop Warn/Heating Control Panel
 local TROOP_WARN_HEATING_PANEL = "Troop Warn/Heating/Wiper Control Panel"
 
-CH_47F:defineMultipositionSwitch("TROOP_JUMP_LIGHT", devices.OVERHEAD_CONSOLE, 3131, 541, 3, 0.1, TROOP_WARN_HEATING_PANEL, "Jump Light (GREEN/OFF/RED)")
+CH_47F:defineMultipositionSwitch("TROOP_JUMP_LIGHT", devices.OVERHEAD_CONSOLE, 3131, 541, 3, 0.1, TROOP_WARN_HEATING_PANEL, "Jump Light", { positions = { "GREEN", "OFF", "RED" } })
 CH_47F:defineToggleSwitch("TROOP_JUMP_ALARM", devices.OVERHEAD_CONSOLE, 3134, 542, TROOP_WARN_HEATING_PANEL, "Jump Alarm")
 CH_47F:defineFloat("TROOP_JUMP_LIGHT_GREEN", 539, { 0, 1 }, TROOP_WARN_HEATING_PANEL, "Jump Light GREEN Lamp (Green)")
 CH_47F:defineFloat("TROOP_JUMP_LIGHT_RED", 540, { 0, 1 }, TROOP_WARN_HEATING_PANEL, "Jump Light RED Lamp (Green)")
 
 CH_47F:definePotentiometer("HEAT_CABIN_TEMP", devices.OVERHEAD_CONSOLE, 3136, 543, { 0, 1 }, TROOP_WARN_HEATING_PANEL, "Cabin Temperature (COOL/WARM)")
-CH_47F:defineMultipositionSwitch("HEAT_MODE", devices.OVERHEAD_CONSOLE, 3139, 544, 3, 0.1, TROOP_WARN_HEATING_PANEL, "Heat Mode (BLWR ONLY/OFF/HTR ON)")
+CH_47F:defineMultipositionSwitch("HEAT_MODE", devices.OVERHEAD_CONSOLE, 3139, 544, 3, 0.1, TROOP_WARN_HEATING_PANEL, "Heat Mode", { positions = { "BLWR ONLY", "OFF", "HTR ON" } })
 CH_47F:definePushButton("HEAT_START", devices.OVERHEAD_CONSOLE, 3142, 545, TROOP_WARN_HEATING_PANEL, "Heater Start")
-CH_47F:defineMultipositionSwitch("WIPER_MODE", devices.OVERHEAD_CONSOLE, 3143, 756, 5, 0.1, TROOP_WARN_HEATING_PANEL, "Wiper Mode (PARK/OFF/SLOW/MED/FAST)")
+CH_47F:defineMultipositionSwitch("WIPER_MODE", devices.OVERHEAD_CONSOLE, 3143, 756, 5, 0.1, TROOP_WARN_HEATING_PANEL, "Wiper Mode", { positions = { "PARK", "OFF", "SLOW", "MED", "FAST" } })
 
 -- Electrical Power Panel
 local ELECTRICAL_POWER_PANEL = "Electrical Power Panel"
 
-CH_47F:defineMultipositionSwitch("ELECTRICAL_GEN_1", devices.OVERHEAD_CONSOLE, 3169, 556, 3, 0.1, ELECTRICAL_POWER_PANEL, "Generator 1 Switch (TEST/OFF RESET/ON)")
-CH_47F:defineMultipositionSwitch("ELECTRICAL_GEN_2", devices.OVERHEAD_CONSOLE, 3172, 557, 3, 0.1, ELECTRICAL_POWER_PANEL, "Generator 2 Switch (TEST/OFF RESET/ON)")
-CH_47F:defineMultipositionSwitch("ELECTRICAL_GEN_APU", devices.OVERHEAD_CONSOLE, 3175, 558, 3, 0.1, ELECTRICAL_POWER_PANEL, "APU Generator Switch (TEST/OFF RESET/ON)")
+CH_47F:defineMultipositionSwitch("ELECTRICAL_GEN_1", devices.OVERHEAD_CONSOLE, 3169, 556, 3, 0.1, ELECTRICAL_POWER_PANEL, "Generator 1 Switch", { positions = { "TEST", "OFF RESET", "ON" } })
+CH_47F:defineMultipositionSwitch("ELECTRICAL_GEN_2", devices.OVERHEAD_CONSOLE, 3172, 557, 3, 0.1, ELECTRICAL_POWER_PANEL, "Generator 2 Switch", { positions = { "TEST", "OFF RESET", "ON" } })
+CH_47F:defineMultipositionSwitch("ELECTRICAL_GEN_APU", devices.OVERHEAD_CONSOLE, 3175, 558, 3, 0.1, ELECTRICAL_POWER_PANEL, "APU Generator Switch", { positions = { "TEST", "OFF RESET", "ON" } })
 CH_47F:defineToggleSwitch("ELECTRICAL_BATTERY", devices.OVERHEAD_CONSOLE, 3178, 559, ELECTRICAL_POWER_PANEL, "Battery")
-CH_47F:defineMultipositionSwitch("ELECTRICAL_APU", devices.OVERHEAD_CONSOLE, 3181, 560, 3, 0.1, ELECTRICAL_POWER_PANEL, "APU (OFF/RUN/START)")
+CH_47F:defineMultipositionSwitch("ELECTRICAL_APU", devices.OVERHEAD_CONSOLE, 3181, 560, 3, 0.1, ELECTRICAL_POWER_PANEL, "APU", { positions = { "OFF", "RUN", "START" } })
 CH_47F:defineFloat("ELECTRICAL_UTILITY_PRESSURE", 562, { 0, 1 }, ELECTRICAL_POWER_PANEL, "UTIL PRES Lamp (Red)")
 CH_47F:defineFloat("ELECTRICAL_APU_READY", 563, { 0, 1 }, ELECTRICAL_POWER_PANEL, "APU RDY Lamp (Green)")
 
@@ -1322,14 +1322,14 @@ CH_47F:definePotentiometer("FADEC_NR", devices.OVERHEAD_CONSOLE, 3196, 572, { 0,
 -- Hydraulic Control Panel
 local HYDRAULIC_PANEL = "Hydraulic Control Panel"
 
-CH_47F:defineMultipositionSwitch("HYD_FLT_CONT", devices.OVERHEAD_CONSOLE, 3021, 493, 3, 0.1, HYDRAULIC_PANEL, "Flight Control (2 ON/BOTH/1 ON)")
+CH_47F:defineMultipositionSwitch("HYD_FLT_CONT", devices.OVERHEAD_CONSOLE, 3021, 493, 3, 0.1, HYDRAULIC_PANEL, "Flight Control", { positions = { "2 ON", "BOTH", "1 ON" } })
 CH_47F:defineToggleSwitch("HYD_PWR_XFER_1", devices.OVERHEAD_CONSOLE, 3024, 494, HYDRAULIC_PANEL, "Power Transfer 1")
 CH_47F:defineToggleSwitch("HYD_PWR_XFER_2", devices.OVERHEAD_CONSOLE, 3026, 495, HYDRAULIC_PANEL, "Power Transfer 2")
 CH_47F:defineToggleSwitch("HYD_PWR_STEER_COVER", devices.OVERHEAD_CONSOLE, 3028, 496, HYDRAULIC_PANEL, "Power Steering Cover")
 CH_47F:defineToggleSwitch("HYD_PWR_STEER", devices.OVERHEAD_CONSOLE, 3030, 497, HYDRAULIC_PANEL, "Power Steering")
-CH_47F:defineMultipositionSwitch("HYD_RAMP_PWR", devices.OVERHEAD_CONSOLE, 3032, 498, 3, 0.1, HYDRAULIC_PANEL, "Ramp Power (OFF/ON/EMERG)")
+CH_47F:defineMultipositionSwitch("HYD_RAMP_PWR", devices.OVERHEAD_CONSOLE, 3032, 498, 3, 0.1, HYDRAULIC_PANEL, "Ramp Power", { positions = { "OFF", "ON", "EMERG" } })
 CH_47F:defineToggleSwitch("HYD_RAMP_EMER_COVER", devices.OVERHEAD_CONSOLE, 3035, 499, HYDRAULIC_PANEL, "Ramp Emergency Cover")
-CH_47F:defineMultipositionSwitch("HYD_RAMP_EMER", devices.OVERHEAD_CONSOLE, 3037, 500, 3, 0.1, HYDRAULIC_PANEL, "Ramp Emergency (UP/HOLD/DOWN)")
+CH_47F:defineMultipositionSwitch("HYD_RAMP_EMER", devices.OVERHEAD_CONSOLE, 3037, 500, 3, 0.1, HYDRAULIC_PANEL, "Ramp Emergency", { positions = { "UP", "HOLD", "DOWN" } })
 
 -- Oil Level Check Switch
 local OIL_LEVEL_CHECK = "Oil Level Check Switch"
@@ -1382,7 +1382,6 @@ CH_47F:defineFloat("FREE_AIR_TEMP", 1211, { 0, 1 }, FREE_AIR_TEMP, "Free Air Tem
 --- @param arg_number integer the dcs argument number
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
---- @return Control control the control which was added to the module
 function CH_47F:defineCircuitBreaker(identifier, device_id, command, arg_number, category, description)
 	self:defineToggleSwitchManualRange(identifier, device_id, command, arg_number, { 1, 0.6 }, category, description)
 	self:defineToggleSwitchManualRange(identifier .. "_COLLAR", device_id, command, arg_number, { 1, 0.8 }, category, description .. " (Collar)")
@@ -1622,7 +1621,7 @@ CH_47F:defineCircuitBreaker("CPLT_CB_NO_1_DC_AUX_PDP_FEED", devices.PDP1, 3165, 
 -- Cabin and Ramp Lights Control
 local CABIN_RAMP_LIGHTS = "Cabin and Ramp Lights Control"
 
-CH_47F:defineMultipositionSwitch("CABIN_RAMP_LIGHTS_MODE", devices.AFT_WORKSTATION, 3001, 1399, 3, 0.1, CABIN_RAMP_LIGHTS, "Light Mode (NVG/OFF/WHITE)")
+CH_47F:defineMultipositionSwitch("CABIN_RAMP_LIGHTS_MODE", devices.AFT_WORKSTATION, 3001, 1399, 3, 0.1, CABIN_RAMP_LIGHTS, "Light Mode", { positions = { "NVG", "OFF", "WHITE" } })
 CH_47F:definePotentiometer("CABIN_RAMP_LIGHTS_DIM", devices.AFT_WORKSTATION, 3004, 1400, { 0, 1 }, CABIN_RAMP_LIGHTS, "Cabin/Ramp Light Dimmer")
 
 -- Ramp Maintenance Panel
@@ -1630,7 +1629,7 @@ local RAMP_MAINTENANCE_PANEL = "Ramp Maintenance Panel"
 
 CH_47F:defineToggleSwitch("RAMP_MAINT_FLT_CONT", devices.MAINTENANCE_PANEL, 3001, 1034, RAMP_MAINTENANCE_PANEL, "FLT CONT Reservoir (1/2)")
 CH_47F:defineMultipositionSwitch("RAMP_MAINT_PWR_ASSR", devices.MAINTENANCE_PANEL, 3003, 1035, 3, 0.1, RAMP_MAINTENANCE_PANEL, "PWR ASSR Test")
-CH_47F:defineMultipositionSwitch("RAMP_MAINT_LIGHT_MODE", devices.MAINTENANCE_PANEL, 3007, 1036, 3, 0.1, RAMP_MAINTENANCE_PANEL, "Light Mode (DAY/NIGHT BRT/NIGHT DIM)")
+CH_47F:defineMultipositionSwitch("RAMP_MAINT_LIGHT_MODE", devices.MAINTENANCE_PANEL, 3007, 1036, 3, 0.1, RAMP_MAINTENANCE_PANEL, "Light Mode", { positions = { "DAY", "NIGHT BRT", "NIGHT DIM" } })
 CH_47F:definePushButton("RAMP_MAINT_LEVEL_CHECK", devices.MAINTENANCE_PANEL, 3010, 1037, RAMP_MAINTENANCE_PANEL, "Level Check")
 CH_47F:defineSingleCommandRocker("RAMP_MAINT_FAULT_IND", devices.MAINTENANCE_PANEL, 3011, 1038, RAMP_MAINTENANCE_PANEL, "FAULT IND Test")
 

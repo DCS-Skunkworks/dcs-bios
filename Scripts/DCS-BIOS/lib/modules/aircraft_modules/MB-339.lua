@@ -1,6 +1,14 @@
 module("MB-339", package.seeall)
 
+local Control = require("Scripts.DCS-BIOS.lib.modules.documentation.Control")
+local ControlAttributeDocumentation = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlAttributeDocumentation")
+local ControlType = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlType")
+local FixedStepInput = require("Scripts.DCS-BIOS.lib.modules.documentation.FixedStepInput")
+local ICommand = require("Scripts.DCS-BIOS.lib.modules.ICommand")
+local IntegerOutput = require("Scripts.DCS-BIOS.lib.modules.documentation.IntegerOutput")
 local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
+local SetStateInput = require("Scripts.DCS-BIOS.lib.modules.documentation.SetStateInput")
+local Suffix = require("Scripts.DCS-BIOS.lib.modules.documentation.Suffix")
 
 --- @class MB_339: Module
 local MB_339 = Module:new("MB-339", 0x8200, { "MB-339A", "MB-339APAN" })
@@ -17,6 +25,57 @@ local MB_339 = Module:new("MB-339", 0x8200, { "MB-339A", "MB-339APAN" })
 --- @return Control control the control which was added to the module
 function MB_339:defineIndicatorLight08(identifier, arg_number, category, description)
 	return self:defineGatedIndicatorLight(identifier, arg_number, 0.5, 0.9, category, description)
+end
+
+--- Adds a new control specifically for the flaps selector
+--- @param identifier string the unique identifier for the control
+--- @param arg_number integer the dcs argument number
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @param attributes SwitchAttributes? additional control attributes
+--- @return Control control the control which was added to the module
+function MB_339:defineFlapsControl(identifier, arg_number, category, description, attributes)
+	local alloc = self:allocateInt(2, identifier)
+
+	local control = Control:new(category, ControlType.action, identifier, description, {
+		FixedStepInput:new("switch to previous or next state"),
+		SetStateInput:new(2, "set position"),
+	}, {
+		IntegerOutput:new(alloc, Suffix.none, "selector position"),
+	}, nil, ControlAttributeDocumentation.from_switch_attributes(attributes))
+
+	self:addControl(control)
+
+	self:addInputProcessor(identifier, function(action)
+		-- 0 = DOWN / 0.5 = TAKE OFF / 1 = UP
+		local current_state = Module.round(GetDevice(0):get_argument_value(arg_number) * 2)
+
+		if current_state == 0 then
+			if action == "1" or action == "INC" then
+				LoSetCommand(ICommand.flaps_maneuver_from_down)
+			elseif action == "2" then
+				LoSetCommand(ICommand.flaps_up)
+			end
+		elseif current_state == 1 then
+			if action == "0" or action == "DEC" then
+				LoSetCommand(ICommand.flaps_down)
+			elseif action == "2" or action == "INC" then
+				LoSetCommand(ICommand.flaps_up)
+			end
+		else -- 2
+			if action == "1" or action == "DEC" then
+				LoSetCommand(ICommand.flaps_maneuver_from_up)
+			elseif action == "0" then
+				LoSetCommand(ICommand.flaps_down)
+			end
+		end
+	end)
+
+	self:addExportHook(function(dev0)
+		alloc:setValue(Module.round(dev0:get_argument_value(arg_number) * 2))
+	end)
+
+	return control
 end
 
 -- pulled from command_defs.lua
@@ -827,7 +886,8 @@ MB_339:defineFloat("FUEL_FLOW_G", 313, { 0, 1 }, "Fuel Gauge", "Fuel Flow Gauge"
 MB_339:defineFloat("AFT_FUEL_TRANS_G", 520, { 0, 1 }, "Fuel Gauge", "Aft Fuel Transfer Drum")
 
 --L/G & Ground
-MB_339:defineToggleSwitch("FW_LG_GEAR_LVR", 1, COMMANDS.LandingGearLever, 4, "Gear FW", "Foreward Gear Lever")
+-- LandingGearLever (5002) should work and is present in clickabledata.lua, but the control seems to glitch out when attempting to use it
+MB_339:defineLoSetCommand2PosToggle("FW_LG_GEAR_LVR", ICommand.gear_up, ICommand.gear_down, 4, "Gear FW", "Foreward Gear Lever")
 MB_339:defineToggleSwitch("FW_LG_ASKID", 1, COMMANDS.FwdAntiSkidOnOff, 250, "Gear FW", "Foreward Anti-Skid")
 MB_339:definePotentiometer("FW_LG_PBRAKE", 1, COMMANDS.ParkingBrakePull, 266, { 0, 1 }, "Gear FW", "Forward Parking Brake Pull")
 MB_339:defineToggleSwitch("FW_LG_PBRAKE_LOCK", 1, COMMANDS.ParkingBrakeLock, 263, "Gear FW", "Foreward Parking Brake Lock")
@@ -835,7 +895,7 @@ MB_339:defineToggleSwitch("FW_LG_EMERG_GEAR", 1, COMMANDS.EmergLandingGear, 681,
 MB_339:definePushButton("FW_LG_DL_OVERRIDE", 1, COMMANDS.FwdLandingGearOverride, 379, "Gear FW", "Foreward Down-Lock Override")
 MB_339:defineSpringloaded_3PosTumb("FW_RUDDER_TRIM", 1, COMMANDS.FwdTrimLeftRudder, COMMANDS.FwdTrimRightRudder, 540, "Gear FW", "Foreward Rudder Trim")
 
-MB_339:defineToggleSwitch("AFT_LG_GEAR_LVR", 1, COMMANDS.LandingGearLever, 106, "Gear AFT", "Aft Gear Lever")
+MB_339:defineLoSetCommand2PosToggle("AFT_LG_GEAR_LVR", ICommand.gear_up, ICommand.gear_down, 106, "Gear AFT", "Aft Gear Lever")
 MB_339:defineToggleSwitch("AFT_LG_ASKID", 1, COMMANDS.AftAntiSkidOnOff, 518, "Gear AFT", "Aft Anti-Skid")
 MB_339:definePushButton("AFT_LG_DL_OVERRIDE", 1, COMMANDS.AftLandingGearOverride, 14, "Gear AFT", "Aft Down-Lock Override")
 MB_339:defineSpringloaded_3PosTumb("AFT_RUDDER_TRIM", 1, COMMANDS.AftTrimLeftRudder, COMMANDS.AftTrimRightRudder, 519, "Gear AFT", "Aft Rudder Trim")
@@ -1323,5 +1383,9 @@ MB_339:definePotentiometer("GUN_REP_BRIGHT", 1, COMMANDS.GunsightRepeaterBrt, 40
 -- generator switches updated from 2pos to 3pos
 MB_339:defineSpringloaded_3PosTumb("GEN1_SW", 1, COMMANDS.Generator1ResetSwitch, COMMANDS.Generator1Switch, 301, "Electrical", "Generator 1 Switch")
 MB_339:defineSpringloaded_3PosTumb("GEN2_SW", 1, COMMANDS.Generator2ResetSwitch, COMMANDS.Generator2Switch, 302, "Electrical", "Generator 2 Switch")
+
+-- right now, these are technically the same control
+MB_339:defineFlapsControl("FW_FLAPS_LVR", 7, "Flaps FW", "Forward Flaps Lever", { positions = { "DOWN", "TAKE OFF", "UP" } })
+MB_339:defineFlapsControl("AFT_FLAPS_LVR", 7, "Flaps AFT", "Aft Flaps Lever", { positions = { "DOWN", "TAKE OFF", "UP" } })
 
 return MB_339

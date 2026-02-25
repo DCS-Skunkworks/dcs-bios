@@ -4,6 +4,7 @@ local ActionArgument = require("Scripts.DCS-BIOS.lib.modules.documentation.Actio
 local ActionInput = require("Scripts.DCS-BIOS.lib.modules.documentation.ActionInput")
 local ApiVariant = require("Scripts.DCS-BIOS.lib.modules.documentation.ApiVariant")
 local Control = require("Scripts.DCS-BIOS.lib.modules.documentation.Control")
+local ControlAttributeDocumentation = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlAttributeDocumentation")
 local ControlType = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlType")
 local Documentation = require("Scripts.DCS-BIOS.lib.modules.documentation.Documentation")
 local FixedStepInput = require("Scripts.DCS-BIOS.lib.modules.documentation.FixedStepInput")
@@ -76,8 +77,9 @@ end
 --- @param cycle boolean | "skiplast" true if infinite rotary, false if limited rotary, skiplast functionality unclear
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
+--- @param attributes SwitchAttributes? additional control attributes
 --- @return Control control the control which was added to the module
-function Module:defineSetCommandTumb(identifier, device_id, command, arg_number, step, limits, output_map, cycle, category, description)
+function Module:defineSetCommandTumb(identifier, device_id, command, arg_number, step, limits, output_map, cycle, category, description, attributes)
 	local span = limits[2] - limits[1]
 	local last_n = tonumber(string.format("%.0f", span / step))
 	last_n = last_n or 0
@@ -127,7 +129,7 @@ function Module:defineSetCommandTumb(identifier, device_id, command, arg_number,
 		SetStateInput:new(max_value, "set position"),
 	}, {
 		IntegerOutput:new(enumAlloc, Suffix.none, "selector position"),
-	}, nil)
+	}, nil, ControlAttributeDocumentation.from_switch_attributes(attributes))
 
 	if output_map and strAlloc then
 		control.outputs[1].suffix = Suffix.int
@@ -182,8 +184,9 @@ end
 --- @param output_range number[] a length-2 array with the lower and upper bounds of the output data - lower bound must be greater than or equal to zero
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
+--- @param attributes BaseControlAttributes? additional control attributes
 --- @return Control control the control which was added to the module
-function Module:defineGaugeValue(identifier, arg_number, output_range, category, description)
+function Module:defineGaugeValue(identifier, arg_number, output_range, category, description, attributes)
 	assert_min_max(output_range, "output_range")
 	assert(output_range[1] >= 0)
 
@@ -195,7 +198,7 @@ function Module:defineGaugeValue(identifier, arg_number, output_range, category,
 
 	local control = Control:new(category, ControlType.metadata, identifier, description, {}, {
 		IntegerOutput:new(alloc, Suffix.none, description),
-	})
+	}, nil, ControlAttributeDocumentation.from_base_attributes(attributes))
 	self:addControl(control)
 
 	return control
@@ -209,8 +212,9 @@ end
 --- @param step_multiplier number the amount to multiply the variable step by when applying an input
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
+--- @param attributes SwitchAttributes? additional control attributes
 --- @return Control control the control which was added to the module
-function Module:defineVariableStepTumb(identifier, device_id, command, arg_number, step_multiplier, category, description)
+function Module:defineVariableStepTumb(identifier, device_id, command, arg_number, step_multiplier, category, description, attributes)
 	local max_value = 65535
 	self:addInputProcessor(identifier, function(value)
 		local delta = tonumber(value) / max_value * step_multiplier
@@ -223,7 +227,7 @@ function Module:defineVariableStepTumb(identifier, device_id, command, arg_numbe
 		VariableStepInput:new(3200, max_value, description),
 	}, {
 		IntegerOutput:new(alloc, Suffix.none, "rotation of the knob (not the value being manipulated!)"),
-	})
+	}, nil, ControlAttributeDocumentation.from_switch_attributes(attributes))
 	self:addControl(control)
 
 	self:addExportHook(function(dev0)
@@ -241,8 +245,9 @@ end
 --- @param limits number[] a length-2 array with the lower and upper bounds of the data as used in dcs
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
+--- @param attributes BaseControlAttributes? additional control attributes
 --- @return Control control the control which was added to the module
-function Module:defineFloatValue(identifier, arg_number, max_value, limits, category, description)
+function Module:defineFloatValue(identifier, arg_number, max_value, limits, category, description, attributes)
 	assert_min_max(limits, "limits")
 	local alloc = self:allocateInt(max_value, identifier)
 	self:addExportHook(function(dev0)
@@ -251,7 +256,7 @@ function Module:defineFloatValue(identifier, arg_number, max_value, limits, cate
 
 	local control = Control:new(category, ControlType.analog_gauge, identifier, description, {}, {
 		IntegerOutput:new(alloc, Suffix.none, "gauge position"),
-	})
+	}, nil, ControlAttributeDocumentation.from_base_attributes(attributes))
 	self:addControl(control)
 
 	return control
@@ -263,10 +268,11 @@ end
 --- @param limits number[] a length-2 array with the lower and upper bounds of the data as used in dcs
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
+--- @param attributes BaseControlAttributes? additional control attributes
 --- @return Control control the control which was added to the module
-function Module:defineFloat(identifier, arg_number, limits, category, description)
+function Module:defineFloat(identifier, arg_number, limits, category, description, attributes)
 	assert_min_max(limits, "limits")
-	return self:defineFloatValue(identifier, arg_number, 65535, limits, category, description)
+	return self:defineFloatValue(identifier, arg_number, 65535, limits, category, description, attributes)
 end
 
 --- Adds a new Float but only but only allocates an 8-bit int. Max value is 255
@@ -275,10 +281,11 @@ end
 --- @param limits number[] a length-2 array with the lower and upper bounds of the data as used in dcs
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
+--- @param attributes BaseControlAttributes? additional control attributes
 --- @return Control control the control which was added to the module
-function Module:define8BitFloat(identifier, argument_id, limits, category, description)
+function Module:define8BitFloat(identifier, argument_id, limits, category, description, attributes)
 	assert_min_max(limits, "limits")
-	return self:defineFloatValue(identifier, argument_id, 255, limits, category, description)
+	return self:defineFloatValue(identifier, argument_id, 255, limits, category, description, attributes)
 end
 
 --- Adds a new Float but only but only allocates an 8-bit int. Max value is 255
@@ -287,8 +294,9 @@ end
 --- @param getter function function to call to get values from game engine
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
+--- @param attributes BaseControlAttributes? additional control attributes
 --- @return Control control the control which was added to the module
-function Module:define8BitFloatFromGetter(identifier, getter, limits, category, description)
+function Module:define8BitFloatFromGetter(identifier, getter, limits, category, description, attributes)
 	-- same as defineFloat, but only allocates an 8-bit int
 	assert_min_max(limits, "limits")
 	local max_value = 255
@@ -300,7 +308,7 @@ function Module:define8BitFloatFromGetter(identifier, getter, limits, category, 
 
 	local control = Control:new(category, ControlType.metadata, identifier, description, {}, {
 		IntegerOutput:new(alloc, Suffix.none, description),
-	})
+	}, nil, ControlAttributeDocumentation.from_base_attributes(attributes))
 	self:addControl(control)
 
 	return control
@@ -311,9 +319,10 @@ end
 --- @param arg_number integer the dcs argument number
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
+--- @param attributes LedAttributes? additional control attributes
 --- @return Control control the control which was added to the module
-function Module:defineIndicatorLight(identifier, arg_number, category, description)
-	return self:defineGatedIndicatorLight(identifier, arg_number, 0.3, nil, category, description)
+function Module:defineIndicatorLight(identifier, arg_number, category, description, attributes)
+	return self:defineGatedIndicatorLight(identifier, arg_number, 0.3, nil, category, description, attributes)
 end
 
 --- Adds a new indicator light control which will enable the LED when the argument value is less than 0.3
@@ -321,9 +330,10 @@ end
 --- @param arg_number integer the dcs argument number
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
+--- @param attributes LedAttributes? additional control attributes
 --- @return Control control the control which was added to the module
-function Module:defineIndicatorLightInverted(identifier, arg_number, category, description)
-	return self:defineGatedIndicatorLight(identifier, arg_number, nil, 0.3, category, description)
+function Module:defineIndicatorLightInverted(identifier, arg_number, category, description, attributes)
+	return self:defineGatedIndicatorLight(identifier, arg_number, nil, 0.3, category, description, attributes)
 end
 
 --- Adds a new indicator light control with specific min and max values for enabling the light
@@ -333,13 +343,14 @@ end
 --- @param max number? the exclusive maximum value allowed in order to turn the light on (or nil if none)
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
+--- @param attributes LedAttributes? additional control attributes
 --- @return Control control the control which was added to the module
-function Module:defineGatedIndicatorLight(identifier, arg_number, min, max, category, description)
+function Module:defineGatedIndicatorLight(identifier, arg_number, min, max, category, description, attributes)
 	local alloc = self:allocateInt(1, identifier)
 
 	local control = Control:new(category, ControlType.led, identifier, description, {}, {
 		IntegerOutput:new(alloc, Suffix.none, "0 if light is off, 1 if light is on"),
-	})
+	}, nil, ControlAttributeDocumentation.from_led_attributes(attributes))
 	self:addControl(control)
 
 	self:addExportHook(function(dev0)
@@ -363,9 +374,10 @@ end
 --- @param arg_number integer the dcs argument number
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
+--- @param attributes SwitchAttributes? additional control attributes
 --- @return Control control the control which was added to the module
-function Module:definePushButton(identifier, device_id, command, arg_number, category, description)
-	local control = self:defineTumb(identifier, device_id, command, arg_number, 1, { 0, 1 }, nil, false, category, description)
+function Module:definePushButton(identifier, device_id, command, arg_number, category, description, attributes)
+	local control = self:defineTumb(identifier, device_id, command, arg_number, 1, { 0, 1 }, nil, false, category, description, attributes)
 	control.api_variant = ApiVariant.momentary_last_position
 
 	return control
@@ -377,9 +389,10 @@ end
 --- @param command integer the dcs command to move the switch up or down
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
+--- @param attributes BaseControlAttributes? additional control attributes
 --- @return Control control the control which was added to the module
-function Module:defineInputOnlyPushButton(identifier, device_id, command, category, description)
-	return self:defineInputOnlyPushButtonWithValues(identifier, device_id, command, 1, 0, category, description)
+function Module:defineInputOnlyPushButton(identifier, device_id, command, category, description, attributes)
+	return self:defineInputOnlyPushButtonWithValues(identifier, device_id, command, 1, 0, category, description, attributes)
 end
 
 --- Adds a push button with no outputs that only sends 1, with no subsequent 0
@@ -388,9 +401,10 @@ end
 --- @param command integer the dcs command to move the switch up or down
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
+--- @param attributes BaseControlAttributes? additional control attributes
 --- @return Control control the control which was added to the module
-function Module:defineInputOnlyPushButtonNoOff(identifier, device_id, command, category, description)
-	return self:defineInputOnlyPushButtonWithValues(identifier, device_id, command, 1, nil, category, description)
+function Module:defineInputOnlyPushButtonNoOff(identifier, device_id, command, category, description, attributes)
+	return self:defineInputOnlyPushButtonWithValues(identifier, device_id, command, 1, nil, category, description, attributes)
 end
 
 --- Adds a push button with no outputs and specific input values
@@ -401,11 +415,12 @@ end
 --- @param on_release integer? the value to send on release, if any
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
+--- @param attributes BaseControlAttributes? additional control attributes
 --- @return Control control the control which was added to the module
-function Module:defineInputOnlyPushButtonWithValues(identifier, device_id, command, on_press, on_release, category, description)
+function Module:defineInputOnlyPushButtonWithValues(identifier, device_id, command, on_press, on_release, category, description, attributes)
 	local control = Control:new(category, ControlType.action, identifier, description, {
 		ActionInput:new(ActionArgument.toggle, "Triggers the action"),
-	}, {})
+	}, {}, nil, ControlAttributeDocumentation.from_base_attributes(attributes))
 
 	self:addControl(control)
 
@@ -430,11 +445,12 @@ end
 --- @param command integer the dcs command to move the switch up or down
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
+--- @param attributes BaseControlAttributes? additional control attributes
 --- @return Control control the control which was added to the module
-function Module:defineInputOnlySetStatePushButton(identifier, device_id, command, category, description)
+function Module:defineInputOnlySetStatePushButton(identifier, device_id, command, category, description, attributes)
 	local control = Control:new(category, ControlType.action, identifier, description, {
 		SetStateInput:new(1, "Sends the command"),
-	}, {})
+	}, {}, nil, ControlAttributeDocumentation.from_base_attributes(attributes))
 
 	self:addControl(control)
 
@@ -454,11 +470,12 @@ end
 --- @param iCommand ICommand the dcs icommand to move the switch up or down
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
+--- @param attributes BaseControlAttributes? additional control attributes
 --- @return Control control the control which was added to the module
-function Module:defineLoSetCommand(identifier, iCommand, category, description)
+function Module:defineLoSetCommand(identifier, iCommand, category, description, attributes)
 	local control = Control:new(category, ControlType.action, identifier, description, {
 		ActionInput:new(ActionArgument.toggle, "Triggers the action"),
-	}, {})
+	}, {}, nil, ControlAttributeDocumentation.from_base_attributes(attributes))
 
 	self:addControl(control)
 
@@ -477,12 +494,13 @@ end
 --- @param iCommand_on ICommand the dcs icommand to move the switch up
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
+--- @param attributes SwitchAttributes? additional control attributes
 --- @return Control control the control which was added to the module
-function Module:defineLoSetCommand2Pos(identifier, iCommand_off, iCommand_on, category, description)
+function Module:defineLoSetCommand2Pos(identifier, iCommand_off, iCommand_on, category, description, attributes)
 	local control = Control:new(category, ControlType.action, identifier, description, {
 		FixedStepInput:new("switch to previous or next state"),
 		SetStateInput:new(1, "set the switch position -- 0 = off, 1 = on"),
-	}, {})
+	}, {}, nil, ControlAttributeDocumentation.from_switch_attributes(attributes))
 
 	self:addControl(control)
 
@@ -497,6 +515,51 @@ function Module:defineLoSetCommand2Pos(identifier, iCommand_off, iCommand_on, ca
 	return control
 end
 
+--- Adds a control which performs a specific LoSetCommand with no arguments and has a draw arg output
+--- @param identifier string the unique identifier for the control
+--- @param iCommand_off ICommand the dcs icommand to move the switch down
+--- @param iCommand_on ICommand the dcs icommand to move the switch up
+--- @param arg_number integer the dcs argument number
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @param attributes SwitchAttributes? additional control attributes
+--- @return Control control the control which was added to the module
+function Module:defineLoSetCommand2PosToggle(identifier, iCommand_off, iCommand_on, arg_number, category, description, attributes)
+	local alloc = self:allocateInt(1, identifier)
+
+	local control = Control:new(category, ControlType.action, identifier, description, {
+		FixedStepInput:new("switch to previous or next state"),
+		SetStateInput:new(1, "set the switch position -- 0 = off, 1 = on"),
+		ActionInput:new(ActionArgument.toggle, "Toggle switch state"),
+	}, {
+		IntegerOutput:new(alloc, Suffix.none, "selector position"),
+	}, nil, ControlAttributeDocumentation.from_switch_attributes(attributes))
+
+	self:addControl(control)
+
+	self:addInputProcessor(identifier, function(action)
+		if action == "1" or action == "INC" then
+			LoSetCommand(iCommand_on)
+		elseif action == "0" or action == "DEC" then
+			LoSetCommand(iCommand_off)
+		elseif action == "TOGGLE" then
+			local current_state = GetDevice(0):get_argument_value(arg_number)
+
+			if current_state == 1 then
+				LoSetCommand(iCommand_off)
+			else
+				LoSetCommand(iCommand_on)
+			end
+		end
+	end)
+
+	self:addExportHook(function(dev0)
+		alloc:setValue(dev0:get_argument_value(arg_number))
+	end)
+
+	return control
+end
+
 --- Adds a new rotary potentiometer with values between 0 and 65535
 --- @param identifier string the unique identifier for the control
 --- @param device_id integer the dcs device id
@@ -505,8 +568,9 @@ end
 --- @param limits number[]? a length-2 array with the lower and upper bounds of the data as used in dcs
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
+--- @param attributes BaseControlAttributes? additional control attributes
 --- @return Control control the control which was added to the module
-function Module:definePotentiometer(identifier, device_id, command, arg_number, limits, category, description)
+function Module:definePotentiometer(identifier, device_id, command, arg_number, limits, category, description, attributes)
 	local max_value = 65535
 	limits = limits or { 0, 1 }
 	assert_min_max(limits, "limits")
@@ -534,7 +598,7 @@ function Module:definePotentiometer(identifier, device_id, command, arg_number, 
 		VariableStepInput:new(3200, max_value, "turn the dial left or right"),
 	}, {
 		IntegerOutput:new(value, Suffix.none, "position of the potentiometer"),
-	})
+	}, nil, ControlAttributeDocumentation.from_base_attributes(attributes))
 	self:addControl(control)
 
 	return control
@@ -547,9 +611,10 @@ end
 --- @param arg_number integer the dcs argument number
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
+--- @param attributes SwitchAttributes? additional control attributes
 --- @return Control control the control which was added to the module
-function Module:defineToggleSwitch(identifier, device_id, command, arg_number, category, description)
-	return self:defineToggleSwitchManualRange(identifier, device_id, command, arg_number, { 0, 1 }, category, description)
+function Module:defineToggleSwitch(identifier, device_id, command, arg_number, category, description, attributes)
+	return self:defineToggleSwitchManualRange(identifier, device_id, command, arg_number, { 0, 1 }, category, description, attributes)
 end
 
 --- Adds a two-position toggle switch
@@ -560,11 +625,12 @@ end
 --- @param limits number[] a length-2 array with the lower and upper bounds of the data as used in dcs
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
+--- @param attributes SwitchAttributes? additional control attributes
 --- @return Control control the control which was added to the module
-function Module:defineToggleSwitchManualRange(identifier, device_id, command, arg_number, limits, category, description)
+function Module:defineToggleSwitchManualRange(identifier, device_id, command, arg_number, limits, category, description, attributes)
 	assert_min_max(limits, "limits")
 	local step = limits[2] - limits[1]
-	local control = self:defineTumb(identifier, device_id, command, arg_number, step, limits, nil, false, category, description)
+	local control = self:defineTumb(identifier, device_id, command, arg_number, step, limits, nil, false, category, description, attributes)
 
 	return control
 end
@@ -576,8 +642,9 @@ end
 --- @param arg_number integer the dcs argument number
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
+--- @param attributes SwitchAttributes? additional control attributes
 --- @return Control control the control which was added to the module
-function Module:defineToggleSwitchToggleOnly(identifier, device_id, command, arg_number, category, description)
+function Module:defineToggleSwitchToggleOnly(identifier, device_id, command, arg_number, category, description, attributes)
 	local alloc = self:allocateInt(1, identifier)
 
 	local control = Control:new(category, ControlType.action, identifier, description, {
@@ -586,7 +653,7 @@ function Module:defineToggleSwitchToggleOnly(identifier, device_id, command, arg
 		ActionInput:new(ActionArgument.toggle, "toggle switch state"),
 	}, {
 		IntegerOutput:new(alloc, Suffix.none, "selector position"),
-	})
+	}, nil, ControlAttributeDocumentation.from_switch_attributes(attributes))
 
 	self:addControl(control)
 
@@ -617,9 +684,10 @@ end
 --- @param increment number the amount to increment the dcs data by with each step of the switch
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
+--- @param attributes SwitchAttributes? additional control attributes
 --- @return Control control the control which was added to the module
-function Module:defineMultipositionSwitch(identifier, device_id, command, arg_number, num_positions, increment, category, description)
-	return self:defineMultipositionSwitchWithCycle(identifier, device_id, command, arg_number, num_positions, increment, false, category, description)
+function Module:defineMultipositionSwitch(identifier, device_id, command, arg_number, num_positions, increment, category, description, attributes)
+	return self:defineMultipositionSwitchWithCycle(identifier, device_id, command, arg_number, num_positions, increment, false, category, description, attributes)
 end
 
 --- Adds an n-position switch
@@ -632,9 +700,10 @@ end
 --- @param cycle boolean whether the control should roll over when exceeding the min/max value
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
+--- @param attributes SwitchAttributes? additional control attributes
 --- @return Control control the control which was added to the module
-function Module:defineMultipositionSwitchWithCycle(identifier, device_id, command, arg_number, num_positions, increment, cycle, category, description)
-	local control = self:defineTumb(identifier, device_id, command, arg_number, increment, { 0, increment * (num_positions - 1) }, nil, cycle, category, description)
+function Module:defineMultipositionSwitchWithCycle(identifier, device_id, command, arg_number, num_positions, increment, cycle, category, description, attributes)
+	local control = self:defineTumb(identifier, device_id, command, arg_number, increment, { 0, increment * (num_positions - 1) }, nil, cycle, category, description, attributes)
 
 	return control
 end
@@ -646,8 +715,9 @@ end
 --- @param arg_number integer the dcs argument number
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
+--- @param attributes BaseControlAttributes? additional control attributes
 --- @return Control control the control which was added to the module
-function Module:defineRotary(identifier, device_id, command, arg_number, category, description)
+function Module:defineRotary(identifier, device_id, command, arg_number, category, description, attributes)
 	local max_value = 65535
 	self:addInputProcessor(identifier, function(value)
 		GetDevice(device_id):performClickableAction(command, tonumber(value) / max_value)
@@ -659,7 +729,7 @@ function Module:defineRotary(identifier, device_id, command, arg_number, categor
 		VariableStepInput:new(3200, max_value, "turn the dial left or right"),
 	}, {
 		IntegerOutput:new(value, Suffix.knob_pos, "the rotation of the knob in the cockpit (not the value that is controlled by this knob!)"),
-	}, ApiVariant.multiturn)
+	}, ApiVariant.multiturn, ControlAttributeDocumentation.from_base_attributes(attributes))
 	self:addControl(control)
 
 	self:addExportHook(function(dev0)
@@ -676,9 +746,10 @@ end
 --- @param arg_number integer the dcs argument number
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
+--- @param attributes SwitchAttributes? additional control attributes
 --- @return Control control the control which was added to the module
-function Module:define3PosTumb(identifier, device_id, command, arg_number, category, description)
-	local control = self:defineTumb(identifier, device_id, command, arg_number, 1, { -1, 1 }, nil, false, category, description)
+function Module:define3PosTumb(identifier, device_id, command, arg_number, category, description, attributes)
+	local control = self:defineTumb(identifier, device_id, command, arg_number, 1, { -1, 1 }, nil, false, category, description, attributes)
 
 	return control
 end
@@ -694,11 +765,12 @@ end
 --- @param output_map string[]? an array of string values to output for inputs across the range of values, or nil if none
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
+--- @param attributes SwitchAttributes? additional control attributes
 --- @return Control control the control which was added to the module
-function Module:defineFixedStepTumb(identifier, device_id, command, arg_number, step, limits, rel_args, output_map, category, description)
+function Module:defineFixedStepTumb(identifier, device_id, command, arg_number, step, limits, rel_args, output_map, category, description, attributes)
 	assert_min_max(limits, "limits")
 	assert_min_max(rel_args, "rel_args")
-	local control = self:defineTumb(identifier, device_id, command, arg_number, step, limits, output_map, true, category, description)
+	local control = self:defineTumb(identifier, device_id, command, arg_number, step, limits, output_map, true, category, description, attributes)
 	assert(control.inputs[2].interface == "set_state") -- todo: type if necessary
 	control.inputs[2] = nil
 	control.control_type = ControlType.discrete_dial
@@ -715,15 +787,16 @@ end
 --- @param rel_args number[] a length-2 array with the data to send to dcs on fixed-step inputs as [DEC, INC]
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
+--- @param attributes BaseControlAttributes? additional control attributes
 --- @return Control control the control which was added to the module
-function Module:defineFixedStepInput(identifier, device_id, command, rel_args, category, description)
+function Module:defineFixedStepInput(identifier, device_id, command, rel_args, category, description, attributes)
 	assert_min_max(rel_args, "rel_args")
 	self:addFixedStepInputProcessor(identifier, device_id, command, rel_args[1], rel_args[2])
 	local control = Control:new(category, ControlType.fixed_step_dial, identifier, description, {
 		FixedStepInput:new("turn left or right"),
 	}, {
 		-- these have no output as their position is effectively irrelevant - they loop infinitely
-	})
+	}, nil, ControlAttributeDocumentation.from_base_attributes(attributes))
 	self:addControl(control)
 
 	return control
@@ -764,8 +837,9 @@ end
 --- @param max_length integer the maximum length of the string
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
+--- @param attributes BaseControlAttributes? additional control attributes
 --- @return Control control the control which was added to the module
-function Module:defineString(identifier, getter, max_length, category, description)
+function Module:defineString(identifier, getter, max_length, category, description, attributes)
 	local alloc = self:allocateString(max_length, identifier)
 	self:addExportHook(function(dev0)
 		local value = getter(dev0) --ammo
@@ -778,7 +852,7 @@ function Module:defineString(identifier, getter, max_length, category, descripti
 
 	local control = Control:new(category, ControlType.display, identifier, description, {}, {
 		StringOutput:new(alloc, Suffix.none, description),
-	})
+	}, nil, ControlAttributeDocumentation.from_base_attributes(attributes))
 
 	self:addControl(control)
 
@@ -795,8 +869,9 @@ end
 --- @param arg_number integer the dcs argument number
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
+--- @param attributes SwitchAttributes? additional control attributes
 --- @return Control
-function Module:defineRockerSwitch(identifier, device_id, pos_command, pos_stop_command, neg_command, neg_stop_command, arg_number, category, description)
+function Module:defineRockerSwitch(identifier, device_id, pos_command, pos_stop_command, neg_command, neg_stop_command, arg_number, category, description, attributes)
 	local alloc = self:allocateInt(2, identifier)
 	self:addExportHook(function(dev0)
 		local lut = { [-1] = 0, [0] = 1, [1] = 2 }
@@ -807,7 +882,7 @@ function Module:defineRockerSwitch(identifier, device_id, pos_command, pos_stop_
 		SetStateInput:new(2, "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up"),
 	}, {
 		IntegerOutput:new(alloc, Suffix.none, "selector position"),
-	})
+	}, nil, ControlAttributeDocumentation.from_switch_attributes(attributes))
 
 	self:addControl(control)
 
@@ -864,11 +939,12 @@ end
 --- @param output_map string[]? an array of string values to output for inputs across the range of values, or nil if none
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
+--- @param attributes SwitchAttributes? additional control attributes
 --- @return Control control the control which was added to the module
-function Module:defineRadioWheel(identifier, device_id, decrement_command, increment_command, rel_args, arg_number, step, limits, output_map, category, description)
+function Module:defineRadioWheel(identifier, device_id, decrement_command, increment_command, rel_args, arg_number, step, limits, output_map, category, description, attributes)
 	assert_min_max(rel_args, "rel_args")
 	assert_min_max(limits, "limits")
-	local control = self:defineTumb(identifier, device_id, decrement_command, arg_number, step, limits, output_map, "skiplast", category, description)
+	local control = self:defineTumb(identifier, device_id, decrement_command, arg_number, step, limits, output_map, "skiplast", category, description, attributes)
 	assert(control.inputs[2].interface == "set_state")
 	control.inputs[2] = nil
 	control.control_type = ControlType.discrete_dial
@@ -883,15 +959,16 @@ end
 --- @param draw_arg_id integer the dcs argument number
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
+--- @param attributes BaseControlAttributes? additional control attributes
 --- @return Control control the control which was added to the module
-function Module:defineBitFromDrawArgument(identifier, draw_arg_id, category, description)
+function Module:defineBitFromDrawArgument(identifier, draw_arg_id, category, description, attributes)
 	return self:defineIntegerFromGetter(identifier, function()
 		if LoGetAircraftDrawArgumentValue(draw_arg_id) > 0 then
 			return 1
 		else
 			return 0
 		end
-	end, 1, category, description)
+	end, 1, category, description, attributes)
 end
 
 --- Adds a new integer output for an external draw argument ranging between 0 and 1
@@ -899,9 +976,10 @@ end
 --- @param arg_number integer the dcs argument number
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
+--- @param attributes BaseControlAttributes? additional control attributes
 --- @return Control control the control which was added to the module
-function Module:defineFloatFromDrawArgument(identifier, arg_number, category, description)
-	return self:defineFloatFromExternalDrawArgument(identifier, arg_number, { 0, 1 }, category, description)
+function Module:defineFloatFromDrawArgument(identifier, arg_number, category, description, attributes)
+	return self:defineFloatFromExternalDrawArgument(identifier, arg_number, { 0, 1 }, category, description, attributes)
 end
 
 --- Adds a new integer output for an external draw argument ranging between -1 and 1
@@ -909,9 +987,10 @@ end
 --- @param arg_number integer the dcs argument number
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
+--- @param attributes BaseControlAttributes? additional control attributes
 --- @return Control control the control which was added to the module
-function Module:defineFullRangeFloatFromExternalDrawArgument(identifier, arg_number, category, description)
-	return self:defineFloatFromExternalDrawArgument(identifier, arg_number, { -1, 1 }, category, description)
+function Module:defineFullRangeFloatFromExternalDrawArgument(identifier, arg_number, category, description, attributes)
+	return self:defineFloatFromExternalDrawArgument(identifier, arg_number, { -1, 1 }, category, description, attributes)
 end
 
 --- Adds a new integer output for an external draw argument ranging between -1 and 1
@@ -920,11 +999,12 @@ end
 --- @param limits number[] a length-2 array with the lower and upper bounds of the data as used in dcs
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
+--- @param attributes BaseControlAttributes? additional control attributes
 --- @return Control control the control which was added to the module
-function Module:defineFloatFromExternalDrawArgument(identifier, arg_number, limits, category, description)
+function Module:defineFloatFromExternalDrawArgument(identifier, arg_number, limits, category, description, attributes)
 	return self:defineIntegerFromGetter(identifier, function()
 		return Module.valueConvert(LoGetAircraftDrawArgumentValue(arg_number), limits, { 0, 65535 })
-	end, 65535, category, description)
+	end, 65535, category, description, attributes)
 end
 
 --- Adds a new integer output based on a custom getter function
@@ -933,8 +1013,9 @@ end
 --- @param maxValue integer the maximum value the getter will return
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
+--- @param attributes BaseControlAttributes? additional control attributes
 --- @return Control control the control which was added to the module
-function Module:defineIntegerFromGetter(identifier, getter, maxValue, category, description)
+function Module:defineIntegerFromGetter(identifier, getter, maxValue, category, description, attributes)
 	local alloc = self:allocateInt(maxValue, identifier)
 	self:addExportHook(function(dev0)
 		alloc:setValue(getter(dev0))
@@ -942,7 +1023,7 @@ function Module:defineIntegerFromGetter(identifier, getter, maxValue, category, 
 
 	local control = Control:new(category, ControlType.metadata, identifier, description, {}, {
 		IntegerOutput:new(alloc, Suffix.none, description),
-	})
+	}, nil, ControlAttributeDocumentation.from_base_attributes(attributes))
 	self:addControl(control)
 
 	return control
@@ -960,8 +1041,9 @@ end
 --- @param cycle boolean | "skiplast" true if infinite rotary, false if limited rotary, skiplast functionality unclear
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
+--- @param attributes SwitchAttributes? additional control attributes
 --- @return Control control the control which was added to the module
-function Module:defineTumb(identifier, device_id, command, arg_number, step, limits, output_map, cycle, category, description)
+function Module:defineTumb(identifier, device_id, command, arg_number, step, limits, output_map, cycle, category, description, attributes)
 	assert_min_max(limits, "limits")
 	local span = limits[2] - limits[1]
 	local last_n = tonumber(string.format("%.0f", span / step))
@@ -1032,7 +1114,7 @@ function Module:defineTumb(identifier, device_id, command, arg_number, step, lim
 		table.insert(outputs, StringOutput:new(strAlloc, Suffix.str, output_description))
 	end
 
-	local control = Control:new(category, ControlType.selector, identifier, description, inputs, outputs)
+	local control = Control:new(category, ControlType.selector, identifier, description, inputs, outputs, nil, ControlAttributeDocumentation.from_switch_attributes(attributes))
 
 	self:addControl(control)
 
@@ -1081,9 +1163,10 @@ end
 --- @param arg_number integer the dcs argument number
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
+--- @param attributes SwitchAttributes? additional control attributes
 --- @return Control control the control which was added to the module
-function Module:defineSpringloaded_3PosTumb(identifier, device_id, down_switch, up_switch, arg_number, category, description)
-	return self:defineSpringloaded_3PosTumbWithRange(identifier, device_id, down_switch, up_switch, arg_number, { -1, 1 }, category, description)
+function Module:defineSpringloaded_3PosTumb(identifier, device_id, down_switch, up_switch, arg_number, category, description, attributes)
+	return self:defineSpringloaded_3PosTumbWithRange(identifier, device_id, down_switch, up_switch, arg_number, { -1, 1 }, category, description, attributes)
 end
 
 --- Adds a 3-position switch with a spring-loaded return
@@ -1095,8 +1178,9 @@ end
 --- @param range number[] a length-2 array with the lower and upper bounds of the data as used in dcs
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
+--- @param attributes SwitchAttributes? additional control attributes
 --- @return Control control the control which was added to the module
-function Module:defineSpringloaded_3PosTumbWithRange(identifier, device_id, down_switch, up_switch, arg_number, range, category, description)
+function Module:defineSpringloaded_3PosTumbWithRange(identifier, device_id, down_switch, up_switch, arg_number, range, category, description, attributes)
 	assert_min_max(range, "range")
 
 	local alloc = self:allocateInt(2, identifier)
@@ -1120,7 +1204,7 @@ function Module:defineSpringloaded_3PosTumbWithRange(identifier, device_id, down
 		SetStateInput:new(2, "set the switch position"),
 	}, {
 		IntegerOutput:new(alloc, Suffix.none, string.format("switch position -- 0 = Down, 1 = Mid,  2 = Up")),
-	})
+	}, nil, ControlAttributeDocumentation.from_switch_attributes(attributes))
 
 	self:addControl(control)
 
@@ -1270,6 +1354,7 @@ function Module:defineRadio(identifier, device_id, max_length, decimal_places, s
 	return control
 end
 
+--- @private
 --- Allocates space for a string to the memory map of the module
 --- @param max_length integer the maximum length of the string
 --- @param identifier string? the identifier of the control being allocated

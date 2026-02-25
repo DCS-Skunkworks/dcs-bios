@@ -8,6 +8,9 @@ module("Control", package.seeall)
 --- @field inputs Input[] any inputs the control supports
 --- @field outputs Output[] any outputs the control supports
 --- @field api_variant ApiVariant? TODO
+--- @field deprecated DeprecatedAttributeDocumentation? whether the control has been deprecated
+--- @field positions string[]? descriptions of each position of the control
+--- @field color string? the color of the led, if any
 local Control = {}
 
 --- TODO
@@ -17,8 +20,9 @@ local Control = {}
 --- @param inputs Input[] any inputs the control supports
 --- @param outputs Output[] any outputs the control supports
 --- @param apiVariant ApiVariant? TODO
+--- @param attributes ControlAttributeDocumentation? additional control attributes
 --- @return Control
-function Control:new(category, controlType, identifier, description, inputs, outputs, apiVariant)
+function Control:new(category, controlType, identifier, description, inputs, outputs, apiVariant, attributes)
 	assert(category ~= nil)
 	assert(controlType ~= nil)
 	assert(identifier ~= nil)
@@ -36,6 +40,12 @@ function Control:new(category, controlType, identifier, description, inputs, out
 		outputs = outputs,
 		api_variant = apiVariant,
 	}
+
+	if attributes ~= nil then
+		o.deprecated = attributes.deprecated
+		o.positions = attributes.positions
+		o.color = attributes.color
+	end
 
 	setmetatable(o, self)
 	self.__index = self

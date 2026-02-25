@@ -18,9 +18,9 @@ AV8BNA:definePushButton("AG_SEL", 12, 3280, 280, "Master Modes", "AG Master Mode
 AV8BNA:definePotentiometer("EDP_BRIGHT", 20, 3272, 272, { 0, 1 }, "Engine Display", "EDP Brightness Control")
 AV8BNA:defineToggleSwitch("EDP_BIT", 20, 3655, 655, "Engine Display", "EDP BIT Button")
 --HUD Control Panel
-AV8BNA:defineMultipositionSwitch("HUD_SYMBOL", 22, 3288, 288, 3, 0.5, "HUD Control", "HUD Symbology Reject Switch NORM/REJ1/REJ2")
+AV8BNA:defineMultipositionSwitch("HUD_SYMBOL", 22, 3288, 288, 3, 0.5, "HUD Control", "HUD Symbology Reject Switch", { positions = { "NORM", "REJ1", "REJ2" } })
 AV8BNA:definePotentiometer("HUD_BRIGHT", 22, 3289, 289, { 0, 1 }, "HUD Control", "HUD Off/Brightness Control")
-AV8BNA:defineMultipositionSwitch("HUD_MODE", 22, 3290, 290, 3, 0.5, "HUD Control", "HUD Display Mode Switch DAY/AUTO/NIGHT")
+AV8BNA:defineMultipositionSwitch("HUD_MODE", 22, 3290, 290, 3, 0.5, "HUD Control", "HUD Display Mode Switch", { positions = { "DAY", "AUTO", "NIGHT" } })
 AV8BNA:definePotentiometer("HUD_VIDEO_BRIGHT", 22, 3291, 291, { 0, 1 }, "HUD Control", "HUD Video Brightness Control")
 AV8BNA:definePotentiometer("HUD_VIDEO_CONTR", 22, 3292, 292, { 0, 1 }, "HUD Control", "HUD Video Contrast Control")
 AV8BNA:defineToggleSwitch("HUD_ALT", 22, 3293, 293, "HUD Control", "HUD Altitude Selector Switch")
@@ -102,7 +102,7 @@ AV8BNA:definePushButton("ODU_OPT5", 24, 3249, 249, "ODU", "ODU Option 5")
 AV8BNA:definePushButton("M_CAUTION", 35, 3198, 198, "Master Warning Panel", "Master Caution")
 AV8BNA:definePushButton("M_WARNING", 35, 3199, 199, "Master Warning Panel", "Master Warning")
 --Fuel Quantity Indicator
-AV8BNA:defineMultipositionSwitch("FUEL_SEL", 21, 3379, 379, 7, 0.33, "Fuel Panel", "Fuel Totalizer Selector OUTBD/INBD/WING/INT/TOT/FEED/BIT")
+AV8BNA:defineMultipositionSwitch("FUEL_SEL", 21, 3379, 379, 7, 0.33, "Fuel Panel", "Fuel Totalizer Selector", { positions = { "OUTBD", "INBD", "WING", "INT", "TOT", "FEED", "BIT" } })
 AV8BNA:defineRotary("BINGO_SET", 21, 3380, 380, "Fuel Panel", "Bingo Fuel Set Knob")
 --MPCD left
 AV8BNA:definePushButton("MPCD_L_1", 26, 3200, 200, "MPCD Left", "MPCD Left Button 1")
@@ -157,7 +157,7 @@ AV8BNA:defineRockerSwitch("MPCD_R_GAIN", 27, 3013, 3013, 3014, 3014, 246, "MPCD 
 AV8BNA:defineRockerSwitch("MPCD_R_CONTRAST", 27, 3015, 3015, 3016, 3016, 247, "MPCD Right", "MPCD Right Display Contrast")
 AV8BNA:definePotentiometer("MPCD_R_BRIGHT", 27, 3195, 195, { 0, 1 }, "MPCD Right", "MPCD Right Off/Brightness Control")
 --Armament Control Panel ACP
-AV8BNA:defineMultipositionSwitch("RELEASE_CONTROL", 29, 3395, 395, 4, 0.33, "ACP", "Manual Release Control Knob NORM/N+T/N/T")
+AV8BNA:defineMultipositionSwitch("RELEASE_CONTROL", 29, 3395, 395, 4, 0.33, "ACP", "Manual Release Control Knob", { positions = { "NORM", "N+T", "N", "T" } })
 AV8BNA:define3PosTumb("ARM_CONTROL", 29, 3396, 396, "ACP", "Armament Mode Control")
 AV8BNA:define3PosTumb("FUZE_CONTROL", 29, 3397, 397, "ACP", "Fuzing Control")
 AV8BNA:define3PosTumb("QUANT_SEL_10", 29, 3398, 398, "ACP", "Quantity Selector (Tens)")
@@ -166,7 +166,7 @@ AV8BNA:define3PosTumb("MULTI_RELEASE_CONTROL", 29, 3400, 400, "ACP", "Multiple R
 AV8BNA:define3PosTumb("RELEASE_INT_100", 29, 3401, 401, "ACP", "Release Interval Control (Hundreds)")
 AV8BNA:define3PosTumb("RELEASE_INT_010", 29, 3402, 402, "ACP", "Release Interval Control (Tens)")
 AV8BNA:define3PosTumb("RELEASE_INT_001", 29, 3403, 403, "ACP", "Release Interval Control (Units)")
-AV8BNA:defineTumb("JETT_MODE", 29, 3404, 404, 0.5, { -1, 1 }, nil, false, "ACP", "Jettison Mode Selector STA/STOR/SAFE/CMBT/Fuel")
+AV8BNA:defineTumb("JETT_MODE", 29, 3404, 404, 0.5, { -1, 1 }, nil, false, "ACP", "Jettison Mode Selector", { positions = { "STA", "STOR", "SAFE", "CMBT", "Fuel" } })
 AV8BNA:definePushButton("JETT_STORES", 29, 3405, 405, "ACP", "Jettison Stores")
 AV8BNA:definePushButton("JETT_STATION_1", 29, 3407, 407, "ACP", "Select Station 1 Toggle")
 AV8BNA:definePushButton("JETT_STATION_2", 29, 3409, 409, "ACP", "Select Station 2 Toggle")
@@ -188,21 +188,21 @@ AV8BNA:definePushButton("LAUNCH_FLARE_SALVO", 30, 3286, 286, "Master Armament Pa
 AV8BNA:defineToggleSwitch("MASTER_ARM", 29, 3287, 287, "Master Armament Panel", "Master Arm Switch")
 --ECM Control Panel
 AV8BNA:definePotentiometer("RWR_VOL", 18, 3273, 273, { 0, 1 }, "ECM", "RWR Power/Volume Button")
-AV8BNA:defineMultipositionSwitch("DECOY_CONTROL", 30, 3274, 274, 5, 0.25, "ECM", "Decoy Dispenser Control OFF/AUT/UP/DWN/RWR")
-AV8BNA:defineMultipositionSwitch("JAMMER_CONTROL", 30, 3275, 275, 5, 0.25, "ECM", "Jammer Control OFF/STBY/BIT/RCV/RPT")
+AV8BNA:defineMultipositionSwitch("DECOY_CONTROL", 30, 3274, 274, 5, 0.25, "ECM", "Decoy Dispenser Control", { positions = { "OFF", "AUT", "UP", "DWN", "RWR" } })
+AV8BNA:defineMultipositionSwitch("JAMMER_CONTROL", 30, 3275, 275, 5, 0.25, "ECM", "Jammer Control", { positions = { "OFF", "STBY", "BIT", "RCV", "RPT" } })
 --Landing Gear/Flaps Control Panel
 AV8BNA:defineToggleSwitch("LG_EMERG_LEVER", 28, 3447, 447, "Gear/Flaps Control Panel", "Emergency Landing Gear Lever")
 AV8BNA:definePushButton("LG_DOWN_LOCK", 28, 3448, 448, "Gear/Flaps Control Panel", "Gear Down Lock Override Button")
-AV8BNA:defineMultipositionSwitch("FLAP_MODE", 13, 3454, 454, 3, 0.5, "Gear/Flaps Control Panel", "Flaps Mode Switch CRUISE/AUTO/STOL")
-AV8BNA:defineMultipositionSwitch("FLAP_POWER", 13, 3457, 457, 3, 0.5, "Gear/Flaps Control Panel", "Flaps Power Switch RESET/ON/OFF")
+AV8BNA:defineMultipositionSwitch("FLAP_MODE", 13, 3454, 454, 3, 0.5, "Gear/Flaps Control Panel", "Flaps Mode Switch", { positions = { "CRUISE", "AUTO", "STOL" } })
+AV8BNA:defineMultipositionSwitch("FLAP_POWER", 13, 3457, 457, 3, 0.5, "Gear/Flaps Control Panel", "Flaps Power Switch", { positions = { "RESET", "ON", "OFF" } })
 AV8BNA:definePushButton("EMERG_JETT", 29, 3458, 458, "Gear/Flaps Control Panel", "Emergency Jettison Button")
-AV8BNA:defineMultipositionSwitch("ANTI_SKID", 28, 3459, 459, 3, 0.5, "Gear/Flaps Control Panel", "Anti-Skid Switch TEST/ON/NWS")
+AV8BNA:defineMultipositionSwitch("ANTI_SKID", 28, 3459, 459, 3, 0.5, "Gear/Flaps Control Panel", "Anti-Skid Switch", { positions = { "TEST", "ON", "NWS" } })
 AV8BNA:definePushButton("FLAPS_BIT", 13, 3460, 460, "Gear/Flaps Control Panel", "Flaps BIT Button")
 AV8BNA:defineToggleSwitch("LG_LEVER", 28, 3461, 461, "Gear/Flaps Control Panel", "Gear Lever")
 AV8BNA:defineToggleSwitch("LG_EMERGBATT_LEVER", 28, 3470, 470, "Gear/Flaps Control Panel", "Landing Gear Emergency Battery Lever")
 --Combat/Water Panel
 AV8BNA:definePushButton("CMBT", 9, 3450, 450, "H2O", "CMBT Thrust Button")
-AV8BNA:defineMultipositionSwitch("H2O_MODE", 9, 3449, 449, 3, 0.5, "H2O", "H2O Mode Switch  LDG/OFF/TO")
+AV8BNA:defineMultipositionSwitch("H2O_MODE", 9, 3449, 449, 3, 0.5, "H2O", "H2O Mode Switch ", { positions = { "LDG", "OFF", "TO" } })
 --Bulkhead Switches
 AV8BNA:defineToggleSwitch("MFS_EMERG_LEVER", 28, 3501, 501, "Bulkhead", "MFS Emergency Lever")
 AV8BNA:definePushButton("STOPWATCH_START", 12, 3051, 1121, "Bulkhead", "Stopwatch Start/Stop")
@@ -220,21 +220,21 @@ AV8BNA:definePushButton("BAK_ADI_CAGE_PULL", 19, 3350, 350, "Flight Instruments"
 AV8BNA:defineToggleSwitch("RECORD_SYS_MODE", 14, 3422, 422, "Misc", "Video Recorder System Mode Switch")
 AV8BNA:defineToggleSwitch("RECORD_SYS_DISPLAY", 14, 3423, 423, "Misc", "Video Recorder System Display Selector Switch")
 AV8BNA:defineToggleSwitch("DMT", 16, 3424, 424, "Misc", "DMT Toggle On/Off")
-AV8BNA:defineMultipositionSwitch("DUAL_CPU_MODE", 12, 3425, 425, 3, 0.5, "Misc", "Display Computer Mode Selector Switch PRIM/AUTO/ALTER")
+AV8BNA:defineMultipositionSwitch("DUAL_CPU_MODE", 12, 3425, 425, 3, 0.5, "Misc", "Display Computer Mode Selector Switch", { positions = { "PRIM", "AUTO", "ALTER" } })
 AV8BNA:defineToggleSwitch("PROBE_HEAT_MODE", 19, 3426, 426, "Misc", "Probe Heat Mode Switch")
-AV8BNA:defineMultipositionSwitch("MISS_PC_MODE", 12, 3427, 427, 3, 0.5, "Misc", "Mission Computer Mode Switch OVRD/AUTO/OFF")
+AV8BNA:defineMultipositionSwitch("MISS_PC_MODE", 12, 3427, 427, 3, 0.5, "Misc", "Mission Computer Mode Switch", { positions = { "OVRD", "AUTO", "OFF" } })
 AV8BNA:defineToggleSwitch("FLIR", 14, 3429, 429, "Misc", "FLIR Power Switch")
 --INS Panel
-AV8BNA:defineMultipositionSwitch("INS_MODE", 11, 3421, 421, 8, 0.1, "INS", "INS Mode Knob OFF/SEA/GND/NAV/IFA/GYRO/GB/TEST")
+AV8BNA:defineMultipositionSwitch("INS_MODE", 11, 3421, 421, 8, 0.1, "INS", "INS Mode Knob", { positions = { "OFF", "SEA", "GND", "NAV", "IFA", "GYRO", "GB", "TEST" } })
 
 ----LEFT CONSOLE:
 --Trim Panel
-AV8BNA:defineMultipositionSwitch("YAW_TRIM_SW", 28, 3471, 471, 3, 0.5, "Trim", "RPS/YAW Trim Switch TEST/ON/OFF")
-AV8BNA:defineMultipositionSwitch("TRIM_MODE", 28, 3472, 472, 3, 0.5, "Trim", "Trim Mode Switch APRCH/HVR/OFF")
+AV8BNA:defineMultipositionSwitch("YAW_TRIM_SW", 28, 3471, 471, 3, 0.5, "Trim", "RPS/YAW Trim Switch", { positions = { "TEST", "ON", "OFF" } })
+AV8BNA:defineMultipositionSwitch("TRIM_MODE", 28, 3472, 472, 3, 0.5, "Trim", "Trim Mode Switch", { positions = { "APRCH", "HVR", "OFF" } })
 --SAAHS Panel
 AV8BNA:defineToggleSwitch("ALT_HOLD_SW", 28, 3476, 476, "SAAHS", "Alt Hold Switch")
 AV8BNA:defineToggleSwitch("Q_FEEL_SW", 28, 3475, 475, "SAAHS", "Q Feel Switch")
-AV8BNA:defineMultipositionSwitch("AFC_SW", 28, 3477, 477, 3, 0.5, "SAAHS", "AFC Switch ON/OFF/RESET")
+AV8BNA:defineMultipositionSwitch("AFC_SW", 28, 3477, 477, 3, 0.5, "SAAHS", "AFC Switch", { positions = { "ON", "OFF", "RESET" } })
 AV8BNA:defineToggleSwitch("SAS_YAW", 28, 3478, 478, "SAAHS", "SAS Yaw Switch")
 AV8BNA:defineToggleSwitch("SAS_ROLL", 28, 3479, 479, "SAAHS", "SAS Roll Switch")
 AV8BNA:defineToggleSwitch("SAS_PITCH", 28, 3480, 480, "SAAHS", "SAS Pitch Switch")
@@ -251,16 +251,16 @@ AV8BNA:definePotentiometer("NOZZLE_LEVER", 13, 3487, 487, { 0, 1 }, "Throttle", 
 AV8BNA:defineTumb("STO_LEVER", 13, 3488, 488, 0.05, { 0.35, 1 }, nil, false, "Throttle", "STO Stop Lever")
 --Fuel Panel
 AV8BNA:defineToggleSwitch("FUEL_PROP", 9, 3504, 504, "Fuel Panel", "Fuel Proportioner")
-AV8BNA:defineMultipositionSwitch("FUEL_PUMP_L", 9, 3505, 505, 3, 0.5, "Fuel Panel", "Fuel Pump L Switch DC OPEN/OFF/NORM")
-AV8BNA:defineMultipositionSwitch("FUEL_PUMP_R", 9, 3506, 506, 3, 0.5, "Fuel Panel", "Fuel Pump R Switch DC OPEN/OFF/NORM")
-AV8BNA:defineMultipositionSwitch("PROBE", 9, 3507, 507, 3, 0.5, "Fuel Panel", "Air Refueling Probe Switch IN/OUT/PRESS")
+AV8BNA:defineMultipositionSwitch("FUEL_PUMP_L", 9, 3505, 505, 3, 0.5, "Fuel Panel", "Fuel Pump L Switch DC", { positions = { "OPEN", "OFF", "NORM" } })
+AV8BNA:defineMultipositionSwitch("FUEL_PUMP_R", 9, 3506, 506, 3, 0.5, "Fuel Panel", "Fuel Pump R Switch DC", { positions = { "OPEN", "OFF", "NORM" } })
+AV8BNA:defineMultipositionSwitch("PROBE", 9, 3507, 507, 3, 0.5, "Fuel Panel", "Air Refueling Probe Switch", { positions = { "IN", "OUT", "PRESS" } })
 AV8BNA:defineToggleSwitch("FUEL_DUMP_L", 9, 3508, 508, "Fuel Panel", "Fuel Dump L Switch")
 AV8BNA:defineToggleSwitch("FUEL_DUMP_R", 9, 3509, 509, "Fuel Panel", "Fuel Dump R Switch")
 --External Lights Panel
-AV8BNA:defineMultipositionSwitch("LANDING_TAXI_LIGHTS", 33, 3472, 472, 3, 0.5, "External Lights", "Landing/Taxi Lights Switch OFF/HVR/APRCH")
-AV8BNA:defineMultipositionSwitch("EXT_LIGHTS", 33, 3503, 503, 3, 0.5, "External Lights", "External Lights Mode Switch NORM/NVG/OFF")
+AV8BNA:defineMultipositionSwitch("LANDING_TAXI_LIGHTS", 33, 3472, 472, 3, 0.5, "External Lights", "Landing/Taxi Lights Switch", { positions = { "OFF", "HVR", "APRCH" } })
+AV8BNA:defineMultipositionSwitch("EXT_LIGHTS", 33, 3503, 503, 3, 0.5, "External Lights", "External Lights Mode Switch", { positions = { "NORM", "NVG", "OFF" } })
 AV8BNA:definePotentiometer("FORMATION_LIGHTS", 33, 3510, 510, { 0, 1 }, "External Lights", "Formation Lights Knob")
-AV8BNA:defineMultipositionSwitch("POS_LIGHTS", 33, 3511, 511, 3, 0.5, "External Lights", "Position Lights Switch OFF/DIM/BRT")
+AV8BNA:defineMultipositionSwitch("POS_LIGHTS", 33, 3511, 511, 3, 0.5, "External Lights", "Position Lights Switch", { positions = { "OFF", "DIM", "BRT" } })
 AV8BNA:defineToggleSwitch("ANTI_COLL_LIGHTS", 33, 3512, 512, "External Lights", "Anti-Collision Lights Switch")
 AV8BNA:defineToggleSwitch("EXT_AUX_LIGHTS", 33, 3513, 513, "External Lights", "External Auxiliary Lights Switch")
 --Pilot Service Panel
@@ -277,17 +277,17 @@ AV8BNA:defineToggleSwitch("DECS_SW", 9, 3520, 520, "Bulkhead Left", "DECS Switch
 ----RIGHT CONSOLE:
 --Electrical Panel
 AV8BNA:defineToggleSwitch("DC_TEST_SW", 1, 3609, 609, "Electric Panel", "DC Test Switch")
-AV8BNA:defineMultipositionSwitch("APU_GEN_SW", 1, 3610, 610, 3, 0.5, "Electric Panel", "APU Generator Switch OFF/ON/RESET")
+AV8BNA:defineMultipositionSwitch("APU_GEN_SW", 1, 3610, 610, 3, 0.5, "Electric Panel", "APU Generator Switch", { positions = { "OFF", "ON", "RESET" } })
 AV8BNA:defineToggleSwitch("ENG_START_SW", 1, 3611, 611, "Electric Panel", "Engine Start Switch")
-AV8BNA:defineMultipositionSwitch("GEN_SW", 1, 3612, 612, 3, 0.5, "Electric Panel", "Generator Switch  TEST/OFF/ON")
-AV8BNA:defineMultipositionSwitch("BATT_SW", 1, 3613, 613, 3, 0.5, "Electric Panel", "Battery Switch  ALERT/OFF/ON")
+AV8BNA:defineMultipositionSwitch("GEN_SW", 1, 3612, 612, 3, 0.5, "Electric Panel", "Generator Switch ", { positions = { "TEST", "OFF", "ON" } })
+AV8BNA:defineMultipositionSwitch("BATT_SW", 1, 3613, 613, 3, 0.5, "Electric Panel", "Battery Switch ", { positions = { "ALERT", "OFF", "ON" } })
 --V/UHF Radio Panel
 AV8BNA:definePotentiometer("UHF_VOL", 7, 3614, 614, { 0, 1 }, "UHF Radio", "V/UHF RSC Volume Knob")
 AV8BNA:defineRotary("UHF_FREQ", 7, 3615, 615, "UHF Radio", "V/UHF RSC Chan/Freq Knob")
-AV8BNA:defineMultipositionSwitch("UHF_MODE", 7, 3616, 616, 7, 0.2, "UHF Radio", "V/UHF RSC Operational Mode Switch ZRO/OFF/TEST/TR+G/TR/ADF/CHNG PRST")
+AV8BNA:defineMultipositionSwitch("UHF_MODE", 7, 3616, 616, 7, 0.2, "UHF Radio", "V/UHF RSC Operational Mode Switch", { positions = { "ZRO", "OFF", "TEST", "TR+G", "TR", "ADF", "CHNG PRST" } })
 AV8BNA:definePushButton("UHF_ANC_POINT", 7, 3617, 617, "UHF Radio", "V/UHF RSC Ancillary Mode Pointer")
 AV8BNA:definePushButton("UHF_ANC_SW", 7, 3618, 618, "UHF Radio", "V/UHF RSC Ancillary Mode Switch")
-AV8BNA:defineMultipositionSwitch("BOMBS_ARM_SW", 7, 3619, 619, 7, 0.15, "UHF Radio", "V/UHF RSC Frequency Mode Switch AJ-M/AJ/MAR/PRST/MAN/243/121")
+AV8BNA:defineMultipositionSwitch("BOMBS_ARM_SW", 7, 3619, 619, 7, 0.15, "UHF Radio", "V/UHF RSC Frequency Mode Switch", { positions = { "AJ-M", "AJ", "MAR", "PRST", "MAN", "243", "121" } })
 AV8BNA:definePushButton("UHF_LOAD_SW", 7, 3620, 620, "UHF Radio", "V/UHF RSC LOAD/OFST Switch")
 --ACNIP
 AV8BNA:defineToggleSwitch("ACNIP_MODE", 8, 3621, 621, "ACNIP", "ACNIP Mode Switch")
@@ -297,16 +297,16 @@ AV8BNA:defineToggleSwitch("KY1_MODE", 8, 3624, 624, "ACNIP", "KY-1 Code/Mode Swi
 AV8BNA:defineToggleSwitch("KY2_MODE", 8, 3625, 625, "ACNIP", "KY-2 Code/Mode Switch")
 AV8BNA:defineToggleSwitch("ACNIP_RADIO_SEL", 8, 3626, 626, "ACNIP", "ACNIP Radio Selector Switch")
 AV8BNA:defineToggleSwitch("KY58_CODE_CLEAR", 8, 3627, 627, "ACNIP", "KY-58 Codes Clear Switch")
-AV8BNA:define3PosTumb("KY58_CODE_LOAD", 8, 3628, 628, "ACNIP", "KY-58 Remote Codes Load Switch  RV1/OPR/RV2")
+AV8BNA:define3PosTumb("KY58_CODE_LOAD", 8, 3628, 628, "ACNIP", "KY-58 Remote Codes Load Switch ", { positions = { "RV1", "OPR", "RV2" } })
 --ICS
 AV8BNA:definePotentiometer("ICS_AUX_VOL", 4, 3630, 630, { 0, 1 }, "ICS", "ICS Aux Volume Knob")
 AV8BNA:definePotentiometer("ICS_GND_VOL", 4, 3629, 629, { 0, 1 }, "ICS", "ICS Ground Volume Knob")
-AV8BNA:defineMultipositionSwitch("ICS_MIC_MODE", 4, 3631, 631, 3, 0.5, "ICS", "ICS Mic Operational Mode Switch  COLD/HOT/TEL")
+AV8BNA:defineMultipositionSwitch("ICS_MIC_MODE", 4, 3631, 631, 3, 0.5, "ICS", "ICS Mic Operational Mode Switch ", { positions = { "COLD", "HOT", "TEL" } })
 --IFF
 AV8BNA:defineToggleSwitch("IFF_OPER_MODE", 8, 3632, 632, "IFF", "IFF Operational Mode Switch")
-AV8BNA:define3PosTumb("IFF_CRYPT_MODE", 8, 3633, 633, "IFF", "IFF Crypto Mode Switch  ZERO/NORM/HOLD")
+AV8BNA:define3PosTumb("IFF_CRYPT_MODE", 8, 3633, 633, "IFF", "IFF Crypto Mode Switch ", { positions = { "ZERO", "NORM", "HOLD" } })
 --Interior Lights Panel
-AV8BNA:define3PosTumb("COMP_LIGHT", 34, 3634, 634, "Int Light", "Compass Light/Test Lights  COPM/OFF/LTS TEST")
+AV8BNA:define3PosTumb("COMP_LIGHT", 34, 3634, 634, "Int Light", "Compass Light/Test Lights ", { positions = { "COPM", "OFF", "LTS TEST" } })
 AV8BNA:definePotentiometer("INST_LIGHTS", 34, 3635, 635, { 0, 1 }, "Int Light", "Instruments Lights")
 AV8BNA:definePotentiometer("CONSOLE_LIGHTS", 34, 3636, 636, { 0, 1 }, "Int Light", "Console Lights")
 AV8BNA:definePotentiometer("FLOOD_LIGHTS_DIAL", 34, 3637, 637, { 0, 1 }, "Int Light", "Flood Lights")
@@ -314,9 +314,9 @@ AV8BNA:definePotentiometer("ANNUNCIATOR_LIGHTS", 34, 3638, 638, { 0, 0.9 }, "Int
 --ECS Panel
 AV8BNA:definePotentiometer("TEMP_CONTROL", 36, 3639, 639, { 0, 1 }, "ECS", "Temperature Control Knob")
 AV8BNA:defineToggleSwitch("ECS_FWD", 36, 3640, 640, "ECS", "Fwd Equipment Bay ECS Switch")
-AV8BNA:defineMultipositionSwitch("CABIN_DEFOG", 36, 3641, 641, 3, 0.5, "ECS", "Cabin Defog Switch NORM/DFOG/MAX")
-AV8BNA:defineMultipositionSwitch("ECS_AFT", 36, 3642, 642, 3, 0.5, "ECS", "Aft Equipment Bay ECS Switch RESET/ON/OFF")
-AV8BNA:defineMultipositionSwitch("CABIN_PRESS_SWITCH", 36, 3643, 643, 3, 0.5, "ECS", "Cabin Pressure Switch NORM/DUMP/RAM")
+AV8BNA:defineMultipositionSwitch("CABIN_DEFOG", 36, 3641, 641, 3, 0.5, "ECS", "Cabin Defog Switch", { positions = { "NORM", "DFOG", "MAX" } })
+AV8BNA:defineMultipositionSwitch("ECS_AFT", 36, 3642, 642, 3, 0.5, "ECS", "Aft Equipment Bay ECS Switch", { positions = { "RESET", "ON", "OFF" } })
+AV8BNA:defineMultipositionSwitch("CABIN_PRESS_SWITCH", 36, 3643, 643, 3, 0.5, "ECS", "Cabin Pressure Switch", { positions = { "NORM", "DUMP", "RAM" } })
 
 ----FLOOD LAMPS:
 AV8BNA:definePotentiometer("FLOOD_R_CAN_T", 34, 3150, 150, { -1, 1 }, "Flood Lamps", "Flood Right Canopy Frame Top")

@@ -29,7 +29,7 @@ JF_17:define3PosTumb("MASTER_ARM_SW", 11, 3011, 509, "Left Console", "Weapon Mas
 JF_17:define3PosTumb("BRAKE_TEST", 32, 3012, 510, "Gear", "Brake Test")
 JF_17:defineTumb("BRAKE_PARK_NORM", 32, 3013, 511, 2, { -1, 1 }, nil, false, "Gear", "Brake Park/Norm")
 
-JF_17:define3PosTumb("LND_TAX_LIGHT_SW", 4, 3014, 512, "Gear", "Light Switch - Land/Off/Taxi")
+JF_17:define3PosTumb("LND_TAX_LIGHT_SW", 4, 3014, 512, "Gear", "Light Switch", { positions = { "Land", "Off", "Taxi" } })
 JF_17:defineTumb("FLAP_SW", 35, 3015, 513, 2, { -1, 1 }, nil, false, "Gear", "TEF Flap Switch - Up/Down")
 
 --FUEL
@@ -49,7 +49,7 @@ JF_17:define3PosTumb("ENG_MODE_SW", 34, 3024, 522, "Engine", "Engine Mode Switch
 JF_17:defineToggleSwitch("SEC_EEC_SW", 34, 3025, 523, "Engine", "SEC EEC Switch")
 JF_17:defineToggleSwitch("AFTERBURN_SW", 34, 3026, 524, "Engine", "Afterburner Switch")
 JF_17:defineToggleSwitch("ANTI_SURGE_SW", 34, 3027, 525, "Engine", "Anti-Surge Switch")
-JF_17:define3PosTumb("START_MODE_SEL", 34, 3028, 526, "Engine", "Start Mode Selector - START/ENG COLD/STARTER COLD")
+JF_17:define3PosTumb("START_MODE_SEL", 34, 3028, 526, "Engine", "Start Mode Selector", { positions = { "START", "ENG COLD", "STARTER COLD" } })
 
 --FCS
 JF_17:defineToggleSwitch("RECORD_SW", 35, 3029, 527, "FCS", "Record Switch")
@@ -320,9 +320,9 @@ JF_17:definePotentiometer("FLOOD_LIGHT_KNB", 4, 3448, 946, { 0, 1 }, "Lights", "
 JF_17:define3PosTumb("EXT_LIGHT_MASTER_SW", 4, 3449, 947, "Lights", "Exterior Light Master Switch")
 JF_17:defineMultipositionSwitch("FORMATION_LIGHT_SEL", 4, 3450, 948, 5, 0.25, "Lights", "Formation Light Knob Selector")
 JF_17:defineMultipositionSwitch("ANTICOLL_LIGHT_SEL", 4, 3451, 949, 5, 0.25, "Lights", "Anti-Collision Light Knob Selector")
-JF_17:define3PosTumb("NAV_LIGHT_BRIGHT_SW", 4, 3452, 950, "Lights", "Navigation Light Switch - Bright/Off/Dim")
+JF_17:define3PosTumb("NAV_LIGHT_BRIGHT_SW", 4, 3452, 950, "Lights", "Navigation Light Switch", { positions = { "Bright", "Off", "Dim" } })
 JF_17:defineTumb("NAV_LIGHT_FLASH_SW", 4, 3453, 951, 2, { -1, 1 }, nil, false, "Lights", "Navigation Light Switch - Flash/Steady")
-JF_17:define3PosTumb("ANTI_COL_LIGHT_SW", 4, 3454, 952, "Lights", "Light Switch - Tow/Off/Anti-Collision")
+JF_17:define3PosTumb("ANTI_COL_LIGHT_SW", 4, 3454, 952, "Lights", "Light Switch", { positions = { "Tow", "Off", "Anti-Collision" } })
 
 JF_17:defineTumb("AAR_L_SW", 4, 3465, 963, 2, { -1, 1 }, nil, false, "Lights", "AAR Light Switch")
 JF_17:definePotentiometer("AAR_L_BRT_KNB", 4, 3466, 964, { 0, 1 }, "Lights", "AAR Light Brightness Knob")

@@ -31,8 +31,9 @@ end
 --- @param positions integer the number of switch positions
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
-function F_4E:defineMultipositionSwitch0To1(identifier, device_id, command, arg_number, positions, category, description)
-	self:defineMultipositionSwitch(identifier, device_id, command, arg_number, positions, 1 / (positions - 1), category, description)
+--- @param attributes SwitchAttributes? additional control attributes
+function F_4E:defineMultipositionSwitch0To1(identifier, device_id, command, arg_number, positions, category, description, attributes)
+	self:defineMultipositionSwitch(identifier, device_id, command, arg_number, positions, 1 / (positions - 1), category, description, attributes)
 end
 
 --- Adds a 3-position toggle switch with dcs data values between 0 and 1
@@ -42,8 +43,9 @@ end
 --- @param arg_number integer the dcs argument number
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
-function F_4E:define3PosTumb0To1(identifier, device_id, command, arg_number, category, description)
-	self:defineMultipositionSwitch0To1(identifier, device_id, command, arg_number, 3, category, description)
+--- @param attributes SwitchAttributes? additional control attributes
+function F_4E:define3PosTumb0To1(identifier, device_id, command, arg_number, category, description, attributes)
+	self:defineMultipositionSwitch0To1(identifier, device_id, command, arg_number, 3, category, description, attributes)
 end
 
 --- Defines a 0-65535 output from a 0-1 input
@@ -926,7 +928,7 @@ F_4E:defineString("PLT_WPN_GUN_ROUNDS_COUNT", function(dev0)
 end, 3, PILOT_WEAPONS, "Gun Rounds")
 
 F_4E:reserveIntValue(1) -- gun pod clear mode switch, not implemented
-F_4E:defineSpringloaded_3PosTumbWithRange("PLT_WPN_MISSILE_REJECT", WEAPONS_DEVICE_ID, 3134, 3134, 2596, { 1, 0 }, PILOT_WEAPONS, "Missile Reject/Norm/Direction Finding Reject")
+F_4E:defineSpringloaded_3PosTumbWithRange("PLT_WPN_MISSILE_REJECT", WEAPONS_DEVICE_ID, 3134, 3134, 2596, { 1, 0 }, PILOT_WEAPONS, "Missile Reject", { positions = { "Reject", "Norm", "Direction Finding Reject" } })
 F_4E:reserveIntValue(1) -- change shrike band, not implemented
 
 -- station select/arm lights (green depressed + yellow arm)
@@ -1299,7 +1301,7 @@ local WSO_RADAR = "WSO Radar"
 
 F_4E:defineSpringloaded3PosTumb("WSO_RADAR_ANTENNA_ELEVATION", RADAR_DEVICE_ID, 3011, 1014, WSO_RADAR, "Change Radar Antenna Elevation")
 F_4E:definePushButton("WSO_RADAR_CHALLENGE", RADAR_DEVICE_ID, 3014, 2508, WSO_RADAR, "Challenge Button")
-F_4E:reserveIntValue(1) -- reserved in case Trigger becomes clickable
+F_4E:reserveIntValue(1)
 
 -- WSO Radar Antenna Panel
 F_4E:defineTumb("WSO_RADAR_METER_MODE", RADAR_DEVICE_ID, 3015, 1001, 1.673 / 15, { -0.673, 1 }, nil, false, WSO_RADAR, "Select Meter Mode (Volt/Signal)")
@@ -1797,7 +1799,7 @@ local EXTERIOR_LIGHTS_DEVICE_ID = 69
 local PILOT_EXTERIOR_LIGHTS_PANEL = "PLT Exterior Lights Panel"
 
 F_4E:define3PosTumb0To1("PLT_EXT_LIGHT_ANTI_COLL", EXTERIOR_LIGHTS_DEVICE_ID, 3004, 1355, PILOT_EXTERIOR_LIGHTS_PANEL, "Set Fuselage & Anti-Collision Light Brightness")
-F_4E:define3PosTumb0To1("PLT_EXT_LIGHT_FLASH_MODE", EXTERIOR_LIGHTS_DEVICE_ID, 3005, 1356, PILOT_EXTERIOR_LIGHTS_PANEL, "Set Flasher Mode (only Tail/Anti-Col/Fus)")
+F_4E:define3PosTumb0To1("PLT_EXT_LIGHT_FLASH_MODE", EXTERIOR_LIGHTS_DEVICE_ID, 3005, 1356, PILOT_EXTERIOR_LIGHTS_PANEL, "Set Flasher Mode", { positions = { "only Tail", "Anti-Col", "Fus" } })
 F_4E:define3PosTumb0To1("PLT_EXT_LIGHT_TAIL_BRIGHTNESS", EXTERIOR_LIGHTS_DEVICE_ID, 3006, 1357, PILOT_EXTERIOR_LIGHTS_PANEL, "Set Tail-Position Light Brightness")
 F_4E:define3PosTumb0To1("PLT_EXT_LIGHT_WING_BRIGHTNESS", EXTERIOR_LIGHTS_DEVICE_ID, 3007, 1358, PILOT_EXTERIOR_LIGHTS_PANEL, "Set Wing-Position & Join-Up Light Brightness")
 
@@ -2322,5 +2324,39 @@ local WSO_MAVERICK_CONTRAST_SWITCH = "WSO Maverick Contrast Switch"
 
 F_4E:define3PosTumb("WSO_MAVERICK_CONTRAST_SWITCH", devices.TODO, 3007, 993, WSO_MAVERICK_CONTRAST_SWITCH, "Maverick Contrast-Lock Polarity")
 F_4E:definePushButton("WSO_COOLING_RESET_BUTTON", devices.TODO, 3008, 994, WSO_CNI, "Reset Cooling Button")
+
+-- RAW export Landing Gear indicators
+F_4E:defineFloat("WSO_GEAR_INDICATOR_LEFT_RAW", 984, { 0, 1 }, WSO_LANDING_GEAR, "Landing Gear Up/Down Indicator (Left) RAW")
+F_4E:defineFloat("WSO_GEAR_INDICATOR_NOSE_RAW", 986, { 0, 1 }, WSO_LANDING_GEAR, "Landing Gear Up/Down Indicator (Nose) RAW")
+F_4E:defineFloat("WSO_GEAR_INDICATOR_RIGHT_RAW", 988, { 0, 1 }, WSO_LANDING_GEAR, "Landing Gear Up/Down Indicator (Right) RAW")
+
+F_4E:defineFloat("PLT_GEAR_INDICATOR_LEFT_RAW", 52, { 0, 1 }, PILOT_LANDING_GEAR, "Landing Gear Up/Down Indicator (Left) RAW")
+F_4E:defineFloat("PLT_GEAR_INDICATOR_NOSE_RAW", 51, { 0, 1 }, PILOT_LANDING_GEAR, "Landing Gear Up/Down Indicator (Nose) RAW")
+F_4E:defineFloat("PLT_GEAR_INDICATOR_RIGHT_RAW", 50, { 0, 1 }, PILOT_LANDING_GEAR, "Landing Gear Up/Down Indicator (Right) RAW")
+
+-- RAW export Control Surfaces Indicators
+F_4E:defineFloat("WSO_CONTROLS_FLAPS_INDICATOR_RAW", 228, { 0, 1 }, WSO_CONTROL_SURFACES, "Flaps Indicator RAW")
+F_4E:defineFloat("WSO_CONTROLS_SLATS_INDICATOR_RAW", 227, { 0, 1 }, WSO_CONTROL_SURFACES, "Slats Indicator RAW")
+
+F_4E:defineFloat("PLT_CONTROLS_FLAPS_INDICATOR_RAW", 226, { 0, 1 }, PILOT_CONTROL_SURFACES, "Flaps Indicator RAW")
+F_4E:defineFloat("PLT_CONTROLS_SLATS_INDICATOR_RAW", 225, { 0, 1 }, PILOT_CONTROL_SURFACES, "Slats Indicator RAW")
+
+-- Pilot Left Wall
+local EFB_DEVICE_ID = 98
+
+local PILOT_LEFT_WALL = "PLT Left Wall"
+
+F_4E:defineToggleSwitch("PLT_EFB_TOGGLE", EFB_DEVICE_ID, 3001, 5011, PILOT_LEFT_WALL, "Hide/Show Electronic Flight Bag (EFB)")
+
+F_4E:defineFloat("WSO_RADAR_METER_MONITOR", 1002, { 0, 1 }, WSO_RADAR, "Radar Meter Monitor Gauge")
+
+local WSO_LEFT_WALL = "WSO Left Wall"
+
+F_4E:defineFloat("WSO_LIQUID_OXYGEN_GAUGE", 239, { 0, 1 }, WSO_LEFT_WALL, "Liquid Oxygen Quantity Gauge")
+F_4E:defineFloat("WSO_ALTITUDE_GAUGE", 240, { 0, 1 }, WSO_LEFT_WALL, "Cockpit Altitude Gauge")
+
+-- WSO Radar Antenna Trigger
+
+F_4E:define3PosTumb0To1("WSO_RADAR_ANTENNA_TRIGGER", RADAR_DEVICE_ID, 3010, 1013, WSO_RADAR, "Antenna Trigger")
 
 return F_4E

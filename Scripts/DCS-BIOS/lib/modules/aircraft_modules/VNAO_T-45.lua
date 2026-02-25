@@ -111,7 +111,7 @@ local function getRadio2_Decimal_DIAL4_Frequency()
 end
 
 -------- FRONT/SHARED Pit
-VNAO_T_45:defineTumb("FLAPS_LVR", 19, 3013, 7, 0.5, { 0, 1 }, nil, false, "General", "Flaps Lever, UP/ 1/2 /DOWN")
+VNAO_T_45:defineTumb("FLAPS_LVR", 19, 3013, 7, 0.5, { 0, 1 }, nil, false, "General", "Flaps Lever", { positions = { "UP", "1/2", "DOWN" } })
 VNAO_T_45:defineToggleSwitch("EMERG_FLAP_SW", 19, 3027, 184, "General", "EMER FLAPS Switch, NORM/DOWN")
 VNAO_T_45:defineToggleSwitch("PARK_BRAKE", 19, 3038, 117, "General", "Parking Brake Handle, OUT/IN")
 VNAO_T_45:definePushButton("HYD2_RESET_BTN", 19, 3025, 66, "General", "HYD 2 Reset Button")
@@ -127,11 +127,11 @@ VNAO_T_45:definePushButton("EJECT_HANDLE", 19, 3063, 264, "General", "Ejection H
 --Electric system
 VNAO_T_45:defineToggleSwitch("BATTERY1_SW", 19, 3020, 300, "Electric System", "Battery 1 Switch, ON/OFF")
 VNAO_T_45:defineToggleSwitch("BATTERY2_SW", 19, 3021, 301, "Electric System", "Battery 2 Switch, ON/OFF")
-VNAO_T_45:define3PosTumb("GEN_SW", 19, 3022, 303, "Electric System", "Generator Switch, ON/OFF/RESET")
+VNAO_T_45:define3PosTumb("GEN_SW", 19, 3022, 303, "Electric System", "Generator Switch", { positions = { "ON", "OFF", "RESET" } })
 
 --Engine
 VNAO_T_45:defineToggleSwitch("FINGER_LIFT", 19, 3024, 0, "Engine", "Finger Lift")
-VNAO_T_45:define3PosTumb("ENG_SW", 19, 3019, 11, "Engine", "Engine Switch, OFF/ON/START")
+VNAO_T_45:define3PosTumb("ENG_SW", 19, 3019, 11, "Engine", "Engine Switch", { positions = { "OFF", "ON", "START" } })
 VNAO_T_45:definePushButton("GAS_TURB_START_BTN", 19, 3023, 35, "Engine", "Gas Turbine Starter Button")
 
 --Gear System
@@ -152,10 +152,10 @@ VNAO_T_45:definePushButton("EMERG_JETT_BTN", 5, 3501, 182, "Weapon System", "Eme
 VNAO_T_45:defineToggleSwitch("MASTER_ARM", 5, 3502, 114, "Weapon System", "Master Arm, ARM/SAFE")
 
 --External Lighting
-VNAO_T_45:define3PosTumb("ANTI_COL_STROBE_L_SW", 19, 3028, 402, "External Lighting", "Anti-Collision/Strobe Lights, BOTH/OFF/A-COLL")
-VNAO_T_45:define3PosTumb("TAIL_L_SW", 19, 3029, 404, "External Lighting", "Tail Lights, BRIGHT/OFF/DIM")
-VNAO_T_45:define3PosTumb("WING_L_SW", 19, 3030, 405, "External Lighting", "Wing Lights, BRIGHT/OFF/DIM")
-VNAO_T_45:define3PosTumb("FORMATION_L_SW", 19, 3031, 406, "External Lighting", "Formation Lights, BRIGHT/OFF/DIM")
+VNAO_T_45:define3PosTumb("ANTI_COL_STROBE_L_SW", 19, 3028, 402, "External Lighting", "Anti-Collision/Strobe Lights", { positions = { "BOTH", "OFF", "A-COLL" } })
+VNAO_T_45:define3PosTumb("TAIL_L_SW", 19, 3029, 404, "External Lighting", "Tail Lights", { positions = { "BRIGHT", "OFF", "DIM" } })
+VNAO_T_45:define3PosTumb("WING_L_SW", 19, 3030, 405, "External Lighting", "Wing Lights", { positions = { "BRIGHT", "OFF", "DIM" } })
+VNAO_T_45:define3PosTumb("FORMATION_L_SW", 19, 3031, 406, "External Lighting", "Formation Lights", { positions = { "BRIGHT", "OFF", "DIM" } })
 VNAO_T_45:defineToggleSwitch("LAND_TAXI_L_SW", 19, 3032, 401, "External Lighting", "Landing/Taxi Light, ON/OFF")
 VNAO_T_45:defineToggleSwitch("NAV_L_SW", 19, 3033, 403, "External Lighting", "Nav Lights, FLASH/STEADY")
 VNAO_T_45:defineToggleSwitch("EXT_L_MASTER_SW", 19, 3037, 400, "External Lighting", "Exterior Lights Master Switch")
@@ -268,7 +268,7 @@ VNAO_T_45:define3PosTumb("COMM_1_FREQ_010", 3, 3516, 252, "V/UHF 1", "COMM 1 Fre
 VNAO_T_45:define3PosTumb("COMM_1_FREQ_100", 3, 3517, 253, "V/UHF 1", "COMM 1 Frequency Hundredths")
 VNAO_T_45:defineToggleSwitch("COMM_1_AMFM", 3, 3518, 254, "V/UHF 1", "COMM 1 AM/FM Mode Switch, AM/FM")
 VNAO_T_45:definePotentiometer("COMM_1_VOL", 3, 3519, 246, { 0, 1 }, "V/UHF 1", "COMM 1 Volume")
-VNAO_T_45:define3PosTumb("COMM_1_MODE", 3, 3520, 256, "V/UHF 1", "COMM 1 Mode Control Selector, OFF/T+R/T+R&G")
+VNAO_T_45:define3PosTumb("COMM_1_MODE", 3, 3520, 256, "V/UHF 1", "COMM 1 Mode Control Selector", { positions = { "OFF", "T+R", "T+R&G" } })
 VNAO_T_45:definePotentiometer("COMM_1_BRIGHT", 3, 3521, 255, { 0, 1 }, "V/UHF 1", "COMM 1 Brightness")
 
 VNAO_T_45:defineString("RADIO1_FREQ", getRadio1Freq, 6, "V/UHF 1", "Radio1 Frequency")
@@ -287,7 +287,7 @@ VNAO_T_45:define3PosTumb("COMM_2_FREQ_010", 4, 3524, 276, "V/UHF 2", "COMM 2 Fre
 VNAO_T_45:define3PosTumb("COMM_2_FREQ_100", 4, 3525, 277, "V/UHF 2", "COMM 2 Frequency Hundredths")
 VNAO_T_45:defineToggleSwitch("COMM_2_AMFM", 4, 3526, 278, "V/UHF 2", "COMM 2 AM/FM Mode Switch, AM/FM")
 VNAO_T_45:definePotentiometer("COMM_2_VOL", 4, 3527, 270, { 0, 1 }, "V/UHF 2", "COMM 2 Volume")
-VNAO_T_45:define3PosTumb("COMM_2_MODE", 4, 3528, 280, "V/UHF 2", "COMM 2 Mode Control Selector, OFF/T+R/T+R&G")
+VNAO_T_45:define3PosTumb("COMM_2_MODE", 4, 3528, 280, "V/UHF 2", "COMM 2 Mode Control Selector", { positions = { "OFF", "T+R", "T+R&G" } })
 VNAO_T_45:definePotentiometer("COMM_2_BRIGHT", 4, 3529, 279, { 0, 1 }, "V/UHF 2", "COMM 2 Brightness")
 
 VNAO_T_45:defineString("RADIO2_FREQ", getRadio2Freq, 6, "V/UHF 2", "Radio2 Frequency")
@@ -311,13 +311,13 @@ VNAO_T_45:defineMultipositionSwitch("TACAN_CHAN_10", 16, 3508, 242, 20, 0.05, "T
 
 --------REAR Pit
 --Misc Systems REAR
-VNAO_T_45:define3PosTumb("REAR_ENG_SW", 19, 3049, 11, "Rear Misc", "REAR Engine Switch, OFF/ON/START")
-VNAO_T_45:defineTumb("REAR_FLAPS_LVR", 19, 3044, 7, 0.5, { 0, 1 }, nil, false, "Rear Misc", "REAR Flaps Lever, UP/ 1/2 /DOWN")
+VNAO_T_45:define3PosTumb("REAR_ENG_SW", 19, 3049, 11, "Rear Misc", "REAR Engine Switch", { positions = { "OFF", "ON", "START" } })
+VNAO_T_45:defineTumb("REAR_FLAPS_LVR", 19, 3044, 7, 0.5, { 0, 1 }, nil, false, "Rear Misc", "REAR Flaps Lever", { positions = { "UP", "1/2", "DOWN" } })
 
 --Electric system REAR
 VNAO_T_45:defineToggleSwitch("REAR_BATTERY1_SW", 19, 3050, 300, "Rear Electric System", "REAR Battery 1 Switch, ON/OFF")
 VNAO_T_45:defineToggleSwitch("REAR_BATTERY2_SW", 19, 3051, 301, "Rear Electric System", "REAR Battery 2 Switch, ON/OFF")
-VNAO_T_45:define3PosTumb("REAR_GEN_SW", 19, 3052, 303, "Rear Electric System", "REAR Generator Switch, ON/OFF/RESET")
+VNAO_T_45:define3PosTumb("REAR_GEN_SW", 19, 3052, 303, "Rear Electric System", "REAR Generator Switch", { positions = { "ON", "OFF", "RESET" } })
 
 --Internal Lighting REAR
 VNAO_T_45:definePotentiometer("REAR_FLOOD_L_KNB", 19, 3053, 455, { 0, 1 }, "Rear Internal Lighting", "REAR Flood Lights Knob")
