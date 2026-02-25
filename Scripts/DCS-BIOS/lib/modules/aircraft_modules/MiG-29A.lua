@@ -1,6 +1,7 @@
 module("MiG-29A", package.seeall)
 
 local Control = require("Scripts.DCS-BIOS.lib.modules.documentation.Control")
+local ControlAttributeDocumentation = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlAttributeDocumentation")
 local ControlType = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlType")
 local FixedStepInput = require("Scripts.DCS-BIOS.lib.modules.documentation.FixedStepInput")
 local ICommand = require("Scripts.DCS-BIOS.lib.modules.ICommand")
@@ -85,10 +86,11 @@ local devices = {
 --- @param max_value integer the maximum value of the output
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
-function MiG_29A:defineIntegerFromArg(identifier, arg_number, max_value, category, description)
+--- @param attributes BaseControlAttributes? additional control attributes
+function MiG_29A:defineIntegerFromArg(identifier, arg_number, max_value, category, description, attributes)
 	self:defineIntegerFromGetter(identifier, function(dev0)
 		return Module.round(dev0:get_argument_value(arg_number) * max_value)
-	end, max_value, category, description)
+	end, max_value, category, description, attributes)
 end
 
 --- Defines multiposition with a manual range
@@ -100,8 +102,9 @@ end
 --- @param limits number[] a length-2 array with the lower and upper bounds of the data as used in dcs
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
-function MiG_29A:defineMultipositionManualRange(identifier, device_id, command, arg_number, count, limits, category, description)
-	self:defineTumb(identifier, device_id, command, arg_number, 1 / (count - 1), limits, nil, false, category, description)
+--- @param attributes SwitchAttributes? additional control attributes
+function MiG_29A:defineMultipositionManualRange(identifier, device_id, command, arg_number, count, limits, category, description, attributes)
+	self:defineTumb(identifier, device_id, command, arg_number, 1 / (count - 1), limits, nil, false, category, description, attributes)
 end
 
 --- Adds an n-position toggle switch with dcs data values between 0 and 1
@@ -112,8 +115,9 @@ end
 --- @param positions integer the number of switch positions
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
-function MiG_29A:defineMultipositionSwitch0To1(identifier, device_id, command, arg_number, positions, category, description)
-	self:defineMultipositionSwitch(identifier, device_id, command, arg_number, positions, 1 / (positions - 1), category, description)
+--- @param attributes SwitchAttributes? additional control attributes
+function MiG_29A:defineMultipositionSwitch0To1(identifier, device_id, command, arg_number, positions, category, description, attributes)
+	self:defineMultipositionSwitch(identifier, device_id, command, arg_number, positions, 1 / (positions - 1), category, description, attributes)
 end
 
 --- Adds a 3-position toggle switch with dcs data values between 0 and 1
@@ -123,8 +127,9 @@ end
 --- @param arg_number integer the dcs argument number
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
-function MiG_29A:define3PosTumb0To1(identifier, device_id, command, arg_number, category, description)
-	self:defineMultipositionSwitch0To1(identifier, device_id, command, arg_number, 3, category, description)
+--- @param attributes SwitchAttributes? additional control attributes
+function MiG_29A:define3PosTumb0To1(identifier, device_id, command, arg_number, category, description, attributes)
+	self:defineMultipositionSwitch0To1(identifier, device_id, command, arg_number, 3, category, description, attributes)
 end
 
 local function cabinTempSwitchIntValue(arg_value)
@@ -139,7 +144,14 @@ local function cabinTempSwitchIntValue(arg_value)
 	end
 end
 
-function MiG_29A:defineCabinTempSwitch(identifier, device_id, arg_number, category, description)
+--- Adds a custom switch for the cabine temperature switch
+--- @param identifier string the unique identifier for the control
+--- @param device_id integer the dcs device id
+--- @param arg_number integer the dcs argument number
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @param attributes SwitchAttributes? additional control attributes
+function MiG_29A:defineCabinTempSwitch(identifier, device_id, arg_number, category, description, attributes)
 	local alloc = self:allocateInt(3)
 	self:addExportHook(function(dev0)
 		local val = cabinTempSwitchIntValue(dev0:get_argument_value(arg_number))
@@ -151,7 +163,7 @@ function MiG_29A:defineCabinTempSwitch(identifier, device_id, arg_number, catego
 		FixedStepInput:new("switch to previous or next state"),
 	}, {
 		IntegerOutput:new(alloc, Suffix.none, "switch position -- 0 = Middle, 1 = UP , 2 = LEFT, 3 = RIGHT"),
-	})
+	}, nil, ControlAttributeDocumentation.from_switch_attributes(attributes))
 	self:addControl(control)
 
 	self:addInputProcessor(identifier, function(toState)
@@ -200,7 +212,14 @@ local function gunTriggerIntValue(arg_value)
 	end
 end
 
-function MiG_29A:defineGunTrigger(identifier, device_id, arg_number, category, description)
+--- Adds a custom switch for the gun trigger
+--- @param identifier string the unique identifier for the control
+--- @param device_id integer the dcs device id
+--- @param arg_number integer the dcs argument number
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @param attributes SwitchAttributes? additional control attributes
+function MiG_29A:defineGunTrigger(identifier, device_id, arg_number, category, description, attributes)
 	local alloc = self:allocateInt(2)
 	self:addExportHook(function(dev0)
 		local val = gunTriggerIntValue(dev0:get_argument_value(arg_number))
@@ -212,7 +231,7 @@ function MiG_29A:defineGunTrigger(identifier, device_id, arg_number, category, d
 		FixedStepInput:new("switch to previous or next state"),
 	}, {
 		IntegerOutput:new(alloc, Suffix.none, "trigger position -- 0 = released, 1 = first detent , 2 = second detent"),
-	})
+	}, nil, ControlAttributeDocumentation.from_switch_attributes(attributes))
 	self:addControl(control)
 
 	self:addInputProcessor(identifier, function(toState)
@@ -259,8 +278,8 @@ end
 --- @param arg_number integer the dcs argument number
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
---- @return Control control the control which was added to the module
-function MiG_29A:defineBrakeLever(identifier, iCommand, arg_number, category, description)
+--- @param attributes SwitchAttributes? additional control attributes
+function MiG_29A:defineBrakeLever(identifier, iCommand, arg_number, category, description, attributes)
 	local max_value = 65535
 	local limits = { -1, 1 }
 
@@ -286,7 +305,7 @@ function MiG_29A:defineBrakeLever(identifier, iCommand, arg_number, category, de
 		SetStateInput:new(max_value, "set the position of the dial"),
 	}, {
 		IntegerOutput:new(value, Suffix.none, "position of the potentiometer"),
-	})
+	}, nil, ControlAttributeDocumentation.from_switch_attributes(attributes))
 	self:addControl(control)
 
 	return control
@@ -309,7 +328,8 @@ end)
 --- @param imperial_limits number[] a length-2 array with the lower and upper bounds of the data for the imperial control as used in dcs
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
-function MiG_29A:defineMultiUnitFloatManualRange(identifier, arg_number_metric, arg_number_imperial, metric_limits, imperial_limits, category, description)
+--- @param attributes BaseControlAttributes? additional control attributes
+function MiG_29A:defineMultiUnitFloatManualRange(identifier, arg_number_metric, arg_number_imperial, metric_limits, imperial_limits, category, description, attributes)
 	assert(#metric_limits == 2, string.format("%s may only contain a min and max value", identifier))
 	assert(#imperial_limits == 2, string.format("%s may only contain a min and max value", identifier))
 	local max_value = 65535
@@ -328,7 +348,7 @@ function MiG_29A:defineMultiUnitFloatManualRange(identifier, arg_number_metric, 
 
 	local control = Control:new(category, ControlType.metadata, identifier, description, {}, {
 		IntegerOutput:new(alloc, Suffix.none, description),
-	})
+	}, nil, ControlAttributeDocumentation.from_base_attributes(attributes))
 	self:addControl(control)
 
 	return control
@@ -341,8 +361,9 @@ end
 --- @param limits number[] a length-2 array with the lower and upper bounds of the data for the control as used in dcs
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
-function MiG_29A:defineMultiUnitFloat(identifier, arg_number_metric, arg_number_imperial, limits, category, description)
-	self:defineMultiUnitFloatManualRange(identifier, arg_number_metric, arg_number_imperial, limits, limits, category, description)
+--- @param attributes BaseControlAttributes? additional control attributes
+function MiG_29A:defineMultiUnitFloat(identifier, arg_number_metric, arg_number_imperial, limits, category, description, attributes)
+	self:defineMultiUnitFloatManualRange(identifier, arg_number_metric, arg_number_imperial, limits, limits, category, description, attributes)
 end
 
 local function flagIntValue(arg_value)
@@ -357,7 +378,13 @@ local function flagIntValue(arg_value)
 	end
 end
 
-function MiG_29A:defineFlag(identifier, arg_number, category, description)
+--- Defines an intenger output from a float for a flag indicator
+--- @param identifier string the unique identifier for the control
+--- @param arg_number integer the dcs argument number
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @param attributes BaseControlAttributes? additional control attributes
+function MiG_29A:defineFlag(identifier, arg_number, category, description, attributes)
 	local alloc = self:allocateInt(3, identifier)
 	self:addExportHook(function(dev0)
 		local val = flagIntValue(dev0:get_argument_value(arg_number))
@@ -366,7 +393,7 @@ function MiG_29A:defineFlag(identifier, arg_number, category, description)
 
 	local control = Control:new(category, ControlType.selector, identifier, description, {}, {
 		IntegerOutput:new(alloc, Suffix.none, "flag position"),
-	})
+	}, nil, ControlAttributeDocumentation.from_base_attributes(attributes))
 	self:addControl(control)
 
 	return control
@@ -405,8 +432,8 @@ end
 -- Stick
 local STICK = "Stick Controls"
 
-MiG_29A:defineRockerSwitch("STICK_TRIM_HORIZ", devices.HOTAS, 3007, 3006, 3006, 3007, 52, STICK, "Trim Hat Switch Horizontal (LEFT/MIDDLE/RIGHT)")
-MiG_29A:defineRockerSwitch("STICK_TRIM_VERT", devices.HOTAS, 3004, 3005, 3005, 3004, 51, STICK, "Trim Hat Switch Vertical (UP/MIDDLE/DOWN)")
+MiG_29A:defineRockerSwitch("STICK_TRIM_HORIZ", devices.HOTAS, 3007, 3006, 3006, 3007, 52, STICK, "Trim Hat Switch Horizontal", { positions = { "LEFT", "MIDDLE", "RIGHT" } })
+MiG_29A:defineRockerSwitch("STICK_TRIM_VERT", devices.HOTAS, 3004, 3005, 3005, 3004, 51, STICK, "Trim Hat Switch Vertical", { positions = { "UP", "MIDDLE", "DOWN" } })
 MiG_29A:definePushButton("STICK_LEVELING_BUTTON", devices.HOTAS, 3008, 55, STICK, "Leveling Button")
 MiG_29A:defineGatedIndicatorLight("STICK_LEVELING_LIGHT", 49, 0.5, nil, STICK, "Leveling Light")
 MiG_29A:definePushButton("STICK_ACFS_OFF_BUTTON", devices.HOTAS, 3009, 48, STICK, "ACFS Modes Off Button")
@@ -415,7 +442,7 @@ MiG_29A:definePotentiometer("STICK_TARGET_ACQUISITION_HORIZ", devices.HOTAS, 301
 MiG_29A:definePotentiometer("STICK_TARGET_ACQUISITION_VERT", devices.HOTAS, 3011, 470, { -1, 1 }, STICK, "Target Acquisition Vertical Axis")
 MiG_29A:definePushButton("STICK_BREAK_LOCK_BUTTON", devices.HOTAS, 3017, 54, STICK, "Break-lock Button")
 MiG_29A:definePushButton("STICK_AP_CUTOFF_BUTTON", devices.HOTAS, 3018, 70, STICK, "Autopilot Cut-Off Button")
-MiG_29A:defineGunTrigger("STICK_GUN_TRIGGER", devices.HOTAS, 442, STICK, "Gun Trigger")
+MiG_29A:defineGunTrigger("STICK_GUN_TRIGGER", devices.HOTAS, 442, STICK, "Gun Trigger", { positions = { "RELEASED", "FIRST DETENT", "SECOND DETENT" } })
 MiG_29A:defineToggleSwitch("STICK_WEAPON_TRIGGER", devices.HOTAS, 3003, 441, STICK, "Weapon Trigger")
 MiG_29A:defineToggleSwitch("STICK_EMERGENCY_JETTISON_COVER", devices.HOTAS, 3022, 100, STICK, "Emergency Jettison Button Cover")
 MiG_29A:definePushButton("STICK_EMERGENCY_JETTISON_BUTTON", devices.HOTAS, 3021, 101, STICK, "Emergency Jettison Button")
@@ -511,7 +538,7 @@ MiG_29A:defineMultiUnitFloat("HSI_RANGE_ONES", 113, 828, { 0, 1 }, PNP_72_12, "R
 MiG_29A:definePushButton("HSI_TEST_BUTTON", devices.HSI, 3002, 269, PNP_72_12, "Test Button")
 MiG_29A:definePotentiometer("HSI_COURSE_SELECTION_KNOB", devices.HSI, 3001, 270, { 0, 1 }, PNP_72_12, "Course Selection Knob")
 MiG_29A:definePushButton("HSI_COURSE_MAG_BUTTON", devices.NAV, 3021, 274, PNP_72_12, "Magnetic Course Adjustment Button")
-MiG_29A:defineToggleSwitch("HSI_COURSE_MODE_SWITCH", devices.NAV, 3022, 273, PNP_72_12, "Course Mode Switch (MANUAL/AUTO)")
+MiG_29A:defineToggleSwitch("HSI_COURSE_MODE_SWITCH", devices.NAV, 3022, 273, PNP_72_12, "Course Mode Switch", { positions = { "MANUAL", "AUTO" } })
 MiG_29A:defineString("HSI_COURSE_HEADING_FULL", function(dev0)
 	return hsi_course_string(dev0, 400, 401)
 end, 3, PNP_72_12, "Course Indicator")
@@ -568,13 +595,13 @@ MiG_29A:defineToggleSwitchManualRange("ACHS_1M_RIGHT_ROTARY_ROTATE", devices.CLO
 -- ADF mode toggle switch
 local ADF_SWITCH = "ADF Mode Switch"
 
-MiG_29A:defineToggleSwitch("ADF_MODE_SWITCH", devices.ARK, 3005, 139, ADF_SWITCH, "Mode Switch (INNER/OUTER)")
+MiG_29A:defineToggleSwitch("ADF_MODE_SWITCH", devices.ARK, 3005, 139, ADF_SWITCH, "Mode Switch", { positions = { "INNER", "OUTER" } })
 MiG_29A:defineFloat("ADF_MODE_BEACON_INNER_LIGHT", 364, { 0, 1 }, ADF_SWITCH, "Beacon Inner Light (green)")
 
 -- Nose wheel brake
 local NOSE_WHEEL_BRAKE = "Nose Wheel Brake (Instrument Panel)"
 
-MiG_29A:defineToggleSwitch("NOSE_WHEEL_BRAKE_HANDLE", devices.INPUT_PANEL, 3035, 23, NOSE_WHEEL_BRAKE, "Nose Wheel Brake Handle (ON/OFF)")
+MiG_29A:defineToggleSwitch("NOSE_WHEEL_BRAKE_HANDLE", devices.INPUT_PANEL, 3035, 23, NOSE_WHEEL_BRAKE, "Nose Wheel Brake Handle", { positions = { "ON", "OFF" } })
 
 -- Radar altimeter
 local RADAR_ALTIMETER = "Radar Altimeter"
@@ -590,7 +617,7 @@ MiG_29A:definePushButton("RADAR_ALTIMETER_TEST_BUTTON", devices.RADALT, 3001, 13
 local COUNTERMEASURES = "Countermeasures Dispenser Panel"
 
 MiG_29A:definePushButton("COUNTERMEASURES_EMERGENCY_JETTISON_BUTTON", devices.WP, 3001, 143, COUNTERMEASURES, "Countermeasures Emergency Jettison Button")
-MiG_29A:define3PosTumb("COUNTERMEASURES_PROGRAM_SWITCH", devices.WP, 3002, 140, COUNTERMEASURES, "Countermeasures Program Switch (RHS/FHS/GROUND)")
+MiG_29A:define3PosTumb("COUNTERMEASURES_PROGRAM_SWITCH", devices.WP, 3002, 140, COUNTERMEASURES, "Countermeasures Program Switch", { positions = { "RHS", "FHS", "GROUND" } })
 MiG_29A:defineFloat("COUNTERMEASURES_COUNTER_FLOAT", 38, { 0, 1 }, COUNTERMEASURES, "Countermeasures Counter Float")
 MiG_29A:defineString("COUNTERMEASURES_COUNTER_STRING", function(dev0)
 	return getCountermeasuresCounterString(dev0:get_argument_value(38))
@@ -611,10 +638,10 @@ MiG_29A:defineFloat("ISTR4_ESTIMATED_DISTANCE_TENS", 227, { 0, 1 }, ISTR4, "Esti
 MiG_29A:defineString("ISTR4_ESTIMATED_DISTANCE_FULL", function(dev0)
 	return string.format("%d%d%d", indicator_argument_display(dev0, 225, 10), indicator_argument_display(dev0, 226, 10), indicator_argument_display(dev0, 227, 10))
 end, 3, ISTR4, "Estimated Flight Distance Indicator")
-MiG_29A:defineToggleSwitch("ISTR4_DISTANCE_COMPUTER_MODE_SWITCH", devices.FUEL_INDICATOR, 3002, 446, ISTR4, "Distance Computer Mode Switch (OPT/TAC)")
+MiG_29A:defineToggleSwitch("ISTR4_DISTANCE_COMPUTER_MODE_SWITCH", devices.FUEL_INDICATOR, 3002, 446, ISTR4, "Distance Computer Mode Switch", { positions = { "OPT", "TAC" } })
 MiG_29A:defineFloat("ISTR4_DISTANCE_COMPUTER_OPT_LIGHT", 66, { 0, 1 }, ISTR4, "Distance Computer OPT Light (Orange)")
 MiG_29A:defineFloat("ISTR4_DISTANCE_COMPUTER_TAC_LIGHT", 62, { 0, 1 }, ISTR4, "Distance Computer TAC Light (Orange)")
-MiG_29A:defineToggleSwitch("ISTR4_FUEL_MEASURING_MODE_SWITCH", devices.FUEL_INDICATOR, 3001, 440, ISTR4, "Fuel Measuring Mode Switch (T/P)")
+MiG_29A:defineToggleSwitch("ISTR4_FUEL_MEASURING_MODE_SWITCH", devices.FUEL_INDICATOR, 3001, 440, ISTR4, "Fuel Measuring Mode Switch", { positions = { "T", "P" } })
 MiG_29A:defineFloat("ISTR4_FUEL_MEASURING_T_LIGHT", 63, { 0, 1 }, ISTR4, "Fuel Measuring Mode T Light (Green)")
 MiG_29A:defineFloat("ISTR4_FUEL_MEASURING_P_LIGHT", 64, { 0, 1 }, ISTR4, "Fuel Measuring Mode P Light (Green)")
 MiG_29A:defineFloat("ISTR4_TOTAL_FUEL_GAUGE", 22, { 0, 1 }, ISTR4, "Total Fuel Gauge")
@@ -683,12 +710,12 @@ MiG_29A:defineToggleSwitch("OXYGEN_CABIN_EMERGENCY_DECOMPRESSION_SWITCH", device
 -- Air conditionning
 local AIR_CONDITIONING = "Air Conditioning"
 
-MiG_29A:defineToggleSwitch("AIR_CONDITIONING_SUIT_VENTILATION_TOGGLE", devices.AIR_INTERFACE, 3016, 108, AIR_CONDITIONING, "Suit Ventilation (OPEN/CLOSE)")
+MiG_29A:defineToggleSwitch("AIR_CONDITIONING_SUIT_VENTILATION_TOGGLE", devices.AIR_INTERFACE, 3016, 108, AIR_CONDITIONING, "Suit Ventilation", { positions = { "OPEN", "CLOSE" } })
 MiG_29A:definePotentiometer("AIR_CONDITIONING_SUIT_VENTILATION_KNOB", devices.AIR_INTERFACE, 3030, 109, { 0, 0.6 }, AIR_CONDITIONING, "Suit Ventilation Temperature Knob")
-MiG_29A:defineToggleSwitch("AIR_CONDITIONING_COCKPIT_BLOW_DISTRIBUTION_LEVER", devices.AIR_INTERFACE, 3010, 254, AIR_CONDITIONING, "Cockpit air distribution lever (OPEN/PILOT)")
-MiG_29A:defineToggleSwitch("AIR_CONDITIONING_COCKPIT_AIR_SUPPLY_LEVER", devices.AIR_INTERFACE, 3012, 246, AIR_CONDITIONING, "Cockpit air supply lever (OPEN/CLOSED)")
-MiG_29A:definePotentiometer("AIR_CONDITIONING_CABIN_TEMP_CONTROL_KNOB", devices.AIR_INTERFACE, 3007, 114, { 0, 0.5 }, AIR_CONDITIONING, "Cabin Temperature Control Knob (OFF/AUTO/HOT/COLD)")
-MiG_29A:defineCabinTempSwitch("AIR_CONDITIONING_CABIN_TEMP_SWITCH", devices.AIR_INTERFACE, 555, AIR_CONDITIONING, "Cabin Temperature Switch (OFF/AUTO/HOT/COLD)")
+MiG_29A:defineToggleSwitch("AIR_CONDITIONING_COCKPIT_BLOW_DISTRIBUTION_LEVER", devices.AIR_INTERFACE, 3010, 254, AIR_CONDITIONING, "Cockpit air distribution lever", { positions = { "OPEN", "PILOT" } })
+MiG_29A:defineToggleSwitch("AIR_CONDITIONING_COCKPIT_AIR_SUPPLY_LEVER", devices.AIR_INTERFACE, 3012, 246, AIR_CONDITIONING, "Cockpit air supply lever", { positions = { "OPEN", "CLOSED" } })
+MiG_29A:definePotentiometer("AIR_CONDITIONING_CABIN_TEMP_CONTROL_KNOB", devices.AIR_INTERFACE, 3007, 114, { 0, 0.5 }, AIR_CONDITIONING, "Cabin Temperature Control Knob", { positions = { "OFF", "AUTO", "HOT", "COLD" } })
+MiG_29A:defineCabinTempSwitch("AIR_CONDITIONING_CABIN_TEMP_SWITCH", devices.AIR_INTERFACE, 555, AIR_CONDITIONING, "Cabin Temperature Switch", { positions = { "OFF", "AUTO", "HOT", "COLD" } })
 
 -- Flaps controls
 local FLAPS_CONTROL = "Flaps Controls"
@@ -702,9 +729,9 @@ MiG_29A:definePushButton("FLAPS_CONTROL_OFF_BUTTON", devices.HYDRO_INTERFACE, 30
 local R_862 = "R-862 VHF/UHF"
 
 MiG_29A:reserveIntValue(1) -- Guard frequency lamp indicator
-MiG_29A:defineToggleSwitch("R862_GUARD_RECEIVER_SWITCH", devices.VHF_UHF_R862, 3006, 248, R_862, "Guard Receiver Select Switch (ON/OFF)")
-MiG_29A:defineToggleSwitch("R862_ADF_SWITCH", devices.VHF_UHF_R862, 3005, 249, R_862, "ADF Switch (ON/OFF)")
-MiG_29A:defineToggleSwitch("R862_SQUELCH_SWITCH", devices.VHF_UHF_R862, 3003, 250, R_862, "Squelch Switch (ON/OFF)")
+MiG_29A:defineToggleSwitch("R862_GUARD_RECEIVER_SWITCH", devices.VHF_UHF_R862, 3006, 248, R_862, "Guard Receiver Select Switch", { positions = { "ON", "OFF" } })
+MiG_29A:defineToggleSwitch("R862_ADF_SWITCH", devices.VHF_UHF_R862, 3005, 249, R_862, "ADF Switch", { positions = { "ON", "OFF" } })
+MiG_29A:defineToggleSwitch("R862_SQUELCH_SWITCH", devices.VHF_UHF_R862, 3003, 250, R_862, "Squelch Switch", { positions = { "ON", "OFF" } })
 MiG_29A:definePotentiometer("R862_VOLUME_KNOB", devices.VHF_UHF_R862, 3004, 251, { 0, 1 }, R_862, "Volume Control Knob")
 MiG_29A:defineMultipositionSwitch("R862_CHANNEL_SELECTOR", devices.VHF_UHF_R862, 3002, 252, 20, 0.05, R_862, "Channel Selector (0-19)")
 MiG_29A:defineIntegerFromArg("R862_SELECTED_CHANNEL_INDICATOR", 284, 20, R_862, "Selected Channel Indicator")
@@ -717,12 +744,12 @@ MiG_29A:defineIntegerFromArg("R862_SELECTED_CHANNEL_INDICATOR", 284, 20, R_862, 
 local WEAPONS_CONTROL = "PSR-31 Weapon Control Panel"
 
 MiG_29A:defineToggleSwitch("WEAPONS_CONTROL_MASTER_ARM", devices.INPUT_PANEL, 3011, 526, WEAPONS_CONTROL, "Master Arm Switch")
-MiG_29A:define3PosTumb("WEAPONS_CONTROL_RADAR_ZONE_SWITCH", devices.INPUT_PANEL, 3006, 525, WEAPONS_CONTROL, "Radar Operating Zone Wwitch (LEFT/CENTER/RIGHT)")
+MiG_29A:define3PosTumb("WEAPONS_CONTROL_RADAR_ZONE_SWITCH", devices.INPUT_PANEL, 3006, 525, WEAPONS_CONTROL, "Radar Operating Zone Wwitch", { positions = { "LEFT", "CENTER", "RIGHT" } })
 MiG_29A:definePotentiometer("WEAPONS_CONTROL_IR_GAIN_HEML_BRIGHT_KNOB", devices.INPUT_PANEL, 3008, 524, { 0, 1 }, WEAPONS_CONTROL, "IR Gain / Helmet Brightness Knob")
-MiG_29A:defineToggleSwitch("WEAPONS_CONTROL_MISSILE_PREPARE_SWITCH", devices.INPUT_PANEL, 3013, 527, WEAPONS_CONTROL, "Missile Launch Preparation Mode (AUTO/MAN)")
-MiG_29A:defineToggleSwitch("WEAPONS_CONTROL_BURST_MODE_SWITCH", devices.WP, 3012, 521, WEAPONS_CONTROL, "Burst Mode Switch (ALL/SINGLE 0.5 ALL)")
+MiG_29A:defineToggleSwitch("WEAPONS_CONTROL_MISSILE_PREPARE_SWITCH", devices.INPUT_PANEL, 3013, 527, WEAPONS_CONTROL, "Missile Launch Preparation Mode", { positions = { "AUTO", "MAN" } })
+MiG_29A:defineToggleSwitch("WEAPONS_CONTROL_BURST_MODE_SWITCH", devices.WP, 3012, 521, WEAPONS_CONTROL, "Burst Mode Switch", { positions = { "ALL", "SINGLE 0.5 ALL" } })
 MiG_29A:definePotentiometer("WEAPONS_CONTROL_WING_SPAN_KNOB", devices.INPUT_PANEL, 3001, 520, { 0, 1 }, WEAPONS_CONTROL, "Target Wing Span Knob")
-MiG_29A:defineMultipositionSwitch("WEAPONS_CONTROL_WCS_MODES_SELECTOR", devices.INPUT_PANEL, 3004, 523, 8, 0.1, WEAPONS_CONTROL, "WCS Modes Selector Knob (TOSS/NAV/RAD/IR/CC/HELM/OPT/BS)")
+MiG_29A:defineMultipositionSwitch("WEAPONS_CONTROL_WCS_MODES_SELECTOR", devices.INPUT_PANEL, 3004, 523, 8, 0.1, WEAPONS_CONTROL, "WCS Modes Selector Knob", { positions = { "TOSS", "NAV", "RAD", "IR", "CC", "HELM", "OPT", "BS" } })
 
 -- AFCS Autopilot control panel
 local AUTOPILOT = "AFCS Autopilot Control Panel"
@@ -743,11 +770,11 @@ MiG_29A:defineFloat("AUTOPILOT_MISSED_APPROACH_LIGHT", 93, { 0, 1 }, AUTOPILOT, 
 -- PUR-31 Radar control panel
 local PUR_31 = "PUR-31 Radar Control Panel"
 
-MiG_29A:defineMultipositionManualRange("RADAR_CONTROLS_ANTENNA_ELEV_SELECTOR", devices.INPUT_PANEL, 3025, 294, 11, { -0.4, 0.6 }, PUR_31, "Radar Antenna Elevation Selector (-6/+10)")
-MiG_29A:defineMultipositionSwitch("RADAR_CONTROLS_MODE_SWITCH", devices.INPUT_PANEL, 3021, 295, 4, 0.1, PUR_31, "Radar Mode Selector (AUTO/CLOSE CMBT/HEAD ON/P)")
-MiG_29A:define3PosTumb("RADAR_CONTROLS_ILLUMINATION_SWITCH", devices.INPUT_PANEL, 3029, 296, PUR_31, "Radar Illumination Switch (OFF/DUMMY/ILLUM)")
-MiG_29A:define3PosTumb("RADAR_CONTROLS_ECCM_SWITCH", devices.INPUT_PANEL, 3031, 299, PUR_31, "Radar ECCM Counteraction Switch (CAJ/OFF/AJ)")
-MiG_29A:defineToggleSwitch("RADAR_CONTROLS_TWF_SWITCH", devices.INPUT_PANEL, 3023, 298, PUR_31, "Radar TWF Switch (FHS/RHS)")
+MiG_29A:defineMultipositionManualRange("RADAR_CONTROLS_ANTENNA_ELEV_SELECTOR", devices.INPUT_PANEL, 3025, 294, 11, { -0.4, 0.6 }, PUR_31, "Radar Antenna Elevation Selector", { positions = { "-6", "-4", "-2", "-1", "0", "1", "2", "4", "6", "8", "10" } })
+MiG_29A:defineMultipositionSwitch("RADAR_CONTROLS_MODE_SWITCH", devices.INPUT_PANEL, 3021, 295, 4, 0.1, PUR_31, "Radar Mode Selector", { positions = { "AUTO", "CLOSE CMBT", "HEAD ON", "P" } })
+MiG_29A:define3PosTumb("RADAR_CONTROLS_ILLUMINATION_SWITCH", devices.INPUT_PANEL, 3029, 296, PUR_31, "Radar Illumination Switch", { positions = { "OFF", "DUMMY", "ILLUM" } })
+MiG_29A:define3PosTumb("RADAR_CONTROLS_ECCM_SWITCH", devices.INPUT_PANEL, 3031, 299, PUR_31, "Radar ECCM Counteraction Switch", { positions = { "CAJ", "OFF", "AJ" } })
+MiG_29A:defineToggleSwitch("RADAR_CONTROLS_TWF_SWITCH", devices.INPUT_PANEL, 3023, 298, PUR_31, "Radar TWF Switch", { positions = { "FHS", "RHS" } })
 MiG_29A:defineToggleSwitch("RADAR_CONTROLS_COMPENSATION_SWITCH", devices.INPUT_PANEL, 3027, 297, PUR_31, "Radar Compensation Switch")
 
 -- HUD control pannel (With sun visor controls)
@@ -757,7 +784,7 @@ MiG_29A:defineToggleSwitch("RADAR_CONTROLS_COMPENSATION_SWITCH", devices.INPUT_P
 -- Canopy controls
 local CANOPY_CONTROLS = "Canopy Controls"
 
-MiG_29A:define3PosTumb0To1("LEFT_WALL_CANOPY_HANDLE", devices.AIR_INTERFACE, 3008, 810, CANOPY_CONTROLS, "Canopy Control Handle (CLOSE/TAXI/OPEN)")
+MiG_29A:define3PosTumb0To1("LEFT_WALL_CANOPY_HANDLE", devices.AIR_INTERFACE, 3008, 810, CANOPY_CONTROLS, "Canopy Control Handle", { positions = { "CLOSE", "TAXI", "OPEN" } })
 MiG_29A:defineIndicatorLight("LEFT_WALL_CANOPY_LOCK_INDICATOR", 383, CANOPY_CONTROLS, "Canopy Lock Indicator")
 
 -- Refueling pannel
@@ -769,18 +796,18 @@ MiG_29A:defineIndicatorLight("LEFT_WALL_CANOPY_LOCK_INDICATOR", 383, CANOPY_CONT
 -- Left wall
 local LEFT_WALL = "Left Wall"
 
-MiG_29A:defineToggleSwitch("LEFT_WALL_EXT_STORES_SWITCH", devices.WP, 3010, 29, LEFT_WALL, "External Stores Selector Switch (INBD/OUTBD)")
+MiG_29A:defineToggleSwitch("LEFT_WALL_EXT_STORES_SWITCH", devices.WP, 3010, 29, LEFT_WALL, "External Stores Selector Switch", { positions = { "INBD", "OUTBD" } })
 
 -- Bottom left console auxiliary controls
 local BOTTOM_LEFT_AUXILIARY = "Bottom Left Console Auxiliary Controls"
 
 MiG_29A:definePotentiometer("LEFT_WALL_IR_VOLUME", devices.INTERCOM, 3001, 98, { 0, 1 }, BOTTOM_LEFT_AUXILIARY, "IR Volume Control Knob")
-MiG_29A:defineSpringloaded_3PosTumb("LEFT_WALL_RUDDER_TRIM_SWITCH", devices.CONTROL_INTERFACE, 3001, 3002, 99, BOTTOM_LEFT_AUXILIARY, "Rudder Trim Switch (LEFT/OFF/RIGHT)")
+MiG_29A:defineSpringloaded_3PosTumb("LEFT_WALL_RUDDER_TRIM_SWITCH", devices.CONTROL_INTERFACE, 3001, 3002, 99, BOTTOM_LEFT_AUXILIARY, "Rudder Trim Switch", { positions = { "LEFT", "OFF", "RIGHT" } })
 
 -- Top left console auxiliary controls
 local TOP_LEFT_AUXILIARY = "Top Left Console Auxiliary Controls"
 
-MiG_29A:define3PosTumb("LEFT_WALL_TAXI_LIGHT_SWITCH", devices.EXTLIGHTS_SYSTEM, 3003, 178, TOP_LEFT_AUXILIARY, "Taxi Light Switch (OFF/TAXI/LAND LIGHT)")
+MiG_29A:define3PosTumb("LEFT_WALL_TAXI_LIGHT_SWITCH", devices.EXTLIGHTS_SYSTEM, 3003, 178, TOP_LEFT_AUXILIARY, "Taxi Light Switch", { positions = { "OFF", "TAXI", "LAND LIGHT" } })
 MiG_29A:definePushButton("LEFT_WALL_MISSILE_EMERGENCY_JETTISON_BUTTON", devices.WP, 3004, 95, TOP_LEFT_AUXILIARY, "Emergency Missile Jettison Button")
 
 -- Chute controls
@@ -794,19 +821,19 @@ MiG_29A:definePushButton("CHUTE_LAUNCH_BUTTON", devices.INPUT_PANEL, 3037, 28, D
 -- Landing gear controls
 local LANDING_GEAR = "Landing Gear Controls"
 
-MiG_29A:defineToggleSwitch("LANDING_GEAR_HANDLE", devices.HYDRO_INTERFACE, 3001, 80, LANDING_GEAR, "Landing Gear Handle (EXTENDED/RETRACTED)")
+MiG_29A:defineToggleSwitch("LANDING_GEAR_HANDLE", devices.HYDRO_INTERFACE, 3001, 80, LANDING_GEAR, "Landing Gear Handle", { positions = { "EXTENDED", "RETRACTED" } })
 MiG_29A:reserveIntValue(1) -- Emergency Landing Gear Handle
 
 -- PU-S31 Weapon settings panel
 local WEAPONS_SETTINGS = "PU-S31 Weapon Settings Panel"
 
-MiG_29A:defineToggleSwitch("WEAPON_SETTINGS_COOP_SWITCH", devices.INPUT_PANEL, 3019, 287, WEAPONS_SETTINGS, "Coop Switch (NO RETARD/COOP RETARD)")
-MiG_29A:defineToggleSwitch("WEAPON_SETTINGS_AG_SWITCH", devices.INPUT_PANEL, 3015, 286, WEAPONS_SETTINGS, "A/G Mode Switch (AIR/GROUND)")
-MiG_29A:defineToggleSwitch("WEAPON_SETTINGS_BOMB_JETTISON_ARM_SWITCH", devices.WP, 3008, 290, WEAPONS_SETTINGS, "Bombs Jettison Arm Switch (SAFE/ARMED)")
+MiG_29A:defineToggleSwitch("WEAPON_SETTINGS_COOP_SWITCH", devices.INPUT_PANEL, 3019, 287, WEAPONS_SETTINGS, "Coop Switch", { positions = { "NO RETARD", "COOP RETARD" } })
+MiG_29A:defineToggleSwitch("WEAPON_SETTINGS_AG_SWITCH", devices.INPUT_PANEL, 3015, 286, WEAPONS_SETTINGS, "A/G Mode Switch", { positions = { "AIR", "GROUND" } })
+MiG_29A:defineToggleSwitch("WEAPON_SETTINGS_BOMB_JETTISON_ARM_SWITCH", devices.WP, 3008, 290, WEAPONS_SETTINGS, "Bombs Jettison Arm Switch", { positions = { "SAFE", "ARMED" } })
 MiG_29A:defineToggleSwitch("WEAPON_SETTINGS_EMERGENCY_JETTISON_COVER", devices.WP, 3006, 291, WEAPONS_SETTINGS, "Emergency Jettison Button Cover")
 MiG_29A:definePushButton("WEAPON_SETTINGS_EMERGENCY_JETTISON_BUTTON", devices.WP, 3005, 292, WEAPONS_SETTINGS, "Emergency Jettison Button")
 MiG_29A:defineToggleSwitch("WEAPON_SETTINGS_GUIDANCE_MODE_SWITCH", devices.INPUT_PANEL, 3017, 289, WEAPONS_SETTINGS, "Guidance Mode Switch")
-MiG_29A:defineToggleSwitch("WEAPON_SETTINGS_LOCK_SWITCH", devices.INPUT_PANEL, 3033, 288, WEAPONS_SETTINGS, "Lock Switch (FOE/FRIEND)")
+MiG_29A:defineToggleSwitch("WEAPON_SETTINGS_LOCK_SWITCH", devices.INPUT_PANEL, 3033, 288, WEAPONS_SETTINGS, "Lock Switch", { positions = { "FOE", "FRIEND" } })
 
 -- Ejection handle
 
