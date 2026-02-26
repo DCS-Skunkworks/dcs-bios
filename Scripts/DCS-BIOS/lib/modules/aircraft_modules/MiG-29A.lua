@@ -378,7 +378,7 @@ local function flagIntValue(arg_value)
 	end
 end
 
---- Defines an intenger output from a float for a flag indicator
+--- Defines an integer output from a float for a flag indicator
 --- @param identifier string the unique identifier for the control
 --- @param arg_number integer the dcs argument number
 --- @param category string the category in which the control should appear
@@ -433,7 +433,7 @@ end
 local STICK = "Stick Controls"
 
 MiG_29A:defineRockerSwitch("STICK_TRIM_HORIZ", devices.HOTAS, 3007, 3006, 3006, 3007, 52, STICK, "Trim Hat Switch Horizontal", { positions = { "LEFT", "MIDDLE", "RIGHT" } })
-MiG_29A:defineRockerSwitch("STICK_TRIM_VERT", devices.HOTAS, 3004, 3005, 3005, 3004, 51, STICK, "Trim Hat Switch Vertical", { positions = { "UP", "MIDDLE", "DOWN" } })
+MiG_29A:defineRockerSwitch("STICK_TRIM_VERT", devices.HOTAS, 3004, 3005, 3005, 3004, 51, STICK, "Trim Hat Switch Vertical", { positions = { "DOWN", "MIDDLE", "UP" } })
 MiG_29A:definePushButton("STICK_LEVELING_BUTTON", devices.HOTAS, 3008, 55, STICK, "Leveling Button")
 MiG_29A:defineGatedIndicatorLight("STICK_LEVELING_LIGHT", 49, 0.5, nil, STICK, "Leveling Light")
 MiG_29A:definePushButton("STICK_ACFS_OFF_BUTTON", devices.HOTAS, 3009, 48, STICK, "ACFS Modes Off Button")
@@ -601,7 +601,7 @@ MiG_29A:defineFloat("ADF_MODE_BEACON_INNER_LIGHT", 364, { 0, 1 }, ADF_SWITCH, "B
 -- Nose wheel brake
 local NOSE_WHEEL_BRAKE = "Nose Wheel Brake (Instrument Panel)"
 
-MiG_29A:defineToggleSwitch("NOSE_WHEEL_BRAKE_HANDLE", devices.INPUT_PANEL, 3035, 23, NOSE_WHEEL_BRAKE, "Nose Wheel Brake Handle", { positions = { "ON", "OFF" } })
+MiG_29A:defineToggleSwitch("NOSE_WHEEL_BRAKE_HANDLE", devices.INPUT_PANEL, 3035, 23, NOSE_WHEEL_BRAKE, "Nose Wheel Brake Handle")
 
 -- Radar altimeter
 local RADAR_ALTIMETER = "Radar Altimeter"
@@ -712,9 +712,9 @@ local AIR_CONDITIONING = "Air Conditioning"
 
 MiG_29A:defineToggleSwitch("AIR_CONDITIONING_SUIT_VENTILATION_TOGGLE", devices.AIR_INTERFACE, 3016, 108, AIR_CONDITIONING, "Suit Ventilation", { positions = { "OPEN", "CLOSE" } })
 MiG_29A:definePotentiometer("AIR_CONDITIONING_SUIT_VENTILATION_KNOB", devices.AIR_INTERFACE, 3030, 109, { 0, 0.6 }, AIR_CONDITIONING, "Suit Ventilation Temperature Knob")
-MiG_29A:defineToggleSwitch("AIR_CONDITIONING_COCKPIT_BLOW_DISTRIBUTION_LEVER", devices.AIR_INTERFACE, 3010, 254, AIR_CONDITIONING, "Cockpit air distribution lever", { positions = { "OPEN", "PILOT" } })
-MiG_29A:defineToggleSwitch("AIR_CONDITIONING_COCKPIT_AIR_SUPPLY_LEVER", devices.AIR_INTERFACE, 3012, 246, AIR_CONDITIONING, "Cockpit air supply lever", { positions = { "OPEN", "CLOSED" } })
-MiG_29A:definePotentiometer("AIR_CONDITIONING_CABIN_TEMP_CONTROL_KNOB", devices.AIR_INTERFACE, 3007, 114, { 0, 0.5 }, AIR_CONDITIONING, "Cabin Temperature Control Knob", { positions = { "OFF", "AUTO", "HOT", "COLD" } })
+MiG_29A:defineToggleSwitch("AIR_CONDITIONING_COCKPIT_BLOW_DISTRIBUTION_LEVER", devices.AIR_INTERFACE, 3010, 254, AIR_CONDITIONING, "Cockpit air distribution lever", { positions = { "PILOT", "OPEN" } })
+MiG_29A:defineToggleSwitch("AIR_CONDITIONING_COCKPIT_AIR_SUPPLY_LEVER", devices.AIR_INTERFACE, 3012, 246, AIR_CONDITIONING, "Cockpit air supply lever", { positions = { "CLOSED", "OPEN" } })
+MiG_29A:definePotentiometer("AIR_CONDITIONING_CABIN_TEMP_CONTROL_KNOB", devices.AIR_INTERFACE, 3007, 114, { 0, 0.5 }, AIR_CONDITIONING, "Cabin Temperature Control Knob")
 MiG_29A:defineCabinTempSwitch("AIR_CONDITIONING_CABIN_TEMP_SWITCH", devices.AIR_INTERFACE, 555, AIR_CONDITIONING, "Cabin Temperature Switch", { positions = { "OFF", "AUTO", "HOT", "COLD" } })
 
 -- Flaps controls
@@ -729,9 +729,9 @@ MiG_29A:definePushButton("FLAPS_CONTROL_OFF_BUTTON", devices.HYDRO_INTERFACE, 30
 local R_862 = "R-862 VHF/UHF"
 
 MiG_29A:reserveIntValue(1) -- Guard frequency lamp indicator
-MiG_29A:defineToggleSwitch("R862_GUARD_RECEIVER_SWITCH", devices.VHF_UHF_R862, 3006, 248, R_862, "Guard Receiver Select Switch", { positions = { "ON", "OFF" } })
-MiG_29A:defineToggleSwitch("R862_ADF_SWITCH", devices.VHF_UHF_R862, 3005, 249, R_862, "ADF Switch", { positions = { "ON", "OFF" } })
-MiG_29A:defineToggleSwitch("R862_SQUELCH_SWITCH", devices.VHF_UHF_R862, 3003, 250, R_862, "Squelch Switch", { positions = { "ON", "OFF" } })
+MiG_29A:defineToggleSwitch("R862_GUARD_RECEIVER_SWITCH", devices.VHF_UHF_R862, 3006, 248, R_862, "Guard Receiver Select Switch")
+MiG_29A:defineToggleSwitch("R862_ADF_SWITCH", devices.VHF_UHF_R862, 3005, 249, R_862, "ADF Switch")
+MiG_29A:defineToggleSwitch("R862_SQUELCH_SWITCH", devices.VHF_UHF_R862, 3003, 250, R_862, "Squelch Switch")
 MiG_29A:definePotentiometer("R862_VOLUME_KNOB", devices.VHF_UHF_R862, 3004, 251, { 0, 1 }, R_862, "Volume Control Knob")
 MiG_29A:defineMultipositionSwitch("R862_CHANNEL_SELECTOR", devices.VHF_UHF_R862, 3002, 252, 20, 0.05, R_862, "Channel Selector (0-19)")
 MiG_29A:defineIntegerFromArg("R862_SELECTED_CHANNEL_INDICATOR", 284, 20, R_862, "Selected Channel Indicator")
@@ -747,7 +747,7 @@ MiG_29A:defineToggleSwitch("WEAPONS_CONTROL_MASTER_ARM", devices.INPUT_PANEL, 30
 MiG_29A:define3PosTumb("WEAPONS_CONTROL_RADAR_ZONE_SWITCH", devices.INPUT_PANEL, 3006, 525, WEAPONS_CONTROL, "Radar Operating Zone Wwitch", { positions = { "LEFT", "CENTER", "RIGHT" } })
 MiG_29A:definePotentiometer("WEAPONS_CONTROL_IR_GAIN_HEML_BRIGHT_KNOB", devices.INPUT_PANEL, 3008, 524, { 0, 1 }, WEAPONS_CONTROL, "IR Gain / Helmet Brightness Knob")
 MiG_29A:defineToggleSwitch("WEAPONS_CONTROL_MISSILE_PREPARE_SWITCH", devices.INPUT_PANEL, 3013, 527, WEAPONS_CONTROL, "Missile Launch Preparation Mode", { positions = { "AUTO", "MAN" } })
-MiG_29A:defineToggleSwitch("WEAPONS_CONTROL_BURST_MODE_SWITCH", devices.WP, 3012, 521, WEAPONS_CONTROL, "Burst Mode Switch", { positions = { "ALL", "SINGLE 0.5 ALL" } })
+MiG_29A:defineToggleSwitch("WEAPONS_CONTROL_BURST_MODE_SWITCH", devices.WP, 3012, 521, WEAPONS_CONTROL, "Burst Mode Switch", { positions = { "SINGLE/0.5 ALL", "ALL" } })
 MiG_29A:definePotentiometer("WEAPONS_CONTROL_WING_SPAN_KNOB", devices.INPUT_PANEL, 3001, 520, { 0, 1 }, WEAPONS_CONTROL, "Target Wing Span Knob")
 MiG_29A:defineMultipositionSwitch("WEAPONS_CONTROL_WCS_MODES_SELECTOR", devices.INPUT_PANEL, 3004, 523, 8, 0.1, WEAPONS_CONTROL, "WCS Modes Selector Knob", { positions = { "TOSS", "NAV", "RAD", "IR", "CC", "HELM", "OPT", "BS" } })
 
@@ -774,7 +774,7 @@ MiG_29A:defineMultipositionManualRange("RADAR_CONTROLS_ANTENNA_ELEV_SELECTOR", d
 MiG_29A:defineMultipositionSwitch("RADAR_CONTROLS_MODE_SWITCH", devices.INPUT_PANEL, 3021, 295, 4, 0.1, PUR_31, "Radar Mode Selector", { positions = { "AUTO", "CLOSE CMBT", "HEAD ON", "P" } })
 MiG_29A:define3PosTumb("RADAR_CONTROLS_ILLUMINATION_SWITCH", devices.INPUT_PANEL, 3029, 296, PUR_31, "Radar Illumination Switch", { positions = { "OFF", "DUMMY", "ILLUM" } })
 MiG_29A:define3PosTumb("RADAR_CONTROLS_ECCM_SWITCH", devices.INPUT_PANEL, 3031, 299, PUR_31, "Radar ECCM Counteraction Switch", { positions = { "CAJ", "OFF", "AJ" } })
-MiG_29A:defineToggleSwitch("RADAR_CONTROLS_TWF_SWITCH", devices.INPUT_PANEL, 3023, 298, PUR_31, "Radar TWF Switch", { positions = { "FHS", "RHS" } })
+MiG_29A:defineToggleSwitch("RADAR_CONTROLS_TWF_SWITCH", devices.INPUT_PANEL, 3023, 298, PUR_31, "Radar TWF Switch", { positions = { "RHS", "TWF FHS" } })
 MiG_29A:defineToggleSwitch("RADAR_CONTROLS_COMPENSATION_SWITCH", devices.INPUT_PANEL, 3027, 297, PUR_31, "Radar Compensation Switch")
 
 -- HUD control pannel (With sun visor controls)
@@ -802,7 +802,7 @@ MiG_29A:defineToggleSwitch("LEFT_WALL_EXT_STORES_SWITCH", devices.WP, 3010, 29, 
 local BOTTOM_LEFT_AUXILIARY = "Bottom Left Console Auxiliary Controls"
 
 MiG_29A:definePotentiometer("LEFT_WALL_IR_VOLUME", devices.INTERCOM, 3001, 98, { 0, 1 }, BOTTOM_LEFT_AUXILIARY, "IR Volume Control Knob")
-MiG_29A:defineSpringloaded_3PosTumb("LEFT_WALL_RUDDER_TRIM_SWITCH", devices.CONTROL_INTERFACE, 3001, 3002, 99, BOTTOM_LEFT_AUXILIARY, "Rudder Trim Switch", { positions = { "LEFT", "OFF", "RIGHT" } })
+MiG_29A:defineSpringloaded_3PosTumb("LEFT_WALL_RUDDER_TRIM_SWITCH", devices.CONTROL_INTERFACE, 3001, 3002, 99, BOTTOM_LEFT_AUXILIARY, "Rudder Trim Switch", { positions = { "LEFT", "MIDDLE", "RIGHT" } })
 
 -- Top left console auxiliary controls
 local TOP_LEFT_AUXILIARY = "Top Left Console Auxiliary Controls"
