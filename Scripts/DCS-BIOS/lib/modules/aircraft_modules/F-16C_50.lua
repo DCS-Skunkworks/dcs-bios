@@ -112,7 +112,7 @@ F_16C_50:defineAntiSkidSwitch("ANTI_SKID_SW", 7, 3010, 3014, 357, "Gear System",
 
 --ECS
 F_16C_50:definePotentiometer("TEMP_KNB", 13, 3002, 692, { -0.3, 0.3 }, "ECS", "TEMP Knob")
-F_16C_50:defineTumb("AIR_SOURCE_KNB", 13, 3001, 693, 0.1, { 0, 0.4 }, nil, true, "ECS", "AIR SOURCE Knob")
+F_16C_50:defineTumb("AIR_SOURCE_KNB", 13, 3001, 693, 0.1, { 0, 0.4 }, nil, true, "ECS", "AIR SOURCE Knob", { deprecated = { since = "0.11.1", description = "This control has 5 positions, but the actual knob only has 4 positions", use_instead = "AIR_SOURCE_KNOB" } })
 F_16C_50:defineTumb("DEFOG_LEVER", 13, 3003, 602, 0.05, { 0, 1 }, nil, false, "ECS", "DEFOG Lever")
 
 --EPU
@@ -903,5 +903,7 @@ end, DED_LINE_LENGTH, DED_NEW, "Line 4 Format (i=inverse)")
 F_16C_50:defineString("DED_L5_FORMAT", function()
 	return ded_formats[5]
 end, DED_LINE_LENGTH, DED_NEW, "Line 5 Format (i=inverse)")
+
+F_16C_50:defineMultipositionSwitch("AIR_SOURCE_KNOB", 13, 3001, 693, 4, 0.1, "ECS", "AIR SOURCE Knob", { positions = { "OFF", "NORM", "DUMP", "RAM" } })
 
 return F_16C_50
