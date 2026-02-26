@@ -31,7 +31,7 @@ I_16:defineRotary("GEAR_HANDLE", 3, 3086, 86, "Gear", "Gear Handle")
 I_16:defineRotary("FLAPS_HANDLE", 4, 3063, 63, "Flaps", "Flaps Handle")
 
 -- MOTOR
-I_16:defineMultipositionSwitch("MAGNETO", 2, 3022, 22, 4, 0.1, "Motor", "Magneto 0/1/2/1+2")
+I_16:defineMultipositionSwitch("MAGNETO", 2, 3022, 22, 4, 0.1, "Motor", "Magneto", { positions = { "0", "1", "2", "1+2" } })
 I_16:definePushButton("MOTOR_OFF", 2, 3029, 29, "Motor", "Motor Shutdown")
 I_16:definePushButton("RATCHET", 2, 3033, 33, "Motor", "Ratchet Relay")
 
@@ -43,7 +43,7 @@ I_16:defineRotary("WEB", 2, 3042, 42, "Motor", "War Emergency Power (WEB)")
 I_16:defineRotary("RPM", 2, 3043, 43, "Motor", "RPM")
 I_16:defineRotary("MIX", 2, 3044, 44, "Motor", "Mixture")
 I_16:defineRotary("THROTTLE", 2, 3045, 45, "Motor", "Throttle")
-I_16:defineMultipositionSwitch("SUPERCHARGER", 2, 3046, 46, 3, 0.5, "Motor", "Supercharge Speed 1/0/2")
+I_16:defineMultipositionSwitch("SUPERCHARGER", 2, 3046, 46, 3, 0.5, "Motor", "Supercharge Speed", { positions = { "1", "0", "2" } })
 I_16:defineRotary("ENG_COWL_FLAPS", 2, 3047, 47, "Motor", "Motor Cowl Flaps")
 I_16:defineRotary("OIL_RAD", 2, 3048, 48, "Motor", "Oil Radiator")
 I_16:defineToggleSwitch("FUEL_VALVE", 2, 3062, 62, "Motor", "Fuel Valve")

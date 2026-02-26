@@ -247,7 +247,7 @@ UH_1H:defineToggleSwitch("CB_ENG", 1, 3097, 434, "Circuit Breakers", "Pressure E
 UH_1H:defineToggleSwitch("CB_CRSIND", 1, 3098, 435, "Circuit Breakers", "Course Ind (No Function)")
 
 UH_1H:defineToggleSwitch("PITOT_HEAT", 1, 3016, 238, "Overhead Panel", "Pitot Heater")
-UH_1H:define3PosTumb("MAIN_GEN_SW", 1, 3002, 216, "Overhead Panel", "Main Generator RESET/OFF/ON")
+UH_1H:define3PosTumb("MAIN_GEN_SW", 1, 3002, 216, "Overhead Panel", "Main Generator", { positions = { "RESET", "OFF", "ON" } })
 UH_1H:defineToggleSwitch("MAIN_GEN_COVER", 1, 3019, 217, "Overhead Panel", "Main Generator Switch Cover")
 
 UH_1H:defineRockerSwitch("CLP_RESET_TEST_SW", 15, 3001, 3001, 3001, 3001, 111, "Caution Lights Panel", "Test/Reset Rocker Switch")
@@ -354,11 +354,11 @@ UH_1H:defineTumb("VHFFM_FREQ1", 23, 3001, 31, 0.1, { 0.3, 0.7 }, { "3", "4", "5"
 UH_1H:defineTumb("VHFFM_FREQ2", 23, 3002, 32, 0.1, { 0.0, 0.9 }, nil, false, "VHF FM Radio", "VHF FM Frequency 1 MHz")
 UH_1H:defineTumb("VHFFM_FREQ3", 23, 3003, 33, 0.1, { 0.0, 0.9 }, nil, false, "VHF FM Radio", "VHF FM Frequency Decimals MHz")
 UH_1H:defineTumb("VHFFM_FREQ4", 23, 3004, 34, 0.1, { 0.0, 0.1 }, { "0", "5" }, false, "VHF FM Radio", "VHF FM Frequency Hundreds of MHz")
-UH_1H:defineMultipositionSwitch("VHFFM_MODE", 23, 3007, 35, 4, 0.1, "VHF FM Radio", "VHF FM Mode Dial: OFF / T/R / RETRAN / HOME")
-UH_1H:defineTumb("VHFFM_SQUELCH", 23, 3005, 36, 0.1, { 0, 0.2 }, nil, false, "VHF FM Radio", "VHF FM Squelch Mode: DIS / CARR / TONE")
+UH_1H:defineMultipositionSwitch("VHFFM_MODE", 23, 3007, 35, 4, 0.1, "VHF FM Radio", "VHF FM Mode Dial", { positions = { "OFF", "T/R", "RETRAN", "HOME" } })
+UH_1H:defineTumb("VHFFM_SQUELCH", 23, 3005, 36, 0.1, { 0, 0.2 }, nil, false, "VHF FM Radio", "VHF FM Squelch Mode", { positions = { "DIS", "CARR", "TONE" } })
 UH_1H:definePotentiometer("VHFFM_VOL", 23, 3006, 37, { 0.3, 1 }, "VHF FM Radio", "VHF FM Volume Control")
 
-UH_1H:defineTumb("VHFNAV_PWR", 25, 3003, 51, 0.1, { 0.8, 1.0 }, nil, false, "VHF NAV Radio", "VHF NAV Off / On / Test")
+UH_1H:defineTumb("VHFNAV_PWR", 25, 3003, 51, 0.1, { 0.8, 1.0 }, nil, false, "VHF NAV Radio", "VHF NAV", { positions = { "Off", "On", "Test" } })
 
 local function getVhfNavFreq(dev0)
 	local function a(n)
@@ -378,9 +378,9 @@ vhf_nav_vol_var_step_input.suggested_step = 8192
 UH_1H:definePotentiometer("BEACON_VOL", 26, 3001, 57, { 0, 1 }, "Front Dash", "Marker Beacon Volume")
 UH_1H:defineToggleSwitch("BEACON_SENSING_SW", 26, 3002, 55, "Front Dash", "Marker Beacon Sensing LOW / HIGH")
 
-UH_1H:defineTumb("ADF_LOOP_LR", 27, 3005, 42, 0.1, { 0, 0.4 }, nil, false, "ADF", "ADF LOOP Left Low Speed / Left High Speed /Center / Right Low Speed / Right High Speed")
+UH_1H:defineTumb("ADF_LOOP_LR", 27, 3005, 42, 0.1, { 0, 0.4 }, nil, false, "ADF", "ADF LOOP", { positions = { "Left Low Speed", "Left High Speed", "Center", "Right Low Speed", "Right High Speed" } })
 UH_1H:defineToggleSwitch("ADF_BFO_SW", 27, 3006, 41, "ADF", "BFO Switch")
-UH_1H:defineMultipositionSwitch("ADF_MODE", 27, 3001, 43, 4, 0.1, "ADF", "ADF Mode OFF / ADF / ANT / LOOP")
+UH_1H:defineMultipositionSwitch("ADF_MODE", 27, 3001, 43, 4, 0.1, "ADF", "ADF Mode", { positions = { "OFF", "ADF", "ANT", "LOOP" } })
 UH_1H:definePotentiometer("ADF_GAIN", 27, 3004, 44, { 0, 1 }, "ADF", "ADF Gain")
 UH_1H:define3PosTumb("ADF_BAND", 27, 3002, 38, "ADF", "ADF Band")
 UH_1H:defineRotary("ADF_TUNE", 27, 3003, 39, "ADF", "ADF Tune")
@@ -390,7 +390,7 @@ UH_1H:define3PosTumb("NAV_LTS_SW", 7, 3002, 223, "Overhead Panel", "Navigation L
 UH_1H:defineToggleSwitch("POS_LTS_SW", 7, 3003, 224, "Overhead Panel", "Position LIghts DIM / BRT")
 UH_1H:defineToggleSwitch("ANTICOLL_LTS_SW", 7, 3004, 225, "Overhead Panel", "Anticollision Lights OFF / ON")
 UH_1H:defineToggleSwitch("LDG_LIGHT_SW", 7, 3005, 202, "Collective", "Landing Lights Switch")
-UH_1H:define3PosTumb("SEARCH_LIGHT_SW", 7, 3006, 201, "Collective", "Search Light STOW / OFF / ON")
+UH_1H:define3PosTumb("SEARCH_LIGHT_SW", 7, 3006, 201, "Collective", "Search Light", { positions = { "STOW", "OFF", "ON" } })
 UH_1H:define3PosTumb("LDG_LT_CTRL", 7, 3007, 205, "Collective", "Landing Lights Control Switch")
 UH_1H:definePotentiometer("BRT_CONSOLE", 7, 3015, 230, { 0, 1 }, "Overhead Panel", "Overhead Console Panel Lights Brightness")
 UH_1H:definePotentiometer("BRT_PED", 7, 3016, 231, { 0, 1 }, "Overhead Panel", "Pedestal Lights Brightness")
@@ -398,7 +398,7 @@ UH_1H:definePotentiometer("BRT_SEC", 7, 3017, 232, { 0, 1 }, "Overhead Panel", "
 UH_1H:definePotentiometer("BRT_ENGINE", 7, 3018, 233, { 0, 1 }, "Overhead Panel", "Engine Instrument Lights Brightness")
 UH_1H:definePotentiometer("BRT_COPILOT", 7, 3019, 234, { 0, 1 }, "Overhead Panel", "Copilot Instrument Lights Brightness")
 UH_1H:definePotentiometer("BRT_PILOT", 7, 3020, 235, { 0, 1 }, "Overhead Panel", "Pilot Instrument Lights Brightness")
-UH_1H:define3PosTumb("DOME_LIGHT_SW", 7, 3021, 226, "Overhead Panel", "Dome Light Switch WHITE / OFF / GREEN")
+UH_1H:define3PosTumb("DOME_LIGHT_SW", 7, 3021, 226, "Overhead Panel", "Dome Light Switch", { positions = { "WHITE", "OFF", "GREEN" } })
 UH_1H:defineMultipositionSwitch("BLEED_AIR_SW", 47, 3001, 236, 5, 0.1, "Overhead Panel", "Bleed Air Dial")
 
 UH_1H:defineRotary("HDG_SET", 10, 3003, 163, "Front Dash", "HDG SET Knob")
@@ -408,7 +408,7 @@ UH_1H:defineToggleSwitch("GYRO_MODE_SW", 10, 3002, 241, "Front Dash", "DG / Slav
 UH_1H:defineRotary("CRS_KNOB", 29, 3001, 155, "Front Dash", "CDI CRS Selector Knob")
 
 UH_1H:define3PosTumb("MASTER_ARM_SW", 9, 3008, 252, "Armament Panel", "Master Arm OFF - SAFE - ARMED")
-UH_1H:define3PosTumb("GUN_SEL", 9, 3009, 253, "Armament Panel", "Gun Selector LEFT / BOTH / RIGHT")
+UH_1H:define3PosTumb("GUN_SEL", 9, 3009, 253, "Armament Panel", "Gun Selector", { positions = { "LEFT", "BOTH", "RIGHT" } })
 UH_1H:define3PosTumb("ROCKET_SEL", 9, 3010, 256, "Armament Panel", "7.62 / 2.75 / 40")
 UH_1H:defineMultipositionSwitch("ROCKET_PAIR", 9, 3011, 257, 8, 0.1, "Armament Panel", "Rocket Pair")
 UH_1H:definePushButton("ROCKET_RESET", 9, 3012, 258, "Armament Panel", "Rocket Reset")
@@ -416,13 +416,13 @@ UH_1H:defineToggleSwitch("JTSN_COVER", 9, 3013, 259, "Armament Panel", "Jettison
 UH_1H:definePushButton("JTSN_BTN", 9, 3014, 260, "Armament Panel", "Jettison Switch")
 
 UH_1H:definePotentiometer("SIGHT_INTEN_CPLT", 32, 3001, 281, { 0, 1 }, "Flex Sight", "Copilot Sighting System Intensity Knob")
-UH_1H:define3PosTumb("SIGHT_LAMP_SW", 32, 3003, 408, "Flex Sight", "Sighting Station Lamp Switch BACKUP / OFF / MAIN")
+UH_1H:define3PosTumb("SIGHT_LAMP_SW", 32, 3003, 408, "Flex Sight", "Sighting Station Lamp Switch", { positions = { "BACKUP", "OFF", "MAIN" } })
 UH_1H:defineToggleSwitch("SIGHT_ARM_PLT", 49, 3005, 438, "Flex Sight", "Pilot Sight Armed / Safe")
 UH_1H:defineToggleSwitch("SIGHT_PWR_PLT", 49, 3006, 439, "Flex Sight", "Pilot Sight Off / On")
 UH_1H:definePotentiometer("SIGHT_INTEN_PLT", 49, 3001, 440, { 0, 1 }, "Flex Sight", "Pilot Sight Intensity Knob")
 UH_1H:definePotentiometer("SIGHT_ELEV_PLT", 49, 3003, 441, { -1, 1 }, "Flex Sight", "Pilot Sight Elevation")
 
-UH_1H:define3PosTumb("WIPER_SEL", 12, 3002, 227, "Overhead Panel", "Wiper PILOT / BOTH / OPERATOR")
+UH_1H:define3PosTumb("WIPER_SEL", 12, 3002, 227, "Overhead Panel", "Wiper", { positions = { "PILOT", "BOTH", "OPERATOR" } })
 UH_1H:defineFixedStepTumb("WIPER_SPD", 12, 3001, 229, 0.1, { 0, 0.4 }, { -1, 1 }, nil, "Overhead Panel", "Wiper Speed PARK - STOP - SLOW - MED - HIGH")
 
 UH_1H:definePushButton("TRIM_PLT", 41, 3001, 189, "Cyclic", "Force Trim (Pilot Side)")
@@ -494,7 +494,7 @@ UH_1H:defineToggleSwitch("THROTTLE_STOP2", 3, 3031, 213, "Collective", "Copilot 
 UH_1H:defineRockerSwitch("GOV_RPM_SW2", 3, 3029, 3029, 3029, 3029, 210, "Collective", "Copilot Governor RPM Rocker Switch")
 
 UH_1H:defineToggleSwitch("LDG_LIGHT_SW2", 7, 3034, 209, "Collective", "Copilot Landing Lights Switch")
-UH_1H:define3PosTumb("SEARCH_LIGHT_SW2", 7, 3035, 208, "Collective", "Copilot Search Light STOW / OFF / ON")
+UH_1H:define3PosTumb("SEARCH_LIGHT_SW2", 7, 3035, 208, "Collective", "Copilot Search Light", { positions = { "STOW", "OFF", "ON" } })
 UH_1H:define3PosTumb("LDG_LT_CTRL2", 7, 3036, 212, "Collective", "Copilot Landing Lights Control Switch")
 
 UH_1H:defineFloat("SBY_COMPASS_HDG", 272, { -1, 1 }, "Front Dash", "Standby Compass Heading")

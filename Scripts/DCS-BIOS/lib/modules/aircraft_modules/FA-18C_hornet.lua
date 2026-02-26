@@ -91,7 +91,7 @@ function FA_18C_hornet:defineMissionComputerSwitch(identifier, device_id, mc1_of
 		SetStateInput:new(2, "set the switch position -- 0 = 1OFF, 1 = NORM, 2 = 2OFF"),
 	}, {
 		IntegerOutput:new(alloc, Suffix.none, "switch position -- 0 = 1OFF, 1 = NORM, 2 = 2OFF"),
-	})
+	}, nil, { positions = { "1 OFF", "NORM", "2 OFF" } })
 
 	self:addControl(control)
 
@@ -266,7 +266,7 @@ FA_18C_hornet:defineIndicatorLight("MC_READY", 44, "Master Arm Panel", "READY Li
 FA_18C_hornet:definePushButton("FIRE_EXT_BTN", 12, 3008, 46, "Fire Systems", "Fire Extinguisher Pushbutton")
 
 -- 13. Left DDI
-FA_18C_hornet:defineTumb("LEFT_DDI_BRT_SELECT", 35, 3001, 51, 0.1, { 0, 0.2 }, nil, false, "Left DDI", "Brightness Selector Knob, OFF/NIGHT/DAY")
+FA_18C_hornet:defineTumb("LEFT_DDI_BRT_SELECT", 35, 3001, 51, 0.1, { 0, 0.2 }, nil, false, "Left DDI", "Brightness Selector Knob", { positions = { "OFF", "NIGHT", "DAY" } })
 FA_18C_hornet:definePotentiometer("LEFT_DDI_BRT_CTL", 35, 3002, 52, { 0, 1 }, "Left DDI", "Brightness Control Knob")
 FA_18C_hornet:definePotentiometer("LEFT_DDI_CONT_CTL", 35, 3003, 53, { 0, 1 }, "Left DDI", "Contrast Control Knob")
 FA_18C_hornet:definePushButton("LEFT_DDI_PB_01", 35, 3011, 54, "Left DDI", "Pushbutton 1")
@@ -306,7 +306,7 @@ FA_18C_hornet:definePushButton("UFC_OS3", 25, 3012, 102, "Up Front Controller (U
 FA_18C_hornet:definePushButton("UFC_OS4", 25, 3013, 103, "Up Front Controller (UFC)", "Option Select Pushbutton 4")
 FA_18C_hornet:definePushButton("UFC_OS5", 25, 3014, 106, "Up Front Controller (UFC)", "Option Select Pushbutton 5")
 FA_18C_hornet:definePushButton("UFC_IP", 25, 3015, 99, "Up Front Controller (UFC)", "I/P Pushbutton")
-FA_18C_hornet:define3PosTumb("UFC_ADF", 25, 3016, 107, "Up Front Controller (UFC)", "ADF Function Select Switch, 1/OFF/2")
+FA_18C_hornet:define3PosTumb("UFC_ADF", 25, 3016, 107, "Up Front Controller (UFC)", "ADF Function Select Switch", { positions = { "1", "OFF", "2" } })
 FA_18C_hornet:definePushButton("UFC_EMCON", 25, 3017, 110, "Up Front Controller (UFC)", "Emission Control Pushbutton")
 FA_18C_hornet:definePushButton("UFC_0", 25, 3018, 120, "Up Front Controller (UFC)", "UFC Keyboard Pushbutton, 0")
 FA_18C_hornet:definePushButton("UFC_1", 25, 3019, 111, "Up Front Controller (UFC)", "UFC Keyboard Pushbutton, 1")
@@ -376,7 +376,7 @@ FA_18C_hornet:defineString("UFC_SCRATCHPAD_STRING_2_DISPLAY", function()
 end, 2, "Up Front Controller (UFC)", "Scratchpad String 2 Display")
 
 -- 15. Right DDI
-FA_18C_hornet:defineTumb("RIGHT_DDI_BRT_SELECT", 36, 3001, 76, 0.1, { 0, 0.2 }, nil, false, "Right DDI", "Brightness Selector Knob, OFF/NIGHT/DAY")
+FA_18C_hornet:defineTumb("RIGHT_DDI_BRT_SELECT", 36, 3001, 76, 0.1, { 0, 0.2 }, nil, false, "Right DDI", "Brightness Selector Knob", { positions = { "OFF", "NIGHT", "DAY" } })
 FA_18C_hornet:definePotentiometer("RIGHT_DDI_BRT_CTL", 36, 3002, 77, { 0, 1 }, "Right DDI", "Brightness Control Knob")
 FA_18C_hornet:definePotentiometer("RIGHT_DDI_CONT_CTL", 36, 3003, 78, { 0, 1 }, "Right DDI", "Contrast Control Knob")
 FA_18C_hornet:definePushButton("RIGHT_DDI_PB_01", 36, 3011, 79, "Right DDI", "Pushbutton 1")
@@ -405,21 +405,21 @@ FA_18C_hornet:defineIndicatorLight("SPIN_LT", 137, "Map Gain/Spin Recovery Panel
 FA_18C_hornet:defineToggleSwitch("SPIN_RECOVERY_COVER", 2, 3008, 139, "Map Gain/Spin Recovery Panel", "Spin Recovery Switch Cover, OPEN/CLOSE")
 FA_18C_hornet:defineToggleSwitch("SPIN_RECOVERY_SW", 2, 3009, 138, "Map Gain/Spin Recovery Panel", "Spin Recovery Switch, RCVY/NORM")
 FA_18C_hornet:definePotentiometer("HMD_OFF_BRT", 58, 3001, 136, { 0, 0.75 }, "Map Gain/Spin Recovery Panel", "HMD OFF/BRT Knob")
-FA_18C_hornet:defineTumb("IR_COOL_SW", 23, 3013, 135, 0.1, { 0, 0.2 }, nil, false, "Map Gain/Spin Recovery Panel", "IR Cooling Switch, ORIDE/NORM/OFF")
+FA_18C_hornet:defineTumb("IR_COOL_SW", 23, 3013, 135, 0.1, { 0, 0.2 }, nil, false, "Map Gain/Spin Recovery Panel", "IR Cooling Switch", { positions = { "ORIDE", "NORM", "OFF" } })
 
 -- 17. Emergency Jettison Button
 FA_18C_hornet:definePushButton("EMER_JETT_BTN", 23, 3004, 50, "Emergency Jettison Button", "Emergency Jettison Button")
 
 -- 18. HUD Control Panel
-FA_18C_hornet:defineTumb("HUD_SYM_REJ_SW", 34, 3001, 140, 0.1, { 0, 0.2 }, nil, false, "HUD Control Panel", "HUD Symbology Reject Switch, NORM/REJ 1/REJ 2")
+FA_18C_hornet:defineTumb("HUD_SYM_REJ_SW", 34, 3001, 140, 0.1, { 0, 0.2 }, nil, false, "HUD Control Panel", "HUD Symbology Reject Switch", { positions = { "NORM", "REJ 1", "REJ 2" } })
 FA_18C_hornet:definePotentiometer("HUD_SYM_BRT", 34, 3002, 141, { 0, 1 }, "HUD Control Panel", "HUD Symbology Brightness Control Knob")
 FA_18C_hornet:defineToggleSwitch("HUD_SYM_BRT_SELECT", 34, 3003, 142, "HUD Control Panel", "HUD Symbology Brightness Selector Knob, DAY/NIGHT")
 FA_18C_hornet:definePotentiometer("HUD_BLACK_LVL", 34, 3004, 143, { 0, 1 }, "HUD Control Panel", "Black Level Control Knob")
-FA_18C_hornet:defineTumb("HUD_VIDEO_CONTROL_SW", 34, 3005, 144, 0.1, { 0, 0.2 }, nil, false, "HUD Control Panel", "HUD Video Control Switch, W/B /VID/OFF")
+FA_18C_hornet:defineTumb("HUD_VIDEO_CONTROL_SW", 34, 3005, 144, 0.1, { 0, 0.2 }, nil, false, "HUD Control Panel", "HUD Video Control Switch", { positions = { "W/B", "VID", "OFF" } })
 FA_18C_hornet:definePotentiometer("HUD_BALANCE", 34, 3006, 145, { 0, 1 }, "HUD Control Panel", "Balance Control Knob")
 FA_18C_hornet:definePotentiometer("HUD_AOA_INDEXER", 34, 3007, 146, { 0, 1 }, "HUD Control Panel", "AOA Indexer Control Knob")
 FA_18C_hornet:defineToggleSwitch("HUD_ALT_SW", 34, 3008, 147, "HUD Control Panel", "Altitude Switch, BARO/RDR")
-FA_18C_hornet:define3PosTumb("HUD_ATT_SW", 34, 3009, 148, "HUD Control Panel", "Attitude Selector Switch, INS/AUTO/STBY")
+FA_18C_hornet:define3PosTumb("HUD_ATT_SW", 34, 3009, 148, "HUD Control Panel", "Attitude Selector Switch", { positions = { "INS", "AUTO", "STBY" } })
 
 -- 19. Standby Magnetic Compass
 FA_18C_hornet:defineFloat("SBY_COMPASS_HDG", 149, { 0, 1 }, "Standby Compass", "Standby Compass Heading")
@@ -586,9 +586,9 @@ end, 1, "Integrated Fuel/Engine Indicator (IFEI)", "Zulu Texture Visible: 1 = ye
 
 -- 23. HUD Video Record Panel
 FA_18C_hornet:definePotentiometer("IFEI", 33, 3007, 174, { 0, 1 }, "HUD Video Record Panel", "Brightness Control Knob")
-FA_18C_hornet:define3PosTumb("SELECT_HMD_LDDI_RDDI", 0, 3104, 175, "HUD Video Record Panel", "Selector Switch, HMD/LDDI/RDDI")
-FA_18C_hornet:define3PosTumb("SELECT_HUD_LDDI_RDDI", 0, 3105, 176, "HUD Video Record Panel", "Selector Switch, HUD/LDIR/RDDI")
-FA_18C_hornet:define3PosTumb("MODE_SELECTOR_SW", 0, 3106, 314, "HUD Video Record Panel", "Mode Selector Switch, MAN/OFF/AUTO")
+FA_18C_hornet:define3PosTumb("SELECT_HMD_LDDI_RDDI", 0, 3104, 175, "HUD Video Record Panel", "Selector Switch", { positions = { "HMD", "LDDI", "RDDI" } })
+FA_18C_hornet:define3PosTumb("SELECT_HUD_LDDI_RDDI", 0, 3105, 176, "HUD Video Record Panel", "Selector Switch", { positions = { "HUD", "LDIR", "RDDI" } })
+FA_18C_hornet:define3PosTumb("MODE_SELECTOR_SW", 0, 3106, 314, "HUD Video Record Panel", "Mode Selector Switch", { positions = { "MAN", "OFF", "AUTO" } })
 
 -- 24. AMPCD
 FA_18C_hornet:definePotentiometer("AMPCD_BRT_CTL", 37, 3001, 203, { 0, 1 }, "AMPCD", "Brightness Control Knob")
@@ -656,11 +656,11 @@ FA_18C_hornet:definePushButton("GEAR_SILENCE_BTN", 40, 3018, 230, "Landing Gear 
 
 -- 32. Select Jettison Button
 FA_18C_hornet:definePushButton("SEL_JETT_BTN", 23, 3010, 235, "Select Jettison Button", "Selective Jettison Pushbutton")
-FA_18C_hornet:defineTumb("SEL_JETT_KNOB", 23, 3011, 236, 0.1, { -0.1, 0.3 }, nil, false, "Select Jettison Button", "Selective Jettison Knob, L FUS MSL/SAFE/R FUS MSL/ RACK/LCHR /STORES")
+FA_18C_hornet:defineTumb("SEL_JETT_KNOB", 23, 3011, 236, 0.1, { -0.1, 0.3 }, nil, false, "Select Jettison Button", "Selective Jettison Knob", { positions = { "L FUS MSL", "SAFE", "R FUS MSL", "RACK/LCHR", "STORES" } })
 FA_18C_hornet:defineToggleSwitch("ANTI_SKID_SW", 5, 3004, 238, "Select Jettison Button", "Anti Skid")
-FA_18C_hornet:defineToggleSwitchToggleOnly("LAUNCH_BAR_SW", 5, 3008, 233, "Select Jettison Button", "Launch Bar")
+FA_18C_hornet:defineToggleSwitchToggleOnly("LAUNCH_BAR_SW", 5, 3008, 233, "Select Jettison Button", "Launch Bar Switch")
 FA_18C_hornet:defineToggleSwitchToggleOnly("HOOK_BYPASS_SW", 9, 3009, 239, "Select Jettison Button", "HOOK BYPASS Switch, FIELD/CARRIER")
-FA_18C_hornet:define3PosTumb("FLAP_SW", 2, 3007, 234, "Select Jettison Button", "FLAP Switch, AUTO/HALF/FULL")
+FA_18C_hornet:define3PosTumb("FLAP_SW", 2, 3007, 234, "Select Jettison Button", "FLAP Switch", { positions = { "AUTO", "HALF", "FULL" } })
 FA_18C_hornet:defineToggleSwitch("LDG_TAXI_SW", 8, 3004, 237, "Select Jettison Button", "LDG/TAXI LIGHT Switch")
 FA_18C_hornet:defineFloat("HYD_IND_BRAKE", 242, { 0, 1 }, "Select Jettison Button", "HYD Indicator Brake")
 
@@ -669,9 +669,9 @@ FA_18C_hornet:defineToggleSwitch("EMERGENCY_PARKING_BRAKE_PULL", 5, 3005, 240, "
 FA_18C_hornet:defineEmergencyParkingBrake("EMERGENCY_PARKING_BRAKE_ROTATE", 5, 3007, 3006, 241, "Emergency and Parking Brake Handle", "Emergency/Parking Brake Rotate")
 
 -- 35. Dispenser/EMC Panel
-FA_18C_hornet:defineTumb("CMSD_DISPENSE_SW", 54, 3001, 517, 0.1, { 0, 0.2 }, nil, false, "Dispenser/EMC Panel", "DISPENSER Switch, BYPASS/ON/OFF")
+FA_18C_hornet:defineTumb("CMSD_DISPENSE_SW", 54, 3001, 517, 0.1, { 0, 0.2 }, nil, false, "Dispenser/EMC Panel", "DISPENSER Switch", { positions = { "BYPASS", "ON", "OFF" } })
 FA_18C_hornet:definePushButton("CMSD_JET_SEL_BTN", 54, 3003, 515, "Dispenser/EMC Panel", "ECM JETT JETT SEL Button - Push to jettison")
-FA_18C_hornet:defineTumb("ECM_MODE_SW", 66, 3001, 248, 0.1, { 0, 0.4 }, nil, false, "Dispenser/EMC Panel", "ECM Mode Switch, XMIT/REC/BIT/STBY/OFF")
+FA_18C_hornet:defineTumb("ECM_MODE_SW", 66, 3001, 248, 0.1, { 0, 0.4 }, nil, false, "Dispenser/EMC Panel", "ECM Mode Switch", { positions = { "XMIT", "REC", "BIT", "STBY", "OFF" } })
 FA_18C_hornet:defineToggleSwitch("AUX_REL_SW", 23, 3012, 258, "Dispenser/EMC Panel", "Auxiliary Release Switch, ENABLE/NORM")
 
 -- 36. RWR Control Indicator
@@ -681,7 +681,7 @@ FA_18C_hornet:definePushButton("RWR_SPECIAL_BTN", 53, 3003, 272, "RWR Control In
 FA_18C_hornet:definePushButton("RWR_OFFSET_BTN", 53, 3004, 269, "RWR Control Indicator", "ALR-67 OFFSET Pushbutton")
 FA_18C_hornet:definePushButton("RWR_BIT_BTN", 53, 3005, 266, "RWR Control Indicator", "ALR-67 BIT Pushbutton")
 FA_18C_hornet:definePotentiometer("RWR_DMR_CTRL", 53, 3006, 263, { 0, 1 }, "RWR Control Indicator", "ALR-67 DMR Control Knob")
-FA_18C_hornet:defineTumb("RWR_DIS_TYPE_SW", 53, 3007, 261, 0.1, { 0, 0.4 }, nil, false, "RWR Control Indicator", "ALR-67 DIS TYPE Switch, N/I/A/U/F")
+FA_18C_hornet:defineTumb("RWR_DIS_TYPE_SW", 53, 3007, 261, 0.1, { 0, 0.4 }, nil, false, "RWR Control Indicator", "ALR-67 DIS TYPE Switch", { positions = { "N", "I", "A", "U", "F" } })
 FA_18C_hornet:definePotentiometer("RWR_RWR_INTESITY", 53, 3008, 216, { 0, 1 }, "RWR Control Indicator", "RWR Intensity Knob")
 FA_18C_hornet:defineIndicatorLight("RWR_LOWER_LT", 276, "RWR Control Indicator", "ALR-67 POWER Light ON (green)")
 FA_18C_hornet:defineIndicatorLight("RWR_LIMIT_LT", 273, "RWR Control Indicator", "ALR-67 LIMIT Light (green)")
@@ -720,7 +720,7 @@ FA_18C_hornet:defineIndicatorLight("ARRESTING_HOOK_LT", 294, "Arresting Hook Han
 
 -- 44. Wing Fold Switch
 FA_18C_hornet:defineToggleSwitch("WING_FOLD_PULL", 2, 3010, 296, "Wing Fold Switch", "Wing Fold Control Handle Pull")
-FA_18C_hornet:define3PosTumb("WING_FOLD_ROTATE", 2, 3011, 295, "Wing Fold Switch", "Wing Fold Control Handle, FOLD/HOLD/UNFOLD")
+FA_18C_hornet:define3PosTumb("WING_FOLD_ROTATE", 2, 3011, 295, "Wing Fold Switch", "Wing Fold Control Handle", { positions = { "FOLD", "HOLD", "UNFOLD" } })
 
 -- 45. Flight Computer Cool Switch
 FA_18C_hornet:defineToggleSwitch("AV_COOL_SW", 11, 3008, 297, "Flight Computer Cool Switch", "AV COOL Switch, NORM/EMERG")
@@ -752,11 +752,11 @@ FA_18C_hornet:defineRockerSwitch("LEFT_DDI_CRS_SW", 35, 3006, 3006, 3007, 3007, 
 FA_18C_hornet:defineRockerSwitch("FIRE_TEST_SW", 12, 3006, 3006, 3007, 3007, 331, "Fire Test Panel", "Fire and Bleed Air Test Switch, (RMB) TEST A/(LMB) TEST B")
 
 -- 2. Ground Power Panel
-FA_18C_hornet:defineRockerSwitch("EXT_PWR_SW", 3, 3005, 3005, 3004, 3004, 336, "Ground Power Panel", "External Power Switch, RESET/NORM/OFF")
-FA_18C_hornet:defineRockerSwitch("GND_PWR_1_SW", 3, 3008, 3008, 3009, 3009, 332, "Ground Power Panel", "Ground Power Switch 1, A ON/AUTO/B ON")
-FA_18C_hornet:defineRockerSwitch("GND_PWR_2_SW", 3, 3010, 3010, 3011, 3011, 333, "Ground Power Panel", "Ground Power Switch 2, A ON/AUTO/B ON")
-FA_18C_hornet:defineRockerSwitch("GND_PWR_3_SW", 3, 3012, 3012, 3013, 3013, 334, "Ground Power Panel", "Ground Power Switch 3, A ON/AUTO/B ON")
-FA_18C_hornet:defineRockerSwitch("GND_PWR_4_SW", 3, 3014, 3014, 3015, 3015, 335, "Ground Power Panel", "Ground Power Switch 4, A ON/AUTO/B ON")
+FA_18C_hornet:defineRockerSwitch("EXT_PWR_SW", 3, 3005, 3005, 3004, 3004, 336, "Ground Power Panel", "External Power Switch", { positions = { "RESET", "NORM", "OFF" } })
+FA_18C_hornet:defineRockerSwitch("GND_PWR_1_SW", 3, 3008, 3008, 3009, 3009, 332, "Ground Power Panel", "Ground Power Switch 1", { positions = { "A ON", "AUTO", "B ON" } })
+FA_18C_hornet:defineRockerSwitch("GND_PWR_2_SW", 3, 3010, 3010, 3011, 3011, 333, "Ground Power Panel", "Ground Power Switch 2", { positions = { "A ON", "AUTO", "B ON" } })
+FA_18C_hornet:defineRockerSwitch("GND_PWR_3_SW", 3, 3012, 3012, 3013, 3013, 334, "Ground Power Panel", "Ground Power Switch 3", { positions = { "A ON", "AUTO", "B ON" } })
+FA_18C_hornet:defineRockerSwitch("GND_PWR_4_SW", 3, 3014, 3014, 3015, 3015, 335, "Ground Power Panel", "Ground Power Switch 4", { positions = { "A ON", "AUTO", "B ON" } })
 
 -- 3. Throttle Quadrant
 FA_18C_hornet:definePotentiometer("THROTTLE_FRICTION", 2, 3012, 504, { 0, 1 }, "Throttle Quadrant", "Throttles Friction Adjusting Lever")
@@ -768,10 +768,10 @@ FA_18C_hornet:define3PosTumb("STROBE_SW", 8, 3003, 339, "Exterior Lights Panel",
 FA_18C_hornet:defineToggleSwitch("INT_WNG_TANK_SW", 6, 3001, 340, "Exterior Lights Panel", "Internal Wing Tank Fuel Control Switch, INHIBIT/NORM")
 
 -- 5. Fuel Panel
-FA_18C_hornet:define3PosTumb("PROBE_SW", 6, 3002, 341, "Fuel Panel", "Probe Control Switch, EXTEND/RETRACT/EMERG EXTD")
+FA_18C_hornet:define3PosTumb("PROBE_SW", 6, 3002, 341, "Fuel Panel", "Probe Control Switch", { positions = { "EXTEND", "RETRACT", "EMERG EXTD" } })
 FA_18C_hornet:defineToggleSwitchToggleOnly("FUEL_DUMP_SW", 6, 3003, 344, "Fuel Panel", "Fuel Dump Switch, ON/OFF")
-FA_18C_hornet:define3PosTumb("EXT_CNT_TANK_SW", 6, 3004, 343, "Fuel Panel", "External Centerline Tank Fuel Control Switch, STOP/NORM/ORIDE")
-FA_18C_hornet:define3PosTumb("EXT_WNG_TANK_SW", 6, 3005, 342, "Fuel Panel", "External Wing Tanks Fuel Control Switch, STOP/NORM/ORIDE")
+FA_18C_hornet:define3PosTumb("EXT_CNT_TANK_SW", 6, 3004, 343, "Fuel Panel", "External Centerline Tank Fuel Control Switch", { positions = { "STOP", "NORM", "ORIDE" } })
+FA_18C_hornet:define3PosTumb("EXT_WNG_TANK_SW", 6, 3005, 342, "Fuel Panel", "External Wing Tanks Fuel Control Switch", { positions = { "STOP", "NORM", "ORIDE" } })
 
 -- 6. Flight Control System Panel
 FA_18C_hornet:definePotentiometer("RUD_TRIM", 2, 3001, 345, { -1, 1 }, "Flight Control System Panel", "RUD TRIM Control")
@@ -789,11 +789,11 @@ FA_18C_hornet:definePotentiometer("COM_MIDS_A", 40, 3006, 362, { 0, 1 }, "Commun
 FA_18C_hornet:definePotentiometer("COM_MIDS_B", 40, 3007, 361, { 0, 1 }, "Communication Panel", "MIDS B Volume Control Knob")
 FA_18C_hornet:definePotentiometer("COM_TACAN", 40, 3008, 363, { 0, 1 }, "Communication Panel", "TACAN Volume Control Knob")
 FA_18C_hornet:definePotentiometer("COM_AUX", 40, 3009, 364, { 0, 1 }, "Communication Panel", "AUX Volume Control Knob")
-FA_18C_hornet:define3PosTumb("COM_COMM_RELAY_SW", 40, 3010, 350, "Communication Panel", "Comm Relay Switch, CIPHER/OFF/PLAIN")
-FA_18C_hornet:define3PosTumb("COM_COMM_G_XMT_SW", 40, 3011, 351, "Communication Panel", "COMM G XMT Switch, COMM 1/OFF/COMM 2")
+FA_18C_hornet:define3PosTumb("COM_COMM_RELAY_SW", 40, 3010, 350, "Communication Panel", "Comm Relay Switch", { positions = { "CIPHER", "OFF", "PLAIN" } })
+FA_18C_hornet:define3PosTumb("COM_COMM_G_XMT_SW", 40, 3011, 351, "Communication Panel", "COMM G XMT Switch", { positions = { "COMM 1", "OFF", "COMM 2" } })
 FA_18C_hornet:defineToggleSwitch("COM_IFF_MASTER_SW", 40, 3012, 356, "Communication Panel", "IFF Master Switch, EMER/NORM")
-FA_18C_hornet:define3PosTumb("COM_IFF_MODE4_SW", 40, 3013, 355, "Communication Panel", "IFF Mode 4 Switch, DIS/AUD /DIS/OFF")
-FA_18C_hornet:defineRockerSwitch("COM_CRYPTO_SW", 40, 3015, 3015, 3014, 3014, 354, "Communication Panel", "CRYPTO Switch, HOLD/NORM/ZERO")
+FA_18C_hornet:define3PosTumb("COM_IFF_MODE4_SW", 40, 3013, 355, "Communication Panel", "IFF Mode 4 Switch", { positions = { "DIS/AUD", "DIS", "OFF" } })
+FA_18C_hornet:defineRockerSwitch("COM_CRYPTO_SW", 40, 3015, 3015, 3014, 3014, 354, "Communication Panel", "CRYPTO Switch", { positions = { "HOLD", "NORM", "ZERO" } })
 FA_18C_hornet:defineToggleSwitch("COM_ILS_UFC_MAN_SW", 40, 3016, 353, "Communication Panel", "ILS UFC/MAN Switch, UFC/MAN")
 FA_18C_hornet:defineTumb("COM_ILS_CHANNEL_SW", 40, 3017, 352, 0.05, { 0, 0.95 }, nil, false, "Communication Panel", "ILS Channel Selector Switch")
 
@@ -802,16 +802,16 @@ FA_18C_hornet:defineToggleSwitch("OBOGS_SW", 10, 3001, 365, "LOX Indicator", "OB
 FA_18C_hornet:definePotentiometer("OXY_FLOW", 10, 3002, 366, { 0, 1 }, "LOX Indicator", "OXY Flow Knob")
 
 -- 12. Mission Computer and Hydraulic Isolate Panel
-FA_18C_hornet:defineMissionComputerSwitch("MC_SW", 3, 3025, 3026, 368, "Mission Computer and Hydraulic Isolate Panel", "MC Switch, 1 OFF/NORM/2 OFF")
+FA_18C_hornet:defineMissionComputerSwitch("MC_SW", 3, 3025, 3026, 368, "Mission Computer and Hydraulic Isolate Panel", "MC Switch")
 FA_18C_hornet:defineToggleSwitch("HYD_ISOLATE_OVERRIDE_SW", 4, 3001, 369, "Mission Computer and Hydraulic Isolate Panel", "Hydraulic Isolate Override Switch, NORM/ORIDE")
 
 -- 13. Antenna Select Panel
-FA_18C_hornet:define3PosTumb("COMM1_ANT_SELECT_SW", 50, 3001, 373, "Antenna Select Panel", "COMM 1 Antenna Selector Switch, UPPER/AUTO/LOWER")
-FA_18C_hornet:define3PosTumb("IFF_ANT_SELECT_SW", 50, 3002, 374, "Antenna Select Panel", "IFF Antenna Selector Switch, UPPER/BOTH/LOWER")
+FA_18C_hornet:define3PosTumb("COMM1_ANT_SELECT_SW", 50, 3001, 373, "Antenna Select Panel", "COMM 1 Antenna Selector Switch", { positions = { "UPPER", "AUTO", "LOWER" } })
+FA_18C_hornet:define3PosTumb("IFF_ANT_SELECT_SW", 50, 3002, 374, "Antenna Select Panel", "IFF Antenna Selector Switch", { positions = { "UPPER", "BOTH", "LOWER" } })
 
 -- 14. Auxiliary Power Unit Panel
 FA_18C_hornet:defineToggleSwitchToggleOnly("APU_CONTROL_SW", 12, 3001, 375, "Auxiliary Power Unit Panel", "APU Control Switch, ON/OFF")
-FA_18C_hornet:defineRockerSwitch("ENGINE_CRANK_SW", 12, 3003, 3003, 3002, 3002, 377, "Auxiliary Power Unit Panel", "Engine Crank Switch, LEFT/OFF/RIGHT")
+FA_18C_hornet:defineRockerSwitch("ENGINE_CRANK_SW", 12, 3003, 3003, 3002, 3002, 377, "Auxiliary Power Unit Panel", "Engine Crank Switch", { positions = { "LEFT", "OFF", "RIGHT" } })
 FA_18C_hornet:defineIndicatorLight("APU_READY_LT", 376, "Auxiliary Power Unit Panel", "APU Ready Light (green)")
 
 -- 15. Generator Tie Control Switch
@@ -829,51 +829,51 @@ FA_18C_hornet:definePushButton("CB_LAUNCH_BAR", 3, 3020, 384, "Left Essential Ci
 
 ---- RIGHT CONSOLE
 -- 1. Electrical Power Panel
-FA_18C_hornet:define3PosTumb("BATTERY_SW", 3, 3001, 404, "Electrical Power Panel", "Battery Switch, ON/OFF/ORIDE")
+FA_18C_hornet:define3PosTumb("BATTERY_SW", 3, 3001, 404, "Electrical Power Panel", "Battery Switch", { positions = { "ON", "OFF", "ORIDE" } })
 FA_18C_hornet:defineToggleSwitch("L_GEN_SW", 3, 3002, 402, "Electrical Power Panel", "Left Generator Control Switch, NORM/OFF")
 FA_18C_hornet:defineToggleSwitch("R_GEN_SW", 3, 3003, 403, "Electrical Power Panel", "Right Generator Control Switch, NORM/OFF")
 FA_18C_hornet:defineFloat("VOLT_U", 400, { 0, 1 }, "Electrical Power Panel", "Battery U Volts")
 FA_18C_hornet:defineFloat("VOLT_E", 401, { 0, 1 }, "Electrical Power Panel", "Battery E Volts")
 
 -- 2. Environment Control System Panel
-FA_18C_hornet:defineTumb("BLEED_AIR_KNOB", 11, 3001, 411, 0.1, { 0, 0.3 }, nil, true, "Environment Control System Panel", "Bleed Air Knob, R OFF/NORM/L OFF/OFF")
+FA_18C_hornet:defineTumb("BLEED_AIR_KNOB", 11, 3001, 411, 0.1, { 0, 0.3 }, nil, true, "Environment Control System Panel", "Bleed Air Knob", { positions = { "R OFF", "NORM", "L OFF", "OFF" } })
 FA_18C_hornet:defineToggleSwitch("BLEED_AIR_PULL", 11, 3002, 412, "Environment Control System Panel", "Bleed Air Knob, AUG PULL")
-FA_18C_hornet:define3PosTumb("ECS_MODE_SW", 11, 3003, 405, "Environment Control System Panel", "ECS Mode Switch, AUTO/MAN/ OFF/RAM")
-FA_18C_hornet:define3PosTumb("CABIN_PRESS_SW", 11, 3004, 408, "Environment Control System Panel", "Cabin Pressure Switch, NORM/DUMP/ RAM/DUMP")
+FA_18C_hornet:define3PosTumb("ECS_MODE_SW", 11, 3003, 405, "Environment Control System Panel", "ECS Mode Switch", { positions = { "AUTO", "MAN", "OFF/RAM" } })
+FA_18C_hornet:define3PosTumb("CABIN_PRESS_SW", 11, 3004, 408, "Environment Control System Panel", "Cabin Pressure Switch", { positions = { "NORM", "DUMP", "RAM/DUMP" } })
 FA_18C_hornet:definePotentiometer("CABIN_TEMP", 11, 3006, 407, { 0, 1 }, "Environment Control System Panel", "Cabin Temperature Knob")
 FA_18C_hornet:definePotentiometer("SUIT_TEMP", 11, 3007, 406, { 0, 1 }, "Environment Control System Panel", "Suit Temperature Knob")
-FA_18C_hornet:define3PosTumb("ENG_ANTIICE_SW", 12, 3014, 410, "Environment Control System Panel", "Engine Anti-Ice Switch, ON/OFF/TEST")
+FA_18C_hornet:define3PosTumb("ENG_ANTIICE_SW", 12, 3014, 410, "Environment Control System Panel", "Engine Anti-Ice Switch", { positions = { "ON", "OFF", "TEST" } })
 FA_18C_hornet:defineToggleSwitchToggleOnly("PITOT_HEAT_SW", 3, 3016, 409, "Environment Control System Panel", "Pitot Heater Switch, ON/AUTO")
 
 -- 3. Interior Lights Panel
 FA_18C_hornet:definePotentiometer("CONSOLES_DIMMER", 9, 3001, 413, { 0, 1 }, "Interior Lights Panel", "CONSOLES Lights Dimmer")
 FA_18C_hornet:definePotentiometer("INST_PNL_DIMMER", 9, 3002, 414, { 0, 1 }, "Interior Lights Panel", "INST PNL Dimmer")
 FA_18C_hornet:definePotentiometer("FLOOD_DIMMER", 9, 3003, 415, { 0, 1 }, "Interior Lights Panel", "FLOOD Light Dimmer")
-FA_18C_hornet:define3PosTumb("COCKKPIT_LIGHT_MODE_SW", 9, 3004, 419, "Interior Lights Panel", "MODE Switch, NVG/NITE/DAY")
+FA_18C_hornet:define3PosTumb("COCKKPIT_LIGHT_MODE_SW", 9, 3004, 419, "Interior Lights Panel", "MODE Switch", { positions = { "NVG", "NITE", "DAY" } })
 FA_18C_hornet:definePotentiometer("CHART_DIMMER", 9, 3005, 418, { 0, 1 }, "Interior Lights Panel", "CHART Light Dimmer")
 FA_18C_hornet:definePotentiometer("WARN_CAUTION_DIMMER", 9, 3006, 417, { 0, 1 }, "Interior Lights Panel", "WARN/CAUTION Light Dimmer")
 FA_18C_hornet:defineToggleSwitch("LIGHTS_TEST_SW", 9, 3007, 416, "Interior Lights Panel", "Lights Test Switch, TEST/OFF")
 
 -- 5. Sensor Panel
-FA_18C_hornet:define3PosTumb("FLIR_SW", 62, 3001, 439, "Sensor Panel", "FLIR Switch, ON/STBY/OFF")
+FA_18C_hornet:define3PosTumb("FLIR_SW", 62, 3001, 439, "Sensor Panel", "FLIR Switch", { positions = { "ON", "STBY", "OFF" } })
 FA_18C_hornet:defineToggleSwitch("LTD_R_SW", 62, 3002, 441, "Sensor Panel", "LTD/R Switch, ARM/SAFE")
 FA_18C_hornet:defineToggleSwitch("LST_NFLR_SW", 62, 3003, 442, "Sensor Panel", "LST/NFLR Switch, ON/OFF")
 FA_18C_hornet:defineTumb("RADAR_SW", 42, 3001, 440, 0.1, { 0, 0.3 }, nil, false, "Sensor Panel", "RADAR Switch Change ,OFF/STBY/OPR/EMERG(PULL)")
 FA_18C_hornet:definePushButton("RADAR_SW_PULL", 42, 3002, 440, "Sensor Panel", "RADAR Switch Pull (MW to pull), OFF/STBY/OPR/EMERG(PULL)")
-FA_18C_hornet:defineTumb("INS_SW", 44, 3001, 443, 0.1, { 0, 0.7 }, nil, false, "Sensor Panel", "INS Switch, OFF/CV/GND/NAV/IFA/GYRO/GB/TEST")
+FA_18C_hornet:defineTumb("INS_SW", 44, 3001, 443, 0.1, { 0, 0.7 }, nil, false, "Sensor Panel", "INS Switch", { positions = { "OFF", "CV", "GND", "NAV", "IFA", "GYRO", "GB", "TEST" } })
 
 -- 6. KY-58 Control
-FA_18C_hornet:defineTumb("KY58_MODE_SELECT", 41, 3001, 444, 0.1, { 0, 0.3 }, nil, false, "KY-58 Control", "KY-58 Mode Select Knob, P/C/LD/RV")
+FA_18C_hornet:defineTumb("KY58_MODE_SELECT", 41, 3001, 444, 0.1, { 0, 0.3 }, nil, false, "KY-58 Control", "KY-58 Mode Select Knob", { positions = { "P", "C", "LD", "RV" } })
 FA_18C_hornet:definePotentiometer("KY58_VOLUME", 41, 3005, 445, { 0, 1 }, "KY-58 Control", "KY-58 Volume Control Knob")
-FA_18C_hornet:defineTumb("KY58_FILL_SELECT", 41, 3002, 446, 0.1, { 0, 0.7 }, nil, false, "KY-58 Control", "KY-58 Fill Select Knob, Z 1-5/1/2/3/4/5/6/Z ALL")
-FA_18C_hornet:defineTumb("KY58_POWER_SELECT", 41, 3004, 447, 0.1, { 0, 0.2 }, nil, false, "KY-58 Control", "KY-58 Power Select Knob, OFF/ON/TD")
+FA_18C_hornet:defineTumb("KY58_FILL_SELECT", 41, 3002, 446, 0.1, { 0, 0.7 }, nil, false, "KY-58 Control", "KY-58 Fill Select Knob", { positions = { "Z 1-5", "1", "2", "3", "4", "5", "6", "Z ALL" } })
+FA_18C_hornet:defineTumb("KY58_POWER_SELECT", 41, 3004, 447, 0.1, { 0, 0.2 }, nil, false, "KY-58 Control", "KY-58 Power Select Knob", { positions = { "OFF", "ON", "TD" } })
 
 -- 11. Defog Panel
 FA_18C_hornet:definePotentiometer("DEFOG_HANDLE", 11, 3005, 451, { -1, 1 }, "Defog Panel", "Defog Handle")
-FA_18C_hornet:define3PosTumb("WSHIELD_ANTI_ICE_SW", 11, 3009, 452, "Defog Panel", "Windshield Anti-Ice/Rain Switch, ANTI ICE/OFF/RAIN")
+FA_18C_hornet:define3PosTumb("WSHIELD_ANTI_ICE_SW", 11, 3009, 452, "Defog Panel", "Windshield Anti-Ice/Rain Switch", { positions = { "ANTI ICE", "OFF", "RAIN" } })
 
 -- 12. Internal Canopy Switch
-FA_18C_hornet:defineRockerSwitch("CANOPY_SW", 7, 3001, 3001, 3002, 3002, 453, "Internal Canopy Switch", "Canopy Control Switch, OPEN/HOLD/CLOSE")
+FA_18C_hornet:defineRockerSwitch("CANOPY_SW", 7, 3001, 3001, 3002, 3002, 453, "Internal Canopy Switch", "Canopy Control Switch", { positions = { "OPEN", "HOLD", "CLOSE" } })
 
 -- 13. Right Essential Circuit Breakers
 FA_18C_hornet:definePushButton("CB_FCS_CHAN3", 3, 3021, 454, "Right Essential Circuit Breakers", "CB FCS CHAN 3, ON/OFF")
@@ -890,7 +890,7 @@ FA_18C_hornet:defineEjectionHandleSwitch("EJECTION_HANDLE_SW", 7, 3008, 510, "Ej
 FA_18C_hornet:defineToggleSwitch("EJECTION_SEAT_ARMED", 7, 3006, 511, "Ejection Seat", "Ejection Seat SAFE/ARMED Handle, SAFE/ARMED")
 FA_18C_hornet:defineToggleSwitch("EJECTION_SEAT_MNL_OVRD", 7, 3007, 512, "Ejection Seat", "Ejection Seat Manual Override Handle, PULL/PUSH")
 FA_18C_hornet:defineToggleSwitch("SHLDR_HARNESS_SW", 7, 3009, 513, "Ejection Seat", "Shoulder Harness Control Handle, LOCK/UNLOCK")
-FA_18C_hornet:defineRockerSwitch("SEAT_HEIGHT_SW", 7, 3011, 3011, 3010, 3010, 514, "Ejection Seat", "Seat Height Adjustment Switch, UP/HOLD/DOWN")
+FA_18C_hornet:defineRockerSwitch("SEAT_HEIGHT_SW", 7, 3011, 3011, 3010, 3010, 514, "Ejection Seat", "Seat Height Adjustment Switch", { positions = { "UP", "HOLD", "DOWN" } })
 FA_18C_hornet:defineToggleSwitch("HIDE_STICK_TOGGLE", 7, 3013, 575, "Ejection Seat", "Hide Stick toggle")
 
 -- 2. TODO
@@ -909,7 +909,7 @@ FA_18C_hornet:definePushButton("STICK_N_WHEEL_SW", 13, 3013, 480, "Stick", "Stic
 -- HOTAS THROTTLE
 FA_18C_hornet:definePushButton("THROTTLE_CAGE_BTN", 13, 3031, 487, "Throttle Quadrant", "Throttle Cage/Uncage Button")
 FA_18C_hornet:defineRockerSwitch("THROTTLE_DISP_SW", 13, 3032, 3032, 3033, 3033, 488, "Throttle Quadrant", "Throttle Dispense Switch, Aft(FLARE)/Center(OFF)/Forward(CHAFF)")
-FA_18C_hornet:define3PosTumb("THROTTLE_SPEED_BRK", 13, 3035, 489, "Throttle Quadrant", "Throttle Speed Brake Switch, EXTEND/OFF/RETRACT")
+FA_18C_hornet:define3PosTumb("THROTTLE_SPEED_BRK", 13, 3035, 489, "Throttle Quadrant", "Throttle Speed Brake Switch", { positions = { "EXTEND", "OFF", "RETRACT" } })
 FA_18C_hornet:definePushButton("THROTTLE_ATC_SW", 13, 3037, 491, "Throttle Quadrant", "Throttle ATC Engage/Disengage Switch")
 FA_18C_hornet:definePushButton("THROTTLE_FOV_SEL_SW", 13, 3034, 492, "Throttle Quadrant", "Throttle RAID/FLIR FOV Select Button")
 FA_18C_hornet:definePotentiometer("THROTTLE_RADAR_ELEV", 13, 3026, 493, { -1, 1 }, "Throttle Quadrant", "Throttle Radar Elevation Control")
@@ -960,7 +960,7 @@ FA_18C_hornet:defineString("IFEI_R_TEXTURE", function()
 	return Functions.nil_state_to_str_flag(ifei.RTexture)
 end, 1, "Integrated Fuel/Engine Indicator (IFEI)", "Right Texture Visible: 1 = yes, 0 = no")
 
-FA_18C_hornet:defineFloatFromDrawArgument("EXT_HOOK", 25, "External Aircraft Model", "Hook")
+FA_18C_hornet:defineFloatFromDrawArgument("EXT_HOOK", 25, "External Aircraft Model", "Hook Position")
 
 FA_18C_hornet:defineFloat("INT_THROTTLE_LEFT", 104, { 0, 1 }, "Throttle Quadrant", "Left Throttle Position")
 FA_18C_hornet:defineFloat("INT_THROTTLE_RIGHT", 105, { 0, 1 }, "Throttle Quadrant", "Right Throttle Position")
@@ -973,8 +973,20 @@ FA_18C_hornet:defineToggleSwitch("KY58_FILL_SEL_PULL", 41, 3003, 0, "KY-58 Contr
 FA_18C_hornet:defineReadWriteRadio("COMM1", 38, 7, 3, 1000, "COMM1 Radio")
 FA_18C_hornet:defineReadWriteRadio("COMM2", 39, 7, 3, 1000, "COMM2 Radio")
 
+-- HUD dispay strings. see git notes for all field labels
+local hud = {}
+
+FA_18C_hornet:addExportHook(function()
+	hud = Module.parse_indication(1) or {}
+end)
+
 FA_18C_hornet:defineString("HUD_LTDR", function()
-	return Functions.coerce_nil_to_string(Module.parse_indication(1)["MPD_FLIR_LaserStatus_label"])
+	return Functions.coerce_nil_to_string(hud.MPD_FLIR_LaserStatus_label)
 end, 5, "HUD", "Laser Status")
+FA_18C_hornet:defineString("HUD_ATC_NWS_ENGAGED", function()
+	return Functions.coerce_nil_to_string(hud.NWS_cue)
+end, 6, "HUD", "ATC - NWS Engaged")
+
+FA_18C_hornet:defineFloatFromDrawArgument("EXT_LAUNCH_BAR", 85, "External Aircraft Model", "Launch Bar position")
 
 return FA_18C_hornet

@@ -328,7 +328,7 @@ end, 8, "Front UFC Display", "Active UHF 2 (special)")
 --HUD Control Panel
 F_15E:definePotentiometer("F_HUD_BRIGHT", 55, 3120, 120, { 0, 1 }, "Front HUD Control Panel", "FRONT HUD Brightness Control")
 F_15E:defineMultipositionSwitch("F_HUD_SYM_MODE", 55, 3121, 121, 3, 0.5, "Front HUD Control Panel", "FRONT HUD Symbology Reject Mode")
-F_15E:define3PosTumb("F_HUD_D_A_N_MODE", 55, 3122, 122, "Front HUD Control Panel", "FRONT HUD DAY/AUTO/NIGHT Mode Selector")
+F_15E:define3PosTumb("F_HUD_D_A_N_MODE", 55, 3122, 122, "Front HUD Control Panel", "FRONT HUD Mode Selector", { positions = { "DAY", "AUTO", "NIGHT" } })
 F_15E:definePushButton("F_HUD_BIT", 55, 3123, 123, "Front HUD Control Panel", "FRONT HUD BIT Button")
 F_15E:definePotentiometer("F_HUD_VID_BRIGHT", 55, 3124, 124, { 0, 1 }, "Front HUD Control Panel", "FRONT HUD Video Brightness Control")
 F_15E:definePotentiometer("F_HUD_CONT", 55, 3125, 125, { 0, 1 }, "Front HUD Control Panel", "FRONT HUD Contrast Control")
@@ -700,8 +700,8 @@ F_15E:defineToggleSwitch("F_AICE_PITOT", 26, 3560, 560, "Front Anti Ice", "FRONT
 F_15E:define3PosTumb("F_AICE_ENG", 26, 3561, 561, "Front Anti Ice", "FRONT Engine Heat Switch")
 
 --AIR COND
-F_15E:defineMultipositionSwitch("F_AC_AUTO_MAN_OFF", 26, 3562, 562, 3, 0.5, "Front Air Condition", "FRONT Air Condition Auto/Manual/Off")
-F_15E:defineMultipositionSwitch("F_AC_MAX_NORM_MIN", 26, 3563, 563, 3, 0.5, "Front Air Condition", "FRONT Air Condition Max/Norm/Min")
+F_15E:defineMultipositionSwitch("F_AC_AUTO_MAN_OFF", 26, 3562, 562, 3, 0.5, "Front Air Condition", "FRONT Air Condition", { positions = { "Auto", "Manual", "Off" } })
+F_15E:defineMultipositionSwitch("F_AC_MAX_NORM_MIN", 26, 3563, 563, 3, 0.5, "Front Air Condition", "FRONT Air Condition", { positions = { "Max", "Norm", "Min" } })
 F_15E:definePotentiometer("F_AC_COLD_HOT", 26, 3564, 564, { 0, 1 }, "Front Air Condition", "FRONT Air Condition Cold/Hot")
 F_15E:defineMultipositionSwitch("F_AC_SOURCE", 26, 3565, 565, 4, 0.25, "Front Air Condition", "FRONT Air Conditioning Source")
 
@@ -994,7 +994,7 @@ F_15E:defineToggleSwitch("R_NUC_N_CONS_CVR", 17, 3452, 1401, "Rear NUC", "REAR N
 F_15E:define3PosTumb("R_NUC_N_CONS_SWITCH", 17, 3453, 1402, "Rear NUC", "REAR Nuclear Consent Switch")
 
 --TPOD Panel
-F_15E:defineMultipositionSwitch("R_TGP_PW", 54, 3413, 1413, 3, 0.5, "Rear TPOD Panel", "REAR TGP Power Switch OFF/STBY/ON")
+F_15E:defineMultipositionSwitch("R_TGP_PW", 54, 3413, 1413, 3, 0.5, "Rear TPOD Panel", "REAR TGP Power Switch", { positions = { "OFF", "STBY", "ON" } })
 F_15E:definePotentiometer("R_TGP_GAIN", 54, 3414, 1414, { 0, 1 }, "Rear TPOD Panel", "REAR TGP FLIR Gain")
 F_15E:definePotentiometer("R_TGP_LVL", 54, 3415, 1415, { 0, 1 }, "Rear TPOD Panel", "REAR TGP FLIR Level")
 F_15E:defineToggleSwitch("R_TGP_LASER", 54, 3416, 1416, "Rear TPOD Panel", "REAR TGP Laser Switch SAFE/ARM")
@@ -1002,7 +1002,7 @@ F_15E:defineToggleSwitch("R_TGP_LASER", 54, 3416, 1416, "Rear TPOD Panel", "REAR
 --EW Panel
 F_15E:defineToggleSwitch("R_EW_RWR_ICS_MODE", 59, 3931, 1417, "Rear EW Panel", "REAR RWR/ICS Mode Switch COMBAT/TRNG")
 F_15E:defineToggleSwitch("R_EW_ECM_PODS_MODE", 61, 3932, 1418, "Rear EW Panel", "REAR ECM PODS Mode Switch XMIT/STBY")
-F_15E:defineMultipositionSwitch("R_EW_ICS_OP_MODE", 61, 3933, 1419, 3, 0.5, "Rear EW Panel", "REAR ICS Operational Mode Switch STBY/AUTO/MAN")
+F_15E:defineMultipositionSwitch("R_EW_ICS_OP_MODE", 61, 3933, 1419, 3, 0.5, "Rear EW Panel", "REAR ICS Operational Mode Switch", { positions = { "STBY", "AUTO", "MAN" } })
 
 --VOL
 F_15E:definePotentiometer("R_VOL_CAUTION", 59, 3601, 1420, { 0, 1 }, "Rear Volume", "REAR Caution Volume")
@@ -1070,8 +1070,8 @@ F_15E:defineToggleSwitch("R_TEWS_EWWS_TONE", 59, 3903, 1471, "Rear TEWS Control 
 F_15E:defineIndicatorLight("R_TEWS_FAIL_L", 1472, "Rear TEWS Control Panel Lights", "REAR TEWS 3x FAIL Lights (white)")
 
 --CMD Control Panel
-F_15E:defineMultipositionSwitch("R_CMD_DISP_SEL", 60, 3911, 1475, 3, 0.5, "Rear CMD Control Panel", "REAR CMD Dispenser Selection Switch FLARE/BOTH/CHAFF")
-F_15E:defineMultipositionSwitch("R_CMD_OP_MODE", 60, 3912, 1476, 5, 0.25, "Rear CMD Control Panel", "REAR CMD Operational Mode OFF/STBY/MAN/SEMI/AUTO")
+F_15E:defineMultipositionSwitch("R_CMD_DISP_SEL", 60, 3911, 1475, 3, 0.5, "Rear CMD Control Panel", "REAR CMD Dispenser Selection Switch", { positions = { "FLARE", "BOTH", "CHAFF" } })
+F_15E:defineMultipositionSwitch("R_CMD_OP_MODE", 60, 3912, 1476, 5, 0.25, "Rear CMD Control Panel", "REAR CMD Operational Mode", { positions = { "OFF", "STBY", "MAN", "SEMI", "AUTO" } })
 F_15E:defineToggleSwitch("R_EW_FLARE_JETT_CVR", 60, 3913, 1477, "Rear EW Panel", "REAR Flare Jettison Switch Cover")
 F_15E:definePushButton("R_EW_FLARE_JETT", 60, 3914, 1478, "Rear EW Panel", "REAR Flare Jettison Switch NORM/JETT")
 

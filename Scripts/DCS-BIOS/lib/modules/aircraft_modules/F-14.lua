@@ -3,16 +3,18 @@ module("F-14", package.seeall)
 local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 
 --- @class F_14: Module
-local F_14 = Module:new("F-14", 0x1200, { "F-14B", "F-14A-135-GR" })
+local F_14 = Module:new("F-14", 0x1200, { "F-14B", "F-14A-135-GR", "F-14A-135-GR-Early" })
 
 --v4.6b by WarLord,ArturDCS,Matchstick and Bullitt
 
 local devices = {
 	TCS = 38,
+	ECMD = 44,
 	JESTERAI = 62,
+	RWR_INTERFACE = 71,
 }
 
--- remove Arg# Stick 33
+-- remove Arg# Stick 33, Bodies 3334
 
 ----------------------------------------- Extra Functions
 function F_14:defineIndicatorLightRed(identifier, arg_number, category, description) --red
@@ -339,12 +341,12 @@ F_14:definePotentiometer("PLT_HSD_BRIGHT", 41, 3240, 1043, { 0, 1 }, "HSD", "PIL
 F_14:definePushButton("PLT_HSD_TEST", 41, 3243, 1041, "HSD", "PILOT HSD Test")
 
 -- ECMD
-F_14:definePotentiometer("RIO_ECMD_BRIGHT", 45, 3245, 2023, { 0, 1 }, "ECMD", "RIO ECMD Brightness")
-F_14:definePushButton("RIO_ECMD_TEST", 45, 3246, 2024, "ECMD", "RIO ECMD Test")
-F_14:defineToggleSwitch("RIO_ECM_MODE", 45, 3247, 189, "ECMD", "RIO ECM Display Mode")
-F_14:define3PosTumb("RIO_ECM_OVERRIDE", 45, 3248, 156, "ECMD", "RIO ECM Display Override")
-F_14:define3PosTumb("RIO_ECM_CORR", 45, 3249, 168, "ECMD", "RIO ECM Display Corr")
-F_14:define3PosTumb("RIO_ECM_ADF", 45, 3250, 190, "ECMD", "RIO ECM Display Data/ADF")
+F_14:definePotentiometer("RIO_ECMD_BRIGHT", devices.ECMD, 3245, 2023, { 0, 1 }, "ECMD", "RIO ECMD Brightness")
+F_14:definePushButton("RIO_ECMD_TEST", devices.ECMD, 3246, 2024, "ECMD", "RIO ECMD Test")
+F_14:defineToggleSwitch("RIO_ECM_MODE", devices.ECMD, 3247, 4102, "ECMD", "RIO ECM Display Mode")
+F_14:define3PosTumb("RIO_ECM_OVERRIDE", devices.ECMD, 3248, 4101, "ECMD", "RIO ECM Display Override")
+F_14:define3PosTumb("RIO_ECM_CORR", devices.ECMD, 3249, 4100, "ECMD", "RIO ECM Display Corr")
+F_14:define3PosTumb("RIO_ECM_ADF", devices.ECMD, 3250, 4103, "ECMD", "RIO ECM Display Data/ADF")
 
 -- TACAN Pilot Panel
 F_14:defineToggleSwitch("PLT_TACAN_CMD_BUTTON", 47, 3324, 292, "Volume Panel", "PILOT TACAN CMD Button")
@@ -389,8 +391,8 @@ F_14:define3PosTumb("RIO_ICS_UHF_LWR", 2, 3598, 380, "ICS", "RIO V/UHF 2 ANT Swi
 F_14:define3PosTumb("RIO_ICS_KY_MODE", 2, 3597, 382, "ICS", "RIO KY MODE Switch")
 
 -- UHF ARC-159
-F_14:defineTumb("PLT_UHF1_FREQ_MODE", 3, 3375, 2033, 0.5, { 0, 1 }, nil, false, "UHF 1", "PILOT UHF ARC-159 Freq Mode GUARD/MANUAL/PRESET")
-F_14:defineMultipositionSwitch("PLT_UHF1_FUNCTION", 3, 3371, 2034, 4, 0.333333, "UHF 1", "PILOT UHF ARC-159 Function ADF/BOTH/MAIN/OFF")
+F_14:defineTumb("PLT_UHF1_FREQ_MODE", 3, 3375, 2033, 0.5, { 0, 1 }, nil, false, "UHF 1", "PILOT UHF ARC-159 Freq Mode", { positions = { "GUARD", "MANUAL", "PRESET" } })
+F_14:defineMultipositionSwitch("PLT_UHF1_FUNCTION", 3, 3371, 2034, 4, 0.333333, "UHF 1", "PILOT UHF ARC-159 Function", { positions = { "ADF", "BOTH", "MAIN", "OFF" } })
 F_14:defineTumb("PLT_UHF1_PRESETS", 3, 3373, 2032, 0.0833333333, { 0, 1 }, nil, true, "UHF 1", "PILOT UHF ARC-159 Preset Channel Selector")
 F_14:defineToggleSwitch("PLT_UHF1_SQUELCH", 3, 3365, 2035, "UHF 1", "PILOT UHF ARC-159 Squelch Switch")
 F_14:define3PosTumb("PLT_UHF1_110_DIAL", 3, 3367, 2030, "UHF 1", "PILOT UHF ARC-159 100MHz & 10MHz Dial")
@@ -442,8 +444,8 @@ F_14:defineIntegerFromGetter("PLT_UHF_DIAL3_FREQ", getARC159_Decimal_DIAL3_Frequ
 F_14:defineIntegerFromGetter("PLT_UHF_HIGH_FREQ", getARC159_High_Frequency, 400, "UHF 1", "PILOT High ARC-159 Frequency")
 
 -- VHF/UHF ARC-182 ("V/UHF 2")
-F_14:defineMultipositionSwitch("RIO_VUHF_FREQ_MODE", 4, 3417, 353, 6, 0.2, "VUHF", "RIO VHF/UHF ARC-182 Frequency Mode 243 MAN G PRESET READ LOAD")
-F_14:defineMultipositionSwitch("RIO_VUHF_MODE", 4, 3413, 358, 5, 0.25, "VUHF", "RIO VHF/UHF ARC-182 MODE OFF T/R T/R&G DF TEST")
+F_14:defineMultipositionSwitch("RIO_VUHF_FREQ_MODE", 4, 3417, 353, 6, 0.2, "VUHF", "RIO VHF/UHF ARC-182 Frequency Mode", { positions = { "243", "MAN", "G", "PRESET", "READ", "LOAD" } })
+F_14:defineMultipositionSwitch("RIO_VUHF_MODE", 4, 3413, 358, 5, 0.25, "VUHF", "RIO VHF/UHF ARC-182 MODE", { positions = { "OFF", "T/R", "T/R&G", "DF", "TEST" } })
 F_14:defineTumb("RIO_VUHF_PRESETS", 4, 3415, 352, 0.0833333333, { 0, 1 }, nil, true, "VUHF", "RIO VHF/UHF ARC-182 Preset Channel Selector")
 F_14:defineToggleSwitch("RIO_VUHF_FM_AM", 4, 3419, 359, "VUHF", "RIO VHF/UHF ARC-182 FM/AM Switch")
 F_14:defineToggleSwitch("RIO_VUHF_SQUELCH", 4, 3407, 351, "VUHF", "RIO VHF/UHF ARC-182 Squelch Switch")
@@ -513,7 +515,7 @@ F_14:defineToggleSwitch("PLT_VUHF_DISPLAY_TEST", 4, 3358, 15003, "VUHF", "PILOT 
 
 -- DECM Panel
 F_14:defineMultipositionSwitch("RIO_DECM_PW_MODE", 53, 3252, 151, 6, 0.2, "DECM Panel", "RIO DECM ALQ-100 Power/Mode")
-F_14:definePotentiometer("RIO_DECM_VOL", 53, 3253, 9950, { 0, 1 }, "DECM Panel", "RIO DECM ALQ-100 Volume")
+F_14:definePotentiometer("RIO_DECM_VOL", devices.RWR_INTERFACE, 3253, 9950, { 0, 1 }, "DECM Panel", "RIO DECM ALQ-100 Volume")
 
 -- RWR Control Panel ALR-67
 F_14:definePotentiometer("PLT_RWR_BRIGHT", 54, 3262, 16011, { 0, 1 }, "RWR Control Panel", "PILOT AN/ALR-67 Display Brightness")
@@ -1606,5 +1608,24 @@ end, 7, "VUHF", "RIO VHF/UHF ARC-182 Radio Display")
 F_14:defineInputOnlyPushButtonNoOff("CANOPY_TOGGLE", 12, 3183, "Cockpit", "Canopy Open/Close")
 F_14:defineInputOnlyPushButtonNoOff("SALUTE", 18, 3023, "Communications", "Salute")
 F_14:defineInputOnlyPushButtonNoOff("ON_THE_BALL", 2, 3749, "Communications", "Tomcat on the Ball")
+
+-- Pilot F14A-Early TONE VOLUME Panel
+F_14:definePotentiometer("PLT_ALR45_VOL", devices.RWR_INTERFACE, 3880, 2046, { 0, 1 }, "Volume Panel", "PILOT ALR-45 Volume")
+F_14:definePotentiometer("PLT_ALR50_VOL", devices.RWR_INTERFACE, 3881, 2050, { 0, 1 }, "Volume Panel", "PILOT ALR-50 Volume")
+
+-- RWR Control Panel ALR-45/50
+local ALR_45_50 = "ALR-45/50 RWR Control Panel"
+
+F_14:defineSpringloaded_3PosTumb("RIO_RWR_ALR45_LOW_BAND", devices.RWR_INTERFACE, 3869, 3869, 154, ALR_45_50, "LOW Band Switch", { positions = { "DEFEAT", "NORM", "BYPASS" } })
+F_14:defineSpringloaded_3PosTumb("RIO_RWR_ALR45_MID_BAND", devices.RWR_INTERFACE, 3870, 3870, 178, ALR_45_50, "MID Band Switch", { positions = { "DEFEAT", "NORM", "BYPASS" } })
+F_14:defineSpringloaded_3PosTumb("RIO_RWR_ALR45_HIGH_BAND", devices.RWR_INTERFACE, 3871, 3871, 155, ALR_45_50, "HIGH Band Switch", { positions = { "DEFEAT", "NORM", "BYPASS" } })
+F_14:defineToggleSwitch("RIO_RWR_ALR45_AAA", devices.RWR_INTERFACE, 3872, 173, ALR_45_50, "AAA Switch (DEFEAT/NORM)")
+F_14:definePotentiometer("RIO_RWR_ALR45_VOL", devices.RWR_INTERFACE, 3873, 158, { 0, 1 }, ALR_45_50, "ALR-45 Volume")
+F_14:definePotentiometer("RIO_RWR_ALR50_VOL", devices.RWR_INTERFACE, 3874, 157, { 0, 1 }, ALR_45_50, "ALR-50 Volume")
+F_14:defineToggleSwitch("RIO_RWR_ALR45_POWER", devices.RWR_INTERFACE, 3875, 174, ALR_45_50, "Power Switch (OFF/ON)")
+F_14:defineSpringloaded_3PosTumb("RIO_RWR_ALR45_LOW_MID_BAND_TEST", devices.RWR_INTERFACE, 3876, 3876, 169, ALR_45_50, "LOW/MID Band Test Switch", { positions = { "LOW", "OFF", "MID" } })
+F_14:defineToggleSwitch("RIO_RWR_ALR45_HIGH_BAND_TEST", devices.RWR_INTERFACE, 3877, 170, ALR_45_50, "HIGH Band Test Switch (OFF/HIGH)")
+F_14:defineToggleSwitch("RIO_RWR_ALR45_ML_TEST", devices.RWR_INTERFACE, 3878, 171, ALR_45_50, "ML Test Switch (OFF/ML)")
+F_14:defineToggleSwitch("RIO_RWR_ALR45_DISPLAY_TEST", devices.RWR_INTERFACE, 3879, 172, ALR_45_50, "DISPLAY Test Switch (OFF/DISPLAY)")
 
 return F_14

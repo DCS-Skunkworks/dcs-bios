@@ -7,6 +7,12 @@ local ICommand = {
 	left_engine_stop = 313,
 	right_engine_stop = 314,
 	wheel_brake = 2101,
+	gear_up = 430,
+	gear_down = 431,
+	flaps_up = 1047,
+	flaps_down = 1049,
+	flaps_maneuver_from_up = 1568,
+	flaps_maneuver_from_down = 1569,
 }
 
 return ICommand

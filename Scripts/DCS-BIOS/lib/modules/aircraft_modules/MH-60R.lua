@@ -42,14 +42,14 @@ MH_60R:defineIndicatorLight("WHL_LCK_LGT", 294, "Misc", "TAIL_WHEEL_LOCK")
 
 --Electric System
 MH_60R:defineToggleSwitch("BATT_SW", 27, 3013, 17, "Electric System", "Battery Switch OFF/ON")
-MH_60R:defineSpringloaded_3PosTumb("EXT_PWR_SW", 27, 3014, 3021, 18, "Electric System", "External Power Switch RESET/OFF/ON")
-MH_60R:defineSpringloaded_3PosTumb("APU_GEN_SW", 27, 3015, 3018, 19, "Electric System", "APU GEN Switch TEST/OFF/ON")
-MH_60R:defineSpringloaded_3PosTumb("GEN1_SW", 27, 3016, 3019, 20, "Electric System", "GEN 1 Switch TEST/OFF/ON")
-MH_60R:defineSpringloaded_3PosTumb("GEN2_SW", 27, 3017, 3020, 21, "Electric System", "GEN 2 Switch TEST/OFF/ON")
+MH_60R:defineSpringloaded_3PosTumb("EXT_PWR_SW", 27, 3014, 3021, 18, "Electric System", "External Power Switch", { positions = { "RESET", "OFF", "ON" } })
+MH_60R:defineSpringloaded_3PosTumb("APU_GEN_SW", 27, 3015, 3018, 19, "Electric System", "APU GEN Switch", { positions = { "TEST", "OFF", "ON" } })
+MH_60R:defineSpringloaded_3PosTumb("GEN1_SW", 27, 3016, 3019, 20, "Electric System", "GEN 1 Switch", { positions = { "TEST", "OFF", "ON" } })
+MH_60R:defineSpringloaded_3PosTumb("GEN2_SW", 27, 3017, 3020, 21, "Electric System", "GEN 2 Switch", { positions = { "TEST", "OFF", "ON" } })
 
 --Fuel and Engines
-MH_60R:defineSpringloaded_3PosTumb("FUEL_PMP_SW", 27, 3022, 3022, 22, "Fuel and Engines", "FUEL PRIME/OFF/APU BOOST")
-MH_60R:defineSpringloaded_3PosTumb("AIR_SRC_SW", 27, 3023, 3023, 23, "Fuel and Engines", "Air Source APU/OFF/ENG")
+MH_60R:defineSpringloaded_3PosTumb("FUEL_PMP_SW", 27, 3022, 3022, 22, "Fuel and Engines", "FUEL", { positions = { "PRIME", "OFF", "APU BOOST" } })
+MH_60R:defineSpringloaded_3PosTumb("AIR_SRC_SW", 27, 3023, 3023, 23, "Fuel and Engines", "Air Source", { positions = { "APU", "OFF", "ENG" } })
 MH_60R:defineToggleSwitch("APU_CTRL_SW", 27, 3024, 24, "Fuel and Engines", "APU CONTROL OFF/ON")
 MH_60R:defineToggleSwitch("FUEL1_BST_PMP", 27, 3044, 40, "Fuel and Engines", "Boost Pump 1 OFF/ON")
 
@@ -57,8 +57,8 @@ MH_60R:defineToggleSwitch("FUEL1_BST_PMP", 27, 3044, 40, "Fuel and Engines", "Bo
 MH_60R:definePotentiometer("ENG1_CTRL", 16, 3206, 26, { 0, 1 }, "APU Extinguish", "Engine 1 Control")
 MH_60R:definePotentiometer("ENG2_CTRL", 16, 3207, 27, { 0, 1 }, "APU Extinguish", "Engine 2 Control")
 
-MH_60R:defineMultipositionSwitch("ENG1_FSS", 16, 3208, 28, 3, 0.5, "APU Extinguish", "Engine 1 FSS OFF/DIR/XFD") --3, 1/2, false, 0, 1, false)
-MH_60R:defineMultipositionSwitch("ENG2_FSS", 16, 3209, 29, 3, 0.5, "APU Extinguish", "Engine 2 FSS OFF/DIR/XFD") --3, 1/2, false, 0, 1, false)
+MH_60R:defineMultipositionSwitch("ENG1_FSS", 16, 3208, 28, 3, 0.5, "APU Extinguish", "Engine 1 FSS", { positions = { "OFF", "DIR", "XFD" } }) --3, 1/2, false, 0, 1, false)
+MH_60R:defineMultipositionSwitch("ENG2_FSS", 16, 3209, 29, 3, 0.5, "APU Extinguish", "Engine 2 FSS", { positions = { "OFF", "DIR", "XFD" } }) --3, 1/2, false, 0, 1, false)
 MH_60R:defineToggleSwitch("ENG1_START", 16, 3210, 30, "APU Extinguish", "Engine 1 Starter")
 MH_60R:defineToggleSwitch("ENG2_START", 16, 3211, 31, "APU Extinguish", "Engine 2 Starter")
 MH_60R:defineTumb("ENG1_CTR_LVL", 16, 3204, 42, 1, { -1, 0 }, nil, false, "ECQ", "Engine 1 Control Level OFF/IDLE")
@@ -144,7 +144,7 @@ MH_60R:definePushButton("VRT_GYRO", 37, 3378, 939, "CISP", "CISP Pilot VERT GYRO
 MH_60R:definePushButton("BRG2", 37, 3379, 940, "CISP", "CISP Pilot BRG2 ADF/VOR")
 
 -- -- AN/AVS-7 PANEL
-MH_60R:defineTumb("AVS_ON", 30, 3257, 1100, 1, { -1, 1 }, nil, false, "AN/AVS-7 HUD", "AN/AVS-7 OFF/ON/ADJ")
+MH_60R:defineTumb("AVS_ON", 30, 3257, 1100, 1, { -1, 1 }, nil, false, "AN/AVS-7 HUD", "AN/AVS-7", { positions = { "OFF", "ON", "ADJ" } })
 MH_60R:defineSpringloaded_3PosTumb("AVS_DIM", 30, 3259, 3258, 1106, "AN/AVS-7 HUD", "AN/AVS-7 DIM/BRIGHT")
 
 -- -- AN/ARC-164
@@ -168,14 +168,14 @@ MH_60R:defineSpringloaded_3PosTumb("AVS_DIM", 30, 3259, 3258, 1106, "AN/AVS-7 HU
 
 -- -- Lighting
 MH_60R:definePotentiometer("GLR_SHLD", 20, 3272, 251, { 0, 1 }, "Lights", "Glareshield Lights OFF/BRT")
-MH_60R:defineSpringloaded_3PosTumb("POS_LGHT_DIM", 20, 3281, 3281, 252, "Lights", "Position Lights DIM/OFF/BRT")
+MH_60R:defineSpringloaded_3PosTumb("POS_LGHT_DIM", 20, 3281, 3281, 252, "Lights", "Position Lights", { positions = { "DIM", "OFF", "BRT" } })
 MH_60R:defineTumb("POS_LGTH_MOD", 20, 3282, 253, 1, { 0, 1 }, nil, false, "Lights", "Position Lights STEADY/FLASH")
-MH_60R:defineSpringloaded_3PosTumb("ANTI_LGHT_UP", 20, 3283, 3283, 254, "Lights", "Anticollision Lights UPPER/BOTH/LOWER")
-MH_60R:defineSpringloaded_3PosTumb("ANTI_LGHT_DAY", 20, 3284, 3284, 255, "Lights", "Anticollision Lights DAY/OFF/NIGHT")
+MH_60R:defineSpringloaded_3PosTumb("ANTI_LGHT_UP", 20, 3283, 3283, 254, "Lights", "Anticollision Lights", { positions = { "UPPER", "BOTH", "LOWER" } })
+MH_60R:defineSpringloaded_3PosTumb("ANTI_LGHT_DAY", 20, 3284, 3284, 255, "Lights", "Anticollision Lights", { positions = { "DAY", "OFF", "NIGHT" } })
 MH_60R:defineTumb("NAV_LGTH_MOD", 20, 3285, 256, 1, { 0, 1 }, nil, false, "Lights", "Nav Lights NORM/IR")
-MH_60R:defineSpringloaded_3PosTumb("POS_LGHT", 20, 3286, 3286, 257, "Lights", "Cabin Lights BLUE/OFF/WHITE")
+MH_60R:defineSpringloaded_3PosTumb("POS_LGHT", 20, 3286, 3286, 257, "Lights", "Cabin Lights", { positions = { "BLUE", "OFF", "WHITE" } })
 MH_60R:definePotentiometer("LGHT_SWTCH", 20, 3274, 260, { 0, 1 }, "Lights", "Lighted Switches OFF/BRT")
-MH_60R:defineMultipositionSwitch("FORM_LGHT", 20, 3275, 261, 6, 0.2, "Lights", "Formation Lights OFF/1/2/3/4/5")
+MH_60R:defineMultipositionSwitch("FORM_LGHT", 20, 3275, 261, 6, 0.2, "Lights", "Formation Lights", { positions = { "OFF", "1", "2", "3", "4", "5" } })
 
 MH_60R:definePotentiometer("UPP_BRT", 20, 3276, 262, { 0, 1 }, "Lights", "Upper Console Lights OFF/BRT")
 MH_60R:definePotentiometer("LWR_BRT", 20, 3277, 263, { 0, 1 }, "Lights", "Lower Console Lights OFF/BRT")
@@ -185,7 +185,7 @@ MH_60R:definePotentiometer("LGHT_BRT", 20, 3279, 265, { 0, 1 }, "Lights", "Non F
 MH_60R:definePotentiometer("RDR_DIM", 20, 3289, 266, { 0, 1 }, "Lights", "Radar Altimeter DIM")
 
 MH_60R:defineTumb("CMP_LGTH_MOD", 20, 3280, 268, 1, { 0, 1 }, nil, false, "Lights", "Magnetic Compass Light OFF/ON")
-MH_60R:defineSpringloaded_3PosTumb("CKPT_LGHT_DAY", 20, 3287, 3287, 269, "Lights", "Cockpit Lights BLUE/OFF/WHITE")
+MH_60R:defineSpringloaded_3PosTumb("CKPT_LGHT_DAY", 20, 3287, 3287, 269, "Lights", "Cockpit Lights", { positions = { "BLUE", "OFF", "WHITE" } })
 
 -- -- AN/APR-39
 -- elements["PNT-270"]	= default_2_position_tumb(_("AN/APR-39 Power ON/OFF"),	            devices.APR39, device_commands.apr39Power, 270, 8)
@@ -298,7 +298,7 @@ MH_60R:definePushButton("CHAF_DISP", 32, 3314, 561, "M130 CM", "Chaff Dispense")
 -- elements["PNT-653"]	= default_3_position_tumb(_("AN/ARN-147 Power Selector OFF/ON/TEST"),   devices.ARN147, device_commands.arn147Power, 653, 8)
 
 -- -- WIPERS
-MH_60R:defineTumb("WPRS", 46, 3288, 631, 0.5, { -0.5, 1 }, nil, false, "Misc", "Wipers PARK/OFF/LOW/HI")
+MH_60R:defineTumb("WPRS", 46, 3288, 631, 0.5, { -0.5, 1 }, nil, false, "Misc", "Wipers", { positions = { "PARK", "OFF", "LOW", "HI" } })
 
 -- -- ARC-201 FM2
 -- elements["PNT-700"]	= multiposition_switch(_("AN/ARC-201 (FM2) PRESET Selector"),   devices.ARC201_FM2, device_commands.fm2PresetSelector, 700, 8,  0.01,  false, 0, 16, false)
@@ -328,7 +328,7 @@ MH_60R:defineToggleSwitch("MST_SNR_CVR", 49, 3534, 1998, "Aux System Panel", "Ma
 MH_60R:defineToggleSwitch("MST_ARM_SNR", 49, 3535, 1999, "Aux System Panel", "Master Arm Sonar OFF/ON")
 MH_60R:defineToggleSwitch("MST_ARM_SON", 49, 3532, 2000, "Aux System Panel", "Master Arm Sonobuoys OFF/ON")
 MH_60R:defineToggleSwitch("SONO_DISP", 49, 3533, 2001, "Aux System Panel", "Sonobuoy Dispense OFF/ON")
-MH_60R:defineSpringloaded_3PosTumb("SNR_WNCH", 49, 3536, 3536, 2002, "Aux System Panel", "Winch Sonar DOWN/STOP/UP")
+MH_60R:defineSpringloaded_3PosTumb("SNR_WNCH", 49, 3536, 3536, 2002, "Aux System Panel", "Winch Sonar", { positions = { "DOWN", "STOP", "UP" } })
 MH_60R:defineToggleSwitch("MST_SON_CVR", 49, 3531, 2003, "Aux System Panel", "Master Sonobuoys Cover OPEN/CLOSE")
 
 -- WEAPONS SYSTEM CONTROL PANEL
@@ -356,8 +356,8 @@ MH_60R:definePotentiometer("GUN_MOVE", 50, 3551, 2026, { -1, 1 }, "GunSight", "G
 MH_60R:definePotentiometer("RANGE_RDR", 49, 3539, 2023, { -1, 1 }, "Radar", "Range -/+")
 MH_60R:definePotentiometer("SECT_RDR", 49, 3540, 2020, { -0.8, 0.9 }, "Radar", "Sector -/+")
 MH_60R:defineMultipositionSwitch("MODE_RDR", 49, 3541, 2027, 4, 0.33, "Radar", "Mode OFF/ON/INT./SOL.")
-MH_60R:defineSpringloaded_3PosTumb("SON_SELC", 49, 3542, 3542, 2028, "Radar", "Sonobuoys SURFACE/OFF/IMMERSION")
-MH_60R:defineMultipositionSwitch("COAL_SELC", 49, 3543, 2029, 4, 0.33, "Radar", "Coalition Select ALL/NEUTRAL/FRIENDLY/ENEMY")
+MH_60R:defineSpringloaded_3PosTumb("SON_SELC", 49, 3542, 3542, 2028, "Radar", "Sonobuoys", { positions = { "SURFACE", "OFF", "IMMERSION" } })
+MH_60R:defineMultipositionSwitch("COAL_SELC", 49, 3543, 2029, 4, 0.33, "Radar", "Coalition Select", { positions = { "ALL", "NEUTRAL", "FRIENDLY", "ENEMY" } })
 MH_60R:defineMultipositionSwitch("FAC_RANGE", 49, 3545, 2030, 2, 0.66, "Radar", "Range FACTOR")
 MH_60R:defineMultipositionSwitch("CAT_SELC", 49, 3544, 2031, 2, 0.66, "Radar", "Category Select SEA/GROUND")
 MH_60R:definePotentiometer("OFFSET_RDR", 49, 3546, 2032, { -0.9, 0.9 }, "Radar", "Rotation Sector <-/->")
