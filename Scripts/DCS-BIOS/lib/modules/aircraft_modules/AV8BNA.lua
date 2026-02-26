@@ -633,4 +633,23 @@ AV8BNA:defineReadWriteRadio("COMM2", 2, 7, 3, 1000, "COMM2 Radio")
 
 AV8BNA:defineMultipositionSwitch("UHF_FREQ_MODE", 7, 3619, 619, 7, 0.15, "UHF Radio", "V/UHF RSC Frequency Mode Switch", { positions = { "AJ-M", "AJ", "MAR", "PRST", "MAN", "243", "121" } })
 
+local uvhf_display = {
+	channel = "",
+	frequency = "",
+}
+
+AV8BNA:addExportHook(function()
+	local data = Module.parse_indication(7)
+
+	uvhf_display.channel = Functions.coerce_nil_to_string(data["uvhf_channel"])
+	uvhf_display.frequency = Functions.pad_right(data["uvhf_freq_left"], 8)
+end)
+
+AV8BNA:defineString("UHF_CHANNEL", function()
+	return uvhf_display.channel
+end, 2, "UHF Radio", "V/UHF Channel")
+AV8BNA:defineString("UHF_FREQUENCY", function()
+	return uvhf_display.frequency
+end, 8, "UHF Radio", "V/UHF Frequency")
+
 return AV8BNA
