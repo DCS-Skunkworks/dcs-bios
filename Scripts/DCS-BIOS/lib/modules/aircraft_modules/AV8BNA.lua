@@ -287,7 +287,7 @@ AV8BNA:defineRotary("UHF_FREQ", 7, 3615, 615, "UHF Radio", "V/UHF RSC Chan/Freq 
 AV8BNA:defineMultipositionSwitch("UHF_MODE", 7, 3616, 616, 7, 0.2, "UHF Radio", "V/UHF RSC Operational Mode Switch", { positions = { "ZRO", "OFF", "TEST", "TR+G", "TR", "ADF", "CHNG PRST" } })
 AV8BNA:definePushButton("UHF_ANC_POINT", 7, 3617, 617, "UHF Radio", "V/UHF RSC Ancillary Mode Pointer")
 AV8BNA:definePushButton("UHF_ANC_SW", 7, 3618, 618, "UHF Radio", "V/UHF RSC Ancillary Mode Switch")
-AV8BNA:defineMultipositionSwitch("BOMBS_ARM_SW", 7, 3619, 619, 7, 0.15, "UHF Radio", "V/UHF RSC Frequency Mode Switch", { positions = { "AJ-M", "AJ", "MAR", "PRST", "MAN", "243", "121" } })
+AV8BNA:defineMultipositionSwitch("BOMBS_ARM_SW", 7, 3619, 619, 7, 0.15, "UHF Radio", "V/UHF RSC Frequency Mode Switch", { positions = { "AJ-M", "AJ", "MAR", "PRST", "MAN", "243", "121" }, deprecated = { since = "0.11.1", description = "Incorrect control ID", use_instead = "UHF_FREQ_MODE" } })
 AV8BNA:definePushButton("UHF_LOAD_SW", 7, 3620, 620, "UHF Radio", "V/UHF RSC LOAD/OFST Switch")
 --ACNIP
 AV8BNA:defineToggleSwitch("ACNIP_MODE", 8, 3621, 621, "ACNIP", "ACNIP Mode Switch")
@@ -630,4 +630,7 @@ AV8BNA:defineString("UFC_SCRATCHPAD", getUfcText, 12, "UFC Display", "UFC Scratc
 
 AV8BNA:defineReadWriteRadio("COMM1", 2, 7, 3, 1000, "COMM1 Radio")
 AV8BNA:defineReadWriteRadio("COMM2", 2, 7, 3, 1000, "COMM2 Radio")
+
+AV8BNA:defineMultipositionSwitch("UHF_FREQ_MODE", 7, 3619, 619, 7, 0.15, "UHF Radio", "V/UHF RSC Frequency Mode Switch", { positions = { "AJ-M", "AJ", "MAR", "PRST", "MAN", "243", "121" } })
+
 return AV8BNA
