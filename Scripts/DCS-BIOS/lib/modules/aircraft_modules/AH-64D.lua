@@ -780,8 +780,8 @@ AH_64D:defineBitFromDrawArgument("EXT_WOW_RIGHT", 4, "External Aircraft Model", 
 AH_64D:defineBitFromDrawArgument("EXT_WOW_LEFT", 6, "External Aircraft Model", "Weight ON Wheels Left Gear")
 AH_64D:defineFullRangeFloatFromExternalDrawArgument("EXT_ROTOR", 40, "External Aircraft Model", "Rotor Move")
 
-AH_64D:defineToggleSwitch("PLT_L_SUNVISOR", 9, 3017, 849, "PLT Cockpit", "Pilot Left Sunvisor")
-AH_64D:defineToggleSwitch("PLT_R_SUNVISOR", 9, 3018, 850, "PLT Cockpit", "Pilot Right Sunvisor")
+AH_64D:defineToggleSwitch("PLT_L_SUNVISOR", 9, 3017, 849, "PLT Cockpit", "Pilot Left Sunvisor", { deprecated = { since = "0.11.1", description = "lacks granular control", use_instead = "PLT_SUNVISOR_L" } })
+AH_64D:defineToggleSwitch("PLT_R_SUNVISOR", 9, 3018, 850, "PLT Cockpit", "Pilot Right Sunvisor", { deprecated = { since = "0.11.1", description = "lacks granular control", use_instead = "PLT_SUNVISOR_R" } })
 
 --CMWS Display
 local flare_letter = ""
@@ -1076,5 +1076,8 @@ AH_64D:defineFloatFromDrawArgument("EXT_GUN_POS_RECOIL", 350, "External Aircraft
 AH_64D:defineFullRangeFloatFromExternalDrawArgument("EXT_TADS_POS_YAW", 307, "External Aircraft Model", "TADS Yaw")
 AH_64D:defineFullRangeFloatFromExternalDrawArgument("EXT_TADS_POS_PITCH", 306, "External Aircraft Model", "TADS Pitch")
 AH_64D:defineFullRangeFloatFromExternalDrawArgument("EXT_PNVS_POS_YAW", 600, "External Aircraft Model", "PNVS Yaw")
+
+AH_64D:definePotentiometer("PLT_SUNVISOR_L", 9, 3017, 849, { 0, 1 }, "PLT Cockpit", "Pilot Left Sunvisor")
+AH_64D:definePotentiometer("PLT_SUNVISOR_R", 9, 3018, 850, { 0, 1 }, "PLT Cockpit", "Pilot Right Sunvisor")
 
 return AH_64D
