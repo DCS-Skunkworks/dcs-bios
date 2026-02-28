@@ -692,7 +692,7 @@ local function mask_4_char(format_str)
 end
 
 local function legacy_ded_line(line_num)
-	return ded_lines[line_num] .. mask_4_char(ded_formats[line_num])
+	return ded_lines[line_num] .. " " .. mask_4_char(ded_formats[line_num])
 end
 
 -- Add DED Display Lines to data sent across
