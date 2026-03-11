@@ -63,7 +63,11 @@ function BIOSAutoload.autoload(dotted_path, current_mod_path)
 	local old_current_mod_path = _G["current_mod_path"]
 	local succeed, errorMsgOrModule = pcall(function()
 		_G["current_mod_path"] = current_mod_path
-		return require(dotted_path)
+		module = require(dotted_path)
+		if type(module) ~= "table" or getmetatable(module) ~= Module then
+			error("Should return a Module. Did you call Module:new(...)?")
+		end
+		return module
 	end)
 	_G["current_mod_path"] = old_current_mod_path
 
