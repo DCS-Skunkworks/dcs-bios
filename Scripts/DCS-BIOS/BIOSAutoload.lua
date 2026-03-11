@@ -4,8 +4,8 @@ local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 local Log = require("Scripts.DCS-BIOS.lib.common.Log")
 
 local function dirExists(path)
-	local mode, errmsg
-	mode, errmsg = lfs.attributes (path, "mode")
+	local mode
+	mode, _ = lfs.attributes (path, "mode")
 
 	return mode ~= nil and mode == "directory"
 end

@@ -81,9 +81,9 @@ for _, module in ipairs(modules) do
 end
 
 -- Load modules that supports DCS-BIOS internally
-autoloadDatum = BIOSAutoload.fetchAutoloadData([[Mods\aircraft]])
+local autoloadDatum = BIOSAutoload.fetchAutoloadData([[Mods\aircraft]])
 for _, autoloadData in ipairs(autoloadDatum) do
-	module = BIOSAutoload.autoloadFromData(autoloadData)
+	local module = BIOSAutoload.autoloadFromData(autoloadData)
 	if module then
 		Protocol.writeNewModule(module)
 	end
