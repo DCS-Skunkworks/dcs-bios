@@ -291,7 +291,7 @@ end
 --- Adds a new Float but only but only allocates an 8-bit int. Max value is 255
 --- @param identifier string the unique identifier for the control
 --- @param limits number[] a length-2 array with the lower and upper bounds of the data as used in dcs
---- @param getter function function to call to get values from game engine
+--- @param getter fun(dev0: CockpitDevice): float the getter function which will return a float
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
 --- @param attributes BaseControlAttributes? additional control attributes
@@ -302,8 +302,8 @@ function Module:define8BitFloatFromGetter(identifier, getter, limits, category, 
 	local max_value = 255
 	local alloc = self:allocateInt(max_value, identifier)
 
-	self:addExportHook(function()
-		alloc:setValue(Module.valueConvert(getter(), limits, { 0, max_value }))
+	self:addExportHook(function(dev0)
+		alloc:setValue(Module.valueConvert(getter(dev0), limits, { 0, max_value }))
 	end)
 
 	local control = Control:new(category, ControlType.metadata, identifier, description, {}, {
