@@ -5,6 +5,7 @@ package.path = lfs.writedir() .. "?.lua;" .. package.path
 
 -- all requires must come after updates to package.path
 local BIOSConfig = require("Scripts.DCS-BIOS.BIOSConfig")
+local BIOSAutoload = require("Scripts.DCS-BIOS.BIOSAutoload")
 local BIOSStateMachine = require("Scripts.DCS-BIOS.lib.BIOSStateMachine")
 local ConnectionManager = require("Scripts.DCS-BIOS.lib.ConnectionManager")
 local Log = require("Scripts.DCS-BIOS.lib.common.Log")
@@ -74,8 +75,18 @@ local modules = {
 	require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.Yak-52"),
 }
 
+-- Load modules officially supported by DCS-BIOS
 for _, module in ipairs(modules) do
 	Protocol.writeNewModule(module)
+end
+
+-- Load modules that supports DCS-BIOS internally
+autoloadDatum = BIOSAutoload.fetchAutoloadData([[Mods\aircraft]])
+for _, autoloadData in ipairs(autoloadDatum) do
+	module = BIOSAutoload.autoloadFromData(autoloadData)
+	if module then
+		Protocol.writeNewModule(module)
+	end
 end
 
 ----------------------------------------------------------------------------Modules End--------------------------------------
