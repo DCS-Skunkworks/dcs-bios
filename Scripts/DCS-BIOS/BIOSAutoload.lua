@@ -1,11 +1,10 @@
 module("BIOSAutoload", package.seeall)
 
-local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 local Log = require("Scripts.DCS-BIOS.lib.common.Log")
+local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 
 local function dirExists(path)
-	local mode
-	mode, _ = lfs.attributes (path, "mode")
+	local mode = lfs.attributes(path, "mode")
 
 	return mode ~= nil and mode == "directory"
 end
@@ -26,7 +25,7 @@ function BIOSAutoload.fetchAutoloadData(relPath)
 	end
 
 	Log:log_debug("Looking for autoloads in '" .. absPath .. "'")
-	
+
 	local autoloads = {}
 	-- Process each available subfolders
 	for folder in lfs.dir(absPath) do
@@ -37,9 +36,9 @@ function BIOSAutoload.fetchAutoloadData(relPath)
 			Log:log_debug("Looking for mods in '" .. candidateDCSBIOSAbsPath .. "'")
 			for autoload in lfs.dir(candidateDCSBIOSAbsPath) do
 				if autoload ~= "." and autoload ~= ".." and autoload:sub(-4) == ".lua" then
-					autoloads[#autoloads+1] = {
+					autoloads[#autoloads + 1] = {
 						dotted_path = candidateDCSBIOSDottedPath .. autoload:sub(1, -5),
-						current_mod_path = candidateFolderAbsPath
+						current_mod_path = candidateFolderAbsPath,
 					}
 				end
 			end
@@ -64,7 +63,7 @@ function BIOSAutoload.autoload(dotted_path, current_mod_path)
 	local old_current_mod_path = _G["current_mod_path"]
 	local succeed, errorMsgOrModule = pcall(function()
 		_G["current_mod_path"] = current_mod_path
-		module = require(dotted_path)
+		local module = require(dotted_path)
 		if type(module) ~= "table" or getmetatable(module) ~= Module then
 			error("Should return a Module. Did you call Module:new(...)?")
 		end
