@@ -1,5 +1,6 @@
 module("BIOSAutoload", package.seeall)
 
+local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 local Log = require("Scripts.DCS-BIOS.lib.common.Log")
 
 local function dirExists(path)
