@@ -4,8 +4,8 @@ package.cpath = package.cpath .. ";.\\LuaSocket\\?.dll"
 package.path = lfs.writedir() .. "?.lua;" .. package.path
 
 -- all requires must come after updates to package.path
-local BIOSConfig = require("Scripts.DCS-BIOS.BIOSConfig")
 local BIOSAutoload = require("Scripts.DCS-BIOS.BIOSAutoload")
+local BIOSConfig = require("Scripts.DCS-BIOS.BIOSConfig")
 local BIOSStateMachine = require("Scripts.DCS-BIOS.lib.BIOSStateMachine")
 local ConnectionManager = require("Scripts.DCS-BIOS.lib.ConnectionManager")
 local Log = require("Scripts.DCS-BIOS.lib.common.Log")
