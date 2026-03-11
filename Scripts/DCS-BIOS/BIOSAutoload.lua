@@ -55,9 +55,9 @@ function BIOSAutoload.fetchAutoloadData(relPath)
 			end
 		end
 	end
-	
+
 	Log:log_debug(tostring(#datum) .. " autoloads found")
-	
+
 	return datum
 end
 
