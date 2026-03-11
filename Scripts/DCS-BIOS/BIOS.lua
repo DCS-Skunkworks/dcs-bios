@@ -93,7 +93,7 @@ PrevExport.LuaExportAfterNextFrame = LuaExportAfterNextFrame
 
 local connection_manager = ConnectionManager:new({})
 
-local state_machine = BIOSStateMachine:new(Protocol.aircraft_names_to_modules(), MetadataStart, MetadataEnd, 11000, connection_manager)
+local state_machine = BIOSStateMachine:new(Protocol.aircraft_names_to_modules(), MetadataStart, MetadataEnd, 11000, connection_manager, 1.0 / BIOSConfig.export_rate)
 
 local function process_input_line(line)
 	state_machine:processInputLine(line)

@@ -65,7 +65,7 @@ function TestStateMachine:setUp()
 		self.state.update_skip_counter = value
 	end
 
-	self.state_machine = BIOSStateMachine:new({ ["My Module"] = { my_module } }, metadata_start, metadata_end, 11000, ConnectionManager:new(MockServer:new()))
+	self.state_machine = BIOSStateMachine:new({ ["My Module"] = { my_module } }, metadata_start, metadata_end, 11000, ConnectionManager:new(MockServer:new()), 0.033)
 
 	self.state_machine:init()
 end
