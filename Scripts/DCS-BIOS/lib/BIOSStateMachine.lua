@@ -40,7 +40,7 @@ function BIOSStateMachine:new(modules_by_name, metadata_start, metadata_end, max
 		update_skip_counter = 0,
 		next_step_time = 0,
 		last_frame_time = 0,
-		step_period = step_period or 0.033, -- == 30/s
+		step_period = step_period,
 	}
 	setmetatable(o, self)
 	self.__index = self
