@@ -11,7 +11,7 @@ end
 
 --- @param filepath string path to the file
 --- @param request_name string name of the requested attribute
---- @return string? Returns the value of the file attribute named `request_name` corresponding to `filepath` or nil and an error message if attribute can't be retrieved.
+--- @return string?, string? Returns the value of the file attribute named `request_name` corresponding to `filepath` or nil and an error message if attribute can't be retrieved.
 function lfs.attributes(filepath, request_name) end
 
 ---@class CockpitDevice

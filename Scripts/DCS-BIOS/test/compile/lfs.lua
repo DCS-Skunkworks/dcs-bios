@@ -9,6 +9,6 @@ lfs.writedir = function()
 end
 
 ---@diagnostic disable-next-line: duplicate-set-field
-lfs.attributes = function (filepath, request_name) end
+lfs.attributes = function(filepath, request_name) end
 
 return lfs

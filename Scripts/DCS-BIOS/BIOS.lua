@@ -81,6 +81,7 @@ for _, module in ipairs(modules) do
 end
 
 -- Load modules that supports DCS-BIOS internally
+-- @type AutoloadData[]
 local autoloadDatum = BIOSAutoload.fetchAutoloadData([[Mods\aircraft]])
 for _, autoloadData in ipairs(autoloadDatum) do
 	local module = BIOSAutoload.autoloadFromData(autoloadData)
