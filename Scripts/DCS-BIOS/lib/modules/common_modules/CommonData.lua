@@ -274,6 +274,8 @@ CommonData:defineString("ANGULAR_VELOCITY_Z", function()
 	return angular_velocity_z
 end, angular_max_length, "Speed", "Angular Z Velocity")
 
+CommonData:defineString("VERSION", getVersion, 24, "Metadata", "DCS-BIOS Version")
+
 CommonData:defineIntegerFromGetter("HDG_DEG_MAG", function()
 	local magnetic_heading_rad = LoGetMagneticYaw()
 
