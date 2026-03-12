@@ -797,9 +797,19 @@ MiG_29A:define3PosTumb("RADAR_CONTROLS_ECCM_SWITCH", devices.INPUT_PANEL, 3031, 
 MiG_29A:defineToggleSwitch("RADAR_CONTROLS_TWF_SWITCH", devices.INPUT_PANEL, 3023, 298, PUR_31, "Radar TWF Switch", { positions = { "RHS", "TWF FHS" } })
 MiG_29A:defineToggleSwitch("RADAR_CONTROLS_COMPENSATION_SWITCH", devices.INPUT_PANEL, 3027, 297, PUR_31, "Radar Compensation Switch")
 
--- HUD control pannel (With sun visor controls)
+-- HUD control pannel
+local HUD = "Head-up Display Controls"
+
+MiG_29A:definePotentiometer("HUD_BRIGHTNESS_KNOB", devices.HUD, 3002, 536, { 0, 1 }, HUD, "Brightness Knob")
+MiG_29A:definePushButton("HUD_TEST_BUTTON", devices.HUD, 3001, 534, HUD, "Test Button")
+MiG_29A:define3PosTumb("HUD_MODE_SWITCH", devices.HUD, 3003, 535, HUD, "HUD Mode Selector", { positions = { "RETICLE", "DAY", "NIGHT" } })
 
 -- HDD control pannel
+local HDD = "Head Down Display Controls"
+
+MiG_29A:definePotentiometer("HDD_BRIGHTNESS_KNOB", devices.HDD, 3001, 530, { 0, 1 }, HDD, "Brightness Knob")
+MiG_29A:defineToggleSwitch("HDD_SOURCE_SWITCH", devices.HDD, 3002, 869, HDD, "HDD Source Switch", { positions = { "DUPLICATION", "TACTICAL" } })
+MiG_29A:reserveIntValue(1) -- HDD Mode Switch
 
 -- Canopy controls
 local CANOPY_CONTROLS = "Canopy Controls"
