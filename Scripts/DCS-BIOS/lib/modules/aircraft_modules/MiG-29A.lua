@@ -13,6 +13,11 @@ local Suffix = require("Scripts.DCS-BIOS.lib.modules.documentation.Suffix")
 --- @class MiG_29A: Module
 local MiG_29A = Module:new("MiG-29 Fulcrum", 0x3c00, { "MiG-29 Fulcrum" })
 
+-- Special Args:
+-- 1: Unit system (1 = metric, 0 = imperial)
+-- 2: Joystick visibility (Hidden >= 0.9 )
+-- 1040: Body visibility (Hidden >= 0.99 )
+
 local devices = {
 	FM_PROXY = 1,
 	SNSR_SYS_INTERFACE = 2,
@@ -681,6 +686,21 @@ MiG_29A:defineFloat("ITE_2TB_LEFT_ENGINE_RPM_POINTER", 16, { 0, 1 }, ITE_2TB, "L
 MiG_29A:defineFloat("ITE_2TB_RIGHT_ENGINE_RPM_POINTER", 17, { 0, 1 }, ITE_2TB, "Right Engine RPM Pointer")
 
 -- Voltmeter
+local VOLTMETER = "Voltmeter"
+
+MiG_29A:defineFloat("VOLTMETER_POINTER", 308, { 0, 1 }, VOLTMETER, "Voltmeter Pointer")
+
+-- Pitot Controls
+local PITOT_CONTROLS = "Pitot Controls"
+
+MiG_29A:defineToggleSwitch("PITOT_LEVER", devices.SNSR_SYS_INTERFACE, 3001, 131, PITOT_CONTROLS, "Pitot Lever", { positions = { "MAIN", "STBY" } })
+MiG_29A:defineToggleSwitch("PITOT_HEAT_SWITCH", devices.SNSR_SYS_INTERFACE, 3003, 558, PITOT_CONTROLS, "Pitot Lever", { positions = { "OFF", "ON" } })
+
+-- M-2A Brake air pressure manometer
+local M_2A = "M-2A Brake Air Pressure Manometer"
+
+MiG_29A:defineFloat("M_2A_LEFT_BRAKE_PRESSURE_INDICATOR", 124, { 0, 1 }, M_2A, "Left Brake Pressure Indicator")
+MiG_29A:defineFloat("M_2A_RIGHT_BRAKE_PRESSURE_INDICATOR", 125, { 0, 1 }, M_2A, "Right Brake Pressure Indicator")
 
 -- Hydrolique pressure
 
@@ -822,18 +842,18 @@ MiG_29A:definePushButton("CHUTE_LAUNCH_BUTTON", devices.INPUT_PANEL, 3037, 28, D
 local LANDING_GEAR = "Landing Gear Controls"
 
 MiG_29A:defineToggleSwitch("LANDING_GEAR_HANDLE", devices.HYDRO_INTERFACE, 3001, 80, LANDING_GEAR, "Landing Gear Handle", { positions = { "EXTENDED", "RETRACTED" } })
-MiG_29A:reserveIntValue(1) -- Emergency Landing Gear Handle
+MiG_29A:defineFloat("LANDING_GEAR_EMERGENCY_HANDLE", 15, { 0, 1 }, LANDING_GEAR, "Landing Gear Emergency Handle") -- No controls to action it yet
 
--- PU-S31 Weapon settings panel
-local WEAPONS_SETTINGS = "PU-S31 Weapon Settings Panel"
+-- PU-S31 Weapon Control Panel
+local WEAPONS_SETTINGS = "PU-S31 Weapon Control Panel"
 
-MiG_29A:defineToggleSwitch("WEAPON_SETTINGS_COOP_SWITCH", devices.INPUT_PANEL, 3019, 287, WEAPONS_SETTINGS, "Coop Switch", { positions = { "NO RETARD", "COOP RETARD" } })
-MiG_29A:defineToggleSwitch("WEAPON_SETTINGS_AG_SWITCH", devices.INPUT_PANEL, 3015, 286, WEAPONS_SETTINGS, "A/G Mode Switch", { positions = { "AIR", "GROUND" } })
-MiG_29A:defineToggleSwitch("WEAPON_SETTINGS_BOMB_JETTISON_ARM_SWITCH", devices.WP, 3008, 290, WEAPONS_SETTINGS, "Bombs Jettison Arm Switch", { positions = { "SAFE", "ARMED" } })
-MiG_29A:defineToggleSwitch("WEAPON_SETTINGS_EMERGENCY_JETTISON_COVER", devices.WP, 3006, 291, WEAPONS_SETTINGS, "Emergency Jettison Button Cover")
-MiG_29A:definePushButton("WEAPON_SETTINGS_EMERGENCY_JETTISON_BUTTON", devices.WP, 3005, 292, WEAPONS_SETTINGS, "Emergency Jettison Button")
-MiG_29A:defineToggleSwitch("WEAPON_SETTINGS_GUIDANCE_MODE_SWITCH", devices.INPUT_PANEL, 3017, 289, WEAPONS_SETTINGS, "Guidance Mode Switch")
-MiG_29A:defineToggleSwitch("WEAPON_SETTINGS_LOCK_SWITCH", devices.INPUT_PANEL, 3033, 288, WEAPONS_SETTINGS, "Lock Switch", { positions = { "FOE", "FRIEND" } })
+MiG_29A:defineToggleSwitch("WEAPONS_CONTROL_COOP_SWITCH", devices.INPUT_PANEL, 3019, 287, WEAPONS_SETTINGS, "Coop Switch", { positions = { "NO RETARD", "COOP RETARD" } })
+MiG_29A:defineToggleSwitch("WEAPONS_CONTROL_AG_SWITCH", devices.INPUT_PANEL, 3015, 286, WEAPONS_SETTINGS, "A/G Mode Switch", { positions = { "AIR", "GROUND" } })
+MiG_29A:defineToggleSwitch("WEAPONS_CONTROL_BOMB_JETTISON_ARM_SWITCH", devices.WP, 3008, 290, WEAPONS_SETTINGS, "Bombs Jettison Arm Switch", { positions = { "SAFE", "ARMED" } })
+MiG_29A:defineToggleSwitch("WEAPONS_CONTROL_EMERGENCY_JETTISON_COVER", devices.WP, 3006, 291, WEAPONS_SETTINGS, "Emergency Jettison Button Cover")
+MiG_29A:definePushButton("WEAPONS_CONTROL_EMERGENCY_JETTISON_BUTTON", devices.WP, 3005, 292, WEAPONS_SETTINGS, "Emergency Jettison Button")
+MiG_29A:defineToggleSwitch("WEAPONS_CONTROL_GUIDANCE_MODE_SWITCH", devices.INPUT_PANEL, 3017, 289, WEAPONS_SETTINGS, "Guidance Mode Switch")
+MiG_29A:defineToggleSwitch("WEAPONS_CONTROL_LOCK_SWITCH", devices.INPUT_PANEL, 3033, 288, WEAPONS_SETTINGS, "Lock Switch", { positions = { "FOE", "FRIEND" } })
 
 -- Ejection handle
 
@@ -846,5 +866,9 @@ MiG_29A:defineToggleSwitch("WEAPON_SETTINGS_LOCK_SWITCH", devices.INPUT_PANEL, 3
 -- Exterior Model
 
 -- Radios
+
+-- Dispenser Check Button - Not Implemented
+
+-- PC-31 Weapon Settings Panel - Not Implemented
 
 return MiG_29A
