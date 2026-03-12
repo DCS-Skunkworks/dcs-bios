@@ -9791,6 +9791,7 @@
 #define CommonData_TIME_START_HIGH_A 0x0446
 #define CommonData_TIME_START_LOW 0x0448, 0xFFFF, 0
 #define CommonData_TIME_START_LOW_A 0x0448
+#define CommonData_VERSION_A 0x0466
 #define Edge540_AIRSPEED 0x560C, 0xFFFF, 0
 #define Edge540_AIRSPEED_A 0x560C
 #define Edge540_ALT_SET 0x5600, 0xFFFF, 0
