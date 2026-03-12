@@ -46,7 +46,8 @@ function TestConnectionManager:testFlushOverMaxBuffer()
 	self.connection_manager:queue(testBuffer)
 	self.connection_manager:send_queue()
 
-	lu.assertEquals(#server.sent_messages, 2)
-	lu.assertEquals(server.sent_messages[1], testBuffer .. testBuffer) -- max buffer size is 2048 bytes, so two should be concatentated
-	lu.assertEquals(server.sent_messages[2], testBuffer) -- but the third should overflow
+	lu.assertEquals(#server.sent_messages, 3)
+	lu.assertEquals(server.sent_messages[1], testBuffer) -- max buffer size is 1460 bytes, so each 800-byte buffer gets its own packet
+	lu.assertEquals(server.sent_messages[2], testBuffer)
+	lu.assertEquals(server.sent_messages[3], testBuffer)
 end

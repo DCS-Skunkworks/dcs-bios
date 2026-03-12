@@ -15,6 +15,7 @@ module("BIOSConfig", package.seeall)
 --- @field udp_config UDPConnectionConfig[]
 --- @field dev_mode boolean whether dev mode is enabled and json/header files should be written
 --- @field clean_logs boolean whether duplicate log messages should be removed
+--- @field export_rate number export count by second (may vary depending on DCS frame rate), supported range: [1;30]
 local BIOSConfig = {
 	tcp_config = {
 		{
@@ -32,6 +33,7 @@ local BIOSConfig = {
 	},
 	dev_mode = true,
 	clean_logs = true,
+	export_rate = 30,
 }
 
 return BIOSConfig
