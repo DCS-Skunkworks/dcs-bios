@@ -76,7 +76,7 @@ CommonData:addExportHook(updatePosition)
 local function getVersion()
 	return "0.11.1"
 end
-CommonData:defineString("DCS_BIOS", getVersion, 6, "Metadata", "DCS Bios Version")
+CommonData:defineString("DCS_BIOS", getVersion, 6, "Metadata", "DCS Bios Version", { deprecated = { since = "0.11.1", use_instead = "VERSION" } })
 
 local function getPlayerName()
 	if not LoIsOwnshipExportAllowed() then
@@ -274,8 +274,6 @@ CommonData:defineString("ANGULAR_VELOCITY_Z", function()
 	return angular_velocity_z
 end, angular_max_length, "Speed", "Angular Z Velocity")
 
-CommonData:defineString("VERSION", getVersion, 24, "Metadata", "DCS-BIOS Version")
-
 CommonData:defineIntegerFromGetter("HDG_DEG_MAG", function()
 	local magnetic_heading_rad = LoGetMagneticYaw()
 
@@ -289,5 +287,7 @@ CommonData:defineIntegerFromGetter("HDG_DEG_MAG", function()
 	end
 	return heading
 end, 359, "Heading", "Magnetic Heading")
+
+CommonData:defineString("VERSION", getVersion, 24, "Metadata", "DCS-BIOS Version")
 
 return CommonData
