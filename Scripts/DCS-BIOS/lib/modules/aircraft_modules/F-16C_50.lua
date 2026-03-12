@@ -906,4 +906,6 @@ end, DED_LINE_LENGTH, DED_NEW, "Line 5 Format (i=inverse, b=big)")
 
 F_16C_50:defineMultipositionSwitch("AIR_SOURCE_KNOB", 13, 3001, 693, 4, 0.1, "ECS", "AIR SOURCE Knob", { positions = { "OFF", "NORM", "DUMP", "RAM" } })
 
+F_16C_50:defineMultipositionSwitch("AIR_SOURCE_KNOB", 13, 3001, 693, 4, 0.1, "ECS", "AIR SOURCE Knob", { positions = { "OFF", "NORM", "DUMP", "RAM" } })
+
 return F_16C_50
