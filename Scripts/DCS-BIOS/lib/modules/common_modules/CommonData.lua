@@ -76,7 +76,7 @@ CommonData:addExportHook(updatePosition)
 local function getVersion()
 	return "0.11.1"
 end
-CommonData:defineString("DCS_BIOS", getVersion, 6, "Metadata", "DCS Bios Version")
+CommonData:defineString("DCS_BIOS", getVersion, 6, "Metadata", "DCS Bios Version", { deprecated = { since = "0.11.2", use_instead = "VERSION" } })
 
 local function getPlayerName()
 	if not LoIsOwnshipExportAllowed() then
@@ -287,5 +287,7 @@ CommonData:defineIntegerFromGetter("HDG_DEG_MAG", function()
 	end
 	return heading
 end, 359, "Heading", "Magnetic Heading")
+
+CommonData:defineString("VERSION", getVersion, 24, "Metadata", "DCS-BIOS Version")
 
 return CommonData
