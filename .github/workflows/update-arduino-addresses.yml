@@ -27,7 +27,7 @@ jobs:
 
     permissions:
       contents: read
-      actions: read
+      actions: write
 
     outputs:
       changed: ${{ steps.check-for-changes.outputs.changed }}
@@ -44,7 +44,7 @@ jobs:
       - name: Checkout arduino library
         uses: actions/checkout@v6
         with:
-          repository: DCS-Skunkworks/dcs-bios-arduino-library
+          repository: TylerDOC1776/dcs-bios-arduino-library
           path: arduino-library
 
       - name: Check if Addresses.h changed
@@ -57,38 +57,31 @@ jobs:
             echo "changed=true" >> $GITHUB_OUTPUT
           fi
 
+      - name: Upload Addresses.h for open-pr job
+        uses: actions/upload-artifact@v7
+        with:
+          name: addresses-h-pending
+          path: downloaded/Addresses.h
+
   open-pr:
     needs: check-for-changes
     if: needs.check-for-changes.outputs.changed == 'true'
 
     runs-on: ubuntu-latest
 
-    permissions:
-      actions: read
-      # PR creation uses ARDUINO_REPO_TOKEN against the external arduino library
-      # repo, not GITHUB_TOKEN, so no additional permissions are needed here.
+    permissions: {}
 
     steps:
-      - name: Check for required secret
-        run: |
-          if [ -z "${{ secrets.ARDUINO_REPO_TOKEN }}" ]; then
-            echo "::error::ARDUINO_REPO_TOKEN secret is not set. A fine-grained PAT with Contents and Pull requests write access to dcs-bios-arduino-library is required."
-            exit 1
-          fi
-
-      - name: Download Addresses.h from release workflow
+      - name: Download Addresses.h
         uses: actions/download-artifact@v8
         with:
-          name: addresses-h
-          run-id: ${{ github.event.workflow_run.id || inputs.run_id }}
-          github-token: ${{ github.token }}
+          name: addresses-h-pending
           path: downloaded
 
       - name: Checkout arduino library
         uses: actions/checkout@v6
         with:
-          repository: DCS-Skunkworks/dcs-bios-arduino-library
-          token: ${{ secrets.ARDUINO_REPO_TOKEN }}
+          repository: TylerDOC1776/dcs-bios-arduino-library
           path: arduino-library
 
       - name: Copy Addresses.h into arduino library
