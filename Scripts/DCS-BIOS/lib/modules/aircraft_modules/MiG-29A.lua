@@ -435,6 +435,19 @@ local function getCountermeasuresCounterString(arg_value)
 	end
 end
 
+--- Splits a string into an array by newlines
+--- @param inputstr string?
+--- @return string[]
+local function line_split(inputstr)
+	local t = {}
+	if inputstr then
+		for str in string.gmatch(inputstr, "([^\n]+)") do
+			table.insert(t, str)
+		end
+	end
+	return t
+end
+
 -- Stick
 local STICK = "Stick Controls"
 
@@ -818,22 +831,10 @@ MiG_29A:defineFloat("EKRAN_FAIL_LIGHT", 231, { 0, 1 }, EKRAN, "Fail Light")
 MiG_29A:defineFloat("EKRAN_TURN_LIGHT", 232, { 0, 1 }, EKRAN, "Turn Light")
 MiG_29A:defineFloat("EKRAN_MEMORY_LIGHT", 233, { 0, 1 }, EKRAN, "Memory Light")
 
---- Splits a string into an array by newlines
---- @param inputstr string?
---- @return string[]
-local function line_split(inputstr)
-	local t = {}
-	if inputstr then
-		for str in string.gmatch(inputstr, "([^\n]+)") do
-			table.insert(t, str)
-		end
-	end
-	return t
-end
-
 local parsedEKRAN = {}
 local ekran_txt_1 = {}
 local ekran_txt_2 = {}
+
 MiG_29A:addExportHook(function()
 	parsedEKRAN = Module.parse_indication(5)
 	ekran_txt_1 = line_split(parsedEKRAN.txt_1)
@@ -852,12 +853,6 @@ end
 local function getEKRAN_txt1_line4()
 	return Functions.coerce_nil_to_string(ekran_txt_1[4])
 end
--- Max length of a line is 10 minus the ommited number at the end
-MiG_29A:defineString("EKRAN_TXT1_LINE1", getEKRAN_txt1_line1, 9, "EKRAN", "EKRAN txt 1 line 1")
-MiG_29A:defineString("EKRAN_TXT1_LINE2", getEKRAN_txt1_line2, 9, "EKRAN", "EKRAN txt 1 line 2")
-MiG_29A:defineString("EKRAN_TXT1_LINE3", getEKRAN_txt1_line3, 9, "EKRAN", "EKRAN txt 1 line 3")
-MiG_29A:defineString("EKRAN_TXT1_LINE4", getEKRAN_txt1_line4, 9, "EKRAN", "EKRAN txt 1 line 4")
-
 local function getEKRAN_txt2_line1()
 	return Functions.coerce_nil_to_string(ekran_txt_2[1])
 end
@@ -871,6 +866,10 @@ local function getEKRAN_txt2_line4()
 	return Functions.coerce_nil_to_string(ekran_txt_2[4])
 end
 -- Max length of a line is 10 minus the ommited number at the end
+MiG_29A:defineString("EKRAN_TXT1_LINE1", getEKRAN_txt1_line1, 9, "EKRAN", "EKRAN txt 1 line 1")
+MiG_29A:defineString("EKRAN_TXT1_LINE2", getEKRAN_txt1_line2, 9, "EKRAN", "EKRAN txt 1 line 2")
+MiG_29A:defineString("EKRAN_TXT1_LINE3", getEKRAN_txt1_line3, 9, "EKRAN", "EKRAN txt 1 line 3")
+MiG_29A:defineString("EKRAN_TXT1_LINE4", getEKRAN_txt1_line4, 9, "EKRAN", "EKRAN txt 1 line 4")
 MiG_29A:defineString("EKRAN_TXT2_LINE1", getEKRAN_txt2_line1, 9, "EKRAN", "EKRAN txt 2 line 1")
 MiG_29A:defineString("EKRAN_TXT2_LINE2", getEKRAN_txt2_line2, 9, "EKRAN", "EKRAN txt 2 line 2")
 MiG_29A:defineString("EKRAN_TXT2_LINE3", getEKRAN_txt2_line3, 9, "EKRAN", "EKRAN txt 2 line 3")
