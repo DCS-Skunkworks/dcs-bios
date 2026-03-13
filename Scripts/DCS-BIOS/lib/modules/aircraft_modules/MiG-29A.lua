@@ -1002,6 +1002,32 @@ MiG_29A:defineFloat("KI_13_COMPASS", 53, { 0, 1 }, KI_13, "Compass Indicator")
 -- Telelight Panel
 local TLP = "Telelight Panel"
 
+MiG_29A:defineFloat("TLP_LIGHT_GBX_FIRE", 340, { 0, 1 }, TLP, "GBX FIRE Light (Red)")
+MiG_29A:defineFloat("TLP_LIGHT_LEFT_ENG_FIRE", 341, { 0, 1 }, TLP, "LH ENG FIRE Light (Red)")
+MiG_29A:defineFloat("TLP_LIGHT_RIGHT_ENG_FIRE", 342, { 0, 1 }, TLP, "RH ENG FIRE Light (Red)")
+MiG_29A:defineFloat("TLP_LIGHT_LEFT_ENG_RPM", 343, { 0, 1 }, TLP, "REDUCED RPM LH ENG Light (Red)")
+MiG_29A:defineFloat("TLP_LIGHT_RIGHT_ENG_RPM", 344, { 0, 1 }, TLP, "REDUCED RPM RH ENG Light (Red)")
+MiG_29A:defineFloat("TLP_LIGHT_LEFT_OIL_PRESS", 345, { 0, 1 }, TLP, "OIL PRESS LEFT Light (Red)")
+MiG_29A:defineFloat("TLP_LIGHT_RIGHT_OIL_PRESS", 346, { 0, 1 }, TLP, "OIL PRESS RIGHT Light (Red)")
+MiG_29A:defineFloat("TLP_LIGHT_OIL_GBX", 347, { 0, 1 }, TLP, "OIL GBX Light (Red)")
+MiG_29A:defineFloat("TLP_LIGHT_550_REMAIN", 348, { 0, 1 }, TLP, "550 KG REMAIN Light (Red)")
+MiG_29A:defineFloat("TLP_LIGHT_DOUBLE_HYD_SYS", 349, { 0, 1 }, TLP, "DOUBLE HYD SYS Light (Red)")
+MiG_29A:defineFloat("TLP_LIGHT_COC_FAIL", 350, { 0, 1 }, TLP, "COC FAIL Light (Red)")
+MiG_29A:defineFloat("TLP_LIGHT_ARMED", 378, { 0, 1 }, TLP, "ARMED Light (Red)")
+MiG_29A:defineFloat("TLP_LIGHT_DAMPER_OFF", 352, { 0, 1 }, TLP, "DAMPER OFF Light (Red)")
+MiG_29A:defineFloat("TLP_LIGHT_LEFT_ENG_START", 379, { 0, 1 }, TLP, "LH ENG START Light (Green)")
+MiG_29A:defineFloat("TLP_LIGHT_RIGHT_ENG_START", 380, { 0, 1 }, TLP, "RH ENG START Light (Green)")
+MiG_29A:defineFloat("TLP_LIGHT_LEFT_ENG_BURNER", 355, { 0, 1 }, TLP, "LH ENG AB Light (Green)")
+MiG_29A:defineFloat("TLP_LIGHT_RIGHT_ENG_BURNER", 356, { 0, 1 }, TLP, "RH ENG AB Light (Green)")
+MiG_29A:defineFloat("TLP_LIGHT_RUDDER_TRIM", 357, { 0, 1 }, TLP, "RUD TRIM NEUTRAL Light (Green)")
+MiG_29A:defineFloat("TLP_LIGHT_STAB_TRIM", 358, { 0, 1 }, TLP, "STAB TRIM NEUTRAL Light (Green)")
+MiG_29A:defineFloat("TLP_LIGHT_AIL_TRIM", 360, { 0, 1 }, TLP, "AIL TRIM NEUTRAL Light (Green)")
+MiG_29A:defineFloat("TLP_LIGHT_FEEL_UNIT", 359, { 0, 1 }, TLP, "FEEL UNIT TO/LD Light (Green)")
+MiG_29A:defineFloat("TLP_LIGHT_MARKER_BEACON", 367, { 0, 1 }, TLP, "MARKER BEACON Light (Green)")
+MiG_29A:defineFloat("TLP_LIGHT_EMERGENCY_HYD_PUMP", 362, { 0, 1 }, TLP, "EMERG HYD PUMP ON Light (Green)")
+MiG_29A:defineFloat("TLP_LIGHT_MODE", 363, { 0, 1 }, TLP, "MODE 1 Light (Green)")
+MiG_29A:defineFloat("TLP_LIGHT_RADAR", 365, { 0, 1 }, TLP, "RADAR READY Light (Green)")
+
 -- Ejection handle
 
 -- Interior Lights
