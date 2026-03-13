@@ -718,7 +718,72 @@ MiG_29A:defineFloat("M_2A_RIGHT_BRAKE_PRESSURE_INDICATOR", 125, { 0, 1 }, M_2A, 
 
 -- Hydrolique pressure
 
--- SPO-15 RWR
+-- SPO-15LM RWR
+local SPO_15LM = "SPO-15LM RWR"
+MiG_29A:definePotentiometer("SPO_15_BRIGHTNESS_KNOB", devices.L006LM, 3003, 186, { 0, 1 }, SPO_15LM, "Brightness Knob")
+MiG_29A:defineSpringloaded_3PosTumb("SPO_15_TEST_SWITCH", devices.L006LM, 3001, 3002, 185, SPO_15LM, "Test Switch", { positions = { "MANUAL", "TEST", "AUTO" } })
+MiG_29A:defineToggleSwitch("SPO_15_POWER_SWITCH", devices.L006LM, 3004, 189, SPO_15LM, "Power Switch", { positions = { "OFF", "SPO ON" } })
+MiG_29A:defineToggleSwitch("SPO_15_SCAN_SWITCH", devices.L006LM, 3005, 188, SPO_15LM, "Scan Switch", { positions = { "OFF", "SCAN" } })
+MiG_29A:definePotentiometer("SPO_15_TONE_VOLUME_KNOB", devices.L006LM, 3006, 187, { 0, 1 }, SPO_15LM, "Warning Tone Volume Knob")
+
+MiG_29A:defineFloat("SPO_15_READY_LIGHT", 177, { 0, 1 }, SPO_15LM, "Device Ready Light (Yellow)")
+MiG_29A:defineFloat("SPO_15_WARNING_LIGHT", 162, { 0, 1 }, SPO_15LM, "Tracking Warning Light (Red)")
+MiG_29A:defineFloat("SPO_15_SOUND_OFF_LIGHT", 163, { 0, 1 }, SPO_15LM, "Sound Off Light (Yellow)")
+MiG_29A:defineFloat("SPO_15_MAIN_THREAT_POSITION_LIGHT", 201, { 0, 1 }, SPO_15LM, "Main Threat Position Light (Yellow)")
+MiG_29A:defineFloat("SPO_15_UPPER_ELEVATION_INDICATOR_LIGHT", 160, { 0, 1 }, SPO_15LM, "Upper Hemisphere Elevation Angle Light (B) (Yellow)")
+MiG_29A:defineFloat("SPO_15_LOWER_ELEVATION_INDICATOR_LIGHT", 161, { 0, 1 }, SPO_15LM, "Lower Hemisphere Elevation Angle Light (H) (Yellow)")
+
+MiG_29A:defineFloat("SPO_15_MAIN_THREAT_90_LEFT_LIGHT", 150, { 0, 1 }, SPO_15LM, "Main Threat Azimuth 90 Left Light (Yellow)")
+MiG_29A:defineFloat("SPO_15_MAIN_THREAT_50_LEFT_LIGHT", 151, { 0, 1 }, SPO_15LM, "Main Threat Azimuth 50 Left Light (Yellow)")
+MiG_29A:defineFloat("SPO_15_MAIN_THREAT_30_LEFT_LIGHT", 152, { 0, 1 }, SPO_15LM, "Main Threat Azimuth 30 Left Light (Yellow)")
+MiG_29A:defineFloat("SPO_15_MAIN_THREAT_10_LEFT_LIGHT", 153, { 0, 1 }, SPO_15LM, "Main Threat Azimuth 10 Left Light (Yellow)")
+MiG_29A:defineFloat("SPO_15_MAIN_THREAT_90_RIGHT_LIGHT", 157, { 0, 1 }, SPO_15LM, "Main Threat Azimuth 90 Right Light (Yellow)")
+MiG_29A:defineFloat("SPO_15_MAIN_THREAT_50_RIGHT_LIGHT", 156, { 0, 1 }, SPO_15LM, "Main Threat Azimuth 50 Right Light (Yellow)")
+MiG_29A:defineFloat("SPO_15_MAIN_THREAT_30_RIGHT_LIGHT", 155, { 0, 1 }, SPO_15LM, "Main Threat Azimuth 30 Right Light (Yellow)")
+MiG_29A:defineFloat("SPO_15_MAIN_THREAT_10_RIGHT_LIGHT", 154, { 0, 1 }, SPO_15LM, "Main Threat Azimuth 10 Right Light (Yellow)")
+MiG_29A:defineFloat("SPO_15_MAIN_THREAT_REAR_LEFT_LIGHT", 158, { 0, 1 }, SPO_15LM, "Main Threat Azimuth Rear Left Light (Yellow)")
+MiG_29A:defineFloat("SPO_15_MAIN_THREAT_REAR_RIGHT_LIGHT", 159, { 0, 1 }, SPO_15LM, "Main Threat Azimuth Rear Right Light (Yellow)")
+
+MiG_29A:defineFloat("SPO_15_THREAT_90_LEFT_LIGHT", 191, { 0, 1 }, SPO_15LM, "Threat Azimuth 90 Left Light (Green)")
+MiG_29A:defineFloat("SPO_15_THREAT_50_LEFT_LIGHT", 192, { 0, 1 }, SPO_15LM, "Threat Azimuth 50 Left Light (Green)")
+MiG_29A:defineFloat("SPO_15_THREAT_30_LEFT_LIGHT", 193, { 0, 1 }, SPO_15LM, "Threat Azimuth 30 Left Light (Green)")
+MiG_29A:defineFloat("SPO_15_THREAT_10_LEFT_LIGHT", 194, { 0, 1 }, SPO_15LM, "Threat Azimuth 10 Left Light (Green)")
+MiG_29A:defineFloat("SPO_15_THREAT_90_RIGHT_LIGHT", 198, { 0, 1 }, SPO_15LM, "Threat Azimuth 90 Right Light (Green)")
+MiG_29A:defineFloat("SPO_15_THREAT_50_RIGHT_LIGHT", 197, { 0, 1 }, SPO_15LM, "Threat Azimuth 50 Right Light (Green)")
+MiG_29A:defineFloat("SPO_15_THREAT_30_RIGHT_LIGHT", 196, { 0, 1 }, SPO_15LM, "Threat Azimuth 30 Right Light (Green)")
+MiG_29A:defineFloat("SPO_15_THREAT_10_RIGHT_LIGHT", 195, { 0, 1 }, SPO_15LM, "Threat Azimuth 10 Right Light (Green)")
+MiG_29A:defineFloat("SPO_15_THREAT_REAR_LEFT_LIGHT", 199, { 0, 1 }, SPO_15LM, "Threat Azimuth Rear Left Light (Green)")
+MiG_29A:defineFloat("SPO_15_THREAT_REAR_RIGHT_LIGHT", 200, { 0, 1 }, SPO_15LM, "Threat Azimuth Rear Right Light (Green)")
+
+MiG_29A:defineFloat("SPO_15_EMITTER_POWER_LEVEL_1_LIGHT", 202, { 0, 1 }, SPO_15LM, "Emitter Power Level 1 Light (Yellow)")
+MiG_29A:defineFloat("SPO_15_EMITTER_POWER_LEVEL_2_LIGHT", 203, { 0, 1 }, SPO_15LM, "Emitter Power Level 2 Light (Yellow)")
+MiG_29A:defineFloat("SPO_15_EMITTER_POWER_LEVEL_3_LIGHT", 204, { 0, 1 }, SPO_15LM, "Emitter Power Level 3 Light (Yellow)")
+MiG_29A:defineFloat("SPO_15_EMITTER_POWER_LEVEL_4_LIGHT", 205, { 0, 1 }, SPO_15LM, "Emitter Power Level 4 Light (Yellow)")
+MiG_29A:defineFloat("SPO_15_EMITTER_POWER_LEVEL_5_LIGHT", 206, { 0, 1 }, SPO_15LM, "Emitter Power Level 5 Light (Yellow)")
+MiG_29A:defineFloat("SPO_15_EMITTER_POWER_LEVEL_6_LIGHT", 207, { 0, 1 }, SPO_15LM, "Emitter Power Level 6 Light (Yellow)")
+MiG_29A:defineFloat("SPO_15_EMITTER_POWER_LEVEL_7_LIGHT", 208, { 0, 1 }, SPO_15LM, "Emitter Power Level 7 Light (Yellow)")
+MiG_29A:defineFloat("SPO_15_EMITTER_POWER_LEVEL_8_LIGHT", 209, { 0, 1 }, SPO_15LM, "Emitter Power Level 8 Light (Yellow)")
+MiG_29A:defineFloat("SPO_15_EMITTER_POWER_LEVEL_9_LIGHT", 210, { 0, 1 }, SPO_15LM, "Emitter Power Level 9 Light (Yellow)")
+MiG_29A:defineFloat("SPO_15_EMITTER_POWER_LEVEL_10_LIGHT", 211, { 0, 1 }, SPO_15LM, "Emitter Power Level 10 Light (Yellow)")
+MiG_29A:defineFloat("SPO_15_EMITTER_POWER_LEVEL_11_LIGHT", 212, { 0, 1 }, SPO_15LM, "Emitter Power Level 11 Light (Yellow)")
+MiG_29A:defineFloat("SPO_15_EMITTER_POWER_LEVEL_12_LIGHT", 213, { 0, 1 }, SPO_15LM, "Emitter Power Level 12 Light (Yellow)")
+MiG_29A:defineFloat("SPO_15_EMITTER_POWER_LEVEL_13_LIGHT", 214, { 0, 1 }, SPO_15LM, "Emitter Power Level 13 Light (Yellow)")
+MiG_29A:defineFloat("SPO_15_EMITTER_POWER_LEVEL_14_LIGHT", 215, { 0, 1 }, SPO_15LM, "Emitter Power Level 14 Light (Yellow)")
+MiG_29A:defineFloat("SPO_15_EMITTER_POWER_LEVEL_15_LIGHT", 216, { 0, 1 }, SPO_15LM, "Emitter Power Level 15 Light (Yellow)")
+
+MiG_29A:defineFloat("SPO_15_MAIN_THREAT_TYPE_1_LIGHT", 164, { 0, 1 }, SPO_15LM, "Main Threat Type M Light (Yellow)")
+MiG_29A:defineFloat("SPO_15_MAIN_THREAT_TYPE_2_LIGHT", 165, { 0, 1 }, SPO_15LM, "Main Threat Type 3 Light (Yellow)")
+MiG_29A:defineFloat("SPO_15_MAIN_THREAT_TYPE_3_LIGHT", 166, { 0, 1 }, SPO_15LM, "Main Threat Type X Light (Yellow)")
+MiG_29A:defineFloat("SPO_15_MAIN_THREAT_TYPE_4_LIGHT", 167, { 0, 1 }, SPO_15LM, "Main Threat Type H Light (Yellow)")
+MiG_29A:defineFloat("SPO_15_MAIN_THREAT_TYPE_5_LIGHT", 168, { 0, 1 }, SPO_15LM, "Main Threat Type F Light (Yellow)")
+MiG_29A:defineFloat("SPO_15_MAIN_THREAT_TYPE_6_LIGHT", 169, { 0, 1 }, SPO_15LM, "Main Threat Type C Light (Yellow)")
+
+MiG_29A:defineFloat("SPO_15_THREAT_TYPE_1_LIGHT", 171, { 0, 1 }, SPO_15LM, "Threat Type M Light (Green)")
+MiG_29A:defineFloat("SPO_15_THREAT_TYPE_2_LIGHT", 172, { 0, 1 }, SPO_15LM, "Threat Type 3 Light (Green)")
+MiG_29A:defineFloat("SPO_15_THREAT_TYPE_3_LIGHT", 173, { 0, 1 }, SPO_15LM, "Threat Type X Light (Green)")
+MiG_29A:defineFloat("SPO_15_THREAT_TYPE_4_LIGHT", 174, { 0, 1 }, SPO_15LM, "Threat Type H Light (Green)")
+MiG_29A:defineFloat("SPO_15_THREAT_TYPE_5_LIGHT", 175, { 0, 1 }, SPO_15LM, "Threat Type F Light (Green)")
+MiG_29A:defineFloat("SPO_15_THREAT_TYPE_6_LIGHT", 176, { 0, 1 }, SPO_15LM, "Threat Type C Light (Green)")
 
 -- Canopy jettison
 
@@ -811,9 +876,19 @@ MiG_29A:define3PosTumb("RADAR_CONTROLS_ECCM_SWITCH", devices.INPUT_PANEL, 3031, 
 MiG_29A:defineToggleSwitch("RADAR_CONTROLS_TWF_SWITCH", devices.INPUT_PANEL, 3023, 298, PUR_31, "Radar TWF Switch", { positions = { "RHS", "TWF FHS" } })
 MiG_29A:defineToggleSwitch("RADAR_CONTROLS_COMPENSATION_SWITCH", devices.INPUT_PANEL, 3027, 297, PUR_31, "Radar Compensation Switch")
 
--- HUD control pannel (With sun visor controls)
+-- HUD control pannel
+local HUD = "Head-up Display Controls"
+
+MiG_29A:definePotentiometer("HUD_BRIGHTNESS_KNOB", devices.HUD, 3002, 536, { 0, 1 }, HUD, "Brightness Knob")
+MiG_29A:definePushButton("HUD_TEST_BUTTON", devices.HUD, 3001, 534, HUD, "Test Button")
+MiG_29A:define3PosTumb("HUD_MODE_SWITCH", devices.HUD, 3003, 535, HUD, "HUD Mode Selector", { positions = { "RETICLE", "DAY", "NIGHT" } })
 
 -- HDD control pannel
+local HDD = "Head Down Display Controls"
+
+MiG_29A:definePotentiometer("HDD_BRIGHTNESS_KNOB", devices.HDD, 3001, 530, { 0, 1 }, HDD, "Brightness Knob")
+MiG_29A:defineToggleSwitch("HDD_SOURCE_SWITCH", devices.HDD, 3002, 869, HDD, "HDD Source Switch", { positions = { "DUPLICATION", "TACTICAL" } })
+MiG_29A:reserveIntValue(1) -- HDD Mode Switch
 
 -- Canopy controls
 local CANOPY_CONTROLS = "Canopy Controls"
@@ -918,6 +993,11 @@ MiG_29A:defineToggleSwitch("WEAPONS_CONTROL_EMERGENCY_JETTISON_COVER", devices.W
 MiG_29A:definePushButton("WEAPONS_CONTROL_EMERGENCY_JETTISON_BUTTON", devices.WP, 3005, 292, WEAPONS_SETTINGS, "Emergency Jettison Button")
 MiG_29A:defineToggleSwitch("WEAPONS_CONTROL_GUIDANCE_MODE_SWITCH", devices.INPUT_PANEL, 3017, 289, WEAPONS_SETTINGS, "Guidance Mode Switch")
 MiG_29A:defineToggleSwitch("WEAPONS_CONTROL_LOCK_SWITCH", devices.INPUT_PANEL, 3033, 288, WEAPONS_SETTINGS, "Lock Switch", { positions = { "FOE", "FRIEND" } })
+
+-- KI-13 Magnetic compass
+local KI_13 = "KI-13 Magnetic Compass"
+
+MiG_29A:defineFloat("KI_13_COMPASS", 53, { 0, 1 }, KI_13, "Compass Indicator")
 
 -- Ejection handle
 
