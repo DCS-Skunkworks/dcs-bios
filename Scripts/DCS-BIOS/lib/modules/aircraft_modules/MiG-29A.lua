@@ -930,6 +930,11 @@ MiG_29A:definePushButton("WEAPONS_CONTROL_EMERGENCY_JETTISON_BUTTON", devices.WP
 MiG_29A:defineToggleSwitch("WEAPONS_CONTROL_GUIDANCE_MODE_SWITCH", devices.INPUT_PANEL, 3017, 289, WEAPONS_SETTINGS, "Guidance Mode Switch")
 MiG_29A:defineToggleSwitch("WEAPONS_CONTROL_LOCK_SWITCH", devices.INPUT_PANEL, 3033, 288, WEAPONS_SETTINGS, "Lock Switch", { positions = { "FOE", "FRIEND" } })
 
+-- KI-13 Magnetic compass
+local KI_13 = "KI-13 Magnetic Compass"
+
+MiG_29A:defineFloat("KI_13_COMPASS", 53, { 0, 1 }, KI_13, "Compass Indicator")
+
 -- Ejection handle
 
 -- Interior Lights
