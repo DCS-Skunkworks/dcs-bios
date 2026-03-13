@@ -483,13 +483,13 @@ MiG_29A:reserveIntValue(65535) -- Manual Ranging Control Potentiometer
 
 -- Pedals
 
--- Control & Test pannel
+-- Control & Test panel
 
--- Electrical power pannel
+-- Electrical power panel
 
--- System power pannel
+-- System power panel
 
--- Engine & APU start pannel
+-- Engine & APU start panel
 
 -- AFT lightning control panel
 
@@ -791,9 +791,9 @@ MiG_29A:defineFloat("SPO_15_THREAT_TYPE_6_LIGHT", 176, { 0, 1 }, SPO_15LM, "Thre
 
 -- Cabine air controls
 
--- Tally light pannel
+-- Tally light panel
 
--- A-323 Navigation control pannel
+-- A-323 Navigation control panel
 
 -- Lower center console
 
@@ -824,7 +824,7 @@ MiG_29A:definePushButton("FLAPS_CONTROL_DOWN_TAKEOFF_BUTTON", devices.HYDRO_INTE
 MiG_29A:definePushButton("FLAPS_CONTROL_DOWN_LANDING_BUTTON", devices.HYDRO_INTERFACE, 3004, 224, FLAPS_CONTROL, "Flaps Down Landing Button")
 MiG_29A:definePushButton("FLAPS_CONTROL_OFF_BUTTON", devices.HYDRO_INTERFACE, 3005, 219, FLAPS_CONTROL, "Flaps Off Button")
 
--- R-862 VHF / UHF control pannel
+-- R-862 VHF / UHF control panel
 local R_862 = "R-862 VHF/UHF"
 
 MiG_29A:reserveIntValue(1) -- Guard frequency lamp indicator
@@ -835,9 +835,9 @@ MiG_29A:definePotentiometer("R862_VOLUME_KNOB", devices.VHF_UHF_R862, 3004, 251,
 MiG_29A:defineMultipositionSwitch("R862_CHANNEL_SELECTOR", devices.VHF_UHF_R862, 3002, 252, 20, 0.05, R_862, "Channel Selector (0-19)")
 MiG_29A:defineIntegerFromArg("R862_SELECTED_CHANNEL_INDICATOR", 284, 20, R_862, "Selected Channel Indicator")
 
--- ADF control pannel
+-- ADF control panel
 
--- Engine emergency pannel
+-- Engine emergency panel
 
 -- PSR-31 Weapon controls panel
 local WEAPONS_CONTROL = "PSR-31 Weapon Control Panel"
@@ -876,14 +876,14 @@ MiG_29A:define3PosTumb("RADAR_CONTROLS_ECCM_SWITCH", devices.INPUT_PANEL, 3031, 
 MiG_29A:defineToggleSwitch("RADAR_CONTROLS_TWF_SWITCH", devices.INPUT_PANEL, 3023, 298, PUR_31, "Radar TWF Switch", { positions = { "RHS", "TWF FHS" } })
 MiG_29A:defineToggleSwitch("RADAR_CONTROLS_COMPENSATION_SWITCH", devices.INPUT_PANEL, 3027, 297, PUR_31, "Radar Compensation Switch")
 
--- HUD control pannel
+-- HUD control panel
 local HUD = "Head-up Display Controls"
 
 MiG_29A:definePotentiometer("HUD_BRIGHTNESS_KNOB", devices.HUD, 3002, 536, { 0, 1 }, HUD, "Brightness Knob")
 MiG_29A:definePushButton("HUD_TEST_BUTTON", devices.HUD, 3001, 534, HUD, "Test Button")
 MiG_29A:define3PosTumb("HUD_MODE_SWITCH", devices.HUD, 3003, 535, HUD, "HUD Mode Selector", { positions = { "RETICLE", "DAY", "NIGHT" } })
 
--- HDD control pannel
+-- HDD control panel
 local HDD = "Head Down Display Controls"
 
 MiG_29A:definePotentiometer("HDD_BRIGHTNESS_KNOB", devices.HDD, 3001, 530, { 0, 1 }, HDD, "Brightness Knob")
@@ -896,7 +896,7 @@ local CANOPY_CONTROLS = "Canopy Controls"
 MiG_29A:define3PosTumb0To1("LEFT_WALL_CANOPY_HANDLE", devices.AIR_INTERFACE, 3008, 810, CANOPY_CONTROLS, "Canopy Control Handle", { positions = { "CLOSE", "TAXI", "OPEN" } })
 MiG_29A:defineIndicatorLight("LEFT_WALL_CANOPY_LOCK_INDICATOR", 383, CANOPY_CONTROLS, "Canopy Lock Indicator")
 
--- Refueling pannel
+-- Refueling panel
 
 -- EKRAN warning system
 local EKRAN = "EKRAN Warning System"
@@ -998,6 +998,40 @@ MiG_29A:defineToggleSwitch("WEAPONS_CONTROL_LOCK_SWITCH", devices.INPUT_PANEL, 3
 local KI_13 = "KI-13 Magnetic Compass"
 
 MiG_29A:defineFloat("KI_13_COMPASS", 53, { 0, 1 }, KI_13, "Compass Indicator")
+
+-- Telelight Panel
+local TLP = "Telelight Panel"
+
+MiG_29A:defineFloat("TLP_LIGHT_GBX_FIRE", 340, { 0, 1 }, TLP, "GBX FIRE Light (Red)")
+MiG_29A:defineFloat("TLP_LIGHT_LEFT_ENG_FIRE", 341, { 0, 1 }, TLP, "LH ENG FIRE Light (Red)")
+MiG_29A:defineFloat("TLP_LIGHT_RIGHT_ENG_FIRE", 342, { 0, 1 }, TLP, "RH ENG FIRE Light (Red)")
+MiG_29A:defineFloat("TLP_LIGHT_LEFT_ENG_RPM", 343, { 0, 1 }, TLP, "REDUCED RPM LH ENG Light (Red)")
+MiG_29A:defineFloat("TLP_LIGHT_RIGHT_ENG_RPM", 344, { 0, 1 }, TLP, "REDUCED RPM RH ENG Light (Red)")
+MiG_29A:defineFloat("TLP_LIGHT_LEFT_OIL_PRESS", 345, { 0, 1 }, TLP, "OIL PRESS LEFT Light (Red)")
+MiG_29A:defineFloat("TLP_LIGHT_RIGHT_OIL_PRESS", 346, { 0, 1 }, TLP, "OIL PRESS RIGHT Light (Red)")
+MiG_29A:defineFloat("TLP_LIGHT_OIL_GBX", 347, { 0, 1 }, TLP, "OIL GBX Light (Red)")
+MiG_29A:defineFloat("TLP_LIGHT_550_REMAIN", 348, { 0, 1 }, TLP, "550 KG REMAIN Light (Red)")
+MiG_29A:defineFloat("TLP_LIGHT_DOUBLE_HYD_SYS", 349, { 0, 1 }, TLP, "DOUBLE HYD SYS Light (Red)")
+MiG_29A:defineFloat("TLP_LIGHT_COC_FAIL", 350, { 0, 1 }, TLP, "COC FAIL Light (Red)")
+MiG_29A:defineFloat("TLP_LIGHT_ARMED", 378, { 0, 1 }, TLP, "ARMED Light (Red)")
+MiG_29A:defineFloat("TLP_LIGHT_DAMPER_OFF", 352, { 0, 1 }, TLP, "DAMPER OFF Light (Red)")
+MiG_29A:defineFloat("TLP_LIGHT_LEFT_ENG_START", 379, { 0, 1 }, TLP, "LH ENG START Light (Green)")
+MiG_29A:defineFloat("TLP_LIGHT_RIGHT_ENG_START", 380, { 0, 1 }, TLP, "RH ENG START Light (Green)")
+MiG_29A:defineFloat("TLP_LIGHT_LEFT_ENG_BURNER", 355, { 0, 1 }, TLP, "LH ENG AB Light (Green)")
+MiG_29A:defineFloat("TLP_LIGHT_RIGHT_ENG_BURNER", 356, { 0, 1 }, TLP, "RH ENG AB Light (Green)")
+MiG_29A:defineFloat("TLP_LIGHT_RUDDER_TRIM", 357, { 0, 1 }, TLP, "RUD TRIM NEUTRAL Light (Green)")
+MiG_29A:defineFloat("TLP_LIGHT_STAB_TRIM", 358, { 0, 1 }, TLP, "STAB TRIM NEUTRAL Light (Green)")
+MiG_29A:defineFloat("TLP_LIGHT_AIL_TRIM", 360, { 0, 1 }, TLP, "AIL TRIM NEUTRAL Light (Green)")
+MiG_29A:defineFloat("TLP_LIGHT_FEEL_UNIT", 359, { 0, 1 }, TLP, "FEEL UNIT TO/LD Light (Green)")
+MiG_29A:defineFloat("TLP_LIGHT_MARKER_BEACON", 367, { 0, 1 }, TLP, "MARKER BEACON Light (Green)")
+MiG_29A:defineFloat("TLP_LIGHT_EMERGENCY_HYD_PUMP", 362, { 0, 1 }, TLP, "EMERG HYD PUMP ON Light (Green)")
+MiG_29A:defineFloat("TLP_LIGHT_MODE", 363, { 0, 1 }, TLP, "MODE 1 Light (Green)")
+MiG_29A:reserveIntValue(65535) -- Light not implemented yet
+MiG_29A:reserveIntValue(65535) -- Light not implemented yet
+MiG_29A:defineFloat("TLP_LIGHT_RADAR", 365, { 0, 1 }, TLP, "RADAR READY Light (Green)")
+MiG_29A:reserveIntValue(65535) -- Light not implemented yet
+MiG_29A:reserveIntValue(65535) -- Light not implemented yet
+MiG_29A:reserveIntValue(65535) -- Light not implemented yet
 
 -- Ejection handle
 
