@@ -44,7 +44,7 @@ jobs:
       - name: Checkout arduino library
         uses: actions/checkout@v6
         with:
-          repository: TylerDOC1776/dcs-bios-arduino-library
+          repository: DCS-Skunkworks/dcs-bios-arduino-library
           path: arduino-library
 
       - name: Check if Addresses.h changed
@@ -87,7 +87,7 @@ jobs:
       - name: Checkout arduino library
         uses: actions/checkout@v6
         with:
-          repository: TylerDOC1776/dcs-bios-arduino-library
+          repository: DCS-Skunkworks/dcs-bios-arduino-library
           token: ${{ secrets.ARDUINO_REPO_TOKEN }}
           path: arduino-library
 
