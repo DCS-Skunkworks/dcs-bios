@@ -39,6 +39,7 @@ jobs:
           name: addresses-h
           run-id: ${{ github.event.workflow_run.id || inputs.run_id }}
           github-token: ${{ github.token }}
+          repository: DCS-Skunkworks/dcs-bios  # testing: artifact lives in upstream repo
           path: downloaded
 
       - name: Checkout arduino library
@@ -85,6 +86,7 @@ jobs:
           name: addresses-h
           run-id: ${{ github.event.workflow_run.id || inputs.run_id }}
           github-token: ${{ github.token }}
+          repository: DCS-Skunkworks/dcs-bios  # testing: artifact lives in upstream repo
           path: downloaded
 
       - name: Checkout arduino library
