@@ -852,6 +852,7 @@ end
 local function getEKRAN_txt1_line4()
 	return Functions.coerce_nil_to_string(ekran_txt_1[4])
 end
+-- Max length of a line is 10 minus the ommited number at the end
 MiG_29A:defineString("EKRAN_TXT1_LINE1", getEKRAN_txt1_line1, 9, "EKRAN", "EKRAN txt 1 line 1")
 MiG_29A:defineString("EKRAN_TXT1_LINE2", getEKRAN_txt1_line2, 9, "EKRAN", "EKRAN txt 1 line 2")
 MiG_29A:defineString("EKRAN_TXT1_LINE3", getEKRAN_txt1_line3, 9, "EKRAN", "EKRAN txt 1 line 3")
@@ -869,6 +870,7 @@ end
 local function getEKRAN_txt2_line4()
 	return Functions.coerce_nil_to_string(ekran_txt_2[4])
 end
+-- Max length of a line is 10 minus the ommited number at the end
 MiG_29A:defineString("EKRAN_TXT2_LINE1", getEKRAN_txt2_line1, 9, "EKRAN", "EKRAN txt 2 line 1")
 MiG_29A:defineString("EKRAN_TXT2_LINE2", getEKRAN_txt2_line2, 9, "EKRAN", "EKRAN txt 2 line 2")
 MiG_29A:defineString("EKRAN_TXT2_LINE3", getEKRAN_txt2_line3, 9, "EKRAN", "EKRAN txt 2 line 3")
