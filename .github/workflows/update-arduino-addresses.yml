@@ -30,11 +30,11 @@ jobs:
       actions: read
 
     outputs:
-      changed: ${{ steps.check-changes.outputs.changed }}
+      changed: ${{ steps.check-for-changes.outputs.changed }}
 
     steps:
       - name: Download Addresses.h from release workflow
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: addresses-h
           run-id: ${{ github.event.workflow_run.id || inputs.run_id }}
@@ -44,15 +44,14 @@ jobs:
       - name: Checkout arduino library
         uses: actions/checkout@v6
         with:
-          repository: DCS-Skunkworks/dcs-bios-arduino-library
+          repository: TylerDOC1776/dcs-bios-arduino-library
           path: arduino-library
 
       - name: Check if Addresses.h changed
-        id: check-changes
+        id: check-for-changes
         run: |
           if diff -q downloaded/Addresses.h arduino-library/src/internal/Addresses.h > /dev/null 2>&1; then
             echo "Addresses.h is unchanged. Skipping PR."
-            echo "changed=false" >> $GITHUB_OUTPUT
           else
             echo "Addresses.h has changed. Proceeding with PR."
             echo "changed=true" >> $GITHUB_OUTPUT
@@ -65,7 +64,6 @@ jobs:
     runs-on: ubuntu-latest
 
     permissions:
-      contents: read
       actions: read
       # PR creation uses ARDUINO_REPO_TOKEN against the external arduino library
       # repo, not GITHUB_TOKEN, so no additional permissions are needed here.
@@ -79,7 +77,7 @@ jobs:
           fi
 
       - name: Download Addresses.h from release workflow
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: addresses-h
           run-id: ${{ github.event.workflow_run.id || inputs.run_id }}
@@ -89,7 +87,7 @@ jobs:
       - name: Checkout arduino library
         uses: actions/checkout@v6
         with:
-          repository: DCS-Skunkworks/dcs-bios-arduino-library
+          repository: TylerDOC1776/dcs-bios-arduino-library
           token: ${{ secrets.ARDUINO_REPO_TOKEN }}
           path: arduino-library
 

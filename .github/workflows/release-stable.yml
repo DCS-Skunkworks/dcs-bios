@@ -58,7 +58,7 @@ jobs:
           lua ./Scripts/DCS-BIOS/test/compile/LocalCompile.lua
 
       - name: Upload Addresses.h artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: addresses-h
           path: Scripts/DCS-BIOS/doc/Addresses.h
