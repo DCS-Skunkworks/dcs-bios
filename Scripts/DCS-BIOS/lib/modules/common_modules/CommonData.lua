@@ -290,4 +290,7 @@ end, 359, "Heading", "Magnetic Heading")
 
 CommonData:defineString("VERSION", getVersion, 24, "Metadata", "DCS-BIOS Version")
 
+-- REVERT BEFORE MERGE: temporary control to force Addresses.h change for workflow testing
+CommonData:defineIntegerFromGetter("TEST_WORKFLOW", function() return 0 end, 1, "Test", "Temporary test control")
+
 return CommonData
