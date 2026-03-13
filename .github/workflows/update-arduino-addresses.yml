@@ -57,10 +57,23 @@ jobs:
           token: ${{ secrets.ARDUINO_REPO_TOKEN }}
           path: arduino-library
 
+      - name: Check if Addresses.h changed
+        id: check-changes
+        run: |
+          if diff -q Scripts/DCS-BIOS/doc/Addresses.h arduino-library/src/internal/Addresses.h > /dev/null 2>&1; then
+            echo "Addresses.h is unchanged. Skipping PR."
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "Addresses.h has changed. Proceeding with PR."
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+
       - name: Copy Addresses.h into arduino library
+        if: steps.check-changes.outputs.changed == 'true'
         run: cp Scripts/DCS-BIOS/doc/Addresses.h arduino-library/src/internal/Addresses.h
 
       - name: Create pull request
+        if: steps.check-changes.outputs.changed == 'true'
         uses: peter-evans/create-pull-request@c0f553fe549906ede9cf27b5156039d195d2ece0 # v8.1.0
         with:
           token: ${{ secrets.ARDUINO_REPO_TOKEN }}
