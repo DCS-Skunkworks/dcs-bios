@@ -4,11 +4,14 @@ local Control = require("Scripts.DCS-BIOS.lib.modules.documentation.Control")
 local ControlAttributeDocumentation = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlAttributeDocumentation")
 local ControlType = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlType")
 local FixedStepInput = require("Scripts.DCS-BIOS.lib.modules.documentation.FixedStepInput")
+local Functions = require("Scripts.DCS-BIOS.lib.common.Functions")
 local ICommand = require("Scripts.DCS-BIOS.lib.modules.ICommand")
 local IntegerOutput = require("Scripts.DCS-BIOS.lib.modules.documentation.IntegerOutput")
 local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 local SetStateInput = require("Scripts.DCS-BIOS.lib.modules.documentation.SetStateInput")
 local Suffix = require("Scripts.DCS-BIOS.lib.modules.documentation.Suffix")
+
+local Log = require("Scripts.DCS-BIOS.lib.common.Log")
 
 --- @class MiG_29A: Module
 local MiG_29A = Module:new("MiG-29 Fulcrum", 0x3c00, { "MiG-29 Fulcrum" })
@@ -810,6 +813,68 @@ MiG_29A:defineIndicatorLight("LEFT_WALL_CANOPY_LOCK_INDICATOR", 383, CANOPY_CONT
 -- Refueling pannel
 
 -- EKRAN warning system
+local EKRAN = "EKRAN Warning System"
+
+MiG_29A:definePushButton("EKRAN_CALL_BUTTON", devices.EKRAN, 3001, 84, EKRAN, "Call Button")
+MiG_29A:defineFloat("EKRAN_FAIL_LIGHT", 231, { 0, 1 }, EKRAN, "Fail Light")
+MiG_29A:defineFloat("EKRAN_TURN_LIGHT", 232, { 0, 1 }, EKRAN, "Turn Light")
+MiG_29A:defineFloat("EKRAN_MEMORY_LIGHT", 233, { 0, 1 }, EKRAN, "Memory Light")
+
+--- Splits a string into an array by newlines
+--- @param inputstr string?
+--- @return string[]
+local function line_split(inputstr)
+	local t = {}
+	if inputstr then
+		for str in string.gmatch(inputstr, "([^\n]+)") do
+			table.insert(t, str)
+		end
+	end
+	return t
+end
+
+local parsedEKRAN = {}
+local ekran_txt_1 = {}
+local ekran_txt_2 = {}
+MiG_29A:addExportHook(function()
+	parsedEKRAN = Module.parse_indication(5)
+	ekran_txt_1 = line_split(parsedEKRAN.txt_1)
+	ekran_txt_2 = line_split(parsedEKRAN.txt_2)
+end)
+
+local function getEKRAN_txt1_line1()
+	return Functions.coerce_nil_to_string(ekran_txt_1[1])
+end
+local function getEKRAN_txt1_line2()
+	return Functions.coerce_nil_to_string(ekran_txt_1[2])
+end
+local function getEKRAN_txt1_line3()
+	return Functions.coerce_nil_to_string(ekran_txt_1[3])
+end
+local function getEKRAN_txt1_line4()
+	return Functions.coerce_nil_to_string(ekran_txt_1[4])
+end
+MiG_29A:defineString("EKRAN_TXT1_LINE1", getEKRAN_txt1_line1, 10, "EKRAN", "EKRAN txt 1 line 1")
+MiG_29A:defineString("EKRAN_TXT1_LINE2", getEKRAN_txt1_line2, 10, "EKRAN", "EKRAN txt 1 line 2")
+MiG_29A:defineString("EKRAN_TXT1_LINE3", getEKRAN_txt1_line3, 10, "EKRAN", "EKRAN txt 1 line 3")
+MiG_29A:defineString("EKRAN_TXT1_LINE4", getEKRAN_txt1_line4, 10, "EKRAN", "EKRAN txt 1 line 4")
+
+local function getEKRAN_txt2_line1()
+	return Functions.coerce_nil_to_string(ekran_txt_2[1])
+end
+local function getEKRAN_txt2_line2()
+	return Functions.coerce_nil_to_string(ekran_txt_2[2])
+end
+local function getEKRAN_txt2_line3()
+	return Functions.coerce_nil_to_string(ekran_txt_2[3])
+end
+local function getEKRAN_txt2_line4()
+	return Functions.coerce_nil_to_string(ekran_txt_2[4])
+end
+MiG_29A:defineString("EKRAN_TXT2_LINE1", getEKRAN_txt2_line1, 10, "EKRAN", "EKRAN txt 2 line 1")
+MiG_29A:defineString("EKRAN_TXT2_LINE2", getEKRAN_txt2_line2, 10, "EKRAN", "EKRAN txt 2 line 2")
+MiG_29A:defineString("EKRAN_TXT2_LINE3", getEKRAN_txt2_line3, 10, "EKRAN", "EKRAN txt 2 line 3")
+MiG_29A:defineString("EKRAN_TXT2_LINE4", getEKRAN_txt2_line4, 10, "EKRAN", "EKRAN txt 2 line 4")
 
 -- Voice information and warning system (VIWAS) controls
 
