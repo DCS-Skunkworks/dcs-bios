@@ -2,14 +2,7 @@ name: Update Arduino Library Addresses.h
 
 on:
   workflow_run:
-    # Per the linked issue, this workflow targets stable releases only.
-    # Should nightly releases also update the arduino library? If so, add
-    # "Release DCS-BIOS nightly build" to the list below and consider whether
-    # a daily PR against the arduino library is desirable.
     workflows: ["Release DCS-BIOS stable build"]
-    # workflows:
-    #   - "Release DCS-BIOS stable build"
-    #   - "Release DCS-BIOS nightly build"
     types:
       - completed
 
@@ -17,16 +10,16 @@ on:
   # re-running after a failed release without cutting a new tag.
   workflow_dispatch:
     inputs:
-      head_sha:
-        description: "Commit SHA to checkout (defaults to current HEAD)"
-        required: false
+      run_id:
+        description: "Run ID of the stable release workflow to pull Addresses.h from"
+        required: true
       head_branch:
         description: "Branch/tag name to use in PR title and branch name"
         required: false
         default: "test"
 
 jobs:
-  update-addresses:
+  check-for-changes:
     # only run if triggered manually or if the release workflow succeeded
     if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
 
@@ -34,10 +27,50 @@ jobs:
 
     permissions:
       contents: read
+      actions: read
+
+    outputs:
+      changed: ${{ steps.check-changes.outputs.changed }}
+
+    steps:
+      - name: Download Addresses.h from release workflow
+        uses: actions/download-artifact@v4
+        with:
+          name: addresses-h
+          run-id: ${{ github.event.workflow_run.id || inputs.run_id }}
+          github-token: ${{ github.token }}
+          path: downloaded
+
+      - name: Checkout arduino library
+        uses: actions/checkout@v6
+        with:
+          # repository: DCS-Skunkworks/dcs-bios-arduino-library  # production
+          repository: TylerDOC1776/dcs-bios-arduino-library  # testing
+          path: arduino-library
+
+      - name: Check if Addresses.h changed
+        id: check-changes
+        run: |
+          if diff -q downloaded/Addresses.h arduino-library/src/internal/Addresses.h > /dev/null 2>&1; then
+            echo "Addresses.h is unchanged. Skipping PR."
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "Addresses.h has changed. Proceeding with PR."
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+
+  open-pr:
+    needs: check-for-changes
+    if: needs.check-for-changes.outputs.changed == 'true'
+
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      actions: read
       # PR creation uses ARDUINO_REPO_TOKEN against the external arduino library
       # repo, not GITHUB_TOKEN, so no additional permissions are needed here.
 
-    name: Open PR against arduino library with updated Addresses.h
     steps:
       - name: Check for required secret
         run: |
@@ -46,47 +79,28 @@ jobs:
             exit 1
           fi
 
-      - name: Checkout dcs-bios at release tag
-        uses: actions/checkout@v4
+      - name: Download Addresses.h from release workflow
+        uses: actions/download-artifact@v4
         with:
-          ref: ${{ github.event.workflow_run.head_sha || inputs.head_sha || github.sha }}
-
-      - name: Set up lua
-        uses: leafo/gh-actions-lua@v10
-        with:
-          luaVersion: "5.1.5"
-
-        # compile to ensure Addresses.h is up-to-date with this release
-      - name: Compile
-        run: |
-          lua ./Scripts/DCS-BIOS/test/compile/LocalCompile.lua
+          name: addresses-h
+          run-id: ${{ github.event.workflow_run.id || inputs.run_id }}
+          github-token: ${{ github.token }}
+          path: downloaded
 
       - name: Checkout arduino library
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
-          repository: DCS-Skunkworks/dcs-bios-arduino-library
+          # repository: DCS-Skunkworks/dcs-bios-arduino-library  # production
+          repository: TylerDOC1776/dcs-bios-arduino-library  # testing
           token: ${{ secrets.ARDUINO_REPO_TOKEN }}
           path: arduino-library
 
-      - name: Check if Addresses.h changed
-        id: check-changes
-        run: |
-          if diff -q Scripts/DCS-BIOS/doc/Addresses.h arduino-library/src/internal/Addresses.h > /dev/null 2>&1; then
-            echo "Addresses.h is unchanged. Skipping PR."
-            echo "changed=false" >> $GITHUB_OUTPUT
-          else
-            echo "Addresses.h has changed. Proceeding with PR."
-            echo "changed=true" >> $GITHUB_OUTPUT
-          fi
-
       - name: Copy Addresses.h into arduino library
-        if: steps.check-changes.outputs.changed == 'true'
-        run: cp Scripts/DCS-BIOS/doc/Addresses.h arduino-library/src/internal/Addresses.h
+        run: cp downloaded/Addresses.h arduino-library/src/internal/Addresses.h
 
       - name: Create pull request
-        if: steps.check-changes.outputs.changed == 'true'
         id: create-pr
-        uses: peter-evans/create-pull-request@c0f553fe549906ede9cf27b5156039d195d2ece0 # v8.1.0
+        uses: peter-evans/create-pull-request@v8
         with:
           token: ${{ secrets.ARDUINO_REPO_TOKEN }}
           path: arduino-library
@@ -99,5 +113,4 @@ jobs:
             Generated by the [update-arduino-addresses](${{ github.server_url }}/${{ github.repository }}/actions/workflows/update-arduino-addresses.yml) workflow.
 
       - name: Log pull request URL
-        if: steps.check-changes.outputs.changed == 'true'
         run: echo "Pull request created at ${{ steps.create-pr.outputs.pull-request-url }}"
