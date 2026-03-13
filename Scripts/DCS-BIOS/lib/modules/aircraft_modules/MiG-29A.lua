@@ -1026,7 +1026,12 @@ MiG_29A:defineFloat("TLP_LIGHT_FEEL_UNIT", 359, { 0, 1 }, TLP, "FEEL UNIT TO/LD 
 MiG_29A:defineFloat("TLP_LIGHT_MARKER_BEACON", 367, { 0, 1 }, TLP, "MARKER BEACON Light (Green)")
 MiG_29A:defineFloat("TLP_LIGHT_EMERGENCY_HYD_PUMP", 362, { 0, 1 }, TLP, "EMERG HYD PUMP ON Light (Green)")
 MiG_29A:defineFloat("TLP_LIGHT_MODE", 363, { 0, 1 }, TLP, "MODE 1 Light (Green)")
+MiG_29A:reserveIntValue(65535) -- Light not implemented yet
+MiG_29A:reserveIntValue(65535) -- Light not implemented yet
 MiG_29A:defineFloat("TLP_LIGHT_RADAR", 365, { 0, 1 }, TLP, "RADAR READY Light (Green)")
+MiG_29A:reserveIntValue(65535) -- Light not implemented yet
+MiG_29A:reserveIntValue(65535) -- Light not implemented yet
+MiG_29A:reserveIntValue(65535) -- Light not implemented yet
 
 -- Ejection handle
 
