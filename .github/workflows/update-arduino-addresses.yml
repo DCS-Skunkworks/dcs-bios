@@ -93,7 +93,6 @@ jobs:
           commit-message: "Update Addresses.h for ${{ github.event.workflow_run.head_branch || inputs.head_branch }}"
           branch: "update-addresses-${{ github.event.workflow_run.head_branch || inputs.head_branch }}"
           title: "Update Addresses.h for ${{ github.event.workflow_run.head_branch || inputs.head_branch }}"
-          base: master # default branch of dcs-bios-arduino-library
           body: |
             Automated update of `src/internal/Addresses.h` from DCS-BIOS release ${{ github.event.workflow_run.head_branch || inputs.head_branch }}.
 
