@@ -39,7 +39,7 @@ jobs:
           name: addresses-h
           run-id: ${{ github.event.workflow_run.id || inputs.run_id }}
           github-token: ${{ github.token }}
-          repository: DCS-Skunkworks/dcs-bios  # testing: artifact lives in upstream repo
+          repository: TylerDOC1776/dcs-bios  # testing: artifact lives in fork
           path: downloaded
 
       - name: Checkout arduino library
@@ -86,7 +86,7 @@ jobs:
           name: addresses-h
           run-id: ${{ github.event.workflow_run.id || inputs.run_id }}
           github-token: ${{ github.token }}
-          repository: DCS-Skunkworks/dcs-bios  # testing: artifact lives in upstream repo
+          repository: TylerDOC1776/dcs-bios  # testing: artifact lives in fork
           path: downloaded
 
       - name: Checkout arduino library
