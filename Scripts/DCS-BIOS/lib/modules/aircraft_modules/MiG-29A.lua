@@ -793,9 +793,46 @@ MiG_29A:defineFloat("SPO_15_THREAT_TYPE_6_LIGHT", 176, { 0, 1 }, SPO_15LM, "Thre
 
 -- Tally light panel
 
--- A-323 Navigation control panel
+-- A-323 Navigation system control panel
+local A_323 = "A-323 Navigation System Control Panel"
 
--- Lower center console
+MiG_29A:defineToggleSwitch("A_323_GYRO_SWITCH", devices.NAV, 3001, 410, A_323, "Gyro Switch", { positions = { "MAIN", "STBY" } })
+MiG_29A:defineToggleSwitch("A_323_CHANNELS_SWITCH", devices.NAV, 3002, 411, A_323, "Channels Switch", { positions = { "AUTO", "MAN" } })
+MiG_29A:defineToggleSwitch("A_323_WP_AD_SWITCH", devices.NAV, 3003, 412, A_323, "WP A/D Function Switch", { positions = { "WP", "A/D" } })
+MiG_29A:defineToggleSwitch("A_323_REL_BEARING_SWITCH", devices.NAV, 3004, 413, A_323, "Relative Bearing Switch", { positions = { "RSBN", "ADF" } })
+MiG_29A:defineToggleSwitch("A_323_COURSE_SWITCH", devices.NAV, 3005, 414, A_323, "Course Switch", { positions = { "0-179", "180-359" } })
+MiG_29A:defineToggleSwitch("A_323_CIRCLE_SWITCH", devices.NAV, 3006, 415, A_323, "Circle Switch", { positions = { "LEFT", "RIGHT" } })
+MiG_29A:defineToggleSwitch("A_323_LANDING_SWITCH", devices.NAV, 3007, 416, A_323, "Landing Switch", { positions = { "ON", "AUTO" } })
+MiG_29A:defineFloat("A_323_D21_LIGHT", 433, { 0, 1 }, A_323, "D<21 Light (Yellow)")
+MiG_29A:defineFloat("A_323_CORR_LIGHT", 434, { 0, 1 }, A_323, "CORR Light (Yellow)")
+MiG_29A:definePushButton("A_323_IDENT_BUTTON", devices.NAV, 3008, 417, A_323, "IDENT Button")
+MiG_29A:definePushButton("A_323_WP_AD_1_BUTTON", devices.NAV, 3009, 424, A_323, "WP A/D 1 Button")
+MiG_29A:defineFloat("A_323_WP_AD_1_LIGHT", 607, { 0, 1 }, A_323, "WP A/D 1 Light (Yellow)")
+MiG_29A:definePushButton("A_323_WP_AD_2_BUTTON", devices.NAV, 3010, 425, A_323, "WP A/D 2 Button")
+MiG_29A:defineFloat("A_323_WP_AD_2_LIGHT", 311, { 0, 1 }, A_323, "WP A/D 2 Light (Yellow)")
+MiG_29A:definePushButton("A_323_WP_AD_3_BUTTON", devices.NAV, 3011, 426, A_323, "WP A/D 3 Button")
+MiG_29A:defineFloat("A_323_WP_AD_3_LIGHT", 312, { 0, 1 }, A_323, "WP A/D 3 Light (Yellow)")
+MiG_29A:definePushButton("A_323_BEACONS_1_BUTTON", devices.NAV, 3012, 427, A_323, "Beacons 1 Button")
+MiG_29A:defineFloat("A_323_BEACONS_1_LIGHT", 313, { 0, 1 }, A_323, "Beacons 1 Light (Yellow)")
+MiG_29A:definePushButton("A_323_BEACONS_2_BUTTON", devices.NAV, 3013, 428, A_323, "Beacons 2 Button")
+MiG_29A:defineFloat("A_323_BEACONS_2_LIGHT", 314, { 0, 1 }, A_323, "Beacons 2 Light (Yellow)")
+MiG_29A:definePushButton("A_323_BEACONS_3_BUTTON", devices.NAV, 3014, 429, A_323, "Beacons 3 Button")
+MiG_29A:defineFloat("A_323_BEACONS_3_LIGHT", 315, { 0, 1 }, A_323, "Beacons 3 Light (Yellow)")
+MiG_29A:definePushButton("A_323_RESET_BUTTON", devices.NAV, 3015, 430, A_323, "Reset Button")
+MiG_29A:defineFloat("A_323_RESET_LIGHT", 316, { 0, 1 }, A_323, "Reset Light (Yellow)")
+MiG_29A:definePushButton("A_323_COMP_ZERO_BUTTON", devices.NAV, 3016, 431, A_323, "Comp. Zero Button")
+MiG_29A:defineFloat("A_323_COMP_ZERO_LIGHT", 317, { 0, 1 }, A_323, "Comp. Zero Light (Yellow)")
+MiG_29A:definePushButton("A_323_RETURN_BUTTON", devices.NAV, 3017, 432, A_323, "Return Button")
+MiG_29A:defineFloat("A_323_RETURN_LIGHT", 318, { 0, 1 }, A_323, "Return Light (Yellow)")
+MiG_29A:reserveIntValue(65535) -- RSBN Channel Type Knob
+MiG_29A:definePotentiometer("A_323_RSBN_CHANNEL_SELECT_KNOB", devices.NAV, 3019, 133, { 0, 1 }, A_323, "RSBN Channel Selector Knob")
+MiG_29A:definePotentiometer("A_323_ILS_CHANNEL_SELECT_KNOB", devices.NAV, 3020, 134, { 0, 1 }, A_323, "ILS Channel Selector Knob")
+MiG_29A:defineString("A_323_NAVIGATION_CHANNEL", function(dev0)
+	return string.format("%d%d%d%d", indicator_argument_display(dev0, 418, 10), indicator_argument_display(dev0, 419, 10), indicator_argument_display(dev0, 420, 10), indicator_argument_display(dev0, 421, 10))
+end, 4, A_323, "RSBN Channel")
+MiG_29A:defineString("A_323_ILS_CHANNEL", function(dev0)
+	return string.format("%d%d", indicator_argument_display(dev0, 422, 10), indicator_argument_display(dev0, 423, 10))
+end, 2, A_323, "ILS Channel")
 
 -- Oxygen system
 local O2_SYSTEM = "Oxygen System"
