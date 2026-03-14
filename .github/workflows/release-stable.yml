@@ -38,7 +38,7 @@ jobs:
       contents: write
 
     name: Release zip file
-    steps:        
+    steps:
       - name: Set release filename
         id: filename
         run: echo "zip=DCS-BIOS_${{ github.ref_name }}.zip" >> $GITHUB_OUTPUT
@@ -55,6 +55,12 @@ jobs:
       - name: compile
         run: |
           lua ./Scripts/DCS-BIOS/test/compile/LocalCompile.lua
+
+      - name: Upload Addresses.h artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: addresses-h
+          path: Scripts/DCS-BIOS/doc/Addresses.h
 
       - name: Archive Release
         uses: thedoctor0/zip-release@0.7.6
