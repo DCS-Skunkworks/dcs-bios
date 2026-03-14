@@ -26,8 +26,7 @@ jobs:
     runs-on: ubuntu-latest
 
     permissions:
-      contents: read
-      actions: write
+      actions: read
 
     outputs:
       changed: ${{ steps.check-for-changes.outputs.changed }}
@@ -44,7 +43,8 @@ jobs:
       - name: Checkout arduino library
         uses: actions/checkout@v6
         with:
-          repository: DCS-Skunkworks/dcs-bios-arduino-library
+          # repository: DCS-Skunkworks/dcs-bios-arduino-library
+          repository: TylerDOC1776/dcs-bios-arduino-library
           path: arduino-library
 
       - name: Check if Addresses.h changed
@@ -69,9 +69,18 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    permissions: {}
+    permissions:
+      id-token: write
 
     steps:
+      - name: Get access token for arduino library
+        id: access-token
+        uses: qoomon/actions--access-token@v3
+        with:
+          # repository: DCS-Skunkworks/dcs-bios-arduino-library
+          repository: TylerDOC1776/dcs-bios-arduino-library
+          permissions: contents:write,pull-requests:write
+
       - name: Download Addresses.h
         uses: actions/download-artifact@v8
         with:
@@ -81,7 +90,8 @@ jobs:
       - name: Checkout arduino library
         uses: actions/checkout@v6
         with:
-          repository: DCS-Skunkworks/dcs-bios-arduino-library
+          # repository: DCS-Skunkworks/dcs-bios-arduino-library
+          repository: TylerDOC1776/dcs-bios-arduino-library
           path: arduino-library
 
       - name: Copy Addresses.h into arduino library
@@ -91,7 +101,7 @@ jobs:
         id: create-pr
         uses: peter-evans/create-pull-request@v8
         with:
-          token: ${{ secrets.ARDUINO_REPO_TOKEN }}
+          token: ${{ steps.access-token.outputs.token }}
           path: arduino-library
           commit-message: "Update Addresses.h for ${{ github.event.workflow_run.head_branch || inputs.head_branch }}"
           branch: "update-addresses-${{ github.event.workflow_run.head_branch || inputs.head_branch }}"
