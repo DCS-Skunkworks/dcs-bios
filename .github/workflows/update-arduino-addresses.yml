@@ -43,8 +43,7 @@ jobs:
       - name: Checkout arduino library
         uses: actions/checkout@v6
         with:
-          # repository: DCS-Skunkworks/dcs-bios-arduino-library
-          repository: TylerDOC1776/dcs-bios-arduino-library
+          repository: DCS-Skunkworks/dcs-bios-arduino-library
           path: arduino-library
 
       - name: Check if Addresses.h changed
@@ -79,8 +78,7 @@ jobs:
         id: access-token
         uses: qoomon/actions--access-token@v3
         with:
-          # repository: DCS-Skunkworks/dcs-bios-arduino-library
-          repository: TylerDOC1776/dcs-bios-arduino-library
+          repository: DCS-Skunkworks/dcs-bios-arduino-library
           permissions: |
             contents: write
             pull-requests: write
@@ -94,8 +92,7 @@ jobs:
       - name: Checkout arduino library
         uses: actions/checkout@v6
         with:
-          # repository: DCS-Skunkworks/dcs-bios-arduino-library
-          repository: TylerDOC1776/dcs-bios-arduino-library
+          repository: DCS-Skunkworks/dcs-bios-arduino-library
           path: arduino-library
 
       - name: Copy Addresses.h into arduino library
