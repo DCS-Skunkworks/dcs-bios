@@ -71,6 +71,8 @@ jobs:
 
     permissions:
       id-token: write
+      contents: write
+      pull-requests: write
 
     steps:
       - name: Get access token for arduino library
