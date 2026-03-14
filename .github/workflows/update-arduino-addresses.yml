@@ -79,7 +79,9 @@ jobs:
         with:
           # repository: DCS-Skunkworks/dcs-bios-arduino-library
           repository: TylerDOC1776/dcs-bios-arduino-library
-          permissions: contents:write,pull-requests:write
+          permissions: |
+            contents: write
+            pull_requests: write
 
       - name: Download Addresses.h
         uses: actions/download-artifact@v8
