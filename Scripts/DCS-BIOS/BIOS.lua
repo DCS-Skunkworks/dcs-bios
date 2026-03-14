@@ -13,6 +13,7 @@ local TCPServer = require("Scripts.DCS-BIOS.lib.io.TCPServer")
 local UDPServer = require("Scripts.DCS-BIOS.lib.io.UDPServer")
 local socket = require("socket") --[[@as Socket]]
 
+local CommonData = require("Scripts.DCS-BIOS.lib.modules.common_modules.CommonData")
 local MetadataEnd = require("Scripts.DCS-BIOS.lib.modules.common_modules.MetadataEnd")
 local MetadataStart = require("Scripts.DCS-BIOS.lib.modules.common_modules.MetadataStart")
 
@@ -21,7 +22,7 @@ local MetadataStart = require("Scripts.DCS-BIOS.lib.modules.common_modules.Metad
 local modules = {
 	MetadataEnd,
 	MetadataStart,
-	require("Scripts.DCS-BIOS.lib.modules.common_modules.CommonData"),
+	CommonData,
 	require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.A-10C"),
 	require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.A-29B"),
 	require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.A-4E-C"),
@@ -79,6 +80,9 @@ for _, module in ipairs(modules) do
 end
 
 ----------------------------------------------------------------------------Modules End--------------------------------------
+
+CommonData.set_version(BIOSConfig.version)
+
 --Saves aliases for each aircraft for external programs
 pcall(Protocol.saveAliases)
 -- save constants for arduino devs to a header file
