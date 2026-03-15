@@ -1,5 +1,7 @@
 module("MiG-29A", package.seeall)
 
+local ActionArgument = require("Scripts.DCS-BIOS.lib.modules.documentation.ActionArgument")
+local ActionInput = require("Scripts.DCS-BIOS.lib.modules.documentation.ActionInput")
 local Control = require("Scripts.DCS-BIOS.lib.modules.documentation.Control")
 local ControlAttributeDocumentation = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlAttributeDocumentation")
 local ControlType = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlType")
@@ -446,6 +448,141 @@ local function line_split(inputstr)
 		end
 	end
 	return t
+end
+
+local function twoAxisSwitchIntValue(arg_value_vertical, arg_value_horizontal)
+	if arg_value_vertical == 1 and arg_value_horizontal == 0 then
+		return 0
+	elseif arg_value_vertical == -1 and arg_value_horizontal == 0 then
+		return 1
+	elseif arg_value_vertical == 0 and arg_value_horizontal == 1 then
+		return 2
+	else
+		return 3
+	end
+end
+
+--- Adds a custom switch for the nav lights switch
+--- @param identifier string the unique identifier for the control
+--- @param device_id integer the dcs device id
+--- @param command_vertical integer the dcs command for the vertical axis
+--- @param command_horizontal integer the dcs command for the horizontal axis
+--- @param arg_number_vertical integer the dcs argument number for the vertical axis
+--- @param arg_number_horizontal integer the dcs argument number for the horizontal axis
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @param attributes SwitchAttributes? additional control attributes
+function MiG_29A:defineTwoAxisMultipositionSwitch(identifier, device_id, command_vertical, command_horizontal, arg_number_vertical, arg_number_horizontal, category, description, attributes)
+	local alloc = self:allocateInt(3)
+	self:addExportHook(function(dev0)
+		local val = twoAxisSwitchIntValue(dev0:get_argument_value(arg_number_vertical), dev0:get_argument_value(arg_number_horizontal))
+		alloc:setValue(val)
+	end)
+
+	local control = Control:new(category, ControlType.selector, identifier, description, {
+		SetStateInput:new(3, "set the switch position"),
+		FixedStepInput:new("switch to previous or next state"),
+	}, {
+		IntegerOutput:new(alloc, Suffix.none, "switch position -- 0 = UP, 1 = DOWN , 2 = RIGHT, 3 = LEFT"),
+	}, nil, ControlAttributeDocumentation.from_switch_attributes(attributes))
+	self:addControl(control)
+
+	self:addInputProcessor(identifier, function(toState)
+		local dev = GetDevice(device_id)
+
+		if dev == nil then
+			return
+		end
+
+		local currentState = twoAxisSwitchIntValue(GetDevice(0):get_argument_value(arg_number_vertical), GetDevice(0):get_argument_value(arg_number_horizontal))
+		local new_state
+
+		if toState == "INC" then
+			if currentState >= 3 then
+				return
+			end
+			new_state = currentState + 1
+		elseif toState == "DEC" then
+			if currentState <= 0 then
+				return
+			end
+			new_state = currentState - 1
+		else
+			new_state = tonumber(toState)
+		end
+
+		if new_state == 0 then -- UP
+			dev:performClickableAction(command_vertical, 1)
+		elseif new_state == 1 then -- DOWN
+			dev:performClickableAction(command_vertical, -1)
+		elseif new_state == 2 then -- RIGHT
+			dev:performClickableAction(command_horizontal, 1)
+		elseif new_state == 3 then -- LEFT
+			dev:performClickableAction(command_horizontal, -1)
+		end
+	end)
+end
+
+--- Adds a custom switch for the nav lights switch
+--- @param identifier string the unique identifier for the control
+--- @param device_id integer the dcs device id
+--- @param command integer the dcs command
+--- @param arg_number integer the dcs argument number
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @param attributes SwitchAttributes? additional control attributes
+function MiG_29A:defineLightPanelKnobSwitch(identifier, device_id, command, arg_number, category, description, attributes)
+	local alloc = self:allocateInt(1)
+	self:addExportHook(function(dev0)
+		alloc:setValue(dev0:get_argument_value(arg_number))
+	end)
+
+	local control = Control:new(category, ControlType.selector, identifier, description, {
+		FixedStepInput:new("switch to previous or next state"),
+		SetStateInput:new(1, "set position"),
+		ActionInput:new(ActionArgument.toggle, "Toggle switch state"),
+	}, {
+		IntegerOutput:new(alloc, Suffix.none, "switch position"),
+	}, nil, ControlAttributeDocumentation.from_switch_attributes(attributes))
+	self:addControl(control)
+
+	self:addInputProcessor(identifier, function(toState)
+		local dev = GetDevice(device_id)
+
+		if dev == nil then
+			return
+		end
+
+		local currentState = GetDevice(0):get_argument_value(arg_number)
+		local new_state
+
+		if toState == "INC" then
+			if currentState > 0 then
+				return
+			end
+			new_state = 1
+		elseif toState == "DEC" then
+			if currentState < 1 then
+				return
+			end
+			new_state = 0
+		elseif toState == "TOGGLE" then
+			if currentState < 1 then
+				new_state = 1
+			else
+				new_state = 0
+			end
+		else
+			new_state = tonumber(toState)
+		end
+
+		if new_state == 0 and currentState ~= 0 then
+			dev:performClickableAction(command, 1)
+			dev:performClickableAction(command, 0)
+		elseif new_state == 1 then
+			dev:performClickableAction(command, 1)
+		end
+	end)
 end
 
 -- Stick
@@ -1035,8 +1172,20 @@ MiG_29A:reserveIntValue(65535) -- Light not implemented yet
 MiG_29A:reserveIntValue(65535) -- Light not implemented yet
 
 -- FWD lightning control panel
+local FWD_LIGHTS = "Forward Lightning Control Panel"
+
+MiG_29A:definePotentiometer("FWD_LIGHTS_LTS_ILLUM_KNOB", devices.INTLIGHTS_SYSTEM, 3005, 545, { 0, 1 }, FWD_LIGHTS, "LTS Illumination Knob")
+MiG_29A:definePushButton("FWD_LIGHTS_LAMP_TEST_BUTTON", devices.INTLIGHTS_SYSTEM, 3001, 546, FWD_LIGHTS, "Lamp Test Button")
+MiG_29A:definePotentiometer("FWD_LIGHTS_FLOODLIGHT_KNOB", devices.INTLIGHTS_SYSTEM, 3004, 549, { 0, 1 }, FWD_LIGHTS, "Floodlight Knob")
+MiG_29A:defineTwoAxisMultipositionSwitch("FWD_LIGHTS_NAV_LTS_SWITCH", devices.EXTLIGHTS_SYSTEM, 3001, 3002, 574, 548, FWD_LIGHTS, "Navigation LTS Switch", { positions = { "FLASH", "OFF", "10%", "100%" } })
 
 -- AFT lightning control panel
+local AFT_LIGHTS = "Rear Lightning Control Panel"
+
+MiG_29A:definePotentiometer("AFT_LIGHTS_PANEL_KNOB", devices.INTLIGHTS_SYSTEM, 3006, 540, { 0, 1 }, AFT_LIGHTS, "Panel Knob")
+MiG_29A:defineLightPanelKnobSwitch("AFT_LIGHTS_PANEL_SWITCH", devices.INTLIGHTS_SYSTEM, 3007, 110, AFT_LIGHTS, "Panel Button", { positions = { "MANUAL", "AUTOMATIC" } })
+MiG_29A:definePotentiometer("AFT_LIGHTS_CONSOLE_KNOB", devices.INTLIGHTS_SYSTEM, 3010, 542, { 0, 1 }, AFT_LIGHTS, "Console Knob")
+MiG_29A:definePotentiometer("AFT_LIGHTS_INSTRUMENT_KNOB", devices.INTLIGHTS_SYSTEM, 3011, 54, { 0, 1 }, AFT_LIGHTS, "Instrument Knob")
 
 -- Altimeter
 
