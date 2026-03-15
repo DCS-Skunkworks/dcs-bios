@@ -785,10 +785,6 @@ MiG_29A:defineFloat("SPO_15_THREAT_TYPE_4_LIGHT", 174, { 0, 1 }, SPO_15LM, "Thre
 MiG_29A:defineFloat("SPO_15_THREAT_TYPE_5_LIGHT", 175, { 0, 1 }, SPO_15LM, "Threat Type F Light (Green)")
 MiG_29A:defineFloat("SPO_15_THREAT_TYPE_6_LIGHT", 176, { 0, 1 }, SPO_15LM, "Threat Type C Light (Green)")
 
--- Canopy jettison
-
--- Canopy indicator
-
 -- Cabine air controls
 
 -- Tally light panel
@@ -895,6 +891,8 @@ local CANOPY_CONTROLS = "Canopy Controls"
 
 MiG_29A:define3PosTumb0To1("LEFT_WALL_CANOPY_HANDLE", devices.AIR_INTERFACE, 3008, 810, CANOPY_CONTROLS, "Canopy Control Handle", { positions = { "CLOSE", "TAXI", "OPEN" } })
 MiG_29A:defineIndicatorLight("LEFT_WALL_CANOPY_LOCK_INDICATOR", 383, CANOPY_CONTROLS, "Canopy Lock Indicator")
+MiG_29A:definePushButton("RIGHT_WALL_CANOPY_EMERGENCY_HANDLE", devices.CPT_MECH, 3011, 76, CANOPY_CONTROLS, "Canopy Emergency Jettison Handle")
+MiG_29A:defineFloat("RIGHT_WALL_CANOPY_INDICATOR", 180, { 0, 1 }, CANOPY_CONTROLS, "Canopy Indicator")
 
 -- Refueling panel
 
