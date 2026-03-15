@@ -113,6 +113,226 @@ function FA_18C_hornet:defineMissionComputerSwitch(identifier, device_id, mc1_of
 	end)
 end
 
+--- Adds a two-position magnetically-held (electrically-held) switch.
+---
+--- These switches use a single DCS command ID for both press (value 1) and
+--- release (value 0). The DCS engine cannot process both values on the same
+--- command ID within a single frame, so the release is deferred by several
+--- export frames to guarantee the engine processes the press first.
+---
+--- The input processor fires the press immediately and starts a countdown.
+--- The export hook decrements the countdown each frame (~30Hz). When the
+--- countdown reaches zero, the release fires. If a new input arrives while
+--- a release is pending, the pending release fires immediately before the
+--- new press to prevent orphaned state.
+---
+--- Control definition preserves the predecessor's ControlType and inputs.
+--- No new imports required — uses only what FA-18C_hornet.lua already has.
+---
+--- @param identifier string the unique identifier for the control
+--- @param device_id integer the dcs device id
+--- @param command integer the dcs command
+--- @param arg_number integer the dcs argument number
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @param attributes SwitchAttributes? additional control attributes
+--- @return Control control the control which was added to the module
+function FA_18C_hornet:defineElectricallyHeldSwitch(identifier, device_id, command, arg_number, category, description, attributes)
+	-- Deferred release: 3 frames at 30Hz = ~100ms between press and release
+	local release_delay = 3
+	local release_countdown = 0
+
+	local alloc = self:allocateInt(1, identifier)
+
+	-- Export hook: read cockpit arg every frame, manage deferred release
+	self:addExportHook(function(dev0)
+		alloc:setValue(dev0:get_argument_value(arg_number))
+
+		if release_countdown > 0 then
+			release_countdown = release_countdown - 1
+			if release_countdown == 0 then
+				-- Countdown expired: send release (value 0) to DCS.
+				-- If DCS already auto-released (e.g. APU shutdown), harmless no-op.
+				local dev = GetDevice(device_id)
+				if dev then
+					dev:performClickableAction(command, 0)
+				end
+			end
+		end
+	end)
+
+	-- Control definition: same ControlType and inputs as predecessor
+	local control = Control:new(category, ControlType.action, identifier, description, {
+		SetStateInput:new(1, "set the switch position -- 0 = off, 1 = on"),
+	}, {
+		IntegerOutput:new(alloc, Suffix.none, "selector position"),
+	}, nil, attributes)
+
+	self:addControl(control)
+
+	self:addInputProcessor(identifier, function(toState)
+		local dev = GetDevice(device_id)
+		if dev == nil then
+			return
+		end
+
+		local current = GetDevice(0):get_argument_value(arg_number)
+
+		-- Match defineToggleSwitchToggleOnly's input contract exactly:
+		-- "TOGGLE" always fires, "1"/"INC" only if OFF, "0"/"DEC" only if ON.
+		-- Threshold <= 0.5 handles float imprecision (e.g. 0.999 vs 1.0).
+		if
+			toState == "TOGGLE" -- always toggle regardless of current state
+			or (toState == "1" or toState == "INC") and current <= 0.5 -- turn ON only if OFF
+			or (toState == "0" or toState == "DEC") and current > 0.5 -- turn OFF only if ON
+		then
+			-- Flush pending release before new press (prevents orphaned state)
+			if release_countdown > 0 then
+				dev:performClickableAction(command, 0)
+			end
+			-- Fire press. Both ON and OFF send value 1: the C++ handler
+			-- toggles the magnetic latch on each press (BTN class widget).
+			dev:performClickableAction(command, 1)
+			-- Schedule deferred release (fires after release_delay frames)
+			release_countdown = release_delay
+		end
+	end)
+
+	return control
+end
+
+--- Adds a three-position magnetically-held (electrically-held) switch.
+---
+--- Each direction (left/right) has its own command ID but within each
+--- direction, press and release share that same command ID — the same
+--- single-command timing constraint as the 2-position function.
+---
+--- Center is the spring-return resting position (no coil engagement needed),
+--- so center releases fire IMMEDIATELY. Direction changes flush any pending
+--- release before engaging the new direction, preventing orphaned state.
+---
+--- Supports asymmetric switches where only one direction is magnetically
+--- held. Set attributes.magnetic_direction to "pos" or "neg" to defer the
+--- release only in that direction; the other direction behaves as a normal
+--- rocker (press on engage, release on return to center). Default is "both".
+--- Example: the canopy switch — OPEN is magnetic, CLOSE is manual hold.
+---
+--- Uses Module.round() on all get_argument_value() calls, fixing the float
+--- comparison bug in defineRockerSwitch (Module.lua:905) where
+--- fromState == 1 fails when the arg returns 0.999.
+---
+--- Control definition uses ControlType.selector and SetStateInput,
+--- matching the predecessor defineRockerSwitch. No new imports required.
+---
+--- @param identifier string the unique identifier for the control
+--- @param device_id integer the dcs device id
+--- @param pos_command integer the dcs command for the positive/right direction
+--- @param neg_command integer the dcs command for the negative/left direction
+--- @param arg_number integer the dcs argument number
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @param attributes SwitchAttributes? additional control attributes (magnetic_direction: "both"|"pos"|"neg")
+--- @return Control control the control which was added to the module
+function FA_18C_hornet:defineElectricallyHeld3PosTumb(identifier, device_id, pos_command, neg_command, arg_number, category, description, attributes)
+	-- Deferred release: 3 frames at 30Hz = ~100ms between press and release
+	local release_delay = 3
+	local release_countdown = 0
+	local release_cmd = nil -- tracks WHICH command to release (pos or neg)
+
+	-- Which direction(s) get deferred release? Default: both.
+	-- "pos" = only positive/right/up, "neg" = only negative/left/down.
+	local mag_dir = attributes and attributes.magnetic_direction or "both"
+	local mag_pos = (mag_dir == "both" or mag_dir == "pos")
+	local mag_neg = (mag_dir == "both" or mag_dir == "neg")
+
+	local alloc = self:allocateInt(2, identifier)
+
+	-- Export hook: read cockpit arg every frame, manage deferred release
+	self:addExportHook(function(dev0)
+		-- Map DCS arg (-1, 0, 1) to DCS-BIOS output (0, 1, 2).
+		-- Module.round() prevents nil LUT results from float imprecision.
+		local lut = { [-1] = 0, [0] = 1, [1] = 2 }
+		alloc:setValue(lut[Module.round(dev0:get_argument_value(arg_number))])
+
+		if release_countdown > 0 then
+			release_countdown = release_countdown - 1
+			if release_countdown == 0 and release_cmd then
+				-- Countdown expired: send release. Harmless no-op if already released.
+				local dev = GetDevice(device_id)
+				if dev then
+					dev:performClickableAction(release_cmd, 0)
+				end
+				release_cmd = nil
+			end
+		end
+	end)
+
+	-- Control definition: same ControlType and inputs as predecessor
+	local control = Control:new(category, ControlType.selector, identifier, description, {
+		SetStateInput:new(2, "set the switch position -- 0 = held left/down, 1 = centered, 2 = held right/up"),
+	}, {
+		IntegerOutput:new(alloc, Suffix.none, "selector position"),
+	}, nil, attributes)
+
+	self:addControl(control)
+
+	-- Input: "0" = left/down, "1" = center/off, "2" = right/up
+	self:addInputProcessor(identifier, function(toState)
+		local dev = GetDevice(device_id)
+		if dev == nil then
+			return
+		end
+
+		-- Module.round() fixes the float bug in defineRockerSwitch
+		local current = Module.round(GetDevice(0):get_argument_value(arg_number))
+
+		if toState == "2" and current ~= 1 then
+			-- RIGHT/UP: flush pending release, then engage positive direction
+			if release_countdown > 0 and release_cmd then
+				dev:performClickableAction(release_cmd, 0)
+			end
+			dev:performClickableAction(pos_command, 1)
+			if mag_pos then
+				release_cmd = pos_command
+				release_countdown = release_delay
+			else
+				-- Non-magnetic: no deferred release. User sends "1" to release.
+				release_countdown = 0
+				release_cmd = nil
+			end
+		elseif toState == "0" and current ~= -1 then
+			-- LEFT/DOWN: flush pending release, then engage negative direction
+			if release_countdown > 0 and release_cmd then
+				dev:performClickableAction(release_cmd, 0)
+			end
+			dev:performClickableAction(neg_command, -1)
+			if mag_neg then
+				release_cmd = neg_command
+				release_countdown = release_delay
+			else
+				-- Non-magnetic: no deferred release. User sends "1" to release.
+				release_countdown = 0
+				release_cmd = nil
+			end
+		elseif toState == "1" then
+			-- CENTER: spring-return, release immediately (no deferred countdown)
+			if release_countdown > 0 and release_cmd then
+				dev:performClickableAction(release_cmd, 0)
+			end
+			release_countdown = 0
+			release_cmd = nil
+			if current == 1 then
+				dev:performClickableAction(pos_command, 0) -- release right
+			elseif current == -1 then
+				dev:performClickableAction(neg_command, 0) -- release left
+			end
+			-- If current == 0, already centered — no command needed
+		end
+	end)
+
+	return control
+end
+
 local comm_channel_map = {
 	[" 1"] = 1,
 	[" 2"] = 2,
@@ -658,8 +878,8 @@ FA_18C_hornet:definePushButton("GEAR_SILENCE_BTN", 40, 3018, 230, "Landing Gear 
 FA_18C_hornet:definePushButton("SEL_JETT_BTN", 23, 3010, 235, "Select Jettison Button", "Selective Jettison Pushbutton")
 FA_18C_hornet:defineTumb("SEL_JETT_KNOB", 23, 3011, 236, 0.1, { -0.1, 0.3 }, nil, false, "Select Jettison Button", "Selective Jettison Knob", { positions = { "L FUS MSL", "SAFE", "R FUS MSL", "RACK/LCHR", "STORES" } })
 FA_18C_hornet:defineToggleSwitch("ANTI_SKID_SW", 5, 3004, 238, "Select Jettison Button", "Anti Skid")
-FA_18C_hornet:defineToggleSwitchToggleOnly("LAUNCH_BAR_SW", 5, 3008, 233, "Select Jettison Button", "Launch Bar Switch")
-FA_18C_hornet:defineToggleSwitchToggleOnly("HOOK_BYPASS_SW", 9, 3009, 239, "Select Jettison Button", "HOOK BYPASS Switch, FIELD/CARRIER")
+FA_18C_hornet:defineElectricallyHeldSwitch("LAUNCH_BAR_SW", 5, 3008, 233, "Select Jettison Button", "Launch Bar Switch")
+FA_18C_hornet:defineElectricallyHeldSwitch("HOOK_BYPASS_SW", 9, 3009, 239, "Select Jettison Button", "HOOK BYPASS Switch, FIELD/CARRIER")
 FA_18C_hornet:define3PosTumb("FLAP_SW", 2, 3007, 234, "Select Jettison Button", "FLAP Switch", { positions = { "AUTO", "HALF", "FULL" } })
 FA_18C_hornet:defineToggleSwitch("LDG_TAXI_SW", 8, 3004, 237, "Select Jettison Button", "LDG/TAXI LIGHT Switch")
 FA_18C_hornet:defineFloat("HYD_IND_BRAKE", 242, { 0, 1 }, "Select Jettison Button", "HYD Indicator Brake")
@@ -769,7 +989,7 @@ FA_18C_hornet:defineToggleSwitch("INT_WNG_TANK_SW", 6, 3001, 340, "Exterior Ligh
 
 -- 5. Fuel Panel
 FA_18C_hornet:define3PosTumb("PROBE_SW", 6, 3002, 341, "Fuel Panel", "Probe Control Switch", { positions = { "EXTEND", "RETRACT", "EMERG EXTD" } })
-FA_18C_hornet:defineToggleSwitchToggleOnly("FUEL_DUMP_SW", 6, 3003, 344, "Fuel Panel", "Fuel Dump Switch, ON/OFF")
+FA_18C_hornet:defineElectricallyHeldSwitch("FUEL_DUMP_SW", 6, 3003, 344, "Fuel Panel", "Fuel Dump Switch, ON/OFF")
 FA_18C_hornet:define3PosTumb("EXT_CNT_TANK_SW", 6, 3004, 343, "Fuel Panel", "External Centerline Tank Fuel Control Switch", { positions = { "STOP", "NORM", "ORIDE" } })
 FA_18C_hornet:define3PosTumb("EXT_WNG_TANK_SW", 6, 3005, 342, "Fuel Panel", "External Wing Tanks Fuel Control Switch", { positions = { "STOP", "NORM", "ORIDE" } })
 
@@ -810,8 +1030,8 @@ FA_18C_hornet:define3PosTumb("COMM1_ANT_SELECT_SW", 50, 3001, 373, "Antenna Sele
 FA_18C_hornet:define3PosTumb("IFF_ANT_SELECT_SW", 50, 3002, 374, "Antenna Select Panel", "IFF Antenna Selector Switch", { positions = { "UPPER", "BOTH", "LOWER" } })
 
 -- 14. Auxiliary Power Unit Panel
-FA_18C_hornet:defineToggleSwitchToggleOnly("APU_CONTROL_SW", 12, 3001, 375, "Auxiliary Power Unit Panel", "APU Control Switch, ON/OFF")
-FA_18C_hornet:defineRockerSwitch("ENGINE_CRANK_SW", 12, 3003, 3003, 3002, 3002, 377, "Auxiliary Power Unit Panel", "Engine Crank Switch", { positions = { "LEFT", "OFF", "RIGHT" } })
+FA_18C_hornet:defineElectricallyHeldSwitch("APU_CONTROL_SW", 12, 3001, 375, "Auxiliary Power Unit Panel", "APU Control Switch, ON/OFF")
+FA_18C_hornet:defineElectricallyHeld3PosTumb("ENGINE_CRANK_SW", 12, 3003, 3002, 377, "Auxiliary Power Unit Panel", "Engine Crank Switch", { positions = { "LEFT", "OFF", "RIGHT" } })
 FA_18C_hornet:defineIndicatorLight("APU_READY_LT", 376, "Auxiliary Power Unit Panel", "APU Ready Light (green)")
 
 -- 15. Generator Tie Control Switch
@@ -843,7 +1063,7 @@ FA_18C_hornet:define3PosTumb("CABIN_PRESS_SW", 11, 3004, 408, "Environment Contr
 FA_18C_hornet:definePotentiometer("CABIN_TEMP", 11, 3006, 407, { 0, 1 }, "Environment Control System Panel", "Cabin Temperature Knob")
 FA_18C_hornet:definePotentiometer("SUIT_TEMP", 11, 3007, 406, { 0, 1 }, "Environment Control System Panel", "Suit Temperature Knob")
 FA_18C_hornet:define3PosTumb("ENG_ANTIICE_SW", 12, 3014, 410, "Environment Control System Panel", "Engine Anti-Ice Switch", { positions = { "ON", "OFF", "TEST" } })
-FA_18C_hornet:defineToggleSwitchToggleOnly("PITOT_HEAT_SW", 3, 3016, 409, "Environment Control System Panel", "Pitot Heater Switch, ON/AUTO")
+FA_18C_hornet:defineElectricallyHeldSwitch("PITOT_HEAT_SW", 3, 3016, 409, "Environment Control System Panel", "Pitot Heater Switch, ON/AUTO")
 
 -- 3. Interior Lights Panel
 FA_18C_hornet:definePotentiometer("CONSOLES_DIMMER", 9, 3001, 413, { 0, 1 }, "Interior Lights Panel", "CONSOLES Lights Dimmer")
@@ -856,7 +1076,7 @@ FA_18C_hornet:defineToggleSwitch("LIGHTS_TEST_SW", 9, 3007, 416, "Interior Light
 
 -- 5. Sensor Panel
 FA_18C_hornet:define3PosTumb("FLIR_SW", 62, 3001, 439, "Sensor Panel", "FLIR Switch", { positions = { "ON", "STBY", "OFF" } })
-FA_18C_hornet:defineToggleSwitch("LTD_R_SW", 62, 3002, 441, "Sensor Panel", "LTD/R Switch, ARM/SAFE")
+FA_18C_hornet:defineElectricallyHeldSwitch("LTD_R_SW", 62, 3002, 441, "Sensor Panel", "LTD/R Switch, ARM/SAFE")
 FA_18C_hornet:defineToggleSwitch("LST_NFLR_SW", 62, 3003, 442, "Sensor Panel", "LST/NFLR Switch, ON/OFF")
 FA_18C_hornet:defineTumb("RADAR_SW", 42, 3001, 440, 0.1, { 0, 0.3 }, nil, false, "Sensor Panel", "RADAR Switch Change ,OFF/STBY/OPR/EMERG(PULL)")
 FA_18C_hornet:definePushButton("RADAR_SW_PULL", 42, 3002, 440, "Sensor Panel", "RADAR Switch Pull (MW to pull), OFF/STBY/OPR/EMERG(PULL)")
@@ -873,7 +1093,7 @@ FA_18C_hornet:definePotentiometer("DEFOG_HANDLE", 11, 3005, 451, { -1, 1 }, "Def
 FA_18C_hornet:define3PosTumb("WSHIELD_ANTI_ICE_SW", 11, 3009, 452, "Defog Panel", "Windshield Anti-Ice/Rain Switch", { positions = { "ANTI ICE", "OFF", "RAIN" } })
 
 -- 12. Internal Canopy Switch
-FA_18C_hornet:defineRockerSwitch("CANOPY_SW", 7, 3001, 3001, 3002, 3002, 453, "Internal Canopy Switch", "Canopy Control Switch", { positions = { "OPEN", "HOLD", "CLOSE" } })
+FA_18C_hornet:defineElectricallyHeld3PosTumb("CANOPY_SW", 7, 3001, 3002, 453, "Internal Canopy Switch", "Canopy Control Switch", { magnetic_direction = "pos", positions = { "OPEN", "HOLD", "CLOSE" } })
 
 -- 13. Right Essential Circuit Breakers
 FA_18C_hornet:definePushButton("CB_FCS_CHAN3", 3, 3021, 454, "Right Essential Circuit Breakers", "CB FCS CHAN 3, ON/OFF")
