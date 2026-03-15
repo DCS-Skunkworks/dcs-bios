@@ -1,7 +1,10 @@
 module("FA-18C_hornet", package.seeall)
 
+local ActionArgument = require("Scripts.DCS-BIOS.lib.modules.documentation.ActionArgument")
+local ActionInput = require("Scripts.DCS-BIOS.lib.modules.documentation.ActionInput")
 local Control = require("Scripts.DCS-BIOS.lib.modules.documentation.Control")
 local ControlType = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlType")
+local FixedStepInput = require("Scripts.DCS-BIOS.lib.modules.documentation.FixedStepInput")
 local Functions = require("Scripts.DCS-BIOS.lib.common.Functions")
 local IntegerOutput = require("Scripts.DCS-BIOS.lib.modules.documentation.IntegerOutput")
 local SetStateInput = require("Scripts.DCS-BIOS.lib.modules.documentation.SetStateInput")
@@ -163,7 +166,9 @@ function FA_18C_hornet:defineElectricallyHeldSwitch(identifier, device_id, comma
 
 	-- Control definition: same ControlType and inputs as predecessor
 	local control = Control:new(category, ControlType.action, identifier, description, {
+		FixedStepInput:new("switch to previous or next state"),
 		SetStateInput:new(1, "set the switch position -- 0 = off, 1 = on"),
+		ActionInput:new(ActionArgument.toggle, "toggle switch state"),
 	}, {
 		IntegerOutput:new(alloc, Suffix.none, "selector position"),
 	}, nil, attributes)
