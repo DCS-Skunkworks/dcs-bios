@@ -116,6 +116,9 @@ function FA_18C_hornet:defineMissionComputerSwitch(identifier, device_id, mc1_of
 	end)
 end
 
+-- Deferred release delay: frames at 30Hz (~100ms) between press and release
+local RELEASE_DELAY = 3
+
 --- Adds a two-position magnetically-held (electrically-held) switch.
 ---
 --- These switches use a single DCS command ID for both press (value 1) and
@@ -141,8 +144,6 @@ end
 --- @param attributes SwitchAttributes? additional control attributes
 --- @return Control control the control which was added to the module
 function FA_18C_hornet:defineElectricallyHeldSwitch(identifier, device_id, command, arg_number, category, description, attributes)
-	-- Deferred release: 3 frames at 30Hz = ~100ms between press and release
-	local release_delay = 3
 	local release_countdown = 0
 
 	local alloc = self:allocateInt(1, identifier)
@@ -198,8 +199,8 @@ function FA_18C_hornet:defineElectricallyHeldSwitch(identifier, device_id, comma
 			-- Fire press. Both ON and OFF send value 1: the C++ handler
 			-- toggles the magnetic latch on each press (BTN class widget).
 			dev:performClickableAction(command, 1)
-			-- Schedule deferred release (fires after release_delay frames)
-			release_countdown = release_delay
+			-- Schedule deferred release (fires after RELEASE_DELAY frames)
+			release_countdown = RELEASE_DELAY
 		end
 	end)
 
@@ -240,8 +241,6 @@ end
 --- @param attributes SwitchAttributes? additional control attributes
 --- @return Control control the control which was added to the module
 function FA_18C_hornet:defineElectricallyHeld3PosTumb(identifier, device_id, pos_command, neg_command, arg_number, category, description, magnetic_positions, attributes)
-	-- Deferred release: 3 frames at 30Hz = ~100ms between press and release
-	local release_delay = 3
 	local release_countdown = 0
 	local release_cmd = nil -- tracks WHICH command to release (pos or neg)
 
@@ -300,7 +299,7 @@ function FA_18C_hornet:defineElectricallyHeld3PosTumb(identifier, device_id, pos
 			dev:performClickableAction(pos_command, 1)
 			if mag_pos then
 				release_cmd = pos_command
-				release_countdown = release_delay
+				release_countdown = RELEASE_DELAY
 			else
 				-- Non-magnetic: no deferred release. User sends "1" to release.
 				release_countdown = 0
@@ -314,7 +313,7 @@ function FA_18C_hornet:defineElectricallyHeld3PosTumb(identifier, device_id, pos
 			dev:performClickableAction(neg_command, -1)
 			if mag_neg then
 				release_cmd = neg_command
-				release_countdown = release_delay
+				release_countdown = RELEASE_DELAY
 			else
 				-- Non-magnetic: no deferred release. User sends "1" to release.
 				release_countdown = 0
