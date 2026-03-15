@@ -785,6 +785,12 @@ MiG_29A:defineFloat("SPO_15_THREAT_TYPE_4_LIGHT", 174, { 0, 1 }, SPO_15LM, "Thre
 MiG_29A:defineFloat("SPO_15_THREAT_TYPE_5_LIGHT", 175, { 0, 1 }, SPO_15LM, "Threat Type F Light (Green)")
 MiG_29A:defineFloat("SPO_15_THREAT_TYPE_6_LIGHT", 176, { 0, 1 }, SPO_15LM, "Threat Type C Light (Green)")
 
+-- Counter measure lights panel
+local COUNTERMEASURE_LIGHTS = "Countermeasure Lights"
+
+MiG_29A:defineFloat("COUNTERMEASURE_LIGHTS_FLARE_DISPENSING_LIGHT", 366, { 0, 1 }, COUNTERMEASURE_LIGHTS, "FLARE DISPANSING Light (Orange)")
+MiG_29A:defineFloat("COUNTERMEASURE_LIGHTS_FLARE_READY_LIGHT", 385, { 0, 1 }, COUNTERMEASURE_LIGHTS, "FLARE READY Light (Green)")
+
 -- Cabine air controls
 
 -- Tally light panel
