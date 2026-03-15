@@ -1,5 +1,7 @@
 module("MiG-29A", package.seeall)
 
+local ActionArgument = require("Scripts.DCS-BIOS.lib.modules.documentation.ActionArgument")
+local ActionInput = require("Scripts.DCS-BIOS.lib.modules.documentation.ActionInput")
 local Control = require("Scripts.DCS-BIOS.lib.modules.documentation.Control")
 local ControlAttributeDocumentation = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlAttributeDocumentation")
 local ControlType = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlType")
@@ -448,6 +450,141 @@ local function line_split(inputstr)
 	return t
 end
 
+local function twoAxisSwitchIntValue(arg_value_vertical, arg_value_horizontal)
+	if arg_value_vertical == 1 and arg_value_horizontal == 0 then
+		return 0
+	elseif arg_value_vertical == -1 and arg_value_horizontal == 0 then
+		return 1
+	elseif arg_value_vertical == 0 and arg_value_horizontal == 1 then
+		return 2
+	else
+		return 3
+	end
+end
+
+--- Adds a custom switch for the nav lights switch
+--- @param identifier string the unique identifier for the control
+--- @param device_id integer the dcs device id
+--- @param command_vertical integer the dcs command for the vertical axis
+--- @param command_horizontal integer the dcs command for the horizontal axis
+--- @param arg_number_vertical integer the dcs argument number for the vertical axis
+--- @param arg_number_horizontal integer the dcs argument number for the horizontal axis
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @param attributes SwitchAttributes? additional control attributes
+function MiG_29A:defineTwoAxisMultipositionSwitch(identifier, device_id, command_vertical, command_horizontal, arg_number_vertical, arg_number_horizontal, category, description, attributes)
+	local alloc = self:allocateInt(3)
+	self:addExportHook(function(dev0)
+		local val = twoAxisSwitchIntValue(dev0:get_argument_value(arg_number_vertical), dev0:get_argument_value(arg_number_horizontal))
+		alloc:setValue(val)
+	end)
+
+	local control = Control:new(category, ControlType.selector, identifier, description, {
+		SetStateInput:new(3, "set the switch position"),
+		FixedStepInput:new("switch to previous or next state"),
+	}, {
+		IntegerOutput:new(alloc, Suffix.none, "switch position -- 0 = UP, 1 = DOWN , 2 = RIGHT, 3 = LEFT"),
+	}, nil, ControlAttributeDocumentation.from_switch_attributes(attributes))
+	self:addControl(control)
+
+	self:addInputProcessor(identifier, function(toState)
+		local dev = GetDevice(device_id)
+
+		if dev == nil then
+			return
+		end
+
+		local currentState = twoAxisSwitchIntValue(GetDevice(0):get_argument_value(arg_number_vertical), GetDevice(0):get_argument_value(arg_number_horizontal))
+		local new_state
+
+		if toState == "INC" then
+			if currentState >= 3 then
+				return
+			end
+			new_state = currentState + 1
+		elseif toState == "DEC" then
+			if currentState <= 0 then
+				return
+			end
+			new_state = currentState - 1
+		else
+			new_state = tonumber(toState)
+		end
+
+		if new_state == 0 then -- UP
+			dev:performClickableAction(command_vertical, 1)
+		elseif new_state == 1 then -- DOWN
+			dev:performClickableAction(command_vertical, -1)
+		elseif new_state == 2 then -- RIGHT
+			dev:performClickableAction(command_horizontal, 1)
+		elseif new_state == 3 then -- LEFT
+			dev:performClickableAction(command_horizontal, -1)
+		end
+	end)
+end
+
+--- Adds a custom switch for the nav lights switch
+--- @param identifier string the unique identifier for the control
+--- @param device_id integer the dcs device id
+--- @param command integer the dcs command
+--- @param arg_number integer the dcs argument number
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @param attributes SwitchAttributes? additional control attributes
+function MiG_29A:defineLightPanelKnobSwitch(identifier, device_id, command, arg_number, category, description, attributes)
+	local alloc = self:allocateInt(1)
+	self:addExportHook(function(dev0)
+		alloc:setValue(dev0:get_argument_value(arg_number))
+	end)
+
+	local control = Control:new(category, ControlType.selector, identifier, description, {
+		FixedStepInput:new("switch to previous or next state"),
+		SetStateInput:new(1, "set position"),
+		ActionInput:new(ActionArgument.toggle, "Toggle switch state"),
+	}, {
+		IntegerOutput:new(alloc, Suffix.none, "switch position"),
+	}, nil, ControlAttributeDocumentation.from_switch_attributes(attributes))
+	self:addControl(control)
+
+	self:addInputProcessor(identifier, function(toState)
+		local dev = GetDevice(device_id)
+
+		if dev == nil then
+			return
+		end
+
+		local currentState = GetDevice(0):get_argument_value(arg_number)
+		local new_state
+
+		if toState == "INC" then
+			if currentState > 0 then
+				return
+			end
+			new_state = 1
+		elseif toState == "DEC" then
+			if currentState < 1 then
+				return
+			end
+			new_state = 0
+		elseif toState == "TOGGLE" then
+			if currentState < 1 then
+				new_state = 1
+			else
+				new_state = 0
+			end
+		else
+			new_state = tonumber(toState)
+		end
+
+		if new_state == 0 and currentState ~= 0 then
+			dev:performClickableAction(command, 1)
+			dev:performClickableAction(command, 0)
+		elseif new_state == 1 then
+			dev:performClickableAction(command, 1)
+		end
+	end)
+end
+
 -- Stick
 local STICK = "Stick Controls"
 
@@ -481,22 +618,6 @@ MiG_29A:definePushButton("THROTTLE_IDLE_LOCK_LEFT", devices.HOTAS, 3031, 847, TH
 MiG_29A:definePushButton("THROTTLE_IDLE_LOCK_RIGHT", devices.HOTAS, 3032, 844, THROTTLE, "Idle Lock Latch (Right)")
 MiG_29A:reserveIntValue(65535) -- Manual Ranging Control Potentiometer
 
--- Pedals
-
--- Control & Test panel
-
--- Electrical power panel
-
--- System power panel
-
--- Engine & APU start panel
-
--- AFT lightning control panel
-
--- FWD lightning control pane
-
--- Lights controls (external)
-
 -- Combined AOA / G meter indicator
 local AOA_G_METER = "Combined AOA / G meter indicator"
 
@@ -517,8 +638,6 @@ local IAS = "IAS indicator"
 
 MiG_29A:defineMultiUnitFloat("IAS_INDICATOR_POINTER", 8, 821, { 0, 1 }, IAS, "IAS Pointer")
 MiG_29A:defineMultiUnitFloatManualRange("IAS_INDICATOR_WINDOW", 5, 820, { 1, 0 }, { 0, 1 }, IAS, "IAS Mach Number")
-
--- Altimeter
 
 -- IP-52-03 Flaps / Landing gear indicator
 local IP_52_03 = "IP-52-03 Control Surfaces / Landing Gear Indicators"
@@ -716,8 +835,6 @@ local M_2A = "M-2A Brake Air Pressure Manometer"
 MiG_29A:defineFloat("M_2A_LEFT_BRAKE_PRESSURE_INDICATOR", 124, { 0, 1 }, M_2A, "Left Brake Pressure Indicator")
 MiG_29A:defineFloat("M_2A_RIGHT_BRAKE_PRESSURE_INDICATOR", 125, { 0, 1 }, M_2A, "Right Brake Pressure Indicator")
 
--- Hydrolique pressure
-
 -- SPO-15LM RWR
 local SPO_15LM = "SPO-15LM RWR"
 MiG_29A:definePotentiometer("SPO_15_BRIGHTNESS_KNOB", devices.L006LM, 3003, 186, { 0, 1 }, SPO_15LM, "Brightness Knob")
@@ -784,10 +901,6 @@ MiG_29A:defineFloat("SPO_15_THREAT_TYPE_3_LIGHT", 173, { 0, 1 }, SPO_15LM, "Thre
 MiG_29A:defineFloat("SPO_15_THREAT_TYPE_4_LIGHT", 174, { 0, 1 }, SPO_15LM, "Threat Type H Light (Green)")
 MiG_29A:defineFloat("SPO_15_THREAT_TYPE_5_LIGHT", 175, { 0, 1 }, SPO_15LM, "Threat Type F Light (Green)")
 MiG_29A:defineFloat("SPO_15_THREAT_TYPE_6_LIGHT", 176, { 0, 1 }, SPO_15LM, "Threat Type C Light (Green)")
-
--- Cabine air controls
-
--- Tally light panel
 
 -- A-323 Navigation system control panel
 local A_323 = "A-323 Navigation System Control Panel"
@@ -868,10 +981,6 @@ MiG_29A:definePotentiometer("R862_VOLUME_KNOB", devices.VHF_UHF_R862, 3004, 251,
 MiG_29A:defineMultipositionSwitch("R862_CHANNEL_SELECTOR", devices.VHF_UHF_R862, 3002, 252, 20, 0.05, R_862, "Channel Selector (0-19)")
 MiG_29A:defineIntegerFromArg("R862_SELECTED_CHANNEL_INDICATOR", 284, 20, R_862, "Selected Channel Indicator")
 
--- ADF control panel
-
--- Engine emergency panel
-
 -- PSR-31 Weapon controls panel
 local WEAPONS_CONTROL = "PSR-31 Weapon Control Panel"
 
@@ -931,8 +1040,6 @@ MiG_29A:defineIndicatorLight("LEFT_WALL_CANOPY_LOCK_INDICATOR", 383, CANOPY_CONT
 MiG_29A:definePushButton("RIGHT_WALL_CANOPY_EMERGENCY_HANDLE", devices.CPT_MECH, 3011, 76, CANOPY_CONTROLS, "Canopy Emergency Jettison Handle")
 MiG_29A:defineFloat("RIGHT_WALL_CANOPY_INDICATOR", 180, { 0, 1 }, CANOPY_CONTROLS, "Canopy Indicator")
 
--- Refueling panel
-
 -- EKRAN warning system
 local EKRAN = "EKRAN Warning System"
 
@@ -985,8 +1092,6 @@ MiG_29A:defineString("EKRAN_TXT2_LINE2", getEKRAN_txt2_line2, 9, "EKRAN", "EKRAN
 MiG_29A:defineString("EKRAN_TXT2_LINE3", getEKRAN_txt2_line3, 9, "EKRAN", "EKRAN txt 2 line 3")
 MiG_29A:defineString("EKRAN_TXT2_LINE4", getEKRAN_txt2_line4, 9, "EKRAN", "EKRAN txt 2 line 4")
 
--- Voice information and warning system (VIWAS) controls
-
 -- Left wall
 local LEFT_WALL = "Left Wall"
 
@@ -1009,8 +1114,6 @@ local DRAG_CHUTE = "Drag Chute"
 
 MiG_29A:definePushButton("CHUTE_JETTISON_BUTTON", devices.INPUT_PANEL, 3038, 243, DRAG_CHUTE, "Drag Chute Jettison Button")
 MiG_29A:definePushButton("CHUTE_LAUNCH_BUTTON", devices.INPUT_PANEL, 3037, 28, DRAG_CHUTE, "Drag Chute Launch Button")
-
--- Mirrors
 
 -- Landing gear controls
 local LANDING_GEAR = "Landing Gear Controls"
@@ -1067,6 +1170,52 @@ MiG_29A:defineFloat("TLP_LIGHT_RADAR", 365, { 0, 1 }, TLP, "RADAR READY Light (G
 MiG_29A:reserveIntValue(65535) -- Light not implemented yet
 MiG_29A:reserveIntValue(65535) -- Light not implemented yet
 MiG_29A:reserveIntValue(65535) -- Light not implemented yet
+
+-- FWD lighting control panel
+local FWD_LIGHTS = "Forward Lighting Control Panel"
+
+MiG_29A:definePotentiometer("FWD_LIGHTS_LTS_ILLUM_KNOB", devices.INTLIGHTS_SYSTEM, 3005, 545, { 0, 1 }, FWD_LIGHTS, "LTS Illumination Knob")
+MiG_29A:definePushButton("FWD_LIGHTS_LAMP_TEST_BUTTON", devices.INTLIGHTS_SYSTEM, 3001, 546, FWD_LIGHTS, "Lamp Test Button")
+MiG_29A:definePotentiometer("FWD_LIGHTS_FLOODLIGHT_KNOB", devices.INTLIGHTS_SYSTEM, 3004, 549, { 0, 1 }, FWD_LIGHTS, "Floodlight Knob")
+MiG_29A:defineTwoAxisMultipositionSwitch("FWD_LIGHTS_NAV_LTS_SWITCH", devices.EXTLIGHTS_SYSTEM, 3001, 3002, 574, 548, FWD_LIGHTS, "Navigation LTS Switch", { positions = { "FLASH", "OFF", "10%", "100%" } })
+
+-- AFT lighting control panel
+local AFT_LIGHTS = "Rear Lighting Control Panel"
+
+MiG_29A:definePotentiometer("AFT_LIGHTS_PANEL_KNOB", devices.INTLIGHTS_SYSTEM, 3006, 540, { 0, 1 }, AFT_LIGHTS, "Panel Knob")
+MiG_29A:defineLightPanelKnobSwitch("AFT_LIGHTS_PANEL_SWITCH", devices.INTLIGHTS_SYSTEM, 3007, 110, AFT_LIGHTS, "Panel Button", { positions = { "MANUAL", "AUTOMATIC" } })
+MiG_29A:definePotentiometer("AFT_LIGHTS_CONSOLE_KNOB", devices.INTLIGHTS_SYSTEM, 3010, 542, { 0, 1 }, AFT_LIGHTS, "Console Knob")
+MiG_29A:definePotentiometer("AFT_LIGHTS_INSTRUMENT_KNOB", devices.INTLIGHTS_SYSTEM, 3011, 54, { 0, 1 }, AFT_LIGHTS, "Instrument Knob")
+
+-- Altimeter
+
+-- Pedals
+
+-- Control & Test panel
+
+-- Electrical power panel
+
+-- System power panel
+
+-- Engine & APU start panel
+
+-- Lights controls (external)
+
+-- Hydrolique pressure
+
+-- Cabine air controls
+
+-- Tally light panel
+
+-- Refueling panel
+
+-- Voice information and warning system (VIWAS) controls
+
+-- Mirrors
+
+-- ADF control panel
+
+-- Engine emergency panel
 
 -- Ejection handle
 
