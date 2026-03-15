@@ -246,7 +246,9 @@ function FA_18C_hornet:defineElectricallyHeld3PosTumb(identifier, device_id, pos
 
 	-- Which direction(s) get deferred release?
 	local mag_set = {}
-	for _, v in ipairs(magnetic_positions) do mag_set[v] = true end
+	for _, v in ipairs(magnetic_positions) do
+		mag_set[v] = true
+	end
 	local mag_pos = mag_set[1] or false
 	local mag_neg = mag_set[-1] or false
 
