@@ -231,19 +231,20 @@ end
 --- @param arg_number integer the dcs argument number
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
---- @param attributes SwitchAttributes? additional control attributes (magnetic_direction: "both"|"pos"|"neg")
+--- @param magnetic_positions table positions which are magnetically held (e.g. {1}, {-1}, {-1, 1})
+--- @param attributes SwitchAttributes? additional control attributes
 --- @return Control control the control which was added to the module
-function FA_18C_hornet:defineElectricallyHeld3PosTumb(identifier, device_id, pos_command, neg_command, arg_number, category, description, attributes)
+function FA_18C_hornet:defineElectricallyHeld3PosTumb(identifier, device_id, pos_command, neg_command, arg_number, category, description, magnetic_positions, attributes)
 	-- Deferred release: 3 frames at 30Hz = ~100ms between press and release
 	local release_delay = 3
 	local release_countdown = 0
 	local release_cmd = nil -- tracks WHICH command to release (pos or neg)
 
-	-- Which direction(s) get deferred release? Default: both.
-	-- "pos" = only positive/right/up, "neg" = only negative/left/down.
-	local mag_dir = attributes and attributes.magnetic_direction or "both"
-	local mag_pos = (mag_dir == "both" or mag_dir == "pos")
-	local mag_neg = (mag_dir == "both" or mag_dir == "neg")
+	-- Which direction(s) get deferred release?
+	local mag_set = {}
+	for _, v in ipairs(magnetic_positions) do mag_set[v] = true end
+	local mag_pos = mag_set[1] or false
+	local mag_neg = mag_set[-1] or false
 
 	local alloc = self:allocateInt(2, identifier)
 
@@ -1031,7 +1032,7 @@ FA_18C_hornet:define3PosTumb("IFF_ANT_SELECT_SW", 50, 3002, 374, "Antenna Select
 
 -- 14. Auxiliary Power Unit Panel
 FA_18C_hornet:defineElectricallyHeldSwitch("APU_CONTROL_SW", 12, 3001, 375, "Auxiliary Power Unit Panel", "APU Control Switch, ON/OFF")
-FA_18C_hornet:defineElectricallyHeld3PosTumb("ENGINE_CRANK_SW", 12, 3003, 3002, 377, "Auxiliary Power Unit Panel", "Engine Crank Switch", { positions = { "LEFT", "OFF", "RIGHT" } })
+FA_18C_hornet:defineElectricallyHeld3PosTumb("ENGINE_CRANK_SW", 12, 3003, 3002, 377, "Auxiliary Power Unit Panel", "Engine Crank Switch", { -1, 1 }, { positions = { "LEFT", "OFF", "RIGHT" } })
 FA_18C_hornet:defineIndicatorLight("APU_READY_LT", 376, "Auxiliary Power Unit Panel", "APU Ready Light (green)")
 
 -- 15. Generator Tie Control Switch
@@ -1093,7 +1094,7 @@ FA_18C_hornet:definePotentiometer("DEFOG_HANDLE", 11, 3005, 451, { -1, 1 }, "Def
 FA_18C_hornet:define3PosTumb("WSHIELD_ANTI_ICE_SW", 11, 3009, 452, "Defog Panel", "Windshield Anti-Ice/Rain Switch", { positions = { "ANTI ICE", "OFF", "RAIN" } })
 
 -- 12. Internal Canopy Switch
-FA_18C_hornet:defineElectricallyHeld3PosTumb("CANOPY_SW", 7, 3001, 3002, 453, "Internal Canopy Switch", "Canopy Control Switch", { magnetic_direction = "pos", positions = { "OPEN", "HOLD", "CLOSE" } })
+FA_18C_hornet:defineElectricallyHeld3PosTumb("CANOPY_SW", 7, 3001, 3002, 453, "Internal Canopy Switch", "Canopy Control Switch", { 1 }, { positions = { "OPEN", "HOLD", "CLOSE" } })
 
 -- 13. Right Essential Circuit Breakers
 FA_18C_hornet:definePushButton("CB_FCS_CHAN3", 3, 3021, 454, "Right Essential Circuit Breakers", "CB FCS CHAN 3, ON/OFF")
