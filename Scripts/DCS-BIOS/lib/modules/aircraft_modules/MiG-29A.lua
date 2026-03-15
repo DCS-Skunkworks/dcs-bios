@@ -1171,16 +1171,16 @@ MiG_29A:reserveIntValue(65535) -- Light not implemented yet
 MiG_29A:reserveIntValue(65535) -- Light not implemented yet
 MiG_29A:reserveIntValue(65535) -- Light not implemented yet
 
--- FWD lightning control panel
-local FWD_LIGHTS = "Forward Lightning Control Panel"
+-- FWD lighting control panel
+local FWD_LIGHTS = "Forward Lighting Control Panel"
 
 MiG_29A:definePotentiometer("FWD_LIGHTS_LTS_ILLUM_KNOB", devices.INTLIGHTS_SYSTEM, 3005, 545, { 0, 1 }, FWD_LIGHTS, "LTS Illumination Knob")
 MiG_29A:definePushButton("FWD_LIGHTS_LAMP_TEST_BUTTON", devices.INTLIGHTS_SYSTEM, 3001, 546, FWD_LIGHTS, "Lamp Test Button")
 MiG_29A:definePotentiometer("FWD_LIGHTS_FLOODLIGHT_KNOB", devices.INTLIGHTS_SYSTEM, 3004, 549, { 0, 1 }, FWD_LIGHTS, "Floodlight Knob")
 MiG_29A:defineTwoAxisMultipositionSwitch("FWD_LIGHTS_NAV_LTS_SWITCH", devices.EXTLIGHTS_SYSTEM, 3001, 3002, 574, 548, FWD_LIGHTS, "Navigation LTS Switch", { positions = { "FLASH", "OFF", "10%", "100%" } })
 
--- AFT lightning control panel
-local AFT_LIGHTS = "Rear Lightning Control Panel"
+-- AFT lighting control panel
+local AFT_LIGHTS = "Rear Lighting Control Panel"
 
 MiG_29A:definePotentiometer("AFT_LIGHTS_PANEL_KNOB", devices.INTLIGHTS_SYSTEM, 3006, 540, { 0, 1 }, AFT_LIGHTS, "Panel Knob")
 MiG_29A:defineLightPanelKnobSwitch("AFT_LIGHTS_PANEL_SWITCH", devices.INTLIGHTS_SYSTEM, 3007, 110, AFT_LIGHTS, "Panel Button", { positions = { "MANUAL", "AUTOMATIC" } })
