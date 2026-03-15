@@ -148,10 +148,8 @@ function FA_18C_hornet:defineElectricallyHeldSwitch(identifier, device_id, comma
 
 	local alloc = self:allocateInt(1, identifier)
 
-	-- Export hook: read cockpit arg every frame, manage deferred release
+	-- Export hook: manage deferred release, then read cockpit arg
 	self:addExportHook(function(dev0)
-		alloc:setValue(dev0:get_argument_value(arg_number))
-
 		if release_countdown > 0 then
 			release_countdown = release_countdown - 1
 			if release_countdown == 0 then
@@ -163,6 +161,8 @@ function FA_18C_hornet:defineElectricallyHeldSwitch(identifier, device_id, comma
 				end
 			end
 		end
+
+		alloc:setValue(dev0:get_argument_value(arg_number))
 	end)
 
 	-- Control definition: same ControlType and inputs as predecessor
@@ -252,13 +252,8 @@ function FA_18C_hornet:defineElectricallyHeld3PosTumb(identifier, device_id, pos
 
 	local alloc = self:allocateInt(2, identifier)
 
-	-- Export hook: read cockpit arg every frame, manage deferred release
+	-- Export hook: manage deferred release, then read cockpit arg
 	self:addExportHook(function(dev0)
-		-- Map DCS arg (-1, 0, 1) to DCS-BIOS output (0, 1, 2).
-		-- Module.round() prevents nil LUT results from float imprecision.
-		local lut = { [-1] = 0, [0] = 1, [1] = 2 }
-		alloc:setValue(lut[Module.round(dev0:get_argument_value(arg_number))])
-
 		if release_countdown > 0 then
 			release_countdown = release_countdown - 1
 			if release_countdown == 0 and release_cmd then
@@ -270,6 +265,11 @@ function FA_18C_hornet:defineElectricallyHeld3PosTumb(identifier, device_id, pos
 				release_cmd = nil
 			end
 		end
+
+		-- Map DCS arg (-1, 0, 1) to DCS-BIOS output (0, 1, 2).
+		-- Module.round() prevents nil LUT results from float imprecision.
+		local lut = { [-1] = 0, [0] = 1, [1] = 2 }
+		alloc:setValue(lut[Module.round(dev0:get_argument_value(arg_number))])
 	end)
 
 	-- Control definition: same ControlType and inputs as predecessor
