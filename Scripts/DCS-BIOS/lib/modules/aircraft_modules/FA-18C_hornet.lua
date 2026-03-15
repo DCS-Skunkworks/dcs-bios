@@ -237,7 +237,7 @@ end
 --- @param arg_number integer the dcs argument number
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
---- @param magnetic_positions table positions which are magnetically held (e.g. {1}, {-1}, {-1, 1})
+--- @param magnetic_positions integer[] positions which are magnetically held (e.g. {1}, {-1}, {-1, 1})
 --- @param attributes SwitchAttributes? additional control attributes
 --- @return Control control the control which was added to the module
 function FA_18C_hornet:defineElectricallyHeld3PosTumb(identifier, device_id, pos_command, neg_command, arg_number, category, description, magnetic_positions, attributes)
