@@ -481,22 +481,6 @@ MiG_29A:definePushButton("THROTTLE_IDLE_LOCK_LEFT", devices.HOTAS, 3031, 847, TH
 MiG_29A:definePushButton("THROTTLE_IDLE_LOCK_RIGHT", devices.HOTAS, 3032, 844, THROTTLE, "Idle Lock Latch (Right)")
 MiG_29A:reserveIntValue(65535) -- Manual Ranging Control Potentiometer
 
--- Pedals
-
--- Control & Test panel
-
--- Electrical power panel
-
--- System power panel
-
--- Engine & APU start panel
-
--- AFT lightning control panel
-
--- FWD lightning control pane
-
--- Lights controls (external)
-
 -- Combined AOA / G meter indicator
 local AOA_G_METER = "Combined AOA / G meter indicator"
 
@@ -517,8 +501,6 @@ local IAS = "IAS indicator"
 
 MiG_29A:defineMultiUnitFloat("IAS_INDICATOR_POINTER", 8, 821, { 0, 1 }, IAS, "IAS Pointer")
 MiG_29A:defineMultiUnitFloatManualRange("IAS_INDICATOR_WINDOW", 5, 820, { 1, 0 }, { 0, 1 }, IAS, "IAS Mach Number")
-
--- Altimeter
 
 -- IP-52-03 Flaps / Landing gear indicator
 local IP_52_03 = "IP-52-03 Control Surfaces / Landing Gear Indicators"
@@ -716,8 +698,6 @@ local M_2A = "M-2A Brake Air Pressure Manometer"
 MiG_29A:defineFloat("M_2A_LEFT_BRAKE_PRESSURE_INDICATOR", 124, { 0, 1 }, M_2A, "Left Brake Pressure Indicator")
 MiG_29A:defineFloat("M_2A_RIGHT_BRAKE_PRESSURE_INDICATOR", 125, { 0, 1 }, M_2A, "Right Brake Pressure Indicator")
 
--- Hydrolique pressure
-
 -- SPO-15LM RWR
 local SPO_15LM = "SPO-15LM RWR"
 MiG_29A:definePotentiometer("SPO_15_BRIGHTNESS_KNOB", devices.L006LM, 3003, 186, { 0, 1 }, SPO_15LM, "Brightness Knob")
@@ -784,10 +764,6 @@ MiG_29A:defineFloat("SPO_15_THREAT_TYPE_3_LIGHT", 173, { 0, 1 }, SPO_15LM, "Thre
 MiG_29A:defineFloat("SPO_15_THREAT_TYPE_4_LIGHT", 174, { 0, 1 }, SPO_15LM, "Threat Type H Light (Green)")
 MiG_29A:defineFloat("SPO_15_THREAT_TYPE_5_LIGHT", 175, { 0, 1 }, SPO_15LM, "Threat Type F Light (Green)")
 MiG_29A:defineFloat("SPO_15_THREAT_TYPE_6_LIGHT", 176, { 0, 1 }, SPO_15LM, "Threat Type C Light (Green)")
-
--- Cabine air controls
-
--- Tally light panel
 
 -- A-323 Navigation system control panel
 local A_323 = "A-323 Navigation System Control Panel"
@@ -868,10 +844,6 @@ MiG_29A:definePotentiometer("R862_VOLUME_KNOB", devices.VHF_UHF_R862, 3004, 251,
 MiG_29A:defineMultipositionSwitch("R862_CHANNEL_SELECTOR", devices.VHF_UHF_R862, 3002, 252, 20, 0.05, R_862, "Channel Selector (0-19)")
 MiG_29A:defineIntegerFromArg("R862_SELECTED_CHANNEL_INDICATOR", 284, 20, R_862, "Selected Channel Indicator")
 
--- ADF control panel
-
--- Engine emergency panel
-
 -- PSR-31 Weapon controls panel
 local WEAPONS_CONTROL = "PSR-31 Weapon Control Panel"
 
@@ -931,8 +903,6 @@ MiG_29A:defineIndicatorLight("LEFT_WALL_CANOPY_LOCK_INDICATOR", 383, CANOPY_CONT
 MiG_29A:definePushButton("RIGHT_WALL_CANOPY_EMERGENCY_HANDLE", devices.CPT_MECH, 3011, 76, CANOPY_CONTROLS, "Canopy Emergency Jettison Handle")
 MiG_29A:defineFloat("RIGHT_WALL_CANOPY_INDICATOR", 180, { 0, 1 }, CANOPY_CONTROLS, "Canopy Indicator")
 
--- Refueling panel
-
 -- EKRAN warning system
 local EKRAN = "EKRAN Warning System"
 
@@ -985,8 +955,6 @@ MiG_29A:defineString("EKRAN_TXT2_LINE2", getEKRAN_txt2_line2, 9, "EKRAN", "EKRAN
 MiG_29A:defineString("EKRAN_TXT2_LINE3", getEKRAN_txt2_line3, 9, "EKRAN", "EKRAN txt 2 line 3")
 MiG_29A:defineString("EKRAN_TXT2_LINE4", getEKRAN_txt2_line4, 9, "EKRAN", "EKRAN txt 2 line 4")
 
--- Voice information and warning system (VIWAS) controls
-
 -- Left wall
 local LEFT_WALL = "Left Wall"
 
@@ -1009,8 +977,6 @@ local DRAG_CHUTE = "Drag Chute"
 
 MiG_29A:definePushButton("CHUTE_JETTISON_BUTTON", devices.INPUT_PANEL, 3038, 243, DRAG_CHUTE, "Drag Chute Jettison Button")
 MiG_29A:definePushButton("CHUTE_LAUNCH_BUTTON", devices.INPUT_PANEL, 3037, 28, DRAG_CHUTE, "Drag Chute Launch Button")
-
--- Mirrors
 
 -- Landing gear controls
 local LANDING_GEAR = "Landing Gear Controls"
@@ -1067,6 +1033,40 @@ MiG_29A:defineFloat("TLP_LIGHT_RADAR", 365, { 0, 1 }, TLP, "RADAR READY Light (G
 MiG_29A:reserveIntValue(65535) -- Light not implemented yet
 MiG_29A:reserveIntValue(65535) -- Light not implemented yet
 MiG_29A:reserveIntValue(65535) -- Light not implemented yet
+
+-- FWD lightning control panel
+
+-- AFT lightning control panel
+
+-- Altimeter
+
+-- Pedals
+
+-- Control & Test panel
+
+-- Electrical power panel
+
+-- System power panel
+
+-- Engine & APU start panel
+
+-- Lights controls (external)
+
+-- Hydrolique pressure
+
+-- Cabine air controls
+
+-- Tally light panel
+
+-- Refueling panel
+
+-- Voice information and warning system (VIWAS) controls
+
+-- Mirrors
+
+-- ADF control panel
+
+-- Engine emergency panel
 
 -- Ejection handle
 
