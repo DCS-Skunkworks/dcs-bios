@@ -8,6 +8,14 @@ local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 local CommonData = Module:new("CommonData", 0x0400, AircraftList.ALL_PLAYABLE_AIRCRAFT)
 CommonData.dev0_required = false
 
+local version
+
+--- Sets the version
+--- @param new_version string
+function CommonData.set_version(new_version)
+	version = new_version
+end
+
 local latDeg = 0
 local latSec = 0
 local latFractionalSec = 0
@@ -74,7 +82,7 @@ end
 CommonData:addExportHook(updatePosition)
 
 local function getVersion()
-	return "0.11.1"
+	return version
 end
 CommonData:defineString("DCS_BIOS", getVersion, 6, "Metadata", "DCS Bios Version", { deprecated = { since = "0.11.2", use_instead = "VERSION" } })
 

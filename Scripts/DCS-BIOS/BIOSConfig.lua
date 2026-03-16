@@ -16,6 +16,7 @@ module("BIOSConfig", package.seeall)
 --- @field dev_mode boolean whether dev mode is enabled and json/header files should be written
 --- @field clean_logs boolean whether duplicate log messages should be removed
 --- @field export_rate number export count by second (may vary depending on DCS frame rate), supported range: [1;30]
+--- @field version string the current dcs-bios version
 local BIOSConfig = {
 	tcp_config = {
 		{
@@ -34,6 +35,7 @@ local BIOSConfig = {
 	dev_mode = true,
 	clean_logs = true,
 	export_rate = 30,
+	version = "0.11.2",
 }
 
 return BIOSConfig
