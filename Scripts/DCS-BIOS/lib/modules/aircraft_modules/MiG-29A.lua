@@ -1207,13 +1207,23 @@ MiG_29A:defineLightPanelKnobSwitch("AFT_LIGHTS_PANEL_SWITCH", devices.INTLIGHTS_
 MiG_29A:definePotentiometer("AFT_LIGHTS_CONSOLE_KNOB", devices.INTLIGHTS_SYSTEM, 3010, 542, { 0, 1 }, AFT_LIGHTS, "Console Knob")
 MiG_29A:definePotentiometer("AFT_LIGHTS_INSTRUMENT_KNOB", devices.INTLIGHTS_SYSTEM, 3011, 54, { 0, 1 }, AFT_LIGHTS, "Instrument Knob")
 
+-- Electrical power panel
+local ELEC_POWER = "Electrical Power Panel"
+
+MiG_29A:defineToggleSwitch("ELEC_BAT_GND_POWER_SWITCH", devices.ELEC_INTERFACE, 3001, 510, ELEC_POWER, "Ground Power Switch", { positions = { "OFF", "ON" } })
+MiG_29A:defineToggleSwitch("ELEC_DC_GEN_SWITCH", devices.ELEC_INTERFACE, 3003, 511, ELEC_POWER, "DC Generator Switch", { positions = { "OFF", "ON" } })
+MiG_29A:defineToggleSwitch("ELEC_AC_GEN_SWITCH", devices.ELEC_INTERFACE, 3005, 512, ELEC_POWER, "AC Generator Switch", { positions = { "OFF", "ON" } })
+MiG_29A:defineToggleSwitch("ELEC_PTO_SWITCH", devices.ELEC_INTERFACE, 3007, 513, ELEC_POWER, "PTO Switch", { positions = { "OFF", "ON" } })
+MiG_29A:defineToggleSwitch("ELEC_ENG_SYS_SWITCH", devices.ELEC_INTERFACE, 3009, 514, ELEC_POWER, "Engine System Switch", { positions = { "OFF", "ON" } })
+MiG_29A:defineToggleSwitch("ELEC_FUEL_PUMP_SWITCH", devices.ELEC_INTERFACE, 3011, 515, ELEC_POWER, "Fuel Pump Switch", { positions = { "OFF", "ON" } })
+MiG_29A:defineToggleSwitch("ELEC_AS_SWITCH", devices.ELEC_INTERFACE, 3013, 516, ELEC_POWER, "Anti Surge Switch", { positions = { "OFF", "ON" } })
+MiG_29A:definePushButton("ELEC_ALL_POWER_ON_BUTTON", devices.ELEC_INTERFACE, 3015, 517, ELEC_POWER, "All Electric Power Switches ON")
+
 -- Altimeter
 
 -- Pedals
 
 -- Control & Test panel
-
--- Electrical power panel
 
 -- System power panel
 
