@@ -9,6 +9,7 @@ local FixedStepInput = require("Scripts.DCS-BIOS.lib.modules.documentation.Fixed
 local Functions = require("Scripts.DCS-BIOS.lib.common.Functions")
 local ICommand = require("Scripts.DCS-BIOS.lib.modules.ICommand")
 local IntegerOutput = require("Scripts.DCS-BIOS.lib.modules.documentation.IntegerOutput")
+local Log = require("Scripts.DCS-BIOS.lib.common.Log")
 local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 local SetStateInput = require("Scripts.DCS-BIOS.lib.modules.documentation.SetStateInput")
 local Suffix = require("Scripts.DCS-BIOS.lib.modules.documentation.Suffix")
@@ -450,15 +451,17 @@ local function line_split(inputstr)
 	return t
 end
 
-local function twoAxisSwitchIntValue(arg_value_vertical, arg_value_horizontal)
+local function twoAxisSwitchIntValue(arg_value_vertical, arg_value_horizontal, identifier)
 	if arg_value_vertical == 1 and arg_value_horizontal == 0 then
 		return 0
 	elseif arg_value_vertical == -1 and arg_value_horizontal == 0 then
 		return 1
 	elseif arg_value_vertical == 0 and arg_value_horizontal == 1 then
 		return 2
-	else
+	elseif arg_value_vertical == 0 and arg_value_horizontal == -1 then
 		return 3
+	else
+		Log:log_error(string.format("MiG-29A.lua: defineTwoAxisMultipositionSwitch value is outside of range [0, 3] for %s", identifier))
 	end
 end
 
@@ -475,7 +478,7 @@ end
 function MiG_29A:defineTwoAxisMultipositionSwitch(identifier, device_id, command_vertical, command_horizontal, arg_number_vertical, arg_number_horizontal, category, description, attributes)
 	local alloc = self:allocateInt(3)
 	self:addExportHook(function(dev0)
-		local val = twoAxisSwitchIntValue(dev0:get_argument_value(arg_number_vertical), dev0:get_argument_value(arg_number_horizontal))
+		local val = twoAxisSwitchIntValue(dev0:get_argument_value(arg_number_vertical), dev0:get_argument_value(arg_number_horizontal), identifier)
 		alloc:setValue(val)
 	end)
 
@@ -494,7 +497,7 @@ function MiG_29A:defineTwoAxisMultipositionSwitch(identifier, device_id, command
 			return
 		end
 
-		local currentState = twoAxisSwitchIntValue(GetDevice(0):get_argument_value(arg_number_vertical), GetDevice(0):get_argument_value(arg_number_horizontal))
+		local currentState = twoAxisSwitchIntValue(GetDevice(0):get_argument_value(arg_number_vertical), GetDevice(0):get_argument_value(arg_number_horizontal), identifier)
 		local new_state
 
 		if toState == "INC" then
