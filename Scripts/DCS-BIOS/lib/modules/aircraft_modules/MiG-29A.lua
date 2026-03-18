@@ -462,6 +462,7 @@ local function twoAxisSwitchIntValue(arg_value_vertical, arg_value_horizontal, i
 		return 3
 	else
 		Log:log_error(string.format("MiG-29A.lua: defineTwoAxisMultipositionSwitch value is outside of range [0, 3] for %s", identifier))
+		return nil
 	end
 end
 
@@ -479,7 +480,9 @@ function MiG_29A:defineTwoAxisMultipositionSwitch(identifier, device_id, command
 	local alloc = self:allocateInt(3)
 	self:addExportHook(function(dev0)
 		local val = twoAxisSwitchIntValue(dev0:get_argument_value(arg_number_vertical), dev0:get_argument_value(arg_number_horizontal), identifier)
-		alloc:setValue(val)
+		if val then
+			alloc:setValue(val)
+		end
 	end)
 
 	local control = Control:new(category, ControlType.selector, identifier, description, {
@@ -499,6 +502,10 @@ function MiG_29A:defineTwoAxisMultipositionSwitch(identifier, device_id, command
 
 		local currentState = twoAxisSwitchIntValue(GetDevice(0):get_argument_value(arg_number_vertical), GetDevice(0):get_argument_value(arg_number_horizontal), identifier)
 		local new_state
+
+		if currentState == nil then
+			return
+		end
 
 		if toState == "INC" then
 			if currentState >= 3 then
