@@ -841,7 +841,7 @@ MiG_29A:defineFloat("VOLTMETER_POINTER", 308, { 0, 1 }, VOLTMETER, "Voltmeter Po
 local PITOT_CONTROLS = "Pitot Controls"
 
 MiG_29A:defineToggleSwitch("PITOT_LEVER", devices.SNSR_SYS_INTERFACE, 3001, 131, PITOT_CONTROLS, "Pitot Lever", { positions = { "MAIN", "STBY" } })
-MiG_29A:defineToggleSwitch("PITOT_HEAT_SWITCH", devices.SNSR_SYS_INTERFACE, 3003, 558, PITOT_CONTROLS, "Pitot Lever", { positions = { "OFF", "ON" } })
+MiG_29A:defineToggleSwitch("PITOT_HEAT_SWITCH", devices.SNSR_SYS_INTERFACE, 3003, 558, PITOT_CONTROLS, "Pitot Lever")
 
 -- M-2A Brake air pressure manometer
 local M_2A = "M-2A Brake Air Pressure Manometer"
@@ -1210,13 +1210,13 @@ MiG_29A:definePotentiometer("AFT_LIGHTS_INSTRUMENT_KNOB", devices.INTLIGHTS_SYST
 -- Electrical power panel
 local ELEC_POWER = "Electrical Power Panel"
 
-MiG_29A:defineToggleSwitch("ELEC_BAT_GND_POWER_SWITCH", devices.ELEC_INTERFACE, 3001, 510, ELEC_POWER, "Ground Power Switch", { positions = { "OFF", "ON" } })
-MiG_29A:defineToggleSwitch("ELEC_DC_GEN_SWITCH", devices.ELEC_INTERFACE, 3003, 511, ELEC_POWER, "DC Generator Switch", { positions = { "OFF", "ON" } })
-MiG_29A:defineToggleSwitch("ELEC_AC_GEN_SWITCH", devices.ELEC_INTERFACE, 3005, 512, ELEC_POWER, "AC Generator Switch", { positions = { "OFF", "ON" } })
-MiG_29A:defineToggleSwitch("ELEC_PTO_SWITCH", devices.ELEC_INTERFACE, 3007, 513, ELEC_POWER, "PTO Switch", { positions = { "OFF", "ON" } })
-MiG_29A:defineToggleSwitch("ELEC_ENG_SYS_SWITCH", devices.ELEC_INTERFACE, 3009, 514, ELEC_POWER, "Engine System Switch", { positions = { "OFF", "ON" } })
-MiG_29A:defineToggleSwitch("ELEC_FUEL_PUMP_SWITCH", devices.ELEC_INTERFACE, 3011, 515, ELEC_POWER, "Fuel Pump Switch", { positions = { "OFF", "ON" } })
-MiG_29A:defineToggleSwitch("ELEC_AS_SWITCH", devices.ELEC_INTERFACE, 3013, 516, ELEC_POWER, "Anti Surge Switch", { positions = { "OFF", "ON" } })
+MiG_29A:defineToggleSwitch("ELEC_BAT_GND_POWER_SWITCH", devices.ELEC_INTERFACE, 3001, 510, ELEC_POWER, "Ground Power Switch")
+MiG_29A:defineToggleSwitch("ELEC_DC_GEN_SWITCH", devices.ELEC_INTERFACE, 3003, 511, ELEC_POWER, "DC Generator Switch")
+MiG_29A:defineToggleSwitch("ELEC_AC_GEN_SWITCH", devices.ELEC_INTERFACE, 3005, 512, ELEC_POWER, "AC Generator Switch")
+MiG_29A:defineToggleSwitch("ELEC_PTO_SWITCH", devices.ELEC_INTERFACE, 3007, 513, ELEC_POWER, "PTO Switch")
+MiG_29A:defineToggleSwitch("ELEC_ENG_SYS_SWITCH", devices.ELEC_INTERFACE, 3009, 514, ELEC_POWER, "Engine System Switch")
+MiG_29A:defineToggleSwitch("ELEC_FUEL_PUMP_SWITCH", devices.ELEC_INTERFACE, 3011, 515, ELEC_POWER, "Fuel Pump Switch")
+MiG_29A:defineToggleSwitch("ELEC_AS_SWITCH", devices.ELEC_INTERFACE, 3013, 516, ELEC_POWER, "Anti Surge Switch")
 MiG_29A:definePushButton("ELEC_ALL_POWER_ON_BUTTON", devices.ELEC_INTERFACE, 3015, 517, ELEC_POWER, "All Electric Power Switches ON")
 
 -- Altimeter
