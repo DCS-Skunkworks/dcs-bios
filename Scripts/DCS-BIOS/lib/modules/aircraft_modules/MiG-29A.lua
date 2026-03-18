@@ -512,12 +512,16 @@ function MiG_29A:defineTwoAxisMultipositionSwitch(identifier, device_id, command
 		end
 
 		if new_state == 0 then -- UP
+			dev:performClickableAction(command_horizontal, 0)
 			dev:performClickableAction(command_vertical, 1)
 		elseif new_state == 1 then -- DOWN
+			dev:performClickableAction(command_horizontal, 0)
 			dev:performClickableAction(command_vertical, -1)
 		elseif new_state == 2 then -- RIGHT
+			dev:performClickableAction(command_vertical, 0)
 			dev:performClickableAction(command_horizontal, 1)
 		elseif new_state == 3 then -- LEFT
+			dev:performClickableAction(command_vertical, 0)
 			dev:performClickableAction(command_horizontal, -1)
 		end
 	end)
