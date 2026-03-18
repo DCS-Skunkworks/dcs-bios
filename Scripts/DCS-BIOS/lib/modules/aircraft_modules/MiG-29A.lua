@@ -1207,6 +1207,12 @@ MiG_29A:defineLightPanelKnobSwitch("AFT_LIGHTS_PANEL_SWITCH", devices.INTLIGHTS_
 MiG_29A:definePotentiometer("AFT_LIGHTS_CONSOLE_KNOB", devices.INTLIGHTS_SYSTEM, 3010, 542, { 0, 1 }, AFT_LIGHTS, "Console Knob")
 MiG_29A:definePotentiometer("AFT_LIGHTS_INSTRUMENT_KNOB", devices.INTLIGHTS_SYSTEM, 3011, 54, { 0, 1 }, AFT_LIGHTS, "Instrument Knob")
 
+-- Voice information and warning system (VIWAS) controls
+local VIWAS = "Voice Information and Warning System (VIWAS)"
+
+MiG_29A:definePushButton("VIWAS_REPEAT_BUTTON", devices.VIWAS, 3002, 141, VIWAS, "Repeat Voice Warning Button")
+MiG_29A:definePushButton("VIWAS_CHECK_BUTTON", devices.VIWAS, 3001, 142, VIWAS, "Check Voice Warning Button")
+
 -- Altimeter
 
 -- Pedals
@@ -1228,8 +1234,6 @@ MiG_29A:definePotentiometer("AFT_LIGHTS_INSTRUMENT_KNOB", devices.INTLIGHTS_SYST
 -- Tally light panel
 
 -- Refueling panel
-
--- Voice information and warning system (VIWAS) controls
 
 -- Mirrors
 
