@@ -18,7 +18,8 @@ local Suffix = require("Scripts.DCS-BIOS.lib.modules.documentation.Suffix")
 local MiG_29A = Module:new("MiG-29 Fulcrum", 0x3c00, { "MiG-29 Fulcrum" })
 
 -- Special Args:
--- 1: Unit system (1 = metric, 0 = imperial)
+-- 1: Unit system (0: Metric, >= 0.01: Imperial)
+-- 103: Lights langauge (0: Russian, >= 0.01: English)
 -- 2: Joystick visibility (Hidden >= 0.9 )
 -- 1040: Body visibility (Hidden >= 0.99 )
 
@@ -1206,6 +1207,24 @@ MiG_29A:definePotentiometer("AFT_LIGHTS_PANEL_KNOB", devices.INTLIGHTS_SYSTEM, 3
 MiG_29A:defineLightPanelKnobSwitch("AFT_LIGHTS_PANEL_SWITCH", devices.INTLIGHTS_SYSTEM, 3007, 110, AFT_LIGHTS, "Panel Button", { positions = { "MANUAL", "AUTOMATIC" } })
 MiG_29A:definePotentiometer("AFT_LIGHTS_CONSOLE_KNOB", devices.INTLIGHTS_SYSTEM, 3010, 542, { 0, 1 }, AFT_LIGHTS, "Console Knob")
 MiG_29A:definePotentiometer("AFT_LIGHTS_INSTRUMENT_KNOB", devices.INTLIGHTS_SYSTEM, 3011, 54, { 0, 1 }, AFT_LIGHTS, "Instrument Knob")
+
+-- Right Wall
+local RIGHT_WALL = "Right Wall"
+
+MiG_29A:defineToggleSwitch("RIGHT_WALL_AM_FM_SWITCH", devices.VHF_UHF_R862, 3001, 132, RIGHT_WALL, "VHF/UHF Modulation Switch", { positions = { "FM", "AM" } })
+
+-- IFF transponder controls - Disabled in game
+local IFF = "IFF Transponder Controls"
+
+MiG_29A:defineMultipositionSwitch("IFF_MODE_SWITCH", devices.SO69, 3003, 148, 3, 0.1, IFF, "Mode Select Knob", { positions = { "GCA", "ATC", "P35" } })
+MiG_29A:definePushButton("IFF_IDEM_BUTTON", devices.SO69, 3001, 149, IFF, "IDEM Button")
+MiG_29A:defineFloat("IFF_SPARE_ON_LIGHT", 386, { 0, 1 }, IFF, "SPARE ON Light (Red)")
+MiG_29A:defineFloat("IFF_FAIL_LIGHT", 384, { 0, 1 }, IFF, "IFF FAIL Light (Red)")
+MiG_29A:defineToggleSwitch("IFF_DISTR_SWITCH", devices.TRANSPONDER, 3001, 126, IFF, "Disaster Switch")
+MiG_29A:defineToggleSwitch("IFF_REPLY_CODE_SWITCH", devices.TRANSPONDER, 3003, 127, IFF, "Reply Code Switch", { positions = { "1", "2" } })
+MiG_29A:defineMultipositionSwitch("IFF_INT_MODE_SWITCH", devices.INTERROGATOR, 3001, 128, 4, 0.1, IFF, "Mode Select Knob", { positions = { "I", "II", "III-1", "III-2" } })
+MiG_29A:defineToggleSwitch("IFF_CLEAR_BUTTON_COVER", devices.TRANSPONDER, 3005, 129, IFF, "Zeroize Button Cover")
+MiG_29A:definePushButton("IFF_CLEAR_BUTTON", devices.TRANSPONDER, 3007, 130, IFF, "Zeroize Button")
 
 -- Altimeter
 
