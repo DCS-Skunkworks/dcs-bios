@@ -2,6 +2,7 @@ module("MiG-29A", package.seeall)
 
 local ActionArgument = require("Scripts.DCS-BIOS.lib.modules.documentation.ActionArgument")
 local ActionInput = require("Scripts.DCS-BIOS.lib.modules.documentation.ActionInput")
+local CommonPositions = require("Scripts.DCS-BIOS.lib.modules.CommonPositions")
 local Control = require("Scripts.DCS-BIOS.lib.modules.documentation.Control")
 local ControlAttributeDocumentation = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlAttributeDocumentation")
 local ControlType = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlType")
@@ -18,7 +19,8 @@ local Suffix = require("Scripts.DCS-BIOS.lib.modules.documentation.Suffix")
 local MiG_29A = Module:new("MiG-29 Fulcrum", 0x3c00, { "MiG-29 Fulcrum" })
 
 -- Special Args:
--- 1: Unit system (1 = metric, 0 = imperial)
+-- 1: Unit system (0: Metric, >= 0.01: Imperial)
+-- 103: Lights langauge (0: Russian, >= 0.01: English)
 -- 2: Joystick visibility (Hidden >= 0.9 )
 -- 1040: Body visibility (Hidden >= 0.99 )
 
@@ -614,7 +616,7 @@ MiG_29A:definePushButton("STICK_BREAK_LOCK_BUTTON", devices.HOTAS, 3017, 54, STI
 MiG_29A:definePushButton("STICK_AP_CUTOFF_BUTTON", devices.HOTAS, 3018, 70, STICK, "Autopilot Cut-Off Button")
 MiG_29A:defineGunTrigger("STICK_GUN_TRIGGER", devices.HOTAS, 442, STICK, "Gun Trigger", { positions = { "RELEASED", "FIRST DETENT", "SECOND DETENT" } })
 MiG_29A:defineToggleSwitch("STICK_WEAPON_TRIGGER", devices.HOTAS, 3003, 441, STICK, "Weapon Trigger")
-MiG_29A:defineToggleSwitch("STICK_EMERGENCY_JETTISON_COVER", devices.HOTAS, 3022, 100, STICK, "Emergency Jettison Button Cover")
+MiG_29A:defineToggleSwitch("STICK_EMERGENCY_JETTISON_COVER", devices.HOTAS, 3022, 100, STICK, "Emergency Jettison Button Cover", { positions = CommonPositions.COVER })
 MiG_29A:definePushButton("STICK_EMERGENCY_JETTISON_BUTTON", devices.HOTAS, 3021, 101, STICK, "Emergency Jettison Button")
 MiG_29A:defineBrakeLever("STICK_BRAKE_LEVER", ICommand.wheel_brake, 47, STICK, "Wheel Brake")
 MiG_29A:defineToggleSwitch("STICK_RUN_UP_BRAKE_LEVER", devices.HOTAS, 3020, 47, STICK, "Run-up Brake Lever")
@@ -1147,7 +1149,7 @@ local WEAPONS_SETTINGS = "PU-S31 Weapon Control Panel"
 MiG_29A:defineToggleSwitch("WEAPONS_CONTROL_COOP_SWITCH", devices.INPUT_PANEL, 3019, 287, WEAPONS_SETTINGS, "Coop Switch", { positions = { "NO RETARD", "COOP RETARD" } })
 MiG_29A:defineToggleSwitch("WEAPONS_CONTROL_AG_SWITCH", devices.INPUT_PANEL, 3015, 286, WEAPONS_SETTINGS, "A/G Mode Switch", { positions = { "AIR", "GROUND" } })
 MiG_29A:defineToggleSwitch("WEAPONS_CONTROL_BOMB_JETTISON_ARM_SWITCH", devices.WP, 3008, 290, WEAPONS_SETTINGS, "Bombs Jettison Arm Switch", { positions = { "SAFE", "ARMED" } })
-MiG_29A:defineToggleSwitch("WEAPONS_CONTROL_EMERGENCY_JETTISON_COVER", devices.WP, 3006, 291, WEAPONS_SETTINGS, "Emergency Jettison Button Cover")
+MiG_29A:defineToggleSwitch("WEAPONS_CONTROL_EMERGENCY_JETTISON_COVER", devices.WP, 3006, 291, WEAPONS_SETTINGS, "Emergency Jettison Button Cover", { positions = CommonPositions.COVER })
 MiG_29A:definePushButton("WEAPONS_CONTROL_EMERGENCY_JETTISON_BUTTON", devices.WP, 3005, 292, WEAPONS_SETTINGS, "Emergency Jettison Button")
 MiG_29A:defineToggleSwitch("WEAPONS_CONTROL_GUIDANCE_MODE_SWITCH", devices.INPUT_PANEL, 3017, 289, WEAPONS_SETTINGS, "Guidance Mode Switch")
 MiG_29A:defineToggleSwitch("WEAPONS_CONTROL_LOCK_SWITCH", devices.INPUT_PANEL, 3033, 288, WEAPONS_SETTINGS, "Lock Switch", { positions = { "FOE", "FRIEND" } })
@@ -1207,6 +1209,23 @@ MiG_29A:defineLightPanelKnobSwitch("AFT_LIGHTS_PANEL_SWITCH", devices.INTLIGHTS_
 MiG_29A:definePotentiometer("AFT_LIGHTS_CONSOLE_KNOB", devices.INTLIGHTS_SYSTEM, 3010, 542, { 0, 1 }, AFT_LIGHTS, "Console Knob")
 MiG_29A:definePotentiometer("AFT_LIGHTS_INSTRUMENT_KNOB", devices.INTLIGHTS_SYSTEM, 3011, 54, { 0, 1 }, AFT_LIGHTS, "Instrument Knob")
 
+-- Right Wall
+local RIGHT_WALL = "Right Wall"
+
+MiG_29A:defineToggleSwitch("RIGHT_WALL_AM_FM_SWITCH", devices.VHF_UHF_R862, 3001, 132, RIGHT_WALL, "VHF/UHF Modulation Switch", { positions = { "FM", "AM" } })
+
+-- IFF transponder controls - Disabled in game
+local IFF = "IFF Transponder Controls"
+
+MiG_29A:defineMultipositionSwitch("IFF_MODE_SWITCH", devices.SO69, 3003, 148, 3, 0.1, IFF, "Mode Select Knob", { positions = { "GCA", "ATC", "P35" } })
+MiG_29A:definePushButton("IFF_IDEM_BUTTON", devices.SO69, 3001, 149, IFF, "IDEM Button")
+MiG_29A:defineFloat("IFF_SPARE_ON_LIGHT", 386, { 0, 1 }, IFF, "SPARE ON Light (Red)")
+MiG_29A:defineFloat("IFF_FAIL_LIGHT", 384, { 0, 1 }, IFF, "IFF FAIL Light (Red)")
+MiG_29A:defineToggleSwitch("IFF_DISTR_SWITCH", devices.TRANSPONDER, 3001, 126, IFF, "Disaster Switch")
+MiG_29A:defineToggleSwitch("IFF_REPLY_CODE_SWITCH", devices.TRANSPONDER, 3003, 127, IFF, "Reply Code Switch", { positions = { "1", "2" } })
+MiG_29A:defineMultipositionSwitch("IFF_INT_MODE_SWITCH", devices.INTERROGATOR, 3001, 128, 4, 0.1, IFF, "Mode Select Knob", { positions = { "I", "II", "III-1", "III-2" } })
+MiG_29A:defineToggleSwitch("IFF_CLEAR_BUTTON_COVER", devices.TRANSPONDER, 3005, 129, IFF, "Zeroize Button Cover", { positions = CommonPositions.COVER })
+MiG_29A:definePushButton("IFF_CLEAR_BUTTON", devices.TRANSPONDER, 3007, 130, IFF, "Zeroize Button")
 -- Electrical power panel
 local ELEC_POWER = "Electrical Power Panel"
 
