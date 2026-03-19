@@ -843,7 +843,7 @@ MiG_29A:defineFloat("VOLTMETER_POINTER", 308, { 0, 1 }, VOLTMETER, "Voltmeter Po
 local PITOT_CONTROLS = "Pitot Controls"
 
 MiG_29A:defineToggleSwitch("PITOT_LEVER", devices.SNSR_SYS_INTERFACE, 3001, 131, PITOT_CONTROLS, "Pitot Lever", { positions = { "MAIN", "STBY" } })
-MiG_29A:defineToggleSwitch("PITOT_HEAT_SWITCH", devices.SNSR_SYS_INTERFACE, 3003, 558, PITOT_CONTROLS, "Pitot Lever", { positions = { "OFF", "ON" } })
+MiG_29A:defineToggleSwitch("PITOT_HEAT_SWITCH", devices.SNSR_SYS_INTERFACE, 3003, 558, PITOT_CONTROLS, "Pitot Lever")
 
 -- M-2A Brake air pressure manometer
 local M_2A = "M-2A Brake Air Pressure Manometer"
@@ -1226,14 +1226,29 @@ MiG_29A:defineToggleSwitch("IFF_REPLY_CODE_SWITCH", devices.TRANSPONDER, 3003, 1
 MiG_29A:defineMultipositionSwitch("IFF_INT_MODE_SWITCH", devices.INTERROGATOR, 3001, 128, 4, 0.1, IFF, "Mode Select Knob", { positions = { "I", "II", "III-1", "III-2" } })
 MiG_29A:defineToggleSwitch("IFF_CLEAR_BUTTON_COVER", devices.TRANSPONDER, 3005, 129, IFF, "Zeroize Button Cover", { positions = CommonPositions.COVER })
 MiG_29A:definePushButton("IFF_CLEAR_BUTTON", devices.TRANSPONDER, 3007, 130, IFF, "Zeroize Button")
+-- Electrical power panel
+local ELEC_POWER = "Electrical Power Panel"
+
+MiG_29A:defineToggleSwitch("ELEC_BAT_GND_POWER_SWITCH", devices.ELEC_INTERFACE, 3001, 510, ELEC_POWER, "Ground Power Switch")
+MiG_29A:defineToggleSwitch("ELEC_DC_GEN_SWITCH", devices.ELEC_INTERFACE, 3003, 511, ELEC_POWER, "DC Generator Switch")
+MiG_29A:defineToggleSwitch("ELEC_AC_GEN_SWITCH", devices.ELEC_INTERFACE, 3005, 512, ELEC_POWER, "AC Generator Switch")
+MiG_29A:defineToggleSwitch("ELEC_PTO_SWITCH", devices.ELEC_INTERFACE, 3007, 513, ELEC_POWER, "PTO Switch")
+MiG_29A:defineToggleSwitch("ELEC_ENG_SYS_SWITCH", devices.ELEC_INTERFACE, 3009, 514, ELEC_POWER, "Engine System Switch")
+MiG_29A:defineToggleSwitch("ELEC_FUEL_PUMP_SWITCH", devices.ELEC_INTERFACE, 3011, 515, ELEC_POWER, "Fuel Pump Switch")
+MiG_29A:defineToggleSwitch("ELEC_AS_SWITCH", devices.ELEC_INTERFACE, 3013, 516, ELEC_POWER, "Anti Surge Switch")
+MiG_29A:definePushButton("ELEC_ALL_POWER_ON_BAR", devices.ELEC_INTERFACE, 3015, 517, ELEC_POWER, "All Electric Power Switches On Bar")
+
+-- Voice information and warning system (VIWAS) controls
+local VIWAS = "Voice Information and Warning System (VIWAS)"
+
+MiG_29A:definePushButton("VIWAS_REPEAT_BUTTON", devices.VIWAS, 3002, 141, VIWAS, "Repeat Voice Warning Button")
+MiG_29A:definePushButton("VIWAS_CHECK_BUTTON", devices.VIWAS, 3001, 142, VIWAS, "Check Voice Warning Button")
 
 -- Altimeter
 
 -- Pedals
 
 -- Control & Test panel
-
--- Electrical power panel
 
 -- System power panel
 
@@ -1248,8 +1263,6 @@ MiG_29A:definePushButton("IFF_CLEAR_BUTTON", devices.TRANSPONDER, 3007, 130, IFF
 -- Tally light panel
 
 -- Refueling panel
-
--- Voice information and warning system (VIWAS) controls
 
 -- Mirrors
 
