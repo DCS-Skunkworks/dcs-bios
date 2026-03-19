@@ -1217,7 +1217,7 @@ MiG_29A:defineToggleSwitch("ELEC_PTO_SWITCH", devices.ELEC_INTERFACE, 3007, 513,
 MiG_29A:defineToggleSwitch("ELEC_ENG_SYS_SWITCH", devices.ELEC_INTERFACE, 3009, 514, ELEC_POWER, "Engine System Switch")
 MiG_29A:defineToggleSwitch("ELEC_FUEL_PUMP_SWITCH", devices.ELEC_INTERFACE, 3011, 515, ELEC_POWER, "Fuel Pump Switch")
 MiG_29A:defineToggleSwitch("ELEC_AS_SWITCH", devices.ELEC_INTERFACE, 3013, 516, ELEC_POWER, "Anti Surge Switch")
-MiG_29A:definePushButton("ELEC_ALL_POWER_ON_BUTTON", devices.ELEC_INTERFACE, 3015, 517, ELEC_POWER, "All Electric Power Switches ON")
+MiG_29A:definePushButton("ELEC_ALL_POWER_ON_BAR", devices.ELEC_INTERFACE, 3015, 517, ELEC_POWER, "All Electric Power Switches On Bar")
 
 -- Altimeter
 
