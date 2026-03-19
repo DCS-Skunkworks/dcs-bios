@@ -1219,6 +1219,12 @@ MiG_29A:defineToggleSwitch("ELEC_FUEL_PUMP_SWITCH", devices.ELEC_INTERFACE, 3011
 MiG_29A:defineToggleSwitch("ELEC_AS_SWITCH", devices.ELEC_INTERFACE, 3013, 516, ELEC_POWER, "Anti Surge Switch")
 MiG_29A:definePushButton("ELEC_ALL_POWER_ON_BAR", devices.ELEC_INTERFACE, 3015, 517, ELEC_POWER, "All Electric Power Switches On Bar")
 
+-- Voice information and warning system (VIWAS) controls
+local VIWAS = "Voice Information and Warning System (VIWAS)"
+
+MiG_29A:definePushButton("VIWAS_REPEAT_BUTTON", devices.VIWAS, 3002, 141, VIWAS, "Repeat Voice Warning Button")
+MiG_29A:definePushButton("VIWAS_CHECK_BUTTON", devices.VIWAS, 3001, 142, VIWAS, "Check Voice Warning Button")
+
 -- Altimeter
 
 -- Pedals
@@ -1238,8 +1244,6 @@ MiG_29A:definePushButton("ELEC_ALL_POWER_ON_BAR", devices.ELEC_INTERFACE, 3015, 
 -- Tally light panel
 
 -- Refueling panel
-
--- Voice information and warning system (VIWAS) controls
 
 -- Mirrors
 
