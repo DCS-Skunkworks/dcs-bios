@@ -688,7 +688,7 @@ C_130J:definePushButton("ARC210_RT_SELECT", devices.VOLUME_MANAGER, 3151, 554, A
 C_130J:definePushButton("ARC210_LSK_1", devices.VOLUME_MANAGER, 3145, 550, ARC_210, "ARC-210 LSK 1")
 C_130J:definePushButton("ARC210_LSK_2", devices.VOLUME_MANAGER, 3146, 549, ARC_210, "ARC-210 LSK 2")
 C_130J:definePushButton("ARC210_LSK_3", devices.VOLUME_MANAGER, 3147, 548, ARC_210, "ARC-210 LSK 3")
-C_130J:defineTumb("ARC210_SQUELCH_SWITCH", devices.VOLUME_MANAGER, 3159, 532, 2, { -1, 1 }, nil, false, ARC_210, "ARC-210 Squelch Switch")
+C_130J:defineToggleSwitchManualRange("ARC210_SQUELCH_SWITCH", devices.VOLUME_MANAGER, 3159, 532, { -1, 1 }, ARC_210, "ARC-210 Squelch Switch")
 C_130J:definePushButton("ARC210_MENU_TIME", devices.VOLUME_MANAGER, 3152, 533, ARC_210, "ARC-210 MENU/TIME Key")
 C_130J:definePushButton("ARC210_AM_FM", devices.VOLUME_MANAGER, 3154, 534, ARC_210, "ARC-210 AM/FM Key")
 C_130J:definePushButton("ARC210_XMT_REC_SEND", devices.VOLUME_MANAGER, 3153, 535, ARC_210, "ARC-210 XMT/REC or SEND Key")
