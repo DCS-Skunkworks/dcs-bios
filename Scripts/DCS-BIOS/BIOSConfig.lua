@@ -35,7 +35,7 @@ local BIOSConfig = {
 	dev_mode = true,
 	clean_logs = true,
 	export_rate = 30,
-	version = "0.11.2",
+	version = "0.0.0", -- set automatically, do not edit
 }
 
 return BIOSConfig
