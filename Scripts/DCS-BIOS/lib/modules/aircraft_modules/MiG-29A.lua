@@ -1242,7 +1242,7 @@ MiG_29A:defineMultipositionSwitch("IFF_INT_MODE_SWITCH", devices.INTERROGATOR, 3
 MiG_29A:defineToggleSwitch("IFF_CLEAR_BUTTON_COVER", devices.TRANSPONDER, 3005, 129, IFF, "Zeroize Button Cover", { positions = CommonPositions.COVER })
 MiG_29A:definePushButton("IFF_CLEAR_BUTTON", devices.TRANSPONDER, 3007, 130, IFF, "Zeroize Button")
 
--- IFF encryption controls
+-- IFF encryption controls - Disabled in game
 local IFF_ENC = "IFF Encryption Controls"
 
 MiG_29A:defineMultipositionSwitch("IFF_ENC_KEY_KNOB", devices.INTERROGATOR, 3003, 382, 3, 0.1, IFF_ENC, "Encryption Key Select Knob", { positions = { "AUTO", "CC +-15", "CN" } })
