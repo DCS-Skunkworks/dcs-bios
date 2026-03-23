@@ -601,6 +601,21 @@ function MiG_29A:defineLightPanelKnobSwitch(identifier, device_id, command, arg_
 	end)
 end
 
+--- Adds an n-position switch with a custom range
+--- @param identifier string the unique identifier for the control
+--- @param device_id integer the dcs device id
+--- @param command integer the dcs command
+--- @param arg_number integer the dcs argument number
+--- @param limits number[] a length-2 array with the lower and upper bounds of the data as used in dcs
+--- @param increment number the amount to increment the dcs data by with each step of the switch
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @param attributes SwitchAttributes? additional control attributes
+--- @return Control control the control which was added to the module
+function MiG_29A:definedefineMultipositionSwitchManualRange(identifier, device_id, command, arg_number, limits, increment, category, description, attributes)
+	return self:defineTumb(identifier, device_id, command, arg_number, increment, limits, nil, false, category, description, attributes)
+end
+
 -- Stick
 local STICK = "Stick Controls"
 
@@ -1246,6 +1261,15 @@ MiG_29A:definePushButton("VIWAS_CHECK_BUTTON", devices.VIWAS, 3001, 142, VIWAS, 
 
 -- Altimeter
 
+-- ADF control panel
+local ADF = "ADF Control Panel"
+
+MiG_29A:definedefineMultipositionSwitchManualRange("ADF_CHANNEL_SWITCH", devices.ARK, 3001, 144, { 0.1, 0.5 }, 0.1, ADF, "Channel Select Switch", { positions = { "1", "2", "3", "4", "P" } })
+MiG_29A:defineToggleSwitch("ADF_SIGNAL_SWITCH", devices.ARK, 3002, 145, ADF, "Signal Switch", { positions = { "CW", "VOICE" } })
+MiG_29A:defineToggleSwitch("ADF_ANTENNA_SWITCH", devices.ARK, 3003, 146, ADF, "Antenna Switch", { positions = { "ANT", "COMP" } })
+MiG_29A:definePotentiometer("ADF_VOLUME_KNOB", devices.ARK, 3004, 147, { 0, 1 }, ADF, "Volume Knob")
+MiG_29A:definePushButton("ADF_LOOP_BUTTON", devices.ARK, 3005, 179, ADF, "Loop Button")
+
 -- Pedals
 
 -- Control & Test panel
@@ -1265,8 +1289,6 @@ MiG_29A:definePushButton("VIWAS_CHECK_BUTTON", devices.VIWAS, 3001, 142, VIWAS, 
 -- Refueling panel
 
 -- Mirrors
-
--- ADF control panel
 
 -- Engine emergency panel
 
