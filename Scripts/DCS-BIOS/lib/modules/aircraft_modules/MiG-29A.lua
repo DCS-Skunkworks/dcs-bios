@@ -1317,6 +1317,6 @@ MiG_29A:definePushButton("ADF_LOOP_BUTTON", devices.ARK, 3005, 179, ADF, "Loop B
 
 -- PC-31 Weapon Settings Panel - Not Implemented
 
--- IFF Guidance Control Pannel - Not Implemented
+-- Guidance Control Pannel - Not Implemented
 
 return MiG_29A
