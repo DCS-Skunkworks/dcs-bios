@@ -143,7 +143,7 @@ function MiG_29A:define3PosTumb0To1(identifier, device_id, command, arg_number, 
 	self:defineMultipositionSwitch0To1(identifier, device_id, command, arg_number, 3, category, description, attributes)
 end
 
-local function cabinTempSwitchIntValue(arg_value)
+local function triangleSwitchIntValue(arg_value)
 	if arg_value < 0.075 then
 		return 0
 	elseif arg_value < 0.30 then
@@ -158,14 +158,18 @@ end
 --- Adds a custom switch for the cabine temperature switch
 --- @param identifier string the unique identifier for the control
 --- @param device_id integer the dcs device id
+--- @param command_middle integer the dcs command to set the switch to the middle position
+--- @param command_up integer the dcs command to set the switch to the up position
+--- @param command_left integer the dcs command to set the switch to the left position
+--- @param command_right integer the dcs command to set the switch to the right position
 --- @param arg_number integer the dcs argument number
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
 --- @param attributes SwitchAttributes? additional control attributes
-function MiG_29A:defineCabinTempSwitch(identifier, device_id, arg_number, category, description, attributes)
+function MiG_29A:defineTriangleSwitch(identifier, device_id, command_middle, command_up, command_left, command_right, arg_number, category, description, attributes)
 	local alloc = self:allocateInt(3)
 	self:addExportHook(function(dev0)
-		local val = cabinTempSwitchIntValue(dev0:get_argument_value(arg_number))
+		local val = triangleSwitchIntValue(dev0:get_argument_value(arg_number))
 		alloc:setValue(val)
 	end)
 
@@ -184,7 +188,7 @@ function MiG_29A:defineCabinTempSwitch(identifier, device_id, arg_number, catego
 			return
 		end
 
-		local currentState = cabinTempSwitchIntValue(GetDevice(0):get_argument_value(arg_number))
+		local currentState = triangleSwitchIntValue(GetDevice(0):get_argument_value(arg_number))
 		local new_state
 
 		if toState == "INC" then
@@ -201,14 +205,14 @@ function MiG_29A:defineCabinTempSwitch(identifier, device_id, arg_number, catego
 			new_state = tonumber(toState)
 		end
 
-		if new_state == 0 then -- OFF
-			dev:performClickableAction(3001, 0)
-		elseif new_state == 1 then -- AUTO
-			dev:performClickableAction(3002, 0.15)
-		elseif new_state == 2 then -- HOT
-			dev:performClickableAction(3003, 0.45)
-		elseif new_state == 3 then -- COLD
-			dev:performClickableAction(3004, 0.75)
+		if new_state == 0 then -- MIDDLE
+			dev:performClickableAction(command_middle, 0)
+		elseif new_state == 1 then -- UP
+			dev:performClickableAction(command_up, 0.15)
+		elseif new_state == 2 then -- LEFT
+			dev:performClickableAction(command_left, 0.45)
+		elseif new_state == 3 then -- RIGHT
+			dev:performClickableAction(command_right, 0.75)
 		end
 	end)
 end
@@ -1035,7 +1039,7 @@ MiG_29A:definePotentiometer("AIR_CONDITIONING_SUIT_VENTILATION_KNOB", devices.AI
 MiG_29A:defineToggleSwitch("AIR_CONDITIONING_COCKPIT_BLOW_DISTRIBUTION_LEVER", devices.AIR_INTERFACE, 3010, 254, AIR_CONDITIONING, "Cockpit air distribution lever", { positions = { "PILOT", "OPEN" } })
 MiG_29A:defineToggleSwitch("AIR_CONDITIONING_COCKPIT_AIR_SUPPLY_LEVER", devices.AIR_INTERFACE, 3012, 246, AIR_CONDITIONING, "Cockpit air supply lever", { positions = { "CLOSED", "OPEN" } })
 MiG_29A:definePotentiometer("AIR_CONDITIONING_CABIN_TEMP_CONTROL_KNOB", devices.AIR_INTERFACE, 3007, 114, { 0, 0.5 }, AIR_CONDITIONING, "Cabin Temperature Control Knob")
-MiG_29A:defineCabinTempSwitch("AIR_CONDITIONING_CABIN_TEMP_SWITCH", devices.AIR_INTERFACE, 555, AIR_CONDITIONING, "Cabin Temperature Switch", { positions = { "OFF", "AUTO", "HOT", "COLD" } })
+MiG_29A:defineTriangleSwitch("AIR_CONDITIONING_CABIN_TEMP_SWITCH", devices.AIR_INTERFACE, 3001, 3002, 3003, 3004, 555, AIR_CONDITIONING, "Cabin Temperature Switch", { positions = { "OFF", "AUTO", "HOT", "COLD" } })
 
 -- Flaps controls
 local FLAPS_CONTROL = "Flaps Controls"
@@ -1308,13 +1312,19 @@ MiG_29A:defineToggleSwitch("ADF_ANTENNA_SWITCH", devices.ARK, 3003, 146, ADF, "A
 MiG_29A:definePotentiometer("ADF_VOLUME_KNOB", devices.ARK, 3004, 147, { 0, 1 }, ADF, "Volume Knob")
 MiG_29A:definePushButton("ADF_LOOP_BUTTON", devices.ARK, 3005, 179, ADF, "Loop Button")
 
+-- Engine start panel
+local ENG_START = "Engine Start Panel"
+
+MiG_29A:defineToggleSwitch("ENG_START_APU_SWITCH_COVER", devices.POWER_PLANT_INTERFACE, 3003, 75, ENG_START, "APU Switch Cover", { positions = CommonPositions.COVER })
+MiG_29A:defineTriangleSwitch("ENG_START_APU_SWITCH", devices.POWER_PLANT_INTERFACE, 3005, 3007, 3008, 3009, 282, ENG_START, "APU Switch", { positions = { "OFF", "APU MODE", "APU CRANK", "ENG COLD" } })
+MiG_29A:define3PosTumb("ENG_START_ENG_SELECT_SWITCH", devices.POWER_PLANT_INTERFACE, 3001, 281, ENG_START, "Engine Select Switch", { positions = { "LEFT", "START BOTH", "RIGHT" } })
+MiG_29A:definePushButton("ENG_START_GND_START_BUTTON", devices.POWER_PLANT_INTERFACE, 3006, 65, ENG_START, "Ground Start Button")
+
 -- Pedals
 
 -- Control & Test panel
 
 -- System power panel
-
--- Engine & APU start panel
 
 -- Lights controls (external)
 
