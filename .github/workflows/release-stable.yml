@@ -62,7 +62,7 @@ jobs:
         # strip leading 'v' from tag, so we just have the version number
       - name: prepare version
         run: |
-          echo "CURRENT_VERSION=$(echo ${{ github.ref_name }} | sed -e s/^v//))" >> $GITHUB_ENV
+          echo "CURRENT_VERSION=$(echo ${{ github.ref_name }} | sed -e s/^v//)" >> $GITHUB_ENV
 
         # replace placeholder text in version with the actual version
       - name: set version
