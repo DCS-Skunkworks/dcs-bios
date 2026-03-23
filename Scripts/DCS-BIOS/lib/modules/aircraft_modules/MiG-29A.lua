@@ -1325,6 +1325,19 @@ MiG_29A:definePushButton("ENG_START_GND_START_BUTTON", devices.POWER_PLANT_INTER
 -- Control & Test panel
 
 -- System power panel
+local SYS_POWER = "System Power Panel"
+
+MiG_29A:defineToggleSwitch("SYS_POWER_RADIO_SWITCH", devices.ELEC_INTERFACE, 3016, 504, SYS_POWER, "Radio Supply Switch")
+MiG_29A:defineToggleSwitch("SYS_POWER_ACFT_SWITCH", devices.ELEC_INTERFACE, 3018, 503, SYS_POWER, "Aircraft Systems Supply Switch")
+MiG_29A:defineToggleSwitch("SYS_POWER_GYRO_MAIN_SWITCH", devices.ELEC_INTERFACE, 3020, 502, SYS_POWER, "Gyro Main Supply Switch")
+MiG_29A:defineToggleSwitch("SYS_POWER_GYRO_STBY_SWITCH", devices.ELEC_INTERFACE, 3022, 501, SYS_POWER, "Gyro Standby Supply Switch")
+MiG_29A:defineToggleSwitch("SYS_POWER_NAV_SWITCH", devices.ELEC_INTERFACE, 3024, 500, SYS_POWER, "Navigation Supply Switch")
+MiG_29A:defineToggleSwitch("SYS_POWER_AFCS_SWITCH", devices.ELEC_INTERFACE, 3026, 509, SYS_POWER, "Automatic Flight Control System Supply Switch")
+MiG_29A:defineToggleSwitch("SYS_POWER_IFF_SWITCH", devices.ELEC_INTERFACE, 3028, 508, SYS_POWER, "IFF Supply Switch")
+MiG_29A:defineToggleSwitch("SYS_POWER_RECORD_SWITCH", devices.ELEC_INTERFACE, 3030, 507, SYS_POWER, "Record Supply Switch")
+MiG_29A:defineToggleSwitch("SYS_POWER_WEAPON_SWITCH", devices.ELEC_INTERFACE, 3032, 506, SYS_POWER, "Weapon Supply Switch")
+MiG_29A:defineToggleSwitch("SYS_POWER_ACS_SWITCH", devices.ELEC_INTERFACE, 3034, 505, SYS_POWER, "Armament Control System Supply Switch")
+MiG_29A:definePushButton("SYS_POWER_ALL_POWER_ON_BAR", devices.ELEC_INTERFACE, 3036, 518, SYS_POWER, "All System Power Switches On Bar")
 
 -- Lights controls (external)
 
