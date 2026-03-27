@@ -20,7 +20,7 @@ local MiG_29A = Module:new("MiG-29 Fulcrum", 0x3c00, { "MiG-29 Fulcrum" })
 
 -- Special Args:
 -- 1: Unit system (0: Metric, >= 0.01: Imperial)
--- 103: Lights langauge (0: Russian, >= 0.01: English)
+-- 103: Lights language (0: Russian, >= 0.01: English)
 -- 2: Joystick visibility (Hidden >= 0.9 )
 -- 1040: Body visibility (Hidden >= 0.99 )
 
@@ -1283,6 +1283,15 @@ MiG_29A:defineToggleSwitch("IFF_REPLY_CODE_SWITCH", devices.TRANSPONDER, 3003, 1
 MiG_29A:defineMultipositionSwitch("IFF_INT_MODE_SWITCH", devices.INTERROGATOR, 3001, 128, 4, 0.1, IFF, "Mode Select Knob", { positions = { "I", "II", "III-1", "III-2" } })
 MiG_29A:defineToggleSwitch("IFF_CLEAR_BUTTON_COVER", devices.TRANSPONDER, 3005, 129, IFF, "Zeroize Button Cover", { positions = CommonPositions.COVER })
 MiG_29A:definePushButton("IFF_CLEAR_BUTTON", devices.TRANSPONDER, 3007, 130, IFF, "Zeroize Button")
+
+-- IFF encryption controls - Disabled in game
+local IFF_ENC = "IFF Encryption Controls"
+
+MiG_29A:defineMultipositionSwitch("IFF_ENC_KEY_KNOB", devices.INTERROGATOR, 3003, 382, 3, 0.1, IFF_ENC, "Encryption Key Select Knob", { positions = { "AUTO", "CC +-15", "CN" } })
+MiG_29A:defineToggleSwitch("IFF_ENC_CODE_SWITCH", devices.INTERROGATOR, 3005, 407, IFF_ENC, "Code Select Switch", { positions = { "OPENER", "STBY" } })
+MiG_29A:defineFloat("IFF_ENC_CC_LIGHT", 390, { 0, 1 }, IFF_ENC, "CC Light (Green)")
+MiG_29A:defineFloat("IFF_ENC_CN_LIGHT", 391, { 0, 1 }, IFF_ENC, "CN Light (Green)")
+
 -- Electrical power panel
 local ELEC_POWER = "Electrical Power Panel"
 
@@ -1368,5 +1377,7 @@ MiG_29A:definePushButton("SYS_POWER_ALL_POWER_ON_BAR", devices.ELEC_INTERFACE, 3
 -- Dispenser Check Button - Not Implemented
 
 -- PC-31 Weapon Settings Panel - Not Implemented
+
+-- Guidance Control Pannel - Not Implemented
 
 return MiG_29A
