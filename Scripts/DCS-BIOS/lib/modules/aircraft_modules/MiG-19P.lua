@@ -15,14 +15,14 @@ MiG_19P:definePushButton("AFTERBURN_DIS", 2, 3317, 317, "Throttle", "Mil-power L
 MiG_19P:definePushButton("AFTERBURN_EN", 2, 3318, 318, "Throttle", "Afterburner Enable")
 
 -- MAIN INSTRUMENTS PANEL
-MiG_19P:define3PosTumb("GEAR_LEVER", 4, 3330, 330, "Landing Gear Panel", "Landing Gear Lever, Down/Neutral/Up")
+MiG_19P:define3PosTumb("GEAR_LEVER", 4, 3330, 330, "Landing Gear Panel", "Landing Gear Lever", { positions = { "Down", "Neutral", "Up" } })
 MiG_19P:defineToggleSwitch("GEAR_LOCK", 4, 3331, 331, "Landing Gear Panel", "Landing Gear Lever Lock")
 MiG_19P:definePushButton("GEAR_LIGHT_TEST", 10, 3333, 333, "Landing Gear Panel", "PPS-2 Landing Gear Lights Test Button - Push to test")
 MiG_19P:defineToggleSwitch("EMERG_BRAKE", 4, 3301, 301, "Landing Gear Panel", "Emergency Brake")
 MiG_19P:defineToggleSwitch("NOSE_GEAR_BRAKE", 4, 3302, 302, "Landing Gear Panel", "Nose Gear Brake System On/Off")
 
 MiG_19P:defineMultipositionSwitch("NAV_LIGHTS", 5, 3261, 261, 6, 0.2, "Exterior Lights Panel", "Navigation Lights")
-MiG_19P:define3PosTumb("NOSE_LIGHTS", 5, 3262, 262, "Exterior Lights Panel", "Nose Lights Switch, LANDING/OFF/TAXI")
+MiG_19P:define3PosTumb("NOSE_LIGHTS", 5, 3262, 262, "Exterior Lights Panel", "Nose Lights Switch", { positions = { "LANDING", "OFF", "TAXI" } })
 
 MiG_19P:definePushButton("GIK1_ALIGN", 9, 3224, 224, "Flight Instruments Panel", "GIK-1 Needle Alignment")
 MiG_19P:definePushButton("ARU2V_LAMP_TEST", 4, 3300, 300, "Flight Instruments Panel", "ARU-2V Lamp Test Button")
@@ -103,7 +103,7 @@ MiG_19P:defineToggleSwitch("ROCKET_COUNTER_MODE", 7, 3337, 337, "Rocket Pod Pane
 MiG_19P:defineToggleSwitch("RADAR_ECCM", 14, 3338, 338, "Radar Control Panel", "RP-5 Radar ECCM Mode Switch, ON/OFF")
 MiG_19P:definePushButton("RADAR_BIT_TEST", 14, 3339, 339, "Radar Control Panel", "RP-5 Radar Built-In Test (BIT) Button - Press 2 seconds to start test")
 MiG_19P:defineToggleSwitch("RADAR_GAUGE_MODE", 14, 3340, 340, "Radar Control Panel", "RP-5 Radar Gauge Display Mode Switch, VOLTAGE/AIR PRESSURE")
-MiG_19P:defineMultipositionSwitch("RADAR_MODE", 14, 3341, 341, 4, 0.5, "Radar Control Panel", "RP-5 Radar Mode Control Switch, ON/STANDBY/OFF")
+MiG_19P:defineMultipositionSwitch("RADAR_MODE", 14, 3341, 341, 3, 0.5, "Radar Control Panel", "RP-5 Radar Mode Control Switch", { positions = { "ON", "STANDBY", "OFF" } })
 MiG_19P:defineRotary("RADAR_ANT_ELEVATION", 14, 3342, 342, "Flight Instruments Panel", "RP-5 Radar Electronic Horizon Elevation Adjustment Knob")
 MiG_19P:defineToggleSwitch("RADAR_SCR_MODE", 14, 3343, 343, "Radar Control Panel", "RP-5 Radar Screen Mode Switch, DAY/NIGHT")
 MiG_19P:defineToggleSwitch("RADAR_TGT_LOCK", 14, 3434, 434, "Radar Control Panel", "RP-5 Radar Target Lock Switch (AR-18-16 Tracking Antenna), ON/OFF")

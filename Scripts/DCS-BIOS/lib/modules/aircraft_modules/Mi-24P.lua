@@ -13,7 +13,7 @@ Mi_24P:defineToggleSwitch("PLT_ENG_STOP_L", 3, 3009, 6, "Engine", "PILOT Left En
 Mi_24P:defineToggleSwitch("PLT_ENG_STOP_R", 3, 3010, 7, "Engine", "PILOT Right Engine Stop")
 Mi_24P:defineRotary("PLT_ENG_THROTTLE_L", 3, 3006, 5, "Engine", "PILOT Left Engine Throttle")
 Mi_24P:defineRotary("PLT_ENG_THROTTLE_R", 3, 3008, 4, "Engine", "PILOT Right Engine Throttle")
-Mi_24P:defineSpringloaded_3PosTumb("PLT_FREE_TURB_RPM", 3, 3020, 3019, 747, "Engine", "PILOT Readjust Free Turbine RPM, RIGHT/NEUTRAL/LEFT")
+Mi_24P:defineSpringloaded_3PosTumb("PLT_FREE_TURB_RPM", 3, 3020, 3019, 747, "Engine", "PILOT Readjust Free Turbine RPM", { positions = { "RIGHT", "NEUTRAL", "LEFT" } })
 
 Mi_24P:defineFloat("PLT_ROTOR_RPM", 42, { 0, 1 }, "Engine Gauges", "PILOT Rotor RPM")
 Mi_24P:defineFloat("PLT_ROTOR_PITCH", 36, { 0, 1 }, "Engine Gauges", "PILOT Rotor Pitch")
@@ -102,7 +102,7 @@ Mi_24P:defineToggleSwitch("PLT_DOOR_LOCK", 11, 3017, 8, "Cockpit Mechanics PLT",
 Mi_24P:defineToggleSwitch("OP_DOOR_LOCK", 11, 3019, 848, "Cockpit Mechanics OP", "OPERATOR Door Safety Lock, OPEN/CLOSE")
 Mi_24P:defineToggleSwitch("OP_AP_TRIM", 11, 3040, 671, "Cockpit Mechanics OP", "OPERATOR Autopilot Trimmer for yourself")
 Mi_24P:defineToggleSwitch("OP_AP_TRIM_CV", 11, 3041, 670, "Cockpit Mechanics OP", "OPERATOR Autopilot Trimmer for yourself Switch Cover, UP/DOWN")
-Mi_24P:define3PosTumb("PLT_STATIC_VALVE", 37, 3001, 520, "Cockpit Mechanics PLT", "PILOT Static valve sensor select LEFT/BOTH/RIGHT")
+Mi_24P:define3PosTumb("PLT_STATIC_VALVE", 37, 3001, 520, "Cockpit Mechanics PLT", "PILOT Static valve sensor select", { positions = { "LEFT", "BOTH", "RIGHT" } })
 
 Mi_24P:defineIndicatorLight("PLT_GEAR_N_DN_L", 230, "Cockpit Mechanics Lights", "PILOT Nose Gear Down Light (green)")
 Mi_24P:defineIndicatorLight("PLT_GEAR_L_DN_L", 229, "Cockpit Mechanics Lights", "PILOT Left Gear Down Light (green)")
@@ -116,11 +116,11 @@ Mi_24P:defineIndicatorLight("OP_GEAR_R_DN_L", 685, "Cockpit Mechanics Lights", "
 Mi_24P:defineIndicatorLight("OP_SIGHT_DOOR_OPEN_L", 754, "Cockpit Mechanics Lights", "OPERATOR Sight Doors Open Light (yellow)")
 
 --IntLightSystem
-Mi_24P:define3PosTumb("OP_CABIN_L_SW", 23, 3001, 682, "Int Light System", "OPERATOR Cabin Lighting Switch, WHITE/OFF/RED")
-Mi_24P:define3PosTumb("PLT_CABIN_L_SW", 23, 3002, 356, "Int Light System", "PILOT Cabin Lighting Switch, WHITE/OFF/RED")
+Mi_24P:define3PosTumb("OP_CABIN_L_SW", 23, 3001, 682, "Int Light System", "OPERATOR Cabin Lighting Switch", { positions = { "WHITE", "OFF", "RED" } })
+Mi_24P:define3PosTumb("PLT_CABIN_L_SW", 23, 3002, 356, "Int Light System", "PILOT Cabin Lighting Switch", { positions = { "WHITE", "OFF", "RED" } })
 Mi_24P:defineToggleSwitch("PLT_CARGO_L_SW", 23, 3003, 354, "Int Light System", "PILOT Cargo Lighting Switch, ON/OFF")
 Mi_24P:defineToggleSwitch("PLT_CARGO_L_CV", 23, 3004, 353, "Int Light System", "PILOT Cargo Lighting Switch Cover, UP/DOWN")
-Mi_24P:define3PosTumb("PLT_CARGO_COLOR_L_SW", 23, 3005, 355, "Int Light System", "PILOT Cargo Lighting Switch, WHITE/OFF/BLUE")
+Mi_24P:define3PosTumb("PLT_CARGO_COLOR_L_SW", 23, 3005, 355, "Int Light System", "PILOT Cargo Lighting Switch", { positions = { "WHITE", "OFF", "BLUE" } })
 Mi_24P:definePushButton("PLT_WARN_L_TEST", 23, 3008, 363, "Int Light System", "PILOT Test Warning Lights Button")
 Mi_24P:definePushButton("OP_WARN_L_TEST", 23, 3009, 681, "Int Light System", "OPERATOR Test Warning Lights Button")
 Mi_24P:defineToggleSwitch("PLT_DAY_NIGHT_SW", 23, 3010, 362, "Int Light System", "PILOT Day-Night Switch, DAY/NIGHT")
@@ -138,9 +138,9 @@ Mi_24P:defineTumb("PLT_TRANSFROM_BUILTIN", 23, 3020, 149, 0.1, { 0, 1 }, nil, fa
 Mi_24P:define3PosTumb("PLT_LND_L_SW", 15, 3008, 208, "Ext Light System", "PILOT LND LT Control-Off-Retract Switch")
 Mi_24P:defineToggleSwitch("PLT_TAXI_L_SW", 15, 3001, 34, "Ext Light System", "PILOT Taxi LT Switch, ON/OFF")
 Mi_24P:defineToggleSwitch("OP_TAXI_L_SW", 15, 3001, 686, "Ext Light System", "OPERATOR Taxi LT Switch, ON/OFF")
-Mi_24P:define3PosTumb("PLT_NAV_L_SW", 15, 3003, 207, "Ext Light System", "PILOT Navigation Lights Switch, BRIGHT/OFF/DIM")
+Mi_24P:define3PosTumb("PLT_NAV_L_SW", 15, 3003, 207, "Ext Light System", "PILOT Navigation Lights Switch", { positions = { "BRIGHT", "OFF", "DIM" } })
 Mi_24P:definePushButton("PLT_NAV_L_CODE", 15, 3004, 35, "Ext Light System", "PILOT Navigation Lights Code Button")
-Mi_24P:define3PosTumb("PLT_FORMATION_L_SW", 15, 3005, 414, "Ext Light System", "PILOT Formation Lights Switch, BRIGHT/OFF/DIM")
+Mi_24P:define3PosTumb("PLT_FORMATION_L_SW", 15, 3005, 414, "Ext Light System", "PILOT Formation Lights Switch", { positions = { "BRIGHT", "OFF", "DIM" } })
 Mi_24P:defineToggleSwitch("PLT_TIP_L_SW", 15, 3006, 415, "Ext Light System", "PILOT Tip Lights Switch, ON/OFF")
 Mi_24P:defineToggleSwitch("PLT_STROBE_L_SW", 15, 3007, 417, "Ext Light System", "PILOT Strobe Light Switch, ON/OFF")
 Mi_24P:defineToggleSwitch("OP_LND_L_CV", 15, 3012, 668, "Ext Light System", "OPERATOR LND Light Assumed Switch Cover, OPEN/CLOSE")
@@ -148,10 +148,10 @@ Mi_24P:defineToggleSwitch("OP_LND_L_SW", 15, 3011, 669, "Ext Light System", "OPE
 
 --EC System
 Mi_24P:defineToggleSwitch("PLT_CABIN_UNSEAL", 29, 3001, 133, "EC System", "PILOT Cabin Unseal Switch, ON/OFF")
-Mi_24P:define3PosTumb("PLT_AC_MODE", 29, 3002, 134, "EC System", "PILOT Blowdown Conditioning Switch, CONDITIONING/OFF/BLOWDOWN")
+Mi_24P:define3PosTumb("PLT_AC_MODE", 29, 3002, 134, "EC System", "PILOT Blowdown Conditioning Switch", { positions = { "CONDITIONING", "OFF", "BLOWDOWN" } })
 Mi_24P:defineToggleSwitch("PLT_AC_FILTER", 29, 3003, 143, "EC System", "PILOT Filter Switch, ON/OFF")
 Mi_24P:defineToggleSwitch("PLT_AC_HEAT_MODE_1", 29, 3004, 144, "EC System", "PILOT Heating Switch, HOT/NORMAL")
-Mi_24P:defineMultipositionSwitch("PLT_AC_HEAT_MODE_2", 29, 3005, 145, 4, 0.1, "EC System", "PILOT Automatic Hot Cold Switch, OFF/COLD/HOT/AUTO")
+Mi_24P:defineMultipositionSwitch("PLT_AC_HEAT_MODE_2", 29, 3005, 145, 4, 0.1, "EC System", "PILOT Automatic Hot Cold Switch", { positions = { "OFF", "COLD", "HOT", "AUTO" } })
 Mi_24P:defineMultipositionSwitch("PLT_AC_TEMP", 29, 3006, 146, 11, 1 / 9, "EC System", "PILOT Temperature Selector, 5/10/15/18/20/22/24/30/35/40/50")
 Mi_24P:defineToggleSwitch("OP_SIGHT_FAN", 29, 3007, 774, "EC System", "OPERATOR Sight Fan, ON/OFF")
 Mi_24P:definePotentiometer("PLT_CABIN_PRESS", 29, 3008, 516, { 0, 1 }, "EC System", "PILOT Sealing, OPEN/CLOSE")
@@ -268,8 +268,8 @@ Mi_24P:defineToggleSwitch("PLT_D_GROUND_PW", 1, 3031, 73, "Electric Interface", 
 Mi_24P:defineToggleSwitch("PLT_D_BATT_HEAT", 1, 3049, 74, "Electric Interface", "PILOT DC Battery Heating, ON/OFF")
 Mi_24P:defineToggleSwitch("PLT_A_GEN_R", 1, 3007, 80, "Electric Interface", "PILOT AC Right Generator switch, ON/OFF")
 Mi_24P:defineToggleSwitch("PLT_A_GEN_L", 1, 3004, 101, "Electric Interface", "PILOT AC Left Generator switch, ON/OFF")
-Mi_24P:define3PosTumb("PLT_A_TRANS_115", 1, 3010, 83, "Electric Interface", "PILOT AC Transformer 115V, MAIN/AUTO/BACKUP")
-Mi_24P:define3PosTumb("PLT_A_TRANS_36", 1, 3013, 85, "Electric Interface", "PILOT AC Transformer 36V, MAIN/AUTO/BACKUP")
+Mi_24P:define3PosTumb("PLT_A_TRANS_115", 1, 3010, 83, "Electric Interface", "PILOT AC Transformer 115V", { positions = { "MAIN", "AUTO", "BACKUP" } })
+Mi_24P:define3PosTumb("PLT_A_TRANS_36", 1, 3013, 85, "Electric Interface", "PILOT AC Transformer 36V", { positions = { "MAIN", "AUTO", "BACKUP" } })
 Mi_24P:defineToggleSwitch("PLT_A_GPW", 1, 3001, 87, "Electric Interface", "PILOT AC Ground Power, ON/OFF")
 Mi_24P:defineToggleSwitch("PLT_A_GCHECK_CV", 1, 3058, 88, "Electric Interface", "PILOT AC Ground Check Cover, UP/DOWN")
 Mi_24P:defineToggleSwitch("PLT_A_GCHECK", 1, 3016, 89, "Electric Interface", "PILOT AC Ground Check, ON/OFF")
@@ -378,7 +378,7 @@ Mi_24P:defineIndicatorLight("PLT_AI9V_HIGH_L", 309, "Fuel Lights", "PILOT Rev AI
 --Engine Interface
 Mi_24P:definePushButton("PLT_APU_START", 3, 3012, 307, "Engine Interface", "PILOT APU Start")
 Mi_24P:definePushButton("PLT_APU_STOP", 3, 3013, 311, "Engine Interface", "PILOT APU Stop")
-Mi_24P:define3PosTumb("PLT_APU_CRANK", 3, 3014, 313, "Engine Interface", "PILOT APU Launch Method START/CRANK/FALSE")
+Mi_24P:define3PosTumb("PLT_APU_CRANK", 3, 3014, 313, "Engine Interface", "PILOT APU Launch Method", { positions = { "START", "CRANK", "FALSE" } })
 Mi_24P:definePushButton("PLT_ENG_START", 3, 3015, 314, "Engine Interface", "PILOT Engine Start")
 Mi_24P:definePushButton("PLT_ENG_ABORT", 3, 3017, 318, "Engine Interface", "PILOT Engine Interrupt Start")
 Mi_24P:defineToggleSwitch("PLT_ENG_SEL_LR", 3, 3016, 320, "Engine Interface", "PILOT Engine Select RIGHT/LEFT")
@@ -393,8 +393,8 @@ Mi_24P:defineToggleSwitch("PLT_DEICER_MODE", 60, 3001, 109, "AntiIce Interface",
 Mi_24P:definePushButton("PLT_DEICER_OFF", 60, 3002, 110, "AntiIce Interface", "PILOT AntiIce OFF")
 Mi_24P:defineToggleSwitch("PLT_DEICER_ENG_L", 60, 3003, 113, "AntiIce Interface", "PILOT Left Engine AntiIce ON/OFF")
 Mi_24P:defineToggleSwitch("PLT_DEICER_ENG_R", 60, 3004, 112, "AntiIce Interface", "PILOT Right Engine AntiIce ON/OFF")
-Mi_24P:define3PosTumb("PLT_DEICER_WSHIELD", 60, 3005, 111, "AntiIce Interface", "PILOT Windshield Antiice LOW/OFF/HIGH")
-Mi_24P:define3PosTumb("OP_DEICER_WSHIELD", 60, 3006, 675, "AntiIce Interface", "OPERATOR Windshield Antiice LOW/OFF/HIGH")
+Mi_24P:define3PosTumb("PLT_DEICER_WSHIELD", 60, 3005, 111, "AntiIce Interface", "PILOT Windshield Antiice", { positions = { "LOW", "OFF", "HIGH" } })
+Mi_24P:define3PosTumb("OP_DEICER_WSHIELD", 60, 3006, 675, "AntiIce Interface", "OPERATOR Windshield Antiice", { positions = { "LOW", "OFF", "HIGH" } })
 Mi_24P:defineMultipositionSwitch("PLT_DEICER_KNB", 60, 3007, 114, 11, 0.1, "AntiIce Interface", "PILOT AntiIce Knob")
 
 --SAU (Autopilot)
@@ -467,14 +467,14 @@ Mi_24P:definePushButton("PLT_FIRE_EX_GEAR1", 13, 3007, 490, "Fire Extinguisher",
 Mi_24P:definePushButton("PLT_FIRE_EX_GEAR2", 13, 3008, 492, "Fire Extinguisher", "PILOT Extinguish Gearbox 2")
 Mi_24P:definePushButton("PLT_FIRE_ALARM_OFF", 13, 3009, 488, "Fire Extinguisher", "PILOT Turn Off Fire Signal Button")
 Mi_24P:defineToggleSwitch("PLT_FIRE_EX_CONTROL", 13, 3010, 482, "Fire Extinguisher", "PILOT Extinguisher Control Switch EXING/CNTRL")
-Mi_24P:defineMultipositionSwitch("PLT_FIRE_EX_SENSOR_CHAN", 13, 3013, 484, 4, 0.1, "Fire Extinguisher", "PILOT Fire Extinguisher Sensor Channel OFF/1/2/3")
+Mi_24P:defineMultipositionSwitch("PLT_FIRE_EX_SENSOR_CHAN", 13, 3013, 484, 4, 0.1, "Fire Extinguisher", "PILOT Fire Extinguisher Sensor Channel", { positions = { "OFF", "1", "2", "3" } })
 Mi_24P:defineSpringloaded_3PosTumb("PLT_FIRE_EX_SQUIB", 13, 3011, 3012, 486, "Fire Extinguisher", "PILOT Extinguisher Squib Control")
 Mi_24P:defineToggleSwitch("PLT_FIRE_EX_PW", 13, 3014, 487, "Fire Extinguisher", "PILOT Extinguisher Power ON/OFF")
 
 --SPUU-52
 Mi_24P:defineToggleSwitch("PLT_SPUU_POWER", 19, 3010, 270, "SPUU", "PILOT SPUU Power, ON/OFF")
 Mi_24P:defineToggleSwitch("PLT_SPUU_OFF", 19, 3001, 275, "SPUU", "PILOT SPUU OFF")
-Mi_24P:defineRockerSwitch("PLT_SPUU_CONTROL", 19, 3007, 3007, 3006, 3006, 277, "SPUU", "PILOT SPUU Control Switch, P/NONE/T")
+Mi_24P:defineRockerSwitch("PLT_SPUU_CONTROL", 19, 3007, 3007, 3006, 3006, 277, "SPUU", "PILOT SPUU Control Switch", { positions = { "P", "NONE", "T" } })
 Mi_24P:definePotentiometer("PLT_SPUU_ROUTE_AZIMUTH", 19, 3003, 276, { 0, 1 }, "SPUU", "PILOT SPUU Route Azimuth")
 
 Mi_24P:defineIndicatorLight("PLT_SPUU_OFF_L", 302, "SPUU Lights", "PILOT SAU SPUU OFF Light (red)")
@@ -498,7 +498,7 @@ Mi_24P:defineToggleSwitch("OP_WPN_CONTROL_CV", 6, 3040, 712, "Weapon Systems", "
 Mi_24P:defineToggleSwitch("OP_WPN_CONTROL", 6, 3023, 713, "Weapon Systems", "OPERATOR Weapon Control")
 Mi_24P:defineToggleSwitch("OP_JETT_LAUNCHER_CV", 6, 3044, 764, "Weapon Systems", "OPERATOR Jettison Launcher Cover, UP/DOWN")
 Mi_24P:defineToggleSwitch("OP_JETT_LAUNCHER", 6, 3032, 765, "Weapon Systems", "OPERATOR Jettison Launcher ON/OFF")
-Mi_24P:define3PosTumb("OP_BURST_LENGTH", 6, 3026, 770, "Weapon Systems", "OPERATOR Burst Length SHORT/MED/LONG")
+Mi_24P:define3PosTumb("OP_BURST_LENGTH", 6, 3026, 770, "Weapon Systems", "OPERATOR Burst Length", { positions = { "SHORT", "MED", "LONG" } })
 Mi_24P:defineToggleSwitch("OP_CAN_RATE", 6, 3037, 772, "Weapon Systems", "OPERATOR Cannon Fire Rate SLOW/FAST")
 Mi_24P:defineToggleSwitch("OP_MISSL_PW", 6, 3028, 773, "Weapon Systems", "OPERATOR Missiles Power")
 Mi_24P:definePushButton("OP_JETT_TEST", 6, 3031, 768, "Weapon Systems", "OPERATOR Release Check PU")
@@ -521,15 +521,15 @@ Mi_24P:definePushButton("OP_STICK_DISENGAGE", 30, 3012, 859, "Stick", "OPERATOR 
 
 ---PUVL
 Mi_24P:defineToggleSwitch("PLT_PUVL_SIGHT_DIST", 16, 3003, 515, "PUVL", "PILOT Sight Distance, MANUAL/AUTO")
-Mi_24P:define3PosTumb("PLT_PUVL_BURST_LENGTH", 6, 3003, 521, "PUVL", "PILOT Burst Length, SHORT/LONG/MEDIUM")
-Mi_24P:defineTumb("PLT_PUVL_REL_LEFT_GONDOLA", 6, 3004, 522, 0.1, { 0, 0.3 }, nil, false, "PUVL", "PILOT Reload Left Gondola, OFF/1/2/3")
-Mi_24P:defineTumb("PLT_PUVL_REL_RIGHT_GONDOLA", 6, 3005, 527, 0.1, { 0, 0.3 }, nil, false, "PUVL", "PILOT Reload Right Gondola, OFF/1/2/3")
+Mi_24P:define3PosTumb("PLT_PUVL_BURST_LENGTH", 6, 3003, 521, "PUVL", "PILOT Burst Length", { positions = { "SHORT", "LONG", "MEDIUM" } })
+Mi_24P:defineTumb("PLT_PUVL_REL_LEFT_GONDOLA", 6, 3004, 522, 0.1, { 0, 0.3 }, nil, false, "PUVL", "PILOT Reload Left Gondola", { positions = { "OFF", "1", "2", "3" } })
+Mi_24P:defineTumb("PLT_PUVL_REL_RIGHT_GONDOLA", 6, 3005, 527, 0.1, { 0, 0.3 }, nil, false, "PUVL", "PILOT Reload Right Gondola", { positions = { "OFF", "1", "2", "3" } })
 Mi_24P:defineToggleSwitch("PLT_PUVL_WPN_SIGHT", 16, 3014, 529, "PUVL", "PILOT Weapon Sight, ON/OFF")
 Mi_24P:defineToggleSwitch("PLT_PUVL_WPN_CAM", 6, 3006, 530, "PUVL", "PILOT Weapon Camera, ON/OFF")
 Mi_24P:definePotentiometer("PLT_PUVL_MAN_RANGE", 16, 3004, 552, { 0, 1 }, "PUVL", "PILOT Manual Range Adjustment")
 Mi_24P:defineTumb("PLT_PUVL_WPN_SEL", 6, 3007, 523, 0.1, { 0.0, 0.8 }, nil, false, "PUVL", "PILOT Weapon Selector, 9-POS")
 Mi_24P:definePushButton("PLT_PUVL_SIGHT_ZERO", 16, 3007, 528, "PUVL", "PILOT Sight Reset Crosshair")
-Mi_24P:define3PosTumb("PLT_PUVL_ROCKET_SEL", 6, 3008, 531, "PUVL", "PILOT Rocket Select, LEFT/BOTH/RIGHT")
+Mi_24P:define3PosTumb("PLT_PUVL_ROCKET_SEL", 6, 3008, 531, "PUVL", "PILOT Rocket Select", { positions = { "LEFT", "BOTH", "RIGHT" } })
 Mi_24P:defineToggleSwitch("PLT_PUVL_FIRE_CONTROL", 6, 3009, 551, "PUVL", "PILOT Weapon Control, ON/OFF")
 Mi_24P:defineToggleSwitch("PLT_PUVL_CANNON_FIRE_RATE", 6, 3010, 550, "PUVL", "PILOT Cannon Fire Rate, SLOW/FAST")
 Mi_24P:definePushButton("PLT_PUVL_REL_CANNON", 6, 3011, 549, "PUVL", "PILOT Reload Cannon")
@@ -690,7 +690,7 @@ Mi_24P:defineFloat("PLT_ASP17_BASE", 558, { 0, 1 }, "ASP17 Gauges", "PILOT ASP17
 
 --ASO-2V
 Mi_24P:definePushButton("OP_ASO2V_COUNTERMEASURES", 9, 3003, 968, "ASO-2V", "OPERATOR Launch Countermeasures")
-Mi_24P:defineTumb("OP_ASO2V_SET", 6, 3006, 971, 0.1, { 0, 0.3 }, nil, false, "ASO-2V", "OPERATOR Set I/II/III")
+Mi_24P:defineTumb("OP_ASO2V_SET", 6, 3006, 971, 0.1, { 0, 0.3 }, nil, false, "ASO-2V", "OPERATOR Set", { positions = { "OFF", "I", "II", "III" } })
 Mi_24P:definePushButton("OP_ASO2V_INTERVAL", 9, 3001, 1008, "ASO-2V", "OPERATOR Interval")
 Mi_24P:definePushButton("OP_ASO2V_SERIE", 9, 3002, 965, "ASO-2V", "OPERATOR Serie")
 Mi_24P:definePushButton("OP_ASO2V_LEFT", 9, 3004, 969, "ASO-2V", "OPERATOR Left Side")
@@ -721,7 +721,7 @@ Mi_24P:defineRotary("PLT_GREB_CRS_SET", 27, 3015, 858, "GREBEN", "PILOT Greben C
 Mi_24P:defineToggleSwitch("PLT_GREB_PW", 27, 3001, 367, "GREBEN", "PILOT Greben ON/OFF")
 Mi_24P:definePushButton("PLT_GREB_MATCH", 27, 3007, 450, "GREBEN", "PILOT Greben Match")
 Mi_24P:defineToggleSwitch("PLT_GREB_SETUP", 27, 3012, 451, "GREBEN", "PILOT Greben Mode SETUP/OPER")
-Mi_24P:define3PosTumb("PLT_GREB_MODE", 27, 3009, 449, "GREBEN", "PILOT Greben Mode ZK/GPK/MK")
+Mi_24P:define3PosTumb("PLT_GREB_MODE", 27, 3009, 449, "GREBEN", "PILOT Greben Mode", { positions = { "ZK", "GPK", "MK" } })
 Mi_24P:defineRotary("PLT_GREB_LAT_SET", 27, 3004, 448, "GREBEN", "PILOT Greben Set Latitude")
 
 Mi_24P:defineFloat("PLT_GREB_CLOSE_N", 443, { 0, 1 }, "GREBEN Gauges", "PILOT Greben North Closed")
@@ -752,7 +752,7 @@ Mi_24P:definePushButton("PLT_DISS_DEC_DEVIATION", 8, 3009, 803, "DISS", "PILOT D
 Mi_24P:definePushButton("PLT_DISS_INC_DEVIATION", 8, 3010, 804, "DISS", "PILOT DISS-15 increase deviation")
 Mi_24P:defineToggleSwitch("PLT_DISS_MODE_WORK", 8, 3011, 797, "DISS", "PILOT DISS-15 Mode WORK/CHECK")
 Mi_24P:defineToggleSwitch("PLT_DISS_MODE_LAND", 8, 3012, 798, "DISS", "PILOT DISS-15 Mode LAND/SEA")
-Mi_24P:defineMultipositionSwitch("PLT_DISS_SEL_KNB", 8, 3013, 826, 5, 0.1, "DISS", "PILOT DISS-15 select mode IDK/IDK/IDK/MEM/OPER")
+Mi_24P:defineMultipositionSwitch("PLT_DISS_SEL_KNB", 8, 3013, 826, 5, 0.1, "DISS", "PILOT DISS-15 select mode", { positions = { "FWD 17/SIDE 0/UPWD 4.5", "REAR 17/UPWD 3/RGHT 17", "SPEED 136/DRIFT 0", "MEM", "OPER" } })
 
 Mi_24P:defineFloat("PLT_DISS_HOVER_X", 830, { -1, 1 }, "DISS Gauges", "PILOT DISS-15 Hover X Indicator")
 Mi_24P:defineFloat("PLT_DISS_HOVER_Y", 828, { -1, 1 }, "DISS Gauges", "PILOT DISS-15 Hover Y Indicator")
@@ -794,9 +794,9 @@ Mi_24P:defineFloat("PLT_RV5_WARN_FLG", 1021, { 0, 1 }, "Radar Altimeter Gauges",
 Mi_24P:defineIndicatorLight("PLT_RV5_DALT_L", 284, "Radar Altimeter Lights", "PILOT Radar Danger Altitude Light (yellow)")
 
 --MAP DISPLAY
-Mi_24P:define3PosTumb("PLT_MAP_LIGHT", 45, 3011, 192, "MAP DISPLAY", "PILOT Map Highlight  BRIGHT/OFF/DIM")
-Mi_24P:definePotentiometer("PLT_MAP_ADJ_HOR", 45, 3006, 983, { 0, 1 }, "MAP DISPLAY", "PILOT Set the horizontal position of the helicopter on the Map")
-Mi_24P:definePotentiometer("PLT_MAP_ADJ_VERT", 45, 3004, 291, { 0, 1 }, "MAP DISPLAY", "PILOT Set the vertical position of the helicopter on the Map")
+Mi_24P:define3PosTumb("PLT_MAP_LIGHT", 45, 3011, 192, "MAP DISPLAY", "PILOT Map Highlight ", { positions = { "BRIGHT", "OFF", "DIM" } })
+Mi_24P:defineRotary("PLT_MAP_ADJ_HOR", 45, 3006, 983, "MAP DISPLAY", "PILOT Set the horizontal position of the helicopter on the Map")
+Mi_24P:defineRotary("PLT_MAP_ADJ_VERT", 45, 3004, 291, "MAP DISPLAY", "PILOT Set the vertical position of the helicopter on the Map")
 Mi_24P:defineToggleSwitch("PLT_MAP_PW", 45, 3008, 984, "MAP DISPLAY", "PILOT Map Power ON/OFF")
 Mi_24P:defineToggleSwitch("PLT_MAP_SCALE", 45, 3001, 985, "MAP DISPLAY", "PILOT Map Scale Selector")
 
@@ -844,7 +844,7 @@ end
 
 Mi_24P:definePotentiometer("PLT_ARC_VOL", 47, 3001, 459, { 0, 1 }, "ARC-15 PLT", "PILOT ARC-15 Volume")
 Mi_24P:defineToggleSwitch("PLT_ARC_MODUL", 47, 3002, 460, "ARC-15 PLT", "PILOT ARC-15 TLF/TLG")
-Mi_24P:defineMultipositionSwitch("PLT_ARC_MODE", 47, 3003, 463, 4, 0.115, "ARC-15 PLT", "PILOT ARC-15 mode OFF/COMPASS/ANT/FRAME")
+Mi_24P:defineMultipositionSwitch("PLT_ARC_MODE", 47, 3003, 463, 4, 0.115, "ARC-15 PLT", "PILOT ARC-15 mode", { positions = { "OFF", "COMPASS", "ANT", "FRAME" } })
 Mi_24P:defineMultipositionSwitch("PLT_ARC_FREQ_L_100", 47, 3004, 467, 18, 1 / 17, "ARC-15 PLT", "PILOT ARC-15 Left Frequency 100KHz")
 Mi_24P:defineMultipositionSwitch("PLT_ARC_FREQ_L_10", 47, 3005, 468, 10, 1 / 9, "ARC-15 PLT", "PILOT ARC-15 Left Frequency 10KHz")
 Mi_24P:defineMultipositionSwitch("PLT_ARC_FREQ_L_1", 47, 3006, 469, 20, 1 / 20, "ARC-15 PLT", "PILOT ARC-15 Left Frequency 1KHz")
@@ -867,7 +867,7 @@ Mi_24P:defineString("PLT_ARC_FREQ_R", getARCRPLTFrequency, 6, "ARC-15 PLT", "PIL
 
 Mi_24P:definePotentiometer("OP_ARC_VOL", 48, 3001, 634, { 0, 1 }, "ARC-15 OP", "OPERATOR ARC-15 Volume")
 Mi_24P:defineToggleSwitch("OP_ARC_MODUL", 48, 3002, 635, "ARC-15 OP", "OPERATOR ARC-15 TLF/TLG")
-Mi_24P:defineMultipositionSwitch("OP_ARC_MODE", 48, 3003, 638, 4, 0.115, "ARC-15 OP", "OPERATOR ARC-15 mode OFF/COMPASS/ANT/FRAME")
+Mi_24P:defineMultipositionSwitch("OP_ARC_MODE", 48, 3003, 638, 4, 0.115, "ARC-15 OP", "OPERATOR ARC-15 mode", { positions = { "OFF", "COMPASS", "ANT", "FRAME" } })
 Mi_24P:defineMultipositionSwitch("OP_ARC_FREQ_L_100", 48, 3004, 639, 18, 1 / 17, "ARC-15 OP", "OPERATOR ARC-15 Left Frequency 100KHz")
 Mi_24P:defineMultipositionSwitch("OP_ARC_FREQ_L_10", 48, 3005, 640, 10, 1 / 9, "ARC-15 OP", "OPERATOR ARC-15 Left Frequency 10KHz")
 Mi_24P:defineMultipositionSwitch("OP_ARC_FREQ_L_1", 48, 3006, 641, 20, 1 / 20, "ARC-15 OP", "OPERATOR ARC-15 Left Frequency 1KHz")
@@ -908,7 +908,7 @@ Mi_24P:defineIndicatorLight("PLT_R863_L", 508, "R-863 Lights", "PILOT R-863 Ligh
 
 --Jadro 1I
 Mi_24P:defineToggleSwitch("PLT_JADRO_PW", 50, 3027, 374, "Jadro-1I", "PILOT Jadro-1I ON/OFF")
-Mi_24P:defineMultipositionSwitch("PLT_JADRO_MODUL", 50, 3001, 438, 3, 0.1, "Jadro-1I", "PILOT Jadro-1I Mode OFF/AM/OM")
+Mi_24P:defineMultipositionSwitch("PLT_JADRO_MODUL", 50, 3001, 438, 3, 0.1, "Jadro-1I", "PILOT Jadro-1I Mode", { positions = { "OFF", "AM", "OM" } })
 Mi_24P:definePotentiometer("PLT_JADRO_VOL", 50, 3019, 426, { 0, 1 }, "Jadro-1I", "PILOT Jadro-1I Volume")
 Mi_24P:definePotentiometer("PLT_JADRO_SQUELCH", 50, 3022, 421, { 0, 1 }, "Jadro-1I", "PILOT Jadro-1I Squelch")
 Mi_24P:definePushButton("PLT_JADRO_TEST", 50, 3025, 423, "Jadro-1I", "PILOT Jadro-1I Test")
@@ -994,7 +994,7 @@ Mi_24P:definePotentiometer("OP_SPU8_VOL", 55, 3009, 661, { 0, 1 }, "SPU-8 OP", "
 Mi_24P:defineToggleSwitch("OP_SPU8_SPUU_PW", 55, 3015, 664, "SPU-8 OP", "OPERATOR SPU-8 SPUU Power ON/OFF")
 
 --IFF
-Mi_24P:defineMultipositionSwitch("PLT_IFF_MODE", 57, 3001, 334, 4, 1 / 3, "IFF", "PILOT IFF Transponder Mode Selector Switch, AUTO/KD/+-15/KP")
+Mi_24P:defineMultipositionSwitch("PLT_IFF_MODE", 57, 3001, 334, 4, 1 / 3, "IFF", "PILOT IFF Transponder Mode Selector Switch", { positions = { "AUTO", "KD", "+-15", "KP" } })
 Mi_24P:defineToggleSwitch("PLT_IFF_DEVICE_SEL", 57, 3002, 336, "IFF", "PILOT IFF Transponder Device Selector Switch, WORK/RESERVE")
 Mi_24P:defineToggleSwitch("PLT_IFF_MODE_1_2", 57, 3003, 332, "IFF", "PILOT IFF Transponder Device Mode Switch, 1/2")
 Mi_24P:defineToggleSwitch("PLT_IFF_ERASE_CV", 57, 3004, 328, "IFF", "PILOT IFF Transponder Erase Button Cover, OPEN/CLOSE")

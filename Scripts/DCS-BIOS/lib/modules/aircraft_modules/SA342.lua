@@ -18,7 +18,7 @@ SA342:definePushButton("VOLTMETER_TEST", SYNC_DEVICE_ID, 3004, 62, "Electric Sys
 SA342:defineToggleSwitch("PITOT", SYNC_DEVICE_ID, 3005, 170, "Electric System", "Pitot")
 SA342:defineToggleSwitch("FUEL_PUMP", SYNC_DEVICE_ID, 3006, 271, "Electric System", "Fuel Pump")
 SA342:defineToggleSwitch("ADDITIONAL_FUEL_TANK", SYNC_DEVICE_ID, 3007, 267, "Electric System", "Additional Fuel Tank")
-SA342:define3PosTumb("STARTER", SYNC_DEVICE_ID, 3008, 56, "Electric System", "Starter Start/Stop/Air")
+SA342:define3PosTumb("STARTER", SYNC_DEVICE_ID, 3008, 56, "Electric System", "Starter", { positions = { "Start", "Stop", "Air" } })
 SA342:definePushButton("WARNING_PANEL_TEST", SYNC_DEVICE_ID, 3009, 57, "Electric System", "Warning Panel Test")
 SA342:define3PosTumb("COPILOT_WIPER", SYNC_DEVICE_ID, 3010, 48, "Electric System", "Copilot Wiper")
 SA342:define3PosTumb("PILOT_WIPER", SYNC_DEVICE_ID, 3011, 49, "Electric System", "Pilot Wiper")
@@ -51,13 +51,13 @@ SA342:definePushButton("AUTOPILOT_SLAVE", 7, 3012, 293, "Autopilot", "Autopilot 
 SA342:definePushButton("AUTO_HOVER", 7, 3008, 294, "Autopilot", "Auto-Hover")
 SA342:defineToggleSwitch("GYRO_TEST_COVER", 7, 3014, 197, "Autopilot", "Gyro Test Cover Open/Close")
 SA342:defineToggleSwitch("GYRO_TEST_SWITCH", 7, 3015, 198, "Autopilot", "Gyro Test Switch On/Off")
-SA342:define3PosTumb("GYRO_SWITCH", 7, 3016, 199, "Autopilot", "Gyro Left/Center/Right")
+SA342:define3PosTumb("GYRO_SWITCH", 7, 3016, 199, "Autopilot", "Gyro", { positions = { "Left", "Center", "Right" } })
 SA342:defineTumb("GYRO_KNOB", 7, 3017, 153, 0.25, { 0, 1 }, nil, false, "Autopilot", "Gyro Knob")
 SA342:defineToggleSwitch("AUTOPILOT_ON_OFF", 7, 3001, 31, "Autopilot", "Autopilot On/Off")
 SA342:defineToggleSwitch("AUTOPILOT_PITCH", 7, 3002, 32, "Autopilot", "Autopilot Pitch")
 SA342:defineToggleSwitch("AUTOPILOT_ROLL", 7, 3003, 33, "Autopilot", "Autopilot Roll")
 SA342:defineToggleSwitch("AUTOPILOT_YAW", 7, 3004, 34, "Autopilot", "Autopilot Yaw")
-SA342:define3PosTumb("AUTOPILOT_MODE", 7, 3005, 35, "Autopilot", "Autopilot Mode Speed/Off/Altitude")
+SA342:define3PosTumb("AUTOPILOT_MODE", 7, 3005, 35, "Autopilot", "Autopilot Mode", { positions = { "Speed", "Off", "Altitude" } })
 SA342:defineToggleSwitch("AUTOPILOT_TRIM", 7, 3006, 60, "Autopilot", "Autopilot Trim")
 SA342:defineToggleSwitch("MAGNETIC_BRAKE", 7, 3007, 65, "Autopilot", "Magnetic Brake")
 
@@ -90,9 +90,9 @@ SA342:definePotentiometer("ROOF_LAMP", 13, 3005, 147, { 0, 1 }, "Lights", "Roof 
 SA342:defineToggleSwitch("RED_LENS_ON_OFF", 13, 3006, 154, "Lights", "Red Lens On/Off")
 
 --Navlights
-SA342:define3PosTumb("NAV_LIGHTS", 14, 3001, 146, "Navlights", "Navigation Lights CLI/OFF/FIX")
-SA342:define3PosTumb("ANTICOLL_LIGHTS", 14, 3002, 228, "Navlights", "Anticollision Light NOR/OFF/ATT")
-SA342:define3PosTumb("LANDING_LIGHTS", 14, 3003, 105, "Navlights", "Landing Light Off/Vario/On")
+SA342:define3PosTumb("NAV_LIGHTS", 14, 3001, 146, "Navlights", "Navigation Lights", { positions = { "CLI", "OFF", "FIX" } })
+SA342:define3PosTumb("ANTICOLL_LIGHTS", 14, 3002, 228, "Navlights", "Anticollision Light", { positions = { "NOR", "OFF", "ATT" } })
+SA342:define3PosTumb("LANDING_LIGHTS", 14, 3003, 105, "Navlights", "Landing Light", { positions = { "Off", "Vario", "On" } })
 SA342:defineTumb("LANDING_LIGHT_EXTEND", 14, 3004, 106, 1, { -1, 0 }, nil, false, "Navlights", "Landing Light Extend")
 SA342:defineToggleSwitch("LANDING_LIGHT_RETRACT", 14, 3006, 106, "Navlights", "Landing Light Retract")
 SA342:defineToggleSwitch("PANEL_LIGHTING", 14, 3008, 382, "Navlights", "Panel Lighting On/Off")
@@ -178,21 +178,21 @@ SA342:definePushButton("NADIR_GEL_BUTTON", 22, 3022, 350, "NADIR", "NADIR GEL Bu
 SA342:definePushButton("NADIR_EFF_BUTTON", 22, 3023, 352, "NADIR", "NADIR EFF Button")
 
 --RWR
-SA342:define3PosTumb("RWR_OFF_ON_CROC", SYNC_DEVICE_ID, 3061, 148, "RWR", "RWR Off/On/Croc")
+SA342:define3PosTumb("RWR_OFF_ON_CROC", SYNC_DEVICE_ID, 3061, 148, "RWR", "RWR", { positions = { "Off", "On", "Croc" } })
 SA342:definePushButton("RWR_MARKER", SYNC_DEVICE_ID, 3062, 149, "RWR", "RWR Marker")
 SA342:definePushButton("RWR_PAGE", SYNC_DEVICE_ID, 3063, 150, "RWR", "RWR Page")
 SA342:definePotentiometer("RWR_AUDIO", SYNC_DEVICE_ID, 3064, 121, { 0, 1 }, "RWR", "RWR Audio Volume")
 SA342:definePotentiometer("RWR_BRIGHTNESS", SYNC_DEVICE_ID, 3065, 122, { 0, 1 }, "RWR", "RWR Brightness")
 
 --Flare Dispenser
-SA342:define3PosTumb("FLARE_DISP_SIDE_SELECT", 24, 3001, 220, "Flare Dispenser", "Flare Dispenser Side Selector D/G+D/G")
+SA342:define3PosTumb("FLARE_DISP_SIDE_SELECT", 24, 3001, 220, "Flare Dispenser", "Flare Dispenser Side Selector", { positions = { "D", "G+D", "G" } })
 SA342:defineToggleSwitch("FLARE_DISPENSE_MODE", 24, 3002, 221, "Flare Dispenser", "Flare Dispense Mode")
-SA342:define3PosTumb("FLARE_DISPENSER_OFF_ON", 24, 3003, 222, "Flare Dispenser", "Flare Dispenser Off/On/Speed Select")
+SA342:define3PosTumb("FLARE_DISPENSER_OFF_ON", 24, 3003, 222, "Flare Dispenser", "Flare Dispenser", { positions = { "Off", "On", "Speed Select" } })
 SA342:defineToggleSwitch("FLARE_DISP_FIRE_CAP", 24, 3004, 194, "Flare Dispenser", "Flare Dispense Fire Button Cap")
 SA342:definePushButton("FLARE_DISPENSE_BUTTON", 24, 3005, 195, "Flare Dispenser", "Flare Dispenser Fire Button")
 
 --Weapons
-SA342:define3PosTumb("WEAPONS_PANEL_1_OFF_ON_STBY", 25, 3004, 354, "Weapons", "Weapons Panel 1 Off/On/Standby")
+SA342:define3PosTumb("WEAPONS_PANEL_1_OFF_ON_STBY", 25, 3004, 354, "Weapons", "Weapons Panel 1", { positions = { "Off", "On", "Standby" } })
 SA342:definePotentiometer("WEAPONS_PANEL_1_DISP_BRIGHT", 25, 3009, 357, { 0, 1 }, "Weapons", "Weapons Panel 1 Display Brightness")
 SA342:defineToggleSwitch("LEFT_MASTER_ARM", 25, 3010, 372, "Weapons", "Left Master Arm On/Off")
 SA342:defineToggleSwitch("LEFT_MASTER_ARM_COVER", 25, 3011, 373, "Weapons", "Left Master Arm Cover")
@@ -203,7 +203,7 @@ SA342:defineToggleSwitch("PILOT_SIGHT", 25, 3002, 171, "Weapons", "Pilot Sight")
 SA342:defineToggleSwitch("WEAPONS_MASTER_ARM", 25, 3001, 269, "Weapons", "Weapons Master Arm On/Off")
 
 --PH/HOT3
-SA342:defineTumb("HOT3_PANEL_TEST_OFF_ON", 26, 3001, 180, 0.25, { 0, 1 }, nil, false, "HOT3", "HOT3 Panel Test/Off/On")
+SA342:defineTumb("HOT3_PANEL_TEST_OFF_ON", 26, 3001, 180, 0.25, { 0, 1 }, nil, false, "HOT3", "HOT3 Panel", { positions = { "Test", "Test I", "Stop", "Day", "On" } })
 SA342:defineTumb("HOT3_STATION_SELECT", 26, 3002, 181, 0.125, { 0, 1 }, nil, false, "HOT3", "HOT3 Station Select")
 SA342:definePotentiometer("HOT3_BRIGHTNESS", 26, 3003, 182, { 0, 1 }, "HOT3", "HOT3 Brightness")
 
@@ -518,7 +518,7 @@ SA342:defineTumb("IFF_M3A_D1", IFF_DEVICE_ID, 3003, 236, 10, { 0, 1 }, nil, fals
 SA342:defineTumb("IFF_M3A_D2", IFF_DEVICE_ID, 3004, 237, 10, { 0, 1 }, nil, false, "IFF", "IFF Mode 3A Digit 2")
 SA342:defineTumb("IFF_M3A_D3", IFF_DEVICE_ID, 3005, 238, 10, { 0, 1 }, nil, false, "IFF", "IFF Mode 3A Digit 3")
 SA342:defineTumb("IFF_M3A_D4", IFF_DEVICE_ID, 3006, 239, 10, { 0, 1 }, nil, false, "IFF", "IFF Mode 3A Digit 4")
-SA342:define3PosTumb("IFF_IDENT_OFF_MIC", IFF_DEVICE_ID, 3015, 240, "IFF", "IFF IDENT/OFF/MIC")
+SA342:define3PosTumb("IFF_IDENT_OFF_MIC", IFF_DEVICE_ID, 3015, 240, "IFF", "IFF", { positions = { "IDENT", "OFF", "MIC" } })
 SA342:defineToggleSwitch("IFF_IDENT_PW", IFF_DEVICE_ID, 3016, 246, "IFF", "IFF Power ON/OFF")
 SA342:define3PosTumb("IFF_ANT", IFF_DEVICE_ID, 3019, 247, "IFF", "IFF Antenna")
 SA342:defineToggleSwitch("IFF_TEST_M1", IFF_DEVICE_ID, 3010, 248, "IFF", "IFF Test M-1")
@@ -566,7 +566,7 @@ SA342:defineReadWriteRadio("AM_RADIO", 5, 7, 3, 1000, "AM Radio")
 SA342:defineReadWriteRadio("FM_RADIO", 27, 7, 3, 1000, "FM Radio")
 SA342:defineReadWriteRadio("UHF_RADIO", 30, 7, 3, 1000, "UHF Radio")
 
-SA342:defineToggleSwitch("LASER_POWER", SYNC_DEVICE_ID, 3286, 367, "PE", "Deprecated - use VCB_POWER instead")
+SA342:defineToggleSwitch("LASER_POWER", SYNC_DEVICE_ID, 3286, 367, "PE", "Deprecated - use VCB_POWER instead", { deprecated = { since = "0.8.1", use_instead = "VCB_POWER" } })
 
 -- Autopilot mode lights
 SA342:defineIndicatorLight("AP_ALV_YELLOW_LAMP", 1330, "Indicator Lights", "Autopilot Heading-Align Lamp (yellow)")

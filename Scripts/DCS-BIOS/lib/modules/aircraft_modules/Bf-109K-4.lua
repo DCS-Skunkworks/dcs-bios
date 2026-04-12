@@ -49,7 +49,7 @@ Bf_109K_4:definePushButton("BOMB_RLS", 1, 3053, 110, "Stick", "Button B2 BOMB")
 Bf_109K_4:definePushButton("MK108_CHARGE", 1, 3055, 111, "Stick", "Button D MK 108")
 
 -- Ignition Controls and Starter and Motor-Related Switches
-Bf_109K_4:defineTumb("MAGNETOS", 1, 3066, 59, 0.1, { 0, 0.3 }, nil, false, "Engine", "Magnetos Off/M1/M2/M1+M2")
+Bf_109K_4:defineTumb("MAGNETOS", 1, 3066, 59, 0.1, { 0, 0.3 }, nil, false, "Engine", "Magnetos", { positions = { "Off", "M1", "M2", "M1+M2" } })
 Bf_109K_4:defineToggleSwitch("STARTER_HNDL_CVR", 1, 3063, 51, "Engine", "Starter Handle Cover")
 Bf_109K_4:definePushButton("STARTER_HNDL", 1, 3065, 52, "Engine", "Starter Turn Handle")
 Bf_109K_4:defineToggleSwitch("GOV_ON_OFF", 1, 3058, 62, "Engine", "Governor Automation On/Off")

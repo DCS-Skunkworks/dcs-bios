@@ -230,6 +230,7 @@ function TestAircraft:validateModule(module, expected_name, expected_address)
 	lu.assertEquals(module.memoryMap.baseAddress, expected_address)
 	JSON:encode(module.documentation) -- verify json generation works
 	self:validateControlNames(module.name, module.documentation)
+	self:validateControlAttributes(module.name, module.documentation)
 	for _, name in ipairs(module.aircraftList) do
 		lu.assertTableContains(AircraftList.ALL_PLAYABLE_AIRCRAFT, name, "aircraft " .. name .. " not present in AircraftList")
 	end
@@ -246,6 +247,10 @@ function TestAircraft:validateControlNames(module_name, documentation)
 			--   start with a letter, number, or underscore
 			--   end with a letter or number
 			--   contain only letters, numbers, and underscores
+			--   are less than or equal to 64 characters in length
+
+			lu.assertIsTrue(#identifier <= 64, "identifier " .. identifier .. " is longer than 64 characters")
+
 			local identifier_pattern = "^[%u%d_]*[%u%d]$"
 			lu.assertNotIsNil(identifier:match(identifier_pattern), module_name .. ": " .. "id " .. identifier .. " did not meet id requirements")
 			--   don't have any consecutive underscores
@@ -254,6 +259,29 @@ function TestAircraft:validateControlNames(module_name, documentation)
 			-- verify this key is not a duplicate
 			lu.assertNotIsTrue(all_keys[identifier], "identifier " .. identifier .. " already exists")
 			all_keys[identifier] = true
+		end
+	end
+end
+
+--- Validates that all control attributes align with the control definitions
+--- @param module_name string
+--- @param documentation Documentation
+function TestAircraft:validateControlAttributes(module_name, documentation)
+	for _, category in pairs(documentation) do
+		for identifier, control in pairs(category) do
+			-- verify that if a switch has position documentation, its length is equal to max_value + 1
+
+			for _, output in ipairs(control.outputs) do
+				if output.type == "integer" then
+					--- @cast output IntegerOutput
+					local expected_positions = output.max_value + 1
+					local positions = control.positions
+
+					if positions ~= nil then
+						lu.assertIsTrue(#positions == expected_positions, module_name .. "/" .. identifier .. ": expected " .. expected_positions .. " positions, but got " .. #positions)
+					end
+				end
+			end
 		end
 	end
 end

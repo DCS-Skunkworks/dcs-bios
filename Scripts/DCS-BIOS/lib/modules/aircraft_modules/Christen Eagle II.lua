@@ -27,7 +27,7 @@ Christen_Eagle_II:definePotentiometer("RADIO_VOL", 5, 3061, 364, { 0, 1 }, "Radi
 Christen_Eagle_II:definePushButton("RADIO_TEST", 5, 3062, 365, "Radio", "Radio Test (Pull)")
 
 --Engine
-Christen_Eagle_II:defineTumb("MAGNETS", 6, 3100, 350, 0.25, { 0, 1 }, nil, false, "Engine", "Magnets, OFF/RIGHT/LEFT/BOTH/START")
+Christen_Eagle_II:defineTumb("MAGNETS", 6, 3100, 350, 0.25, { 0, 1 }, nil, false, "Engine", "Magnets", { positions = { "OFF", "RIGHT", "LEFT", "BOTH", "START" } })
 Christen_Eagle_II:defineToggleSwitch("FUEL_VAL", 6, 3001, 349, "Engine", "Fuel Valve")
 Christen_Eagle_II:defineToggleSwitch("FUEL_PUMP", 6, 3038, 356, "Engine", "Fuel Pump")
 Christen_Eagle_II:defineRotary("MIXTURE", 6, 3058, 357, "Engine", "Mixture")

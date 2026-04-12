@@ -331,8 +331,8 @@ L_39:defineRotary("BACK_RV5M_HEIGH_KNOB", 14, 3004, 399, "RV5M", "Back RV-5M Rad
 -- GMK
 L_39:defineToggleSwitch("FRONT_GMK_SELECT", 17, 3002, 204, "GMK", "Front GMK-1AE GMC Hemisphere Selection Switch, N(orth)/S(outh)")
 L_39:defineToggleSwitch("FRONT_GMK_MODE", 17, 3004, 207, "GMK", "Front GMK-1AE GMC Mode Switch, MC(Magnetic Compass Mode)/GC(Directional Gyro Mode)")
-L_39:define3PosTumb("FRONT_GMK_TEST", 17, 3003, 205, "GMK", "Front GMK-1AE GMC Test Switch, 0/OFF/300")
-L_39:define3PosTumb("FRONT_GMK_CRS_SEL", 17, 3005, 208, "GMK", "Front GMK-1AE GMC Course Selector Switch, CCW/OFF/CW")
+L_39:define3PosTumb("FRONT_GMK_TEST", 17, 3003, 205, "GMK", "Front GMK-1AE GMC Test Switch", { positions = { "0", "OFF", "300" } })
+L_39:define3PosTumb("FRONT_GMK_CRS_SEL", 17, 3005, 208, "GMK", "Front GMK-1AE GMC Course Selector Switch", { positions = { "CCW", "OFF", "CW" } })
 L_39:definePotentiometer("FRONT_GMK_LATITUDE", 17, 3006, 209, { 0.0, 0.728 }, "GMK", "Front GMK-1AE GMC Latitude Selector Knob")
 L_39:definePushButton("FRONT_GMK_SET_GIRO", 17, 3012, 124, "GMK", "Front GMK-1AE MC Synchronization Button")
 L_39:definePushButton("BACK_GMK_SET_GIRO", 17, 3013, 444, "GMK", "Back GMK-1AE MC Synchronization Button")
@@ -354,7 +354,7 @@ L_39:defineToggleSwitch("BACK_FAIL_GMK", 24, 3002, 458, "NPP", "Back GMK Failure
 L_39:defineRotary("BACK_HSI_CRS", 25, 3001, 385, "NPP", "Back HSI Course Set Knob")
 
 --ISKRA
-L_39:defineTumb("FRONT_RSBN_MODE", 31, 3001, 178, 0.1, { 0, 0.2 }, nil, false, "ISKRA", "Front RSBN Mode Switch, LANDING/NAVIGATION/GLIDE PATH")
+L_39:defineTumb("FRONT_RSBN_MODE", 31, 3001, 178, 0.1, { 0, 0.2 }, nil, false, "ISKRA", "Front RSBN Mode Switch", { positions = { "LANDING", "NAVIGATION", "GLIDE PATH" } })
 L_39:definePushButton("FRONT_RSBN_IDENT", 31, 3002, 179, "ISKRA", "Front RSBN Identification Button")
 L_39:definePushButton("FRONT_RSBN_TEST", 31, 3003, 180, "ISKRA", "Front RSBN Test Button")
 L_39:definePotentiometer("FRONT_RSBN_LIGHT_KNOB", 31, 3004, 181, { 0, 1 }, "ISKRA", "Front RSBN Control Box Lighting Intensity Knob")
@@ -378,7 +378,7 @@ L_39:definePotentiometer("FRONT_RKL_VOL", 21, 3001, 157, { 0, 1 }, "RKL41", "Fro
 L_39:definePotentiometer("FRONT_RKL_BRIGHT", 21, 3013, 161, { 0, 1 }, "RKL41", "Front RKL-41 ADF Brightness Knob")
 L_39:defineToggleSwitch("FRONT_RKL_TLF_TLG", 21, 3002, 159, "RKL41", "Front RKL-41 ADF Mode Switch, TLF(A3)/TLG(A1,A2)")
 L_39:defineMultipositionSwitch("FRONT_RKL_MODE", 21, 3003, 160, 5, 0.1, "RKL41", "Front RKL-41 ADF Function Selector Switch, OFF/COMP(AUTO)/COMP(MAN)/ANT/LOOP")
-L_39:define3PosTumb("FRONT_RKL_LOOP_SW", 21, 3010, 162, "RKL41", "Front RKL-41 ADF Loop Switch, LEFT/OFF/RIGHT")
+L_39:define3PosTumb("FRONT_RKL_LOOP_SW", 21, 3010, 162, "RKL41", "Front RKL-41 ADF Loop Switch", { positions = { "LEFT", "OFF", "RIGHT" } })
 L_39:defineToggleSwitch("FRONT_RKL_REMOTE", 21, 3012, 158, "RKL41", "Front RKL-41 ADF Control Switch, TAKE CONTROL/HAND OVER CONTROL")
 L_39:definePotentiometer("FRONT_RKL_FREQ_1_TUNE", 21, 3004, 165, { 0, 1 }, "RKL41", "Front RKL-41 ADF Far NDB Frequency Tune")
 L_39:defineTumb("FRONT_RKL_FREQ_1_XX00", 21, 3005, 163, 0.0588, { 0.0, 0.938 }, nil, false, "RKL41", "Front RKL-41 ADF Far NDB 100kHz Rotary")
@@ -391,7 +391,7 @@ L_39:definePotentiometer("BACK_RKL_VOL", 21, 3014, 514, { 0, 1 }, "RKL41", "Back
 L_39:definePotentiometer("BACK_RKL_BRIGHT", 21, 3026, 518, { 0, 1 }, "RKL41", "Back RKL-41 ADF Brightness Knob")
 L_39:defineToggleSwitch("BACK_RKL_TLF_TLG", 21, 3015, 516, "RKL41", "Back RKL-41 ADF Mode Switch, TLF(A3)/TLG(A1,A2)")
 L_39:defineMultipositionSwitch("BACK_RKL_MODE", 21, 3016, 517, 5, 0.1, "RKL41", "Back RKL-41 ADF Function Selector Switch, OFF/COMP(AUTO)/COMP(MAN)/ANT/LOOP")
-L_39:define3PosTumb("BACK_RKL_LOOP_SW", 21, 3010, 519, "RKL41", "Back RKL-41 ADF Loop Switch, LEFT/OFF/RIGHT")
+L_39:define3PosTumb("BACK_RKL_LOOP_SW", 21, 3010, 519, "RKL41", "Back RKL-41 ADF Loop Switch", { positions = { "LEFT", "OFF", "RIGHT" } })
 L_39:defineToggleSwitch("BACK_RKL_REMOTE", 21, 3025, 515, "RKL41", "Back RKL-41 ADF Control Switch, TAKE CONTROL/HAND OVER CONTROL")
 L_39:definePotentiometer("BACK_RKL_FREQ_1_TUNE", 21, 3017, 522, { 0, 1 }, "RKL41", "Back RKL-41 ADF Far NDB Frequency Tune")
 L_39:defineTumb("BACK_RKL_FREQ_1_XX00", 21, 3018, 520, 0.0588, { 0.0, 0.938 }, nil, false, "RKL41", "Back RKL-41 ADF Far NDB 100kHz Rotary")
@@ -477,12 +477,12 @@ L_39:definePushButton("PITOT_HEAT_ON_R", 4, 3070, 295, "Electric System", "Main 
 L_39:definePushButton("PITOT_HEAT_OFF_R", 4, 3071, 293, "Electric System", "Main (Right) Pitot Tube Heating OFF Button")
 
 -- Lights System
-L_39:defineTumb("FRONT_NAV_LIGHTS_FLASH", 20, 3003, 176, 0.5, { 0, 1 }, nil, false, "Lights System", "Front Navigation Lights Mode Control Switch, FLICKER/OFF/FIXED")
+L_39:defineTumb("FRONT_NAV_LIGHTS_FLASH", 20, 3003, 176, 0.5, { 0, 1 }, nil, false, "Lights System", "Front Navigation Lights Mode Control Switch", { positions = { "FLICKER", "OFF", "FIXED" } })
 L_39:defineTumb("FRONT_NAV_LIGHTS_BRIGHT", 20, 3004, 175, 0.5, { 0, 1 }, nil, false, "Lights System", "Front Navigation Lights Intensity Control Switch, DIM(30%)/BRT(60%)/MAX(100%)")
-L_39:define3PosTumb("FRONT_LAND_LIGHTS", 20, 3006, 311, "Lights System", "Front Taxi and Landing Lights Control Switch, TAXI/OFF/LANDING")
-L_39:define3PosTumb("BACK_LAND_LIGHTS", 20, 3007, 486, "Lights System", "Back Taxi and Landing Lights Control Switch, TAXI/OFF/LANDING")
-L_39:define3PosTumb("FRONT_INST_LIGHTS", 20, 3008, 330, "Lights System", "Front Instrument Lighting Switch, Red/OFF/White")
-L_39:define3PosTumb("BACK_INST_LIGHTS", 20, 3010, 497, "Lights System", "Back Instrument Lighting Switch, Red/OFF/White")
+L_39:define3PosTumb("FRONT_LAND_LIGHTS", 20, 3006, 311, "Lights System", "Front Taxi and Landing Lights Control Switch", { positions = { "TAXI", "OFF", "LANDING" } })
+L_39:define3PosTumb("BACK_LAND_LIGHTS", 20, 3007, 486, "Lights System", "Back Taxi and Landing Lights Control Switch", { positions = { "TAXI", "OFF", "LANDING" } })
+L_39:define3PosTumb("FRONT_INST_LIGHTS", 20, 3008, 330, "Lights System", "Front Instrument Lighting Switch", { positions = { "Red", "OFF", "White" } })
+L_39:define3PosTumb("BACK_INST_LIGHTS", 20, 3010, 497, "Lights System", "Back Instrument Lighting Switch", { positions = { "Red", "OFF", "White" } })
 L_39:definePotentiometer("FRONT_INST_LIGHTS_CON", 20, 3009, 331, { 0.1, 0.9 }, "Lights System", "Front Instrument Lights Intensity Knob")
 L_39:definePotentiometer("BACK_INST_LIGHTS_CON", 20, 3011, 498, { 0.1, 0.9 }, "Lights System", "Back Instrument Lights Intensity Knob")
 L_39:defineToggleSwitch("FRONT_EMERG_LIGHT", 20, 3005, 249, "Lights System", "Front Emergency Instrument Light Switch, ON/OFF")
@@ -502,7 +502,7 @@ L_39:definePotentiometer("FRONT_MISSILE_VOL", 3, 3006, 259, { 0, 1 }, "Weapon Sy
 L_39:defineToggleSwitch("FRONT_BOMB_EMERG_JETT", 3, 3009, 268, "Weapon System", "Front Arm/Safe Bombs Emergency Jettison Switch, LIVE/BLANK")
 L_39:defineTumb("FRONT_ROCKET_MODE", 3, 3012, 271, 0.1, { 0.1, 0.3 }, nil, true, "Weapon System", "Front Rockets Firing Mode Selector Switch, AUT./2RS/4RS") --
 L_39:defineToggleSwitch("BACK_BOMB_EMERG_JETT_COVER", 3, 3018, 508, "Weapon System", "Back Arm/Safe Bombs Emergency Jettison Switch Cover, OPEN/CLOSE")
-L_39:define3PosTumb("BACK_BOMB_EMERG_JETT", 3, 3019, 509, "Weapon System", "Back Arm/Safe Bombs Emergency Jettison Switch, LIVE/BOMBS/BLANK")
+L_39:define3PosTumb("BACK_BOMB_EMERG_JETT", 3, 3019, 509, "Weapon System", "Back Arm/Safe Bombs Emergency Jettison Switch", { positions = { "LIVE", "BOMBS", "BLANK" } })
 L_39:defineToggleSwitch("BACK_EMERG_JETT_COVER", 3, 3020, 506, "Weapon System", "Back Emergency Jettison Switch Cover, OPEN/CLOSE")
 L_39:defineToggleSwitch("BACK_EMERG_JETT", 3, 3021, 507, "Weapon System", "Back Emergency Jettison Switch, ON/OFF")
 L_39:defineToggleSwitch("FRONT_FLARE_DISP", 3, 3013, 273, "Weapon System", "Front EKSR-46 Signal Flare Dispenser Power Switch, ON/OFF")
@@ -558,20 +558,20 @@ L_39:defineToggleSwitch("BACK_FUEL_SHUTOFF", 5, 3003, 475, "Fuel System", "Back 
 -- Air System
 L_39:defineRotary("FRONT_PRESS_HANDLE", 7, 3001, 245, "Air System", "Front ECS and Pressurization Handle, OFF/CANOPIES SEALED/ECS ON")
 L_39:defineRotary("BACK_PRESS_HANDLE", 7, 3002, 245, "Air System", "Back ECS and Pressurization Handle, OFF/CANOPIES SEALED/ECS ON")
-L_39:defineTumb("FRONT_CABIN_HEAT_MODE", 7, 3004, 172, 0.05, { 0.0, 0.25 }, nil, false, "Air System", "Front Cabin Air Conditioning Control Switch, OFF/HEAT/COOL/AUTOMATIC")
+L_39:defineTumb("FRONT_CABIN_HEAT_MODE", 7, 3004, 172, 0.05, { 0.0, 0.25 }, nil, false, "Air System", "Front Cabin Air Conditioning Control Switch")
 L_39:definePotentiometer("FRONT_CABIN_TEMP", 7, 3003, 173, { 0, 1 }, "Air System", "Front Cabin Air Temperature Controller Rheostat")
 L_39:defineTumb("FRONT_SUIT_COND_MODE", 7, 3006, 121, 0.05, { 0.0, 0.25 }, nil, false, "Air System", "Front Diffuser and Flight Suit Air Conditioning Control Switch, HEAT/AUTO/COOL")
 L_39:definePotentiometer("FRONT_SUIT_TEMP", 7, 3005, 120, { 0, 1 }, "Air System", "Front Diffuser and Flight Suit Temperature Rheostat")
 L_39:defineToggleSwitch("BACK_AIR_COND_COVER", 7, 3008, 510, "Air System", "Back Conditioning Shutoff Switch Cover, OPEN/CLOSE")
-L_39:define3PosTumb("BACK_AIR_COND", 7, 3007, 511, "Air System", "Back Conditioning Shutoff Switch, OPEN/FRONT PILOT CONTROL/CLOSE")
+L_39:define3PosTumb("BACK_AIR_COND", 7, 3007, 511, "Air System", "Back Conditioning Shutoff Switch", { positions = { "OPEN", "FRONT PILOT CONTROL", "CLOSE" } })
 
 -- Anti-Icing System
-L_39:defineTumb("FRONT_ANTI_ICING", 7, 3009, 174, 0.1, { 0, 0.2 }, nil, false, "AntiICE", "Front De-Icing Mode Switch, MANUAL/AUTOMATIC/OFF")
+L_39:defineTumb("FRONT_ANTI_ICING", 7, 3009, 174, 0.1, { 0, 0.2 }, nil, false, "AntiICE", "Front De-Icing Mode Switch", { positions = { "MANUAL", "AUTOMATIC", "OFF" } })
 L_39:definePushButton("FRONT_DE_ICE", 7, 3010, 183, "AntiICE", "Front RIO-3 De-Icing Sensor Heating Circuit Check Button")
 
 -- Helmet Heating
 L_39:definePushButton("FRONT_HELMET_QUICK", 7, 3011, 309, "Helm Heat", "Front Helmet Visor Quick Heating Button")
-L_39:defineTumb("FRONT_HELMET_MODE", 7, 3012, 308, 0.5, { 0, 1 }, nil, false, "Helm Heat", "Front Helmet Heating Mode Switch, AUTO/OFF/ON")
+L_39:defineTumb("FRONT_HELMET_MODE", 7, 3012, 308, 0.5, { 0, 1 }, nil, false, "Helm Heat", "Front Helmet Heating Mode Switch", { positions = { "AUTO", "OFF", "ON" } })
 L_39:definePotentiometer("FRONT_HELMET_TEMP", 7, 3013, 310, { 0, 1 }, "Helm Heat", "Front Helmet Heating Temperature Rheostat")
 
 -- SPU-9
@@ -602,11 +602,11 @@ L_39:defineToggleSwitch("FRONT_FIRE_COVER", 6, 3002, 327, "Engine Systems", "Fro
 L_39:definePushButton("FRONT_FIRE", 6, 3003, 328, "Engine Systems", "Front Fire Extinguish Button")
 L_39:defineToggleSwitch("BACK_FIRE_COVER", 6, 3004, 495, "Engine Systems", "Back Fire Extinguish Button Cover")
 L_39:definePushButton("BACK_FIRE", 6, 3005, 496, "Engine Systems", "Back Fire Extinguish Button")
-L_39:define3PosTumb("FRONT_TEST_SSP", 6, 3006, 272, "Engine Systems", "Front Fire Warning Signal Test Switch I/OFF/II")
+L_39:define3PosTumb("FRONT_TEST_SSP", 6, 3006, 272, "Engine Systems", "Front Fire Warning Signal Test Switch", { positions = { "I", "OFF", "II" } })
 L_39:defineToggleSwitch("FRONT_RT12_OFF_COVER", 6, 3007, 323, "Engine Systems", "Front RT-12 JPT Regulator Manual Disable Switch Cover")
 L_39:defineToggleSwitch("FRONT_RT12_OFF", 6, 3008, 324, "Engine Systems", "Front RT-12 JPT Regulator Manual Disable Switch")
 L_39:defineToggleSwitch("FRONT_RT12_PW", 6, 3009, 243, "Engine Systems", "Front RT-12 JPT Regulator Power Switch")
-L_39:define3PosTumb("FRONT_RT12_TEST", 6, 3010, 242, "Engine Systems", "Front RT-12 JPT Regulator Test Switch I/OFF/II")
+L_39:define3PosTumb("FRONT_RT12_TEST", 6, 3010, 242, "Engine Systems", "Front RT-12 JPT Regulator Test Switch", { positions = { "I", "OFF", "II" } })
 L_39:defineToggleSwitch("BACK_EGT_CONTROL", 6, 3011, 499, "Engine Systems", "Back EGT Indicator Switch")
 
 -- Control System
@@ -633,8 +633,8 @@ L_39:defineToggleSwitch("BACK_EMERG_HYD", 35, 3002, 536, "Control System", "Back
 L_39:defineToggleSwitch("BACK_EMERG_GEAR", 35, 3004, 533, "Control System", "Back Emergency Landing Gear Extension Lever ON/OFF")
 L_39:defineToggleSwitch("BACK_EMERG_FLAPS", 35, 3006, 534, "Control System", "Back Emergency Flaps Extension Lever ON/OFF")
 L_39:defineToggleSwitch("BACK_EMERG_GEN", 35, 3008, 535, "Control System", "Back RAT Emergency Generator Lever ON/OFF")
-L_39:define3PosTumb("BACK_PRESS_TOTAL", 39, 3002, 456, "Control System", "Back Full Pressure Failure Lever, ON/STBY/FAILURE")
-L_39:define3PosTumb("BACK_PRESS_STATIC", 39, 3001, 457, "Control System", "Back Static Pressure Failure Lever, ON/STBY/FAILURE")
+L_39:define3PosTumb("BACK_PRESS_TOTAL", 39, 3002, 456, "Control System", "Back Full Pressure Failure Lever", { positions = { "ON", "STBY", "FAILURE" } })
+L_39:define3PosTumb("BACK_PRESS_STATIC", 39, 3001, 457, "Control System", "Back Static Pressure Failure Lever", { positions = { "ON", "STBY", "FAILURE" } })
 
 -- Accelerometer
 L_39:definePushButton("FRONT_G_RESET", 33, 3001, 89, "Accelerometer", "Front Reset G Limits Button")

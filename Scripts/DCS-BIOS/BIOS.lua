@@ -13,6 +13,7 @@ local TCPServer = require("Scripts.DCS-BIOS.lib.io.TCPServer")
 local UDPServer = require("Scripts.DCS-BIOS.lib.io.UDPServer")
 local socket = require("socket") --[[@as Socket]]
 
+local CommonData = require("Scripts.DCS-BIOS.lib.modules.common_modules.CommonData")
 local MetadataEnd = require("Scripts.DCS-BIOS.lib.modules.common_modules.MetadataEnd")
 local MetadataStart = require("Scripts.DCS-BIOS.lib.modules.common_modules.MetadataStart")
 
@@ -21,7 +22,7 @@ local MetadataStart = require("Scripts.DCS-BIOS.lib.modules.common_modules.Metad
 local modules = {
 	MetadataEnd,
 	MetadataStart,
-	require("Scripts.DCS-BIOS.lib.modules.common_modules.CommonData"),
+	CommonData,
 	require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.A-10C"),
 	require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.A-29B"),
 	require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.A-4E-C"),
@@ -80,6 +81,9 @@ for _, module in ipairs(modules) do
 end
 
 ----------------------------------------------------------------------------Modules End--------------------------------------
+
+CommonData.set_version(BIOSConfig.version)
+
 --Saves aliases for each aircraft for external programs
 pcall(Protocol.saveAliases)
 -- save constants for arduino devs to a header file
@@ -94,7 +98,7 @@ PrevExport.LuaExportAfterNextFrame = LuaExportAfterNextFrame
 
 local connection_manager = ConnectionManager:new({})
 
-local state_machine = BIOSStateMachine:new(Protocol.aircraft_names_to_modules(), MetadataStart, MetadataEnd, 11000, connection_manager)
+local state_machine = BIOSStateMachine:new(Protocol.aircraft_names_to_modules(), MetadataStart, MetadataEnd, 11000, connection_manager, 1.0 / BIOSConfig.export_rate)
 
 local function process_input_line(line)
 	state_machine:processInputLine(line)

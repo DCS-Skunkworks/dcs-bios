@@ -205,7 +205,7 @@ A_4E_C:definePotentiometer("RADAR_RETICLE", 10, 3062, 404, { -1, 1 }, "Radar Sco
 A_4E_C:defineToggleSwitch("RADAR_FILTER", 10, 3061, 405, "Radar Scope", "Radar Indicator Filter Plate")
 
 --Gunpods
-A_4E_C:define3PosTumb("GUNPOD_CLEAR", 6, 3012, 390, "Gunpods", "Gunpod Charge/Off/Clear")
+A_4E_C:define3PosTumb("GUNPOD_CLEAR", 6, 3012, 390, "Gunpods", "Gunpod", { positions = { "Charge", "Off", "Clear" } })
 A_4E_C:defineToggleSwitch("GUNPOD_L", 6, 3009, 391, "Gunpods", "Gunpod Station LH Switch")
 A_4E_C:defineToggleSwitch("GUNPOD_C", 6, 3010, 392, "Gunpods", "Gunpod Station CTR Switch")
 A_4E_C:defineToggleSwitch("GUNPOD_R", 6, 3011, 393, "Gunpods", "Gunpod Station RH Switch")
@@ -248,8 +248,8 @@ A_4E_C:defineToggleSwitch("AFCS_STAB_AUG", 27, 3093, 165, "AFCS", "AFCS Stabilit
 A_4E_C:defineToggleSwitch("AFCS_AIL_TRIM", 27, 3094, 166, "AFCS", "AFCS Aileron Trim")
 
 --Approach Power Compensator
-A_4E_C:define3PosTumb("APC_ENABLE", 27, 3095, 135, "ApproachPowerCompensator", "APC Enable/Stby/Off")
-A_4E_C:define3PosTumb("APS_COLD_STD_HOT", 27, 3096, 136, "ApproachPowerCompensator", "APC Cold/Std/Hot")
+A_4E_C:define3PosTumb("APC_ENABLE", 27, 3095, 135, "ApproachPowerCompensator", "APC", { positions = { "Enable", "Stby", "Off" } })
+A_4E_C:define3PosTumb("APS_COLD_STD_HOT", 27, 3096, 136, "ApproachPowerCompensator", "APC", { positions = { "Cold", "Std", "Hot" } })
 
 --Mechanical Systems
 A_4E_C:defineToggleSwitch("GEAR_HANDLE", 15, 3020, 8, "Mechanical Systems", "Landing Gear Handle")
@@ -260,7 +260,7 @@ A_4E_C:define3PosTumb("SPEEDBRAKE_EMERG", 13, 3035, 128, "Mechanical Systems", "
 A_4E_C:defineToggleSwitch("CANOPY_SW", 17, 71, 0, "Mechanical Systems", "Canopy")
 A_4E_C:define3PosTumb("FLAPS", 14, 3015, 132, "Mechanical Systems", "Flaps Lever")
 A_4E_C:definePotentiometer("RUDDER_TRIM", 26, 3085, 82, { -1, 1 }, "Mechanical Systems", "Rudder Trim")
-A_4E_C:define3PosTumb("THROTTLE_CLICK", 20, 3087, 0, "Mechanical Systems", "Throttle Cutoff/Start/Idle")
+A_4E_C:define3PosTumb("THROTTLE_CLICK", 20, 3087, 0, "Mechanical Systems", "Throttle", { positions = { "Cutoff", "Start", "Idle" } })
 A_4E_C:definePushButton("STARTER_BTN", 20, 3013, 100, "Mechanical Systems", "Starter Button")
 A_4E_C:defineToggleSwitch("JATO_ARM", 2, 3158, 133, "Mechanical Systems", "JATO ARM-OFF Switch")
 A_4E_C:defineToggleSwitch("JATO_JETT_SAFE", 2, 3159, 134, "Mechanical Systems", "JATO JETTISON-SAFE Switch")
@@ -320,7 +320,7 @@ A_4E_C:defineRotary("ASN41_WINDDIR_KNB", 23, 3050, 213, "Doppler Nav", "ASN-41 W
 A_4E_C:definePushButton("ASN41_WINDDIR_BTN", 23, 3156, 242, "Doppler Nav", "ASN-41 Wind Bearing Button")
 
 --Lights
-A_4E_C:define3PosTumb("LIGHT_EXT_MASTER", 25, 3073, 83, "Lights", "Master Lighting ON/OFF/Momentary")
+A_4E_C:define3PosTumb("LIGHT_EXT_MASTER", 25, 3073, 83, "Lights", "Master Lighting", { positions = { "ON", "OFF", "Momentary" } })
 A_4E_C:define3PosTumb("LIGHT_EXT_PROBE", 25, 3074, 217, "Lights", "Probe Light")
 A_4E_C:defineToggleSwitch("LIGHT_EXT_TAXI", 25, 3075, 218, "Lights", "Taxi Light")
 A_4E_C:defineToggleSwitch("LIGHT_EXT_ANTICOLL", 25, 3076, 219, "Lights", "Anti-Collision Lights")
