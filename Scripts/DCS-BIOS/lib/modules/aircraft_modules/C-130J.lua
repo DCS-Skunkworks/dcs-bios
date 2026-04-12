@@ -1,6 +1,11 @@
 module("C-130J", package.seeall)
 
+local Control = require("Scripts.DCS-BIOS.lib.modules.documentation.Control")
+local ControlType = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlType")
+local IntegerOutput = require("Scripts.DCS-BIOS.lib.modules.documentation.IntegerOutput")
 local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
+local SetStateInput = require("Scripts.DCS-BIOS.lib.modules.documentation.SetStateInput")
+local Suffix = require("Scripts.DCS-BIOS.lib.modules.documentation.Suffix")
 
 --- @class C_130J: Module
 local C_130J = Module:new("C-130J", 0xB000, { "C-130J-30" })
@@ -107,6 +112,57 @@ local devices = {
 
 function C_130J:defineIndicatorLight(identifier, arg_number, category, description)
 	self:defineGatedIndicatorLight(identifier, arg_number, 0.01, nil, category, description)
+end
+
+--- Adds a springloaded 3-pos tumb switch with special behavior for the C-130
+--- @param identifier string the unique identifier for the control
+--- @param device_id integer the dcs device id
+--- @param command integer the dcs command
+--- @param arg_number integer the dcs argument number
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @return Control
+function C_130J:defineC130Springloaded_3PosTumb(identifier, device_id, command, arg_number, category, description)
+	local alloc = self:allocateInt(2, identifier)
+
+	local lower = -1
+	local upper = 1
+	local mid = 0
+
+	self:addExportHook(function(dev0)
+		local val = dev0:get_argument_value(arg_number)
+		if math.abs(val - lower) < 0.01 then
+			alloc:setValue(0)
+		elseif math.abs(val - mid) < 0.01 then
+			alloc:setValue(1)
+		elseif math.abs(val - upper) < 0.01 then
+			alloc:setValue(2)
+		end
+	end)
+
+	local control = Control:new(category, ControlType.three_pos_two_command_switch_open_close, identifier, description, {
+		SetStateInput:new(2, "set the switch position"),
+	}, {
+		IntegerOutput:new(alloc, Suffix.none, string.format("switch position -- 0 = Down, 1 = Mid,  2 = Up")),
+	})
+
+	self:addControl(control)
+
+	self:addInputProcessor(identifier, function(toState)
+		local dev = GetDevice(device_id)
+		if dev == nil then
+			return
+		end
+		if toState == "0" then --downSwitch
+			dev:performClickableAction(command, lower)
+		elseif toState == "1" then --Stop
+			dev:performClickableAction(command, mid)
+		elseif toState == "2" then --upSwitch
+			dev:performClickableAction(command, upper)
+		end
+	end)
+
+	return control
 end
 
 -- Flight Station Forward
@@ -228,7 +284,7 @@ end
 -- Pilot Lighting Panel
 local PLT_LIGHTING_PANEL = "PLT Lighting Panel"
 C_130J:define3PosTumb("PLT_CC_LIGHTING_MASTER_SWITCH", devices.LIGHTING_PANELS, 3029, 1337, PLT_LIGHTING_PANEL, "Lighting Mode Master Switch")
-C_130J:defineSpringloaded_3PosTumb("PLT_CC_LIGHTING_ANNUNCIATOR_BRIGHTNESS", devices.LIGHTING_PANELS, 3030, 3030, 1336, PLT_LIGHTING_PANEL, "Annunciator Light Brightness Switch") -- todo: unable to move 0 to 2 or 2 to 0
+C_130J:defineC130Springloaded_3PosTumb("PLT_CC_LIGHTING_ANNUNCIATOR_BRIGHTNESS", devices.LIGHTING_PANELS, 3030, 1336, PLT_LIGHTING_PANEL, "Annunciator Light Brightness Switch") -- todo: unable to move 0 to 2 or 2 to 0
 C_130J:definePotentiometer("PLT_CC_LIGHTING_DOME_BRIGHTNESS", devices.LIGHTING_PANELS, 3017, 1340, { 0, 1 }, PLT_LIGHTING_PANEL, "Cockpit Dome Lighting Brightness Knob")
 C_130J:definePotentiometer("PLT_CC_LIGHTING_CB_BRIGHTNESS", devices.LIGHTING_PANELS, 3018, 1341, { 0, 1 }, PLT_LIGHTING_PANEL, "Pilot Circuit Breaker Lighting Brightness Knob")
 C_130J:definePotentiometer("PLT_CC_LIGHTING_MASTER_DISPLAY_BRIGHTNESS", devices.LIGHTING_PANELS, 3005, 1335, { 0, 1 }, PLT_LIGHTING_PANEL, "Pilot Master Display Brightness Knob")
@@ -242,7 +298,7 @@ C_130J:definePotentiometer("CPLT_CC_LIGHTING_CB_BRIGHTNESS", devices.LIGHTING_PA
 C_130J:definePotentiometer("CPLT_CC_LIGHTING_OVERHEAD_FLOOD_LIGHT_BRIGHTNESS", devices.LIGHTING_PANELS, 3026, 1346, { 0, 1 }, CPLT_LIGHTING_PANEL, "Overhead Panel Flood Lighting Brightness Knob")
 C_130J:definePotentiometer("CPLT_CC_LIGHTING_OVERHEAD_PANEL_BACKLIGHTING", devices.LIGHTING_PANELS, 3022, 1347, { 0, 1 }, CPLT_LIGHTING_PANEL, "Overhead Panel Backlighting Brightness Knob")
 C_130J:definePotentiometer("CPLT_CC_LIGHTING_CONSOLE_LIGHT_BRIGHTNESS", devices.LIGHTING_PANELS, 3027, 1348, { 0, 1 }, CPLT_LIGHTING_PANEL, "Center Console Backlighting Brightness Knob")
-C_130J:defineSpringloaded_3PosTumb("CPLT_CC_LIGHTING_DISPLAY_LAMP_TEST", devices.LIGHTING_PANELS, 3028, 3028, 1352, CPLT_LIGHTING_PANEL, "Display/Lamp Test Switch") -- todo: unable to move 0 to 2 or 2 to 0
+C_130J:defineC130Springloaded_3PosTumb("CPLT_CC_LIGHTING_DISPLAY_LAMP_TEST", devices.LIGHTING_PANELS, 3028, 1352, CPLT_LIGHTING_PANEL, "Display/Lamp Test Switch") -- todo: unable to move 0 to 2 or 2 to 0
 C_130J:definePotentiometer("CPLT_CC_LIGHTING_FLOOD_LIGHT_BRIGHTNESS", devices.LIGHTING_PANELS, 3021, 1351, { 0, 1 }, CPLT_LIGHTING_PANEL, "Copilot Panel Flood Lighting Brightness Knob")
 C_130J:definePotentiometer("CPLT_CC_LIGHTING_PANEL_BACKLIGHTING", devices.LIGHTING_PANELS, 3032, 1350, { 0, 1 }, CPLT_LIGHTING_PANEL, "Copilot Panel Backlighting Brightness Knob")
 C_130J:definePotentiometer("CPLT_CC_LIGHTING_MASTER_DISPLAY_BRIGHTNESS", devices.LIGHTING_PANELS, 3024, 1349, { 0, 1 }, CPLT_LIGHTING_PANEL, "Copilot Master Display Brightness Knob")
@@ -456,7 +512,7 @@ C_130J:definePushButton("CPLT_CNI_LSK_L3", devices.C_CNI, 3003, 1172, CPLT_CNI_M
 C_130J:definePushButton("CPLT_CNI_LSK_L4", devices.C_CNI, 3004, 1173, CPLT_CNI_MU, "Copilot CNI-MU LSK L4")
 C_130J:definePushButton("CPLT_CNI_LSK_L5", devices.C_CNI, 3005, 1174, CPLT_CNI_MU, "Copilot CNI-MU LSK L5")
 C_130J:definePushButton("CPLT_CNI_LSK_L6", devices.C_CNI, 3006, 1175, CPLT_CNI_MU, "Copilot CNI-MU LSK L6")
-C_130J:definePushButton("CPLT_CNI_LSK_R1", devices.C_CNI, 3007, 1176, CPLT_CNI_MU, "Copilot CNI-MU L1169SK R1")
+C_130J:definePushButton("CPLT_CNI_LSK_R1", devices.C_CNI, 3007, 1176, CPLT_CNI_MU, "Copilot CNI-MU LSK R1")
 C_130J:definePushButton("CPLT_CNI_LSK_R2", devices.C_CNI, 3008, 1177, CPLT_CNI_MU, "Copilot CNI-MU LSK R2")
 C_130J:definePushButton("CPLT_CNI_LSK_R3", devices.C_CNI, 3009, 1178, CPLT_CNI_MU, "Copilot CNI-MU LSK R3")
 C_130J:definePushButton("CPLT_CNI_LSK_R4", devices.C_CNI, 3010, 1179, CPLT_CNI_MU, "Copilot CNI-MU LSK R4")
@@ -668,7 +724,7 @@ C_130J:defineToggleSwitch("AUG_ICS_RWR_BUTTON", devices.VOLUME_MANAGER, 3117, 26
 
 -- Trim Panel
 local TRIM_PANEL = "Trim Panel"
-C_130J:defineSpringloaded_3PosTumb("TRIM_ELEV_TAB_PWR", devices.MECH_INTERFACE, 3038, 3038, 1334, TRIM_PANEL, "Elevator Trim Tab Power Switch: NORM/OFF/EMER")
+C_130J:defineC130Springloaded_3PosTumb("TRIM_ELEV_TAB_PWR", devices.MECH_INTERFACE, 3038, 1334, TRIM_PANEL, "Elevator Trim Tab Power Switch: NORM/OFF/EMER")
 C_130J:defineRockerSwitch("TRIM_RUDDER_SWITCH", devices.MECH_INTERFACE, 3036, 3036, 3036, 3036, 75, TRIM_PANEL, "Rudder Trim Switch")
 C_130J:defineRockerSwitch("TRIM_NOSE_UP_DOWN", devices.MECH_INTERFACE, 3089, 3089, 3088, 3088, 1364, TRIM_PANEL, "Elevator Trim Nose Up/Down")
 C_130J:defineRockerSwitch("TRIM_WING_RIGHT_LEFT", devices.MECH_INTERFACE, 3091, 3091, 3090, 3090, 1365, TRIM_PANEL, "Aileron Trim Right/Left Wing Down")
@@ -695,7 +751,7 @@ C_130J:defineIndicatorLight("DSP_RWR_TGT_SEP_LED", 4101, DEFENSIVE_SYSTEMS, "RWR
 
 -- Aerial Delivery Panel
 local AERIAL_DELIVERY = "Aerial Delivery Panel"
-C_130J:defineSpringloaded_3PosTumb("ADP_RAMP_DOOR", devices.MECH_INTERFACE, 3031, 3031, 479, AERIAL_DELIVERY, "Ramp/Door Control Switch: OPEN/OFF/CLOSE")
+C_130J:defineC130Springloaded_3PosTumb("ADP_RAMP_DOOR", devices.MECH_INTERFACE, 3031, 479, AERIAL_DELIVERY, "Ramp/Door Control Switch: OPEN/OFF/CLOSE")
 C_130J:defineIndicatorLight("ADP_RAMP_DOOR_LED", 4075, AERIAL_DELIVERY, "Ramp/Door Control Switch Light (Green)")
 C_130J:definePushButton("ADP_AIRDROP_CAUTION", devices.MECH_INTERFACE, 3026, 397, AERIAL_DELIVERY, "Airdrop Caution Control Button")
 C_130J:defineIndicatorLight("ADP_AIRDROP_CAUTION_LED", 4095, AERIAL_DELIVERY, "Airdrop Caution Light (Yellow)")
