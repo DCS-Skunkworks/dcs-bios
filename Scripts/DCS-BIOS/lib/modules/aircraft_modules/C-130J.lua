@@ -287,7 +287,7 @@ end
 -- Pilot Lighting Panel
 local PLT_LIGHTING_PANEL = "PLT Lighting Panel"
 C_130J:define3PosTumb("PLT_CC_LIGHTING_MASTER_SWITCH", devices.LIGHTING_PANELS, 3029, 1337, PLT_LIGHTING_PANEL, "Lighting Mode Master Switch", { positions = { "TSTORM", "NORM", "NVIS" } })
-C_130J:defineC130Springloaded_3PosTumb("PLT_CC_LIGHTING_ANNUNCIATOR_BRIGHTNESS", devices.LIGHTING_PANELS, 3030, 1336, PLT_LIGHTING_PANEL, "Annunciator Light Brightness Switch", { positions = { "Bright", "Off", "Dim" } })
+C_130J:defineC130Springloaded_3PosTumb("PLT_CC_LIGHTING_ANNUNCIATOR_BRIGHTNESS", devices.LIGHTING_PANELS, 3030, 1336, PLT_LIGHTING_PANEL, "Annunciator Light Brightness Switch", { positions = { "BRIGHT", "OFF", "DIM" } })
 C_130J:definePotentiometer("PLT_CC_LIGHTING_DOME_BRIGHTNESS", devices.LIGHTING_PANELS, 3017, 1340, { 0, 1 }, PLT_LIGHTING_PANEL, "Cockpit Dome Lighting Brightness Knob")
 C_130J:definePotentiometer("PLT_CC_LIGHTING_CB_BRIGHTNESS", devices.LIGHTING_PANELS, 3018, 1341, { 0, 1 }, PLT_LIGHTING_PANEL, "Pilot Circuit Breaker Lighting Brightness Knob")
 C_130J:definePotentiometer("PLT_CC_LIGHTING_MASTER_DISPLAY_BRIGHTNESS", devices.LIGHTING_PANELS, 3005, 1335, { 0, 1 }, PLT_LIGHTING_PANEL, "Pilot Master Display Brightness Knob")
@@ -301,7 +301,7 @@ C_130J:definePotentiometer("CPLT_CC_LIGHTING_CB_BRIGHTNESS", devices.LIGHTING_PA
 C_130J:definePotentiometer("CPLT_CC_LIGHTING_OVERHEAD_FLOOD_LIGHT_BRIGHTNESS", devices.LIGHTING_PANELS, 3026, 1346, { 0, 1 }, CPLT_LIGHTING_PANEL, "Overhead Panel Flood Lighting Brightness Knob")
 C_130J:definePotentiometer("CPLT_CC_LIGHTING_OVERHEAD_PANEL_BACKLIGHTING", devices.LIGHTING_PANELS, 3022, 1347, { 0, 1 }, CPLT_LIGHTING_PANEL, "Overhead Panel Backlighting Brightness Knob")
 C_130J:definePotentiometer("CPLT_CC_LIGHTING_CONSOLE_LIGHT_BRIGHTNESS", devices.LIGHTING_PANELS, 3027, 1348, { 0, 1 }, CPLT_LIGHTING_PANEL, "Center Console Backlighting Brightness Knob")
-C_130J:defineC130Springloaded_3PosTumb("CPLT_CC_LIGHTING_DISPLAY_LAMP_TEST", devices.LIGHTING_PANELS, 3028, 1352, CPLT_LIGHTING_PANEL, "Display/Lamp Test Switch", { positions = { "DSPL", "Off", "LAMP" } })
+C_130J:defineC130Springloaded_3PosTumb("CPLT_CC_LIGHTING_DISPLAY_LAMP_TEST", devices.LIGHTING_PANELS, 3028, 1352, CPLT_LIGHTING_PANEL, "Display/Lamp Test Switch", { positions = { "DSPL", "OFF", "LAMP" } })
 C_130J:definePotentiometer("CPLT_CC_LIGHTING_FLOOD_LIGHT_BRIGHTNESS", devices.LIGHTING_PANELS, 3021, 1351, { 0, 1 }, CPLT_LIGHTING_PANEL, "Copilot Panel Flood Lighting Brightness Knob")
 C_130J:definePotentiometer("CPLT_CC_LIGHTING_PANEL_BACKLIGHTING", devices.LIGHTING_PANELS, 3032, 1350, { 0, 1 }, CPLT_LIGHTING_PANEL, "Copilot Panel Backlighting Brightness Knob")
 C_130J:definePotentiometer("CPLT_CC_LIGHTING_MASTER_DISPLAY_BRIGHTNESS", devices.LIGHTING_PANELS, 3024, 1349, { 0, 1 }, CPLT_LIGHTING_PANEL, "Copilot Master Display Brightness Knob")
@@ -318,8 +318,8 @@ C_130J:definePushButton("RCP_WS_MODE", devices.NAV_RADAR, 3015, 403, RADAR_CONTR
 C_130J:definePushButton("RCP_BCN_MODE", devices.NAV_RADAR, 3016, 404, RADAR_CONTROL_PANEL, "Radar BCN Mode Switch")
 C_130J:defineMultipositionSwitch("RCP_INTENSITY_TARGET", devices.NAV_RADAR, 3002, 486, 4, 0.3, RADAR_CONTROL_PANEL, "Intensity Target Select Switch", { positions = { "RM", "CUR", "SYM", "VID" } })
 C_130J:definePushButton("RCP_PSEL_MODE", devices.NAV_RADAR, 3009, 405, RADAR_CONTROL_PANEL, "Radar PSEL Mode Switch")
-C_130J:defineRockerSwitch("RCP_INTENSITY_ROCKER", devices.NAV_RADAR, 3003, 3003, 3003, 3003, 410, RADAR_CONTROL_PANEL, "Radar Intensity Increase/Decrease", { positions = { "DECR", "Off", "INCR" } })
-C_130J:defineRockerSwitch("RCP_GAIN_ROCKER", devices.NAV_RADAR, 3004, 3004, 3004, 3004, 411, RADAR_CONTROL_PANEL, "Radar Gain Increase/Decrease", { positions = { "DECR", "Off", "INCR" } })
+C_130J:defineRockerSwitch("RCP_INTENSITY_ROCKER", devices.NAV_RADAR, 3003, 3003, 3003, 3003, 410, RADAR_CONTROL_PANEL, "Radar Intensity Increase/Decrease", { positions = { "DECR", "OFF", "INCR" } })
+C_130J:defineRockerSwitch("RCP_GAIN_ROCKER", devices.NAV_RADAR, 3004, 3004, 3004, 3004, 411, RADAR_CONTROL_PANEL, "Radar Gain Increase/Decrease", { positions = { "DECR", "OFF", "INCR" } })
 C_130J:definePushButton("RCP_OFS_MODE", devices.NAV_RADAR, 3005, 406, RADAR_CONTROL_PANEL, "Radar OFS Mode Switch")
 C_130J:definePushButton("RCP_FRZ_MODE", devices.NAV_RADAR, 3006, 407, RADAR_CONTROL_PANEL, "Radar FRZ Mode Switch")
 C_130J:definePushButton("RCP_PEN_MODE", devices.NAV_RADAR, 3007, 408, RADAR_CONTROL_PANEL, "Radar PEN Mode Switch")
@@ -459,7 +459,7 @@ C_130J:definePushButton("PLT_CNI_LEGS", devices.P_CNI, 3019, 1123, PLT_CNI_MU, "
 C_130J:definePushButton("PLT_CNI_MARK", devices.P_CNI, 3020, 1124, PLT_CNI_MU, "Pilot CNI-MU MARK Key")
 C_130J:definePushButton("PLT_CNI_PREV_PAGE", devices.P_CNI, 3027, 1125, PLT_CNI_MU, "Pilot CNI-MU PREV PAGE Key")
 C_130J:definePushButton("PLT_CNI_NEXT_PAGE", devices.P_CNI, 3026, 1126, PLT_CNI_MU, "Pilot CNI-MU NEXT PAGE Key")
-C_130J:defineRockerSwitch("PLT_CNI_BRT_ROCKER", devices.P_CNI, 3070, 3070, 3071, 3071, 1127, PLT_CNI_MU, "Pilot CNI-MU BRT", { positions = { "Decrease", "Off", "Increase" } })
+C_130J:defineRockerSwitch("PLT_CNI_BRT_ROCKER", devices.P_CNI, 3070, 3070, 3071, 3071, 1127, PLT_CNI_MU, "Pilot CNI-MU BRT", { positions = { "DECREASE", "OFF", "INCREASE" } })
 C_130J:definePushButton("PLT_CNI_KBD_1", devices.P_CNI, 3031, 1128, PLT_CNI_MU, "Pilot CNI-MU 1 Key")
 C_130J:definePushButton("PLT_CNI_KBD_2", devices.P_CNI, 3032, 1129, PLT_CNI_MU, "Pilot CNI-MU 2 Key")
 C_130J:definePushButton("PLT_CNI_KBD_3", devices.P_CNI, 3033, 1130, PLT_CNI_MU, "Pilot CNI-MU 3 Key")
@@ -536,7 +536,7 @@ C_130J:definePushButton("CPLT_CNI_LEGS", devices.C_CNI, 3019, 1193, CPLT_CNI_MU,
 C_130J:definePushButton("CPLT_CNI_MARK", devices.C_CNI, 3020, 1194, CPLT_CNI_MU, "Copilot CNI-MU MARK Key")
 C_130J:definePushButton("CPLT_CNI_PREV_PAGE", devices.C_CNI, 3027, 1195, CPLT_CNI_MU, "Copilot CNI-MU PREV PAGE Key")
 C_130J:definePushButton("CPLT_CNI_NEXT_PAGE", devices.C_CNI, 3026, 1196, CPLT_CNI_MU, "Copilot CNI-MU NEXT PAGE Key")
-C_130J:defineRockerSwitch("CPLT_CNI_BRT_ROCKER", devices.C_CNI, 3070, 3070, 3071, 3071, 1197, CPLT_CNI_MU, "Copilot CNI-MU BRT", { positions = { "Decrease", "Off", "Increase" } })
+C_130J:defineRockerSwitch("CPLT_CNI_BRT_ROCKER", devices.C_CNI, 3070, 3070, 3071, 3071, 1197, CPLT_CNI_MU, "Copilot CNI-MU BRT", { positions = { "DECREASE", "OFF", "INCREASE" } })
 C_130J:definePushButton("CPLT_CNI_KBD_1", devices.C_CNI, 3031, 1198, CPLT_CNI_MU, "Copilot CNI-MU 1 Key")
 C_130J:definePushButton("CPLT_CNI_KBD_2", devices.C_CNI, 3032, 1199, CPLT_CNI_MU, "Copilot CNI-MU 2 Key")
 C_130J:definePushButton("CPLT_CNI_KBD_3", devices.C_CNI, 3033, 1200, CPLT_CNI_MU, "Copilot CNI-MU 3 Key")
@@ -613,7 +613,7 @@ C_130J:definePushButton("AUG_CNI_LEGS", devices.AC_CNI, 3019, 1263, AUG_CNI_MU, 
 C_130J:definePushButton("AUG_CNI_MARK", devices.AC_CNI, 3020, 1264, AUG_CNI_MU, "Aug Crew CNI-MU MARK Key")
 C_130J:definePushButton("AUG_CNI_PREV_PAGE", devices.AC_CNI, 3027, 1265, AUG_CNI_MU, "Aug Crew CNI-MU PREV PAGE Key")
 C_130J:definePushButton("AUG_CNI_NEXT_PAGE", devices.AC_CNI, 3026, 1266, AUG_CNI_MU, "Aug Crew CNI-MU NEXT PAGE Key")
-C_130J:defineRockerSwitch("AUG_CNI_BRT_ROCKER", devices.AC_CNI, 3070, 3070, 3071, 3071, 1267, AUG_CNI_MU, "Aug Crew CNI-MU BRT", { positions = { "Decrease", "Off", "Increase" } })
+C_130J:defineRockerSwitch("AUG_CNI_BRT_ROCKER", devices.AC_CNI, 3070, 3070, 3071, 3071, 1267, AUG_CNI_MU, "Aug Crew CNI-MU BRT", { positions = { "DECREASE", "OFF", "INCREASE" } })
 C_130J:definePushButton("AUG_CNI_KBD_1", devices.AC_CNI, 3031, 1268, AUG_CNI_MU, "Aug Crew CNI-MU 1 Key")
 C_130J:definePushButton("AUG_CNI_KBD_2", devices.AC_CNI, 3032, 1269, AUG_CNI_MU, "Aug Crew CNI-MU 2 Key")
 C_130J:definePushButton("AUG_CNI_KBD_3", devices.AC_CNI, 3033, 1270, AUG_CNI_MU, "Aug Crew CNI-MU 3 Key")
@@ -693,8 +693,8 @@ local CURSOR_CONTROL_PANEL = "Cursor Control Panel"
 C_130J:defineMultipositionSwitch("CCP_CURSOR_PRIORITY", devices.MECH_INTERFACE, 3003, 65, 3, 0.5, CURSOR_CONTROL_PANEL, "Cursor Priority Switch", { positions = { "P", "3RD", "CP" } })
 C_130J:definePushButton("CCP_CURSOR_RESET", devices.MECH_INTERFACE, 3010, 68, CURSOR_CONTROL_PANEL, "Cursor Reset Switch")
 C_130J:definePushButton("CCP_HUD_CURSOR", devices.MECH_INTERFACE, 3014, 69, CURSOR_CONTROL_PANEL, "HUD Cursor Off/On Switch")
-C_130J:defineRockerSwitch("CCP_DISPLAY_RANGE", devices.MECH_INTERFACE, 3015, 3015, 3015, 3015, 66, CURSOR_CONTROL_PANEL, "Display Range Increase/Decrease", { positions = { "DECR", "Off", "INCR" } })
-C_130J:defineRockerSwitch("CCP_DISPLAY_ZOOM", devices.MECH_INTERFACE, 3016, 3016, 3016, 3016, 67, CURSOR_CONTROL_PANEL, "Display Zoom Increase/Decrease", { positions = { "DECR", "Off", "INCR" } })
+C_130J:defineRockerSwitch("CCP_DISPLAY_RANGE", devices.MECH_INTERFACE, 3015, 3015, 3015, 3015, 66, CURSOR_CONTROL_PANEL, "Display Range Increase/Decrease", { positions = { "DECR", "OFF", "INCR" } })
+C_130J:defineRockerSwitch("CCP_DISPLAY_ZOOM", devices.MECH_INTERFACE, 3016, 3016, 3016, 3016, 67, CURSOR_CONTROL_PANEL, "Display Zoom Increase/Decrease", { positions = { "DECR", "OFF", "INCR" } })
 C_130J:defineTumb("CCP_CURSOR_SELECT", devices.MECH_INTERFACE, 3030, 72, 1 / 6, { -1 / 6, 5 / 6 }, nil, false, CURSOR_CONTROL_PANEL, "Cursor Display Select Switch", { positions = { "1", "2", "3", "4", "OFF", "", "" } }) -- actually blank
 C_130J:defineRockerSwitch("CCP_CURSOR_TILT", devices.MECH_INTERFACE, 3096, 3096, 3096, 3096, 483, CURSOR_CONTROL_PANEL, "Cursor - Tilt")
 
@@ -728,9 +728,9 @@ C_130J:defineToggleSwitch("AUG_ICS_RWR_BUTTON", devices.VOLUME_MANAGER, 3117, 26
 -- Trim Panel
 local TRIM_PANEL = "Trim Panel"
 C_130J:defineC130Springloaded_3PosTumb("TRIM_ELEV_TAB_PWR", devices.MECH_INTERFACE, 3038, 1334, TRIM_PANEL, "Elevator Trim Tab Power Switch", { positions = { "EMER", "OFF", "NORM" } })
-C_130J:defineRockerSwitch("TRIM_RUDDER_SWITCH", devices.MECH_INTERFACE, 3036, 3036, 3036, 3036, 75, TRIM_PANEL, "Rudder Trim Switch", { positions = { "NOSE LEFT", "Off", "NOSE RIGHT" } })
-C_130J:defineRockerSwitch("TRIM_NOSE_UP_DOWN", devices.MECH_INTERFACE, 3089, 3089, 3088, 3088, 1364, TRIM_PANEL, "Elevator Trim Nose Up/Down", { positions = { "NOSE DOWN", "Off", "NOSE UP" } })
-C_130J:defineRockerSwitch("TRIM_WING_RIGHT_LEFT", devices.MECH_INTERFACE, 3091, 3091, 3090, 3090, 1365, TRIM_PANEL, "Aileron Trim Right/Left Wing Down", { positions = { "L WG LWR", "Off", "R WG LWR" } })
+C_130J:defineRockerSwitch("TRIM_RUDDER_SWITCH", devices.MECH_INTERFACE, 3036, 3036, 3036, 3036, 75, TRIM_PANEL, "Rudder Trim Switch", { positions = { "NOSE LEFT", "OFF", "NOSE RIGHT" } })
+C_130J:defineRockerSwitch("TRIM_NOSE_UP_DOWN", devices.MECH_INTERFACE, 3089, 3089, 3088, 3088, 1364, TRIM_PANEL, "Elevator Trim Nose Up/Down", { positions = { "NOSE DOWN", "OFF", "NOSE UP" } })
+C_130J:defineRockerSwitch("TRIM_WING_RIGHT_LEFT", devices.MECH_INTERFACE, 3091, 3091, 3090, 3090, 1365, TRIM_PANEL, "Aileron Trim Right/Left Wing Down", { positions = { "L WG LWR", "OFF", "R WG LWR" } })
 
 -- Defensive Systems Panel
 local DEFENSIVE_SYSTEMS = "Defensive Systems Panel"
