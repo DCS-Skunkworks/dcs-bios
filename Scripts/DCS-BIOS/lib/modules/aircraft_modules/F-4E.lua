@@ -2359,4 +2359,6 @@ F_4E:defineFloat("WSO_ALTITUDE_GAUGE", 240, { 0, 1 }, WSO_LEFT_WALL, "Cockpit Al
 
 F_4E:define3PosTumb0To1("WSO_RADAR_ANTENNA_TRIGGER", RADAR_DEVICE_ID, 3010, 1013, WSO_RADAR, "Antenna Trigger")
 
+F_4E:defineFloat("PLT_CONTROLS_STAB_TRIM", 966, { 0, 1 }, PILOT_CONTROL_SURFACES, "Stabilator Trim Indicator")
+
 return F_4E
