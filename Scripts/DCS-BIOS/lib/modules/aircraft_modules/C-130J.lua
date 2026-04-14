@@ -1,6 +1,8 @@
 module("C-130J", package.seeall)
 
+local CommonPositions = require("Scripts.DCS-BIOS.lib.modules.CommonPositions")
 local Control = require("Scripts.DCS-BIOS.lib.modules.documentation.Control")
+local ControlAttributeDocumentation = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlAttributeDocumentation")
 local ControlType = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlType")
 local IntegerOutput = require("Scripts.DCS-BIOS.lib.modules.documentation.IntegerOutput")
 local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
@@ -110,8 +112,8 @@ local devices = {
 	FAILURE_MGR = 97,
 }
 
-function C_130J:defineIndicatorLight(identifier, arg_number, category, description)
-	self:defineGatedIndicatorLight(identifier, arg_number, 0.01, nil, category, description)
+function C_130J:defineIndicatorLight(identifier, arg_number, category, description, attributes)
+	self:defineGatedIndicatorLight(identifier, arg_number, 0.01, nil, category, description, attributes)
 end
 
 --- Adds a springloaded 3-pos tumb switch with special behavior for the C-130
@@ -121,8 +123,9 @@ end
 --- @param arg_number integer the dcs argument number
 --- @param category string the category in which the control should appear
 --- @param description string additional information about the control
+--- @param attributes SwitchAttributes? additional control attributes
 --- @return Control
-function C_130J:defineC130Springloaded_3PosTumb(identifier, device_id, command, arg_number, category, description)
+function C_130J:defineC130Springloaded_3PosTumb(identifier, device_id, command, arg_number, category, description, attributes)
 	local alloc = self:allocateInt(2, identifier)
 
 	local lower = -1
@@ -144,7 +147,7 @@ function C_130J:defineC130Springloaded_3PosTumb(identifier, device_id, command, 
 		SetStateInput:new(2, "set the switch position"),
 	}, {
 		IntegerOutput:new(alloc, Suffix.none, string.format("switch position -- 0 = Down, 1 = Mid,  2 = Up")),
-	})
+	}, nil, ControlAttributeDocumentation.from_switch_attributes(attributes))
 
 	self:addControl(control)
 
@@ -283,8 +286,8 @@ end
 
 -- Pilot Lighting Panel
 local PLT_LIGHTING_PANEL = "PLT Lighting Panel"
-C_130J:define3PosTumb("PLT_CC_LIGHTING_MASTER_SWITCH", devices.LIGHTING_PANELS, 3029, 1337, PLT_LIGHTING_PANEL, "Lighting Mode Master Switch")
-C_130J:defineC130Springloaded_3PosTumb("PLT_CC_LIGHTING_ANNUNCIATOR_BRIGHTNESS", devices.LIGHTING_PANELS, 3030, 1336, PLT_LIGHTING_PANEL, "Annunciator Light Brightness Switch") -- todo: unable to move 0 to 2 or 2 to 0
+C_130J:define3PosTumb("PLT_CC_LIGHTING_MASTER_SWITCH", devices.LIGHTING_PANELS, 3029, 1337, PLT_LIGHTING_PANEL, "Lighting Mode Master Switch", { positions = { "TSTORM", "NORM", "NVIS" } })
+C_130J:defineC130Springloaded_3PosTumb("PLT_CC_LIGHTING_ANNUNCIATOR_BRIGHTNESS", devices.LIGHTING_PANELS, 3030, 1336, PLT_LIGHTING_PANEL, "Annunciator Light Brightness Switch", { positions = { "BRIGHT", "OFF", "DIM" } })
 C_130J:definePotentiometer("PLT_CC_LIGHTING_DOME_BRIGHTNESS", devices.LIGHTING_PANELS, 3017, 1340, { 0, 1 }, PLT_LIGHTING_PANEL, "Cockpit Dome Lighting Brightness Knob")
 C_130J:definePotentiometer("PLT_CC_LIGHTING_CB_BRIGHTNESS", devices.LIGHTING_PANELS, 3018, 1341, { 0, 1 }, PLT_LIGHTING_PANEL, "Pilot Circuit Breaker Lighting Brightness Knob")
 C_130J:definePotentiometer("PLT_CC_LIGHTING_MASTER_DISPLAY_BRIGHTNESS", devices.LIGHTING_PANELS, 3005, 1335, { 0, 1 }, PLT_LIGHTING_PANEL, "Pilot Master Display Brightness Knob")
@@ -298,14 +301,14 @@ C_130J:definePotentiometer("CPLT_CC_LIGHTING_CB_BRIGHTNESS", devices.LIGHTING_PA
 C_130J:definePotentiometer("CPLT_CC_LIGHTING_OVERHEAD_FLOOD_LIGHT_BRIGHTNESS", devices.LIGHTING_PANELS, 3026, 1346, { 0, 1 }, CPLT_LIGHTING_PANEL, "Overhead Panel Flood Lighting Brightness Knob")
 C_130J:definePotentiometer("CPLT_CC_LIGHTING_OVERHEAD_PANEL_BACKLIGHTING", devices.LIGHTING_PANELS, 3022, 1347, { 0, 1 }, CPLT_LIGHTING_PANEL, "Overhead Panel Backlighting Brightness Knob")
 C_130J:definePotentiometer("CPLT_CC_LIGHTING_CONSOLE_LIGHT_BRIGHTNESS", devices.LIGHTING_PANELS, 3027, 1348, { 0, 1 }, CPLT_LIGHTING_PANEL, "Center Console Backlighting Brightness Knob")
-C_130J:defineC130Springloaded_3PosTumb("CPLT_CC_LIGHTING_DISPLAY_LAMP_TEST", devices.LIGHTING_PANELS, 3028, 1352, CPLT_LIGHTING_PANEL, "Display/Lamp Test Switch") -- todo: unable to move 0 to 2 or 2 to 0
+C_130J:defineC130Springloaded_3PosTumb("CPLT_CC_LIGHTING_DISPLAY_LAMP_TEST", devices.LIGHTING_PANELS, 3028, 1352, CPLT_LIGHTING_PANEL, "Display/Lamp Test Switch", { positions = { "DSPL", "OFF", "LAMP" } })
 C_130J:definePotentiometer("CPLT_CC_LIGHTING_FLOOD_LIGHT_BRIGHTNESS", devices.LIGHTING_PANELS, 3021, 1351, { 0, 1 }, CPLT_LIGHTING_PANEL, "Copilot Panel Flood Lighting Brightness Knob")
 C_130J:definePotentiometer("CPLT_CC_LIGHTING_PANEL_BACKLIGHTING", devices.LIGHTING_PANELS, 3032, 1350, { 0, 1 }, CPLT_LIGHTING_PANEL, "Copilot Panel Backlighting Brightness Knob")
 C_130J:definePotentiometer("CPLT_CC_LIGHTING_MASTER_DISPLAY_BRIGHTNESS", devices.LIGHTING_PANELS, 3024, 1349, { 0, 1 }, CPLT_LIGHTING_PANEL, "Copilot Master Display Brightness Knob")
 
 -- Radar Control Panel
 local RADAR_CONTROL_PANEL = "Radar Control Panel"
-C_130J:defineMultipositionSwitch("RCP_MASTER_POWER", devices.NAV_RADAR, 3001, 485, 3, 0.4, RADAR_CONTROL_PANEL, "Radar Master Power Switch")
+C_130J:defineMultipositionSwitch("RCP_MASTER_POWER", devices.NAV_RADAR, 3001, 485, 3, 0.4, RADAR_CONTROL_PANEL, "Radar Master Power Switch", { positions = { "OFF", "ON", "TEST" } })
 C_130J:definePushButton("RCP_PRCN_MODE", devices.NAV_RADAR, 3010, 398, RADAR_CONTROL_PANEL, "Radar PRCN Mode Switch")
 C_130J:definePushButton("RCP_MAP_MODE", devices.NAV_RADAR, 3011, 399, RADAR_CONTROL_PANEL, "Radar MAP Mode Switch")
 C_130J:definePushButton("RCP_WX_MODE", devices.NAV_RADAR, 3012, 400, RADAR_CONTROL_PANEL, "Radar WX Mode Switch")
@@ -313,26 +316,26 @@ C_130J:definePushButton("RCP_SP_MODE", devices.NAV_RADAR, 3013, 401, RADAR_CONTR
 C_130J:definePushButton("RCP_MGM_MODE", devices.NAV_RADAR, 3014, 402, RADAR_CONTROL_PANEL, "Radar MGM Mode Switch")
 C_130J:definePushButton("RCP_WS_MODE", devices.NAV_RADAR, 3015, 403, RADAR_CONTROL_PANEL, "Radar WS Mode Switch")
 C_130J:definePushButton("RCP_BCN_MODE", devices.NAV_RADAR, 3016, 404, RADAR_CONTROL_PANEL, "Radar BCN Mode Switch")
-C_130J:defineMultipositionSwitch("RCP_INTENSITY_TARGET", devices.NAV_RADAR, 3002, 486, 4, 0.3, RADAR_CONTROL_PANEL, "Intensity Target Select Switch")
+C_130J:defineMultipositionSwitch("RCP_INTENSITY_TARGET", devices.NAV_RADAR, 3002, 486, 4, 0.3, RADAR_CONTROL_PANEL, "Intensity Target Select Switch", { positions = { "RM", "CUR", "SYM", "VID" } })
 C_130J:definePushButton("RCP_PSEL_MODE", devices.NAV_RADAR, 3009, 405, RADAR_CONTROL_PANEL, "Radar PSEL Mode Switch")
-C_130J:defineRockerSwitch("RCP_INTENSITY_ROCKER", devices.NAV_RADAR, 3003, 3003, 3003, 3003, 410, RADAR_CONTROL_PANEL, "Radar Intensity Increase/Decrease")
-C_130J:defineRockerSwitch("RCP_GAIN_ROCKER", devices.NAV_RADAR, 3004, 3004, 3004, 3004, 411, RADAR_CONTROL_PANEL, "Radar Gain Increase/Decrease")
+C_130J:defineRockerSwitch("RCP_INTENSITY_ROCKER", devices.NAV_RADAR, 3003, 3003, 3003, 3003, 410, RADAR_CONTROL_PANEL, "Radar Intensity Increase/Decrease", { positions = { "DECR", "OFF", "INCR" } })
+C_130J:defineRockerSwitch("RCP_GAIN_ROCKER", devices.NAV_RADAR, 3004, 3004, 3004, 3004, 411, RADAR_CONTROL_PANEL, "Radar Gain Increase/Decrease", { positions = { "DECR", "OFF", "INCR" } })
 C_130J:definePushButton("RCP_OFS_MODE", devices.NAV_RADAR, 3005, 406, RADAR_CONTROL_PANEL, "Radar OFS Mode Switch")
 C_130J:definePushButton("RCP_FRZ_MODE", devices.NAV_RADAR, 3006, 407, RADAR_CONTROL_PANEL, "Radar FRZ Mode Switch")
 C_130J:definePushButton("RCP_PEN_MODE", devices.NAV_RADAR, 3007, 408, RADAR_CONTROL_PANEL, "Radar PEN Mode Switch")
 C_130J:definePushButton("RCP_SCTR_MODE", devices.NAV_RADAR, 3008, 409, RADAR_CONTROL_PANEL, "Radar SCTR Mode Switch")
-C_130J:defineIndicatorLight("RCP_PRCN_MODE_LED", 4077, RADAR_CONTROL_PANEL, "Radar PRCN Mode Switch Led (Green)")
-C_130J:defineIndicatorLight("RCP_MAP_MODE_LED", 4078, RADAR_CONTROL_PANEL, "Radar MAP Mode Switch Led (Green)")
-C_130J:defineIndicatorLight("RCP_WX_MODE_LED", 4079, RADAR_CONTROL_PANEL, "Radar WX Mode Switch Led (Green)")
-C_130J:defineIndicatorLight("RCP_SP_MODE_LED", 4080, RADAR_CONTROL_PANEL, "Radar SP Mode Switch Led (Green)")
-C_130J:defineIndicatorLight("RCP_MGM_MODE_LED", 4081, RADAR_CONTROL_PANEL, "Radar MGM Mode Switch Led (Green)")
-C_130J:defineIndicatorLight("RCP_WS_MODE_LED", 4082, RADAR_CONTROL_PANEL, "Radar WS Mode Switch Led (Green)")
-C_130J:defineIndicatorLight("RCP_BCN_MODE_LED", 4083, RADAR_CONTROL_PANEL, "Radar BCN Mode Switch Led (Green)")
-C_130J:defineIndicatorLight("RCP_PSEL_MODE_LED", 4084, RADAR_CONTROL_PANEL, "Radar PSEL Mode Switch Led (Green)")
-C_130J:defineIndicatorLight("RCP_OFS_MODE_LED", 4085, RADAR_CONTROL_PANEL, "Radar OFS Mode Switch Led (Green)")
-C_130J:defineIndicatorLight("RCP_FRZ_MODE_LED", 4086, RADAR_CONTROL_PANEL, "Radar FRZ Mode Switch Led (Green)")
-C_130J:defineIndicatorLight("RCP_PEN_MODE_LED", 4087, RADAR_CONTROL_PANEL, "Radar PEN Mode Switch Led (Green)")
-C_130J:defineIndicatorLight("RCP_SCTR_MODE_LED", 4088, RADAR_CONTROL_PANEL, "Radar SCTR Mode Switch Led (Green)")
+C_130J:defineIndicatorLight("RCP_PRCN_MODE_LED", 4077, RADAR_CONTROL_PANEL, "Radar PRCN Mode Switch Led", { color = "Green" })
+C_130J:defineIndicatorLight("RCP_MAP_MODE_LED", 4078, RADAR_CONTROL_PANEL, "Radar MAP Mode Switch Led", { color = "Green" })
+C_130J:defineIndicatorLight("RCP_WX_MODE_LED", 4079, RADAR_CONTROL_PANEL, "Radar WX Mode Switch Led", { color = "Green" })
+C_130J:defineIndicatorLight("RCP_SP_MODE_LED", 4080, RADAR_CONTROL_PANEL, "Radar SP Mode Switch Led", { color = "Green" })
+C_130J:defineIndicatorLight("RCP_MGM_MODE_LED", 4081, RADAR_CONTROL_PANEL, "Radar MGM Mode Switch Led", { color = "Green" })
+C_130J:defineIndicatorLight("RCP_WS_MODE_LED", 4082, RADAR_CONTROL_PANEL, "Radar WS Mode Switch Led", { color = "Green" })
+C_130J:defineIndicatorLight("RCP_BCN_MODE_LED", 4083, RADAR_CONTROL_PANEL, "Radar BCN Mode Switch Led", { color = "Green" })
+C_130J:defineIndicatorLight("RCP_PSEL_MODE_LED", 4084, RADAR_CONTROL_PANEL, "Radar PSEL Mode Switch Led", { color = "Green" })
+C_130J:defineIndicatorLight("RCP_OFS_MODE_LED", 4085, RADAR_CONTROL_PANEL, "Radar OFS Mode Switch Led", { color = "Green" })
+C_130J:defineIndicatorLight("RCP_FRZ_MODE_LED", 4086, RADAR_CONTROL_PANEL, "Radar FRZ Mode Switch Led", { color = "Green" })
+C_130J:defineIndicatorLight("RCP_PEN_MODE_LED", 4087, RADAR_CONTROL_PANEL, "Radar PEN Mode Switch Led", { color = "Green" })
+C_130J:defineIndicatorLight("RCP_SCTR_MODE_LED", 4088, RADAR_CONTROL_PANEL, "Radar SCTR Mode Switch Led", { color = "Green" })
 
 -- Pilot Intercommunications System Control Panel
 local PLT_ICS_PANEL = "PLT Intercommunications System Control Panel"
@@ -361,8 +364,8 @@ C_130J:defineToggleSwitch("PLT_ICS_U1_BUTTON", devices.VOLUME_MANAGER, 3025, 222
 C_130J:definePotentiometer("PLT_ICS_U2_VOLUME", devices.VOLUME_MANAGER, 3014, 225, { 0, 1 }, PLT_ICS_PANEL, "Pilot UHF 2 Volume Knob")
 C_130J:defineToggleSwitch("PLT_ICS_U2_BUTTON", devices.VOLUME_MANAGER, 3026, 224, PLT_ICS_PANEL, "Pilot UHF 2 Pull to Monitor")
 C_130J:defineRockerSwitch("PLT_ICS_INT_RADIO_ROCKER", devices.VOLUME_MANAGER, 3015, 3015, 3015, 3015, 291, PLT_ICS_PANEL, "Pilot Intercom/Radio Transmit")
-C_130J:defineMultipositionSwitch("PLT_ICS_INTERPHONE_MODE", devices.VOLUME_MANAGER, 3027, 293, 4, 0.3, PLT_ICS_PANEL, "Pilot Interphone Mode Switch")
-C_130J:defineTumb("PLT_ICS_TRANSMISSION_SELECTOR", devices.VOLUME_MANAGER, 3028, 294, 1 / 9, { -2 / 9, 7 / 9 }, nil, false, PLT_ICS_PANEL, "Pilot Transmission Selector Switch")
+C_130J:defineMultipositionSwitch("PLT_ICS_INTERPHONE_MODE", devices.VOLUME_MANAGER, 3027, 293, 4, 0.3, PLT_ICS_PANEL, "Pilot Interphone Mode Switch", { positions = { "CALL", "INT", "VOX", "HOT MIC" } })
+C_130J:defineTumb("PLT_ICS_TRANSMISSION_SELECTOR", devices.VOLUME_MANAGER, 3028, 294, 1 / 9, { -2 / 9, 7 / 9 }, nil, false, PLT_ICS_PANEL, "Pilot Transmission Selector Switch", { positions = { "PA", "INT", "U-1", "U-2", "V-1", "V-2", "H-1", "H-2", "SAT", "PVT" } })
 C_130J:definePotentiometer("PLT_ICS_MASTER_VOLUME", devices.VOLUME_MANAGER, 3001, 1355, { 0, 1 }, PLT_ICS_PANEL, "Pilot Master Volume Knob")
 
 -- Copilot Intercommunications System Control Panel
@@ -392,8 +395,8 @@ C_130J:defineToggleSwitch("CPLT_ICS_U1_BUTTON", devices.VOLUME_MANAGER, 3053, 24
 C_130J:definePotentiometer("CPLT_ICS_U2_VOLUME", devices.VOLUME_MANAGER, 3042, 247, { 0, 1 }, CPLT_ICS_PANEL, "Copilot UHF 2 Volume Knob")
 C_130J:defineToggleSwitch("CPLT_ICS_U2_BUTTON", devices.VOLUME_MANAGER, 3054, 246, CPLT_ICS_PANEL, "Copilot UHF 2 Pull to Monitor")
 C_130J:defineRockerSwitch("CPLT_ICS_INT_RADIO_ROCKER", devices.VOLUME_MANAGER, 3043, 3043, 3043, 3043, 292, CPLT_ICS_PANEL, "Copilot Intercom/Radio Transmit")
-C_130J:defineMultipositionSwitch("CPLT_ICS_INTERPHONE_MODE", devices.VOLUME_MANAGER, 3055, 295, 4, 0.3, CPLT_ICS_PANEL, "Copilot Interphone Mode Switch")
-C_130J:defineTumb("CPLT_ICS_TRANSMISSION_SELECTOR", devices.VOLUME_MANAGER, 3056, 296, 1 / 9, { -2 / 9, 7 / 9 }, nil, false, CPLT_ICS_PANEL, "Copilot Transmission Selector Switch")
+C_130J:defineMultipositionSwitch("CPLT_ICS_INTERPHONE_MODE", devices.VOLUME_MANAGER, 3055, 295, 4, 0.3, CPLT_ICS_PANEL, "Copilot Interphone Mode Switch", { positions = { "CALL", "INT", "VOX", "HOT MIC" } })
+C_130J:defineTumb("CPLT_ICS_TRANSMISSION_SELECTOR", devices.VOLUME_MANAGER, 3056, 296, 1 / 9, { -2 / 9, 7 / 9 }, nil, false, CPLT_ICS_PANEL, "Copilot Transmission Selector Switch", { positions = { "PA", "INT", "U-1", "U-2", "V-1", "V-2", "H-1", "H-2", "SAT", "PVT" } })
 C_130J:definePotentiometer("CPLT_ICS_MASTER_VOLUME", devices.VOLUME_MANAGER, 3029, 1358, { 0, 1 }, CPLT_ICS_PANEL, "Copilot Master Volume Knob")
 
 -- Augmented Intercommunications System Control Panel
@@ -423,8 +426,8 @@ C_130J:defineToggleSwitch("AUG_ICS_U1_BUTTON", devices.VOLUME_MANAGER, 3141, 286
 C_130J:definePotentiometer("AUG_ICS_U2_VOLUME", devices.VOLUME_MANAGER, 3130, 289, { 0, 1 }, AUG_ICS_PANEL, "AUG ICSU2 Volume")
 C_130J:defineToggleSwitch("AUG_ICS_U2_BUTTON", devices.VOLUME_MANAGER, 3142, 288, AUG_ICS_PANEL, "AUG ICSU2 Pull to Monitor")
 C_130J:defineRockerSwitch("AUG_ICS_INT_RADIO_ROCKER", devices.VOLUME_MANAGER, 3131, 3131, 3131, 3131, 290, AUG_ICS_PANEL, "AUG ICS Intercom/Radio")
-C_130J:defineMultipositionSwitch("AUG_ICS_MIC_MODE", devices.VOLUME_MANAGER, 3143, 297, 4, 0.3, AUG_ICS_PANEL, "AUG ICS Mic Mode")
-C_130J:defineTumb("AUG_ICS_TRANSMISSION_SELECTOR", devices.VOLUME_MANAGER, 3144, 298, 1 / 9, { -2 / 9, 7 / 9 }, nil, false, AUG_ICS_PANEL, "AUG ICS Transmit Selector Switch")
+C_130J:defineMultipositionSwitch("AUG_ICS_MIC_MODE", devices.VOLUME_MANAGER, 3143, 297, 4, 0.3, AUG_ICS_PANEL, "AUG ICS Mic Mode", { positions = { "CALL", "INT", "VOX", "HOT MIC" } })
+C_130J:defineTumb("AUG_ICS_TRANSMISSION_SELECTOR", devices.VOLUME_MANAGER, 3144, 298, 1 / 9, { -2 / 9, 7 / 9 }, nil, false, AUG_ICS_PANEL, "AUG ICS Transmit Selector Switch", { positions = { "PA", "INT", "U-1", "U-2", "V-1", "V-2", "H-1", "H-2", "SAT", "PVT" } })
 C_130J:definePotentiometer("AUG_ICS_MASTER_VOLUME", devices.VOLUME_MANAGER, 3097, 1361, { 0, 1 }, AUG_ICS_PANEL, "Aug ICS Master Volume Knob")
 
 -- Pilot Communication/Navigation/Identification Management Unit
@@ -456,7 +459,7 @@ C_130J:definePushButton("PLT_CNI_LEGS", devices.P_CNI, 3019, 1123, PLT_CNI_MU, "
 C_130J:definePushButton("PLT_CNI_MARK", devices.P_CNI, 3020, 1124, PLT_CNI_MU, "Pilot CNI-MU MARK Key")
 C_130J:definePushButton("PLT_CNI_PREV_PAGE", devices.P_CNI, 3027, 1125, PLT_CNI_MU, "Pilot CNI-MU PREV PAGE Key")
 C_130J:definePushButton("PLT_CNI_NEXT_PAGE", devices.P_CNI, 3026, 1126, PLT_CNI_MU, "Pilot CNI-MU NEXT PAGE Key")
-C_130J:defineRockerSwitch("PLT_CNI_BRT_ROCKER", devices.P_CNI, 3070, 3070, 3071, 3071, 1127, PLT_CNI_MU, "Pilot CNI-MU BRT")
+C_130J:defineRockerSwitch("PLT_CNI_BRT_ROCKER", devices.P_CNI, 3070, 3070, 3071, 3071, 1127, PLT_CNI_MU, "Pilot CNI-MU BRT", { positions = { "DECREASE", "OFF", "INCREASE" } })
 C_130J:definePushButton("PLT_CNI_KBD_1", devices.P_CNI, 3031, 1128, PLT_CNI_MU, "Pilot CNI-MU 1 Key")
 C_130J:definePushButton("PLT_CNI_KBD_2", devices.P_CNI, 3032, 1129, PLT_CNI_MU, "Pilot CNI-MU 2 Key")
 C_130J:definePushButton("PLT_CNI_KBD_3", devices.P_CNI, 3033, 1130, PLT_CNI_MU, "Pilot CNI-MU 3 Key")
@@ -498,10 +501,10 @@ C_130J:definePushButton("PLT_CNI_KBD_Z", devices.P_CNI, 3067, 1165, PLT_CNI_MU, 
 C_130J:definePushButton("PLT_CNI_KBD_SLASH", devices.P_CNI, 3068, 1168, PLT_CNI_MU, "Pilot CNI-MU / Key")
 C_130J:definePushButton("PLT_CNI_KBD_DEL", devices.P_CNI, 3028, 1167, PLT_CNI_MU, "Pilot CNI-MU DEL Key")
 C_130J:definePushButton("PLT_CNI_KBD_CLR", devices.P_CNI, 3029, 1169, PLT_CNI_MU, "Pilot CNI-MU CLR Key")
-C_130J:defineIndicatorLight("PLT_CNI_DSPY_LED", 4137, PLT_CNI_MU, "Pilot CNI-MU DSPY Light (Green)")
-C_130J:defineIndicatorLight("PLT_CNI_MSG_LED", 4138, PLT_CNI_MU, "Pilot CNI-MU MSG Light (Green)")
-C_130J:defineIndicatorLight("PLT_CNI_FAIL_LED", 4139, PLT_CNI_MU, "Pilot CNI-MU FAIL Light (Yellow)")
-C_130J:defineIndicatorLight("PLT_CNI_OFSET_LED", 4140, PLT_CNI_MU, "Pilot CNI-MU OFSET Light (Green)")
+C_130J:defineIndicatorLight("PLT_CNI_DSPY_LED", 4137, PLT_CNI_MU, "Pilot CNI-MU DSPY Light", { color = "Green" })
+C_130J:defineIndicatorLight("PLT_CNI_MSG_LED", 4138, PLT_CNI_MU, "Pilot CNI-MU MSG Light", { color = "Green" })
+C_130J:defineIndicatorLight("PLT_CNI_FAIL_LED", 4139, PLT_CNI_MU, "Pilot CNI-MU FAIL Light", { color = "Yellow" })
+C_130J:defineIndicatorLight("PLT_CNI_OFSET_LED", 4140, PLT_CNI_MU, "Pilot CNI-MU OFSET Light", { color = "Green" })
 C_130J:defineFloat("PLT_CNI_EXEC_LED", 3390, { 0, 1 }, PLT_CNI_MU, "Pilot CNI-MU EXEC Light (Green)")
 
 -- Copilot Communication/Navigation/Identification Management Unit
@@ -533,7 +536,7 @@ C_130J:definePushButton("CPLT_CNI_LEGS", devices.C_CNI, 3019, 1193, CPLT_CNI_MU,
 C_130J:definePushButton("CPLT_CNI_MARK", devices.C_CNI, 3020, 1194, CPLT_CNI_MU, "Copilot CNI-MU MARK Key")
 C_130J:definePushButton("CPLT_CNI_PREV_PAGE", devices.C_CNI, 3027, 1195, CPLT_CNI_MU, "Copilot CNI-MU PREV PAGE Key")
 C_130J:definePushButton("CPLT_CNI_NEXT_PAGE", devices.C_CNI, 3026, 1196, CPLT_CNI_MU, "Copilot CNI-MU NEXT PAGE Key")
-C_130J:defineRockerSwitch("CPLT_CNI_BRT_ROCKER", devices.C_CNI, 3070, 3070, 3071, 3071, 1197, CPLT_CNI_MU, "Copilot CNI-MU BRT")
+C_130J:defineRockerSwitch("CPLT_CNI_BRT_ROCKER", devices.C_CNI, 3070, 3070, 3071, 3071, 1197, CPLT_CNI_MU, "Copilot CNI-MU BRT", { positions = { "DECREASE", "OFF", "INCREASE" } })
 C_130J:definePushButton("CPLT_CNI_KBD_1", devices.C_CNI, 3031, 1198, CPLT_CNI_MU, "Copilot CNI-MU 1 Key")
 C_130J:definePushButton("CPLT_CNI_KBD_2", devices.C_CNI, 3032, 1199, CPLT_CNI_MU, "Copilot CNI-MU 2 Key")
 C_130J:definePushButton("CPLT_CNI_KBD_3", devices.C_CNI, 3033, 1200, CPLT_CNI_MU, "Copilot CNI-MU 3 Key")
@@ -575,10 +578,10 @@ C_130J:definePushButton("CPLT_CNI_KBD_Z", devices.C_CNI, 3067, 1235, CPLT_CNI_MU
 C_130J:definePushButton("CPLT_CNI_KBD_SLASH", devices.C_CNI, 3068, 1238, CPLT_CNI_MU, "Copilot CNI-MU / Key")
 C_130J:definePushButton("CPLT_CNI_KBD_DEL", devices.C_CNI, 3028, 1237, CPLT_CNI_MU, "Copilot CNI-MU DEL Key")
 C_130J:definePushButton("CPLT_CNI_KBD_CLR", devices.C_CNI, 3029, 1239, CPLT_CNI_MU, "Copilot CNI-MU CLR Key")
-C_130J:defineIndicatorLight("CPLT_CNI_DSPY_LED", 4141, CPLT_CNI_MU, "Copilot CNI-MU DSPY Light (Green)")
-C_130J:defineIndicatorLight("CPLT_CNI_MSG_LED", 4142, CPLT_CNI_MU, "Copilot CNI-MU MSG Light (Green)")
-C_130J:defineIndicatorLight("CPLT_CNI_FAIL_LED", 4143, CPLT_CNI_MU, "Copilot CNI-MU FAIL Light (Yellow)")
-C_130J:defineIndicatorLight("CPLT_CNI_OFSET_LED", 4144, CPLT_CNI_MU, "Copilot CNI-MU OFSET Light (Green)")
+C_130J:defineIndicatorLight("CPLT_CNI_DSPY_LED", 4141, CPLT_CNI_MU, "Copilot CNI-MU DSPY Light", { color = "Green" })
+C_130J:defineIndicatorLight("CPLT_CNI_MSG_LED", 4142, CPLT_CNI_MU, "Copilot CNI-MU MSG Light", { color = "Green" })
+C_130J:defineIndicatorLight("CPLT_CNI_FAIL_LED", 4143, CPLT_CNI_MU, "Copilot CNI-MU FAIL Light", { color = "Yellow" })
+C_130J:defineIndicatorLight("CPLT_CNI_OFSET_LED", 4144, CPLT_CNI_MU, "Copilot CNI-MU OFSET Light", { color = "Green" })
 C_130J:defineFloat("CPLT_CNI_EXEC_LED", 3392, { 0, 1 }, CPLT_CNI_MU, "Copilot CNI-MU EXEC Light (Green)")
 
 -- Augmented Communication/Navigation/Identification Management Unit
@@ -610,7 +613,7 @@ C_130J:definePushButton("AUG_CNI_LEGS", devices.AC_CNI, 3019, 1263, AUG_CNI_MU, 
 C_130J:definePushButton("AUG_CNI_MARK", devices.AC_CNI, 3020, 1264, AUG_CNI_MU, "Aug Crew CNI-MU MARK Key")
 C_130J:definePushButton("AUG_CNI_PREV_PAGE", devices.AC_CNI, 3027, 1265, AUG_CNI_MU, "Aug Crew CNI-MU PREV PAGE Key")
 C_130J:definePushButton("AUG_CNI_NEXT_PAGE", devices.AC_CNI, 3026, 1266, AUG_CNI_MU, "Aug Crew CNI-MU NEXT PAGE Key")
-C_130J:defineRockerSwitch("AUG_CNI_BRT_ROCKER", devices.AC_CNI, 3070, 3070, 3071, 3071, 1267, AUG_CNI_MU, "Aug Crew CNI-MU BRT")
+C_130J:defineRockerSwitch("AUG_CNI_BRT_ROCKER", devices.AC_CNI, 3070, 3070, 3071, 3071, 1267, AUG_CNI_MU, "Aug Crew CNI-MU BRT", { positions = { "DECREASE", "OFF", "INCREASE" } })
 C_130J:definePushButton("AUG_CNI_KBD_1", devices.AC_CNI, 3031, 1268, AUG_CNI_MU, "Aug Crew CNI-MU 1 Key")
 C_130J:definePushButton("AUG_CNI_KBD_2", devices.AC_CNI, 3032, 1269, AUG_CNI_MU, "Aug Crew CNI-MU 2 Key")
 C_130J:definePushButton("AUG_CNI_KBD_3", devices.AC_CNI, 3033, 1270, AUG_CNI_MU, "Aug Crew CNI-MU 3 Key")
@@ -652,10 +655,10 @@ C_130J:definePushButton("AUG_CNI_KBD_Z", devices.AC_CNI, 3067, 1305, AUG_CNI_MU,
 C_130J:definePushButton("AUG_CNI_KBD_SLASH", devices.AC_CNI, 3068, 1308, AUG_CNI_MU, "Aug Crew CNI-MU / Key")
 C_130J:definePushButton("AUG_CNI_KBD_DEL", devices.AC_CNI, 3028, 1307, AUG_CNI_MU, "Aug Crew CNI-MU DEL Key")
 C_130J:definePushButton("AUG_CNI_KBD_CLR", devices.AC_CNI, 3029, 1309, AUG_CNI_MU, "Aug Crew CNI-MU CLR Key")
-C_130J:defineIndicatorLight("AUG_CNI_DSPY_LED", 4145, AUG_CNI_MU, "Aug Crew CNI-MU DSPY Light (Green)")
-C_130J:defineIndicatorLight("AUG_CNI_MSG_LED", 4146, AUG_CNI_MU, "Aug Crew CNI-MU MSG Light (Green)")
-C_130J:defineIndicatorLight("AUG_CNI_FAIL_LED", 4147, AUG_CNI_MU, "Aug Crew CNI-MU FAIL Light (Yellow)")
-C_130J:defineIndicatorLight("AUG_CNI_OFSET_LED", 4148, AUG_CNI_MU, "Aug Crew CNI-MU OFSET Light (Green)")
+C_130J:defineIndicatorLight("AUG_CNI_DSPY_LED", 4145, AUG_CNI_MU, "Aug Crew CNI-MU DSPY Light", { color = "Green" })
+C_130J:defineIndicatorLight("AUG_CNI_MSG_LED", 4146, AUG_CNI_MU, "Aug Crew CNI-MU MSG Light", { color = "Green" })
+C_130J:defineIndicatorLight("AUG_CNI_FAIL_LED", 4147, AUG_CNI_MU, "Aug Crew CNI-MU FAIL Light", { color = "Yellow" })
+C_130J:defineIndicatorLight("AUG_CNI_OFSET_LED", 4148, AUG_CNI_MU, "Aug Crew CNI-MU OFSET Light", { color = "Green" })
 C_130J:defineFloat("AUG_CNI_EXEC_LED", 3394, { 0, 1 }, AUG_CNI_MU, "Aug Crew CNI-MU EXEC Light (Green)")
 
 -- Pilot Remote Heading and Course Selector
@@ -680,19 +683,19 @@ C_130J:definePushButton("CC_LSGI_ENGINE_3_SWITCH", devices.MECH_INTERFACE, 3006,
 C_130J:definePushButton("CC_LSGI_ENGINE_4_SWITCH", devices.MECH_INTERFACE, 3007, 49, THROTTLE_QUADRANT, "Engine 4 LSGI Select Switch")
 C_130J:definePushButton("CC_L_ATHROTTLE_DISC", devices.AP_INTERFACE, 3035, 19, THROTTLE_QUADRANT, "Left Autothrottle Disconnect Button")
 C_130J:definePushButton("CC_R_ATHROTTLE_DISC", devices.AP_INTERFACE, 3036, 20, THROTTLE_QUADRANT, "Right Autothrottle Disconnect Button")
-C_130J:defineIndicatorLight("CC_LSGI_ENGINE_1_LED", 4091, THROTTLE_QUADRANT, "Engine 1 LSGI Switch Low Led (Green)")
-C_130J:defineIndicatorLight("CC_LSGI_ENGINE_2_LED", 4092, THROTTLE_QUADRANT, "Engine 2 LSGI Switch Low Led (Green)")
-C_130J:defineIndicatorLight("CC_LSGI_ENGINE_3_LED", 4093, THROTTLE_QUADRANT, "Engine 3 LSGI Switch Low Led (Green)")
-C_130J:defineIndicatorLight("CC_LSGI_ENGINE_4_LED", 4094, THROTTLE_QUADRANT, "Engine 4 LSGI Switch Low Led (Green)")
+C_130J:defineIndicatorLight("CC_LSGI_ENGINE_1_LED", 4091, THROTTLE_QUADRANT, "Engine 1 LSGI Switch Low Led", { color = "Green" })
+C_130J:defineIndicatorLight("CC_LSGI_ENGINE_2_LED", 4092, THROTTLE_QUADRANT, "Engine 2 LSGI Switch Low Led", { color = "Green" })
+C_130J:defineIndicatorLight("CC_LSGI_ENGINE_3_LED", 4093, THROTTLE_QUADRANT, "Engine 3 LSGI Switch Low Led", { color = "Green" })
+C_130J:defineIndicatorLight("CC_LSGI_ENGINE_4_LED", 4094, THROTTLE_QUADRANT, "Engine 4 LSGI Switch Low Led", { color = "Green" })
 
 -- Cursor Control Panel
 local CURSOR_CONTROL_PANEL = "Cursor Control Panel"
-C_130J:defineMultipositionSwitch("CCP_CURSOR_PRIORITY", devices.MECH_INTERFACE, 3003, 65, 3, 0.5, CURSOR_CONTROL_PANEL, "Cursor Priority Switch")
+C_130J:defineMultipositionSwitch("CCP_CURSOR_PRIORITY", devices.MECH_INTERFACE, 3003, 65, 3, 0.5, CURSOR_CONTROL_PANEL, "Cursor Priority Switch", { positions = { "P", "3RD", "CP" } })
 C_130J:definePushButton("CCP_CURSOR_RESET", devices.MECH_INTERFACE, 3010, 68, CURSOR_CONTROL_PANEL, "Cursor Reset Switch")
 C_130J:definePushButton("CCP_HUD_CURSOR", devices.MECH_INTERFACE, 3014, 69, CURSOR_CONTROL_PANEL, "HUD Cursor Off/On Switch")
-C_130J:defineRockerSwitch("CCP_DISPLAY_RANGE", devices.MECH_INTERFACE, 3015, 3015, 3015, 3015, 66, CURSOR_CONTROL_PANEL, "Display Range Increase/Decrease")
-C_130J:defineRockerSwitch("CCP_DISPLAY_ZOOM", devices.MECH_INTERFACE, 3016, 3016, 3016, 3016, 67, CURSOR_CONTROL_PANEL, "Display Zoom Increase/Decrease")
-C_130J:defineTumb("CCP_CURSOR_SELECT", devices.MECH_INTERFACE, 3030, 72, 1 / 6, { -1 / 6, 5 / 6 }, nil, false, CURSOR_CONTROL_PANEL, "Cursor Display Select Switch")
+C_130J:defineRockerSwitch("CCP_DISPLAY_RANGE", devices.MECH_INTERFACE, 3015, 3015, 3015, 3015, 66, CURSOR_CONTROL_PANEL, "Display Range Increase/Decrease", { positions = { "DECR", "OFF", "INCR" } })
+C_130J:defineRockerSwitch("CCP_DISPLAY_ZOOM", devices.MECH_INTERFACE, 3016, 3016, 3016, 3016, 67, CURSOR_CONTROL_PANEL, "Display Zoom Increase/Decrease", { positions = { "DECR", "OFF", "INCR" } })
+C_130J:defineTumb("CCP_CURSOR_SELECT", devices.MECH_INTERFACE, 3030, 72, 1 / 6, { -1 / 6, 5 / 6 }, nil, false, CURSOR_CONTROL_PANEL, "Cursor Display Select Switch", { positions = { "1", "2", "3", "4", "OFF", "", "" } }) -- actually blank
 C_130J:defineRockerSwitch("CCP_CURSOR_TILT", devices.MECH_INTERFACE, 3096, 3096, 3096, 3096, 483, CURSOR_CONTROL_PANEL, "Cursor - Tilt")
 
 -- Wing Flaps Control Quadrant
@@ -724,44 +727,44 @@ C_130J:defineToggleSwitch("AUG_ICS_RWR_BUTTON", devices.VOLUME_MANAGER, 3117, 26
 
 -- Trim Panel
 local TRIM_PANEL = "Trim Panel"
-C_130J:defineC130Springloaded_3PosTumb("TRIM_ELEV_TAB_PWR", devices.MECH_INTERFACE, 3038, 1334, TRIM_PANEL, "Elevator Trim Tab Power Switch: NORM/OFF/EMER")
-C_130J:defineRockerSwitch("TRIM_RUDDER_SWITCH", devices.MECH_INTERFACE, 3036, 3036, 3036, 3036, 75, TRIM_PANEL, "Rudder Trim Switch")
-C_130J:defineRockerSwitch("TRIM_NOSE_UP_DOWN", devices.MECH_INTERFACE, 3089, 3089, 3088, 3088, 1364, TRIM_PANEL, "Elevator Trim Nose Up/Down")
-C_130J:defineRockerSwitch("TRIM_WING_RIGHT_LEFT", devices.MECH_INTERFACE, 3091, 3091, 3090, 3090, 1365, TRIM_PANEL, "Aileron Trim Right/Left Wing Down")
+C_130J:defineC130Springloaded_3PosTumb("TRIM_ELEV_TAB_PWR", devices.MECH_INTERFACE, 3038, 1334, TRIM_PANEL, "Elevator Trim Tab Power Switch", { positions = { "EMER", "OFF", "NORM" } })
+C_130J:defineRockerSwitch("TRIM_RUDDER_SWITCH", devices.MECH_INTERFACE, 3036, 3036, 3036, 3036, 75, TRIM_PANEL, "Rudder Trim Switch", { positions = { "NOSE LEFT", "OFF", "NOSE RIGHT" } })
+C_130J:defineRockerSwitch("TRIM_NOSE_UP_DOWN", devices.MECH_INTERFACE, 3089, 3089, 3088, 3088, 1364, TRIM_PANEL, "Elevator Trim Nose Up/Down", { positions = { "NOSE DOWN", "OFF", "NOSE UP" } })
+C_130J:defineRockerSwitch("TRIM_WING_RIGHT_LEFT", devices.MECH_INTERFACE, 3091, 3091, 3090, 3090, 1365, TRIM_PANEL, "Aileron Trim Right/Left Wing Down", { positions = { "L WG LWR", "OFF", "R WG LWR" } })
 
 -- Defensive Systems Panel
 local DEFENSIVE_SYSTEMS = "Defensive Systems Panel"
-C_130J:defineToggleSwitch("DSP_DEFENSIVE_MASTER_SWITCH", devices.CMS_MGR, 3001, 61, DEFENSIVE_SYSTEMS, "Defensive Systems Master Switch")
-C_130J:defineToggleSwitch("DSP_CMS_JETTISON_GUARD", devices.CMS_MGR, 3006, 59, DEFENSIVE_SYSTEMS, "CMS Jettison Switch Guard")
+C_130J:defineToggleSwitch("DSP_DEFENSIVE_MASTER_SWITCH", devices.CMS_MGR, 3001, 61, DEFENSIVE_SYSTEMS, "Defensive Systems Master Switch", { positions = { "STBY", "OPR" } })
+C_130J:defineToggleSwitch("DSP_CMS_JETTISON_GUARD", devices.CMS_MGR, 3006, 59, DEFENSIVE_SYSTEMS, "CMS Jettison Switch Guard", { positions = CommonPositions.COVER })
 C_130J:defineToggleSwitch("DSP_CMS_JETTISON_SWITCH", devices.CMS_MGR, 3005, 60, DEFENSIVE_SYSTEMS, "CMS Jettison Switch")
-C_130J:defineMultipositionSwitch("DSP_CMDS_MODE", devices.CMS_MGR, 3003, 74, 5, 0.25, DEFENSIVE_SYSTEMS, "CMDS Mode Selector (STBY/MAN/SEMI/AUTO/BYP)")
-C_130J:defineMultipositionSwitch("DSP_MAN_PRGMS_SWITCH", devices.CMS_MGR, 3008, 64, 3, 0.5, DEFENSIVE_SYSTEMS, "MAN PRGMS Switch (6/5/1-4)")
-C_130J:defineToggleSwitch("DSP_ECM_MASTER", devices.CMS_MGR, 3007, 62, DEFENSIVE_SYSTEMS, "ECM Master Switch")
-C_130J:defineToggleSwitch("DSP_IRCM_MASTER", devices.CMS_MGR, 3004, 63, DEFENSIVE_SYSTEMS, "IRCM Master Switch")
+C_130J:defineMultipositionSwitch("DSP_CMDS_MODE", devices.CMS_MGR, 3003, 74, 5, 0.25, DEFENSIVE_SYSTEMS, "CMDS Mode Selector", { positions = { "STBY", "MAN", "SEMI", "AUTO", "BYP" } })
+C_130J:defineMultipositionSwitch("DSP_MAN_PRGMS_SWITCH", devices.CMS_MGR, 3008, 64, 3, 0.5, DEFENSIVE_SYSTEMS, "MAN PRGMS Switch", { positions = { "6", "5", "1-4" } })
+C_130J:defineToggleSwitch("DSP_ECM_MASTER", devices.CMS_MGR, 3007, 62, DEFENSIVE_SYSTEMS, "ECM Master Switch", { positions = { "STBY", "OPR" } })
+C_130J:defineToggleSwitch("DSP_IRCM_MASTER", devices.CMS_MGR, 3004, 63, DEFENSIVE_SYSTEMS, "IRCM Master Switch", { positions = { "STBY", "OPR" } })
 C_130J:definePushButton("DSP_RWR_SRCH", devices.CMS_MGR, 3009, 54, DEFENSIVE_SYSTEMS, "RWR SRCH Switch")
 C_130J:definePushButton("DSP_RWR_MODE", devices.CMS_MGR, 3010, 55, DEFENSIVE_SYSTEMS, "RWR MODE Switch")
 C_130J:definePushButton("DSP_RWR_HANDOFF", devices.CMS_MGR, 3011, 56, DEFENSIVE_SYSTEMS, "RWR HANDOFF Switch")
 C_130J:definePushButton("DSP_RWR_ALT", devices.CMS_MGR, 3012, 57, DEFENSIVE_SYSTEMS, "RWR ALT Switch")
 C_130J:definePushButton("DSP_RWR_TGT_SEP", devices.CMS_MGR, 3013, 58, DEFENSIVE_SYSTEMS, "RWR TGT SEP Switch")
-C_130J:defineIndicatorLight("DSP_RWR_SRCH_LED", 4097, DEFENSIVE_SYSTEMS, "RWR SRCH Switch Light (Green)")
-C_130J:defineIndicatorLight("DSP_RWR_MODE_LED", 4098, DEFENSIVE_SYSTEMS, "RWR MODE Switch Light (Green)")
-C_130J:defineIndicatorLight("DSP_RWR_HANDOFF_LED", 4099, DEFENSIVE_SYSTEMS, "RWR HANDOFF Switch Light (Green)")
-C_130J:defineIndicatorLight("DSP_RWR_ALT_LED", 4100, DEFENSIVE_SYSTEMS, "RWR ALT Switch Light (Green)")
-C_130J:defineIndicatorLight("DSP_RWR_TGT_SEP_LED", 4101, DEFENSIVE_SYSTEMS, "RWR TGT SEP Switch Light (Green)")
+C_130J:defineIndicatorLight("DSP_RWR_SRCH_LED", 4097, DEFENSIVE_SYSTEMS, "RWR SRCH Switch Light", { color = "Green" })
+C_130J:defineIndicatorLight("DSP_RWR_MODE_LED", 4098, DEFENSIVE_SYSTEMS, "RWR MODE Switch Light", { color = "Green" })
+C_130J:defineIndicatorLight("DSP_RWR_HANDOFF_LED", 4099, DEFENSIVE_SYSTEMS, "RWR HANDOFF Switch Light", { color = "Green" })
+C_130J:defineIndicatorLight("DSP_RWR_ALT_LED", 4100, DEFENSIVE_SYSTEMS, "RWR ALT Switch Light", { color = "Green" })
+C_130J:defineIndicatorLight("DSP_RWR_TGT_SEP_LED", 4101, DEFENSIVE_SYSTEMS, "RWR TGT SEP Switch Light", { color = "Green" })
 
 -- Aerial Delivery Panel
 local AERIAL_DELIVERY = "Aerial Delivery Panel"
-C_130J:defineC130Springloaded_3PosTumb("ADP_RAMP_DOOR", devices.MECH_INTERFACE, 3031, 479, AERIAL_DELIVERY, "Ramp/Door Control Switch: OPEN/OFF/CLOSE")
-C_130J:defineIndicatorLight("ADP_RAMP_DOOR_LED", 4075, AERIAL_DELIVERY, "Ramp/Door Control Switch Light (Green)")
+C_130J:defineC130Springloaded_3PosTumb("ADP_RAMP_DOOR", devices.MECH_INTERFACE, 3031, 479, AERIAL_DELIVERY, "Ramp/Door Control Switch", { positions = { "CLOSE", "OFF", "OPEN" } })
+C_130J:defineIndicatorLight("ADP_RAMP_DOOR_LED", 4075, AERIAL_DELIVERY, "Ramp/Door Control Switch Light", { color = "Green" })
 C_130J:definePushButton("ADP_AIRDROP_CAUTION", devices.MECH_INTERFACE, 3026, 397, AERIAL_DELIVERY, "Airdrop Caution Control Button")
-C_130J:defineIndicatorLight("ADP_AIRDROP_CAUTION_LED", 4095, AERIAL_DELIVERY, "Airdrop Caution Light (Yellow)")
+C_130J:defineIndicatorLight("ADP_AIRDROP_CAUTION_LED", 4095, AERIAL_DELIVERY, "Airdrop Caution Light", { color = "Yellow" })
 C_130J:definePushButton("ADP_AIRDROP_JUMP", devices.MECH_INTERFACE, 3027, 326, AERIAL_DELIVERY, "Airdrop Jump Control Button")
-C_130J:defineIndicatorLight("ADP_AIRDROP_JUMP_LED", 4096, AERIAL_DELIVERY, "Airdrop Jump Light (Green)")
-C_130J:defineToggleSwitch("ADP_RELEASE_CHUTE_COVER", devices.MECH_INTERFACE, 3028, 76, AERIAL_DELIVERY, "Chute Release Button Cover")
+C_130J:defineIndicatorLight("ADP_AIRDROP_JUMP_LED", 4096, AERIAL_DELIVERY, "Airdrop Jump Light", { color = "Green" })
+C_130J:defineToggleSwitch("ADP_RELEASE_CHUTE_COVER", devices.MECH_INTERFACE, 3028, 76, AERIAL_DELIVERY, "Chute Release Button Cover", { positions = CommonPositions.COVER })
 C_130J:defineToggleSwitch("ADP_RELEASE_CHUTE_BUTTON", devices.MECH_INTERFACE, 3029, 77, AERIAL_DELIVERY, "Chute Release Button")
-C_130J:defineToggleSwitch("ADP_AIR_DEFLECTOR", devices.MECH_INTERFACE, 3024, 478, AERIAL_DELIVERY, "Air Deflector Control Switch")
-C_130J:defineMultipositionSwitch("ADP_COMP_DROP", devices.MECH_INTERFACE, 3025, 474, 3, 0.5, AERIAL_DELIVERY, "Computer Drop Switch: AUTO/AD-MAN/TJ-AUTO/MAN")
-C_130J:defineToggleSwitch("ADP_BAY_ALARM_GUARD", devices.MECH_INTERFACE, 3022, 78, AERIAL_DELIVERY, "Cargo Bay Alarm Switch Guard")
+C_130J:defineToggleSwitch("ADP_AIR_DEFLECTOR", devices.MECH_INTERFACE, 3024, 478, AERIAL_DELIVERY, "Air Deflector Control Switch", { positions = { "CLOSE", "OPEN" } })
+C_130J:defineMultipositionSwitch("ADP_COMP_DROP", devices.MECH_INTERFACE, 3025, 474, 3, 0.5, AERIAL_DELIVERY, "Computer Drop Switch", { positions = { "MAN", "AD-MAN/TJ-AUTO", "AUTO" } })
+C_130J:defineToggleSwitch("ADP_BAY_ALARM_GUARD", devices.MECH_INTERFACE, 3022, 78, AERIAL_DELIVERY, "Cargo Bay Alarm Switch Guard", { positions = CommonPositions.COVER })
 C_130J:defineToggleSwitch("ADP_BAY_ALARM_SWITCH", devices.MECH_INTERFACE, 3023, 79, AERIAL_DELIVERY, "Cargo Bay Alarm Switch")
 
 -- Automatic Flight Control System Panel
@@ -772,8 +775,8 @@ C_130J:defineToggleSwitch("AFCS_PLT_ENGAGE_SWITCH", devices.AP_INTERFACE, 3011, 
 C_130J:defineToggleSwitch("AFCS_CPLT_ENGAGE_SWITCH", devices.AP_INTERFACE, 3012, 53, AFCS_PANEL, "Copilot AFCS Engage Switch")
 C_130J:definePushButton("AFCS_PITCH_AXIS_SWITCH", devices.AP_INTERFACE, 3013, 51, AFCS_PANEL, "AFCS Pitch Axis Deselect Switch")
 C_130J:definePushButton("AFCS_LATERAL_AXIS_SWITCH", devices.AP_INTERFACE, 3014, 73, AFCS_PANEL, "AFCS Lateral Axis Deselect Switch")
-C_130J:defineIndicatorLight("AFCS_PITCH_AXIS_SWITCH_LED", 4089, AFCS_PANEL, "AFCS Pitch Axis Deselect Light (Green)")
-C_130J:defineIndicatorLight("AFCS_LATERAL_AXIS_SWITCH_LED", 4090, AFCS_PANEL, "AFCS Lateral Axis Deselect Light (Green)")
+C_130J:defineIndicatorLight("AFCS_PITCH_AXIS_SWITCH_LED", 4089, AFCS_PANEL, "AFCS Pitch Axis Deselect Light", { color = "Green" })
+C_130J:defineIndicatorLight("AFCS_LATERAL_AXIS_SWITCH_LED", 4090, AFCS_PANEL, "AFCS Lateral Axis Deselect Light", { color = "Green" })
 
 -- ARC-210
 
