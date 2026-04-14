@@ -236,15 +236,21 @@ end
 
 -- Overhead Console
 
--- Oxygen Regulator
-
--- Pilot Reading Light Control
-
--- Copilot Reading Light Control
-
--- Augmented Reading Light Control
-
 -- Control Boost Panel
+local CONTROL_BOOST = "Control Boost Panel"
+
+C_130J:defineToggleSwitch("CTRL_BOOST_ELEVATOR_BOOST_GUARD", devices.HYDRAULICS, 3010, 335, CONTROL_BOOST, "Elevator Control Boost Switch Guard", { positions = CommonPositions.COVER })
+C_130J:defineToggleSwitch("CTRL_BOOST_ELEVATOR_UTIL_GUARD", devices.HYDRAULICS, 3011, 336, CONTROL_BOOST, "Elevator Utility Control Boost Switch Guard", { positions = CommonPositions.COVER })
+C_130J:defineToggleSwitch("CTRL_BOOST_RUDDER_BOOST_GUARD", devices.HYDRAULICS, 3012, 337, CONTROL_BOOST, "Rudder Control Boost Switch Guard", { positions = CommonPositions.COVER })
+C_130J:defineToggleSwitch("CTRL_BOOST_RUDDER_UTIL_GUARD", devices.HYDRAULICS, 3013, 338, CONTROL_BOOST, "Rudder Utility Control Boost Switch Guard", { positions = CommonPositions.COVER })
+C_130J:defineToggleSwitch("CTRL_BOOST_AILERON_BOOST_GUARD", devices.HYDRAULICS, 3014, 339, CONTROL_BOOST, "Aileron Control Boost Switch Guard", { positions = CommonPositions.COVER })
+C_130J:defineToggleSwitch("CTRL_BOOST_AILERON_UTIL_GUARD", devices.HYDRAULICS, 3015, 340, CONTROL_BOOST, "Aileron Utility Control Boost Switch Guard", { positions = CommonPositions.COVER })
+C_130J:defineToggleSwitchManualRange("CTRL_BOOST_ELEVATOR_BOOST", devices.HYDRAULICS, 3016, 500, { 1, 0 }, CONTROL_BOOST, "Elevator Control Boost Switch")
+C_130J:defineToggleSwitchManualRange("CTRL_BOOST_ELEVATOR_UTIL", devices.HYDRAULICS, 3017, 501, { 1, 0 }, CONTROL_BOOST, "Elevator Utility Control Boost Switch")
+C_130J:defineToggleSwitchManualRange("CTRL_BOOST_RUDDER_BOOST", devices.HYDRAULICS, 3018, 502, { 1, 0 }, CONTROL_BOOST, "Rudder Control Boost Switch")
+C_130J:defineToggleSwitchManualRange("CTRL_BOOST_RUDDER_UTIL", devices.HYDRAULICS, 3019, 503, { 1, 0 }, CONTROL_BOOST, "Rudder Utility Control Boost Switch")
+C_130J:defineToggleSwitchManualRange("CTRL_BOOST_AILERON_BOOST", devices.HYDRAULICS, 3020, 504, { 1, 0 }, CONTROL_BOOST, "Aileron Control Boost Switch")
+C_130J:defineToggleSwitchManualRange("CTRL_BOOST_AILERON_UTIL", devices.HYDRAULICS, 3021, 505, { 1, 0 }, CONTROL_BOOST, "Aileron Utility Control Boost Switch")
 
 -- Oil Cooler Flaps Panel
 
