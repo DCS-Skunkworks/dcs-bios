@@ -397,7 +397,7 @@ C_130J:defineTumb("CPLT_ICS_TRANSMISSION_SELECTOR", devices.VOLUME_MANAGER, 3056
 C_130J:definePotentiometer("CPLT_ICS_MASTER_VOLUME", devices.VOLUME_MANAGER, 3029, 1358, { 0, 1 }, CPLT_ICS_PANEL, "Copilot Master Volume Knob")
 
 -- Augmented Intercommunications System Control Panel
-local AUG_ICS_PANEL = "Augmented Intercommunications System Control Panel"
+local AUG_ICS_PANEL = "AUG Intercommunications System Control Panel"
 C_130J:definePotentiometer("AUG_ICS_INTVOLUME", devices.VOLUME_MANAGER, 3118, 269, { 0, 1 }, AUG_ICS_PANEL, "AUG ICSInt Volume")
 C_130J:defineToggleSwitch("AUG_ICS_INT_BUTTON", devices.VOLUME_MANAGER, 3132, 268, AUG_ICS_PANEL, "AUG ICSInt Pull to Monitor")
 C_130J:definePotentiometer("AUG_ICS_H1_VOLUME", devices.VOLUME_MANAGER, 3119, 271, { 0, 1 }, AUG_ICS_PANEL, "AUG ICSH1 Volume")
@@ -428,7 +428,7 @@ C_130J:defineTumb("AUG_ICS_TRANSMISSION_SELECTOR", devices.VOLUME_MANAGER, 3144,
 C_130J:definePotentiometer("AUG_ICS_MASTER_VOLUME", devices.VOLUME_MANAGER, 3097, 1361, { 0, 1 }, AUG_ICS_PANEL, "Aug ICS Master Volume Knob")
 
 -- Pilot Communication/Navigation/Identification Management Unit
-local PLT_CNI_MU = "Pilot Communication/Navigation/Identification Management Unit"
+local PLT_CNI_MU = "PLT Communication/Navigation/Identification Management Unit"
 C_130J:definePushButton("PLT_CNI_LSK_L1", devices.P_CNI, 3001, 1100, PLT_CNI_MU, "Pilot CNI-MU LSK L1")
 C_130J:definePushButton("PLT_CNI_LSK_L2", devices.P_CNI, 3002, 1101, PLT_CNI_MU, "Pilot CNI-MU LSK L2")
 C_130J:definePushButton("PLT_CNI_LSK_L3", devices.P_CNI, 3003, 1102, PLT_CNI_MU, "Pilot CNI-MU LSK L3")
@@ -505,7 +505,7 @@ C_130J:defineIndicatorLight("PLT_CNI_OFSET_LED", 4140, PLT_CNI_MU, "Pilot CNI-MU
 C_130J:defineFloat("PLT_CNI_EXEC_LED", 3390, { 0, 1 }, PLT_CNI_MU, "Pilot CNI-MU EXEC Light (Green)")
 
 -- Copilot Communication/Navigation/Identification Management Unit
-local CPLT_CNI_MU = "Copilot Communication/Navigation/Identification Management Unit"
+local CPLT_CNI_MU = "CPLT Communication/Navigation/Identification Management Unit"
 C_130J:definePushButton("CPLT_CNI_LSK_L1", devices.C_CNI, 3001, 1170, CPLT_CNI_MU, "Copilot CNI-MU LSK L1")
 C_130J:definePushButton("CPLT_CNI_LSK_L2", devices.C_CNI, 3002, 1171, CPLT_CNI_MU, "Copilot CNI-MU LSK L2")
 C_130J:definePushButton("CPLT_CNI_LSK_L3", devices.C_CNI, 3003, 1172, CPLT_CNI_MU, "Copilot CNI-MU LSK L3")
@@ -582,7 +582,7 @@ C_130J:defineIndicatorLight("CPLT_CNI_OFSET_LED", 4144, CPLT_CNI_MU, "Copilot CN
 C_130J:defineFloat("CPLT_CNI_EXEC_LED", 3392, { 0, 1 }, CPLT_CNI_MU, "Copilot CNI-MU EXEC Light (Green)")
 
 -- Augmented Communication/Navigation/Identification Management Unit
-local AUG_CNI_MU = "Augmented Communication/Navigation/Identification Management Unit"
+local AUG_CNI_MU = "AUG Communication/Navigation/Identification Management Unit"
 C_130J:definePushButton("AUG_CNI_LSK_L1", devices.AC_CNI, 3001, 1240, AUG_CNI_MU, "Aug Crew CNI-MU LSK L1")
 C_130J:definePushButton("AUG_CNI_LSK_L2", devices.AC_CNI, 3002, 1241, AUG_CNI_MU, "Aug Crew CNI-MU LSK L2")
 C_130J:definePushButton("AUG_CNI_LSK_L3", devices.AC_CNI, 3003, 1242, AUG_CNI_MU, "Aug Crew CNI-MU LSK L3")
@@ -700,7 +700,7 @@ local FLAPS_CONTROL = "Wing Flaps Control Quadrant"
 C_130J:definePotentiometer("CC_FLAP_LEVER", devices.MECH_INTERFACE, 3002, 16, { 0, 1 }, FLAPS_CONTROL, "Flap Control Lever")
 
 -- Augmented Intercommunications System Monitor Panel
-local AUG_ICS_MONITOR = "Augmented Intercommunications System Monitor Panel"
+local AUG_ICS_MONITOR = "AUG Intercommunications System Monitor Panel"
 C_130J:definePotentiometer("AUG_ICS_VOR1_VOLUME", devices.VOLUME_MANAGER, 3098, 249, { 0, 1 }, AUG_ICS_MONITOR, "Aug MonVOR 1 Volume")
 C_130J:defineToggleSwitch("AUG_ICS_VOR1_BUTTON", devices.VOLUME_MANAGER, 3108, 248, AUG_ICS_MONITOR, "Aug MonVOR 1 Pull to Monitor")
 C_130J:definePotentiometer("AUG_ICS_VOR2_VOLUME", devices.VOLUME_MANAGER, 3099, 259, { 0, 1 }, AUG_ICS_MONITOR, "Aug MonVOR 2 Volume")
