@@ -4,6 +4,7 @@ local CommonPositions = require("Scripts.DCS-BIOS.lib.modules.CommonPositions")
 local Control = require("Scripts.DCS-BIOS.lib.modules.documentation.Control")
 local ControlAttributeDocumentation = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlAttributeDocumentation")
 local ControlType = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlType")
+local FixedStepInput = require("Scripts.DCS-BIOS.lib.modules.documentation.FixedStepInput")
 local IntegerOutput = require("Scripts.DCS-BIOS.lib.modules.documentation.IntegerOutput")
 local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 local SetStateInput = require("Scripts.DCS-BIOS.lib.modules.documentation.SetStateInput")
@@ -168,6 +169,86 @@ function C_130J:defineC130Springloaded_3PosTumb(identifier, device_id, command, 
 	return control
 end
 
+-- 0 = fixed
+-- 0.33 = auto
+-- 0.70 = open
+-- 1 = close
+local function oil_cooler_switch_value(arg_value)
+	if arg_value < 0.165 then
+		return 0
+	elseif arg_value < 0.515 then
+		return 1
+	elseif arg_value < 0.85 then
+		return 2
+	else
+		return 3
+	end
+end
+
+--- Adds a new oil cooler flaps control
+--- @param identifier string the unique identifier for the control
+--- @param device_id integer the dcs device id
+--- @param command_fixed integer the dcs command to set the switch to the fixed position
+--- @param command_auto integer the dcs command to set the swithc to the auto position
+--- @param command_open integer the dcs command to set the swithc to the open position
+--- @param command_close integer the dcs command to set the swithc to the close position
+--- @param arg_number integer the dcs argument number
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @return Control control the control which was added to the module
+function C_130J:defineOilCoolerFlapsSwitch(identifier, device_id, command_fixed, command_auto, command_open, command_close, arg_number, category, description)
+	local alloc = self:allocateInt(3)
+	self:addExportHook(function(dev0)
+		local val = oil_cooler_switch_value(dev0:get_argument_value(arg_number))
+		alloc:setValue(val)
+	end)
+
+	local control = Control:new(category, ControlType.selector, identifier, description, {
+		SetStateInput:new(3, "set the switch position"),
+		FixedStepInput:new("switch to previous or next state"),
+	}, {
+		IntegerOutput:new(alloc, Suffix.none, "switch position -- 0 = FIXED, 1 = AUTO , 2 = OPEN, 3 = CLOSE"),
+	}, nil, { positions = { "FIXED", "AUTO", "OPEN", "CLOSE" } })
+	self:addControl(control)
+
+	self:addInputProcessor(identifier, function(toState)
+		local dev = GetDevice(device_id)
+
+		if dev == nil then
+			return
+		end
+
+		local currentState = oil_cooler_switch_value(GetDevice(0):get_argument_value(arg_number))
+		local new_state
+
+		if toState == "INC" then
+			if currentState >= 3 then
+				return
+			end
+			new_state = currentState + 1
+		elseif toState == "DEC" then
+			if currentState <= 0 then
+				return
+			end
+			new_state = currentState - 1
+		else
+			new_state = tonumber(toState)
+		end
+
+		if new_state == 0 then -- fixed
+			dev:performClickableAction(command_fixed, 1)
+		elseif new_state == 1 then -- auto
+			dev:performClickableAction(command_auto, 1)
+		elseif new_state == 2 then -- open
+			dev:performClickableAction(command_open, 1)
+		elseif new_state == 3 then -- close
+			dev:performClickableAction(command_close, 1)
+		end
+	end)
+
+	return control
+end
+
 -- Flight Station Forward
 
 -- Pilot Side Console
@@ -247,6 +328,12 @@ end
 -- Control Boost Panel
 
 -- Oil Cooler Flaps Panel
+local OIL_COOLER_FLAPS = "Oil Cooler Flaps Panel"
+
+C_130J:defineOilCoolerFlapsSwitch("OIL_COOLER_FLAPS_1", devices.MECH_INTERFACE, 3032, 3082, 3074, 3078, 495, OIL_COOLER_FLAPS, "Oil Cooler Flaps 1 Switch")
+C_130J:defineOilCoolerFlapsSwitch("OIL_COOLER_FLAPS_2", devices.MECH_INTERFACE, 3033, 3083, 3075, 3079, 496, OIL_COOLER_FLAPS, "Oil Cooler Flaps 2 Switch")
+C_130J:defineOilCoolerFlapsSwitch("OIL_COOLER_FLAPS_3", devices.MECH_INTERFACE, 3034, 3084, 3076, 3080, 497, OIL_COOLER_FLAPS, "Oil Cooler Flaps 3 Switch")
+C_130J:defineOilCoolerFlapsSwitch("OIL_COOLER_FLAPS_4", devices.MECH_INTERFACE, 3035, 3085, 3077, 3081, 498, OIL_COOLER_FLAPS, "Oil Cooler Flaps 4 Switch")
 
 -- Electrical Panel
 
