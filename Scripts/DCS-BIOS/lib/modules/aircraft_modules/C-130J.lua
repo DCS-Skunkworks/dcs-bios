@@ -5,6 +5,7 @@ local Control = require("Scripts.DCS-BIOS.lib.modules.documentation.Control")
 local ControlAttributeDocumentation = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlAttributeDocumentation")
 local ControlType = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlType")
 local FixedStepInput = require("Scripts.DCS-BIOS.lib.modules.documentation.FixedStepInput")
+local Functions = require("Scripts.DCS-BIOS.lib.common.Functions")
 local IntegerOutput = require("Scripts.DCS-BIOS.lib.modules.documentation.IntegerOutput")
 local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 local SetStateInput = require("Scripts.DCS-BIOS.lib.modules.documentation.SetStateInput")
@@ -342,6 +343,26 @@ C_130J:defineOilCoolerFlapsSwitch("OIL_COOLER_FLAPS_3", devices.MECH_INTERFACE, 
 C_130J:defineOilCoolerFlapsSwitch("OIL_COOLER_FLAPS_4", devices.MECH_INTERFACE, 3035, 3085, 3077, 3081, 498, OIL_COOLER_FLAPS, "Oil Cooler Flaps 4 Switch")
 
 -- Electrical Panel
+local ELECTRICAL_PANEL = "Electrical Panel"
+
+local function electrical_dc_volts()
+	local data = Module.parse_indication(23)
+	-- elements have uuid names
+	return Functions.coerce_nil_to_string(data[2]) .. Functions.coerce_nil_to_string(data[3]) .. Functions.coerce_nil_to_string(data[4])
+end
+
+C_130J:defineToggleSwitch("ELECTRICAL_GENERATOR_1", devices.ENGINE_APU_CTRL, 3002, 341, ELECTRICAL_PANEL, "Generator 1 Switch")
+C_130J:defineToggleSwitch("ELECTRICAL_GENERATOR_2", devices.ENGINE_APU_CTRL, 3003, 342, ELECTRICAL_PANEL, "Generator 2 Switch")
+C_130J:defineToggleSwitch("ELECTRICAL_GENERATOR_3", devices.ENGINE_APU_CTRL, 3004, 343, ELECTRICAL_PANEL, "Generator 3 Switch")
+C_130J:defineToggleSwitch("ELECTRICAL_GENERATOR_4", devices.ENGINE_APU_CTRL, 3005, 344, ELECTRICAL_PANEL, "Generator 4 Switch")
+C_130J:defineIndicatorLight("ELECTRICAL_GENERATOR_1_LIGHT", 4036, ELECTRICAL_PANEL, "Generator 1 Light", { color = "Green" })
+C_130J:defineIndicatorLight("ELECTRICAL_GENERATOR_2_LIGHT", 4037, ELECTRICAL_PANEL, "Generator 2 Light", { color = "Green" })
+C_130J:defineIndicatorLight("ELECTRICAL_GENERATOR_3_LIGHT", 4038, ELECTRICAL_PANEL, "Generator 3 Light", { color = "Green" })
+C_130J:defineIndicatorLight("ELECTRICAL_GENERATOR_4_LIGHT", 4039, ELECTRICAL_PANEL, "Generator 4 Light", { color = "Green" })
+C_130J:define3PosTumb("ELECTRICAL_EXT_POWER_APU", devices.ENGINE_APU_CTRL, 3006, 467, ELECTRICAL_PANEL, "External Power/APU Switch", { positions = { "EXT PWR", "OFF", "APU" } })
+C_130J:define3PosTumb("ELECTRICAL_BATTERY_TEST", devices.ENGINE_APU_CTRL, 3033, 383, ELECTRICAL_PANEL, "Battery Test Switch", { positions = { "AV", "ISOL", "UTIL" } })
+C_130J:defineToggleSwitch("ELECTRICAL_BATTERY", devices.ENGINE_APU_CTRL, 3001, 371, ELECTRICAL_PANEL, "Battery Switch")
+C_130J:defineString("ELECTRICAL_DC_VOLTS", electrical_dc_volts, 4, ELECTRICAL_PANEL, "DC Volts Display")
 
 -- Pressurization Panel
 
