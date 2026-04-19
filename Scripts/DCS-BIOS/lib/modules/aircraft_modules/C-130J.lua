@@ -250,6 +250,22 @@ function C_130J:defineOilCoolerFlapsSwitch(identifier, device_id, command_fixed,
 	return control
 end
 
+--- Returns the string value of an lcd line
+--- @param indication_id integer the id of the dcs indication
+--- @param elements integer[] the length of each element
+--- @return string value
+local function parse_overhead_lcd_line(indication_id, elements)
+	local data = Module.parse_indication(indication_id)
+	local value = ""
+
+	-- elements have uuid names, first item never has any data, and are often right-aligned, lacking whitespace padding
+	for index, length in ipairs(elements) do
+		value = value .. Functions.pad_left(Functions.coerce_nil_to_string(data[index + 1]), length)
+	end
+
+	return value
+end
+
 -- Flight Station Forward
 
 -- Pilot Side Console
@@ -345,12 +361,6 @@ C_130J:defineOilCoolerFlapsSwitch("OIL_COOLER_FLAPS_4", devices.MECH_INTERFACE, 
 -- Electrical Panel
 local ELECTRICAL_PANEL = "Electrical Panel"
 
-local function electrical_dc_volts()
-	local data = Module.parse_indication(23)
-	-- elements have uuid names
-	return Functions.coerce_nil_to_string(data[2]) .. Functions.coerce_nil_to_string(data[3]) .. Functions.coerce_nil_to_string(data[4])
-end
-
 C_130J:defineToggleSwitch("ELECTRICAL_GENERATOR_1", devices.ENGINE_APU_CTRL, 3002, 341, ELECTRICAL_PANEL, "Generator 1 Switch")
 C_130J:defineToggleSwitch("ELECTRICAL_GENERATOR_2", devices.ENGINE_APU_CTRL, 3003, 342, ELECTRICAL_PANEL, "Generator 2 Switch")
 C_130J:defineToggleSwitch("ELECTRICAL_GENERATOR_3", devices.ENGINE_APU_CTRL, 3004, 343, ELECTRICAL_PANEL, "Generator 3 Switch")
@@ -362,9 +372,32 @@ C_130J:defineIndicatorLight("ELECTRICAL_GENERATOR_4_LIGHT", 4039, ELECTRICAL_PAN
 C_130J:define3PosTumb("ELECTRICAL_EXT_POWER_APU", devices.ENGINE_APU_CTRL, 3006, 467, ELECTRICAL_PANEL, "External Power/APU Switch", { positions = { "EXT PWR", "OFF", "APU" } })
 C_130J:define3PosTumb("ELECTRICAL_BATTERY_TEST", devices.ENGINE_APU_CTRL, 3033, 383, ELECTRICAL_PANEL, "Battery Test Switch", { positions = { "AV", "ISOL", "UTIL" } })
 C_130J:defineToggleSwitch("ELECTRICAL_BATTERY", devices.ENGINE_APU_CTRL, 3001, 371, ELECTRICAL_PANEL, "Battery Switch")
-C_130J:defineString("ELECTRICAL_DC_VOLTS", electrical_dc_volts, 4, ELECTRICAL_PANEL, "DC Volts Display")
+C_130J:defineString("ELECTRICAL_DC_VOLTS", function()
+	return parse_overhead_lcd_line(23, { 2, 1, 1 })
+end, 4, ELECTRICAL_PANEL, "DC Volts Display")
 
 -- Pressurization Panel
+local PRESSURIZATION = "Pressurization Panel"
+
+C_130J:defineRockerSwitch("PRESS_OUTFLOW_VALVE", devices.PLANE_ATM, 3010, 3010, 3010, 3010, 345, PRESSURIZATION, "Outflow Valve Control", { positions = { "CLOSE", "OFF", "OPEN" } })
+C_130J:definePotentiometer("PRESS_RATE_CONTROL_KNOB", devices.PLANE_ATM, 3014, 1333, { 0, 1 }, PRESSURIZATION, "Pressurization Rate Control Knob")
+C_130J:defineRotary("PRESS_LANDING_KNOB", devices.PLANE_ATM, 3015, 1332, PRESSURIZATION, "Landing/Constant Altitude Selector")
+C_130J:defineTumb("PRESS_MODE", devices.PLANE_ATM, 3012, 468, 0.25, { -0.5, 0.5 }, nil, false, PRESSURIZATION, "Pressurization Mode Switch", { positions = { "CONST ALT", "MAN", "AUTO", "NO PRESS", "AUX VENT" } })
+C_130J:defineToggleSwitch("PRESS_EMER_DUMP", devices.PLANE_ATM, 3011, 1363, PRESSURIZATION, "Emergency Depressurize Switch", { positions = { "NORM", "DUMP" } })
+C_130J:defineToggleSwitch("PRESS_EMER_DUMP_GUARD", devices.PLANE_ATM, 3013, 334, PRESSURIZATION, "Emergency Depressurize Switch Guard", { positions = CommonPositions.COVER })
+
+C_130J:defineString("PRESS_RATE", function()
+	return parse_overhead_lcd_line(38, { 5 })
+end, 5, PRESSURIZATION, "Cabin Rate Indicator")
+C_130J:defineString("PRESS_CABIN_ALT", function()
+	return parse_overhead_lcd_line(39, { 5 })
+end, 5, PRESSURIZATION, "Cabin Altitude Indicator")
+C_130J:defineString("PRESS_DIF", function()
+	return parse_overhead_lcd_line(40, { 2, 1, 1 })
+end, 4, PRESSURIZATION, "Differential Pressure Indicator")
+C_130J:defineString("PRESS_LDG_CONST", function()
+	return parse_overhead_lcd_line(41, { 5 })
+end, 5, PRESSURIZATION, "Landing/Constant Altitude Pressure Indicator")
 
 -- Fuel Management Panel
 
