@@ -266,6 +266,20 @@ local function parse_overhead_lcd_line(indication_id, elements)
 	return value
 end
 
+--- Returns the string value of an lcd line
+--- @param indication_id integer the id of the dcs indication
+--- @param length integer the length of the lines
+--- @return string, string value
+local function parse_overhead_lcd_dual_line(indication_id, length)
+	local data = Module.parse_indication(indication_id)
+
+	-- elements have uuid names, first item never has any data, and are often right-aligned, lacking whitespace padding
+	local value_1 = Functions.pad_left(Functions.coerce_nil_to_string(data[2]), length)
+	local value_2 = Functions.pad_left(Functions.coerce_nil_to_string(data[3]), length)
+
+	return value_1, value_2
+end
+
 -- Flight Station Forward
 
 -- Pilot Side Console
@@ -400,6 +414,153 @@ C_130J:defineString("PRESS_LDG_CONST", function()
 end, 5, PRESSURIZATION, "Landing/Constant Altitude Pressure Indicator")
 
 -- Fuel Management Panel
+local FUEL_MANAGEMENT = "Fuel Management Panel"
+
+C_130J:defineToggleSwitch("FUEL_DUMP_L", devices.FUEL_SYSTEM, 3022, 1338, FUEL_MANAGEMENT, "Left Fuel Dump Switch")
+C_130J:defineToggleSwitch("FUEL_DUMP_L_GUARD", devices.FUEL_SYSTEM, 3017, 332, FUEL_MANAGEMENT, "Left Fuel Dump Switch Guard", { positions = CommonPositions.COVER })
+C_130J:defineToggleSwitch("FUEL_DUMP_R", devices.FUEL_SYSTEM, 3021, 1339, FUEL_MANAGEMENT, "Right Fuel Dump Switch")
+C_130J:defineToggleSwitch("FUEL_DUMP_R_GUARD", devices.FUEL_SYSTEM, 3016, 333, FUEL_MANAGEMENT, "Right Fuel Dump Switch Guard", { positions = CommonPositions.COVER })
+
+C_130J:defineMultipositionSwitch("FUEL_TANK_SELECTOR", devices.FUEL_SYSTEM, 3015, 370, 9, 1 / 8, FUEL_MANAGEMENT, "Fuel Tank Select", { positions = { "OFF", "1", "2", "LA", "RA", "3", "4", "LE", "RE" } })
+C_130J:defineRotary("FUEL_QTY_SET", devices.FUEL_SYSTEM, 3019, 487, FUEL_MANAGEMENT, "Fuel Transfer Quantity Set Knob")
+C_130J:define3PosTumb("FUEL_SPR_VALVE", devices.FUEL_SYSTEM, 3018, 362, FUEL_MANAGEMENT, "Single Point Refueling (SPR) Valve Switch")
+C_130J:definePushButton("FUEL_FLCV_TEST", devices.FUEL_SYSTEM, 3010, 354, FUEL_MANAGEMENT, "Fuel Level Control Valve (FLCV) Test Button")
+
+local XFER_POSITIONS = { "FROM", "OFF", "TO" }
+
+C_130J:define3PosTumb("FUEL_XFER_EXT_L", devices.FUEL_SYSTEM, 3007, 356, FUEL_MANAGEMENT, "Left External Tank Transfer Pump", { positions = XFER_POSITIONS })
+C_130J:define3PosTumb("FUEL_XFER_EXT_R", devices.FUEL_SYSTEM, 3008, 365, FUEL_MANAGEMENT, "Right External Tank Transfer Pump", { positions = XFER_POSITIONS })
+C_130J:define3PosTumb("FUEL_XFER_AUX_L", devices.FUEL_SYSTEM, 3005, 359, FUEL_MANAGEMENT, "Left Auxiliary Tank Transfer Pump", { positions = XFER_POSITIONS })
+C_130J:define3PosTumb("FUEL_XFER_AUX_R", devices.FUEL_SYSTEM, 3006, 361, FUEL_MANAGEMENT, "Right Auxiliary Tank Transfer Pump", { positions = XFER_POSITIONS })
+C_130J:define3PosTumb("FUEL_XFER_MAIN_1", devices.FUEL_SYSTEM, 3001, 357, FUEL_MANAGEMENT, "Main Tank 1 Transfer Pump", { positions = XFER_POSITIONS })
+C_130J:define3PosTumb("FUEL_XFER_MAIN_2", devices.FUEL_SYSTEM, 3002, 358, FUEL_MANAGEMENT, "Main Tank 2 Transfer Pump", { positions = XFER_POSITIONS })
+C_130J:define3PosTumb("FUEL_XFER_MAIN_3", devices.FUEL_SYSTEM, 3003, 363, FUEL_MANAGEMENT, "Main Tank 3 Transfer Pump", { positions = XFER_POSITIONS })
+C_130J:define3PosTumb("FUEL_XFER_MAIN_4", devices.FUEL_SYSTEM, 3004, 364, FUEL_MANAGEMENT, "Main Tank 4 Transfer Pump", { positions = XFER_POSITIONS })
+
+C_130J:defineToggleSwitch("FUEL_XFEED_SHIP", devices.FUEL_SYSTEM, 3009, 360, FUEL_MANAGEMENT, "Crosship Separation Valve")
+C_130J:defineToggleSwitch("FUEL_XFEED_ENG_1", devices.FUEL_SYSTEM, 3011, 366, FUEL_MANAGEMENT, "Engine 1 Crossfeed Valve")
+C_130J:defineToggleSwitch("FUEL_XFEED_ENG_2", devices.FUEL_SYSTEM, 3012, 367, FUEL_MANAGEMENT, "Engine 2 Crossfeed Valve")
+C_130J:defineToggleSwitch("FUEL_XFEED_ENG_3", devices.FUEL_SYSTEM, 3013, 368, FUEL_MANAGEMENT, "Engine 3 Crossfeed Valve")
+C_130J:defineToggleSwitch("FUEL_XFEED_ENG_4", devices.FUEL_SYSTEM, 3014, 369, FUEL_MANAGEMENT, "Engine 4 Crossfeed Valve")
+
+C_130J:defineIndicatorLight("FUEL_FLCV_ON_LIGHT", 4107, FUEL_MANAGEMENT, "Fuel Level Control Valve (FLCV) ON Light", { color = "Green" })
+C_130J:defineIndicatorLight("FUEL_DRAIN_LIGHT", 4028, FUEL_MANAGEMENT, "Drain Light", { color = "Green" })
+
+C_130J:defineString("FUEL_PRESSURE", function()
+	return parse_overhead_lcd_line(42, { 2 })
+end, 2, FUEL_MANAGEMENT, "Fuel Pressure Indicator")
+
+local fuel_amounts = {
+	ext_l_amount = "",
+	ext_l_transfer = "",
+	ext_r_amount = "",
+	ext_r_transfer = "",
+	aux_l_amount = "",
+	aux_l_transfer = "",
+	aux_r_amount = "",
+	aux_r_transfer = "",
+	main_1_amount = "",
+	main_1_transfer = "",
+	main_2_amount = "",
+	main_2_transfer = "",
+	main_3_amount = "",
+	main_3_transfer = "",
+	main_4_amount = "",
+	main_4_transfer = "",
+	total_amount = "",
+	total_transfer = "",
+}
+
+C_130J:addExportHook(function()
+	fuel_amounts.ext_l_amount, fuel_amounts.ext_l_transfer = parse_overhead_lcd_dual_line(31, 4)
+end)
+
+C_130J:addExportHook(function()
+	fuel_amounts.ext_r_amount, fuel_amounts.ext_r_transfer = parse_overhead_lcd_dual_line(32, 4)
+end)
+
+C_130J:addExportHook(function()
+	fuel_amounts.aux_l_amount, fuel_amounts.aux_l_transfer = parse_overhead_lcd_dual_line(29, 4)
+end)
+
+C_130J:addExportHook(function()
+	fuel_amounts.aux_r_amount, fuel_amounts.aux_r_transfer = parse_overhead_lcd_dual_line(30, 4)
+end)
+
+C_130J:addExportHook(function()
+	fuel_amounts.main_1_amount, fuel_amounts.main_1_transfer = parse_overhead_lcd_dual_line(25, 4)
+end)
+
+C_130J:addExportHook(function()
+	fuel_amounts.main_2_amount, fuel_amounts.main_2_transfer = parse_overhead_lcd_dual_line(26, 4)
+end)
+
+C_130J:addExportHook(function()
+	fuel_amounts.main_3_amount, fuel_amounts.main_3_transfer = parse_overhead_lcd_dual_line(27, 4)
+end)
+
+C_130J:addExportHook(function()
+	fuel_amounts.main_4_amount, fuel_amounts.main_4_transfer = parse_overhead_lcd_dual_line(28, 4)
+end)
+
+C_130J:addExportHook(function()
+	fuel_amounts.total_amount, fuel_amounts.total_transfer = parse_overhead_lcd_dual_line(24, 5)
+end)
+
+C_130J:defineString("FUEL_AMOUNT_EXT_L_AMOUNT", function()
+	return fuel_amounts.ext_l_amount
+end, 4, FUEL_MANAGEMENT, "Left External Fuel Tank Amount")
+C_130J:defineString("FUEL_XFER_EXT_L_AMOUNT", function()
+	return fuel_amounts.ext_l_transfer
+end, 4, FUEL_MANAGEMENT, "Left External Fuel Tank Transfer")
+C_130J:defineString("FUEL_AMOUNT_EXT_R_AMOUNT", function()
+	return fuel_amounts.ext_r_amount
+end, 4, FUEL_MANAGEMENT, "Right External Fuel Tank Amount")
+C_130J:defineString("FUEL_XFER_EXT_R_AMOUNT", function()
+	return fuel_amounts.ext_r_transfer
+end, 4, FUEL_MANAGEMENT, "Right External Fuel Tank Transfer")
+C_130J:defineString("FUEL_AMOUNT_AUX_L_AMOUNT", function()
+	return fuel_amounts.aux_l_amount
+end, 4, FUEL_MANAGEMENT, "Left Auxiliary Fuel Tank Amount")
+C_130J:defineString("FUEL_XFER_AUX_L_AMOUNT", function()
+	return fuel_amounts.aux_l_transfer
+end, 4, FUEL_MANAGEMENT, "Left Auxiliary Fuel Tank Transfer")
+C_130J:defineString("FUEL_AMOUNT_AUX_R_AMOUNT", function()
+	return fuel_amounts.aux_r_amount
+end, 4, FUEL_MANAGEMENT, "Right Auxiliary Fuel Tank Amount")
+C_130J:defineString("FUEL_XFER_AUX_R_AMOUNT", function()
+	return fuel_amounts.aux_r_transfer
+end, 4, FUEL_MANAGEMENT, "Right Auxiliary Fuel Tank Transfer")
+C_130J:defineString("FUEL_AMOUNT_MAIN_1_AMOUNT", function()
+	return fuel_amounts.main_1_amount
+end, 4, FUEL_MANAGEMENT, "Main Fuel Tank 1 Amount")
+C_130J:defineString("FUEL_XFER_MAIN_1_AMOUNT", function()
+	return fuel_amounts.main_1_transfer
+end, 4, FUEL_MANAGEMENT, "Main Fuel Tank 1 Transfer")
+C_130J:defineString("FUEL_AMOUNT_MAIN_2_AMOUNT", function()
+	return fuel_amounts.main_2_amount
+end, 4, FUEL_MANAGEMENT, "Main Fuel Tank 2 Amount")
+C_130J:defineString("FUEL_XFER_MAIN_2_AMOUNT", function()
+	return fuel_amounts.main_2_transfer
+end, 4, FUEL_MANAGEMENT, "Main Fuel Tank 2 Transfer")
+C_130J:defineString("FUEL_AMOUNT_MAIN_3_AMOUNT", function()
+	return fuel_amounts.main_3_amount
+end, 4, FUEL_MANAGEMENT, "Main Fuel Tank 3 Amount")
+C_130J:defineString("FUEL_XFER_MAIN_3_AMOUNT", function()
+	return fuel_amounts.main_3_transfer
+end, 4, FUEL_MANAGEMENT, "Main Fuel Tank 3 Transfer")
+C_130J:defineString("FUEL_AMOUNT_MAIN_4_AMOUNT", function()
+	return fuel_amounts.main_4_amount
+end, 4, FUEL_MANAGEMENT, "Main Fuel Tank 4 Amount")
+C_130J:defineString("FUEL_XFER_MAIN_4_AMOUNT", function()
+	return fuel_amounts.main_4_transfer
+end, 4, FUEL_MANAGEMENT, "Main Fuel Tank 4 Transfer")
+C_130J:defineString("FUEL_AMOUNT_TOTAL_AMOUNT", function()
+	return fuel_amounts.total_amount
+end, 5, FUEL_MANAGEMENT, "Total Fuel Amount")
+C_130J:defineString("FUEL_XFER_TOTAL_AMOUNT", function()
+	return fuel_amounts.total_transfer
+end, 5, FUEL_MANAGEMENT, "Total Fuel Transfer")
 
 -- Air Conditioning Panel
 
