@@ -266,7 +266,7 @@ local function parse_overhead_lcd_line(indication_id, elements)
 	return value
 end
 
---- Returns the string value of an lcd line
+--- Returns the string values of an lcd with two equal-length lines
 --- @param indication_id integer the id of the dcs indication
 --- @param length integer the length of the lines
 --- @return string, string value
