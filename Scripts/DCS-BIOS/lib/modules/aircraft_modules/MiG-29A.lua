@@ -1332,6 +1332,16 @@ MiG_29A:definePushButton("ENG_START_GND_START_BUTTON", devices.POWER_PLANT_INTER
 -- Pedals
 
 -- Control & Test panel
+local CTRL_TEST = "Control and Test panel"
+
+MiG_29A:defineToggleSwitch("CTRL_TEST_NAV_MODE_SWITCH", devices.ELEC_INTERFACE, 3037, 498, CTRL_TEST, "Navigation Mode Switch", { positions = { "PREPARE", "OPER" } })
+MiG_29A:defineFloat("CTRL_TEST_NAV_READY_LIGHT", 387, { 0, 1 }, CTRL_TEST, "Nav Ready Light", { color = "GREEN" })
+MiG_29A:defineFloat("CTRL_TEST_FAST_PREP_LIGHT", 388, { 0, 1 }, CTRL_TEST, "Fast Prep Light", { color = "GREEN" })
+MiG_29A:defineFloat("CTRL_TEST_TRANSFM_FAIL_LIGHT", 389, { 0, 1 }, CTRL_TEST, "Transfm Fail Light", { color = "RED" })
+MiG_29A:defineFloat("CTRL_TEST_LH_INLET_LIGHT", 397, { 0, 1 }, CTRL_TEST, "Left Engine Inlet Check Light", { color = "GREEN" })
+MiG_29A:defineFloat("CTRL_TEST_RH_INLET_LIGHT", 398, { 0, 1 }, CTRL_TEST, "Right Engine Inlet Check Light", { color = "GREEN" })
+MiG_29A:defineFloat("CTRL_TEST_NO_COC_RESERVE_LIGHT", 399, { 0, 1 }, CTRL_TEST, "No COC Reserve Light", { color = "RED" })
+MiG_29A:defineFloat("CTRL_TEST_FEEL_UNIT_LIGHT", 381, { 0, 1 }, CTRL_TEST, "Feel Unit OK Light", { color = "RED" })
 
 -- System power panel
 local SYS_POWER = "System Power Panel"
