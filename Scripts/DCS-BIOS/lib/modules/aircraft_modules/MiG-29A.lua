@@ -1354,11 +1354,16 @@ MiG_29A:defineToggleSwitch("SYS_POWER_WEAPON_SWITCH", devices.ELEC_INTERFACE, 30
 MiG_29A:defineToggleSwitch("SYS_POWER_ACS_SWITCH", devices.ELEC_INTERFACE, 3034, 505, SYS_POWER, "Armament Control System Supply Switch")
 MiG_29A:definePushButton("SYS_POWER_ALL_POWER_ON_BAR", devices.ELEC_INTERFACE, 3036, 518, SYS_POWER, "All System Power Switches On Bar")
 
+-- Ejection handle
+local EJEC_HANDLE = "Ejection Handle"
+
+MiG_29A:defineToggleSwitch("EJEC_HANDLE_ARM", devices.CPT_MECH, 3016, 67, EJEC_HANDLE, "Ejection Handle Mode", { positions = { "SAFE", "ARM" } })
+MiG_29A:definePushButton("EJEC_HANDLE_LEFT", devices.CPT_MECH, 3012, 68, EJEC_HANDLE, "Ejection Left Handle")
+MiG_29A:definePushButton("EJEC_HANDLE_RIGHT", devices.CPT_MECH, 3013, 68, EJEC_HANDLE, "Ejection Right Handle")
+
 -- Lights controls (external)
 
 -- Mirrors
-
--- Ejection handle
 
 -- Interior Lights
 
