@@ -1310,8 +1310,6 @@ local VIWAS = "Voice Information and Warning System (VIWAS)"
 MiG_29A:definePushButton("VIWAS_REPEAT_BUTTON", devices.VIWAS, 3002, 141, VIWAS, "Repeat Voice Warning Button")
 MiG_29A:definePushButton("VIWAS_CHECK_BUTTON", devices.VIWAS, 3001, 142, VIWAS, "Check Voice Warning Button")
 
--- Altimeter
-
 -- ADF control panel
 local ADF = "ADF Control Panel"
 
@@ -1328,8 +1326,6 @@ MiG_29A:defineToggleSwitch("ENG_START_APU_SWITCH_COVER", devices.POWER_PLANT_INT
 MiG_29A:defineTriangleSwitch("ENG_START_APU_SWITCH", devices.POWER_PLANT_INTERFACE, 3005, 3007, 3008, 3009, 282, ENG_START, "APU Switch", { positions = { "OFF", "APU MODE", "APU CRANK", "ENG COLD" } })
 MiG_29A:define3PosTumb("ENG_START_ENG_SELECT_SWITCH", devices.POWER_PLANT_INTERFACE, 3001, 281, ENG_START, "Engine Select Switch", { positions = { "LEFT", "START BOTH", "RIGHT" } })
 MiG_29A:definePushButton("ENG_START_GND_START_BUTTON", devices.POWER_PLANT_INTERFACE, 3006, 65, ENG_START, "Ground Start Button")
-
--- Pedals
 
 -- Control & Test panel
 local CTRL_TEST = "Control and Test panel"
@@ -1358,21 +1354,16 @@ MiG_29A:defineToggleSwitch("SYS_POWER_WEAPON_SWITCH", devices.ELEC_INTERFACE, 30
 MiG_29A:defineToggleSwitch("SYS_POWER_ACS_SWITCH", devices.ELEC_INTERFACE, 3034, 505, SYS_POWER, "Armament Control System Supply Switch")
 MiG_29A:definePushButton("SYS_POWER_ALL_POWER_ON_BAR", devices.ELEC_INTERFACE, 3036, 518, SYS_POWER, "All System Power Switches On Bar")
 
+-- Ejection handle
+local EJEC_HANDLE = "Ejection Handle"
+
+MiG_29A:defineToggleSwitch("EJEC_HANDLE_ARM", devices.CPT_MECH, 3016, 67, EJEC_HANDLE, "Ejection Handle Mode", { positions = { "SAFE", "ARM" } })
+MiG_29A:definePushButton("EJEC_HANDLE_LEFT", devices.CPT_MECH, 3012, 68, EJEC_HANDLE, "Left Ejection Handle")
+MiG_29A:definePushButton("EJEC_HANDLE_RIGHT", devices.CPT_MECH, 3013, 68, EJEC_HANDLE, "Right Ejection Handle")
+
 -- Lights controls (external)
 
--- Hydrolique pressure
-
--- Cabine air controls
-
--- Tally light panel
-
--- Refueling panel
-
 -- Mirrors
-
--- Engine emergency panel
-
--- Ejection handle
 
 -- Interior Lights
 
@@ -1383,11 +1374,5 @@ MiG_29A:definePushButton("SYS_POWER_ALL_POWER_ON_BAR", devices.ELEC_INTERFACE, 3
 -- Exterior Model
 
 -- Radios
-
--- Dispenser Check Button - Not Implemented
-
--- PC-31 Weapon Settings Panel - Not Implemented
-
--- Guidance Control Pannel - Not Implemented
 
 return MiG_29A
