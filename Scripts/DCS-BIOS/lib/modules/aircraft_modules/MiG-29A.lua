@@ -639,6 +639,8 @@ MiG_29A:defineToggleSwitch("STICK_EMERGENCY_JETTISON_COVER", devices.HOTAS, 3022
 MiG_29A:definePushButton("STICK_EMERGENCY_JETTISON_BUTTON", devices.HOTAS, 3021, 101, STICK, "Emergency Jettison Button")
 MiG_29A:defineBrakeLever("STICK_BRAKE_LEVER", ICommand.wheel_brake, 47, STICK, "Wheel Brake")
 MiG_29A:defineToggleSwitch("STICK_RUN_UP_BRAKE_LEVER", devices.HOTAS, 3020, 47, STICK, "Run-up Brake Lever")
+MiG_29A:defineFloat("STICK_ROLL_AXIS", 71, { -1, 1 }, STICK, "Roll Axis")
+MiG_29A:defineFloat("STICK_PITCH_AXIS", 74, { -1, 1 }, STICK, "Pitch Axis")
 
 -- Throttle
 local THROTTLE = "Throttle Controls"
@@ -651,6 +653,8 @@ MiG_29A:definePushButton("THROTTLE_AFTERBURNER_LOCK_LEFT", devices.HOTAS, 3028, 
 MiG_29A:definePushButton("THROTTLE_AFTERBURNER_LOCK_RIGHT", devices.HOTAS, 3029, 845, THROTTLE, "Afterburner Lock Latch (Right)")
 MiG_29A:definePushButton("THROTTLE_IDLE_LOCK_LEFT", devices.HOTAS, 3031, 847, THROTTLE, "Idle Lock Latch (Left)")
 MiG_29A:definePushButton("THROTTLE_IDLE_LOCK_RIGHT", devices.HOTAS, 3032, 844, THROTTLE, "Idle Lock Latch (Right)")
+MiG_29A:defineFloat("THROTTLE_LEFT_AXIS", 104, { 0, 1 }, STICK, "Left Throttle Axis")
+MiG_29A:defineFloat("THROTTLE_RIGHT_AXIS", 105, { 0, 1 }, STICK, "Right Throttle Axis")
 MiG_29A:reserveIntValue(65535) -- Manual Ranging Control Potentiometer
 
 -- Combined AOA / G meter indicator
@@ -1360,6 +1364,11 @@ local EJEC_HANDLE = "Ejection Handle"
 MiG_29A:defineToggleSwitch("EJEC_HANDLE_ARM", devices.CPT_MECH, 3016, 67, EJEC_HANDLE, "Ejection Handle Mode", { positions = { "SAFE", "ARM" } })
 MiG_29A:definePushButton("EJEC_HANDLE_LEFT", devices.CPT_MECH, 3012, 68, EJEC_HANDLE, "Left Ejection Handle")
 MiG_29A:definePushButton("EJEC_HANDLE_RIGHT", devices.CPT_MECH, 3013, 68, EJEC_HANDLE, "Right Ejection Handle")
+
+-- Pedals
+local PEDALS = "Pedals"
+
+MiG_29A:defineFloat("PEDALS_AXIS", 266, { -1, 1 }, PEDALS, "Rudder Axis")
 
 -- Lights controls (external)
 
