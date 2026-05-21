@@ -1370,9 +1370,19 @@ local PEDALS = "Pedals"
 
 MiG_29A:defineFloat("PEDALS_AXIS", 266, { -1, 1 }, PEDALS, "Rudder Axis")
 
--- Lights controls (external)
-
 -- Mirrors
+local MIRRORS = "Mirrors"
+
+MiG_29A:defineToggleSwitch("MIRRORS_LEFT_TOGGLE", devices.CPT_MECH, 3003, 697, MIRRORS, "Left Mirror Toggle")
+MiG_29A:defineToggleSwitch("MIRRORS_CENTER_TOGGLE", devices.CPT_MECH, 3001, 698, MIRRORS, "Center Mirror Toggle")
+MiG_29A:defineToggleSwitch("MIRRORS_RIGHT_TOGGLE", devices.CPT_MECH, 3005, 699, MIRRORS, "Right Mirror Toggle")
+
+MiG_29A:definePotentiometer("MIRRORS_LEFT_ROTATION_HORIZ", devices.CPT_MECH, 3018, 690, { -1, 1 }, MIRRORS, "Left Mirror Horizontal Position")
+MiG_29A:definePotentiometer("MIRRORS_LEFT_ROTATION_VERT", devices.CPT_MECH, 3020, 691, { -1, 1 }, MIRRORS, "Left Mirror Vertical Position")
+MiG_29A:definePotentiometer("MIRRORS_CENTER_ROTATION_HORIZ", devices.CPT_MECH, 3022, 692, { -1, 1 }, MIRRORS, "Center Mirror Horizontal Position")
+MiG_29A:definePotentiometer("MIRRORS_CENTER_ROTATION_VERT", devices.CPT_MECH, 3024, 693, { -1, 1 }, MIRRORS, "Center Mirror Vertical Position")
+MiG_29A:definePotentiometer("MIRRORS_RIGHT_ROTATION_HORIZ", devices.CPT_MECH, 3026, 694, { -1, 1 }, MIRRORS, "Right Mirror Horizontal Position")
+MiG_29A:definePotentiometer("MIRRORS_RIGHT_ROTATION_VERT", devices.CPT_MECH, 3028, 695, { -1, 1 }, MIRRORS, "Right Mirror Vertical Position")
 
 -- Interior Lights
 
