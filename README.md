@@ -216,7 +216,7 @@ Currently, DCS-BIOS supports the following aircraft modules:
 | A-29B | ✅ | _WarLord_ | [GitHub](https://github.com/luizrenault/a-29b-community) |
 | AH-6J | ✅ | _WarLord_ | [DCS Forums](https://forum.dcs.world/topic/228394-helicopter-efm-demo) |
 | Alphajet | ✅ | _WarLord_ | [Developer](http://www.jetesons.com/telechargement.html) |
-| C-130J-30 † | 🚧 WIP | _[Arcanum115](https://github.com/Arcanum115)_ | [Developer](https://www.anubis-productions.com/) |
+| C-130J-30 † | 🚧 WIP | _[Arcanum115](https://github.com/Arcanum115)_ | [Developer](https://github.com/Arcanum115) |
 | Edge-540/Extra-330SR | ✅ | _WarLord_ | [Developer](http://virtualairrace.com/downloads/) |
 | F-18E/F/G | ✅ |  | [DCS Forums](https://forum.dcs.world/topic/316971-cjs-super-hornet-community-mod-v23-official-thread/) |
 | F-22A | ✅ | _WarLord_ | [Developer](https://grinnellidesigns.com/f22) |
