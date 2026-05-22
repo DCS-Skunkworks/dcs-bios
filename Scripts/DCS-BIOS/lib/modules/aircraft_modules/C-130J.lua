@@ -1172,8 +1172,8 @@ C_130J:defineMultipositionSwitch("ARC210_FREQ_MODE", devices.VOLUME_MANAGER, 316
 -- Seat Position
 
 -- =====================================================================
--- BEGIN MERGED PATCH (added for DCSAutoMate startup/shutdown automation)
--- Source: G:\DCS\DCS World\Mods\aircraft\C130J\Cockpit\Scripts\{command_defs,clickabledata}.lua
+-- BEGIN MERGED PATCH (cold-start / shutdown automation additions, Arcanum115)
+-- Sourced from the C-130J cockpit module's command_defs.lua and clickabledata.lua
 -- =====================================================================
 
 local POWERPLANT      = "Powerplant"
@@ -1357,8 +1357,8 @@ C_130J:definePushButton("CPLT_MASTER_CAUTION", devices.COPILOT_REF_MODE_PANEL, 3
 local OVERHEAD_DISPLAYS = "Overhead Displays"
 
 -- Helper: overhead LCD displays show "---" (or similar) while sensors initialise
--- (e.g. APU NG during inlet-door opening, manual page 84). DCSAutoMate scripts
--- often int() the value, which crashes on non-numeric strings. This helper
+-- (e.g. APU NG during inlet-door opening, manual page 84). Client scripts that
+-- cast the value with int() will crash on non-numeric strings. This helper
 -- returns "0..." padded to `length` when the value isn't a parseable number.
 -- We put the "0" FIRST (followed by spaces) instead of last, because DCS-BIOS
 -- sends delta updates byte-by-byte: if a script reads the value before all

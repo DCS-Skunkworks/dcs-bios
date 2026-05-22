@@ -223,12 +223,9 @@ Currently, DCS-BIOS supports the following aircraft modules:
 | T-45 | ✅ | _WarLord_ | [DCS Forums](https://forum.dcs.world/topic/203816-vnao-t-45-goshawk/) |
 
 > [!Note]
-> † **C-130J-30:** Added in this fork (Arcanum115). Working but still WIP —
-> cold start completes and the aircraft is takeoff-ready, but additional
-> sequences and edge cases are still being refined. The Lua module and
-> companion DCSAutoMate Python script were developed with assistance from
-> Anthropic's Claude AI; see the fork-notice callout at the top of this
-> README for details.
+> † **C-130J-30:** Added in this fork (Arcanum115). Working but still WIP.
+> The Lua module was developed with assistance from Anthropic's Claude AI;
+> see the fork-notice callout at the top of this README for details.
 
 ### Flaming Cliffs Mods
 - AC-130
