@@ -29,7 +29,7 @@
 </div>
 
 > [!IMPORTANT]
-> **Fork notice — Arcanum115**
+> **Fork notice — [Arcanum115](https://github.com/Arcanum115)**
 >
 > This fork adds support for the **Anubis Productions C-130J-30** module
 > (cockpit controls, FADEC guards, master caution / master warning, full
@@ -40,7 +40,7 @@
 >
 > **AI-assisted disclaimer:** the C-130J Lua module and parts of this README were developed with
 > assistance from Anthropic's Claude AI. All code was hand-verified,
-> tested in DCS, and the author (Arcanum115) is responsible for what's
+> tested in DCS, and the author ([Arcanum115](https://github.com/Arcanum115)) is responsible for what's
 > shipped here. Flagging this so contributors and reviewers are informed.
 
 <details>
@@ -216,14 +216,14 @@ Currently, DCS-BIOS supports the following aircraft modules:
 | A-29B | ✅ | _WarLord_ | [GitHub](https://github.com/luizrenault/a-29b-community) |
 | AH-6J | ✅ | _WarLord_ | [DCS Forums](https://forum.dcs.world/topic/228394-helicopter-efm-demo) |
 | Alphajet | ✅ | _WarLord_ | [Developer](http://www.jetesons.com/telechargement.html) |
-| C-130J-30 † | 🚧 WIP | _Arcanum115_ | [Developer](https://www.anubis-productions.com/) |
+| C-130J-30 † | 🚧 WIP | _[Arcanum115](https://github.com/Arcanum115)_ | [Developer](https://www.anubis-productions.com/) |
 | Edge-540/Extra-330SR | ✅ | _WarLord_ | [Developer](http://virtualairrace.com/downloads/) |
 | F-18E/F/G | ✅ |  | [DCS Forums](https://forum.dcs.world/topic/316971-cjs-super-hornet-community-mod-v23-official-thread/) |
 | F-22A | ✅ | _WarLord_ | [Developer](https://grinnellidesigns.com/f22) |
 | T-45 | ✅ | _WarLord_ | [DCS Forums](https://forum.dcs.world/topic/203816-vnao-t-45-goshawk/) |
 
 > [!Note]
-> † **C-130J-30:** Added in this fork (Arcanum115). Working but still WIP.
+> † **C-130J-30:** Added in this fork ([Arcanum115](https://github.com/Arcanum115)). Working but still WIP.
 > The Lua module was developed with assistance from Anthropic's Claude AI;
 > see the fork-notice callout at the top of this README for details.
 
