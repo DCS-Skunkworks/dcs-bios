@@ -38,8 +38,7 @@
 >
 > The C-130J additions are **working but still WIP**.
 >
-> **AI-assisted disclaimer:** the C-130J Lua module, accompanying
-> DCSAutoMate Python script, and parts of this README were developed with
+> **AI-assisted disclaimer:** the C-130J Lua module and parts of this README were developed with
 > assistance from Anthropic's Claude AI. All code was hand-verified,
 > tested in DCS, and the author (Arcanum115) is responsible for what's
 > shipped here. Flagging this so contributors and reviewers are informed.
