@@ -56,7 +56,10 @@ function Protocol.write_module_json(module)
 			local suffix = ";\n"
 			JSONHelper.encode_to_jsonp_file(module.documentation, prefix, suffix, jsonp_file_name)
 		end
-		pcall(saveDoc)
+		local ok, err = pcall(saveDoc)
+		if not ok then
+			BIOS.log("ERROR writing JSON for module " .. tostring(module.name) .. ": " .. tostring(err))
+		end
 	end
 end
 
