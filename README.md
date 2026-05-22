@@ -36,10 +36,7 @@
 > CNI-MU keypad, defensive-systems pages, overhead LCD outputs) on top of
 > upstream DCS-Skunkworks/dcs-bios.
 >
-> The C-130J additions are **working but still WIP** — cold start runs to
-> completion and the aircraft is takeoff-ready, but additional sequences,
-> edge cases, and refinements are ongoing. Use it, file issues, and feel
-> free to suggest improvements.
+> The C-130J additions are **working but still WIP**.
 >
 > **AI-assisted disclaimer:** the C-130J Lua module, accompanying
 > DCSAutoMate Python script, and parts of this README were developed with
@@ -220,7 +217,7 @@ Currently, DCS-BIOS supports the following aircraft modules:
 | A-29B | ✅ | _WarLord_ | [GitHub](https://github.com/luizrenault/a-29b-community) |
 | AH-6J | ✅ | _WarLord_ | [DCS Forums](https://forum.dcs.world/topic/228394-helicopter-efm-demo) |
 | Alphajet | ✅ | _WarLord_ | [Developer](http://www.jetesons.com/telechargement.html) |
-| C-130J-30 † | 🚧 WIP | _Arcanum115_ (AI-assisted) | [Developer](https://www.anubis-productions.com/) |
+| C-130J-30 † | 🚧 WIP | _Arcanum115_ | [Developer](https://www.anubis-productions.com/) |
 | Edge-540/Extra-330SR | ✅ | _WarLord_ | [Developer](http://virtualairrace.com/downloads/) |
 | F-18E/F/G | ✅ |  | [DCS Forums](https://forum.dcs.world/topic/316971-cjs-super-hornet-community-mod-v23-official-thread/) |
 | F-22A | ✅ | _WarLord_ | [Developer](https://grinnellidesigns.com/f22) |
