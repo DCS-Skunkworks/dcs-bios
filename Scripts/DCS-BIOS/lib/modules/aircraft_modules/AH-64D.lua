@@ -574,7 +574,7 @@ AH_64D:definePushButton("CPG_LHG_CURSOR_ENT", 51, 3057, 489, "CPG TEDAC Left Han
 AH_64D:definePushButton("CPG_LHG_LR_BTN", 51, 3060, 490, "CPG TEDAC Left Handgrip", "Gunner Cursor Display Select (L/R) Button")
 
 AH_64D:defineSpringloaded_3PosTumb("CPG_RHG_SIGHT_UP_DN", 51, 3064, 3063, 508, "CPG TEDAC Right Handgrip", "Gunner Sight Select Switch", { positions = { "LINK", "Off", "HMD" } })
-AH_64D:defineSpringloaded_3PosTumb("CPG_RHG_SIGHT_L_R", 51, 3066, 3065, 509, "CPG TEDAC Right Handgrip", "Gunner Sight Select Switch", { positions = { "FCR", "Off", "TADS" } })
+AH_64D:defineSpringloaded_3PosTumb("CPG_RHG_SIGHT_L_R", 51, 3065, 3066, 509, "CPG TEDAC Right Handgrip", "Gunner Sight Select Switch", { positions = { "FCR", "Off", "TADS" } })
 AH_64D:define3PosTumb("CPG_RHG_LASER_TRACK", 51, 3093, 510, "CPG TEDAC Right Handgrip", "Gunner Laser Tracker Mode Switch", { positions = { "M", "O", "A" } })
 AH_64D:defineSpringloaded_3PosTumb("CPG_RHG_FCR_SCAN_UP_DN", 51, 3071, 3070, 511, "CPG TEDAC Right Handgrip", "Gunner FCR Scan Size Switch", { positions = { "Medium", "Off", "Zoom" } })
 AH_64D:defineSpringloaded_3PosTumb("CPG_RHG_FCR_SCAN_L_R", 51, 3073, 3072, 512, "CPG TEDAC Right Handgrip", "Gunner FCR Scan Size Switch", { positions = { "Narrow", "Off", "Wide" } })

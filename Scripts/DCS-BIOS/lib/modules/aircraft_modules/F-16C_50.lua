@@ -890,19 +890,19 @@ end, DED_LINE_LENGTH, DED_NEW, "Line 5")
 
 F_16C_50:defineString("DED_L1_FORMAT", function()
 	return ded_formats[1]
-end, DED_LINE_LENGTH, DED_NEW, "Line 1 Format (i=inverse)")
+end, DED_LINE_LENGTH, DED_NEW, "Line 1 Format (i=inverse, b=big)")
 F_16C_50:defineString("DED_L2_FORMAT", function()
 	return ded_formats[2]
-end, DED_LINE_LENGTH, DED_NEW, "Line 2 Format (i=inverse)")
+end, DED_LINE_LENGTH, DED_NEW, "Line 2 Format (i=inverse, b=big)")
 F_16C_50:defineString("DED_L3_FORMAT", function()
 	return ded_formats[3]
-end, DED_LINE_LENGTH, DED_NEW, "Line 3 Format (i=inverse)")
+end, DED_LINE_LENGTH, DED_NEW, "Line 3 Format (i=inverse, b=big)")
 F_16C_50:defineString("DED_L4_FORMAT", function()
 	return ded_formats[4]
-end, DED_LINE_LENGTH, DED_NEW, "Line 4 Format (i=inverse)")
+end, DED_LINE_LENGTH, DED_NEW, "Line 4 Format (i=inverse, b=big)")
 F_16C_50:defineString("DED_L5_FORMAT", function()
 	return ded_formats[5]
-end, DED_LINE_LENGTH, DED_NEW, "Line 5 Format (i=inverse)")
+end, DED_LINE_LENGTH, DED_NEW, "Line 5 Format (i=inverse, b=big)")
 
 F_16C_50:defineMultipositionSwitch("AIR_SOURCE_KNOB", 13, 3001, 693, 4, 0.1, "ECS", "AIR SOURCE Knob", { positions = { "OFF", "NORM", "DUMP", "RAM" } })
 
