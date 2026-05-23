@@ -1401,6 +1401,14 @@ MiG_29A:defineFloat("INT_MODEL_CANOPY", 181, { 0, 1 }, INTERIOR_MODEL, "Canopy P
 MiG_29A:defineFloat("INT_MODEL_HUD_VISOR", 50, { 0, 1 }, INTERIOR_MODEL, "HUD Visor Position")
 
 -- Exterior Lights
+local EXTERIOR_LIGHTS = "Exterior Lights"
+
+MiG_29A:defineFloatFromExternalDrawArgument("EXT_LIGHT_LANDING_L", 210, { 0, 1 }, EXTERIOR_LIGHTS, "Left Landing Light (Yellow)")
+MiG_29A:defineFloatFromExternalDrawArgument("EXT_LIGHT_LANDING_C", 208, { 0, 1 }, EXTERIOR_LIGHTS, "Center Landing Light (Yellow)")
+MiG_29A:defineFloatFromExternalDrawArgument("EXT_LIGHT_LANDING_R", 209, { 0, 1 }, EXTERIOR_LIGHTS, "Right Landing Light (Yellow)")
+MiG_29A:defineFloatFromExternalDrawArgument("EXT_LIGHT_NAV_L", 190, { 0, 1 }, EXTERIOR_LIGHTS, "Left Navigation Light (Red)")
+MiG_29A:defineFloatFromExternalDrawArgument("EXT_LIGHT_NAV_C", 192, { 0, 1 }, EXTERIOR_LIGHTS, "Center Navigation Light (White)")
+MiG_29A:defineFloatFromExternalDrawArgument("EXT_LIGHT_NAV_R", 191, { 0, 1 }, EXTERIOR_LIGHTS, "Right Navigation Light (Green)")
 
 -- Exterior Model
 
