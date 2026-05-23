@@ -1403,14 +1403,48 @@ MiG_29A:defineFloat("INT_MODEL_HUD_VISOR", 50, { 0, 1 }, INTERIOR_MODEL, "HUD Vi
 -- Exterior Lights
 local EXTERIOR_LIGHTS = "Exterior Lights"
 
-MiG_29A:defineFloatFromExternalDrawArgument("EXT_LIGHT_LANDING_L", 210, { 0, 1 }, EXTERIOR_LIGHTS, "Left Landing Light (Yellow)")
-MiG_29A:defineFloatFromExternalDrawArgument("EXT_LIGHT_LANDING_C", 208, { 0, 1 }, EXTERIOR_LIGHTS, "Center Landing Light (Yellow)")
-MiG_29A:defineFloatFromExternalDrawArgument("EXT_LIGHT_LANDING_R", 209, { 0, 1 }, EXTERIOR_LIGHTS, "Right Landing Light (Yellow)")
-MiG_29A:defineFloatFromExternalDrawArgument("EXT_LIGHT_NAV_L", 190, { 0, 1 }, EXTERIOR_LIGHTS, "Left Navigation Light (Red)")
-MiG_29A:defineFloatFromExternalDrawArgument("EXT_LIGHT_NAV_C", 192, { 0, 1 }, EXTERIOR_LIGHTS, "Center Navigation Light (White)")
-MiG_29A:defineFloatFromExternalDrawArgument("EXT_LIGHT_NAV_R", 191, { 0, 1 }, EXTERIOR_LIGHTS, "Right Navigation Light (Green)")
+MiG_29A:defineFloatFromDrawArgument("EXT_LIGHT_LANDING_L", 210, EXTERIOR_LIGHTS, "Left Landing Light (Yellow)")
+MiG_29A:defineFloatFromDrawArgument("EXT_LIGHT_LANDING_C", 208, EXTERIOR_LIGHTS, "Center Landing Light (Yellow)")
+MiG_29A:defineFloatFromDrawArgument("EXT_LIGHT_LANDING_R", 209, EXTERIOR_LIGHTS, "Right Landing Light (Yellow)")
+MiG_29A:defineFloatFromDrawArgument("EXT_LIGHT_NAV_L", 190, EXTERIOR_LIGHTS, "Left Navigation Light (Red)")
+MiG_29A:defineFloatFromDrawArgument("EXT_LIGHT_NAV_C", 192, EXTERIOR_LIGHTS, "Center Navigation Light (White)")
+MiG_29A:defineFloatFromDrawArgument("EXT_LIGHT_NAV_R", 191, EXTERIOR_LIGHTS, "Right Navigation Light (Green)")
 
 -- Exterior Model
+local EXTERIOR_MODEL = "Exterior Model"
+
+MiG_29A:defineFullRangeFloatFromExternalDrawArgument("EXT_MODEL_AILERON_L", 12, EXTERIOR_MODEL, "Left Aileron")
+MiG_29A:defineFullRangeFloatFromExternalDrawArgument("EXT_MODEL_AILERON_R", 11, EXTERIOR_MODEL, "Right Aileron")
+MiG_29A:defineFullRangeFloatFromExternalDrawArgument("EXT_MODEL_ELEVATOR_L", 16, EXTERIOR_MODEL, "Left Elevator")
+MiG_29A:defineFullRangeFloatFromExternalDrawArgument("EXT_MODEL_ELEVATOR_R", 15, EXTERIOR_MODEL, "Right Elevator")
+MiG_29A:defineFullRangeFloatFromExternalDrawArgument("EXT_MODEL_RUDDER_L", 18, EXTERIOR_MODEL, "Left Rudder")
+MiG_29A:defineFullRangeFloatFromExternalDrawArgument("EXT_MODEL_RUDDER_R", 17, EXTERIOR_MODEL, "Right Rudder")
+MiG_29A:defineFloatFromDrawArgument("EXT_MODEL_FLAP_TRAIL_L", 10, EXTERIOR_MODEL, "Left Trailing Edge Flap")
+MiG_29A:defineFloatFromDrawArgument("EXT_MODEL_FLAP_TRAIL_R", 9, EXTERIOR_MODEL, "Right Trailing Edge Flap")
+MiG_29A:defineFloatFromDrawArgument("EXT_MODEL_FLAP_LEAD_INNER_L", 14, EXTERIOR_MODEL, "Left Inner Leading Edge Flap")
+MiG_29A:defineFloatFromDrawArgument("EXT_MODEL_FLAP_LEAD_INNER_R", 13, EXTERIOR_MODEL, "Right Inner Leading Edge Flap")
+MiG_29A:defineFloatFromDrawArgument("EXT_MODEL_FLAP_LEAD_OUTER_L", 133, EXTERIOR_MODEL, "Left Outer Leading Edge Flap")
+MiG_29A:defineFloatFromDrawArgument("EXT_MODEL_FLAP_LEAD_OUTER_R", 131, EXTERIOR_MODEL, "Right Outer Leading Edge Flap")
+MiG_29A:defineFloatFromDrawArgument("EXT_MODEL_SPEEDBRAKE", 21, EXTERIOR_MODEL, "Speedbrake")
+MiG_29A:defineFloatFromDrawArgument("EXT_MODEL_ENGINE_DOORS_L", 275, EXTERIOR_MODEL, "Left Engine Doors")
+MiG_29A:defineFloatFromDrawArgument("EXT_MODEL_ENGINE_DOORS_R", 274, EXTERIOR_MODEL, "Right Engine Doors")
+MiG_29A:defineFloatFromDrawArgument("EXT_MODEL_GEAR_EXTENSION_L", 5, EXTERIOR_MODEL, "Left Landing Gear Extension")
+MiG_29A:defineFloatFromDrawArgument("EXT_MODEL_GEAR_EXTENSION_C", 0, EXTERIOR_MODEL, "Center Landing Gear Extension")
+MiG_29A:defineFloatFromDrawArgument("EXT_MODEL_GEAR_EXTENSION_R", 3, EXTERIOR_MODEL, "Right Landing Gear Extension")
+MiG_29A:defineFloatFromDrawArgument("EXT_MODEL_GEAR_SUSPENSION_L", 6, EXTERIOR_MODEL, "Left Landing Gear Suspension")
+MiG_29A:defineFloatFromDrawArgument("EXT_MODEL_GEAR_SUSPENSION_C", 1, EXTERIOR_MODEL, "Center Landing Gear Suspension")
+MiG_29A:defineFloatFromDrawArgument("EXT_MODEL_GEAR_SUSPENSION_R", 4, EXTERIOR_MODEL, "Right Landing Gear Suspension")
+MiG_29A:defineFullRangeFloatFromExternalDrawArgument("EXT_MODEL_GEAR_NOSE_STEERING", 2, EXTERIOR_MODEL, "Nose Wheel Position")
+MiG_29A:defineFloatFromDrawArgument("EXT_MODEL_GEAR_DOOR_L", 116, EXTERIOR_MODEL, "Left Landing Gear Door")
+MiG_29A:defineFloatFromDrawArgument("EXT_MODEL_GEAR_DOOR_C", 117, EXTERIOR_MODEL, "Center Landing Gear Door")
+MiG_29A:defineFloatFromDrawArgument("EXT_MODEL_GEAR_DOOR_R", 115, EXTERIOR_MODEL, "Right Landing Gear Door")
+MiG_29A:defineFloatFromDrawArgument("EXT_MODEL_NOZZLE_L", 90, EXTERIOR_MODEL, "Left Nozzle")
+MiG_29A:defineFloatFromDrawArgument("EXT_MODEL_NOZZLE_R", 89, EXTERIOR_MODEL, "Right Nozzle")
+MiG_29A:defineFloatFromDrawArgument("EXT_MODEL_AFTERBURNER_L", 29, EXTERIOR_MODEL, "Left Afterburner")
+MiG_29A:defineFloatFromDrawArgument("EXT_MODEL_AFTERBURNER_R", 28, EXTERIOR_MODEL, "Right Afterburner")
+MiG_29A:defineFullRangeFloatFromExternalDrawArgument("EXT_MODEL_PARACHUTE", 35, EXTERIOR_MODEL, "Parachute")
+MiG_29A:defineFullRangeFloatFromExternalDrawArgument("EXT_MODEL_IRST_PITCH", 306, EXTERIOR_MODEL, "IRST Camera Pitch")
+MiG_29A:defineFullRangeFloatFromExternalDrawArgument("EXT_MODEL_IRST_YAW", 307, EXTERIOR_MODEL, "IRST Camera Yaw")
 
 -- Radios
 
