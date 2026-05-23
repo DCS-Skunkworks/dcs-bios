@@ -1385,6 +1385,14 @@ MiG_29A:definePotentiometer("MIRRORS_RIGHT_ROTATION_HORIZ", devices.CPT_MECH, 30
 MiG_29A:definePotentiometer("MIRRORS_RIGHT_ROTATION_VERT", devices.CPT_MECH, 3028, 695, { -1, 1 }, MIRRORS, "Right Mirror Vertical Position")
 
 -- Interior Lights
+local INTERIOR_LIGHTS = "Interior Lights"
+
+MiG_29A:defineFloat("INT_LIGHT_FLOOD", 600, { 0, 1 }, INTERIOR_LIGHTS, "Flood Lights (Yellow)")
+MiG_29A:defineFloat("INT_LIGHT_MAP", 600, { 0, 1 }, INTERIOR_LIGHTS, "Map Light (Yellow)")
+MiG_29A:defineFloat("INT_LIGHT_CONSOLE", 800, { 0, 1 }, INTERIOR_LIGHTS, "Console Backlights (Orange)")
+MiG_29A:defineFloat("INT_LIGHT_INSTRUMENT", 801, { 0, 1 }, INTERIOR_LIGHTS, "Instrument Backlights (Orange)")
+MiG_29A:defineFloat("INT_LIGHT_COMPASS", 802, { 0, 1 }, INTERIOR_LIGHTS, "Compass Backlight (Green)")
+MiG_29A:defineFloat("INT_LIGHT_HDD", 531, { 0, 1 }, INTERIOR_LIGHTS, "HDD Light (Green)")
 
 -- Interior Model
 
