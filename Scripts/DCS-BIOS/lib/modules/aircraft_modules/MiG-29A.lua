@@ -1395,6 +1395,10 @@ MiG_29A:defineFloat("INT_LIGHT_COMPASS", 802, { 0, 1 }, INTERIOR_LIGHTS, "Compas
 MiG_29A:defineFloat("INT_LIGHT_HDD", 531, { 0, 1 }, INTERIOR_LIGHTS, "HDD Light (Green)")
 
 -- Interior Model
+local INTERIOR_MODEL = "Interior Model"
+
+MiG_29A:defineFloat("INT_MODEL_CANOPY", 181, { 0, 1 }, INTERIOR_MODEL, "Canopy Position")
+MiG_29A:defineFloat("INT_MODEL_HUD_VISOR", 50, { 0, 1 }, INTERIOR_MODEL, "HUD Visor Position")
 
 -- Exterior Lights
 
