@@ -1448,4 +1448,6 @@ MiG_29A:defineFullRangeFloatFromExternalDrawArgument("EXT_MODEL_IRST_YAW", 307, 
 
 -- Radios
 
+MiG_29A:defineReadOnlyRadio("RADIO_R_862", devices.VHF_UHF_R862, 7, 3, 1000, "R-862 (VHF/UHF)")
+
 return MiG_29A
