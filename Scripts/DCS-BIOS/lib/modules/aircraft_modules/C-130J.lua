@@ -563,6 +563,50 @@ C_130J:defineString("FUEL_XFER_TOTAL_AMOUNT", function()
 end, 5, FUEL_MANAGEMENT, "Total Fuel Transfer")
 
 -- Air Conditioning Panel
+local AC = "Air Conditioning Panel"
+
+C_130J:definePushButton("AC_CABIN_POWER", devices.PLANE_ATM, 3001, 352, AC, "Flight Station Air Conditioning Power")
+C_130J:defineIndicatorLight("AC_CABIN_POWER_OFF", 4102, AC, "Flight Station Air Conditioning Power Off Light", { color = "green" })
+C_130J:definePushButton("AC_CABIN_MAN", devices.PLANE_ATM, 3005, 350, AC, "Flight Station Manual Mode")
+C_130J:defineIndicatorLight("AC_CABIN_MAN_ON", 4104, AC, "Flight Station Manual Mode On Light", { color = "green" })
+C_130J:defineRockerSwitch("AC_CABIN_TEMP", devices.PLANE_ATM, 3003, 3003, 3003, 3003, 346, AC, "Flight Station Temperature", { positions = { "DECREASE", "OFF", "INCREASE" } })
+C_130J:definePushButton("AC_XF_MAN", devices.PLANE_ATM, 3007, 349, AC, "Cross Flow Valve Manual Mode")
+C_130J:defineIndicatorLight("AC_XF_MAN_ON", 4106, AC, "Cross Flow Valve Manual Mode On Light", { color = "green" })
+C_130J:defineRockerSwitch("AC_XF", devices.PLANE_ATM, 3008, 3008, 3008, 3008, 348, AC, "Cross Flow Valve", { positions = { "CLOSE", "OFF", "OPEN" } })
+
+C_130J:definePushButton("AC_CARGO_POWER", devices.PLANE_ATM, 3002, 353, AC, "Cargo Compartment Air Conditioning Power")
+C_130J:defineIndicatorLight("AC_CARGO_POWER_OFF", 4103, AC, "Cargo Compartment Air Conditioning Power Off Light", { color = "green" })
+C_130J:definePushButton("AC_CARGO_MAN", devices.PLANE_ATM, 3006, 351, AC, "Cargo Compartment Manual Mode")
+C_130J:defineIndicatorLight("AC_CARGO_MAN_ON", 4105, AC, "Cargo Compartment Manual Mode On Light", { color = "green" })
+C_130J:defineRockerSwitch("AC_CARGO_TEMP", devices.PLANE_ATM, 3004, 3004, 3004, 3004, 347, AC, "Cargo Compartment Temperature", { positions = { "DECREASE", "OFF", "INCREASE" } })
+C_130J:define3PosTumb("AC_UNDERFLOOR", devices.PLANE_ATM, 3009, 469, AC, "Underfloor Heat/Fan Switch", { positions = { "FAN", "OFF", "HEAT/FAN" } })
+
+local temps = {
+	cabin_actual = "",
+	cabin_set = "",
+	cargo_actual = "",
+	cargo_set = "",
+}
+
+C_130J:addExportHook(function()
+	temps.cabin_actual, temps.cabin_set = parse_overhead_lcd_dual_line(36, 3)
+end)
+C_130J:addExportHook(function()
+	temps.cargo_actual, temps.cargo_set = parse_overhead_lcd_dual_line(37, 3)
+end)
+
+C_130J:defineString("AC_CABIN_ACTUAL", function()
+	return temps.cabin_actual
+end, 3, AC, "Flight Station Actual Temperature")
+C_130J:defineString("AC_CABIN_SET", function()
+	return temps.cabin_set
+end, 3, AC, "Flight Station Set Temperature")
+C_130J:defineString("AC_CARGO_ACTUAL", function()
+	return temps.cargo_actual
+end, 3, AC, "Cargo Compartment Actual Temperature")
+C_130J:defineString("AC_CARGO_SET", function()
+	return temps.cargo_set
+end, 3, AC, "Cargo Compartment Set Temperature")
 
 -- Pilot HUD Panel
 
