@@ -567,6 +567,27 @@ end, 5, FUEL_MANAGEMENT, "Total Fuel Transfer")
 -- Pilot HUD Panel
 
 -- Copilot HUD Panel
+local CPLT_HUD = "CPLT HUD Panel"
+
+C_130J:definePushButton("CPLT_HUD_VIS_BTN", devices.C_DISPLAYS, 3026, 1322, CPLT_HUD, "Visual Mode")
+C_130J:defineIndicatorLight("CPLT_HUD_VIS_ON", 4017, CPLT_HUD, "Visual Mode On", { color = "green" })
+C_130J:definePushButton("CPLT_HUD_BLANK1_BTN", devices.C_DISPLAYS, 3032, 1323, CPLT_HUD, "Blank 1")
+C_130J:definePushButton("CPLT_HUD_CAT2_BTN", devices.C_DISPLAYS, 3031, 1324, CPLT_HUD, "CAT2 Mode")
+C_130J:defineIndicatorLight("CPLT_HUD_CAT2_ON", 4018, CPLT_HUD, "CAT2 Mode On", { color = "green" })
+C_130J:definePushButton("CPLT_HUD_OS_BTN", devices.C_DISPLAYS, 3030, 1325, CPLT_HUD, "Offside Mode")
+C_130J:defineIndicatorLight("CPLT_HUD_OS_ON", 4019, CPLT_HUD, "Offside Mode On", { color = "green" })
+C_130J:definePushButton("CPLT_HUD_TACT_BTN", devices.C_DISPLAYS, 3028, 1329, CPLT_HUD, "Tactical Mode")
+C_130J:defineIndicatorLight("CPLT_HUD_TACT_ON", 4022, CPLT_HUD, "Tactical Mode On", { color = "green" })
+C_130J:definePushButton("CPLT_HUD_BLANK2_BTN", devices.C_DISPLAYS, 3033, 1328, CPLT_HUD, "Blank 2")
+C_130J:definePushButton("CPLT_HUD_NAV_BTN", devices.C_DISPLAYS, 3027, 1327, CPLT_HUD, "Nav Mode")
+C_130J:defineIndicatorLight("CPLT_HUD_NAV_ON", 4021, CPLT_HUD, "Nav Mode On", { color = "green" })
+C_130J:definePushButton("CPLT_HUD_UNCG_BTN", devices.C_DISPLAYS, 3029, 1326, CPLT_HUD, "Uncage Mode")
+C_130J:defineIndicatorLight("CPLT_HUD_UNCG_ON", 4020, CPLT_HUD, "Uncage Mode On", { color = "green" })
+
+C_130J:defineToggleSwitch("CPLT_HUD_BRT_PULL", devices.C_DISPLAYS, 3025, 1330, CPLT_HUD, "Auto HUD Brightness")
+C_130J:defineRotary("CPLT_HUD_BRT", devices.C_DISPLAYS, 3024, 1331, CPLT_HUD, "HUD Brightness Knob")
+
+C_130J:defineToggleSwitch("CPLT_HUD_LATCH", devices.C_DISPLAYS, 3023, 7, CPLT_HUD, "HUD Latch")
 
 -- Wipers/ELT/Emergency Exit Lights Extinguish Panel
 
