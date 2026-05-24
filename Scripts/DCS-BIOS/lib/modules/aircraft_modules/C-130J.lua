@@ -569,6 +569,11 @@ end, 5, FUEL_MANAGEMENT, "Total Fuel Transfer")
 -- Copilot HUD Panel
 
 -- Wipers/ELT/Emergency Exit Lights Extinguish Panel
+local WIPER_ELT_EXIT_LIGHT = "Wipers/ELT/Emergency Exit Lights Extinguish Panel"
+
+C_130J:defineToggleSwitch("ELT_ON", devices.MECH_INTERFACE, 3106, 149, WIPER_ELT_EXIT_LIGHT, "ELT Switch", { positions = { "ARM", "ON" } })
+C_130J:definePushButton("EMER_EXIT_LIGHT_EXTINGUISH", devices.ENGINE_APU_CTRL, 3028, 377, WIPER_ELT_EXIT_LIGHT, "Emergency Exit Light Extinguish Button")
+C_130J:defineTumb("WIPER_MODE", devices.ENGINE_APU_CTRL, 3016, 323, 0.2, { -0.2, 0.8 }, nil, false, WIPER_ELT_EXIT_LIGHT, "Windshield Wiper Control Switch", { positions = { "PARK", "OFF", "SLOW", "2", "3", "FAST" } })
 
 -- APU Panel
 
