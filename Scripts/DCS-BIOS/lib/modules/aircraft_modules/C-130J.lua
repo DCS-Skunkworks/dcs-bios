@@ -587,6 +587,10 @@ end, 5, FUEL_MANAGEMENT, "Total Fuel Transfer")
 -- Emergency Exit Lights Extinguish
 
 -- Standby Magnetic Compass
+local COMPASS = "Standby Magnetic Compass"
+
+-- compass does not pitch or roll
+C_130J:defineFloat("COMPASS_HEADING", 17, { -1, 1 }, COMPASS, "Compass Heading")
 
 -- Overhead Console END
 
