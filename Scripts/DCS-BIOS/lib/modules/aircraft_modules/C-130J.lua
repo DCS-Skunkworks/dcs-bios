@@ -579,6 +579,19 @@ end, 5, FUEL_MANAGEMENT, "Total Fuel Transfer")
 -- FADEC/Prop Control/Prop Sync/ATCS Panel
 
 -- Exterior Lighting Panel
+local EXT_LIGHT_PANEL = "Exterior Lighting Panel"
+
+C_130J:definePotentiometer("EXT_LIGHT_BRIGHTNESS", devices.LIGHTING_PANELS, 3016, 424, { 0, 1 }, EXT_LIGHT_PANEL, "Covert/Formation Light Brightness Knob")
+
+C_130J:defineToggleSwitch("EXT_LIGHT_MASTER", devices.LIGHTING_PANELS, 3008, 421, EXT_LIGHT_PANEL, "Exterior Lighting Master Switch", { positions = { "NORM", "COVERT" } })
+C_130J:define3PosTumb("EXT_LIGHT_NAV_MODE", devices.LIGHTING_PANELS, 3009, 422, EXT_LIGHT_PANEL, "Navigation Light Mode Switch", { positions = { "STEADY", "OFF", "FLASH" } })
+C_130J:defineToggleSwitch("EXT_LIGHT_NAV_BRIGHTNESS", devices.LIGHTING_PANELS, 3010, 423, EXT_LIGHT_PANEL, "Navigation Light Brightness Switch", { positions = { "BRIGHT", "DIM" } })
+
+C_130J:define3PosTumb("EXT_LIGHT_STROBE_TOP_MODE", devices.LIGHTING_PANELS, 3012, 418, EXT_LIGHT_PANEL, "Top Strobe Mode Switch", { positions = { "WHT", "OFF", "RED" } })
+C_130J:define3PosTumb("EXT_LIGHT_STROBE_BOT_MODE", devices.LIGHTING_PANELS, 3013, 419, EXT_LIGHT_PANEL, "Bottom Strobe Mode Switch", { positions = { "WHT", "OFF", "RED" } })
+C_130J:defineToggleSwitch("EXT_LIGHT_STROBE_BOT_TEST", devices.LIGHTING_PANELS, 3014, 420, EXT_LIGHT_PANEL, "Bottom Strobe Test Switch")
+
+C_130J:defineToggleSwitch("EXT_LIGHT_LEADING_EDGE", devices.LIGHTING_PANELS, 3015, 417, EXT_LIGHT_PANEL, "Leading Edge Light Switch")
 
 -- Ice Protection Panel
 
