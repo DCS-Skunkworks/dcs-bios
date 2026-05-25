@@ -583,8 +583,24 @@ end, 5, FUEL_MANAGEMENT, "Total Fuel Transfer")
 -- Ice Protection Panel
 
 -- Bleed Air Panel
+local BLEED_AIR = "Bleed Air Panel"
 
--- Emergency Exit Lights Extinguish
+C_130J:definePushButton("BLEED_AIR_APU", devices.ENGINE_APU_CTRL, 3050, 355, BLEED_AIR, "APU Bleed Air Button")
+C_130J:defineIndicatorLight("BLEED_AIR_APU_OPEN", 4108, BLEED_AIR, "APU Bleed Air Open", { color = "green" })
+
+local BLEED_AIR_ATTRIBUTES = { positions = { "OPEN", "AUTO", "CLOSE" } }
+
+C_130J:define3PosTumb("BLEED_AIR_ISO_L", devices.ENGINE_APU_CTRL, 3051, 394, BLEED_AIR, "Left Wing Isolation Valve", BLEED_AIR_ATTRIBUTES)
+C_130J:define3PosTumb("BLEED_AIR_DIVIDER", devices.ENGINE_APU_CTRL, 3052, 395, BLEED_AIR, "Divider Valve", BLEED_AIR_ATTRIBUTES)
+C_130J:define3PosTumb("BLEED_AIR_ISO_R", devices.ENGINE_APU_CTRL, 3053, 396, BLEED_AIR, "Right Wing Isolation Valve", BLEED_AIR_ATTRIBUTES)
+C_130J:define3PosTumb("BLEED_AIR_SHUTOFF_ENGINE_1", devices.ENGINE_APU_CTRL, 3054, 390, BLEED_AIR, "Engine 1 Nacelle Shutoff Valve", BLEED_AIR_ATTRIBUTES)
+C_130J:define3PosTumb("BLEED_AIR_SHUTOFF_ENGINE_2", devices.ENGINE_APU_CTRL, 3055, 391, BLEED_AIR, "Engine 2 Nacelle Shutoff Valve", BLEED_AIR_ATTRIBUTES)
+C_130J:define3PosTumb("BLEED_AIR_SHUTOFF_ENGINE_3", devices.ENGINE_APU_CTRL, 3056, 392, BLEED_AIR, "Engine 3 Nacelle Shutoff Valve", BLEED_AIR_ATTRIBUTES)
+C_130J:define3PosTumb("BLEED_AIR_SHUTOFF_ENGINE_4", devices.ENGINE_APU_CTRL, 3057, 393, BLEED_AIR, "Engine 4 Nacelle Shutoff Valve", BLEED_AIR_ATTRIBUTES)
+
+C_130J:defineString("BLEED_AIR_PRESSURE", function()
+	return parse_overhead_lcd_line(35, { 3 })
+end, 3, BLEED_AIR, "Bleed Air Pressure Indicator")
 
 -- Standby Magnetic Compass
 
