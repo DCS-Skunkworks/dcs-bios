@@ -1332,10 +1332,18 @@ C_130J:definePushButton("CNBP_ECB",    devices.CNBP, 3023, 161, CNBP_PANEL, "CNB
 
 -- Pilot / Copilot Master Warning and Master Caution (push to reset)
 local REF_PANEL = "Reference Mode Panel"
-C_130J:definePushButton("PLT_MASTER_WARNING",  devices.PILOT_REF_MODE_PANEL,   3008, 80, REF_PANEL, "Pilot Master Warning - Push to Reset")
-C_130J:definePushButton("PLT_MASTER_CAUTION",  devices.PILOT_REF_MODE_PANEL,   3009, 81, REF_PANEL, "Pilot Master Caution - Push to Reset")
-C_130J:definePushButton("CPLT_MASTER_WARNING", devices.COPILOT_REF_MODE_PANEL, 3008, 92, REF_PANEL, "Copilot Master Warning - Push to Reset")
-C_130J:definePushButton("CPLT_MASTER_CAUTION", devices.COPILOT_REF_MODE_PANEL, 3009, 93, REF_PANEL, "Copilot Master Caution - Push to Reset")
+-- Master Warning / Master Caution push buttons.
+-- Command IDs come from command_defs.lua REF_MODE_PANEL section:
+--   3007 = baro_set         (rotate baro knob)
+--   3008 = baro_ISA_set     (PRESS the baro knob to set 29.92)
+--   3009 = master_warning   <-- correct ID for MW button
+--   3010 = master_caution   <-- correct ID for MC button
+-- Earlier versions of this module used 3008/3009 here, which actually
+-- triggered the baro-set-29.92 push on the knob to the left of the MW button.
+C_130J:definePushButton("PLT_MASTER_WARNING",  devices.PILOT_REF_MODE_PANEL,   3009, 80, REF_PANEL, "Pilot Master Warning - Push to Reset")
+C_130J:definePushButton("PLT_MASTER_CAUTION",  devices.PILOT_REF_MODE_PANEL,   3010, 81, REF_PANEL, "Pilot Master Caution - Push to Reset")
+C_130J:definePushButton("CPLT_MASTER_WARNING", devices.COPILOT_REF_MODE_PANEL, 3009, 92, REF_PANEL, "Copilot Master Warning - Push to Reset")
+C_130J:definePushButton("CPLT_MASTER_CAUTION", devices.COPILOT_REF_MODE_PANEL, 3010, 93, REF_PANEL, "Copilot Master Caution - Push to Reset")
 
 -- =====================================================================
 -- Overhead LCD State Outputs (for monitoring and conditional waits)
