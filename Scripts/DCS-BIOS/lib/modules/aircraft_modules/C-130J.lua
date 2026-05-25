@@ -250,6 +250,67 @@ function C_130J:defineOilCoolerFlapsSwitch(identifier, device_id, command_fixed,
 	return control
 end
 
+--- Adds a multi-position engine start/stop switch for the APU and engine start switches.
+--- @param identifier string the unique identifier for the control
+--- @param device_id integer the dcs device id
+--- @param command integer the dcs command
+--- @param arg_number integer the dcs argument number
+--- @param step number the amount to increase or decrease dcs data by with each step
+--- @param limits number[] a length-2 array with the lower and upper bounds of the data as used in dcs
+--- @param positions number the number of positions the switch has
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @param attributes SwitchAttributes? additional control attributes
+function C_130J:defineEngineStartSwitch(identifier, device_id, command, arg_number, step, limits, positions, category, description, attributes)
+	local min_output = 0
+	local max_output = positions - 1
+	local alloc = self:allocateInt(max_output, identifier)
+
+	self:addExportHook(function(dev0)
+		local val = dev0:get_argument_value(arg_number)
+		local v = Module.round(Module.valueConvert(val, limits, { min_output, max_output }))
+		alloc:setValue(v)
+	end)
+
+	local control = Control:new(category, ControlType.three_pos_two_command_switch_open_close, identifier, description, {
+		FixedStepInput:new("switch to previous or next state"),
+		SetStateInput:new(max_output, "set the switch position"),
+	}, {
+		IntegerOutput:new(alloc, Suffix.none, string.format("switch position")),
+	}, nil, ControlAttributeDocumentation.from_switch_attributes(attributes))
+
+	self:addControl(control)
+
+	self:addInputProcessor(identifier, function(toState)
+		local dev = GetDevice(device_id)
+		if dev == nil then
+			return
+		end
+
+		local current_value = Module.round(Module.valueConvert(GetDevice(0):get_argument_value(arg_number), limits, { min_output, max_output }))
+
+		local to_state_num
+
+		if toState == "INC" then
+			to_state_num = Module.cap(current_value + 1, min_output, max_output)
+		elseif toState == "DEC" then
+			to_state_num = Module.cap(current_value - 1, min_output, max_output)
+		else
+			to_state_num = tonumber(toState)
+		end
+
+		if to_state_num ~= nil then
+			local diff = to_state_num - current_value
+			local s = diff < 0 and -step or step
+			for _ = 1, math.abs(diff) do
+				dev:performClickableAction(command, s)
+			end
+		end
+	end)
+
+	return control
+end
+
 --- Returns the string value of an lcd line
 --- @param indication_id integer the id of the dcs indication
 --- @param elements integer[] the length of each element
@@ -571,6 +632,22 @@ end, 5, FUEL_MANAGEMENT, "Total Fuel Transfer")
 -- Wipers/ELT/Emergency Exit Lights Extinguish Panel
 
 -- APU Panel
+local APU = "APU Panel"
+
+C_130J:defineToggleSwitch("APU_ALARM", devices.ENGINE_APU_CTRL, 3027, 425, APU, "APU Alarm")
+C_130J:defineEngineStartSwitch("APU_START", devices.ENGINE_APU_CTRL, 3015, 322, 0.5, { 0, 1 }, 3, APU, "APU Start Switch", { positions = { "STOP", "RUN", "START" } })
+C_130J:defineIndicatorLight("APU_START_LIGHT", 4027, APU, "APU Start Light", { color = "green" })
+
+C_130J:defineToggleSwitch("APU_FIRE_HANDLE_PULL", devices.ENGINE_APU_CTRL, 3026, 324, APU, "APU Fire Handle (Push/Pull)")
+C_130J:define3PosTumb("APU_FIRE_HANDLE_ROTATE", devices.ENGINE_APU_CTRL, 3021, 325, APU, "APU Fire Handle (Rotate)", { positions = { "1", "OFF", "2" } })
+C_130J:defineGatedIndicatorLight("APU_FIRE", 4035, 1, nil, APU, "APU Fire Light", { color = "red" }) -- light comes on at exactly 1
+
+C_130J:defineString("APU_EGT", function()
+	return parse_overhead_lcd_line(34, { 3 })
+end, 3, APU, "EGT")
+C_130J:defineString("APU_RPM", function()
+	return parse_overhead_lcd_line(33, { 3 })
+end, 3, APU, "RPM (%)")
 
 -- Engine Start Panel
 
