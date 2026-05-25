@@ -577,6 +577,30 @@ end, 5, FUEL_MANAGEMENT, "Total Fuel Transfer")
 -- Fire Panel
 
 -- FADEC/Prop Control/Prop Sync/ATCS Panel
+local FADEC = "FADEC/Prop Control/Prop Sync/ATCS Panel"
+
+C_130J:defineToggleSwitchManualRange("FADEC_1_GUARD", devices.ENGINE_APU_CTRL, 3035, 328, { 1, 0 }, FADEC, "Engine 1 FADEC Switch Guard", { positions = CommonPositions.COVER })
+C_130J:defineToggleSwitchManualRange("FADEC_2_GUARD", devices.ENGINE_APU_CTRL, 3036, 329, { 1, 0 }, FADEC, "Engine 2 FADEC Switch Guard", { positions = CommonPositions.COVER })
+C_130J:defineToggleSwitchManualRange("FADEC_3_GUARD", devices.ENGINE_APU_CTRL, 3037, 330, { 1, 0 }, FADEC, "Engine 3 FADEC Switch Guard", { positions = CommonPositions.COVER })
+C_130J:defineToggleSwitchManualRange("FADEC_4_GUARD", devices.ENGINE_APU_CTRL, 3038, 331, { 1, 0 }, FADEC, "Engine 4 FADEC Switch Guard", { positions = CommonPositions.COVER })
+
+local FADEC_ATTRIBUTES = { positions = { "RESET", "NORM", "ALT" } }
+
+C_130J:define3PosTumb("FADEC_1_MODE", devices.ENGINE_APU_CTRL, 3039, 412, FADEC, "Engine 1 FADEC Switch", FADEC_ATTRIBUTES)
+C_130J:define3PosTumb("FADEC_2_MODE", devices.ENGINE_APU_CTRL, 3040, 413, FADEC, "Engine 2 FADEC Switch", FADEC_ATTRIBUTES)
+C_130J:define3PosTumb("FADEC_3_MODE", devices.ENGINE_APU_CTRL, 3041, 414, FADEC, "Engine 3 FADEC Switch", FADEC_ATTRIBUTES)
+C_130J:define3PosTumb("FADEC_4_MODE", devices.ENGINE_APU_CTRL, 3042, 415, FADEC, "Engine 4 FADEC Switch", FADEC_ATTRIBUTES)
+
+local PROP_CONTROL_ATTRIBUTES = { positions = { "UNFEATHER", "NORMAL", "FEATHER" } }
+
+C_130J:define3PosTumb("PROP_CONTROL_1", devices.ENGINE_APU_CTRL, 3043, 372, FADEC, "Propeller 1 Control Switch", PROP_CONTROL_ATTRIBUTES)
+C_130J:define3PosTumb("PROP_CONTROL_2", devices.ENGINE_APU_CTRL, 3044, 373, FADEC, "Propeller 2 Control Switch", PROP_CONTROL_ATTRIBUTES)
+C_130J:define3PosTumb("PROP_CONTROL_3", devices.ENGINE_APU_CTRL, 3045, 374, FADEC, "Propeller 3 Control Switch", PROP_CONTROL_ATTRIBUTES)
+C_130J:define3PosTumb("PROP_CONTROL_4", devices.ENGINE_APU_CTRL, 3046, 375, FADEC, "Propeller 4 Control Switch", PROP_CONTROL_ATTRIBUTES)
+
+C_130J:defineToggleSwitch("ATCS_GUARD", devices.ENGINE_APU_CTRL, 3047, 327, FADEC, "ATCS Switch Guard", { positions = CommonPositions.COVER })
+C_130J:defineToggleSwitchManualRange("ATCS", devices.ENGINE_APU_CTRL, 3049, 416, { 1, 0 }, FADEC, "ATCS")
+C_130J:defineToggleSwitchManualRange("PROP_SYNC", devices.ENGINE_APU_CTRL, 3048, 376, { 1, 0 }, FADEC, "Prop Sync Switch")
 
 -- Exterior Lighting Panel
 
