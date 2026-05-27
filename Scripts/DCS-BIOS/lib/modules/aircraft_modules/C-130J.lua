@@ -296,8 +296,6 @@ end
 
 -- Copilot Intercommunications System Monitor Panel
 
--- Get-Home Control Panel
-
 -- Copilot Side Console END
 
 -- Main Instrument Panel
