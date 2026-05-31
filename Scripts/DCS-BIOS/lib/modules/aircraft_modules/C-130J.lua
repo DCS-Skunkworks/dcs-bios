@@ -285,6 +285,12 @@ end
 -- Pilot Side Console
 
 -- Pilot Oxygen Regulator
+local PLT_OXYGEN_REGULATOR = "PLT Oxygen Regulator"
+
+C_130J:defineToggleSwitchManualRange("PLT_OXYGEN_DILUTER_LEVER", devices.PLANE_ATM, 3029, 508, { -2, 2 }, PLT_OXYGEN_REGULATOR, "Pilot Oxygen Diluter Lever") -- -2 to 2 for the range is correct for this specific switch
+C_130J:defineToggleSwitchManualRange("PLT_OXYGEN_SUPPLY_LEVER", devices.PLANE_ATM, 3031, 509, { -2, 2 }, PLT_OXYGEN_REGULATOR, "Pilot Oxygen Supply Lever") -- -2 to 2 for the range is correct for this specific switch
+C_130J:define3PosTumb("PLT_OXYGEN_EMERGENCY_LEVER", devices.PLANE_ATM, 3030, 507, PLT_OXYGEN_REGULATOR, "Pilot Oxygen Emergency Lever", { positions = { "TEST MASK", "NORMAL", "EMERGENCY" } })
+C_130J:defineFloat("PLT_OXYGEN_PRESSURE", 511, { -1, 1 }, PLT_OXYGEN_REGULATOR, "Pilot Oxygen Pressure")
 
 -- Pilot Intercommunications System Monitor Panel
 
@@ -293,6 +299,12 @@ end
 -- Copilot Side Console
 
 -- Copilot Oxygen Regulator
+local CPLT_OXYGEN_REGULATOR = "CPLT Oxygen Regulator"
+
+C_130J:defineToggleSwitchManualRange("CPLT_OXYGEN_DILUTER_LEVER", devices.PLANE_ATM, 3034, 192, { -2, 2 }, CPLT_OXYGEN_REGULATOR, "Copilot Oxygen Diluter Lever") -- -2 to 2 for the range is correct for this specific switch
+C_130J:defineToggleSwitchManualRange("CPLT_OXYGEN_SUPPLY_LEVER", devices.PLANE_ATM, 3032, 191, { -2, 2 }, CPLT_OXYGEN_REGULATOR, "Copilot Oxygen Supply Lever") -- -2 to 2 for the range is correct for this specific switch
+C_130J:define3PosTumb("CPLT_OXYGEN_EMERGENCY_LEVER", devices.PLANE_ATM, 3033, 193, CPLT_OXYGEN_REGULATOR, "Copilot Oxygen Emergency Lever", { positions = { "TEST MASK", "NORMAL", "EMERGENCY" } })
+C_130J:defineFloat("CPLT_OXYGEN_PRESSURE", 512, { -1, 1 }, CPLT_OXYGEN_REGULATOR, "Copilot Oxygen Pressure")
 
 -- Copilot Intercommunications System Monitor Panel
 
