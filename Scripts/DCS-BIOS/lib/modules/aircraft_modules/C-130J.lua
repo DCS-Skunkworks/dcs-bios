@@ -304,7 +304,104 @@ end
 
 -- Pilot Reference Set/Mode Select Panel
 
+local function parse_ref_mode_display(indicator_id)
+	local display = Module.parse_indication(indicator_id)
+
+	if display == nil then
+		return ""
+	end
+
+	local value = display["ref_mode_value"]
+	local period = display["ref_symbol_period"]
+
+	if period ~= nil then
+		value = value:sub(1, #value - 1) .. period .. value:sub(#value)
+	end
+
+	return Functions.pad_left(value, 5)
+end
+
+local PLT_REF_MODE = "PLT Reference Set/Mode Select Panel"
+
+-- rotaries will only act as single increment, regardless of value set
+C_130J:defineTumb("PLT_REF_MODE_SELECT", devices.PILOT_REF_MODE_PANEL, 3001, 110, 0.4, { -0.8, 0.8 }, nil, false, PLT_REF_MODE, "Reference Select Switch", { positions = { "HP", "RAD ALT", "IAS", "FPA", "MINS" } })
+C_130J:defineRotaryWithRange("PLT_REF_SET_KNOB", devices.PILOT_REF_MODE_PANEL, 3002, 109, { -1, 1 }, PLT_REF_MODE, "Reference Set Knob")
+C_130J:definePushButton("PLT_REF_SET_PRESS", devices.PILOT_REF_MODE_PANEL, 3003, 556, PLT_REF_MODE, "Reference Set Hide/Show")
+C_130J:defineRotaryWithRange("PLT_ALTITUDE_ALERT_KNOB", devices.PILOT_REF_MODE_PANEL, 3005, 108, { -1, 1 }, PLT_REF_MODE, "Altitude Alerter Set Knob")
+C_130J:definePushButton("PLT_ALTITUDE_ALERT_PRESS", devices.PILOT_REF_MODE_PANEL, 3006, 557, PLT_REF_MODE, "Altitude Alerter Sync")
+C_130J:defineRotaryWithRange("PLT_BARO_SET_KNOB", devices.PILOT_REF_MODE_PANEL, 3007, 107, { -1, 1 }, PLT_REF_MODE, "Baro Set Knob")
+C_130J:definePushButton("PLT_BARO_SET_PRESS", devices.PILOT_REF_MODE_PANEL, 3008, 558, PLT_REF_MODE, "Baro Set 29.92")
+
+C_130J:definePushButton("PLT_REF_MODE_MASTER_WARNING", devices.PILOT_REF_MODE_PANEL, 3009, 80, PLT_REF_MODE, "Master Warning Button")
+C_130J:definePushButton("PLT_REF_MODE_MASTER_CAUTION", devices.PILOT_REF_MODE_PANEL, 3010, 81, PLT_REF_MODE, "Master Caution Button")
+C_130J:definePushButton("PLT_AP_MODE_ALT", devices.AP_INTERFACE, 3001, 82, PLT_REF_MODE, "ALT Mode Switch")
+C_130J:definePushButton("PLT_AP_MODE_SEL", devices.AP_INTERFACE, 3002, 84, PLT_REF_MODE, "SEL Mode Switch")
+C_130J:definePushButton("PLT_AP_MODE_HDG", devices.AP_INTERFACE, 3003, 86, PLT_REF_MODE, "HDG Mode Switch")
+C_130J:definePushButton("PLT_AP_MODE_NAV", devices.AP_INTERFACE, 3004, 88, PLT_REF_MODE, "NAV Mode Switch")
+C_130J:definePushButton("PLT_AP_MODE_APPR", devices.AP_INTERFACE, 3005, 90, PLT_REF_MODE, "APPR Mode Switch")
+C_130J:definePushButton("PLT_AP_MODE_VS", devices.AP_INTERFACE, 3006, 83, PLT_REF_MODE, "VS Mode Switch")
+C_130J:definePushButton("PLT_AP_MODE_IAS", devices.AP_INTERFACE, 3007, 85, PLT_REF_MODE, "IAS Mode Switch")
+C_130J:definePushButton("PLT_AP_MODE_BLANK", devices.AP_INTERFACE, 3010, 87, PLT_REF_MODE, "Unused Mode Switch")
+C_130J:definePushButton("PLT_AP_MODE_CAPS", devices.AP_INTERFACE, 3008, 89, PLT_REF_MODE, "CAPS Mode Switch")
+C_130J:definePushButton("PLT_AP_MODE_AT", devices.AP_INTERFACE, 3009, 91, PLT_REF_MODE, "A/T Mode Switch")
+
+C_130J:defineIndicatorLight("PLT_REF_MODE_MASTER_WARNING_L", 4045, PLT_REF_MODE, "Master Warning Light", { color = "red" })
+C_130J:defineIndicatorLight("PLT_REF_MODE_MASTER_CAUTION_L", 4046, PLT_REF_MODE, "Master Caution Light", { color = "yellow" })
+C_130J:defineIndicatorLight("PLT_AP_MODE_ALT_L", 4047, PLT_REF_MODE, "ALT Mode Light", { color = "green" })
+C_130J:defineIndicatorLight("PLT_AP_MODE_SEL_L", 4049, PLT_REF_MODE, "SEL Mode Light", { color = "green" })
+C_130J:defineIndicatorLight("PLT_AP_MODE_HDG_L", 4051, PLT_REF_MODE, "HDG Mode Light", { color = "green" })
+C_130J:defineIndicatorLight("PLT_AP_MODE_NAV_L", 4052, PLT_REF_MODE, "NAV Mode Light", { color = "green" })
+C_130J:defineIndicatorLight("PLT_AP_MODE_APPR_L", 4054, PLT_REF_MODE, "APPR Mode Light", { color = "green" })
+C_130J:defineIndicatorLight("PLT_AP_MODE_VS_L", 4048, PLT_REF_MODE, "VS Mode Light", { color = "green" })
+C_130J:defineIndicatorLight("PLT_AP_MODE_IAS_L", 4050, PLT_REF_MODE, "IAS Mode Light", { color = "green" })
+C_130J:defineIndicatorLight("PLT_AP_MODE_CAPS_L", 4053, PLT_REF_MODE, "CAPS Mode Light", { color = "green" })
+C_130J:defineIndicatorLight("PLT_AP_MODE_AT_L", 4055, PLT_REF_MODE, "A/T Mode Light", { color = "green" })
+
+C_130J:defineString("PLT_REF_MODE_DISPLAY", function()
+	return parse_ref_mode_display(16)
+end, 5, PLT_REF_MODE, "REF/MODE Display")
+
 -- Copilot Reference Set/Mode Select Panel
+local CPLT_REF_MODE = "CPLT Reference Set/Mode Select Panel"
+
+-- rotaries will only act as single increment, regardless of value set
+C_130J:defineTumb("CPLT_REF_MODE_SELECT", devices.COPILOT_REF_MODE_PANEL, 3001, 111, 0.4, { -0.8, 0.8 }, nil, false, CPLT_REF_MODE, "Reference Select Switch", { positions = { "HP", "RAD ALT", "IAS", "FPA", "MINS" } })
+C_130J:defineRotaryWithRange("CPLT_REF_SET_KNOB", devices.COPILOT_REF_MODE_PANEL, 3002, 106, { -1, 1 }, CPLT_REF_MODE, "Reference Set Knob")
+C_130J:definePushButton("CPLT_REF_SET_PRESS", devices.COPILOT_REF_MODE_PANEL, 3003, 559, CPLT_REF_MODE, "Reference Set Hide/Show")
+C_130J:defineRotaryWithRange("CPLT_ALTITUDE_ALERT_KNOB", devices.COPILOT_REF_MODE_PANEL, 3005, 105, { -1, 1 }, CPLT_REF_MODE, "Altitude Alerter Set Knob")
+C_130J:definePushButton("CPLT_ALTITUDE_ALERT_PRESS", devices.COPILOT_REF_MODE_PANEL, 3006, 560, CPLT_REF_MODE, "Altitude Alerter Sync")
+C_130J:defineRotaryWithRange("CPLT_BARO_SET_KNOB", devices.COPILOT_REF_MODE_PANEL, 3007, 104, { -1, 1 }, CPLT_REF_MODE, "Baro Set Knob")
+C_130J:definePushButton("CPLT_BARO_SET_PRESS", devices.COPILOT_REF_MODE_PANEL, 3008, 561, CPLT_REF_MODE, "Baro Set 29.92")
+
+C_130J:definePushButton("CPLT_REF_MODE_MASTER_WARNING", devices.COPILOT_REF_MODE_PANEL, 3009, 92, CPLT_REF_MODE, "Master Warning Button")
+C_130J:definePushButton("CPLT_REF_MODE_MASTER_CAUTION", devices.COPILOT_REF_MODE_PANEL, 3010, 93, CPLT_REF_MODE, "Master Caution Button")
+C_130J:definePushButton("CPLT_AP_MODE_ALT", devices.AP_INTERFACE, 3021, 94, CPLT_REF_MODE, "ALT Mode Switch")
+C_130J:definePushButton("CPLT_AP_MODE_SEL", devices.AP_INTERFACE, 3022, 96, CPLT_REF_MODE, "SEL Mode Switch")
+C_130J:definePushButton("CPLT_AP_MODE_HDG", devices.AP_INTERFACE, 3023, 98, CPLT_REF_MODE, "HDG Mode Switch")
+C_130J:definePushButton("CPLT_AP_MODE_NAV", devices.AP_INTERFACE, 3024, 100, CPLT_REF_MODE, "NAV Mode Switch")
+C_130J:definePushButton("CPLT_AP_MODE_APPR", devices.AP_INTERFACE, 3025, 102, CPLT_REF_MODE, "APPR Mode Switch")
+C_130J:definePushButton("CPLT_AP_MODE_VS", devices.AP_INTERFACE, 3026, 95, CPLT_REF_MODE, "VS Mode Switch")
+C_130J:definePushButton("CPLT_AP_MODE_IAS", devices.AP_INTERFACE, 3027, 97, CPLT_REF_MODE, "IAS Mode Switch")
+C_130J:definePushButton("CPLT_AP_MODE_BLANK", devices.AP_INTERFACE, 3030, 99, CPLT_REF_MODE, "Unused Mode Switch")
+C_130J:definePushButton("CPLT_AP_MODE_CAPS", devices.AP_INTERFACE, 3028, 101, CPLT_REF_MODE, "CAPS Mode Switch")
+C_130J:definePushButton("CPLT_AP_MODE_AT", devices.AP_INTERFACE, 3029, 103, CPLT_REF_MODE, "A/T Mode Switch")
+
+-- draw args are identical to PLT
+C_130J:defineIndicatorLight("CPLT_REF_MODE_MASTER_WARNING_L", 4045, CPLT_REF_MODE, "Master Warning Light", { color = "red" })
+C_130J:defineIndicatorLight("CPLT_REF_MODE_MASTER_CAUTION_L", 4046, CPLT_REF_MODE, "Master Caution Light", { color = "yellow" })
+C_130J:defineIndicatorLight("CPLT_AP_MODE_ALT_L", 4047, CPLT_REF_MODE, "ALT Mode Light", { color = "green" })
+C_130J:defineIndicatorLight("CPLT_AP_MODE_SEL_L", 4049, CPLT_REF_MODE, "SEL Mode Light", { color = "green" })
+C_130J:defineIndicatorLight("CPLT_AP_MODE_HDG_L", 4051, CPLT_REF_MODE, "HDG Mode Light", { color = "green" })
+C_130J:defineIndicatorLight("CPLT_AP_MODE_NAV_L", 4052, CPLT_REF_MODE, "NAV Mode Light", { color = "green" })
+C_130J:defineIndicatorLight("CPLT_AP_MODE_APPR_L", 4054, CPLT_REF_MODE, "APPR Mode Light", { color = "green" })
+C_130J:defineIndicatorLight("CPLT_AP_MODE_VS_L", 4048, CPLT_REF_MODE, "VS Mode Light", { color = "green" })
+C_130J:defineIndicatorLight("CPLT_AP_MODE_IAS_L", 4050, CPLT_REF_MODE, "IAS Mode Light", { color = "green" })
+C_130J:defineIndicatorLight("CPLT_AP_MODE_CAPS_L", 4053, CPLT_REF_MODE, "CAPS Mode Light", { color = "green" })
+C_130J:defineIndicatorLight("CPLT_AP_MODE_AT_L", 4055, CPLT_REF_MODE, "A/T Mode Light", { color = "green" })
+
+C_130J:defineString("CPLT_REF_MODE_DISPLAY", function()
+	return parse_ref_mode_display(17)
+end, 5, CPLT_REF_MODE, "REF/MODE Display")
 
 -- Left Outer Avionics Management Unit
 
@@ -969,16 +1066,16 @@ C_130J:defineFloat("AUG_CNI_EXEC_LED", 3394, { 0, 1 }, AUG_CNI_MU, "Aug Crew CNI
 
 -- Pilot Remote Heading and Course Selector
 local PLT_HEAD_COURSE = "PLT Remote Heading and Course Selector"
-C_130J:defineRotary("PLT_HEADING_ADJUST", devices.PILOT_CPT_INTERFACE, 3001, 490, PLT_HEAD_COURSE, "Pilot Heading Adjust")
+C_130J:defineRotaryWithRange("PLT_HEADING_ADJUST", devices.PILOT_CPT_INTERFACE, 3001, 490, { -1, 1 }, PLT_HEAD_COURSE, "Pilot Heading Adjust")
 C_130J:defineToggleSwitch("PLT_HEADING_SYNC", devices.PILOT_CPT_INTERFACE, 3003, 562, PLT_HEAD_COURSE, "Pilot Heading Push to Sync")
-C_130J:defineRotary("PLT_COURSE_ADJUST", devices.PILOT_CPT_INTERFACE, 3002, 491, PLT_HEAD_COURSE, "Pilot Course Adjust")
+C_130J:defineRotaryWithRange("PLT_COURSE_ADJUST", devices.PILOT_CPT_INTERFACE, 3002, 491, { -1, 1 }, PLT_HEAD_COURSE, "Pilot Course Adjust")
 C_130J:defineToggleSwitch("PLT_COURSE_SYNC", devices.PILOT_CPT_INTERFACE, 3004, 563, PLT_HEAD_COURSE, "Pilot Course Push to Sync")
 
 -- Copilot Remote Heading and Course Selector
 local CPLT_HEAD_COURSE = "CPLT Remote Heading and Course Selector"
-C_130J:defineRotary("CPLT_HEADING_ADJUST", devices.COPILOT_CPT_INTERFACE, 3001, 492, CPLT_HEAD_COURSE, "Copilot Heading Adjust")
+C_130J:defineRotaryWithRange("CPLT_HEADING_ADJUST", devices.COPILOT_CPT_INTERFACE, 3001, 492, { -1, 1 }, CPLT_HEAD_COURSE, "Copilot Heading Adjust")
 C_130J:defineToggleSwitch("CPLT_HEADING_SYNC", devices.COPILOT_CPT_INTERFACE, 3003, 564, CPLT_HEAD_COURSE, "Copilot Heading Push to Sync")
-C_130J:defineRotary("CPLT_COURSE_ADJUST", devices.COPILOT_CPT_INTERFACE, 3002, 493, CPLT_HEAD_COURSE, "Copilot Course Adjust")
+C_130J:defineRotaryWithRange("CPLT_COURSE_ADJUST", devices.COPILOT_CPT_INTERFACE, 3002, 493, { -1, 1 }, CPLT_HEAD_COURSE, "Copilot Course Adjust")
 C_130J:defineToggleSwitch("CPLT_COURSE_SYNC", devices.COPILOT_CPT_INTERFACE, 3004, 565, CPLT_HEAD_COURSE, "Copilot Course Push to Sync")
 
 -- Throttle Quadrant
