@@ -347,6 +347,22 @@ C_130J:defineFloat("CPLT_OXYGEN_PRESSURE", 512, { -1, 1 }, CPLT_OXYGEN_REGULATOR
 -- Hydraulic Control Panel
 
 -- Landing Gear/Landing Lights Panel
+local LANDING = "Landing Gear/Landing Lights Panel"
+
+C_130J:defineFloat("LANDING_GEAR_LOCKED_L", 4033, { 0, 1 }, LANDING, "Left Landing Gear Locked Light (Green)")
+C_130J:defineFloat("LANDING_GEAR_LOCKED_R", 4034, { 0, 1 }, LANDING, "Right Landing Gear Locked Light (Green)")
+C_130J:defineFloat("LANDING_GEAR_LOCKED_C", 4032, { 0, 1 }, LANDING, "Center Landing Gear Locked Light (Green)")
+C_130J:defineFloat("LANDING_GEAR_LEVER_LIGHT", 4035, { 0, 1 }, LANDING, "Landing Gear Handle Light (Red)")
+
+C_130J:defineToggleSwitch("LANDING_GEAR_LEVER", devices.HYDRAULICS, 3022, 126, LANDING, "Landing Gear Lever")
+C_130J:definePushButton("LANDING_GEAR_LOCK_RELEASE", devices.HYDRAULICS, 3027, 36, LANDING, "Landing Gear Downlock Release")
+C_130J:defineToggleSwitch("LANDING_LIGHTS_L", devices.LIGHTING_PANELS, 3002, 32, LANDING, "Left Landing Lights")
+C_130J:defineToggleSwitch("LANDING_LIGHTS_R", devices.LIGHTING_PANELS, 3001, 33, LANDING, "Right Landing Lights")
+C_130J:defineToggleSwitch("TAXI_LIGHTS", devices.LIGHTING_PANELS, 3006, 34, LANDING, "Taxi Lights")
+C_130J:defineToggleSwitch("TAXI_LIGHTS_WINGTIP", devices.LIGHTING_PANELS, 3007, 35, LANDING, "Wingtip Taxi Lights")
+
+C_130J:define3PosTumb("LANDING_LIGHTS_MOTOR_L", devices.LIGHTING_PANELS, 3004, 30, LANDING, "Left Landing Light Motor", { positions = { "RETRACT", "HOLD", "EXTEND" } })
+C_130J:define3PosTumb("LANDING_LIGHTS_MOTOR_R", devices.LIGHTING_PANELS, 3003, 31, LANDING, "Right Landing Light Motor", { positions = { "RETRACT", "HOLD", "EXTEND" } })
 
 -- Flap and Trim Indicator Panel
 
