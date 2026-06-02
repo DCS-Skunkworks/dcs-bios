@@ -329,6 +329,28 @@ C_130J:define3PosTumb("CPLT_OXYGEN_EMERGENCY_LEVER", devices.PLANE_ATM, 3033, 19
 C_130J:defineFloat("CPLT_OXYGEN_PRESSURE", 512, { -1, 1 }, CPLT_OXYGEN_REGULATOR, "Copilot Oxygen Pressure")
 
 -- Copilot Intercommunications System Monitor Panel
+local CPLT_ICS_MONITOR_PANEL = "Copilot Intercommunications System Monitor Panel"
+
+C_130J:definePotentiometer("CPLT_ICS_MON_VOR_1_VOLUME", devices.VOLUME_MANAGER, 3077, 448, { 0, 1 }, CPLT_ICS_MONITOR_PANEL, "VOR 1 Volume Knob")
+C_130J:defineToggleSwitch("CPLT_ICS_MON_VOR_1_BUTTON", devices.VOLUME_MANAGER, 3087, 447, CPLT_ICS_MONITOR_PANEL, "VOR 1 Pull to Monitor")
+C_130J:definePotentiometer("CPLT_ICS_MON_TACAN_1_VOLUME", devices.VOLUME_MANAGER, 3079, 450, { 0, 1 }, CPLT_ICS_MONITOR_PANEL, "TACAN 1 Volume Knob")
+C_130J:defineToggleSwitch("CPLT_ICS_MON_TACAN_1_BUTTON", devices.VOLUME_MANAGER, 3089, 449, CPLT_ICS_MONITOR_PANEL, "TACAN 1 Pull to Monitor")
+C_130J:definePotentiometer("CPLT_ICS_MON_ADF_1_VOLUME", devices.VOLUME_MANAGER, 3081, 452, { 0, 1 }, CPLT_ICS_MONITOR_PANEL, "ADF 1 Volume Knob")
+C_130J:defineToggleSwitch("CPLT_ICS_MON_ADF_1_BUTTON", devices.VOLUME_MANAGER, 3091, 451, CPLT_ICS_MONITOR_PANEL, "ADF 1 Pull to Monitor")
+C_130J:definePotentiometer("CPLT_ICS_MON_SAR_VOLUME", devices.VOLUME_MANAGER, 3083, 454, { 0, 1 }, CPLT_ICS_MONITOR_PANEL, "SAR Volume Knob")
+C_130J:defineToggleSwitch("CPLT_ICS_MON_SAR_BUTTON", devices.VOLUME_MANAGER, 3093, 453, CPLT_ICS_MONITOR_PANEL, "SAR Pull to Monitor")
+C_130J:definePotentiometer("CPLT_ICS_MON_BCN_VOLUME", devices.VOLUME_MANAGER, 3085, 456, { 0, 1 }, CPLT_ICS_MONITOR_PANEL, "BCN Volume Knob")
+C_130J:defineToggleSwitch("CPLT_ICS_MON_BCN_BUTTON", devices.VOLUME_MANAGER, 3095, 455, CPLT_ICS_MONITOR_PANEL, "BCN Pull to Monitor")
+C_130J:definePotentiometer("CPLT_ICS_MON_VOR_2_VOLUME", devices.VOLUME_MANAGER, 3078, 458, { 0, 1 }, CPLT_ICS_MONITOR_PANEL, "VOR 2 Volume Knob")
+C_130J:defineToggleSwitch("CPLT_ICS_MON_VOR_2_BUTTON", devices.VOLUME_MANAGER, 3088, 457, CPLT_ICS_MONITOR_PANEL, "VOR 2 Pull to Monitor")
+C_130J:definePotentiometer("CPLT_ICS_MON_TACAN_2_VOLUME", devices.VOLUME_MANAGER, 3080, 460, { 0, 1 }, CPLT_ICS_MONITOR_PANEL, "TACAN 2 Volume Knob")
+C_130J:defineToggleSwitch("CPLT_ICS_MON_TACAN_2_BUTTON", devices.VOLUME_MANAGER, 3090, 459, CPLT_ICS_MONITOR_PANEL, "TACAN 2 Pull to Monitor")
+C_130J:definePotentiometer("CPLT_ICS_MON_ADF_2_VOLUME", devices.VOLUME_MANAGER, 3082, 462, { 0, 1 }, CPLT_ICS_MONITOR_PANEL, "ADF 2 Volume Knob")
+C_130J:defineToggleSwitch("CPLT_ICS_MON_ADF_2_BUTTON", devices.VOLUME_MANAGER, 3092, 461, CPLT_ICS_MONITOR_PANEL, "ADF 2 Pull to Monitor")
+C_130J:definePotentiometer("CPLT_ICS_MON_BLANK_VOLUME", devices.VOLUME_MANAGER, 3084, 464, { 0, 1 }, CPLT_ICS_MONITOR_PANEL, "Blank Volume Knob")
+C_130J:defineToggleSwitch("CPLT_ICS_MON_BLANK_BUTTON", devices.VOLUME_MANAGER, 3094, 463, CPLT_ICS_MONITOR_PANEL, "Blank Pull to Monitor")
+C_130J:definePotentiometer("CPLT_ICS_MON_RWR_VOLUME", devices.VOLUME_MANAGER, 3086, 466, { 0, 1 }, CPLT_ICS_MONITOR_PANEL, "RWR Volume Knob")
+C_130J:defineToggleSwitch("CPLT_ICS_MON_RWR_BUTTON", devices.VOLUME_MANAGER, 3096, 465, CPLT_ICS_MONITOR_PANEL, "RWR Pull to Monitor")
 
 -- Copilot Side Console END
 
