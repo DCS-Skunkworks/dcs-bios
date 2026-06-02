@@ -293,6 +293,28 @@ C_130J:define3PosTumb("PLT_OXYGEN_EMERGENCY_LEVER", devices.PLANE_ATM, 3030, 507
 C_130J:defineFloat("PLT_OXYGEN_PRESSURE", 511, { -1, 1 }, PLT_OXYGEN_REGULATOR, "Pilot Oxygen Pressure")
 
 -- Pilot Intercommunications System Monitor Panel
+local PLT_ICS_MONITOR_PANEL = "Pilot Intercommunications System Monitor Panel"
+
+C_130J:definePotentiometer("PLT_ICS_MON_VOR_1_VOLUME", devices.VOLUME_MANAGER, 3057, 428, { 0, 1 }, PLT_ICS_MONITOR_PANEL, "VOR 1 Volume Knob")
+C_130J:defineToggleSwitch("PLT_ICS_MON_VOR_1_BUTTON", devices.VOLUME_MANAGER, 3067, 427, PLT_ICS_MONITOR_PANEL, "VOR 1 Pull to Monitor")
+C_130J:definePotentiometer("PLT_ICS_MON_TACAN_1_VOLUME", devices.VOLUME_MANAGER, 3059, 430, { 0, 1 }, PLT_ICS_MONITOR_PANEL, "TACAN 1 Volume Knob")
+C_130J:defineToggleSwitch("PLT_ICS_MON_TACAN_1_BUTTON", devices.VOLUME_MANAGER, 3069, 429, PLT_ICS_MONITOR_PANEL, "TACAN 1 Pull to Monitor")
+C_130J:definePotentiometer("PLT_ICS_MON_ADF_1_VOLUME", devices.VOLUME_MANAGER, 3061, 432, { 0, 1 }, PLT_ICS_MONITOR_PANEL, "ADF 1 Volume Knob")
+C_130J:defineToggleSwitch("PLT_ICS_MON_ADF_1_BUTTON", devices.VOLUME_MANAGER, 3071, 431, PLT_ICS_MONITOR_PANEL, "ADF 1 Pull to Monitor")
+C_130J:definePotentiometer("PLT_ICS_MON_SAR_VOLUME", devices.VOLUME_MANAGER, 3063, 434, { 0, 1 }, PLT_ICS_MONITOR_PANEL, "SAR Volume Knob")
+C_130J:defineToggleSwitch("PLT_ICS_MON_SAR_BUTTON", devices.VOLUME_MANAGER, 3073, 433, PLT_ICS_MONITOR_PANEL, "SAR Pull to Monitor")
+C_130J:definePotentiometer("PLT_ICS_MON_BCN_VOLUME", devices.VOLUME_MANAGER, 3065, 436, { 0, 1 }, PLT_ICS_MONITOR_PANEL, "BCN Volume Knob")
+C_130J:defineToggleSwitch("PLT_ICS_MON_BCN_BUTTON", devices.VOLUME_MANAGER, 3075, 435, PLT_ICS_MONITOR_PANEL, "BCN Pull to Monitor")
+C_130J:definePotentiometer("PLT_ICS_MON_VOR_2_VOLUME", devices.VOLUME_MANAGER, 3058, 438, { 0, 1 }, PLT_ICS_MONITOR_PANEL, "VOR 2 Volume Knob")
+C_130J:defineToggleSwitch("PLT_ICS_MON_VOR_2_BUTTON", devices.VOLUME_MANAGER, 3068, 437, PLT_ICS_MONITOR_PANEL, "VOR 2 Pull to Monitor")
+C_130J:definePotentiometer("PLT_ICS_MON_TACAN_2_VOLUME", devices.VOLUME_MANAGER, 3060, 440, { 0, 1 }, PLT_ICS_MONITOR_PANEL, "TACAN 2 Volume Knob")
+C_130J:defineToggleSwitch("PLT_ICS_MON_TACAN_2_BUTTON", devices.VOLUME_MANAGER, 3070, 439, PLT_ICS_MONITOR_PANEL, "TACAN 2 Pull to Monitor")
+C_130J:definePotentiometer("PLT_ICS_MON_ADF_2_VOLUME", devices.VOLUME_MANAGER, 3062, 442, { 0, 1 }, PLT_ICS_MONITOR_PANEL, "ADF 2 Volume Knob")
+C_130J:defineToggleSwitch("PLT_ICS_MON_ADF_2_BUTTON", devices.VOLUME_MANAGER, 3072, 441, PLT_ICS_MONITOR_PANEL, "ADF 2 Pull to Monitor")
+C_130J:definePotentiometer("PLT_ICS_MON_BLANK_VOLUME", devices.VOLUME_MANAGER, 3064, 444, { 0, 1 }, PLT_ICS_MONITOR_PANEL, "Blank Volume Knob")
+C_130J:defineToggleSwitch("PLT_ICS_MON_BLANK_BUTTON", devices.VOLUME_MANAGER, 3074, 443, PLT_ICS_MONITOR_PANEL, "Blank Pull to Monitor")
+C_130J:definePotentiometer("PLT_ICS_MON_RWR_VOLUME", devices.VOLUME_MANAGER, 3066, 446, { 0, 1 }, PLT_ICS_MONITOR_PANEL, "RWR Volume Knob")
+C_130J:defineToggleSwitch("PLT_ICS_MON_RWR_BUTTON", devices.VOLUME_MANAGER, 3076, 445, PLT_ICS_MONITOR_PANEL, "RWR Pull to Monitor")
 
 -- Pilot Side Console END
 
