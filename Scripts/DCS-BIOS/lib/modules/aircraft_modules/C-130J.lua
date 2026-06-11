@@ -250,6 +250,67 @@ function C_130J:defineOilCoolerFlapsSwitch(identifier, device_id, command_fixed,
 	return control
 end
 
+--- Adds a multi-position engine start/stop switch for the APU and engine start switches.
+--- @param identifier string the unique identifier for the control
+--- @param device_id integer the dcs device id
+--- @param command integer the dcs command
+--- @param arg_number integer the dcs argument number
+--- @param step number the amount to increase or decrease dcs data by with each step
+--- @param limits number[] a length-2 array with the lower and upper bounds of the data as used in dcs
+--- @param positions number the number of positions the switch has
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @param attributes SwitchAttributes? additional control attributes
+function C_130J:defineEngineStartSwitch(identifier, device_id, command, arg_number, step, limits, positions, category, description, attributes)
+	local min_output = 0
+	local max_output = positions - 1
+	local alloc = self:allocateInt(max_output, identifier)
+
+	self:addExportHook(function(dev0)
+		local val = dev0:get_argument_value(arg_number)
+		local v = Module.round(Module.valueConvert(val, limits, { min_output, max_output }))
+		alloc:setValue(v)
+	end)
+
+	local control = Control:new(category, ControlType.three_pos_two_command_switch_open_close, identifier, description, {
+		FixedStepInput:new("switch to previous or next state"),
+		SetStateInput:new(max_output, "set the switch position"),
+	}, {
+		IntegerOutput:new(alloc, Suffix.none, string.format("switch position")),
+	}, nil, ControlAttributeDocumentation.from_switch_attributes(attributes))
+
+	self:addControl(control)
+
+	self:addInputProcessor(identifier, function(toState)
+		local dev = GetDevice(device_id)
+		if dev == nil then
+			return
+		end
+
+		local current_value = Module.round(Module.valueConvert(GetDevice(0):get_argument_value(arg_number), limits, { min_output, max_output }))
+
+		local to_state_num
+
+		if toState == "INC" then
+			to_state_num = Module.cap(current_value + 1, min_output, max_output)
+		elseif toState == "DEC" then
+			to_state_num = Module.cap(current_value - 1, min_output, max_output)
+		else
+			to_state_num = tonumber(toState)
+		end
+
+		if to_state_num ~= nil then
+			local diff = to_state_num - current_value
+			local s = diff < 0 and -step or step
+			for _ = 1, math.abs(diff) do
+				dev:performClickableAction(command, s)
+			end
+		end
+	end)
+
+	return control
+end
+
 --- Returns the string value of an lcd line
 --- @param indication_id integer the id of the dcs indication
 --- @param elements integer[] the length of each element
@@ -713,8 +774,30 @@ C_130J:defineToggleSwitch("CPLT_HUD_LATCH", devices.C_DISPLAYS, 3023, 7, CPLT_HU
 -- APU Panel
 
 -- Engine Start Panel
+local ENGINE_START = "Engine Start Panel"
 
--- Fire Panel
+-- the step/range/positions for these engine start switches are a little weird, but they match what is in the dcs lua files, and they work
+C_130J:defineEngineStartSwitch("ENGINE_START_1", devices.ENGINE_APU_CTRL, 3007, 310, 0.5, { -0.33, 1 }, 4, ENGINE_START, "Engine 1 Start Switch", { positions = { "MOTOR", "STOP", "RUN", "START" } })
+C_130J:defineIndicatorLight("ENGINE_START_1_LIGHT", 4023, ENGINE_START, "Engine 1 Start Light", { color = "green" })
+C_130J:defineEngineStartSwitch("ENGINE_START_2", devices.ENGINE_APU_CTRL, 3008, 311, 0.5, { -0.33, 1 }, 4, ENGINE_START, "Engine 2 Start Switch", { positions = { "MOTOR", "STOP", "RUN", "START" } })
+C_130J:defineIndicatorLight("ENGINE_START_2_LIGHT", 4024, ENGINE_START, "Engine 2 Start Light", { color = "green" })
+C_130J:defineEngineStartSwitch("ENGINE_START_3", devices.ENGINE_APU_CTRL, 3009, 312, 0.5, { -0.33, 1 }, 4, ENGINE_START, "Engine 3 Start Switch", { positions = { "MOTOR", "STOP", "RUN", "START" } })
+C_130J:defineIndicatorLight("ENGINE_START_3_LIGHT", 4025, ENGINE_START, "Engine 3 Start Light", { color = "green" })
+C_130J:defineEngineStartSwitch("ENGINE_START_4", devices.ENGINE_APU_CTRL, 3010, 313, 0.5, { -0.33, 1 }, 4, ENGINE_START, "Engine 4 Start Switch", { positions = { "MOTOR", "STOP", "RUN", "START" } })
+C_130J:defineIndicatorLight("ENGINE_START_4_LIGHT", 4026, ENGINE_START, "Engine 4 Start Light", { color = "green" })
+
+C_130J:defineToggleSwitch("FIRE_ENGINE_1_HANDLE_PULL", devices.ENGINE_APU_CTRL, 3022, 314, ENGINE_START, "Engine 1 Fire Handle (Push/Pull)")
+C_130J:define3PosTumb("FIRE_ENGINE_1_HANDLE_ROTATE", devices.ENGINE_APU_CTRL, 3017, 315, ENGINE_START, "Engine 1 Fire Handle (Rotate)", { positions = { "1", "OFF", "2" } })
+C_130J:defineGatedIndicatorLight("FIRE_ENGINE_1", 4131, 1, nil, ENGINE_START, "Engine 1 Fire Light", { color = "red" }) -- light comes on at exactly 1
+C_130J:defineToggleSwitch("FIRE_ENGINE_2_HANDLE_PULL", devices.ENGINE_APU_CTRL, 3023, 316, ENGINE_START, "Engine 2 Fire Handle (Push/Pull)")
+C_130J:define3PosTumb("FIRE_ENGINE_2_HANDLE_ROTATE", devices.ENGINE_APU_CTRL, 3018, 317, ENGINE_START, "Engine 2 Fire Handle (Rotate)", { positions = { "1", "OFF", "2" } })
+C_130J:defineGatedIndicatorLight("FIRE_ENGINE_2", 4132, 1, nil, ENGINE_START, "Engine 2 Fire Light", { color = "red" }) -- light comes on at exactly 1
+C_130J:defineToggleSwitch("FIRE_ENGINE_3_HANDLE_PULL", devices.ENGINE_APU_CTRL, 3024, 318, ENGINE_START, "Engine 3 Fire Handle (Push/Pull)")
+C_130J:define3PosTumb("FIRE_ENGINE_3_HANDLE_ROTATE", devices.ENGINE_APU_CTRL, 3019, 319, ENGINE_START, "Engine 3 Fire Handle (Rotate)", { positions = { "1", "OFF", "2" } })
+C_130J:defineGatedIndicatorLight("FIRE_ENGINE_3", 4133, 1, nil, ENGINE_START, "Engine 3 Fire Light", { color = "red" }) -- light comes on at exactly 1
+C_130J:defineToggleSwitch("FIRE_ENGINE_4_HANDLE_PULL", devices.ENGINE_APU_CTRL, 3025, 320, ENGINE_START, "Engine 4 Fire Handle (Push/Pull)")
+C_130J:define3PosTumb("FIRE_ENGINE_4_HANDLE_ROTATE", devices.ENGINE_APU_CTRL, 3020, 321, ENGINE_START, "Engine 4 Fire Handle (Rotate)", { positions = { "1", "OFF", "2" } })
+C_130J:defineGatedIndicatorLight("FIRE_ENGINE_4", 4134, 1, nil, ENGINE_START, "Engine 4 Fire Light", { color = "red" }) -- light comes on at exactly 1
 
 -- FADEC/Prop Control/Prop Sync/ATCS Panel
 local FADEC = "FADEC/Prop Control/Prop Sync/ATCS Panel"
