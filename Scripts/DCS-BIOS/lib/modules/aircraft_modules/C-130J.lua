@@ -663,6 +663,27 @@ C_130J:defineString("AC_CARGO_SET", function()
 end, 3, AC, "Cargo Compartment Set Temperature")
 
 -- Pilot HUD Panel
+local PLT_HUD = "PLT HUD Panel"
+
+C_130J:definePushButton("PLT_HUD_VIS_BTN", devices.P_DISPLAYS, 3026, 1311, PLT_HUD, "Visual Mode")
+C_130J:defineIndicatorLight("PLT_HUD_VIS_ON", 4011, PLT_HUD, "Visual Mode On", { color = "green" })
+C_130J:definePushButton("PLT_HUD_BLANK1_BTN", devices.P_DISPLAYS, 3032, 1312, PLT_HUD, "Blank 1")
+C_130J:definePushButton("PLT_HUD_CAT2_BTN", devices.P_DISPLAYS, 3031, 1313, PLT_HUD, "CAT2 Mode")
+C_130J:defineIndicatorLight("PLT_HUD_CAT2_ON", 4012, PLT_HUD, "CAT2 Mode On", { color = "green" })
+C_130J:definePushButton("PLT_HUD_OS_BTN", devices.P_DISPLAYS, 3030, 1314, PLT_HUD, "Offside Mode")
+C_130J:defineIndicatorLight("PLT_HUD_OS_ON", 4013, PLT_HUD, "Offside Mode On", { color = "green" })
+C_130J:definePushButton("PLT_HUD_TACT_BTN", devices.P_DISPLAYS, 3028, 1318, PLT_HUD, "Tactical Mode")
+C_130J:defineIndicatorLight("PLT_HUD_TACT_ON", 4016, PLT_HUD, "Tactical Mode On", { color = "green" })
+C_130J:definePushButton("PLT_HUD_BLANK2_BTN", devices.P_DISPLAYS, 3033, 1317, PLT_HUD, "Blank 2")
+C_130J:definePushButton("PLT_HUD_NAV_BTN", devices.P_DISPLAYS, 3027, 1316, PLT_HUD, "Nav Mode")
+C_130J:defineIndicatorLight("PLT_HUD_NAV_ON", 4015, PLT_HUD, "Nav Mode On", { color = "green" })
+C_130J:definePushButton("PLT_HUD_UNCG_BTN", devices.P_DISPLAYS, 3029, 1315, PLT_HUD, "Uncage Mode")
+C_130J:defineIndicatorLight("PLT_HUD_UNCG_ON", 4014, PLT_HUD, "Uncage Mode On", { color = "green" })
+
+C_130J:defineToggleSwitch("PLT_HUD_BRT_PULL", devices.P_DISPLAYS, 3025, 1320, PLT_HUD, "Auto HUD Brightness")
+C_130J:defineRotary("PLT_HUD_BRT", devices.P_DISPLAYS, 3024, 1319, PLT_HUD, "HUD Brightness Knob")
+
+C_130J:defineToggleSwitch("PLT_HUD_LATCH", devices.P_DISPLAYS, 3023, 6, PLT_HUD, "HUD Latch")
 
 -- Copilot HUD Panel
 
