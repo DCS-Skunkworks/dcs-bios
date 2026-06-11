@@ -758,6 +758,22 @@ C_130J:defineToggleSwitch("EXT_LIGHT_STROBE_BOT_TEST", devices.LIGHTING_PANELS, 
 C_130J:defineToggleSwitch("EXT_LIGHT_LEADING_EDGE", devices.LIGHTING_PANELS, 3015, 417, EXT_LIGHT_PANEL, "Leading Edge Light Switch")
 
 -- Ice Protection Panel
+local ICE = "Ice Protection Panel"
+
+local ICE_PROTECTION_ATTRIBUTES = { positions = { "ON", "AUTO", "OFF" } }
+
+C_130J:define3PosTumb("ICE_PROP_1", devices.ENGINE_APU_CTRL, 3058, 386, ICE, "Propeller 1 Ice Protection Switch", ICE_PROTECTION_ATTRIBUTES)
+C_130J:define3PosTumb("ICE_PROP_2", devices.ENGINE_APU_CTRL, 3059, 387, ICE, "Propeller 2 Ice Protection Switch", ICE_PROTECTION_ATTRIBUTES)
+C_130J:define3PosTumb("ICE_PROP_3", devices.ENGINE_APU_CTRL, 3060, 388, ICE, "Propeller 3 Ice Protection Switch", ICE_PROTECTION_ATTRIBUTES)
+C_130J:define3PosTumb("ICE_PROP_4", devices.ENGINE_APU_CTRL, 3061, 389, ICE, "Propeller 4 Ice Protection Switch", ICE_PROTECTION_ATTRIBUTES)
+C_130J:define3PosTumb("ICE_ENG", devices.ENGINE_APU_CTRL, 3062, 385, ICE, "Engine Ice Protection Switch", ICE_PROTECTION_ATTRIBUTES)
+C_130J:define3PosTumb("ICE_WING_EMP", devices.ENGINE_APU_CTRL, 3063, 384, ICE, "Wing/Empennage Ice Protection Switch", ICE_PROTECTION_ATTRIBUTES)
+
+C_130J:defineToggleSwitchManualRange("ICE_ANTI_DE_ICE", devices.ENGINE_APU_CTRL, 3064, 382, { 1, 0 }, ICE, "Anti-Ice/De-Ice Switch", { positions = { "ANTI-ICE", "DE-ICE" } })
+C_130J:defineToggleSwitchManualRange("ICE_PLT_PITOT", devices.ENGINE_APU_CTRL, 3065, 378, { 1, 0 }, ICE, "Pilot Pitot Heat Switch")
+C_130J:defineToggleSwitchManualRange("ICE_CPLT_PITOT", devices.ENGINE_APU_CTRL, 3066, 379, { 1, 0 }, ICE, "Copilot Pitot Heat Switch")
+C_130J:defineToggleSwitchManualRange("ICE_NESA_C", devices.ENGINE_APU_CTRL, 3067, 380, { 1, 0 }, ICE, "Center NESA Heat Switch")
+C_130J:defineToggleSwitchManualRange("ICE_NESA_S", devices.ENGINE_APU_CTRL, 3068, 381, { 1, 0 }, ICE, "Side/Lower NESA Heat Switch")
 
 -- Bleed Air Panel
 local BLEED_AIR = "Bleed Air Panel"
