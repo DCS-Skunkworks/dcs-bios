@@ -586,7 +586,7 @@ end, 5, FUEL_MANAGEMENT, "Total Fuel Transfer")
 local BLEED_AIR = "Bleed Air Panel"
 
 C_130J:definePushButton("BLEED_AIR_APU", devices.ENGINE_APU_CTRL, 3050, 355, BLEED_AIR, "APU Bleed Air Button")
-C_130J:defineIndicatorLight("BLEED_AIR_APU_OPEN", 4108, BLEED_AIR, "APU Bleed Air Open", { color = "green" })
+C_130J:defineIndicatorLight("BLEED_AIR_APU_OPEN", 4108, BLEED_AIR, "APU Bleed Air Open Light", { color = "green" })
 
 local BLEED_AIR_ATTRIBUTES = { positions = { "OPEN", "AUTO", "CLOSE" } }
 
