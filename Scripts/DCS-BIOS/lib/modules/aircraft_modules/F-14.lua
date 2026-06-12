@@ -6,12 +6,79 @@ local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 local F_14 = Module:new("F-14", 0x1200, { "F-14B", "F-14A-135-GR", "F-14A-135-GR-Early" })
 
 --v4.6b by WarLord,ArturDCS,Matchstick and Bullitt
-
 local devices = {
+	PROXY = 1,
+	ICS = 2,
+	ARC159 = 3,
+	ARC182 = 4,
+	COUNTERMEASURES = 5,
+	EPOXY = 6,
+	LANTIRN = 7,
+	SENSORS = 8,
+	FMSENSOR = 9,
+	MULTICREW = 10,
+	BITPANEL = 11,
+	COCKPITMECHANICS = 12,
+	HYDRAULICS = 13,
+	AICS = 14,
+	ELECTRICS = 15,
+	PNEUMATICS = 16,
+	WINGSWEEP = 17,
+	GEARHOOK = 18,
+	FLAPS = 19,
+	ENGINE = 20,
+	FUELSYSTEM = 21,
+	AFCS = 22,
+	CADC = 23,
+	CAP = 24,
+	ACCELEROMETER = 25,
+	AOASYSTEM = 26,
+	CLOCK = 27,
+	MACHANDAIRSPEED = 28,
+	BAROALTIMETER = 29,
+	RADARALTIMETER = 30,
+	STDBYAI = 31,
+	TURNANDSLIP = 32,
+	VERTICALVEL = 33,
+	STANDBYCOMPASS = 34,
+	WARNINGLIGHTS = 35,
+	FCINSTRUMENTS = 36,
+	BDHI = 37,
 	TCS = 38,
+	RADAR = 39,
+	HUD = 40,
+	HSD = 41,
+	VDI = 42,
+	TID = 43,
 	ECMD = 44,
+	HELMET_DEVICE = 45,
+	NAV_INTERFACE = 46,
+	TACAN = 47,
+	ILS = 48,
+	IMU = 49,
+	INS = 50,
+	AHRS = 51,
+	DATALINK = 52,
+	DECM = 53,
+	RWR = 54,
+	WEAPONS = 55,
+	WALKMAN = 56,
+	HOTAS = 57,
+	HCU = 58,
+	DEBUGDISPLAY = 59,
+	CONTROLS = 60,
+	KNEEBOARD = 61,
 	JESTERAI = 62,
+	WCS = 63,
+	IFF = 64,
+	AUTO = 65,
+	PADLOCK = 66,
+	FIRE = 67,
+	AUTOPILOT = 68,
+	REPAIR_DEVICE = 69,
+	AVIONICSCORE = 70,
 	RWR_INTERFACE = 71,
+	TARPS = 72,
 }
 
 -- remove Arg# Stick 33, Bodies 3334
@@ -175,170 +242,170 @@ end
 ----------------------------------------- BIOS-Profile
 
 -- Hydraulics
-F_14:defineToggleSwitch("PLT_HYD_TRANS_PUMPLT_SW", 13, 3001, 629, "Hydraulics", "PILOT Hydraulic Transfer Pump Switch")
-F_14:defineToggleSwitch("PLT_HYD_TRANS_PUMPLT_COVER", 13, 3002, 630, "Hydraulics", "PILOT Hydraulic Transfer Pump Switch Cover")
-F_14:defineToggleSwitch("PLT_HYD_ISOL_SW", 13, 3005, 631, "Hydraulics", "PILOT Hydraulic Isolation Switch")
-F_14:define3PosTumb("PLT_HYD_EMERG_FCONTR_SW", 13, 3003, 928, "Hydraulics", "PILOT Hydraulic Emergency Flight Control Switch")
-F_14:defineToggleSwitch("PLT_HYD_EMERG_FCONTR_COVER", 13, 3004, 615, "Hydraulics", "PILOT Hydraulic Emergency Flight Control Switch Cover")
-F_14:defineToggleSwitch("PLT_HYD_HAND_PUMP", 13, 3006, 13133, "Hydraulics", "PILOT Hydraulic Hand Pump") --632
+F_14:defineToggleSwitch("PLT_HYD_TRANS_PUMPLT_SW", devices.HYDRAULICS, 3001, 629, "Hydraulics", "PILOT Hydraulic Transfer Pump Switch")
+F_14:defineToggleSwitch("PLT_HYD_TRANS_PUMPLT_COVER", devices.HYDRAULICS, 3002, 630, "Hydraulics", "PILOT Hydraulic Transfer Pump Switch Cover")
+F_14:defineToggleSwitch("PLT_HYD_ISOL_SW", devices.HYDRAULICS, 3005, 631, "Hydraulics", "PILOT Hydraulic Isolation Switch")
+F_14:define3PosTumb("PLT_HYD_EMERG_FCONTR_SW", devices.HYDRAULICS, 3003, 928, "Hydraulics", "PILOT Hydraulic Emergency Flight Control Switch")
+F_14:defineToggleSwitch("PLT_HYD_EMERG_FCONTR_COVER", devices.HYDRAULICS, 3004, 615, "Hydraulics", "PILOT Hydraulic Emergency Flight Control Switch Cover")
+F_14:defineToggleSwitch("PLT_HYD_HAND_PUMP", devices.HYDRAULICS, 3006, 13133, "Hydraulics", "PILOT Hydraulic Hand Pump") --632
 
 -- Master Reset
-F_14:definePushButton("PLT_MASTER_RESET", 23, 3058, 1071, "Master Reset", "PILOT MASTER RESET")
+F_14:definePushButton("PLT_MASTER_RESET", devices.CADC, 3058, 1071, "Master Reset", "PILOT MASTER RESET")
 
 -- AICS
-F_14:defineToggleSwitch("PLT_INLET_RAMPS_L", 14, 3007, 2100, "AICS", "PILOT Stow Inlet Ramps Left Switch")
-F_14:defineToggleSwitch("PLT_INLET_RAMPS_R", 14, 3008, 2101, "AICS", "PILOT Stow Inlet Ramps Right Switch")
+F_14:defineToggleSwitch("PLT_INLET_RAMPS_L", devices.AICS, 3007, 2100, "AICS", "PILOT Stow Inlet Ramps Left Switch")
+F_14:defineToggleSwitch("PLT_INLET_RAMPS_R", devices.AICS, 3008, 2101, "AICS", "PILOT Stow Inlet Ramps Right Switch")
 
 -- Wing Sweep
-F_14:defineToggleSwitch("PLT_EMERG_WING_SWEEPLT_COVER", 17, 3029, 317, "Wing Sweep", "PILOT Emergency Wing Sweep Handle Cover")
-F_14:definePotentiometer("PLT_EMERG_WING_SWEEPLT_LEVER", 17, 3031, 384, { 0, 1 }, "Wing Sweep", "PILOT Emergency Wing Sweep Handle")
-F_14:defineToggleSwitch("PLT_EMERG_WING_SWEEPLT_POP", 17, 3030, 15096, "Wing Sweep", "PILOT Emergency Wing Sweep Handle Pop out")
+F_14:defineToggleSwitch("PLT_EMERG_WING_SWEEPLT_COVER", devices.WINGSWEEP, 3029, 317, "Wing Sweep", "PILOT Emergency Wing Sweep Handle Cover")
+F_14:definePotentiometer("PLT_EMERG_WING_SWEEPLT_LEVER", devices.WINGSWEEP, 3031, 384, { 0, 1 }, "Wing Sweep", "PILOT Emergency Wing Sweep Handle")
+F_14:defineToggleSwitch("PLT_EMERG_WING_SWEEPLT_POP", devices.WINGSWEEP, 3030, 15096, "Wing Sweep", "PILOT Emergency Wing Sweep Handle Pop out")
 
 --Radar Altimeter
-F_14:definePushButton("PLT_RADAR_ALT_BIT", 30, 3485, 16020, "Radar Altimeter", "PILOT Radar Altimeter BIT Test Button")
-F_14:defineRotary("PLT_RADAR_ALT_KNOB", 30, 3484, 308, "Radar Altimeter", "PILOT Radar Altimeter Control Knob")
+F_14:definePushButton("PLT_RADAR_ALT_BIT", devices.RADARALTIMETER, 3485, 16020, "Radar Altimeter", "PILOT Radar Altimeter BIT Test Button")
+F_14:defineRotary("PLT_RADAR_ALT_KNOB", devices.RADARALTIMETER, 3484, 308, "Radar Altimeter", "PILOT Radar Altimeter Control Knob")
 
 -- Airspeed Indicator
-F_14:definePushButton("PLT_AIRSPD_KNOB_PUSH", 28, 3492, 2127, "Airspeed Indicator", "PILOT Airspeed Indicator Bug Push Knob")
-F_14:defineRotary("PLT_AIRSPD_KNOB", 28, 3491, 310, "Airspeed Indicator", "PILOT Airspeed Indicator Bug Knob")
-F_14:definePushButton("RIO_AIRSPD_KNOB_PUSH", 28, 3651, 255, "Airspeed Indicator", "RIO Airspeed Indicator Bug Push Knob")
-F_14:defineRotary("RIO_AIRSPD_KNOB", 28, 3652, 254, "Airspeed Indicator", "RIO Airspeed Indicator Bug Knob")
+F_14:definePushButton("PLT_AIRSPD_KNOB_PUSH", devices.MACHANDAIRSPEED, 3492, 2127, "Airspeed Indicator", "PILOT Airspeed Indicator Bug Push Knob")
+F_14:defineRotary("PLT_AIRSPD_KNOB", devices.MACHANDAIRSPEED, 3491, 310, "Airspeed Indicator", "PILOT Airspeed Indicator Bug Knob")
+F_14:definePushButton("RIO_AIRSPD_KNOB_PUSH", devices.MACHANDAIRSPEED, 3651, 255, "Airspeed Indicator", "RIO Airspeed Indicator Bug Push Knob")
+F_14:defineRotary("RIO_AIRSPD_KNOB", devices.MACHANDAIRSPEED, 3652, 254, "Airspeed Indicator", "RIO Airspeed Indicator Bug Knob")
 
 -- Altimeter
-F_14:define3PosTumb("PLT_ALTIMETER_MODE", 29, 3487, 307, "Altimeter", "PILOT Altimeter Mode Switch")
-F_14:defineRotary("PLT_ALTIMETER_KNOB", 29, 3486, 306, "Altimeter", "PILOT Altimeter Pressure Setting")
+F_14:define3PosTumb("PLT_ALTIMETER_MODE", devices.BAROALTIMETER, 3487, 307, "Altimeter", "PILOT Altimeter Mode Switch")
+F_14:defineRotary("PLT_ALTIMETER_KNOB", devices.BAROALTIMETER, 3486, 306, "Altimeter", "PILOT Altimeter Pressure Setting")
 
 -- RIO Altimeter
-F_14:define3PosTumb("RIO_ALTIMETER_MODE", 29, 3490, 20307, "Altimeter", "RIO Altimeter Mode Switch")
-F_14:defineRotary("RIO_ALTIMETER_KNOB", 29, 3489, 20306, "Altimeter", "RIO Altimeter Pressure Setting")
+F_14:define3PosTumb("RIO_ALTIMETER_MODE", devices.BAROALTIMETER, 3490, 20307, "Altimeter", "RIO Altimeter Mode Switch")
+F_14:defineRotary("RIO_ALTIMETER_KNOB", devices.BAROALTIMETER, 3489, 20306, "Altimeter", "RIO Altimeter Pressure Setting")
 
 -- Gear
-F_14:defineToggleSwitch("PLT_GEAR_LEVER", 18, 3016, 326, "Gear", "PILOT Landing Gear Lever")
-F_14:defineToggleSwitch("PLT_GEAR_LEVER_EMERG", 18, 3646, 16015, "Gear", "PILOT Landing Gear Lever RB emergency extend")
-F_14:definePushButton("PLT_LAUNCHBAR_ABORT", 18, 3672, 497, "Gear", "PILOT Launch Bar Abort")
-F_14:defineToggleSwitch("PLT_LAUNCHBAR_ABORT_COVER", 18, 3673, 496, "Gear", "PILOT Launch Bar Abort Switch Cover")
-F_14:define3PosTumb("PLT_NOSE_STRUT_SW", 18, 3019, 1075, "Gear", "PILOT Nose Strut Compression Switch")
+F_14:defineToggleSwitch("PLT_GEAR_LEVER", devices.GEARHOOK, 3016, 326, "Gear", "PILOT Landing Gear Lever")
+F_14:defineToggleSwitch("PLT_GEAR_LEVER_EMERG", devices.GEARHOOK, 3646, 16015, "Gear", "PILOT Landing Gear Lever RB emergency extend")
+F_14:definePushButton("PLT_LAUNCHBAR_ABORT", devices.GEARHOOK, 3672, 497, "Gear", "PILOT Launch Bar Abort")
+F_14:defineToggleSwitch("PLT_LAUNCHBAR_ABORT_COVER", devices.GEARHOOK, 3673, 496, "Gear", "PILOT Launch Bar Abort Switch Cover")
+F_14:define3PosTumb("PLT_NOSE_STRUT_SW", devices.GEARHOOK, 3019, 1075, "Gear", "PILOT Nose Strut Compression Switch")
 
 -- Hook
-F_14:defineToggleSwitch("PLT_HOOK_LEVER", 18, 3021, 238, "Gear", "PILOT Hook Extension Handle")
-F_14:defineToggleSwitch("PLT_HOOK_LEVER_EMERG", 18, 3022, 15078, "Gear", "PILOT Hook Extension Handle RB cycle emergency mode")
+F_14:defineToggleSwitch("PLT_HOOK_LEVER", devices.GEARHOOK, 3021, 238, "Gear", "PILOT Hook Extension Handle")
+F_14:defineToggleSwitch("PLT_HOOK_LEVER_EMERG", devices.GEARHOOK, 3022, 15078, "Gear", "PILOT Hook Extension Handle RB cycle emergency mode")
 
 -- Brakes
-F_14:define3PosTumb("PLT_ANTI_SKID_SW", 18, 3014, 1072, "Brakes", "Anti-Skid Spoiler BK Switch")
-F_14:defineToggleSwitch("PLT_PARK_BRAKE", 18, 3013, 237, "Brakes", "PILOT Parking Brake Handle")
+F_14:define3PosTumb("PLT_ANTI_SKID_SW", devices.GEARHOOK, 3014, 1072, "Brakes", "Anti-Skid Spoiler BK Switch")
+F_14:defineToggleSwitch("PLT_PARK_BRAKE", devices.GEARHOOK, 3013, 237, "Brakes", "PILOT Parking Brake Handle")
 
 -- SAS
-F_14:defineToggleSwitch("PLT_AFCS_PITCH", 22, 3034, 2106, "SAS", "PILOT AFCS Stability Augmentation - Pitch")
-F_14:defineToggleSwitch("PLT_AFCS_ROLL", 22, 3035, 2107, "SAS", "PILOT AFCS Stability Augmentation - Roll")
-F_14:defineToggleSwitch("PLT_AFCS_YAW", 22, 3036, 2108, "SAS", "PILOT AFCS Stability Augmentation - Yaw")
+F_14:defineToggleSwitch("PLT_AFCS_PITCH", devices.AFCS, 3034, 2106, "SAS", "PILOT AFCS Stability Augmentation - Pitch")
+F_14:defineToggleSwitch("PLT_AFCS_ROLL", devices.AFCS, 3035, 2107, "SAS", "PILOT AFCS Stability Augmentation - Roll")
+F_14:defineToggleSwitch("PLT_AFCS_YAW", devices.AFCS, 3036, 2108, "SAS", "PILOT AFCS Stability Augmentation - Yaw")
 
 -- Autopilot
-F_14:define3PosTumb("PLT_AUTOPLT_VECTOR_CARRIER", 22, 3037, 2109, "Autopilot", "PILOT Autopilot - Vector / Automatic Carrier Landing")
-F_14:defineToggleSwitch("PLT_AUTOPLT_ALT", 22, 3038, 2110, "Autopilot", "PILOT Autopilot - Altitude Hold")
-F_14:define3PosTumb("PLT_AUTOPLT_HDG", 22, 3039, 2111, "Autopilot", "PILOT Autopilot - Heading / Ground Track")
-F_14:defineModuleDefaultToggleSwitch("PLT_AUTOPLT_ENGAGE", 22, 3040, 2112, "Autopilot", "PILOT Autopilot - Engage")
+F_14:define3PosTumb("PLT_AUTOPLT_VECTOR_CARRIER", devices.AFCS, 3037, 2109, "Autopilot", "PILOT Autopilot - Vector / Automatic Carrier Landing")
+F_14:defineToggleSwitch("PLT_AUTOPLT_ALT", devices.AFCS, 3038, 2110, "Autopilot", "PILOT Autopilot - Altitude Hold")
+F_14:define3PosTumb("PLT_AUTOPLT_HDG", devices.AFCS, 3039, 2111, "Autopilot", "PILOT Autopilot - Heading / Ground Track")
+F_14:defineModuleDefaultToggleSwitch("PLT_AUTOPLT_ENGAGE", devices.AFCS, 3040, 2112, "Autopilot", "PILOT Autopilot - Engage")
 
 -- Flaps
-F_14:definePotentiometer("PLT_FLAPS_LEVER", 19, 3044, 225, { 0, 1 }, "Flaps", "PILOT Flaps Lever")
+F_14:definePotentiometer("PLT_FLAPS_LEVER", devices.FLAPS, 3044, 225, { 0, 1 }, "Flaps", "PILOT Flaps Lever")
 
 -- Engine
-F_14:defineToggleSwitch("PLT_ENGINE_FUEL_CUT_L", 20, 3128, 12300, "Engine", "PILOT Left Engine Fuel Cutoff")
-F_14:defineToggleSwitch("PLT_ENGINE_FUEL_CUT_R", 20, 3129, 12301, "Engine", "PILOT Right Engine Fuel Cutoff")
-F_14:define3PosTumb("PLT_THROTTLE_MODE", 20, 3045, 2104, "Engine", "PILOT Throttle Mode")
-F_14:define3PosTumb("PLT_THROTTLE_TEMP", 20, 3047, 2103, "Engine", "PILOT Throttle Temp")
-F_14:define3PosTumb("PLT_ANTI_ICE", 20, 3049, 941, "Engine", "PILOT Engine/Probe Anti-Ice")
-F_14:defineToggleSwitch("PLT_ENGINE_AIRSTART", 20, 3050, 2105, "Engine", "PILOT Engine Airstart")
-F_14:define3PosTumb("PLT_ENGINE_CRANK", 20, 3051, 2102, "Engine", "PILOT Engine Crank")
-F_14:defineToggleSwitch("PLT_ENGINE_MODE_L", 20, 3052, 16007, "Engine", "PILOT Left Engine Mode")
-F_14:defineToggleSwitch("PLT_ENGINE_MODE_R", 20, 3053, 16008, "Engine", "PILOT Right Engine Mode")
-F_14:defineToggleSwitch("PLT_ASY_THRUST_LIMIT_COVER", 20, 3055, 16005, "Engine", "PILOT Asymmetric Thrust Limiter Cover")
-F_14:defineToggleSwitch("PLT_ASY_THRUST_LIMIT", 20, 3054, 16006, "Engine", "PILOT Asymmetric Thrust Limiter")
+F_14:defineToggleSwitch("PLT_ENGINE_FUEL_CUT_L", devices.ENGINE, 3128, 12300, "Engine", "PILOT Left Engine Fuel Cutoff")
+F_14:defineToggleSwitch("PLT_ENGINE_FUEL_CUT_R", devices.ENGINE, 3129, 12301, "Engine", "PILOT Right Engine Fuel Cutoff")
+F_14:define3PosTumb("PLT_THROTTLE_MODE", devices.ENGINE, 3045, 2104, "Engine", "PILOT Throttle Mode")
+F_14:define3PosTumb("PLT_THROTTLE_TEMP", devices.ENGINE, 3047, 2103, "Engine", "PILOT Throttle Temp")
+F_14:define3PosTumb("PLT_ANTI_ICE", devices.ENGINE, 3049, 941, "Engine", "PILOT Engine/Probe Anti-Ice")
+F_14:defineToggleSwitch("PLT_ENGINE_AIRSTART", devices.ENGINE, 3050, 2105, "Engine", "PILOT Engine Airstart")
+F_14:define3PosTumb("PLT_ENGINE_CRANK", devices.ENGINE, 3051, 2102, "Engine", "PILOT Engine Crank")
+F_14:defineToggleSwitch("PLT_ENGINE_MODE_L", devices.ENGINE, 3052, 16007, "Engine", "PILOT Left Engine Mode")
+F_14:defineToggleSwitch("PLT_ENGINE_MODE_R", devices.ENGINE, 3053, 16008, "Engine", "PILOT Right Engine Mode")
+F_14:defineToggleSwitch("PLT_ASY_THRUST_LIMIT_COVER", devices.ENGINE, 3055, 16005, "Engine", "PILOT Asymmetric Thrust Limiter Cover")
+F_14:defineToggleSwitch("PLT_ASY_THRUST_LIMIT", devices.ENGINE, 3054, 16006, "Engine", "PILOT Asymmetric Thrust Limiter")
 
 -- Fuel System
-F_14:defineToggleSwitch("PLT_FUEL_SHUTOFF_R", 21, 3061, 1044, "Fuel System", "PILOT Fuel Shutoff - Right")
-F_14:defineToggleSwitch("PLT_FUEL_SHUTOFF_L", 21, 3062, 15081, "Fuel System", "PILOT Fuel Shutoff - Left")
-F_14:defineToggleSwitch("PLT_FUEL_FEED_COVER", 21, 3064, 1094, "Fuel System", "PILOT Fuel Feed Cover")
-F_14:define3PosTumb("PLT_FUEL_FEED", 21, 3065, 1095, "Fuel System", "PILOT Fuel Feed")
-F_14:define3PosTumb("PLT_FUEL_WING_EXT_TRANS", 21, 3066, 1001, "Fuel System", "PILOT Fuel Wing/Ext Trans")
-F_14:defineToggleSwitch("PLT_FUEL_DUMP", 21, 3067, 1074, "Fuel System", "PILOT Fuel Dump")
-F_14:define3PosTumb("PLT_REFUEL_PROBE", 21, 3068, 1073, "Fuel System", "PILOT Refuel Probe")
-F_14:define3PosTumb("PLT_FUEL_QUANT_SEL", 21, 3063, 1076, "Fuel System", "PILOT Fuel Quantity Selector")
-F_14:defineRotary("PLT_BINGO_FUEL_KNOB", 21, 3069, 1050, "Fuel System", "PILOT BINGO Fuel Level Knob")
+F_14:defineToggleSwitch("PLT_FUEL_SHUTOFF_R", devices.FUELSYSTEM, 3061, 1044, "Fuel System", "PILOT Fuel Shutoff - Right")
+F_14:defineToggleSwitch("PLT_FUEL_SHUTOFF_L", devices.FUELSYSTEM, 3062, 15081, "Fuel System", "PILOT Fuel Shutoff - Left")
+F_14:defineToggleSwitch("PLT_FUEL_FEED_COVER", devices.FUELSYSTEM, 3064, 1094, "Fuel System", "PILOT Fuel Feed Cover")
+F_14:define3PosTumb("PLT_FUEL_FEED", devices.FUELSYSTEM, 3065, 1095, "Fuel System", "PILOT Fuel Feed")
+F_14:define3PosTumb("PLT_FUEL_WING_EXT_TRANS", devices.FUELSYSTEM, 3066, 1001, "Fuel System", "PILOT Fuel Wing/Ext Trans")
+F_14:defineToggleSwitch("PLT_FUEL_DUMP", devices.FUELSYSTEM, 3067, 1074, "Fuel System", "PILOT Fuel Dump")
+F_14:define3PosTumb("PLT_REFUEL_PROBE", devices.FUELSYSTEM, 3068, 1073, "Fuel System", "PILOT Refuel Probe")
+F_14:define3PosTumb("PLT_FUEL_QUANT_SEL", devices.FUELSYSTEM, 3063, 1076, "Fuel System", "PILOT Fuel Quantity Selector")
+F_14:defineRotary("PLT_BINGO_FUEL_KNOB", devices.FUELSYSTEM, 3069, 1050, "Fuel System", "PILOT BINGO Fuel Level Knob")
 
 -- Electrics
-F_14:define3PosTumb("PLT_L_GEN_SW", 15, 3009, 937, "Electrics", "PILOT Left Generator Switch")
-F_14:define3PosTumb("PLT_R_GEN_SW", 15, 3010, 936, "Electrics", "PILOT Right Generator Switch")
-F_14:defineToggleSwitch("PLT_EMERG_GEN_COVER", 15, 3011, 927, "Electrics", "PILOT Emergency Generator Switch Cover")
-F_14:defineToggleSwitch("PLT_EMERG_GEN_SW", 15, 3012, 926, "Electrics", "PILOT Emergency Generator Switch")
+F_14:define3PosTumb("PLT_L_GEN_SW", devices.ELECTRICS, 3009, 937, "Electrics", "PILOT Left Generator Switch")
+F_14:define3PosTumb("PLT_R_GEN_SW", devices.ELECTRICS, 3010, 936, "Electrics", "PILOT Right Generator Switch")
+F_14:defineToggleSwitch("PLT_EMERG_GEN_COVER", devices.ELECTRICS, 3011, 927, "Electrics", "PILOT Emergency Generator Switch Cover")
+F_14:defineToggleSwitch("PLT_EMERG_GEN_SW", devices.ELECTRICS, 3012, 926, "Electrics", "PILOT Emergency Generator Switch")
 
 -- Cockpit Mechanics
-F_14:defineToggleSwitch("PLT_CANOPY_JETT", 12, 3184, 224, "Cockpit Mechanics", "PILOT Canopy Jettison")
-F_14:defineToggleSwitch("RIO_CANOPY_JETT", 12, 3760, 2051, "Cockpit Mechanics", "RIO Canopy Jettison")
-F_14:defineToggleSwitch("RIO_EJECT_CMD", 12, 3185, 2049, "Cockpit Mechanics", "RIO Ejection CMD Lever")
-F_14:defineToggleSwitch("PLT_EJECT_SEAT_SAFE", 12, 3186, 404, "Cockpit Mechanics", "PILOT Ejection Seat Safety")
-F_14:defineToggleSwitch("RIO_EJECT_SEAT_SAFE", 12, 3187, 498, "Cockpit Mechanics", "RIO Ejection Seat Safety")
-F_14:defineToggleSwitch("RIO_STORAGE_BOX", 12, 3612, 122, "Cockpit Mechanics", "RIO Storage Box")
+F_14:defineToggleSwitch("PLT_CANOPY_JETT", devices.COCKPITMECHANICS, 3184, 224, "Cockpit Mechanics", "PILOT Canopy Jettison")
+F_14:defineToggleSwitch("RIO_CANOPY_JETT", devices.COCKPITMECHANICS, 3760, 2051, "Cockpit Mechanics", "RIO Canopy Jettison")
+F_14:defineToggleSwitch("RIO_EJECT_CMD", devices.COCKPITMECHANICS, 3185, 2049, "Cockpit Mechanics", "RIO Ejection CMD Lever")
+F_14:defineToggleSwitch("PLT_EJECT_SEAT_SAFE", devices.COCKPITMECHANICS, 3186, 404, "Cockpit Mechanics", "PILOT Ejection Seat Safety")
+F_14:defineToggleSwitch("RIO_EJECT_SEAT_SAFE", devices.COCKPITMECHANICS, 3187, 498, "Cockpit Mechanics", "RIO Ejection Seat Safety")
+F_14:defineToggleSwitch("RIO_STORAGE_BOX", devices.COCKPITMECHANICS, 3612, 122, "Cockpit Mechanics", "RIO Storage Box")
 
 -- Enivornment Control
-F_14:defineToggleSwitch("PLT_OXY_ON", 12, 3190, 8114, "Enivornment Control", "PILOT Oxygen On")
-F_14:defineToggleSwitch("RIO_OXY_ON", 12, 3191, 119, "Enivornment Control", "RIO Oxygen On")
-F_14:defineToggleSwitch("PLT_CABIN_PRESS_DUMP", 12, 3192, 939, "Enivornment Control", "PILOT Cabin Pressure Dump")
-F_14:definePushButton("PLT_AIR_SOURCE_RAM", 12, 3193, 929, "Enivornment Control", "PILOT Air Source Ram")
-F_14:definePushButton("PLT_AIR_SOURCE_OFF", 12, 3194, 933, "Enivornment Control", "PILOT Air Source Off")
-F_14:definePushButton("PLT_AIR_SOURCE_L", 12, 3195, 930, "Enivornment Control", "PILOT Air Left Engine")
-F_14:definePushButton("PLT_AIR_SOURCE_R", 12, 3196, 931, "Enivornment Control", "PILOT Air Right Engine")
-F_14:definePushButton("PLT_AIR_SOURCE_BOTH", 12, 3197, 932, "Enivornment Control", "PILOT Air Both Engines")
-F_14:define3PosTumb("PLT_WINDSHIELD_AIR", 12, 3647, 942, "Enivornment Control", "PILOT Wind Shield Air")
-F_14:defineMultipositionSwitch("PLT_TEMP", 12, 3648, 950, 9, 0.125, "Enivornment Control", "PILOT Cabin Temperature Switch")
-F_14:defineToggleSwitch("PLT_TEMP_AUTO_MAN", 12, 3649, 940, "Enivornment Control", "PILOT Temperature Auto/Man")
-F_14:defineToggleSwitch("PLT_RAM_AIR", 12, 3650, 938, "Enivornment Control", "PILOT Ram Air")
+F_14:defineToggleSwitch("PLT_OXY_ON", devices.COCKPITMECHANICS, 3190, 8114, "Enivornment Control", "PILOT Oxygen On")
+F_14:defineToggleSwitch("RIO_OXY_ON", devices.COCKPITMECHANICS, 3191, 119, "Enivornment Control", "RIO Oxygen On")
+F_14:defineToggleSwitch("PLT_CABIN_PRESS_DUMP", devices.COCKPITMECHANICS, 3192, 939, "Enivornment Control", "PILOT Cabin Pressure Dump")
+F_14:definePushButton("PLT_AIR_SOURCE_RAM", devices.COCKPITMECHANICS, 3193, 929, "Enivornment Control", "PILOT Air Source Ram")
+F_14:definePushButton("PLT_AIR_SOURCE_OFF", devices.COCKPITMECHANICS, 3194, 933, "Enivornment Control", "PILOT Air Source Off")
+F_14:definePushButton("PLT_AIR_SOURCE_L", devices.COCKPITMECHANICS, 3195, 930, "Enivornment Control", "PILOT Air Left Engine")
+F_14:definePushButton("PLT_AIR_SOURCE_R", devices.COCKPITMECHANICS, 3196, 931, "Enivornment Control", "PILOT Air Right Engine")
+F_14:definePushButton("PLT_AIR_SOURCE_BOTH", devices.COCKPITMECHANICS, 3197, 932, "Enivornment Control", "PILOT Air Both Engines")
+F_14:define3PosTumb("PLT_WINDSHIELD_AIR", devices.COCKPITMECHANICS, 3647, 942, "Enivornment Control", "PILOT Wind Shield Air")
+F_14:defineMultipositionSwitch("PLT_TEMP", devices.COCKPITMECHANICS, 3648, 950, 9, 0.125, "Enivornment Control", "PILOT Cabin Temperature Switch")
+F_14:defineToggleSwitch("PLT_TEMP_AUTO_MAN", devices.COCKPITMECHANICS, 3649, 940, "Enivornment Control", "PILOT Temperature Auto/Man")
+F_14:defineToggleSwitch("PLT_RAM_AIR", devices.COCKPITMECHANICS, 3650, 938, "Enivornment Control", "PILOT Ram Air")
 
 -- BIT Panel
-F_14:defineTumb("PLT_BIT_SWITCH", 11, 3076, 934, 1 / 11, { 0, 1 }, nil, false, "BIT Panel", "PILOT Master Test Selector (LB to rotate)")
-F_14:defineToggleSwitch("PLT_BIT_SWITCH_PUSH", 11, 3077, 15098, "BIT Panel", "PILOT Master Test Selector (RB to pull/push)")
+F_14:defineTumb("PLT_BIT_SWITCH", devices.BITPANEL, 3076, 934, 1 / 11, { 0, 1 }, nil, false, "BIT Panel", "PILOT Master Test Selector (LB to rotate)")
+F_14:defineToggleSwitch("PLT_BIT_SWITCH_PUSH", devices.BITPANEL, 3077, 15098, "BIT Panel", "PILOT Master Test Selector (RB to pull/push)")
 
 -- Light Panel
-F_14:defineToggleSwitch("PLT_HOOK_BYPASS", 26, 3211, 915, "Light Panel", "PILOT Hook Bypass")
-F_14:defineToggleSwitch("PLT_TAXI_LIGHT", 12, 3171, 918, "Light Panel", "PILOT Taxi Light")
-F_14:define3PosTumb("PLT_FLOOD_LIGHT_RED", 12, 3172, 924, "Light Panel", "PILOT Red Flood Light")
-F_14:define3PosTumb("PLT_FLOOD_LIGHT_WH", 12, 3173, 921, "Light Panel", "PILOT White Flood Light")
-F_14:define3PosTumb("PLT_POS_LIGHT_WING", 12, 3174, 913, "Light Panel", "PILOT Position Lights Wings")
-F_14:define3PosTumb("PLT_POS_LIGHT_TAIL", 12, 3175, 916, "Light Panel", "PILOT Position Lights Tail")
-F_14:defineToggleSwitch("PLT_POS_LIGHT_FLASH", 12, 3176, 919, "Light Panel", "PILOT Position Lights Flash")
-F_14:defineToggleSwitch("PLT_ANTICOL_LIGHT", 12, 3177, 923, "Light Panel", "PILOT Anti-Collision Lights")
-F_14:defineMultipositionSwitch("PLT_LIGHT_INTENT_ACM", 12, 3178, 15005, 9, 0.125, "Light Panel", "PILOT ACM Panel Light Intensity")
-F_14:defineMultipositionSwitch("PLT_LIGHT_INTENT_INDEXER", 26, 3212, 15006, 9, 0.125, "Light Panel", "PILOT AoA Indexer Light Intensity")
-F_14:defineMultipositionSwitch("PLT_LIGHT_INTENT_INSTRUMENT", 12, 3179, 15007, 9, 0.125, "Light Panel", "PILOT Instrument Light Intensity")
-F_14:defineMultipositionSwitch("PLT_LIGHT_INTENT_CONSOLE", 12, 3180, 15008, 9, 0.125, "Light Panel", "PILOT Console Light Intensity")
-F_14:defineMultipositionSwitch("PLT_LIGHT_INTENT_FORMATION", 12, 3181, 15009, 9, 0.125, "Light Panel", "PILOT Formation Light Intensity")
+F_14:defineToggleSwitch("PLT_HOOK_BYPASS", devices.AOASYSTEM, 3211, 915, "Light Panel", "PILOT Hook Bypass")
+F_14:defineToggleSwitch("PLT_TAXI_LIGHT", devices.COCKPITMECHANICS, 3171, 918, "Light Panel", "PILOT Taxi Light")
+F_14:define3PosTumb("PLT_FLOOD_LIGHT_RED", devices.COCKPITMECHANICS, 3172, 924, "Light Panel", "PILOT Red Flood Light")
+F_14:define3PosTumb("PLT_FLOOD_LIGHT_WH", devices.COCKPITMECHANICS, 3173, 921, "Light Panel", "PILOT White Flood Light")
+F_14:define3PosTumb("PLT_POS_LIGHT_WING", devices.COCKPITMECHANICS, 3174, 913, "Light Panel", "PILOT Position Lights Wings")
+F_14:define3PosTumb("PLT_POS_LIGHT_TAIL", devices.COCKPITMECHANICS, 3175, 916, "Light Panel", "PILOT Position Lights Tail")
+F_14:defineToggleSwitch("PLT_POS_LIGHT_FLASH", devices.COCKPITMECHANICS, 3176, 919, "Light Panel", "PILOT Position Lights Flash")
+F_14:defineToggleSwitch("PLT_ANTICOL_LIGHT", devices.COCKPITMECHANICS, 3177, 923, "Light Panel", "PILOT Anti-Collision Lights")
+F_14:defineMultipositionSwitch("PLT_LIGHT_INTENT_ACM", devices.COCKPITMECHANICS, 3178, 15005, 9, 0.125, "Light Panel", "PILOT ACM Panel Light Intensity")
+F_14:defineMultipositionSwitch("PLT_LIGHT_INTENT_INDEXER", devices.AOASYSTEM, 3212, 15006, 9, 0.125, "Light Panel", "PILOT AoA Indexer Light Intensity")
+F_14:defineMultipositionSwitch("PLT_LIGHT_INTENT_INSTRUMENT", devices.COCKPITMECHANICS, 3179, 15007, 9, 0.125, "Light Panel", "PILOT Instrument Light Intensity")
+F_14:defineMultipositionSwitch("PLT_LIGHT_INTENT_CONSOLE", devices.COCKPITMECHANICS, 3180, 15008, 9, 0.125, "Light Panel", "PILOT Console Light Intensity")
+F_14:defineMultipositionSwitch("PLT_LIGHT_INTENT_FORMATION", devices.COCKPITMECHANICS, 3181, 15009, 9, 0.125, "Light Panel", "PILOT Formation Light Intensity")
 
 -- Light panel RIO
-F_14:define3PosTumb("RIO_FLOOD_LIGHT_RED", 12, 3706, 194, "Light Panel", "RIO Red Flood Light")
-F_14:define3PosTumb("RIO_FLOOD_LIGHT_WH", 12, 3707, 159, "Light Panel", "RIO White Flood Light")
-F_14:defineMultipositionSwitch("RIO_LIGHT_INTENT_INSTRUMENT", 12, 3708, 193, 9, 0.125, "Light Panel", "RIO Instrument Light Intensity")
-F_14:defineMultipositionSwitch("RIO_LIGHT_INTENT_CONSOLE", 12, 3709, 192, 9, 0.125, "Light Panel", "RIO Console Light Intensity")
+F_14:define3PosTumb("RIO_FLOOD_LIGHT_RED", devices.COCKPITMECHANICS, 3706, 194, "Light Panel", "RIO Red Flood Light")
+F_14:define3PosTumb("RIO_FLOOD_LIGHT_WH", devices.COCKPITMECHANICS, 3707, 159, "Light Panel", "RIO White Flood Light")
+F_14:defineMultipositionSwitch("RIO_LIGHT_INTENT_INSTRUMENT", devices.COCKPITMECHANICS, 3708, 193, 9, 0.125, "Light Panel", "RIO Instrument Light Intensity")
+F_14:defineMultipositionSwitch("RIO_LIGHT_INTENT_CONSOLE", devices.COCKPITMECHANICS, 3709, 192, 9, 0.125, "Light Panel", "RIO Console Light Intensity")
 
 -- DISPLAY Panel: Power
-F_14:defineToggleSwitch("PLT_VDI_PW_SW", 42, 3214, 1010, "Display", "PILOT VDI Power On/Off")
-F_14:defineToggleSwitch("PLT_HUD_PW_SW", 40, 3213, 1009, "Display", "PILOT HUD Power On/Off")
-F_14:defineToggleSwitch("PLT_HSD_PW_SW", 41, 3215, 1008, "Display", "PILOT HSD/ECMD Power On/Off")
+F_14:defineToggleSwitch("PLT_VDI_PW_SW", devices.VDI, 3214, 1010, "Display", "PILOT VDI Power On/Off")
+F_14:defineToggleSwitch("PLT_HUD_PW_SW", devices.HUD, 3213, 1009, "Display", "PILOT HUD Power On/Off")
+F_14:defineToggleSwitch("PLT_HSD_PW_SW", devices.HSD, 3215, 1008, "Display", "PILOT HSD/ECMD Power On/Off")
 
 -- DISPLAY Panel: Steer CMD
-F_14:definePushButton("PLT_NAV_STEER_TACAN", 46, 3314, 1002, "Display", "PILOT Navigation Steer Commands: TACAN")
-F_14:definePushButton("PLT_NAV_STEER_DEST", 46, 3315, 1003, "Display", "PILOT Navigation Steer Commands: Destination")
-F_14:definePushButton("PLT_NAV_STEER_AWL", 46, 3318, 1004, "Display", "PILOT Navigation Steer Commands: AWL PCD")
-F_14:definePushButton("PLT_NAV_STEER_VECTOR", 46, 3316, 1005, "Display", "PILOT Navigation Steer Commands: Vector")
-F_14:definePushButton("PLT_NAV_STEER_MAN", 46, 3317, 1006, "Display", "PILOT Navigation Steer Commands: Manual")
+F_14:definePushButton("PLT_NAV_STEER_TACAN", devices.NAV_INTERFACE, 3314, 1002, "Display", "PILOT Navigation Steer Commands: TACAN")
+F_14:definePushButton("PLT_NAV_STEER_DEST", devices.NAV_INTERFACE, 3315, 1003, "Display", "PILOT Navigation Steer Commands: Destination")
+F_14:definePushButton("PLT_NAV_STEER_AWL", devices.NAV_INTERFACE, 3318, 1004, "Display", "PILOT Navigation Steer Commands: AWL PCD")
+F_14:definePushButton("PLT_NAV_STEER_VECTOR", devices.NAV_INTERFACE, 3316, 1005, "Display", "PILOT Navigation Steer Commands: Vector")
+F_14:definePushButton("PLT_NAV_STEER_MAN", devices.NAV_INTERFACE, 3317, 1006, "Display", "PILOT Navigation Steer Commands: Manual")
 
 -- DISPLAY Panel: HSD
-F_14:define3PosTumb("PLT_HSD_DIS_MODE", 41, 3235, 1016, "Display", "PILOT HSD Display Mode")
-F_14:defineToggleSwitch("PLT_HSD_ECM_OVER", 41, 3239, 1017, "Display", "PILOT HSD ECM Override")
+F_14:define3PosTumb("PLT_HSD_DIS_MODE", devices.HSD, 3235, 1016, "Display", "PILOT HSD Display Mode")
+F_14:defineToggleSwitch("PLT_HSD_ECM_OVER", devices.HSD, 3239, 1017, "Display", "PILOT HSD ECM Override")
 
 -- HSD
-F_14:defineRotary("PLT_HSD_KNOB_HDG", 41, 3241, 1039, "HSD", "PILOT HSD Selected Heading")
-F_14:defineRotary("PLT_HSD_KNOB_CRS", 41, 3242, 1040, "HSD", "PILOT HSD Selected Course")
-F_14:definePotentiometer("PLT_HSD_BRIGHT", 41, 3240, 1043, { 0, 1 }, "HSD", "PILOT HSD Brightness")
-F_14:definePushButton("PLT_HSD_TEST", 41, 3243, 1041, "HSD", "PILOT HSD Test")
+F_14:defineRotary("PLT_HSD_KNOB_HDG", devices.HSD, 3241, 1039, "HSD", "PILOT HSD Selected Heading")
+F_14:defineRotary("PLT_HSD_KNOB_CRS", devices.HSD, 3242, 1040, "HSD", "PILOT HSD Selected Course")
+F_14:definePotentiometer("PLT_HSD_BRIGHT", devices.HSD, 3240, 1043, { 0, 1 }, "HSD", "PILOT HSD Brightness")
+F_14:definePushButton("PLT_HSD_TEST", devices.HSD, 3243, 1041, "HSD", "PILOT HSD Test")
 
 -- ECMD
 F_14:definePotentiometer("RIO_ECMD_BRIGHT", devices.ECMD, 3245, 2023, { 0, 1 }, "ECMD", "RIO ECMD Brightness")
@@ -349,62 +416,62 @@ F_14:define3PosTumb("RIO_ECM_CORR", devices.ECMD, 3249, 4100, "ECMD", "RIO ECM D
 F_14:define3PosTumb("RIO_ECM_ADF", devices.ECMD, 3250, 4103, "ECMD", "RIO ECM Display Data/ADF")
 
 -- TACAN Pilot Panel
-F_14:defineToggleSwitch("PLT_TACAN_CMD_BUTTON", 47, 3324, 292, "Volume Panel", "PILOT TACAN CMD Button")
-F_14:defineToggleSwitch("RIO_TACAN_CMD_BUTTON", 47, 3325, 135, "TACAN RIO", "RIO TACAN CMD Button")
-F_14:defineTumb("PLT_TACAN_MODE", 47, 3326, 2041, 0.25, { 0, 1 }, nil, false, "TACAN PILOT", "PILOT TACAN Mode")
-F_14:definePotentiometer("PLT_TACAN_VOLUME", 47, 3328, 2036, { 0, 1 }, "TACAN PILOT", "PILOT TACAN Volume")
-F_14:defineModuleDefaultToggleSwitch("PLT_TACAN_MODE_NORMAL_INV", 47, 3335, 2042, "TACAN PILOT", "PILOT TACAN Mode Normal/Inverse")
-F_14:defineModuleDefaultToggleSwitch("PLT_TACAN_CHANNEL", 47, 3336, 2043, "TACAN PILOT", "PILOT TACAN Channel XY")
-F_14:definePushButton("PLT_TACAN_BIT", 47, 3334, 2115, "TACAN PILOT", "PILOT TACAN Bit")
-F_14:defineTumb("PLT_TACAN_DIAL_TENS", 47, 3330, 8888, 1 / 12, { 0, 1 }, nil, false, "TACAN PILOT", "PILOT TACAN Channel Wheel (Tens)")
-F_14:defineTumb("PLT_TACAN_DIAL_ONES", 47, 3332, 8889, 1 / 9, { 0, 1 }, nil, false, "TACAN PILOT", "PILOT TACAN Channel Lever (Ones)")
+F_14:defineToggleSwitch("PLT_TACAN_CMD_BUTTON", devices.TACAN, 3324, 292, "Volume Panel", "PILOT TACAN CMD Button")
+F_14:defineToggleSwitch("RIO_TACAN_CMD_BUTTON", devices.TACAN, 3325, 135, "TACAN RIO", "RIO TACAN CMD Button")
+F_14:defineTumb("PLT_TACAN_MODE", devices.TACAN, 3326, 2041, 0.25, { 0, 1 }, nil, false, "TACAN PILOT", "PILOT TACAN Mode")
+F_14:definePotentiometer("PLT_TACAN_VOLUME", devices.TACAN, 3328, 2036, { 0, 1 }, "TACAN PILOT", "PILOT TACAN Volume")
+F_14:defineModuleDefaultToggleSwitch("PLT_TACAN_MODE_NORMAL_INV", devices.TACAN, 3335, 2042, "TACAN PILOT", "PILOT TACAN Mode Normal/Inverse")
+F_14:defineModuleDefaultToggleSwitch("PLT_TACAN_CHANNEL", devices.TACAN, 3336, 2043, "TACAN PILOT", "PILOT TACAN Channel XY")
+F_14:definePushButton("PLT_TACAN_BIT", devices.TACAN, 3334, 2115, "TACAN PILOT", "PILOT TACAN Bit")
+F_14:defineTumb("PLT_TACAN_DIAL_TENS", devices.TACAN, 3330, 8888, 1 / 12, { 0, 1 }, nil, false, "TACAN PILOT", "PILOT TACAN Channel Wheel (Tens)")
+F_14:defineTumb("PLT_TACAN_DIAL_ONES", devices.TACAN, 3332, 8889, 1 / 9, { 0, 1 }, nil, false, "TACAN PILOT", "PILOT TACAN Channel Lever (Ones)")
 
 -- TACAN RIO Panel
-F_14:defineTumb("RIO_TACAN_MODE", 47, 3338, 374, 0.25, { 0, 1 }, nil, false, "TACAN RIO", "RIO TACAN Mode")
-F_14:definePotentiometer("RIO_TACAN_VOLUME", 47, 3340, 375, { 0, 1 }, "TACAN RIO", "RIO TACAN Volume")
-F_14:defineToggleSwitch("RIO_TACAN_MODE_NORMAL_INV", 47, 3347, 373, "TACAN RIO", "RIO TACAN Mode Normal/Inverse")
-F_14:defineToggleSwitch("RIO_TACAN_CHANNEL", 47, 3348, 372, "TACAN RIO", "RIO TACAN Channel XY")
-F_14:definePushButton("RIO_TACAN_BIT", 47, 3346, 371, "TACAN RIO", "RIO TACAN Bit")
-F_14:defineTumb("RIO_TACAN_DIAL_TENS", 47, 3342, 8891, 1 / 12, { 0, 1 }, nil, false, "TACAN RIO", "RIO TACAN Channel Wheel (Tens)")
-F_14:defineTumb("RIO_TACAN_DIAL_ONES", 47, 3344, 8890, 1 / 9, { 0, 1 }, nil, false, "TACAN RIO", "RIO TACAN Channel Lever (Ones)")
+F_14:defineTumb("RIO_TACAN_MODE", devices.TACAN, 3338, 374, 0.25, { 0, 1 }, nil, false, "TACAN RIO", "RIO TACAN Mode")
+F_14:definePotentiometer("RIO_TACAN_VOLUME", devices.TACAN, 3340, 375, { 0, 1 }, "TACAN RIO", "RIO TACAN Volume")
+F_14:defineToggleSwitch("RIO_TACAN_MODE_NORMAL_INV", devices.TACAN, 3347, 373, "TACAN RIO", "RIO TACAN Mode Normal/Inverse")
+F_14:defineToggleSwitch("RIO_TACAN_CHANNEL", devices.TACAN, 3348, 372, "TACAN RIO", "RIO TACAN Channel XY")
+F_14:definePushButton("RIO_TACAN_BIT", devices.TACAN, 3346, 371, "TACAN RIO", "RIO TACAN Bit")
+F_14:defineTumb("RIO_TACAN_DIAL_TENS", devices.TACAN, 3342, 8891, 1 / 12, { 0, 1 }, nil, false, "TACAN RIO", "RIO TACAN Channel Wheel (Tens)")
+F_14:defineTumb("RIO_TACAN_DIAL_ONES", devices.TACAN, 3344, 8890, 1 / 9, { 0, 1 }, nil, false, "TACAN RIO", "RIO TACAN Channel Lever (Ones)")
 
 -- AN/ARA-63 Panel
-F_14:defineToggleSwitch("PLT_ARA63_PW", 48, 3319, 910, "ANARA63 Panel", "PILOT AN/ARA-63 Power")
-F_14:definePushButton("PLT_ARA63_BIT", 48, 3321, 911, "ANARA63 Panel", "PILOT AN/ARA-63 BIT Button")
-F_14:defineTumb("PLT_ARA63_CHAN", 48, 3322, 912, 1 / 19, { 0, 1 }, nil, true, "ANARA63 Panel", "PILOT AN/ARA-63 Channel Knob")
+F_14:defineToggleSwitch("PLT_ARA63_PW", devices.ILS, 3319, 910, "ANARA63 Panel", "PILOT AN/ARA-63 Power")
+F_14:definePushButton("PLT_ARA63_BIT", devices.ILS, 3321, 911, "ANARA63 Panel", "PILOT AN/ARA-63 BIT Button")
+F_14:defineTumb("PLT_ARA63_CHAN", devices.ILS, 3322, 912, 1 / 19, { 0, 1 }, nil, true, "ANARA63 Panel", "PILOT AN/ARA-63 Channel Knob")
 
 -- Pilot TONE VOLUME Panel
-F_14:definePotentiometer("PLT_ALR67_VOL", 2, 3395, 2040, { 0, 1 }, "Volume Panel", "PILOT ALR-67 Volume")
-F_14:definePotentiometer("PLT_AIM9_VOL", 2, 3397, 2039, { 0, 1 }, "Volume Panel", "PILOT Sidewinder Volume")
+F_14:definePotentiometer("PLT_ALR67_VOL", devices.ICS, 3395, 2040, { 0, 1 }, "Volume Panel", "PILOT ALR-67 Volume")
+F_14:definePotentiometer("PLT_AIM9_VOL", devices.ICS, 3397, 2039, { 0, 1 }, "Volume Panel", "PILOT Sidewinder Volume")
 
 -- ICS Pilot
-F_14:definePotentiometer("PLT_ICS_VOL", 2, 3380, 2048, { 0, 1 }, "ICS", "PILOT ICS Volume")
-F_14:defineMultipositionSwitch("PLT_ICS_AMP_SEL", 2, 3382, 2045, 3, 0.5, "ICS", "PILOT ICS Amplifier Selector")
-F_14:define3PosTumb("PLT_ICS_FUNC_SEL", 2, 3383, 2044, "ICS", "PILOT ICS Function Selector")
+F_14:definePotentiometer("PLT_ICS_VOL", devices.ICS, 3380, 2048, { 0, 1 }, "ICS", "PILOT ICS Volume")
+F_14:defineMultipositionSwitch("PLT_ICS_AMP_SEL", devices.ICS, 3382, 2045, 3, 0.5, "ICS", "PILOT ICS Amplifier Selector")
+F_14:define3PosTumb("PLT_ICS_FUNC_SEL", devices.ICS, 3383, 2044, "ICS", "PILOT ICS Function Selector")
 
 -- ICS RIO
-F_14:definePotentiometer("RIO_ICS_VOL", 2, 3387, 400, { 0, 1 }, "ICS", "RIO ICS Volume")
-F_14:defineMultipositionSwitch("RIO_ICS_AMP_SEL", 2, 3389, 401, 3, 0.5, "ICS", "RIO ICS Amplifier Selector")
-F_14:define3PosTumb("RIO_ICS_FUNC_SEL", 2, 3390, 402, "ICS", "RIO ICS Function Selector")
-F_14:define3PosTumb("RIO_ICS_XMTR_SEL", 2, 3399, 381, "ICS", "RIO XMTR SEL Switch")
-F_14:define3PosTumb("RIO_ICS_UHF_LWR", 2, 3598, 380, "ICS", "RIO V/UHF 2 ANT Switch")
-F_14:define3PosTumb("RIO_ICS_KY_MODE", 2, 3597, 382, "ICS", "RIO KY MODE Switch")
+F_14:definePotentiometer("RIO_ICS_VOL", devices.ICS, 3387, 400, { 0, 1 }, "ICS", "RIO ICS Volume")
+F_14:defineMultipositionSwitch("RIO_ICS_AMP_SEL", devices.ICS, 3389, 401, 3, 0.5, "ICS", "RIO ICS Amplifier Selector")
+F_14:define3PosTumb("RIO_ICS_FUNC_SEL", devices.ICS, 3390, 402, "ICS", "RIO ICS Function Selector")
+F_14:define3PosTumb("RIO_ICS_XMTR_SEL", devices.ICS, 3399, 381, "ICS", "RIO XMTR SEL Switch")
+F_14:define3PosTumb("RIO_ICS_UHF_LWR", devices.ICS, 3598, 380, "ICS", "RIO V/UHF 2 ANT Switch")
+F_14:define3PosTumb("RIO_ICS_KY_MODE", devices.ICS, 3597, 382, "ICS", "RIO KY MODE Switch")
 
 -- UHF ARC-159
-F_14:defineTumb("PLT_UHF1_FREQ_MODE", 3, 3375, 2033, 0.5, { 0, 1 }, nil, false, "UHF 1", "PILOT UHF ARC-159 Freq Mode", { positions = { "GUARD", "MANUAL", "PRESET" } })
-F_14:defineMultipositionSwitch("PLT_UHF1_FUNCTION", 3, 3371, 2034, 4, 0.333333, "UHF 1", "PILOT UHF ARC-159 Function", { positions = { "ADF", "BOTH", "MAIN", "OFF" } })
-F_14:defineTumb("PLT_UHF1_PRESETS", 3, 3373, 2032, 0.0833333333, { 0, 1 }, nil, true, "UHF 1", "PILOT UHF ARC-159 Preset Channel Selector")
-F_14:defineToggleSwitch("PLT_UHF1_SQUELCH", 3, 3365, 2035, "UHF 1", "PILOT UHF ARC-159 Squelch Switch")
-F_14:define3PosTumb("PLT_UHF1_110_DIAL", 3, 3367, 2030, "UHF 1", "PILOT UHF ARC-159 100MHz & 10MHz Dial")
-F_14:define3PosTumb("PLT_UHF1_1_DIAL", 3, 3368, 2029, "UHF 1", "PILOT UHF ARC-159 1MHz Dial")
-F_14:define3PosTumb("PLT_UHF1_01_DIAL", 3, 3369, 2028, "UHF 1", "PILOT UHF ARC-159 0.1MHz Dial")
-F_14:define3PosTumb("PLT_UHF1_025_DIAL", 3, 3370, 2026, "UHF 1", "PILOT UHF ARC-159 0.025MHz Dial")
-F_14:defineToggleSwitch("PLT_UHF1_SHOW_PRESET_FREQ", 3, 3377, 8115, "UHF 1", "PILOT UHF ARC-159 Show Preset Frequency")
-F_14:definePotentiometer("PLT_UHF1_VOL", 3, 3359, 2031, { 0, 1 }, "UHF 1", "PILOT UHF ARC-159 Volume")
-F_14:definePotentiometer("RIO_UHF1_VOL", 3, 3361, 383, { 0, 1 }, "UHF 1", "RIO UHF ARC-159 Volume")
-F_14:definePotentiometer("PLT_UHF1_BRIGHTNESS", 3, 3363, 2027, { 0, 1 }, "UHF 1", "PILOT UHF ARC-159 Display Brightness")
-F_14:definePushButton("PLT_UHF1_LOAD", 3, 3378, 16009, "UHF 1", "PILOT UHF ARC-159 Load")
-F_14:definePushButton("PLT_UHF1_TONE", 3, 3379, 16010, "UHF 1", "PILOT UHF ARC-159 Tone")
+F_14:defineTumb("PLT_UHF1_FREQ_MODE", devices.ARC159, 3375, 2033, 0.5, { 0, 1 }, nil, false, "UHF 1", "PILOT UHF ARC-159 Freq Mode", { positions = { "GUARD", "MANUAL", "PRESET" } })
+F_14:defineMultipositionSwitch("PLT_UHF1_FUNCTION", devices.ARC159, 3371, 2034, 4, 0.333333, "UHF 1", "PILOT UHF ARC-159 Function", { positions = { "ADF", "BOTH", "MAIN", "OFF" } })
+F_14:defineTumb("PLT_UHF1_PRESETS", devices.ARC159, 3373, 2032, 0.0833333333, { 0, 1 }, nil, true, "UHF 1", "PILOT UHF ARC-159 Preset Channel Selector")
+F_14:defineToggleSwitch("PLT_UHF1_SQUELCH", devices.ARC159, 3365, 2035, "UHF 1", "PILOT UHF ARC-159 Squelch Switch")
+F_14:define3PosTumb("PLT_UHF1_110_DIAL", devices.ARC159, 3367, 2030, "UHF 1", "PILOT UHF ARC-159 100MHz & 10MHz Dial")
+F_14:define3PosTumb("PLT_UHF1_1_DIAL", devices.ARC159, 3368, 2029, "UHF 1", "PILOT UHF ARC-159 1MHz Dial")
+F_14:define3PosTumb("PLT_UHF1_01_DIAL", devices.ARC159, 3369, 2028, "UHF 1", "PILOT UHF ARC-159 0.1MHz Dial")
+F_14:define3PosTumb("PLT_UHF1_025_DIAL", devices.ARC159, 3370, 2026, "UHF 1", "PILOT UHF ARC-159 0.025MHz Dial")
+F_14:defineToggleSwitch("PLT_UHF1_SHOW_PRESET_FREQ", devices.ARC159, 3377, 8115, "UHF 1", "PILOT UHF ARC-159 Show Preset Frequency")
+F_14:definePotentiometer("PLT_UHF1_VOL", devices.ARC159, 3359, 2031, { 0, 1 }, "UHF 1", "PILOT UHF ARC-159 Volume")
+F_14:definePotentiometer("RIO_UHF1_VOL", devices.ARC159, 3361, 383, { 0, 1 }, "UHF 1", "RIO UHF ARC-159 Volume")
+F_14:definePotentiometer("PLT_UHF1_BRIGHTNESS", devices.ARC159, 3363, 2027, { 0, 1 }, "UHF 1", "PILOT UHF ARC-159 Display Brightness")
+F_14:definePushButton("PLT_UHF1_LOAD", devices.ARC159, 3378, 16009, "UHF 1", "PILOT UHF ARC-159 Load")
+F_14:definePushButton("PLT_UHF1_TONE", devices.ARC159, 3379, 16010, "UHF 1", "PILOT UHF ARC-159 Tone")
 
 --- Gets an integer segment of the radio frequency
 --- @param device_id integer the dcs device id
@@ -444,18 +511,18 @@ F_14:defineIntegerFromGetter("PLT_UHF_DIAL3_FREQ", getARC159_Decimal_DIAL3_Frequ
 F_14:defineIntegerFromGetter("PLT_UHF_HIGH_FREQ", getARC159_High_Frequency, 400, "UHF 1", "PILOT High ARC-159 Frequency")
 
 -- VHF/UHF ARC-182 ("V/UHF 2")
-F_14:defineMultipositionSwitch("RIO_VUHF_FREQ_MODE", 4, 3417, 353, 6, 0.2, "VUHF", "RIO VHF/UHF ARC-182 Frequency Mode", { positions = { "243", "MAN", "G", "PRESET", "READ", "LOAD" } })
-F_14:defineMultipositionSwitch("RIO_VUHF_MODE", 4, 3413, 358, 5, 0.25, "VUHF", "RIO VHF/UHF ARC-182 MODE", { positions = { "OFF", "T/R", "T/R&G", "DF", "TEST" } })
-F_14:defineTumb("RIO_VUHF_PRESETS", 4, 3415, 352, 0.0833333333, { 0, 1 }, nil, true, "VUHF", "RIO VHF/UHF ARC-182 Preset Channel Selector")
-F_14:defineToggleSwitch("RIO_VUHF_FM_AM", 4, 3419, 359, "VUHF", "RIO VHF/UHF ARC-182 FM/AM Switch")
-F_14:defineToggleSwitch("RIO_VUHF_SQUELCH", 4, 3407, 351, "VUHF", "RIO VHF/UHF ARC-182 Squelch Switch")
-F_14:define3PosTumb("RIO_VUHF_110_DIAL", 4, 3409, 354, "VUHF", "RIO VUHF ARC-182 100MHz & 10MHz Dial")
-F_14:define3PosTumb("RIO_VUHF_1_DIAL", 4, 3410, 355, "VUHF", "RIO VUHF ARC-182 1MHz Dial")
-F_14:define3PosTumb("RIO_VUHF_01_DIAL", 4, 3411, 356, "VUHF", "RIO VUHF ARC-182 0.1MHz Dial")
-F_14:define3PosTumb("RIO_VUHF_025_DIAL", 4, 3412, 357, "VUHF", "RIO VUHF ARC-182 0.025MHz Dial")
-F_14:definePotentiometer("RIO_VUHF_VOL", 4, 3401, 350, { 0, 1 }, "VUHF", "RIO VUHF ARC-182 Volume")
-F_14:definePotentiometer("PLT_VUHF_VOL", 4, 3403, 2038, { 0, 1 }, "Volume Panel", "PILOT VUHF ARC-182 Volume")
-F_14:definePotentiometer("RIO_VUHF_BRIGHTNESS", 4, 3405, 360, { 0, 1 }, "VUHF", "RIO VUHF ARC-182 Display Brightness")
+F_14:defineMultipositionSwitch("RIO_VUHF_FREQ_MODE", devices.ARC182, 3417, 353, 6, 0.2, "VUHF", "RIO VHF/UHF ARC-182 Frequency Mode", { positions = { "243", "MAN", "G", "PRESET", "READ", "LOAD" } })
+F_14:defineMultipositionSwitch("RIO_VUHF_MODE", devices.ARC182, 3413, 358, 5, 0.25, "VUHF", "RIO VHF/UHF ARC-182 MODE", { positions = { "OFF", "T/R", "T/R&G", "DF", "TEST" } })
+F_14:defineTumb("RIO_VUHF_PRESETS", devices.ARC182, 3415, 352, 0.0833333333, { 0, 1 }, nil, true, "VUHF", "RIO VHF/UHF ARC-182 Preset Channel Selector")
+F_14:defineToggleSwitch("RIO_VUHF_FM_AM", devices.ARC182, 3419, 359, "VUHF", "RIO VHF/UHF ARC-182 FM/AM Switch")
+F_14:defineToggleSwitch("RIO_VUHF_SQUELCH", devices.ARC182, 3407, 351, "VUHF", "RIO VHF/UHF ARC-182 Squelch Switch")
+F_14:define3PosTumb("RIO_VUHF_110_DIAL", devices.ARC182, 3409, 354, "VUHF", "RIO VUHF ARC-182 100MHz & 10MHz Dial")
+F_14:define3PosTumb("RIO_VUHF_1_DIAL", devices.ARC182, 3410, 355, "VUHF", "RIO VUHF ARC-182 1MHz Dial")
+F_14:define3PosTumb("RIO_VUHF_01_DIAL", devices.ARC182, 3411, 356, "VUHF", "RIO VUHF ARC-182 0.1MHz Dial")
+F_14:define3PosTumb("RIO_VUHF_025_DIAL", devices.ARC182, 3412, 357, "VUHF", "RIO VUHF ARC-182 0.025MHz Dial")
+F_14:definePotentiometer("RIO_VUHF_VOL", devices.ARC182, 3401, 350, { 0, 1 }, "VUHF", "RIO VUHF ARC-182 Volume")
+F_14:definePotentiometer("PLT_VUHF_VOL", devices.ARC182, 3403, 2038, { 0, 1 }, "Volume Panel", "PILOT VUHF ARC-182 Volume")
+F_14:definePotentiometer("RIO_VUHF_BRIGHTNESS", devices.ARC182, 3405, 360, { 0, 1 }, "VUHF", "RIO VUHF ARC-182 Display Brightness")
 
 --- Gets an integer segment of the radio frequency
 --- @param device_id integer the dcs device id
@@ -500,195 +567,195 @@ F_14:defineIntegerFromGetter("RIO_VUHF_DIAL3_FREQ", getARC182_Decimal_DIAL3_Freq
 F_14:defineIntegerFromGetter("RIO_VUHF_HIGH_FREQ", getARC182_High_Frequency, 400, "VUHF", "RIO High ARC-182 Frequency")
 
 -- KY-28
-F_14:defineTumb("RIO_KY28_POWER", 2, 3423, 116, 0.5, { 0, 1 }, nil, false, "KY-28", "RIO KY-28 Power Mode")
-F_14:defineTumb("RIO_KY28_RADIO_SELECTOR", 2, 3425, 115, 0.5, { 0, 1 }, nil, false, "KY-28", "RIO KY-28 Radio Selector")
-F_14:defineToggleSwitch("RIO_KY28_FLIPCOVER", 2, 3608, 150, "KY-28", "RIO KY-28 ZEROIZE Cover")
-F_14:defineToggleSwitch("RIO_KY28_ZEROIZE", 2, 3427, 361, "KY-28", "RIO KY-28 ZEROIZE")
+F_14:defineTumb("RIO_KY28_POWER", devices.ICS, 3423, 116, 0.5, { 0, 1 }, nil, false, "KY-28", "RIO KY-28 Power Mode")
+F_14:defineTumb("RIO_KY28_RADIO_SELECTOR", devices.ICS, 3425, 115, 0.5, { 0, 1 }, nil, false, "KY-28", "RIO KY-28 Radio Selector")
+F_14:defineToggleSwitch("RIO_KY28_FLIPCOVER", devices.ICS, 3608, 150, "KY-28", "RIO KY-28 ZEROIZE Cover")
+F_14:defineToggleSwitch("RIO_KY28_ZEROIZE", devices.ICS, 3427, 361, "KY-28", "RIO KY-28 ZEROIZE")
 
 -- UHF/VHF/UHF Pilot/RIO Remote Display
-F_14:definePotentiometer("PLT_UHF_REMOTE_BRIGHTNESS", 3, 3350, 1031, { 0, 1 }, "UHF 1", "PILOT UHF ARC-159 Remote Display Brightness")
-F_14:definePotentiometer("RIO_UHF_REMOTE_BRIGHTNESS", 3, 3353, 406, { 0, 1 }, "UHF 1", "RIO UHF ARC-159 Remote Display Brightness")
-F_14:definePotentiometer("PLT_VUHF_REMOTE_BRIGHTNESS", 4, 3356, 1030, { 0, 1 }, "VUHF", "PILOT VHF/UHF Radio Remote Display Brightness")
-F_14:defineToggleSwitch("PLT_UHF_DISPLAY_TEST", 3, 3352, 15004, "UHF 1", "PILOT UHF ARC-159 Radio Remote Display Test")
-F_14:defineToggleSwitch("RIO_UHF_DISPLAY_TEST", 3, 3355, 405, "UHF 1", "RIO UHF ARC-159 Radio Remote Display Test")
-F_14:defineToggleSwitch("PLT_VUHF_DISPLAY_TEST", 4, 3358, 15003, "VUHF", "PILOT VHF/UHF ARC-182 Radio Remote Display Test")
+F_14:definePotentiometer("PLT_UHF_REMOTE_BRIGHTNESS", devices.ARC159, 3350, 1031, { 0, 1 }, "UHF 1", "PILOT UHF ARC-159 Remote Display Brightness")
+F_14:definePotentiometer("RIO_UHF_REMOTE_BRIGHTNESS", devices.ARC159, 3353, 406, { 0, 1 }, "UHF 1", "RIO UHF ARC-159 Remote Display Brightness")
+F_14:definePotentiometer("PLT_VUHF_REMOTE_BRIGHTNESS", devices.ARC182, 3356, 1030, { 0, 1 }, "VUHF", "PILOT VHF/UHF Radio Remote Display Brightness")
+F_14:defineToggleSwitch("PLT_UHF_DISPLAY_TEST", devices.ARC159, 3352, 15004, "UHF 1", "PILOT UHF ARC-159 Radio Remote Display Test")
+F_14:defineToggleSwitch("RIO_UHF_DISPLAY_TEST", devices.ARC159, 3355, 405, "UHF 1", "RIO UHF ARC-159 Radio Remote Display Test")
+F_14:defineToggleSwitch("PLT_VUHF_DISPLAY_TEST", devices.ARC182, 3358, 15003, "VUHF", "PILOT VHF/UHF ARC-182 Radio Remote Display Test")
 
 -- DECM Panel
-F_14:defineMultipositionSwitch("RIO_DECM_PW_MODE", 53, 3252, 151, 6, 0.2, "DECM Panel", "RIO DECM ALQ-100 Power/Mode")
+F_14:defineMultipositionSwitch("RIO_DECM_PW_MODE", devices.DECM, 3252, 151, 6, 0.2, "DECM Panel", "RIO DECM ALQ-100 Power/Mode")
 F_14:definePotentiometer("RIO_DECM_VOL", devices.RWR_INTERFACE, 3253, 9950, { 0, 1 }, "DECM Panel", "RIO DECM ALQ-100 Volume")
 
 -- RWR Control Panel ALR-67
-F_14:definePotentiometer("PLT_RWR_BRIGHT", 54, 3262, 16011, { 0, 1 }, "RWR Control Panel", "PILOT AN/ALR-67 Display Brightness")
-F_14:definePotentiometer("RIO_RWR_BRIGHT", 54, 3263, 376, { 0, 1 }, "RWR Control Panel", "RIO AN/ALR-67 Display Brightness")
-F_14:defineMultipositionSwitch("RIO_RWR_DIS_TYP", 54, 3257, 2136, 5, 0.25, "DECM Panel", "RIO AN/ALR-67 Display Type")
-F_14:define3PosTumb("RIO_RWR_MODE", 54, 3256, 2137, "DECM Panel", "RIO AN/ALR-67 Mode")
-F_14:define3PosTumb("RIO_RWR_TEST", 54, 3261, 2140, "DECM Panel", "RIO AN/ALR-67 Mode")
-F_14:defineToggleSwitch("RIO_RWR_PW", 54, 3259, 2139, "DECM Panel", "RIO AN/ALR-67 Power")
-F_14:definePotentiometer("RIO_RWR_VOL", 54, 3254, 2138, { 0, 1 }, "DECM Panel", "RIO AN/ALR-67 Volume")
+F_14:definePotentiometer("PLT_RWR_BRIGHT", devices.RWR, 3262, 16011, { 0, 1 }, "RWR Control Panel", "PILOT AN/ALR-67 Display Brightness")
+F_14:definePotentiometer("RIO_RWR_BRIGHT", devices.RWR, 3263, 376, { 0, 1 }, "RWR Control Panel", "RIO AN/ALR-67 Display Brightness")
+F_14:defineMultipositionSwitch("RIO_RWR_DIS_TYP", devices.RWR, 3257, 2136, 5, 0.25, "DECM Panel", "RIO AN/ALR-67 Display Type")
+F_14:define3PosTumb("RIO_RWR_MODE", devices.RWR, 3256, 2137, "DECM Panel", "RIO AN/ALR-67 Mode")
+F_14:define3PosTumb("RIO_RWR_TEST", devices.RWR, 3261, 2140, "DECM Panel", "RIO AN/ALR-67 Mode")
+F_14:defineToggleSwitch("RIO_RWR_PW", devices.RWR, 3259, 2139, "DECM Panel", "RIO AN/ALR-67 Power")
+F_14:definePotentiometer("RIO_RWR_VOL", devices.RWR, 3254, 2138, { 0, 1 }, "DECM Panel", "RIO AN/ALR-67 Volume")
 
 -- AN/ALE-39 Mode Panel
-F_14:define3PosTumb("RIO_CMDS_PW", 5, 3267, 390, "CMDS", "RIO AN/ALE-37 Power/Mode")
-F_14:define3PosTumb("RIO_CMDS_DISP_CHAFF", 5, 3269, 389, "CMDS", "RIO AN/ALE-37 Chaff Dispense")
-F_14:define3PosTumb("RIO_CMDS_DISP_FLAR", 5, 3270, 388, "CMDS", "RIO AN/ALE-37 Flare Dispense")
-F_14:define3PosTumb("RIO_CMDS_DISP_JAMMER", 5, 3271, 387, "CMDS", "RIO AN/ALE-37 Jammer Dispense")
-F_14:define3PosTumb("RIO_CMDS_FLAREMODE", 5, 3273, 398, "CMDS", "RIO AN/ALE-37 Flare Mode")
-F_14:definePushButton("RIO_CMDS_FLARE_SALVO", 5, 3272, 391, "CMDS", "RIO AN/ALE-37 Flare Salvo")
-F_14:definePotentiometer("RIO_CMDS_COUNT_CHAFF", 5, 3275, 386, { 0, 1 }, "CMDS", "AN/ALE-37 Chaff Counter")
-F_14:definePotentiometer("RIO_CMDS_COUNT_FLARE", 5, 3277, 385, { 0, 1 }, "CMDS", "AN/ALE-37 Flare Counter")
-F_14:definePotentiometer("RIO_CMDS_COUNT_JAMMER", 5, 3279, 399, { 0, 1 }, "CMDS", "AN/ALE-37 Jammer Counter")
+F_14:define3PosTumb("RIO_CMDS_PW", devices.COUNTERMEASURES, 3267, 390, "CMDS", "RIO AN/ALE-37 Power/Mode")
+F_14:define3PosTumb("RIO_CMDS_DISP_CHAFF", devices.COUNTERMEASURES, 3269, 389, "CMDS", "RIO AN/ALE-37 Chaff Dispense")
+F_14:define3PosTumb("RIO_CMDS_DISP_FLAR", devices.COUNTERMEASURES, 3270, 388, "CMDS", "RIO AN/ALE-37 Flare Dispense")
+F_14:define3PosTumb("RIO_CMDS_DISP_JAMMER", devices.COUNTERMEASURES, 3271, 387, "CMDS", "RIO AN/ALE-37 Jammer Dispense")
+F_14:define3PosTumb("RIO_CMDS_FLAREMODE", devices.COUNTERMEASURES, 3273, 398, "CMDS", "RIO AN/ALE-37 Flare Mode")
+F_14:definePushButton("RIO_CMDS_FLARE_SALVO", devices.COUNTERMEASURES, 3272, 391, "CMDS", "RIO AN/ALE-37 Flare Salvo")
+F_14:definePotentiometer("RIO_CMDS_COUNT_CHAFF", devices.COUNTERMEASURES, 3275, 386, { 0, 1 }, "CMDS", "AN/ALE-37 Chaff Counter")
+F_14:definePotentiometer("RIO_CMDS_COUNT_FLARE", devices.COUNTERMEASURES, 3277, 385, { 0, 1 }, "CMDS", "AN/ALE-37 Flare Counter")
+F_14:definePotentiometer("RIO_CMDS_COUNT_JAMMER", devices.COUNTERMEASURES, 3279, 399, { 0, 1 }, "CMDS", "AN/ALE-37 Jammer Counter")
 
 -- AN/ALE-39 Program Panel
-F_14:defineTumb("RIO_CMDS_LOAD_TYP_L10", 5, 3281, 206, 0.5, { 0, 1 }, nil, false, "CMDS Program", "RIO AN/ALE-37 L10 Load Type")
-F_14:defineTumb("RIO_CMDS_LOAD_TYP_L20", 5, 3283, 207, 0.5, { 0, 1 }, nil, false, "CMDS Program", "RIO AN/ALE-37 L20 Load Type")
-F_14:defineTumb("RIO_CMDS_LOAD_TYP_R10", 5, 3285, 209, 0.5, { 0, 1 }, nil, false, "CMDS Program", "RIO AN/ALE-37 R10 Load Type")
-F_14:defineTumb("RIO_CMDS_LOAD_TYP_R20", 5, 3287, 208, 0.5, { 0, 1 }, nil, false, "CMDS Program", "RIO AN/ALE-37 R20 Load Type")
-F_14:defineTumb("RIO_CMDS_CHAFF_BURST_QUAN", 5, 3298, 214, 0.2, { 0, 1 }, nil, false, "CMDS Program", "RIO Chaff Burst Quantity")
-F_14:defineTumb("RIO_CMDS_CHAFF_BURST_INTER", 5, 3300, 215, 0.2, { 0, 1 }, nil, false, "CMDS Program", "RIO Chaff Burst Interval")
-F_14:defineTumb("RIO_CMDS_CHAFF_SALVO_QUAN", 5, 3302, 203, 0.2, { 0, 1 }, nil, false, "CMDS Program", "RIO Chaff Salvo Quantity")
-F_14:defineTumb("RIO_CMDS_CHAFF_SALVO_INTER", 5, 3304, 202, 0.2, { 0, 1 }, nil, false, "CMDS Program", "RIO Chaff Salvo Interval")
-F_14:defineTumb("RIO_CMDS_FLARE_QUAN", 5, 3306, 205, 0.2, { 0, 1 }, nil, false, "CMDS Program", "RIO Flare Quantity")
-F_14:defineTumb("RIO_CMDS_FLARE_INTER", 5, 3308, 210, 0.2, { 0, 1 }, nil, false, "CMDS Program", "RIO Flare Interval")
-F_14:defineTumb("RIO_CMDS_JAMM_QUAN", 5, 3295, 204, 0.333, { 0, 1 }, nil, false, "CMDS Program", "RIO AN/ALE-37 Jammer Quantity")
-F_14:defineTumb("RIO_CMDS_JAMM_INTER_UNIT", 5, 3289, 211, 0.111, { 0, 1 }, nil, false, "CMDS Program", "RIO Jammer Interval Units")
-F_14:defineTumb("RIO_CMDS_JAMM_INTER_10", 5, 3291, 212, 0.111, { 0, 1 }, nil, false, "CMDS Program", "RIO Jammer Interval Tens")
-F_14:defineTumb("RIO_CMDS_JAMM_INTER_100", 5, 3293, 213, 0.111, { 0, 1 }, nil, false, "CMDS Program", "RIO Jammer Interval Hundreds")
-F_14:definePushButton("RIO_CMDS_PROG_RESET", 5, 3297, 216, "CMDS", "RIO AN/ALE-37 Programmer Reset")
+F_14:defineTumb("RIO_CMDS_LOAD_TYP_L10", devices.COUNTERMEASURES, 3281, 206, 0.5, { 0, 1 }, nil, false, "CMDS Program", "RIO AN/ALE-37 L10 Load Type")
+F_14:defineTumb("RIO_CMDS_LOAD_TYP_L20", devices.COUNTERMEASURES, 3283, 207, 0.5, { 0, 1 }, nil, false, "CMDS Program", "RIO AN/ALE-37 L20 Load Type")
+F_14:defineTumb("RIO_CMDS_LOAD_TYP_R10", devices.COUNTERMEASURES, 3285, 209, 0.5, { 0, 1 }, nil, false, "CMDS Program", "RIO AN/ALE-37 R10 Load Type")
+F_14:defineTumb("RIO_CMDS_LOAD_TYP_R20", devices.COUNTERMEASURES, 3287, 208, 0.5, { 0, 1 }, nil, false, "CMDS Program", "RIO AN/ALE-37 R20 Load Type")
+F_14:defineTumb("RIO_CMDS_CHAFF_BURST_QUAN", devices.COUNTERMEASURES, 3298, 214, 0.2, { 0, 1 }, nil, false, "CMDS Program", "RIO Chaff Burst Quantity")
+F_14:defineTumb("RIO_CMDS_CHAFF_BURST_INTER", devices.COUNTERMEASURES, 3300, 215, 0.2, { 0, 1 }, nil, false, "CMDS Program", "RIO Chaff Burst Interval")
+F_14:defineTumb("RIO_CMDS_CHAFF_SALVO_QUAN", devices.COUNTERMEASURES, 3302, 203, 0.2, { 0, 1 }, nil, false, "CMDS Program", "RIO Chaff Salvo Quantity")
+F_14:defineTumb("RIO_CMDS_CHAFF_SALVO_INTER", devices.COUNTERMEASURES, 3304, 202, 0.2, { 0, 1 }, nil, false, "CMDS Program", "RIO Chaff Salvo Interval")
+F_14:defineTumb("RIO_CMDS_FLARE_QUAN", devices.COUNTERMEASURES, 3306, 205, 0.2, { 0, 1 }, nil, false, "CMDS Program", "RIO Flare Quantity")
+F_14:defineTumb("RIO_CMDS_FLARE_INTER", devices.COUNTERMEASURES, 3308, 210, 0.2, { 0, 1 }, nil, false, "CMDS Program", "RIO Flare Interval")
+F_14:defineTumb("RIO_CMDS_JAMM_QUAN", devices.COUNTERMEASURES, 3295, 204, 0.333, { 0, 1 }, nil, false, "CMDS Program", "RIO AN/ALE-37 Jammer Quantity")
+F_14:defineTumb("RIO_CMDS_JAMM_INTER_UNIT", devices.COUNTERMEASURES, 3289, 211, 0.111, { 0, 1 }, nil, false, "CMDS Program", "RIO Jammer Interval Units")
+F_14:defineTumb("RIO_CMDS_JAMM_INTER_10", devices.COUNTERMEASURES, 3291, 212, 0.111, { 0, 1 }, nil, false, "CMDS Program", "RIO Jammer Interval Tens")
+F_14:defineTumb("RIO_CMDS_JAMM_INTER_100", devices.COUNTERMEASURES, 3293, 213, 0.111, { 0, 1 }, nil, false, "CMDS Program", "RIO Jammer Interval Hundreds")
+F_14:definePushButton("RIO_CMDS_PROG_RESET", devices.COUNTERMEASURES, 3297, 216, "CMDS", "RIO AN/ALE-37 Programmer Reset")
 
 -- INS
-F_14:defineMultipositionSwitch("RIO_TID_MODE_NAV", 50, 3106, 50, 7, 0.1666667, "INS", "RIO TID Navigation Mode")
-F_14:defineMultipositionSwitch("RIO_TID_MODE_DEST", 46, 3109, 51, 8, 0.142857, "INS", "RIO TID Destination Mode")
+F_14:defineMultipositionSwitch("RIO_TID_MODE_NAV", devices.INS, 3106, 50, 7, 0.1666667, "INS", "RIO TID Navigation Mode")
+F_14:defineMultipositionSwitch("RIO_TID_MODE_DEST", devices.NAV_INTERFACE, 3109, 51, 8, 0.142857, "INS", "RIO TID Destination Mode")
 
 -- AHRS / Compass  (COMP Panel)
-F_14:definePotentiometer("PLT_AHRS_HDG_KNOB", 51, 3433, 904, { -1, 1 }, "AHRS", "PILOT Compass HDG Slave Knob")
-F_14:definePushButton("PLT_AHRS_HDG_PUSH", 51, 3432, 16014, "AHRS", "PILOT Compass HDG Slave Push")
-F_14:define3PosTumb("PLT_AHRS_MODE", 51, 3434, 905, "AHRS", "PILOT Compass Mode")
-F_14:defineModuleDefaultToggleSwitch("PLT_AHRS_HEMISPHERE", 51, 3436, 906, "AHRS", "PILOT Compass N-S Hemisphere")
-F_14:definePotentiometer("PLT_AHRS_LAT", 51, 3438, 909, { 0, 1 }, "AHRS", "PILOT Compass LAT Correction")
+F_14:definePotentiometer("PLT_AHRS_HDG_KNOB", devices.AHRS, 3433, 904, { -1, 1 }, "AHRS", "PILOT Compass HDG Slave Knob")
+F_14:definePushButton("PLT_AHRS_HDG_PUSH", devices.AHRS, 3432, 16014, "AHRS", "PILOT Compass HDG Slave Push")
+F_14:define3PosTumb("PLT_AHRS_MODE", devices.AHRS, 3434, 905, "AHRS", "PILOT Compass Mode")
+F_14:defineModuleDefaultToggleSwitch("PLT_AHRS_HEMISPHERE", devices.AHRS, 3436, 906, "AHRS", "PILOT Compass N-S Hemisphere")
+F_14:definePotentiometer("PLT_AHRS_LAT", devices.AHRS, 3438, 909, { 0, 1 }, "AHRS", "PILOT Compass LAT Correction")
 
 -- Spoiler Overrides
-F_14:defineToggleSwitch("PLT_SPOIL_OVER_COVER_INBOARD", 15, 3428, 902, "Spoiler", "PILOT Inboard Spoiler Override Cover")
-F_14:defineToggleSwitch("PLT_SPOIL_OVER_COVER_OUTBOARD", 15, 3429, 903, "Spoiler", "PILOT Outboard Spoiler Override Cover")
-F_14:defineToggleSwitch("PLT_SPOIL_OVER_INBOARD", 15, 3430, 908, "Spoiler", "PILOT Inboard Spoiler Override")
-F_14:defineToggleSwitch("PLT_SPOIL_OVER_OUTBOARD", 15, 3431, 907, "Spoiler", "PILOT Outboard Spoiler Override")
+F_14:defineToggleSwitch("PLT_SPOIL_OVER_COVER_INBOARD", devices.ELECTRICS, 3428, 902, "Spoiler", "PILOT Inboard Spoiler Override Cover")
+F_14:defineToggleSwitch("PLT_SPOIL_OVER_COVER_OUTBOARD", devices.ELECTRICS, 3429, 903, "Spoiler", "PILOT Outboard Spoiler Override Cover")
+F_14:defineToggleSwitch("PLT_SPOIL_OVER_INBOARD", devices.ELECTRICS, 3430, 908, "Spoiler", "PILOT Inboard Spoiler Override")
+F_14:defineToggleSwitch("PLT_SPOIL_OVER_OUTBOARD", devices.ELECTRICS, 3431, 907, "Spoiler", "PILOT Outboard Spoiler Override")
 
 -- Gun Elevation
-F_14:defineRotary("PLT_GUN_ELEV_ADJUST", 55, 3131, 1000, "Gun", "PILOT Gun Elevation Lead Adjustment")
-F_14:defineRotary("PLT_GUN_AMMU_COUNT_ADJUST", 55, 3132, 1022, "Gun", "PILOT Gun Ammunition Counter Adjustment")
+F_14:defineRotary("PLT_GUN_ELEV_ADJUST", devices.WEAPONS, 3131, 1000, "Gun", "PILOT Gun Elevation Lead Adjustment")
+F_14:defineRotary("PLT_GUN_AMMU_COUNT_ADJUST", devices.WEAPONS, 3132, 1022, "Gun", "PILOT Gun Ammunition Counter Adjustment")
 
 -- DISPLAY Panel
-F_14:definePotentiometer("PLT_HUD_PITCH_BRIGHT", 40, 3223, 1007, { 0, 1 }, "Display", "PILOT HUD Pitch Ladder Brightness")
-F_14:defineToggleSwitch("PLT_VDI_MODE_DISP", 42, 3224, 1019, "Display", "PILOT VDI Display Mode")
-F_14:defineToggleSwitch("PLT_VDI_MODE_LAND", 42, 3225, 1018, "Display", "PILOT VDI Landing Mode")
-F_14:defineToggleSwitch("PLT_HUD_DECLUTTER", 40, 3226, 1021, "Display", "PILOT HUD De-clutter On/Off")
-F_14:defineToggleSwitch("PLT_HUD_MODE_AWL", 40, 3227, 1020, "Display", "PILOT HUD AWL Mode")
-F_14:definePushButton("PLT_HUD_MODE_TAKEOFF", 40, 3216, 1015, "Display", "PILOT HUD Take-Off Mode")
-F_14:definePushButton("PLT_HUD_MODE_CRUISE", 40, 3217, 1014, "Display", "PILOT HUD Cruise Mode")
-F_14:definePushButton("PLT_HUD_MODE_A2A", 40, 3218, 1013, "Display", "PILOT HUD Air-to-Air Mode")
-F_14:definePushButton("PLT_HUD_MODE_A2G", 40, 3219, 1012, "Display", "PILOT HUD Air-to-Ground Mode")
-F_14:definePushButton("PLT_HUD_MODE_LAND", 40, 3220, 1011, "Display", "PILOT HUD Landing Mode")
+F_14:definePotentiometer("PLT_HUD_PITCH_BRIGHT", devices.HUD, 3223, 1007, { 0, 1 }, "Display", "PILOT HUD Pitch Ladder Brightness")
+F_14:defineToggleSwitch("PLT_VDI_MODE_DISP", devices.VDI, 3224, 1019, "Display", "PILOT VDI Display Mode")
+F_14:defineToggleSwitch("PLT_VDI_MODE_LAND", devices.VDI, 3225, 1018, "Display", "PILOT VDI Landing Mode")
+F_14:defineToggleSwitch("PLT_HUD_DECLUTTER", devices.HUD, 3226, 1021, "Display", "PILOT HUD De-clutter On/Off")
+F_14:defineToggleSwitch("PLT_HUD_MODE_AWL", devices.HUD, 3227, 1020, "Display", "PILOT HUD AWL Mode")
+F_14:definePushButton("PLT_HUD_MODE_TAKEOFF", devices.HUD, 3216, 1015, "Display", "PILOT HUD Take-Off Mode")
+F_14:definePushButton("PLT_HUD_MODE_CRUISE", devices.HUD, 3217, 1014, "Display", "PILOT HUD Cruise Mode")
+F_14:definePushButton("PLT_HUD_MODE_A2A", devices.HUD, 3218, 1013, "Display", "PILOT HUD Air-to-Air Mode")
+F_14:definePushButton("PLT_HUD_MODE_A2G", devices.HUD, 3219, 1012, "Display", "PILOT HUD Air-to-Ground Mode")
+F_14:definePushButton("PLT_HUD_MODE_LAND", devices.HUD, 3220, 1011, "Display", "PILOT HUD Landing Mode")
 
 -- Standby ADI
-F_14:definePushButton("PLT_STDBYAI_UNCAGE", 31, 3545, 1032, "Standby ADI", "PILOT Standby ADI Push to uncage")
-F_14:defineRotary("PLT_STDBYAI_TRIM", 31, 3546, 1042, "Standby ADI", "PILOT Standby ADI Knob")
-F_14:definePushButton("RIO_STDBYAI_UNCAGE", 31, 3547, 6155, "Standby ADI", "RIO Standby ADI Push to uncage")
-F_14:defineRotary("RIO_STDBYAI_TRIM", 31, 3548, 6156, "Standby ADI", "RIO Standby ADI Knob")
-F_14:definePushButton("PLT_ACCEL_RESET", 25, 3488, 228, "Display", "PILOT Accelerometer Reset")
+F_14:definePushButton("PLT_STDBYAI_UNCAGE", devices.STDBYAI, 3545, 1032, "Standby ADI", "PILOT Standby ADI Push to uncage")
+F_14:defineRotary("PLT_STDBYAI_TRIM", devices.STDBYAI, 3546, 1042, "Standby ADI", "PILOT Standby ADI Knob")
+F_14:definePushButton("RIO_STDBYAI_UNCAGE", devices.STDBYAI, 3547, 6155, "Standby ADI", "RIO Standby ADI Push to uncage")
+F_14:defineRotary("RIO_STDBYAI_TRIM", devices.STDBYAI, 3548, 6156, "Standby ADI", "RIO Standby ADI Knob")
+F_14:definePushButton("PLT_ACCEL_RESET", devices.ACCELEROMETER, 3488, 228, "Display", "PILOT Accelerometer Reset")
 
 -- VDI & HUD Indicator Controls
-F_14:defineToggleSwitch("PLT_HUD_FILTER", 40, 3228, 1033, "HUD", "PILOT HUD Filter")
-F_14:definePotentiometer("PLT_HUD_TRIM", 40, 3229, 1034, { 0, 1 }, "HUD", "PILOT HUD TRIM")
-F_14:definePotentiometer("PLT_VSDI_TRIM", 42, 3230, 1035, { 0, 1 }, "HUD", "PILOT VDI Trim")
-F_14:definePotentiometer("PLT_VDI_CONTRAST", 42, 3231, 1038, { 0, 1 }, "HUD", "PILOT VDI Screen Contrast")
-F_14:definePotentiometer("PLT_VSDI_BRIGHT", 42, 3232, 1036, { 0, 1 }, "HUD", "PILOT VDI Screen Brightness")
-F_14:definePotentiometer("PLT_HUD_BRIGHT", 40, 3233, 1037, { 0, 1 }, "HUD", "PILOT HUD Brightness")
+F_14:defineToggleSwitch("PLT_HUD_FILTER", devices.HUD, 3228, 1033, "HUD", "PILOT HUD Filter")
+F_14:definePotentiometer("PLT_HUD_TRIM", devices.HUD, 3229, 1034, { 0, 1 }, "HUD", "PILOT HUD TRIM")
+F_14:definePotentiometer("PLT_VSDI_TRIM", devices.VDI, 3230, 1035, { 0, 1 }, "HUD", "PILOT VDI Trim")
+F_14:definePotentiometer("PLT_VDI_CONTRAST", devices.VDI, 3231, 1038, { 0, 1 }, "HUD", "PILOT VDI Screen Contrast")
+F_14:definePotentiometer("PLT_VSDI_BRIGHT", devices.VDI, 3232, 1036, { 0, 1 }, "HUD", "PILOT VDI Screen Brightness")
+F_14:definePotentiometer("PLT_HUD_BRIGHT", devices.HUD, 3233, 1037, { 0, 1 }, "HUD", "PILOT HUD Brightness")
 
 -- Under HUD / Master Arm / Gun/Weapons Panel
-F_14:defineToggleSwitch("PLT_MASTER_ARM_COVER", 55, 3135, 1046, "Weapons Panel", "PILOT Master Arm Cover")
-F_14:define3PosTumb("PLT_MASTER_ARM_SW", 55, 3136, 1047, "Weapons Panel", "PILOT Master Arm Switch")
-F_14:defineToggleSwitch("PLT_ACM_COVER", 55, 3133, 1049, "Weapons Panel", "PILOT ACM Cover")
-F_14:definePushButton("PLT_ACM_JETT", 55, 3138, 1048, "Weapons Panel", "PILOT ACM Jettison")
-F_14:definePushButton("PLT_MASTER_CAUTION_RESET", 35, 3056, 9199, "Weapons Panel", "PILOT Master Caution Reset")
-F_14:definePushButton("PLT_GUN_RATE", 55, 3130, 16000, "Weapons Panel", "PILOT Gun Rate")
-F_14:definePushButton("PLT_SIDEWINDER_COOL", 55, 3139, 16001, "Weapons Panel", "PILOT Sidewinder Cool")
-F_14:definePushButton("PLT_MISSLE_PREP", 55, 3140, 16002, "Weapons Panel", "PILOT Missile Prepare")
-F_14:definePushButton("PLT_MISSLE_MODE", 55, 3141, 16003, "Weapons Panel", "PILOT Missile Mode")
-F_14:definePushButton("PLT_EMERG_STORE_JETT", 55, 3142, 239, "Weapons Panel", "PILOT Emergency Stores Jettison")
-F_14:defineRotary("PLT_CLOCK_WIND", 27, 3042, 1051, "Weapons Panel", "PILOT Clock Wind")
-F_14:definePushButton("PLT_CLOCK_TIMER", 27, 3043, 1000, "Weapons Panel", "PILOT Clock Timer Start/Stop/Reset")
-F_14:defineRotary("RIO_CLOCK_WIND", 27, 3710, 1052, "Weapons Panel", "RIO Clock Wind")
-F_14:definePushButton("RIO_CLOCK_TIMER", 27, 3711, 1053, "Weapons Panel", "RIO Clock Timer Start/Stop/Reset")
+F_14:defineToggleSwitch("PLT_MASTER_ARM_COVER", devices.WEAPONS, 3135, 1046, "Weapons Panel", "PILOT Master Arm Cover")
+F_14:define3PosTumb("PLT_MASTER_ARM_SW", devices.WEAPONS, 3136, 1047, "Weapons Panel", "PILOT Master Arm Switch")
+F_14:defineToggleSwitch("PLT_ACM_COVER", devices.WEAPONS, 3133, 1049, "Weapons Panel", "PILOT ACM Cover")
+F_14:definePushButton("PLT_ACM_JETT", devices.WEAPONS, 3138, 1048, "Weapons Panel", "PILOT ACM Jettison")
+F_14:definePushButton("PLT_MASTER_CAUTION_RESET", devices.WARNINGLIGHTS, 3056, 9199, "Weapons Panel", "PILOT Master Caution Reset")
+F_14:definePushButton("PLT_GUN_RATE", devices.WEAPONS, 3130, 16000, "Weapons Panel", "PILOT Gun Rate")
+F_14:definePushButton("PLT_SIDEWINDER_COOL", devices.WEAPONS, 3139, 16001, "Weapons Panel", "PILOT Sidewinder Cool")
+F_14:definePushButton("PLT_MISSLE_PREP", devices.WEAPONS, 3140, 16002, "Weapons Panel", "PILOT Missile Prepare")
+F_14:definePushButton("PLT_MISSLE_MODE", devices.WEAPONS, 3141, 16003, "Weapons Panel", "PILOT Missile Mode")
+F_14:definePushButton("PLT_EMERG_STORE_JETT", devices.WEAPONS, 3142, 239, "Weapons Panel", "PILOT Emergency Stores Jettison")
+F_14:defineRotary("PLT_CLOCK_WIND", devices.CLOCK, 3042, 1051, "Weapons Panel", "PILOT Clock Wind")
+F_14:definePushButton("PLT_CLOCK_TIMER", devices.CLOCK, 3043, 1000, "Weapons Panel", "PILOT Clock Timer Start/Stop/Reset")
+F_14:defineRotary("RIO_CLOCK_WIND", devices.CLOCK, 3710, 1052, "Weapons Panel", "RIO Clock Wind")
+F_14:definePushButton("RIO_CLOCK_TIMER", devices.CLOCK, 3711, 1053, "Weapons Panel", "RIO Clock Timer Start/Stop/Reset")
 
 -- RIO TID
-F_14:defineMultipositionSwitch("RIO_TID_MODE", 43, 3112, 2005, 4, 0.33333, "TID", "RIO TID Mode")
-F_14:defineTumb("RIO_TID_RANGE", 43, 3113, 2006, 0.5, { -1, 1 }, nil, false, "TID", "RIO TID Range")
-F_14:definePushButton("RIO_TID_NON_ATTK", 43, 3114, 226, "TID", "RIO TID Non Attack")
-F_14:definePushButton("RIO_TID_JAM_STROBE", 43, 3115, 1118, "TID", "RIO TID Jam Strobe")
-F_14:definePushButton("RIO_TID_DATA_LINK", 43, 3116, 1117, "TID", "RIO TID Data Link")
-F_14:definePushButton("RIO_TID_SYM_ELEM", 43, 3117, 1116, "TID", "RIO TID Sym Elem")
-F_14:definePushButton("RIO_TID_ALT_NUM", 43, 3118, 1115, "TID", "RIO TID Alt Num")
-F_14:definePushButton("RIO_TID_RID_DSBL", 43, 3119, 2004, "TID", "RIO TID Reject Image Device disable")
-F_14:definePushButton("RIO_TID_LAUNCH_ZONE", 43, 3120, 2113, "TID", "RIO TID Launch Zone")
-F_14:definePushButton("RIO_TID_VEL_VECTOR", 43, 3121, 2114, "TID", "RIO TID Velocity Vector")
-F_14:definePushButton("RIO_TID_CLSN", 43, 3122, 52, "TID", "RIO TID Collision Steering")
-F_14:definePushButton("RIO_TID_TRACKHOLD", 43, 3123, 53, "TID", "RIO TID Track Hold")
-F_14:definePotentiometer("RIO_TID_BRIGHT", 43, 3124, 48, { 0, 1 }, "TID", "RIO TID Brightness")
-F_14:definePotentiometer("RIO_TID_CONTRAST", 43, 3125, 49, { 0, 1 }, "TID", "RIO TID Contrast")
+F_14:defineMultipositionSwitch("RIO_TID_MODE", devices.TID, 3112, 2005, 4, 0.33333, "TID", "RIO TID Mode")
+F_14:defineTumb("RIO_TID_RANGE", devices.TID, 3113, 2006, 0.5, { -1, 1 }, nil, false, "TID", "RIO TID Range")
+F_14:definePushButton("RIO_TID_NON_ATTK", devices.TID, 3114, 226, "TID", "RIO TID Non Attack")
+F_14:definePushButton("RIO_TID_JAM_STROBE", devices.TID, 3115, 1118, "TID", "RIO TID Jam Strobe")
+F_14:definePushButton("RIO_TID_DATA_LINK", devices.TID, 3116, 1117, "TID", "RIO TID Data Link")
+F_14:definePushButton("RIO_TID_SYM_ELEM", devices.TID, 3117, 1116, "TID", "RIO TID Sym Elem")
+F_14:definePushButton("RIO_TID_ALT_NUM", devices.TID, 3118, 1115, "TID", "RIO TID Alt Num")
+F_14:definePushButton("RIO_TID_RID_DSBL", devices.TID, 3119, 2004, "TID", "RIO TID Reject Image Device disable")
+F_14:definePushButton("RIO_TID_LAUNCH_ZONE", devices.TID, 3120, 2113, "TID", "RIO TID Launch Zone")
+F_14:definePushButton("RIO_TID_VEL_VECTOR", devices.TID, 3121, 2114, "TID", "RIO TID Velocity Vector")
+F_14:definePushButton("RIO_TID_CLSN", devices.TID, 3122, 52, "TID", "RIO TID Collision Steering")
+F_14:definePushButton("RIO_TID_TRACKHOLD", devices.TID, 3123, 53, "TID", "RIO TID Track Hold")
+F_14:definePotentiometer("RIO_TID_BRIGHT", devices.TID, 3124, 48, { 0, 1 }, "TID", "RIO TID Brightness")
+F_14:definePotentiometer("RIO_TID_CONTRAST", devices.TID, 3125, 49, { 0, 1 }, "TID", "RIO TID Contrast")
 
 -- RIO HCU
-F_14:defineToggleSwitch("RIO_HCU_TCS", 58, 3096, 2007, "HCU", "RIO HCU TCS Mode")
-F_14:defineToggleSwitch("RIO_HCU_RADAR", 58, 3097, 2008, "HCU", "RIO HCU Radar Mode")
-F_14:defineToggleSwitch("RIO_HCU_DDD", 58, 3098, 2009, "HCU", "RIO HCU DDD Mode")
-F_14:defineToggleSwitch("RIO_HCU_TID", 58, 3099, 2010, "HCU", "RIO HCU TID Mode")
+F_14:defineToggleSwitch("RIO_HCU_TCS", devices.HCU, 3096, 2007, "HCU", "RIO HCU TCS Mode")
+F_14:defineToggleSwitch("RIO_HCU_RADAR", devices.HCU, 3097, 2008, "HCU", "RIO HCU Radar Mode")
+F_14:defineToggleSwitch("RIO_HCU_DDD", devices.HCU, 3098, 2009, "HCU", "RIO HCU DDD Mode")
+F_14:defineToggleSwitch("RIO_HCU_TID", devices.HCU, 3099, 2010, "HCU", "RIO HCU TID Mode")
 F_14:define3PosTumb("RIO_HCU_TVIR_SW", devices.TCS, 3100, 2011, "HCU", "RIO HCU TV/IR Switch")
-F_14:define3PosTumb("RIO_HCU_WCS", 39, 3101, 2012, "HCU", "RIO HCU WCS Switch")
-F_14:definePushButton("RIO_HCU_PW_RESET", 39, 3644, 2013, "HCU", "RIO HCU Power Reset")
-F_14:definePushButton("RIO_HCU_LIGHT_TEST", 39, 3645, 2014, "HCU", "RIO HCU Light Test")
+F_14:define3PosTumb("RIO_HCU_WCS", devices.RADAR, 3101, 2012, "HCU", "RIO HCU WCS Switch")
+F_14:definePushButton("RIO_HCU_PW_RESET", devices.RADAR, 3644, 2013, "HCU", "RIO HCU Power Reset")
+F_14:definePushButton("RIO_HCU_LIGHT_TEST", devices.RADAR, 3645, 2014, "HCU", "RIO HCU Light Test")
 
 -- RIO DDD
-F_14:definePushButton("RIO_RADAR_5", 39, 3450, 40, "DDD", "RIO Radar 5 NM")
-F_14:definePushButton("RIO_RADAR_10", 39, 3451, 41, "DDD", "RIO Radar 10 NM")
-F_14:definePushButton("RIO_RADAR_20", 39, 3452, 42, "DDD", "RIO Radar 20 NM")
-F_14:definePushButton("RIO_RADAR_50", 39, 3453, 43, "DDD", "RIO Radar 50 NM")
-F_14:definePushButton("RIO_RADAR_100", 39, 3454, 44, "DDD", "RIO Radar 100 NM")
-F_14:definePushButton("RIO_RADAR_200", 39, 3455, 45, "DDD", "RIO Radar 200 NM")
-F_14:definePushButton("RIO_RADAR_PULSE", 39, 3457, 10, "DDD", "RIO Radar Pulse Search")
-F_14:definePushButton("RIO_RADAR_TWSMAN", 39, 3458, 11, "DDD", "RIO Track While Scan Manual")
-F_14:definePushButton("RIO_RADAR_TWSAUTO", 39, 3459, 12, "DDD", "RIO Track While Scan Auto")
-F_14:definePushButton("RIO_RADAR_RWS", 39, 3460, 13, "DDD", "RIO Track While Scan")
-F_14:definePushButton("RIO_RADAR_PDSRCH", 39, 3461, 14, "DDD", "RIO Radar Pulse Doppler Search")
-F_14:definePushButton("RIO_RADAR_PSTT", 39, 3462, 15, "DDD", "RIO Radar Pulse Single Target Track")
-F_14:definePushButton("RIO_RADAR_PDSTT", 39, 3463, 9916, "DDD", "RIO Radar Pulse Doppler Target Track")
-F_14:definePushButton("RIO_DDD_IFF", 39, 3464, 17, "DDD", "RIO DDD Interrogate Friend or Foe")
-F_14:definePushButton("RIO_DDD_IR", 39, 3465, 18, "DDD", "RIO DDD Infrared")
-F_14:definePushButton("RIO_DDD_RADAR", 39, 3466, 19, "DDD", "RIO DDD Radar")
-F_14:definePushButton("RIO_CCM_SPL", 39, 3686, 1812, "DDD", "RIO CCM SPL")
-F_14:definePushButton("RIO_CCM_ALT_DIFF", 39, 3687, 1813, "DDD", "RIO CCM ALT DIFF")
-F_14:definePushButton("RIO_CCM_VGS", 39, 3688, 1814, "DDD", "RIO CCM VGS")
-F_14:definePotentiometer("RIO_RADAR_IR_GAIN", 39, 3473, 20, { 0, 1 }, "DDD", "RIO Radar IR Gain")
-F_14:definePotentiometer("RIO_RADAR_IR_VOL", 39, 3474, 21, { 0, 1 }, "DDD", "RIO Radar IR Volume")
-F_14:definePotentiometer("RIO_RADAR_IR_THERESHOLD", 39, 3475, 22, { 0, 1 }, "DDD", "RIO Radar IR Threshold")
-F_14:definePotentiometer("RIO_DDD_BRIGHT", 39, 3476, 23, { 0, 1 }, "DDD", "RIO DDD Brightness")
-F_14:definePotentiometer("RIO_DDD_PULSE_VID", 39, 3477, 24, { 0, 1 }, "DDD", "RIO DDD Pulse Video")
-F_14:definePotentiometer("RIO_DDD_ERASE", 39, 3478, 25, { 0, 1 }, "DDD", "RIO DDD Erase")
-F_14:definePotentiometer("RIO_DDD_PULSE_GAIN", 39, 3479, 26, { 0, 1 }, "DDD", "RIO Pulse Gain")
-F_14:definePotentiometer("RIO_ACM_THERESHOLD", 39, 3480, 27, { 0, 1 }, "DDD", "RIO ACM Threshold")
-F_14:definePotentiometer("RIO_RADAR_JAMJET", 39, 3481, 28, { 0, 1 }, "DDD", "RIO JAM/JET")
-F_14:definePotentiometer("RIO_PD_THERESHOLD_CLUTTER", 39, 3482, 29, { 0, 1 }, "DDD", "RIO PD Threshold Clutter")
-F_14:definePotentiometer("RIO_PD_THERESHOLD_CLEAR", 39, 3483, 30, { 0, 1 }, "DDD", "RIO PD Threshold Clear")
-F_14:define3PosTumb("RIO_DDD_ASPECT", 39, 3467, 34, "DDD", "RIO DDD Aspect")
-F_14:define3PosTumb("RIO_DDD_VC_SCALE", 39, 3468, 35, "DDD", "RIO DDD Closing Velocity Scale")
-F_14:define3PosTumb("RIO_DDD_TGTS", 39, 3469, 36, "DDD", "RIO DDD Target Size")
-F_14:define3PosTumb("RIO_DDD_MLC", 39, 3470, 37, "DDD", "RIO DDD Main Lobe Clutter Filter")
-F_14:defineToggleSwitch("RIO_DDD_AGC", 39, 3471, 38, "DDD", "RIO DDD Automatic Gain Control")
-F_14:defineToggleSwitch("RIO_DDD_PARA_AMP", 39, 3472, 3900, "DDD", "RIO DDD Parametric Amplifier")
+F_14:definePushButton("RIO_RADAR_5", devices.RADAR, 3450, 40, "DDD", "RIO Radar 5 NM")
+F_14:definePushButton("RIO_RADAR_10", devices.RADAR, 3451, 41, "DDD", "RIO Radar 10 NM")
+F_14:definePushButton("RIO_RADAR_20", devices.RADAR, 3452, 42, "DDD", "RIO Radar 20 NM")
+F_14:definePushButton("RIO_RADAR_50", devices.RADAR, 3453, 43, "DDD", "RIO Radar 50 NM")
+F_14:definePushButton("RIO_RADAR_100", devices.RADAR, 3454, 44, "DDD", "RIO Radar 100 NM")
+F_14:definePushButton("RIO_RADAR_200", devices.RADAR, 3455, 45, "DDD", "RIO Radar 200 NM")
+F_14:definePushButton("RIO_RADAR_PULSE", devices.RADAR, 3457, 10, "DDD", "RIO Radar Pulse Search")
+F_14:definePushButton("RIO_RADAR_TWSMAN", devices.RADAR, 3458, 11, "DDD", "RIO Track While Scan Manual")
+F_14:definePushButton("RIO_RADAR_TWSAUTO", devices.RADAR, 3459, 12, "DDD", "RIO Track While Scan Auto")
+F_14:definePushButton("RIO_RADAR_RWS", devices.RADAR, 3460, 13, "DDD", "RIO Track While Scan")
+F_14:definePushButton("RIO_RADAR_PDSRCH", devices.RADAR, 3461, 14, "DDD", "RIO Radar Pulse Doppler Search")
+F_14:definePushButton("RIO_RADAR_PSTT", devices.RADAR, 3462, 15, "DDD", "RIO Radar Pulse Single Target Track")
+F_14:definePushButton("RIO_RADAR_PDSTT", devices.RADAR, 3463, 9916, "DDD", "RIO Radar Pulse Doppler Target Track")
+F_14:definePushButton("RIO_DDD_IFF", devices.RADAR, 3464, 17, "DDD", "RIO DDD Interrogate Friend or Foe")
+F_14:definePushButton("RIO_DDD_IR", devices.RADAR, 3465, 18, "DDD", "RIO DDD Infrared")
+F_14:definePushButton("RIO_DDD_RADAR", devices.RADAR, 3466, 19, "DDD", "RIO DDD Radar")
+F_14:definePushButton("RIO_CCM_SPL", devices.RADAR, 3686, 1812, "DDD", "RIO CCM SPL")
+F_14:definePushButton("RIO_CCM_ALT_DIFF", devices.RADAR, 3687, 1813, "DDD", "RIO CCM ALT DIFF")
+F_14:definePushButton("RIO_CCM_VGS", devices.RADAR, 3688, 1814, "DDD", "RIO CCM VGS")
+F_14:definePotentiometer("RIO_RADAR_IR_GAIN", devices.RADAR, 3473, 20, { 0, 1 }, "DDD", "RIO Radar IR Gain")
+F_14:definePotentiometer("RIO_RADAR_IR_VOL", devices.RADAR, 3474, 21, { 0, 1 }, "DDD", "RIO Radar IR Volume")
+F_14:definePotentiometer("RIO_RADAR_IR_THERESHOLD", devices.RADAR, 3475, 22, { 0, 1 }, "DDD", "RIO Radar IR Threshold")
+F_14:definePotentiometer("RIO_DDD_BRIGHT", devices.RADAR, 3476, 23, { 0, 1 }, "DDD", "RIO DDD Brightness")
+F_14:definePotentiometer("RIO_DDD_PULSE_VID", devices.RADAR, 3477, 24, { 0, 1 }, "DDD", "RIO DDD Pulse Video")
+F_14:definePotentiometer("RIO_DDD_ERASE", devices.RADAR, 3478, 25, { 0, 1 }, "DDD", "RIO DDD Erase")
+F_14:definePotentiometer("RIO_DDD_PULSE_GAIN", devices.RADAR, 3479, 26, { 0, 1 }, "DDD", "RIO Pulse Gain")
+F_14:definePotentiometer("RIO_ACM_THERESHOLD", devices.RADAR, 3480, 27, { 0, 1 }, "DDD", "RIO ACM Threshold")
+F_14:definePotentiometer("RIO_RADAR_JAMJET", devices.RADAR, 3481, 28, { 0, 1 }, "DDD", "RIO JAM/JET")
+F_14:definePotentiometer("RIO_PD_THERESHOLD_CLUTTER", devices.RADAR, 3482, 29, { 0, 1 }, "DDD", "RIO PD Threshold Clutter")
+F_14:definePotentiometer("RIO_PD_THERESHOLD_CLEAR", devices.RADAR, 3483, 30, { 0, 1 }, "DDD", "RIO PD Threshold Clear")
+F_14:define3PosTumb("RIO_DDD_ASPECT", devices.RADAR, 3467, 34, "DDD", "RIO DDD Aspect")
+F_14:define3PosTumb("RIO_DDD_VC_SCALE", devices.RADAR, 3468, 35, "DDD", "RIO DDD Closing Velocity Scale")
+F_14:define3PosTumb("RIO_DDD_TGTS", devices.RADAR, 3469, 36, "DDD", "RIO DDD Target Size")
+F_14:define3PosTumb("RIO_DDD_MLC", devices.RADAR, 3470, 37, "DDD", "RIO DDD Main Lobe Clutter Filter")
+F_14:defineToggleSwitch("RIO_DDD_AGC", devices.RADAR, 3471, 38, "DDD", "RIO DDD Automatic Gain Control")
+F_14:defineToggleSwitch("RIO_DDD_PARA_AMP", devices.RADAR, 3472, 3900, "DDD", "RIO DDD Parametric Amplifier")
 
 -- RIO RADAR Panel
-F_14:defineMultipositionSwitch("RIO_RADAR_ELE_BARS", 39, 3442, 79, 4, 0.33333, "Radar", "RIO Radar Elevation Scan")
-F_14:defineMultipositionSwitch("RIO_RADAR_AZI_SCAN", 39, 3443, 80, 4, 0.33333, "Radar", "RIO Radar Azimuth Scan")
-F_14:definePotentiometer("RIO_RADAR_ELE_CENTER", 39, 3446, 81, { -1, 1 }, "Radar", "RIO Radar Elevation Center")
-F_14:definePotentiometer("RIO_RADAR_AZI_CENTER", 39, 3447, 82, { -1, 1 }, "Radar", "RIO Radar Azimuth Center")
-F_14:defineToggleSwitch("RIO_RADAR_STABI", 39, 3449, 83, "Radar", "RIO Radar Stabilize")
-F_14:define3PosTumb("RIO_RADAR_VSL", 39, 3448, 84, "Radar", "RIO Radar VSL Switch")
+F_14:defineMultipositionSwitch("RIO_RADAR_ELE_BARS", devices.RADAR, 3442, 79, 4, 0.33333, "Radar", "RIO Radar Elevation Scan")
+F_14:defineMultipositionSwitch("RIO_RADAR_AZI_SCAN", devices.RADAR, 3443, 80, 4, 0.33333, "Radar", "RIO Radar Azimuth Scan")
+F_14:definePotentiometer("RIO_RADAR_ELE_CENTER", devices.RADAR, 3446, 81, { -1, 1 }, "Radar", "RIO Radar Elevation Center")
+F_14:definePotentiometer("RIO_RADAR_AZI_CENTER", devices.RADAR, 3447, 82, { -1, 1 }, "Radar", "RIO Radar Azimuth Center")
+F_14:defineToggleSwitch("RIO_RADAR_STABI", devices.RADAR, 3449, 83, "Radar", "RIO Radar Stabilize")
+F_14:define3PosTumb("RIO_RADAR_VSL", devices.RADAR, 3448, 84, "Radar", "RIO Radar VSL Switch")
 
 -- RIO TCS Controls
 F_14:define3PosTumb("RIO_TCS_ACQ", devices.TCS, 3495, 87, "TCS", "RIO TCS Acquisition")
@@ -699,106 +766,106 @@ F_14:defineMultipositionSwitch("RIO_RECORD_MODE", devices.TCS, 3618, 91, 5, 1.0 
 F_14:definePotentiometer("RIO_RECORD_RESET", devices.TCS, 3622, 16016, { 0, 1 }, "Radar", "RIO Record Reset")
 
 -- RIO Armament Panel
-F_14:defineMultipositionSwitch("RIO_WEAPON_TYPE", 55, 3146, 59, 44, 1.0 / 43.0, "Armament Panel", "RIO Weapon Type Wheel")
-F_14:defineTumb("RIO_WEAPON_INTER_10", 55, 3148, 9960, 0.111, { 0, 1 }, nil, false, "Armament Panel", "RIO Weapon Interval x10ms")
-F_14:defineTumb("RIO_WEAPON_INTER_100", 55, 3147, 9961, 0.111, { 0, 1 }, nil, false, "Armament Panel", "RIO Weapon Interval x100ms")
-F_14:defineTumb("RIO_WEAPON_QUANT_10", 55, 3149, 9962, 0.111, { 0, 1 }, nil, false, "Armament Panel", "RIO Weapon Quantity 10s")
-F_14:defineTumb("RIO_WEAPON_QUANTR_1", 55, 3150, 9963, 0.111, { 0, 1 }, nil, false, "Armament Panel", "RIO Weapon Quantity 1s")
-F_14:defineMultipositionSwitch("RIO_WEAPON_ATTK_MODE", 55, 3151, 2022, 5, 0.25, "Armament Panel", "RIO Weapon Attack Mode")
-F_14:defineMultipositionSwitch("RIO_WEAPON_ELEC_FUSE", 55, 3152, 58, 5, 0.25, "Armament Panel", "RIO Weapon Elec Fuse")
-F_14:defineMultipositionSwitch("RIO_WEAPON_MSL_SPD", 55, 3153, 72, 6, 0.2, "Armament Panel", "RIO Weapon Missile Speed Gate")
-F_14:define3PosTumb("RIO_WEAPON_SEL_JETT", 55, 3154, 78, "Armament Panel", "RIO Weapon Selective Jettison")
-F_14:defineToggleSwitch("RIO_WEAPON_SEL_JETT_COVER", 55, 3668, 1069, "Armament Panel", "RIO Weapon Selective Jettison Aux Guard")
-F_14:define3PosTumb("RIO_WEAPON_MECH_FUSE", 55, 3155, 63, "Armament Panel", "RIO RIO Weapon Mech Fuse")
-F_14:define3PosTumb("RIO_WEAPON_MSL_OPT", 55, 3156, 75, "Armament Panel", "RIO RIO Weapon Missile Option")
-F_14:defineToggleSwitch("RIO_WEAPON_BOMB_SINGLE", 55, 3157, 60, "Armament Panel", "RIO Weapon Bomb Single/Pairs")
-F_14:defineToggleSwitch("RIO_WEAPON_BOMB_STEP", 55, 3158, 61, "Armament Panel", "RIO Weapon Bomb Step/Ripple")
-F_14:defineToggleSwitch("RIO_WEAPON_AG_GUN", 55, 3159, 62, "Armament Panel", "RIO Weapon A/G Gun Mode")
-F_14:defineToggleSwitch("RIO_WEAPON_JETT_RACK", 55, 3160, 66, "Armament Panel", "RIO Weapon Jettison Racks/Weapons")
-F_14:defineToggleSwitch("RIO_WEAPON_JETT_TANK_L", 55, 3164, 73, "Armament Panel", "RIO Weapon Jettison Left Tank")
-F_14:defineToggleSwitch("RIO_WEAPON_JETT_TANK_R", 55, 3169, 67, "Armament Panel", "RIO Weapon Jettison Right Tank")
-F_14:define3PosTumb("RIO_WEAPON_JETT_STAT_1", 55, 3163, 68, "Armament Panel", "RIO Weapon Jettison Station 1")
-F_14:defineToggleSwitch("RIO_WEAPON_JETT_STAT_3", 55, 3165, 65, "Armament Panel", "RIO Weapon Jettison Station 3")
-F_14:defineToggleSwitch("RIO_WEAPON_JETT_STAT_4", 55, 3166, 69, "Armament Panel", "RIO Weapon Jettison Station 4")
-F_14:defineToggleSwitch("RIO_WEAPON_JETT_STAT_5", 55, 3167, 70, "Armament Panel", "RIO Weapon Jettison Station 5")
-F_14:defineToggleSwitch("RIO_WEAPON_JETT_STAT_6", 55, 3168, 64, "Armament Panel", "RIO Weapon Jettison Station 6")
-F_14:define3PosTumb("RIO_WEAPON_JETT_STAT_8", 55, 3170, 71, "Armament Panel", "RIO Weapon Jettison Station 8")
-F_14:definePushButton("RIO_WEAPON_AA_LAUNCH", 55, 3161, 74, "Armament Panel", "RIO Weapon A/A Launch")
-F_14:definePushButton("RIO_WEAPON_NEXT_LAUNCH", 43, 3162, 9964, "Armament Panel", "RIO Weapon Next Launch")
+F_14:defineMultipositionSwitch("RIO_WEAPON_TYPE", devices.WEAPONS, 3146, 59, 44, 1.0 / 43.0, "Armament Panel", "RIO Weapon Type Wheel")
+F_14:defineTumb("RIO_WEAPON_INTER_10", devices.WEAPONS, 3148, 9960, 0.111, { 0, 1 }, nil, false, "Armament Panel", "RIO Weapon Interval x10ms")
+F_14:defineTumb("RIO_WEAPON_INTER_100", devices.WEAPONS, 3147, 9961, 0.111, { 0, 1 }, nil, false, "Armament Panel", "RIO Weapon Interval x100ms")
+F_14:defineTumb("RIO_WEAPON_QUANT_10", devices.WEAPONS, 3149, 9962, 0.111, { 0, 1 }, nil, false, "Armament Panel", "RIO Weapon Quantity 10s")
+F_14:defineTumb("RIO_WEAPON_QUANTR_1", devices.WEAPONS, 3150, 9963, 0.111, { 0, 1 }, nil, false, "Armament Panel", "RIO Weapon Quantity 1s")
+F_14:defineMultipositionSwitch("RIO_WEAPON_ATTK_MODE", devices.WEAPONS, 3151, 2022, 5, 0.25, "Armament Panel", "RIO Weapon Attack Mode")
+F_14:defineMultipositionSwitch("RIO_WEAPON_ELEC_FUSE", devices.WEAPONS, 3152, 58, 5, 0.25, "Armament Panel", "RIO Weapon Elec Fuse")
+F_14:defineMultipositionSwitch("RIO_WEAPON_MSL_SPD", devices.WEAPONS, 3153, 72, 6, 0.2, "Armament Panel", "RIO Weapon Missile Speed Gate")
+F_14:define3PosTumb("RIO_WEAPON_SEL_JETT", devices.WEAPONS, 3154, 78, "Armament Panel", "RIO Weapon Selective Jettison")
+F_14:defineToggleSwitch("RIO_WEAPON_SEL_JETT_COVER", devices.WEAPONS, 3668, 1069, "Armament Panel", "RIO Weapon Selective Jettison Aux Guard")
+F_14:define3PosTumb("RIO_WEAPON_MECH_FUSE", devices.WEAPONS, 3155, 63, "Armament Panel", "RIO RIO Weapon Mech Fuse")
+F_14:define3PosTumb("RIO_WEAPON_MSL_OPT", devices.WEAPONS, 3156, 75, "Armament Panel", "RIO RIO Weapon Missile Option")
+F_14:defineToggleSwitch("RIO_WEAPON_BOMB_SINGLE", devices.WEAPONS, 3157, 60, "Armament Panel", "RIO Weapon Bomb Single/Pairs")
+F_14:defineToggleSwitch("RIO_WEAPON_BOMB_STEP", devices.WEAPONS, 3158, 61, "Armament Panel", "RIO Weapon Bomb Step/Ripple")
+F_14:defineToggleSwitch("RIO_WEAPON_AG_GUN", devices.WEAPONS, 3159, 62, "Armament Panel", "RIO Weapon A/G Gun Mode")
+F_14:defineToggleSwitch("RIO_WEAPON_JETT_RACK", devices.WEAPONS, 3160, 66, "Armament Panel", "RIO Weapon Jettison Racks/Weapons")
+F_14:defineToggleSwitch("RIO_WEAPON_JETT_TANK_L", devices.WEAPONS, 3164, 73, "Armament Panel", "RIO Weapon Jettison Left Tank")
+F_14:defineToggleSwitch("RIO_WEAPON_JETT_TANK_R", devices.WEAPONS, 3169, 67, "Armament Panel", "RIO Weapon Jettison Right Tank")
+F_14:define3PosTumb("RIO_WEAPON_JETT_STAT_1", devices.WEAPONS, 3163, 68, "Armament Panel", "RIO Weapon Jettison Station 1")
+F_14:defineToggleSwitch("RIO_WEAPON_JETT_STAT_3", devices.WEAPONS, 3165, 65, "Armament Panel", "RIO Weapon Jettison Station 3")
+F_14:defineToggleSwitch("RIO_WEAPON_JETT_STAT_4", devices.WEAPONS, 3166, 69, "Armament Panel", "RIO Weapon Jettison Station 4")
+F_14:defineToggleSwitch("RIO_WEAPON_JETT_STAT_5", devices.WEAPONS, 3167, 70, "Armament Panel", "RIO Weapon Jettison Station 5")
+F_14:defineToggleSwitch("RIO_WEAPON_JETT_STAT_6", devices.WEAPONS, 3168, 64, "Armament Panel", "RIO Weapon Jettison Station 6")
+F_14:define3PosTumb("RIO_WEAPON_JETT_STAT_8", devices.WEAPONS, 3170, 71, "Armament Panel", "RIO Weapon Jettison Station 8")
+F_14:definePushButton("RIO_WEAPON_AA_LAUNCH", devices.WEAPONS, 3161, 74, "Armament Panel", "RIO Weapon A/A Launch")
+F_14:definePushButton("RIO_WEAPON_NEXT_LAUNCH", devices.TID, 3162, 9964, "Armament Panel", "RIO Weapon Next Launch")
 
 -- Computer Address Panel (CAP)
-F_14:defineMultipositionSwitch("RIO_CAP_CATRGORY", 24, 3530, 98, 6, 0.2, "CAP", "RIO CAP Category")
-F_14:definePushButton("RIO_CAP_BTN_4", 24, 3521, 124, "CAP", "RIO CAP Button 4")
-F_14:definePushButton("RIO_CAP_BTN_5", 24, 3522, 123, "CAP", "RIO CAP Button 5")
-F_14:definePushButton("RIO_CAP_BTN_3", 24, 3520, 125, "CAP", "RIO CAP Button 3")
-F_14:definePushButton("RIO_CAP_BTN_2", 24, 3519, 126, "CAP", "RIO CAP Button 2")
-F_14:definePushButton("RIO_CAP_BTN_1", 24, 3518, 127, "CAP", "RIO CAP Button 1")
-F_14:definePushButton("RIO_CAP_BTN_TNG", 24, 3528, 128, "CAP", "RIO CAP Button TNG NBR")
-F_14:definePushButton("RIO_CAP_BTN_10", 24, 3527, 129, "CAP", "RIO CAP Button 10")
-F_14:definePushButton("RIO_CAP_BTN_9", 24, 3526, 130, "CAP", "RIO CAP Button 9")
-F_14:definePushButton("RIO_CAP_BTN_8", 24, 3525, 131, "CAP", "RIO CAP Button 8")
-F_14:definePushButton("RIO_CAP_BTN_7", 24, 3524, 132, "CAP", "RIO CAP Button 7")
-F_14:definePushButton("RIO_CAP_BTN_6", 24, 3523, 133, "CAP", "RIO CAP Button 6")
-F_14:definePushButton("RIO_CAP_BTN_PGM_RESTRT", 24, 3529, 134, "CAP", "RIO CAP Button PGM RSTRT")
-F_14:definePushButton("RIO_CAP_LONG_6", 24, 3541, 136, "CAP", "RIO CAP LONG 6")
-F_14:definePushButton("RIO_CAP_LAT_1", 24, 3536, 137, "CAP", "RIO CAP LAT 1")
-F_14:definePushButton("RIO_CAP_NBR_2", 24, 3537, 138, "CAP", "RIO CAP NBR 2")
-F_14:definePushButton("RIO_CAP_7", 24, 3542, 139, "CAP", "RIO CAP 7")
-F_14:definePushButton("RIO_CAP_HDG_8", 24, 3543, 140, "CAP", "RIO CAP HDG 8")
-F_14:definePushButton("RIO_CAP_SPD_3", 24, 3538, 141, "CAP", "RIO CAP SPD 3")
-F_14:definePushButton("RIO_CAP_ALT_4", 24, 3539, 143, "CAP", "RIO CAP ALT 4")
-F_14:definePushButton("RIO_CAP_9", 24, 3544, 142, "CAP", "RIO CAP 9")
-F_14:definePushButton("RIO_CAP_BRG_0", 24, 3535, 144, "CAP", "RIO CAP BRG 0")
-F_14:definePushButton("RIO_CAP_RNG_5", 24, 3540, 145, "CAP", "RIO CAP RNG 5")
-F_14:definePushButton("RIO_CAP_NE", 24, 3533, 146, "CAP", "RIO CAP N+E")
-F_14:definePushButton("RIO_CAP_SW", 24, 3532, 147, "CAP", "RIO CAP S-W")
-F_14:definePushButton("RIO_CAP_CLEAR", 24, 3531, 148, "CAP", "RIO CAP Clear")
-F_14:definePushButton("RIO_CAP_ENTER", 24, 3534, 149, "CAP", "RIO CAP Enter")
+F_14:defineMultipositionSwitch("RIO_CAP_CATRGORY", devices.CAP, 3530, 98, 6, 0.2, "CAP", "RIO CAP Category")
+F_14:definePushButton("RIO_CAP_BTN_4", devices.CAP, 3521, 124, "CAP", "RIO CAP Button 4")
+F_14:definePushButton("RIO_CAP_BTN_5", devices.CAP, 3522, 123, "CAP", "RIO CAP Button 5")
+F_14:definePushButton("RIO_CAP_BTN_3", devices.CAP, 3520, 125, "CAP", "RIO CAP Button 3")
+F_14:definePushButton("RIO_CAP_BTN_2", devices.CAP, 3519, 126, "CAP", "RIO CAP Button 2")
+F_14:definePushButton("RIO_CAP_BTN_1", devices.CAP, 3518, 127, "CAP", "RIO CAP Button 1")
+F_14:definePushButton("RIO_CAP_BTN_TNG", devices.CAP, 3528, 128, "CAP", "RIO CAP Button TNG NBR")
+F_14:definePushButton("RIO_CAP_BTN_10", devices.CAP, 3527, 129, "CAP", "RIO CAP Button 10")
+F_14:definePushButton("RIO_CAP_BTN_9", devices.CAP, 3526, 130, "CAP", "RIO CAP Button 9")
+F_14:definePushButton("RIO_CAP_BTN_8", devices.CAP, 3525, 131, "CAP", "RIO CAP Button 8")
+F_14:definePushButton("RIO_CAP_BTN_7", devices.CAP, 3524, 132, "CAP", "RIO CAP Button 7")
+F_14:definePushButton("RIO_CAP_BTN_6", devices.CAP, 3523, 133, "CAP", "RIO CAP Button 6")
+F_14:definePushButton("RIO_CAP_BTN_PGM_RESTRT", devices.CAP, 3529, 134, "CAP", "RIO CAP Button PGM RSTRT")
+F_14:definePushButton("RIO_CAP_LONG_6", devices.CAP, 3541, 136, "CAP", "RIO CAP LONG 6")
+F_14:definePushButton("RIO_CAP_LAT_1", devices.CAP, 3536, 137, "CAP", "RIO CAP LAT 1")
+F_14:definePushButton("RIO_CAP_NBR_2", devices.CAP, 3537, 138, "CAP", "RIO CAP NBR 2")
+F_14:definePushButton("RIO_CAP_7", devices.CAP, 3542, 139, "CAP", "RIO CAP 7")
+F_14:definePushButton("RIO_CAP_HDG_8", devices.CAP, 3543, 140, "CAP", "RIO CAP HDG 8")
+F_14:definePushButton("RIO_CAP_SPD_3", devices.CAP, 3538, 141, "CAP", "RIO CAP SPD 3")
+F_14:definePushButton("RIO_CAP_ALT_4", devices.CAP, 3539, 143, "CAP", "RIO CAP ALT 4")
+F_14:definePushButton("RIO_CAP_9", devices.CAP, 3544, 142, "CAP", "RIO CAP 9")
+F_14:definePushButton("RIO_CAP_BRG_0", devices.CAP, 3535, 144, "CAP", "RIO CAP BRG 0")
+F_14:definePushButton("RIO_CAP_RNG_5", devices.CAP, 3540, 145, "CAP", "RIO CAP RNG 5")
+F_14:definePushButton("RIO_CAP_NE", devices.CAP, 3533, 146, "CAP", "RIO CAP N+E")
+F_14:definePushButton("RIO_CAP_SW", devices.CAP, 3532, 147, "CAP", "RIO CAP S-W")
+F_14:definePushButton("RIO_CAP_CLEAR", devices.CAP, 3531, 148, "CAP", "RIO CAP Clear")
+F_14:definePushButton("RIO_CAP_ENTER", devices.CAP, 3534, 149, "CAP", "RIO CAP Enter")
 
 -- Datalink
-F_14:define3PosTumb("RIO_DATALINK_PW", 52, 3602, 413, "Datalink", "RIO Datalink Power")
-F_14:defineToggleSwitch("RIO_DATALINK_ANT", 52, 3603, 175, "Datalink", "RIO Datalink Antenna")
-F_14:defineToggleSwitch("RIO_DATALINK_REPLY", 52, 3604, 176, "Datalink", "RIO Datalink Reply")
-F_14:defineToggleSwitch("RIO_DATALINK_CAINS", 52, 3605, 177, "Datalink", "RIO Datalink CAINS/TAC")
-F_14:define3PosTumb("RIO_DATALINK_ANTIJAM", 52, 3598, 191, "Datalink", "RIO Datalink Antijam")
-F_14:defineTumb("RIO_DATALINK_FREQ_10", 52, 3599, 196, 0.111, { 0, 1 }, nil, false, "Datalink", "RIO Datalink Freq 10MHz")
-F_14:defineTumb("RIO_DATALINK_FREQ_1", 52, 3600, 195, 0.111, { 0, 1 }, nil, false, "Datalink", "RIO Datalink Freq 1MHz")
-F_14:defineTumb("RIO_DATALINK_FREQ_100", 52, 3601, 197, 0.111, { 0, 1 }, nil, false, "Datalink", "RIO Datalink Freq 100kHz")
-F_14:defineTumb("RIO_DATALINK_ADDR_HI", 52, 3606, 222, 0.111, { 0, 1 }, nil, false, "Datalink", "RIO Datalink Address High")
-F_14:defineTumb("RIO_DATALINK_ADDR_LO", 52, 3607, 223, 0.111, { 0, 1 }, nil, false, "Datalink", "RIO Datalink Address Low")
-F_14:defineMultipositionSwitch("RIO_BEACON_MODE", 52, 3693, 118, 7, 0.1666667, "Datalink", "RIO Beacon Mode")
-F_14:definePushButton("RIO_BEACON_ACLS", 52, 3692, 117, "Datalink", "RIO Beacon ACLS Test")
-F_14:define3PosTumb("RIO_BEACON_PW", 52, 3691, 96, "Datalink", "RIO Beacon Power")
+F_14:define3PosTumb("RIO_DATALINK_PW", devices.DATALINK, 3602, 413, "Datalink", "RIO Datalink Power")
+F_14:defineToggleSwitch("RIO_DATALINK_ANT", devices.DATALINK, 3603, 175, "Datalink", "RIO Datalink Antenna")
+F_14:defineToggleSwitch("RIO_DATALINK_REPLY", devices.DATALINK, 3604, 176, "Datalink", "RIO Datalink Reply")
+F_14:defineToggleSwitch("RIO_DATALINK_CAINS", devices.DATALINK, 3605, 177, "Datalink", "RIO Datalink CAINS/TAC")
+F_14:define3PosTumb("RIO_DATALINK_ANTIJAM", devices.DATALINK, 3598, 191, "Datalink", "RIO Datalink Antijam")
+F_14:defineTumb("RIO_DATALINK_FREQ_10", devices.DATALINK, 3599, 196, 0.111, { 0, 1 }, nil, false, "Datalink", "RIO Datalink Freq 10MHz")
+F_14:defineTumb("RIO_DATALINK_FREQ_1", devices.DATALINK, 3600, 195, 0.111, { 0, 1 }, nil, false, "Datalink", "RIO Datalink Freq 1MHz")
+F_14:defineTumb("RIO_DATALINK_FREQ_100", devices.DATALINK, 3601, 197, 0.111, { 0, 1 }, nil, false, "Datalink", "RIO Datalink Freq 100kHz")
+F_14:defineTumb("RIO_DATALINK_ADDR_HI", devices.DATALINK, 3606, 222, 0.111, { 0, 1 }, nil, false, "Datalink", "RIO Datalink Address High")
+F_14:defineTumb("RIO_DATALINK_ADDR_LO", devices.DATALINK, 3607, 223, 0.111, { 0, 1 }, nil, false, "Datalink", "RIO Datalink Address Low")
+F_14:defineMultipositionSwitch("RIO_BEACON_MODE", devices.DATALINK, 3693, 118, 7, 0.1666667, "Datalink", "RIO Beacon Mode")
+F_14:definePushButton("RIO_BEACON_ACLS", devices.DATALINK, 3692, 117, "Datalink", "RIO Beacon ACLS Test")
+F_14:define3PosTumb("RIO_BEACON_PW", devices.DATALINK, 3691, 96, "Datalink", "RIO Beacon Power")
 
 -- IFF Panel
-F_14:define3PosTumb("RIO_IFF_AUDIOLIGHT", 64, 3626, 161, "IFF", "RIO IFF Audio/Light")
-F_14:define3PosTumb("RIO_IFF_M1", 64, 3627, 162, "IFF", "RIO IFF M1")
-F_14:define3PosTumb("RIO_IFF_M2", 64, 3628, 163, "IFF", "RIO IFF M2")
-F_14:define3PosTumb("RIO_IFF_M3A", 64, 3629, 164, "IFF", "RIO IFF M3/A")
-F_14:define3PosTumb("RIO_IFF_MC", 64, 3630, 165, "IFF", "RIO IFF MC")
-F_14:define3PosTumb("RIO_IFF_RAD", 64, 3631, 166, "IFF", "RIO IFF RAD")
-F_14:define3PosTumb("RIO_IFF_IDENT", 64, 3632, 167, "IFF", "RIO IFF Ident")
-F_14:defineToggleSwitch("RIO_IFF_M4", 64, 3633, 181, "IFF", "RIO IFF M4")
-F_14:defineMultipositionSwitch("RIO_IFF_CODE", 64, 3634, 183, 4, 1.0 / 3.0, "IFF", "RIO IFF Code")
-F_14:defineMultipositionSwitch("RIO_IFF_MASTER", 64, 3635, 184, 5, 1.0 / 4.0, "IFF", "RIO IFF Master")
-F_14:definePushButton("RIO_IFF_TEST", 64, 3636, 185, "IFF", "RIO IFF Test")
-F_14:definePushButton("RIO_IFF_REPLY", 64, 3637, 186, "IFF", "RIO IFF Reply")
-F_14:defineTumb("RIO_IFF_M3_1", 64, 3638, 2262, 0.111, { 0, 1 }, nil, false, "IFF", "RIO IFF M3 Code 1s")
-F_14:defineTumb("RIO_IFF_M3_10", 64, 3639, 2261, 0.111, { 0, 1 }, nil, false, "IFF", "RIO IFF M3 Code 10s")
-F_14:defineTumb("RIO_IFF_M3_100", 64, 3640, 198, 0.111, { 0, 1 }, nil, false, "IFF", "RIO IFF M3 Code 100s")
-F_14:defineTumb("RIO_IFF_M3_1000", 64, 3641, 199, 0.111, { 0, 1 }, nil, false, "IFF", "RIO IFF M3 Code 1000s")
-F_14:defineTumb("RIO_IFF_M1_1", 64, 3642, 200, 0.111, { 0, 1 }, nil, false, "IFF", "RIO IFF M1 Code 1s")
-F_14:defineTumb("RIO_IFF_M1_10", 64, 3643, 201, 0.111, { 0, 1 }, nil, false, "IFF", "RIO IFF M1 Code 10s")
+F_14:define3PosTumb("RIO_IFF_AUDIOLIGHT", devices.IFF, 3626, 161, "IFF", "RIO IFF Audio/Light")
+F_14:define3PosTumb("RIO_IFF_M1", devices.IFF, 3627, 162, "IFF", "RIO IFF M1")
+F_14:define3PosTumb("RIO_IFF_M2", devices.IFF, 3628, 163, "IFF", "RIO IFF M2")
+F_14:define3PosTumb("RIO_IFF_M3A", devices.IFF, 3629, 164, "IFF", "RIO IFF M3/A")
+F_14:define3PosTumb("RIO_IFF_MC", devices.IFF, 3630, 165, "IFF", "RIO IFF MC")
+F_14:define3PosTumb("RIO_IFF_RAD", devices.IFF, 3631, 166, "IFF", "RIO IFF RAD")
+F_14:define3PosTumb("RIO_IFF_IDENT", devices.IFF, 3632, 167, "IFF", "RIO IFF Ident")
+F_14:defineToggleSwitch("RIO_IFF_M4", devices.IFF, 3633, 181, "IFF", "RIO IFF M4")
+F_14:defineMultipositionSwitch("RIO_IFF_CODE", devices.IFF, 3634, 183, 4, 1.0 / 3.0, "IFF", "RIO IFF Code")
+F_14:defineMultipositionSwitch("RIO_IFF_MASTER", devices.IFF, 3635, 184, 5, 1.0 / 4.0, "IFF", "RIO IFF Master")
+F_14:definePushButton("RIO_IFF_TEST", devices.IFF, 3636, 185, "IFF", "RIO IFF Test")
+F_14:definePushButton("RIO_IFF_REPLY", devices.IFF, 3637, 186, "IFF", "RIO IFF Reply")
+F_14:defineTumb("RIO_IFF_M3_1", devices.IFF, 3638, 2262, 0.111, { 0, 1 }, nil, false, "IFF", "RIO IFF M3 Code 1s")
+F_14:defineTumb("RIO_IFF_M3_10", devices.IFF, 3639, 2261, 0.111, { 0, 1 }, nil, false, "IFF", "RIO IFF M3 Code 10s")
+F_14:defineTumb("RIO_IFF_M3_100", devices.IFF, 3640, 198, 0.111, { 0, 1 }, nil, false, "IFF", "RIO IFF M3 Code 100s")
+F_14:defineTumb("RIO_IFF_M3_1000", devices.IFF, 3641, 199, 0.111, { 0, 1 }, nil, false, "IFF", "RIO IFF M3 Code 1000s")
+F_14:defineTumb("RIO_IFF_M1_1", devices.IFF, 3642, 200, 0.111, { 0, 1 }, nil, false, "IFF", "RIO IFF M1 Code 1s")
+F_14:defineTumb("RIO_IFF_M1_10", devices.IFF, 3643, 201, 0.111, { 0, 1 }, nil, false, "IFF", "RIO IFF M1 Code 10s")
 
 -- LIQUID Cooling
-F_14:define3PosTumb("RIO_LIQUD_COOL", 39, 3694, 95, "Radar Panel", "RIO Liquid Cooling Switch")
+F_14:define3PosTumb("RIO_LIQUD_COOL", devices.RADAR, 3694, 95, "Radar Panel", "RIO Liquid Cooling Switch")
 
 -- LANTIRN (Panel Arg:666)
-F_14:defineMultipositionSwitch("RIO_LANTIRN_PW", 7, 3689, 667, 3, 1.0 / 2.0, "LANTIRN", "RIO LANTIRN Power")
-F_14:defineToggleSwitch("RIO_LANTIRN_LASER_ARM", 7, 3516, 668, "LANTIRN", "RIO LANTIRN Laser Arm Switch")
-F_14:definePushButton("RIO_LANTIRN_UNSTOW", 7, 3704, 669, "LANTIRN", "RIO LANTIRN Operate Mode (Unstow)")
-F_14:definePushButton("RIO_LANTIRN_TCS_SEL", 7, 3498, 670, "LANTIRN", "RIO Video Output Toggle (TCS/LANTIRN)")
-F_14:definePushButton("RIO_LANTIRN_IBIT", 7, 3690, 671, "LANTIRN", "RIO LANTIRN IBIT")
+F_14:defineMultipositionSwitch("RIO_LANTIRN_PW", devices.LANTIRN, 3689, 667, 3, 1.0 / 2.0, "LANTIRN", "RIO LANTIRN Power")
+F_14:defineToggleSwitch("RIO_LANTIRN_LASER_ARM", devices.LANTIRN, 3516, 668, "LANTIRN", "RIO LANTIRN Laser Arm Switch")
+F_14:definePushButton("RIO_LANTIRN_UNSTOW", devices.LANTIRN, 3704, 669, "LANTIRN", "RIO LANTIRN Operate Mode (Unstow)")
+F_14:definePushButton("RIO_LANTIRN_TCS_SEL", devices.LANTIRN, 3498, 670, "LANTIRN", "RIO Video Output Toggle (TCS/LANTIRN)")
+F_14:definePushButton("RIO_LANTIRN_IBIT", devices.LANTIRN, 3690, 671, "LANTIRN", "RIO LANTIRN IBIT")
 F_14:defineIndicatorLightLANTTop("RIO_LANTIRN_1_OPER", 673, "LANTIRN", "RIO LANTIRN STBY Light (TOP) (green)")
 F_14:defineIndicatorLightLANT("RIO_LANTIRN_2_OPERSTBY", 673, "LANTIRN", "RIO LANTIRN OPER STBY Light (BOOTH) (green)")
 F_14:defineIndicatorLightLANTBottom("RIO_LANTIRN_3_STBY", 673, "LANTIRN", "RIO LANTIRN STBY Light (BOTTOM) (green)")
@@ -1433,19 +1500,19 @@ F_14:defineIntegerFromGetter("HSD_MAN_CRS", function()
 	return steer_mode == "5" and tonumber(hsd_ind[14]) or 0
 end, 360, "HSD", "HSD MAN Course Display")
 
-F_14:defineToggleSwitch("PLT_HUDCAM", 12, 3756, 3490, "Cockpit Mechanics", "PILOT Hide Guncam")
+F_14:defineToggleSwitch("PLT_HUDCAM", devices.COCKPITMECHANICS, 3756, 3490, "Cockpit Mechanics", "PILOT Hide Guncam")
 F_14:definePotentiometer("RIO_TCS_TRIM_AZI", devices.TCS, 3750, 85, { 0, 1 }, "TCS", "RIO TCS Trim Azimuth")
 F_14:definePotentiometer("RIO_TCS_TRIM_ELE", devices.TCS, 3751, 86, { 0, 1 }, "TCS", "RIO TCS Trim Elevation")
 
 -- Fire System
-F_14:definePushButton("PLT_FIRE_EX_BOTTLE_L", 67, 3059, 15083, "Fire System", "PILOT Fire Ext Bottle - Left")
-F_14:definePushButton("PLT_FIRE_EX_BOTTLE_R", 67, 3060, 15082, "Fire System", "PILOT Fire Ext Bottle - Right")
+F_14:definePushButton("PLT_FIRE_EX_BOTTLE_L", devices.FIRE, 3059, 15083, "Fire System", "PILOT Fire Ext Bottle - Left")
+F_14:definePushButton("PLT_FIRE_EX_BOTTLE_R", devices.FIRE, 3060, 15082, "Fire System", "PILOT Fire Ext Bottle - Right")
 
 F_14:defineIndicatorLight("RIO_MCB_R_LIGHT", 13130, "RIO F-14A Indicator Lights", "RIO MCB Panel Right Test Light (red)(F-14A)")
 F_14:defineIndicatorLight("RIO_MCB_L_LIGHT", 13131, "RIO F-14A Indicator Lights", "RIO MCB Panel Left Test Light (red)(F-14A)")
-F_14:defineToggleSwitch("RIO_MCOMP_BYPASS", 20, 3761, 13132, "F-14A Engine", "RIO Mid Compression Bypass Test (F-14A)")
+F_14:defineToggleSwitch("RIO_MCOMP_BYPASS", devices.ENGINE, 3761, 13132, "F-14A Engine", "RIO Mid Compression Bypass Test (F-14A)")
 
-F_14:defineToggleSwitch("PLT_GEAR_DN_LK_OVER", 18, 3017, 633, "Gear", "PILOT Gear Down Lock Override")
+F_14:defineToggleSwitch("PLT_GEAR_DN_LK_OVER", devices.GEARHOOK, 3017, 633, "Gear", "PILOT Gear Down Lock Override")
 
 --Externals
 F_14:defineFloatFromDrawArgument("EXT_SPEED_BRAKE_RIGHT", 402, "External Aircraft Model", "Bottom Right Speed Brake")
@@ -1473,8 +1540,8 @@ F_14:defineFloatFromDrawArgument("EXT_WING_POS_R", 405, "External Aircraft Model
 F_14:defineFloat("INTERNAL_FLOOD_RED_L", 1800, { 0, 1 }, "Cockpit Lights", "Flood Lights red")
 F_14:defineFloat("INTERNAL_FLOOD_WHT_L", 1803, { 0, 1 }, "Cockpit Lights", "Flood Lights white")
 F_14:defineFloat("INTERNAL_PLT_PANEL_L", 1801, { 1, 0 }, "Cockpit Lights", "Panel Lights (red) inverted")
-F_14:definePushButton("PLT_VDI_FILTER", 42, 3234, 0, "HUD", "PILOT VDI Filter") --miss arg
-F_14:definePushButton("RIO_DDD_FILTER", 39, 3456, 0, "DDD", "RIO DDD Filter") --miss arg
+F_14:definePushButton("PLT_VDI_FILTER", devices.VDI, 3234, 0, "HUD", "PILOT VDI Filter") --miss arg
+F_14:definePushButton("RIO_DDD_FILTER", devices.RADAR, 3456, 0, "DDD", "RIO DDD Filter") --miss arg
 F_14:defineFloat("PLT_EJECT_SEAT_SAVE", 2503, { 0, 1 }, "Cockpit", "PILOT Ejection Seat Safety")
 F_14:defineFloat("RIO_EJECT_SEAT_SAVE", 2504, { 0, 1 }, "Cockpit", "RIO Ejection Seat Safety")
 F_14:defineFloat("RIO_LANTIRN_PRESENT", 666, { 0, 1 }, "Cockpit", "RIO LANTIRN Present")
@@ -1488,13 +1555,13 @@ end
 F_14:defineIntegerFromGetter("PLT_FUEL_BINGO_DISP", getPLTFuelBingo, 25000, "PLT Gauges", "PILOT Bingo Fuel Display")
 F_14:defineFloat("PLT_LIQU_OXY_NEEDLE", 951, { 0, 1 }, "PLT Gauges", "PILOT Liquid Oxygen Gauge Needle")
 F_14:defineIndicatorLight("PLT_LIQU_OXY_FLAG_LIGHT", 952, "Gauges as Light", "PILOT Liquid Oxygen Gauge Flag as Light")
-F_14:definePotentiometer("PLT_MIRROR_TOP", 12, 3858, 258, { 0, 1 }, "Cockpit Mechanics", "PILOT Adjust Top Mirror")
-F_14:definePotentiometer("PLT_MIRROR_L", 12, 3859, 256, { 0, 1 }, "Cockpit Mechanics", "PILOT Adjust Left Mirror")
-F_14:definePotentiometer("PLT_MIRROR_R", 12, 3860, 257, { 0, 1 }, "Cockpit Mechanics", "PILOT Adjust Right Mirror")
-F_14:definePotentiometer("RIO_MIRROR_TOP", 12, 3857, 46, { 0, 1 }, "Cockpit Mechanics", "RIO Adjust Top Mirror")
+F_14:definePotentiometer("PLT_MIRROR_TOP", devices.COCKPITMECHANICS, 3858, 258, { 0, 1 }, "Cockpit Mechanics", "PILOT Adjust Top Mirror")
+F_14:definePotentiometer("PLT_MIRROR_L", devices.COCKPITMECHANICS, 3859, 256, { 0, 1 }, "Cockpit Mechanics", "PILOT Adjust Left Mirror")
+F_14:definePotentiometer("PLT_MIRROR_R", devices.COCKPITMECHANICS, 3860, 257, { 0, 1 }, "Cockpit Mechanics", "PILOT Adjust Right Mirror")
+F_14:definePotentiometer("RIO_MIRROR_TOP", devices.COCKPITMECHANICS, 3857, 46, { 0, 1 }, "Cockpit Mechanics", "RIO Adjust Top Mirror")
 
-F_14:defineReadWriteRadio("UHF_FREQ", 3, 7, 3, 1000, "UHF Radio")
-F_14:defineReadWriteRadio("VUHF_FREQ", 4, 7, 3, 1000, "VUHF Radio")
+F_14:defineReadWriteRadio("UHF_FREQ", devices.ARC159, 7, 3, 1000, "UHF Radio")
+F_14:defineReadWriteRadio("VUHF_FREQ", devices.ARC182, 7, 3, 1000, "VUHF Radio")
 
 --- @type number[]
 local airframe_values = {}
@@ -1538,7 +1605,7 @@ F_14:defineIntegerFromGetter("AFTERBURNER_ZONE_RIGHT", function()
 	return airframe_values[11]
 end, 5, "Airframe", "Right afterburner zone")
 
-F_14:definePushButton("RIO_MASTER_CAUTION_RESET", 35, 3057, 9229, "Weapons Panel", "RIO Master Caution Reset")
+F_14:definePushButton("RIO_MASTER_CAUTION_RESET", devices.WARNINGLIGHTS, 3057, 9229, "Weapons Panel", "RIO Master Caution Reset")
 
 -- Jester
 local PILOT_JESTER_WHEEL = "PLT Jester Wheel"
@@ -1605,9 +1672,9 @@ F_14:defineString("RIO_VUHF_DISP", function(_)
 	return get_radio_vuhf_display(13, false)
 end, 7, "VUHF", "RIO VHF/UHF ARC-182 Radio Display")
 
-F_14:defineInputOnlyPushButtonNoOff("CANOPY_TOGGLE", 12, 3183, "Cockpit", "Canopy Open/Close")
-F_14:defineInputOnlyPushButtonNoOff("SALUTE", 18, 3023, "Communications", "Salute")
-F_14:defineInputOnlyPushButtonNoOff("ON_THE_BALL", 2, 3749, "Communications", "Tomcat on the Ball")
+F_14:defineInputOnlyPushButtonNoOff("CANOPY_TOGGLE", devices.COCKPITMECHANICS, 3183, "Cockpit", "Canopy Open/Close")
+F_14:defineInputOnlyPushButtonNoOff("SALUTE", devices.GEARHOOK, 3023, "Communications", "Salute")
+F_14:defineInputOnlyPushButtonNoOff("ON_THE_BALL", devices.ICS, 3749, "Communications", "Tomcat on the Ball")
 
 -- Pilot F14A-Early TONE VOLUME Panel
 F_14:definePotentiometer("PLT_ALR45_VOL", devices.RWR_INTERFACE, 3880, 2046, { 0, 1 }, "Volume Panel", "PILOT ALR-45 Volume")
