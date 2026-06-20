@@ -640,7 +640,7 @@ C_130J:defineIndicatorLight("APU_START_LIGHT", 4027, APU, "APU Start Light", { c
 
 C_130J:defineToggleSwitch("APU_FIRE_HANDLE_PULL", devices.ENGINE_APU_CTRL, 3026, 324, APU, "APU Fire Handle (Push/Pull)")
 C_130J:define3PosTumb("APU_FIRE_HANDLE_ROTATE", devices.ENGINE_APU_CTRL, 3021, 325, APU, "APU Fire Handle (Rotate)", { positions = { "1", "OFF", "2" } })
-C_130J:defineGatedIndicatorLight("APU_FIRE", 4035, 1, nil, APU, "APU Fire Light", { color = "red" }) -- light comes on at exactly 1
+C_130J:defineGatedIndicatorLight("APU_FIRE", 4135, 1, nil, APU, "APU Fire Light", { color = "red" }) -- light comes on at exactly 1
 
 C_130J:defineString("APU_EGT", function()
 	return parse_overhead_lcd_line(34, { 3 })
