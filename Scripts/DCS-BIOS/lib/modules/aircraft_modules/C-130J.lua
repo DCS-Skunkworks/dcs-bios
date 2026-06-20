@@ -326,11 +326,11 @@ local PLT_REF_MODE = "PLT Reference Set/Mode Select Panel"
 -- rotaries will only act as single increment, regardless of value set
 C_130J:defineTumb("PLT_REF_MODE_SELECT", devices.PILOT_REF_MODE_PANEL, 3001, 110, 0.4, { -0.8, 0.8 }, nil, false, PLT_REF_MODE, "Reference Select Switch", { positions = { "HP", "RAD ALT", "IAS", "FPA", "MINS" } })
 C_130J:defineRotaryWithRange("PLT_REF_SET_KNOB", devices.PILOT_REF_MODE_PANEL, 3002, 109, { -1, 1 }, PLT_REF_MODE, "Reference Set Knob")
-C_130J:definePushButton("PLT_REF_SET_PRESS", devices.PILOT_REF_MODE_PANEL, 3003, 556, PLT_REF_MODE, "Reference Set Hide/Show")
+C_130J:definePushButton("PLT_REF_SET_PRESS", devices.PILOT_REF_MODE_PANEL, 3003, 556, PLT_REF_MODE, "Reference Set Knob Press")
 C_130J:defineRotaryWithRange("PLT_ALTITUDE_ALERT_KNOB", devices.PILOT_REF_MODE_PANEL, 3005, 108, { -1, 1 }, PLT_REF_MODE, "Altitude Alerter Set Knob")
 C_130J:definePushButton("PLT_ALTITUDE_ALERT_PRESS", devices.PILOT_REF_MODE_PANEL, 3006, 557, PLT_REF_MODE, "Altitude Alerter Sync")
 C_130J:defineRotaryWithRange("PLT_BARO_SET_KNOB", devices.PILOT_REF_MODE_PANEL, 3007, 107, { -1, 1 }, PLT_REF_MODE, "Baro Set Knob")
-C_130J:definePushButton("PLT_BARO_SET_PRESS", devices.PILOT_REF_MODE_PANEL, 3008, 558, PLT_REF_MODE, "Baro Set 29.92")
+C_130J:definePushButton("PLT_BARO_SET_PRESS", devices.PILOT_REF_MODE_PANEL, 3008, 558, PLT_REF_MODE, "Baro Set Knob Press")
 
 C_130J:definePushButton("PLT_REF_MODE_MASTER_WARNING", devices.PILOT_REF_MODE_PANEL, 3009, 80, PLT_REF_MODE, "Master Warning Button")
 C_130J:definePushButton("PLT_REF_MODE_MASTER_CAUTION", devices.PILOT_REF_MODE_PANEL, 3010, 81, PLT_REF_MODE, "Master Caution Button")
@@ -341,7 +341,7 @@ C_130J:definePushButton("PLT_AP_MODE_NAV", devices.AP_INTERFACE, 3004, 88, PLT_R
 C_130J:definePushButton("PLT_AP_MODE_APPR", devices.AP_INTERFACE, 3005, 90, PLT_REF_MODE, "APPR Mode Switch")
 C_130J:definePushButton("PLT_AP_MODE_VS", devices.AP_INTERFACE, 3006, 83, PLT_REF_MODE, "VS Mode Switch")
 C_130J:definePushButton("PLT_AP_MODE_IAS", devices.AP_INTERFACE, 3007, 85, PLT_REF_MODE, "IAS Mode Switch")
-C_130J:definePushButton("PLT_AP_MODE_BLANK", devices.AP_INTERFACE, 3010, 87, PLT_REF_MODE, "Unused Mode Switch")
+C_130J:definePushButton("PLT_AP_MODE_BLANK", devices.AP_INTERFACE, 3010, 87, PLT_REF_MODE, "Blank Mode Switch")
 C_130J:definePushButton("PLT_AP_MODE_CAPS", devices.AP_INTERFACE, 3008, 89, PLT_REF_MODE, "CAPS Mode Switch")
 C_130J:definePushButton("PLT_AP_MODE_AT", devices.AP_INTERFACE, 3009, 91, PLT_REF_MODE, "A/T Mode Switch")
 
@@ -367,11 +367,11 @@ local CPLT_REF_MODE = "CPLT Reference Set/Mode Select Panel"
 -- rotaries will only act as single increment, regardless of value set
 C_130J:defineTumb("CPLT_REF_MODE_SELECT", devices.COPILOT_REF_MODE_PANEL, 3001, 111, 0.4, { -0.8, 0.8 }, nil, false, CPLT_REF_MODE, "Reference Select Switch", { positions = { "HP", "RAD ALT", "IAS", "FPA", "MINS" } })
 C_130J:defineRotaryWithRange("CPLT_REF_SET_KNOB", devices.COPILOT_REF_MODE_PANEL, 3002, 106, { -1, 1 }, CPLT_REF_MODE, "Reference Set Knob")
-C_130J:definePushButton("CPLT_REF_SET_PRESS", devices.COPILOT_REF_MODE_PANEL, 3003, 559, CPLT_REF_MODE, "Reference Set Hide/Show")
+C_130J:definePushButton("CPLT_REF_SET_PRESS", devices.COPILOT_REF_MODE_PANEL, 3003, 559, CPLT_REF_MODE, "Reference Set Knob Press")
 C_130J:defineRotaryWithRange("CPLT_ALTITUDE_ALERT_KNOB", devices.COPILOT_REF_MODE_PANEL, 3005, 105, { -1, 1 }, CPLT_REF_MODE, "Altitude Alerter Set Knob")
 C_130J:definePushButton("CPLT_ALTITUDE_ALERT_PRESS", devices.COPILOT_REF_MODE_PANEL, 3006, 560, CPLT_REF_MODE, "Altitude Alerter Sync")
 C_130J:defineRotaryWithRange("CPLT_BARO_SET_KNOB", devices.COPILOT_REF_MODE_PANEL, 3007, 104, { -1, 1 }, CPLT_REF_MODE, "Baro Set Knob")
-C_130J:definePushButton("CPLT_BARO_SET_PRESS", devices.COPILOT_REF_MODE_PANEL, 3008, 561, CPLT_REF_MODE, "Baro Set 29.92")
+C_130J:definePushButton("CPLT_BARO_SET_PRESS", devices.COPILOT_REF_MODE_PANEL, 3008, 561, CPLT_REF_MODE, "Baro Set Knob Press")
 
 C_130J:definePushButton("CPLT_REF_MODE_MASTER_WARNING", devices.COPILOT_REF_MODE_PANEL, 3009, 92, CPLT_REF_MODE, "Master Warning Button")
 C_130J:definePushButton("CPLT_REF_MODE_MASTER_CAUTION", devices.COPILOT_REF_MODE_PANEL, 3010, 93, CPLT_REF_MODE, "Master Caution Button")
@@ -382,7 +382,7 @@ C_130J:definePushButton("CPLT_AP_MODE_NAV", devices.AP_INTERFACE, 3024, 100, CPL
 C_130J:definePushButton("CPLT_AP_MODE_APPR", devices.AP_INTERFACE, 3025, 102, CPLT_REF_MODE, "APPR Mode Switch")
 C_130J:definePushButton("CPLT_AP_MODE_VS", devices.AP_INTERFACE, 3026, 95, CPLT_REF_MODE, "VS Mode Switch")
 C_130J:definePushButton("CPLT_AP_MODE_IAS", devices.AP_INTERFACE, 3027, 97, CPLT_REF_MODE, "IAS Mode Switch")
-C_130J:definePushButton("CPLT_AP_MODE_BLANK", devices.AP_INTERFACE, 3030, 99, CPLT_REF_MODE, "Unused Mode Switch")
+C_130J:definePushButton("CPLT_AP_MODE_BLANK", devices.AP_INTERFACE, 3030, 99, CPLT_REF_MODE, "Blank Mode Switch")
 C_130J:definePushButton("CPLT_AP_MODE_CAPS", devices.AP_INTERFACE, 3028, 101, CPLT_REF_MODE, "CAPS Mode Switch")
 C_130J:definePushButton("CPLT_AP_MODE_AT", devices.AP_INTERFACE, 3029, 103, CPLT_REF_MODE, "A/T Mode Switch")
 
