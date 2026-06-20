@@ -458,8 +458,8 @@ F_14:define3PosTumb("RIO_ICS_UHF_LWR", devices.ICS, 3598, 380, "ICS", "RIO V/UHF
 F_14:define3PosTumb("RIO_ICS_KY_MODE", devices.ICS, 3597, 382, "ICS", "RIO KY MODE Switch")
 
 -- UHF ARC-159
-F_14:defineTumb("PLT_UHF1_FREQ_MODE", devices.ARC159, 3375, 2033, 0.5, { 0, 1 }, nil, false, "UHF 1", "PILOT UHF ARC-159 Freq Mode", { positions = { "GUARD", "MANUAL", "PRESET" } })
-F_14:defineMultipositionSwitch("PLT_UHF1_FUNCTION", devices.ARC159, 3371, 2034, 4, 0.333333, "UHF 1", "PILOT UHF ARC-159 Function", { positions = { "ADF", "BOTH", "MAIN", "OFF" } })
+F_14:defineTumb("PLT_UHF1_FREQ_MODE", devices.ARC159, 3375, 2033, 0.5, { 0, 1 }, nil, false, "UHF 1", "PILOT UHF ARC-159 Freq Mode", { positions = { "PRESET", "MANUAL", "GUARD" } })
+F_14:defineMultipositionSwitch("PLT_UHF1_FUNCTION", devices.ARC159, 3371, 2034, 4, 0.333333, "UHF 1", "PILOT UHF ARC-159 Function", { positions = { "OFF", "MAIN", "BOTH", "ADF" } })
 F_14:defineTumb("PLT_UHF1_PRESETS", devices.ARC159, 3373, 2032, 0.0833333333, { 0, 1 }, nil, true, "UHF 1", "PILOT UHF ARC-159 Preset Channel Selector")
 F_14:defineToggleSwitch("PLT_UHF1_SQUELCH", devices.ARC159, 3365, 2035, "UHF 1", "PILOT UHF ARC-159 Squelch Switch")
 F_14:define3PosTumb("PLT_UHF1_110_DIAL", devices.ARC159, 3367, 2030, "UHF 1", "PILOT UHF ARC-159 100MHz & 10MHz Dial")
