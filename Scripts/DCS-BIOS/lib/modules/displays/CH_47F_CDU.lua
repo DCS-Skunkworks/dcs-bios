@@ -34890,25 +34890,25 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
-	["RVS_branch"] = {
+	["RVS_ALTN_branch"] = {
 		{
 			alignment = "RGHT",
 			pages = {
 				"CDU_SUBSET_FPLN_ALTN_MGNT",
 			},
-			id = "RVS_branch",
+			id = "RVS_ALTN_branch",
 			x = 24,
 			y = 5,
 			color = "w",
 		},
 	},
-	["RVS_field"] = {
+	["RVS_ALTN_field"] = {
 		{
 			alignment = "RGHT",
 			pages = {
 				"CDU_SUBSET_FPLN_ALTN_MGNT",
 			},
-			id = "RVS_field",
+			id = "RVS_ALTN_field",
 			x = 23,
 			y = 5,
 			color = "w",
