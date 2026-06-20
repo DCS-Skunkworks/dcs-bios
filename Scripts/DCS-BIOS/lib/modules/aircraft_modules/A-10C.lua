@@ -17,8 +17,8 @@ local A_10C = Module:new("A-10C", 0x1000, { "A-10C", "A-10C_2" })
 
 --v3.1a overhaul by WarLord,charliefoxtwo,talbotmcinnis&DeadMeat
 
-function A_10C:define3PosTumbA10(msg, device_id, command, arg_number, category, description)
-	self:defineTumb(msg, device_id, command, arg_number, 0.1, { 0, 0.2 }, nil, false, category, description)
+function A_10C:define3PosTumbA10(msg, device_id, command, arg_number, category, description, attributes)
+	self:defineTumb(msg, device_id, command, arg_number, 0.1, { 0, 0.2 }, nil, false, category, description, attributes)
 end
 
 function A_10C:defineCMSPSwitch(identifier, device_id, down_command, up_command, arg_number, category, description)
@@ -798,7 +798,7 @@ A_10C:definePotentiometer("IFF_REPLY_DIM", 43, 3020, 900, { 0, 1 }, "IFF", "IFF 
 A_10C:definePushButton("IFF_TEST_TEST", 43, 3018, 796, "IFF", "TEST Push to Test")
 A_10C:definePotentiometer("IFF_TEST_DIM", 43, 3021, 901, { 0, 1 }, "IFF", "TEST Reply Dim")
 
-A_10C:defineSpringloaded_3PosTumb("OXY_EMERGENCY", 40, 3004, 3003, 601, "Oxygen Regulator Panel", "Oxygen Flow: Emergency / Normal / Test")
+A_10C:defineSpringloaded_3PosTumb("OXY_EMERGENCY", 40, 3004, 3003, 601, "Oxygen Regulator Panel", "Oxygen Flow", { positions = { "Emergency", "Normal", "Test" } })
 A_10C:defineToggleSwitch("OXY_DILUTER", 40, 3002, 602, "Oxygen Regulator Panel", "Oxygen Normal/100%")
 A_10C:defineToggleSwitch("OXY_SUPPLY", 40, 3001, 603, "Oxygen Regulator Panel", "Oxygen Supply On/Off")
 A_10C:defineFloat("OXY_PRESS", 604, { 0, 1 }, "Oxygen Regulator Panel", "Oxygen Pressure Indicator")
@@ -817,7 +817,7 @@ A_10C:reserveIntValue(7)
 A_10C:defineToggleSwitch("ENVCP_AIR_SUPPLY", 41, 3008, 283, "Environment Control Panel", "Main Air Supply")
 A_10C:definePotentiometer("ENVCP_FLOW_LEVEL", 41, 3009, 284, { 0, 1 }, "Environment Control Panel", "Flow Level")
 A_10C:definePotentiometer("ENVCP_TEMP_LEVEL", 41, 3013, 286, { 0, 1 }, "Environment Control Panel", "Temp Level Control")
-A_10C:defineTumb("ENVCP_AC_OPER", 41, 3010, 285, 0.1, { 0, 0.3 }, nil, false, "Environment Control Panel", "Air Conditioner MAN/AUTO/COLD/HOT")
+A_10C:defineTumb("ENVCP_AC_OPER", 41, 3010, 285, 0.1, { 0, 0.3 }, nil, false, "Environment Control Panel", "Air Conditioner", { positions = { "MAN", "AUTO", "COLD", "HOT" } })
 
 A_10C:definePushButton("CBP_AILERON_DISC_L", 1, 3007, 666, "Circuit Breaker Panel", "AILERON DISC L Circuit Breaker")
 A_10C:definePushButton("CBP_AILERON_DISC_R", 1, 3008, 667, "Circuit Breaker Panel", "AILERON DISC R Circuit Breaker")
@@ -861,7 +861,7 @@ A_10C:definePushButton("CBP_AUX_ESS_BUS_TIE", 1, 3044, 703, "Circuit Breaker Pan
 A_10C:defineRotary("ALT_SET_PRESSURE", 35, 3001, 62, "Altimeter", "Set Pressure")
 A_10C:defineSpringloaded_3PosTumb("ALT_ELECT_PNEU", 62, 3002, 3001, 60, "Altimeter", "ELECT / PNEU")
 
-A_10C:define3PosTumb("LCP_POSITION", 49, 3008, 287, "Light System Control Panel", "Position Lights FLASH/OFF/STEADY")
+A_10C:define3PosTumb("LCP_POSITION", 49, 3008, 287, "Light System Control Panel", "Position Lights", { positions = { "FLASH", "OFF", "STEADY" } })
 -- skip 3 bits in the memory map to preserve backwards compatibility:
 A_10C:reserveIntValue(7)
 A_10C:definePotentiometer("LCP_FORMATION", 49, 3009, 288, { 0, 1 }, "Light System Control Panel", "Formation Lights")
@@ -875,7 +875,7 @@ A_10C:defineToggleSwitch("LCP_ACCEL_COMP", 49, 3004, 295, "Light System Control 
 A_10C:definePotentiometer("LCP_FLOOD", 49, 3005, 296, { 0, 1 }, "Light System Control Panel", "Flood Lights")
 A_10C:definePotentiometer("LCP_CONSOLE", 49, 3006, 297, { 0, 1 }, "Light System Control Panel", "Console Lights")
 
-A_10C:define3PosTumbA10("LANDING_LIGHTS", 49, 3014, 655, "Landing Gear and Flap Control Panel", "Landing Lights TAXI/OFF/LAND")
+A_10C:define3PosTumbA10("LANDING_LIGHTS", 49, 3014, 655, "Landing Gear and Flap Control Panel", "Landing Lights", { positions = { "TAXI", "OFF", "LAND" } })
 
 A_10C:definePotentiometer("ALCP_RSIL", 49, 3015, 193, { 0, 1 }, "Auxiliary Light Control Panel", "Refuel Status Indexer Lights")
 A_10C:definePotentiometer("ALCP_WPNSTA", 49, 3016, 195, { 0, 1 }, "Auxiliary Light Control Panel", "Weapon Station Lights (No Function)")
@@ -887,7 +887,7 @@ A_10C:definePushButton("ALCP_FDBA_TEST", 24, 3004, 198, "Auxiliary Light Control
 A_10C:defineToggleSwitch("FIRE_LENG_PULL", 50, 3001, 102, "Glare Shield", "Left Engine Fire T-Handle")
 A_10C:defineToggleSwitch("FIRE_APU_PULL", 50, 3002, 103, "Glare Shield", "APU Fire T-Handle")
 A_10C:defineToggleSwitch("FIRE_RENG_PULL", 50, 3003, 104, "Glare Shield", "Right Engine Fire T-Handle")
-A_10C:define3PosTumb("FIRE_EXT_DISCH", 50, 3004, 105, "Glare Shield", "Fire Extinguisher Discharge Left/Off/Right")
+A_10C:define3PosTumb("FIRE_EXT_DISCH", 50, 3004, 105, "Glare Shield", "Fire Extinguisher Discharge", { positions = { "Left", "Off", "Right" } })
 
 A_10C:defineVariableStepTumb("HSI_CRS_KNOB", 45, 3002, 44, 1.0, "HSI", "Course Select Knob")
 A_10C:defineVariableStepTumb("HSI_HDG_KNOB", 45, 3001, 45, 1.0, "HSI", "Heading Select Knob")
@@ -930,8 +930,8 @@ A_10C:defineTumb("UHF_10MHZ_SEL", 54, 3003, 163, 0.1, { 0, 0.9 }, nil, false, "U
 A_10C:defineTumb("UHF_1MHZ_SEL", 54, 3004, 164, 0.1, { 0, 0.9 }, nil, false, "UHF Radio", "UHF 1MHz Selector")
 A_10C:defineTumb("UHF_POINT1MHZ_SEL", 54, 3005, 165, 0.1, { 0, 0.9 }, nil, false, "UHF Radio", "UHF 0.1MHz Selector")
 A_10C:defineTumb("UHF_POINT25_SEL", 54, 3006, 166, 0.1, { 0, 0.3 }, { "00", "25", "50", "75" }, false, "UHF Radio", "UHF 0.25MHz Selector")
-A_10C:define3PosTumbA10("UHF_MODE", 54, 3007, 167, "UHF Radio", "Frequency Mode Dial MNL/PRESET/GRD")
-A_10C:defineTumb("UHF_FUNCTION", 54, 3008, 168, 0.1, { 0, 0.3 }, nil, false, "UHF Radio", "UHF Function Dial OFF/MAIN/BOTH/ADF")
+A_10C:define3PosTumbA10("UHF_MODE", 54, 3007, 167, "UHF Radio", "Frequency Mode Dial", { positions = { "MNL", "PRESET", "GRD" } })
+A_10C:defineTumb("UHF_FUNCTION", 54, 3008, 168, 0.1, { 0, 0.3 }, nil, false, "UHF Radio", "UHF Function Dial", { positions = { "OFF", "MAIN", "BOTH", "ADF" } })
 A_10C:define3PosTumb("UHF_T_TONE", 54, 3009, 169, "UHF Radio", "T-Tone Button")
 A_10C:defineToggleSwitch("UHF_SQUELCH", 54, 3010, 170, "UHF Radio", "Squelch Switch")
 A_10C:definePotentiometer("UHF_VOL", 54, 3011, 171, { 0, 1 }, "UHF Radio", "UHF Volume Control")
@@ -956,9 +956,9 @@ A_10C:defineString("UHF_PRESET", getUHFPreset, 2, "UHF Radio", "UHF Preset Displ
 
 A_10C:defineRadioWheel("VHFAM_PRESET", 55, 3001, 3001, { -0.01, 0.01 }, 137, 0.01, { 0, 0.20 }, { " 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" }, "VHF AM Radio", "Preset Channel Selector")
 A_10C:conditionalize_last_export(is_vhf_am_present)
-A_10C:defineMultipositionSwitch("VHFAM_MODE", 55, 3003, 138, 3, 0.1, "VHF AM Radio", "Mode OFF/TR/DF")
+A_10C:defineMultipositionSwitch("VHFAM_MODE", 55, 3003, 138, 3, 0.1, "VHF AM Radio", "Mode", { positions = { "OFF", "TR", "DF" } })
 A_10C:conditionalize_last_export(is_vhf_am_present)
-A_10C:defineMultipositionSwitch("VHFAM_FREQEMER", 55, 3004, 135, 4, 0.1, "VHF AM Radio", "Frequency Selection Dial FM/AM/MAN/PRE")
+A_10C:defineMultipositionSwitch("VHFAM_FREQEMER", 55, 3004, 135, 4, 0.1, "VHF AM Radio", "Frequency Selection Dial", { positions = { "FM", "AM", "MAN", "PRE" } })
 A_10C:conditionalize_last_export(is_vhf_am_present)
 A_10C:definePotentiometer("VHFAM_VOL", 55, 3005, 133, { 0, 1 }, "VHF AM Radio", "VHF AM Volume Control")
 A_10C:conditionalize_last_export(is_vhf_am_present)
@@ -978,8 +978,8 @@ A_10C:conditionalize_last_export(is_vhf_am_present)
 A_10C:reserveIntValue(1)
 
 A_10C:defineRadioWheel("VHFFM_PRESET", 56, 3001, 3001, { -0.01, 0.01 }, 151, 0.01, { 0, 0.20 }, { " 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" }, "VHF FM Radio", "Preset Channel Selector")
-A_10C:defineMultipositionSwitch("VHFFM_MODE", 56, 3003, 152, 3, 0.1, "VHF FM Radio", "Mode OFF/TR/DF")
-A_10C:defineMultipositionSwitch("VHFFM_FREQEMER", 56, 3004, 149, 4, 0.1, "VHF FM Radio", "Frequency Selection Dial FM/AM/MAN/PRE")
+A_10C:defineMultipositionSwitch("VHFFM_MODE", 56, 3003, 152, 3, 0.1, "VHF FM Radio", "Mode", { positions = { "OFF", "TR", "DF" } })
+A_10C:defineMultipositionSwitch("VHFFM_FREQEMER", 56, 3004, 149, 4, 0.1, "VHF FM Radio", "Frequency Selection Dial", { positions = { "FM", "AM", "MAN", "PRE" } })
 A_10C:definePotentiometer("VHFFM_VOL", 56, 3005, 147, { 0, 1 }, "VHF FM Radio", "VHF FM Volume Control")
 
 A_10C:define3PosTumb("VHFFM_SQUELCH", 56, 3007, 148, "VHF FM Radio", "Squelch")
@@ -1013,7 +1013,7 @@ A_10C:defineTumb("INT_TCN_UNMUTE", 58, 3015, 236, 1, { 0, 1 }, nil, false, "Inte
 
 A_10C:defineToggleSwitch("INT_HM", 58, 3017, 237, "Intercom Panel", "HM Switch")
 A_10C:definePotentiometer("INT_VOL", 58, 3018, 238, { 0, 1 }, "Intercom Panel", "Intercom Volume")
-A_10C:defineTumb("INT_MODE", 58, 3019, 239, 0.1, { 0, 0.4 }, nil, false, "Intercom Panel", "Intercom Selector Switch INT/FM/VHF/HF/Blank")
+A_10C:defineTumb("INT_MODE", 58, 3019, 239, 0.1, { 0, 0.4 }, nil, false, "Intercom Panel", "Intercom Selector Switch", { positions = { "INT", "FM", "VHF", "HF", "Blank" } })
 A_10C:definePushButton("INT_CALL", 58, 3020, 240, "Intercom Panel", "Call Button")
 
 A_10C:definePushButton("HARS_FAST_ERECT", 44, 3001, 711, "HARS", "HARS Fast Erect Button")

@@ -63,7 +63,7 @@ C_101:defineToggleSwitch("FRONT_DC_BUS_TIE", 1, 3006, 316, "Electrical Panel", "
 C_101:defineToggleSwitch("FRONT_ESS_BUS_COVER", 1, 3007, 322, "Electrical Panel", "FRONT ESS BUS Cover")
 C_101:definePushButton("FRONT_ESS_BUS_BTN", 1, 3008, 323, "Electrical Panel", "FRONT ESS BUS Transfer")
 C_101:defineToggleSwitch("FRONT_AC_INVERTER", 1, 3009, 319, "Electrical Panel", "FRONT AC Inverter Norm/Alt")
-C_101:define3PosTumb("FRONT_GEN_SW", 1, 3010, 317, "Electrical Panel", "FRONT Generator ON/OFF/RESET")
+C_101:define3PosTumb("FRONT_GEN_SW", 1, 3010, 317, "Electrical Panel", "FRONT Generator", { positions = { "ON", "OFF", "RESET" } })
 C_101:define3PosTumb("FRONT_GEN_TEST_SW", 1, 3011, 318, "Electrical Panel", "FRONT Generator GROUND FAULT/OVERVOLTAGE Test")
 C_101:defineToggleSwitch("BACK_L_BATT_ISO_COVER", 1, 3400, 935, "Electrical Panel", "BACK Left Battery Isolation Cover")
 C_101:definePushButton("BACK_L_BATT_ISO_BTN", 1, 3401, 936, "Electrical Panel", "BACK Left Battery Isolation Button")
@@ -128,10 +128,10 @@ C_101:definePotentiometer("BACK_LIGHTS_INSTR", 2, 3419, 250, { 0, 1 }, "Cockpit 
 
 --EXTERNAL LIGHTING
 C_101:defineToggleSwitch("FRONT_LIGHTS_ANTI_COL", 2, 3106, 366, "External Lights", "FRONT Anti-Collision Becon Switch")
-C_101:defineTumb("FRONT_LIGHTS_NAV", 2, 3107, 368, 0.5, { 0, 1 }, nil, false, "External Lights", "FRONT Navigation Lights Switch, DIM/OFF/BRIGHT")
-C_101:defineTumb("FRONT_LIGHTS_FOR", 2, 3108, 367, 0.5, { 0, 1 }, nil, false, "External Lights", "FRONT Formation Lights Switch, DIM/OFF/BRIGHT")
-C_101:defineTumb("FRONT_LIGHTS_TAXI_L", 2, 3109, 329, 0.5, { 0, 1 }, nil, false, "External Lights", "FRONT Left Taxi/Landing Lights Switch, RETRACT/TAXI/LAND")
-C_101:defineTumb("FRONT_LIGHTS_TAXI_R", 2, 3110, 330, 0.5, { 0, 1 }, nil, false, "External Lights", "FRONT Right Taxi/Landing Lights Switch, RETRACT/TAXI/LAND")
+C_101:defineTumb("FRONT_LIGHTS_NAV", 2, 3107, 368, 0.5, { 0, 1 }, nil, false, "External Lights", "FRONT Navigation Lights Switch", { positions = { "DIM", "OFF", "BRIGHT" } })
+C_101:defineTumb("FRONT_LIGHTS_FOR", 2, 3108, 367, 0.5, { 0, 1 }, nil, false, "External Lights", "FRONT Formation Lights Switch", { positions = { "DIM", "OFF", "BRIGHT" } })
+C_101:defineTumb("FRONT_LIGHTS_TAXI_L", 2, 3109, 329, 0.5, { 0, 1 }, nil, false, "External Lights", "FRONT Left Taxi/Landing Lights Switch", { positions = { "RETRACT", "TAXI", "LAND" } })
+C_101:defineTumb("FRONT_LIGHTS_TAXI_R", 2, 3110, 330, 0.5, { 0, 1 }, nil, false, "External Lights", "FRONT Right Taxi/Landing Lights Switch", { positions = { "RETRACT", "TAXI", "LAND" } })
 C_101:defineToggleSwitch("BACK_LIGHTS_PRIO_TAXI_L", 2, 3420, 941, "External Lights", "BACK Left Taxi/Landing Lights Forward Cockpit Priority")
 C_101:defineToggleSwitch("BACK_LIGHTS_PRIO_TAXI_R", 2, 3421, 942, "External Lights", "BACK Right Taxi/Landing Lights Forward Cockpit Priority")
 
@@ -478,7 +478,7 @@ C_101:defineToggleSwitch("CC_BACK_UHF_SQL", 11, 3029, 872, "UHF Radio", "C-101CC
 C_101:defineToggleSwitch("CC_BACK_UHF_POWER", 11, 3030, 876, "UHF Radio", "C-101CC BACK UHF Radio Power Transmit Selector Switch")
 
 --VHF COMM/NAV
-C_101:defineMultipositionSwitch("CC_FRONT_VHF_COMM_PW", 10, 3004, 653, 3, 0.5, "VHF", "C-101CC FRONT VHF COMM Switch OFF/PWR/TEST")
+C_101:defineMultipositionSwitch("CC_FRONT_VHF_COMM_PW", 10, 3004, 653, 3, 0.5, "VHF", "C-101CC FRONT VHF COMM Switch", { positions = { "OFF", "PWR", "TEST" } })
 C_101:defineRotary("CC_FRONT_VHF_COMM_FREQ_100", 10, 3001, 640, "VHF", "C-101CC FRONT VHF COMM Frequency Control 100 MHz")
 C_101:definePotentiometer("CC_FRONT_VHF_COMM_VOL", 10, 3003, 655, { 0, 1 }, "VHF", "C-101CC FRONT VHF COMM Volume Control")
 C_101:defineRadioWheel("CC_FRONT_VHF_COMM_FREQ_10", 10, 3002, 3002, { -0.025, 0.025 }, 641, 0.025, { 0, 1.0 }, nil, "VHF", "C-101CC FRONT VHF COMM Frequency Control 10 kHz")
@@ -487,7 +487,7 @@ C_101:defineMultipositionSwitch("CC_FRONT_VHF_NAV_CONTROL", 12, 3004, 657, 5, 0.
 C_101:defineRotary("CC_FRONT_VHF_NAV_FREQ_1", 12, 3001, 645, "VHF1", "C-101CC FRONT VHF NAV Frequency Control 1 MHz")
 C_101:definePotentiometer("CC_FRONT_VHF_NAV_VOL", 12, 3003, 659, { 0, 1 }, "VHF", "C-101CC FRONT VHF NAV Volume Control")
 C_101:defineRadioWheel("CC_FRONT_VHF_NAV_FREQ_50", 12, 3002, 3002, { -0.025, 0.025 }, 646, 0.025, { 0, 1.0 }, nil, "VHF", "C-101CC FRONT VHF NAV Frequency Control 50 kHz")
-C_101:defineMultipositionSwitch("CC_BACK_VHF_COMM_PW", 10, 3014, 917, 3, 0.5, "VHF", "C-101CC BACK VHF COMM Switch OFF/PWR/TEST")
+C_101:defineMultipositionSwitch("CC_BACK_VHF_COMM_PW", 10, 3014, 917, 3, 0.5, "VHF", "C-101CC BACK VHF COMM Switch", { positions = { "OFF", "PWR", "TEST" } })
 C_101:defineRotary("CC_BACK_VHF_COMM_FREQ_1", 10, 3001, 904, "VHF", "C-101CC BACK VHF COMM Frequency Control 1 MHz")
 C_101:definePotentiometer("CC_BACK_VHF_COMM_VOL", 10, 3003, 919, { 0, 1 }, "VHF", "C-101CC BACK VHF COMM Volume Control")
 C_101:defineRadioWheel("CC_BACK_VHF_COMM_FREQ_10", 10, 3002, 3002, { -0.025, 0.025 }, 905, 0.025, { 0, 1.0 }, nil, "VHF", "C-101CC BACK VHF COMM Frequency Control 0.025 MHz")
@@ -546,11 +546,11 @@ C_101:definePushButton("CC_FRONT_BACK_LIGHT_TEST", 1, 3640, 598, "SCAR", "C-101C
 
 --COLIMADOR
 C_101:definePotentiometer("CC_FRONT_HUD_SIGHT_BRIGHT", 1, 3310, 722, { 0, 1 }, "Colimador", "C-101CC FRONT Sight Brightness")
-C_101:defineMultipositionSwitch("CC_FRONT_HUD_VIDEO", 1, 3312, 720, 3, 0.5, "Colimador", "C-101CC FRONT Video ON/STB/OFF")
+C_101:defineMultipositionSwitch("CC_FRONT_HUD_VIDEO", 1, 3312, 720, 3, 0.5, "Colimador", "C-101CC FRONT Video", { positions = { "ON", "STB", "OFF" } })
 C_101:defineTumb("CC_FRONT_HUD_DEPRESS_0XX", 1, 3314, 587, 0.1, { 0, 0.2 }, nil, false, "Colimador", "C-101CC FRONT HUD Depression 0XX")
 C_101:defineFixedStepTumb("CC_FRONT_HUD_DEPRESS_X0X", 1, 3315, 588, 0.1, { 0, 1 }, { -1, 1 }, nil, "Colimador", "C-101CC FRONT HUD Depression X0X")
 C_101:defineFixedStepTumb("CC_FRONT_HUD_DEPRESS_XX0", 1, 3316, 589, 0.1, { 0, 1 }, { -1, 1 }, nil, "Colimador", "C-101CC FRONT HUD Depression XX0")
-C_101:defineMultipositionSwitch("CC_FRONT_HUD_DEPRESS_MODE", 1, 3317, 590, 3, 0.5, "Colimador", "C-101CC FRONT HUD Depression AUTO/MAN/TEST")
+C_101:defineMultipositionSwitch("CC_FRONT_HUD_DEPRESS_MODE", 1, 3317, 590, 3, 0.5, "Colimador", "C-101CC FRONT HUD Depression", { positions = { "AUTO", "MAN", "TEST" } })
 C_101:defineToggleSwitch("CC_FRONT_HUD_SIGHT", 1, 3318, 591, "Colimador", "C-101CC FRONT Optical Sight ON/OFF")
 C_101:definePotentiometer("CC_BACK_HUD_SIGHT_BRIGHT", 1, 3654, 713, { 0, 1 }, "Colimador", "C-101CC BACK Sight Brightness")
 

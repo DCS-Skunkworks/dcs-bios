@@ -14,7 +14,7 @@ function ConnectionManager:new(connections)
 	local o = {
 		connections = connections,
 		msg_buf = {},
-		MAX_PAYLOAD_SIZE = 2048,
+		MAX_PAYLOAD_SIZE = 1460,
 	}
 	setmetatable(o, self)
 	self.__index = self

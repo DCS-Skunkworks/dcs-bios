@@ -25,12 +25,12 @@ Alphajet:defineToggleSwitch("HRZ_CAGE", 14, 3003, 314, "Altimeter", "Cache Horiz
 Alphajet:definePotentiometer("UHF_VOL", 6, 3007, 302, { 0, 1 }, "Radio", "UHF Volume")
 Alphajet:definePotentiometer("VHF_VOL", 6, 3008, 303, { 0, 1 }, "Radio", "VHF Volume")
 
-Alphajet:define3PosTumb("LIGHTS_NAV", 12, 3001, 280, "Light System", "Navigation Lights, FLASH/OFF/STEADY")
+Alphajet:define3PosTumb("LIGHTS_NAV", 12, 3001, 280, "Light System", "Navigation Lights", { positions = { "FLASH", "OFF", "STEADY" } })
 Alphajet:defineToggleSwitch("LIGHTS_FORMATION", 12, 3002, 281, "Light System", "Formation Lights, ON/OFF")
 Alphajet:defineToggleSwitch("LIGHTS_ITENT", 12, 3003, 282, "Light System", "Intensity, STRONG/LOWVIS")
 Alphajet:defineToggleSwitch("LIGHTS_ANTICOL", 12, 3004, 283, "Light System", "Anticollision Lights, ON/OFF")
-Alphajet:define3PosTumb("LIGHTS_LAND", 12, 3006, 311, "Light System", "Lights, OFF/TAXI/LANDING")
-Alphajet:define3PosTumb("LIGHTS_A_ALARM", 12, 3005, 295, "Light System", "High Alpha Alarm, HIDRAG/OFF/LOWDRAG")
+Alphajet:define3PosTumb("LIGHTS_LAND", 12, 3006, 311, "Light System", "Lights", { positions = { "OFF", "TAXI", "LANDING" } })
+Alphajet:define3PosTumb("LIGHTS_A_ALARM", 12, 3005, 295, "Light System", "High Alpha Alarm", { positions = { "HIDRAG", "OFF", "LOWDRAG" } })
 
 Alphajet:defineToggleSwitch("ALARM_SONORE", 12, 3007, 284, "Control Panel", "Alarme Sonore, ON/OFF")
 Alphajet:defineToggleSwitch("PITOT_HEAT", 12, 3008, 285, "Control Panel", "Pitot Heat, ON/OFF")
@@ -49,8 +49,8 @@ Alphajet:defineToggleSwitch("CRASH_BAR", 3, 3016, 315, "Electric System", "Crash
 Alphajet:definePushButton("WARN_L_TEST", 3, 3017, 294, "Electric System", "Warning Light Test")
 Alphajet:defineToggleSwitch("DELESTAGE", 3, 3018, 316, "Electric System", "Delestage")
 
-Alphajet:define3PosTumb("ENG_START_L", 15, 3020, 296, "Engine Panel", "Left Engine Start, START/VENT/OFF")
-Alphajet:define3PosTumb("ENG_START_R", 15, 3021, 297, "Engine Panel", "Right Engine Start, START/VENT/OFF")
+Alphajet:define3PosTumb("ENG_START_L", 15, 3020, 296, "Engine Panel", "Left Engine Start", { positions = { "START", "VENT", "OFF" } })
+Alphajet:define3PosTumb("ENG_START_R", 15, 3021, 297, "Engine Panel", "Right Engine Start", { positions = { "START", "VENT", "OFF" } })
 Alphajet:defineToggleSwitch("LOW_PRESS_PUMP_BPG", 15, 3022, 298, "Engine Panel", "Low Pressure Pump, BPG")
 Alphajet:defineToggleSwitch("LOW_PRESS_PUMP_BPD", 15, 3023, 299, "Engine Panel", "Low Pressure Pump, BPD")
 Alphajet:defineToggleSwitch("PROTECT_COVER_BPG", 15, 3024, 307, "Engine Panel", "Protective Cover, BPG")

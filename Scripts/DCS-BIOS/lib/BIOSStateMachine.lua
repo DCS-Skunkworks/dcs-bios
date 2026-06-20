@@ -15,6 +15,7 @@ local Log = require("Scripts.DCS-BIOS.lib.common.Log")
 --- @field private update_skip_counter integer a counter which increments for every skipped frame due to too much data being sent
 --- @field private next_step_time number the time at which the next frame tick should occur
 --- @field private last_frame_time number the time at which the last frame tick occurred
+--- @field private step_period number the time between two steps call (may vary depending on DCS frame rate)
 local BIOSStateMachine = {}
 
 --- Constructs a new BIOS state machine
@@ -23,8 +24,9 @@ local BIOSStateMachine = {}
 --- @param metadata_end MetadataEnd the MetadataEnd module
 --- @param max_bytes_per_second integer the maximum amount of data per second to send
 --- @param connection_manager ConnectionManager a connection manager with all active connections
+--- @param step_period number number the time between two steps call (may vary depending on DCS frame rate)
 --- @return BIOSStateMachine
-function BIOSStateMachine:new(modules_by_name, metadata_start, metadata_end, max_bytes_per_second, connection_manager)
+function BIOSStateMachine:new(modules_by_name, metadata_start, metadata_end, max_bytes_per_second, connection_manager, step_period)
 	--- @type BIOSStateMachine
 	local o = {
 		modules_by_name = modules_by_name,
@@ -38,6 +40,7 @@ function BIOSStateMachine:new(modules_by_name, metadata_start, metadata_end, max
 		update_skip_counter = 0,
 		next_step_time = 0,
 		last_frame_time = 0,
+		step_period = step_period,
 	}
 	setmetatable(o, self)
 	self.__index = self
@@ -139,7 +142,7 @@ function BIOSStateMachine:step()
 
 	-- export data
 	if curTime < self.next_step_time then
-		return -- runs 30 times per second
+		return -- too soon
 	end
 
 	self.update_counter = (self.update_counter + 1) % 256
@@ -152,7 +155,7 @@ function BIOSStateMachine:step()
 		return
 	end
 	self.metadata_end.setUpdateSkipCounter(self.update_skip_counter)
-	self.next_step_time = curTime + 0.033
+	self.next_step_time = curTime + self.step_period
 
 	-- send frame sync sequence
 	self.bytes_in_transit = self.bytes_in_transit + 4

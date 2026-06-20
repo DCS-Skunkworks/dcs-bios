@@ -43,9 +43,9 @@ F_5E_3:defineToggleSwitch("YAW_DAMPER", 2, 3001, 323, "Control Interface", "Yaw 
 F_5E_3:defineToggleSwitch("PITCH_DAMPER", 2, 3002, 322, "Control Interface", "Pitch Damper Switch, PITCH/OFF")
 F_5E_3:definePotentiometer("RUDDER_TRIM", 2, 3003, 324, { -1, 1 }, "Control Interface", "Rudder Trim Knob")
 F_5E_3:definePushButton("PITCH_DAMPER_CUT", 2, 3004, 132, "Control Interface", "Pitch Damper Cutoff Switch")
-F_5E_3:define3PosTumb("FLAPS", 2, 3005, 116, "Control Interface", "Flaps Lever, EMER UP/THUMB SW/FULL")
-F_5E_3:define3PosTumb("A_FLAPS", 2, 3006, 115, "Control Interface", "Auto Flap System Thumb Switch, UP/FIXED/AUTO")
-F_5E_3:define3PosTumb("SPEED", 2, 3007, 101, "Control Interface", "Speed Brake Switch, OUT/OFF/IN")
+F_5E_3:define3PosTumb("FLAPS", 2, 3005, 116, "Control Interface", "Flaps Lever", { positions = { "EMER UP", "THUMB SW", "FULL" } })
+F_5E_3:define3PosTumb("A_FLAPS", 2, 3006, 115, "Control Interface", "Auto Flap System Thumb Switch", { positions = { "UP", "FIXED", "AUTO" } })
+F_5E_3:define3PosTumb("SPEED", 2, 3007, 101, "Control Interface", "Speed Brake Switch", { positions = { "OUT", "OFF", "IN" } })
 F_5E_3:defineToggleSwitch("RUDDER_T", 2, 3014, 278, "Control Interface", "Rudder Pedal Adjust T-Handle, PULL/STOW")
 F_5E_3:defineFloat("TRIM_INDICATOR", 52, { 1.0, -0.1 }, "Gauges", "Trim Position")
 F_5E_3:defineFloat("FLAP_INDICATOR", 51, { 0, 0.4 }, "Gauges", "Flap Indicator")
@@ -56,7 +56,7 @@ F_5E_3:defineToggleSwitch("SW_BATTERY", 3, 3001, 387, "Electric", "Battery Switc
 F_5E_3:defineToggleSwitch("L_GENERATOR", 3, 3002, 388, "Electric", "Generator Left")
 F_5E_3:defineToggleSwitch("R_GENERATOR", 3, 3004, 389, "Electric", "Generator Right")
 F_5E_3:defineToggleSwitch("PITOT_HEATER", 3, 3006, 375, "Electric", "Pitot Heater")
-F_5E_3:define3PosTumb("F_O2_SW", 3, 3007, 230, "Electric", "Fuel & Oxygen Switch, GAGE TEST/OFF/QTY CHECK")
+F_5E_3:define3PosTumb("F_O2_SW", 3, 3007, 230, "Electric", "Fuel & Oxygen Switch", { positions = { "GAGE TEST", "OFF", "QTY CHECK" } })
 
 -- Fuel System
 F_5E_3:defineToggleSwitch("L_SHUTOFF_S", 4, 3001, 360, "Fuel", "Left Fuel Shutoff Switch, OPEN/CLOSED")
@@ -65,7 +65,7 @@ F_5E_3:defineToggleSwitch("EXT_PYLON_SW", 4, 3003, 378, "Fuel", "Ext Fuel Pylons
 F_5E_3:defineToggleSwitch("EXT_CENTER_SW", 4, 3004, 377, "Fuel", "Ext Fuel Cl Switch, ON/OFF")
 F_5E_3:defineToggleSwitch("CROSSFEED", 4, 3005, 381, "Fuel", "Crossfeed Switch, OPEN/CLOSED")
 -- F_5E_3:define3Pos2CommandSwitchF5("AUTOBAL", 4, 3007, 3006, 383, "Fuel", "Autobalance Switch, LEFT/NEUT/RIGHT") -- this legacy function wouldn't allow the switch to reset to center automatically
-F_5E_3:defineRockerSwitch("AUTOBAL", 4, 3007, 3007, 3006, 3006, 383, "Fuel", "Autobalance Switch, LEFT/NEUT/RIGHT") -- this function is similar to other electrically-held switches in bios
+F_5E_3:defineRockerSwitch("AUTOBAL", 4, 3007, 3007, 3006, 3006, 383, "Fuel", "Autobalance Switch", { positions = { "LEFT", "NEUT", "RIGHT" } }) -- this function is similar to other electrically-held switches in bios
 F_5E_3:defineToggleSwitch("L_BOOSTPUMP", 4, 3008, 380, "Fuel", "Left Boost Pump Switch, ON/OFF")
 F_5E_3:defineToggleSwitch("R_BOOSTPUMP", 4, 3009, 382, "Fuel", "Right Boost Pump Switch, ON/OFF")
 F_5E_3:defineToggleSwitch("L_SHUTOFF_C", 4, 3010, 359, "Fuel", "Left Fuel Shutoff Switch Cover, OPEN/CLOSED")
@@ -114,13 +114,13 @@ F_5E_3:definePushButton("HOOK", 7, 3014, 89, "Gear Interface", "Arresting Hook B
 -- Oxygen System
 F_5E_3:defineToggleSwitch("O2_LEVER", 8, 3001, 603, "O2 Interface", "Oxygen Supply Lever, ON/OFF")
 F_5E_3:defineToggleSwitch("DILUTER_LEVER", 8, 3002, 602, "O2 Interface", "Diluter Lever")
-F_5E_3:define3PosTumb("EMER_L", 8, 3003, 601, "O2 Interface", "Emergency Lever, EMERGENCY/NORMAL/TEST MASK")
+F_5E_3:define3PosTumb("EMER_L", 8, 3003, 601, "O2 Interface", "Emergency Lever", { positions = { "EMERGENCY", "NORMAL", "TEST MASK" } })
 F_5E_3:defineFloat("O2QUANTITY", 390, { 0, 1 }, "Gauges", "O2 Quantity")
 F_5E_3:defineFloat("O2FLOWINDICATOR", 600, { 0, 1 }, "Gauges", "O2 Flow Blinker")
 F_5E_3:defineFloat("O2FLOWPRESSURE", 604, { 0.0, 1.0 }, "Gauges", "O2 FlowPressure")
 
 -- EC System
-F_5E_3:define3PosTumb("CABIN_P_SW", 9, 3001, 371, "EC Interface", "Cabin Press Switch, DEFOG ONLY/NORMAL/RAM DUMP")
+F_5E_3:define3PosTumb("CABIN_P_SW", 9, 3001, 371, "EC Interface", "Cabin Press Switch", { positions = { "DEFOG ONLY", "NORMAL", "RAM DUMP" } })
 F_5E_3:defineToggleSwitch("CABIN_P_C", 9, 3002, 370, "EC Interface", "Cabin Press Switch Cover, OPEN/CLOSED")
 F_5E_3:defineMultipositionSwitch("CABIN_TEMP_SW", 9, 3003, 372, 3, 0.1, "EC Interface", "Cabin Temp Switch, AUTO/CENTER/MAN COLD/MAN HOT")
 F_5E_3:definePotentiometer("CABIN_TEMP", 9, 3004, 373, { -1, 1 }, "EC Interface", "Cabin Temperature Knob")
@@ -147,12 +147,12 @@ F_5E_3:definePotentiometer("ENGINE_LIGHTS", 12, 3005, 223, { 0, 1 }, "Internal L
 F_5E_3:definePotentiometer("CONSOLE_LIGHTS", 12, 3006, 224, { 0, 1 }, "Internal Lights", "Console Lights Knob")
 F_5E_3:definePotentiometer("ARM_LIGHTS", 12, 3007, 363, { 0, 1 }, "Internal Lights", "Armament Panel Lights Knob")
 F_5E_3:definePushButton("WARN_T_SW", 12, 3008, 226, "Internal Lights", "Warning Test Switch")
-F_5E_3:define3PosTumb("BRI_DIM_SW", 12, 3009, 225, "Internal Lights", "Bright/Dim Switch, BRT/NEUT/DIM")
+F_5E_3:define3PosTumb("BRI_DIM_SW", 12, 3009, 225, "Internal Lights", "Bright/Dim Switch", { positions = { "BRT", "NEUT", "DIM" } })
 F_5E_3:definePushButton("MC_RESET_BTN", 12, 3011, 172, "Internal Lights", "Master Caution Button")
 
 -- Countermeasures Dispensing System
-F_5E_3:defineTumb("CHAFF_MODE", 13, 3001, 400, 0.1, { 0, 0.3 }, nil, false, "CMDS", "Chaff Mode Selector, OFF/SINGLE/PRGM/MULT")
-F_5E_3:defineTumb("FLARE_MODE_SEL", 13, 3002, 404, 0.1, { 0, 0.2 }, nil, false, "CMDS", "Flare Mode Selector, OFF/SINGLE/PRGM")
+F_5E_3:defineTumb("CHAFF_MODE", 13, 3001, 400, 0.1, { 0, 0.3 }, nil, false, "CMDS", "Chaff Mode Selector", { positions = { "OFF", "SINGLE", "PRGM", "MULT" } })
+F_5E_3:defineTumb("FLARE_MODE_SEL", 13, 3002, 404, 0.1, { 0, 0.2 }, nil, false, "CMDS", "Flare Mode Selector", { positions = { "OFF", "SINGLE", "PRGM" } })
 F_5E_3:defineToggleSwitch("FL_JETT_COVER", 13, 3003, 408, "CMDS", "Flare Jettison Switch Cover, OPEN/CLOSED")
 F_5E_3:defineToggleSwitch("FL_JETT_SW", 13, 3004, 409, "CMDS", "Flare Jettison Switch, OFF/UP")
 F_5E_3:definePushButton("CHAFF_COUNT", 13, 3005, 403, "CMDS", "Chaff Counter Reset Button - Push to reset")
@@ -176,7 +176,7 @@ F_5E_3:defineIntegerFromGetter("CM_CHAFFCNT_DISPLAY", getChaffCount, 60, "CMDS",
 -- Jettison System
 F_5E_3:defineToggleSwitch("EMER_JETT_COVER", 14, 3001, 364, "Jettison", "Emergency All Jettison Button Cover, OPEN")
 F_5E_3:definePushButton("EMER_JETT_B", 14, 3002, 365, "Jettison", "Emergency All Jettison Button - Push to jettison")
-F_5E_3:define3PosTumb("JETT_SW", 14, 3003, 367, "Jettison", "Select Jettison Switch, SELECT POSITION/OFF/ALL PYLONS")
+F_5E_3:define3PosTumb("JETT_SW", 14, 3003, 367, "Jettison", "Select Jettison Switch", { positions = { "SELECT POSITION", "OFF", "ALL PYLONS" } })
 F_5E_3:definePushButton("JETT_B", 14, 3004, 366, "Jettison", "Select Jettison Button - Push to jettison")
 
 -- Weapons Control
@@ -188,23 +188,23 @@ F_5E_3:defineToggleSwitch("ARMPOS5", 15, 3005, 350, "Weapons Control", "Armament
 F_5E_3:defineToggleSwitch("ARMPOS6", 15, 3006, 351, "Weapons Control", "Armament Position Selector - R OUTBD, ON/OFF")
 F_5E_3:defineToggleSwitch("ARMPOS7", 15, 3007, 352, "Weapons Control", "Armament Position Selector - R WINGTIP, ON/OFF")
 F_5E_3:define3PosTumb("INT_SW", 15, 3008, 340, "Weapons Control", "Interval Switch [sec], .06/.10/.14")
-F_5E_3:defineTumb("BOMBS_ARM_SW", 15, 3009, 341, 0.2, { 0.2, 0.8 }, nil, false, "Weapons Control", "Bombs Arm Switch, SAFE/TAIL/NOSE & TAIL/NOSE")
+F_5E_3:defineTumb("BOMBS_ARM_SW", 15, 3009, 341, 0.2, { 0.2, 0.8 }, nil, false, "Weapons Control", "Bombs Arm Switch", { positions = { "SAFE", "TAIL", "NOSE & TAIL", "NOSE" } })
 F_5E_3:defineToggleSwitch("MASTER_ARM_GUARD", 15, 3010, 342, "Weapons Control", "Master Arm Safe Guard")
-F_5E_3:define3PosTumb("MASTER_ARM", 15, 3011, 343, "Weapons Control", "Master Arm Guns, GUNS MSL & CAMR/OFF/CAMR ONLY")
-F_5E_3:defineTumb("EXT_STORE", 15, 3012, 344, 0.1, { 0, 0.3 }, nil, false, "Weapons Control", "External Stores Selector RIPL/BOMB/SAFE/RKT DISP")
+F_5E_3:define3PosTumb("MASTER_ARM", 15, 3011, 343, "Weapons Control", "Master Arm Guns", { positions = { "GUNS MSL & CAMR", "OFF", "CAMR ONLY" } })
+F_5E_3:defineTumb("EXT_STORE", 15, 3012, 344, 0.1, { 0, 0.3 }, nil, false, "Weapons Control", "External Stores Selector", { positions = { "RIPL", "BOMB", "SAFE", "RKT DISP" } })
 F_5E_3:definePushButton("MISSILE_UNCAGE", 15, 3014, 136, "Weapons Control", "Missile Uncage Switch - Press and hold to uncage missile seeker head")
 F_5E_3:definePotentiometer("MISSILE_VOL", 15, 3015, 345, { 0, 1 }, "Weapons Control", "Missile Volume Knob")
 F_5E_3:definePushButton("WEAPON_RELEASE", 15, 3018, 128, "Weapons Control", "Weapon Release Button")
 
 -- AHRS
 F_5E_3:definePushButton("AHRS_ERECT", 16, 3001, 166, "AHRS", "Fast Erect Button - Push to erect")
-F_5E_3:define3PosTumb("AHRS_FAST_SLAVE", 16, 3003, 220, "AHRS", "Compass Switch, DIR GYRO/MAG/FAST SLAVE")
+F_5E_3:define3PosTumb("AHRS_FAST_SLAVE", 16, 3003, 220, "AHRS", "Compass Switch", { positions = { "DIR GYRO", "MAG", "FAST SLAVE" } })
 F_5E_3:defineTumb("AHRS_NAV_MODE", 16, 3004, 273, 0.1, { 0.0, 0.1 }, nil, false, "AHRS", "Nav Mode Selector Switch, DF/TACAN")
 
 -- AN/APQ-159 Radar Control Panel
 F_5E_3:definePotentiometer("RADAR_ELEVATION", 17, 3001, 321, { -1, 1 }, "Radar", "AN/APQ-159 Radar Elevation Antenna Tilt Control Knob")
-F_5E_3:defineTumb("RADAR_RANGE", 17, 3004, 315, 0.1, { 0, 0.3 }, nil, false, "Radar", "AN/APQ-159 Radar Range Selector Switch [nm], 5/10/20/40")
-F_5E_3:defineTumb("RADAR_MODE", 17, 3005, 316, 0.1, { 0, 0.3 }, nil, false, "Radar", "AN/APQ-159 Radar Mode Selector Switch, OFF/STBY/OPER/TEST")
+F_5E_3:defineTumb("RADAR_RANGE", 17, 3004, 315, 0.1, { 0, 0.3 }, nil, false, "Radar", "AN/APQ-159 Radar Range Selector Switch [nm]", { positions = { "5", "10", "20", "40" } })
+F_5E_3:defineTumb("RADAR_MODE", 17, 3005, 316, 0.1, { 0, 0.3 }, nil, false, "Radar", "AN/APQ-159 Radar Mode Selector Switch", { positions = { "OFF", "STBY", "OPER", "TEST" } })
 F_5E_3:definePushButton("RADAR_ACQUIS", 17, 3006, 317, "Radar", "AN/APQ-159 Radar Acquisition Button")
 F_5E_3:definePotentiometer("RADAR_SCALE", 17, 3007, 65, { 0, 1 }, "Radar", "AN/APQ-159 Radar Scale Knob")
 F_5E_3:definePotentiometer("RADAR_BRIGHT", 17, 3008, 70, { 0, 1 }, "Radar", "AN/APQ-159 Radar Bright Knob")
@@ -225,10 +225,10 @@ F_5E_3:defineFloat("TDC_RANGE", 319, { -1, 1 }, "Gauges", "TdcControlRange")
 F_5E_3:defineFloat("TDC_AZIMUTH", 318, { -1, 1 }, "Gauges", "TdcControlAzimuth")
 
 -- AN/ASG-31 Sight
-F_5E_3:defineTumb("SIGHT_MODE", 18, 3001, 40, 0.1, { 0, 0.4 }, nil, false, "Sight", "AN/ASG-31 Sight Mode Selector, OFF/MSL/A/A1 GUNS/A/A2 GUNS/MAN")
+F_5E_3:defineTumb("SIGHT_MODE", 18, 3001, 40, 0.1, { 0, 0.4 }, nil, false, "Sight", "AN/ASG-31 Sight Mode Selector", { positions = { "OFF", "MSL", "A/A1 GUNS", "A/A2 GUNS", "MAN" } })
 F_5E_3:defineRotary("SIGHT_DEPRESS", 18, 3002, 42, "Sight", "AN/ASG-31 Sight Reticle Depression Knob")
 F_5E_3:definePotentiometer("SIGHT_INTENS", 18, 3003, 41, { 0, 1 }, "Sight", "AN/ASG-31 Sight Reticle Intensity Knob")
-F_5E_3:define3PosTumb("SIGHT_BIT", 18, 3004, 47, "Sight", "AN/ASG-31 Sight BIT Switch, BIT 1/OFF/BIT 2")
+F_5E_3:define3PosTumb("SIGHT_BIT", 18, 3004, 47, "Sight", "AN/ASG-31 Sight BIT Switch", { positions = { "BIT 1", "OFF", "BIT 2" } })
 F_5E_3:definePushButton("SIGHT_CAGE", 18, 3007, 137, "Sight", "AN/ASG-31 Sight Cage Switch")
 F_5E_3:defineFloat("SIGHT_DEP_100", 43, { 0, 1 }, "Gauges", "Ret Depression Drum 100")
 F_5E_3:defineFloat("SIGHT_DEP_10", 44, { 0, 1 }, "Gauges", "Ret Depression Drum 10")
@@ -254,21 +254,21 @@ F_5E_3:definePotentiometer("RWR_INT", 20, 3001, 140, { 0, 1 }, "AN ALR87", "RWR 
 -- Sight Camera
 F_5E_3:defineToggleSwitch("CAMERA_FPS", 21, 3001, 80, "Camera", "Sight Camera FPS Select Switch, 24/48")
 F_5E_3:definePotentiometer("CAMERA_LENS", 21, 3002, 140, { 0, 1 }, "Camera", "Sight Camera Lens f-Stop Selector, 2.8(dull)..22(bright)")
-F_5E_3:defineTumb("CAMERA_OVERRUN", 21, 3003, 311, 0.1, { 0, 0.3 }, nil, false, "Camera", "Sight Camera Overrun Selector, 0/3/10/20")
+F_5E_3:defineTumb("CAMERA_OVERRUN", 21, 3003, 311, 0.1, { 0, 0.3 }, nil, false, "Camera", "Sight Camera Overrun Selector", { positions = { "0", "3", "10", "20" } })
 F_5E_3:definePushButton("CAMERA_RUN", 21, 3004, 573, "Camera", "Sight Camera Run (Test) Switch, ON/OFF")
 
 -- IFF
 F_5E_3:defineIndicatorLight("IFF_REPLY_L", 216, "IFF", "IFF Reply Lamp (green)")
 F_5E_3:defineIndicatorLight("IFF_TEST_L", 218, "IFF", "IFF Test Lamp (green)")
-F_5E_3:defineTumb("IFF4_CODE_SEL", 22, 3001, 199, 0.1, { 0, 0.3 }, nil, false, "IFF", "IFF MODE 4 CODE Selector, ZERO/B/A/HOLD")
-F_5E_3:defineTumb("IFF4_MASTER", 22, 3002, 200, 0.1, { 0, 0.4 }, nil, false, "IFF", "IFF MASTER Control Selector, EMER/NORM/LOW/STBY/OFF")
-F_5E_3:define3PosTumb("IFF4_MON_CONTR", 22, 3003, 201, "IFF", "IFF MODE 4 Monitor Control Switch, AUDIO/OUT/LIGHT")
-F_5E_3:define3PosTumb("IFF4_M1", 22, 3004, 202, "IFF", "IFF Mode Select/TEST Switch, M-1 /ON/OUT")
-F_5E_3:define3PosTumb("IFF4_M2", 22, 3005, 203, "IFF", "IFF Mode Select/TEST Switch, M-2 /ON/OUT")
-F_5E_3:define3PosTumb("IFF4_M3", 22, 3006, 204, "IFF", "IFF Mode Select/TEST Switch, M-3/A /ON/OUT")
-F_5E_3:define3PosTumb("IFF4_MC", 22, 3007, 205, "IFF", "IFF Mode Select/TEST Switch, M-C /ON/OUT")
-F_5E_3:define3PosTumb("IFF4_RAD", 22, 3008, 206, "IFF", "IFF RAD TEST/MON Switch, RAD TEST/OUT/MON")
-F_5E_3:define3PosTumb("IFF4_IDENT", 22, 3009, 207, "IFF", "IFF Identification of Position (IP) Switch, IDENT/OUT/MIC")
+F_5E_3:defineTumb("IFF4_CODE_SEL", 22, 3001, 199, 0.1, { 0, 0.3 }, nil, false, "IFF", "IFF MODE 4 CODE Selector", { positions = { "ZERO", "B", "A", "HOLD" } })
+F_5E_3:defineTumb("IFF4_MASTER", 22, 3002, 200, 0.1, { 0, 0.4 }, nil, false, "IFF", "IFF MASTER Control Selector", { positions = { "EMER", "NORM", "LOW", "STBY", "OFF" } })
+F_5E_3:define3PosTumb("IFF4_MON_CONTR", 22, 3003, 201, "IFF", "IFF MODE 4 Monitor Control Switch", { positions = { "AUDIO", "OUT", "LIGHT" } })
+F_5E_3:define3PosTumb("IFF4_M1", 22, 3004, 202, "IFF", "IFF Mode Select/TEST Switch", { positions = { "M-1", "ON", "OUT" } })
+F_5E_3:define3PosTumb("IFF4_M2", 22, 3005, 203, "IFF", "IFF Mode Select/TEST Switch", { positions = { "M-2", "ON", "OUT" } })
+F_5E_3:define3PosTumb("IFF4_M3", 22, 3006, 204, "IFF", "IFF Mode Select/TEST Switch", { positions = { "M-3/A", "ON", "OUT" } })
+F_5E_3:define3PosTumb("IFF4_MC", 22, 3007, 205, "IFF", "IFF Mode Select/TEST Switch", { positions = { "M-C", "ON", "OUT" } })
+F_5E_3:define3PosTumb("IFF4_RAD", 22, 3008, 206, "IFF", "IFF RAD TEST/MON Switch", { positions = { "RAD TEST", "OUT", "MON" } })
+F_5E_3:define3PosTumb("IFF4_IDENT", 22, 3009, 207, "IFF", "IFF Identification of Position (IP) Switch", { positions = { "IDENT", "OUT", "MIC" } })
 F_5E_3:defineToggleSwitch("IFF4_CONTROL", 22, 3010, 208, "IFF", "IFF MODE 4 Control Switch, ON/OUT")
 F_5E_3:defineTumb("IFF4_MODE1_SELECTOR1", 22, 3011, 209, 0.1, { 0, 1 }, nil, false, "IFF", "IFF MODE 1 Code Selector Wheel 1")
 F_5E_3:defineTumb("IFF4_MODE1_SELECTOR2", 22, 3012, 210, 0.1, { 0, 1 }, nil, false, "IFF", "IFF MODE 1 Code Selector Wheel 2")
@@ -358,8 +358,8 @@ F_5E_3:defineFloat("CLOCK_ELAP_S", 37, { 0, 1 }, "Gauges", "CLOCK Elapsed Time S
 --UHF Radio AN/ARC-164
 F_5E_3:definePushButton("UHF_TONE_BT", 23, 3009, 310, "UHF Radio", "UHF Radio Tone Button")
 F_5E_3:defineToggleSwitch("UHF_SQUELCH_SW", 23, 3010, 308, "UHF Radio", "UHF Radio Squelch Switch, ON/OFF")
-F_5E_3:defineTumb("UHF_FUNC", 23, 3008, 311, 0.1, { 0, 0.3 }, nil, false, "UHF Radio", "UHF Radio Function Selector Switch, OFF/MAIN/BOTH/ADF")
-F_5E_3:defineTumb("UHF_FREQ", 23, 3007, 307, 0.1, { 0, 0.2 }, nil, false, "UHF Radio", "UHF Radio Frequency Mode Selector Switch, MANUAL/PRESET/GUARD")
+F_5E_3:defineTumb("UHF_FUNC", 23, 3008, 311, 0.1, { 0, 0.3 }, nil, false, "UHF Radio", "UHF Radio Function Selector Switch", { positions = { "OFF", "MAIN", "BOTH", "ADF" } })
+F_5E_3:defineTumb("UHF_FREQ", 23, 3007, 307, 0.1, { 0, 0.2 }, nil, false, "UHF Radio", "UHF Radio Frequency Mode Selector Switch", { positions = { "MANUAL", "PRESET", "GUARD" } })
 F_5E_3:defineTumb("UHF_PRESET_SEL", 23, 3001, 300, 0.05, { 0, 1 }, { " 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" }, false, "UHF Radio", "UHF Radio Preset Channel Selector Knob")
 F_5E_3:defineTumb("UHF_100MHZ_SEL", 23, 3002, 327, 0.1, { 0, 0.3 }, { "A", "3", "2", "T" }, false, "UHF Radio", "UHF Radio 100 MHz Frequency Selector Knob")
 F_5E_3:defineTumb("UHF_10MHZ_SEL", 23, 3003, 328, 0.1, { 0, 1 }, { "0", "9", "8", "7", "6", "5", "4", "3", "2", "1", "0" }, false, "UHF Radio", "UHF Radio 10 MHz Frequency Selector Knob")
@@ -367,7 +367,7 @@ F_5E_3:defineTumb("UHF_1MHZ_SEL", 23, 3004, 329, 0.1, { 0, 1 }, { "0", "9", "8",
 F_5E_3:defineTumb("UHF_01MHZ_SEL", 23, 3005, 330, 0.1, { 0, 1 }, { "0", "9", "8", "7", "6", "5", "4", "3", "2", "1", "0" }, false, "UHF Radio", "UHF Radio 0.1 MHz Frequency Selector Knob")
 F_5E_3:defineTumb("UHF_0025MHZ_SEL", 23, 3006, 331, 0.25, { 0, 1 }, { "00", "75", "50", "25", "00" }, false, "UHF Radio", "UHF Radio 0.025 MHz Frequency Selector Knob")
 F_5E_3:definePotentiometer("UHF_VOL", 23, 3011, 309, { 0, 1 }, "UHF Radio", "UHF Radio Volume Knob")
-F_5E_3:defineMultipositionSwitch("UHF_ANT", 23, 3016, 336, 3, 0.5, "UHF Radio", "UHF Radio Antenna Selector Switch, UPPER/AUTO/LOWER")
+F_5E_3:defineMultipositionSwitch("UHF_ANT", 23, 3016, 336, 3, 0.5, "UHF Radio", "UHF Radio Antenna Selector Switch", { positions = { "UPPER", "AUTO", "LOWER" } })
 F_5E_3:definePushButton("UHF_MIC_BT", 24, 3001, 135, "UHF Radio", "UHF Radio Microphone Button")
 F_5E_3:defineToggleSwitch("UHF_DOOR", 23, 3022, 335, "UHF Radio", "Hinged Access Door, OPEN/CLOSE")
 F_5E_3:definePushButton("UHF_PRE_SET", 23, 3024, 314, "UHF Radio", "UHF Preset Channel Set Button")

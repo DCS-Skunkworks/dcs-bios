@@ -59,8 +59,8 @@ MiG_21Bis:definePotentiometer("TXT_LIGHT", 46, 3231, 612, { -1, 1 }, "Right Hori
 MiG_21Bis:definePotentiometer("GAUGE_LIGHT", 46, 3232, 156, { -1, 1 }, "Right Horizontal Aft Panel", "Gauge Backlights")
 MiG_21Bis:definePotentiometer("RED_LIGHT", 46, 3233, 157, { 0, 1 }, "Right Horizontal Forward Panel", "Red Lights")
 MiG_21Bis:definePotentiometer("WHITE_LIGHT", 46, 3234, 222, { 0, 1 }, "Canopy Frame", "White Lights")
-MiG_21Bis:defineTumb("NAV_LIGHTS", 46, 3032, 194, 0.33, { 0.0, 0.99 }, nil, true, "Avionics Power Panel", "Nav Lights Off/Dim/Med/Bright")
-MiG_21Bis:defineTumb("LND_LIGHT", 46, 3033, 323, 0.5, { 0, 1 }, nil, false, "Landing Gear Control", "Landing Lights Land/Taxi/Off/Dim/Med/Bright")
+MiG_21Bis:defineTumb("NAV_LIGHTS", 46, 3032, 194, 0.33, { 0.0, 0.99 }, nil, true, "Avionics Power Panel", "Nav Lights", { positions = { "Off", "Dim", "Med", "Bright" } })
+MiG_21Bis:defineTumb("LND_LIGHT", 46, 3033, 323, 0.5, { 0, 1 }, nil, false, "Landing Gear Control", "Landing Lights", { positions = { "Off", "Taxi", "Landing" } })
 
 --Warning Lights
 MiG_21Bis:definePushButton("FUEL_WARN_LIGHT_TEST", 47, 3034, 369, "Main Warning Lights", "Fuel Warn Lights Test")
@@ -139,12 +139,12 @@ MiG_21Bis:definePushButton("SRZO_DEST", 38, 3230, 428, "SRZO/Fuse Panel", "SRZO 
 -- SOD
 MiG_21Bis:defineToggleSwitch("SOD_PWR", 39, 3090, 200, "SOD Panel", "SOD IFF On/Off")
 MiG_21Bis:definePushButton("SOD_IDENT", 39, 3091, 199, "SOD Panel", "SOD Identify")
-MiG_21Bis:defineTumb("SOD_WAVE", 39, 3092, 201, 0.5, { 0, 1 }, nil, false, "SOD Panel", "SOD Wave Selector 3/1/2")
+MiG_21Bis:defineTumb("SOD_WAVE", 39, 3092, 201, 0.5, { 0, 1 }, nil, false, "SOD Panel", "SOD Wave Selector", { positions = { "3", "1", "2" } })
 MiG_21Bis:defineTumb("SOD_MODE", 39, 3093, 204, 0.25, { 0, 1 }, nil, false, "SOD Panel", "SOD Mode Select")
 
 --RADAR
-MiG_21Bis:defineTumb("RADAR_PWR", 40, 3094, 205, 0.5, { 0, 1 }, nil, false, "RADAR Power", "RADAR On/Standby/Off")
-MiG_21Bis:defineTumb("RADAR_LOW_ALT", 40, 3095, 206, 0.5, { 0, 1 }, nil, false, "RADAR Power", "RADAR Low Altitude Off/Comp/On")
+MiG_21Bis:defineTumb("RADAR_PWR", 40, 3094, 205, 0.5, { 0, 1 }, nil, false, "RADAR Power", "RADAR", { positions = { "On", "Standby", "Off" } })
+MiG_21Bis:defineTumb("RADAR_LOW_ALT", 40, 3095, 206, 0.5, { 0, 1 }, nil, false, "RADAR Power", "RADAR Low Altitude", { positions = { "Off", "Comp", "On" } })
 MiG_21Bis:defineToggleSwitch("RADAR_BEAM", 40, 3096, 207, "RADAR Power", "RADAR Fixed Beam On/Off")
 MiG_21Bis:definePushButton("RADAR_DISP_RST", 40, 3097, 266, "Flight Status/Navigation Panel", "RADAR Screen Magnetic Reset")
 MiG_21Bis:definePushButton("RADAR_CNT", 40, 3098, 330, "RADAR Scope, Interrupts", "RADAR Interferes - Continues")
@@ -183,7 +183,7 @@ MiG_21Bis:defineToggleSwitch("EM_BRK", 13, 3119, 237, "Flight Status/Navigation 
 
 --Gear
 MiG_21Bis:defineToggleSwitch("GEAR_LOCK", 14, 3120, 326, "Landing Gear Control", "Gear Handle Lock")
-MiG_21Bis:defineTumb("GEAR_LVR", 14, 3121, 327, 1, { -1, 1 }, nil, false, "Landing Gear Control", "Gear Down/Neutral/Up")
+MiG_21Bis:defineTumb("GEAR_LVR", 14, 3121, 327, 1, { -1, 1 }, nil, false, "Landing Gear Control", "Gear", { positions = { "Down", "Neutral", "Up" } })
 MiG_21Bis:definePotentiometer("EM_GEAR_REL", 14, 3122, 223, { 0, 1 }, "Canopy Frame", "Emergency Gear Release")
 MiG_21Bis:defineToggleSwitch("EM_NOSE_GEAR_REL", 14, 3123, 281, "Center Pedestal Panel", "Emergency Nose Gear Release")
 
@@ -341,7 +341,7 @@ MiG_21Bis:defineToggleSwitch("SPS141_PROG", 57, 3216, 395, "SPS-141-100 Panel", 
 MiG_21Bis:defineToggleSwitch("SPS141_CONT", 57, 3217, 396, "SPS-141-100 Panel", "SPS-141-100 Continuous/Impulse")
 MiG_21Bis:definePushButton("SPS141_TEST", 57, 3218, 397, "SPS-141-100 Panel", "SPS-141-100 Test")
 MiG_21Bis:defineToggleSwitch("SPS141_AUTO", 57, 3219, 398, "SPS-141-100 Panel", "SPS-141-100 Auto/Manual")
-MiG_21Bis:defineTumb("SPS141_MODE", 57, 3220, 399, 0.5, { 0, 1 }, nil, false, "SPS-141-100 Panel", "SPS-141-100 Off/Parallel/Full")
+MiG_21Bis:defineTumb("SPS141_MODE", 57, 3220, 399, 0.5, { 0, 1 }, nil, false, "SPS-141-100 Panel", "SPS-141-100", { positions = { "Off", "Parallel", "Full" } })
 MiG_21Bis:defineToggleSwitch("SPS141_CVR", 57, 3221, 400, "SPS-141-100 Panel", "SPS-141-100 Manual Activation Cover")
 MiG_21Bis:definePushButton("SPS141_MAN", 57, 3222, 401, "SPS-141-100 Panel", "SPS-141-100 Manual Activation")
 

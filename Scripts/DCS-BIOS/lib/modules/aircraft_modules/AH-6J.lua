@@ -8,7 +8,7 @@ local AH_6J = Module:new("AH-6J", 0x6200, { "AH-6", "BlackHawk" })
 --by WarLord
 
 --Electric System
-AH_6J:define3PosTumb("PW_SEL_SW", 11, 3013, 17, "Electric System", "Power Selector Switch, BATT/OFF/EXT")
+AH_6J:define3PosTumb("PW_SEL_SW", 11, 3013, 17, "Electric System", "Power Selector Switch", { positions = { "BATT", "OFF", "EXT" } })
 AH_6J:defineToggleSwitch("GEN_SWITCH", 11, 3014, 16, "Electric System", "Generator Switch, ON/OFF")
 AH_6J:defineToggleSwitch("INV_SWITCH", 11, 3015, 15, "Electric System", "Inverter Switch, ON/OFF")
 
@@ -21,8 +21,8 @@ AH_6J:defineToggleSwitch("MASTER_ARM_SW", 2, 3204, 43, "Weapons Panel", "Master 
 AH_6J:defineToggleSwitch("ROCKET_MODE_SW", 2, 3205, 44, "Weapons Panel", "Rocket Single/Ripple Mode Switch, SINGLE/RIPPLE")
 AH_6J:defineToggleSwitch("PYLON_JETT_SW", 2, 3206, 45, "Weapons Panel", "Pylon Jettison Switch, SAFE/JETTISON")
 AH_6J:defineToggleSwitch("PYLON_JETT_COVER", 2, 3207, 46, "Weapons Panel", "Pylon Jettison Switch Cover")
-AH_6J:defineMultipositionSwitch("ROCKET_STATION_SEL", 2, 3208, 47, 4, 0.33, "Weapons Panel", "Rocket Station Selector, OFF/LEFT/BOTH/RIGHT")
-AH_6J:defineMultipositionSwitch("GUN_STATION_SEL", 2, 3209, 48, 4, 0.33, "Weapons Panel", "Gun Station Selector, OFF/LEFT/BOTH/RIGHT")
+AH_6J:defineMultipositionSwitch("ROCKET_STATION_SEL", 2, 3208, 47, 4, 0.33, "Weapons Panel", "Rocket Station Selector", { positions = { "OFF", "LEFT", "BOTH", "RIGHT" } })
+AH_6J:defineMultipositionSwitch("GUN_STATION_SEL", 2, 3209, 48, 4, 0.33, "Weapons Panel", "Gun Station Selector", { positions = { "OFF", "LEFT", "BOTH", "RIGHT" } })
 
 --RWR
 AH_6J:defineToggleSwitch("RWR_PW_SW", 3, 3214, 25, "RWR", "RWR Power Switch, OFF/ON")

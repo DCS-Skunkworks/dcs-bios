@@ -1,0 +1,60 @@
+name: Verify backwards-compatible addresses
+
+on: 
+  pull_request:
+    branches:
+      main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout repository at head
+        uses: actions/checkout@v6
+        with:
+          path: head
+
+      - name: Checkout repository at base
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          path: base
+
+      - name: Set up lua
+        # uses: leafo/gh-actions-lua@v10 # needs cache dependency update https://github.com/leafo/gh-actions-lua/pull/56
+        uses: lewis6991/gh-actions-lua@01aab24c4de9555717b685f9b142a2abbe12ef14
+        with:
+          luaVersion: "5.1.5"
+
+      - name: compile head
+        working-directory: head
+        run: |
+          lua ./Scripts/DCS-BIOS/test/compile/LocalCompile.lua
+
+      - name: compile base
+        working-directory: base
+        run: |
+          lua ./Scripts/DCS-BIOS/test/compile/LocalCompile.lua
+
+      - name: diff Addresses.h
+        run: |
+          diff=$(git diff base/Scripts/DCS-BIOS/doc/Addresses.h head/Scripts/DCS-BIOS/doc/Addresses.h) || true
+
+          mkdir -p ./pr && cd pr
+
+          echo "$diff" > ./diff
+          echo "$diff" | grep '^+#' | wc -l > ./added
+          echo "$diff" | grep '^-#' | wc -l > ./removed
+          echo ${{ github.event.number }} > ./number
+
+      - name: upload artifact
+        uses: actions/upload-artifact@v6
+        with:
+          name: pr
+          path: pr/
+
+      # todo: fail if removed > 0?
