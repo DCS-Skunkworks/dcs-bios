@@ -772,6 +772,22 @@ C_130J:defineToggleSwitch("CPLT_HUD_LATCH", devices.C_DISPLAYS, 3023, 7, CPLT_HU
 -- Wipers/ELT/Emergency Exit Lights Extinguish Panel
 
 -- APU Panel
+local APU = "APU Panel"
+
+C_130J:defineToggleSwitch("APU_ALARM", devices.ENGINE_APU_CTRL, 3027, 425, APU, "APU Alarm")
+C_130J:defineEngineStartSwitch("APU_START", devices.ENGINE_APU_CTRL, 3015, 322, 0.5, { 0, 1 }, 3, APU, "APU Start Switch", { positions = { "STOP", "RUN", "START" } })
+C_130J:defineIndicatorLight("APU_START_LIGHT", 4027, APU, "APU Start Light", { color = "green" })
+
+C_130J:defineToggleSwitch("APU_FIRE_HANDLE_PULL", devices.ENGINE_APU_CTRL, 3026, 324, APU, "APU Fire Handle (Push/Pull)")
+C_130J:define3PosTumb("APU_FIRE_HANDLE_ROTATE", devices.ENGINE_APU_CTRL, 3021, 325, APU, "APU Fire Handle (Rotate)", { positions = { "1", "OFF", "2" } })
+C_130J:defineGatedIndicatorLight("APU_FIRE", 4135, 1, nil, APU, "APU Fire Light", { color = "red" }) -- light comes on at exactly 1
+
+C_130J:defineString("APU_EGT", function()
+	return parse_overhead_lcd_line(34, { 3 })
+end, 3, APU, "EGT")
+C_130J:defineString("APU_RPM", function()
+	return parse_overhead_lcd_line(33, { 3 })
+end, 3, APU, "RPM (%)")
 
 -- Engine Start Panel
 local ENGINE_START = "Engine Start Panel"
