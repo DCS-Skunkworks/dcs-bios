@@ -531,6 +531,20 @@ end, 5, CPLT_REF_MODE, "REF/MODE Display")
 -- Communication/Navigation/Electronic Circuit Breaker Panel
 
 -- Pilot Mode Annunciator Panel
+local PLT_MODE_ANNUNICIATOR = "PLT Mode Annunciator Panel"
+
+C_130J:defineIndicatorLight("PLT_MODE_ANNUNCIATOR_AP_ON", 4056, PLT_MODE_ANNUNICIATOR, "AP ON Light", { color = "green" })
+C_130J:defineIndicatorLight("PLT_MODE_ANNUNCIATOR_PTCH_OFF", 4057, PLT_MODE_ANNUNICIATOR, "PTCH OFF Light", { color = "green" })
+C_130J:defineIndicatorLight("PLT_MODE_ANNUNCIATOR_NAV_ARM", 4058, PLT_MODE_ANNUNICIATOR, "NAV ARM Light", { color = "green" })
+C_130J:defineIndicatorLight("PLT_MODE_ANNUNCIATOR_GS_ARM", 4059, PLT_MODE_ANNUNICIATOR, "GS ARM Light", { color = "green" })
+C_130J:defineIndicatorLight("PLT_MODE_ANNUNCIATOR_GO_ARND", 4060, PLT_MODE_ANNUNICIATOR, "GO ARND Light", { color = "green" })
+C_130J:defineIndicatorLight("PLT_MODE_ANNUNCIATOR_CAT2_ARM", 4061, PLT_MODE_ANNUNICIATOR, "CAT2 ARM Light", { color = "green" })
+C_130J:defineIndicatorLight("PLT_MODE_ANNUNCIATOR_AP_DSGN", 4062, PLT_MODE_ANNUNICIATOR, "AP DSGN Light", { color = "green" })
+C_130J:defineIndicatorLight("PLT_MODE_ANNUNCIATOR_LAT_OFF", 4063, PLT_MODE_ANNUNICIATOR, "LAT OFF Light", { color = "green" })
+C_130J:defineIndicatorLight("PLT_MODE_ANNUNCIATOR_NAV_CAPT", 4064, PLT_MODE_ANNUNICIATOR, "NAV CAPT Light", { color = "green" })
+C_130J:defineIndicatorLight("PLT_MODE_ANNUNCIATOR_GS_CAPT", 4065, PLT_MODE_ANNUNICIATOR, "GS CAPT Light", { color = "green" })
+C_130J:defineIndicatorLight("PLT_MODE_ANNUNCIATOR_BACK_LOC", 4066, PLT_MODE_ANNUNICIATOR, "BACK LOC Light", { color = "green" })
+C_130J:defineIndicatorLight("PLT_MODE_ANNUNCIATOR_CAT2", 4067, PLT_MODE_ANNUNICIATOR, "CAT2 Light", { color = "green" })
 
 -- Copilot Mode Annunciator Panel
 local CPLT_MODE_ANNUNICIATOR = "CPLT Mode Annunciator Panel"
