@@ -533,6 +533,20 @@ end, 5, CPLT_REF_MODE, "REF/MODE Display")
 -- Pilot Mode Annunciator Panel
 
 -- Copilot Mode Annunciator Panel
+local CPLT_MODE_ANNUNICIATOR = "CPLT Mode Annunciator Panel"
+
+C_130J:defineIndicatorLight("CPLT_MODE_ANNUNCIATOR_AP_ON", 4114, CPLT_MODE_ANNUNICIATOR, "AP ON Light", { color = "green" })
+C_130J:defineIndicatorLight("CPLT_MODE_ANNUNCIATOR_PTCH_OFF", 4115, CPLT_MODE_ANNUNICIATOR, "PTCH OFF Light", { color = "green" })
+C_130J:defineIndicatorLight("CPLT_MODE_ANNUNCIATOR_NAV_ARM", 4116, CPLT_MODE_ANNUNICIATOR, "NAV ARM Light", { color = "green" })
+C_130J:defineIndicatorLight("CPLT_MODE_ANNUNCIATOR_GS_ARM", 4117, CPLT_MODE_ANNUNICIATOR, "GS ARM Light", { color = "green" })
+C_130J:defineIndicatorLight("CPLT_MODE_ANNUNCIATOR_GO_ARND", 4118, CPLT_MODE_ANNUNICIATOR, "GO ARND Light", { color = "green" })
+C_130J:defineIndicatorLight("CPLT_MODE_ANNUNCIATOR_CAT2_ARM", 4119, CPLT_MODE_ANNUNICIATOR, "CAT2 ARM Light", { color = "green" })
+C_130J:defineIndicatorLight("CPLT_MODE_ANNUNCIATOR_AP_DSGN", 4120, CPLT_MODE_ANNUNICIATOR, "AP DSGN Light", { color = "green" })
+C_130J:defineIndicatorLight("CPLT_MODE_ANNUNCIATOR_LAT_OFF", 4121, CPLT_MODE_ANNUNICIATOR, "LAT OFF Light", { color = "green" })
+C_130J:defineIndicatorLight("CPLT_MODE_ANNUNCIATOR_NAV_CAPT", 4122, CPLT_MODE_ANNUNICIATOR, "NAV CAPT Light", { color = "green" })
+C_130J:defineIndicatorLight("CPLT_MODE_ANNUNCIATOR_GS_CAPT", 4123, CPLT_MODE_ANNUNICIATOR, "GS CAPT Light", { color = "green" })
+C_130J:defineIndicatorLight("CPLT_MODE_ANNUNCIATOR_BACK_LOC", 4124, CPLT_MODE_ANNUNICIATOR, "BACK LOC Light", { color = "green" })
+C_130J:defineIndicatorLight("CPLT_MODE_ANNUNCIATOR_CAT2", 4125, CPLT_MODE_ANNUNICIATOR, "CAT2 Light", { color = "green" })
 
 -- Pilot Inclinometer
 
