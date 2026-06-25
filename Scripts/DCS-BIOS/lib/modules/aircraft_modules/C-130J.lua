@@ -547,6 +547,30 @@ end, 5, CPLT_REF_MODE, "REF/MODE Display")
 -- Right Outer Head Down Display
 
 -- Hydraulic Control Panel
+local HYD_PANEL = "Hydraulic Control Panel"
+
+C_130J:defineToggleSwitch("HYD_ANTI_SKID", devices.ENGINE_APU_CTRL, 3029, 37, HYD_PANEL, "Anti-Skid Switch")
+C_130J:definePushButton("HYD_EMER_BRAKE_SEL", devices.HYDRAULICS, 3001, 99, HYD_PANEL, "Emergency Brake Select")
+C_130J:definePushButton("HYD_ENGINE_PUMP_1", devices.HYDRAULICS, 3003, 39, HYD_PANEL, "Engine 1 Utility Pump")
+C_130J:definePushButton("HYD_ENGINE_PUMP_2", devices.HYDRAULICS, 3004, 40, HYD_PANEL, "Engine 2 Utility Pump")
+C_130J:definePushButton("HYD_ENGINE_PUMP_3", devices.HYDRAULICS, 3005, 41, HYD_PANEL, "Engine 3 Boost Pump")
+C_130J:definePushButton("HYD_ENGINE_PUMP_4", devices.HYDRAULICS, 3006, 42, HYD_PANEL, "Engine 4 Boost Pump")
+C_130J:definePushButton("HYD_ENGINE_PUMP_SUCTION_UTIL", devices.HYDRAULICS, 3007, 43, HYD_PANEL, "Utility Suction Boost Pump")
+C_130J:definePushButton("HYD_ENGINE_PUMP_SUCTION_BOOST", devices.HYDRAULICS, 3008, 44, HYD_PANEL, "Suction Boost Pump")
+C_130J:defineToggleSwitch("HYD_AUX_PUMP", devices.HYDRAULICS, 3002, 45, HYD_PANEL, "Auxiliary Hydraulic Pump")
+
+C_130J:defineIndicatorLight("HYD_AUX_PUMP_ON", 4041, HYD_PANEL, "Auxiliary Pump On", { color = "green" })
+C_130J:defineIndicatorLight("HYD_EMER_BRAKE_SEL_EMER", 4068, HYD_PANEL, "Emergency Brake Select EMER", { color = "green" })
+C_130J:defineIndicatorLight("HYD_ENGINE_PUMP_1_OFF", 4069, HYD_PANEL, "Engine 1 Utility Pump Off", { color = "green" })
+C_130J:defineIndicatorLight("HYD_ENGINE_PUMP_2_OFF", 4070, HYD_PANEL, "Engine 2 Utility Pump Off", { color = "green" })
+C_130J:defineIndicatorLight("HYD_ENGINE_PUMP_3_OFF", 4071, HYD_PANEL, "Engine 3 Boost Pump Off", { color = "green" })
+C_130J:defineIndicatorLight("HYD_ENGINE_PUMP_4_OFF", 4072, HYD_PANEL, "Engine 4 Boost Pump Off", { color = "green" })
+C_130J:defineIndicatorLight("HYD_ENGINE_PUMP_SUCTION_UTIL_OFF", 4073, HYD_PANEL, "Utility Suction Boost Pump Off", { color = "green" })
+C_130J:defineIndicatorLight("HYD_ENGINE_PUMP_SUCTION_BOOST_OFF", 4074, HYD_PANEL, "Suction Boost Pump Off", { color = "green" })
+
+C_130J:defineString("HYD_AUX_PRESSURE", function()
+	return parse_overhead_lcd_line(43, { 4 })
+end, 4, HYD_PANEL, "Auxiliary Pressure")
 
 -- Landing Gear/Landing Lights Panel
 local LANDING = "Landing Gear/Landing Lights Panel"
