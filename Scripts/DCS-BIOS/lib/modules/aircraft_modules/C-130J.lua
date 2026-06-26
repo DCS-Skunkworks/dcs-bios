@@ -418,6 +418,9 @@ C_130J:defineToggleSwitch("CPLT_ICS_MON_RWR_BUTTON", devices.VOLUME_MANAGER, 309
 -- Main Instrument Panel
 
 -- Parking Brake
+local PARKING_BRAKE = "Parking Brake"
+
+C_130J:defineToggleSwitch("PARKING_BRAKE_HANDLE", devices.MECH_INTERFACE, 3037, 29, PARKING_BRAKE, "Parking Brake Handle")
 
 -- Pilot Reference Set/Mode Select Panel
 
