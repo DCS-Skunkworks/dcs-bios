@@ -532,6 +532,35 @@ end, 5, CPLT_REF_MODE, "REF/MODE Display")
 -- Right Outer Avionics Management Unit
 
 -- Communication/Navigation/Electronic Circuit Breaker Panel
+local CNBP = "Communication/Navigation/Electronic Circuit Breaker Panel"
+
+C_130J:defineRockerSwitch("CNBP_BRT_SWITCH", devices.CNBP, 3024, 3024, 3025, 3025, 201, CNBP, "Brightness Switch", { positions = { "DECREASE", "MIDDLE", "INCREASE" } })
+
+C_130J:definePushButton("CNBP_COMM", devices.CNBP, 3021, 159, CNBP, "COMM Button")
+C_130J:definePushButton("CNBP_NAV", devices.CNBP, 3022, 160, CNBP, "NAV Button")
+C_130J:definePushButton("CNBP_ECB", devices.CNBP, 3023, 161, CNBP, "ECB Button")
+
+C_130J:definePushButton("CNBP_NUMPAD_1", devices.CNBP, 3002, 162, CNBP, "Numpad Button 1")
+C_130J:definePushButton("CNBP_NUMPAD_2", devices.CNBP, 3003, 163, CNBP, "Numpad Button 2")
+C_130J:definePushButton("CNBP_NUMPAD_3", devices.CNBP, 3004, 164, CNBP, "Numpad Button 3")
+C_130J:definePushButton("CNBP_NUMPAD_4", devices.CNBP, 3005, 165, CNBP, "Numpad Button 4")
+C_130J:definePushButton("CNBP_NUMPAD_5", devices.CNBP, 3006, 166, CNBP, "Numpad Button 5")
+C_130J:definePushButton("CNBP_NUMPAD_6", devices.CNBP, 3007, 167, CNBP, "Numpad Button 6")
+C_130J:definePushButton("CNBP_NUMPAD_7", devices.CNBP, 3008, 168, CNBP, "Numpad Button 7")
+C_130J:definePushButton("CNBP_NUMPAD_8", devices.CNBP, 3009, 169, CNBP, "Numpad Button 8")
+C_130J:definePushButton("CNBP_NUMPAD_9", devices.CNBP, 3010, 170, CNBP, "Numpad Button 9")
+C_130J:definePushButton("CNBP_NUMPAD_DECIMAL", devices.CNBP, 3011, 171, CNBP, "Numpad Button Decimal")
+C_130J:definePushButton("CNBP_NUMPAD_0", devices.CNBP, 3001, 172, CNBP, "Numpad Button 0")
+C_130J:definePushButton("CNBP_NUMPAD_CLEAR", devices.CNBP, 3012, 173, CNBP, "Numpad Button Clear")
+
+C_130J:definePushButton("CNBP_L1", devices.CNBP, 3013, 152, CNBP, "Button L1")
+C_130J:definePushButton("CNBP_L2", devices.CNBP, 3014, 152, CNBP, "Button L2")
+C_130J:definePushButton("CNBP_L3", devices.CNBP, 3015, 153, CNBP, "Button L3")
+C_130J:definePushButton("CNBP_L4", devices.CNBP, 3016, 154, CNBP, "Button L4")
+C_130J:definePushButton("CNBP_R1", devices.CNBP, 3017, 155, CNBP, "Button R1")
+C_130J:definePushButton("CNBP_R2", devices.CNBP, 3018, 156, CNBP, "Button R2")
+C_130J:definePushButton("CNBP_R3", devices.CNBP, 3019, 157, CNBP, "Button R3")
+C_130J:definePushButton("CNBP_R4", devices.CNBP, 3020, 158, CNBP, "Button R4")
 
 -- Pilot Mode Annunciator Panel
 local PLT_MODE_ANNUNICIATOR = "PLT Mode Annunciator Panel"
