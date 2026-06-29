@@ -524,12 +524,56 @@ C_130J:defineString("CPLT_REF_MODE_DISPLAY", function()
 end, 5, CPLT_REF_MODE, "REF/MODE Display")
 
 -- Left Outer Avionics Management Unit
+local LO_AMU = "Left Outer AMU"
+
+C_130J:defineRockerSwitch("L_AMU_BRT_SWITCH", devices.P_DISPLAYS, 3009, 3009, 3020, 3020, 200, LO_AMU, "Left AMU Brightness Switch", { positions = { "DECREASE", "MIDDLE", "INCREASE" } })
+
+C_130J:definePushButton("LO_AMU_L1", devices.P_DISPLAYS, 3011, 133, LO_AMU, "Button L1")
+C_130J:definePushButton("LO_AMU_L2", devices.P_DISPLAYS, 3012, 134, LO_AMU, "Button L2")
+C_130J:definePushButton("LO_AMU_L3", devices.P_DISPLAYS, 3013, 135, LO_AMU, "Button L3")
+C_130J:definePushButton("LO_AMU_L4", devices.P_DISPLAYS, 3014, 136, LO_AMU, "Button L4")
+C_130J:definePushButton("LO_AMU_R1", devices.P_DISPLAYS, 3015, 137, LO_AMU, "Button R1")
+C_130J:definePushButton("LO_AMU_R2", devices.P_DISPLAYS, 3016, 138, LO_AMU, "Button R2")
+C_130J:definePushButton("LO_AMU_R3", devices.P_DISPLAYS, 3017, 139, LO_AMU, "Button R3")
+C_130J:definePushButton("LO_AMU_R4", devices.P_DISPLAYS, 3018, 140, LO_AMU, "Button R4")
 
 -- Left Inner Avionics Management Unit
+local LI_AMU = "Left Inner AMU"
+
+C_130J:definePushButton("LI_AMU_L1", devices.P_DISPLAYS, 3001, 141, LI_AMU, "Button L1")
+C_130J:definePushButton("LI_AMU_L2", devices.P_DISPLAYS, 3002, 142, LI_AMU, "Button L2")
+C_130J:definePushButton("LI_AMU_L3", devices.P_DISPLAYS, 3003, 143, LI_AMU, "Button L3")
+C_130J:definePushButton("LI_AMU_L4", devices.P_DISPLAYS, 3004, 144, LI_AMU, "Button L4")
+C_130J:definePushButton("LI_AMU_R1", devices.P_DISPLAYS, 3005, 145, LI_AMU, "Button R1")
+C_130J:definePushButton("LI_AMU_R2", devices.P_DISPLAYS, 3006, 146, LI_AMU, "Button R2")
+C_130J:definePushButton("LI_AMU_R3", devices.P_DISPLAYS, 3007, 147, LI_AMU, "Button R3")
+C_130J:definePushButton("LI_AMU_R4", devices.P_DISPLAYS, 3008, 148, LI_AMU, "Button R4")
 
 -- Right Inner Avionics Management Unit
+local RI_AMU = "Right Inner AMU"
+
+C_130J:definePushButton("RI_AMU_L1", devices.C_DISPLAYS, 3011, 174, RI_AMU, "Button L1")
+C_130J:definePushButton("RI_AMU_L2", devices.C_DISPLAYS, 3012, 175, RI_AMU, "Button L2")
+C_130J:definePushButton("RI_AMU_L3", devices.C_DISPLAYS, 3013, 176, RI_AMU, "Button L3")
+C_130J:definePushButton("RI_AMU_L4", devices.C_DISPLAYS, 3014, 177, RI_AMU, "Button L4")
+C_130J:definePushButton("RI_AMU_R1", devices.C_DISPLAYS, 3015, 178, RI_AMU, "Button R1")
+C_130J:definePushButton("RI_AMU_R2", devices.C_DISPLAYS, 3016, 179, RI_AMU, "Button R2")
+C_130J:definePushButton("RI_AMU_R3", devices.C_DISPLAYS, 3017, 180, RI_AMU, "Button R3")
+C_130J:definePushButton("RI_AMU_R4", devices.C_DISPLAYS, 3018, 181, RI_AMU, "Button R4")
 
 -- Right Outer Avionics Management Unit
+local RO_AMU = "Right Outer AMU"
+
+C_130J:defineRockerSwitch("R_AMU_BRT_SWITCH", devices.C_DISPLAYS, 3009, 3009, 3020, 3020, 202, RO_AMU, "Right AMU Brightness Switch", { positions = { "DECREASE", "MIDDLE", "INCREASE" } })
+
+C_130J:definePushButton("RO_AMU_L1", devices.C_DISPLAYS, 3001, 182, RO_AMU, "Button L1")
+C_130J:definePushButton("RO_AMU_L2", devices.C_DISPLAYS, 3002, 183, RO_AMU, "Button L2")
+C_130J:definePushButton("RO_AMU_L3", devices.C_DISPLAYS, 3003, 184, RO_AMU, "Button L3")
+C_130J:definePushButton("RO_AMU_L4", devices.C_DISPLAYS, 3004, 185, RO_AMU, "Button L4")
+C_130J:definePushButton("RO_AMU_R1", devices.C_DISPLAYS, 3005, 186, RO_AMU, "Button R1")
+C_130J:definePushButton("RO_AMU_R2", devices.C_DISPLAYS, 3006, 187, RO_AMU, "Button R2")
+C_130J:definePushButton("RO_AMU_R3", devices.C_DISPLAYS, 3007, 188, RO_AMU, "Button R3")
+C_130J:definePushButton("RO_AMU_R4", devices.C_DISPLAYS, 3008, 189, RO_AMU, "Button R4")
 
 -- Communication/Navigation/Electronic Circuit Breaker Panel
 local CNBP = "Communication/Navigation/Electronic Circuit Breaker Panel"
