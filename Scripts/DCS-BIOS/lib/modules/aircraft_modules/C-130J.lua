@@ -638,16 +638,11 @@ C_130J:defineIndicatorLight("CPLT_MODE_ANNUNCIATOR_GS_CAPT", 4123, CPLT_MODE_ANN
 C_130J:defineIndicatorLight("CPLT_MODE_ANNUNCIATOR_BACK_LOC", 4124, CPLT_MODE_ANNUNICIATOR, "BACK LOC Light", { color = "green" })
 C_130J:defineIndicatorLight("CPLT_MODE_ANNUNCIATOR_CAT2", 4125, CPLT_MODE_ANNUNICIATOR, "CAT2 Light", { color = "green" })
 
--- Inclinometer
-local INCLINOMETERS = "Inclinometers"
-
-C_130J:defineFloat("PLT_INCLINOMETER", 130, { 0, 1 }, INCLINOMETERS, "Pilot Inclinometer")
-C_130J:defineFloat("CPLT_INCLINOMETER", 130, { 0, 1 }, INCLINOMETERS, "Copilot Inclinometer")
-
 -- Left Outer Head Down Display
 local LO_HDD = "Left Outer HDD"
 
 C_130J:defineRockerSwitch("LO_HDD_BRT_SWITCH", devices.P_DISPLAYS, 3019, 3019, 3022, 3022, 116, LO_HDD, "Left Outer HDD Brightness Switch", { positions = { "DECREASE", "MIDDLE", "INCREASE" } })
+C_130J:defineFloat("PLT_INCLINOMETER", 130, { 0, 1 }, LO_HDD, "Pilot Inclinometer")
 
 -- Left Inner Head Down Display
 local LI_HDD = "Left Inner HDD"
@@ -663,6 +658,7 @@ C_130J:defineRockerSwitch("RI_HDD_BRT_SWITCH", devices.C_DISPLAYS, 3010, 3010, 3
 local RO_HDD = "Right Outer HDD"
 
 C_130J:defineRockerSwitch("RO_HDD_BRT_SWITCH", devices.C_DISPLAYS, 3019, 3019, 3022, 3022, 119, RO_HDD, "Right Outer HDD Brightness Switch", { positions = { "DECREASE", "MIDDLE", "INCREASE" } })
+C_130J:defineFloat("CPLT_INCLINOMETER", 130, { 0, 1 }, RO_HDD, "Copilot Inclinometer")
 
 -- Hydraulic Control Panel
 local HYD_PANEL = "Hydraulic Control Panel"
