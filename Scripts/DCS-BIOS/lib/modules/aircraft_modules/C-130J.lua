@@ -639,9 +639,10 @@ C_130J:defineIndicatorLight("CPLT_MODE_ANNUNCIATOR_BACK_LOC", 4124, CPLT_MODE_AN
 C_130J:defineIndicatorLight("CPLT_MODE_ANNUNCIATOR_CAT2", 4125, CPLT_MODE_ANNUNICIATOR, "CAT2 Light", { color = "green" })
 
 -- Inclinometer
-local INCLINOMETER = "Inclinometer"
+local INCLINOMETERS = "Inclinometers"
 
-C_130J:defineFloat("INCLINOMETER", 130, { 0, 1 }, INCLINOMETER, "Inclinometer")
+C_130J:defineFloat("PLT_INCLINOMETER", 130, { 0, 1 }, INCLINOMETERS, "Pilot Inclinometer")
+C_130J:defineFloat("CPLT_INCLINOMETER", 130, { 0, 1 }, INCLINOMETERS, "Copilot Inclinometer")
 
 -- Left Outer Head Down Display
 
