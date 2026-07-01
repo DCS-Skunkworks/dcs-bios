@@ -641,24 +641,24 @@ C_130J:defineIndicatorLight("CPLT_MODE_ANNUNCIATOR_CAT2", 4125, CPLT_MODE_ANNUNI
 -- Left Outer Head Down Display
 local LO_HDD = "Left Outer HDD"
 
-C_130J:defineRockerSwitch("LO_HDD_BRT_SWITCH", devices.P_DISPLAYS, 3019, 3019, 3022, 3022, 116, LO_HDD, "Left Outer HDD Brightness Switch", { positions = { "DECREASE", "MIDDLE", "INCREASE" } })
-C_130J:defineFloat("PLT_INCLINOMETER", 130, { 0, 1 }, LO_HDD, "Pilot Inclinometer")
+C_130J:defineRockerSwitch("LO_HDD_BRT_SWITCH", devices.P_DISPLAYS, 3019, 3019, 3022, 3022, 116, LO_HDD, "Brightness Switch", { positions = { "DECREASE", "MIDDLE", "INCREASE" } })
+C_130J:defineFloat("LO_HDD_INCLINOMETER", 130, { 0, 1 }, LO_HDD, "Inclinometer")
 
 -- Left Inner Head Down Display
 local LI_HDD = "Left Inner HDD"
 
-C_130J:defineRockerSwitch("LI_HDD_BRT_SWITCH", devices.P_DISPLAYS, 3010, 3010, 3021, 3021, 117, LI_HDD, "Left Inner HDD Brightness Switch", { positions = { "DECREASE", "MIDDLE", "INCREASE" } })
+C_130J:defineRockerSwitch("LI_HDD_BRT_SWITCH", devices.P_DISPLAYS, 3010, 3010, 3021, 3021, 117, LI_HDD, "Brightness Switch", { positions = { "DECREASE", "MIDDLE", "INCREASE" } })
 
 -- Right Inner Head Down Display
 local RI_HDD = "Right Inner HDD"
 
-C_130J:defineRockerSwitch("RI_HDD_BRT_SWITCH", devices.C_DISPLAYS, 3010, 3010, 3021, 3021, 118, RI_HDD, "Right Inner HDD Brightness Switch", { positions = { "DECREASE", "MIDDLE", "INCREASE" } })
+C_130J:defineRockerSwitch("RI_HDD_BRT_SWITCH", devices.C_DISPLAYS, 3010, 3010, 3021, 3021, 118, RI_HDD, "Brightness Switch", { positions = { "DECREASE", "MIDDLE", "INCREASE" } })
 
 -- Right Outer Head Down Display
 local RO_HDD = "Right Outer HDD"
 
-C_130J:defineRockerSwitch("RO_HDD_BRT_SWITCH", devices.C_DISPLAYS, 3019, 3019, 3022, 3022, 119, RO_HDD, "Right Outer HDD Brightness Switch", { positions = { "DECREASE", "MIDDLE", "INCREASE" } })
-C_130J:defineFloat("CPLT_INCLINOMETER", 130, { 0, 1 }, RO_HDD, "Copilot Inclinometer")
+C_130J:defineRockerSwitch("RO_HDD_BRT_SWITCH", devices.C_DISPLAYS, 3019, 3019, 3022, 3022, 119, RO_HDD, "Brightness Switch", { positions = { "DECREASE", "MIDDLE", "INCREASE" } })
+C_130J:defineFloat("CPLT_INCLINOMETER", 130, { 0, 1 }, RO_HDD, "Inclinometer")
 
 -- Hydraulic Control Panel
 local HYD_PANEL = "Hydraulic Control Panel"
