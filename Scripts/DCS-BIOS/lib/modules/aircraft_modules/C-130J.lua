@@ -753,9 +753,9 @@ C_130J:defineString("STBY_INHG_COUNTER", function(dev0)
 	return stby_inhg_display(dev0)
 end, 4, STBY_ALT, "inHg Pressure Counter")
 
-C_130J:defineFloat("STBY_MB_THOUSANDS", 1507, { -1, 1 }, STBY_ALT, "MB Pressure Counter (Thousands)")
-C_130J:defineFloat("STBY_MB_TENS", 1506, { -1, 1 }, STBY_ALT, "MB Pressure Counter (Tens)")
-C_130J:defineFloat("STBY_MB_ONES", 1505, { -1, 1 }, STBY_ALT, "MB Pressure Counter (Ones)")
+C_130J:defineFloat("STBY_MB_THOUSANDS", 1507, { -1, 1 }, STBY_ALT, "mbar Pressure Counter (Thousands)")
+C_130J:defineFloat("STBY_MB_TENS", 1506, { -1, 1 }, STBY_ALT, "mbar Pressure Counter (Tens)")
+C_130J:defineFloat("STBY_MB_ONES", 1505, { -1, 1 }, STBY_ALT, "mbar Pressure Counter (Ones)")
 
 local function stby_mb_display(dev0)
 	local val_ones = Module.round((dev0:get_argument_value(1505) + 1) * 5) % 10
@@ -767,7 +767,7 @@ local function stby_mb_display(dev0)
 end
 C_130J:defineString("STBY_MB_COUNTER", function(dev0)
 	return stby_mb_display(dev0)
-end, 4, STBY_ALT, "MB Pressure Counter")
+end, 4, STBY_ALT, "mbar Pressure Counter")
 
 -- Standby Attitude Indicator
 local STBY_ATT = "Standby Attitude Indicator"
