@@ -697,11 +697,11 @@ C_130J:define3PosTumb("LANDING_LIGHTS_MOTOR_R", devices.LIGHTING_PANELS, 3003, 3
 -- Flap and Trim Indicator Panel
 local FLAP_TRIM_INDICATOR = "Flap and Trim Indicator Panel"
 
-C_130J:defineFloat("FLAP_TRIM_INDICATOR_LEFT_AILERON", 470, { -1, 1 }, FLAP_TRIM_INDICATOR, "Left Aileron Trim Indicator")
-C_130J:defineFloat("FLAP_TRIM_INDICATOR_RIGHT_AILERON", 471, { -1, 1 }, FLAP_TRIM_INDICATOR, "Right Aileron Trim Indicator")
-C_130J:defineFloat("FLAP_TRIM_INDICATOR_RUDDER", 472, { -1, 1 }, FLAP_TRIM_INDICATOR, "Rudder Trim Indicator")
-C_130J:defineFloat("FLAP_TRIM_INDICATOR_ELEVATOR", 473, { -1, 1 }, FLAP_TRIM_INDICATOR, "Elevator Trim Indicator")
-C_130J:defineFloat("FLAP_TRIM_INDICATOR_FLAPS", 426, { -1, 1 }, FLAP_TRIM_INDICATOR, "Flaps Trim Indicator")
+C_130J:defineFloat("FLAP_TRIM_INDICATOR_LEFT_AILERON", 470, { 0, 1 }, FLAP_TRIM_INDICATOR, "Left Aileron Trim Indicator")
+C_130J:defineFloat("FLAP_TRIM_INDICATOR_RIGHT_AILERON", 471, { 0, 1 }, FLAP_TRIM_INDICATOR, "Right Aileron Trim Indicator")
+C_130J:defineFloat("FLAP_TRIM_INDICATOR_RUDDER", 472, { 0, 1 }, FLAP_TRIM_INDICATOR, "Rudder Trim Indicator")
+C_130J:defineFloat("FLAP_TRIM_INDICATOR_ELEVATOR", 473, { 0, 1 }, FLAP_TRIM_INDICATOR, "Elevator Trim Indicator")
+C_130J:defineFloat("FLAP_TRIM_INDICATOR_FLAPS", 426, { 0, 1 }, FLAP_TRIM_INDICATOR, "Flaps Trim Indicator")
 
 -- Standby Altimeter/Airspeed Indicator
 
