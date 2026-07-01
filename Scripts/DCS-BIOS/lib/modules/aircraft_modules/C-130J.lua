@@ -716,8 +716,66 @@ C_130J:defineFloat("FLAP_TRIM_INDICATOR_ELEVATOR", 473, { 0, 1 }, FLAP_TRIM_INDI
 C_130J:defineFloat("FLAP_TRIM_INDICATOR_FLAPS", 426, { 0, 1 }, FLAP_TRIM_INDICATOR, "Flaps Trim Indicator")
 
 -- Standby Altimeter/Airspeed Indicator
+local STBY_ALT = "Standby Altimeter/Airspeed Indicator"
+
+C_130J:defineRotary("STBY_BARO_KNOB", devices.MECH_INTERFACE, 3102, 125, STBY_ALT, "Baro Adjust Knob")
+C_130J:defineFloat("STBY_ALT_INDICATOR", 129, { -1, 1 }, STBY_ALT, "Altitude Indicator")
+C_130J:defineFloat("STBY_ALT_IAS_INDICATOR", 1508, { -1, 1 }, STBY_ALT, "IAS Indicator")
+C_130J:defineFloat("STBY_ALT_TEN_THOUSANDS", 1501, { -1, 1 }, STBY_ALT, "Altitude Counter (Tens of Thousands)")
+C_130J:defineFloat("STBY_ALT_THOUSANDS", 1500, { -1, 1 }, STBY_ALT, "Altitude Counter (Thousands)")
+
+local function stby_alt_display(dev0)
+	local val_tens = Module.round((dev0:get_argument_value(1501) + 1) * 5) % 10
+	local val_thousands = Module.round((dev0:get_argument_value(1500) + 1) * 5) % 10
+
+	local prefix = val_tens == 0 and "-" or (val_tens - 1)
+	return prefix .. val_thousands .. "000"
+end
+C_130J:defineString("STBY_ALT_COUNTER", function(dev0)
+	return stby_alt_display(dev0)
+end, 5, STBY_ALT, "Altitude Counter")
+
+C_130J:defineFloat("STBY_INHG_THOUSANDS", 1504, { -1, 1 }, STBY_ALT, "inHg Pressure Counter (Thousands)")
+C_130J:defineFloat("STBY_INHG_TENS", 1503, { -1, 1 }, STBY_ALT, "inHg Pressure Counter (Tens)")
+C_130J:defineFloat("STBY_INHG_ONES", 1502, { -1, 1 }, STBY_ALT, "inHg Pressure Counter (Ones)")
+
+local function stby_inhg_display(dev0)
+	local val_ones = Module.round((dev0:get_argument_value(1502) + 1) * 5) % 10
+	local val_tens = Module.round((dev0:get_argument_value(1503) + 1) * 5) % 10
+	local val_thousands = Module.round((dev0:get_argument_value(1504) + 1) * 5) % 10
+
+	local digits_thousands = val_thousands == 0 and "30" or (val_thousands == 1 and "00" or tostring(val_thousands + 20))
+	return digits_thousands .. val_tens .. val_ones
+end
+C_130J:defineString("STBY_INHG_COUNTER", function(dev0)
+	return stby_inhg_display(dev0)
+end, 4, STBY_ALT, "inHg Pressure Counter")
+
+C_130J:defineFloat("STBY_MB_THOUSANDS", 1507, { -1, 1 }, STBY_ALT, "MB Pressure Counter (Thousands)")
+C_130J:defineFloat("STBY_MB_TENS", 1506, { -1, 1 }, STBY_ALT, "MB Pressure Counter (Tens)")
+C_130J:defineFloat("STBY_MB_ONES", 1505, { -1, 1 }, STBY_ALT, "MB Pressure Counter (Ones)")
+
+local function stby_mb_display(dev0)
+	local val_ones = Module.round((dev0:get_argument_value(1505) + 1) * 5) % 10
+	local val_tens = Module.round((dev0:get_argument_value(1506) + 1) * 5) % 10
+	local val_thousands = Module.round((dev0:get_argument_value(1507) + 1) * 5) % 10
+
+	local digit_thousands = val_thousands == 0 and "10" or (val_thousands <= 6 and "00" or "0" .. val_thousands)
+	return digit_thousands .. val_tens .. val_ones
+end
+C_130J:defineString("STBY_MB_COUNTER", function(dev0)
+	return stby_mb_display(dev0)
+end, 4, STBY_ALT, "MB Pressure Counter")
 
 -- Standby Attitude Indicator
+local STBY_ATT = "Standby Attitude Indicator"
+
+C_130J:defineFloat("STBY_ATT_PITCH_BAR", 120, { 0, 1 }, STBY_ATT, "Attitude Indicator Bar")
+C_130J:defineFloat("STBY_ATT_PITCH", 122, { -1, 1 }, STBY_ATT, "Attitude Indicator Pitch")
+C_130J:defineFloat("STBY_ATT_ROLL", 123, { -1, 1 }, STBY_ATT, "Attitude Indicator Roll")
+C_130J:defineFloat("STBY_ATT_FLAG", 121, { 0, 1 }, STBY_ATT, "Attitude Indicator Off Flag")
+C_130J:definePotentiometer("STBY_ATT_KNOB", devices.MECH_INTERFACE, 3103, 127, { -1, 1 }, STBY_ATT, "Attitude Indicator Knob Rotate")
+C_130J:definePushButton("STBY_ATT_KNOB_BUTTON", devices.MECH_INTERFACE, 3104, 128, STBY_ATT, "Attitude Indicator Knob Button")
 
 -- Main Instrument Panel END
 
