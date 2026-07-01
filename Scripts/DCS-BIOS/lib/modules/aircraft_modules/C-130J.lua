@@ -716,9 +716,9 @@ C_130J:defineString("STBY_ALT_COUNTER", function(dev0)
 	return stby_alt_display(dev0)
 end, 5, STBY_ALT, "Altitude Counter")
 
-C_130J:defineFloat("STBY_INHG_THOUSANDS", 1504, { -1, 1 }, STBY_ALT, "IN HG Pressure Counter (Thousands)")
-C_130J:defineFloat("STBY_INHG_TENS", 1503, { -1, 1 }, STBY_ALT, "IN HG Pressure Counter (Tens)")
-C_130J:defineFloat("STBY_INHG_ONES", 1502, { -1, 1 }, STBY_ALT, "IN HG Pressure Counter (Ones)")
+C_130J:defineFloat("STBY_INHG_THOUSANDS", 1504, { -1, 1 }, STBY_ALT, "inHg Pressure Counter (Thousands)")
+C_130J:defineFloat("STBY_INHG_TENS", 1503, { -1, 1 }, STBY_ALT, "inHg Pressure Counter (Tens)")
+C_130J:defineFloat("STBY_INHG_ONES", 1502, { -1, 1 }, STBY_ALT, "inHg Pressure Counter (Ones)")
 
 local function stby_inhg_display(dev0)
 	local val_ones = Module.round((dev0:get_argument_value(1502) + 1) * 5) % 10
@@ -730,7 +730,7 @@ local function stby_inhg_display(dev0)
 end
 C_130J:defineString("STBY_INHG_COUNTER", function(dev0)
 	return stby_inhg_display(dev0)
-end, 4, STBY_ALT, "IN HG Pressure Counter")
+end, 4, STBY_ALT, "inHg Pressure Counter")
 
 C_130J:defineFloat("STBY_MB_THOUSANDS", 1507, { -1, 1 }, STBY_ALT, "MB Pressure Counter (Thousands)")
 C_130J:defineFloat("STBY_MB_TENS", 1506, { -1, 1 }, STBY_ALT, "MB Pressure Counter (Tens)")
