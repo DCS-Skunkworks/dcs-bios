@@ -1725,6 +1725,9 @@ C_130J:defineIndicatorLight("AFCS_LATERAL_AXIS_SWITCH_LED", 4090, AFCS_PANEL, "A
 -- Center Console END
 
 -- Nosewheel Steering
+local NOSEWHEEL = "Nosewheel Steering"
+
+C_130J:defineFloat("NOSEWHEEL_STEERING_WHEEL", 12, { -1, 1 }, NOSEWHEEL, "Steering Wheel")
 
 -- Pilot Yoke
 
