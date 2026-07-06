@@ -718,9 +718,26 @@ end
 --- @param attributes BaseControlAttributes? additional control attributes
 --- @return Control control the control which was added to the module
 function Module:defineRotary(identifier, device_id, command, arg_number, category, description, attributes)
+	return self:defineRotaryWithRange(identifier, device_id, command, arg_number, { 0, 1 }, category, description, attributes)
+end
+
+--- Adds an infitely-looping rotary, like an encoder
+--- @param identifier string the unique identifier for the control
+--- @param device_id integer the dcs device id
+--- @param command integer the dcs command
+--- @param arg_number integer the dcs argument number
+--- @param limits number[] a length-2 array with the lower and upper bounds of the data as used in dcs
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @param attributes BaseControlAttributes? additional control attributes
+--- @return Control control the control which was added to the module
+function Module:defineRotaryWithRange(identifier, device_id, command, arg_number, limits, category, description, attributes)
+	assert_min_max(limits, "limits")
+	local span = limits[2] - limits[1]
 	local max_value = 65535
+	local input_max_value = max_value / span -- range { -1, 1 } needs to send "2" for a full rotation
 	self:addInputProcessor(identifier, function(value)
-		GetDevice(device_id):performClickableAction(command, tonumber(value) / max_value)
+		GetDevice(device_id):performClickableAction(command, tonumber(value) / input_max_value)
 	end)
 
 	local value = self:allocateInt(max_value, identifier)
@@ -733,7 +750,7 @@ function Module:defineRotary(identifier, device_id, command, arg_number, categor
 	self:addControl(control)
 
 	self:addExportHook(function(dev0)
-		value:setValue(dev0:get_argument_value(arg_number) * max_value)
+		value:setValue(Module.valueConvert(dev0:get_argument_value(arg_number), limits, { 0, max_value }))
 	end)
 
 	return control
