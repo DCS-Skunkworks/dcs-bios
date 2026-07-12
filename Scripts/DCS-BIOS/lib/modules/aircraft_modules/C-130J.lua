@@ -1759,11 +1759,21 @@ C_130J:defineFloat("NOSEWHEEL_STEERING_WHEEL", 12, { -1, 1 }, NOSEWHEEL, "Steeri
 
 -- Flight Station Forward END
 
--- Loadmaster Station
+-- Loadmaster Station START
 
--- TODO: panel, circuit breakers, crew door handle
+-- Loadmaster Station Controls
+local LOADMASTER_CTRLS = "Loadmaster Controls"
 
--- Loadmaster Station End
+C_130J:defineC130Springloaded_3PosTumb("LOADMASTER_RAMP_DOOR", devices.MECH_INTERFACE, 3097, 2101, LOADMASTER_CTRLS, "Ramp/Door Control Switch", { positions = { "CLOSE", "OFF", "OPEN" } })
+C_130J:defineToggleSwitch("LOADMASTER_COVER", devices.CARGO_HANDLER, 3062, 2100, LOADMASTER_CTRLS, "Cover")
+
+-- Loadmaster Station Locks Indicator Panel
+
+-- Loadmaster Station Circuit Breaker
+
+-- Loadmaster Station Computer
+
+-- Loadmaster Station END
 
 -- Interior Lights
 
