@@ -1753,9 +1753,26 @@ local NOSEWHEEL = "Nosewheel Steering"
 
 C_130J:defineFloat("NOSEWHEEL_STEERING_WHEEL", 12, { -1, 1 }, NOSEWHEEL, "Steering Wheel")
 
--- Pilot Yoke
+-- Yoke
+local YOKE = "Yoke (PLT/CPLT)"
 
--- Copilot Yoke
+C_130J:defineFloat("YOKE_PITCH", 1, { -1, 1 }, YOKE, "Yoke Pitch")
+C_130J:defineFloat("YOKE_ROLL", 2, { -1, 1 }, YOKE, "Yoke Roll")
+C_130J:defineInputOnlyPushButton("YOKE_PFD_RESET", devices.PILOT_CPT_INTERFACE, 3013, YOKE, "PFD Reset Button")
+C_130J:defineInputOnlyPushButton("YOKE_AFCS_DISCONNECT", devices.AP_INTERFACE, 3017, YOKE, "Autopilot Disconnect Button")
+C_130J:defineInputOnlyPushButton("YOKE_PITCH_SYNC", devices.AP_INTERFACE, 3018, YOKE, "Pitch Sync Button")
+C_130J:defineInputOnlyPushButton("YOKE_COUNTERMEASURE", devices.CMS_MGR, 3002, YOKE, "Countermeasure Dispense Button")
+C_130J:defineInputOnlyPushButton("YOKE_GOAROUND", devices.PILOT_CPT_INTERFACE, 3006, YOKE, "Go-Around Button")
+C_130J:defineInputOnlyPushButton("YOKE_HUD_DECLUTTER", devices.PILOT_CPT_INTERFACE, 3016, YOKE, "HUD Declutter")
+C_130J:defineInputOnlyPushButtonWithValues("YOKE_INTERCOM_SWITCH", devices.VOLUME_MANAGER, 3015, -1, 0, YOKE, "Radio Switch (Intercom)")
+C_130J:defineInputOnlyPushButtonWithValues("YOKE_RADIO_SWITCH", devices.VOLUME_MANAGER, 3015, 1, 0, YOKE, "Radio Switch (Radio)")
+C_130J:defineInputOnlyPushButtonWithValues("YOKE_HUSH", devices.MECH_INTERFACE, 3093, 1, 0, YOKE, "Hush/Stopwatch Switch (Hush)")
+C_130J:defineInputOnlyPushButtonWithValues("YOKE_STOPWATCH", devices.PILOT_CPT_INTERFACE, 3005, -1, 0, YOKE, "Hush/Stopwatch Switch (Stopwatch)")
+-- Cursor controls are shared with the Cursor Control Panel
+C_130J:defineInputOnlyPushButton("YOKE_CURSOR_UP", devices.CURSOR, 3007, YOKE, "Cursor Control Switch UP")
+C_130J:defineInputOnlyPushButton("YOKE_CURSOR_DOWN", devices.CURSOR, 3008, YOKE, "Cursor Control Switch DOWN")
+C_130J:defineInputOnlyPushButton("YOKE_CURSOR_RIGHT", devices.CURSOR, 3009, YOKE, "Cursor Control Switch RIGHT")
+C_130J:defineInputOnlyPushButton("YOKE_CURSOR_LEFT", devices.CURSOR, 3010, YOKE, "Cursor Control Switch LEFT")
 
 -- Flight Station Forward END
 
