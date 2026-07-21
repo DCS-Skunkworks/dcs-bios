@@ -1768,6 +1768,7 @@ C_130J:defineInputOnlyPushButtonWithValues("YOKE_INTERCOM_SWITCH", devices.VOLUM
 C_130J:defineInputOnlyPushButtonWithValues("YOKE_RADIO_SWITCH", devices.VOLUME_MANAGER, 3015, 1, 0, YOKE, "Radio Switch (Radio)")
 C_130J:defineInputOnlyPushButtonWithValues("YOKE_HUSH", devices.MECH_INTERFACE, 3093, 1, 0, YOKE, "Hush/Stopwatch Switch (Hush)")
 C_130J:defineInputOnlyPushButtonWithValues("YOKE_STOPWATCH", devices.PILOT_CPT_INTERFACE, 3005, -1, 0, YOKE, "Hush/Stopwatch Switch (Stopwatch)")
+-- Cursor controls are shared with the Cursor Control Panel
 C_130J:defineInputOnlyPushButton("YOKE_CURSOR_UP", devices.CURSOR, 3007, YOKE, "Cursor Control Switch UP")
 C_130J:defineInputOnlyPushButton("YOKE_CURSOR_DOWN", devices.CURSOR, 3008, YOKE, "Cursor Control Switch DOWN")
 C_130J:defineInputOnlyPushButton("YOKE_CURSOR_RIGHT", devices.CURSOR, 3009, YOKE, "Cursor Control Switch RIGHT")
