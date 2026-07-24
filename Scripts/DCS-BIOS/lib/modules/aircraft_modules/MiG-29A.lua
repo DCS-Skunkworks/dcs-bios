@@ -89,6 +89,8 @@ local devices = {
 	TRANSPONDER = 62,
 	INTERROGATOR = 63,
 	SO69 = 64,
+	ZMS = 65,
+	KRU = 66,
 }
 
 --- Defines a 0-max_value output from a 0-1 input
@@ -1448,5 +1450,11 @@ MiG_29A:defineFullRangeFloatFromExternalDrawArgument("EXT_MODEL_IRST_YAW", 307, 
 
 -- Radios
 MiG_29A:defineReadOnlyRadio("RADIO_R_862", devices.VHF_UHF_R862, 7, 3, 1000, "R-862 (VHF/UHF)")
+
+-- KRU
+local KRU = "KRU"
+
+MiG_29A:defineMultipositionSwitch("KRU_CHANNEL", devices.KRU, 3001, 447, 20, 0.01, KRU, "KRU Channel", { positions = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" } })
+MiG_29A:definePushButton("KRU_VK", devices.KRU, 3004, 450, KRU, "VK Button")
 
 return MiG_29A
