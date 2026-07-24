@@ -22355,6 +22355,42 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
+	["INU_2_HDG"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_START_2",
+			},
+			id = "INU_2_HDG",
+			x = 10,
+			y = 4,
+			color = "w",
+		},
+	},
+	["INU_2_HDG_MANUAL"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_START_2",
+			},
+			id = "INU_2_HDG_MANUAL",
+			x = 10,
+			y = 4,
+			color = "w",
+		},
+	},
+	["INU_2_HDG_STORED"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_START_2",
+			},
+			id = "INU_2_HDG_STORED",
+			x = 10,
+			y = 4,
+			color = "w",
+		},
+	},
 	["INU_2_MODE_GC_ALN"] = {
 		{
 			alignment = "RGHT",
