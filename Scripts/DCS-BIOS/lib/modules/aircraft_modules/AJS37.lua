@@ -15,6 +15,7 @@ local AJS37 = Module:new("AJS37", 0x4600, { "AJS37" })
 
 local devices = {
 	LIGHTS = 17,
+	IFF = 32,
 }
 
 --overhaul by WarLord v1.0a
@@ -72,7 +73,7 @@ AJS37:defineToggleSwitch("RADAR_PULSE_NORMAL_SHORT", 5, 3328, 218, "Radar", "Pul
 AJS37:defineToggleSwitch("RADAR_RECCE_ON_OFF", 5, 3350, 216, "Radar", "Passive Recce On/Off Switch")
 AJS37:defineToggleSwitch("RADAR_MAINTENANCE_TEST", 5, 3914, 1006, "Radar", "Radar/EL Maintenance Test")
 AJS37:defineToggleSwitch("RADAR_IGNITION_COILS", 18, 3918, 395, "Radar", "Ignition Coils")
-AJS37:definePushButton("RADAR_IFF_ID", 5, 3922, 1205, "Radar", "IFF Identification")
+AJS37:definePushButton("RADAR_IFF_ID", devices.IFF, 3922, 1205, "Transponder Panel", "Ident")
 
 --Reversal
 AJS37:defineToggleSwitch("REVERSAL", 7, 3001, 20, "Thrust Reverser", "Thrust Reverser On/Off")
@@ -127,8 +128,8 @@ AJS37:defineToggleSwitch("CB_TRIM_SYSTEM", 18, 3907, 304, "Engine Panel", "CB Tr
 AJS37:defineToggleSwitch("CB_CI_SI", 18, 3908, 305, "Engine Panel", "CB CI/SI")
 AJS37:defineToggleSwitch("CB_EJECTION_SYSTEM", 18, 3909, 306, "Engine Panel", "CB Ejection System")
 AJS37:defineToggleSwitch("CB_ENGINE", 18, 3910, 307, "Engine Panel", "CB Engine")
-AJS37:defineToggleSwitch("IFF_TRANSPONDER_POWER", 18, 3920, 1203, "Engine Panel", "IFF/Transponder Power")
-AJS37:defineToggleSwitch("IFF_CHANNEL", 18, 3921, 1204, "Engine Panel", "IFF Channel Selector")
+AJS37:defineToggleSwitch("IFF_TRANSPONDER_POWER", devices.IFF, 3920, 1203, "Transponder Panel", "Transponder Power")
+AJS37:defineToggleSwitch("IFF_CHANNEL", devices.IFF, 3921, 1204, "Transponder Panel", "Transponder Mode", { positions = { "A", "A+C" } })
 AJS37:defineToggleSwitch("DME_SELECTOR", 18, 3919, 1206, "Engine Panel", "DME Selector")
 AJS37:defineToggleSwitch("IGNITION_SYSTEM", 18, 3003, 205, "Engine Panel", "Ignition System")
 AJS37:defineToggleSwitch("MAN_AFTERBURN_FUEL_REG", 18, 3006, 313, "Engine Panel", "Manual Afterburner Fuel Regulator")
@@ -374,8 +375,11 @@ AJS37:reserveIntValue(20) -- corrected control requires more space, so reserve t
 AJS37:reserveIntValue(10) -- corrected control requires more space, so reserve this space and add corrected control to the end
 AJS37:defineRotary("FR22_VOL", 21, 3112, 385, "FR22 Radio", "Radio Volume")
 
-AJS37:defineToggleSwitch("IFF_POWER", 18, 3001, 1203, "Radar", "IFF Power")
-AJS37:defineTumb("IFF_CODE", 18, 3000, 308, 0.1, { 0, 1 }, nil, false, "Radar", "IFF Code")
+local IFF = "IFF Panel"
+
+AJS37:defineToggleSwitch("IFF_POWER", devices.IFF, 3100, 308, IFF, "IFF Power Switch")
+AJS37:defineMultipositionSwitch("IFF_CODE", devices.IFF, 3001, 309, 11, 0.1, IFF, "IFF Code Selector", { positions = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11" } })
+
 AJS37:definePotentiometer("DE_ICE", 18, 3912, 286, { 0, 1 }, "Engine Panel", "Windscreen De-Ice")
 AJS37:defineRotary("TEST_MODE", 18, 3913, 675, "Engine Panel", "Maintenance Testing Mode")
 AJS37:defineRotary("DRYSUIT", 18, 3917, 396, "Engine Panel", "Drysuit Ventilation Adjustment")
@@ -639,5 +643,35 @@ end, 1, FRONT_PANEL_LIGHTS, "Radar Display Range 60 Lamp (red)")
 AJS37:defineIntegerFromGetter("RDR_RANGE_120_L", function(dev0)
 	return radar_range_binary(dev0, 4)
 end, 1, FRONT_PANEL_LIGHTS, "Radar Display Range 120 Lamp (red)")
+
+local IK = "IK Transponder Panel"
+
+AJS37:definePushButton("TRANSPONDER_TEST", devices.IFF, 3923, 7777, IK, "Transponder Test")
+AJS37:defineMultipositionSwitch("TRANSPONDER_CODE_THOUSANDS", devices.IFF, 3924, 3558, 8, 0.1, IK, "Transponder Code (Thousands)")
+AJS37:defineMultipositionSwitch("TRANSPONDER_CODE_HUNDREDS", devices.IFF, 3925, 3559, 8, 0.1, IK, "Transponder Code (Hundreds)")
+AJS37:defineMultipositionSwitch("TRANSPONDER_CODE_TENS", devices.IFF, 3926, 3560, 8, 0.1, IK, "Transponder Code (Tens)")
+AJS37:defineMultipositionSwitch("TRANSPONDER_CODE_ONES", devices.IFF, 3927, 3561, 8, 0.1, IK, "Transponder Code (Ones)")
+
+local function transponder_digit(dev0, arg_number)
+	return Module.round(dev0:get_argument_value(arg_number) * 10)
+end
+
+AJS37:defineString("TRANSPONDER_CODE", function(dev0)
+	local thousands = transponder_digit(dev0, 3558)
+	local hundreds = transponder_digit(dev0, 3559)
+	local tens = transponder_digit(dev0, 3560)
+	local ones = transponder_digit(dev0, 3561)
+
+	return thousands .. hundreds .. tens .. ones
+end, 4, IK, "Transponder Code")
+
+AJS37:defineGatedIndicatorLight("TRANSPONDER_ANSWER_LIGHT", 3562, 0.5, nil, IK, "Svar Lamp", { color = "green" })
+AJS37:defineGatedIndicatorLight("TRANSPONDER_ERROR_LIGHT", 3563, 0.5, nil, IK, "Fel Lamp", { color = "red" })
+AJS37:defineGatedIndicatorLight("TRANSPONDER_IK_LIGHT", 3566, 0.5, nil, IK, "IK Lamp", { color = "orange" })
+
+local FK = "FK"
+
+AJS37:defineGatedIndicatorLight("FK_GREEN_LIGHT", 3567, 0.5, nil, FK, "FK Green Lamp", { color = "green" })
+AJS37:defineGatedIndicatorLight("FK_RED_LIGHT", 3568, 0.04, nil, FK, "FK Red Lamp", { color = "red" })
 
 return AJS37
