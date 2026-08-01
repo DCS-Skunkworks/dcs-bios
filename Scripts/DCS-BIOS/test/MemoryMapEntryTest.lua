@@ -83,7 +83,7 @@ function TestMemoryMapEntry:testMemoryAllocation()
 	lu.assertEquals(entry:getValue(), 0)
 	lu.assertIsFalse(entry.dirty)
 
-	alloc:setValue(-1) -- nor should any below zero
+	alloc:setValue(-3) -- nor should any below the clamp threshold
 	lu.assertEquals(entry:getValue(), 0)
 	lu.assertIsFalse(entry.dirty)
 

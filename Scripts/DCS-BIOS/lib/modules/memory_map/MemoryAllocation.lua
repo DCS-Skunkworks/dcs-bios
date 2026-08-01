@@ -50,8 +50,8 @@ function MemoryAllocation:setValue(value)
 	assert(self.maxValue)
 	assert(value)
 
-	-- check if value is close enough to our min that it could be a rounding error
-	local clean_value = value < 0 and value + 0.01 >= 0 and 0 or value
+	-- check if value is close enough to our min/max that it could be a rounding error
+	local clean_value = self:clean_value(value)
 
 	clean_value = math.floor(clean_value)
 	if clean_value < 0 or clean_value > self.maxValue then
@@ -67,6 +67,18 @@ function MemoryAllocation:setValue(value)
 		self.value = clean_value
 		self.memoryMapEntry.dirty = true
 	end
+end
+
+function MemoryAllocation:clean_value(value)
+	local THRESHOLD = 0.01 -- within 1% is fine
+
+	if value < 0 then
+		return math.abs(value) / self.maxValue < THRESHOLD and 0 or value
+	elseif value > self.maxValue then
+		return (value - self.maxValue) / self.maxValue < THRESHOLD and self.maxValue or value
+	end
+
+	return value
 end
 
 return MemoryAllocation
