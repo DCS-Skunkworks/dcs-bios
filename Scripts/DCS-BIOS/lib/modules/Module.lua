@@ -81,8 +81,7 @@ end
 --- @return Control control the control which was added to the module
 function Module:defineSetCommandTumb(identifier, device_id, command, arg_number, step, limits, output_map, cycle, category, description, attributes)
 	local span = limits[2] - limits[1]
-	local last_n = tonumber(string.format("%.0f", span / step))
-	last_n = last_n or 0
+	local last_n = Module.round(span / step)
 
 	local value_enum = output_map
 	if not value_enum then
@@ -108,7 +107,7 @@ function Module:defineSetCommandTumb(identifier, device_id, command, arg_number,
 
 	self:addExportHook(function(dev0)
 		local value = dev0:get_argument_value(arg_number)
-		local n = tonumber(string.format("%.0f", (value - limits[1]) / step))
+		local n = Module.round((value - limits[1]) / step)
 
 		if n > last_n then
 			n = last_n
@@ -144,7 +143,7 @@ function Module:defineSetCommandTumb(identifier, device_id, command, arg_number,
 
 	self:addInputProcessor(identifier, function(state)
 		local value = GetDevice(0):get_argument_value(arg_number)
-		local n = tonumber(string.format("%.0f", (value - limits[1]) / step))
+		local n = Module.round((value - limits[1]) / step)
 		local new_n
 
 		if state == "INC" then
@@ -164,10 +163,11 @@ function Module:defineSetCommandTumb(identifier, device_id, command, arg_number,
 			GetDevice(device_id):SetCommand(command, limits[1] + step * new_n)
 			GetDevice(0):set_argument_value(arg_number, limits[1] + step * new_n)
 		else
-			n = tonumber(string.format("%.0f", tonumber(state)))
-			if n == nil then
+			local v = tonumber(state)
+			if v == nil then
 				return
 			end
+			n = Module.round(v)
 			GetDevice(device_id):SetCommand(command, limits[1] + step * Module.cap(n, 0, last_n, cycle))
 			GetDevice(0):set_argument_value(arg_number, limits[1] + step * Module.cap(n, 0, last_n, cycle))
 		end
@@ -1046,8 +1046,7 @@ end
 function Module:defineTumb(identifier, device_id, command, arg_number, step, limits, output_map, cycle, category, description, attributes)
 	assert_min_max(limits, "limits")
 	local span = limits[2] - limits[1]
-	local last_n = tonumber(string.format("%.0f", span / step))
-	assert(last_n)
+	local last_n = Module.round(span / step)
 
 	local value_enum = output_map
 	if not value_enum then
@@ -1076,7 +1075,7 @@ function Module:defineTumb(identifier, device_id, command, arg_number, step, lim
 	end
 	self:addExportHook(function(dev0)
 		local value = dev0:get_argument_value(arg_number)
-		local n = tonumber(string.format("%.0f", (value - limits[1]) / step))
+		local n = Module.round((value - limits[1]) / step)
 
 		if n > last_n then
 			n = last_n
@@ -1120,7 +1119,7 @@ function Module:defineTumb(identifier, device_id, command, arg_number, step, lim
 
 	self:addInputProcessor(identifier, function(state)
 		local value = GetDevice(0):get_argument_value(arg_number)
-		local n = tonumber(string.format("%.0f", (value - limits[1]) / step))
+		local n = Module.round((value - limits[1]) / step)
 		local new_n = n
 		if state == "INC" then
 			new_n = Module.cap(n + 1, 0, last_n, cycle)
@@ -1144,10 +1143,11 @@ function Module:defineTumb(identifier, device_id, command, arg_number, step, lim
 			end
 			GetDevice(device_id):performClickableAction(command, limits[1] + step * new_n)
 		else
-			n = tonumber(string.format("%.0f", tonumber(state)))
-			if n == nil then
+			local v = tonumber(state)
+			if v == nil then
 				return
 			end
+			n = Module.round(v)
 			GetDevice(device_id):performClickableAction(command, limits[1] + step * Module.cap(n, 0, last_n, cycle))
 		end
 	end)
@@ -1582,14 +1582,6 @@ end
 --- @return integer number the rounded number
 function Module.round(num)
 	return num >= 0 and math.floor(num + 0.5) or math.ceil(num - 0.5)
-end
-
---- rounds a number to certain decimal place
---- @param num number the number to round
---- @param decimal_places integer
---- @return number
-function Module.round2(num, decimal_places)
-	return tonumber(string.format("%." .. (decimal_places or 0) .. "f", num)) or 0
 end
 
 --- Maps value to from input_range to output_range
