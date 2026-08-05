@@ -1628,4 +1628,35 @@ function Module.build_gauge_from_arguments(dev0, arguments)
 	return result
 end
 
+--- Returns an integer value for a drum-based numeric indicator
+--- @param dev0 CockpitDevice
+--- @param arg_number integer the dcs argument number from which to fetch the data
+--- @param invert boolean? whether the input should be inverted - default false
+--- @param max_value integer? the exclusive upper bound of the output - default 10
+--- @return integer value the integer displayed on the drum
+function Module.drum_value(dev0, arg_number, invert, max_value)
+	max_value = max_value or 10
+	invert = invert or false
+	local val = Module.round(dev0:get_argument_value(arg_number) * max_value)
+	if invert then
+		val = max_value - val
+	end
+	return val % max_value
+end
+
+--- Returns the string value of a regular drum
+--- @param dev0 CockpitDevice
+--- @param ... integer the dcs argument numbers for each drum wheel, left to right
+--- @return string value
+function Module.drum_set(dev0, ...)
+	local drum_arg_numbers = { ... }
+	local vals = ""
+
+	for _, arg_number in ipairs(drum_arg_numbers) do
+		vals = vals .. Module.drum_value(dev0, arg_number)
+	end
+
+	return vals
+end
+
 return Module
