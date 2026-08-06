@@ -705,11 +705,11 @@ F_14:definePotentiometer("RIO_TID_CONTRAST", devices.TID, 3125, 49, { 0, 1 }, "T
 F_14:defineToggleSwitch("RIO_HCU_TCS", devices.HCU, 3096, 2007, "HCU", "RIO HCU TCS Mode")
 F_14:defineToggleSwitch("RIO_HCU_RADAR", devices.HCU, 3097, 2008, "HCU", "RIO HCU Radar Mode")
 F_14:defineToggleSwitch("RIO_HCU_DDD", devices.HCU, 3098, 2009, "HCU", "RIO HCU DDD Mode")
-F_14:defineToggleSwitch("RIO_HCU_TID", devices.HCU, 3099, 2010, "HCU", "RIO HCU TID Mode")
-F_14:define3PosTumb("RIO_HCU_TVIR_SW", devices.TCS, 3100, 2011, "HCU", "RIO HCU TV/IR Switch")
-F_14:define3PosTumb("RIO_HCU_WCS", devices.RADAR, 3101, 2012, "HCU", "RIO HCU WCS Switch")
-F_14:definePushButton("RIO_HCU_PW_RESET", devices.RADAR, 3644, 2013, "HCU", "RIO HCU Power Reset")
-F_14:definePushButton("RIO_HCU_LIGHT_TEST", devices.RADAR, 3645, 2014, "HCU", "RIO HCU Light Test")
+F_14:defineToggleSwitch("RIO_HCU_TID", devices.HCU, 3099, 6025, "HCU", "RIO HCU TID Mode")
+F_14:define3PosTumb("RIO_HCU_TVIR_SW", devices.TCS, 3100, 6026, "HCU", "RIO HCU TV/IR Switch", { positions = { "OFF", "STBY", "IR/TV" } })
+F_14:define3PosTumb("RIO_HCU_WCS", devices.RADAR, 3101, 2141, "HCU", "RIO HCU WCS Switch", { positions = { "OFF", "STBY", "WCS XMT" } })
+F_14:definePushButton("RIO_HCU_PW_RESET", devices.RADAR, 3644, 2142, "HCU", "RIO HCU Power Reset")
+F_14:definePushButton("RIO_HCU_LIGHT_TEST", devices.RADAR, 3645, 2144, "HCU", "RIO HCU Light Test")
 
 -- RIO DDD
 F_14:definePushButton("RIO_RADAR_5", devices.RADAR, 3450, 40, "DDD", "RIO Radar 5 NM")
