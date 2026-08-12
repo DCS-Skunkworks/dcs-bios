@@ -5,7 +5,7 @@ local Functions = require("Scripts.DCS-BIOS.lib.common.Functions")
 local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 
 --- @class M_2000C: Module
-local M_2000C = Module:new("M-2000C", 0x7200, { "M-2000C" })
+local M_2000C = Module:new("M-2000C", 0x7200, { "M-2000C", "M-2000D" })
 
 --v1.39 by Ergo,Matchstick,MisterKnife,WarLord,Espresso29470
 
