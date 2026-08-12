@@ -141,6 +141,20 @@ F_14:addExportHook(function()
 	hsd_ind = Module.parse_indication(1)
 end)
 
+--- returns zero
+--- @return integer 0
+local function zero()
+	return 0
+end
+
+--- builds a gauge with two static zeroes at the end
+--- @param dev0 CockpitDevice dcs device 0
+--- @param arguments integer[] dcs arguments
+--- @return integer
+local function build_fuel_gauge_from_arguments(dev0, arguments)
+	return Module.build_gauge_from_arguments(dev0, arguments) * 100
+end
+
 --------------------------------- Matchstick
 
 --- Inserts a separator into the middle of a 6-character radio line
@@ -1263,39 +1277,39 @@ F_14:defineFloat("PLT_ACCEL_METER_NEEDLE3", 15077, { -1, 1 }, "PLT Gauges", "PIL
 F_14:defineFloat("PLT_HSD_BIT_INDICATOR", 15079, { 0, 1 }, "PLT Gauges", "PILOT HSD BIT Indicator Flag")
 F_14:defineFloat("PLT_FUEL_AFT_L", 1054, { 0, 1 }, "PLT Gauges", "PILOT Fuel AFT & L")
 F_14:defineFloat("PLT_FUEL_FWD_R", 1055, { 0, 1 }, "PLT Gauges", "PILOT Fuel FWD & R")
-F_14:defineFloat("PLT_FUEL_LEFT_1K", 6000, { 0, 1 }, "PLT Gauges", "PILOT Fuel Left 1000")
-F_14:defineFloat("PLT_FUEL_LEFT_100", 6001, { 0, 1 }, "PLT Gauges", "PILOT Fuel Left 100")
-F_14:defineFloat("PLT_FUEL_LEFT_10", 6002, { 0, 1 }, "PLT Gauges", "PILOT Fuel Left 10")
-F_14:defineFloat("PLT_FUEL_LEFT_1", 6003, { 0, 1 }, "PLT Gauges", "PILOT Fuel Left 1")
+F_14:defineFloat("PLT_FUEL_LEFT_1K", 6510, { 0, 1 }, "PLT Gauges", "PILOT Fuel Left 1000")
+F_14:defineFloat("PLT_FUEL_LEFT_100", 6511, { 0, 1 }, "PLT Gauges", "PILOT Fuel Left 100")
+F_14:defineIntegerFromGetter("PLT_FUEL_LEFT_10", zero, 65535, "PLT Gauges", "PILOT Fuel Left 10") -- draw arg 6512; always visually 0 in-game
+F_14:defineIntegerFromGetter("PLT_FUEL_LEFT_1", zero, 65535, "PLT Gauges", "PILOT Fuel Left 1") -- draw arg 6513; always visually 0 in-game
 local function getPLTFuelLeft(dev0)
-	return Module.build_gauge_from_arguments(dev0, { 6003, 6002, 6001, 6000 })
+	return build_fuel_gauge_from_arguments(dev0, { 6511, 6510 })
 end
 F_14:defineIntegerFromGetter("PLT_FUEL_LEFT_DISP", getPLTFuelLeft, 2500, "PLT Gauges", "PILOT Fuel Left Display")
 
-F_14:defineFloat("PLT_FUEL_RIGHT_1K", 6004, { 0, 1 }, "PLT Gauges", "PILOT Fuel Right 1000")
-F_14:defineFloat("PLT_FUEL_RIGHT_100", 6005, { 0, 1 }, "PLT Gauges", "PILOT Fuel Right 100")
-F_14:defineFloat("PLT_FUEL_RIGHT_10", 6006, { 0, 1 }, "PLT Gauges", "PILOT Fuel Right 10")
-F_14:defineFloat("PLT_FUEL_RIGHT_1", 6007, { 0, 1 }, "PLT Gauges", "PILOT Fuel Right 1")
+F_14:defineFloat("PLT_FUEL_RIGHT_1K", 6514, { 0, 1 }, "PLT Gauges", "PILOT Fuel Right 1000")
+F_14:defineFloat("PLT_FUEL_RIGHT_100", 6515, { 0, 1 }, "PLT Gauges", "PILOT Fuel Right 100")
+F_14:defineIntegerFromGetter("PLT_FUEL_RIGHT_10", zero, 65535, "PLT Gauges", "PILOT Fuel Right 10") -- draw arg 6516; always visually 0 in-game
+F_14:defineIntegerFromGetter("PLT_FUEL_RIGHT_1", zero, 65535, "PLT Gauges", "PILOT Fuel Right 1") -- draw arg 6517; always visually 0 in-game
 local function getPLTFuelRight(dev0)
-	return Module.build_gauge_from_arguments(dev0, { 6007, 6006, 6005, 6004 })
+	return build_fuel_gauge_from_arguments(dev0, { 6515, 6514 })
 end
 F_14:defineIntegerFromGetter("PLT_FUEL_RIGHT_DISP", getPLTFuelRight, 2500, "PLT Gauges", "PILOT Fuel Right Display")
 
-F_14:defineFloat("PLT_FUEL_TOTAL_10K", 6010, { 0, 1 }, "PLT Gauges", "PILOT Fuel Total 10000")
+F_14:defineFloat("PLT_FUEL_TOTAL_10K", 6027, { 0, 1 }, "PLT Gauges", "PILOT Fuel Total 10000")
 F_14:defineFloat("PLT_FUEL_TOTAL_1K", 6011, { 0, 1 }, "PLT Gauges", "PILOT Fuel Total 1000")
 F_14:defineFloat("PLT_FUEL_TOTAL_100", 6012, { 0, 1 }, "PLT Gauges", "PILOT Fuel Total 100")
-F_14:defineFloat("PLT_FUEL_TOTAL_10", 6013, { 0, 1 }, "PLT Gauges", "PILOT Fuel Total 10")
-F_14:defineFloat("PLT_FUEL_TOTAL_1", 6014, { 0, 1 }, "PLT Gauges", "PILOT Fuel Total 1")
+F_14:defineIntegerFromGetter("PLT_FUEL_TOTAL_10", zero, 65535, "PLT Gauges", "PILOT Fuel Total 10") -- draw arg 6013; always visually 0 in-game
+F_14:defineIntegerFromGetter("PLT_FUEL_TOTAL_1", zero, 65535, "PLT Gauges", "PILOT Fuel Total 1") -- draw arg 6014; always visually 0 in-game
 local function getPLTFuelTotal(dev0)
-	return Module.build_gauge_from_arguments(dev0, { 6014, 6013, 6012, 6011, 6010 })
+	return build_fuel_gauge_from_arguments(dev0, { 6012, 6011, 6027 })
 end
 F_14:defineIntegerFromGetter("PLT_FUEL_TOTAL_DISP", getPLTFuelTotal, 25000, "PLT Gauges", "PILOT Fuel Total Display")
 
 F_14:defineFloat("PLT_FUEL_BINGO_10K", 6020, { 0, 1 }, "PLT Gauges", "PILOT Fuel Bingo 10000")
 F_14:defineFloat("PLT_FUEL_BINGO_1K", 6021, { 0, 1 }, "PLT Gauges", "PILOT Fuel Bingo 1000")
 F_14:defineFloat("PLT_FUEL_BINGO_100", 6022, { 0, 1 }, "PLT Gauges", "PILOT Fuel Bingo 100")
-F_14:defineFloat("PLT_FUEL_BINGO_10", 6023, { 0, 1 }, "PLT Gauges", "PILOT Fuel Bingo 10")
-F_14:defineFloat("PLT_FUEL_BINGO_1", 6024, { 0, 1 }, "PLT Gauges", "PILOT Fuel Bingo 1")
+F_14:defineIntegerFromGetter("PLT_FUEL_BINGO_10", zero, 65535, "PLT Gauges", "PILOT Fuel Bingo 10") -- draw arg 6023; always visually 0 in-game
+F_14:defineIntegerFromGetter("PLT_FUEL_BINGO_1", zero, 65535, "PLT Gauges", "PILOT Fuel Bingo 1") -- draw arg 6024; always visually 0 in-game
 F_14:defineFloat("PLT_AHRS_LAT_DIAL", 1026, { 0, 1 }, "PLT Gauges", "PILOT Compass LAT Correction Dial") --(COMP Panel)
 F_14:defineFloat("PLT_ACM_TURN_IND", 6501, { -1, 1 }, "PLT Gauges", "PILOT ACM Turn Indicator")
 F_14:defineFloat("PLT_ACM_SLIP_BALL", 6500, { -1, 1 }, "PLT Gauges", "PILOT ACM Slip Ball")
@@ -1401,10 +1415,10 @@ F_14:defineFloat("RIO_ALTIMETER_NEEDLE", 20104, { 0, 1 }, "RIO Gauges", "RIO Alt
 F_14:defineFloat("RIO_FUEL_TOTAL_10K", 2117, { 0, 1 }, "RIO Gauges", "RIO Fuel Total 10000")
 F_14:defineFloat("RIO_FUEL_TOTAL_1K", 2118, { 0, 1 }, "RIO Gauges", "RIO Fuel Total 1000")
 F_14:defineFloat("RIO_FUEL_TOTAL_100", 2119, { 0, 1 }, "RIO Gauges", "RIO Fuel Total 100")
-F_14:defineFloat("RIO_FUEL_TOTAL_10", 2120, { 0, 1 }, "RIO Gauges", "RIO Fuel Total 10")
-F_14:defineFloat("RIO_FUEL_TOTAL_1", 2135, { 0, 1 }, "RIO Gauges", "RIO Fuel Total 1")
+F_14:defineIntegerFromGetter("RIO_FUEL_TOTAL_10", zero, 65535, "RIO Gauges", "RIO Fuel Total 10")
+F_14:defineIntegerFromGetter("RIO_FUEL_TOTAL_1", zero, 65535, "RIO Gauges", "RIO Fuel Total 1")
 local function getRIOFuelTotal(dev0)
-	return Module.build_gauge_from_arguments(dev0, { 2135, 2120, 2119, 2118, 2117 })
+	return build_fuel_gauge_from_arguments(dev0, { 2119, 2118, 2117 })
 end
 F_14:defineIntegerFromGetter("RIO_FUEL_TOTAL_DISP", getRIOFuelTotal, 25000, "RIO Gauges", "RIO Fuel Total Display")
 
@@ -1550,7 +1564,7 @@ F_14:defineFloat("PLT_THROTTLE_POS_R", 752, { 0, 1 }, "Cockpit", "PILOT Right Th
 F_14:defineFloat("PLT_SWEEP_HANDLE_POS", 384, { 0, 1 }, "Cockpit", "PILOT Wing Sweep Handle Position")
 
 local function getPLTFuelBingo(dev0)
-	return Module.build_gauge_from_arguments(dev0, { 6024, 6023, 6022, 6021, 6020 })
+	return build_fuel_gauge_from_arguments(dev0, { 6022, 6021, 6020 })
 end
 F_14:defineIntegerFromGetter("PLT_FUEL_BINGO_DISP", getPLTFuelBingo, 25000, "PLT Gauges", "PILOT Bingo Fuel Display")
 F_14:defineFloat("PLT_LIQU_OXY_NEEDLE", 951, { 0, 1 }, "PLT Gauges", "PILOT Liquid Oxygen Gauge Needle")
