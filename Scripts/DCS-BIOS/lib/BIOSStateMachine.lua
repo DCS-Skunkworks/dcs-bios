@@ -1,6 +1,7 @@
 module("BIOSStateMachine", package.seeall)
 
 local Log = require("Scripts.DCS-BIOS.lib.common.Log")
+local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 
 --- @class BIOSStateMachine
 --- @field private modules_by_name {[string]: Module[]} a map of module names to the modules to send data for
@@ -119,8 +120,7 @@ function BIOSStateMachine:step()
 	end
 
 	-- determine active aircraft
-	local self_data = LoGetSelfData()
-	local current_aircraft_name = self_data and self_data["Name"] or "NONE"
+	local current_aircraft_name = Module.get_module_name() or "NONE"
 
 	self.metadata_start.setAircraftName(current_aircraft_name)
 

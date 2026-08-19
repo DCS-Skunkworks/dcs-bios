@@ -49,11 +49,7 @@ local left_fuel_consumption = "----"
 local right_fuel_consumption = "----"
 
 local function GetPlaneName()
-	local selfdata = LoGetSelfData()
-	if selfdata == nil then
-		return "XXX"
-	end
-	return selfdata.Name
+	return Module.get_module_name() or "XXX"
 end
 
 local function LoGetFuelAll()
