@@ -1409,6 +1409,13 @@ function Module:addControl(control)
 	category:addControl(control)
 end
 
+--- gets the current module's name
+--- @return string? module name
+function Module.get_module_name()
+	local data = LoGetSelfData()
+	return data and data.Name or nil
+end
+
 --- Creates a full identifier, including the module name, for a given identifier
 --- @param identifier string
 --- @return string
