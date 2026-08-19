@@ -55,7 +55,7 @@ Yak_52:definePushButton("FRONT_RADIO_TX", 27, 3001, 192, "Throttle Quadrant", "F
 Yak_52:definePushButton("FRONT_INTERCOM_TX", 27, 3023, 194, "Throttle Quadrant", "Fore Intercom Button")
 Yak_52:definePotentiometer("FRONT_PROP_LEVER", 3, 3019, 198, { 0, 1 }, "Throttle Quadrant", "Fore Airscrew Lever")
 Yak_52:definePotentiometer("FRONT_FRIC_LEVER", 3, 3027, 210, { 0, 1 }, "Throttle Quadrant", "Fore Left Frictioner Lever")
-Yak_52:defineRotary("FRONT_TRIM_WHEEL", 2, 3032, 228, "Port Wall", "Fore Elevator Trim Wheel")
+Yak_52:definePotentiometer("FRONT_TRIM_WHEEL", 2, 3032, 228, { -1, 1 }, "Port Wall", "Fore Elevator Trim Wheel")
 Yak_52:definePushButton("FRONT_FUEL_COCK", 3, 3047, 286, "Port Wall", "Fore Fuel Cock")
 Yak_52:defineRotary("FRONT_PNEM_VALVE", 6, 3041, 230, "Port Wall", "Fore Pneumatic System Master Valve")
 ----- Port Circuit Breakers Panel
@@ -125,7 +125,7 @@ Yak_52:definePushButton("REAR_RADIO_TX", 27, 3051, 196, "Throttle Quadrant", "Re
 Yak_52:definePushButton("REAR_INTERCOM_TX", 27, 3052, 197, "Throttle Quadrant", "Rear Intercom Button")
 Yak_52:definePotentiometer("REAR_PROP_LEVER", 3, 3022, 199, { 0, 1 }, "Throttle Quadrant", "Rear Airscrew Lever")
 Yak_52:definePotentiometer("REAR_FRIC_LEVER", 3, 3030, 211, { 0, 1 }, "Throttle Quadrant", "Rear Left Frictioner Lever")
-Yak_52:defineRotary("REAR_TRIM_WHEEL", 2, 3035, 229, "Port Wall", "Rear Elevator Trim Wheel")
+Yak_52:definePotentiometer("REAR_TRIM_WHEEL", 2, 3035, 229, { -1, 1 }, "Port Wall", "Rear Elevator Trim Wheel")
 Yak_52:definePushButton("REAR_FUEL_COCK", 3, 3048, 287, "Port Wall", "Rear Fuel Cock")
 Yak_52:defineToggleSwitch("REAR_CB_BRAKES_CUT", 2, 3040, 293, "Circuit Breakers", "Rear Wheel Brakes Purge CB")
 ----- Starboard Wall
