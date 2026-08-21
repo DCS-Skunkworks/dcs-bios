@@ -298,4 +298,8 @@ end, 359, "Heading", "Magnetic Heading")
 
 CommonData:defineString("VERSION", getVersion, 24, "Metadata", "DCS-BIOS Version")
 
+CommonData:defineString("SYSTEM_TIME", function(_)
+	return os.date("%H:%M:%S") --- @type string
+end, 8, "System", "System Time")
+
 return CommonData
