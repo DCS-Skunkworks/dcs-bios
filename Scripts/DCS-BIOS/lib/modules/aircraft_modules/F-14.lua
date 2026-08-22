@@ -1,5 +1,6 @@
 module("F-14", package.seeall)
 
+local Functions = require("Scripts.DCS-BIOS.lib.common.Functions")
 local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 
 --- @class F_14: Module
@@ -81,6 +82,15 @@ local devices = {
 	TARPS = 72,
 }
 
+local indicators = {
+	HSD = 6,
+	PLT_UHF = 10,
+	PLT_UHF_REMOTE = 11,
+	RIO_UHF_REMOTE = 12,
+	RIO_VUHF = 14,
+	PLT_VUHF_REMOTE = 15,
+}
+
 -- remove Arg# Stick 33, Bodies 3334
 
 ----------------------------------------- Extra Functions
@@ -117,6 +127,31 @@ function F_14:defineModuleDefaultToggleSwitch(identifier, device_id, command, ar
 	return self:defineToggleSwitchManualRange(identifier, device_id, command, arg_number, { -1, 2 }, category, description)
 end
 
+--- Returns whether the current module is the upgrade version
+--- @return boolean
+local function is_bu()
+	return Module.get_module_name() == "F-14BU"
+end
+
+--- Computes the indicator id based on the current module.
+--- @param indicator_id integer the base model indicator id
+--- @return integer indicator_id the indicator id for the current module
+local function get_indicator_id(indicator_id)
+	if is_bu() then
+		if indicator_id > 7 then
+			return indicator_id - 6
+		end
+
+		if indicator_id < 2 then
+			return indicator_id
+		end
+
+		return -1 -- indicators 2-7 are exclusive to the A/B models
+	end
+
+	return indicator_id
+end
+
 local steer_mode = "2"
 
 F_14:addExportHook(function(dev0)
@@ -138,7 +173,7 @@ end)
 local hsd_ind = {}
 
 F_14:addExportHook(function()
-	hsd_ind = Module.parse_indication(1)
+	hsd_ind = Module.parse_indication(get_indicator_id(indicators.HSD))
 end)
 
 --- returns zero
@@ -155,8 +190,6 @@ local function build_fuel_gauge_from_arguments(dev0, arguments)
 	return Module.build_gauge_from_arguments(dev0, arguments) * 100
 end
 
---------------------------------- Matchstick
-
 --- Inserts a separator into the middle of a 6-character radio line
 --- @param line string
 --- @param separator string
@@ -165,93 +198,17 @@ local function insert_radio_separator(line, separator)
 	if not line or not separator then
 		return ""
 	end
-	return line:sub(1, 3) .. separator .. line:sub(4)
+
+	return line:sub(1, 3) .. Functions.pad_left(separator, 1) .. line:sub(4)
 end
 
--- 2021/11/23 - Heatblur have changed the order of items in the List Indication for the Pilot Remote Displays but not for the RIO.
--- So we now need two different versions of the code depending which display we are requesting.
-local function get_rio_uhf_display(dev0)
-	local data = Module.parse_indication(10) -- Data from specified device (9=Pilot UHF, 10=RIO UHF, 13=Pilot VHF/UHF)
-	local test_pressed = dev0:get_argument_value(405) == 1 -- whether test mode is enabled
-
-	if not data[0] then
-		return "0000000"
-	end
-
-	local manual_mode = data[0] == 6
-
-	if manual_mode then
-		if test_pressed then
-			return insert_radio_separator(data[3], data[4])
-		end
-
-		return insert_radio_separator(data[5], data[6])
-	end
-
-	if test_pressed then
-		return insert_radio_separator(data[3], data[4])
-	end
-
-	return insert_radio_separator(data[5], " ")
+--- Gets a radio display
+--- @param indicator_id integer the indicator to read
+--- @return string display value
+local function get_radio_display(indicator_id)
+	local data = Module.parse_indication(get_indicator_id(indicator_id))
+	return insert_radio_separator(data[3], data[4])
 end
-
-local function get_radio_remote_display(dev0, indicator_id, test_button_id)
-	local data = Module.parse_indication(indicator_id) -- Data from specified device (9=Pilot UHF, 10=RIO UHF, 13=Pilot VHF/UHF)
-
-	-- testPressed indicates the current value of the specified radio display test button - if pressed we need to return the test value not the current manual or preset frequency.
-	-- depending on the type of data and the test button status assemble the result including separator if necessary.
-	local test_pressed = dev0:get_argument_value(test_button_id) == 1 -- whether test mode is enabled
-
-	if not data[0] then
-		return "0000000"
-	end
-
-	-- data[0] holds the length of the data table. 6 Indicates it is in manual frequency mode otherwise it is in preset mode.
-	local manual_mode = data[0] == 6
-
-	if manual_mode then
-		if test_pressed then
-			return insert_radio_separator(data[5], data[6])
-		end
-
-		return insert_radio_separator(data[3], data[4])
-	end
-
-	if test_pressed then
-		return insert_radio_separator(data[4], data[5])
-	end
-
-	return insert_radio_separator(data[3], " ")
-end
-
----Gets a radio display
----@param indicator_id integer the indicator to read
----@param is_pilot boolean whether this is the pilot or rio display
----@return string display value
-local function get_radio_vuhf_display(indicator_id, is_pilot)
-	local data = Module.parse_indication(indicator_id)
-
-	if not data[0] then
-		return ""
-	end
-
-	-- data[0] holds the length of the data table. 6 Indicates it is in manual frequency mode otherwise it is in preset mode (5).
-	local manual_mode = data[0] == 6
-
-	-- for the rio, we want the data at index 3, and the separator at index 4 if not in preset mode
-	-- for the pilot, we want the data at index 5, and the separator at index 6 if not in preset mode
-	local lower_index = is_pilot and 5 or 3
-
-	if manual_mode then
-		-- in manual mode, the separator is in the next index
-		return insert_radio_separator(data[lower_index], data[lower_index + 1])
-	end
-
-	-- in preset mode, there is no separator, but the next index has other data that we don't care about
-	return insert_radio_separator(data[lower_index], " ")
-end
-
---------------------------------- Matchstick End
 
 ----------------------------------------- BIOS-Profile
 
@@ -1450,14 +1407,14 @@ F_14:defineFloat("RIO_RECORD_MIN_LOW", 11602, { 0, 1 }, "RIO Gauges", "RIO Recor
 
 F_14:defineFloat("CANOPY_POS", 403, { 0, 1 }, "Cockpit", "Canopy Position")
 
-F_14:defineString("PLT_UHF_REMOTE_DISP", function(dev0)
-	return get_radio_remote_display(dev0, 9, 15004)
+F_14:defineString("PLT_UHF_REMOTE_DISP", function(_)
+	return get_radio_display(indicators.PLT_UHF_REMOTE)
 end, 7, "UHF 1", "PILOT UHF ARC-159 Radio Remote Display")
-F_14:defineString("RIO_UHF_REMOTE_DISP", function(dev0)
-	return get_rio_uhf_display(dev0)
+F_14:defineString("RIO_UHF_REMOTE_DISP", function(_)
+	return get_radio_display(indicators.RIO_UHF_REMOTE)
 end, 7, "UHF 1", "RIO UHF ARC-159 Radio Remote Display")
 F_14:defineString("PLT_VUHF_REMOTE_DISP", function(_)
-	return get_radio_vuhf_display(14, true)
+	return get_radio_display(indicators.PLT_VUHF_REMOTE)
 end, 7, "VUHF", "PILOT VHF/UHF ARC-182 Radio Remote Display")
 
 local function get_hud_mode(dev0)
@@ -1683,7 +1640,7 @@ F_14:defineInputOnlyPushButtonNoOff("RIO_ICEMAN_COMMAND_8", devices.JESTERAI, 35
 F_14:defineInputOnlyPushButtonNoOff("RIO_ICEMAN_MENU_CLOSE", devices.JESTERAI, 3725, RIO_ICEMAN_WHEEL, "Close Menu")
 
 F_14:defineString("RIO_VUHF_DISP", function(_)
-	return get_radio_vuhf_display(13, false)
+	return get_radio_display(indicators.RIO_VUHF)
 end, 7, "VUHF", "RIO VHF/UHF ARC-182 Radio Display")
 
 F_14:defineInputOnlyPushButtonNoOff("CANOPY_TOGGLE", devices.COCKPITMECHANICS, 3183, "Cockpit", "Canopy Open/Close")
@@ -1708,5 +1665,9 @@ F_14:defineSpringloaded_3PosTumb("RIO_RWR_ALR45_LOW_MID_BAND_TEST", devices.RWR_
 F_14:defineToggleSwitch("RIO_RWR_ALR45_HIGH_BAND_TEST", devices.RWR_INTERFACE, 3877, 170, ALR_45_50, "HIGH Band Test Switch (OFF/HIGH)")
 F_14:defineToggleSwitch("RIO_RWR_ALR45_ML_TEST", devices.RWR_INTERFACE, 3878, 171, ALR_45_50, "ML Test Switch (OFF/ML)")
 F_14:defineToggleSwitch("RIO_RWR_ALR45_DISPLAY_TEST", devices.RWR_INTERFACE, 3879, 172, ALR_45_50, "DISPLAY Test Switch (OFF/DISPLAY)")
+
+F_14:defineString("PLT_UHF_DISP", function(_)
+	return get_radio_display(indicators.PLT_UHF)
+end, 7, "UHF 1", "PILOT UHF ARC-159 Radio Display")
 
 return F_14
