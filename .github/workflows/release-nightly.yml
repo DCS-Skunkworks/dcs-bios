@@ -38,6 +38,9 @@ jobs:
     needs: test
     runs-on: ubuntu-latest
 
+    env:
+      PLACEHOLDER_VERSION: 0.0.0
+
     permissions:
       contents: write
 
