@@ -449,8 +449,8 @@ F_14:definePotentiometer("RIO_ICS_VOL", devices.ICS, 3387, 400, { 0, 1 }, "ICS",
 F_14:defineMultipositionSwitch("RIO_ICS_AMP_SEL", devices.ICS, 3389, 401, 3, 0.5, "ICS", "RIO ICS Amplifier Selector")
 F_14:define3PosTumb("RIO_ICS_FUNC_SEL", devices.ICS, 3390, 402, "ICS", "RIO ICS Function Selector")
 F_14:define3PosTumb("RIO_ICS_XMTR_SEL", devices.ICS, 3399, 381, "ICS", "RIO XMTR SEL Switch")
-F_14:define3PosTumb("RIO_ICS_UHF_LWR", devices.ICS, 3598, 380, "ICS", "RIO V/UHF 2 ANT Switch")
-F_14:define3PosTumb("RIO_ICS_KY_MODE", devices.ICS, 3597, 382, "ICS", "RIO KY MODE Switch")
+F_14:define3PosTumb("RIO_ICS_UHF_LWR", devices.ICS, 3611, 380, "ICS", "RIO V/UHF 2 ANT Switch", { deprecated = { since = "0.11.6", description = "incorrect control definition", use_instead = "RIO_ICS_UHF_UPR_LWR" } })
+F_14:define3PosTumb("RIO_ICS_KY_MODE", devices.ICS, 3610, 382, "ICS", "RIO KY MODE Switch", { positions = { "DP", "AUTO", "BB" } })
 
 -- UHF ARC-159
 F_14:defineTumb("PLT_UHF1_FREQ_MODE", devices.ARC159, 3375, 2033, 0.5, { 0, 1 }, nil, false, "UHF 1", "PILOT UHF ARC-159 Freq Mode", { positions = { "PRESET", "MANUAL", "GUARD" } })
@@ -1693,5 +1693,7 @@ F_14:defineToggleSwitch("RIO_RWR_ALR45_DISPLAY_TEST", devices.RWR_INTERFACE, 387
 F_14:defineString("PLT_UHF_DISP", function(_)
 	return get_radio_display(indicators.PLT_UHF)
 end, 7, "UHF 1", "PILOT UHF ARC-159 Radio Display")
+
+F_14:defineToggleSwitch("RIO_ICS_UHF_UPR_LWR", devices.ICS, 3611, 380, "ICS", "RIO V/UHF 2 ANT Switch", { positions = { "LWR", "UPR" } })
 
 return F_14
