@@ -356,7 +356,7 @@ F_14:defineToggleSwitch("PLT_TEMP_AUTO_MAN", devices.COCKPITMECHANICS, 3649, 940
 F_14:defineToggleSwitch("PLT_RAM_AIR", devices.COCKPITMECHANICS, 3650, 938, "Enivornment Control", "PILOT Ram Air")
 
 -- BIT Panel
-F_14:defineTumb("PLT_BIT_SWITCH", devices.BITPANEL, 3076, 934, 1 / 11, { 0, 1 }, nil, false, "BIT Panel", "PILOT Master Test Selector (LB to rotate)")
+F_14:defineMultipositionSwitchWithCycle("PLT_BIT_SWITCH", devices.BITPANEL, 3076, 934, 11, 1 / 11, true, "BIT Panel", "PILOT Master Test Selector (rotate)", { positions = { "OFF", "LTS", "FIRE DET/EXT", "INST", "OBC", "EMERG GEN", "WG SWP", "FLTGR DW", "FLTGR UP", "D/L RAD", "STICK SW" } })
 F_14:defineToggleSwitch("PLT_BIT_SWITCH_PUSH", devices.BITPANEL, 3077, 15098, "BIT Panel", "PILOT Master Test Selector (RB to pull/push)")
 
 -- Light Panel
