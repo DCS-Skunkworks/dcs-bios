@@ -1784,4 +1784,30 @@ local RUDDER = "Rudder"
 
 F_14:define3PosTumb("RUDDER_TRIM", devices.AVIONICSCORE, 3113, 8116, RUDDER, "Rudder Trim", { positions = { "L", "OFF", "R" } })
 
+local AAI = "AAI"
+
+local AAI_CODE_POSITIONS = { "0", "1", "2", "3", "4", "5", "6", "7" }
+
+F_14:defineMultipositionSwitch("RIO_AAI_MODE", devices.IFF, 3887, 893, 6, 1 / 6, AAI, "Interrogator Mode", { positions = { "OFF", "1", "2", "3", "4/A", "4/B" } })
+F_14:defineMultipositionSwitch("RIO_AAI_CODE_ONES", devices.IFF, 3888, 897, 8, 1 / 8, AAI, "Interrogator Code (Ones)", { positions = AAI_CODE_POSITIONS })
+F_14:defineMultipositionSwitch("RIO_AAI_CODE_TENS", devices.IFF, 3889, 896, 8, 1 / 8, AAI, "Interrogator Code (Tens)", { positions = AAI_CODE_POSITIONS })
+F_14:defineMultipositionSwitch("RIO_AAI_CODE_HUNDREDS", devices.IFF, 3890, 895, 8, 1 / 8, AAI, "Interrogator Code (Hundreds)", { positions = AAI_CODE_POSITIONS })
+F_14:defineMultipositionSwitch("RIO_AAI_CODE_THOUSANDS", devices.IFF, 3891, 894, 8, 1 / 8, AAI, "Interrogator Code (Thousands)", { positions = AAI_CODE_POSITIONS })
+F_14:define3PosTumb("RIO_AAI_CHALLENGE_TEST", devices.IFF, 3886, 891, AAI, "Interrogator Challenge Code/Test", { positions = { "CHAL CC", "OFF", "TEST" } })
+F_14:defineToggleSwitch("RIO_AAI_M4_ALARM_OVERRIDE", devices.IFF, 3885, 892, AAI, "Interrogator M4 Alarm Override")
+
+F_14:reserveIntValue(65535) -- fault rotate, 898
+F_14:defineGatedIndicatorLight("RIO_AAI_FAULT_LIGHT", 899, 0.5, nil, AAI, "Fault Light", { color = "green" })
+F_14:reserveIntValue(65535) -- chal rotate, 900
+F_14:defineGatedIndicatorLight("RIO_AAI_CHAL_LIGHT", 901, 0.5, nil, AAI, "Challenge Light", { color = "green" })
+
+F_14:defineString("RIO_AAI_CODE", function(dev0)
+	local thousands = Module.drum_value(dev0, 894, false, 8)
+	local hundreds = Module.drum_value(dev0, 895, false, 8)
+	local tens = Module.drum_value(dev0, 896, false, 8)
+	local ones = Module.drum_value(dev0, 897, false, 8)
+
+	return thousands .. hundreds .. tens .. ones
+end, 4, AAI, "Interrogator Code")
+
 return F_14
