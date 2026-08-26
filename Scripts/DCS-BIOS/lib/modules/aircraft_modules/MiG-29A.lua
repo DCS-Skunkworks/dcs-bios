@@ -689,13 +689,14 @@ MiG_29A:defineFloat("UV_30_2_METRIC_KILOMETER_POINTER", 11, { 0, 1 }, UV_30_2_ME
 MiG_29A:defineFloat("UV_30_2_METRIC_ALT_TEN_THOUSANDS", 461, { 0, 1 }, UV_30_2_METRIC, "Altitude Counter (Tens of Thousands)")
 MiG_29A:defineFloat("UV_30_2_METRIC_ALT_THOUSANDS", 460, { 0, 1 }, UV_30_2_METRIC, "Altitude Counter (Thousands)")
 MiG_29A:defineString("UV_30_2_METRIC_ALT_COUNTER", function(dev0)
+	-- this is correct - the first digit is blank when zero
 	return tostring(Module.build_gauge_from_arguments(dev0, { 460, 461 }))
 end, 2, UV_30_2_METRIC, "Altitude Counter")
 MiG_29A:defineFloat("UV_30_2_METRIC_PRE_HUNDREDS", 462, { 0, 1 }, UV_30_2_METRIC, "Pressure Meter (Hundreds)")
 MiG_29A:defineFloat("UV_30_2_METRIC_PRE_TENS", 463, { 0, 1 }, UV_30_2_METRIC, "Pressure Meter (Tens)")
 MiG_29A:defineFloat("UV_30_2_METRIC_PRE_ONES", 464, { 0, 1 }, UV_30_2_METRIC, "Pressure Meter (Ones)")
 MiG_29A:defineString("UV_30_2_METRIC_PRE_COUNTER", function(dev0)
-	return tostring(Module.build_gauge_from_arguments(dev0, { 464, 463, 462 }))
+	return Module.drum_set(dev0, 462, 463, 464)
 end, 3, UV_30_2_METRIC, "Pressure Meter")
 
 -- UV-30-2 Barometric Altimeter - Imperial Cockpit
@@ -708,14 +709,15 @@ MiG_29A:defineFloat("UV_30_2_IMP_ALT_TEN_THOUSANDS", 831, { 0, 1 }, UV_30_2_IMP,
 MiG_29A:defineFloat("UV_30_2_IMP_ALT_THOUSANDS", 832, { 0, 1 }, UV_30_2_IMP, "Altitude Counter (Thousands)")
 MiG_29A:defineFloat("UV_30_2_IMP_ALT_HUNDREDS", 833, { 0, 1 }, UV_30_2_IMP, "Altitude Counter (Hundreds)")
 MiG_29A:defineString("UV_30_2_IMP_ALT_COUNTER", function(dev0)
-	return tostring(Module.build_gauge_from_arguments(dev0, { 833, 832, 831, 830 }))
+	local value = Module.build_gauge_from_arguments(dev0, { 833, 832, 831, 830 })
+	return Functions.pad_left(value == 0 and "00" or tostring(value), 4)
 end, 4, UV_30_2_IMP, "Altitude Counter")
 MiG_29A:defineFloat("UV_30_2_IMP_PRE_THOUSANDS", 834, { 0, 1 }, UV_30_2_IMP, "Pressure Meter (Thousands)")
 MiG_29A:defineFloat("UV_30_2_IMP_PRE_HUNDREDS", 835, { 0, 1 }, UV_30_2_IMP, "Pressure Meter (Hundreds)")
 MiG_29A:defineFloat("UV_30_2_IMP_PRE_TENS", 836, { 0, 1 }, UV_30_2_IMP, "Pressure Meter (Tens)")
 MiG_29A:defineFloat("UV_30_2_IMP_PRE_ONES", 837, { 0, 1 }, UV_30_2_IMP, "Pressure Meter (Ones)")
 MiG_29A:defineString("UV_30_2_IMP_PRE_METER", function(dev0)
-	return tostring(Module.build_gauge_from_arguments(dev0, { 837, 836, 835, 834 }))
+	return Module.drum_set(dev0, 834, 835, 836, 837)
 end, 4, UV_30_2_IMP, "Pressure Meter")
 
 -- IP-52-03 Flaps / Landing gear indicator
@@ -853,7 +855,7 @@ MiG_29A:defineFloat("ISTR4_ESTIMATED_DISTANCE_THOUSANDS", 225, { 0, 1 }, ISTR4, 
 MiG_29A:defineFloat("ISTR4_ESTIMATED_DISTANCE_HUNDREDS", 226, { 0, 1 }, ISTR4, "Estimated Flight Distance Indicator (Hundreds)")
 MiG_29A:defineFloat("ISTR4_ESTIMATED_DISTANCE_TENS", 227, { 0, 1 }, ISTR4, "Estimated Flight Distance Indicator (Tens)")
 MiG_29A:defineString("ISTR4_ESTIMATED_DISTANCE_FULL", function(dev0)
-	return tostring(Module.build_gauge_from_arguments(dev0, { 227, 226, 225 }))
+	return Module.drum_set(dev0, 225, 226, 227)
 end, 3, ISTR4, "Estimated Flight Distance Indicator")
 MiG_29A:defineToggleSwitch("ISTR4_DISTANCE_COMPUTER_MODE_SWITCH", devices.FUEL_INDICATOR, 3002, 446, ISTR4, "Distance Computer Mode Switch", { positions = { "OPT", "TAC" } })
 MiG_29A:defineFloat("ISTR4_DISTANCE_COMPUTER_OPT_LIGHT", 66, { 0, 1 }, ISTR4, "Distance Computer OPT Light (Orange)")
@@ -1022,10 +1024,10 @@ MiG_29A:reserveIntValue(65535) -- RSBN Channel Type Knob
 MiG_29A:definePotentiometer("A_323_RSBN_CHANNEL_SELECT_KNOB", devices.NAV, 3019, 133, { 0, 1 }, A_323, "RSBN Channel Selector Knob")
 MiG_29A:definePotentiometer("A_323_ILS_CHANNEL_SELECT_KNOB", devices.NAV, 3020, 134, { 0, 1 }, A_323, "ILS Channel Selector Knob")
 MiG_29A:defineString("A_323_NAVIGATION_CHANNEL", function(dev0)
-	return tostring(Module.build_gauge_from_arguments(dev0, { 421, 420, 419, 418 }))
+	return Module.drum_set(dev0, 418, 419, 420, 421)
 end, 4, A_323, "RSBN Channel")
 MiG_29A:defineString("A_323_ILS_CHANNEL", function(dev0)
-	return tostring(Module.build_gauge_from_arguments(dev0, { 423, 422 }))
+	return Module.drum_set(dev0, 422, 423)
 end, 2, A_323, "ILS Channel")
 
 -- Oxygen system
