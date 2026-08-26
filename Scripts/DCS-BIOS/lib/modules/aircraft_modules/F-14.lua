@@ -1750,4 +1750,13 @@ end, 7, "UHF 1", "PILOT UHF ARC-159 Radio Display")
 
 F_14:defineToggleSwitch("RIO_ICS_UHF_UPR_LWR", devices.ICS, 3611, 380, "ICS", "RIO V/UHF 2 ANT Switch", { positions = { "LWR", "UPR" } })
 
+local PLT_NVG = "PLT NVG"
+
+F_14:defineToggleSwitch("PLT_NVG_BIN", devices.COCKPITMECHANICS, 3970, 2150, PLT_NVG, "Storage Bin")
+F_14:defineToggleSwitch("PLT_NVG", devices.COCKPITMECHANICS, 3971, 2152, PLT_NVG, "Equip NVGs")
+
+local RIO_NVG = "RIO NVG"
+
+F_14:defineToggleSwitch("RIO_NVG", devices.COCKPITMECHANICS, 3972, 2151, RIO_NVG, "Equip NVGs")
+
 return F_14
