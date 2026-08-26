@@ -376,6 +376,7 @@ C_130J:definePotentiometer("PLT_ICS_MON_BLANK_VOLUME", devices.VOLUME_MANAGER, 3
 C_130J:defineToggleSwitch("PLT_ICS_MON_BLANK_BUTTON", devices.VOLUME_MANAGER, 3074, 443, PLT_ICS_MONITOR_PANEL, "Blank Pull to Monitor")
 C_130J:definePotentiometer("PLT_ICS_MON_RWR_VOLUME", devices.VOLUME_MANAGER, 3066, 446, { 0, 1 }, PLT_ICS_MONITOR_PANEL, "RWR Volume Knob")
 C_130J:defineToggleSwitch("PLT_ICS_MON_RWR_BUTTON", devices.VOLUME_MANAGER, 3076, 445, PLT_ICS_MONITOR_PANEL, "RWR Pull to Monitor")
+C_130J:defineFloat("PLT_ICS_MON_BACKLIGHT", 4043, { 0, 1 }, PLT_ICS_MONITOR_PANEL, "Backlight (green)")
 
 -- Pilot Side Console END
 
@@ -412,6 +413,7 @@ C_130J:definePotentiometer("CPLT_ICS_MON_BLANK_VOLUME", devices.VOLUME_MANAGER, 
 C_130J:defineToggleSwitch("CPLT_ICS_MON_BLANK_BUTTON", devices.VOLUME_MANAGER, 3094, 463, CPLT_ICS_MONITOR_PANEL, "Blank Pull to Monitor")
 C_130J:definePotentiometer("CPLT_ICS_MON_RWR_VOLUME", devices.VOLUME_MANAGER, 3086, 466, { 0, 1 }, CPLT_ICS_MONITOR_PANEL, "RWR Volume Knob")
 C_130J:defineToggleSwitch("CPLT_ICS_MON_RWR_BUTTON", devices.VOLUME_MANAGER, 3096, 465, CPLT_ICS_MONITOR_PANEL, "RWR Pull to Monitor")
+C_130J:defineFloat("CPLT_ICS_MON_BACKLIGHT", 4044, { 0, 1 }, PLT_ICS_MONITOR_PANEL, "Backlight (green)")
 
 -- Copilot Side Console END
 
@@ -1793,6 +1795,24 @@ C_130J:defineToggleSwitch("LOADMASTER_COVER", devices.CARGO_HANDLER, 3062, 2100,
 -- Loadmaster Station END
 
 -- Interior Lights
+
+local INTERIOR_LIGHTS = "Interior Lights"
+
+C_130J:defineFloat("INT_LIGHT_DOME_GREEN", 4001, { 0, 1 }, INTERIOR_LIGHTS, "Dome Light (green)")
+C_130J:defineFloat("INT_LIGHT_DOME_WHITE", 4008, { 0, 1 }, INTERIOR_LIGHTS, "Dome Light (white)")
+C_130J:defineFloat("PLT_INT_LIGHT_FLOOD", 4004, { 0, 1 }, INTERIOR_LIGHTS, "Pilot Instrument Flood Lights (green)")
+C_130J:defineFloat("CPLT_INT_LIGHT_FLOOD", 4003, { 0, 1 }, INTERIOR_LIGHTS, "Copilot Instrument Flood Lights (green)")
+C_130J:defineFloat("INT_LIGHT_OVERHEAD_CENTER_FLOOD", 4005, { 0, 1 }, INTERIOR_LIGHTS, "Overhead Center Flood Lights (green)")
+C_130J:defineFloat("INT_LIGHT_OVERHEAD_OUTER_FLOOD", 4009, { 0, 1 }, INTERIOR_LIGHTS, "Overhead Outer Flood Lights (green)")
+C_130J:defineFloat("PLT_INT_LIGHT_CB_FLOOD", 4006, { 0, 1 }, INTERIOR_LIGHTS, "Pilot Circuit Breaker Flood Lights (green)")
+C_130J:defineFloat("CPLT_INT_LIGHT_CB_FLOOD", 4007, { 0, 1 }, INTERIOR_LIGHTS, "Copilot Circuit Breaker Flood Lights (green)")
+C_130J:defineFloat("PLT_INT_LIGHT_SIDE_CONSOLE_FLOOD", 4130, { 0, 1 }, INTERIOR_LIGHTS, "Pilot Side Console Flood Lights (green)")
+C_130J:defineFloat("CPLT_INT_LIGHT_SIDE_CONSOLE_FLOOD", 4129, { 0, 1 }, INTERIOR_LIGHTS, "Cilot Side Console Flood Lights (green)")
+
+C_130J:defineFloat("INT_LIGHT_FRONT_BACKLIGHT", 4042, { 0, 1 }, INTERIOR_LIGHTS, "Front Panel Backlight (green)")
+C_130J:defineFloat("INT_LIGHT_INSTRUMENT_BACKLIGHT", 4002, { 0, 1 }, INTERIOR_LIGHTS, "Standby Instruments Backlight (green)")
+C_130J:defineFloat("INT_LIGHT_OVERHEAD_BACKLIGHT", 4010, { 0, 1 }, INTERIOR_LIGHTS, "Overhead Console Backlight (green)")
+C_130J:defineFloat("INT_LIGHT_CENTER_BACKLIGHT", 4031, { 0, 1 }, INTERIOR_LIGHTS, "Center Console Backlight (green)")
 
 -- Interior Model
 
