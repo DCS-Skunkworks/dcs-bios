@@ -1759,4 +1759,14 @@ local RIO_NVG = "RIO NVG"
 
 F_14:defineToggleSwitch("RIO_NVG", devices.COCKPITMECHANICS, 3972, 2151, RIO_NVG, "Equip NVGs")
 
+F_14:defineToggleSwitch("PLT_FLAPS_OUTBOARD", devices.FLAPS, 3997, 227, "Flaps", "Flaps Lever Outboard")
+
+local WINDSHIELD_DEFOG = "Windshield Defog"
+
+F_14:define3PosTumb("WINDSHIELD_DEFOG", devices.COCKPITMECHANICS, 3996, 975, WINDSHIELD_DEFOG, "Windshield Defog", { positions = { "MIN", "NORM", "MAX" } })
+
+local RUDDER = "Rudder"
+
+F_14:define3PosTumb("RUDDER_TRIM", devices.AVIONICSCORE, 3113, 8116, RUDDER, "Rudder Trim", { positions = { "L", "OFF", "R" } })
+
 return F_14
