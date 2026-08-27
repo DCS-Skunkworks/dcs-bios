@@ -1840,6 +1840,49 @@ C_130J:defineToggleSwitch("INTERIOR_MODEL_CREW_DOOR", devices.MECH_INTERFACE, 30
 
 -- Exterior Model
 
+local EXTERIOR_MODEL = "Exterior Model"
+
+C_130J:defineFloatFromDrawArgument("EXT_GEAR_NOSE_DEPLOY", 1, EXTERIOR_MODEL, "Nose Gear Deployment")
+C_130J:defineFloatFromDrawArgument("EXT_GEAR_NOSE_COMPRESSION", 2, EXTERIOR_MODEL, "Nose Gear Strut Compression")
+C_130J:defineFloatFromDrawArgument("EXT_GEAR_NOSE_DOORS", 117, EXTERIOR_MODEL, "Nose Gear Doors")
+C_130J:defineFullRangeFloatFromExternalDrawArgument("EXT_GEAR_NOSE_ROT", 3, EXTERIOR_MODEL, "Nose Gear Rotation")
+C_130J:defineFloatFromDrawArgument("EXT_GEAR_R_DEPLOY", 4, EXTERIOR_MODEL, "Right Main Gear Deployment")
+C_130J:defineFloatFromDrawArgument("EXT_GEAR_R_COMPRESSION", 5, EXTERIOR_MODEL, "Right Main Gear Strut Compression")
+C_130J:defineFloatFromDrawArgument("EXT_GEAR_L_DEPLOY", 6, EXTERIOR_MODEL, "Left Main Gear Deployment")
+C_130J:defineFloatFromDrawArgument("EXT_GEAR_L_COMPRESSION", 7, EXTERIOR_MODEL, "Left Main Gear Strut Compression")
+
+C_130J:defineFloatFromDrawArgument("EXT_FLAPS_R", 9, EXTERIOR_MODEL, "Right Flaps Deployment")
+C_130J:defineFloatFromDrawArgument("EXT_FLAPS_L", 10, EXTERIOR_MODEL, "Left Flaps Deployment")
+C_130J:defineFullRangeFloatFromExternalDrawArgument("EXT_AILERON_R", 11, EXTERIOR_MODEL, "Right Aileron")
+C_130J:defineFullRangeFloatFromExternalDrawArgument("EXT_AILERON_L", 12, EXTERIOR_MODEL, "Left Aileron")
+C_130J:defineFullRangeFloatFromExternalDrawArgument("EXT_ELEVATOR", 15, EXTERIOR_MODEL, "Elevator")
+C_130J:defineFullRangeFloatFromExternalDrawArgument("EXT_ELEVATOR_TRIM", 16, EXTERIOR_MODEL, "Elevator Trim Tabs")
+C_130J:defineFullRangeFloatFromExternalDrawArgument("EXT_RUDDER", 18, EXTERIOR_MODEL, "Rudder")
+
+C_130J:defineFloatFromDrawArgument("EXT_RAMP", 86, EXTERIOR_MODEL, "Ramp Position")
+C_130J:defineFloatFromDrawArgument("EXT_PARA_DROP_DOOR_R", 87, EXTERIOR_MODEL, "Right Paratroop Drop Door")
+C_130J:defineFloatFromDrawArgument("EXT_PARA_DROP_DOOR_L", 88, EXTERIOR_MODEL, "Left Paratroop Drop Door")
+
+C_130J:defineFullRangeFloatFromExternalDrawArgument("EXT_WING_FLEX_R", 338, EXTERIOR_MODEL, "Right Wing Flex")
+C_130J:defineFullRangeFloatFromExternalDrawArgument("EXT_WING_FLEX_L", 339, EXTERIOR_MODEL, "Left Wing Flex")
+
+C_130J:defineFloatFromDrawArgument("EXT_PROP_1", 407, EXTERIOR_MODEL, "Prop 1")
+C_130J:defineFloatFromDrawArgument("EXT_PROP_2", 408, EXTERIOR_MODEL, "Prop 2")
+C_130J:defineFloatFromDrawArgument("EXT_PROP_3", 409, EXTERIOR_MODEL, "Prop 3")
+C_130J:defineFloatFromDrawArgument("EXT_PROP_4", 410, EXTERIOR_MODEL, "Prop 4")
+
+C_130J:defineFloatFromDrawArgument("EXT_PROP_PITCH_1", 413, EXTERIOR_MODEL, "Prop 1 Pitch")
+C_130J:defineFloatFromDrawArgument("EXT_PROP_PITCH_2", 414, EXTERIOR_MODEL, "Prop 2 Pitch")
+C_130J:defineFloatFromDrawArgument("EXT_PROP_PITCH_3", 415, EXTERIOR_MODEL, "Prop 3 Pitch")
+C_130J:defineFloatFromDrawArgument("EXT_PROP_PITCH_4", 416, EXTERIOR_MODEL, "Prop 4 Pitch")
+
+C_130J:defineFloatFromDrawArgument("EXT_ENGINE_COWL_FLAPS_1", 495, EXTERIOR_MODEL, "Prop 1 Pitch")
+C_130J:defineFloatFromDrawArgument("EXT_ENGINE_COWL_FLAPS_2", 496, EXTERIOR_MODEL, "Prop 2 Pitch")
+C_130J:defineFloatFromDrawArgument("EXT_ENGINE_COWL_FLAPS_3", 497, EXTERIOR_MODEL, "Prop 3 Pitch")
+C_130J:defineFloatFromDrawArgument("EXT_ENGINE_COWL_FLAPS_4", 498, EXTERIOR_MODEL, "Prop 4 Pitch")
+
+C_130J:defineFloatFromDrawArgument("EXT_TAXI_LIGHT", 427, EXTERIOR_MODEL, "Taxi Lights Position")
+
 -- Radios
 
 -- Seat Position
