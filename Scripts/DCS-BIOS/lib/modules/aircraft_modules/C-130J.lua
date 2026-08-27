@@ -1816,6 +1816,26 @@ C_130J:defineFloat("INT_LIGHT_CENTER_BACKLIGHT", 4031, { 0, 1 }, INTERIOR_LIGHTS
 
 -- Interior Model
 
+local INTERIOR_MODEL = "Interior Model"
+
+C_130J:defineFloat("PLT_INTERIOR_MODEL_HUD", 6, { 0, 1 }, INTERIOR_MODEL, "Pilot HUD Position")
+C_130J:defineFloat("CPLT_INTERIOR_MODEL_HUD", 7, { 0, 1 }, INTERIOR_MODEL, "Copilot HUD Position")
+
+C_130J:defineFloat("PLT_INTERIOR_MODEL_WIPER", 112, { 0, 1 }, INTERIOR_MODEL, "Pilot Wiper")
+C_130J:defineFloat("CPLT_INTERIOR_MODEL_WIPER", 113, { 0, 1 }, INTERIOR_MODEL, "Copilot Wiper")
+
+C_130J:defineToggleSwitchManualRange("PLT_INTERIOR_MODEL_SUNSHADE", devices.PILOT_CPT_INTERFACE, 3009, 1612, { -1, 1 }, INTERIOR_MODEL, "Pilot Sunshade Show/Hide")
+C_130J:definePotentiometer("PLT_INTERIOR_MODEL_SUNSHADE_POS", devices.PILOT_CPT_INTERFACE, 3010, 1610, { 0, 1 }, INTERIOR_MODEL, "Pilot Sunshade Position")
+C_130J:defineToggleSwitchManualRange("CPLT_INTERIOR_MODEL_SUNSHADE", devices.COPILOT_CPT_INTERFACE, 3009, 1613, { -1, 1 }, INTERIOR_MODEL, "Copilot Sunshade Show/Hide")
+C_130J:definePotentiometer("CPLT_INTERIOR_MODEL_SUNSHADE_POS", devices.COPILOT_CPT_INTERFACE, 3010, 1611, { 0, 1 }, INTERIOR_MODEL, "Copilot Sunshade Position")
+
+C_130J:defineToggleSwitch("PLT_INTERIOR_MODEL_COFFEE", devices.PILOT_CPT_INTERFACE, 3014, 1687, INTERIOR_MODEL, "Pilot Coffee Cup")
+
+C_130J:defineFloat("INTERIOR_MODEL_BED_HEADREST", 1608, { 0, 1 }, INTERIOR_MODEL, "Bed Headrest")
+
+C_130J:defineFloat("INTERIOR_MODEL_CREW_DOOR_POSITION", 38, { 0, 1 }, INTERIOR_MODEL, "Crew Door")
+C_130J:defineToggleSwitch("INTERIOR_MODEL_CREW_DOOR", devices.MECH_INTERFACE, 3099, 2200, INTERIOR_MODEL, "Crew Door Handle")
+
 -- Exterior Lights
 
 -- Exterior Model
