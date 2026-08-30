@@ -1838,6 +1838,35 @@ C_130J:defineToggleSwitch("INTERIOR_MODEL_CREW_DOOR", devices.MECH_INTERFACE, 30
 
 -- Exterior Lights
 
+local EXTERIOR_LIGHTS = "Exterior Lights"
+
+C_130J:defineBitFromDrawArgument("EXT_LIGHT_NAV", 190, EXTERIOR_LIGHTS, "Nav Light")
+C_130J:defineFloatFromDrawArgument("EXT_LIGHT_NAV_BRIGHT", 194, EXTERIOR_LIGHTS, "Nav Light Brightness")
+C_130J:defineFloatFromDrawArgument("EXT_LIGHT_FORMATION", 200, EXTERIOR_LIGHTS, "Formation Lights (white)")
+
+C_130J:defineFloatFromDrawArgument("EXT_LIGHT_TAXI_1", 208, EXTERIOR_LIGHTS, "Taxi Lights 1 (white)")
+C_130J:defineFloatFromDrawArgument("EXT_LIGHT_TAXI_2", 209, EXTERIOR_LIGHTS, "Taxi Lights 2 (white)")
+
+C_130J:defineBitFromDrawArgument("EXT_LIGHT_GEAR_MAIN", 1015, EXTERIOR_LIGHTS, "Main Gear Light")
+C_130J:defineFloatFromDrawArgument("EXT_LIGHT_GEAR_MAIN_BRIGHTNESS", 1016, EXTERIOR_LIGHTS, "Main Gear Light Brightness")
+
+C_130J:defineBitFromDrawArgument("EXT_LIGHT_LEAD_EDGE", 1018, EXTERIOR_LIGHTS, "Leading Edge Lights (white)")
+C_130J:defineBitFromDrawArgument("EXT_LIGHT_WINGTIP_TAXI", 1019, EXTERIOR_LIGHTS, "Wingtip/Taxi Lights (white)")
+
+C_130J:defineFloatFromDrawArgument("EXT_LIGHT_ANTI_COLL_TOP_RED", 1020, EXTERIOR_LIGHTS, "Top Anti-Collision Light (red)")
+C_130J:defineFloatFromDrawArgument("EXT_LIGHT_ANTI_COLL_BOT_RED", 1021, EXTERIOR_LIGHTS, "Bottom Anti-Collision Light (red)")
+C_130J:defineFloatFromDrawArgument("EXT_LIGHT_ANTI_COLL_TOP_WHITE", 1023, EXTERIOR_LIGHTS, "Top Anti-Collision Light (white)")
+C_130J:defineFloatFromDrawArgument("EXT_LIGHT_ANTI_COLL_BOT_WHITE", 1022, EXTERIOR_LIGHTS, "Bottom Anti-Collision Light (white)")
+
+C_130J:defineFloatFromDrawArgument("EXT_LIGHT_CARGO_GREEN", 4101, EXTERIOR_LIGHTS, "Cargo Lights (green)")
+C_130J:defineFloatFromDrawArgument("EXT_LIGHT_CARGO_GREEN_2", 4311, EXTERIOR_LIGHTS, "Cargo Lights 2 (green)")
+C_130J:defineFloatFromDrawArgument("EXT_LIGHT_CARGO_WHITE", 4102, EXTERIOR_LIGHTS, "Cargo Lights (white)")
+C_130J:defineFloatFromDrawArgument("EXT_LIGHT_CARGO_WHITE_2", 4301, EXTERIOR_LIGHTS, "Cargo Lights 2 (white)")
+
+C_130J:defineFloatFromDrawArgument("EXT_LIGHT_RAMP_SPOTLIGHT", 4312, EXTERIOR_LIGHTS, "Cargo Ramp Spotlights (white)")
+
+C_130J:reserveIntValue(65535) -- IR Strobe
+
 -- Exterior Model
 
 local EXTERIOR_MODEL = "Exterior Model"
