@@ -1786,13 +1786,80 @@ local LOADMASTER_CTRLS = "Loadmaster Controls"
 C_130J:defineC130Springloaded_3PosTumb("LOADMASTER_RAMP_DOOR", devices.MECH_INTERFACE, 3097, 2101, LOADMASTER_CTRLS, "Ramp/Door Control Switch", { positions = { "CLOSE", "OFF", "OPEN" } })
 C_130J:defineToggleSwitch("LOADMASTER_COVER", devices.CARGO_HANDLER, 3062, 2100, LOADMASTER_CTRLS, "Cover")
 
--- Loadmaster Station Locks Indicator Panel
-
--- Loadmaster Station Circuit Breaker
-
--- Loadmaster Station Computer
-
 -- Loadmaster Station END
+
+-- Galley
+
+local GALLEY = "Galley"
+
+C_130J:defineInputOnlyPushButton("GALLEY_MICROWAVE_START", devices.GALLEY, 3012, GALLEY, "Microwave Start")
+C_130J:reserveIntValue(1)
+C_130J:defineInputOnlyPushButton("GALLEY_MICROWAVE_CLEAR", devices.GALLEY, 3013, GALLEY, "Microwave Clear")
+C_130J:reserveIntValue(1)
+C_130J:defineInputOnlyPushButton("GALLEY_MICROWAVE_1", devices.GALLEY, 3015, GALLEY, "Microwave 1")
+C_130J:reserveIntValue(1)
+C_130J:defineInputOnlyPushButton("GALLEY_MICROWAVE_2", devices.GALLEY, 3016, GALLEY, "Microwave 2")
+C_130J:reserveIntValue(1)
+C_130J:defineInputOnlyPushButton("GALLEY_MICROWAVE_3", devices.GALLEY, 3017, GALLEY, "Microwave 3")
+C_130J:reserveIntValue(1)
+C_130J:defineInputOnlyPushButton("GALLEY_MICROWAVE_4", devices.GALLEY, 3018, GALLEY, "Microwave 4")
+C_130J:reserveIntValue(1)
+C_130J:defineInputOnlyPushButton("GALLEY_MICROWAVE_5", devices.GALLEY, 3019, GALLEY, "Microwave 5")
+C_130J:reserveIntValue(1)
+C_130J:defineInputOnlyPushButton("GALLEY_MICROWAVE_6", devices.GALLEY, 3020, GALLEY, "Microwave 6")
+C_130J:reserveIntValue(1)
+C_130J:defineInputOnlyPushButton("GALLEY_MICROWAVE_7", devices.GALLEY, 3021, GALLEY, "Microwave 7")
+C_130J:reserveIntValue(1)
+C_130J:defineInputOnlyPushButton("GALLEY_MICROWAVE_8", devices.GALLEY, 3022, GALLEY, "Microwave 8")
+C_130J:reserveIntValue(1)
+C_130J:defineInputOnlyPushButton("GALLEY_MICROWAVE_9", devices.GALLEY, 3023, GALLEY, "Microwave 9")
+C_130J:reserveIntValue(1)
+C_130J:defineInputOnlyPushButton("GALLEY_MICROWAVE_POPCORN", devices.GALLEY, 3024, GALLEY, "Microwave Popcorn")
+C_130J:reserveIntValue(1)
+C_130J:defineInputOnlyPushButton("GALLEY_MICROWAVE_0", devices.GALLEY, 3014, GALLEY, "Microwave 0")
+C_130J:reserveIntValue(1)
+C_130J:defineInputOnlyPushButton("GALLEY_MICROWAVE_MIN", devices.GALLEY, 3025, GALLEY, "Microwave Min")
+C_130J:reserveIntValue(1)
+C_130J:defineToggleSwitch("GALLEY_MICROWAVE_LATCH", devices.J_WORLD, 3010, 1677, GALLEY, "Microwave Latch")
+C_130J:defineInputOnlyPushButtonWithValues("GALLEY_MICROWAVE_OPEN", devices.J_WORLD, 3011, 1, nil, GALLEY, "Microwave Open")
+C_130J:defineInputOnlyPushButtonWithValues("GALLEY_MICROWAVE_CLOSE", devices.J_WORLD, 3011, -1, nil, GALLEY, "Microwave Close")
+C_130J:defineFloat("GALLEY_MICROWAVE_DOOR", 1655, { 0, 1 }, GALLEY, "Microwave Door Position")
+
+C_130J:defineToggleSwitch("GALLEY_DRAWER_BOT_STOPPER_L", devices.GALLEY, 3007, 1678, GALLEY, "Left Bottom Drawer Stopper")
+C_130J:defineToggleSwitch("GALLEY_DRAWER_BOT_STOPPER_R", devices.GALLEY, 3009, 1680, GALLEY, "Right Bottom Drawer Stopper")
+
+C_130J:reserveIntValue(65535) -- middle shelf, cmd 3003
+
+C_130J:defineToggleSwitch("GALLEY_SHELF_MID_STOPPER_L", devices.GALLEY, 3004, 1675, GALLEY, "Left Middle Shelf Stopper")
+C_130J:defineToggleSwitch("GALLEY_SHELF_MID_STOPPER_R", devices.GALLEY, 3005, 1676, GALLEY, "Right Middle Shelf Stopper")
+
+C_130J:defineToggleSwitch("GALLEY_SHELF_BOT", devices.GALLEY, 3006, 1667, GALLEY, "Bottom Shelf")
+
+C_130J:defineToggleSwitch("GALLEY_POWER_MASTER", devices.GALLEY, 3001, 1636, GALLEY, "Master Power")
+C_130J:defineToggleSwitch("GALLEY_POWER_COFFEE", devices.GALLEY, 3002, 1631, GALLEY, "Coffee Power")
+C_130J:defineToggleSwitch("GALLEY_LIQUID_CONT1", devices.GALLEY, 3027, 1632, GALLEY, "Liquid Container 1 Power")
+C_130J:defineToggleSwitch("GALLEY_LIQUID_CONT2", devices.GALLEY, 3028, 1633, GALLEY, "Liquid Container 2 Power")
+
+C_130J:defineToggleSwitch("GALLEY_CABINET_TOP_STOPPER", devices.GALLEY, 3029, 1670, GALLEY, "Top Cabinet Stopper")
+C_130J:defineToggleSwitch("GALLEY_CABINET_TOP_DOOR", devices.GALLEY, 3030, 1640, GALLEY, "Top Cabinet Door")
+
+C_130J:defineToggleSwitch("GALLEY_TRASH_DOOR_STOPPER", devices.GALLEY, 3031, 1681, GALLEY, "Trash Door Stopper")
+C_130J:defineToggleSwitch("GALLEY_TRASH_DOOR", devices.GALLEY, 3032, 1669, GALLEY, "Trash Door")
+C_130J:defineToggleSwitch("GALLEY_TRASH_DOOR_HATCH", devices.GALLEY, 3033, 1666, GALLEY, "Trash Door Hatch")
+
+C_130J:defineToggleSwitch("GALLEY_LIQUID_CONT1_STOPPER_L", devices.GALLEY, 3036, 1671, GALLEY, "Left Liquid Container 1 Stopper")
+C_130J:defineToggleSwitch("GALLEY_LIQUID_CONT1_STOPPER_R", devices.GALLEY, 3037, 1672, GALLEY, "Right Liquid Container 1 Stopper")
+C_130J:defineToggleSwitch("GALLEY_LIQUID_CONT2_STOPPER_L", devices.GALLEY, 3038, 1673, GALLEY, "Left Liquid Container 2 Stopper")
+C_130J:defineToggleSwitch("GALLEY_LIQUID_CONT2_STOPPER_R", devices.GALLEY, 3039, 1674, GALLEY, "Right Liquid Container 2 Stopper")
+
+C_130J:defineToggleSwitch("GALLEY_CENTER_CABINET_DOOR", devices.GALLEY, 3040, 1641, GALLEY, "Center Cabinet Door")
+
+C_130J:defineToggleSwitch("GALLEY_CABINET_BOT_DOOR", devices.GALLEY, 3034, 1668, GALLEY, "Bottom Cabinet Door")
+C_130J:defineToggleSwitch("GALLEY_CABINET_BOT_STOPPER", devices.GALLEY, 3008, 1679, GALLEY, "Bottom Cabinet Stopper")
+
+C_130J:reserveIntValue(65535) -- light control, draw arg 1630
+C_130J:reserveIntValue(1) -- liquid container 1 dispense, draw arg 1645
+C_130J:reserveIntValue(1) -- liquid container 2 dispense, draw arg 1646
 
 -- Interior Lights
 
