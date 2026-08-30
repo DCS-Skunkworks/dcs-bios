@@ -1865,6 +1865,8 @@ C_130J:defineFloatFromDrawArgument("EXT_LIGHT_CARGO_WHITE_2", 4301, EXTERIOR_LIG
 
 C_130J:defineFloatFromDrawArgument("EXT_LIGHT_RAMP_SPOTLIGHT", 4312, EXTERIOR_LIGHTS, "Cargo Ramp Spotlights (white)")
 
+C_130J:reserveIntValue(65535) -- IR Strobe
+
 -- Exterior Model
 
 -- Radios
