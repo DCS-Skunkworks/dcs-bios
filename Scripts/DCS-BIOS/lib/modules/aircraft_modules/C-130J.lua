@@ -1850,8 +1850,8 @@ C_130J:defineFloatFromDrawArgument("EXT_LIGHT_TAXI_2", 209, EXTERIOR_LIGHTS, "Ta
 C_130J:defineBitFromDrawArgument("EXT_LIGHT_GEAR_MAIN", 1015, EXTERIOR_LIGHTS, "Main Gear Light")
 C_130J:defineFloatFromDrawArgument("EXT_LIGHT_GEAR_MAIN_BRIGHTNESS", 1016, EXTERIOR_LIGHTS, "Main Gear Light Brightness")
 
-C_130J:defineBitFromDrawArgument("EXT_LIGHT_SPOTLIGHT_ENGINES", 1018, EXTERIOR_LIGHTS, "Engine Spotlights (white)")
-C_130J:defineBitFromDrawArgument("EXT_LIGHT_SPOTLIGHT_COCKPIT", 1019, EXTERIOR_LIGHTS, "Cockpit Spotlights (white)")
+C_130J:defineBitFromDrawArgument("EXT_LIGHT_LEAD_EDGE", 1018, EXTERIOR_LIGHTS, "Leading Edge Lights (white)")
+C_130J:defineBitFromDrawArgument("EXT_LIGHT_WINGTIP_TAXI", 1019, EXTERIOR_LIGHTS, "Wingtip/Taxi Lights (white)")
 
 C_130J:defineFloatFromDrawArgument("EXT_LIGHT_ANTI_COLL_TOP_RED", 1020, EXTERIOR_LIGHTS, "Top Anti-Collision Light (red)")
 C_130J:defineFloatFromDrawArgument("EXT_LIGHT_ANTI_COLL_BOT_RED", 1021, EXTERIOR_LIGHTS, "Bottom Anti-Collision Light (red)")
