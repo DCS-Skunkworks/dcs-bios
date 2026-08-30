@@ -1914,6 +1914,14 @@ C_130J:defineFloatFromDrawArgument("EXT_TAXI_LIGHT", 427, EXTERIOR_MODEL, "Taxi 
 
 -- Radios
 
--- Seat Position
+C_130J:defineReadWriteRadio("RADIO_UHF1", 7, 7, 3, 1000, "UHF 1")
+C_130J:defineReadWriteRadio("RADIO_UHF2", 9, 7, 3, 1000, "UHF 2")
+C_130J:defineReadWriteRadio("RADIO_VHF1", 6, 7, 3, 1000, "VHF 1")
+C_130J:defineReadWriteRadio("RADIO_VHF2", 8, 7, 3, 1000, "VHF 2")
+C_130J:defineReadWriteRadio("RADIO_HF1", 10, 7, 3, 1000, "HF 1")
+C_130J:defineReadWriteRadio("RADIO_HF2", 11, 7, 3, 1000, "HF 2")
+C_130J:defineReadWriteRadio("RADIO_ADF1", 16, 6, 1, 10, "ADF 1")
+C_130J:defineReadWriteRadio("RADIO_ADF2", 17, 6, 1, 10, "ADF 2")
+C_130J:defineReadWriteRadio("RADIO_ARC210", 92, 7, 3, 1000, "ARC-210")
 
 return C_130J
