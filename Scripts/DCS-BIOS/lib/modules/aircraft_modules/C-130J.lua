@@ -1876,10 +1876,10 @@ C_130J:defineFloatFromDrawArgument("EXT_PROP_PITCH_2", 414, EXTERIOR_MODEL, "Pro
 C_130J:defineFloatFromDrawArgument("EXT_PROP_PITCH_3", 415, EXTERIOR_MODEL, "Prop 3 Pitch")
 C_130J:defineFloatFromDrawArgument("EXT_PROP_PITCH_4", 416, EXTERIOR_MODEL, "Prop 4 Pitch")
 
-C_130J:defineFloatFromDrawArgument("EXT_ENGINE_COWL_FLAPS_1", 495, EXTERIOR_MODEL, "Prop 1 Pitch")
-C_130J:defineFloatFromDrawArgument("EXT_ENGINE_COWL_FLAPS_2", 496, EXTERIOR_MODEL, "Prop 2 Pitch")
-C_130J:defineFloatFromDrawArgument("EXT_ENGINE_COWL_FLAPS_3", 497, EXTERIOR_MODEL, "Prop 3 Pitch")
-C_130J:defineFloatFromDrawArgument("EXT_ENGINE_COWL_FLAPS_4", 498, EXTERIOR_MODEL, "Prop 4 Pitch")
+C_130J:defineFloatFromDrawArgument("EXT_ENGINE_COWL_FLAPS_1", 495, EXTERIOR_MODEL, "Engine 1 Cowl Flaps")
+C_130J:defineFloatFromDrawArgument("EXT_ENGINE_COWL_FLAPS_2", 496, EXTERIOR_MODEL, "Engine 2 Cowl Flaps")
+C_130J:defineFloatFromDrawArgument("EXT_ENGINE_COWL_FLAPS_3", 497, EXTERIOR_MODEL, "Engine 3 Cowl Flaps")
+C_130J:defineFloatFromDrawArgument("EXT_ENGINE_COWL_FLAPS_4", 498, EXTERIOR_MODEL, "Engine 4 Cowl Flaps")
 
 C_130J:defineFloatFromDrawArgument("EXT_TAXI_LIGHT", 427, EXTERIOR_MODEL, "Taxi Lights Position")
 
