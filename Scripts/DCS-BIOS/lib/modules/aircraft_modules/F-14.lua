@@ -1810,4 +1810,21 @@ F_14:defineString("RIO_AAI_CODE", function(dev0)
 	return thousands .. hundreds .. tens .. ones
 end, 4, AAI, "Interrogator Code")
 
+-- DFCS
+
+local dfcs_fault = ""
+
+-- this one indication has data for a few different areas
+F_14:addExportHook(function(_)
+	local ale47_indicator = Module.parse_indication(33)
+	dfcs_fault = ale47_indicator and ale47_indicator[7] or ""
+end)
+
+F_14:definePushButton("PLT_DFCS_FAULT_DEC", devices.AFCS, 3105, 2131, "SAS", "DFCS Fault Decrease")
+F_14:definePushButton("PLT_DFCS_FAULT_INC", devices.AFCS, 3104, 2132, "SAS", "DFCS Fault Increase")
+
+F_14:defineString("PLT_DFCS_FAULT_DISPLAY", function(_)
+	return dfcs_fault
+end, 4, "SAS", "Fault Display")
+
 return F_14
