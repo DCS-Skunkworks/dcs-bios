@@ -1812,11 +1812,17 @@ end, 4, AAI, "Interrogator Code")
 
 -- DFCS
 
+local tis = {
+	line1 = "",
+	line2 = "",
+}
 local dfcs_fault = ""
 
 -- this one indication has data for a few different areas
 F_14:addExportHook(function(_)
 	local ale47_indicator = Module.parse_indication(33)
+	tis.line1 = ale47_indicator and ale47_indicator[5] or ""
+	tis.line2 = ale47_indicator and ale47_indicator[6] or ""
 	dfcs_fault = ale47_indicator and ale47_indicator[7] or ""
 end)
 
@@ -1826,5 +1832,20 @@ F_14:definePushButton("PLT_DFCS_FAULT_INC", devices.AFCS, 3104, 2132, "SAS", "DF
 F_14:defineString("PLT_DFCS_FAULT_DISPLAY", function(_)
 	return dfcs_fault
 end, 4, "SAS", "Fault Display")
+
+local TIS = "TIS"
+
+F_14:definePushButton("RIO_TIS_RCU1", devices.TACTICAL_IMAGING_SET, 3938, 885, TIS, "RCU 1")
+F_14:definePushButton("RIO_TIS_RCU2", devices.TACTICAL_IMAGING_SET, 3939, 886, TIS, "RCU 2")
+F_14:definePushButton("RIO_TIS_RCU3", devices.TACTICAL_IMAGING_SET, 3940, 887, TIS, "RCU 3")
+F_14:definePushButton("RIO_TIS_RCU4", devices.TACTICAL_IMAGING_SET, 3941, 888, TIS, "RCU 4")
+F_14:definePushButton("RIO_TIS_RCU5", devices.TACTICAL_IMAGING_SET, 3942, 889, TIS, "RCU 5")
+F_14:definePushButton("RIO_TIS_RCU6", devices.TACTICAL_IMAGING_SET, 3943, 890, TIS, "RCU 6")
+F_14:defineString("RIO_TIS_LINE1", function(_)
+	return tis.line1
+end, 24, TIS, "Display Line 1")
+F_14:defineString("RIO_TIS_LINE2", function(_)
+	return tis.line2
+end, 24, TIS, "Display Line 2")
 
 return F_14
