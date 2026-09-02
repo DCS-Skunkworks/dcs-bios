@@ -159,7 +159,7 @@ Currently, DCS-BIOS supports the following aircraft modules:
 | AV-8B N/A | ✅ | _WarLord, Matchstick_ |
 | Bf-109-K-4 | ✅ | _ArturDCS_ |
 | C-101CC/EB | ✅ | _WarLord, cdpkobra_ |
-| C-130J | 🚧 | _[WIP](https://github.com/DCS-Skunkworks/dcs-bios/issues/1397)_ |
+| C-130J | ✅ | |
 | CH-47F | ✅ | |
 | Christen Eagle II | ✅ | _WarLord, cdpkobra_ |
 | F-14A/B | ✅ | _WarLord, ArturDCS, Bullitt_ |
