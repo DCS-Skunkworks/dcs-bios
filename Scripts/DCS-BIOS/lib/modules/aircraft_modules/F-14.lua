@@ -1812,6 +1812,7 @@ end, 4, AAI, "Interrogator Code")
 
 -- DFCS
 
+local cmds_display = ""
 local tis = {
 	line1 = "",
 	line2 = "",
@@ -1821,6 +1822,7 @@ local dfcs_fault = ""
 -- this one indication has data for a few different areas
 F_14:addExportHook(function(_)
 	local ale47_indicator = Module.parse_indication(33)
+	cmds_display = ale47_indicator and ale47_indicator[4] or ""
 	tis.line1 = ale47_indicator and ale47_indicator[5] or ""
 	tis.line2 = ale47_indicator and ale47_indicator[6] or ""
 	dfcs_fault = ale47_indicator and ale47_indicator[7] or ""
@@ -1847,5 +1849,43 @@ end, 24, TIS, "Display Line 1")
 F_14:defineString("RIO_TIS_LINE2", function(_)
 	return tis.line2
 end, 24, TIS, "Display Line 2")
+
+local ALE_47 = "ALE-47"
+
+F_14:definePushButton("RIO_ALE_47_INHIBIT_01", devices.COUNTERMEASURES, 3920, 872, ALE_47, "Inhibit 01")
+F_14:definePushButton("RIO_ALE_47_INHIBIT_02", devices.COUNTERMEASURES, 3921, 873, ALE_47, "Inhibit 02")
+F_14:definePushButton("RIO_ALE_47_INHIBIT_CHAFF", devices.COUNTERMEASURES, 3922, 874, ALE_47, "Inhibit Chaff")
+F_14:definePushButton("RIO_ALE_47_INHIBIT_FLARE", devices.COUNTERMEASURES, 3923, 875, ALE_47, "Inhibit Flare")
+F_14:definePushButton("RIO_ALE_47_INHIBIT_RWR", devices.COUNTERMEASURES, 3924, 876, ALE_47, "Inhibit RWR")
+F_14:definePushButton("RIO_ALE_47_INHIBIT_MWS", devices.COUNTERMEASURES, 3925, 877, ALE_47, "Inhibit MWS")
+F_14:definePushButton("RIO_ALE_47_INHIBIT_JMR", devices.COUNTERMEASURES, 3926, 878, ALE_47, "Inhibit JMR")
+F_14:definePushButton("RIO_ALE_47_ENTER_BIT", devices.COUNTERMEASURES, 3927, 879, ALE_47, "Enter / BIT")
+
+F_14:defineMultipositionSwitch("RIO_ALE_47_MODE", devices.COUNTERMEASURES, 3918, 880, 6, 0.2, ALE_47, "Mode", { positions = { "OFF", "STBY", "MAN", "SEMI", "AUTO", "BYP" } })
+F_14:defineMultipositionSwitch("RIO_ALE_47_MANUAL", devices.COUNTERMEASURES, 3919, 881, 5, 0.25, ALE_47, "Manual", { positions = { "1", "2", "3", "4", "PRG" } })
+
+F_14:defineToggleSwitch("RIO_ALE_47_JETTISON", devices.COUNTERMEASURES, 3928, 871, ALE_47, "Jettison")
+F_14:defineToggleSwitch("RIO_ALE_47_JETTISON_COVER", devices.COUNTERMEASURES, 3929, 870, ALE_47, "Jettison Cover", { positions = CommonPositions.COVER })
+F_14:defineToggleSwitch("RIO_ALE_47_GND_TEST", devices.COUNTERMEASURES, 3931, 884, ALE_47, "Ground Test")
+F_14:defineToggleSwitch("RIO_ALE_47_GND_TEST_COVER", devices.COUNTERMEASURES, 3932, 883, ALE_47, "Ground Test Cover", { positions = CommonPositions.COVER })
+
+F_14:definePotentiometer("RIO_ALE_47_BRIGHTNESS_KNOB", devices.COUNTERMEASURES, 3930, 882, { 0, 1 }, ALE_47, "Brightness Knob")
+
+F_14:defineGatedIndicatorLight("RIO_ALE_47_INHIBIT_01_LIGHT", 965, 0.5, nil, ALE_47, "Inhibit 01 Light", { color = "green" })
+F_14:defineGatedIndicatorLight("RIO_ALE_47_INHIBIT_02_LIGHT", 966, 0.5, nil, ALE_47, "Inhibit 02 Light", { color = "green" })
+F_14:defineGatedIndicatorLight("RIO_ALE_47_INHIBIT_CHAFF_LIGHT", 967, 0.5, nil, ALE_47, "Inhibit Chaff Light", { color = "green" })
+F_14:defineGatedIndicatorLight("RIO_ALE_47_INHIBIT_FLARE_LIGHT", 968, 0.5, nil, ALE_47, "Inhibit Flare Light", { color = "green" })
+F_14:defineGatedIndicatorLight("RIO_ALE_47_INHIBIT_RWR_LIGHT", 969, 0.5, nil, ALE_47, "Inhibit RWR Light", { color = "green" })
+F_14:defineGatedIndicatorLight("RIO_ALE_47_INHIBIT_MWS_LIGHT", 970, 0.5, nil, ALE_47, "Inhibit MWS Light", { color = "green" })
+F_14:defineGatedIndicatorLight("RIO_ALE_47_INHIBIT_JMR_LIGHT", 971, 0.5, nil, ALE_47, "Inhibit JMR Light", { color = "green" })
+F_14:defineGatedIndicatorLight("RIO_ALE_READY_LIGHT", 972, 0.5, nil, ALE_47, "READY Light", { color = "green" })
+F_14:defineGatedIndicatorLight("RIO_ALE_GO_LIGHT", 973, 0.5, nil, ALE_47, "GO Light", { color = "green" })
+F_14:defineGatedIndicatorLight("RIO_ALE_NO_LIGHT", 973, 0.9, nil, ALE_47, "NO Light", { color = "green" })
+
+F_14:defineFloat("RIO_ALE_47_BRIGHTNESS", 974, { 0, 1 }, ALE_47, "CMDS Brightness")
+
+F_14:defineString("RIO_ALE_47_DISPLAY", function(_)
+	return cmds_display
+end, 16, ALE_47, "ALE-47 Display")
 
 return F_14
