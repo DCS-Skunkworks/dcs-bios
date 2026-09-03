@@ -431,6 +431,30 @@ local CH_47F_CDU = {
 			color = "g",
 		},
 	},
+	["5_10_PROGRAM_branch"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_MSG_NEW",
+			},
+			id = "5_10_PROGRAM_branch",
+			x = 24,
+			y = 7,
+			color = "w",
+		},
+	},
+	["5_10_PROGRAM_field"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_MSG_NEW",
+			},
+			id = "5_10_PROGRAM_field",
+			x = 23,
+			y = 7,
+			color = "w",
+		},
+	},
 	["A_C_WEIGHT_field"] = {
 		{
 			alignment = "LFT",
@@ -1195,7 +1219,7 @@ local CH_47F_CDU = {
 			},
 			id = "ADF_branch",
 			x = 1,
-			y = 13,
+			y = 11,
 			color = "w",
 		},
 		{
@@ -1237,7 +1261,7 @@ local CH_47F_CDU = {
 			},
 			id = "ADF_field",
 			x = 2,
-			y = 13,
+			y = 11,
 			color = "w",
 		},
 		{
@@ -2126,6 +2150,76 @@ local CH_47F_CDU = {
 			color = "g",
 		},
 	},
+	["ALE_SEND_branch"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_CREATE_MSG",
+				"CDU_SUBSET_COMM_H4_PROGRAM_MSG",
+				"CDU_SUBSET_COMM_H4_RECEIVE_MSG",
+			},
+			id = "ALE_SEND_branch",
+			x = 24,
+			y = 11,
+			color = "w",
+		},
+	},
+	["ALE_SEND_field"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_CREATE_MSG",
+				"CDU_SUBSET_COMM_H4_PROGRAM_MSG",
+				"CDU_SUBSET_COMM_H4_RECEIVE_MSG",
+			},
+			id = "ALE_SEND_field",
+			x = 23,
+			y = 10,
+			color = "w",
+		},
+	},
+	["ALE_SEND_left_bracket"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_CREATE_MSG",
+				"CDU_SUBSET_COMM_H4_PROGRAM_MSG",
+				"CDU_SUBSET_COMM_H4_RECEIVE_MSG",
+			},
+			id = "ALE_SEND_left_bracket",
+			x = 16,
+			y = 11,
+			color = "w",
+		},
+	},
+	["ALE_SEND_right_bracket"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_CREATE_MSG",
+				"CDU_SUBSET_COMM_H4_PROGRAM_MSG",
+				"CDU_SUBSET_COMM_H4_RECEIVE_MSG",
+			},
+			id = "ALE_SEND_right_bracket",
+			x = 23,
+			y = 11,
+			color = "w",
+		},
+	},
+	["ALE_SEND_value"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_CREATE_MSG",
+				"CDU_SUBSET_COMM_H4_PROGRAM_MSG",
+				"CDU_SUBSET_COMM_H4_RECEIVE_MSG",
+			},
+			id = "ALE_SEND_value",
+			x = 17,
+			y = 11,
+			color = "g",
+		},
+	},
 	["ALERT_AUD_available"] = {
 		{
 			alignment = "RGHT",
@@ -2372,10 +2466,11 @@ local CH_47F_CDU = {
 			alignment = "RGHT",
 			pages = {
 				"CDU_SUBSET_FD_SELECT",
+				"CDU_SUBSET_FD_SELECT_2",
 			},
 			id = "ALTITUDE_field",
 			x = 24,
-			y = 6,
+			y = 2,
 			color = "w",
 		},
 	},
@@ -2384,10 +2479,11 @@ local CH_47F_CDU = {
 			alignment = "RGHT",
 			pages = {
 				"CDU_SUBSET_FD_SELECT",
+				"CDU_SUBSET_FD_SELECT_2",
 			},
 			id = "ALTITUDE_left_bracket",
 			x = 16,
-			y = 7,
+			y = 3,
 			color = "w",
 		},
 	},
@@ -2396,10 +2492,11 @@ local CH_47F_CDU = {
 			alignment = "RGHT",
 			pages = {
 				"CDU_SUBSET_FD_SELECT",
+				"CDU_SUBSET_FD_SELECT_2",
 			},
 			id = "ALTITUDE_right_bracket",
 			x = 22,
-			y = 7,
+			y = 3,
 			color = "w",
 		},
 	},
@@ -2408,10 +2505,11 @@ local CH_47F_CDU = {
 			alignment = "RGHT",
 			pages = {
 				"CDU_SUBSET_FD_SELECT",
+				"CDU_SUBSET_FD_SELECT_2",
 			},
 			id = "ALTITUDE_units",
 			x = 24,
-			y = 7,
+			y = 3,
 			color = "w",
 		},
 	},
@@ -2420,10 +2518,11 @@ local CH_47F_CDU = {
 			alignment = "RGHT",
 			pages = {
 				"CDU_SUBSET_FD_SELECT",
+				"CDU_SUBSET_FD_SELECT_2",
 			},
 			id = "ALTITUDE_value",
 			x = 21,
-			y = 7,
+			y = 3,
 			color = "g",
 		},
 	},
@@ -2561,66 +2660,6 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
-	["AMP_branch"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FPLN_DATA_2",
-			},
-			id = "AMP_branch",
-			x = 1,
-			y = 3,
-			color = "w",
-		},
-	},
-	["AMP_left_bracket"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FPLN_DATA_2",
-			},
-			id = "AMP_left_bracket",
-			x = 2,
-			y = 3,
-			color = "w",
-		},
-	},
-	["AMP_right_bracket"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FPLN_DATA_2",
-			},
-			id = "AMP_right_bracket",
-			x = 5,
-			y = 3,
-			color = "w",
-		},
-	},
-	["AMP_units"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FPLN_DATA_2",
-			},
-			id = "AMP_units",
-			x = 6,
-			y = 3,
-			color = "w",
-		},
-	},
-	["AMP_value"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FPLN_DATA_2",
-			},
-			id = "AMP_value",
-			x = 3,
-			y = 3,
-			color = "g",
-		},
-	},
 	["ANGLE_MODE_branch"] = {
 		{
 			alignment = "RGHT",
@@ -2683,17 +2722,20 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_COMM_F1_VHF_FM_PRESETS_2",
 				"CDU_SUBSET_COMM_F1_VHF_FM_PRESETS_3",
 				"CDU_SUBSET_COMM_F1_VHF_FM_PRESETS_4",
+				"CDU_SUBSET_COMM_H4_ADDRESSES_LIST",
+				"CDU_SUBSET_COMM_H4_ALE_ADDRESSES",
 				"CDU_SUBSET_COMM_H4_ALE_CTRL",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_1",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_2",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_3",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_4",
+				"CDU_SUBSET_COMM_H4_ALE_NET_ADDRESSES",
+				"CDU_SUBSET_COMM_H4_ALE_NETS",
+				"CDU_SUBSET_COMM_H4_CREATE_MSG",
 				"CDU_SUBSET_COMM_H4_CTRL_2",
+				"CDU_SUBSET_COMM_H4_GROUP_ADDRESSES",
 				"CDU_SUBSET_COMM_H4_MAN_CTRL",
-				"CDU_SUBSET_COMM_H4_PRESETS_1",
-				"CDU_SUBSET_COMM_H4_PRESETS_2",
-				"CDU_SUBSET_COMM_H4_PRESETS_3",
-				"CDU_SUBSET_COMM_H4_PRESETS_4",
+				"CDU_SUBSET_COMM_H4_MSG_NEW",
+				"CDU_SUBSET_COMM_H4_PRESETS",
+				"CDU_SUBSET_COMM_H4_PROGRAM_MSG",
+				"CDU_SUBSET_COMM_H4_RECEIVE_MSG",
+				"CDU_SUBSET_COMM_H4_SELF_ADDRESSES",
 				"CDU_SUBSET_COMM_U2_FMT_LOAD_1",
 				"CDU_SUBSET_COMM_U2_FMT_LOAD_2",
 				"CDU_SUBSET_COMM_U2_HQ_PRESETS_1",
@@ -2740,8 +2782,10 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_EOS_POINT_CONTROL",
 				"CDU_SUBSET_EOS_VIDEO_CTRL",
 				"CDU_SUBSET_FD_SELECT",
+				"CDU_SUBSET_FD_SELECT_2",
 				"CDU_SUBSET_FPLN",
 				"CDU_SUBSET_FPLN_ACP",
+				"CDU_SUBSET_FPLN_ACP_CALC",
 				"CDU_SUBSET_FPLN_ALTN",
 				"CDU_SUBSET_FPLN_ALTN_MGNT",
 				"CDU_SUBSET_FPLN_APPR_HOV",
@@ -2841,6 +2885,9 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_OFP_CROSSLOAD",
 				"CDU_SUBSET_OFP_LOADSETS",
 				"CDU_SUBSET_PERF_DEFAULTS",
+				"CDU_SUBSET_PERF_INIT_1",
+				"CDU_SUBSET_PERF_INIT_2",
+				"CDU_SUBSET_PERF_PROGRESS",
 				"CDU_SUBSET_POINT_DATA",
 				"CDU_SUBSET_POWER",
 				"CDU_SUBSET_PREDICIVE_RAIM",
@@ -3034,6 +3081,66 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
+	["AOB_LIMIT_field"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FD_SELECT_2",
+			},
+			id = "AOB_LIMIT_field",
+			x = 1,
+			y = 8,
+			color = "w",
+		},
+	},
+	["AOB_LIMIT_left_bracket"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FD_SELECT_2",
+			},
+			id = "AOB_LIMIT_left_bracket",
+			x = 1,
+			y = 9,
+			color = "w",
+		},
+	},
+	["AOB_LIMIT_right_bracket"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FD_SELECT_2",
+			},
+			id = "AOB_LIMIT_right_bracket",
+			x = 4,
+			y = 9,
+			color = "w",
+		},
+	},
+	["AOB_LIMIT_units"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FD_SELECT_2",
+			},
+			id = "AOB_LIMIT_units",
+			x = 5,
+			y = 9,
+			color = "g",
+		},
+	},
+	["AOB_LIMIT_value"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FD_SELECT_2",
+			},
+			id = "AOB_LIMIT_value",
+			x = 2,
+			y = 9,
+			color = "g",
+		},
+	},
 	["APPLY_branch"] = {
 		{
 			alignment = "RGHT",
@@ -3176,6 +3283,54 @@ local CH_47F_CDU = {
 			id = "ARINC_429_value",
 			x = 24,
 			y = 7,
+			color = "g",
+		},
+	},
+	["ATD_TANKS_field"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_PERF_INIT_1",
+			},
+			id = "ATD_TANKS_field",
+			x = 24,
+			y = 4,
+			color = "w",
+		},
+	},
+	["ATD_TANKS_left_bracket"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_PERF_INIT_1",
+			},
+			id = "ATD_TANKS_left_bracket",
+			x = 15,
+			y = 5,
+			color = "w",
+		},
+	},
+	["ATD_TANKS_right_bracket"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_PERF_INIT_1",
+			},
+			id = "ATD_TANKS_right_bracket",
+			x = 24,
+			y = 5,
+			color = "w",
+		},
+	},
+	["ATD_TANKS_value"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_PERF_INIT_1",
+			},
+			id = "ATD_TANKS_value",
+			x = 22,
+			y = 5,
 			color = "g",
 		},
 	},
@@ -3628,6 +3783,30 @@ local CH_47F_CDU = {
 			x = 2,
 			y = 3,
 			color = "w",
+		},
+	},
+	["BD_field"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FPLN_ACP_CALC",
+			},
+			id = "BD_field",
+			x = 1,
+			y = 8,
+			color = "w",
+		},
+	},
+	["BD_value"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FPLN_ACP_CALC",
+			},
+			id = "BD_value",
+			x = 1,
+			y = 9,
+			color = "g",
 		},
 	},
 	["BDT_branch"] = {
@@ -4760,55 +4939,18 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
-	["CARGO_FUEL_field"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FPLN_DATA_2",
-			},
-			id = "CARGO_FUEL_field",
-			x = 1,
-			y = 8,
-			color = "w",
-		},
-	},
-	["CARGO_FUEL_left_bracket"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FPLN_DATA_2",
-			},
-			id = "CARGO_FUEL_left_bracket",
-			x = 1,
-			y = 9,
-			color = "w",
-		},
-	},
-	["CARGO_FUEL_right_bracket"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FPLN_DATA_2",
-			},
-			id = "CARGO_FUEL_right_bracket",
-			x = 11,
-			y = 9,
-			color = "w",
-		},
-	},
-	["CARGO_FUEL_value"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FPLN_DATA_2",
-			},
-			id = "CARGO_FUEL_value",
-			x = 3,
-			y = 9,
-			color = "g",
-		},
-	},
 	["CARGO_HOOK_branch"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_PERF_INIT_2",
+				"CDU_SUBSET_PERF_PROGRESS",
+			},
+			id = "CARGO_HOOK_branch",
+			x = 1,
+			y = 13,
+			color = "w",
+		},
 		{
 			alignment = "LFT",
 			pages = {
@@ -4824,6 +4966,17 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
+				"CDU_SUBSET_PERF_INIT_2",
+				"CDU_SUBSET_PERF_PROGRESS",
+			},
+			id = "CARGO_HOOK_field",
+			x = 1,
+			y = 12,
+			color = "w",
+		},
+		{
+			alignment = "LFT",
+			pages = {
 				"CDU_SUBSET_FPLN_DATA_3",
 			},
 			id = "CARGO_HOOK_field",
@@ -4836,6 +4989,17 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
+				"CDU_SUBSET_PERF_INIT_2",
+				"CDU_SUBSET_PERF_PROGRESS",
+			},
+			id = "CARGO_HOOK_left_bracket",
+			x = 2,
+			y = 13,
+			color = "w",
+		},
+		{
+			alignment = "LFT",
+			pages = {
 				"CDU_SUBSET_FPLN_DATA_3",
 			},
 			id = "CARGO_HOOK_left_bracket",
@@ -4844,7 +5008,64 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
+	["CARGO_HOOK_left_slash"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_PERF_INIT_2",
+				"CDU_SUBSET_PERF_PROGRESS",
+			},
+			id = "CARGO_HOOK_left_slash",
+			x = 6,
+			y = 13,
+			color = "g",
+		},
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_FPLN_DATA_3",
+			},
+			id = "CARGO_HOOK_left_slash",
+			x = 6,
+			y = 7,
+			color = "g",
+		},
+	},
+	["CARGO_HOOK_MOM_value"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_PERF_INIT_2",
+				"CDU_SUBSET_PERF_PROGRESS",
+			},
+			id = "CARGO_HOOK_MOM_value",
+			x = 17,
+			y = 13,
+			color = "g",
+		},
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_FPLN_DATA_3",
+			},
+			id = "CARGO_HOOK_MOM_value",
+			x = 17,
+			y = 7,
+			color = "g",
+		},
+	},
 	["CARGO_HOOK_right_bracket"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_PERF_INIT_2",
+				"CDU_SUBSET_PERF_PROGRESS",
+			},
+			id = "CARGO_HOOK_right_bracket",
+			x = 18,
+			y = 13,
+			color = "w",
+		},
 		{
 			alignment = "LFT",
 			pages = {
@@ -4856,13 +5077,70 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
-	["CARGO_HOOK_value"] = {
+	["CARGO_HOOK_right_slash"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_PERF_INIT_2",
+				"CDU_SUBSET_PERF_PROGRESS",
+			},
+			id = "CARGO_HOOK_right_slash",
+			x = 12,
+			y = 13,
+			color = "g",
+		},
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_FPLN_DATA_3",
+			},
+			id = "CARGO_HOOK_right_slash",
+			x = 12,
+			y = 7,
+			color = "g",
+		},
+	},
+	["CARGO_HOOK_WT_value"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_PERF_INIT_2",
+				"CDU_SUBSET_PERF_PROGRESS",
+			},
+			id = "CARGO_HOOK_WT_value",
+			x = 11,
+			y = 13,
+			color = "g",
+		},
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_FPLN_DATA_3",
+			},
+			id = "CARGO_HOOK_WT_value",
+			x = 11,
+			y = 7,
+			color = "g",
+		},
+	},
+	["CARGO_HOOK_zone_value"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_PERF_INIT_2",
+				"CDU_SUBSET_PERF_PROGRESS",
+			},
+			id = "CARGO_HOOK_zone_value",
+			x = 3,
+			y = 13,
+			color = "g",
+		},
 		{
 			alignment = "LFT",
 			pages = {
 				"CDU_SUBSET_FPLN_DATA_3",
 			},
-			id = "CARGO_HOOK_value",
+			id = "CARGO_HOOK_zone_value",
 			x = 3,
 			y = 7,
 			color = "g",
@@ -4942,6 +5220,17 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
+				"CDU_SUBSET_PERF_INIT_2",
+				"CDU_SUBSET_PERF_PROGRESS",
+			},
+			id = "CARGO_ZONE_branch",
+			x = 1,
+			y = 11,
+			color = "w",
+		},
+		{
+			alignment = "LFT",
+			pages = {
 				"CDU_SUBSET_FPLN_DATA_3",
 			},
 			id = "CARGO_ZONE_branch",
@@ -4959,6 +5248,17 @@ local CH_47F_CDU = {
 			id = "CARGO_ZONE_field",
 			x = 1,
 			y = 12,
+			color = "w",
+		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_PERF_INIT_2",
+				"CDU_SUBSET_PERF_PROGRESS",
+			},
+			id = "CARGO_ZONE_field",
+			x = 1,
+			y = 10,
 			color = "w",
 		},
 		{
@@ -4986,12 +5286,89 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
+				"CDU_SUBSET_PERF_INIT_2",
+				"CDU_SUBSET_PERF_PROGRESS",
+			},
+			id = "CARGO_ZONE_left_bracket",
+			x = 2,
+			y = 11,
+			color = "w",
+		},
+		{
+			alignment = "LFT",
+			pages = {
 				"CDU_SUBSET_FPLN_DATA_3",
 			},
 			id = "CARGO_ZONE_left_bracket",
 			x = 2,
 			y = 5,
 			color = "w",
+		},
+	},
+	["CARGO_ZONE_left_slash"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_PERF_DEFAULTS",
+			},
+			id = "CARGO_ZONE_left_slash",
+			x = 4,
+			y = 13,
+			color = "g",
+		},
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_PERF_INIT_2",
+				"CDU_SUBSET_PERF_PROGRESS",
+			},
+			id = "CARGO_ZONE_left_slash",
+			x = 4,
+			y = 11,
+			color = "g",
+		},
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_FPLN_DATA_3",
+			},
+			id = "CARGO_ZONE_left_slash",
+			x = 4,
+			y = 5,
+			color = "g",
+		},
+	},
+	["CARGO_ZONE_MOM_value"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_PERF_DEFAULTS",
+			},
+			id = "CARGO_ZONE_MOM_value",
+			x = 15,
+			y = 13,
+			color = "g",
+		},
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_PERF_INIT_2",
+				"CDU_SUBSET_PERF_PROGRESS",
+			},
+			id = "CARGO_ZONE_MOM_value",
+			x = 15,
+			y = 11,
+			color = "g",
+		},
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_FPLN_DATA_3",
+			},
+			id = "CARGO_ZONE_MOM_value",
+			x = 15,
+			y = 5,
+			color = "g",
 		},
 	},
 	["CARGO_ZONE_right_bracket"] = {
@@ -5008,6 +5385,17 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
+				"CDU_SUBSET_PERF_INIT_2",
+				"CDU_SUBSET_PERF_PROGRESS",
+			},
+			id = "CARGO_ZONE_right_bracket",
+			x = 16,
+			y = 11,
+			color = "w",
+		},
+		{
+			alignment = "LFT",
+			pages = {
 				"CDU_SUBSET_FPLN_DATA_3",
 			},
 			id = "CARGO_ZONE_right_bracket",
@@ -5016,23 +5404,100 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
-	["CARGO_ZONE_value"] = {
+	["CARGO_ZONE_right_slash"] = {
 		{
-			alignment = "LFT",
+			alignment = "RGHT",
 			pages = {
 				"CDU_SUBSET_PERF_DEFAULTS",
 			},
-			id = "CARGO_ZONE_value",
+			id = "CARGO_ZONE_right_slash",
+			x = 10,
+			y = 13,
+			color = "g",
+		},
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_PERF_INIT_2",
+				"CDU_SUBSET_PERF_PROGRESS",
+			},
+			id = "CARGO_ZONE_right_slash",
+			x = 10,
+			y = 11,
+			color = "g",
+		},
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_FPLN_DATA_3",
+			},
+			id = "CARGO_ZONE_right_slash",
+			x = 10,
+			y = 5,
+			color = "g",
+		},
+	},
+	["CARGO_ZONE_WT_value"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_PERF_DEFAULTS",
+			},
+			id = "CARGO_ZONE_WT_value",
+			x = 9,
+			y = 13,
+			color = "g",
+		},
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_PERF_INIT_2",
+				"CDU_SUBSET_PERF_PROGRESS",
+			},
+			id = "CARGO_ZONE_WT_value",
+			x = 9,
+			y = 11,
+			color = "g",
+		},
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_FPLN_DATA_3",
+			},
+			id = "CARGO_ZONE_WT_value",
+			x = 9,
+			y = 5,
+			color = "g",
+		},
+	},
+	["CARGO_ZONE_zone_value"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_PERF_DEFAULTS",
+			},
+			id = "CARGO_ZONE_zone_value",
 			x = 3,
 			y = 13,
 			color = "g",
 		},
 		{
-			alignment = "LFT",
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_PERF_INIT_2",
+				"CDU_SUBSET_PERF_PROGRESS",
+			},
+			id = "CARGO_ZONE_zone_value",
+			x = 3,
+			y = 11,
+			color = "g",
+		},
+		{
+			alignment = "RGHT",
 			pages = {
 				"CDU_SUBSET_FPLN_DATA_3",
 			},
-			id = "CARGO_ZONE_value",
+			id = "CARGO_ZONE_zone_value",
 			x = 3,
 			y = 5,
 			color = "g",
@@ -6287,6 +6752,30 @@ local CH_47F_CDU = {
 			color = "g",
 		},
 	},
+	["CLR_MSG_branch"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_CREATE_MSG",
+			},
+			id = "CLR_MSG_branch",
+			x = 1,
+			y = 13,
+			color = "w",
+		},
+	},
+	["CLR_MSG_field"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_CREATE_MSG",
+			},
+			id = "CLR_MSG_field",
+			x = 2,
+			y = 13,
+			color = "w",
+		},
+	},
 	["CLR_PG_branch"] = {
 		{
 			alignment = "RGHT",
@@ -7352,6 +7841,30 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
+	["CREATE_branch"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_MSG_NEW",
+			},
+			id = "CREATE_branch",
+			x = 24,
+			y = 3,
+			color = "w",
+		},
+	},
+	["CREATE_field"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_MSG_NEW",
+			},
+			id = "CREATE_field",
+			x = 23,
+			y = 3,
+			color = "w",
+		},
+	},
 	["CREEP_COURSE_field"] = {
 		{
 			alignment = "LFT",
@@ -7983,6 +8496,56 @@ local CH_47F_CDU = {
 			id = "DATA_magvar_value",
 			x = 1,
 			y = 9,
+			color = "g",
+		},
+	},
+	["DATA_MODE_available"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_CREATE_MSG",
+				"CDU_SUBSET_COMM_H4_PROGRAM_MSG",
+			},
+			id = "DATA_MODE_available",
+			x = 1,
+			y = 11,
+			color = "w",
+		},
+	},
+	["DATA_MODE_INSERT"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_CREATE_MSG",
+			},
+			id = "DATA_MODE_INSERT",
+			x = 2,
+			y = 11,
+			color = "g",
+		},
+	},
+	["DATA_MODE_INTSERT"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_PROGRAM_MSG",
+			},
+			id = "DATA_MODE_INTSERT",
+			x = 2,
+			y = 11,
+			color = "g",
+		},
+	},
+	["DATA_MODE_OVERTYPE"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_CREATE_MSG",
+				"CDU_SUBSET_COMM_H4_PROGRAM_MSG",
+			},
+			id = "DATA_MODE_OVERTYPE",
+			x = 2,
+			y = 11,
 			color = "g",
 		},
 	},
@@ -8842,6 +9405,30 @@ local CH_47F_CDU = {
 			color = "g",
 		},
 	},
+	["DEF_branch"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_GROUP_ADDRESSES",
+			},
+			id = "DEF_branch",
+			x = 24,
+			y = 3,
+			color = "w",
+		},
+	},
+	["DEF_field"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_GROUP_ADDRESSES",
+			},
+			id = "DEF_field",
+			x = 23,
+			y = 3,
+			color = "w",
+		},
+	},
 	["DEFAULT_branch"] = {
 		{
 			alignment = "RGHT",
@@ -8998,6 +9585,30 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
+	["DEL_MSG_branch"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_CREATE_MSG",
+			},
+			id = "DEL_MSG_branch",
+			x = 24,
+			y = 9,
+			color = "w",
+		},
+	},
+	["DEL_MSG_field"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_CREATE_MSG",
+			},
+			id = "DEL_MSG_field",
+			x = 23,
+			y = 9,
+			color = "g",
+		},
+	},
 	["DESCEND_AT_field"] = {
 		{
 			alignment = "LFT",
@@ -9030,18 +9641,6 @@ local CH_47F_CDU = {
 			},
 			id = "DESCEND_AT_value",
 			x = 12,
-			y = 5,
-			color = "g",
-		},
-	},
-	["DESTINATION"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_PREDICIVE_RAIM",
-			},
-			id = "DESTINATION",
-			x = 2,
 			y = 5,
 			color = "g",
 		},
@@ -9105,6 +9704,18 @@ local CH_47F_CDU = {
 			x = 24,
 			y = 5,
 			color = "w",
+		},
+	},
+	["DESTINATION_value"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_PREDICIVE_RAIM",
+			},
+			id = "DESTINATION_value",
+			x = 2,
+			y = 5,
+			color = "g",
 		},
 	},
 	["DEV_field"] = {
@@ -11880,6 +12491,108 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
+	["ERFS_TANK_1_value"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_PERF_DEFAULTS",
+			},
+			id = "ERFS_TANK_1_value",
+			x = 2,
+			y = 3,
+			color = "g",
+		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FPLN_DATA_2",
+			},
+			id = "ERFS_TANK_1_value",
+			x = 19,
+			y = 5,
+			color = "g",
+		},
+	},
+	["ERFS_TANK_2_value"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_PERF_DEFAULTS",
+			},
+			id = "ERFS_TANK_2_value",
+			x = 4,
+			y = 3,
+			color = "g",
+		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FPLN_DATA_2",
+			},
+			id = "ERFS_TANK_2_value",
+			x = 21,
+			y = 5,
+			color = "g",
+		},
+	},
+	["ERFS_TANK_3_value"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_PERF_DEFAULTS",
+			},
+			id = "ERFS_TANK_3_value",
+			x = 6,
+			y = 3,
+			color = "g",
+		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FPLN_DATA_2",
+			},
+			id = "ERFS_TANK_3_value",
+			x = 23,
+			y = 5,
+			color = "g",
+		},
+	},
+	["ERFS_TANKS_1_value"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_PERF_INIT_1",
+			},
+			id = "ERFS_TANKS_1_value",
+			x = 2,
+			y = 5,
+			color = "g",
+		},
+	},
+	["ERFS_TANKS_2_value"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_PERF_INIT_1",
+			},
+			id = "ERFS_TANKS_2_value",
+			x = 4,
+			y = 5,
+			color = "g",
+		},
+	},
+	["ERFS_TANKS_3_value"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_PERF_INIT_1",
+			},
+			id = "ERFS_TANKS_3_value",
+			x = 6,
+			y = 5,
+			color = "g",
+		},
+	},
 	["ERFS_TANKS_field"] = {
 		{
 			alignment = "LFT",
@@ -11889,6 +12602,16 @@ local CH_47F_CDU = {
 			id = "ERFS_TANKS_field",
 			x = 1,
 			y = 2,
+			color = "w",
+		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_PERF_INIT_1",
+			},
+			id = "ERFS_TANKS_field",
+			x = 1,
+			y = 4,
 			color = "w",
 		},
 		{
@@ -11914,7 +12637,17 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 		{
-			alignment = "RGHT",
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_PERF_INIT_1",
+			},
+			id = "ERFS_TANKS_left_bracket",
+			x = 1,
+			y = 5,
+			color = "w",
+		},
+		{
+			alignment = "LFT",
 			pages = {
 				"CDU_SUBSET_FPLN_DATA_2",
 			},
@@ -11936,7 +12669,17 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 		{
-			alignment = "RGHT",
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_PERF_INIT_1",
+			},
+			id = "ERFS_TANKS_right_bracket",
+			x = 7,
+			y = 5,
+			color = "w",
+		},
+		{
+			alignment = "LFT",
 			pages = {
 				"CDU_SUBSET_FPLN_DATA_2",
 			},
@@ -11944,28 +12687,6 @@ local CH_47F_CDU = {
 			x = 24,
 			y = 5,
 			color = "w",
-		},
-	},
-	["ERFS_TANKS_value"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_PERF_DEFAULTS",
-			},
-			id = "ERFS_TANKS_value",
-			x = 2,
-			y = 3,
-			color = "g",
-		},
-		{
-			alignment = "RGHT",
-			pages = {
-				"CDU_SUBSET_FPLN_DATA_2",
-			},
-			id = "ERFS_TANKS_value",
-			x = 23,
-			y = 5,
-			color = "g",
 		},
 	},
 	["ETA_field"] = {
@@ -11977,6 +12698,16 @@ local CH_47F_CDU = {
 			id = "ETA_field",
 			x = 24,
 			y = 6,
+			color = "w",
+		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FPLN_ACP_CALC",
+			},
+			id = "ETA_field",
+			x = 1,
+			y = 12,
 			color = "w",
 		},
 		{
@@ -12074,6 +12805,16 @@ local CH_47F_CDU = {
 			color = "g",
 		},
 		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FPLN_ACP_CALC",
+			},
+			id = "ETA_value",
+			x = 1,
+			y = 13,
+			color = "g",
+		},
+		{
 			alignment = "RGHT",
 			pages = {
 				"CDU_SUBSET_PROGRESS_1",
@@ -12093,6 +12834,16 @@ local CH_47F_CDU = {
 			id = "ETE_field",
 			x = 24,
 			y = 8,
+			color = "w",
+		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FPLN_ACP_CALC",
+			},
+			id = "ETE_field",
+			x = 1,
+			y = 10,
 			color = "w",
 		},
 	},
@@ -12129,6 +12880,16 @@ local CH_47F_CDU = {
 			id = "ETE_value",
 			x = 23,
 			y = 9,
+			color = "g",
+		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FPLN_ACP_CALC",
+			},
+			id = "ETE_value",
+			x = 1,
+			y = 11,
 			color = "g",
 		},
 	},
@@ -14487,6 +15248,7 @@ local CH_47F_CDU = {
 			alignment = "RGHT",
 			pages = {
 				"CDU_SUBSET_FPLN_DATA_3",
+				"CDU_SUBSET_PERF_INIT_2",
 			},
 			id = "FE_field",
 			x = 24,
@@ -14509,6 +15271,7 @@ local CH_47F_CDU = {
 			alignment = "RGHT",
 			pages = {
 				"CDU_SUBSET_FPLN_DATA_3",
+				"CDU_SUBSET_PERF_INIT_2",
 			},
 			id = "FE_left_bracket",
 			x = 18,
@@ -14531,6 +15294,7 @@ local CH_47F_CDU = {
 			alignment = "RGHT",
 			pages = {
 				"CDU_SUBSET_FPLN_DATA_3",
+				"CDU_SUBSET_PERF_INIT_2",
 			},
 			id = "FE_right_bracket",
 			x = 24,
@@ -14553,6 +15317,7 @@ local CH_47F_CDU = {
 			alignment = "RGHT",
 			pages = {
 				"CDU_SUBSET_FPLN_DATA_3",
+				"CDU_SUBSET_PERF_INIT_2",
 			},
 			id = "FE_value",
 			x = 23,
@@ -14643,6 +15408,16 @@ local CH_47F_CDU = {
 			y = 8,
 			color = "w",
 		},
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_FD_SELECT",
+			},
+			id = "FINAL_ALT_field",
+			x = 24,
+			y = 8,
+			color = "w",
+		},
 	},
 	["FINAL_ALT_left_bracket"] = {
 		{
@@ -14652,6 +15427,16 @@ local CH_47F_CDU = {
 			},
 			id = "FINAL_ALT_left_bracket",
 			x = 1,
+			y = 9,
+			color = "w",
+		},
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_FD_SELECT",
+			},
+			id = "FINAL_ALT_left_bracket",
+			x = 17,
 			y = 9,
 			color = "w",
 		},
@@ -14667,6 +15452,16 @@ local CH_47F_CDU = {
 			y = 9,
 			color = "w",
 		},
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_FD_SELECT",
+			},
+			id = "FINAL_ALT_right_bracket",
+			x = 22,
+			y = 9,
+			color = "w",
+		},
 	},
 	["FINAL_ALT_units"] = {
 		{
@@ -14679,6 +15474,16 @@ local CH_47F_CDU = {
 			y = 9,
 			color = "w",
 		},
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_FD_SELECT",
+			},
+			id = "FINAL_ALT_units",
+			x = 24,
+			y = 9,
+			color = "w",
+		},
 	},
 	["FINAL_ALT_value"] = {
 		{
@@ -14688,6 +15493,16 @@ local CH_47F_CDU = {
 			},
 			id = "FINAL_ALT_value",
 			x = 4,
+			y = 9,
+			color = "g",
+		},
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_FD_SELECT",
+			},
+			id = "FINAL_ALT_value",
+			x = 21,
 			y = 9,
 			color = "g",
 		},
@@ -14754,6 +15569,16 @@ local CH_47F_CDU = {
 		{
 			alignment = "RGHT",
 			pages = {
+				"CDU_SUBSET_FD_SELECT",
+			},
+			id = "FINAL_SPD_field",
+			x = 24,
+			y = 10,
+			color = "w",
+		},
+		{
+			alignment = "RGHT",
+			pages = {
 				"CDU_SUBSET_VOR_ILS_CONTROL",
 			},
 			id = "FINAL_SPD_field",
@@ -14771,6 +15596,16 @@ local CH_47F_CDU = {
 			id = "FINAL_SPD_left_bracket",
 			x = 17,
 			y = 9,
+			color = "w",
+		},
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_FD_SELECT",
+			},
+			id = "FINAL_SPD_left_bracket",
+			x = 16,
+			y = 11,
 			color = "w",
 		},
 		{
@@ -14798,6 +15633,16 @@ local CH_47F_CDU = {
 		{
 			alignment = "RGHT",
 			pages = {
+				"CDU_SUBSET_FD_SELECT",
+			},
+			id = "FINAL_SPD_right_bracket",
+			x = 21,
+			y = 11,
+			color = "w",
+		},
+		{
+			alignment = "RGHT",
+			pages = {
 				"CDU_SUBSET_VOR_ILS_CONTROL",
 			},
 			id = "FINAL_SPD_right_bracket",
@@ -14820,6 +15665,16 @@ local CH_47F_CDU = {
 		{
 			alignment = "RGHT",
 			pages = {
+				"CDU_SUBSET_FD_SELECT",
+			},
+			id = "FINAL_SPD_units",
+			x = 24,
+			y = 11,
+			color = "w",
+		},
+		{
+			alignment = "RGHT",
+			pages = {
 				"CDU_SUBSET_VOR_ILS_CONTROL",
 			},
 			id = "FINAL_SPD_units",
@@ -14837,6 +15692,16 @@ local CH_47F_CDU = {
 			id = "FINAL_SPD_value",
 			x = 20,
 			y = 9,
+			color = "g",
+		},
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_FD_SELECT",
+			},
+			id = "FINAL_SPD_value",
+			x = 20,
+			y = 11,
 			color = "g",
 		},
 		{
@@ -15073,54 +15938,6 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_REF_SELECT",
 			},
 			id = "FLT_MODE_TERMINAL",
-			x = 2,
-			y = 7,
-			color = "g",
-		},
-	},
-	["FLT_XFER_branch"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FD_SELECT",
-			},
-			id = "FLT_XFER_branch",
-			x = 1,
-			y = 7,
-			color = "w",
-		},
-	},
-	["FLT_XFER_COPILOT"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FD_SELECT",
-			},
-			id = "FLT_XFER_COPILOT",
-			x = 2,
-			y = 7,
-			color = "g",
-		},
-	},
-	["FLT_XFER_field"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FD_SELECT",
-			},
-			id = "FLT_XFER_field",
-			x = 1,
-			y = 6,
-			color = "w",
-		},
-	},
-	["FLT_XFER_PILOT"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FD_SELECT",
-			},
-			id = "FLT_XFER_PILOT",
 			x = 2,
 			y = 7,
 			color = "g",
@@ -15495,6 +16312,17 @@ local CH_47F_CDU = {
 			y = 5,
 			color = "w",
 		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FPLN_DATA_2",
+				"CDU_SUBSET_FPLN_DATA_3",
+			},
+			id = "FPP_arrow",
+			x = 1,
+			y = 3,
+			color = "w",
+		},
 	},
 	["FPP_left_bracket"] = {
 		{
@@ -15505,6 +16333,17 @@ local CH_47F_CDU = {
 			id = "FPP_left_bracket",
 			x = 2,
 			y = 5,
+			color = "w",
+		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FPLN_DATA_2",
+				"CDU_SUBSET_FPLN_DATA_3",
+			},
+			id = "FPP_left_bracket",
+			x = 2,
+			y = 3,
 			color = "w",
 		},
 	},
@@ -15519,6 +16358,17 @@ local CH_47F_CDU = {
 			y = 5,
 			color = "p",
 		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FPLN_DATA_2",
+				"CDU_SUBSET_FPLN_DATA_3",
+			},
+			id = "FPP_name",
+			x = 7,
+			y = 3,
+			color = "p",
+		},
 	},
 	["FPP_num"] = {
 		{
@@ -15531,6 +16381,17 @@ local CH_47F_CDU = {
 			y = 5,
 			color = "p",
 		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FPLN_DATA_2",
+				"CDU_SUBSET_FPLN_DATA_3",
+			},
+			id = "FPP_num",
+			x = 3,
+			y = 3,
+			color = "p",
+		},
 	},
 	["FPP_right_bracket"] = {
 		{
@@ -15541,6 +16402,17 @@ local CH_47F_CDU = {
 			id = "FPP_right_bracket",
 			x = 6,
 			y = 5,
+			color = "w",
+		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FPLN_DATA_2",
+				"CDU_SUBSET_FPLN_DATA_3",
+			},
+			id = "FPP_right_bracket",
+			x = 6,
+			y = 3,
 			color = "w",
 		},
 	},
@@ -15733,10 +16605,21 @@ local CH_47F_CDU = {
 			pages = {
 				"CDU_SUBSET_FPLN_DATA_2",
 				"CDU_SUBSET_PERF_DEFAULTS",
+				"CDU_SUBSET_PERF_PROGRESS",
 			},
 			id = "FUEL_TANK_branch",
 			x = 1,
 			y = 5,
+			color = "w",
+		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_PERF_INIT_1",
+			},
+			id = "FUEL_TANK_branch",
+			x = 1,
+			y = 7,
 			color = "w",
 		},
 	},
@@ -15746,10 +16629,21 @@ local CH_47F_CDU = {
 			pages = {
 				"CDU_SUBSET_FPLN_DATA_2",
 				"CDU_SUBSET_PERF_DEFAULTS",
+				"CDU_SUBSET_PERF_PROGRESS",
 			},
 			id = "FUEL_TANK_field",
 			x = 1,
 			y = 4,
+			color = "w",
+		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_PERF_INIT_1",
+			},
+			id = "FUEL_TANK_field",
+			x = 1,
+			y = 6,
 			color = "w",
 		},
 	},
@@ -15759,10 +16653,21 @@ local CH_47F_CDU = {
 			pages = {
 				"CDU_SUBSET_FPLN_DATA_2",
 				"CDU_SUBSET_PERF_DEFAULTS",
+				"CDU_SUBSET_PERF_PROGRESS",
 			},
 			id = "FUEL_TANK_mode",
 			x = 2,
 			y = 5,
+			color = "g",
+		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_PERF_INIT_1",
+			},
+			id = "FUEL_TANK_mode",
+			x = 2,
+			y = 7,
 			color = "g",
 		},
 	},
@@ -15914,62 +16819,74 @@ local CH_47F_CDU = {
 			color = "g",
 		},
 	},
-	["GAIN_STATUS_field"] = {
+	["GA_HDG_field"] = {
 		{
-			alignment = "RGHT",
+			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_FD_SELECT",
+				"CDU_SUBSET_FD_SELECT_2",
 			},
-			id = "GAIN_STATUS_field",
-			x = 24,
+			id = "GA_HDG_field",
+			x = 1,
 			y = 4,
 			color = "w",
 		},
 	},
-	["GAIN_STATUS_state_0"] = {
+	["GA_HDG_left_bracket"] = {
 		{
-			alignment = "RGHT",
+			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_FD_SELECT",
+				"CDU_SUBSET_FD_SELECT_2",
 			},
-			id = "GAIN_STATUS_state_0",
-			x = 24,
+			id = "GA_HDG_left_bracket",
+			x = 1,
+			y = 5,
+			color = "w",
+		},
+	},
+	["GA_HDG_right_bracket"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FD_SELECT_2",
+			},
+			id = "GA_HDG_right_bracket",
+			x = 5,
+			y = 5,
+			color = "w",
+		},
+	},
+	["GA_HDG_units_M"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FD_SELECT_2",
+			},
+			id = "GA_HDG_units_M",
+			x = 6,
 			y = 5,
 			color = "g",
 		},
 	},
-	["GAIN_STATUS_state_1"] = {
+	["GA_HDG_units_T"] = {
 		{
-			alignment = "RGHT",
+			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_FD_SELECT",
+				"CDU_SUBSET_FD_SELECT_2",
 			},
-			id = "GAIN_STATUS_state_1",
-			x = 24,
+			id = "GA_HDG_units_T",
+			x = 6,
 			y = 5,
 			color = "g",
 		},
 	},
-	["GAIN_STATUS_state_2"] = {
+	["GA_HDG_value"] = {
 		{
-			alignment = "RGHT",
+			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_FD_SELECT",
+				"CDU_SUBSET_FD_SELECT_2",
 			},
-			id = "GAIN_STATUS_state_2",
-			x = 24,
-			y = 5,
-			color = "g",
-		},
-	},
-	["GAIN_STATUS_state_3"] = {
-		{
-			alignment = "RGHT",
-			pages = {
-				"CDU_SUBSET_FD_SELECT",
-			},
-			id = "GAIN_STATUS_state_3",
-			x = 24,
+			id = "GA_HDG_value",
+			x = 2,
 			y = 5,
 			color = "g",
 		},
@@ -16508,6 +17425,30 @@ local CH_47F_CDU = {
 			color = "g",
 		},
 	},
+	["GROUP_branch"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_ALE_ADDRESSES",
+			},
+			id = "GROUP_branch",
+			x = 24,
+			y = 5,
+			color = "w",
+		},
+	},
+	["GROUP_field"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_ALE_ADDRESSES",
+			},
+			id = "GROUP_field",
+			x = 23,
+			y = 5,
+			color = "w",
+		},
+	},
 	["GS_field"] = {
 		{
 			alignment = "RGHT",
@@ -16516,6 +17457,16 @@ local CH_47F_CDU = {
 			},
 			id = "GS_field",
 			x = 24,
+			y = 6,
+			color = "w",
+		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FPLN_ACP_CALC",
+			},
+			id = "GS_field",
+			x = 1,
 			y = 6,
 			color = "w",
 		},
@@ -16563,6 +17514,16 @@ local CH_47F_CDU = {
 			y = 7,
 			color = "w",
 		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FPLN_ACP_CALC",
+			},
+			id = "GS_left_bracket",
+			x = 1,
+			y = 7,
+			color = "w",
+		},
 	},
 	["GS_right_bracket"] = {
 		{
@@ -16572,6 +17533,16 @@ local CH_47F_CDU = {
 			},
 			id = "GS_right_bracket",
 			x = 21,
+			y = 7,
+			color = "w",
+		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FPLN_ACP_CALC",
+			},
+			id = "GS_right_bracket",
+			x = 5,
 			y = 7,
 			color = "w",
 		},
@@ -16606,6 +17577,16 @@ local CH_47F_CDU = {
 			},
 			id = "GS_value",
 			x = 20,
+			y = 7,
+			color = "g",
+		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FPLN_ACP_CALC",
+			},
+			id = "GS_value",
+			x = 2,
 			y = 7,
 			color = "g",
 		},
@@ -16714,14 +17695,425 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
+	["H4_ALE_ADDR1_page_branch"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_ADDRESSES_LIST",
+				"CDU_SUBSET_COMM_H4_ALE_NET_ADDRESSES",
+			},
+			id = "H4_ALE_ADDR1_page_branch",
+			x = 1,
+			y = 3,
+			color = "w",
+		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_ALE_ADDRESSES",
+			},
+			id = "H4_ALE_ADDR1_page_branch",
+			x = 1,
+			y = 9,
+			color = "w",
+		},
+	},
+	["H4_ALE_ADDR1_page_field"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_ADDRESSES_LIST",
+				"CDU_SUBSET_COMM_H4_ALE_NET_ADDRESSES",
+			},
+			id = "H4_ALE_ADDR1_page_field",
+			x = 3,
+			y = 3,
+			color = "g",
+		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_ALE_ADDRESSES",
+			},
+			id = "H4_ALE_ADDR1_page_field",
+			x = 3,
+			y = 9,
+			color = "g",
+		},
+	},
+	["H4_ALE_ADDR1_page_num"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_ADDRESSES_LIST",
+				"CDU_SUBSET_COMM_H4_ALE_NET_ADDRESSES",
+			},
+			id = "H4_ALE_ADDR1_page_num",
+			x = 3,
+			y = 2,
+			color = "w",
+		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_ALE_ADDRESSES",
+			},
+			id = "H4_ALE_ADDR1_page_num",
+			x = 3,
+			y = 8,
+			color = "w",
+		},
+	},
+	["H4_ALE_ADDR2_page_branch"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_ADDRESSES_LIST",
+				"CDU_SUBSET_COMM_H4_ALE_NET_ADDRESSES",
+			},
+			id = "H4_ALE_ADDR2_page_branch",
+			x = 1,
+			y = 5,
+			color = "w",
+		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_ALE_ADDRESSES",
+			},
+			id = "H4_ALE_ADDR2_page_branch",
+			x = 1,
+			y = 11,
+			color = "w",
+		},
+	},
+	["H4_ALE_ADDR2_page_field"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_ADDRESSES_LIST",
+				"CDU_SUBSET_COMM_H4_ALE_NET_ADDRESSES",
+			},
+			id = "H4_ALE_ADDR2_page_field",
+			x = 3,
+			y = 5,
+			color = "g",
+		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_ALE_ADDRESSES",
+			},
+			id = "H4_ALE_ADDR2_page_field",
+			x = 3,
+			y = 11,
+			color = "g",
+		},
+	},
+	["H4_ALE_ADDR2_page_num"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_ADDRESSES_LIST",
+				"CDU_SUBSET_COMM_H4_ALE_NET_ADDRESSES",
+			},
+			id = "H4_ALE_ADDR2_page_num",
+			x = 3,
+			y = 4,
+			color = "w",
+		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_ALE_ADDRESSES",
+			},
+			id = "H4_ALE_ADDR2_page_num",
+			x = 3,
+			y = 10,
+			color = "g",
+		},
+	},
+	["H4_ALE_ADDR3_page_branch"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_ALE_ADDRESSES",
+			},
+			id = "H4_ALE_ADDR3_page_branch",
+			x = 1,
+			y = 13,
+			color = "w",
+		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_ALE_NET_ADDRESSES",
+			},
+			id = "H4_ALE_ADDR3_page_branch",
+			x = 1,
+			y = 7,
+			color = "w",
+		},
+	},
+	["H4_ALE_ADDR3_page_field"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_ALE_ADDRESSES",
+			},
+			id = "H4_ALE_ADDR3_page_field",
+			x = 3,
+			y = 13,
+			color = "g",
+		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_ALE_NET_ADDRESSES",
+			},
+			id = "H4_ALE_ADDR3_page_field",
+			x = 3,
+			y = 7,
+			color = "g",
+		},
+	},
+	["H4_ALE_ADDR3_page_num"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_ALE_ADDRESSES",
+			},
+			id = "H4_ALE_ADDR3_page_num",
+			x = 3,
+			y = 12,
+			color = "g",
+		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_ALE_NET_ADDRESSES",
+			},
+			id = "H4_ALE_ADDR3_page_num",
+			x = 3,
+			y = 6,
+			color = "w",
+		},
+	},
+	["H4_ALE_ADDR32_page_branch"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_ADDRESSES_LIST",
+			},
+			id = "H4_ALE_ADDR32_page_branch",
+			x = 1,
+			y = 7,
+			color = "w",
+		},
+	},
+	["H4_ALE_ADDR32_page_field"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_ADDRESSES_LIST",
+			},
+			id = "H4_ALE_ADDR32_page_field",
+			x = 3,
+			y = 7,
+			color = "g",
+		},
+	},
+	["H4_ALE_ADDR32_page_num"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_ADDRESSES_LIST",
+			},
+			id = "H4_ALE_ADDR32_page_num",
+			x = 3,
+			y = 6,
+			color = "w",
+		},
+	},
+	["H4_ALE_ADDR4_page_branch"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_ADDRESSES_LIST",
+				"CDU_SUBSET_COMM_H4_ALE_NET_ADDRESSES",
+			},
+			id = "H4_ALE_ADDR4_page_branch",
+			x = 1,
+			y = 9,
+			color = "w",
+		},
+	},
+	["H4_ALE_ADDR4_page_field"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_ADDRESSES_LIST",
+				"CDU_SUBSET_COMM_H4_ALE_NET_ADDRESSES",
+			},
+			id = "H4_ALE_ADDR4_page_field",
+			x = 3,
+			y = 9,
+			color = "g",
+		},
+	},
+	["H4_ALE_ADDR4_page_num"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_ADDRESSES_LIST",
+				"CDU_SUBSET_COMM_H4_ALE_NET_ADDRESSES",
+			},
+			id = "H4_ALE_ADDR4_page_num",
+			x = 3,
+			y = 8,
+			color = "w",
+		},
+	},
+	["H4_ALE_ADDR5_page_branch"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_ADDRESSES_LIST",
+				"CDU_SUBSET_COMM_H4_ALE_NET_ADDRESSES",
+			},
+			id = "H4_ALE_ADDR5_page_branch",
+			x = 1,
+			y = 11,
+			color = "w",
+		},
+	},
+	["H4_ALE_ADDR5_page_field"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_ADDRESSES_LIST",
+				"CDU_SUBSET_COMM_H4_ALE_NET_ADDRESSES",
+			},
+			id = "H4_ALE_ADDR5_page_field",
+			x = 3,
+			y = 11,
+			color = "g",
+		},
+	},
+	["H4_ALE_ADDR5_page_num"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_ADDRESSES_LIST",
+			},
+			id = "H4_ALE_ADDR5_page_num",
+			x = 3,
+			y = 10,
+			color = "g",
+		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_ALE_NET_ADDRESSES",
+			},
+			id = "H4_ALE_ADDR5_page_num",
+			x = 3,
+			y = 10,
+			color = "w",
+		},
+	},
+	["H4_ALE_ADDR6_page_branch"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_ADDRESSES_LIST",
+				"CDU_SUBSET_COMM_H4_ALE_NET_ADDRESSES",
+			},
+			id = "H4_ALE_ADDR6_page_branch",
+			x = 1,
+			y = 13,
+			color = "w",
+		},
+	},
+	["H4_ALE_ADDR6_page_field"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_ADDRESSES_LIST",
+				"CDU_SUBSET_COMM_H4_ALE_NET_ADDRESSES",
+			},
+			id = "H4_ALE_ADDR6_page_field",
+			x = 3,
+			y = 13,
+			color = "g",
+		},
+	},
+	["H4_ALE_ADDR6_page_num"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_ADDRESSES_LIST",
+				"CDU_SUBSET_COMM_H4_ALE_NET_ADDRESSES",
+			},
+			id = "H4_ALE_ADDR6_page_num",
+			x = 3,
+			y = 12,
+			color = "g",
+		},
+	},
+	["H4_ALE_ALL_page_branch_3"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_ALE_ADDRESSES",
+			},
+			id = "H4_ALE_ALL_page_branch_3",
+			x = 1,
+			y = 7,
+			color = "w",
+		},
+	},
+	["H4_ALE_ALL_page_field_3"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_ALE_ADDRESSES",
+			},
+			id = "H4_ALE_ALL_page_field_3",
+			x = 4,
+			y = 7,
+			color = "g",
+		},
+	},
+	["H4_ALE_ANY_page_branch_2"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_ALE_ADDRESSES",
+			},
+			id = "H4_ALE_ANY_page_branch_2",
+			x = 1,
+			y = 5,
+			color = "w",
+		},
+	},
+	["H4_ALE_ANY_page_field_2"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_ALE_ADDRESSES",
+			},
+			id = "H4_ALE_ANY_page_field_2",
+			x = 4,
+			y = 5,
+			color = "g",
+		},
+	},
 	["H4_ALE_NETS_call_address_1"] = {
 		{
 			alignment = "RGHT",
 			pages = {
-				"CDU_SUBSET_COMM_H4_ALE_NETS_1",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_2",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_3",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_4",
+				"CDU_SUBSET_COMM_H4_ALE_NETS",
 			},
 			id = "H4_ALE_NETS_call_address_1",
 			x = 24,
@@ -16733,10 +18125,7 @@ local CH_47F_CDU = {
 		{
 			alignment = "RGHT",
 			pages = {
-				"CDU_SUBSET_COMM_H4_ALE_NETS_1",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_2",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_3",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_4",
+				"CDU_SUBSET_COMM_H4_ALE_NETS",
 			},
 			id = "H4_ALE_NETS_call_address_2",
 			x = 24,
@@ -16748,10 +18137,7 @@ local CH_47F_CDU = {
 		{
 			alignment = "RGHT",
 			pages = {
-				"CDU_SUBSET_COMM_H4_ALE_NETS_1",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_2",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_3",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_4",
+				"CDU_SUBSET_COMM_H4_ALE_NETS",
 			},
 			id = "H4_ALE_NETS_call_address_3",
 			x = 24,
@@ -16763,10 +18149,7 @@ local CH_47F_CDU = {
 		{
 			alignment = "RGHT",
 			pages = {
-				"CDU_SUBSET_COMM_H4_ALE_NETS_1",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_2",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_3",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_4",
+				"CDU_SUBSET_COMM_H4_ALE_NETS",
 			},
 			id = "H4_ALE_NETS_call_address_4",
 			x = 24,
@@ -16778,10 +18161,7 @@ local CH_47F_CDU = {
 		{
 			alignment = "RGHT",
 			pages = {
-				"CDU_SUBSET_COMM_H4_ALE_NETS_1",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_2",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_3",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_4",
+				"CDU_SUBSET_COMM_H4_ALE_NETS",
 			},
 			id = "H4_ALE_NETS_call_address_5",
 			x = 24,
@@ -16793,10 +18173,7 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_COMM_H4_ALE_NETS_1",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_2",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_3",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_4",
+				"CDU_SUBSET_COMM_H4_ALE_NETS",
 			},
 			id = "H4_ALE_NETS_presets_page_branch_1",
 			x = 1,
@@ -16808,10 +18185,7 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_COMM_H4_ALE_NETS_1",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_2",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_3",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_4",
+				"CDU_SUBSET_COMM_H4_ALE_NETS",
 			},
 			id = "H4_ALE_NETS_presets_page_branch_2",
 			x = 1,
@@ -16823,10 +18197,7 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_COMM_H4_ALE_NETS_1",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_2",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_3",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_4",
+				"CDU_SUBSET_COMM_H4_ALE_NETS",
 			},
 			id = "H4_ALE_NETS_presets_page_branch_3",
 			x = 1,
@@ -16838,10 +18209,7 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_COMM_H4_ALE_NETS_1",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_2",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_3",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_4",
+				"CDU_SUBSET_COMM_H4_ALE_NETS",
 			},
 			id = "H4_ALE_NETS_presets_page_branch_4",
 			x = 1,
@@ -16853,10 +18221,7 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_COMM_H4_ALE_NETS_1",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_2",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_3",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_4",
+				"CDU_SUBSET_COMM_H4_ALE_NETS",
 			},
 			id = "H4_ALE_NETS_presets_page_branch_5",
 			x = 1,
@@ -16868,85 +18233,67 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_COMM_H4_ALE_NETS_1",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_2",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_3",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_4",
+				"CDU_SUBSET_COMM_H4_ALE_NETS",
 			},
 			id = "H4_ALE_NETS_presets_page_field_1",
 			x = 2,
 			y = 3,
-			color = "g",
+			color = "w",
 		},
 	},
 	["H4_ALE_NETS_presets_page_field_2"] = {
 		{
 			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_COMM_H4_ALE_NETS_1",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_2",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_3",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_4",
+				"CDU_SUBSET_COMM_H4_ALE_NETS",
 			},
 			id = "H4_ALE_NETS_presets_page_field_2",
 			x = 2,
 			y = 5,
-			color = "g",
+			color = "w",
 		},
 	},
 	["H4_ALE_NETS_presets_page_field_3"] = {
 		{
 			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_COMM_H4_ALE_NETS_1",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_2",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_3",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_4",
+				"CDU_SUBSET_COMM_H4_ALE_NETS",
 			},
 			id = "H4_ALE_NETS_presets_page_field_3",
 			x = 2,
 			y = 7,
-			color = "g",
+			color = "w",
 		},
 	},
 	["H4_ALE_NETS_presets_page_field_4"] = {
 		{
 			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_COMM_H4_ALE_NETS_1",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_2",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_3",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_4",
+				"CDU_SUBSET_COMM_H4_ALE_NETS",
 			},
 			id = "H4_ALE_NETS_presets_page_field_4",
 			x = 2,
 			y = 9,
-			color = "g",
+			color = "w",
 		},
 	},
 	["H4_ALE_NETS_presets_page_field_5"] = {
 		{
 			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_COMM_H4_ALE_NETS_1",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_2",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_3",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_4",
+				"CDU_SUBSET_COMM_H4_ALE_NETS",
 			},
 			id = "H4_ALE_NETS_presets_page_field_5",
 			x = 2,
 			y = 11,
-			color = "g",
+			color = "w",
 		},
 	},
 	["H4_ALE_NETS_presets_page_value_1"] = {
 		{
 			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_COMM_H4_ALE_NETS_1",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_2",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_3",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_4",
+				"CDU_SUBSET_COMM_H4_ALE_NETS",
 			},
 			id = "H4_ALE_NETS_presets_page_value_1",
 			x = 5,
@@ -16958,10 +18305,7 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_COMM_H4_ALE_NETS_1",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_2",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_3",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_4",
+				"CDU_SUBSET_COMM_H4_ALE_NETS",
 			},
 			id = "H4_ALE_NETS_presets_page_value_2",
 			x = 5,
@@ -16973,10 +18317,7 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_COMM_H4_ALE_NETS_1",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_2",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_3",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_4",
+				"CDU_SUBSET_COMM_H4_ALE_NETS",
 			},
 			id = "H4_ALE_NETS_presets_page_value_3",
 			x = 5,
@@ -16988,10 +18329,7 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_COMM_H4_ALE_NETS_1",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_2",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_3",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_4",
+				"CDU_SUBSET_COMM_H4_ALE_NETS",
 			},
 			id = "H4_ALE_NETS_presets_page_value_4",
 			x = 5,
@@ -17003,14 +18341,35 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_COMM_H4_ALE_NETS_1",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_2",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_3",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_4",
+				"CDU_SUBSET_COMM_H4_ALE_NETS",
 			},
 			id = "H4_ALE_NETS_presets_page_value_5",
 			x = 5,
 			y = 11,
+			color = "g",
+		},
+	},
+	["H4_ALE_SOUND_page_branch_1"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_ALE_ADDRESSES",
+			},
+			id = "H4_ALE_SOUND_page_branch_1",
+			x = 1,
+			y = 3,
+			color = "w",
+		},
+	},
+	["H4_ALE_SOUND_page_field_1"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_ALE_ADDRESSES",
+			},
+			id = "H4_ALE_SOUND_page_field_1",
+			x = 4,
+			y = 3,
 			color = "g",
 		},
 	},
@@ -17170,6 +18529,32 @@ local CH_47F_CDU = {
 			x = 13,
 			y = 9,
 			color = "g",
+		},
+	},
+	["H4_DEL_CHAR_branch"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_CREATE_MSG",
+				"CDU_SUBSET_COMM_H4_PROGRAM_MSG",
+			},
+			id = "H4_DEL_CHAR_branch",
+			x = 1,
+			y = 9,
+			color = "w",
+		},
+	},
+	["H4_DEL_CHAR_field"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_CREATE_MSG",
+				"CDU_SUBSET_COMM_H4_PROGRAM_MSG",
+			},
+			id = "H4_DEL_CHAR_field",
+			x = 2,
+			y = 9,
+			color = "w",
 		},
 	},
 	["H4_DY_MO_YR_field"] = {
@@ -17338,6 +18723,306 @@ local CH_47F_CDU = {
 			id = "H4_GPS_TIME_page_field",
 			x = 2,
 			y = 13,
+			color = "g",
+		},
+	},
+	["H4_GROUP_ADDRS_page_branch_1"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_GROUP_ADDRESSES",
+			},
+			id = "H4_GROUP_ADDRS_page_branch_1",
+			x = 1,
+			y = 3,
+			color = "w",
+		},
+	},
+	["H4_GROUP_ADDRS_page_branch_2"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_GROUP_ADDRESSES",
+			},
+			id = "H4_GROUP_ADDRS_page_branch_2",
+			x = 1,
+			y = 5,
+			color = "w",
+		},
+	},
+	["H4_GROUP_ADDRS_page_branch_3"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_GROUP_ADDRESSES",
+			},
+			id = "H4_GROUP_ADDRS_page_branch_3",
+			x = 1,
+			y = 7,
+			color = "w",
+		},
+	},
+	["H4_GROUP_ADDRS_page_branch_4"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_GROUP_ADDRESSES",
+			},
+			id = "H4_GROUP_ADDRS_page_branch_4",
+			x = 1,
+			y = 9,
+			color = "w",
+		},
+	},
+	["H4_GROUP_ADDRS_page_branch_5"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_GROUP_ADDRESSES",
+			},
+			id = "H4_GROUP_ADDRS_page_branch_5",
+			x = 1,
+			y = 11,
+			color = "w",
+		},
+	},
+	["H4_GROUP_ADDRS_page_field_1"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_GROUP_ADDRESSES",
+			},
+			id = "H4_GROUP_ADDRS_page_field_1",
+			x = 2,
+			y = 3,
+			color = "w",
+		},
+	},
+	["H4_GROUP_ADDRS_page_field_2"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_GROUP_ADDRESSES",
+			},
+			id = "H4_GROUP_ADDRS_page_field_2",
+			x = 2,
+			y = 5,
+			color = "w",
+		},
+	},
+	["H4_GROUP_ADDRS_page_field_3"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_GROUP_ADDRESSES",
+			},
+			id = "H4_GROUP_ADDRS_page_field_3",
+			x = 2,
+			y = 7,
+			color = "w",
+		},
+	},
+	["H4_GROUP_ADDRS_page_field_4"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_GROUP_ADDRESSES",
+			},
+			id = "H4_GROUP_ADDRS_page_field_4",
+			x = 2,
+			y = 9,
+			color = "w",
+		},
+	},
+	["H4_GROUP_ADDRS_page_field_5"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_GROUP_ADDRESSES",
+			},
+			id = "H4_GROUP_ADDRS_page_field_5",
+			x = 2,
+			y = 11,
+			color = "w",
+		},
+	},
+	["H4_GROUP_ADDRS_page_left_bracket_1"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_GROUP_ADDRESSES",
+			},
+			id = "H4_GROUP_ADDRS_page_left_bracket_1",
+			x = 3,
+			y = 3,
+			color = "w",
+		},
+	},
+	["H4_GROUP_ADDRS_page_left_bracket_2"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_GROUP_ADDRESSES",
+			},
+			id = "H4_GROUP_ADDRS_page_left_bracket_2",
+			x = 3,
+			y = 5,
+			color = "w",
+		},
+	},
+	["H4_GROUP_ADDRS_page_left_bracket_3"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_GROUP_ADDRESSES",
+			},
+			id = "H4_GROUP_ADDRS_page_left_bracket_3",
+			x = 3,
+			y = 7,
+			color = "w",
+		},
+	},
+	["H4_GROUP_ADDRS_page_left_bracket_4"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_GROUP_ADDRESSES",
+			},
+			id = "H4_GROUP_ADDRS_page_left_bracket_4",
+			x = 3,
+			y = 9,
+			color = "w",
+		},
+	},
+	["H4_GROUP_ADDRS_page_left_bracket_5"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_GROUP_ADDRESSES",
+			},
+			id = "H4_GROUP_ADDRS_page_left_bracket_5",
+			x = 3,
+			y = 11,
+			color = "w",
+		},
+	},
+	["H4_GROUP_ADDRS_page_right_bracket_1"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_GROUP_ADDRESSES",
+			},
+			id = "H4_GROUP_ADDRS_page_right_bracket_1",
+			x = 18,
+			y = 3,
+			color = "w",
+		},
+	},
+	["H4_GROUP_ADDRS_page_right_bracket_2"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_GROUP_ADDRESSES",
+			},
+			id = "H4_GROUP_ADDRS_page_right_bracket_2",
+			x = 18,
+			y = 5,
+			color = "w",
+		},
+	},
+	["H4_GROUP_ADDRS_page_right_bracket_3"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_GROUP_ADDRESSES",
+			},
+			id = "H4_GROUP_ADDRS_page_right_bracket_3",
+			x = 18,
+			y = 7,
+			color = "w",
+		},
+	},
+	["H4_GROUP_ADDRS_page_right_bracket_4"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_GROUP_ADDRESSES",
+			},
+			id = "H4_GROUP_ADDRS_page_right_bracket_4",
+			x = 18,
+			y = 9,
+			color = "w",
+		},
+	},
+	["H4_GROUP_ADDRS_page_right_bracket_5"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_GROUP_ADDRESSES",
+			},
+			id = "H4_GROUP_ADDRS_page_right_bracket_5",
+			x = 24,
+			y = 11,
+			color = "w",
+		},
+	},
+	["H4_GROUP_ADDRS_page_value_1"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_GROUP_ADDRESSES",
+			},
+			id = "H4_GROUP_ADDRS_page_value_1",
+			x = 5,
+			y = 3,
+			color = "g",
+		},
+	},
+	["H4_GROUP_ADDRS_page_value_2"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_GROUP_ADDRESSES",
+			},
+			id = "H4_GROUP_ADDRS_page_value_2",
+			x = 5,
+			y = 5,
+			color = "g",
+		},
+	},
+	["H4_GROUP_ADDRS_page_value_3"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_GROUP_ADDRESSES",
+			},
+			id = "H4_GROUP_ADDRS_page_value_3",
+			x = 5,
+			y = 7,
+			color = "g",
+		},
+	},
+	["H4_GROUP_ADDRS_page_value_4"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_GROUP_ADDRESSES",
+			},
+			id = "H4_GROUP_ADDRS_page_value_4",
+			x = 5,
+			y = 9,
+			color = "g",
+		},
+	},
+	["H4_GROUP_ADDRS_page_value_5"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_GROUP_ADDRESSES",
+			},
+			id = "H4_GROUP_ADDRS_page_value_5",
+			x = 5,
+			y = 11,
 			color = "g",
 		},
 	},
@@ -17610,6 +19295,48 @@ local CH_47F_CDU = {
 			color = "g",
 		},
 	},
+	["H4_MULTIPLE_LINES_left_bracket"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_CREATE_MSG",
+				"CDU_SUBSET_COMM_H4_PROGRAM_MSG",
+				"CDU_SUBSET_COMM_H4_RECEIVE_MSG",
+			},
+			id = "H4_MULTIPLE_LINES_left_bracket",
+			x = 1,
+			y = 7,
+			color = "w",
+		},
+	},
+	["H4_MULTIPLE_LINES_right_bracket"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_CREATE_MSG",
+				"CDU_SUBSET_COMM_H4_PROGRAM_MSG",
+				"CDU_SUBSET_COMM_H4_RECEIVE_MSG",
+			},
+			id = "H4_MULTIPLE_LINES_right_bracket",
+			x = 24,
+			y = 7,
+			color = "w",
+		},
+	},
+	["H4_MULTIPLE_LINES_value"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_CREATE_MSG",
+				"CDU_SUBSET_COMM_H4_PROGRAM_MSG",
+				"CDU_SUBSET_COMM_H4_RECEIVE_MSG",
+			},
+			id = "H4_MULTIPLE_LINES_value",
+			x = 2,
+			y = 7,
+			color = "g",
+		},
+	},
 	["H4_net_name"] = {
 		{
 			alignment = "LFT",
@@ -17716,10 +19443,7 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_COMM_H4_PRESETS_1",
-				"CDU_SUBSET_COMM_H4_PRESETS_2",
-				"CDU_SUBSET_COMM_H4_PRESETS_3",
-				"CDU_SUBSET_COMM_H4_PRESETS_4",
+				"CDU_SUBSET_COMM_H4_PRESETS",
 			},
 			id = "H4_presets_page_branch_1",
 			x = 1,
@@ -17731,10 +19455,7 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_COMM_H4_PRESETS_1",
-				"CDU_SUBSET_COMM_H4_PRESETS_2",
-				"CDU_SUBSET_COMM_H4_PRESETS_3",
-				"CDU_SUBSET_COMM_H4_PRESETS_4",
+				"CDU_SUBSET_COMM_H4_PRESETS",
 			},
 			id = "H4_presets_page_branch_2",
 			x = 1,
@@ -17746,10 +19467,7 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_COMM_H4_PRESETS_1",
-				"CDU_SUBSET_COMM_H4_PRESETS_2",
-				"CDU_SUBSET_COMM_H4_PRESETS_3",
-				"CDU_SUBSET_COMM_H4_PRESETS_4",
+				"CDU_SUBSET_COMM_H4_PRESETS",
 			},
 			id = "H4_presets_page_branch_3",
 			x = 1,
@@ -17761,10 +19479,7 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_COMM_H4_PRESETS_1",
-				"CDU_SUBSET_COMM_H4_PRESETS_2",
-				"CDU_SUBSET_COMM_H4_PRESETS_3",
-				"CDU_SUBSET_COMM_H4_PRESETS_4",
+				"CDU_SUBSET_COMM_H4_PRESETS",
 			},
 			id = "H4_presets_page_branch_4",
 			x = 1,
@@ -17776,29 +19491,11 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_COMM_H4_PRESETS_1",
-				"CDU_SUBSET_COMM_H4_PRESETS_2",
-				"CDU_SUBSET_COMM_H4_PRESETS_3",
-				"CDU_SUBSET_COMM_H4_PRESETS_4",
+				"CDU_SUBSET_COMM_H4_PRESETS",
 			},
 			id = "H4_presets_page_branch_5",
 			x = 1,
 			y = 11,
-			color = "w",
-		},
-	},
-	["H4_presets_page_branch_6"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_COMM_H4_PRESETS_1",
-				"CDU_SUBSET_COMM_H4_PRESETS_2",
-				"CDU_SUBSET_COMM_H4_PRESETS_3",
-				"CDU_SUBSET_COMM_H4_PRESETS_4",
-			},
-			id = "H4_presets_page_branch_6",
-			x = 1,
-			y = 13,
 			color = "w",
 		},
 	},
@@ -17819,10 +19516,7 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_COMM_H4_PRESETS_1",
-				"CDU_SUBSET_COMM_H4_PRESETS_2",
-				"CDU_SUBSET_COMM_H4_PRESETS_3",
-				"CDU_SUBSET_COMM_H4_PRESETS_4",
+				"CDU_SUBSET_COMM_H4_PRESETS",
 			},
 			id = "H4_presets_page_field_1",
 			x = 2,
@@ -17834,10 +19528,7 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_COMM_H4_PRESETS_1",
-				"CDU_SUBSET_COMM_H4_PRESETS_2",
-				"CDU_SUBSET_COMM_H4_PRESETS_3",
-				"CDU_SUBSET_COMM_H4_PRESETS_4",
+				"CDU_SUBSET_COMM_H4_PRESETS",
 			},
 			id = "H4_presets_page_field_2",
 			x = 2,
@@ -17849,10 +19540,7 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_COMM_H4_PRESETS_1",
-				"CDU_SUBSET_COMM_H4_PRESETS_2",
-				"CDU_SUBSET_COMM_H4_PRESETS_3",
-				"CDU_SUBSET_COMM_H4_PRESETS_4",
+				"CDU_SUBSET_COMM_H4_PRESETS",
 			},
 			id = "H4_presets_page_field_3",
 			x = 2,
@@ -17864,10 +19552,7 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_COMM_H4_PRESETS_1",
-				"CDU_SUBSET_COMM_H4_PRESETS_2",
-				"CDU_SUBSET_COMM_H4_PRESETS_3",
-				"CDU_SUBSET_COMM_H4_PRESETS_4",
+				"CDU_SUBSET_COMM_H4_PRESETS",
 			},
 			id = "H4_presets_page_field_4",
 			x = 2,
@@ -17879,10 +19564,7 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_COMM_H4_PRESETS_1",
-				"CDU_SUBSET_COMM_H4_PRESETS_2",
-				"CDU_SUBSET_COMM_H4_PRESETS_3",
-				"CDU_SUBSET_COMM_H4_PRESETS_4",
+				"CDU_SUBSET_COMM_H4_PRESETS",
 			},
 			id = "H4_presets_page_field_5",
 			x = 2,
@@ -17890,41 +19572,14 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
-	["H4_presets_page_field_6"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_COMM_H4_PRESETS_1",
-				"CDU_SUBSET_COMM_H4_PRESETS_2",
-				"CDU_SUBSET_COMM_H4_PRESETS_3",
-				"CDU_SUBSET_COMM_H4_PRESETS_4",
-			},
-			id = "H4_presets_page_field_6",
-			x = 2,
-			y = 13,
-			color = "w",
-		},
-	},
 	["H4_presets_page_left_bracket_1"] = {
 		{
 			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_COMM_H4_PRESETS_1",
-				"CDU_SUBSET_COMM_H4_PRESETS_2",
+				"CDU_SUBSET_COMM_H4_PRESETS",
 			},
 			id = "H4_presets_page_left_bracket_1",
-			x = 3,
-			y = 3,
-			color = "w",
-		},
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_COMM_H4_PRESETS_3",
-				"CDU_SUBSET_COMM_H4_PRESETS_4",
-			},
-			id = "H4_presets_page_left_bracket_1",
-			x = 4,
+			x = 5,
 			y = 3,
 			color = "w",
 		},
@@ -17933,22 +19588,10 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_COMM_H4_PRESETS_1",
-				"CDU_SUBSET_COMM_H4_PRESETS_2",
+				"CDU_SUBSET_COMM_H4_PRESETS",
 			},
 			id = "H4_presets_page_left_bracket_2",
-			x = 3,
-			y = 5,
-			color = "w",
-		},
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_COMM_H4_PRESETS_3",
-				"CDU_SUBSET_COMM_H4_PRESETS_4",
-			},
-			id = "H4_presets_page_left_bracket_2",
-			x = 4,
+			x = 5,
 			y = 5,
 			color = "w",
 		},
@@ -17957,22 +19600,10 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_COMM_H4_PRESETS_1",
-				"CDU_SUBSET_COMM_H4_PRESETS_2",
+				"CDU_SUBSET_COMM_H4_PRESETS",
 			},
 			id = "H4_presets_page_left_bracket_3",
-			x = 3,
-			y = 7,
-			color = "w",
-		},
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_COMM_H4_PRESETS_3",
-				"CDU_SUBSET_COMM_H4_PRESETS_4",
-			},
-			id = "H4_presets_page_left_bracket_3",
-			x = 4,
+			x = 5,
 			y = 7,
 			color = "w",
 		},
@@ -17981,22 +19612,10 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_COMM_H4_PRESETS_1",
-				"CDU_SUBSET_COMM_H4_PRESETS_2",
+				"CDU_SUBSET_COMM_H4_PRESETS",
 			},
 			id = "H4_presets_page_left_bracket_4",
-			x = 3,
-			y = 9,
-			color = "w",
-		},
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_COMM_H4_PRESETS_3",
-				"CDU_SUBSET_COMM_H4_PRESETS_4",
-			},
-			id = "H4_presets_page_left_bracket_4",
-			x = 4,
+			x = 5,
 			y = 9,
 			color = "w",
 		},
@@ -18005,38 +19624,11 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_COMM_H4_PRESETS_1",
+				"CDU_SUBSET_COMM_H4_PRESETS",
 			},
 			id = "H4_presets_page_left_bracket_5",
-			x = 3,
+			x = 5,
 			y = 11,
-			color = "w",
-		},
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_COMM_H4_PRESETS_2",
-				"CDU_SUBSET_COMM_H4_PRESETS_3",
-				"CDU_SUBSET_COMM_H4_PRESETS_4",
-			},
-			id = "H4_presets_page_left_bracket_5",
-			x = 4,
-			y = 11,
-			color = "w",
-		},
-	},
-	["H4_presets_page_left_bracket_6"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_COMM_H4_PRESETS_1",
-				"CDU_SUBSET_COMM_H4_PRESETS_2",
-				"CDU_SUBSET_COMM_H4_PRESETS_3",
-				"CDU_SUBSET_COMM_H4_PRESETS_4",
-			},
-			id = "H4_presets_page_left_bracket_6",
-			x = 3,
-			y = 13,
 			color = "w",
 		},
 	},
@@ -18044,10 +19636,7 @@ local CH_47F_CDU = {
 		{
 			alignment = "RGHT",
 			pages = {
-				"CDU_SUBSET_COMM_H4_PRESETS_1",
-				"CDU_SUBSET_COMM_H4_PRESETS_2",
-				"CDU_SUBSET_COMM_H4_PRESETS_3",
-				"CDU_SUBSET_COMM_H4_PRESETS_4",
+				"CDU_SUBSET_COMM_H4_PRESETS",
 			},
 			id = "H4_presets_page_right_bracket_1",
 			x = 24,
@@ -18059,10 +19648,7 @@ local CH_47F_CDU = {
 		{
 			alignment = "RGHT",
 			pages = {
-				"CDU_SUBSET_COMM_H4_PRESETS_1",
-				"CDU_SUBSET_COMM_H4_PRESETS_2",
-				"CDU_SUBSET_COMM_H4_PRESETS_3",
-				"CDU_SUBSET_COMM_H4_PRESETS_4",
+				"CDU_SUBSET_COMM_H4_PRESETS",
 			},
 			id = "H4_presets_page_right_bracket_2",
 			x = 24,
@@ -18074,10 +19660,7 @@ local CH_47F_CDU = {
 		{
 			alignment = "RGHT",
 			pages = {
-				"CDU_SUBSET_COMM_H4_PRESETS_1",
-				"CDU_SUBSET_COMM_H4_PRESETS_2",
-				"CDU_SUBSET_COMM_H4_PRESETS_3",
-				"CDU_SUBSET_COMM_H4_PRESETS_4",
+				"CDU_SUBSET_COMM_H4_PRESETS",
 			},
 			id = "H4_presets_page_right_bracket_3",
 			x = 24,
@@ -18089,10 +19672,7 @@ local CH_47F_CDU = {
 		{
 			alignment = "RGHT",
 			pages = {
-				"CDU_SUBSET_COMM_H4_PRESETS_1",
-				"CDU_SUBSET_COMM_H4_PRESETS_2",
-				"CDU_SUBSET_COMM_H4_PRESETS_3",
-				"CDU_SUBSET_COMM_H4_PRESETS_4",
+				"CDU_SUBSET_COMM_H4_PRESETS",
 			},
 			id = "H4_presets_page_right_bracket_4",
 			x = 24,
@@ -18104,10 +19684,7 @@ local CH_47F_CDU = {
 		{
 			alignment = "RGHT",
 			pages = {
-				"CDU_SUBSET_COMM_H4_PRESETS_1",
-				"CDU_SUBSET_COMM_H4_PRESETS_2",
-				"CDU_SUBSET_COMM_H4_PRESETS_3",
-				"CDU_SUBSET_COMM_H4_PRESETS_4",
+				"CDU_SUBSET_COMM_H4_PRESETS",
 			},
 			id = "H4_presets_page_right_bracket_5",
 			x = 24,
@@ -18115,32 +19692,14 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
-	["H4_presets_page_right_bracket_6"] = {
-		{
-			alignment = "RGHT",
-			pages = {
-				"CDU_SUBSET_COMM_H4_PRESETS_1",
-				"CDU_SUBSET_COMM_H4_PRESETS_2",
-				"CDU_SUBSET_COMM_H4_PRESETS_3",
-				"CDU_SUBSET_COMM_H4_PRESETS_4",
-			},
-			id = "H4_presets_page_right_bracket_6",
-			x = 24,
-			y = 13,
-			color = "w",
-		},
-	},
 	["H4_presets_page_value_1"] = {
 		{
 			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_COMM_H4_PRESETS_1",
-				"CDU_SUBSET_COMM_H4_PRESETS_2",
-				"CDU_SUBSET_COMM_H4_PRESETS_3",
-				"CDU_SUBSET_COMM_H4_PRESETS_4",
+				"CDU_SUBSET_COMM_H4_PRESETS",
 			},
 			id = "H4_presets_page_value_1",
-			x = 5,
+			x = 6,
 			y = 3,
 			color = "g",
 		},
@@ -18149,13 +19708,10 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_COMM_H4_PRESETS_1",
-				"CDU_SUBSET_COMM_H4_PRESETS_2",
-				"CDU_SUBSET_COMM_H4_PRESETS_3",
-				"CDU_SUBSET_COMM_H4_PRESETS_4",
+				"CDU_SUBSET_COMM_H4_PRESETS",
 			},
 			id = "H4_presets_page_value_2",
-			x = 5,
+			x = 6,
 			y = 5,
 			color = "g",
 		},
@@ -18164,13 +19720,10 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_COMM_H4_PRESETS_1",
-				"CDU_SUBSET_COMM_H4_PRESETS_2",
-				"CDU_SUBSET_COMM_H4_PRESETS_3",
-				"CDU_SUBSET_COMM_H4_PRESETS_4",
+				"CDU_SUBSET_COMM_H4_PRESETS",
 			},
 			id = "H4_presets_page_value_3",
-			x = 5,
+			x = 6,
 			y = 7,
 			color = "g",
 		},
@@ -18179,13 +19732,10 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_COMM_H4_PRESETS_1",
-				"CDU_SUBSET_COMM_H4_PRESETS_2",
-				"CDU_SUBSET_COMM_H4_PRESETS_3",
-				"CDU_SUBSET_COMM_H4_PRESETS_4",
+				"CDU_SUBSET_COMM_H4_PRESETS",
 			},
 			id = "H4_presets_page_value_4",
-			x = 5,
+			x = 6,
 			y = 9,
 			color = "g",
 		},
@@ -18194,29 +19744,11 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_COMM_H4_PRESETS_1",
-				"CDU_SUBSET_COMM_H4_PRESETS_2",
-				"CDU_SUBSET_COMM_H4_PRESETS_3",
-				"CDU_SUBSET_COMM_H4_PRESETS_4",
+				"CDU_SUBSET_COMM_H4_PRESETS",
 			},
 			id = "H4_presets_page_value_5",
-			x = 5,
+			x = 6,
 			y = 11,
-			color = "g",
-		},
-	},
-	["H4_presets_page_value_6"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_COMM_H4_PRESETS_1",
-				"CDU_SUBSET_COMM_H4_PRESETS_2",
-				"CDU_SUBSET_COMM_H4_PRESETS_3",
-				"CDU_SUBSET_COMM_H4_PRESETS_4",
-			},
-			id = "H4_presets_page_value_6",
-			x = 5,
-			y = 13,
 			color = "g",
 		},
 	},
@@ -18241,6 +19773,234 @@ local CH_47F_CDU = {
 			id = "H4_RADIO_STATUS_NONE",
 			x = 2,
 			y = 8,
+			color = "w",
+		},
+	},
+	["H4_RECEIVE_page_branch"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_MSG_NEW",
+			},
+			id = "H4_RECEIVE_page_branch",
+			x = 1,
+			y = 7,
+			color = "w",
+		},
+	},
+	["H4_RECEIVE_page_field"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_MSG_NEW",
+			},
+			id = "H4_RECEIVE_page_field",
+			x = 2,
+			y = 7,
+			color = "w",
+		},
+	},
+	["H4_scroll_down"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_CREATE_MSG",
+			},
+			id = "H4_scroll_down",
+			x = 1,
+			y = 8,
+			color = "g",
+		},
+	},
+	["H4_scroll_up"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_CREATE_MSG",
+			},
+			id = "H4_scroll_up",
+			x = 1,
+			y = 2,
+			color = "g",
+		},
+	},
+	["H4_SELF_ADDR1_page_branch"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_SELF_ADDRESSES",
+			},
+			id = "H4_SELF_ADDR1_page_branch",
+			x = 1,
+			y = 3,
+			color = "w",
+		},
+	},
+	["H4_SELF_ADDR1_page_field"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_SELF_ADDRESSES",
+			},
+			id = "H4_SELF_ADDR1_page_field",
+			x = 3,
+			y = 3,
+			color = "g",
+		},
+	},
+	["H4_SELF_ADDR1_page_num"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_SELF_ADDRESSES",
+			},
+			id = "H4_SELF_ADDR1_page_num",
+			x = 3,
+			y = 2,
+			color = "w",
+		},
+	},
+	["H4_SELF_ADDR2_page_branch"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_SELF_ADDRESSES",
+			},
+			id = "H4_SELF_ADDR2_page_branch",
+			x = 1,
+			y = 5,
+			color = "w",
+		},
+	},
+	["H4_SELF_ADDR2_page_field"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_SELF_ADDRESSES",
+			},
+			id = "H4_SELF_ADDR2_page_field",
+			x = 3,
+			y = 5,
+			color = "g",
+		},
+	},
+	["H4_SELF_ADDR2_page_num"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_SELF_ADDRESSES",
+			},
+			id = "H4_SELF_ADDR2_page_num",
+			x = 3,
+			y = 4,
+			color = "w",
+		},
+	},
+	["H4_SELF_ADDR3_page_branch"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_SELF_ADDRESSES",
+			},
+			id = "H4_SELF_ADDR3_page_branch",
+			x = 1,
+			y = 7,
+			color = "w",
+		},
+	},
+	["H4_SELF_ADDR3_page_field"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_SELF_ADDRESSES",
+			},
+			id = "H4_SELF_ADDR3_page_field",
+			x = 3,
+			y = 7,
+			color = "g",
+		},
+	},
+	["H4_SELF_ADDR3_page_num"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_SELF_ADDRESSES",
+			},
+			id = "H4_SELF_ADDR3_page_num",
+			x = 3,
+			y = 6,
+			color = "w",
+		},
+	},
+	["H4_SELF_ADDR4_page_branch"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_SELF_ADDRESSES",
+			},
+			id = "H4_SELF_ADDR4_page_branch",
+			x = 1,
+			y = 9,
+			color = "w",
+		},
+	},
+	["H4_SELF_ADDR4_page_field"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_SELF_ADDRESSES",
+			},
+			id = "H4_SELF_ADDR4_page_field",
+			x = 3,
+			y = 9,
+			color = "g",
+		},
+	},
+	["H4_SELF_ADDR4_page_num"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_SELF_ADDRESSES",
+			},
+			id = "H4_SELF_ADDR4_page_num",
+			x = 3,
+			y = 8,
+			color = "w",
+		},
+	},
+	["H4_SELF_ADDR5_page_branch"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_SELF_ADDRESSES",
+			},
+			id = "H4_SELF_ADDR5_page_branch",
+			x = 1,
+			y = 11,
+			color = "w",
+		},
+	},
+	["H4_SELF_ADDR5_page_field"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_SELF_ADDRESSES",
+			},
+			id = "H4_SELF_ADDR5_page_field",
+			x = 3,
+			y = 11,
+			color = "g",
+		},
+	},
+	["H4_SELF_ADDR5_page_num"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_SELF_ADDRESSES",
+			},
+			id = "H4_SELF_ADDR5_page_num",
+			x = 3,
+			y = 10,
 			color = "w",
 		},
 	},
@@ -18497,6 +20257,45 @@ local CH_47F_CDU = {
 			color = "g",
 		},
 	},
+	["H4_title_1"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_PROGRAM_MSG",
+				"CDU_SUBSET_COMM_H4_RECEIVE_MSG",
+			},
+			id = "H4_title_1",
+			x = 2,
+			y = 4,
+			color = "w",
+		},
+	},
+	["H4_title_2"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_PROGRAM_MSG",
+				"CDU_SUBSET_COMM_H4_RECEIVE_MSG",
+			},
+			id = "H4_title_2",
+			x = 2,
+			y = 5,
+			color = "w",
+		},
+	},
+	["H4_title_3"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_PROGRAM_MSG",
+				"CDU_SUBSET_COMM_H4_RECEIVE_MSG",
+			},
+			id = "H4_title_3",
+			x = 2,
+			y = 6,
+			color = "w",
+		},
+	},
 	["H4_TOD_field"] = {
 		{
 			alignment = "RGHT",
@@ -18514,10 +20313,7 @@ local CH_47F_CDU = {
 		{
 			alignment = "RGHT",
 			pages = {
-				"CDU_SUBSET_COMM_H4_PRESETS_1",
-				"CDU_SUBSET_COMM_H4_PRESETS_2",
-				"CDU_SUBSET_COMM_H4_PRESETS_3",
-				"CDU_SUBSET_COMM_H4_PRESETS_4",
+				"CDU_SUBSET_COMM_H4_PRESETS",
 			},
 			id = "H4_tuned_freq_1",
 			x = 23,
@@ -18529,10 +20325,7 @@ local CH_47F_CDU = {
 		{
 			alignment = "RGHT",
 			pages = {
-				"CDU_SUBSET_COMM_H4_PRESETS_1",
-				"CDU_SUBSET_COMM_H4_PRESETS_2",
-				"CDU_SUBSET_COMM_H4_PRESETS_3",
-				"CDU_SUBSET_COMM_H4_PRESETS_4",
+				"CDU_SUBSET_COMM_H4_PRESETS",
 			},
 			id = "H4_tuned_freq_2",
 			x = 23,
@@ -18544,10 +20337,7 @@ local CH_47F_CDU = {
 		{
 			alignment = "RGHT",
 			pages = {
-				"CDU_SUBSET_COMM_H4_PRESETS_1",
-				"CDU_SUBSET_COMM_H4_PRESETS_2",
-				"CDU_SUBSET_COMM_H4_PRESETS_3",
-				"CDU_SUBSET_COMM_H4_PRESETS_4",
+				"CDU_SUBSET_COMM_H4_PRESETS",
 			},
 			id = "H4_tuned_freq_3",
 			x = 23,
@@ -18559,10 +20349,7 @@ local CH_47F_CDU = {
 		{
 			alignment = "RGHT",
 			pages = {
-				"CDU_SUBSET_COMM_H4_PRESETS_1",
-				"CDU_SUBSET_COMM_H4_PRESETS_2",
-				"CDU_SUBSET_COMM_H4_PRESETS_3",
-				"CDU_SUBSET_COMM_H4_PRESETS_4",
+				"CDU_SUBSET_COMM_H4_PRESETS",
 			},
 			id = "H4_tuned_freq_4",
 			x = 23,
@@ -18574,29 +20361,11 @@ local CH_47F_CDU = {
 		{
 			alignment = "RGHT",
 			pages = {
-				"CDU_SUBSET_COMM_H4_PRESETS_1",
-				"CDU_SUBSET_COMM_H4_PRESETS_2",
-				"CDU_SUBSET_COMM_H4_PRESETS_3",
-				"CDU_SUBSET_COMM_H4_PRESETS_4",
+				"CDU_SUBSET_COMM_H4_PRESETS",
 			},
 			id = "H4_tuned_freq_5",
 			x = 23,
 			y = 11,
-			color = "g",
-		},
-	},
-	["H4_tuned_freq_6"] = {
-		{
-			alignment = "RGHT",
-			pages = {
-				"CDU_SUBSET_COMM_H4_PRESETS_1",
-				"CDU_SUBSET_COMM_H4_PRESETS_2",
-				"CDU_SUBSET_COMM_H4_PRESETS_3",
-				"CDU_SUBSET_COMM_H4_PRESETS_4",
-			},
-			id = "H4_tuned_freq_6",
-			x = 23,
-			y = 13,
 			color = "g",
 		},
 	},
@@ -19173,16 +20942,6 @@ local CH_47F_CDU = {
 			y = 4,
 			color = "w",
 		},
-		{
-			alignment = "RGHT",
-			pages = {
-				"CDU_SUBSET_FD_SELECT",
-			},
-			id = "HOV_ALT_field",
-			x = 24,
-			y = 10,
-			color = "w",
-		},
 	},
 	["HOV_ALT_left_bracket"] = {
 		{
@@ -19193,16 +20952,6 @@ local CH_47F_CDU = {
 			id = "HOV_ALT_left_bracket",
 			x = 1,
 			y = 5,
-			color = "w",
-		},
-		{
-			alignment = "RGHT",
-			pages = {
-				"CDU_SUBSET_FD_SELECT",
-			},
-			id = "HOV_ALT_left_bracket",
-			x = 17,
-			y = 11,
 			color = "w",
 		},
 	},
@@ -19217,16 +20966,6 @@ local CH_47F_CDU = {
 			y = 5,
 			color = "w",
 		},
-		{
-			alignment = "RGHT",
-			pages = {
-				"CDU_SUBSET_FD_SELECT",
-			},
-			id = "HOV_ALT_right_bracket",
-			x = 22,
-			y = 11,
-			color = "w",
-		},
 	},
 	["HOV_ALT_units"] = {
 		{
@@ -19237,16 +20976,6 @@ local CH_47F_CDU = {
 			id = "HOV_ALT_units",
 			x = 8,
 			y = 5,
-			color = "w",
-		},
-		{
-			alignment = "RGHT",
-			pages = {
-				"CDU_SUBSET_FD_SELECT",
-			},
-			id = "HOV_ALT_units",
-			x = 24,
-			y = 11,
 			color = "w",
 		},
 	},
@@ -19261,14 +20990,52 @@ local CH_47F_CDU = {
 			y = 5,
 			color = "g",
 		},
+	},
+	["HOV_MODE_AUTO"] = {
 		{
-			alignment = "RGHT",
+			alignment = "LFT",
 			pages = {
 				"CDU_SUBSET_FD_SELECT",
 			},
-			id = "HOV_ALT_value",
-			x = 21,
-			y = 11,
+			id = "HOV_MODE_AUTO",
+			x = 2,
+			y = 13,
+			color = "g",
+		},
+	},
+	["HOV_MODE_branch"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FD_SELECT",
+			},
+			id = "HOV_MODE_branch",
+			x = 1,
+			y = 13,
+			color = "w",
+		},
+	},
+	["HOV_MODE_field"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FD_SELECT",
+			},
+			id = "HOV_MODE_field",
+			x = 1,
+			y = 12,
+			color = "w",
+		},
+	},
+	["HOV_MODE_MANUAL"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FD_SELECT",
+			},
+			id = "HOV_MODE_MANUAL",
+			x = 2,
+			y = 13,
 			color = "g",
 		},
 	},
@@ -19296,62 +21063,62 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
-	["HOV_SPD_field"] = {
+	["HOV_RANGE_AREA"] = {
 		{
 			alignment = "RGHT",
 			pages = {
 				"CDU_SUBSET_FD_SELECT",
 			},
-			id = "HOV_SPD_field",
+			id = "HOV_RANGE_AREA",
+			x = 23,
+			y = 13,
+			color = "g",
+		},
+	},
+	["HOV_RANGE_branch"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_FD_SELECT",
+			},
+			id = "HOV_RANGE_branch",
+			x = 24,
+			y = 13,
+			color = "w",
+		},
+	},
+	["HOV_RANGE_field"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_FD_SELECT",
+			},
+			id = "HOV_RANGE_field",
 			x = 24,
 			y = 12,
 			color = "w",
 		},
 	},
-	["HOV_SPD_left_bracket"] = {
+	["HOV_RANGE_PREC"] = {
 		{
 			alignment = "RGHT",
 			pages = {
 				"CDU_SUBSET_FD_SELECT",
 			},
-			id = "HOV_SPD_left_bracket",
-			x = 18,
+			id = "HOV_RANGE_PREC",
+			x = 23,
 			y = 13,
-			color = "w",
+			color = "g",
 		},
 	},
-	["HOV_SPD_right_bracket"] = {
+	["HOV_RANGE_TRAN"] = {
 		{
 			alignment = "RGHT",
 			pages = {
 				"CDU_SUBSET_FD_SELECT",
 			},
-			id = "HOV_SPD_right_bracket",
-			x = 21,
-			y = 13,
-			color = "w",
-		},
-	},
-	["HOV_SPD_units"] = {
-		{
-			alignment = "RGHT",
-			pages = {
-				"CDU_SUBSET_FD_SELECT",
-			},
-			id = "HOV_SPD_units",
-			x = 24,
-			y = 13,
-			color = "w",
-		},
-	},
-	["HOV_SPD_value"] = {
-		{
-			alignment = "RGHT",
-			pages = {
-				"CDU_SUBSET_FD_SELECT",
-			},
-			id = "HOV_SPD_value",
-			x = 20,
+			id = "HOV_RANGE_TRAN",
+			x = 23,
 			y = 13,
 			color = "g",
 		},
@@ -19966,66 +21733,6 @@ local CH_47F_CDU = {
 			x = 2,
 			y = 13,
 			color = "w",
-		},
-	},
-	["IDNT_branch"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FPLN_DATA_3",
-			},
-			id = "IDNT_branch",
-			x = 1,
-			y = 3,
-			color = "w",
-		},
-	},
-	["IDNT_left_bracket"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FPLN_DATA_3",
-			},
-			id = "IDNT_left_bracket",
-			x = 2,
-			y = 3,
-			color = "w",
-		},
-	},
-	["IDNT_num"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FPLN_DATA_3",
-			},
-			id = "IDNT_num",
-			x = 7,
-			y = 3,
-			color = "w",
-		},
-	},
-	["IDNT_right_bracket"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FPLN_DATA_3",
-			},
-			id = "IDNT_right_bracket",
-			x = 6,
-			y = 3,
-			color = "w",
-		},
-	},
-	["IDNT_value"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FPLN_DATA_3",
-			},
-			id = "IDNT_value",
-			x = 3,
-			y = 3,
-			color = "g",
 		},
 	},
 	["IFF_branch"] = {
@@ -20648,6 +22355,42 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
+	["INU_2_HDG"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_START_2",
+			},
+			id = "INU_2_HDG",
+			x = 10,
+			y = 4,
+			color = "w",
+		},
+	},
+	["INU_2_HDG_MANUAL"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_START_2",
+			},
+			id = "INU_2_HDG_MANUAL",
+			x = 10,
+			y = 4,
+			color = "w",
+		},
+	},
+	["INU_2_HDG_STORED"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_START_2",
+			},
+			id = "INU_2_HDG_STORED",
+			x = 10,
+			y = 4,
+			color = "w",
+		},
+	},
 	["INU_2_MODE_GC_ALN"] = {
 		{
 			alignment = "RGHT",
@@ -20849,7 +22592,7 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_INAV_SELECT_2",
 			},
 			id = "INU1_page_field",
-			x = 3,
+			x = 4,
 			y = 3,
 			color = "g",
 		},
@@ -21192,7 +22935,7 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_INAV_SELECT_2",
 			},
 			id = "INU2_page_field",
-			x = 3,
+			x = 4,
 			y = 5,
 			color = "g",
 		},
@@ -22215,6 +23958,42 @@ local CH_47F_CDU = {
 			color = "g",
 		},
 	},
+	["LIFTOFF_branch"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_PERF_INIT_1",
+			},
+			id = "LIFTOFF_branch",
+			x = 24,
+			y = 11,
+			color = "w",
+		},
+	},
+	["LIFTOFF_field"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_PERF_INIT_1",
+			},
+			id = "LIFTOFF_field",
+			x = 24,
+			y = 10,
+			color = "w",
+		},
+	},
+	["LIFTOFF_RESET"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_PERF_INIT_1",
+			},
+			id = "LIFTOFF_RESET",
+			x = 23,
+			y = 11,
+			color = "w",
+		},
+	},
 	["LOAD_1"] = {
 		{
 			alignment = "LFT",
@@ -23031,6 +24810,71 @@ local CH_47F_CDU = {
 			x = 1,
 			y = 11,
 			color = "w",
+		},
+	},
+	["MESSAGE_branch"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_PROGRAM_MSG",
+				"CDU_SUBSET_COMM_H4_RECEIVE_MSG",
+			},
+			id = "MESSAGE_branch",
+			x = 1,
+			y = 13,
+			color = "w",
+		},
+	},
+	["MESSAGE_field"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_PROGRAM_MSG",
+				"CDU_SUBSET_COMM_H4_RECEIVE_MSG",
+			},
+			id = "MESSAGE_field",
+			x = 1,
+			y = 12,
+			color = "w",
+		},
+	},
+	["MESSAGE_left_bracket"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_PROGRAM_MSG",
+				"CDU_SUBSET_COMM_H4_RECEIVE_MSG",
+			},
+			id = "MESSAGE_left_bracket",
+			x = 2,
+			y = 13,
+			color = "g",
+		},
+	},
+	["MESSAGE_level"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_PROGRAM_MSG",
+				"CDU_SUBSET_COMM_H4_RECEIVE_MSG",
+			},
+			id = "MESSAGE_level",
+			x = 3,
+			y = 13,
+			color = "g",
+		},
+	},
+	["MESSAGE_right_bracket"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_PROGRAM_MSG",
+				"CDU_SUBSET_COMM_H4_RECEIVE_MSG",
+			},
+			id = "MESSAGE_right_bracket",
+			x = 5,
+			y = 13,
+			color = "g",
 		},
 	},
 	["MFD_DCLT_branch"] = {
@@ -25492,6 +27336,18 @@ local CH_47F_CDU = {
 			color = "g",
 		},
 	},
+	["MODE_TEST_2"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_INAV_SELECT_2",
+			},
+			id = "MODE_TEST_2",
+			x = 23,
+			y = 5,
+			color = "g",
+		},
+	},
 	["MODE_TEST_3"] = {
 		{
 			alignment = "RGHT",
@@ -25808,6 +27664,38 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
+	["MSN_FUEL_CARGO_value"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_PERF_INIT_1",
+			},
+			id = "MSN_FUEL_CARGO_value",
+			x = 12,
+			y = 11,
+			color = "g",
+		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_PERF_PROGRESS",
+			},
+			id = "MSN_FUEL_CARGO_value",
+			x = 6,
+			y = 9,
+			color = "g",
+		},
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_FPLN_DATA_2",
+			},
+			id = "MSN_FUEL_CARGO_value",
+			x = 12,
+			y = 9,
+			color = "g",
+		},
+	},
 	["MSN_FUEL_field"] = {
 		{
 			alignment = "LFT",
@@ -25817,6 +27705,27 @@ local CH_47F_CDU = {
 			id = "MSN_FUEL_field",
 			x = 1,
 			y = 6,
+			color = "w",
+		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_PERF_INIT_1",
+			},
+			id = "MSN_FUEL_field",
+			x = 1,
+			y = 10,
+			color = "w",
+		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FPLN_DATA_2",
+				"CDU_SUBSET_PERF_PROGRESS",
+			},
+			id = "MSN_FUEL_field",
+			x = 1,
+			y = 8,
 			color = "w",
 		},
 	},
@@ -25831,6 +27740,58 @@ local CH_47F_CDU = {
 			y = 7,
 			color = "w",
 		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_PERF_INIT_1",
+			},
+			id = "MSN_FUEL_left_bracket",
+			x = 1,
+			y = 11,
+			color = "w",
+		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FPLN_DATA_2",
+			},
+			id = "MSN_FUEL_left_bracket",
+			x = 1,
+			y = 9,
+			color = "w",
+		},
+	},
+	["MSN_FUEL_MSN_value"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_PERF_INIT_1",
+			},
+			id = "MSN_FUEL_MSN_value",
+			x = 6,
+			y = 11,
+			color = "g",
+		},
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_PERF_PROGRESS",
+			},
+			id = "MSN_FUEL_MSN_value",
+			x = 4,
+			y = 9,
+			color = "g",
+		},
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_FPLN_DATA_2",
+			},
+			id = "MSN_FUEL_MSN_value",
+			x = 6,
+			y = 9,
+			color = "g",
+		},
 	},
 	["MSN_FUEL_right_bracket"] = {
 		{
@@ -25841,6 +27802,18 @@ local CH_47F_CDU = {
 			id = "MSN_FUEL_right_bracket",
 			x = 6,
 			y = 7,
+			color = "w",
+		},
+	},
+	["MSN_FUEL_slash"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_PERF_PROGRESS",
+			},
+			id = "MSN_FUEL_slash",
+			x = 5,
+			y = 9,
 			color = "w",
 		},
 	},
@@ -26142,6 +28115,30 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
+	["NET_branch"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_ALE_ADDRESSES",
+			},
+			id = "NET_branch",
+			x = 24,
+			y = 3,
+			color = "w",
+		},
+	},
+	["NET_field"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_ALE_ADDRESSES",
+			},
+			id = "NET_field",
+			x = 23,
+			y = 3,
+			color = "w",
+		},
+	},
 	["NODE_field"] = {
 		{
 			alignment = "LFT",
@@ -26333,6 +28330,16 @@ local CH_47F_CDU = {
 			y = 6,
 			color = "w",
 		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_PERF_INIT_2",
+			},
+			id = "OAT_branch",
+			x = 1,
+			y = 4,
+			color = "w",
+		},
 	},
 	["OAT_field"] = {
 		{
@@ -26370,6 +28377,16 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
+				"CDU_SUBSET_PERF_INIT_2",
+			},
+			id = "OAT_left_bracket",
+			x = 1,
+			y = 5,
+			color = "w",
+		},
+		{
+			alignment = "LFT",
+			pages = {
 				"CDU_SUBSET_FPLN_HOV_OVERRIDE",
 			},
 			id = "OAT_left_bracket",
@@ -26397,6 +28414,16 @@ local CH_47F_CDU = {
 			id = "OAT_right_bracket",
 			x = 22,
 			y = 7,
+			color = "w",
+		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_PERF_INIT_2",
+			},
+			id = "OAT_right_bracket",
+			x = 5,
+			y = 5,
 			color = "w",
 		},
 		{
@@ -26434,6 +28461,16 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
+				"CDU_SUBSET_PERF_INIT_2",
+			},
+			id = "OAT_units",
+			x = 7,
+			y = 5,
+			color = "w",
+		},
+		{
+			alignment = "LFT",
+			pages = {
 				"CDU_SUBSET_FPLN_HOV_OVERRIDE",
 			},
 			id = "OAT_units",
@@ -26461,6 +28498,16 @@ local CH_47F_CDU = {
 			id = "OAT_value",
 			x = 21,
 			y = 7,
+			color = "g",
+		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_PERF_INIT_2",
+			},
+			id = "OAT_value",
+			x = 3,
+			y = 5,
 			color = "g",
 		},
 		{
@@ -26803,16 +28850,10 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_COMM_F1_VHF_FM_PRESETS_3",
 				"CDU_SUBSET_COMM_F1_VHF_FM_PRESETS_4",
 				"CDU_SUBSET_COMM_H4_ALE_CTRL",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_1",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_2",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_3",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_4",
+				"CDU_SUBSET_COMM_H4_ALE_NET_ADDRESSES",
 				"CDU_SUBSET_COMM_H4_CTRL_2",
 				"CDU_SUBSET_COMM_H4_MAN_CTRL",
-				"CDU_SUBSET_COMM_H4_PRESETS_1",
-				"CDU_SUBSET_COMM_H4_PRESETS_2",
-				"CDU_SUBSET_COMM_H4_PRESETS_3",
-				"CDU_SUBSET_COMM_H4_PRESETS_4",
+				"CDU_SUBSET_COMM_H4_SELF_ADDRESSES",
 				"CDU_SUBSET_COMM_U2_FMT_LOAD_1",
 				"CDU_SUBSET_COMM_U2_FMT_LOAD_2",
 				"CDU_SUBSET_COMM_U2_HQ_PRESETS_1",
@@ -26837,6 +28878,8 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_DATA_LOAD_4",
 				"CDU_SUBSET_DIG_MAP_1",
 				"CDU_SUBSET_DIG_MAP_2",
+				"CDU_SUBSET_FD_SELECT",
+				"CDU_SUBSET_FD_SELECT_2",
 				"CDU_SUBSET_GPS_1_SATELLITE",
 				"CDU_SUBSET_GPS_2_SATELLITE",
 				"CDU_SUBSET_IFF",
@@ -26872,6 +28915,17 @@ local CH_47F_CDU = {
 		{
 			alignment = "RGHT",
 			pages = {
+				"CDU_SUBSET_PERF_INIT_1",
+				"CDU_SUBSET_PERF_INIT_2",
+			},
+			id = "page_curr",
+			x = 16,
+			y = 2,
+			color = "g",
+		},
+		{
+			alignment = "RGHT",
+			pages = {
 				"CDU_SUBSET_FPLN_DATA_1",
 				"CDU_SUBSET_FPLN_DATA_2",
 				"CDU_SUBSET_FPLN_DATA_3",
@@ -26899,6 +28953,8 @@ local CH_47F_CDU = {
 			alignment = "RGHT",
 			pages = {
 				"CDU_SUBSET_ADF_PRESETS",
+				"CDU_SUBSET_COMM_H4_ALE_NETS",
+				"CDU_SUBSET_COMM_H4_PRESETS",
 				"CDU_SUBSET_VOR_ILS_PRESETS",
 			},
 			id = "page_curr1",
@@ -26912,6 +28968,8 @@ local CH_47F_CDU = {
 			alignment = "RGHT",
 			pages = {
 				"CDU_SUBSET_ADF_PRESETS",
+				"CDU_SUBSET_COMM_H4_ALE_NETS",
+				"CDU_SUBSET_COMM_H4_PRESETS",
 				"CDU_SUBSET_VOR_ILS_PRESETS",
 			},
 			id = "page_curr2",
@@ -26925,6 +28983,8 @@ local CH_47F_CDU = {
 			alignment = "RGHT",
 			pages = {
 				"CDU_SUBSET_ADF_PRESETS",
+				"CDU_SUBSET_COMM_H4_ALE_NETS",
+				"CDU_SUBSET_COMM_H4_PRESETS",
 				"CDU_SUBSET_VOR_ILS_PRESETS",
 			},
 			id = "page_curr3",
@@ -26938,6 +28998,8 @@ local CH_47F_CDU = {
 			alignment = "RGHT",
 			pages = {
 				"CDU_SUBSET_ADF_PRESETS",
+				"CDU_SUBSET_COMM_H4_ALE_NETS",
+				"CDU_SUBSET_COMM_H4_PRESETS",
 				"CDU_SUBSET_VOR_ILS_PRESETS",
 			},
 			id = "page_curr4",
@@ -27006,16 +29068,12 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_COMM_F1_VHF_FM_PRESETS_3",
 				"CDU_SUBSET_COMM_F1_VHF_FM_PRESETS_4",
 				"CDU_SUBSET_COMM_H4_ALE_CTRL",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_1",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_2",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_3",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_4",
+				"CDU_SUBSET_COMM_H4_ALE_NET_ADDRESSES",
+				"CDU_SUBSET_COMM_H4_ALE_NETS",
 				"CDU_SUBSET_COMM_H4_CTRL_2",
 				"CDU_SUBSET_COMM_H4_MAN_CTRL",
-				"CDU_SUBSET_COMM_H4_PRESETS_1",
-				"CDU_SUBSET_COMM_H4_PRESETS_2",
-				"CDU_SUBSET_COMM_H4_PRESETS_3",
-				"CDU_SUBSET_COMM_H4_PRESETS_4",
+				"CDU_SUBSET_COMM_H4_PRESETS",
+				"CDU_SUBSET_COMM_H4_SELF_ADDRESSES",
 				"CDU_SUBSET_COMM_U2_FMT_LOAD_1",
 				"CDU_SUBSET_COMM_U2_FMT_LOAD_2",
 				"CDU_SUBSET_COMM_U2_HQ_PRESETS_1",
@@ -27040,6 +29098,8 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_DATA_LOAD_4",
 				"CDU_SUBSET_DIG_MAP_1",
 				"CDU_SUBSET_DIG_MAP_2",
+				"CDU_SUBSET_FD_SELECT",
+				"CDU_SUBSET_FD_SELECT_2",
 				"CDU_SUBSET_GPS_1_SATELLITE",
 				"CDU_SUBSET_GPS_2_SATELLITE",
 				"CDU_SUBSET_IFF",
@@ -27071,6 +29131,17 @@ local CH_47F_CDU = {
 			id = "page_slash",
 			x = 23,
 			y = 1,
+			color = "w",
+		},
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_PERF_INIT_1",
+				"CDU_SUBSET_PERF_INIT_2",
+			},
+			id = "page_slash",
+			x = 17,
+			y = 2,
 			color = "w",
 		},
 		{
@@ -27112,16 +29183,12 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_COMM_F1_VHF_FM_PRESETS_3",
 				"CDU_SUBSET_COMM_F1_VHF_FM_PRESETS_4",
 				"CDU_SUBSET_COMM_H4_ALE_CTRL",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_1",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_2",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_3",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_4",
+				"CDU_SUBSET_COMM_H4_ALE_NET_ADDRESSES",
+				"CDU_SUBSET_COMM_H4_ALE_NETS",
 				"CDU_SUBSET_COMM_H4_CTRL_2",
 				"CDU_SUBSET_COMM_H4_MAN_CTRL",
-				"CDU_SUBSET_COMM_H4_PRESETS_1",
-				"CDU_SUBSET_COMM_H4_PRESETS_2",
-				"CDU_SUBSET_COMM_H4_PRESETS_3",
-				"CDU_SUBSET_COMM_H4_PRESETS_4",
+				"CDU_SUBSET_COMM_H4_PRESETS",
+				"CDU_SUBSET_COMM_H4_SELF_ADDRESSES",
 				"CDU_SUBSET_COMM_U2_FMT_LOAD_1",
 				"CDU_SUBSET_COMM_U2_FMT_LOAD_2",
 				"CDU_SUBSET_COMM_U2_HQ_PRESETS_1",
@@ -27146,6 +29213,8 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_DATA_LOAD_4",
 				"CDU_SUBSET_DIG_MAP_1",
 				"CDU_SUBSET_DIG_MAP_2",
+				"CDU_SUBSET_FD_SELECT",
+				"CDU_SUBSET_FD_SELECT_2",
 				"CDU_SUBSET_GPS_1_SATELLITE",
 				"CDU_SUBSET_GPS_2_SATELLITE",
 				"CDU_SUBSET_IFF",
@@ -27177,6 +29246,17 @@ local CH_47F_CDU = {
 			id = "page_total",
 			x = 24,
 			y = 1,
+			color = "g",
+		},
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_PERF_INIT_1",
+				"CDU_SUBSET_PERF_INIT_2",
+			},
+			id = "page_total",
+			x = 18,
+			y = 2,
 			color = "g",
 		},
 		{
@@ -27288,6 +29368,30 @@ local CH_47F_CDU = {
 			id = "PERF_RESET_field",
 			x = 2,
 			y = 5,
+			color = "w",
+		},
+	},
+	["pg_MSG_NEW_title"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_MSG_NEW",
+			},
+			id = "pg_MSG_NEW_title",
+			x = 12,
+			y = 2,
+			color = "w",
+		},
+	},
+	["pg_title_ACP_CALC_NAME"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FPLN_ACP_CALC",
+			},
+			id = "pg_title_ACP_CALC_NAME",
+			x = 6,
+			y = 2,
 			color = "w",
 		},
 	},
@@ -27742,54 +29846,6 @@ local CH_47F_CDU = {
 			},
 			id = "pg_title_DATA",
 			x = 13,
-			y = 1,
-			color = "w",
-		},
-	},
-	["pg_title_DATA_2"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FPLN_DATA_2",
-			},
-			id = "pg_title_DATA_2",
-			x = 1,
-			y = 1,
-			color = "w",
-		},
-	},
-	["pg_title_DATA_2_NAME"] = {
-		{
-			alignment = "RGHT",
-			pages = {
-				"CDU_SUBSET_FPLN_DATA_2",
-			},
-			id = "pg_title_DATA_2_NAME",
-			x = 24,
-			y = 1,
-			color = "w",
-		},
-	},
-	["pg_title_DATA_3"] = {
-		{
-			alignment = "LFT",
-			pages = {
-				"CDU_SUBSET_FPLN_DATA_3",
-			},
-			id = "pg_title_DATA_3",
-			x = 1,
-			y = 1,
-			color = "w",
-		},
-	},
-	["pg_title_DATA_3_NAME"] = {
-		{
-			alignment = "RGHT",
-			pages = {
-				"CDU_SUBSET_FPLN_DATA_3",
-			},
-			id = "pg_title_DATA_3_NAME",
-			x = 24,
 			y = 1,
 			color = "w",
 		},
@@ -28337,6 +30393,7 @@ local CH_47F_CDU = {
 			alignment = "LFT",
 			pages = {
 				"CDU_SUBSET_FD_SELECT",
+				"CDU_SUBSET_FD_SELECT_2",
 			},
 			id = "pg_title_FD_SELECT",
 			x = 8,
@@ -28377,6 +30434,19 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_MOD_FPLN",
 			},
 			id = "pg_title_FPLN",
+			x = 1,
+			y = 1,
+			color = "w",
+		},
+	},
+	["pg_title_FPLN_NAME"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_PERF_INIT_1",
+				"CDU_SUBSET_PERF_INIT_2",
+			},
+			id = "pg_title_FPLN_NAME",
 			x = 1,
 			y = 1,
 			color = "w",
@@ -28657,14 +30727,47 @@ local CH_47F_CDU = {
 			color = "g",
 		},
 	},
+	["pg_title_H4_ADDRESSES_LIST"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_ADDRESSES_LIST",
+			},
+			id = "pg_title_H4_ADDRESSES_LIST",
+			x = 5,
+			y = 1,
+			color = "w",
+		},
+	},
+	["pg_title_H4_ALE_ADDRESSES"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_ALE_ADDRESSES",
+			},
+			id = "pg_title_H4_ALE_ADDRESSES",
+			x = 4,
+			y = 1,
+			color = "w",
+		},
+	},
+	["pg_title_H4_ALE_NET_ADDRESSES"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_ALE_NET_ADDRESSES",
+			},
+			id = "pg_title_H4_ALE_NET_ADDRESSES",
+			x = 1,
+			y = 1,
+			color = "w",
+		},
+	},
 	["pg_title_H4_ALE_NETS_Presets"] = {
 		{
 			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_COMM_H4_ALE_NETS_1",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_2",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_3",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_4",
+				"CDU_SUBSET_COMM_H4_ALE_NETS",
 			},
 			id = "pg_title_H4_ALE_NETS_Presets",
 			x = 8,
@@ -28686,17 +30789,82 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
+	["pg_title_H4_CREATE_MSG"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_CREATE_MSG",
+			},
+			id = "pg_title_H4_CREATE_MSG",
+			x = 7,
+			y = 1,
+			color = "w",
+		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_PROGRAM_MSG",
+			},
+			id = "pg_title_H4_CREATE_MSG",
+			x = 4,
+			y = 1,
+			color = "w",
+		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_RECEIVE_MSG",
+			},
+			id = "pg_title_H4_CREATE_MSG",
+			x = 5,
+			y = 1,
+			color = "w",
+		},
+	},
+	["pg_title_H4_GROUP_ADDRESS"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_GROUP_ADDRESSES",
+			},
+			id = "pg_title_H4_GROUP_ADDRESS",
+			x = 5,
+			y = 1,
+			color = "w",
+		},
+	},
+	["pg_title_H4_MESSAGE_NEW"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_MSG_NEW",
+			},
+			id = "pg_title_H4_MESSAGE_NEW",
+			x = 8,
+			y = 1,
+			color = "w",
+		},
+	},
 	["pg_title_H4_Presets"] = {
 		{
 			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_COMM_H4_PRESETS_1",
-				"CDU_SUBSET_COMM_H4_PRESETS_2",
-				"CDU_SUBSET_COMM_H4_PRESETS_3",
-				"CDU_SUBSET_COMM_H4_PRESETS_4",
+				"CDU_SUBSET_COMM_H4_PRESETS",
 			},
 			id = "pg_title_H4_Presets",
 			x = 8,
+			y = 1,
+			color = "w",
+		},
+	},
+	["pg_title_H4_SELF_ADDRESSES"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_SELF_ADDRESSES",
+			},
+			id = "pg_title_H4_SELF_ADDRESSES",
+			x = 4,
 			y = 1,
 			color = "w",
 		},
@@ -29481,11 +31649,38 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
+	["pg_title_PERF_INIT_NAME"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_PERF_INIT_1",
+				"CDU_SUBSET_PERF_INIT_2",
+			},
+			id = "pg_title_PERF_INIT_NAME",
+			x = 6,
+			y = 2,
+			color = "w",
+		},
+	},
+	["pg_title_PERF_PROGRESS_NAME"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_PERF_PROGRESS",
+			},
+			id = "pg_title_PERF_PROGRESS_NAME",
+			x = 6,
+			y = 1,
+			color = "w",
+		},
+	},
 	["pg_title_PLAN_NAME"] = {
 		{
 			alignment = "RGHT",
 			pages = {
 				"CDU_SUBSET_FPLN_DATA_1",
+				"CDU_SUBSET_FPLN_DATA_2",
+				"CDU_SUBSET_FPLN_DATA_3",
 			},
 			id = "pg_title_PLAN_NAME",
 			x = 24,
@@ -29498,6 +31693,8 @@ local CH_47F_CDU = {
 			alignment = "LFT",
 			pages = {
 				"CDU_SUBSET_FPLN_DATA_1",
+				"CDU_SUBSET_FPLN_DATA_2",
+				"CDU_SUBSET_FPLN_DATA_3",
 			},
 			id = "pg_title_PLAN_TYPE",
 			x = 1,
@@ -29527,13 +31724,13 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
-	["pg_title_PREDICIVE_RAIM"] = {
+	["pg_title_PREDICTIVE_RAIM"] = {
 		{
 			alignment = "LFT",
 			pages = {
 				"CDU_SUBSET_PREDICIVE_RAIM",
 			},
-			id = "pg_title_PREDICIVE_RAIM",
+			id = "pg_title_PREDICTIVE_RAIM",
 			x = 6,
 			y = 1,
 			color = "w",
@@ -30737,6 +32934,30 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
+	["PRAIM_branch"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_INAV_SELECT",
+			},
+			id = "PRAIM_branch",
+			x = 24,
+			y = 13,
+			color = "w",
+		},
+	},
+	["PRAIM_field"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_INAV_SELECT",
+			},
+			id = "PRAIM_field",
+			x = 23,
+			y = 13,
+			color = "w",
+		},
+	},
 	["PRES_POSN_page_branch"] = {
 		{
 			alignment = "LFT",
@@ -31425,30 +33646,6 @@ local CH_47F_CDU = {
 			color = "g",
 		},
 	},
-	["PTN_branch"] = {
-		{
-			alignment = "RGHT",
-			pages = {
-				"CDU_SUBSET_FPLN_DATA_3",
-			},
-			id = "PTN_branch",
-			x = 24,
-			y = 3,
-			color = "w",
-		},
-	},
-	["PTN_field"] = {
-		{
-			alignment = "RGHT",
-			pages = {
-				"CDU_SUBSET_FPLN_DATA_3",
-			},
-			id = "PTN_field",
-			x = 23,
-			y = 3,
-			color = "g",
-		},
-	},
 	["PTS_branch"] = {
 		{
 			alignment = "LFT",
@@ -31701,28 +33898,44 @@ local CH_47F_CDU = {
 			color = "g",
 		},
 	},
-	["RAIM_AVAILABLE_field"] = {
+	["RAIM_ACTIVE"] = {
 		{
 			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_PREDICIVE_RAIM",
+				"CDU_SUBSET_EGI_1",
+				"CDU_SUBSET_EGI_2",
 			},
-			id = "RAIM_AVAILABLE_field",
-			x = 7,
+			id = "RAIM_ACTIVE",
+			x = 1,
 			y = 9,
-			color = "w",
+			color = "g",
 		},
 	},
 	["RAIM_field"] = {
 		{
 			alignment = "LFT",
 			pages = {
+				"CDU_SUBSET_EGI_1",
+				"CDU_SUBSET_EGI_2",
 				"CDU_SUBSET_GPS_2",
 			},
 			id = "RAIM_field",
 			x = 1,
 			y = 8,
 			color = "w",
+		},
+	},
+	["RAIM_INACTIVE"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_EGI_1",
+				"CDU_SUBSET_EGI_2",
+			},
+			id = "RAIM_INACTIVE",
+			x = 1,
+			y = 9,
+			color = "g",
 		},
 	},
 	["RAIM_value"] = {
@@ -31732,6 +33945,19 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_GPS_2",
 			},
 			id = "RAIM_value",
+			x = 1,
+			y = 9,
+			color = "g",
+		},
+	},
+	["RAIM_WARN "] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_EGI_1",
+				"CDU_SUBSET_EGI_2",
+			},
+			id = "RAIM_WARN ",
 			x = 1,
 			y = 9,
 			color = "g",
@@ -31782,16 +34008,6 @@ local CH_47F_CDU = {
 			y = 12,
 			color = "w",
 		},
-		{
-			alignment = "RGHT",
-			pages = {
-				"CDU_SUBSET_FD_SELECT",
-			},
-			id = "RALT_LOW_field",
-			x = 24,
-			y = 2,
-			color = "w",
-		},
 	},
 	["RALT_LOW_left_bracket"] = {
 		{
@@ -31812,16 +34028,6 @@ local CH_47F_CDU = {
 			id = "RALT_LOW_left_bracket",
 			x = 17,
 			y = 13,
-			color = "w",
-		},
-		{
-			alignment = "RGHT",
-			pages = {
-				"CDU_SUBSET_FD_SELECT",
-			},
-			id = "RALT_LOW_left_bracket",
-			x = 16,
-			y = 3,
 			color = "w",
 		},
 	},
@@ -31846,16 +34052,6 @@ local CH_47F_CDU = {
 			y = 13,
 			color = "w",
 		},
-		{
-			alignment = "RGHT",
-			pages = {
-				"CDU_SUBSET_FD_SELECT",
-			},
-			id = "RALT_LOW_right_bracket",
-			x = 21,
-			y = 3,
-			color = "w",
-		},
 	},
 	["RALT_LOW_units"] = {
 		{
@@ -31878,16 +34074,6 @@ local CH_47F_CDU = {
 			y = 13,
 			color = "w",
 		},
-		{
-			alignment = "RGHT",
-			pages = {
-				"CDU_SUBSET_FD_SELECT",
-			},
-			id = "RALT_LOW_units",
-			x = 24,
-			y = 3,
-			color = "w",
-		},
 	},
 	["RALT_LOW_value"] = {
 		{
@@ -31908,16 +34094,6 @@ local CH_47F_CDU = {
 			id = "RALT_LOW_value",
 			x = 21,
 			y = 13,
-			color = "g",
-		},
-		{
-			alignment = "RGHT",
-			pages = {
-				"CDU_SUBSET_FD_SELECT",
-			},
-			id = "RALT_LOW_value",
-			x = 20,
-			y = 3,
 			color = "g",
 		},
 	},
@@ -32166,6 +34342,42 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
+	["REPLAY_available"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_RECEIVE_MSG",
+			},
+			id = "REPLAY_available",
+			x = 1,
+			y = 11,
+			color = "w",
+		},
+	},
+	["REPLAY_field"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_RECEIVE_MSG",
+			},
+			id = "REPLAY_field",
+			x = 1,
+			y = 10,
+			color = "w",
+		},
+	},
+	["REPLAY_value"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_RECEIVE_MSG",
+			},
+			id = "REPLAY_value",
+			x = 2,
+			y = 11,
+			color = "g",
+		},
+	},
 	["REQ_branch"] = {
 		{
 			alignment = "RGHT",
@@ -32264,10 +34476,17 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_COMM_F1_VHF_FM_PRESETS_2",
 				"CDU_SUBSET_COMM_F1_VHF_FM_PRESETS_3",
 				"CDU_SUBSET_COMM_F1_VHF_FM_PRESETS_4",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_1",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_2",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_3",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_4",
+				"CDU_SUBSET_COMM_H4_ADDRESSES_LIST",
+				"CDU_SUBSET_COMM_H4_ALE_ADDRESSES",
+				"CDU_SUBSET_COMM_H4_ALE_NET_ADDRESSES",
+				"CDU_SUBSET_COMM_H4_ALE_NETS",
+				"CDU_SUBSET_COMM_H4_CREATE_MSG",
+				"CDU_SUBSET_COMM_H4_GROUP_ADDRESSES",
+				"CDU_SUBSET_COMM_H4_MSG_NEW",
+				"CDU_SUBSET_COMM_H4_PRESETS",
+				"CDU_SUBSET_COMM_H4_PROGRAM_MSG",
+				"CDU_SUBSET_COMM_H4_RECEIVE_MSG",
+				"CDU_SUBSET_COMM_H4_SELF_ADDRESSES",
 				"CDU_SUBSET_COMM_U2_HQ_PRESETS_1",
 				"CDU_SUBSET_COMM_U2_HQ_PRESETS_2",
 				"CDU_SUBSET_COMM_U2_HQ_PRESETS_3",
@@ -32323,10 +34542,17 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_COMM_F1_VHF_FM_PRESETS_2",
 				"CDU_SUBSET_COMM_F1_VHF_FM_PRESETS_3",
 				"CDU_SUBSET_COMM_F1_VHF_FM_PRESETS_4",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_1",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_2",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_3",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_4",
+				"CDU_SUBSET_COMM_H4_ADDRESSES_LIST",
+				"CDU_SUBSET_COMM_H4_ALE_ADDRESSES",
+				"CDU_SUBSET_COMM_H4_ALE_NET_ADDRESSES",
+				"CDU_SUBSET_COMM_H4_ALE_NETS",
+				"CDU_SUBSET_COMM_H4_CREATE_MSG",
+				"CDU_SUBSET_COMM_H4_GROUP_ADDRESSES",
+				"CDU_SUBSET_COMM_H4_MSG_NEW",
+				"CDU_SUBSET_COMM_H4_PRESETS",
+				"CDU_SUBSET_COMM_H4_PROGRAM_MSG",
+				"CDU_SUBSET_COMM_H4_RECEIVE_MSG",
+				"CDU_SUBSET_COMM_H4_SELF_ADDRESSES",
 				"CDU_SUBSET_COMM_U2_HQ_PRESETS_1",
 				"CDU_SUBSET_COMM_U2_HQ_PRESETS_2",
 				"CDU_SUBSET_COMM_U2_HQ_PRESETS_3",
@@ -32616,6 +34842,8 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_MODEL_AIRCRAFT",
 				"CDU_SUBSET_OFP_CROSSLOAD",
 				"CDU_SUBSET_PERF_DEFAULTS",
+				"CDU_SUBSET_PERF_INIT_1",
+				"CDU_SUBSET_PERF_INIT_2",
 				"CDU_SUBSET_STORM_MAINTENANCE",
 			},
 			id = "RTN_branch",
@@ -32688,6 +34916,8 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_MODEL_AIRCRAFT",
 				"CDU_SUBSET_OFP_CROSSLOAD",
 				"CDU_SUBSET_PERF_DEFAULTS",
+				"CDU_SUBSET_PERF_INIT_1",
+				"CDU_SUBSET_PERF_INIT_2",
 				"CDU_SUBSET_STORM_MAINTENANCE",
 			},
 			id = "RTN_field",
@@ -32696,25 +34926,25 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
-	["RVS_branch"] = {
+	["RVS_ALTN_branch"] = {
 		{
 			alignment = "RGHT",
 			pages = {
 				"CDU_SUBSET_FPLN_ALTN_MGNT",
 			},
-			id = "RVS_branch",
+			id = "RVS_ALTN_branch",
 			x = 24,
 			y = 5,
 			color = "w",
 		},
 	},
-	["RVS_field"] = {
+	["RVS_ALTN_field"] = {
 		{
 			alignment = "RGHT",
 			pages = {
 				"CDU_SUBSET_FPLN_ALTN_MGNT",
 			},
-			id = "RVS_field",
+			id = "RVS_ALTN_field",
 			x = 23,
 			y = 5,
 			color = "w",
@@ -33025,7 +35255,7 @@ local CH_47F_CDU = {
 			id = "Satelitte_vehicle_channel_1",
 			x = 10,
 			y = 2,
-			color = "w",
+			color = "g",
 		},
 	},
 	["Satelitte_vehicle_channel_2"] = {
@@ -33038,7 +35268,7 @@ local CH_47F_CDU = {
 			id = "Satelitte_vehicle_channel_2",
 			x = 13,
 			y = 2,
-			color = "w",
+			color = "g",
 		},
 	},
 	["Satelitte_vehicle_channel_3"] = {
@@ -33051,7 +35281,7 @@ local CH_47F_CDU = {
 			id = "Satelitte_vehicle_channel_3",
 			x = 16,
 			y = 2,
-			color = "w",
+			color = "g",
 		},
 	},
 	["Satelitte_vehicle_channel_4"] = {
@@ -33064,7 +35294,7 @@ local CH_47F_CDU = {
 			id = "Satelitte_vehicle_channel_4",
 			x = 19,
 			y = 2,
-			color = "w",
+			color = "g",
 		},
 	},
 	["Satelitte_vehicle_channel_5"] = {
@@ -33077,7 +35307,7 @@ local CH_47F_CDU = {
 			id = "Satelitte_vehicle_channel_5",
 			x = 22,
 			y = 2,
-			color = "w",
+			color = "g",
 		},
 	},
 	["Satelitte_vehicle_channel_number_1"] = {
@@ -33476,17 +35706,20 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_COMM_F1_VHF_FM_PRESETS_2",
 				"CDU_SUBSET_COMM_F1_VHF_FM_PRESETS_3",
 				"CDU_SUBSET_COMM_F1_VHF_FM_PRESETS_4",
+				"CDU_SUBSET_COMM_H4_ADDRESSES_LIST",
+				"CDU_SUBSET_COMM_H4_ALE_ADDRESSES",
 				"CDU_SUBSET_COMM_H4_ALE_CTRL",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_1",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_2",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_3",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_4",
+				"CDU_SUBSET_COMM_H4_ALE_NET_ADDRESSES",
+				"CDU_SUBSET_COMM_H4_ALE_NETS",
+				"CDU_SUBSET_COMM_H4_CREATE_MSG",
 				"CDU_SUBSET_COMM_H4_CTRL_2",
+				"CDU_SUBSET_COMM_H4_GROUP_ADDRESSES",
 				"CDU_SUBSET_COMM_H4_MAN_CTRL",
-				"CDU_SUBSET_COMM_H4_PRESETS_1",
-				"CDU_SUBSET_COMM_H4_PRESETS_2",
-				"CDU_SUBSET_COMM_H4_PRESETS_3",
-				"CDU_SUBSET_COMM_H4_PRESETS_4",
+				"CDU_SUBSET_COMM_H4_MSG_NEW",
+				"CDU_SUBSET_COMM_H4_PRESETS",
+				"CDU_SUBSET_COMM_H4_PROGRAM_MSG",
+				"CDU_SUBSET_COMM_H4_RECEIVE_MSG",
+				"CDU_SUBSET_COMM_H4_SELF_ADDRESSES",
 				"CDU_SUBSET_COMM_U2_FMT_LOAD_1",
 				"CDU_SUBSET_COMM_U2_FMT_LOAD_2",
 				"CDU_SUBSET_COMM_U2_HQ_PRESETS_1",
@@ -33533,8 +35766,10 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_EOS_POINT_CONTROL",
 				"CDU_SUBSET_EOS_VIDEO_CTRL",
 				"CDU_SUBSET_FD_SELECT",
+				"CDU_SUBSET_FD_SELECT_2",
 				"CDU_SUBSET_FPLN",
 				"CDU_SUBSET_FPLN_ACP",
+				"CDU_SUBSET_FPLN_ACP_CALC",
 				"CDU_SUBSET_FPLN_ALTN",
 				"CDU_SUBSET_FPLN_ALTN_MGNT",
 				"CDU_SUBSET_FPLN_APPR_HOV",
@@ -33634,6 +35869,9 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_OFP_CROSSLOAD",
 				"CDU_SUBSET_OFP_LOADSETS",
 				"CDU_SUBSET_PERF_DEFAULTS",
+				"CDU_SUBSET_PERF_INIT_1",
+				"CDU_SUBSET_PERF_INIT_2",
+				"CDU_SUBSET_PERF_PROGRESS",
 				"CDU_SUBSET_POINT_DATA",
 				"CDU_SUBSET_POWER",
 				"CDU_SUBSET_PREDICIVE_RAIM",
@@ -33685,17 +35923,20 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_COMM_F1_VHF_FM_PRESETS_2",
 				"CDU_SUBSET_COMM_F1_VHF_FM_PRESETS_3",
 				"CDU_SUBSET_COMM_F1_VHF_FM_PRESETS_4",
+				"CDU_SUBSET_COMM_H4_ADDRESSES_LIST",
+				"CDU_SUBSET_COMM_H4_ALE_ADDRESSES",
 				"CDU_SUBSET_COMM_H4_ALE_CTRL",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_1",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_2",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_3",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_4",
+				"CDU_SUBSET_COMM_H4_ALE_NET_ADDRESSES",
+				"CDU_SUBSET_COMM_H4_ALE_NETS",
+				"CDU_SUBSET_COMM_H4_CREATE_MSG",
 				"CDU_SUBSET_COMM_H4_CTRL_2",
+				"CDU_SUBSET_COMM_H4_GROUP_ADDRESSES",
 				"CDU_SUBSET_COMM_H4_MAN_CTRL",
-				"CDU_SUBSET_COMM_H4_PRESETS_1",
-				"CDU_SUBSET_COMM_H4_PRESETS_2",
-				"CDU_SUBSET_COMM_H4_PRESETS_3",
-				"CDU_SUBSET_COMM_H4_PRESETS_4",
+				"CDU_SUBSET_COMM_H4_MSG_NEW",
+				"CDU_SUBSET_COMM_H4_PRESETS",
+				"CDU_SUBSET_COMM_H4_PROGRAM_MSG",
+				"CDU_SUBSET_COMM_H4_RECEIVE_MSG",
+				"CDU_SUBSET_COMM_H4_SELF_ADDRESSES",
 				"CDU_SUBSET_COMM_U2_FMT_LOAD_1",
 				"CDU_SUBSET_COMM_U2_FMT_LOAD_2",
 				"CDU_SUBSET_COMM_U2_HQ_PRESETS_1",
@@ -33742,8 +35983,10 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_EOS_POINT_CONTROL",
 				"CDU_SUBSET_EOS_VIDEO_CTRL",
 				"CDU_SUBSET_FD_SELECT",
+				"CDU_SUBSET_FD_SELECT_2",
 				"CDU_SUBSET_FPLN",
 				"CDU_SUBSET_FPLN_ACP",
+				"CDU_SUBSET_FPLN_ACP_CALC",
 				"CDU_SUBSET_FPLN_ALTN",
 				"CDU_SUBSET_FPLN_ALTN_MGNT",
 				"CDU_SUBSET_FPLN_APPR_HOV",
@@ -33843,6 +36086,9 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_OFP_CROSSLOAD",
 				"CDU_SUBSET_OFP_LOADSETS",
 				"CDU_SUBSET_PERF_DEFAULTS",
+				"CDU_SUBSET_PERF_INIT_1",
+				"CDU_SUBSET_PERF_INIT_2",
+				"CDU_SUBSET_PERF_PROGRESS",
 				"CDU_SUBSET_POINT_DATA",
 				"CDU_SUBSET_POWER",
 				"CDU_SUBSET_PREDICIVE_RAIM",
@@ -33894,17 +36140,20 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_COMM_F1_VHF_FM_PRESETS_2",
 				"CDU_SUBSET_COMM_F1_VHF_FM_PRESETS_3",
 				"CDU_SUBSET_COMM_F1_VHF_FM_PRESETS_4",
+				"CDU_SUBSET_COMM_H4_ADDRESSES_LIST",
+				"CDU_SUBSET_COMM_H4_ALE_ADDRESSES",
 				"CDU_SUBSET_COMM_H4_ALE_CTRL",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_1",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_2",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_3",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_4",
+				"CDU_SUBSET_COMM_H4_ALE_NET_ADDRESSES",
+				"CDU_SUBSET_COMM_H4_ALE_NETS",
+				"CDU_SUBSET_COMM_H4_CREATE_MSG",
 				"CDU_SUBSET_COMM_H4_CTRL_2",
+				"CDU_SUBSET_COMM_H4_GROUP_ADDRESSES",
 				"CDU_SUBSET_COMM_H4_MAN_CTRL",
-				"CDU_SUBSET_COMM_H4_PRESETS_1",
-				"CDU_SUBSET_COMM_H4_PRESETS_2",
-				"CDU_SUBSET_COMM_H4_PRESETS_3",
-				"CDU_SUBSET_COMM_H4_PRESETS_4",
+				"CDU_SUBSET_COMM_H4_MSG_NEW",
+				"CDU_SUBSET_COMM_H4_PRESETS",
+				"CDU_SUBSET_COMM_H4_PROGRAM_MSG",
+				"CDU_SUBSET_COMM_H4_RECEIVE_MSG",
+				"CDU_SUBSET_COMM_H4_SELF_ADDRESSES",
 				"CDU_SUBSET_COMM_U2_FMT_LOAD_1",
 				"CDU_SUBSET_COMM_U2_FMT_LOAD_2",
 				"CDU_SUBSET_COMM_U2_HQ_PRESETS_1",
@@ -33951,8 +36200,10 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_EOS_POINT_CONTROL",
 				"CDU_SUBSET_EOS_VIDEO_CTRL",
 				"CDU_SUBSET_FD_SELECT",
+				"CDU_SUBSET_FD_SELECT_2",
 				"CDU_SUBSET_FPLN",
 				"CDU_SUBSET_FPLN_ACP",
+				"CDU_SUBSET_FPLN_ACP_CALC",
 				"CDU_SUBSET_FPLN_ALTN",
 				"CDU_SUBSET_FPLN_ALTN_MGNT",
 				"CDU_SUBSET_FPLN_APPR_HOV",
@@ -34052,6 +36303,9 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_OFP_CROSSLOAD",
 				"CDU_SUBSET_OFP_LOADSETS",
 				"CDU_SUBSET_PERF_DEFAULTS",
+				"CDU_SUBSET_PERF_INIT_1",
+				"CDU_SUBSET_PERF_INIT_2",
+				"CDU_SUBSET_PERF_PROGRESS",
 				"CDU_SUBSET_POINT_DATA",
 				"CDU_SUBSET_POWER",
 				"CDU_SUBSET_PREDICIVE_RAIM",
@@ -34103,17 +36357,20 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_COMM_F1_VHF_FM_PRESETS_2",
 				"CDU_SUBSET_COMM_F1_VHF_FM_PRESETS_3",
 				"CDU_SUBSET_COMM_F1_VHF_FM_PRESETS_4",
+				"CDU_SUBSET_COMM_H4_ADDRESSES_LIST",
+				"CDU_SUBSET_COMM_H4_ALE_ADDRESSES",
 				"CDU_SUBSET_COMM_H4_ALE_CTRL",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_1",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_2",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_3",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_4",
+				"CDU_SUBSET_COMM_H4_ALE_NET_ADDRESSES",
+				"CDU_SUBSET_COMM_H4_ALE_NETS",
+				"CDU_SUBSET_COMM_H4_CREATE_MSG",
 				"CDU_SUBSET_COMM_H4_CTRL_2",
+				"CDU_SUBSET_COMM_H4_GROUP_ADDRESSES",
 				"CDU_SUBSET_COMM_H4_MAN_CTRL",
-				"CDU_SUBSET_COMM_H4_PRESETS_1",
-				"CDU_SUBSET_COMM_H4_PRESETS_2",
-				"CDU_SUBSET_COMM_H4_PRESETS_3",
-				"CDU_SUBSET_COMM_H4_PRESETS_4",
+				"CDU_SUBSET_COMM_H4_MSG_NEW",
+				"CDU_SUBSET_COMM_H4_PRESETS",
+				"CDU_SUBSET_COMM_H4_PROGRAM_MSG",
+				"CDU_SUBSET_COMM_H4_RECEIVE_MSG",
+				"CDU_SUBSET_COMM_H4_SELF_ADDRESSES",
 				"CDU_SUBSET_COMM_U2_FMT_LOAD_1",
 				"CDU_SUBSET_COMM_U2_FMT_LOAD_2",
 				"CDU_SUBSET_COMM_U2_HQ_PRESETS_1",
@@ -34160,8 +36417,10 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_EOS_POINT_CONTROL",
 				"CDU_SUBSET_EOS_VIDEO_CTRL",
 				"CDU_SUBSET_FD_SELECT",
+				"CDU_SUBSET_FD_SELECT_2",
 				"CDU_SUBSET_FPLN",
 				"CDU_SUBSET_FPLN_ACP",
+				"CDU_SUBSET_FPLN_ACP_CALC",
 				"CDU_SUBSET_FPLN_ALTN",
 				"CDU_SUBSET_FPLN_ALTN_MGNT",
 				"CDU_SUBSET_FPLN_APPR_HOV",
@@ -34261,6 +36520,9 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_OFP_CROSSLOAD",
 				"CDU_SUBSET_OFP_LOADSETS",
 				"CDU_SUBSET_PERF_DEFAULTS",
+				"CDU_SUBSET_PERF_INIT_1",
+				"CDU_SUBSET_PERF_INIT_2",
+				"CDU_SUBSET_PERF_PROGRESS",
 				"CDU_SUBSET_POINT_DATA",
 				"CDU_SUBSET_POWER",
 				"CDU_SUBSET_PREDICIVE_RAIM",
@@ -34312,17 +36574,20 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_COMM_F1_VHF_FM_PRESETS_2",
 				"CDU_SUBSET_COMM_F1_VHF_FM_PRESETS_3",
 				"CDU_SUBSET_COMM_F1_VHF_FM_PRESETS_4",
+				"CDU_SUBSET_COMM_H4_ADDRESSES_LIST",
+				"CDU_SUBSET_COMM_H4_ALE_ADDRESSES",
 				"CDU_SUBSET_COMM_H4_ALE_CTRL",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_1",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_2",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_3",
-				"CDU_SUBSET_COMM_H4_ALE_NETS_4",
+				"CDU_SUBSET_COMM_H4_ALE_NET_ADDRESSES",
+				"CDU_SUBSET_COMM_H4_ALE_NETS",
+				"CDU_SUBSET_COMM_H4_CREATE_MSG",
 				"CDU_SUBSET_COMM_H4_CTRL_2",
+				"CDU_SUBSET_COMM_H4_GROUP_ADDRESSES",
 				"CDU_SUBSET_COMM_H4_MAN_CTRL",
-				"CDU_SUBSET_COMM_H4_PRESETS_1",
-				"CDU_SUBSET_COMM_H4_PRESETS_2",
-				"CDU_SUBSET_COMM_H4_PRESETS_3",
-				"CDU_SUBSET_COMM_H4_PRESETS_4",
+				"CDU_SUBSET_COMM_H4_MSG_NEW",
+				"CDU_SUBSET_COMM_H4_PRESETS",
+				"CDU_SUBSET_COMM_H4_PROGRAM_MSG",
+				"CDU_SUBSET_COMM_H4_RECEIVE_MSG",
+				"CDU_SUBSET_COMM_H4_SELF_ADDRESSES",
 				"CDU_SUBSET_COMM_U2_FMT_LOAD_1",
 				"CDU_SUBSET_COMM_U2_FMT_LOAD_2",
 				"CDU_SUBSET_COMM_U2_HQ_PRESETS_1",
@@ -34369,8 +36634,10 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_EOS_POINT_CONTROL",
 				"CDU_SUBSET_EOS_VIDEO_CTRL",
 				"CDU_SUBSET_FD_SELECT",
+				"CDU_SUBSET_FD_SELECT_2",
 				"CDU_SUBSET_FPLN",
 				"CDU_SUBSET_FPLN_ACP",
+				"CDU_SUBSET_FPLN_ACP_CALC",
 				"CDU_SUBSET_FPLN_ALTN",
 				"CDU_SUBSET_FPLN_ALTN_MGNT",
 				"CDU_SUBSET_FPLN_APPR_HOV",
@@ -34470,6 +36737,9 @@ local CH_47F_CDU = {
 				"CDU_SUBSET_OFP_CROSSLOAD",
 				"CDU_SUBSET_OFP_LOADSETS",
 				"CDU_SUBSET_PERF_DEFAULTS",
+				"CDU_SUBSET_PERF_INIT_1",
+				"CDU_SUBSET_PERF_INIT_2",
+				"CDU_SUBSET_PERF_PROGRESS",
 				"CDU_SUBSET_POINT_DATA",
 				"CDU_SUBSET_POWER",
 				"CDU_SUBSET_PREDICIVE_RAIM",
@@ -34613,6 +36883,30 @@ local CH_47F_CDU = {
 			x = 23,
 			y = 5,
 			color = "g",
+		},
+	},
+	["SEL_branch"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_GROUP_ADDRESSES",
+			},
+			id = "SEL_branch",
+			x = 24,
+			y = 5,
+			color = "w",
+		},
+	},
+	["SEL_field"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_COMM_H4_GROUP_ADDRESSES",
+			},
+			id = "SEL_field",
+			x = 23,
+			y = 5,
+			color = "w",
 		},
 	},
 	["SELECT_1_branch"] = {
@@ -35324,6 +37618,7 @@ local CH_47F_CDU = {
 			alignment = "LFT",
 			pages = {
 				"CDU_SUBSET_FD_SELECT",
+				"CDU_SUBSET_FD_SELECT_2",
 			},
 			id = "SPEED_field",
 			x = 1,
@@ -35346,6 +37641,7 @@ local CH_47F_CDU = {
 			alignment = "LFT",
 			pages = {
 				"CDU_SUBSET_FD_SELECT",
+				"CDU_SUBSET_FD_SELECT_2",
 			},
 			id = "SPEED_left_bracket",
 			x = 1,
@@ -35368,6 +37664,7 @@ local CH_47F_CDU = {
 			alignment = "LFT",
 			pages = {
 				"CDU_SUBSET_FD_SELECT",
+				"CDU_SUBSET_FD_SELECT_2",
 			},
 			id = "SPEED_right_bracket",
 			x = 6,
@@ -35402,6 +37699,7 @@ local CH_47F_CDU = {
 			alignment = "LFT",
 			pages = {
 				"CDU_SUBSET_FD_SELECT",
+				"CDU_SUBSET_FD_SELECT_2",
 			},
 			id = "SPEED_value",
 			x = 2,
@@ -36318,6 +38616,15 @@ local CH_47F_CDU = {
 			alignment = "LFT",
 			pages = {
 				"CDU_SUBSET_FD_SELECT",
+			},
+			id = "TACAN_branch",
+			x = 1,
+			y = 9,
+			color = "w",
+		},
+		{
+			alignment = "LFT",
+			pages = {
 				"CDU_SUBSET_LRU_NAVIGATION",
 			},
 			id = "TACAN_branch",
@@ -36343,6 +38650,15 @@ local CH_47F_CDU = {
 			alignment = "LFT",
 			pages = {
 				"CDU_SUBSET_FD_SELECT",
+			},
+			id = "TACAN_field",
+			x = 2,
+			y = 9,
+			color = "w",
+		},
+		{
+			alignment = "LFT",
+			pages = {
 				"CDU_SUBSET_LRU_NAVIGATION",
 			},
 			id = "TACAN_field",
@@ -36351,50 +38667,134 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
-	["TANK_WT_MO_field"] = {
+	["TANK_WT_MOM_field"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_PERF_DEFAULTS",
+			},
+			id = "TANK_WT_MOM_field",
+			x = 1,
+			y = 8,
+			color = "w",
+		},
 		{
 			alignment = "LFT",
 			pages = {
 				"CDU_SUBSET_FPLN_DATA_2",
 			},
-			id = "TANK_WT_MO_field",
+			id = "TANK_WT_MOM_field",
 			x = 1,
 			y = 10,
 			color = "w",
 		},
 	},
-	["TANK-WT_MO_left_bracket"] = {
+	["TANK_WT_MOM_left_bracket"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_PERF_DEFAULTS",
+			},
+			id = "TANK_WT_MOM_left_bracket",
+			x = 1,
+			y = 9,
+			color = "w",
+		},
 		{
 			alignment = "LFT",
 			pages = {
 				"CDU_SUBSET_FPLN_DATA_2",
 			},
-			id = "TANK-WT_MO_left_bracket",
+			id = "TANK_WT_MOM_left_bracket",
 			x = 1,
 			y = 11,
 			color = "w",
 		},
 	},
-	["TANK-WT_MO_right_bracket"] = {
+	["TANK_WT_MOM_moment"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_PERF_DEFAULTS",
+			},
+			id = "TANK_WT_MOM_moment",
+			x = 11,
+			y = 9,
+			color = "g",
+		},
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_FPLN_DATA_2",
+			},
+			id = "TANK_WT_MOM_moment",
+			x = 11,
+			y = 11,
+			color = "g",
+		},
+	},
+	["TANK_WT_MOM_right_bracket"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_PERF_DEFAULTS",
+			},
+			id = "TANK_WT_MOM_right_bracket",
+			x = 12,
+			y = 9,
+			color = "w",
+		},
 		{
 			alignment = "LFT",
 			pages = {
 				"CDU_SUBSET_FPLN_DATA_2",
 			},
-			id = "TANK-WT_MO_right_bracket",
+			id = "TANK_WT_MOM_right_bracket",
 			x = 12,
 			y = 11,
 			color = "w",
 		},
 	},
-	["TANK-WT_MO_value"] = {
+	["TANK_WT_MOM_slash"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_PERF_DEFAULTS",
+			},
+			id = "TANK_WT_MOM_slash",
+			x = 6,
+			y = 9,
+			color = "g",
+		},
 		{
 			alignment = "LFT",
 			pages = {
 				"CDU_SUBSET_FPLN_DATA_2",
 			},
-			id = "TANK-WT_MO_value",
-			x = 3,
+			id = "TANK_WT_MOM_slash",
+			x = 6,
+			y = 11,
+			color = "g",
+		},
+	},
+	["TANK_WT_MOM_weight"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_PERF_DEFAULTS",
+			},
+			id = "TANK_WT_MOM_weight",
+			x = 5,
+			y = 9,
+			color = "g",
+		},
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_FPLN_DATA_2",
+			},
+			id = "TANK_WT_MOM_weight",
+			x = 5,
 			y = 11,
 			color = "g",
 		},
@@ -37770,6 +40170,18 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
+	["TO_arrow_down_1"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FPLN_ACP_CALC",
+			},
+			id = "TO_arrow_down_1",
+			x = 1,
+			y = 4,
+			color = "w",
+		},
+	},
 	["TO_arrow_down_1_0"] = {
 		{
 			alignment = "LFT",
@@ -37823,6 +40235,18 @@ local CH_47F_CDU = {
 			id = "TO_arrow_down_1_3",
 			x = 1,
 			y = 10,
+			color = "w",
+		},
+	},
+	["TO_arrow_down_2"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FPLN_ACP_CALC",
+			},
+			id = "TO_arrow_down_2",
+			x = 4,
+			y = 4,
 			color = "w",
 		},
 	},
@@ -37956,6 +40380,16 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
+				"CDU_SUBSET_FPLN_ACP_CALC",
+			},
+			id = "TO_field",
+			x = 2,
+			y = 4,
+			color = "w",
+		},
+		{
+			alignment = "LFT",
+			pages = {
 				"CDU_SUBSET_PROGRESS_1",
 			},
 			id = "TO_field",
@@ -38044,6 +40478,30 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 	},
+	["TO_left_bracket"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FPLN_ACP_CALC",
+			},
+			id = "TO_left_bracket",
+			x = 1,
+			y = 5,
+			color = "w",
+		},
+	},
+	["TO_right_bracket"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FPLN_ACP_CALC",
+			},
+			id = "TO_right_bracket",
+			x = 24,
+			y = 5,
+			color = "w",
+		},
+	},
 	["TO_TGT_DIST_units"] = {
 		{
 			alignment = "RGHT",
@@ -38089,6 +40547,18 @@ local CH_47F_CDU = {
 			id = "TO_TGT_value",
 			x = 16,
 			y = 7,
+			color = "g",
+		},
+	},
+	["TO_value"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FPLN_ACP_CALC",
+			},
+			id = "TO_value",
+			x = 2,
+			y = 5,
 			color = "g",
 		},
 	},
@@ -38180,7 +40650,18 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
+				"CDU_SUBSET_PERF_INIT_1",
+			},
+			id = "TOTAL_FUEL_field",
+			x = 1,
+			y = 8,
+			color = "w",
+		},
+		{
+			alignment = "LFT",
+			pages = {
 				"CDU_SUBSET_FPLN_DATA_2",
+				"CDU_SUBSET_PERF_PROGRESS",
 			},
 			id = "TOTAL_FUEL_field",
 			x = 1,
@@ -38189,6 +40670,26 @@ local CH_47F_CDU = {
 		},
 	},
 	["TOTAL_FUEL_value"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_PERF_INIT_1",
+			},
+			id = "TOTAL_FUEL_value",
+			x = 1,
+			y = 9,
+			color = "g",
+		},
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_PERF_PROGRESS",
+			},
+			id = "TOTAL_FUEL_value",
+			x = 4,
+			y = 7,
+			color = "g",
+		},
 		{
 			alignment = "LFT",
 			pages = {
@@ -41812,7 +44313,7 @@ local CH_47F_CDU = {
 			},
 			id = "VOR_ILS_branch",
 			x = 1,
-			y = 9,
+			y = 7,
 			color = "w",
 		},
 	},
@@ -41824,7 +44325,7 @@ local CH_47F_CDU = {
 			},
 			id = "VOR_ILS_field",
 			x = 2,
-			y = 9,
+			y = 7,
 			color = "w",
 		},
 	},
@@ -42244,7 +44745,7 @@ local CH_47F_CDU = {
 			},
 			id = "VSPEED_field",
 			x = 24,
-			y = 8,
+			y = 4,
 			color = "w",
 		},
 	},
@@ -42256,7 +44757,7 @@ local CH_47F_CDU = {
 			},
 			id = "VSPEED_left_bracket",
 			x = 15,
-			y = 9,
+			y = 5,
 			color = "w",
 		},
 	},
@@ -42268,7 +44769,7 @@ local CH_47F_CDU = {
 			},
 			id = "VSPEED_right_bracket",
 			x = 21,
-			y = 9,
+			y = 5,
 			color = "w",
 		},
 	},
@@ -42280,7 +44781,7 @@ local CH_47F_CDU = {
 			},
 			id = "VSPEED_units",
 			x = 24,
-			y = 9,
+			y = 5,
 			color = "w",
 		},
 	},
@@ -42292,7 +44793,7 @@ local CH_47F_CDU = {
 			},
 			id = "VSPEED_value",
 			x = 20,
-			y = 9,
+			y = 5,
 			color = "g",
 		},
 	},
@@ -42368,6 +44869,28 @@ local CH_47F_CDU = {
 			color = "g",
 		},
 	},
+	["WIND_brg"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_PERF_INIT_2",
+			},
+			id = "WIND_brg",
+			x = 4,
+			y = 7,
+			color = "g",
+		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_FPLN_DATA_3",
+			},
+			id = "WIND_brg",
+			x = 16,
+			y = 11,
+			color = "g",
+		},
+	},
 	["WIND_DIR_SPD_field"] = {
 		{
 			alignment = "LFT",
@@ -42416,6 +44939,16 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_PERF_INIT_2",
+			},
+			id = "WIND_field",
+			x = 1,
+			y = 6,
+			color = "w",
+		},
+		{
 			alignment = "LFT",
 			pages = {
 				"CDU_SUBSET_FPLN_HOV_OVERRIDE",
@@ -42439,6 +44972,15 @@ local CH_47F_CDU = {
 			alignment = "RGHT",
 			pages = {
 				"CDU_SUBSET_FPLN_DATA_3",
+			},
+			id = "WIND_field",
+			x = 24,
+			y = 10,
+			color = "w",
+		},
+		{
+			alignment = "RGHT",
+			pages = {
 				"CDU_SUBSET_MODEL_AIRCRAFT",
 			},
 			id = "WIND_field",
@@ -42461,6 +45003,17 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
+				"CDU_SUBSET_FPLN_TRK_SPACE_CALC",
+				"CDU_SUBSET_PERF_INIT_2",
+			},
+			id = "WIND_left_bracket",
+			x = 1,
+			y = 7,
+			color = "w",
+		},
+		{
+			alignment = "LFT",
+			pages = {
 				"CDU_SUBSET_FPLN_HOV_OVERRIDE",
 			},
 			id = "WIND_left_bracket",
@@ -42471,21 +45024,11 @@ local CH_47F_CDU = {
 		{
 			alignment = "LFT",
 			pages = {
-				"CDU_SUBSET_FPLN_TRK_SPACE_CALC",
-			},
-			id = "WIND_left_bracket",
-			x = 1,
-			y = 7,
-			color = "w",
-		},
-		{
-			alignment = "RGHT",
-			pages = {
 				"CDU_SUBSET_FPLN_DATA_3",
 			},
 			id = "WIND_left_bracket",
 			x = 15,
-			y = 9,
+			y = 11,
 			color = "w",
 		},
 		{
@@ -42511,6 +45054,16 @@ local CH_47F_CDU = {
 			color = "w",
 		},
 		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_PERF_INIT_2",
+			},
+			id = "WIND_right_bracket",
+			x = 10,
+			y = 7,
+			color = "w",
+		},
+		{
 			alignment = "LFT",
 			pages = {
 				"CDU_SUBSET_FPLN_HOV_OVERRIDE",
@@ -42537,7 +45090,7 @@ local CH_47F_CDU = {
 			},
 			id = "WIND_right_bracket",
 			x = 24,
-			y = 9,
+			y = 11,
 			color = "w",
 		},
 		{
@@ -42565,12 +45118,44 @@ local CH_47F_CDU = {
 		{
 			alignment = "RGHT",
 			pages = {
+				"CDU_SUBSET_PERF_INIT_2",
+			},
+			id = "WIND_slash",
+			x = 6,
+			y = 7,
+			color = "w",
+		},
+		{
+			alignment = "RGHT",
+			pages = {
 				"CDU_SUBSET_FPLN_DATA_3",
 			},
 			id = "WIND_slash",
 			x = 20,
-			y = 9,
+			y = 11,
 			color = "w",
+		},
+	},
+	["WIND_speed"] = {
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_PERF_INIT_2",
+			},
+			id = "WIND_speed",
+			x = 9,
+			y = 7,
+			color = "g",
+		},
+		{
+			alignment = "RGHT",
+			pages = {
+				"CDU_SUBSET_FPLN_DATA_3",
+			},
+			id = "WIND_speed",
+			x = 23,
+			y = 11,
+			color = "g",
 		},
 	},
 	["WIND_units"] = {
@@ -42582,6 +45167,16 @@ local CH_47F_CDU = {
 			id = "WIND_units",
 			x = 19,
 			y = 5,
+			color = "g",
+		},
+		{
+			alignment = "LFT",
+			pages = {
+				"CDU_SUBSET_PERF_INIT_2",
+			},
+			id = "WIND_units",
+			x = 5,
+			y = 7,
 			color = "g",
 		},
 		{
@@ -42611,7 +45206,7 @@ local CH_47F_CDU = {
 			},
 			id = "WIND_units",
 			x = 19,
-			y = 9,
+			y = 11,
 			color = "g",
 		},
 		{
@@ -42658,16 +45253,6 @@ local CH_47F_CDU = {
 			y = 5,
 			color = "g",
 		},
-		{
-			alignment = "RGHT",
-			pages = {
-				"CDU_SUBSET_FPLN_DATA_3",
-			},
-			id = "WIND_value1",
-			x = 18,
-			y = 9,
-			color = "g",
-		},
 	},
 	["WIND_value2"] = {
 		{
@@ -42678,16 +45263,6 @@ local CH_47F_CDU = {
 			id = "WIND_value2",
 			x = 23,
 			y = 5,
-			color = "g",
-		},
-		{
-			alignment = "RGHT",
-			pages = {
-				"CDU_SUBSET_FPLN_DATA_3",
-			},
-			id = "WIND_value2",
-			x = 23,
-			y = 9,
 			color = "g",
 		},
 	},

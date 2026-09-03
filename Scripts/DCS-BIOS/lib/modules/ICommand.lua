@@ -12,6 +12,7 @@ local ICommand = {
 	flaps_down = 1049,
 	flaps_maneuver_from_up = 1568,
 	flaps_maneuver_from_down = 1569,
+	wheel_brake = 2101,
 }
 
 return ICommand

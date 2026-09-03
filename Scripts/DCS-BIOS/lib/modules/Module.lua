@@ -80,102 +80,10 @@ end
 --- @param attributes SwitchAttributes? additional control attributes
 --- @return Control control the control which was added to the module
 function Module:defineSetCommandTumb(identifier, device_id, command, arg_number, step, limits, output_map, cycle, category, description, attributes)
-	local span = limits[2] - limits[1]
-	local last_n = tonumber(string.format("%.0f", span / step))
-	last_n = last_n or 0
-
-	local value_enum = output_map
-	if not value_enum then
-		value_enum = {}
-		local n = 0
-		while n <= last_n do
-			value_enum[#value_enum + 1] = tostring(n)
-			n = n + 1
-		end
-	end
-
-	local enumAlloc = self:allocateInt(last_n, identifier)
-	local strAlloc = nil
-	if output_map then
-		local max_len = 0
-		for i = 1, #output_map, 1 do
-			if max_len < output_map[i]:len() then
-				max_len = output_map[i]:len()
-			end
-		end
-		strAlloc = self:allocateString(max_len, identifier)
-	end
-
-	self:addExportHook(function(dev0)
-		local value = dev0:get_argument_value(arg_number)
-		local n = tonumber(string.format("%.0f", (value - limits[1]) / step))
-
-		if n > last_n then
-			n = last_n
-		end
-		if n == last_n and cycle == "skiplast" then
-			n = 0
-		end
-		enumAlloc:setValue(n)
-		if strAlloc and output_map then
-			strAlloc:setValue(output_map[n + 1])
-		end
-	end)
-
-	local max_value = last_n - (cycle == "skiplast" and 1 or 0)
-
-	local control = Control:new(category, ControlType.selector, identifier, description, {
-		FixedStepInput:new("switch to previous or next state"),
-		SetStateInput:new(max_value, "set position"),
-	}, {
-		IntegerOutput:new(enumAlloc, Suffix.none, "selector position"),
-	}, nil, ControlAttributeDocumentation.from_switch_attributes(attributes))
-
-	if output_map and strAlloc then
-		control.outputs[1].suffix = Suffix.int
-
-		local output_description = "possible values: "
-		for i = 1, #output_map, 1 do
-			output_description = output_description .. '"' .. output_map[i] .. '" '
-		end
-
-		control.outputs[2] = StringOutput:new(strAlloc, Suffix.str, output_description)
-	end
-
-	self:addInputProcessor(identifier, function(state)
-		local value = GetDevice(0):get_argument_value(arg_number)
-		local n = tonumber(string.format("%.0f", (value - limits[1]) / step))
-		local new_n
-
-		if state == "INC" then
-			new_n = Module.cap(n + 1, 0, last_n, cycle)
-			if cycle == "skiplast" and new_n == last_n then
-				new_n = 0
-			end
-
-			GetDevice(device_id):SetCommand(command, limits[1] + step * new_n)
-			GetDevice(0):set_argument_value(arg_number, limits[1] + step * new_n)
-		elseif state == "DEC" then
-			new_n = Module.cap(n - 1, 0, last_n, cycle)
-			if cycle == "skiplast" and new_n == last_n then
-				new_n = last_n - 1
-			end
-
-			GetDevice(device_id):SetCommand(command, limits[1] + step * new_n)
-			GetDevice(0):set_argument_value(arg_number, limits[1] + step * new_n)
-		else
-			n = tonumber(string.format("%.0f", tonumber(state)))
-			if n == nil then
-				return
-			end
-			GetDevice(device_id):SetCommand(command, limits[1] + step * Module.cap(n, 0, last_n, cycle))
-			GetDevice(0):set_argument_value(arg_number, limits[1] + step * Module.cap(n, 0, last_n, cycle))
-		end
-	end)
-
-	self:addControl(control)
-
-	return control
+	return self:define_tumb_base(identifier, arg_number, step, limits, output_map, cycle, category, description, function(value)
+		GetDevice(device_id):SetCommand(command, value)
+		GetDevice(0):set_argument_value(arg_number, value)
+	end, attributes)
 end
 
 --- Defines a gauge from floating-point data with limits. This generally is not used in any new modules and is used in existing modules to provide the integer output of a gauge
@@ -1046,7 +954,6 @@ function Module:defineIntegerFromGetter(identifier, getter, maxValue, category, 
 	return control
 end
 
--- todo: this will be fun. this god function needs to be refactored
 --- Capable of adding pretty much every fixed-step input in the game, apparently
 --- @param identifier string the unique identifier for the control
 --- @param device_id integer the dcs device id
@@ -1061,20 +968,28 @@ end
 --- @param attributes SwitchAttributes? additional control attributes
 --- @return Control control the control which was added to the module
 function Module:defineTumb(identifier, device_id, command, arg_number, step, limits, output_map, cycle, category, description, attributes)
+	return self:define_tumb_base(identifier, arg_number, step, limits, output_map, cycle, category, description, function(value)
+		GetDevice(device_id):performClickableAction(command, value)
+	end, attributes)
+end
+
+--- @private
+--- Core function for defining fixed-position switches
+--- @param identifier string the unique identifier for the control
+--- @param arg_number integer the dcs argument number
+--- @param step number the amount to increase or decrease dcs data by with each step
+--- @param limits number[] a length-2 array with the lower and upper bounds of the data as used in dcs
+--- @param output_map string[]? an array of string values to output for inputs across the range of values, or nil if none
+--- @param cycle boolean | "skiplast" true if infinite rotary, false if limited rotary, skiplast functionality unclear
+--- @param category string the category in which the control should appear
+--- @param description string additional information about the control
+--- @param handle_input fun(value: integer) input handler function used to action controls in-game
+--- @param attributes SwitchAttributes? additional control attributes
+--- @return Control control the control which was added to the module
+function Module:define_tumb_base(identifier, arg_number, step, limits, output_map, cycle, category, description, handle_input, attributes)
 	assert_min_max(limits, "limits")
 	local span = limits[2] - limits[1]
-	local last_n = tonumber(string.format("%.0f", span / step))
-	assert(last_n)
-
-	local value_enum = output_map
-	if not value_enum then
-		value_enum = {}
-		local n = 0
-		while n <= last_n do
-			value_enum[#value_enum + 1] = tostring(n)
-			n = n + 1
-		end
-	end
+	local last_n = Module.round(span / step)
 
 	-- todo: the A-10C is the sole user of the "skiplast" cycle argument
 	--  also apparently anything with radio wheel
@@ -1091,9 +1006,10 @@ function Module:defineTumb(identifier, device_id, command, arg_number, step, lim
 		end
 		strAlloc = self:allocateString(max_len, identifier)
 	end
+
 	self:addExportHook(function(dev0)
 		local value = dev0:get_argument_value(arg_number)
-		local n = tonumber(string.format("%.0f", (value - limits[1]) / step))
+		local n = Module.round((value - limits[1]) / step)
 
 		if n > last_n then
 			n = last_n
@@ -1133,41 +1049,49 @@ function Module:defineTumb(identifier, device_id, command, arg_number, step, lim
 
 	local control = Control:new(category, ControlType.selector, identifier, description, inputs, outputs, nil, ControlAttributeDocumentation.from_switch_attributes(attributes))
 
-	self:addControl(control)
-
 	self:addInputProcessor(identifier, function(state)
 		local value = GetDevice(0):get_argument_value(arg_number)
-		local n = tonumber(string.format("%.0f", (value - limits[1]) / step))
-		local new_n = n
+		local n = Module.round((value - limits[1]) / step)
+
+		local input_value
+
 		if state == "INC" then
-			new_n = Module.cap(n + 1, 0, last_n, cycle)
+			local new_n = Module.cap(n + 1, 0, last_n, cycle)
 			if cycle == "skiplast" and new_n == last_n then
 				new_n = 0
 			end
 
-			GetDevice(device_id):performClickableAction(command, limits[1] + step * new_n)
+			input_value = limits[1] + step * new_n
 		elseif state == "DEC" then
-			new_n = Module.cap(n - 1, 0, last_n, cycle)
+			local new_n = Module.cap(n - 1, 0, last_n, cycle)
 			if cycle == "skiplast" and new_n == last_n then
 				new_n = last_n - 1
 			end
 
-			GetDevice(device_id):performClickableAction(command, limits[1] + step * new_n)
+			input_value = limits[1] + step * new_n
 		elseif state == "TOGGLE" then
+			local new_n = n
 			if n == 0 then
 				new_n = 1
 			elseif n == 1 then
 				new_n = 0
 			end
-			GetDevice(device_id):performClickableAction(command, limits[1] + step * new_n)
+
+			input_value = limits[1] + step * new_n
 		else
-			n = tonumber(string.format("%.0f", tonumber(state)))
-			if n == nil then
+			local v = tonumber(state)
+			if v == nil then
 				return
 			end
-			GetDevice(device_id):performClickableAction(command, limits[1] + step * Module.cap(n, 0, last_n, cycle))
+			local new_n = Module.round(v)
+
+			input_value = limits[1] + step * Module.cap(new_n, 0, last_n, cycle)
 		end
+
+		handle_input(input_value)
 	end)
+
+	self:addControl(control)
 
 	return control
 end
@@ -1426,6 +1350,13 @@ function Module:addControl(control)
 	category:addControl(control)
 end
 
+--- gets the current module's name
+--- @return string? module name
+function Module.get_module_name()
+	local data = LoGetSelfData()
+	return data and data.Name or nil
+end
+
 --- Creates a full identifier, including the module name, for a given identifier
 --- @param identifier string
 --- @return string
@@ -1601,14 +1532,6 @@ function Module.round(num)
 	return num >= 0 and math.floor(num + 0.5) or math.ceil(num - 0.5)
 end
 
---- rounds a number to certain decimal place
---- @param num number the number to round
---- @param decimal_places integer
---- @return number
-function Module.round2(num, decimal_places)
-	return tonumber(string.format("%." .. (decimal_places or 0) .. "f", num)) or 0
-end
-
 --- Maps value to from input_range to output_range
 --- @param argument_value number the number to map
 --- @param input_range number[] a length-2 array of the range of the input value
@@ -1651,6 +1574,37 @@ function Module.build_gauge_from_arguments(dev0, arguments)
 	end
 
 	return result
+end
+
+--- Returns an integer value for a drum-based numeric indicator
+--- @param dev0 CockpitDevice
+--- @param arg_number integer the dcs argument number from which to fetch the data
+--- @param invert boolean? whether the input should be inverted - default false
+--- @param max_value integer? the exclusive upper bound of the output - default 10
+--- @return integer value the integer displayed on the drum
+function Module.drum_value(dev0, arg_number, invert, max_value)
+	max_value = max_value or 10
+	invert = invert or false
+	local val = Module.round(dev0:get_argument_value(arg_number) * max_value)
+	if invert then
+		val = max_value - val
+	end
+	return val % max_value
+end
+
+--- Returns the string value of a regular drum
+--- @param dev0 CockpitDevice
+--- @param ... integer the dcs argument numbers for each drum wheel, left to right
+--- @return string value
+function Module.drum_set(dev0, ...)
+	local drum_arg_numbers = { ... }
+	local vals = ""
+
+	for _, arg_number in ipairs(drum_arg_numbers) do
+		vals = vals .. Module.drum_value(dev0, arg_number)
+	end
+
+	return vals
 end
 
 return Module

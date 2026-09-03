@@ -14,7 +14,47 @@ local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 local AJS37 = Module:new("AJS37", 0x4600, { "AJS37" })
 
 local devices = {
+	TEST2 = 1,
+	WEAPON_SYSTEM = 2,
+	ELECTRIC_SYSTEM = 3,
+	CLOCK = 4,
+	RADAR = 5,
+	LANDING_GEAR = 6,
+	REVERSAL = 7,
+	CANARD_FLAPS = 8,
+	SPAK = 9,
+	WEAPON_SYS = 10,
+	AIRBRAKE = 11,
+	NAVIGATION = 12,
+	ENGINE_MGMT = 13,
+	DEBUG = 14,
+	TEST = 15,
+	EP13 = 16,
 	LIGHTS = 17,
+	ENGINE_PANEL = 18,
+	-- ELECTRICSYSTEM = 19,
+	RADARALT = 20,
+	DOPPLER = 21,
+	FLIGHT_DATA_UNIT = 22,
+	NAVIGATION_PANEL = 23,
+	RWR = 24,
+	HIGH_ALPHA_WARNING = 25,
+	ERROR_PANEL = 26,
+	MISSILE_CONTROLLER = 27,
+	COUNTERMEASURE = 28,
+	TEST_INTERCOM = 29,
+	FR22 = 30,
+	FR24 = 31,
+	IFF = 32,
+	CONTROLS = 33,
+	KNEEBOARD_INTERFACE = 34,
+	KNEEBOARD = 35,
+	JOKER = 36,
+	WALKMAN = 37,
+	REPORTER = 38,
+	MISSION_GENERATOR = 39,
+	MACROS = 40,
+	HELMET_DEVICE = 41,
 }
 
 --overhaul by WarLord v1.0a
@@ -72,7 +112,7 @@ AJS37:defineToggleSwitch("RADAR_PULSE_NORMAL_SHORT", 5, 3328, 218, "Radar", "Pul
 AJS37:defineToggleSwitch("RADAR_RECCE_ON_OFF", 5, 3350, 216, "Radar", "Passive Recce On/Off Switch")
 AJS37:defineToggleSwitch("RADAR_MAINTENANCE_TEST", 5, 3914, 1006, "Radar", "Radar/EL Maintenance Test")
 AJS37:defineToggleSwitch("RADAR_IGNITION_COILS", 18, 3918, 395, "Radar", "Ignition Coils")
-AJS37:definePushButton("RADAR_IFF_ID", 5, 3922, 1205, "Radar", "IFF Identification")
+AJS37:definePushButton("RADAR_IFF_ID", devices.IFF, 3922, 1205, "Transponder Panel", "Ident")
 
 --Reversal
 AJS37:defineToggleSwitch("REVERSAL", 7, 3001, 20, "Thrust Reverser", "Thrust Reverser On/Off")
@@ -127,8 +167,8 @@ AJS37:defineToggleSwitch("CB_TRIM_SYSTEM", 18, 3907, 304, "Engine Panel", "CB Tr
 AJS37:defineToggleSwitch("CB_CI_SI", 18, 3908, 305, "Engine Panel", "CB CI/SI")
 AJS37:defineToggleSwitch("CB_EJECTION_SYSTEM", 18, 3909, 306, "Engine Panel", "CB Ejection System")
 AJS37:defineToggleSwitch("CB_ENGINE", 18, 3910, 307, "Engine Panel", "CB Engine")
-AJS37:defineToggleSwitch("IFF_TRANSPONDER_POWER", 18, 3920, 1203, "Engine Panel", "IFF/Transponder Power")
-AJS37:defineToggleSwitch("IFF_CHANNEL", 18, 3921, 1204, "Engine Panel", "IFF Channel Selector")
+AJS37:defineToggleSwitch("IFF_TRANSPONDER_POWER", devices.IFF, 3920, 1203, "Transponder Panel", "Transponder Power")
+AJS37:defineToggleSwitch("IFF_CHANNEL", devices.IFF, 3921, 1204, "Transponder Panel", "Transponder Mode", { positions = { "A", "A+C" } })
 AJS37:defineToggleSwitch("DME_SELECTOR", 18, 3919, 1206, "Engine Panel", "DME Selector")
 AJS37:defineToggleSwitch("IGNITION_SYSTEM", 18, 3003, 205, "Engine Panel", "Ignition System")
 AJS37:defineToggleSwitch("MAN_AFTERBURN_FUEL_REG", 18, 3006, 313, "Engine Panel", "Manual Afterburner Fuel Regulator")
@@ -151,32 +191,31 @@ AJS37:defineToggleSwitch("RADAR_ALTIMETER_POWER", 20, 3002, 283, "Radar Altimete
 AJS37:defineToggleSwitch("DOPPLER_LAND_SEA_MODE", 21, 3001, 213, "Doppler", "Doppler Land/Sea Mode")
 
 --Flight Data Unit
-AJS37:defineToggleSwitch("GEAR_HANDLE", 22, 3719, 12, "Flight Data Unit", "Gear Handle")
-AJS37:definePushButton("SPAK", 22, 3301, 401, "Flight Data Unit", "SPAK")
-AJS37:definePushButton("ATTITUDE_HOLD", 22, 3302, 402, "Flight Data Unit", "Attitude Hold")
-AJS37:definePushButton("ALTITUDE_HOLD", 22, 3303, 403, "Flight Data Unit", "Altitude Hold")
-AJS37:defineTumb("TILS_CHANNEL_SELECT", 22, 3512, 282, 0.1, { 0, 1 }, nil, false, "Flight Data Unit", "TILS Channel Selection")
-AJS37:defineToggleSwitch("TILS_CHANNEL_LAYER", 22, 3511, 285, "Flight Data Unit", "TILS Channel Layer Selection")
-AJS37:defineToggleSwitch("EJECTION_SEAT_ARM", 22, 3405, 21, "Flight Data Unit", "Ejection Seat Arm")
-AJS37:defineToggleSwitch("SLAV_SI", 22, 3201, 323, "Flight Data Unit", "Slav SI")
-AJS37:defineToggleSwitch("HOJD_CISI", 22, 3097, 324, "Flight Data Unit", "HOJD CISI")
-AJS37:defineRotary("BACKUP_ALT_SETTING", 22, 3721, 126, "Flight Data Unit", "Backup Altimeter Setting")
-AJS37:defineToggleSwitch("PITCH_GEAR_MODE", 22, 3210, 311, "Flight Data Unit", "Pitch Gear Automatic/Landing")
-AJS37:defineToggleSwitch("OXYGEN_LEVER", 22, 3718, 176, "Flight Data Unit", "Oxygen Lever")
-AJS37:define3PosTumb("CANOPY_OPEN_CLOSE", 22, 3406, 9, "Flight Data Unit", "Canopy Open/Close")
-AJS37:definePushButton("CANOPY_JETTISON", 22, 3407, 210, "Flight Data Unit", "Canopy Jettison")
-AJS37:definePushButton("COUNTERMEASURE_FAST_RELEASE", 22, 3001, 184, "Flight Data Unit", "Countermeasure Fast Release")
-AJS37:defineToggleSwitch("EMERGENCY_ROLL_TRIM", 22, 3716, 390, "Flight Data Unit", "Emergency Roll Trim")
-AJS37:defineToggleSwitch("EMERGENCY_PITCH_TRIM", 22, 3717, 389, "Flight Data Unit", "Emergency Pitch Trim")
-AJS37:defineToggleSwitch("EMERGENCY_YAW_TRIM", 22, 3918, 388, "Flight Data Unit", "Yaw Trim")
-AJS37:defineToggleSwitch("MAG_DEC_COVER", 22, 3742, 1200, "Flight Data Unit", "Magnetic Declination Cover")
-AJS37:defineToggleSwitch("AUTO_YAW_TRIM_COVER", 22, 3741, 493, "Flight Data Unit", "Autopilot Yaw Trim Cover")
-AJS37:defineToggleSwitch("PARKING_BRAKE", 22, 3408, 22, "Flight Data Unit", "Parking Brake")
-AJS37:defineToggleSwitchToggleOnly("HUD_GLASS_POSITION", 22, 3401, 11, "Flight Data Unit", "HUD Reflector Glass Position")
--- AJS37:defineToggleSwitchToggleOnly("AFK_MODE_3", 22, 3402, 464, "Flight Data Unit", "AFK Mode 3") -- duplicate
+AJS37:defineToggleSwitch("GEAR_HANDLE", devices.FLIGHT_DATA_UNIT, 3719, 12, "Flight Data Unit", "Gear Handle")
+AJS37:definePushButton("SPAK", devices.FLIGHT_DATA_UNIT, 3301, 401, "Flight Data Unit", "SPAK")
+AJS37:definePushButton("ATTITUDE_HOLD", devices.FLIGHT_DATA_UNIT, 3302, 402, "Flight Data Unit", "Attitude Hold")
+AJS37:definePushButton("ALTITUDE_HOLD", devices.FLIGHT_DATA_UNIT, 3303, 403, "Flight Data Unit", "Altitude Hold")
+AJS37:defineTumb("TILS_CHANNEL_SELECT", devices.FLIGHT_DATA_UNIT, 3512, 282, 0.1, { 0, 1 }, nil, false, "Flight Data Unit", "TILS Channel Selection")
+AJS37:defineToggleSwitch("TILS_CHANNEL_LAYER", devices.FLIGHT_DATA_UNIT, 3511, 285, "Flight Data Unit", "TILS Channel Layer Selection")
+AJS37:defineToggleSwitch("EJECTION_SEAT_ARM", devices.FLIGHT_DATA_UNIT, 3405, 21, "Flight Data Unit", "Ejection Seat Arm")
+AJS37:defineToggleSwitch("SLAV_SI", devices.FLIGHT_DATA_UNIT, 3201, 323, "Flight Data Unit", "Slav SI")
+AJS37:defineToggleSwitch("HOJD_CISI", devices.FLIGHT_DATA_UNIT, 3097, 324, "Flight Data Unit", "HOJD CISI")
+AJS37:defineRotary("BACKUP_ALT_SETTING", devices.FLIGHT_DATA_UNIT, 3721, 126, "Flight Data Unit", "Backup Altimeter Setting")
+AJS37:defineToggleSwitch("PITCH_GEAR_MODE", devices.FLIGHT_DATA_UNIT, 3210, 311, "Flight Data Unit", "Pitch Gear Automatic/Landing")
+AJS37:defineToggleSwitch("OXYGEN_LEVER", devices.FLIGHT_DATA_UNIT, 3718, 176, "Flight Data Unit", "Oxygen Lever")
+AJS37:define3PosTumb("CANOPY_OPEN_CLOSE", devices.FLIGHT_DATA_UNIT, 3406, 9, "Flight Data Unit", "Canopy Open/Close")
+AJS37:definePushButton("CANOPY_JETTISON", devices.FLIGHT_DATA_UNIT, 3407, 210, "Flight Data Unit", "Canopy Jettison")
+AJS37:definePushButton("COUNTERMEASURE_FAST_RELEASE", devices.FLIGHT_DATA_UNIT, 3001, 184, "Flight Data Unit", "Countermeasure Fast Release")
+AJS37:defineToggleSwitch("EMERGENCY_ROLL_TRIM", devices.FLIGHT_DATA_UNIT, 3716, 390, "Flight Data Unit", "Emergency Roll Trim")
+AJS37:defineToggleSwitch("EMERGENCY_PITCH_TRIM", devices.FLIGHT_DATA_UNIT, 3717, 389, "Flight Data Unit", "Emergency Pitch Trim")
+AJS37:defineToggleSwitch("EMERGENCY_YAW_TRIM", devices.FLIGHT_DATA_UNIT, 3918, 388, "Flight Data Unit", "Yaw Trim")
+AJS37:defineToggleSwitch("MAG_DEC_COVER", devices.FLIGHT_DATA_UNIT, 3742, 1200, "Flight Data Unit", "Magnetic Declination Cover")
+AJS37:defineToggleSwitch("AUTO_YAW_TRIM_COVER", devices.FLIGHT_DATA_UNIT, 3741, 493, "Flight Data Unit", "Autopilot Yaw Trim Cover")
+AJS37:defineToggleSwitch("PARKING_BRAKE", devices.FLIGHT_DATA_UNIT, 3408, 22, "Flight Data Unit", "Parking Brake")
+AJS37:defineToggleSwitchToggleOnly("HUD_GLASS_POSITION", devices.FLIGHT_DATA_UNIT, 3401, 11, "Flight Data Unit", "HUD Reflector Glass Position")
 AJS37:reserveIntValue(1)
-AJS37:defineToggleSwitchToggleOnly("AFK_15_DEG_MODE", 22, 3402, 464, "Flight Data Unit", "AFK 15 Deg Mode")
-AJS37:defineTumb("MASTER_MODE_SELECT", 22, 3107, 209, 0.16666667, { 0, 1 }, nil, false, "Flight Data Unit", "Master Mode Selector")
+AJS37:defineToggleSwitchToggleOnly("AFK_15_DEG_MODE", devices.FLIGHT_DATA_UNIT, 3402, 464, "Flight Data Unit", "AFK 15 Deg Mode")
+AJS37:defineTumb("MASTER_MODE_SELECT", devices.FLIGHT_DATA_UNIT, 3107, 209, 0.16666667, { 0, 1 }, nil, false, "Flight Data Unit", "Master Mode Selector")
 
 --Navigation Panel
 AJS37:defineTumb("DATAPANEL_SELECTOR", 23, 3009, 200, 0.1, { 0.0, 0.6 }, nil, false, "Navigation Panel", "Datapanel Selector")
@@ -198,7 +237,7 @@ AJS37:defineTumb("JAMMER_BAND_SELECTOR", 28, 3025, 318, 0.1, { 0, 0.4 }, nil, fa
 AJS37:defineTumb("COUNTERMEASURE_MODE_SELECTOR", 28, 3026, 319, 0.1, { 0, 0.4 }, nil, false, "Countermeasures", "Countermeasure Operation Mode Selector")
 AJS37:defineTumb("COUNTERMEASURE_STREAK_MODE_SELECTOR", 28, 3027, 320, 0.1, { 0.0, 0.1 }, nil, false, "Countermeasures", "Countermeasure Streak Mode Selector")
 AJS37:defineTumb("COUNTERMEASURE_CHAFF_FLARES_SELECTOR", 28, 3028, 322, 0.1, { 0, 0.2 }, nil, false, "Countermeasures", "Countermeasure Chaff/Flares Selector")
-AJS37:define3PosTumb("COUNTERMEASURE_RELEASE_MODE", 22, 3001, 184, "Countermeasures", "Countermeasure Release Mode") --3030
+AJS37:define3PosTumb("COUNTERMEASURE_RELEASE_MODE", devices.FLIGHT_DATA_UNIT, 3001, 184, "Countermeasures", "Countermeasure Release Mode") --3030
 
 --FR22 Radio
 AJS37:defineRotary("FR22_INNER_LEFT_KNOB", 30, 3003, 172, "FR22 Radio", "Radio Frequency Knob Inner Left")
@@ -337,14 +376,14 @@ AJS37:defineBitFromDrawArgument("EXT_WOW_NOSE", 1, "External Aircraft Model", "W
 AJS37:defineBitFromDrawArgument("EXT_WOW_RIGHT", 4, "External Aircraft Model", "Weight ON Wheels Right Gear")
 AJS37:defineBitFromDrawArgument("EXT_WOW_LEFT", 6, "External Aircraft Model", "Weight ON Wheels Left Gear")
 
-AJS37:definePushButton("MAX_G_RESET", 22, 3722, 175, "Flight Data Unit", "Max G Reset")
-AJS37:definePushButton("BACK_ADI_CAGE", 22, 3720, 3402, "Flight Data Unit", "Backup ADI Cage")
-AJS37:definePushButton("ROLL_CENTER", 22, 3305, 2003, "Flight Data Unit", "Roll Trim Reset / Centre")
-AJS37:defineRotary("ALT_SET_ROT", 22, 3306, 2009, "Flight Data Unit", "Altimeter Setting (Rotary)")
-AJS37:defineRotary("HUD_BRIGHT", 22, 3409, 9999, "Flight Data Unit", "HUD Brightness Knob")
-AJS37:defineRotary("MAG_CORRECTION", 22, 3724, 1201, "Flight Data Unit", "Magnetic Declination Correction")
-AJS37:definePotentiometer("AUTO_YAW_TRIM", 22, 3732, 211, { -1, 1 }, "Flight Data Unit", "Autopilot Yaw Trim")
-AJS37:defineRotary("CLOCK_SET", 22, 3801, 135, "Flight Data Unit", "Clock Setting")
+AJS37:definePushButton("MAX_G_RESET", devices.FLIGHT_DATA_UNIT, 3722, 175, "Flight Data Unit", "Max G Reset")
+AJS37:definePushButton("BACK_ADI_CAGE", devices.FLIGHT_DATA_UNIT, 3720, 3402, "Flight Data Unit", "Backup ADI Cage")
+AJS37:definePushButton("ROLL_CENTER", devices.FLIGHT_DATA_UNIT, 3305, 2003, "Flight Data Unit", "Roll Trim Reset / Centre")
+AJS37:defineRotary("ALT_SET_ROT", devices.FLIGHT_DATA_UNIT, 3306, 2009, "Flight Data Unit", "Altimeter Setting (Rotary)")
+AJS37:defineRotary("HUD_BRIGHT", devices.FLIGHT_DATA_UNIT, 3409, 9999, "Flight Data Unit", "HUD Brightness Knob")
+AJS37:defineRotary("MAG_CORRECTION", devices.FLIGHT_DATA_UNIT, 3724, 1201, "Flight Data Unit", "Magnetic Declination Correction")
+AJS37:definePotentiometer("AUTO_YAW_TRIM", devices.FLIGHT_DATA_UNIT, 3732, 211, { -1, 1 }, "Flight Data Unit", "Autopilot Yaw Trim")
+AJS37:defineRotary("CLOCK_SET", devices.FLIGHT_DATA_UNIT, 3801, 135, "Flight Data Unit", "Clock Setting")
 
 AJS37:definePushButton("FR22_FLIGHT_0", 30, 3210, 372, "FR22 Radio", "Flight 0")
 AJS37:definePushButton("FR22_FLIGHT_1", 30, 3211, 373, "FR22 Radio", "Flight 1")
@@ -374,8 +413,11 @@ AJS37:reserveIntValue(20) -- corrected control requires more space, so reserve t
 AJS37:reserveIntValue(10) -- corrected control requires more space, so reserve this space and add corrected control to the end
 AJS37:defineRotary("FR22_VOL", 21, 3112, 385, "FR22 Radio", "Radio Volume")
 
-AJS37:defineToggleSwitch("IFF_POWER", 18, 3001, 1203, "Radar", "IFF Power")
-AJS37:defineTumb("IFF_CODE", 18, 3000, 308, 0.1, { 0, 1 }, nil, false, "Radar", "IFF Code")
+local IFF = "IFF Panel"
+
+AJS37:defineToggleSwitch("IFF_POWER", devices.IFF, 3100, 308, IFF, "IFF Power Switch")
+AJS37:defineMultipositionSwitch("IFF_CODE", devices.IFF, 3001, 309, 11, 0.1, IFF, "IFF Code Selector", { positions = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11" } })
+
 AJS37:definePotentiometer("DE_ICE", 18, 3912, 286, { 0, 1 }, "Engine Panel", "Windscreen De-Ice")
 AJS37:defineRotary("TEST_MODE", 18, 3913, 675, "Engine Panel", "Maintenance Testing Mode")
 AJS37:defineRotary("DRYSUIT", 18, 3917, 396, "Engine Panel", "Drysuit Ventilation Adjustment")
@@ -451,9 +493,9 @@ AJS37:defineIndicatorLight("REVERSAL_L", 460, FRONT_PANEL_LIGHTS, "Thrust Revers
 AJS37:defineGatedIndicatorLight("BURNER_STAGE1_L", 405, 0.3, nil, FRONT_PANEL_LIGHTS, "Afterburner Stage 1 Lamp (white)")
 AJS37:defineGatedIndicatorLight("BURNER_STAGE2_L", 405, 0.6, nil, FRONT_PANEL_LIGHTS, "Afterburner Stage 2 Lamp (white)")
 AJS37:defineGatedIndicatorLight("BURNER_STAGE3_L", 405, 0.9, nil, FRONT_PANEL_LIGHTS, "Afterburner Stage 3 Lamp (white)")
-AJS37:definePushButton("SNABBRESNING", 22, 3091, 0, "Radar", "Snabbresning") --No Arg left bottom radar display
-AJS37:define3PosTumb("SEAT_HEIGHT", 22, 3404, 212, "Flight Data Unit", "Seat Height Adjustment")
-AJS37:definePotentiometer("AIRSPEED_INDEXER", 22, 3410, 104, { 0, 1 }, "Flight Data Unit", "Airspeed Indexer")
+AJS37:definePushButton("SNABBRESNING", devices.FLIGHT_DATA_UNIT, 3091, 0, "Radar", "Snabbresning") --No Arg left bottom radar display
+AJS37:define3PosTumb("SEAT_HEIGHT", devices.FLIGHT_DATA_UNIT, 3404, 212, "Flight Data Unit", "Seat Height Adjustment")
+AJS37:definePotentiometer("AIRSPEED_INDEXER", devices.FLIGHT_DATA_UNIT, 3410, 104, { 0, 1 }, "Flight Data Unit", "Airspeed Indexer")
 AJS37:defineToggleSwitch("BYPASS_FIRE_COVER", 2, 3308, 309, "Weapon System", "Bypass Firing Circuit Cover")
 AJS37:definePushButton("BYPASS_FIRE_BTN", 2, 3309, 397, "Weapon System", "Bypass Firing Circuit Button")
 AJS37:definePotentiometer("RADAR_GAIN", 5, 3325, 152, { -1, 1 }, "Radar", "Radar Gain (MKR)")
@@ -462,8 +504,8 @@ AJS37:define3PosTumb("RADAR_MODE_SEL", 23, 3002, 215, "Radar", "Radar Mode Selec
 AJS37:define3PosTumb("RADAR_RANGE_SEL", 5, 3323, 156, "Radar", "Radar Range Selector")
 AJS37:definePotentiometer("RADAR_ANT_ELEVATION", 5, 3641, 154, { -1, 1 }, "Radar", "Radar Antenna Elevation")
 AJS37:definePushButton("RADAR_TERRAIN_MODE", 5, 3213, 155, "Radar", "Radar Terrain Avoidance Mode")
-AJS37:defineToggleSwitch("ALT_SET_PUSH", 22, 3715, 119, "Flight Data Unit", "Altimeter Setting (Push)")
-AJS37:defineRotary("ALT_SET_TURN", 22, 3306, 123, "Flight Data Unit", "Altimeter Setting (Turn)")
+AJS37:defineToggleSwitch("ALT_SET_PUSH", devices.FLIGHT_DATA_UNIT, 3715, 119, "Flight Data Unit", "Altimeter Setting (Push)")
+AJS37:defineRotary("ALT_SET_TURN", devices.FLIGHT_DATA_UNIT, 3306, 123, "Flight Data Unit", "Altimeter Setting (Turn)")
 AJS37:defineToggleSwitch("TOGGLE_MIRRORS", 0, 1625, 0, "Cockpit", "Toggle Mirrors")
 AJS37:defineFloat("CANOPY_POS", 10, { 0, 1 }, "Cockpit", "Canopy Position")
 AJS37:defineFloat("ADI_AOA_INDICATOR", 120, { 0, 1 }, "Raw Gauge Values", "ADI AoA Indicator")
@@ -639,5 +681,37 @@ end, 1, FRONT_PANEL_LIGHTS, "Radar Display Range 60 Lamp (red)")
 AJS37:defineIntegerFromGetter("RDR_RANGE_120_L", function(dev0)
 	return radar_range_binary(dev0, 4)
 end, 1, FRONT_PANEL_LIGHTS, "Radar Display Range 120 Lamp (red)")
+
+local IK = "IK Transponder Panel"
+
+AJS37:definePushButton("TRANSPONDER_TEST", devices.IFF, 3923, 7777, IK, "Transponder Test")
+AJS37:defineMultipositionSwitch("TRANSPONDER_CODE_THOUSANDS", devices.IFF, 3924, 3558, 8, 0.1, IK, "Transponder Code (Thousands)")
+AJS37:defineMultipositionSwitch("TRANSPONDER_CODE_HUNDREDS", devices.IFF, 3925, 3559, 8, 0.1, IK, "Transponder Code (Hundreds)")
+AJS37:defineMultipositionSwitch("TRANSPONDER_CODE_TENS", devices.IFF, 3926, 3560, 8, 0.1, IK, "Transponder Code (Tens)")
+AJS37:defineMultipositionSwitch("TRANSPONDER_CODE_ONES", devices.IFF, 3927, 3561, 8, 0.1, IK, "Transponder Code (Ones)")
+
+local function transponder_digit(dev0, arg_number)
+	return Module.round(dev0:get_argument_value(arg_number) * 10)
+end
+
+AJS37:defineString("TRANSPONDER_CODE", function(dev0)
+	local thousands = transponder_digit(dev0, 3558)
+	local hundreds = transponder_digit(dev0, 3559)
+	local tens = transponder_digit(dev0, 3560)
+	local ones = transponder_digit(dev0, 3561)
+
+	return thousands .. hundreds .. tens .. ones
+end, 4, IK, "Transponder Code")
+
+AJS37:defineGatedIndicatorLight("TRANSPONDER_ANSWER_LIGHT", 3562, 0.5, nil, IK, "Svar Lamp", { color = "green" })
+AJS37:defineGatedIndicatorLight("TRANSPONDER_ERROR_LIGHT", 3563, 0.5, nil, IK, "Fel Lamp", { color = "red" })
+AJS37:defineGatedIndicatorLight("TRANSPONDER_IK_LIGHT", 3566, 0.5, nil, IK, "IK Lamp", { color = "orange" })
+
+local FK = "FK"
+
+AJS37:defineGatedIndicatorLight("FK_GREEN_LIGHT", 3567, 0.5, nil, FK, "FK Green Lamp", { color = "green" })
+AJS37:defineGatedIndicatorLight("FK_RED_LIGHT", 3568, 0.04, nil, FK, "FK Red Lamp", { color = "red" })
+
+AJS37:defineToggleSwitch("GEAR_HANDLE_INTERLOCK", devices.FLIGHT_DATA_UNIT, 3806, 3460, "Flight Data Unit", "Gear Handle Interlock Disconnect")
 
 return AJS37

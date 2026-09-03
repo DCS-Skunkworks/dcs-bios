@@ -11531,6 +11531,20 @@ local F_16C_DED = {
 			y = 3,
 		},
 	},
+	["TCN BIG OFF Label"] = {
+		{
+			alignment = "LFT",
+			pages = {
+				"T_ILS_BACKUP",
+				"T_ILS_COMMON",
+				"T_ILS_PRIMARY",
+			},
+			id = "TCN BIG OFF Label",
+			x = 6,
+			y = 1,
+			color = "B",
+		},
+	},
 	["TCN CHAN Asterisks_lhs"] = {
 		{
 			alignment = "LFT",

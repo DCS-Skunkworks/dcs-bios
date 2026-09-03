@@ -997,7 +997,7 @@ OH_58D:defineRotary("ALTIMETER_KNOB", devices.SENSORS, 3001, 62, STANDBY_ALTIMET
 
 OH_58D:defineFloat("ALTIMETER_NEEDLE", 61, { 0, 1 }, STANDBY_ALTIMETER, "Needle") -- this goes -1 to 1 in modelviewer, but in testing the value never drops below 0
 OH_58D:defineString("ALTIMETER_PRESSURE", function(dev0)
-	return tostring(Module.build_gauge_from_arguments(dev0, { 66, 65, 64, 63 }))
+	return Module.drum_set(dev0, 63, 64, 65, 66)
 end, 4, STANDBY_ALTIMETER, "Pressure Setting (inHg)")
 
 OH_58D:defineString("ALTIMETER_VALUE", function(dev0)

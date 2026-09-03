@@ -28,6 +28,7 @@ function LoGetAircraftDrawArgumentValue()
 	return GetDevice().value
 end
 
+-- controls
 require("Scripts.DCS-BIOS.test.controls.GaugeValueTest")
 require("Scripts.DCS-BIOS.test.controls.FloatTest")
 require("Scripts.DCS-BIOS.test.controls.IndicatorLightTest")
@@ -67,3 +68,7 @@ require("Scripts.DCS-BIOS.test.controls.InputOnlySetStatePushButtonTest")
 require("Scripts.DCS-BIOS.test.controls.LoSetCommandTest")
 require("Scripts.DCS-BIOS.test.controls.LoSetCommand2PosTest")
 require("Scripts.DCS-BIOS.test.controls.LoSetCommand2PosToggleTest")
+
+-- utils
+require("Scripts.DCS-BIOS.test.module.DrumSetTest")
+require("Scripts.DCS-BIOS.test.module.DrumValueTest")

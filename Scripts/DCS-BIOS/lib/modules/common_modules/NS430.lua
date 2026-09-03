@@ -1,5 +1,6 @@
 module("NS430", package.seeall)
 
+local AircraftList = require("Scripts.DCS-BIOS.lib.AircraftList")
 local ApiVariant = require("Scripts.DCS-BIOS.lib.modules.documentation.ApiVariant")
 local Control = require("Scripts.DCS-BIOS.lib.modules.documentation.Control")
 local ControlType = require("Scripts.DCS-BIOS.lib.modules.documentation.ControlType")
@@ -11,57 +12,26 @@ local VariableStepInput = require("Scripts.DCS-BIOS.lib.modules.documentation.Va
 
 local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 
-local ns430_aircraft = {
-	"A-10A",
-	"AJS37",
-	"AV8BNA",
-	"Bf-109K-4",
-	"C-101CC",
-	"C-101EB",
-	"Christen Eagle II",
-	"F-14A-135-GR",
-	"F-14B",
-	"F-15C",
-	"F-5E-3",
-	"F-5E-3_FC",
-	"F-86F Sabre",
-	"F-86F_FC",
-	"FW-190A8",
-	"FW-190D9",
-	"I-16",
-	"J-11A",
-	"JF-17",
-	"L-39C",
-	"L-39ZA",
-	"M-2000C",
-	"Mi-8MT",
-	"Mi-24P",
-	"MiG-15bis",
-	"MiG-15bis_FC",
-	"MiG-19P",
-	"MiG-21Bis",
-	"MiG-29A",
-	"MiG-29G",
-	"MiG-29S",
-	"P-47D-30",
-	"P-47D-30bl1",
-	"P-47D-40",
-	"P-51D",
-	"P-51D-30-NA",
-	"SA342L",
-	"SA342M",
-	"SA342Minigun",
-	"SA342Mistral",
-	"SpitfireLFMkIX",
-	"SpitfireLFMkIXCW",
-	"Su-25",
-	"Su-25T",
-	"Su-27",
-	"Su-33",
-	"TF-51D",
-	"UH-1H",
-	"Yak-52",
+-- these are defined as disabled in NS430/entry.lua, so the popup does not work in them
+local disabled_aircraft = {
+	["A-10C"] = true,
+	["A-10C_2"] = true,
+	["Ka-50"] = true,
+	["Ka-50_3"] = true,
+	["F-16C_50"] = true,
+	["FA-18C_hornet"] = true,
+	["AH-64D_BLK_II"] = true,
+	["CH-47Fbl1"] = true,
 }
+
+local ns430_aircraft = {}
+
+for _, name in ipairs(AircraftList.ALL_PLAYABLE_AIRCRAFT) do
+	if disabled_aircraft[name] == nil then
+		table.insert(ns430_aircraft, name)
+	end
+end
+
 --- @class NS430: Module
 local NS430 = Module:new("NS430", 0x0600, ns430_aircraft)
 NS430.dev0_required = false

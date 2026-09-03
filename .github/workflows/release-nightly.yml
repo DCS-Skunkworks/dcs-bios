@@ -38,6 +38,9 @@ jobs:
     needs: test
     runs-on: ubuntu-latest
 
+    env:
+      PLACEHOLDER_VERSION: 0.0.0
+
     permissions:
       contents: write
 
@@ -63,6 +66,16 @@ jobs:
       - name: compile
         run: |
           lua ./Scripts/DCS-BIOS/test/compile/LocalCompile.lua
+
+        # datestamp version for nightly builds
+      - name: prepare version
+        run: |
+          echo "CURRENT_VERSION=$(date +%Y.%m.%d)-nightly" >> $GITHUB_ENV
+
+        # replace placeholder text in version with the actual version
+      - name: set version
+        run: |
+          sed -i -e 's/"${{ env.PLACEHOLDER_VERSION }}"/"${{ env.CURRENT_VERSION }}"/g' ./Scripts/DCS-BIOS/BIOSConfig.lua
 
       - name: Archive Release
         uses: thedoctor0/zip-release@0.7.6

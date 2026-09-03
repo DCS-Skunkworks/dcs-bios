@@ -8,6 +8,8 @@ The following is a set of guidelines for contributing to DCS-BIOS and related to
 
 [Code of Conduct](#code-of-conduct)
 
+[AI Policy](#ai-policy)
+
 [I don't want to read this whole thing, I just have a question!!!](#i-dont-want-to-read-this-whole-thing-i-just-have-a-question)
 
 [How Can I Contribute?](#how-can-i-contribute)
@@ -23,6 +25,10 @@ The following is a set of guidelines for contributing to DCS-BIOS and related to
 ## Code of Conduct
 
 This project and everyone participating in it is governed by the [DCS-BIOS Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior via [Discord](https://discord.gg/5svGwKX).
+
+## AI Policy
+
+All contributions with the assistance of AI must be made in accordance with our [AI Policy](https://github.com/DCS-Skunkworks/.github/blob/main/AI_POLICY.md).
 
 ## I don't want to read this whole thing I just have a question!!!
 

@@ -42,7 +42,7 @@ jobs:
 
       - name: diff Addresses.h
         run: |
-          diff=$(git diff base/Scripts/DCS-BIOS/doc/Addresses.h head/Scripts/DCS-BIOS/doc/Addresses.h) || true
+          diff=$(git diff --no-index base/Scripts/DCS-BIOS/doc/Addresses.h head/Scripts/DCS-BIOS/doc/Addresses.h) || true
 
           mkdir -p ./pr && cd pr
 

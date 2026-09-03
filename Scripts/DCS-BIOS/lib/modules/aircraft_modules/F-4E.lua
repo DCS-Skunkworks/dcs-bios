@@ -97,39 +97,6 @@ function F_4E:defineDimmableIndicatorLight(identifier, arg_number, category, des
 	self:definePositiveFloat(identifier, arg_number, category, description)
 end
 
--- helper functions
-
---- Returns an integer value for a drum-based numeric indicator
---- @param dev0 CockpitDevice
---- @param arg_number integer the dcs argument number from which to fetch the data
---- @param invert boolean? whether the input should be inverted - default false
---- @param max_value integer? the exclusive upper bound of the output - default 10
---- @return integer value the integer displayed on the drum
-local function drum_value(dev0, arg_number, invert, max_value)
-	max_value = max_value or 10
-	invert = invert or false
-	local val = Module.round(dev0:get_argument_value(arg_number) * max_value)
-	if invert then
-		val = max_value - val
-	end
-	return val % max_value
-end
-
---- Returns the string value of a regular drum
---- @param dev0 CockpitDevice
---- @param ... integer the dcs argument numbers for each drum wheel, left to right
---- @return string value
-local function drum_set(dev0, ...)
-	local drum_arg_numbers = { ... }
-	local vals = {}
-
-	for i, arg_number in ipairs(drum_arg_numbers) do
-		vals[i] = drum_value(dev0, arg_number)
-	end
-
-	return string.format(string.rep("%d", #vals), unpack(vals))
-end
-
 -- ICS
 local ICS_DEVICE_ID = 2
 
@@ -343,9 +310,9 @@ local wso_cm_chaff_ones = 0
 local wso_cm_chaff = ""
 
 F_4E:addExportHook(function(dev0)
-	wso_cm_chaff_hundreds = Module.round(drum_value(dev0, 1390))
-	wso_cm_chaff_tens = Module.round(drum_value(dev0, 1391))
-	wso_cm_chaff_ones = Module.round(drum_value(dev0, 1392))
+	wso_cm_chaff_hundreds = Module.round(Module.drum_value(dev0, 1390))
+	wso_cm_chaff_tens = Module.round(Module.drum_value(dev0, 1391))
+	wso_cm_chaff_ones = Module.round(Module.drum_value(dev0, 1392))
 	wso_cm_chaff = string.format("%d%d%d", wso_cm_chaff_hundreds, wso_cm_chaff_tens, wso_cm_chaff_ones)
 end)
 
@@ -355,9 +322,9 @@ local wso_cm_flare_ones = 0
 local wso_cm_flare = ""
 
 F_4E:addExportHook(function(dev0)
-	wso_cm_flare_hundreds = Module.round(drum_value(dev0, 1393))
-	wso_cm_flare_tens = Module.round(drum_value(dev0, 1394))
-	wso_cm_flare_ones = Module.round(drum_value(dev0, 1395))
+	wso_cm_flare_hundreds = Module.round(Module.drum_value(dev0, 1393))
+	wso_cm_flare_tens = Module.round(Module.drum_value(dev0, 1394))
+	wso_cm_flare_ones = Module.round(Module.drum_value(dev0, 1395))
 	wso_cm_flare = string.format("%d%d%d", wso_cm_flare_hundreds, wso_cm_flare_tens, wso_cm_flare_ones)
 end)
 
@@ -535,9 +502,9 @@ F_4E:defineFullRangeFloat("WSO_NAV_VAR_SYNC_METER", 941, WSO_NAVIGATION_PANEL, "
 F_4E:defineString("WSO_NAV_MAG_VAR_VALUE", function(dev0)
 	local west = dev0:get_argument_value(910) > 0.5
 
-	local ones = drum_value(dev0, 911, west)
-	local tens = drum_value(dev0, 912, west)
-	local hundreds = drum_value(dev0, 913, west)
+	local ones = Module.drum_value(dev0, 911, west)
+	local tens = Module.drum_value(dev0, 912, west)
+	local hundreds = Module.drum_value(dev0, 913, west)
 
 	if west then
 		return string.format("%d%d%dWEST", hundreds, tens, ones)
@@ -549,11 +516,11 @@ end, 7, WSO_NAVIGATION_PANEL, "Magnetic Variation")
 -- wind
 
 F_4E:defineString("WSO_NAV_WIND_DIRECTION_VALUE", function(dev0)
-	return drum_set(dev0, 908, 907, 906)
+	return Module.drum_set(dev0, 908, 907, 906)
 end, 3, WSO_NAVIGATION_PANEL, "Wind Direction")
 
 F_4E:defineString("WSO_NAV_WIND_STRENGTH_VALUE", function(dev0)
-	return drum_set(dev0, 904, 903, 902)
+	return Module.drum_set(dev0, 904, 903, 902)
 end, 3, WSO_NAVIGATION_PANEL, "Wind Strength")
 
 -- lat/longs
@@ -561,10 +528,10 @@ end, 3, WSO_NAVIGATION_PANEL, "Wind Strength")
 local function latitude_value(dev0, flag_arg, minutes_tens_arg, minutes_ones_arg, seconds_tens_arg, seconds_ones_arg)
 	local south = dev0:get_argument_value(flag_arg) > 0.5
 
-	local minutes_tens = drum_value(dev0, minutes_tens_arg, south)
-	local minutes_ones = drum_value(dev0, minutes_ones_arg, south)
-	local seconds_tens = drum_value(dev0, seconds_tens_arg, south, 6)
-	local seconds_ones = drum_value(dev0, seconds_ones_arg, south)
+	local minutes_tens = Module.drum_value(dev0, minutes_tens_arg, south)
+	local minutes_ones = Module.drum_value(dev0, minutes_ones_arg, south)
+	local seconds_tens = Module.drum_value(dev0, seconds_tens_arg, south, 6)
+	local seconds_ones = Module.drum_value(dev0, seconds_ones_arg, south)
 
 	if south then
 		return string.format("%d%d%d%d SOUTH", minutes_tens, minutes_ones, seconds_tens, seconds_ones)
@@ -576,13 +543,13 @@ end
 local function longitude_value(dev0, flag_arg, minutes_hundreds_arg, minutes_tens_arg, minutes_ones_arg, seconds_tens_arg, seconds_ones_arg)
 	local west = dev0:get_argument_value(flag_arg) > 0.5
 
-	local minutes_hundreds_val = drum_value(dev0, minutes_hundreds_arg, west)
+	local minutes_hundreds_val = Module.drum_value(dev0, minutes_hundreds_arg, west)
 	local minutes_hundreds = minutes_hundreds_val == 0 and " " or tostring(minutes_hundreds_val)
-	local minutes_tens_val = drum_value(dev0, minutes_tens_arg, west)
+	local minutes_tens_val = Module.drum_value(dev0, minutes_tens_arg, west)
 	local minutes_tens = minutes_tens_val == 0 and " " or tostring(minutes_tens_val)
-	local minutes_ones = drum_value(dev0, minutes_ones_arg, west)
-	local seconds_tens = drum_value(dev0, seconds_tens_arg, west, 6)
-	local seconds_ones = drum_value(dev0, seconds_ones_arg, west)
+	local minutes_ones = Module.drum_value(dev0, minutes_ones_arg, west)
+	local seconds_tens = Module.drum_value(dev0, seconds_tens_arg, west, 6)
+	local seconds_ones = Module.drum_value(dev0, seconds_ones_arg, west)
 
 	return string.format("%s%s%d%d%d%s", minutes_hundreds, minutes_tens, minutes_ones, seconds_tens, seconds_ones, west and "W" or "E")
 end
@@ -846,28 +813,28 @@ F_4E:defineToggleSwitch("WSO_WRCS_RANGE_MULTIPLIER", WEAPONS_DEVICE_ID, 3041, 10
 
 F_4E:defineString("WSO_WRCS_NS_DISTANCE_VALUE", function(dev0)
 	local south = dev0:get_argument_value(345) < 0.5
-	return string.format("%s%s", south and "S" or "N", drum_set(dev0, 308, 309, 310))
+	return string.format("%s%s", south and "S" or "N", Module.drum_set(dev0, 308, 309, 310))
 end, 4, WSO_WRCS, "N/S Distance (x100 ft)")
 
 F_4E:defineString("WSO_WRCS_EW_DISTANCE_VALUE", function(dev0)
 	local west = dev0:get_argument_value(346) < 0.5
-	return string.format("%s%s", west and "W" or "E", drum_set(dev0, 311, 312, 313))
+	return string.format("%s%s", west and "W" or "E", Module.drum_set(dev0, 311, 312, 313))
 end, 4, WSO_WRCS, "E/W Distance (x100 ft)")
 
 F_4E:defineString("WSO_WRCS_ALT_RANGE_VALUE", function(dev0)
-	return drum_set(dev0, 324, 325, 326)
+	return Module.drum_set(dev0, 324, 325, 326)
 end, 3, WSO_WRCS, "Altitude/Range (x100 ft)")
 
 F_4E:defineString("WSO_WRCS_DRAG_COEFFICIENT_VALUE", function(dev0)
-	return drum_set(dev0, 327, 328, 329)
+	return Module.drum_set(dev0, 327, 328, 329)
 end, 3, WSO_WRCS, "Drag Coefficient")
 
 F_4E:defineString("WSO_WRCS_RELEASE_ADVANCE_VALUE", function(dev0)
-	return drum_set(dev0, 314, 315, 316)
+	return Module.drum_set(dev0, 314, 315, 316)
 end, 3, WSO_WRCS, "Release Advance (ms)")
 
 F_4E:defineString("WSO_WRCS_RELEASE_RANGE_VALUE", function(dev0)
-	return drum_set(dev0, 317, 318, 319)
+	return Module.drum_set(dev0, 317, 318, 319)
 end, 3, WSO_WRCS, "Release Range (x10 ft)")
 
 -- WSO Cursor Control Panel
@@ -924,7 +891,7 @@ F_4E:defineToggleSwitch("PLT_WPN_GUN_RATE", WEAPONS_DEVICE_ID, 3012, 278, PILOT_
 F_4E:defineRotary("PLT_WPN_GUN_ROUNDS", WEAPONS_DEVICE_ID, 3050, 1412, PILOT_WEAPONS, "Set Gun Rounds")
 
 F_4E:defineString("PLT_WPN_GUN_ROUNDS_COUNT", function(dev0)
-	return drum_set(dev0, 275, 276, 277)
+	return Module.drum_set(dev0, 275, 276, 277)
 end, 3, PILOT_WEAPONS, "Gun Rounds")
 
 F_4E:reserveIntValue(1) -- gun pod clear mode switch, not implemented
@@ -1006,7 +973,7 @@ F_4E:definePotentiometer("PLT_HUD_DEPRESSION", HUD_DEVICE_ID, 3002, 267, { 0, 1 
 F_4E:defineMultipositionSwitch0To1("PLT_HUD_MODE", HUD_DEVICE_ID, 3001, 271, 7, PLT_HUD, "Select HUD Mode")
 
 F_4E:defineString("PLT_HUD_DEPRESSION_MILS", function(dev0)
-	return drum_set(dev0, 268, 269, 270)
+	return Module.drum_set(dev0, 268, 269, 270)
 end, 3, PLT_HUD, "Reticle Depression (mils)")
 
 -- Accelerometer
@@ -1077,20 +1044,20 @@ F_4E:defineSpringloaded3PosTumb("PLT_BARO_MODE", BARO_ALTIMETER_DEVICE_ID, 3002,
 
 F_4E:definePositiveFloat("PLT_BARO_NEEDLE", 91, PILOT_BARO_ALTIMETER, "Altimeter Needle")
 F_4E:defineIntegerFromGetter("PLT_BARO_HUNDREDS", function(dev0)
-	return drum_value(dev0, 92)
+	return Module.drum_value(dev0, 92)
 end, 9, PILOT_BARO_ALTIMETER, "Altitude Drum (hundreds)")
 F_4E:defineIntegerFromGetter("PLT_BARO_THOUSANDS", function(dev0)
-	return drum_value(dev0, 93)
+	return Module.drum_value(dev0, 93)
 end, 9, PILOT_BARO_ALTIMETER, "Altitude Drum (thousands)")
 F_4E:defineIntegerFromGetter("PLT_BARO_TEN_THOUSANDS", function(dev0)
-	return drum_value(dev0, 94)
+	return Module.drum_value(dev0, 94)
 end, 9, PILOT_BARO_ALTIMETER, "Altitude Drum (ten thousands)")
 F_4E:defineString("PLT_BARO_ALTITUDE", function(dev0)
-	return drum_set(dev0, 94, 93, 92)
+	return Module.drum_set(dev0, 94, 93, 92)
 end, 3, PILOT_BARO_ALTIMETER, "Altimeter Readout (x100)")
 
 F_4E:defineString("PLT_BARO_PRESSURE", function(dev0)
-	return drum_set(dev0, 99, 98, 97, 96)
+	return Module.drum_set(dev0, 99, 98, 97, 96)
 end, 4, PILOT_BARO_ALTIMETER, "Pressure Setting")
 
 F_4E:definePositiveFloat("PLT_BARO_STANDBY", 101, PILOT_BARO_ALTIMETER, "Standby Flag")
@@ -1103,20 +1070,20 @@ F_4E:defineSpringloaded3PosTumb("WSO_BARO_MODE", BARO_ALTIMETER_DEVICE_ID, 3004,
 
 F_4E:definePositiveFloat("WSO_BARO_NEEDLE", 182, WSO_BARO_ALTIMETER, "Altimeter Needle")
 F_4E:defineIntegerFromGetter("WSO_BARO_HUNDREDS", function(dev0)
-	return drum_value(dev0, 183)
+	return Module.drum_value(dev0, 183)
 end, 9, WSO_BARO_ALTIMETER, "Altitude Drum (hundreds)")
 F_4E:defineIntegerFromGetter("WSO_BARO_THOUSANDS", function(dev0)
-	return drum_value(dev0, 184)
+	return Module.drum_value(dev0, 184)
 end, 9, WSO_BARO_ALTIMETER, "Altitude Drum (thousands)")
 F_4E:defineIntegerFromGetter("WSO_BARO_TEN_THOUSANDS", function(dev0)
-	return drum_value(dev0, 185)
+	return Module.drum_value(dev0, 185)
 end, 9, WSO_BARO_ALTIMETER, "Altitude Drum (ten thousands)")
 F_4E:defineString("WSO_BARO_ALTITUDE", function(dev0)
-	return drum_set(dev0, 185, 184, 183)
+	return Module.drum_set(dev0, 185, 184, 183)
 end, 3, WSO_BARO_ALTIMETER, "Altimeter Readout (x100)")
 
 F_4E:defineString("WSO_BARO_PRESSURE", function(dev0)
-	return drum_set(dev0, 190, 189, 188, 187)
+	return Module.drum_set(dev0, 190, 189, 188, 187)
 end, 4, WSO_BARO_ALTIMETER, "Pressure Setting")
 
 F_4E:definePositiveFloat("WSO_BARO_STANDBY", 192, WSO_BARO_ALTIMETER, "Standby Flag")
@@ -1141,14 +1108,14 @@ F_4E:defineFullRangeFloat("WSO_VVI_NEEDLE", 181, WSO_VVI, "VVI Needle")
 local PILOT_TAS = "PLT TAS"
 
 F_4E:defineString("PLT_TAS", function(dev0)
-	return drum_set(dev0, 112, 111, 110, 109)
+	return Module.drum_set(dev0, 112, 111, 110, 109)
 end, 4, PILOT_TAS, "True Airspeed")
 
 -- WSO TAS
 local WSO_TAS = "WSO TAS"
 
 F_4E:defineString("WSO_TAS", function(dev0)
-	return drum_set(dev0, 603, 602, 601, 600)
+	return Module.drum_set(dev0, 603, 602, 601, 600)
 end, 4, WSO_TAS, "True Airspeed")
 
 -- ADI (ARU-11-A)
@@ -1186,7 +1153,7 @@ F_4E:defineMultipositionRollerLimited("WSO_CNI_NAVIGATION_INPUT", CNI_DEVICE_ID,
 local WSO_GSI = "WSO Ground Speed Indicator"
 
 F_4E:defineString("WSO_GSI", function(dev0)
-	return drum_set(dev0, 607, 606, 605, 604)
+	return Module.drum_set(dev0, 607, 606, 605, 604)
 end, 4, WSO_GSI, "Ground Speed")
 
 -- Emergency Attitude Indicator
@@ -1210,7 +1177,7 @@ local TACAN_DEVICE_ID = 48
 
 local function get_tacan_channel(dev0, arg_hundreds, arg_tens, arg_ones, arg_xy)
 	local xy_value = dev0:get_argument_value(arg_xy)
-	return string.format("%s%s", drum_set(dev0, arg_hundreds, arg_tens, arg_ones), xy_value > 0.5 and "Y" or "X")
+	return string.format("%s%s", Module.drum_set(dev0, arg_hundreds, arg_tens, arg_ones), xy_value > 0.5 and "Y" or "X")
 end
 
 -- Pilot TACAN
@@ -1276,11 +1243,11 @@ F_4E:definePositiveFloat("PLT_HSI_HEADING_BUG", 672, PILOT_HSI, "Heading Bug (ou
 F_4E:defineFullRangeFloat("PLT_HSI_TO_FROM_ARROW", 677, PILOT_HSI, "To/From Arrow (inner)")
 
 F_4E:defineString("PLT_HSI_COURSE", function(dev0)
-	return drum_set(dev0, 676, 675, 674)
+	return Module.drum_set(dev0, 676, 675, 674)
 end, 3, PILOT_HSI, "Course Heading Drum")
 
 F_4E:defineString("PLT_HSI_RANGE", function(dev0)
-	return drum_set(dev0, 682, 681, 680, 679)
+	return Module.drum_set(dev0, 682, 681, 680, 679)
 end, 4, PILOT_HSI, "Range Drum (miles)")
 
 F_4E:definePositiveFloat("PLT_HSI_RANGE_WARNING_FLAG", 683, PILOT_HSI, "Range Warning Flag")
@@ -1381,7 +1348,7 @@ F_4E:definePositiveFloat("WSO_BDHI_COMPASS_CARD", 949, WSO_BDHI, "Compass Card r
 F_4E:definePositiveFloat("WSO_BDHI_POINTER_1", 950, WSO_BDHI, "Pointer 1 orientation")
 F_4E:definePositiveFloat("WSO_BDHI_POINTER_2", 951, WSO_BDHI, "Pointer 2 orientation")
 F_4E:defineString("WSO_BDHI_RANGE", function(dev0)
-	return drum_set(dev0, 2725, 954, 953, 952)
+	return Module.drum_set(dev0, 2725, 954, 953, 952)
 end, 4, WSO_BDHI, "BDHI Range")
 F_4E:definePositiveFloat("WSO_BDHI_OFF_FLAG", 2627, WSO_BDHI, "Off Flag")
 
@@ -1461,10 +1428,10 @@ F_4E:definePushButton("PLT_FUEL_FEED_TANK_CHECK", FUEL_DEVICE_ID, 3013, 2789, PI
 -- fuel totalizer
 F_4E:definePositiveFloat("PLT_FUEL_GAUGE_TAPE", 723, PILOT_FUEL_PANEL, "Fuel Gauge Tape")
 F_4E:defineString("PLT_FUEL_GAUGE_VALUE", function(dev0)
-	local tens = drum_value(dev0, 719)
-	local hundreds = drum_value(dev0, 720)
-	local thousands = drum_value(dev0, 721)
-	local ten_thousands = drum_value(dev0, 722)
+	local tens = Module.drum_value(dev0, 719)
+	local hundreds = Module.drum_value(dev0, 720)
+	local thousands = Module.drum_value(dev0, 721)
+	local ten_thousands = Module.drum_value(dev0, 722)
 
 	return string.format("%d%d%d%d", ten_thousands, thousands, hundreds, tens)
 end, 4, PILOT_FUEL_PANEL, "Pilot Fuel Gauge Total Internal Fuel (x10)")
@@ -1496,16 +1463,16 @@ F_4E:definePotentiometer("WSO_ARBCS_LOW_ANGLE", ARBCS_DEVICE_ID, 3003, 351, { 0,
 F_4E:definePotentiometer("WSO_ARBCS_HIGH_ANGLE", ARBCS_DEVICE_ID, 3004, 352, { 0, 1 }, WSO_ARBCS, "Set LABS High Angle")
 
 F_4E:defineString("WSO_ARBCS_LOW_ANGLE_DISPLAY", function(dev0)
-	return drum_set(dev0, 355, 354, 353)
+	return Module.drum_set(dev0, 355, 354, 353)
 end, 3, WSO_ARBCS, "Low Angle Display")
 F_4E:defineString("WSO_ARBCS_HIGH_ANGLE_DISPLAY", function(dev0)
-	return drum_set(dev0, 359, 358, 357, 356)
+	return Module.drum_set(dev0, 359, 358, 357, 356)
 end, 4, WSO_ARBCS, "High Angle Display")
 F_4E:defineString("WSO_ARBCS_PULL_UP_DISPLAY", function(dev0)
-	return drum_set(dev0, 362, 361, 360)
+	return Module.drum_set(dev0, 362, 361, 360)
 end, 3, WSO_ARBCS, "Pull-up Timer Display")
 F_4E:defineString("WSO_ARBCS_RELEASE_DISPLAY", function(dev0)
-	return drum_set(dev0, 365, 364, 363)
+	return Module.drum_set(dev0, 365, 364, 363)
 end, 3, WSO_ARBCS, "Release Timer Display")
 
 -- Aircraft Effects
@@ -1591,19 +1558,19 @@ F_4E:definePushButton("WSO_LASER_CODE_SET_TENS", TARGET_DESIGNATOR_DEVICE_ID, 30
 F_4E:definePushButton("WSO_LASER_CODE_SET_ONES", TARGET_DESIGNATOR_DEVICE_ID, 3016, 2503, WSO_LASER_CODE_PANEL, "Next Laser Code (ones)")
 F_4E:defineIndicatorLight("WSO_LIGHT_LASER_NO_GO", 2697, WSO_LASER_CODE_PANEL, "Laser No Go button lamp")
 F_4E:defineIntegerFromGetter("WSO_LASER_CODE_ONES", function(dev0)
-	return drum_value(dev0, 2020)
+	return Module.drum_value(dev0, 2020)
 end, 9, WSO_LASER_CODE_PANEL, "Laser Code (ones)")
 F_4E:defineIntegerFromGetter("WSO_LASER_CODE_TENS", function(dev0)
-	return drum_value(dev0, 2021)
+	return Module.drum_value(dev0, 2021)
 end, 9, WSO_LASER_CODE_PANEL, "Laser Code (tens)")
 F_4E:defineIntegerFromGetter("WSO_LASER_CODE_HUNDREDS", function(dev0)
-	return drum_value(dev0, 2022)
+	return Module.drum_value(dev0, 2022)
 end, 9, WSO_LASER_CODE_PANEL, "Laser Code (hundreds)")
 F_4E:defineIntegerFromGetter("WSO_LASER_CODE_THOUSANDS", function(dev0)
-	return drum_value(dev0, 2023)
+	return Module.drum_value(dev0, 2023)
 end, 9, WSO_LASER_CODE_PANEL, "Laser Code (thousands)")
 F_4E:defineString("WSO_LASER_CODE", function(dev0)
-	return drum_set(dev0, 2023, 2022, 2021, 2020)
+	return Module.drum_set(dev0, 2023, 2022, 2021, 2020)
 end, 4, WSO_LASER_CODE_PANEL, "Laser Code")
 
 -- Range Indicator
@@ -1720,10 +1687,10 @@ local iff_code = ""
 
 -- WSO IFF display
 F_4E:addExportHook(function(dev0)
-	iff_ones = drum_value(dev0, 2000, false, 8)
-	iff_tens = drum_value(dev0, 2001, false, 8)
-	iff_hundreds = drum_value(dev0, 2002, false, 8)
-	iff_thousands = drum_value(dev0, 2003, false, 8)
+	iff_ones = Module.drum_value(dev0, 2000, false, 8)
+	iff_tens = Module.drum_value(dev0, 2001, false, 8)
+	iff_hundreds = Module.drum_value(dev0, 2002, false, 8)
+	iff_thousands = Module.drum_value(dev0, 2003, false, 8)
 	iff_code = string.format("%d%d%d%d", iff_thousands, iff_hundreds, iff_tens, iff_ones)
 end)
 
@@ -1831,8 +1798,8 @@ F_4E:defineTumb("PLT_VOR_ILS_FREQUENCY_HUNDREDS", VOR_ILS_DEVICE_ID, 3003, 1514,
 F_4E:defineTumb("PLT_VOR_ILS_FREQUENCY_DECIMALS", VOR_ILS_DEVICE_ID, 3004, 1515, 1 / 20, { 0, 0.95 }, nil, true, PILOT_VOR_ILS, "Set ILS Frequency (decimals)")
 
 F_4E:defineString("PLT_VOR_ILS_FREQUENCY", function(dev0)
-	local hundreds_frequency = drum_value(dev0, 1452) + 108 -- 108-117
-	local decimal_frequency = drum_value(dev0, 1455, false, 20) * 5 -- 00-95
+	local hundreds_frequency = Module.drum_value(dev0, 1452) + 108 -- 108-117
+	local decimal_frequency = Module.drum_value(dev0, 1455, false, 20) * 5 -- 00-95
 	return string.format("%03d.%02d", hundreds_frequency, decimal_frequency)
 end, 6, PILOT_VOR_ILS, "VOR/ILS Frequency")
 
@@ -1994,7 +1961,7 @@ F_4E:definePositiveFloat("WSO_COURSE_INDICATOR_HEADING", 2621, WSO_COURSE_INDICA
 F_4E:defineFullRangeFloat("WSO_COURSE_INDICATOR_DEVIATION", 2726, WSO_COURSE_INDICATOR, "Course Deviation Needle")
 
 F_4E:defineString("WSO_COURSE_INDICATOR_DISTANCE", function(dev0)
-	return drum_set(dev0, 2619, 2618, 2617)
+	return Module.drum_set(dev0, 2619, 2618, 2617)
 end, 3, WSO_COURSE_INDICATOR, "Distance Drum")
 
 -- Jester Wheel
@@ -2358,5 +2325,7 @@ F_4E:defineFloat("WSO_ALTITUDE_GAUGE", 240, { 0, 1 }, WSO_LEFT_WALL, "Cockpit Al
 -- WSO Radar Antenna Trigger
 
 F_4E:define3PosTumb0To1("WSO_RADAR_ANTENNA_TRIGGER", RADAR_DEVICE_ID, 3010, 1013, WSO_RADAR, "Antenna Trigger")
+
+F_4E:defineFloat("PLT_CONTROLS_STAB_TRIM", 966, { 0, 1 }, PILOT_CONTROL_SURFACES, "Stabilator Trim Indicator")
 
 return F_4E
