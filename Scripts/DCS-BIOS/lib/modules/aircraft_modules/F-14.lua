@@ -1937,4 +1937,137 @@ F_14:define3PosTumb("RIO_ECMD_OVERRIDE", devices.ECMD, 3248, 867, ECMD, "Display
 F_14:define3PosTumb("RIO_ECMD_MODE", devices.ECMD, 3247, 866, ECMD, "Display Mode", { positions = { "TID", "NAV", "ECM" } })
 F_14:define3PosTumb("RIO_ECMD_OPTION", devices.ECMD, 3250, 868, ECMD, "Display Option", { positions = { "NORM", "1", "2" } })
 
+local CDNU = "CDNU"
+
+F_14:definePotentiometer("RIO_CDNU_BRIGHTNESS", devices.CDNU, 3068, 806, { 0, 1 }, CDNU, "CDNU Brightness")
+F_14:defineToggleSwitch("RIO_CDNU_POWER", devices.CDNU, 3069, 797, CDNU, "Power")
+
+F_14:definePushButton("RIO_CDNU_KEY_F1", devices.CDNU, 3037, 807, CDNU, "F1")
+F_14:definePushButton("RIO_CDNU_KEY_F2", devices.CDNU, 3038, 808, CDNU, "F2")
+F_14:definePushButton("RIO_CDNU_KEY_F3", devices.CDNU, 3039, 809, CDNU, "F3")
+F_14:definePushButton("RIO_CDNU_KEY_F4", devices.CDNU, 3040, 810, CDNU, "F4")
+F_14:definePushButton("RIO_CDNU_KEY_F5", devices.CDNU, 3041, 811, CDNU, "F5")
+F_14:definePushButton("RIO_CDNU_KEY_F6", devices.CDNU, 3042, 812, CDNU, "F6")
+F_14:definePushButton("RIO_CDNU_KEY_F7", devices.CDNU, 3043, 813, CDNU, "F7")
+F_14:definePushButton("RIO_CDNU_KEY_MENU", devices.CDNU, 3044, 814, CDNU, "MENU")
+F_14:definePushButton("RIO_CDNU_LSK_1", devices.CDNU, 3060, 798, CDNU, "LSK 1")
+F_14:definePushButton("RIO_CDNU_LSK_2", devices.CDNU, 3061, 799, CDNU, "LSK 2")
+F_14:definePushButton("RIO_CDNU_LSK_3", devices.CDNU, 3062, 800, CDNU, "LSK 3")
+F_14:definePushButton("RIO_CDNU_LSK_4", devices.CDNU, 3063, 801, CDNU, "LSK 4")
+F_14:definePushButton("RIO_CDNU_RSK_1", devices.CDNU, 3064, 802, CDNU, "RSK 1")
+F_14:definePushButton("RIO_CDNU_RSK_2", devices.CDNU, 3065, 803, CDNU, "RSK 2")
+F_14:definePushButton("RIO_CDNU_RSK_3", devices.CDNU, 3066, 804, CDNU, "RSK 3")
+F_14:definePushButton("RIO_CDNU_RSK_4", devices.CDNU, 3067, 805, CDNU, "RSK 4")
+F_14:definePushButton("RIO_CDNU_ARROW_LEFT", devices.CDNU, 3047, 853, CDNU, "ARROW LEFT")
+F_14:definePushButton("RIO_CDNU_ARROW_RIGHT", devices.CDNU, 3048, 854, CDNU, "ARROW RIGHT")
+F_14:definePushButton("RIO_CDNU_ARROW_UP", devices.CDNU, 3045, 851, CDNU, "ARROW UP")
+F_14:definePushButton("RIO_CDNU_ARROW_DOWN", devices.CDNU, 3046, 852, CDNU, "ARROW DOWN")
+F_14:definePushButton("RIO_CDNU_SPEC_PERIOD", devices.CDNU, 3049, 855, CDNU, "PERIOD")
+F_14:definePushButton("RIO_CDNU_SPEC_HYPHEN", devices.CDNU, 3050, 856, CDNU, "HYPHEN")
+F_14:definePushButton("RIO_CDNU_SPEC_SLASH", devices.CDNU, 3051, 857, CDNU, "SLASH")
+F_14:definePushButton("RIO_CDNU_FUNC_RNAV", devices.CDNU, 3052, 858, CDNU, "RNAV")
+F_14:definePushButton("RIO_CDNU_FUNC_STAT", devices.CDNU, 3053, 859, CDNU, "STAT")
+F_14:definePushButton("RIO_CDNU_SPEC_CLR", devices.CDNU, 3054, 860, CDNU, "CLR")
+F_14:definePushButton("RIO_CDNU_FUNC_IDX", devices.CDNU, 3055, 861, CDNU, "IDX")
+F_14:definePushButton("RIO_CDNU_FUNC_FPLN", devices.CDNU, 3056, 862, CDNU, "FPLAN")
+F_14:definePushButton("RIO_CDNU_FUNC_PROG", devices.CDNU, 3057, 863, CDNU, "PROG")
+F_14:definePushButton("RIO_CDNU_FUNC_DIR", devices.CDNU, 3058, 864, CDNU, "DIR")
+F_14:definePushButton("RIO_CDNU_FUNC_MARK", devices.CDNU, 3059, 865, CDNU, "MARK")
+F_14:definePushButton("RIO_CDNU_NUM_0", devices.CDNU, 3001, 815, CDNU, "0")
+F_14:definePushButton("RIO_CDNU_NUM_1", devices.CDNU, 3002, 816, CDNU, "1")
+F_14:definePushButton("RIO_CDNU_NUM_2", devices.CDNU, 3003, 817, CDNU, "2")
+F_14:definePushButton("RIO_CDNU_NUM_3", devices.CDNU, 3004, 818, CDNU, "3")
+F_14:definePushButton("RIO_CDNU_NUM_4", devices.CDNU, 3005, 819, CDNU, "4")
+F_14:definePushButton("RIO_CDNU_NUM_5", devices.CDNU, 3006, 820, CDNU, "5")
+F_14:definePushButton("RIO_CDNU_NUM_6", devices.CDNU, 3007, 821, CDNU, "6")
+F_14:definePushButton("RIO_CDNU_NUM_7", devices.CDNU, 3008, 822, CDNU, "7")
+F_14:definePushButton("RIO_CDNU_NUM_8", devices.CDNU, 3009, 823, CDNU, "8")
+F_14:definePushButton("RIO_CDNU_NUM_9", devices.CDNU, 3010, 824, CDNU, "9")
+F_14:definePushButton("RIO_CDNU_KEY_A", devices.CDNU, 3011, 825, CDNU, "A")
+F_14:definePushButton("RIO_CDNU_KEY_B", devices.CDNU, 3012, 826, CDNU, "B")
+F_14:definePushButton("RIO_CDNU_KEY_C", devices.CDNU, 3013, 827, CDNU, "C")
+F_14:definePushButton("RIO_CDNU_KEY_D", devices.CDNU, 3014, 828, CDNU, "D")
+F_14:definePushButton("RIO_CDNU_KEY_E", devices.CDNU, 3015, 829, CDNU, "E")
+F_14:definePushButton("RIO_CDNU_KEY_F", devices.CDNU, 3016, 830, CDNU, "F")
+F_14:definePushButton("RIO_CDNU_KEY_G", devices.CDNU, 3017, 831, CDNU, "G")
+F_14:definePushButton("RIO_CDNU_KEY_H", devices.CDNU, 3018, 832, CDNU, "H")
+F_14:definePushButton("RIO_CDNU_KEY_I", devices.CDNU, 3019, 833, CDNU, "I")
+F_14:definePushButton("RIO_CDNU_KEY_J", devices.CDNU, 3020, 834, CDNU, "J")
+F_14:definePushButton("RIO_CDNU_KEY_K", devices.CDNU, 3021, 835, CDNU, "K")
+F_14:definePushButton("RIO_CDNU_KEY_L", devices.CDNU, 3022, 836, CDNU, "L")
+F_14:definePushButton("RIO_CDNU_KEY_M", devices.CDNU, 3023, 837, CDNU, "M")
+F_14:definePushButton("RIO_CDNU_KEY_N", devices.CDNU, 3024, 838, CDNU, "N")
+F_14:definePushButton("RIO_CDNU_KEY_O", devices.CDNU, 3025, 839, CDNU, "O")
+F_14:definePushButton("RIO_CDNU_KEY_P", devices.CDNU, 3026, 840, CDNU, "P")
+F_14:definePushButton("RIO_CDNU_KEY_Q", devices.CDNU, 3027, 841, CDNU, "Q")
+F_14:definePushButton("RIO_CDNU_KEY_R", devices.CDNU, 3028, 842, CDNU, "R")
+F_14:definePushButton("RIO_CDNU_KEY_S", devices.CDNU, 3029, 843, CDNU, "S")
+F_14:definePushButton("RIO_CDNU_KEY_T", devices.CDNU, 3030, 844, CDNU, "T")
+F_14:definePushButton("RIO_CDNU_KEY_U", devices.CDNU, 3031, 845, CDNU, "U")
+F_14:definePushButton("RIO_CDNU_KEY_V", devices.CDNU, 3032, 846, CDNU, "V")
+F_14:definePushButton("RIO_CDNU_KEY_W", devices.CDNU, 3033, 847, CDNU, "W")
+F_14:definePushButton("RIO_CDNU_KEY_X", devices.CDNU, 3034, 848, CDNU, "X")
+F_14:definePushButton("RIO_CDNU_KEY_Y", devices.CDNU, 3035, 849, CDNU, "Y")
+F_14:definePushButton("RIO_CDNU_KEY_Z", devices.CDNU, 3036, 850, CDNU, "Z")
+
+local cdnu_replace_map = {
+	[string.char(0x10)] = string.char(0xBB), -- → replaced with »
+	[string.char(0x0F)] = string.char(0xAB), -- ← replaced with «
+	[string.char(0x11)] = string.char(0xA9), -- ↔ replaced with ©
+	[string.char(0x12)] = string.char(0xAE), -- ↕ replaced with ®
+	[string.char(0x0E)] = string.char(0xB0), -- °
+	[string.char(0x15)] = "{", -- ↑ replaced with {
+	[string.char(0x16)] = "}", -- ↓ replaced with }
+}
+
+local function replace_cdnu_chars(line)
+	if not line then
+		return ""
+	end
+
+	local replacement = ""
+	for i = 1, #line do
+		local ch = line:sub(i, i)
+		replacement = replacement .. (cdnu_replace_map[ch] or ch)
+	end
+	return replacement
+end
+
+local cdnu_lines = { "", "", "", "", "", "", "", "" }
+
+F_14:addExportHook(function(_)
+	local display = Module.parse_indication(28)
+
+	for i = 1, 8 do
+		cdnu_lines[i] = display and replace_cdnu_chars(display[i + 5]) or ""
+	end
+end)
+
+local CDNU_LINE_LENGTH = 22
+
+F_14:defineString("RIO_CDNU_LINE1", function(_)
+	return cdnu_lines[1]
+end, CDNU_LINE_LENGTH, CDNU, "Line 1")
+F_14:defineString("RIO_CDNU_LINE2", function(_)
+	return cdnu_lines[2]
+end, CDNU_LINE_LENGTH, CDNU, "Line 2")
+F_14:defineString("RIO_CDNU_LINE3", function(_)
+	return cdnu_lines[3]
+end, CDNU_LINE_LENGTH, CDNU, "Line 3")
+F_14:defineString("RIO_CDNU_LINE4", function(_)
+	return cdnu_lines[4]
+end, CDNU_LINE_LENGTH, CDNU, "Line 4")
+F_14:defineString("RIO_CDNU_LINE5", function(_)
+	return cdnu_lines[5]
+end, CDNU_LINE_LENGTH, CDNU, "Line 5")
+F_14:defineString("RIO_CDNU_LINE6", function(_)
+	return cdnu_lines[6]
+end, CDNU_LINE_LENGTH, CDNU, "Line 6")
+F_14:defineString("RIO_CDNU_LINE7", function(_)
+	return cdnu_lines[7]
+end, CDNU_LINE_LENGTH, CDNU, "Line 7")
+F_14:defineString("RIO_CDNU_LINE8", function(_)
+	return cdnu_lines[8]
+end, CDNU_LINE_LENGTH, CDNU, "Line 8")
+
 return F_14
