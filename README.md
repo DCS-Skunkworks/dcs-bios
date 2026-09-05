@@ -167,6 +167,7 @@ Currently, DCS-BIOS supports the following aircraft modules:
 | F-4E | ✅ | |
 | F-5E-3 | ✅ | _geebeer2, WarLord_ |
 | F-86F | ✅ | _ArturDCS_ |
+| F-100D Super Sabre | 🚧 | _[WIP](https://github.com/DCS-Skunkworks/dcs-bios/issues/1726)_ |
 | F4U-1D | ✅ | |
 | F/A-18C | ✅ | _AndrewW_ |
 | Fw 190 A-8 | ✅ | _WarLord, MD44_ |
