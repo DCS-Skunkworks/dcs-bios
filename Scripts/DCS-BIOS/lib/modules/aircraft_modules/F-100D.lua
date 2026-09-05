@@ -3,7 +3,7 @@ module("F-100D", package.seeall)
 local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 
 --- @class F_100D: Module
-local F_100D = Module:new("F-100D Super Sabre", 0xa600, { "F-100D Super Sabre" })
+local F_100D = Module:new("F-100D Super Sabre", 0xa600, { "F-100D" })
 
 -- Special Args:
 

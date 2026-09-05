@@ -90,7 +90,7 @@ function TestAircraft:testF86FSabre()
 end
 
 function TestAircraft:testF_100D()
-	self:validateModule(require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.F-100D"), "F-100D Super Sabre", 0xa600)
+	self:validateModule(require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.F-100D"), "F-100D", 0xa600)
 end
 
 function TestAircraft:testF4U1D()
