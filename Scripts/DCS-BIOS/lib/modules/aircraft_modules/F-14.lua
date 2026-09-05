@@ -1888,4 +1888,44 @@ F_14:defineString("RIO_ALE_47_DISPLAY", function(_)
 	return cmds_display
 end, 16, ALE_47, "ALE-47 Display")
 
+local PTID = "PTID"
+
+F_14:definePushButton("RIO_PTID_LSK_1", devices.TID, 3915, 775, PTID, "LSK 1 (PB20)")
+F_14:definePushButton("RIO_PTID_LSK_2", devices.TID, 3914, 776, PTID, "LSK 2 (PB19)")
+F_14:definePushButton("RIO_PTID_LSK_3", devices.TID, 3913, 777, PTID, "LSK 3 (PB18)")
+F_14:definePushButton("RIO_PTID_LSK_4", devices.TID, 3912, 778, PTID, "LSK 4 (PB17)")
+F_14:definePushButton("RIO_PTID_LSK_5", devices.TID, 3911, 779, PTID, "LSK 5 (PB16)")
+F_14:definePushButton("RIO_PTID_LSK_6", devices.TID, 3910, 780, PTID, "LSK 6 (PB15)")
+F_14:definePushButton("RIO_PTID_LSK_7", devices.TID, 3909, 781, PTID, "LSK 7 (PB14)")
+F_14:definePushButton("RIO_PTID_RSK_1", devices.TID, 3896, 782, PTID, "RSK 1 (PB1)")
+F_14:definePushButton("RIO_PTID_RSK_2", devices.TID, 3897, 783, PTID, "RSK 2 (PB2)")
+F_14:definePushButton("RIO_PTID_RSK_3", devices.TID, 3898, 784, PTID, "RSK 3 (PB3)")
+F_14:definePushButton("RIO_PTID_RSK_4", devices.TID, 3899, 785, PTID, "RSK 4 (PB4)")
+F_14:definePushButton("RIO_PTID_RSK_5", devices.TID, 3900, 786, PTID, "RSK 5 (PB5)")
+F_14:definePushButton("RIO_PTID_RSK_6", devices.TID, 3901, 787, PTID, "RSK 6 (PB6)")
+F_14:definePushButton("RIO_PTID_RSK_7", devices.TID, 3902, 788, PTID, "RSK 7 (PB7)")
+F_14:definePushButton("RIO_PTID_BSK_1", devices.TID, 3908, 789, PTID, "BSK 1 (PB13)")
+F_14:definePushButton("RIO_PTID_BSK_2", devices.TID, 3907, 790, PTID, "BSK 2 (PB12)")
+F_14:definePushButton("RIO_PTID_BSK_3", devices.TID, 3906, 791, PTID, "BSK 3 (PB11)")
+F_14:definePushButton("RIO_PTID_BSK_4", devices.TID, 3905, 792, PTID, "BSK 4 (PB10)")
+F_14:definePushButton("RIO_PTID_BSK_5", devices.TID, 3904, 793, PTID, "BSK 5 (PB9)")
+F_14:definePushButton("RIO_PTID_BSK_6", devices.TID, 3903, 794, PTID, "BSK 6 (PB8)")
+
+F_14:defineMultipositionSwitch("RIO_PTID_NAV_MODE", devices.INS, 3106, 769, 6, 0.2, PTID, "Navigation Mode", { positions = { "OFF", "GND", "CVA", "INS", "AHRS", "IMU" } })
+F_14:defineMultipositionSwitch("RIO_PTID_POWER", devices.TID, 3895, 773, 4, 1 / 3, PTID, "Power", { positions = { "OFF", "NIGHT", "AUTO", "DAY" } })
+
+F_14:definePotentiometer("RIO_PTID_RASTER_BRIGHTNESS", devices.TID, 3894, 770, { 0, 1 }, PTID, "Raster Brightness")
+F_14:definePotentiometer("RIO_PTID_STROKE_BRIGHTNESS", devices.TID, 3124, 771, { 0, 1 }, PTID, "Stroke Brightness")
+F_14:definePotentiometer("RIO_PTID_CONTRAST", devices.TID, 3125, 772, { 0, 1 }, PTID, "Contrast")
+
+F_14:definePushButton("RIO_PTID_TCS", devices.TID, 3916, 682, PTID, "TCS Video")
+F_14:defineGatedIndicatorLight("RIO_PTID_TCS_LIGHT", 683, 0.5, nil, PTID, "TCS Video Enabled", { color = "green" })
+F_14:definePushButton("RIO_PTID_JAM_STROBE", devices.TID, 3115, 1118, PTID, "Jam Strobe")
+F_14:defineGatedIndicatorLight("RIO_PTID_JAM_STROBE_LIGHT", 6131, 0.5, nil, PTID, "Jam Strobe Enabled", { color = "green" })
+F_14:definePushButton("RIO_PTID_LAUNCH_ZONE", devices.TID, 3120, 2113, PTID, "Launch Zone")
+F_14:defineGatedIndicatorLight("RIO_PTID_LAUNCH_ZONE_LIGHT", 6133, 0.5, nil, PTID, "Launch Zone Enabled", { color = "green" })
+
+-- unclear if this should be a control, but there doesn't seem to be any way to control it
+F_14:defineFloat("RIO_PTID_FAULT", 774, { 0, 1 }, PTID, "Fault Knob")
+
 return F_14
