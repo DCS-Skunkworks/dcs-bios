@@ -1928,4 +1928,13 @@ F_14:defineGatedIndicatorLight("RIO_PTID_LAUNCH_ZONE_LIGHT", 6133, 0.5, nil, PTI
 -- unclear if this should be a control, but there doesn't seem to be any way to control it
 F_14:defineFloat("RIO_PTID_FAULT", 774, { 0, 1 }, PTID, "Fault Knob")
 
+-- the base model has an ECMD panel with similar controls, similarly positioned
+-- but mode is a 2-pos switch on the right, whereas here it's a 3-pos on the left
+local ECMD = "ECMD (Upgrade)"
+
+F_14:defineToggleSwitch("RIO_ECMD_LETHAL_RNG", devices.ECMD, 3249, 869, ECMD, "Display Lethal Rings")
+F_14:define3PosTumb("RIO_ECMD_OVERRIDE", devices.ECMD, 3248, 867, ECMD, "Display Override", { positions = { "BIT", "OFF", "ECM" } })
+F_14:define3PosTumb("RIO_ECMD_MODE", devices.ECMD, 3247, 866, ECMD, "Display Mode", { positions = { "TID", "NAV", "ECM" } })
+F_14:define3PosTumb("RIO_ECMD_OPTION", devices.ECMD, 3250, 868, ECMD, "Display Option", { positions = { "NORM", "1", "2" } })
+
 return F_14
