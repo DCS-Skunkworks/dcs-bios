@@ -176,6 +176,7 @@ Currently, DCS-BIOS supports the following aircraft modules:
 | JF-17 | ✅ | _WarLord, cdpkobra_ |
 | Ka-50/Ka-50 3 | ✅ | _airtom, WarLord_ |
 | L-39ZA/C | ✅ | _kadda11, WarLord_ |
+| La-7 | ✅ | |
 | M-2000C | ✅ | _Exo7, ArturDCS, Matchstick_ |
 | MB-339 | ✅ | _WarLord_ |
 | Mi-8MTV2 | ✅ | _ArturDCS, WarLord_ |
