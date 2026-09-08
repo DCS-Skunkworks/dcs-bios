@@ -1,9 +1,9 @@
-module("F-100D", package.seeall)
+module("F100D", package.seeall)
 
 local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 
 --- @class F_100D: Module
-local F_100D = Module:new("F-100D Super Sabre", 0xa600, { "F-100D" })
+local F_100D = Module:new("F-100D", 0xa800, { "F-100D" })
 
 -- Special Args:
 -- 22: Joystick visibility (Hidden > 0.5 )
@@ -22,7 +22,7 @@ local devices = {
 	FUEL = 11,
 	CANOPY = 12,
 	AVIONICS = 13,
-	J4COMPASS = 14,
+	J4_COMPASS = 14,
 	WEAPONS = 15,
 	WEAPONS2 = 16,
 	DCU9A = 17,
@@ -31,7 +31,7 @@ local devices = {
 	FCS = 20,
 	LIGHTING = 21,
 	IFF = 22,
-	SEEKSILENCE = 23,
+	SEEK_SILENCE = 23,
 	STANDBY_COMPASS = 24,
 	GUNSIGHT = 25,
 	ABU11 = 26,
