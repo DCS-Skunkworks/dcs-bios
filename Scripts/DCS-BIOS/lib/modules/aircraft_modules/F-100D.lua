@@ -56,6 +56,43 @@ local devices = {
 -- Instrument Panel Top
 -- AN/APR-25(V) RWR
 
+local RHAW = "AN/APR-25(V) RWR"
+
+F_100D:defineIndicatorLight("RHAW_HIDDEN", 824, RHAW, "RHAW Hidden")
+
+F_100D:definePotentiometer("RHAW_INTENSITY", devices.RHAW, 3018, 823, { 0, 1 }, RHAW, "Intensity")
+F_100D:definePushButton("RHAW_X_BAND_DISABLE", devices.RHAW, 3011, 822, RHAW, "X Band Disable")
+F_100D:defineFloat("RHAW_X_BAND_DISABLE_LIGHT", 839, { 0, 1 }, RHAW, "X Band Disable Light (orange)")
+
+F_100D:definePushButton("RHAW_I_SAM", devices.RHAW, 3001, 810, RHAW, "I SAM Button")
+F_100D:definePushButton("RHAW_G_SAM", devices.RHAW, 3002, 811, RHAW, "G SAM Button")
+F_100D:definePushButton("RHAW_E_SAM", devices.RHAW, 3003, 812, RHAW, "E SAM Button")
+F_100D:definePushButton("RHAW_LAUNCH", devices.RHAW, 3004, 813, RHAW, "LAUNCH Button")
+F_100D:definePushButton("RHAW_AAA_DEF", devices.RHAW, 3005, 814, RHAW, "AAA DEF Button")
+F_100D:definePushButton("RHAW_AI", devices.RHAW, 3006, 815, RHAW, "AI Button")
+F_100D:definePushButton("RHAW_G_LORO", devices.RHAW, 3007, 816, RHAW, "G LORO Button")
+F_100D:definePushButton("RHAW_AAA_AI", devices.RHAW, 3008, 817, RHAW, "AAA/AI Button")
+F_100D:definePushButton("RHAW_ACT_PWR", devices.RHAW, 3009, 818, RHAW, "ACT/PWR Button")
+F_100D:definePushButton("RHAW_POWER", devices.RHAW, 3010, 819, RHAW, "POWER Button")
+
+F_100D:definePotentiometer("RHAW_VOLUME", devices.RHAW, 3012, 820, { 0, 1 }, RHAW, "Volume")
+F_100D:definePotentiometer("RHAW_DIMMER", devices.RHAW, 3015, 821, { 0, 1 }, RHAW, "Dimmer")
+
+F_100D:defineFloat("RHAW_I_SAM_HI_LIGHT", 825, { 0, 1 }, RHAW, "I SAM HI Light (red)")
+F_100D:defineFloat("RHAW_I_SAM_LO_LIGHT", 826, { 0, 1 }, RHAW, "I SAM LO Light (red)")
+F_100D:defineFloat("RHAW_G_SAM_HI_LIGHT", 827, { 0, 1 }, RHAW, "G SAM HI Light (red)")
+F_100D:defineFloat("RHAW_G_SAM_LO_LIGHT", 828, { 0, 1 }, RHAW, "G SAM LO Light (red)")
+F_100D:defineFloat("RHAW_E_SAM_HI_LIGHT", 829, { 0, 1 }, RHAW, "E SAM HI Light (red)")
+F_100D:defineFloat("RHAW_E_SAM_LO_LIGHT", 830, { 0, 1 }, RHAW, "E SAM LO Light (red)")
+F_100D:defineFloat("RHAW_LAUNCH_LIGHT", 831, { 0, 1 }, RHAW, "MISSILE LAUNCH Light (red)")
+F_100D:defineFloat("RHAW_AAA_DEF_LIGHT", 832, { 0, 1 }, RHAW, "AAA DEFEAT Light (red)")
+F_100D:defineFloat("RHAW_AI_WX_LIGHT", 833, { 0, 1 }, RHAW, "AI WX Light (red)")
+F_100D:defineFloat("RHAW_AI_DAY_LIGHT", 834, { 0, 1 }, RHAW, "AI DAY Light (red)")
+F_100D:defineFloat("RHAW_G_LORO_LIGHT", 835, { 0, 1 }, RHAW, "G LORO Light (red)")
+F_100D:defineFloat("RHAW_AAA_AI_LIGHT", 836, { 0, 1 }, RHAW, "AAA/AI Light (red)")
+F_100D:defineFloat("RHAW_ACT_PWR_LIGHT", 837, { 0, 1 }, RHAW, "ACTIVITY POWER Light (red)")
+F_100D:defineFloat("RHAW_POWER_LIGHT", 838, { 0, 1 }, RHAW, "SYSTEM POWER Light (green)")
+
 -- Status Display Lights
 
 -- Drag Chute Handle
