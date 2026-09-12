@@ -77,7 +77,10 @@ local devices = {
 
 -- VGI ERECT Button
 
--- Fire / Overheat Warning Lights
+local VGI_ERECT = "VGI ERECT Button"
+
+F_100D:definePushButton("VGI_ERECT_PUSH", devices.AVIONICS, 3009, 65, VGI_ERECT, "Vertical Gyro Fast Erect")
+-- button light is part of instrument panel lights
 
 -- Hydraulic Pressure Selector
 
