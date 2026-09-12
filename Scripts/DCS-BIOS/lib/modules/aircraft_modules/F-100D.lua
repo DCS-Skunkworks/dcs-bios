@@ -58,6 +58,19 @@ local devices = {
 
 -- Status Display Lights
 
+local STATUS_LIGHTS = "Status Display Lights"
+
+F_100D:defineFloat("STATUS_TER_EMPTY_L", 635, { 0, 1 }, STATUS_LIGHTS, "TER EMPTY LH (yellow)")
+F_100D:defineFloat("STATUS_TER_EMPTY_R", 636, { 0, 1 }, STATUS_LIGHTS, "TER EMPTY RH (yellow)")
+F_100D:defineFloat("STATUS_CBU_EMPTY_LI", 637, { 0, 1 }, STATUS_LIGHTS, "CBU EMPTY LH INBD (yellow)")
+F_100D:defineFloat("STATUS_CBU_EMPTY_RI", 638, { 0, 1 }, STATUS_LIGHTS, "CBU EMPTY RH INBD (yellow)")
+F_100D:defineFloat("STATUS_CBU_EMPTY_LO", 639, { 0, 1 }, STATUS_LIGHTS, "CBU EMPTY LH OUTBD (yellow)")
+F_100D:defineFloat("STATUS_CBU_EMPTY_RO", 640, { 0, 1 }, STATUS_LIGHTS, "CBU EMPTY RH OUTBD (yellow)")
+F_100D:defineFloat("STATUS_MISSILE1", 641, { 0, 1 }, STATUS_LIGHTS, "MISSILE 1 (green)")
+F_100D:defineFloat("STATUS_MISSILE2", 642, { 0, 1 }, STATUS_LIGHTS, "MISSILE 2 (green)")
+F_100D:defineFloat("STATUS_MISSILE3", 643, { 0, 1 }, STATUS_LIGHTS, "MISSILE 3 (green)")
+F_100D:defineFloat("STATUS_MISSILE4", 644, { 0, 1 }, STATUS_LIGHTS, "MISSILE 4 (green)")
+
 -- Drag Chute Handle
 
 -- Magnetic Compass
