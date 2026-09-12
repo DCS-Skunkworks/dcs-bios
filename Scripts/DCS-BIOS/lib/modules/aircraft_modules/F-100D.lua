@@ -99,6 +99,19 @@ local devices = {
 
 -- Clock
 
+local CLOCK = "Clock"
+
+F_100D:defineFloat("CLOCK_HOUR", 230, { 0, 1 }, CLOCK, "Hour Hand")
+F_100D:defineFloat("CLOCK_MINUTE", 231, { 0, 1 }, CLOCK, "Minutes Hand")
+F_100D:defineFloat("CLOCK_ELAPSED_MINUTE", 232, { 0, 1 }, CLOCK, "Elapsed Minutes Hand")
+F_100D:defineFloat("CLOCK_ELAPSED_SECOND", 233, { 0, 1 }, CLOCK, "Elapsed Seconds Hand")
+
+F_100D:definePushButton("CLOCK_STOPWATCH", devices.ABU11, 3003, 234, CLOCK, "Stopwatch Start/Stop/Reset")
+F_100D:defineToggleSwitch("CLOCK_ADJUST_PULL", devices.ABU11, 3001, 236, CLOCK, "Clock Adjust (Pull)")
+F_100D:defineRotary("CLOCK_ADJUST_ROTATE", devices.ABU11, 3002, 235, CLOCK, "Clock Adjust (Rotate)")
+
+F_100D:defineGatedIndicatorLight("CLOCK_POSITION", 298, 0.5, nil, CLOCK, "Clock Position (1 = Above SAI)")
+
 -- Master Heading Indicator
 
 -- Radio Magnetic Indicator
