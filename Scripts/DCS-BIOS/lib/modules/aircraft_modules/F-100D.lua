@@ -73,6 +73,16 @@ local devices = {
 
 -- Master Caution Light
 
+local INST_PANEL_WARN = "Instrument Panel Warning Lights"
+
+F_100D:defineFloat("INST_PANEL_MASTER_CAUTION", 610, { 0, 1 }, INST_PANEL_WARN, "MASTER LAUTION Light (yellow)")
+F_100D:defineFloat("INST_PANEL_FIRE", 610, { 0, 1 }, INST_PANEL_WARN, "FIRE ENG COMP Light (red)")
+F_100D:defineFloat("INST_PANEL_OVERHEAT", 610, { 0, 1 }, INST_PANEL_WARN, "OVERHEAT ENG BURN Light (red)")
+F_100D:defineFloat("INST_PANEL_BOOST_PUMP_INOP", 152, { 0, 1 }, INST_PANEL_WARN, "Boost Pump Inop Light (orange)")
+
+F_100D:definePushButton("INST_PANEL_BOOST_PUMP_INOP_TEST", devices.FUEL, 3016, 150, INST_PANEL_WARN, "Boost Pump Inop Test")
+F_100D:definePotentiometer("INST_PANEL_BOOST_PUMP_INOP_DIM", devices.FUEL, 3017, 151, { 0, 1 }, INST_PANEL_WARN, "Boost Pump Inop Dimmer")
+
 -- Gun Selector
 
 -- VGI ERECT Button
