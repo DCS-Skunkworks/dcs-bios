@@ -79,9 +79,13 @@ local devices = {
 
 -- Fire / Overheat Warning Lights
 
--- Hydraulic Pressure Selector
+-- Hydraulic Pressure
 
--- Hydraulic Pressure Gauge
+local HYD_PRESSURE = "Hydraulic Pressure"
+
+F_100D:defineMultipositionSwitch("HYD_PRESSURE_SELECT", devices.HYDRAULICS, 3035, 88, 4, 0.1, HYD_PRESSURE, "Hydraulic Pressure Selector", { positions = { "SYS 1", "SYS 2", "UTILITY", "RUD ALT" } })
+
+F_100D:defineFloat("HYD_PRESSURE", 90, { 0, 1 }, HYD_PRESSURE, "Hydraulic Pressure")
 
 -- Standby Attitude Indicator
 
