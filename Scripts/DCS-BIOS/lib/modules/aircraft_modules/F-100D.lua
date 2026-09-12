@@ -64,6 +64,16 @@ local devices = {
 
 -- A-4 Gunsight / Wingspan / Radar Lock
 
+local GUNSIGHT = "A-4 Gunsight"
+
+F_100D:defineToggleSwitch("GUNSIGHT_CAGE", devices.GUNSIGHT, 3004, 900, GUNSIGHT, "A-4 Sight Mechanical Caging", { positions = { "UNCAGE", "CAGE" } })
+F_100D:definePotentiometer("GUNSIGHT_WINGSPAN", devices.GUNSIGHT, 3001, 901, { 0, 1 }, GUNSIGHT, "Wingspan")
+F_100D:definePushButton("GUNSIGHT_RADAR_LOCK_TEST", devices.GUNSIGHT, 3006, 904, GUNSIGHT, "Radar Lock On Light Test")
+F_100D:definePotentiometer("GUNSIGHT_RADAR_LOCK_DIM", devices.GUNSIGHT, 3007, 905, { 0, 1 }, GUNSIGHT, "Radar Lock On Light Dimmer")
+
+F_100D:defineFloat("GUNSIGHT_RADAR_LOCK", 903, { 0, 1 }, GUNSIGHT, "Radar Lock On Light (red)")
+F_100D:defineFloat("GUNSIGHT_RANGE", 902, { 0, 1 }, GUNSIGHT, "Range Dial")
+
 -- Instrument Panel
 -- Radio Remote Channel Indicator
 
