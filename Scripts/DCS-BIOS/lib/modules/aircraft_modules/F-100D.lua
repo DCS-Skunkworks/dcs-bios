@@ -71,6 +71,10 @@ local devices = {
 
 -- DC Loadmeter
 
+local DC_LOADMETER = "DC Loadmeter"
+
+F_100D:defineFloat("DC_LOADMETER", 31, { 0, 1 }, DC_LOADMETER, "DC Loadmeter")
+
 -- Master Caution Light
 
 -- Gun Selector
