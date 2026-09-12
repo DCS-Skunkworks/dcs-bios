@@ -69,6 +69,10 @@ local devices = {
 
 -- AC Loadmeter
 
+local AC_LOADMETER = "AC Loadmeter"
+
+F_100D:defineFloat("AC_LOADMETER", 30, { 0, 1 }, AC_LOADMETER, "AC Loadmeter")
+
 -- DC Loadmeter
 
 -- Master Caution Light
