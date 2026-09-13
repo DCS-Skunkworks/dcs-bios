@@ -75,6 +75,10 @@ F_100D:define3PosTumb("DRAG_CHUTE", devices.BRAKES, 3001, 245, DRAG_CHUTE, "Drag
 
 -- DC Loadmeter
 
+local DC_LOADMETER = "DC Loadmeter"
+
+F_100D:defineFloat("DC_LOADMETER", 31, { 0, 1 }, DC_LOADMETER, "DC Loadmeter")
+
 -- Master Caution Light
 
 -- Gun Selector
