@@ -91,6 +91,14 @@ F_100D:define3PosTumb("DRAG_CHUTE", devices.BRAKES, 3001, 245, DRAG_CHUTE, "Drag
 
 -- Airspeed/Mach Indicator
 
+local ASI = "Airspeed/Mach Indicator"
+
+F_100D:defineFloat("ASI_NEEDLE", 225, { 0, 1 }, ASI, "Airspeed Needle")
+F_100D:defineFloat("ASI_MACH_CARD", 226, { 0, 1 }, ASI, "Mach Card")
+F_100D:defineFloat("ASI_BUG", 227, { 0, 1 }, ASI, "Speed Bug")
+
+F_100D:definePotentiometer("ASI_BUG_SET", devices.AVIONICS, 3005, 228, { 0, 1 }, ASI, "Airspeed Bug Adjust")
+
 -- Attitude Indicator
 
 -- Vertical Velocity Indicator
