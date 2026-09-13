@@ -60,6 +60,10 @@ local devices = {
 
 -- Drag Chute Handle
 
+local DRAG_CHUTE = "Drag Chute"
+
+F_100D:define3PosTumb("DRAG_CHUTE", devices.BRAKES, 3001, 245, DRAG_CHUTE, "Drag Chute", { positions = { "STOW", "DEPLOY", "RELEASE" } })
+
 -- Magnetic Compass
 
 -- A-4 Gunsight / Wingspan / Radar Lock
