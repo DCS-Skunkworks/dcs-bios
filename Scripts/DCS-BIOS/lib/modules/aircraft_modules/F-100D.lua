@@ -79,6 +79,10 @@ F_100D:define3PosTumb("DRAG_CHUTE", devices.BRAKES, 3001, 245, DRAG_CHUTE, "Drag
 
 -- Gun Selector
 
+local GUN_SELECTOR = "Gun Selector"
+
+F_100D:defineMultipositionSwitch("GUN_SELECTOR", devices.WEAPONS, 3001, 45, 6, 0.1, GUN_SELECTOR, "Gun Selector", { positions = { "MISSILES", "SAFE", "UPPER", "ALL", "LWR", "POD" } })
+
 -- VGI ERECT Button
 
 -- Fire / Overheat Warning Lights
