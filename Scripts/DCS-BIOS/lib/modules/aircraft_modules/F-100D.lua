@@ -97,6 +97,11 @@ F_100D:define3PosTumb("DRAG_CHUTE", devices.BRAKES, 3001, 245, DRAG_CHUTE, "Drag
 
 -- Turn-and-Slip Indicator
 
+local TURN_SLIP = "Turn-and-Slip Indicator"
+
+F_100D:defineFloat("TURN_SLIP_NEEDLE", 60, { -1, 1 }, TURN_SLIP, "Turn Needle")
+F_100D:defineFloat("TURN_SLIP_BALL", 61, { -1, 1 }, TURN_SLIP, "Slip Ball")
+
 -- Accelerometer
 
 -- Oil Pressure Gauge
