@@ -137,6 +137,10 @@ F_100D:define3PosTumb("DRAG_CHUTE", devices.BRAKES, 3001, 245, DRAG_CHUTE, "Drag
 
 -- Landing Gear Emergency Lowering Handle
 
+local EMERG_GEAR = "Landing Gear Emergency Lowering Handle"
+
+F_100D:defineToggleSwitch("EMERG_GEAR_HANDLE", devices.HYDRAULICS, 3017, 38, EMERG_GEAR, "Emergency Landing Gear Handle")
+
 -- Center Pedestal
 -- DCU 9/A In-Flight Control Tester Panel
 
