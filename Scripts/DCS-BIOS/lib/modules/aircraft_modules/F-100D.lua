@@ -71,6 +71,42 @@ F_100D:define3PosTumb("DRAG_CHUTE", devices.BRAKES, 3001, 245, DRAG_CHUTE, "Drag
 -- Instrument Panel
 -- Radio Remote Channel Indicator
 
+local RADIO_REMOTE = "Radio Remote Channel Indicator"
+
+F_100D:defineFloat("RADIO_REMOTE_HUNDREDS", 240, { -0.1, 1 }, RADIO_REMOTE, "Radio Channel Drum (Hundreds)")
+F_100D:defineFloat("RADIO_REMOTE_TENS", 241, { -0.1, 1 }, RADIO_REMOTE, "Radio Channel Drum (Tens)")
+F_100D:defineFloat("RADIO_REMOTE_ONES", 242, { -0.1, 1 }, RADIO_REMOTE, "Radio Channel Drum (Ones)")
+F_100D:defineFloat("RADIO_REMOTE_TENTHS", 243, { -0.1, 1 }, RADIO_REMOTE, "Radio Channel Drum (Tenths)")
+
+--- returns the drum value for the remote radio drum
+--- @param dev0 CockpitDevice
+--- @param arg_number integer
+--- @param last_value string the value that should be used when the drum is in its last position
+--- @return string
+local function remote_radio_drum_value(dev0, arg_number, last_value)
+	local raw_value = dev0:get_argument_value(arg_number)
+
+	if raw_value < 0 then
+		return " "
+	end
+
+	if raw_value > 0.95 then
+		return last_value
+	end
+
+	return tostring(Module.round(raw_value * 10))
+end
+
+F_100D:defineString("RADIO_REMOTE_VALUE", function(dev0)
+	local hundreds = remote_radio_drum_value(dev0, 240, " ")
+	local tens = remote_radio_drum_value(dev0, 241, "G")
+	local ones = remote_radio_drum_value(dev0, 242, "D")
+	local tenths = remote_radio_drum_value(dev0, 243, " ")
+	tenths = tenths == " " and "  " or ("." .. tenths)
+
+	return hundreds .. tens .. ones .. tenths
+end, 5, RADIO_REMOTE, "Channel")
+
 -- AC Loadmeter
 
 -- DC Loadmeter
