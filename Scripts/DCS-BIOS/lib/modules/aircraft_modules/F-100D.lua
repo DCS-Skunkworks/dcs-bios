@@ -1,5 +1,6 @@
 module("F100D", package.seeall)
 
+local CommonPositions = require("Scripts.DCS-BIOS.lib.modules.CommonPositions")
 local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 
 --- @class F_100D: Module
@@ -132,6 +133,11 @@ F_100D:define3PosTumb("DRAG_CHUTE", devices.BRAKES, 3001, 245, DRAG_CHUTE, "Drag
 -- Engine Pressure Ratio Gauge
 
 -- External Load Emergency Jettison Handle
+
+local EMERG_JETTISON = "External Load Emergency Jettison Handle"
+
+F_100D:defineToggleSwitch("EMERG_JETTISON_LATCH", devices.WEAPONS, 3065, 169, EMERG_JETTISON, "Emergency Jettison Latch", { positions = CommonPositions.COVER })
+F_100D:defineToggleSwitch("EMERG_JETTISON_HANDLE", devices.WEAPONS, 3013, 170, EMERG_JETTISON, "Emergency Jettison Handle")
 
 -- Special Store Unlock Handle
 
