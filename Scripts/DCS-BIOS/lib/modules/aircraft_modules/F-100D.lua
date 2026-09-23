@@ -117,6 +117,17 @@ F_100D:define3PosTumb("DRAG_CHUTE", devices.BRAKES, 3001, 245, DRAG_CHUTE, "Drag
 
 -- Sight Selector Unit
 
+local SIGHT_SELECTOR = "Sight Selector Unit"
+
+F_100D:definePotentiometer("SIGHT_SELECTOR_DEPRESSION", devices.GUNSIGHT, 3023, 175, { 0, 1 }, SIGHT_SELECTOR, "Sight Depression")
+F_100D:defineMultipositionSwitch("SIGHT_SELECTOR_WEAPON", devices.GUNSIGHT, 3019, 176, 3, 0.1, SIGHT_SELECTOR, "Weapon Selector", { positions = { "BOMB", "GUN", "ROCKET" } })
+F_100D:defineMultipositionSwitch("SIGHT_SELECTOR_SPEED", devices.GUNSIGHT, 3021, 177, 3, 0.1, SIGHT_SELECTOR, "Speed Range Selector", { positions = { "LO", "HI", "TR" } })
+
+F_100D:defineFloat("SIGHT_SELECTOR_INDEX_1", 172, { 0, 1 }, SIGHT_SELECTOR, "Index Marker 1")
+F_100D:defineFloat("SIGHT_SELECTOR_INDEX_2", 174, { 0, 1 }, SIGHT_SELECTOR, "Index Marker 2")
+F_100D:defineFloat("SIGHT_SELECTOR_INDEX_3", 171, { 0, 1 }, SIGHT_SELECTOR, "Index Marker 3")
+F_100D:defineFloat("SIGHT_SELECTOR_INDEX_4", 173, { 0, 1 }, SIGHT_SELECTOR, "Index Marker 4")
+
 -- TACAN Range Indicator
 
 -- Course Indicator
