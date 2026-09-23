@@ -131,6 +131,31 @@ F_100D:define3PosTumb("DRAG_CHUTE", devices.BRAKES, 3001, 245, DRAG_CHUTE, "Drag
 
 -- Engine Pressure Ratio Gauge
 
+local EPR = "Engine Pressure Ratio Gauge"
+
+F_100D:defineSpringloaded_3PosTumb("EPR_SET_MODE", devices.ENGINE, 3013, 3014, 120, EPR, "Engine Pressure Ratio Set Mode", { positions = { "TAKE OFF", "NONE", "CRUISE" } })
+F_100D:defineRotaryWithRange("EPR_SET_ROTATE", devices.ENGINE, 3015, 117, { -1, 1 }, EPR, "Set Engine Pressure Ratio")
+
+F_100D:defineFloat("EPR_NEEDLE", 110, { 0, 1 }, EPR, "Engine Pressure Ratio")
+
+F_100D:defineFloat("EPR_CRUISE_HUNDREDS", 111, { 0, 1 }, EPR, "Cruise Drum (Hundreds)")
+F_100D:defineFloat("EPR_CRUISE_TENS", 112, { 0, 1 }, EPR, "Cruise Drum (Tens)")
+F_100D:defineFloat("EPR_CRUISE_ONES", 113, { 0, 1 }, EPR, "Cruise Drum (Ones)")
+F_100D:defineFloat("EPR_CRUISE_INDEX", 119, { 0, 1 }, EPR, "Cruise Index")
+
+F_100D:defineString("EPR_CRUISE", function(dev0)
+	return Module.drum_set(dev0, 111, 112, 113)
+end, 3, EPR, "Cruise Drum Value")
+
+F_100D:defineFloat("EPR_TO_HUNDREDS", 114, { 0, 1 }, EPR, "Take Off Drum (Hundreds)")
+F_100D:defineFloat("EPR_TO_TENS", 115, { 0, 1 }, EPR, "Take Off Drum (Tens)")
+F_100D:defineFloat("EPR_TO_ONES", 116, { 0, 1 }, EPR, "Take Off Drum (Ones)")
+F_100D:defineFloat("EPR_TO_INDEX", 118, { 0, 1 }, EPR, "Take Off Index")
+
+F_100D:defineString("EPR_TO", function(dev0)
+	return Module.drum_set(dev0, 114, 115, 116)
+end, 3, EPR, "Take Off Drum Value")
+
 -- External Load Emergency Jettison Handle
 
 -- Special Store Unlock Handle
