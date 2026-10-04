@@ -43,21 +43,19 @@ La7:definePotentiometer("TRIM_ELEVATOR", devices.COMMON_SYSTEM, 3010, 10, { -1, 
 
 local CANOPY = "Canopy"
 
-La7:definePotentiometer("CANOPY", devices.COMMON_SYSTEM, 3077, 77, { 0, 0.9 }, CANOPY, "Canopy Rail")
+La7:definePotentiometer("CANOPY", devices.COMMON_SYSTEM, 3077, 77, { 0, 1 }, CANOPY, "Canopy Rail")
 La7:defineToggleSwitch("CANOPY_HANDLE", devices.COMMON_SYSTEM, 3076, 76, CANOPY, "Canopy Handle")
 La7:defineToggleSwitch("CANOPY_EMERGENCY", devices.COMMON_SYSTEM, 3085, 85, CANOPY, "Canopy Emergency Handle")
 
 local THROTTLE = "Throttle Quadrant"
 
-La7:defineToggleSwitch("THROTTLE_MOTOR_SHUTDOWN", devices.MOTOR_SYSTEM, 3011, 11, LEFT_WALL, "Motor Shutdown")
+La7:defineToggleSwitch("THROTTLE_MOTOR_SHUTDOWN", devices.MOTOR_SYSTEM, 3011, 11, THROTTLE, "Motor Shutdown")
 La7:definePotentiometer("THROTTLE_LEVER", devices.MOTOR_SYSTEM, 3012, 12, { 0, 1 }, THROTTLE, "Throttle")
 La7:definePotentiometer("THROTTLE_RPM", devices.MOTOR_SYSTEM, 3014, 14, { 0, 1 }, THROTTLE, "RPM")
 La7:definePotentiometer("THROTTLE_LOCK", devices.MOTOR_SYSTEM, 3015, 15, { 0, 1 }, THROTTLE, "Locking Nut")
 La7:reserveIntValue(1) -- radio, draw arg 13
 
 -- Instrument Panel
-
-local INSTRUMENT_PANEL = "Instrument Panel"
 
 -- left panel
 
@@ -127,7 +125,7 @@ local ALTIMETER = "V-12 Altimeter"
 La7:definePotentiometer("ALTIMETER_PRESSURE_SET", devices.COMMON_SYSTEM, 3041, 41, { 0, 1 }, ALTIMETER, "Set Altimeter Pressure")
 La7:defineFloat("ALTIMETER_NEEDLE_HUNDREDS", 38, { 0, 1 }, ALTIMETER, "Altimeter Hundreds Needle")
 La7:defineFloat("ALTIMETER_NEEDLE_THOUSANDS", 39, { 0, 1 }, ALTIMETER, "Altimeter Thousands Needle")
-La7:defineFloat("ALTIMETER_PRESSURE", 10, { 0, 1 }, ALTIMETER, "Altimeter Pressure")
+La7:defineFloat("ALTIMETER_PRESSURE", 40, { 0, 1 }, ALTIMETER, "Altimeter Pressure")
 
 local ASI = "US-800 Airspeed Indicator"
 
@@ -183,6 +181,8 @@ local ARTIFICAL_HORIZON = "AGP-2 Artifical Horizon"
 La7:defineFloat("HORIZON_BANK", 95, { -1, 1 }, ARTIFICAL_HORIZON, "Artifical Horizon Bank")
 La7:defineFloat("HORIZON_PITCH", 96, { -1, 1 }, ARTIFICAL_HORIZON, "Artifical Horizon Pitch")
 
+local INSTRUMENT_PANEL = "Instrument Panel"
+
 La7:definePotentiometer("INST_PANEL_COCKPIT_LIGHTS", devices.ELECTRIC_SYSTEM, 3006, 6, { 0, 1 }, INSTRUMENT_PANEL, "Cockpit Light Rheostat")
 La7:definePotentiometer("INST_PANEL_SIGHT_COMPASS_LIGHTS", devices.ELECTRIC_SYSTEM, 3008, 8, { 0, 1 }, INSTRUMENT_PANEL, "Sight and Compass Light Rheostat")
 
@@ -196,7 +196,7 @@ La7:defineToggleSwitch("GEAR_LOCK_EMERGENCY", devices.COMMON_SYSTEM, 3062, 62, R
 La7:defineToggleSwitch("INERT_GAS_FILL", devices.COMMON_SYSTEM, 3056, 56, RIGHT_WALL, "Inert Gas Fill Valve")
 La7:defineToggleSwitch("GEAR_EMERGENCY_EXTEND", devices.COMMON_SYSTEM, 3057, 57, RIGHT_WALL, "Emergency Landing Gear Extension Valve")
 
-La7:defineToggleSwitch("FUEL_SHUTOFF", devices.MOTOR_SYSTEM, 3061, 61, RIGHT_WALL, "Fuel System Shutoff Valve")
+La7:defineToggleSwitch("FUEL_SHUTOFF", devices.MOTOR_SYSTEM, 3061, 61, RIGHT_WALL, "Fuel System Shutoff Valve", { positions = { "CLOSE", "OPEN" } })
 La7:definePotentiometer("HAND_FUEL_PUMP", devices.MOTOR_SYSTEM, 3065, 65, { 0, 1 }, RIGHT_WALL, "Hand Fuel Pump")
 
 La7:defineToggleSwitch("OIL_DILUTION", devices.MOTOR_SYSTEM, 3097, 97, RIGHT_WALL, "Oil Dilution")
@@ -225,12 +225,12 @@ La7:defineFloat("OXYGEN_INDICATOR", 94, { 0, 1 }, OXYGEN, "Oxygen Indicator")
 local GUNS = "Gun Recharge Handles"
 
 La7:defineToggleSwitch("GUNS_RECHARGE_SAFETY_L", devices.WEAPON_SYSTEM, 3069, 69, GUNS, "Left Gun Recharge/Safety Handle")
-La7:defineToggleSwitch("GUNS_HAMMER_L", devices.WEAPON_SYSTEM, 3067, 67, GUNS, "Left Gun Recharge/Safety Handle")
-La7:defineToggleSwitch("GUNS_PNEUMO_RECHARGE_L", devices.WEAPON_SYSTEM, 3068, 68, GUNS, "Left Gun Recharge/Safety Handle")
+La7:defineToggleSwitch("GUNS_HAMMER_L", devices.WEAPON_SYSTEM, 3067, 67, GUNS, "Left Gun Hammer Catch")
+La7:defineToggleSwitch("GUNS_PNEUMO_RECHARGE_L", devices.WEAPON_SYSTEM, 3068, 68, GUNS, "Left Gun Pneumo Recharge Handle")
 
 La7:defineToggleSwitch("GUNS_RECHARGE_SAFETY_R", devices.WEAPON_SYSTEM, 3066, 66, GUNS, "Right Gun Recharge/Safety Handle")
-La7:defineToggleSwitch("GUNS_HAMMER_R", devices.WEAPON_SYSTEM, 3070, 70, GUNS, "Right Gun Recharge/Safety Handle")
-La7:defineToggleSwitch("GUNS_PNEUMO_RECHARGE_R", devices.WEAPON_SYSTEM, 3071, 71, GUNS, "Right Gun Recharge/Safety Handle")
+La7:defineToggleSwitch("GUNS_HAMMER_R", devices.WEAPON_SYSTEM, 3070, 70, GUNS, "Right Gun Hammer Catch")
+La7:defineToggleSwitch("GUNS_PNEUMO_RECHARGE_R", devices.WEAPON_SYSTEM, 3071, 71, GUNS, "Right Pneumo Recharge Handle")
 
 La7:defineToggleSwitch("GUNS_PNEUMO_SAFETY", devices.WEAPON_SYSTEM, 3072, 72, GUNS, "Guns Pneumo Safety Handle")
 
@@ -246,7 +246,7 @@ local STICK = "Stick"
 
 La7:defineToggleSwitch("STICK_SAFETY", devices.WEAPON_SYSTEM, 3099, 99, STICK, "Safety Guard", { positions = CommonPositions.COVER })
 La7:definePushButton("STICK_BOMB_RELEASE", devices.WEAPON_SYSTEM, 3100, 100, STICK, "Bomb Release")
-La7:definePotentiometer("STICK_BRAKE_LEVER", devices.COMMON_SYSTEM, 3098, 98, { 0, 1 }, STICK, "Brake Lever")
+La7:defineFloat("STICK_BRAKE_LEVER", 98, { 0, 1 }, STICK, "Brake Lever")
 
 La7:defineFloat("STICK_Y", 52, { -1, 1 }, STICK, "Stick Yaw")
 La7:defineFloat("STICK_X", 53, { -1, 1 }, STICK, "Stick Roll")
