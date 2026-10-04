@@ -117,7 +117,7 @@ Mosquito:define3PosMossi("FLAPS_LVR", 17, 3003, 118, "Main Panel", "Flaps Lever"
 Mosquito:defineToggleSwitch("CHASSIS_GATE", 17, 3004, 117, "Main Panel", "Chassis Lever Gate")
 Mosquito:defineToggleSwitch("FLAPS_GATE", 17, 3006, 119, "Main Panel", "Flaps Lever Gate")
 Mosquito:defineToggleSwitch("GUN_MASTER_CVR", 5, 3001, 120, "Main Panel", "Gun Firing Master Switch Cover")
-Mosquito:defineTumb("GUN_MASTER", 5, 3003, 121, 2, { -1, 1 }, nil, false, "Main Panel", "Gun Firing Master Switch")
+Mosquito:defineToggleSwitch("GUN_MASTER", 5, 3003, 121, "Main Panel", "Gun Firing Master Switch")
 Mosquito:defineToggleSwitch("DE_ICE_PUMP", 23, 3001, 370, "Main Panel", "De-Ice Glycol Pump Handle")
 Mosquito:defineRockerSwitchMossi("RUDDER_TRIM", 2, 3053, 111, "Main Panel", "Rudder Trim")
 Mosquito:defineRockerSwitchMossi("AILERON_TRIM", 2, 3051, 280, "Main Panel", "Aileron Trim")
