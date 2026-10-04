@@ -5,7 +5,7 @@ local Functions = require("Scripts.DCS-BIOS.lib.common.Functions")
 local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 
 --- @class F_14: Module
-local F_14 = Module:new("F-14", 0x1200, { "F-14B", "F-14A-135-GR", "F-14A-135-GR-Early", "F-14BU" })
+local F_14 = Module:new("F-14", 0x1200, { "F-14B", "F-14A-95-GR", "F-14A-135-GR", "F-14A-135-GR-Early", "F-14BU" })
 
 --v4.6b by WarLord,ArturDCS,Matchstick and Bullitt
 local devices = {
