@@ -28,7 +28,7 @@ La7:defineToggleSwitch("COMPRESSED_AIR_VALVE", devices.COMMON_SYSTEM, 3001, 1, L
 
 La7:defineToggleSwitch("SUPERCHARGER_SPEED", devices.MOTOR_SYSTEM, 3005, 5, LEFT_WALL, "Supercharger Speed", { positions = { "STAGE I", "STAGE II" } })
 
-La7:definePotentiometer("OIL_RADIATOR", devices.MOTOR_SYSTEM, 3007, 7, { 0, 1 }, LEFT_WALL, "Oil Radiator")
+La7:defineMultipositionSwitch("OIL_RADIATOR", devices.MOTOR_SYSTEM, 3007, 7, 7, 1 / 6, LEFT_WALL, "Oil Radiator")
 
 local BOMB_HANDLE = "Bomb Release Handle"
 
