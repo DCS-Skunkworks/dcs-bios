@@ -129,6 +129,10 @@ function TestAircraft:testL39()
 	self:validateModule(require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.L-39"), "L-39", 0x3200)
 end
 
+function TestAircraft:testLa7()
+	self:validateModule(require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.La7"), "La-7", 0x4E00)
+end
+
 function TestAircraft:testM_2000C()
 	self:validateModule(require("Scripts.DCS-BIOS.lib.modules.aircraft_modules.M-2000C"), "M-2000C", 0x7200)
 end
