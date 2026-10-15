@@ -301,7 +301,7 @@ Mosquito:defineToggleSwitch("HYDR_SEL", 2, 3069, 333, "Lower Fuselage Part", "Ar
 Mosquito:definePotentiometer("DOME_L_DIM", 4, 3101, 302, { 0, 1 }, "Quarter", "Roof Dome Light Dimmer")
 Mosquito:definePotentiometer("LOOP_ANT_L_DIM", 4, 3092, 17, { 0, 1 }, "Quarter", "Loop Antenna Flood Light Dimmer")
 Mosquito:defineTumb("TYPE_J_SEL", 25, 3059, 224, 0.5, { -1, 1 }, nil, false, "Quarter", "Aerial Selector Switch Type J")
-Mosquito:defineToggleSwitch("LOOP_ANT_LOCK", 25, 3107, 363, "Quarter", "Loop Antenna Lock")
+Mosquito:defineToggleSwitch("LOOP_ANT_LOCK", 25, 3092, 241, "Quarter", "Loop Antenna Lock")
 Mosquito:defineRotary("LOOP_ANT_SCALE", 25, 3094, 240, "Quarter", "Loop Antenna Scale")
 Mosquito:defineTumb("IFF_CHAN", 4, 3059, 224, 0.2, { 0, 1 }, nil, false, "Quarter", "IFF Channel Switch")
 Mosquito:defineToggleSwitch("IFF_DETONATE_CVR", 4, 3107, 363, "Quarter", "IFF Detonate Switch Cover")
