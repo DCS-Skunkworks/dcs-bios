@@ -381,11 +381,94 @@ local function processUfcTwoDigitDisplay(s)
 	return Functions.pad_left(s, 2)
 end
 
+-- DCS sends the left character of each 16-segment scratchpad pair as a letter code
+-- that depends on the digit to its right. Decode back to the plain digit.
+local scratchpad_glyph_map = {
+	["_"] = " ", -- blank in the left position of a pair (e.g. "_1")
+	["`"] = "1",
+	["~"] = "2",
+	a = "0", b = "0", c = "0",
+	e = "3", f = "3", g = "3",
+	h = "4", i = "4", j = "4",
+	k = "5",
+	l = "6",
+	m = "7", n = "7", o = "7",
+	p = "8", q = "8", s = "8",
+	t = "9", v = "9", ["@"] = "9",
+}
+
+local function processScratchpadString(s)
+	s = Functions.coerce_nil_to_string(s)
+	if s == "_" then
+		s = "--"
+	elseif s == "d" then -- receiving(?), show triangle symbol
+		s = "<>"
+	else
+		s = s:gsub(".", scratchpad_glyph_map) -- unmapped characters are left as they are
+	end
+
+	return Functions.pad_left(s, 2)
+end
+
 local ufc = {}
 
 -- parse UFC
+--FA_18C_hornet:addExportHook(function()
+--	ufc = Module.parse_indication(6) or {}
+--end)
+
+-- UFC raw indicator diagnostic
+local ufc_debug_last = nil
+
+local ufc = {}
+
+-- UFC O/S BRG scratchpad correction
+--
+-- DCS normally supplies the scratchpad characters in separate
+-- fields. During O/S BRG entry, however, it places all nine
+-- characters into UFC_ScratchPadNumberDisplay.
+--
+-- The physical UFC has two separate string displays followed
+-- by seven numeric display positions.
+--
+-- This correction moves the first two characters into String 2
+-- and retains the remaining seven in the numeric display.
+--
+-- Existing DCS-BIOS addresses and string lengths are preserved.
+
+local function isOsBrgEntry(data)
+    local opt1 = data.UFC_OptionDisplay1 or ""
+    local opt2 = data.UFC_OptionDisplay2 or ""
+    local number = data.UFC_ScratchPadNumberDisplay or ""
+    local string1 = data.UFC_ScratchPadString1Display or ""
+    local string2 = data.UFC_ScratchPadString2Display or ""
+
+    return opt1:match("^%s*TRUE%s*$") ~= nil
+        and opt2:match("^%s*MAG%s*$") ~= nil
+        and number:find("@", 1, true) ~= nil
+        and number:find("'", 1, true) ~= nil
+        and #number == 9
+        and string1:match("^%s*$") ~= nil
+        and string2:match("^%s*$") ~= nil
+end
+
+-- Parse UFC indication and correct O/S BRG output
 FA_18C_hornet:addExportHook(function()
-	ufc = Module.parse_indication(6) or {}
+    local parsed = Module.parse_indication(6) or {}
+
+    if isOsBrgEntry(parsed) then
+        local number = parsed.UFC_ScratchPadNumberDisplay
+
+        -- First two positions go to String 2
+        parsed.UFC_ScratchPadString2Display =
+            number:sub(1, 2)
+
+        -- Remaining seven positions go to numeric display
+        parsed.UFC_ScratchPadNumberDisplay =
+            number:sub(3, 9)
+    end
+
+    ufc = parsed
 end)
 
 local comm_channel_cache = {}
@@ -596,10 +679,10 @@ FA_18C_hornet:defineString("UFC_SCRATCHPAD_NUMBER_DISPLAY", function()
 	return Functions.pad_left(ufc.UFC_ScratchPadNumberDisplay, 8)
 end, 8, "Up Front Controller (UFC)", "Scratchpad Number Display")
 FA_18C_hornet:defineString("UFC_SCRATCHPAD_STRING_1_DISPLAY", function()
-	return processUfcTwoDigitDisplay(ufc.UFC_ScratchPadString1Display)
+	return processScratchpadString(ufc.UFC_ScratchPadString1Display)
 end, 2, "Up Front Controller (UFC)", "Scratchpad String 1 Display")
 FA_18C_hornet:defineString("UFC_SCRATCHPAD_STRING_2_DISPLAY", function()
-	return processUfcTwoDigitDisplay(ufc.UFC_ScratchPadString2Display)
+	return processScratchpadString(ufc.UFC_ScratchPadString2Display)
 end, 2, "Up Front Controller (UFC)", "Scratchpad String 2 Display")
 
 -- 15. Right DDI
