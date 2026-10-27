@@ -187,7 +187,7 @@ local function updateMissionTime()
 	if mtseconds <= 0 then
 		missionStartTime = "00:00:00"
 	else
-		local mtsec = string.format("%02.f", math.floor(mtseconds or 0))
+		local mtsec = string.format("%02.f", math.floor(mtseconds % 60))
 		local mthours = string.format("%02.f", math.floor(mtseconds / 3600))
 		local mtmins = string.format("%02.f", math.floor(mtseconds / 60 - (mthours * 60)))
 		missionStartTime = mthours .. ":" .. mtmins .. ":" .. mtsec
