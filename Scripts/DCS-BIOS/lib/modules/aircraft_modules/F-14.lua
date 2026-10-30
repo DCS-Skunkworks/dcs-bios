@@ -700,7 +700,7 @@ F_14:definePushButton("PLT_CLOCK_TIMER", devices.CLOCK, 3043, 1000, "Weapons Pan
 F_14:defineRotary("RIO_CLOCK_WIND", devices.CLOCK, 3710, 1052, "Weapons Panel", "RIO Clock Wind")
 F_14:definePushButton("RIO_CLOCK_TIMER", devices.CLOCK, 3711, 1053, "Weapons Panel", "RIO Clock Timer Start/Stop/Reset")
 -- HUD CAGE Pushbutton (F-14B/U)
-F_14:definePushButton("PLT_HUD_CAGE_BTN", 40, 3892, 759, "PLT HUD", "PILOT HUD CAGE Pushbutton")
+F_14:definePushButton("PLT_HUD_CAGE_BTN", devices.HUD, 3892, 759, "PLT HUD", "PILOT HUD CAGE Pushbutton")
 
 -- RIO TID
 F_14:defineMultipositionSwitch("RIO_TID_MODE", devices.TID, 3112, 2005, 4, 1 / 3, "TID", "RIO TID Mode", { positions = { "GND STAB", "A/C STAB", "ATTK", "TV" } })
