@@ -957,7 +957,7 @@ F_14:defineGatedIndicatorLight("RIO_LANTIRN_LASERARMED", 680, 0.25, 0.55, "LANTI
 F_14:defineIndicatorLight("PLT_TACAN_COMAND_PLT", 290, "PLT Indicator Lights", "PILOT TACAN Command Light PLT", { color = "green" })
 F_14:defineIndicatorLight("PLT_TACAN_COMAND_NFO", 291, "PLT Indicator Lights", "PILOT TACAN Command Light NFO", { color = "green" })
 F_14:defineIndicatorLight("PLT_JETT_LIGHT", 701, "PLT Indicator Lights", "PILOT Emergency Stores Jettison Light", { color = "red" })
-F_14:defineIndicatorLight("PLT_HUD_CAGE", 960, "PLT Indicator Lights", "PILOT HUD CAGE Indicator", { color = "green" })
+F_14:defineIndicatorLight("PLT_HUD_CAGE", 960, "PLT Indicator Lights", "PILOT HUD CAGE Indicator Light", { color = "green" })
 F_14:defineIndicatorLight("PLT_FLOOD_LIGHTS", 1800, "PLT Indicator Lights", "PILOT Flood Lights Red", { color = "red" })
 F_14:defineIndicatorLight("PLT_PANEL_LIGHTS", 1801, "PLT Indicator Lights", "PILOT Panel Lights (inverted)", { color = "red" })
 F_14:defineIndicatorLight("PLT_INSTRUMENT_LIGHTS", 1802, "PLT Indicator Lights", "PILOT Instrument Lights (inverted)", { color = "red" })
