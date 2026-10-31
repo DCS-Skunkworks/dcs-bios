@@ -1085,8 +1085,8 @@ FA_18C_hornet:defineToggleSwitch("LIGHTS_TEST_SW", 9, 3007, 416, "Interior Light
 FA_18C_hornet:define3PosTumb("FLIR_SW", 62, 3001, 439, "Sensor Panel", "FLIR Switch", { positions = { "ON", "STBY", "OFF" } })
 FA_18C_hornet:defineElectricallyHeldSwitch("LTD_R_SW", 62, 3002, 441, "Sensor Panel", "LTD/R Switch, ARM/SAFE")
 FA_18C_hornet:defineToggleSwitch("LST_NFLR_SW", 62, 3003, 442, "Sensor Panel", "LST/NFLR Switch, ON/OFF")
-FA_18C_hornet:defineTumb("RADAR_SW", 42, 3001, 440, 0.1, { 0, 0.3 }, nil, false, "Sensor Panel", "RADAR Switch Change ,OFF/STBY/OPR/EMERG(PULL)")
-FA_18C_hornet:definePushButton("RADAR_SW_PULL", 42, 3002, 440, "Sensor Panel", "RADAR Switch Pull (MW to pull), OFF/STBY/OPR/EMERG(PULL)")
+FA_18C_hornet:defineMultipositionSwitch("RADAR_SW", 42, 3001, 440, 4, 0.1, "Sensor Panel", "RADAR Switch Rotate", { positions = { "OFF", "STBY", "OPR", "EMERG" } })
+FA_18C_hornet:defineToggleSwitchManualRange("RADAR_SW_PULL", 42, 3002, 471, { -1, 2 }, "Sensor Panel", "RADAR Switch Pull") -- todo: fix in #1938. control has a draw arg of {0, 1} and commands of {-1, 1} - setting the range to {-1, 2} is a gross hack that "works"
 FA_18C_hornet:defineTumb("INS_SW", 44, 3001, 443, 0.1, { 0, 0.7 }, nil, false, "Sensor Panel", "INS Switch", { positions = { "OFF", "CV", "GND", "NAV", "IFA", "GYRO", "GB", "TEST" } })
 
 -- 6. KY-58 Control
