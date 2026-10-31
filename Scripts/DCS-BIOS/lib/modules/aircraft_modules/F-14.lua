@@ -699,8 +699,6 @@ F_14:defineRotary("PLT_CLOCK_WIND", devices.CLOCK, 3042, 1051, "Weapons Panel", 
 F_14:definePushButton("PLT_CLOCK_TIMER", devices.CLOCK, 3043, 1000, "Weapons Panel", "PILOT Clock Timer Start/Stop/Reset")
 F_14:defineRotary("RIO_CLOCK_WIND", devices.CLOCK, 3710, 1052, "Weapons Panel", "RIO Clock Wind")
 F_14:definePushButton("RIO_CLOCK_TIMER", devices.CLOCK, 3711, 1053, "Weapons Panel", "RIO Clock Timer Start/Stop/Reset")
--- HUD CAGE Pushbutton (F-14B/U)
-F_14:definePushButton("PLT_HUD_CAGE_BTN", devices.HUD, 3892, 759, "PLT HUD", "PILOT HUD CAGE Pushbutton")
 
 -- RIO TID
 F_14:defineMultipositionSwitch("RIO_TID_MODE", devices.TID, 3112, 2005, 4, 1 / 3, "TID", "RIO TID Mode", { positions = { "GND STAB", "A/C STAB", "ATTK", "TV" } })
@@ -957,7 +955,6 @@ F_14:defineGatedIndicatorLight("RIO_LANTIRN_LASERARMED", 680, 0.25, 0.55, "LANTI
 F_14:defineIndicatorLight("PLT_TACAN_COMAND_PLT", 290, "PLT Indicator Lights", "PILOT TACAN Command Light PLT", { color = "green" })
 F_14:defineIndicatorLight("PLT_TACAN_COMAND_NFO", 291, "PLT Indicator Lights", "PILOT TACAN Command Light NFO", { color = "green" })
 F_14:defineIndicatorLight("PLT_JETT_LIGHT", 701, "PLT Indicator Lights", "PILOT Emergency Stores Jettison Light", { color = "red" })
-F_14:defineIndicatorLight("PLT_HUD_CAGE", 960, "PLT Indicator Lights", "PILOT HUD CAGE Indicator Light", { color = "green" })
 F_14:defineIndicatorLight("PLT_FLOOD_LIGHTS", 1800, "PLT Indicator Lights", "PILOT Flood Lights Red", { color = "red" })
 F_14:defineIndicatorLight("PLT_PANEL_LIGHTS", 1801, "PLT Indicator Lights", "PILOT Panel Lights (inverted)", { color = "red" })
 F_14:defineIndicatorLight("PLT_INSTRUMENT_LIGHTS", 1802, "PLT Indicator Lights", "PILOT Instrument Lights (inverted)", { color = "red" })
@@ -2072,5 +2069,9 @@ end, CDNU_LINE_LENGTH, CDNU, "Line 7")
 F_14:defineString("RIO_CDNU_LINE8", function(_)
 	return cdnu_lines[8]
 end, CDNU_LINE_LENGTH, CDNU, "Line 8")
+
+-- HUD CAGE Pushbutton (F-14B/U)
+F_14:definePushButton("PLT_HUD_CAGE_BTN", devices.HUD, 3892, 759, "PLT HUD", "PILOT HUD CAGE Pushbutton")
+F_14:defineIndicatorLight("PLT_HUD_CAGE", 960, "PLT Indicator Lights", "PILOT HUD CAGE Indicator Light", { color = "green" })
 
 return F_14
