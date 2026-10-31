@@ -2072,6 +2072,6 @@ end, CDNU_LINE_LENGTH, CDNU, "Line 8")
 
 -- HUD CAGE Pushbutton (F-14B/U)
 F_14:definePushButton("PLT_HUD_CAGE_BTN", devices.HUD, 3892, 759, "HUD", "PILOT HUD CAGE Button")
-F_14:defineIndicatorLight("PLT_HUD_CAGE", 960, "PLT Indicator Lights", "PILOT HUD CAGE Indicator Light", { color = "green" })
+F_14:defineIndicatorLight("PLT_HUD_CAGE", 960, "PLT Indicator Lights", "PILOT HUD CAGE Light", { color = "green" })
 
 return F_14
