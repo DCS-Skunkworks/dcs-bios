@@ -73,7 +73,7 @@ P_47D:defineToggleSwitch("GUNS_SW_C", 14, 3003, 67, "Port Wall", "Guns Switch Co
 P_47D:define3PosTumb("GUNS_SW", 14, 3005, 68, "Port Wall", "Guns Switch")
 P_47D:defineTumb("FLAPS_LVR", 2, 3029, 94, 0.5, { 0, 1 }, nil, false, "Port Wall", "Landing Flaps Lever")
 P_47D:definePotentiometer("LH_C5_CAP", 18, 3004, 166, { 0, 1 }, "Port Wall", "LH C5 Assy. Cover")
-P_47D:defineTumb("GEAR_LVR", 2, 3034, 153, 2, { -1, 1 }, nil, false, "Port Wall", "Gear Lever")
+P_47D:defineTumb("GEAR_LVR", 2, 3034, 150, 2, { -1, 1 }, nil, false, "Port Wall", "Gear Lever")
 
 P_47D:definePushButton("VHF_PTT_BTN", 23, 3099, 44, "Throttle Quadrant", "Radio PTT Button")
 P_47D:reserveIntValue(1) -- previous duplicate NOS_BTN control was located here
