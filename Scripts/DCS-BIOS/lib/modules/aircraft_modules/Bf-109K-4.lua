@@ -5,7 +5,31 @@ local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 --- @class Bf_109K_4: Module
 local Bf_109K_4 = Module:new("Bf-109K-4", 0x4200, { "Bf-109K-4" })
 
---overhaul by WarLord v2.0
+local devices = {
+	FUSEBOX = 1,
+	OXYGEN = 2,
+	WEAPONS_CONTROLS = 3,
+	CONTROLS = 4,
+	ENGINE_CONTROLS = 5,
+	HELMET_DEVICE = 6,
+	FM_PROXY = 7,
+	ALTIMETER = 8,
+	ARTIFICIAL_HORIZON = 9,
+	REMOTE_COMPASS = 10,
+	MACROS = 12,
+	PILOT_SIGHT = 13,
+	VHF_RADIO = 14,
+	INTERCOM = 15,
+	CONTROL_SYSTEM = 16,
+	ARCADE = 17,
+	KNEEBOARD = 18,
+	CLOCK = 19,
+	FLARE_GUN = 20,
+	FLUORESCENT = 21,
+	HEARING_SENS = 22,
+	AFN2 = 23,
+	DILUTER = 24,
+}
 
 -- remove Arg# Pilot 540
 
@@ -70,8 +94,8 @@ Bf_109K_4:definePotentiometer("L_UV_BRIGHT", 1, 3038, 80, { 0, 1 }, "Lamps", "Le
 Bf_109K_4:definePotentiometer("R_UV_BRIGHT", 1, 3041, 82, { 0, 1 }, "Lamps", "Right UV Lamp Rheostat")
 
 -- Oxygen Apparatus Controls
-Bf_109K_4:definePushButton("OXYGEN_VALVE", 2, 3001, 127, "Oxygen", "Oxygen Valve")
-Bf_109K_4:definePushButton("OXY_BYPASS", 2, 3003, 126, "Oxygen", "Oxygen Shower Button")
+Bf_109K_4:definePushButton("OXYGEN_VALVE", devices.DILUTER, 3001, 127, "Oxygen", "Oxygen Valve")
+Bf_109K_4:definePushButton("OXY_BYPASS", devices.DILUTER, 3003, 126, "Oxygen", "Oxygen Shower Button")
 
 -- Main Panel Controls
 Bf_109K_4:defineToggleSwitch("LG_COVER", 4, 3039, 53, "Landing Gear", "Undercarriage Controls Cover")
