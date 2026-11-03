@@ -1954,4 +1954,9 @@ end, CDU_LINE_LEN, COPILOT_CDU_DISPLAY, "CDU Line 14 Color")
 
 CH_47F:defineSeatPosition("SEAT", 2, "Player's current seat position (0 = Pilot, 1 = Copilot)")
 
+local AIR_CONTROL = "Air Control"
+
+CH_47F:defineToggleSwitch("AIR_DEFOG", devices.CANTED_CONSOLE, 3019, 742, AIR_CONTROL, "Defog/Defrost")
+CH_47F:defineToggleSwitch("AIR_CABIN", devices.CANTED_CONSOLE, 3021, 743, AIR_CONTROL, "Cabin Air")
+
 return CH_47F
