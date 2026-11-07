@@ -4,10 +4,34 @@ local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 
 --- @class SpitfireLFMkIX: Module
 local SpitfireLFMkIX = Module:new("SpitfireLFMkIX", 0x5400, { "SpitfireLFMkIX", "SpitfireLFMkIXCW" })
+
+local devices = {
+	CONTROLS = 1,
+	ENGINE_CONTROLS = 2,
+	OXYGEN = 3,
+	TERTIARY_CONTROLS = 4,
+	WEAPONS = 5,
+	ARTIFICIAL_HORIZON = 6,
+	DI = 7,
+	TURNSLIP_INDICATOR = 8,
+	FM_PROXY = 9,
+	COMPASS = 10,
+	HELMET_DEVICE = 11,
+	MACROS = 12,
+	ARCADE = 13,
+	KNEEBOARD = 14,
+	VHF_RADIO = 15,
+	INTERCOM = 16,
+	CLOCK = 17,
+	RADIOACTIVE_TICKS = 18,
+	HEARING_SENS = 19,
+	DILUTER = 20,
+}
+
 -- remove Arg# Pilot 165
 
 --Oxygen Apparatus Controls
-SpitfireLFMkIX:defineToggleSwitch("OXY_VALVE", 3, 3003, 13, "Cockpit", "Oxygen Valve")
+SpitfireLFMkIX:defineToggleSwitch("OXY_VALVE", devices.DILUTER, 3003, 13, "Cockpit", "Oxygen Valve")
 SpitfireLFMkIX:defineToggleSwitch("SAFETY", 5, 3001, 3, "Weapons", "Safety Lever")
 SpitfireLFMkIX:definePushButton("BUTTON_MG", 5, 3003, 4, "Weapons", "MG Trigger")
 SpitfireLFMkIX:definePushButton("BUTTON_CAN", 5, 3004, 5, "Weapons", "Cannons Trigger")
