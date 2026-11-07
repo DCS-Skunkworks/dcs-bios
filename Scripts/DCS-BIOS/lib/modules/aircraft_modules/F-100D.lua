@@ -129,6 +129,10 @@ F_100D:define3PosTumb("DRAG_CHUTE", devices.BRAKES, 3001, 245, DRAG_CHUTE, "Drag
 
 -- Fuel Flow Indicator
 
+local FUEL_FLOW = "Fuel Flow Indicator"
+
+F_100D:defineFloat("FUEL_FLOW", 123, { 0, 1 }, FUEL_FLOW, "Fuel Flow")
+
 -- Engine Pressure Ratio Gauge
 
 -- External Load Emergency Jettison Handle
