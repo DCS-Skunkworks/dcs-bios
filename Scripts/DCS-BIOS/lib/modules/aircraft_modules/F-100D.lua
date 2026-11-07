@@ -127,6 +127,13 @@ F_100D:define3PosTumb("DRAG_CHUTE", devices.BRAKES, 3001, 245, DRAG_CHUTE, "Drag
 
 -- Fuel Quantity Gauges
 
+local FUEL_QTY = "Fuel Quantity Gauges"
+
+F_100D:definePushButton("FUEL_QTY_TEST", devices.FUEL, 3019, 126, FUEL_QTY, "Fuel Quantity Push to Test")
+
+F_100D:defineFloat("FUEL_QTY_FWD", 127, { 0, 1 }, FUEL_QTY, "Forward Fuel Tank Quantity")
+F_100D:defineFloat("FUEL_QTY_TOTAL", 124, { 0, 1 }, FUEL_QTY, "Total Fuel Tank Quantity")
+
 -- Fuel Flow Indicator
 
 -- Engine Pressure Ratio Gauge
