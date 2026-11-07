@@ -66,6 +66,13 @@ F_100D:define3PosTumb("DRAG_CHUTE", devices.BRAKES, 3001, 245, DRAG_CHUTE, "Drag
 
 -- Magnetic Compass
 
+local MAG_COMPASS = "Magnetic Compass"
+
+F_100D:defineFloat("MAG_COMPASS_HEADING", 25, { 0, 1 }, MAG_COMPASS, "Compass Heading")
+F_100D:defineFloat("MAG_COMPASS_PITCH", 26, { -1, 1 }, MAG_COMPASS, "Compass Pitch")
+F_100D:defineFloat("MAG_COMPASS_ROLL", 27, { -1, 1 }, MAG_COMPASS, "Compass Roll")
+F_100D:defineFloat("MAG_COMPASS_LIGHT", 28, { 0, 1 }, MAG_COMPASS, "Compass Light (yellow)")
+
 -- A-4 Gunsight / Wingspan / Radar Lock
 
 -- Instrument Panel
