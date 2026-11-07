@@ -5,6 +5,40 @@ local Module = require("Scripts.DCS-BIOS.lib.modules.Module")
 --- @class P_47D: Module
 local P_47D = Module:new("P-47D", 0x5200, { "P-47D-30", "P-47D-30bl1", "P-47D-40" })
 
+local devices = {
+	FM_PROXY = 1,
+	CONTROLS = 2,
+	ENGINE_CONTROLS = 3,
+	OXYGEN = 4,
+	CLOCK = 5,
+	K14_GUNSIGHT = 6,
+	MK8_GUNSIGHT = 7,
+	MAIN_SWITCH_BOX = 8,
+	DI = 9,
+	AH = 10,
+	TURNSLIP_INDICATOR = 11,
+	ACCELEROMETER = 12,
+	COMPASS = 13,
+	WEAPONS = 14,
+	IFF = 15,
+	SUCTION_PUMP = 16,
+	TERTIARY_REFLECTS = 17,
+	LH_C5 = 18,
+	RH_C5 = 19,
+	FLUORESCENT = 20,
+	HEARING_SENS = 21,
+	ROCKETS = 22,
+	VHF_RADIO = 23,
+	DETROLA = 24,
+	INTERCOM = 25,
+	GUNCAMERA = 26,
+	HELMET_DEVICE = 27,
+	MACROS = 28,
+	ARCADE = 29,
+	KNEEBOARD = 30,
+	DILUTER = 31,
+}
+
 --Stick
 P_47D:definePushButton("STICK_MG_TRIGGER", 14, 3001, 53, "Weapons", "Stick MG Trigger")
 P_47D:definePushButton("STICK_SEC_TRIGGER", 14, 3002, 52, "Weapons", "Stick Secondary & Drop Ordnance Trigger")
@@ -133,8 +167,8 @@ P_47D:definePushButton("IFF_DESTR_2", 15, 3089, 186, "Starboard Wall", "Secret R
 P_47D:definePotentiometer("RH_C5_CAP", 19, 3004, 168, { 0, 1 }, "Starboard Wall", "RH C5 Assy. Cover")
 P_47D:defineToggleSwitch("TAIL_LOCK", 2, 3042, 101, "Starboard Wall", "Tail Wheel Lock Lever")
 
-P_47D:definePotentiometer("OXY_BYPASS", 4, 3005, 130, { 0, 1 }, "Oxygen", "Oxygen Emergency By-pass")
-P_47D:defineToggleSwitch("OXY_AUTOMIX", 4, 3003, 131, "Oxygen", "Oxygen Auto-Mix On-Off")
+P_47D:definePotentiometer("OXY_BYPASS", devices.DILUTER, 3005, 130, { 0, 1 }, "Oxygen", "Oxygen Emergency By-pass", { deprecated = { since = "0.11.9", description = "Granular control is not available in the module", use_instead = "OXY_EMERGENCY_BYPASS" } })
+P_47D:defineToggleSwitch("OXY_AUTOMIX", devices.DILUTER, 3003, 131, "Oxygen", "Oxygen Auto-Mix On-Off")
 
 P_47D:definePushButton("RLB_KEY", 8, 3035, 96, "Recognition Lights", "Recognition Lights KEY Button")
 P_47D:define3PosTumb("RLB_WHITE", 8, 3036, 97, "Recognition Lights", "Recognition Lights Switch White")
@@ -251,5 +285,7 @@ P_47D:defineBitFromDrawArgument("EXT_WOW_RIGHT", 4, "External Aircraft Model", "
 P_47D:defineBitFromDrawArgument("EXT_WOW_LEFT", 6, "External Aircraft Model", "Weight ON Wheels Left Gear")
 
 P_47D:defineReadWriteRadio("VHF_RADIO", 23, 7, 3, 1000, "VHF RADIO")
+
+P_47D:defineToggleSwitch("OXY_EMERGENCY_BYPASS", devices.DILUTER, 3005, 130, "Oxygen", "Oxygen Emergency Bypass")
 
 return P_47D
