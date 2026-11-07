@@ -111,6 +111,15 @@ F_100D:define3PosTumb("DRAG_CHUTE", devices.BRAKES, 3001, 245, DRAG_CHUTE, "Drag
 
 -- LABS Dive-and-Roll Indicator
 
+local LABS = "LABS Dive-and-Roll Indicator"
+
+F_100D:definePushButton("LABS_RELEASE_TEST", devices.LABS, 3007, 95, LABS, "Release Light (Push to Test)")
+F_100D:definePotentiometer("LABS_RELEASE_DIM", devices.LABS, 3008, 96, { 0, 1 }, LABS, "Release Light (Rotate to Dim)")
+F_100D:defineFloat("LABS_RELEASE_LIGHT", 97, { 0, 1 }, LABS, "Release Light (green)")
+
+F_100D:defineFloat("LABS_ROLL_NEEDLE", 106, { -1, 1 }, LABS, "Roll Needle")
+F_100D:defineFloat("LABS_DIVE_NEEDLE", 107, { -1, 1 }, LABS, "Dive Needle")
+
 -- Exhaust Temperature Gauge
 
 -- Tachometer
