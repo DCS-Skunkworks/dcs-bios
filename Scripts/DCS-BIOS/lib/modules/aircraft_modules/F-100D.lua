@@ -89,6 +89,16 @@ F_100D:define3PosTumb("DRAG_CHUTE", devices.BRAKES, 3001, 245, DRAG_CHUTE, "Drag
 
 -- Standby Attitude Indicator
 
+local SAI = "Standby Attitude Indicator"
+
+F_100D:defineFloat("SAI_PITCH", 210, { -1, 1 }, SAI, "Pitch")
+F_100D:defineFloat("SAI_ROLL", 211, { -1, 1 }, SAI, "Roll")
+F_100D:defineFloat("SAI_OFF_FLAG", 215, { 1, 0 }, SAI, "Off Flag")
+
+F_100D:definePotentiometer("SAI_ADJUST", devices.AVIONICS, 3011, 237, { 0, 1 }, SAI, "Standby Attitude Indicator Adjust")
+
+F_100D:defineGatedIndicatorLight("SAI_POSITION", 298, 0.5, nil, SAI, "Standby Attitude Indicator Position (1 = Below Clock)")
+
 -- Airspeed/Mach Indicator
 
 -- Attitude Indicator
