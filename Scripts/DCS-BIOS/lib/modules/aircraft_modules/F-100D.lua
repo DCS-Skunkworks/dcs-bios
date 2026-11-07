@@ -101,6 +101,10 @@ F_100D:define3PosTumb("DRAG_CHUTE", devices.BRAKES, 3001, 245, DRAG_CHUTE, "Drag
 
 -- Oil Pressure Gauge
 
+local OIL_PRESSURE = "Oil Pressure Gauge"
+
+F_100D:defineFloat("OIL_PRESSURE_NEEDLE", 99, { 0, 1 }, OIL_PRESSURE, "Oil Pressure")
+
 -- Clock
 
 -- Master Heading Indicator
