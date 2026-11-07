@@ -13,8 +13,8 @@ local devices = {
 	ELECTRIC_SYSTEM = 4,
 	OXYGEN_SYSTEM = 5,
 	SIGHT_PBP1 = 6,
-	RADIO = 7,
-	INTERCOM = 8,
+	INTERCOM = 7,
+	RADIO = 8,
 	MACROS = 9,
 }
 
@@ -93,7 +93,7 @@ local ELECTRICAL = "Electrical Switches"
 La7:defineToggleSwitch("ELEC_LANDING_LIGHT", devices.ELECTRIC_SYSTEM, 3023, 23, ELECTRICAL, "Landing Light")
 La7:defineToggleSwitch("ELEC_PITOT_HEAT", devices.ELECTRIC_SYSTEM, 3024, 24, ELECTRICAL, "Pitot Heat")
 La7:defineToggleSwitch("ELEC_GEAR_INDICATOR", devices.ELECTRIC_SYSTEM, 3025, 25, ELECTRICAL, "Gear Indicator")
-La7:defineToggleSwitch("ELEC_RADIO", devices.ELECTRIC_SYSTEM, 3026, 26, ELECTRICAL, "Radio")
+La7:defineToggleSwitch("ELEC_RADIO", devices.RADIO, 3026, 26, ELECTRICAL, "Radio")
 La7:defineToggleSwitch("ELEC_NAV_LIGHTS", devices.ELECTRIC_SYSTEM, 3027, 27, ELECTRICAL, "Navigation Lights")
 La7:defineToggleSwitch("ELEC_UV_LIGHTS", devices.ELECTRIC_SYSTEM, 3028, 28, ELECTRICAL, "Cockpit U/V Panel Lights")
 La7:defineToggleSwitch("ELEC_BATTERY", devices.ELECTRIC_SYSTEM, 3029, 29, ELECTRICAL, "Battery")
@@ -317,5 +317,15 @@ La7:defineFullRangeFloatFromExternalDrawArgument("EXT_RUDDER_TRIM", 357, EXTERIO
 
 La7:defineFloatFromDrawArgument("EXT_PROP_ROTATION", 407, EXTERIOR_MODEL, "Prop Rotation")
 La7:defineFloatFromDrawArgument("EXT_PROP_PITCH", 413, EXTERIOR_MODEL, "Prop Pitch")
+
+-- Radio
+
+local RADIO = "Radio"
+
+La7:defineRotary("RADIO_TUNER", devices.RADIO, 3113, 113, RADIO, "Radio Frequency Tuner")
+La7:definePotentiometer("RADIO_VOLUME", devices.RADIO, 3115, 115, { 0, 1 }, RADIO, "Radio Volume")
+La7:defineFloat("RADIO_FREQUENCY_WHEEL", 114, { 0, 1 }, RADIO, "Radio Frequency Wheel")
+
+La7:defineReadWriteRadio("RSI_4D", devices.RADIO, 7, 3, 10, "RSI-4D Malyutka")
 
 return La7
