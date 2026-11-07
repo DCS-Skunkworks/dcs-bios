@@ -161,6 +161,10 @@ F_100D:define3PosTumb("DRAG_CHUTE", devices.BRAKES, 3001, 245, DRAG_CHUTE, "Drag
 
 -- Canopy Switch
 
+local CANOPY_SWITCH = "Canopy Switch"
+
+F_100D:define3PosTumb("CANOPY_SWITCH", devices.CANOPY, 3001, 261, CANOPY_SWITCH, "Canopy Switch", { positions = { "CLOSE", "OFF", "OPEN" } })
+
 -- LABS Y/R Gyro Check / Arresting Hook Panel
 
 -- Pylon Loading Control Panel
