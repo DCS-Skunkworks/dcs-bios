@@ -99,6 +99,14 @@ F_100D:define3PosTumb("DRAG_CHUTE", devices.BRAKES, 3001, 245, DRAG_CHUTE, "Drag
 
 -- Accelerometer
 
+local ACCELEROMETER = "Accelerometer"
+
+F_100D:definePushButton("ACCELEROMETER_RESET", devices.AVIONICS, 3001, 83, ACCELEROMETER, "Accelerometer Reset")
+
+F_100D:defineFloat("ACCELEROMETER_CURRENT_G", 80, { -1, 1 }, ACCELEROMETER, "Current G")
+F_100D:defineFloat("ACCELEROMETER_MIN_G", 81, { -1, 1 }, ACCELEROMETER, "Min G")
+F_100D:defineFloat("ACCELEROMETER_MAX_G", 82, { -1, 1 }, ACCELEROMETER, "Max G")
+
 -- Oil Pressure Gauge
 
 -- Clock
