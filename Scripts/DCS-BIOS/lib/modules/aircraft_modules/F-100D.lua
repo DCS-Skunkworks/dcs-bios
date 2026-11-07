@@ -159,6 +159,10 @@ F_100D:define3PosTumb("DRAG_CHUTE", devices.BRAKES, 3001, 245, DRAG_CHUTE, "Drag
 
 -- Speed Brake Emergency Dump Lever
 
+local EMER_SPEED_BRAKE = "Emergency Speed Brake Dump Lever"
+
+F_100D:defineToggleSwitch("EMER_SPEED_BRAKE", devices.HYDRAULICS, 3019, 252, EMER_SPEED_BRAKE, "Emergency Speed Brake Dump")
+
 -- Canopy Switch
 
 -- LABS Y/R Gyro Check / Arresting Hook Panel
