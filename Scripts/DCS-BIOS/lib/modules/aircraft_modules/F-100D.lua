@@ -135,6 +135,15 @@ F_100D:define3PosTumb("DRAG_CHUTE", devices.BRAKES, 3001, 245, DRAG_CHUTE, "Drag
 
 -- Special Store Unlock Handle
 
+local SPECIAL_STORE = "Special Store Unlock Handle"
+
+F_100D:definePushButton("SPECIAL_STORE_RELEASE_TEST", devices.WEAPONS, 3003, 154, SPECIAL_STORE, "Release Light Test")
+F_100D:definePotentiometer("SPECIAL_STORE_RELEASE_DIM", devices.WEAPONS, 3004, 155, { 0, 1 }, SPECIAL_STORE, "Release Light Dim")
+F_100D:defineFloat("SPECIAL_STORE_RELEASE_LIGHT", 156, { 0, 1 }, SPECIAL_STORE, "Release Light (yellow)")
+
+F_100D:defineToggleSwitch("SPECIAL_STORE_LEVER_PULL", devices.WEAPONS, 3006, 157, SPECIAL_STORE, "Release Lever (Pull)")
+F_100D:definePotentiometer("SPECIAL_STORE_LEVER_ROTATE", devices.WEAPONS, 3007, 158, { 0, 1 }, SPECIAL_STORE, "Release Lever (Rotate)")
+
 -- Landing Gear Emergency Lowering Handle
 
 -- Center Pedestal
