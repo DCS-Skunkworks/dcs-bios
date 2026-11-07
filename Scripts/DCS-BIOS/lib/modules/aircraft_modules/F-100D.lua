@@ -113,6 +113,10 @@ F_100D:define3PosTumb("DRAG_CHUTE", devices.BRAKES, 3001, 245, DRAG_CHUTE, "Drag
 
 -- Exhaust Temperature Gauge
 
+local EXHAUST_TEMP = "Exhaust Temperature Gauge"
+
+F_100D:defineFloat("EXHAUST_TEMP", 101, { 0, 1 }, EXHAUST_TEMP, "Exhaust Temperature")
+
 -- Tachometer
 
 -- Sight Selector Unit
