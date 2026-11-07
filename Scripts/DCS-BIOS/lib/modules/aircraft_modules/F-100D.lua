@@ -115,6 +115,11 @@ F_100D:define3PosTumb("DRAG_CHUTE", devices.BRAKES, 3001, 245, DRAG_CHUTE, "Drag
 
 -- Tachometer
 
+local TACH = "Tachometer"
+
+F_100D:defineFloat("TACH_MAIN_NEEDLE", 103, { 0, 1 }, TACH, "Main Needle")
+F_100D:defineFloat("TACH_PRECISE_NEEDLE", 104, { 0, 1 }, TACH, "Precise Needle")
+
 -- Sight Selector Unit
 
 -- TACAN Range Indicator
