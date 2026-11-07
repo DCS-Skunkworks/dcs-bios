@@ -193,6 +193,32 @@ F_100D:define3PosTumb("DRAG_CHUTE", devices.BRAKES, 3001, 245, DRAG_CHUTE, "Drag
 
 -- Landing Gear Control Panel
 
+local LANDING_GEAR = "Landing Gear Control Panel"
+
+F_100D:definePushButton("LG_FIRE_DETECTOR_TEST", devices.LIGHTING, 3028, 272, LANDING_GEAR, "Fire Detector System Test")
+F_100D:definePushButton("LG_WARNING_CUTOUT", devices.HYDRAULICS, 3034, 274, LANDING_GEAR, "Warning Cutout")
+F_100D:definePushButton("LG_EMERGENCY_JETTISON", devices.WEAPONS, 3012, 271, LANDING_GEAR, "Emergency Jettison")
+
+F_100D:defineToggleSwitch("LG_GEAR_HANDLE", devices.HYDRAULICS, 3003, 273, LANDING_GEAR, "Landing Gear Handle")
+F_100D:defineToggleSwitch("LG_LANDING_TAXI_LIGHT", devices.LIGHTING, 3023, 270, LANDING_GEAR, "Landing & Taxi Light")
+
+F_100D:definePushButton("LG_GEAR_DOWN_L_TEST", devices.HYDRAULICS, 3028, 281, LANDING_GEAR, "Left Gear Down Lamp (Push to Test)")
+F_100D:definePushButton("LG_GEAR_DOWN_C_TEST", devices.HYDRAULICS, 3025, 275, LANDING_GEAR, "Nose Gear Down Lamp (Push to Test)")
+F_100D:definePushButton("LG_GEAR_DOWN_R_TEST", devices.HYDRAULICS, 3031, 278, LANDING_GEAR, "Right Gear Down Lamp (Push to Test)")
+F_100D:definePushButton("LG_FUEL_VALVE_FAIL_TEST", devices.FUEL, 3011, 284, LANDING_GEAR, "Fuel Valve Fail Lamp (Push to Test)")
+
+F_100D:definePotentiometer("LG_GEAR_DOWN_L_DIM", devices.HYDRAULICS, 3029, 282, { 0, 1 }, LANDING_GEAR, "Left Gear Down Lamp Dimmer")
+F_100D:definePotentiometer("LG_GEAR_DOWN_C_DIM", devices.HYDRAULICS, 3026, 276, { 0, 1 }, LANDING_GEAR, "Nose Gear Down Lamp Dimmer")
+F_100D:definePotentiometer("LG_GEAR_DOWN_R_DIM", devices.HYDRAULICS, 3032, 279, { 0, 1 }, LANDING_GEAR, "Right Gear Down Lamp Dimmer")
+F_100D:definePotentiometer("LG_FUEL_VALVE_FAIL_DIM", devices.FUEL, 3012, 285, { 0, 1 }, LANDING_GEAR, "Fuel Valve Fail Lamp Dimmer")
+
+F_100D:defineFloat("LG_GEAR_DOWN_L_LIGHT", 283, { 0, 1 }, LANDING_GEAR, "Left Gear Down Lamp (green)")
+F_100D:defineFloat("LG_GEAR_DOWN_C_LIGHT", 277, { 0, 1 }, LANDING_GEAR, "Nose Gear Down Lamp (green)")
+F_100D:defineFloat("LG_GEAR_DOWN_R_LIGHT", 280, { 0, 1 }, LANDING_GEAR, "Right Gear Down Lamp (green)")
+F_100D:defineFloat("LG_FUEL_VALVE_FAIL_LIGHT", 286, { 0, 1 }, LANDING_GEAR, "Fuel Valve Fail Lamp (red)")
+
+F_100D:defineGatedIndicatorLight("LG_GEAR_HANDLE_LIGHT", 616, 0.49, nil, LANDING_GEAR, "Gear Handle Light", { color = "red" })
+
 -- Right Side
 -- Indicator and Caution Light Panel
 
