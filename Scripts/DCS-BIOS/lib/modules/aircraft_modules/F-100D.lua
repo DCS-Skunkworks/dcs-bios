@@ -163,6 +163,14 @@ F_100D:define3PosTumb("DRAG_CHUTE", devices.BRAKES, 3001, 245, DRAG_CHUTE, "Drag
 
 -- LABS Y/R Gyro Check / Arresting Hook Panel
 
+local LABS_HOOK = "LABS Gyro Check / Arresting Hook Panel"
+
+F_100D:definePushButton("LABS_GYRO_CHECK", devices.LABS, 3011, 267, LABS_HOOK, "LABS Yaw/Roll Gyro Check")
+F_100D:definePushButton("HOOK_RELEASE", devices.TAILHOOK, 3001, 264, LABS_HOOK, "Arresting Hook Release")
+
+F_100D:defineFloat("CANOPY_UNLOCK_LIGHT", 614, { 0, 1 }, LABS_HOOK, "Canopy Not Locked Light (Red)")
+F_100D:defineFloat("HOOK_RELEASE_LIGHT", 265, { 0, 1 }, LABS_HOOK, "Arresting Hook Release Light (Yellow)")
+
 -- Pylon Loading Control Panel
 
 -- Missile Control Panel
