@@ -466,9 +466,9 @@ M_2000C:define3PosTumb("EW_MODE_SEL_SW", 13, 3605, 605, "EW PANEL", "I - EW Mode
 
 --EXTERIOR LIGHTS
 M_2000C:defineToggleSwitch("POLICE_LGT_SW", 16, 3449, 449, "EXT LIGHTS", "I - Police Lights Switch")
-M_2000C:defineToggleSwitch("ANTI_COL_LGT_SW", 16, 3453, 453, "EXT LIGHTS", "I - Anti-Collision Lights Switch")
-M_2000C:defineToggleSwitch("NAV_LGT_SW", 16, 3454, 454, "EXT LIGHTS", "I - Navigation Lights Switch")
-M_2000C:defineToggleSwitch("FORM_LGT_SW", 16, 3455, 455, "EXT LIGHTS", "I - Formation Lights Switch")
+M_2000C:defineToggleSwitch("ANTI_COL_LGT_SW", 16, 3453, 453, "EXT LIGHTS", "I - Anti-Collision Lights Switch", { deprecated = { since = "0.11.9", description = "does not support 3-position switch", use_instead = "ANTI_COL_LGT_SWITCH" } })
+M_2000C:defineToggleSwitch("NAV_LGT_SW", 16, 3454, 454, "EXT LIGHTS", "I - Navigation Lights Switch", { deprecated = { since = "0.11.9", description = "does not support 3-position switch", use_instead = "NAV_LGT_SWITCH" } })
+M_2000C:defineToggleSwitch("FORM_LGT_SW", 16, 3455, 455, "EXT LIGHTS", "I - Formation Lights Switch", { deprecated = { since = "0.11.9", description = "does not support 3-position switch", use_instead = "FORM_LGT_SWITCH" } })
 M_2000C:definePotentiometer("REFUEL_LGT_BRIGHT_KNOB", 16, 3920, 920, { 0, 1 }, "EXT LIGHTS", "I - Refuel Lights Brightness Knob")
 M_2000C:defineTumb("LDG_LGT_SW", 16, 3450, 450, 0.5, { 0, 1 }, nil, false, "EXT LIGHTS", "I - Landing Lights Switch")
 
@@ -809,7 +809,7 @@ M_2000C:defineIndicatorLight("RAD_PSIC", 505, "RADAR", "O - RAD - PSIC Button Li
 
 --RIGHT CONSOLE
 M_2000C:defineToggleSwitch("AUDIO_WARN_SW", 16, 3658, 658, "RIGHT CONSOLE", "I - AL - Audio Warning Switch")
-M_2000C:defineTumb("EMER_HYD_PUMP_SW", 3, 3657, 657, 0.5, { 0, 1 }, nil, false, "RIGHT CONSOLE", "I - Emergency Hydraulic Pump Switch")
+M_2000C:define3PosTumb("EMER_HYD_PUMP_SW", 3, 3657, 657, "RIGHT CONSOLE", "I - Emergency Hydraulic Pump Switch", { positions = { "OFF", "STANDBY", "ON" } })
 M_2000C:defineToggleSwitch("PITOT_HEAT_COV", 22, 3659, 659, "RIGHT CONSOLE", "I - Pitot Heat Cover")
 M_2000C:defineToggleSwitch("PITOT_HEAT_SW", 22, 3660, 660, "RIGHT CONSOLE", "I - Pitot Heat Switch")
 M_2000C:defineToggleSwitch("PKG_BRAKE_LEV", 22, 3666, 666, "RIGHT CONSOLE", "I - Parking Brake Lever")
@@ -915,7 +915,7 @@ M_2000C:defineRotary("AUX_GUNSIGHT_DEFL", 36, 3207, 207, "VTH", "I - HUD - Auxil
 M_2000C:defineToggleSwitch("AG_GUN_RET_SW", 36, 3208, 208, "VTH", "I - HUD - A/G Gun Reticle Switch")
 M_2000C:definePotentiometer("TGT_WINGSPAN_KNOB", 36, 3209, 209, { 0, 1 }, "VTH", "I - HUD - Target Wingspan Knob")
 M_2000C:definePushButton("HUD_CLR_BTN", 36, 3210, 210, "VTH", "I - HUD - EFF Button")
-M_2000C:defineTumb("HUD_PWR_SW", 36, 3201, 201, 0.5, { 0, 1 }, nil, false, "VTH", "I - HUD - Power Switch")
+M_2000C:define3PosTumb("HUD_PWR_SW", 36, 3201, 201, "VTH", "I - HUD - Power Switch", { positions = { "A", "M", "TEST" } })
 M_2000C:defineTumb("RAD_RALT_SEL_SW", 38, 3204, 204, 0.5, { 0, 1 }, nil, false, "VTH", "I - HUD - Radar Altimeter Mode Switch")
 M_2000C:defineTumb("RAD_RALT_PWR_SW", 38, 3205, 205, 0.5, { 0, 1 }, nil, false, "VTH", "I - HUD - Radar Altimeter Power Switch")
 M_2000C:defineIndicatorLight("HUD_REC", 212, "VTH", "O - HUD - Recording Indicator Light (green)")
@@ -1377,5 +1377,9 @@ end, 3, "PCN", "Dest Display, Digit 2, Segment 5")
 M_2000C:defineIntegerFromGetter("PCN_DISP_DEST_2_6", function()
 	return pcn_br[2][6]
 end, 3, "PCN", "Dest Display, Digit 2, Segment 6")
+
+M_2000C:defineMultipositionSwitch("ANTI_COL_LGT_SWITCH", 16, 3453, 453, 3, 0.5, "EXT LIGHTS", "I - Anti-Collision Lights Switch", { positions = { "A", "FAIB", "FORT" } })
+M_2000C:defineMultipositionSwitch("NAV_LGT_SWITCH", 16, 3454, 454, 3, 0.5, "EXT LIGHTS", "I - Navigation Lights Switch", { positions = { "A", "FAIB", "FORT" } })
+M_2000C:defineMultipositionSwitch("FORM_LGT_SWITCH", 16, 3455, 455, 3, 0.5, "EXT LIGHTS", "I - Formation Lights Switch", { positions = { "A", "FAIB", "FORT" } })
 
 return M_2000C
