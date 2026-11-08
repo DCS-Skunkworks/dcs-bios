@@ -111,7 +111,7 @@ AJS37:defineToggleSwitch("RADAR_GAIN_MODE", 5, 3209, 214, "Radar", "Lin/Log Rada
 AJS37:defineToggleSwitch("RADAR_PULSE_NORMAL_SHORT", 5, 3328, 218, "Radar", "Pulse Normal/Short Switch")
 AJS37:defineToggleSwitch("RADAR_RECCE_ON_OFF", 5, 3350, 216, "Radar", "Passive Recce On/Off Switch")
 AJS37:defineToggleSwitch("RADAR_MAINTENANCE_TEST", 5, 3914, 1006, "Radar", "Radar/EL Maintenance Test")
-AJS37:defineToggleSwitch("RADAR_IGNITION_COILS", 18, 3918, 395, "Radar", "Ignition Coils")
+AJS37:defineToggleSwitch("RADAR_IGNITION_COILS", devices.ENGINE_PANEL, 3918, 395, "Radar", "Ignition Coils")
 AJS37:definePushButton("RADAR_IFF_ID", devices.IFF, 3922, 1205, "Transponder Panel", "Ident")
 
 --Reversal
@@ -156,28 +156,30 @@ AJS37:defineTumb("POSITION_LIGHTS_BRIGHTNESS", devices.LIGHTS, 3005, 254, 0.1, {
 AJS37:definePotentiometer("INSTRUMENT_LIGHTS", devices.LIGHTS, 3008, 394, { 0, 1 }, LIGHTS, "Instrument Lights")
 
 --Engine Panel
-AJS37:defineToggleSwitch("START_SYSTEM", 18, 3001, 206, "Engine Panel", "Start System")
-AJS37:defineToggleSwitch("LOW_PRES_FUEL_VALVE", 18, 3002, 204, "Engine Panel", "Low Pressure Fuel Valve")
-AJS37:defineToggleSwitch("HIGH_PRES_FUEL_VALVE", 18, 3004, 202, "Engine Panel", "High Pressure Fuel Valve")
-AJS37:defineToggleSwitch("ENGINE_DEICE", 18, 3099, 310, "Engine Panel", "Engine De-Ice")
-AJS37:defineToggleSwitch("MANUAL_FUEL_REG", 18, 3007, 316, "Engine Panel", "Manual Fuel Regulator")
-AJS37:defineToggleSwitch("CB_AUTOPILOT", 18, 3905, 302, "Engine Panel", "CB Autopilot SA")
-AJS37:defineToggleSwitch("CB_HIGH_ALPHA_WARN", 18, 3906, 303, "Engine Panel", "CB High Alpha Warning")
-AJS37:defineToggleSwitch("CB_TRIM_SYSTEM", 18, 3907, 304, "Engine Panel", "CB Trim System")
-AJS37:defineToggleSwitch("CB_CI_SI", 18, 3908, 305, "Engine Panel", "CB CI/SI")
-AJS37:defineToggleSwitch("CB_EJECTION_SYSTEM", 18, 3909, 306, "Engine Panel", "CB Ejection System")
-AJS37:defineToggleSwitch("CB_ENGINE", 18, 3910, 307, "Engine Panel", "CB Engine")
+local ENGINE_PANEL = "Engine Panel"
+
+AJS37:defineToggleSwitch("START_SYSTEM", devices.ENGINE_PANEL, 3001, 206, ENGINE_PANEL, "Start System")
+AJS37:defineToggleSwitch("LOW_PRES_FUEL_VALVE", devices.ENGINE_PANEL, 3002, 204, ENGINE_PANEL, "Low Pressure Fuel Valve")
+AJS37:defineToggleSwitch("HIGH_PRES_FUEL_VALVE", devices.ENGINE_PANEL, 3004, 202, ENGINE_PANEL, "High Pressure Fuel Valve")
+AJS37:defineToggleSwitch("ENGINE_DEICE", devices.ENGINE_PANEL, 3099, 310, ENGINE_PANEL, "Engine De-Ice")
+AJS37:defineToggleSwitch("MANUAL_FUEL_REG", devices.ENGINE_PANEL, 3007, 316, ENGINE_PANEL, "Manual Fuel Regulator")
+AJS37:defineToggleSwitch("CB_AUTOPILOT", devices.ENGINE_PANEL, 3905, 302, ENGINE_PANEL, "CB Autopilot SA")
+AJS37:defineToggleSwitch("CB_HIGH_ALPHA_WARN", devices.ENGINE_PANEL, 3906, 303, ENGINE_PANEL, "CB High Alpha Warning")
+AJS37:defineToggleSwitch("CB_TRIM_SYSTEM", devices.ENGINE_PANEL, 3907, 304, ENGINE_PANEL, "CB Trim System")
+AJS37:defineToggleSwitch("CB_CI_SI", devices.ENGINE_PANEL, 3908, 305, ENGINE_PANEL, "CB CI/SI")
+AJS37:defineToggleSwitch("CB_EJECTION_SYSTEM", devices.ENGINE_PANEL, 3909, 306, ENGINE_PANEL, "CB Ejection System")
+AJS37:defineToggleSwitch("CB_ENGINE", devices.ENGINE_PANEL, 3910, 307, ENGINE_PANEL, "CB Engine")
 AJS37:defineToggleSwitch("IFF_TRANSPONDER_POWER", devices.IFF, 3920, 1203, "Transponder Panel", "Transponder Power")
 AJS37:defineToggleSwitch("IFF_CHANNEL", devices.IFF, 3921, 1204, "Transponder Panel", "Transponder Mode", { positions = { "A", "A+C" } })
-AJS37:defineToggleSwitch("DME_SELECTOR", 18, 3919, 1206, "Engine Panel", "DME Selector")
-AJS37:defineToggleSwitch("IGNITION_SYSTEM", 18, 3003, 205, "Engine Panel", "Ignition System")
-AJS37:defineToggleSwitch("MAN_AFTERBURN_FUEL_REG", 18, 3006, 313, "Engine Panel", "Manual Afterburner Fuel Regulator")
-AJS37:defineTumb("FLIGHT_RECORDER", 18, 3924, 384, 0.5, { 0, 1 }, nil, false, "Engine Panel", "Flight Recorder")
-AJS37:definePushButton("RESTART", 18, 3401, 208, "Engine Panel", "Restart")
-AJS37:defineTumb("AFK_LEVER", 18, 3304, 13, 1.138, { 0, 1.138 }, nil, false, "Engine Panel", "AFK Lever")
-AJS37:defineToggleSwitch("DATA_CARTRIDGE", 18, 3925, 4200, "Engine Panel", "Insert/Remove Data Cartridge")
+AJS37:defineToggleSwitch("DME_SELECTOR", devices.ENGINE_PANEL, 3919, 1206, ENGINE_PANEL, "DME Selector")
+AJS37:defineToggleSwitch("IGNITION_SYSTEM", devices.ENGINE_PANEL, 3003, 205, ENGINE_PANEL, "Ignition System")
+AJS37:defineToggleSwitch("MAN_AFTERBURN_FUEL_REG", devices.ENGINE_PANEL, 3006, 313, ENGINE_PANEL, "Manual Afterburner Fuel Regulator")
+AJS37:defineTumb("FLIGHT_RECORDER", devices.ENGINE_PANEL, 3924, 384, 0.5, { 0, 1 }, nil, false, ENGINE_PANEL, "Flight Recorder")
+AJS37:definePushButton("RESTART", devices.ENGINE_PANEL, 3401, 208, ENGINE_PANEL, "Restart")
+AJS37:defineTumb("AFK_LEVER", devices.ENGINE_PANEL, 3304, 13, 1.138, { 0, 1.138 }, nil, false, ENGINE_PANEL, "AFK Lever")
+AJS37:defineToggleSwitch("DATA_CARTRIDGE", devices.ENGINE_PANEL, 3925, 4200, ENGINE_PANEL, "Insert/Remove Data Cartridge")
 -- AJS37:definePushButton("MISSILE_SELECT_BUTTON", 18, 3000, 400, "Engine Panel", "Missile Select Button") -- this appears correct in the luas
-AJS37:defineMissileSelectPushButton("MISSILE_SELECT_BUTTON", 2, 3800, 400, "Engine Panel", "Missile Select Button (IR-RB FRAMSTEGN)") -- but this is the one that actually accepts input
+AJS37:defineMissileSelectPushButton("MISSILE_SELECT_BUTTON", 2, 3800, 400, ENGINE_PANEL, "Missile Select Button (IR-RB FRAMSTEGN)") -- but this is the one that actually accepts input
 
 --Electric System
 AJS37:defineToggleSwitch("GENERATOR", 19, 3002, 207, "Electric System", "Generator")
@@ -418,10 +420,10 @@ local IFF = "IFF Panel"
 AJS37:defineToggleSwitch("IFF_POWER", devices.IFF, 3100, 308, IFF, "IFF Power Switch")
 AJS37:defineMultipositionSwitch("IFF_CODE", devices.IFF, 3001, 309, 11, 0.1, IFF, "IFF Code Selector", { positions = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11" } })
 
-AJS37:definePotentiometer("DE_ICE", 18, 3912, 286, { 0, 1 }, "Engine Panel", "Windscreen De-Ice")
-AJS37:defineRotary("TEST_MODE", 18, 3913, 675, "Engine Panel", "Maintenance Testing Mode")
-AJS37:defineRotary("DRYSUIT", 18, 3917, 396, "Engine Panel", "Drysuit Ventilation Adjustment")
-AJS37:defineToggleSwitch("CABIN_AIR_VALVE", 18, 3000, 398, "Engine Panel", "Cabin Air Valve")
+AJS37:definePotentiometer("DE_ICE", devices.ENGINE_PANEL, 3912, 286, { 0, 1 }, ENGINE_PANEL, "Windscreen De-Ice")
+AJS37:defineRotary("TEST_MODE", devices.ENGINE_PANEL, 3913, 675, ENGINE_PANEL, "Maintenance Testing Mode")
+AJS37:defineRotary("DRYSUIT", devices.ENGINE_PANEL, 3917, 396, ENGINE_PANEL, "Drysuit Ventilation Adjustment")
+AJS37:defineToggleSwitch("CABIN_AIR_VALVE", devices.ENGINE_PANEL, 3000, 398, ENGINE_PANEL, "Cabin Air Valve")
 
 AJS37:definePotentiometer("MASTER_VOL", 24, 3006, 399, { 0, 1 }, "RWR", "Master Volume / Sidewinder Tone")
 AJS37:definePotentiometer("RADAR_BRIGHT", 5, 3923, 391, { 0, 1 }, "Radar", "Radar Brightness")
@@ -713,5 +715,7 @@ AJS37:defineGatedIndicatorLight("FK_GREEN_LIGHT", 3567, 0.5, nil, FK, "FK Green 
 AJS37:defineGatedIndicatorLight("FK_RED_LIGHT", 3568, 0.04, nil, FK, "FK Red Lamp", { color = "red" })
 
 AJS37:defineToggleSwitch("GEAR_HANDLE_INTERLOCK", devices.FLIGHT_DATA_UNIT, 3806, 3460, "Flight Data Unit", "Gear Handle Interlock Disconnect")
+
+AJS37:defineToggleSwitch("FUEL_PUMP", devices.ENGINE_PANEL, 3201, 314, ENGINE_PANEL, "Fuel Pump")
 
 return AJS37
