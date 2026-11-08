@@ -30,7 +30,11 @@ REM The DTR and RTS settings to the mode command effect whether the microcontrol
 REM Different combinations of DTR/RTS={on|off} might be needed depending on the type of board, and whether you want it to restart.
 mode COM%COMPORT% BAUD=250000 PARITY=N DATA=8 STOP=1 TO=off DTR=off %MODE_OUTPUT_REDIR%
 timeout 5
-if "%PROTOCOL%" == "UDP" socat\socat %VERBOSE% UDP4-RECV:5010,ip-add-membership=239.255.50.10:0.0.0.0,reuseaddr!!udp-sendto:localhost:7778 /dev/ttyS%TTYNUM%
-if "%PROTOCOL%" == "TCP" socat\socat %VERBOSE% TCP4-CONNECT:127.0.0.1:7778 /dev/ttyS%TTYNUM%
+
+REM The DOS "mode" command cannot maintain the DTR state (DTR=on|off above) after it closes the serial port.
+REM Assert DTR when socat opens the serial port: TIOCMBIS (0x5416) with TIOCM_DTR (0x002).
+REM Required by USB CDC devices that use DTR to detect an active host connection (e.g. STM32F103 Blue Pill boards using USB CDC).
+if "%PROTOCOL%" == "UDP" socat\socat %VERBOSE% UDP4-RECV:5010,ip-add-membership=239.255.50.10:0.0.0.0,reuseaddr!!udp-sendto:localhost:7778 /dev/ttyS%TTYNUM%,ioctl-intp=0x5416:0x002
+if "%PROTOCOL%" == "TCP" socat\socat %VERBOSE% TCP4-CONNECT:127.0.0.1:7778 /dev/ttyS%TTYNUM%,ioctl-intp=0x5416:0x002
 
 pause
